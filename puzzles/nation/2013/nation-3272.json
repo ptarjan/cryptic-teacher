@@ -448,22 +448,22 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "LATECOMER",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "surround",
-       "note": "to surround is to enclose on all sides, so these pieces go round another"
+       "text": "On the way up",
+       "at": 0,
+       "note": "in a down clue, going up means the whole assembled string is read from bottom to top, so backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "On the way up",
-         "note": "in a down clue, going up means reading from the bottom, so the letters are reversed"
+         "text": "surround",
+         "at": 36,
+         "note": "the two reversed pieces surround the county abbreviation, which sits between them"
         }
        ],
        "parts": [
@@ -472,28 +472,32 @@
          "parts": [
           {
            "words": "rock band",
+           "at": 15,
            "gives": "REM",
-           "note": "R.E.M. is the American rock band"
-          },
-          {
-           "words": "Orange County",
-           "gives": "OC",
-           "note": "OC is the usual short form of Orange County in California"
+           "note": "R.E.M. is the American rock band from Athens, Georgia"
           },
           {
            "words": "and others",
+           "at": 25,
            "gives": "ETAL",
-           "note": "et al. is Latin for and others"
+           "note": "et al., Latin et alii, means and others"
           }
          ]
+        },
+        {
+         "words": "Orange County",
+         "at": 45,
+         "gives": "OC",
+         "note": "OC is the usual abbreviation for Orange County, California"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rising rock group and their entourage gather around a slow resident of Orange County.",
-     "definitionFit": "A latecomer arrives after the others, so is one who lags behind, a straggler."
+     "surface": "A band and its entourage, rising in fame, crowd around Southern California.",
+     "walkthrough": "'On the way up' governs everything after it, so the county abbreviation is reversed along with the band and 'and others', which is why it appears backwards in the grid.",
+     "definitionFit": "A latecomer is someone who arrives after others, a straggler or one lagging behind."
     },
     "features": {
      "answerInScene": false,
@@ -591,35 +595,49 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TIFFIN",
      "indicators": [
       {
-       "text": "starting late",
-       "note": "a word that starts late has lost its opening letter"
-      },
-      {
        "text": "cutting short",
-       "note": "cutting something short removes its end, so the last letter goes"
+       "at": 43,
+       "note": "cutting short means the last letter is chopped off"
       }
      ],
      "parts": [
       {
-       "words": "Leaving a lousy tip",
-       "gives": "STIFFING",
-       "note": "to stiff a waiter is to leave little or no tip"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "when starting late",
+         "at": 20,
+         "note": "starting late means the word begins one letter later, so its first letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Leaving a lousy tip",
+         "at": 0,
+         "gives": "STIFFING",
+         "note": "to stiff a waiter is US slang for not tipping or tipping badly, so leaving a lousy tip is stiffing"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A diner arrives late, eats a quick lunch in London and leaves a poor tip.",
-     "walkthrough": "Tiffin, a word from British India, is a light midday meal, so a lunch as said in British English.",
-     "definitionFit": "Tiffin is a British and Anglo-Indian name for a light midday meal, so it is a lunch."
+     "surface": "A diner tips badly after arriving late and rushing through a lunch in London.",
+     "walkthrough": "To stiff is American slang for failing to tip; 'when starting late' drops the S of STIFFING, leaving TIFFING, and 'cutting short' its final G.",
+     "definitionFit": "Tiffin is a British term, from the Raj, for a light midday meal, so a lunch as Londoners might once have named it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Leaving"
+     "misdirectedWord": "late"
     }
    }
   },

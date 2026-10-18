@@ -956,45 +956,50 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Monkey?",
+      "text": "Monkey? One accepted in place of clue",
       "at": 0
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MONA",
      "indicators": [
       {
        "text": "accepted in place of",
-       "note": "taken in place of means one item swaps out another inside the definition word"
+       "at": 12,
+       "note": "one thing accepted in place of another stands as its substitute, so the letter swaps in for the clue word"
       }
      ],
      "parts": [
       {
        "words": "Monkey",
-       "note": "the definition word itself is reused for the wordplay"
-      },
-      {
-       "words": "One",
-       "gives": "A",
-       "note": "a means one"
+       "at": 0,
+       "gives": "MONKEY",
+       "note": "the word monkey itself, read as letters"
       },
       {
        "words": "clue",
+       "at": 33,
        "gives": "KEY",
-       "note": "a key is something that leads to the solution of a problem"
+       "note": "a key is a clue: Chambers gives key as 'that which leads to the solution of a problem'"
+      },
+      {
+       "words": "One",
+       "at": 8,
+       "gives": "A",
+       "note": "A is one, the indefinite article"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A question about a monkey, with the setter offering a single word instead of a clue.",
-     "walkthrough": "The wordplay works on the definition word itself, swapping its second half for a single letter; the question mark flags that.",
-     "definitionFit": "The mona is a West African guenon, a species of monkey."
+     "surface": "A puzzled query whether a monkey is the answer, with a hint that something has been swapped for the clue.",
+     "walkthrough": "The whole clue is both definition and wordplay: 'Monkey' names the animal and also supplies the word in which 'accepted in place of' puts A (one) where KEY (clue) was.",
+     "definitionFit": "The mona is a West African guenon, a small long-tailed species of primate."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "clue"
     }
    }
@@ -1020,29 +1025,35 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Beside",
+       "at": 0,
+       "note": "beside means at the side of, pointing to the piece kept at one side, the front, of the word for a flooded river"
+      },
+      {
+       "text": "Less than half",
+       "at": 23,
+       "note": "less than half of the seven letters are kept, so only the first three remain"
+      }
+     ],
      "parts": [
       {
-       "words": "Beside",
-       "gives": "TO",
-       "note": "to can mean beside, as in cheek to cheek"
+       "words": "river in spate",
+       "at": 7,
+       "gives": "TORRENT",
+       "note": "a torrent is a river in spate, rushing and swollen"
       },
       {
-       "words": "river",
-       "gives": "R",
-       "note": "R abbreviates river"
-      },
-      {
-       "unchecked": true,
-       "words": "in spate? Less than half",
-       "note": "a second route: the answer is the first three of the seven letters of a word for a river in spate"
+       "gives": "RENT"
       }
      ]
     },
     "explanation": {
-     "surface": "A river in flood is only half as high as a nearby hill.",
-     "walkthrough": "Two readings agree: TO + R, and the opening three letters of TORRENT, a river in spate, under half the word.",
-     "definitionFit": "A tor is a rocky hill or outcrop, as on Dartmoor, high ground but not a mountain."
+     "surface": "A walker beside a flooded river glances up at a modest hill nearby.",
+     "walkthrough": "TORRENT has seven letters; 'Less than half' keeps its first three, and 'Beside' says the kept piece sits at one side of it.",
+     "definitionFit": "A tor is a rocky hill or peak, as on Dartmoor in southwest England: elevated, though not mountainous."
     },
     "features": {
      "answerInScene": true,
@@ -1073,46 +1084,49 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "RECIPES",
      "indicators": [
       {
        "text": "rendered",
-       "note": "rendered means made into something else, so the letters are reworked"
+       "at": 12,
+       "note": "rendered means made into something different, so the letters are worked into a new order"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "RECIPES",
        "indicators": [
         {
          "text": "goes for",
-         "note": "goes for means one letter leaves and another takes its place"
+         "at": 38,
+         "note": "one letter goes for another when it replaces it, so the middle of the pepper takes the place of one of the word's I letters"
         }
        ],
        "parts": [
         {
          "words": "spicier",
+         "at": 21,
          "note": "taken as written"
         },
         {
          "words": "one",
+         "at": 34,
          "gives": "I",
-         "note": "the Roman numeral for one"
+         "note": "I is the Roman numeral for one"
         },
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "E",
+         "indicators": [
+          {
+           "text": "heart of",
+           "at": 47,
+           "note": "the heart of a seven-letter word is its fourth letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
            "words": "pimento",
-           "gives": "E",
-           "select": "middle",
-           "note": "the central letter of the seven-letter pimento"
+           "at": 56,
+           "note": "a sweet red pepper, taken as written for its middle letter"
           }
          ]
         }
@@ -1122,9 +1136,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A cook wonders what dishes could be livened up by swapping in the core of a pepper.",
-     "walkthrough": "Swap one I in the comparative for the central letter of pimento, then rearrange; the whole clue also describes the answer.",
-     "definitionFit": "Cooking instructions are what can be adjusted to make food hotter, for instance by adding pimento."
+     "surface": "Instructions for cooking can be pepped up with a little pimento.",
+     "walkthrough": "'heart of' takes E from the middle of pimento; 'goes for' puts it in place of one I in SPICIER, giving SPECIER, which 'rendered' rearranges. The whole clue also describes the answer.",
+     "definitionFit": "Recipes are cooking instructions, and adding pimento to them makes the dishes spicier."
     },
     "features": {
      "answerInScene": true,
