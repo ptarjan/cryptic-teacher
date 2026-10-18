@@ -50,42 +50,53 @@
      "indicators": [
       {
        "text": "hoovers up",
-       "note": "a vacuum cleaner sucks things inside itself"
+       "at": 13,
+       "note": "hoovers up means sucks in, so the word for thus takes the rest inside"
       }
      ],
      "parts": [
       {
        "words": "thus",
+       "at": 8,
        "gives": "SO",
-       "note": "so = thus"
+       "note": "so means thus"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "half of",
-         "note": "take one half of the word"
-        }
-       ],
        "parts": [
         {
-         "words": "half of village",
-         "gives": "HAM",
-         "note": "the first half of HAMLET, a small village"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half of",
+           "at": 24,
+           "note": "half of keeps the first three of six letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "village",
+           "at": 32,
+           "gives": "HAMLET",
+           "note": "a hamlet is a small village"
+          },
+          {
+           "gives": "LET"
+          }
+         ]
         },
         {
          "words": "post office",
-         "gives": "PO",
-         "note": "standard abbreviation"
+         "at": 40,
+         "gives": "PO"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cleaner vacuuming her way through the village post office.",
-     "walkthrough": "The surface makes the cleaner a person pushing a Hoover; the definition is the product itself, as in carpet shampoo.",
-     "definitionFit": "Named by function: shampoo is a detergent used to wash hair or carpets, so a cleaner in the product sense."
+     "surface": "A cleaner vacuums half the village post office.",
+     "definitionFit": "Shampoo is a liquid soap used as a cleaner for hair or carpets."
     },
     "features": {
      "answerInScene": true,
@@ -118,46 +129,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "take the last letter of 'bullet'"
+       "text": "into",
+       "at": 41,
+       "note": "into says the letter goes inside the leader's title"
       }
      ],
      "parts": [
       {
        "words": "military leader",
+       "at": 46,
        "gives": "SHOGUN",
-       "note": "the shogun was Japan's military ruler"
+       "note": "a shogun was a hereditary military commander in Japan"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
-         "text": "into"
+         "text": "ultimately",
+         "at": 30,
+         "note": "ultimately picks the last letter of bullet"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "bullet ultimately",
-         "gives": "T",
-         "select": "last",
-         "note": "last letter of bullet"
+         "words": "bullet",
+         "at": 23,
+         "note": "the word whose last letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bullet being pumped into a general, as if in a shooting.",
-     "walkthrough": "A pump-action shotgun is worked by pumping the fore-end, which is why the definition is 'what might have pumped'; the question mark flags that loose sense.",
-     "definitionFit": "A pump-action shotgun is pumped between shots, so it is something that might have pumped."
+     "surface": "Someone asks what weapon fired a bullet into a general.",
+     "walkthrough": "T, the last letter of bullet, goes inside SHOGUN.",
+     "definitionFit": "A pump-action shotgun is loaded by sliding its fore-end back and forth, so it is pumped."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "pumped"
     }
    }
@@ -416,39 +426,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SALIENCE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "circumventing",
+       "at": 27,
+       "note": "circumventing means going around, so the jumbled letters surround the legal right"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "unusual",
-         "note": "CASE is not in its usual order, so its letters are rearranged"
-        },
-        {
-         "text": "circumventing"
+         "at": 14,
+         "note": "unusual means out of the ordinary, so the letters of case are rearranged"
         }
        ],
        "parts": [
         {
          "words": "case",
-         "note": "anagram of CASE, split around LIEN"
-        },
-        {
-         "words": "legal right",
-         "gives": "LIEN",
-         "note": "a lien is a legal right to hold property until a debt is paid"
+         "at": 22,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "legal right",
+       "at": 41,
+       "gives": "LIEN",
+       "note": "a lien is a legal right to hold property until a debt is paid"
       }
      ]
     },
     "explanation": {
-     "surface": "A notable court case that sidesteps a legal right.",
-     "walkthrough": "The legal surface makes 'case' look like a lawsuit; it is just four letters to shuffle.",
-     "definitionFit": "A plain synonym: something salient sticks out, from Latin for leaping, so its salience is how prominent it is."
+     "surface": "An unusual court case gains prominence by sidestepping a legal right.",
+     "definitionFit": "Salience is the quality of standing out or being noticeable."
     },
     "features": {
      "answerInScene": false,
@@ -647,7 +661,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "throne room",
+      "text": "throne room!",
       "at": 36
      }
     ],
@@ -656,41 +670,45 @@
      "indicators": [
       {
        "text": "has",
-       "note": "to have something is to hold it"
+       "at": 18,
+       "note": "has ... in means holds inside, so the Scotsman's name contains the rest"
+      },
+      {
+       "text": "in",
+       "at": 33,
+       "note": "together with has, says the other pieces sit inside the name"
       }
      ],
      "parts": [
       {
        "words": "Scotsman of power",
+       "at": 0,
        "gives": "WATT",
-       "note": "James Watt, Scottish engineer; the watt is the unit of power"
+       "note": "James Watt was a Scottish engineer, and the watt is the unit of power"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "in"
-        }
-       ],
        "parts": [
         {
          "words": "Queen",
+         "at": 22,
          "gives": "ER",
-         "note": "Elizabeth Regina"
+         "note": "ER, for Elizabeth Regina, stands for the Queen"
         },
         {
          "words": "shut",
+         "at": 28,
          "gives": "CLOSE",
-         "note": "close = shut"
+         "note": "to close is to shut"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A powerful Scot locks the Queen in the throne room.",
-     "walkthrough": "The throne is the toilet seat, so the throne room is the loo, not a royal chamber.",
-     "definitionFit": "A slang joke: the toilet seat is called the throne, so the room holding it is the throne room, the WC."
+     "surface": "A powerful Scot keeps the Queen locked in her throne room.",
+     "walkthrough": "'Throne room' is a jokey name for a toilet.",
+     "definitionFit": "A water closet is a flushing toilet, jokingly called the throne room."
     },
     "features": {
      "answerInScene": false,
@@ -1042,42 +1060,53 @@
      "op": "container",
      "indicators": [
       {
-       "text": "on",
-       "note": "one thing placed on another is attached to it"
+       "text": "while",
+       "at": 31,
+       "note": "while driving is being in a car, so 'while' puts the other pieces in the vehicle"
+      },
+      {
+       "text": "seemingly",
+       "at": 46,
+       "note": "seemingly flags the playful reading: while driving one is, so it seems, inside a car"
       }
      ],
      "parts": [
       {
-       "words": "while driving, seemingly?",
+       "words": "driving",
+       "at": 37,
        "gives": "CAR",
-       "note": "the pieces sit in CAR"
+       "note": "someone driving is in a car"
       },
       {
        "op": "charade",
        "indicators": [
         {
-         "text": "end of",
-         "note": "take the last letter of avenue"
+         "text": "on",
+         "at": 14,
+         "note": "in a down entry, on means placed on top of the next piece"
         }
        ],
        "parts": [
         {
          "words": "sign",
+         "at": 9,
          "gives": "OMEN",
-         "note": "omen = sign"
+         "note": "an omen is a sign"
         },
         {
          "op": "last",
          "indicators": [
           {
-           "text": "while driving, seemingly?",
-           "note": "someone driving is in a car"
+           "text": "end of",
+           "at": 17,
+           "note": "end of picks the last letter of avenue"
           }
          ],
          "parts": [
           {
-           "words": "end of avenue",
-           "note": "last letter of avenue"
+           "words": "avenue",
+           "at": 24,
+           "note": "the word whose last letter is used"
           }
          ]
         }
@@ -1086,12 +1115,11 @@
      ]
     },
     "explanation": {
-     "surface": "A road sign at the end of an avenue as a driver approaches.",
-     "walkthrough": "'While driving' is a cryptic stand-in for 'in a car'; the 'seemingly' and question mark admit it is a loose equivalence.",
-     "definitionFit": "A plain synonym: both verbs mean to move closer to something, as in 'don't come near me'."
+     "surface": "A driver sees a sign at the end of an avenue as they approach.",
+     "definitionFit": "To come near is simply to approach."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "sign"
     }
@@ -1447,38 +1475,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "finally",
-       "note": "take the last letter of cheese"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "introduced to",
-         "note": "to introduce is literally to lead inside"
+         "at": 20,
+         "note": "introduced to means put into, so the letter goes inside the vineyard word"
         }
        ],
        "parts": [
         {
          "words": "producer of wine",
+         "at": 34,
          "gives": "CRU",
-         "note": "a cru is a wine-producing vineyard"
+         "note": "a cru is a vineyard producing wine of a recognised quality"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "E",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 12,
+           "note": "finally picks the last letter of cheese"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "cheese finally",
-           "gives": "E",
-           "select": "last",
-           "note": "last letter of cheese"
+           "words": "cheese",
+           "at": 5,
+           "note": "the word whose last letter is used"
           }
          ]
         }
@@ -1486,20 +1513,21 @@
       },
       {
        "words": "list",
+       "at": 51,
        "gives": "LEAN",
-       "note": "a ship lists when it leans"
+       "note": "to list is to lean, as a ship does"
       }
      ]
     },
     "explanation": {
-     "surface": "Blue cheese added to a wine list.",
-     "walkthrough": "'Blue cheese' and 'wine list' are both false pairings: 'Blue' is the definition and 'list' means lean.",
-     "definitionFit": "From Latin caeruleus, sky-coloured: a painter's name for one shade, so blue by example."
+     "surface": "Blue cheese is added to a vineyard's wine list.",
+     "walkthrough": "'Blue cheese' reads as one thing, but Blue is the definition.",
+     "definitionFit": "Cerulean is a deep sky-blue colour."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "list"
+     "misdirectedWord": "cheese"
     }
    }
   },

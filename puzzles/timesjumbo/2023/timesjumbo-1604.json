@@ -834,36 +834,37 @@
      "indicators": [
       {
        "text": "including",
-       "note": "to include something is to take it in, so one piece goes inside another"
+       "at": 7,
+       "note": "including says the regret word holds the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Regret",
-         "gives": "RUE",
-         "note": "to rue is to regret"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
-        }
-       ]
+       "words": "Regret",
+       "at": 0,
+       "gives": "RUE",
+       "note": "rue means regret"
       },
       {
-       "words": "verse",
-       "gives": "V",
-       "note": "V is the abbreviation for verse"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "at": 17,
+         "gives": "E"
+        },
+        {
+         "words": "verse",
+         "at": 25,
+         "gives": "V"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is sorry that English poetry was part of the show.",
-     "walkthrough": "The two single letters sit together inside the three-letter word for regret.",
-     "definitionFit": "A revue is a theatrical show of sketches, songs and dances, a light form of stage entertainment."
+     "surface": "Someone regrets putting English poetry into a stage show.",
+     "definitionFit": "A revue is a theatrical show of sketches, songs and dances, a light form of entertainment."
     },
     "features": {
      "answerInScene": true,
@@ -1583,52 +1584,54 @@
      "indicators": [
       {
        "text": "around",
-       "note": "going around something encloses it, so one piece sits inside another"
+       "at": 25,
+       "note": "around says the blemish surrounds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "blemish",
+       "at": 17,
+       "gives": "MOLE",
+       "note": "a mole is a mark or blemish on the skin"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "when held up",
+         "at": 45,
+         "note": "in a down entry, held up means lifted to read from the bottom upwards"
+        }
+       ],
        "parts": [
         {
-         "words": "blemish",
-         "gives": "MOLE",
-         "note": "a mole is a dark blemish on the skin"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "held up",
-           "note": "in a down entry, holding something up lifts it so it reads from bottom to top"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "words": "company",
-           "gives": "CO",
-           "note": "CO is the abbreviation for company"
+           "at": 32,
+           "gives": "CO"
+          },
+          {
+           "words": "name",
+           "at": 40,
+           "gives": "N"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "name",
-       "gives": "N",
-       "note": "N is the abbreviation for name"
       }
      ]
     },
     "explanation": {
-     "surface": "A spectacle wearer's lens shows a flaw around the firm's name when raised.",
-     "walkthrough": "'Seeing glass' is an unusual phrase for an eyeglass, steering you towards mirrors or telescopes.",
-     "definitionFit": "A monocle is a single corrective lens worn in one eye socket, an eyeglass that helps the wearer see."
+     "surface": "An eyeglass is flawed with a mark around the company's name when lifted up.",
+     "definitionFit": "A monocle is a single lens worn in one eye to help its wearer see."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "held"
+     "aptDefinition": true,
+     "misdirectedWord": "blemish"
     }
    }
   },

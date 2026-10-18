@@ -827,56 +827,64 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AIRSPACE",
      "indicators": [
       {
        "text": "holding",
-       "note": "holding something means having it within, so one piece is placed inside the city name"
+       "at": 42,
+       "note": "holding means keeping inside, so these letters hold the account abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "corrupt",
-         "note": "corrupt means debased or spoilt, so the letters lose their proper order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Paris",
-         "note": "taken as written"
-        },
-        {
-         "words": "account",
-         "gives": "AC",
-         "note": "AC is the abbreviation for account"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "corrupt",
+           "at": 28,
+           "note": "corrupt means spoilt or altered, so the letters of Paris are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Paris",
+           "at": 36,
+           "note": "taken as written"
+          }
+         ]
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "end of",
-           "note": "the end of a word is its final letter, so only that one is kept"
+           "at": 60,
+           "note": "end of picks the last letter of regime"
           }
          ],
          "parts": [
           {
            "words": "regime",
-           "note": "the final letter of regime"
+           "at": 67,
+           "note": "the word whose last letter is used"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "account",
+       "at": 50,
+       "gives": "AC"
       }
      ]
     },
     "explanation": {
-     "surface": "Libya's dictator loses command of a corrupt Paris bank account as his regime ends.",
-     "walkthrough": "Written in 2011, when a NATO no-fly zone stripped Colonel Gaddafi of control over Libya's skies.",
-     "definitionFit": "Airspace is the sky above a country's territory, which the 2011 no-fly zone took out of Libyan command."
+     "surface": "A satirical swipe at Gaddafi's corrupt dealings with Paris and the end of his regime.",
+     "walkthrough": "In 2011 a NATO no-fly zone took control of Libya's skies away from Gaddafi.",
+     "definitionFit": "A nation's airspace is the sky above its territory, which Gaddafi lost control of."
     },
     "features": {
      "answerInScene": true,
