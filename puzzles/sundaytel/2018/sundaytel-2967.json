@@ -838,40 +838,55 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AIRTIGHT",
      "indicators": [
       {
        "text": "wrapping",
-       "note": "wrapping means enclosing, so the two letters of the pronoun go inside the adverb"
-      },
-      {
-       "text": "separately",
-       "note": "separately says the two letters are not kept together but slotted in at different points"
+       "at": 10,
+       "note": "wrapping means the word for correctly goes round the other letters"
       }
      ],
      "parts": [
       {
-       "words": "Correctly",
-       "gives": "ARIGHT",
-       "note": "aright means correctly"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "separately",
+         "at": 31,
+         "note": "separately means the two parts of it go in at different places, not side by side"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Correctly",
+         "at": 0,
+         "gives": "ARIGHT",
+         "note": "aright is an old-fashioned word for correctly"
+        },
+        {
+         "words": "parts of",
+         "at": 19,
+         "gives": "I",
+         "note": "the parts of it are its two letters; the first of them is I"
+        }
+       ]
       },
       {
-       "words": "parts of it",
-       "gives": "IT",
-       "note": "the two letters of 'it', inserted one at a time"
+       "words": "it",
+       "at": 28,
+       "gives": "T",
+       "note": "the other part of the word it is its second letter, T"
       }
      ]
     },
     "explanation": {
-     "surface": "Handling each section of something properly leaves no room for doubt.",
-     "walkthrough": "'Separately' means the I and T go in at two different points: I after the A, T after the R.",
-     "definitionFit": "An airtight case or alibi is one with no flaws or gaps, idiomatically leaving no room for question."
+     "surface": "Instructions for neatly gift-wrapping the pieces of something one at a time, with total certainty.",
+     "walkthrough": "ARIGHT is 'wrapping' the 'parts of it' 'separately': I goes in after the A to make AIRIGHT, then T after the R, giving A-I-R-T-IGHT.",
+     "definitionFit": "An airtight argument or alibi has no gaps, so it cannot be questioned and is beyond doubt."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "separately"
+     "aptDefinition": true,
+     "misdirectedWord": "wrapping"
     }
    }
   },

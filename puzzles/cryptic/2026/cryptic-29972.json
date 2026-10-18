@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -312,68 +313,97 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DEEPPURPLE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "initially",
-       "note": "Initially asks for nothing of a word but the letter it opens with."
-      },
-      {
-       "text": "inside",
-       "note": "Inside says the piece is buried within another word rather than added at either end of it."
+       "text": "over",
+       "at": 30,
+       "note": "over in a down clue means the earlier pieces sit above the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "first",
        "indicators": [
         {
-         "text": "over",
-         "note": "In a down entry what is over something is written above it, so this half goes on top of the rest."
+         "text": "initially",
+         "at": 5,
+         "note": "initially points to the opening letter of denied"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "denied",
+         "at": 15,
+         "note": "the first letter is taken from denied as written"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 27,
+         "note": "up in a down clue means the word for piss is read from the bottom up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "piss",
+         "at": 22,
+         "gives": "PEE",
+         "note": "to piss is to pee"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inside",
+         "at": 55,
+         "note": "inside means the reversed disc goes within the word for unmixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unmixed",
+         "at": 35,
+         "gives": "PURE",
+         "note": "something unmixed is pure"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
            "text": "set up",
-           "note": "Something set up has been stood on its end, so in a down entry its letters are read from the bottom."
+           "at": 48,
+           "note": "set up in a down clue means the disc's letters are turned to read upwards"
           }
          ],
          "parts": [
           {
-           "words": "initially denied",
-           "gives": "D",
-           "note": "The opening letter of the word the instruction stands beside."
-          },
-          {
-           "words": "piss-up",
-           "gives": "EEP",
-           "note": "Piss is PEE, and the 'up' of piss-up lifts those three letters in a down entry."
-          },
-          {
-           "words": "unmixed",
-           "gives": "PURE",
-           "note": "Something unmixed has nothing else in it."
+           "words": "disc",
+           "at": 43,
+           "gives": "LP",
+           "note": "an LP is a long-playing record, a disc"
           }
          ]
-        },
-        {
-         "words": "disc",
-         "gives": "PL",
-         "note": "A disc is an LP, the vinyl album, stood on its end."
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A group denying there was ever a drinking session, with an untampered record slipped in among the evidence.",
-     "walkthrough": "'Band' on its own is the definition, though it reads as the subject of the sentence that follows it. A piss-up is British for a heavy drinking session, and LP is the crossword's standard disc.",
-     "definitionFit": "Definition by example: 'Band' names any band, and this one is the English hard-rock group behind 'Smoke on the Water'."
+     "surface": "A rock group refused a drinking session, with an album set up inside.",
+     "walkthrough": "D starts 'denied', PEE 'up' gives EEP, and LP 'set up' becomes PL 'inside' PURE to make PURPLE. Deep Purple are the British rock band behind Smoke on the Water.",
+     "definitionFit": "Deep Purple is a famous English hard-rock group, so it is an example of a band."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disc"
     }
    }
   },
@@ -408,30 +438,26 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REGIMECHANGE",
+     "op": "reverse",
+     "reading": "REGIME CHANGE",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "emigré",
-         "gives": "REGIME",
-         "note": "The six letters of emigré, set down in a different order."
-        },
-        {
-         "words": "Clue for",
-         "gives": "CHANGE",
-         "note": "For those six letters to work as a clue they need an instruction telling you to rearrange them, and supplying it is the job of the second half."
-        }
-       ]
+       "words": "Clue for emigré",
+       "at": 0,
+       "note": "the answer's second word, read as wordplay, is an anagram signal working on its first word, and that rearrangement spells the exile word"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Read the answer as an instruction and it shuffles a word for you: apply it to its own first half and 'emigré' falls out. Setters call that backwards arrangement a reverse anagram.",
-     "definitionFit": "A coup is the forcible replacement of one government by another, which is what the phrase names in the language of foreign policy."
+     "surface": "A crossword setter's note on how to clue an exile caught up in a coup.",
+     "walkthrough": "Read the answer as a clue: CHANGE is an anagram signal and REGIME its fodder, which gives EMIGRE.",
+     "definitionFit": "A coup overthrows the government by force, which is regime change in the political sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Clue"
     }
    }
   },
@@ -605,49 +631,62 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "at core",
-       "note": "The core of a word is its middle, so a five-letter word gives up its third letter and nothing else."
-      }
-     ],
      "parts": [
       {
        "words": "intoxicated",
+       "at": 15,
        "gives": "HIGH",
-       "note": "Somebody high on a drug is intoxicated."
+       "note": "someone high is intoxicated by drink or drugs"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "L",
        "indicators": [
         {
-         "text": "not starting",
-         "note": "A word not starting has lost the letter it would have begun with, and picks up one along."
+         "text": "at core",
+         "at": 33,
+         "note": "at core means the central letter of bully is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "bully",
-         "gives": "L",
-         "select": "middle",
-         "note": "The middle letter of this five-letter word."
+         "at": 27,
+         "note": "the middle letter comes from bully as written"
         }
        ]
       },
       {
-       "words": "conflict",
-       "gives": "IGHT",
-       "note": "Conflict is a FIGHT, deprived here of its opening F."
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not starting",
+         "at": 42,
+         "note": "not starting means the word loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "conflict",
+         "at": 55,
+         "gives": "FIGHT",
+         "note": "a fight is a conflict"
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The hair colour of a drunk bully who insists he is not the one starting a fight.",
-     "walkthrough": "The quotation marks look like reported speech from the bully and are really wrapping an instruction. 'Hair colour' is the definition, and it wants a colourist's word rather than a shade such as auburn.",
-     "definitionFit": "A highlight is a lightened streak put into hair at the salon, so 'hair colour' names the treatment rather than a shade."
+     "surface": "A drunken bully who, deep down, doesn't want to start a fight.",
+     "walkthrough": "HIGH comes first, then L from the core of BULLY, then FIGHT 'not starting', which is IGHT.",
+     "definitionFit": "Highlights are streaks of lighter colour dyed into the hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bully"
     }
    }
   },
@@ -816,43 +855,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EXPLOITERS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "with grip on",
+       "at": 20,
+       "note": "with grip on means the rearranged experts hold the rearranged oil inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Assembly of",
-         "note": "An assembly is a putting together, so the letters that follow are to be built up in a fresh order."
-        },
-        {
-         "text": "grip on",
-         "note": "Something with a grip on another thing holds it fast, so these letters close around the ones named next."
-        },
-        {
-         "text": "wrongly",
-         "note": "Letters set down wrongly are not in the order they were handed over in."
+         "at": 0,
+         "note": "an assembly of something puts it together, here building the letters of experts into a fresh order"
         }
        ],
        "parts": [
         {
          "words": "Experts",
-         "note": "The seven letters of Experts, rebuilt in a new order and then split open."
-        },
+         "at": 12
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrongly",
+         "at": 37,
+         "note": "wrongly means the letters of oil are put in the wrong order"
+        }
+       ],
+       "parts": [
         {
          "words": "oil",
-         "note": "Three more letters, also reordered, dropped into that gap."
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clerical assembly with its hands on the oil, enriching the people who profit from it.",
-     "walkthrough": "The Assembly of Experts is the Iranian clerical body that chooses the Supreme Leader, which is why the surface hangs together so well. 'Supply' reads as a verb in that sentence and is only the join between wordplay and definition.",
-     "definitionFit": "Exploiters use people or resources for their own gain, which is what profiteers do with a shortage — and both words are plural."
+     "surface": "Iran's Assembly of Experts, gripping the oil supply, profit from it wrongly.",
+     "walkthrough": "EXPERTS rearranged ('Assembly of') to EXPTERS is 'with grip on' LOI, OIL 'wrongly' ordered. Iran's Assembly of Experts is the clerical body that chooses the Supreme Leader, so 'Assembly' looks like a proper name.",
+     "definitionFit": "Exploiters take unfair advantage of others for gain, just as profiteers do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Assembly"
     }
    }
   },
@@ -878,48 +932,50 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ABUSERS",
+     "indicators": [
+      {
+       "text": "order",
+       "at": 34,
+       "note": "to order letters is to arrange them afresh"
+      },
+      {
+       "text": "in chaos",
+       "at": 40,
+       "note": "in chaos means scattered, so the letters fall into disorder before being rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "led out of",
-         "note": "'Led' names three letters and 'out of' takes them away from the word that follows."
+         "text": "out of",
+         "at": 15,
+         "note": "out of means the letters of led are taken away from the following word"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "ABUSERS",
-         "indicators": [
-          {
-           "text": "in chaos",
-           "note": "Letters in chaos have lost their arrangement, so they may come back in any order at all."
-          }
-         ],
-         "parts": [
-          {
-           "words": "rules-based",
-           "note": "The ten letters the wordplay starts from."
-          }
-         ]
+         "words": "rules-based",
+         "at": 22
         },
         {
-         "unchecked": true,
-         "words": "order",
-         "note": "'Rules-based order' is one phrase in the surface; only the first half of it supplies any letters."
+         "words": "led",
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Aggressors being shown out of a rules-based order that has collapsed into chaos.",
-     "walkthrough": "'Rules-based order' is such a fixed phrase that the eye refuses to break it, and the clue needs it broken: the letters come from the first half, and the second is scenery.",
-     "definitionFit": "Abusers treat others cruelly or use them wrongly, so 'aggressors' names them by what they do, and both nouns are plural."
+     "surface": "Aggressive nations that walked away from the rules-based international order, leaving chaos.",
+     "walkthrough": "'Rules-based order' looks like the diplomatic term, but it is split: 'order' and 'in chaos' both tell you to rearrange what is left once LED is taken 'out of' the hyphenated word.",
+     "definitionFit": "Abusers are those who mistreat or attack others, so they are aggressors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
     }
    }
   },
@@ -1012,21 +1068,28 @@
      "indicators": [
       {
        "text": "from both sides",
-       "note": "Reading from both sides means starting at either end, which only ever works when the letters are the same either way."
+       "at": 16,
+       "note": "from both sides means the word reads the same whichever end you start from"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Falsely planned",
-       "note": "The definition end of the clue: arranged in advance so as to deceive, the way a fraud is."
+       "at": 0,
+       "gives": "PUTUP",
+       "note": "one arranged beforehand to deceive"
       }
      ]
     },
     "explanation": {
-     "surface": "A scheme cooked up dishonestly by two parties at once.",
-     "walkthrough": "'From both sides' reads as two parties conspiring and is the whole of the wordplay: nothing is turned into anything else, so no fragment hands over letters.",
-     "definitionFit": "A put-up job is one arranged beforehand in order to fool somebody, so 'falsely planned' is the adjective's exact sense."
+     "surface": "A scheme rigged from both sides, as in a fixed contest.",
+     "walkthrough": "The definition supplies the word, and 'from both sides' confirms it: it reads identically forwards and backwards.",
+     "definitionFit": "Put-up describes something prearranged dishonestly, like a put-up job or a staged deal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
     }
    }
   },
@@ -1146,43 +1209,51 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "leader",
-       "note": "The leader of a word is the letter at its head, and that letter alone is taken."
+       "text": "taken at the front",
+       "at": 39,
+       "note": "taken at the front means the captive and the enemy's leader go before the letter for right"
       }
      ],
      "parts": [
       {
-       "words": "Captive enemy",
+       "words": "Captive",
+       "at": 16,
        "gives": "POW",
-       "note": "A POW is a prisoner of war, a captured enemy soldier."
+       "note": "POW stands for prisoner of war, a captive"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "taken at the front",
-         "note": "Taken at the front says where these pieces go rather than which letters they are: ahead of the one already named."
+         "text": "leader",
+         "at": 32,
+         "note": "the leader of a word is its first letter, here the start of enemy's"
         }
        ],
        "parts": [
         {
-         "words": "enemy's leader",
-         "gives": "ENEMYLEADER",
-         "note": "The same word is used a second time, now for its opening letter only."
+         "words": "enemy's",
+         "at": 24,
+         "note": "the letter is taken from enemy's as written"
         }
        ]
       },
       {
        "words": "right",
-       "gives": "R",
-       "note": "R is the standard abbreviation for right."
+       "at": 9,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "The old maxim about might and right, tried out on a captured enemy commander.",
-     "walkthrough": "'Enemy' does double duty, first as the captive and then as the word whose first letter is wanted — setters are allowed that, and it is easy to read past. The question mark queries the maxim, not the wordplay.",
-     "definitionFit": "Might is power in the plainest sense: the capacity to make things happen, or to make other people do as you say."
+     "surface": "A debate on whether might is right, with a captured enemy commander paraded up front.",
+     "walkthrough": "'Might is right?' looks like the proverb, but Might is the definition and 'right' gives R, which has POW and E, the 'leader' of enemy's, 'taken at the front'.",
+     "definitionFit": "Might means strength or force, which is power."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
     }
    }
   },
@@ -1368,52 +1439,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WREATHE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follows",
+       "at": 24,
+       "note": "follows means the last letter of peace comes after the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "devastation of",
-         "note": "Devastation leaves a place with its parts strewn about, which is what happens to the letters named after it."
-        },
-        {
-         "text": "follows",
-         "note": "What follows comes after, so this letter is written at the end of the assembly."
+         "at": 32,
+         "note": "devastation wrecks things, so the letters of the war are broken up and rebuilt"
         }
        ],
        "parts": [
         {
          "words": "the war",
-         "gives": "WREATH",
-         "note": "Six letters devastated into a new arrangement."
-        },
+         "at": 47
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "Finally points at the letter a word ends on, and nothing else of that word is used."
-          }
-         ],
-         "parts": [
-          {
-           "words": "peace finally",
-           "gives": "PEACE",
-           "note": "The last letter of peace."
-          }
-         ]
+         "text": "finally",
+         "at": 16,
+         "note": "finally points to the last letter of peace"
+        }
+       ],
+       "parts": [
+        {
+         "words": "peace",
+         "at": 10,
+         "note": "the letter is taken from peace as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Honouring the dead once peace has come at last, after the destruction of a war.",
-     "walkthrough": "'Honour' is a verb here, which is what makes the answer's ending fair. The joke is that the letters of 'the war', wrecked, come out as the thing that gets laid at the memorial afterwards.",
-     "definitionFit": "To wreathe is to encircle with a wreath, so honouring the dead at a memorial is the verb's ordinary use, both in the infinitive."
+     "surface": "War memorials honour the fallen once peace finally follows the devastation.",
+     "walkthrough": "'Devastation of' THE WAR rearranges it to WREATH, and E, the final letter of peace, 'follows'.",
+     "definitionFit": "To wreathe someone is to crown or garland them, an old way of bestowing honour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "devastation"
     }
    }
   },
@@ -1480,37 +1558,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "is lost",
+       "at": 37,
+       "note": "is lost means the word for battle drops out of the longer word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MALE",
-       "indicators": [
-        {
-         "text": "is lost",
-         "note": "What is lost has gone from what remains, so the piece named drops out of the longer word."
-        }
-       ],
-       "parts": [
-        {
-         "words": "computer virus etc",
-         "gives": "MALWARE",
-         "note": "Viruses, worms and trojans are all malware, and 'etc' asks for that category."
-        }
-       ]
+       "words": "computer virus etc",
+       "at": 10,
+       "gives": "MALWARE",
+       "note": "malware is the general term for viruses and other harmful software"
       },
       {
-       "unchecked": true,
        "words": "battle",
-       "note": "A battle is a WAR, and those three letters are the ones that disappear."
+       "at": 30,
+       "gives": "WAR",
+       "note": "a war is a battle on a large scale"
       }
      ]
     },
     "explanation": {
-     "surface": "A man losing the battle against the viruses on his computer.",
-     "walkthrough": "'Etc' is the signal to climb from an example to the class it belongs to, exactly as 'Fox etc' does at 19 down. What comes out sits in the middle of the longer word, not at either end.",
-     "definitionFit": "A male is a man, the word used when the sex rather than the person is the point, and both are singular nouns."
+     "surface": "A man using a computer virus is losing the cyber battle.",
+     "walkthrough": "In MALWARE, the WAR of 'battle is lost' drops out.",
+     "definitionFit": "Male as a noun means a man or boy, so it is a direct synonym of man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "battle"
     }
    }
   },
@@ -1579,42 +1658,35 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leader missing",
+       "at": 7,
+       "note": "leader missing means the first letter of the word for combat is absent"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "leader",
-         "note": "The leader of a word is the letter at its head, and that is the one singled out here."
-        },
-        {
-         "text": "missing",
-         "note": "Something missing is simply not there, so the letter named never appears in the answer."
-        }
-       ],
-       "parts": [
-        {
-         "words": "combat",
-         "gives": "JOUST",
-         "note": "A joust is single combat between two knights on horseback."
-        },
-        {
-         "gives": "J"
-        }
-       ]
+       "words": "combat",
+       "at": 25,
+       "gives": "JOUST",
+       "note": "a joust is a combat between mounted knights"
       },
       {
-       "unchecked": true,
-       "words": "leader missing",
-       "note": "The J at its head is the letter absent."
+       "gives": "J"
       }
      ]
     },
     "explanation": {
-     "surface": "A leader vanishing in the middle of a fight.",
-     "walkthrough": "'Leader missing' reads as a news bulletin — a head of state gone — and is an instruction about a first letter. A joust is the tournament combat of the Middle Ages, fought with lances.",
-     "definitionFit": "To oust somebody is to force them out of their position, which is precisely what deposing a ruler means — both plain verbs."
+     "surface": "A ruler is overthrown after the leader goes missing in battle.",
+     "walkthrough": "JOUST with its 'leader missing' drops J.",
+     "definitionFit": "To oust a ruler is to remove them from power, which is what depose means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
     }
    }
   },

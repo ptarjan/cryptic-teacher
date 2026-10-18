@@ -321,47 +321,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANOMALY",
-     "indicators": [
-      {
-       "text": "suspect",
-       "note": "suspect means dubious or not genuine, so the remaining letters are not in their true order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ANOMALY",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "missing",
-         "note": "is missing says the little word is absent from the painting's name"
+         "text": "suspect",
+         "at": 38,
+         "note": "suspect here is an adjective meaning dodgy, so the remaining letters are not to be trusted in their order"
         }
        ],
        "parts": [
         {
-         "words": "Mona Lisa",
-         "note": "taken as written"
-        },
-        {
-         "words": "is",
-         "note": "these letters are taken out of the painting's name"
-        },
-        {
-         "words": "unknown",
-         "gives": "Y",
-         "note": "x, y and z are algebra's unknowns"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "missing",
+           "at": 29,
+           "note": "missing means the word is is absent from the painting's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Mona Lisa",
+           "at": 16
+          },
+          {
+           "words": "is",
+           "at": 26
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "unknown",
+       "at": 46,
+       "gives": "Y",
+       "note": "Y is an algebraic unknown, like x and z"
       }
      ]
     },
     "explanation": {
-     "surface": "A museum notices the Mona Lisa has gone, and the thief is unidentified.",
-     "definitionFit": "An anomaly is something that departs from the normal pattern, a synonym for an irregularity."
+     "surface": "A news story: the Mona Lisa has vanished and the suspect is unidentified.",
+     "walkthrough": "Remove IS from MONA LISA ('is missing') to leave MONALA; 'suspect' rearranges it to ANOMAL, and the unknown Y ends it. 'Suspect' looks like the thief, but it is the anagram signal.",
+     "definitionFit": "An anomaly is something that departs from the norm, a deviation or oddity."
     },
     "features": {
      "answerInScene": false,
@@ -794,46 +799,44 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "IMPEACH",
      "indicators": [
       {
        "text": "new",
-       "note": "new tells us the letters are made into something fresh, in a different order"
+       "at": 7,
+       "note": "new means remade, so the letters are formed into a fresh order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "IMPEACH",
        "indicators": [
         {
          "text": "less",
-         "note": "less means minus, so the little word after it is subtracted"
+         "at": 18,
+         "note": "less means minus, so the word on is taken away from the phone's name"
         }
        ],
        "parts": [
         {
          "words": "iPhone",
-         "note": "taken as written"
+         "at": 11
         },
         {
          "words": "on",
-         "note": "these two letters are subtracted from the phone"
-        },
-        {
-         "words": "Mac",
-         "note": "taken as written"
+         "at": 23
         }
        ]
+      },
+      {
+       "words": "Mac",
+       "at": 26
       }
      ]
     },
     "explanation": {
-     "surface": "Apple prices a new iPhone lower than a Mac.",
-     "walkthrough": "'Charge' looks like a price or a battery top-up; it is the definition, a formal accusation.",
-     "definitionFit": "To impeach a public official is to bring formal accusations of misconduct against them."
+     "surface": "A tech buyer comparing prices: the new iPhone costs less than a Mac.",
+     "walkthrough": "Take ON from IPHONE ('less') to leave IPHE, add MAC, and rearrange ('new'). 'Charge' looks like a price or battery charge but is the legal accusation.",
+     "definitionFit": "To impeach an official is to formally accuse them of misconduct, bringing a charge against them."
     },
     "features": {
      "answerInScene": false,
@@ -1219,44 +1222,39 @@
      "indicators": [
       {
        "text": "ground",
-       "note": "ground means crushed or milled, so the letters are pulverised and remade"
+       "at": 30,
+       "note": "ground as in milled or crushed, so the letters are broken up and remixed"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "half of team",
+       "at": 2,
        "gives": "TE",
-       "indicators": [
-        {
-         "text": "half of",
-         "note": "half of a four-letter word is two of its letters, here the first pair"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "team",
-         "gives": "TE",
-         "select": "first",
-         "note": "the first half of the word"
-        }
-       ]
+       "note": "the first half of the word team is its first two letters"
       },
       {
-       "words": "heckle mate at",
-       "note": "taken as written"
+       "words": "heckle",
+       "at": 15
+      },
+      {
+       "words": "mate",
+       "at": 22
+      },
+      {
+       "words": "at",
+       "at": 27
       }
      ]
     },
     "explanation": {
-     "surface": "Half a team jeers a teammate at the stadium, and someone says something heartless.",
-     "walkthrough": "'Mate' and 'ground' suggest a football ground, but ground is the anagram signal.",
-     "definitionFit": "The phrase is traditionally attributed to Marie Antoinette on hearing peasants had no bread, a byword for heartless indifference."
+     "surface": "Supporters at a stadium jeering a teammate, and a famously cold remark is the result.",
+     "walkthrough": "TE joins HECKLE MATE AT and the lot is 'ground' into a new order. 'Ground' looks like the football pitch but is the anagram signal. The quote is attributed, probably falsely, to Marie Antoinette.",
+     "definitionFit": "Let them eat cake is the remark supposedly made by Marie Antoinette about starving peasants, a byword for heartless indifference."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
      "misdirectedWord": "ground"
     }
    }

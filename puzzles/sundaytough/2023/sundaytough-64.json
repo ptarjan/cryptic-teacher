@@ -335,54 +335,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DEBUG",
-     "indicators": [
-      {
-       "text": "raised",
-       "note": "in a down entry, raised means lifted upward, so the letters read from bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DEBUG",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "ignored",
-         "note": "what is ignored is left out, so those letters drop away"
+         "text": "raised",
+         "at": 9,
+         "note": "raised in a down clue means the word for garden is read from the bottom up"
         }
        ],
        "parts": [
         {
          "words": "garden",
+         "at": 16,
          "gives": "BED",
-         "note": "a bed is a garden plot for flowers"
-        },
+         "note": "a bed is a planted plot in a garden"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "he's ignored",
+         "at": 30,
+         "note": "he's ignored means the letters h and e are dropped from the next word"
+        }
+       ],
+       "parts": [
         {
          "words": "huge",
-         "note": "taken as written before letters are removed"
+         "at": 24
         },
         {
-         "words": "he's",
-         "gives": "HE",
-         "note": "the pronoun he, the letters to be taken away"
+         "gives": "HE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tidying a huge raised bed in the garden while he is ignored.",
-     "walkthrough": "BED reversed is DEB; HUGE without HE leaves UG.",
-     "definitionFit": "To debug is to remove faults from software, cleaning it of errors."
+     "surface": "A gardener is told to tidy a huge raised bed while he is overlooked.",
+     "walkthrough": "'Raised' turns BED into DEB; 'he's ignored' takes H and E out of HUGE to leave UG. 'Clean up' is the computing sense: removing faults from a program.",
+     "definitionFit": "To debug software is to find and remove its errors, cleaning up the code."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "raised"
+     "misdirectedWord": "Clean"
     }
    }
   },
@@ -1631,36 +1633,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SLEEVELESS",
      "indicators": [
       {
        "text": "unseats",
-       "note": "unseating someone puts another in their seat, so one piece takes the place of another"
+       "at": 29,
+       "note": "unseats means the letter for power is knocked out of its place and replaced by the victory letters"
       }
      ],
      "parts": [
       {
        "words": "Alert",
+       "at": 0,
        "gives": "SLEEPLESS",
-       "note": "wakeful, unable to sleep"
-      },
-      {
-       "words": "victory in Europe",
-       "gives": "VE",
-       "note": "VE stands for Victory in Europe, as in VE Day"
+       "note": "someone sleepless is awake and alert"
       },
       {
        "words": "power",
+       "at": 37,
        "gives": "P",
-       "note": "P is the abbreviation for power"
+       "note": "P is the physics abbreviation for power"
+      },
+      {
+       "words": "victory in Europe",
+       "at": 11,
+       "gives": "VE",
+       "note": "VE stands for Victory in Europe, as in VE Day, 8 May 1945"
       }
      ]
     },
     "explanation": {
-     "surface": "Staying wakeful when the European victory toppled a power with military might.",
-     "walkthrough": "VE replaces the P: SLEE(P→VE)LESS. 'Show of arms' sounds military but means bare arms showing.",
-     "definitionFit": "A garment without sleeves leaves the wearer's bare limbs on display from shoulder down."
+     "surface": "A wartime scene: the nation stays alert as victory in Europe topples a power and arms are raised.",
+     "walkthrough": "'Alert' is the adjective SLEEPLESS; 'when VE unseats power' means VE takes the place of the P. 'With show of arms' is a playful definition: bare arms are on show.",
+     "definitionFit": "A sleeveless garment leaves the arms bare, so wearing one means displaying the arms."
     },
     "features": {
      "answerInScene": false,
