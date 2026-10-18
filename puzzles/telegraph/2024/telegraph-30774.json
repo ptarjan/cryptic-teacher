@@ -820,40 +820,51 @@
      "indicators": [
       {
        "text": "receiving",
-       "note": "something receiving an item takes it inside, so the grades go within"
+       "at": 13,
+       "note": "'receiving' means the feats word takes in the grade letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Daring feats",
-         "gives": "STUNTS",
-         "note": "stunts are daring acrobatic feats"
-        },
-        {
-         "words": "one low grade",
-         "gives": "D",
-         "note": "D is a poor mark in exams"
-        }
-       ]
+       "words": "Daring feats",
+       "at": 0,
+       "gives": "STUNTS",
+       "note": "stunts are daring feats"
       },
       {
-       "words": "then another",
-       "gives": "E",
-       "note": "the next grade down is E"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "then",
+         "at": 37,
+         "note": "'then' puts the second grade straight after the first one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one low grade",
+         "at": 23,
+         "gives": "D",
+         "note": "D is a low grade in exams"
+        },
+        {
+         "words": "another",
+         "at": 42,
+         "gives": "E",
+         "note": "E is another low grade, the next one down"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Stunt performers getting one poor mark after another in their training.",
-     "definitionFit": "Students are people who are studying, so learners at a school or university."
+     "surface": "Bold stunts earn poor marks from the examiners of learners.",
+     "definitionFit": "Students are people engaged in study, so they are learners."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "another"
+     "misdirectedWord": "feats"
     }
    }
   },

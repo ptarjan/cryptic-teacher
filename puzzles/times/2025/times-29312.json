@@ -920,42 +920,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "cut short, so the last letter goes"
-      },
-      {
-       "text": "coming back",
-       "note": "returning, so the letters read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "motorway",
+       "at": 5,
+       "gives": "M",
+       "note": "M is the British motorway abbreviation, as in the M1"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "coming back",
+         "at": 27,
+         "note": "'coming back' means the shortened sign is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "sign briefly coming back",
-         "gives": "OME",
-         "note": "omen = sign, cut to OME, then turned round"
-        },
-        {
-         "words": "motorway",
-         "gives": "M",
-         "note": "M for motorway, as in the M1"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 19,
+           "note": "'briefly' means the sign word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sign",
+           "at": 14,
+           "gives": "OMEN",
+           "note": "an omen is a sign"
+          },
+          {
+           "gives": "N"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spotting a motorway sign again on the return journey.",
-     "walkthrough": "The sign is an omen, not a road sign, despite the motorway beside it. British motorways are numbered M1, M4 and so on.",
-     "definitionFit": "A plain synonym: short for memorandum, a brief written note or reminder."
+     "surface": "A note about a road sign seen briefly on the way back along the motorway.",
+     "definitionFit": "A memo is a short written message or memorandum, a kind of note."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "sign"
     }
@@ -1400,31 +1413,36 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EARLY",
      "indicators": [
       {
        "text": "losing",
-       "note": "what you lose is no longer there, so the knight's letter comes out"
+       "at": 7,
+       "note": "'losing' means the knight letter is taken away from the word"
       }
      ],
      "parts": [
       {
-       "words": "Almost losing knight",
-       "gives": "EARLY",
-       "note": "nearly = almost, losing N (knight in chess notation)"
+       "words": "Almost",
+       "at": 0,
+       "gives": "NEARLY",
+       "note": "nearly means almost"
+      },
+      {
+       "words": "knight",
+       "at": 14,
+       "gives": "N",
+       "note": "N is the chess notation for knight"
       }
      ]
     },
     "explanation": {
-     "surface": "A chess player close to losing a knight while ahead.",
-     "walkthrough": "N is the knight in chess notation, because K is taken by the king.",
-     "definitionFit": "A plain synonym: arriving before the expected time is arriving ahead of it."
+     "surface": "A knight is nearly beaten while pressing forward.",
+     "definitionFit": "Arriving early means arriving before the expected time, beforehand or ahead of schedule."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "advance"
+     "misdirectedWord": "knight"
     }
    }
   },
@@ -1453,41 +1471,39 @@
      "indicators": [
       {
        "text": "involved in",
-       "note": "placed inside what follows"
+       "at": 16,
+       "note": "'involved in' places the say piece inside the outer letters"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "BY",
        "indicators": [
         {
          "text": "case of",
-         "note": "the outside letters, the case around the word"
+         "at": 28,
+         "note": "the case of a word is its outside, so its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "case of burglary",
-         "gives": "BY",
-         "select": "outer",
-         "note": "the first and last letters of burglary"
+         "words": "burglary",
+         "at": 36
         }
        ]
       },
       {
        "words": "say",
+       "at": 11,
        "gives": "UTTER",
-       "note": "utter = say, placed inside B…Y"
+       "note": "to utter is to say"
       }
      ]
     },
     "explanation": {
-     "surface": "A storeroom involved in a burglary case.",
-     "walkthrough": "'Say' looks like 'for example' after Storeroom; it is the verb, UTTER. A buttery is a pantry, still the name for a food store in some colleges.",
-     "definitionFit": "A plain synonym, now old-fashioned: a pantry for provisions, originally where casks (butts) of drink were kept."
+     "surface": "A storeroom may be implicated in a break-in.",
+     "walkthrough": "A buttery is a room for storing food and drink, still found in some colleges.",
+     "definitionFit": "A buttery is a pantry or room where provisions and liquor are kept, so a storeroom."
     },
     "features": {
      "answerInScene": true,
@@ -1565,70 +1581,66 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "the judge goes inside the middle letters"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "middle of",
-         "note": "the central letters of the word"
+         "text": "in",
+         "at": 11,
+         "note": "'in' places the judge letter between the middle letters of week"
         }
        ],
        "parts": [
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "EE",
          "indicators": [
           {
-           "text": "evacuated",
-           "note": "emptied of its insides, leaving the outer letters"
+           "text": "middle of",
+           "at": 14,
+           "note": "'middle of' takes the central letters of week"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "middle of week",
-           "gives": "EE",
-           "select": "middle",
-           "note": "the middle two letters of wEEk"
+           "words": "week",
+           "at": 24
           }
          ]
         },
         {
          "words": "judge",
-         "gives": "J",
-         "note": "J = judge, placed inside E…E"
+         "at": 5,
+         "gives": "J"
         }
        ]
       },
       {
        "op": "outer",
+       "indicators": [
+        {
+         "text": "evacuated",
+         "at": 40,
+         "note": "evacuated means emptied, so only the outer letters of court are left"
+        }
+       ],
        "parts": [
         {
-         "words": "court evacuated",
-         "gives": "COURT",
-         "note": "the outer letters of CourT"
+         "words": "court",
+         "at": 34
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A judge firing someone midweek once the court is cleared.",
-     "walkthrough": "'Fire' means throw out, as in fire from a job; to eject is to expel.",
-     "definitionFit": "A plain synonym in the sense of throw out, as a pilot's seat fires them clear of the plane."
+     "surface": "A judge is fired midweek and the court is cleared.",
+     "definitionFit": "To eject is to throw out or expel, and to fire someone is to dismiss them."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "evacuated"
+     "misdirectedWord": "Fire"
     }
    }
   },

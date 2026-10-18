@@ -1430,47 +1430,51 @@
      "indicators": [
       {
        "text": "full of",
-       "note": "full of means holding something within, so the room word encloses the rest"
+       "at": 21,
+       "note": "'full of' means the room word holds the other pieces inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "squalid room",
-         "gives": "STY",
-         "note": "a sty is a filthy room, like a pigsty"
-        },
-        {
-         "words": "cloth",
-         "gives": "RAG",
-         "note": "a rag is a piece of cloth"
-        }
-       ]
+       "words": "squalid room",
+       "at": 8,
+       "gives": "STY",
+       "note": "a sty is a filthy room, like a pigsty"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "skirts",
-         "note": "skirts are the outer edges, so only the outside letters of the girl's word are used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "girl's",
-         "gives": "GIRL",
-         "note": "first and last letters of girl"
+         "words": "cloth",
+         "at": 29,
+         "gives": "RAG",
+         "note": "a rag is a piece of cloth"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "skirts",
+           "at": 46,
+           "note": "skirts are the outer edges, so the first and last letters of girl"
+          }
+         ],
+         "parts": [
+          {
+           "words": "girl's",
+           "at": 39,
+           "gives": "GIRL",
+           "note": "the girl word is taken without its possessive"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A messy, filthy room strewn with fabric and a girl's skirts.",
-     "walkthrough": "'Skirts' looks like clothing in the room; it means the edges of the girl's word.",
-     "definitionFit": "Straggly means growing or spreading untidily, like straggly hair."
+     "surface": "A filthy room strewn with rags and a girl's skirts.",
+     "definitionFit": "Straggly means growing or spreading out messily, as with unkempt hair, hence untidy."
     },
     "features": {
      "answerInScene": true,
