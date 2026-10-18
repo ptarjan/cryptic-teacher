@@ -1079,52 +1079,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DISPRAD",
      "indicators": [
       {
        "text": "in which",
-       "note": "in which places the next part inside what came before"
+       "at": 16,
+       "note": "in which means the jumbled city goes inside the pair of single letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "DISPRAD",
+       "op": "charade",
        "indicators": [
         {
-         "text": "somehow",
-         "note": "somehow means in some unexplained way, so the letters are rearranged"
+         "text": "after",
+         "at": 5,
+         "note": "after places the days abbreviation behind the date one"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "date",
-           "gives": "D",
-           "note": "abbreviation for date"
-          },
-          {
-           "words": "Paris",
-           "note": "the city's letters rearranged"
-          },
-          {
-           "words": "Days",
-           "gives": "D",
-           "note": "abbreviation for days"
-          }
-         ]
+         "words": "date",
+         "at": 11,
+         "gives": "D"
+        },
+        {
+         "words": "Days",
+         "at": 0,
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "somehow",
+         "at": 25,
+         "note": "somehow means the letters of Paris are arranged in some other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Paris",
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some days on, Paris has grown, in a way no longer seen.",
-     "definitionFit": "Disprad is an obsolete past participle of dispread, meaning spread out or expanded."
+     "surface": "A traveller's diary notes that Paris grew over the days after a certain date.",
+     "walkthrough": "'No longer' marks the word as obsolete: Chambers gives dispread with the old past form disprad. 'After' sets the days letter behind the date letter, and the rearranged city goes between them.",
+     "definitionFit": "Disprad is an archaic past participle of dispread, meaning spread out widely, so expanded in an obsolete form."
     },
     "features": {
      "answerInScene": false,
@@ -1259,54 +1265,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "STATUA",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "mounting",
-       "note": "in a down entry, mounting means rising, so it reads upward, backwards"
+       "text": "base replaced with",
+       "at": 35,
+       "note": "base replaced with means the bottom letter of this down word is swapped for something else"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "STATUA",
+       "words": "country",
+       "at": 26,
+       "gives": "STATE",
+       "note": "a state is a country"
+      },
+      {
+       "gives": "E"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "replaced with",
-         "note": "replaced with signals one element swapped out for another"
+         "text": "mounting",
+         "at": 59,
+         "note": "mounting, in a down clue, means the symbol is read upwards, so backwards"
         }
        ],
        "parts": [
         {
-         "words": "country",
-         "gives": "STATE",
-         "note": "a state is a country"
-        },
-        {
-         "words": "base",
-         "gives": "E",
-         "note": "the bottom letter of the down word"
-        },
-        {
          "words": "gold",
+         "at": 54,
          "gives": "AU",
-         "note": "chemical symbol for gold"
+         "note": "AU is the chemical symbol for gold"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An antique statue in a land, set on a gilded plinth.",
-     "definitionFit": "Statua is an obsolete word for a statue."
+     "surface": "An old statue somewhere in the country has had its plinth replaced with gilded mounting.",
+     "walkthrough": "In a down entry the base is the last letter, the E of STATE, which gives way to UA, the gold symbol read upwards.",
+     "definitionFit": "Statua is an obsolete word for a statue, a carved or cast figure."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "base"
+     "misdirectedWord": "mounting"
     }
    }
   },
