@@ -600,45 +600,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HEARTSEASE",
+     "op": "container",
      "indicators": [
       {
-       "text": "transformed",
-       "note": "something transformed has changed shape, so the letters are reordered"
+       "text": "in",
+       "at": 24,
+       "note": "in says the rearranged letters sit inside the vehicle"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "vehicle",
+       "at": 27,
+       "gives": "HEARSE",
+       "note": "a hearse is the vehicle that carries a coffin"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "in means placed inside the vehicle"
+         "text": "transformed",
+         "at": 7,
+         "note": "transformed says the letters of seat change into a new order"
         }
        ],
        "parts": [
         {
-         "words": "vehicle",
-         "gives": "HEARSE",
-         "note": "a funeral carriage"
-        },
-        {
          "words": "seat",
-         "note": "the letters rearranged"
+         "at": 19,
+         "note": "the letters to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A flower is placed on a converted seat in a car.",
-     "walkthrough": "The ellipsis runs on to the next clue, whose answer is where the hearse is heading.",
-     "definitionFit": "Heartsease is the wild pansy, a small flower with purple and yellow petals."
+     "surface": "A flower changes the look of a car seat.",
+     "walkthrough": "'Transformed' turns SEAT into TSEA, and 'in' places that inside HEARSE. The ellipsis leads to the next clue, whose cemetery is where the hearse is going.",
+     "definitionFit": "Heartsease is the wild pansy, a small violet-family plant with purple and yellow blooms."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "vehicle"
     }
@@ -665,65 +667,61 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "therein",
+       "at": 47,
+       "note": "therein means inside it, so the next letters go within what is left"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "therein",
-         "note": "therein means inside that, so the following pieces go inside what remains"
+         "text": "disposed of",
+         "at": 19,
+         "note": "disposed of says the I is thrown out of the word"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "deletion",
-           "indicators": [
-            {
-             "text": "disposed of",
-             "note": "something disposed of is got rid of, so that letter is dropped from the word"
-            }
-           ],
-           "parts": [
-            {
-             "words": "What it contains",
-             "gives": "ICE",
-             "note": "the ice cream that the dish holds"
-            },
-            {
-             "gives": "I"
-            }
-           ]
-          },
-          {
-           "words": "nothing",
-           "gives": "O",
-           "note": "the round figure zero looks like this letter"
-          }
-         ]
+         "words": "What it contains",
+         "at": 0,
+         "gives": "ICE",
+         "note": "ice, as in ice cream, is what this dessert glass holds"
         },
         {
-         "words": "amiss",
-         "gives": "UP",
-         "note": "as in 'what's up?', meaning what is wrong"
+         "words": "I",
+         "at": 17
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "I",
-       "note": "this letter is the one taken out of the frozen dessert"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "nothing",
+         "at": 33,
+         "gives": "O",
+         "note": "O looks like zero, nothing"
+        },
+        {
+         "words": "amiss",
+         "at": 41,
+         "gives": "UP",
+         "note": "up can mean amiss, as in 'what's up?'"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Someone has eaten up the ice cream from a dish and declares that nothing is wrong with it.",
-     "walkthrough": "'It' stands for the ice cream the dish holds. 'Up' means amiss as in 'what's up?'. Read whole, the clue also describes a coupe whose contents have been eaten.",
-     "definitionFit": "A coupe is a shallow stemmed dish in which ice cream and fruit desserts are served, so its contents are ice."
+     "surface": "Someone has eaten what was in the dish and declares all is well.",
+     "walkthrough": "'Disposed of' drops I from ICE to leave CE; 'therein' puts O and UP inside it. The whole clue also describes the glass: its ice cream is gone, nothing wrong with it.",
+     "definitionFit": "A coupe is a shallow stemmed glass dish for serving ice cream or a fruit dessert."
     },
     "features": {
      "answerInScene": true,
@@ -816,45 +814,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AUTOCUE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "worked",
-       "note": "worked as in kneaded or shaped, so the letters are moulded into a new order"
+       "text": "before",
+       "at": 13,
+       "note": "before places the first parts ahead of the last"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "worked",
+         "at": 2,
+         "note": "worked as in worked over, so the letters of out are reshaped"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
-        },
-        {
          "words": "out",
-         "note": "the three letters reworked"
-        },
-        {
-         "words": "Q",
-         "gives": "CUE",
-         "note": "the name of the letter Q spelt in full"
+         "at": 9,
+         "note": "the letters to be rearranged"
         }
        ]
+      },
+      {
+       "words": "Q",
+       "at": 20,
+       "gives": "CUE",
+       "note": "the letter Q is spelt out as cue"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzling note about working something out ahead of the letter Q, then a hint about speaking.",
-     "walkthrough": "Letters can be clued by their spelt-out names, so Q is CUE.",
-     "definitionFit": "An autocue is the screen device that scrolls a script in front of a presenter or orator."
+     "surface": "A clue-writer's note: A was solved before Q.",
+     "walkthrough": "'Worked' rearranges OUT to UTO, and 'before' puts A and UTO ahead of CUE, the spelling of the letter Q.",
+     "definitionFit": "An Autocue is a screen showing a speaker's script, a teleprompter that helps them speak in public."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "worked"
+     "misdirectedWord": "Q"
     }
    }
   },
@@ -879,12 +886,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ADMANUM",
      "indicators": [
       {
        "text": "embraced by",
-       "note": "being embraced means being held inside the arms of the other piece"
+       "at": 5,
+       "note": "embraced by says the chap is held inside the rearranged letters"
       }
      ],
      "parts": [
@@ -893,32 +899,36 @@
        "indicators": [
         {
          "text": "excited",
-         "note": "something excited is stirred up, so the girl's name is jumbled"
+         "at": 23,
+         "note": "excited says the letters of Maud are stirred up into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Chap",
-         "gives": "MAN",
-         "note": "a chap is a man"
-        },
-        {
          "words": "Maud",
-         "note": "the name's letters rearranged"
+         "at": 17,
+         "note": "the letters to be rearranged"
         }
        ]
+      },
+      {
+       "words": "Chap",
+       "at": 0,
+       "gives": "MAN",
+       "note": "a chap is a man"
       }
      ]
     },
     "spelling": "AD MANUM",
     "explanation": {
-     "surface": "A man held in Maud's arms, and she is thrilled and willing.",
-     "definitionFit": "Ad manum is Latin for 'at hand', used in English to mean ready or prepared."
+     "surface": "Maud, aroused, wraps her arms around a man who is willing.",
+     "walkthrough": "'Excited' turns MAUD into ADUM, and MAN is 'embraced by' it after AD. Ad manum is Latin, 'to hand'.",
+     "definitionFit": "Ad manum is a Latin phrase meaning at hand, so prepared and ready for use."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ready"
+     "misdirectedWord": "excited"
     }
    }
   },
@@ -1157,43 +1167,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PETAR",
+     "op": "composite",
      "indicators": [
       {
        "text": "misguidedly",
-       "note": "misguided means steered wrongly, so the remaining letters go out of order"
+       "at": 60,
+       "note": "misguidedly means sent the wrong way, so the letters wander into a new order"
+      },
+      {
+       "text": "scrapped in",
+       "at": 40,
+       "note": "scrapped in says those letters are thrown out of the word that follows before the rest are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PETAR",
-       "indicators": [
-        {
-         "text": "scrapped in",
-         "note": "scrapped means thrown away, so those letters are taken out of the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "is",
-         "note": "the two letters to remove"
-        },
-        {
-         "words": "Pirates",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Pirates",
+       "at": 52,
+       "note": "the letters to be rearranged, less those of is"
+      },
+      {
+       "words": "is",
+       "at": 37,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A device for blasting a way in has been ditched among a band of bungling pirates.",
-     "walkthrough": "PIRATES without IS leaves PRATE, which is then rearranged.",
-     "definitionFit": "A petar, or petard, was a small bomb used to blow open gates or walls."
+     "surface": "A special effect for an explosive entrance is cut from a misjudged staging of The Pirates of Penzance.",
+     "walkthrough": "Take I and S out of PIRATES ('scrapped in') and rearrange PRATE 'misguidedly'. A petar, more often petard, is a small bomb used to blow open gates.",
+     "definitionFit": "A petar is an old explosive charge fixed to a door or gate to blast an opening into a fortress."
     },
     "features": {
      "answerInScene": true,
@@ -1903,44 +1906,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Turbulent",
-       "note": "turbulent means churning and disordered, so the letters are jumbled"
+       "text": "contained by",
+       "at": 14,
+       "note": "contained by says the rearranged letters sit inside the word for genuine"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "genuine",
+       "at": 27,
+       "gives": "TRUE",
+       "note": "true means genuine, real"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "contained by",
-         "note": "being contained by something means sitting inside it"
+         "text": "Turbulent",
+         "at": 0,
+         "note": "turbulent means stormy and disordered, so the letters of age are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "genuine",
-         "gives": "TRUE",
-         "note": "genuine means true"
-        },
-        {
          "words": "age",
-         "note": "the letters rearranged"
+         "at": 10,
+         "note": "the letters to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stormy era brought to an end by a real ceasefire in the past.",
-     "definitionFit": "Treague is an obsolete word for a truce, the temporary stopping of hostilities."
+     "surface": "A stormy era is held in check by a real end to fighting long ago.",
+     "walkthrough": "'Turbulent' turns AGE into EAG, which is 'contained by' TRUE. 'Once' marks the word as archaic: treague is Spenser's word for a truce.",
+     "definitionFit": "Treague is an obsolete word, used by Spenser, for a truce, an agreed halt to fighting."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "genuine"
+     "misdirectedWord": "Turbulent"
     }
    }
   },

@@ -520,53 +520,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REMATCH",
+     "op": "composite",
      "indicators": [
       {
        "text": "surprisingly",
-       "note": "surprisingly suggests an unexpected arrangement, so the letters are jumbled"
+       "at": 10,
+       "note": "surprisingly says the letters fall out in an unexpected new order"
+      },
+      {
+       "text": "losing",
+       "at": 23,
+       "note": "losing says the one is taken away from the letters before they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "REMATCH",
-       "indicators": [
-        {
-         "text": "losing",
-         "note": "losing tells us a letter drops out of the mix before it is rearranged"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Rich",
-         "note": "taken as written"
-        },
-        {
-         "words": "team",
-         "note": "taken as written"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "one is the Roman numeral I, here removed"
-        }
-       ]
+       "words": "Rich team",
+       "at": 0,
+       "note": "the letters to be rearranged, less the I"
+      },
+      {
+       "words": "one",
+       "at": 30,
+       "gives": "I",
+       "note": "one is I as a Roman numeral"
       }
      ]
     },
     "explanation": {
-     "surface": "A wealthy football team unexpectedly loses one game and must play again.",
-     "walkthrough": "Take the I out of RICH TEAM and rearrange the remaining seven letters.",
-     "definitionFit": "A rematch is a second game between the same opponents, a repeat fixture."
+     "surface": "A wealthy side unexpectedly loses a game and needs to play it again.",
+     "walkthrough": "'Surprisingly' rearranges RICH TEAM once 'losing one' has taken out an I, leaving RCHTEAM to be shuffled.",
+     "definitionFit": "A rematch is a second game between the same opponents, a fixture being a scheduled sporting event."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Rich"
+     "misdirectedWord": "one"
     }
    }
   },

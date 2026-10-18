@@ -240,33 +240,37 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "JITTERBUG",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev. Spooner was famed for swapping the opening sounds of words, so the two words trade their starts"
+       "at": 19,
+       "note": "Spooner swapped the opening sounds of words, so the first sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "beer glass",
-       "gives": "JITTERBUG",
-       "soundsLike": "BITTER JUG",
-       "note": "bitter is a British beer and a jug is a glass vessel; swap their opening sounds"
+       "words": "beer",
+       "at": 29,
+       "gives": "BITTER",
+       "note": "bitter is a type of British beer, a hoppy draught ale"
+      },
+      {
+       "words": "glass",
+       "at": 34,
+       "gives": "JUG",
+       "note": "a jug is a glass vessel for pouring, as in a beer jug"
       }
      ]
     },
     "explanation": {
-     "surface": "Something lively stirs inside the Reverend Spooner's pint glass.",
-     "walkthrough": "Bitter is an English pale ale.",
-     "definitionFit": "The jitterbug is an energetic swing dance of the 1940s, so a lively piece of movement."
+     "surface": "Something lively happens in a pint glass belonging to Spooner.",
+     "walkthrough": "Bitter is a classic British pub beer. BITTER JUG with its opening sounds swapped becomes JITTER BUG.",
+     "definitionFit": "The jitterbug is an energetic swing dance of the 1930s and 40s, so a lively set of steps."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "absurd",
+     "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "movement"
     }
    }
@@ -296,13 +300,15 @@
      "indicators": [
       {
        "text": "misses middle pocket",
-       "note": "a pocket of letters from the centre is missed out, leaving just the front and back"
+       "at": 30,
+       "note": "the whole central pocket of letters is skipped, leaving only the outer parts"
       }
      ],
      "parts": [
       {
        "words": "Judd Trump",
-       "note": "the snooker player's name taken as written"
+       "at": 19,
+       "note": "Judd Trump is an English world champion snooker player"
       },
       {
        "gives": "UDDTR"
@@ -310,9 +316,9 @@
      ]
     },
     "explanation": {
-     "surface": "A snooker champion is startled when his shot fails to drop into the centre pocket.",
-     "walkthrough": "Judd Trump is a world snooker champion, and snooker tables have middle pockets, which makes the surface convincing; the pocket is just the central five letters.",
-     "definitionFit": "To start or flinch in surprise is to jump, as when someone jumps at a sudden noise."
+     "surface": "A snooker star fails to pot a ball into the middle pocket.",
+     "walkthrough": "Judd Trump is an English snooker champion; snooker tables have middle pockets on the long sides. 'Misses middle pocket' drops the inside run UDDTR, keeping J and UMP.",
+     "definitionFit": "To jump is to start or flinch suddenly when startled, a physical show of surprise."
     },
     "features": {
      "answerInScene": false,
@@ -346,49 +352,53 @@
      "indicators": [
       {
        "text": "includes",
-       "note": "something that includes another thing holds it inside"
+       "at": 10,
+       "note": "includes says the recording holds the next letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Recording",
-         "gives": "TAPING",
-         "note": "taping is recording"
-        },
-        {
-         "words": "Daniel",
-         "gives": "DAN",
-         "note": "Dan is short for Daniel"
-        }
-       ]
+       "words": "Recording",
+       "at": 0,
+       "gives": "TAPING",
+       "note": "taping is recording, on tape"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "first",
-         "note": "the first of Craig's letters only is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Craig's",
-         "note": "the opening letter of the name"
+         "words": "Daniel",
+         "at": 19,
+         "gives": "DAN"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first",
+           "at": 34,
+           "note": "first picks the first letter of Craig's"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Craig's",
+           "at": 26,
+           "note": "first letter of Craig"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A filmed record captures the actor Daniel Craig's first attempts at something.",
-     "walkthrough": "Daniel Craig, the James Bond actor, is split into a short form of his first name and his surname's initial.",
-     "definitionFit": "Tap dancing is a style of dance made of rhythmic footwork, so a set of steps."
+     "surface": "A film shoot features the first moves of Daniel Craig, the Bond actor.",
+     "walkthrough": "'Includes' puts DAN and C (Craig's 'first') inside TAPING, after its TAP.",
+     "definitionFit": "Tap dancing is a style of dance whose rhythmic steps are sounded by metal plates on the shoes."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "steps"
     }
@@ -800,44 +810,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PARAGUAY",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
-      },
-      {
-       "text": "having no boundaries",
-       "note": "without its boundaries a word loses its first and last letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "park",
-       "note": "taken as written"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 13,
+         "note": "mostly means most of the word, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "park",
+         "at": 8,
+         "note": "taken as written"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       },
       {
-       "words": "indistinct",
-       "gives": "VAGUE",
-       "note": "vague is indistinct"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having no boundaries",
+         "at": 32,
+         "note": "boundaries are the outer letters, which are both removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "indistinct",
+         "at": 20,
+         "gives": "VAGUE",
+         "note": "vague means indistinct, blurred"
+        },
+        {
+         "gives": "VE"
+        }
+       ]
       },
       {
        "words": "area",
-       "gives": "A",
-       "note": "A is the abbreviation for area"
+       "at": 55,
+       "gives": "A"
       },
       {
        "words": "unknown",
+       "at": 60,
        "gives": "Y",
-       "note": "in algebra x, y and z are unknowns"
+       "note": "Y is an algebraic unknown, like x and z"
       }
      ]
     },
     "explanation": {
-     "surface": "A national park is hazy and unfenced, its extent uncharted.",
-     "definitionFit": "Paraguay is a landlocked nation in South America, bordering Brazil, Argentina and Bolivia."
+     "surface": "A national park looks hazy and borderless, an area nobody knows.",
+     "walkthrough": "'Mostly' cuts PARK to PAR; 'having no boundaries' strips VAGUE to AGU.",
+     "definitionFit": "Paraguay is a landlocked nation of South America, between Argentina, Brazil and Bolivia."
     },
     "features": {
      "answerInScene": false,
@@ -1301,47 +1333,50 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a smoke",
-      "at": 31
+      "text": "for a smoke?",
+      "at": 27
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PIPE",
      "indicators": [
       {
        "text": "out",
-       "note": "out here means out of place, so the letters are disordered"
+       "at": 23,
+       "note": "out as in put out of order, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "PIPE",
        "indicators": [
         {
          "text": "Leaving jacket",
-         "note": "a jacket is an outer covering, and leaving it off removes the outside letters"
+         "at": 0,
+         "note": "the jacket is the outer covering, the first and last letters, which are left off"
         }
        ],
        "parts": [
         {
          "words": "nipped",
+         "at": 16,
          "note": "taken as written"
+        },
+        {
+         "gives": "ND"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone took off their coat and slipped outside for a cigarette.",
-     "definitionFit": "A pipe is a smoking device, and to have a pipe is to have a smoke of tobacco."
+     "surface": "Someone leaves their jacket behind and pops outside for a cigarette.",
+     "walkthrough": "'Leaving jacket' takes NIPPED down to IPPE, and 'out' rearranges those four letters. The question mark marks the definition as an example: a pipe is one thing to smoke.",
+     "definitionFit": "A pipe is a tobacco-burning bowl and stem, one way of having a smoke."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "jacket"
     }
    }
@@ -1377,45 +1412,50 @@
      "indicators": [
       {
        "text": "hide",
-       "note": "whoever hides something keeps it inside them"
+       "at": 44,
+       "note": "the letters hide inside the truants' word, tucked away within it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "truants",
-         "gives": "SKIVERS",
-         "note": "a skiver is British slang for someone dodging work or school"
-        },
-        {
-         "words": "in",
-         "note": "taken as written"
-        }
-       ]
+       "words": "truants",
+       "at": 36,
+       "gives": "SKIVERS",
+       "note": "skivers are people who dodge school or work"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "the back of",
-         "note": "the back of a word is its last letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "cupboard",
-         "note": "the final letter"
+         "words": "in",
+         "at": 49,
+         "gives": "IN"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "the back of",
+           "at": 52,
+           "note": "the back of a word is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cupboard",
+           "at": 64,
+           "note": "last letter of cupboard"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher may stumble on a school's absentees hiding at the back of a cupboard.",
-     "walkthrough": "The school is a shoal of fish, not a place of truancy.",
-     "definitionFit": "Skin-divers swim underwater without a diving suit and may well swim past a school of fish."
+     "surface": "Pupils skipping lessons conceal themselves in the back of a cupboard.",
+     "walkthrough": "'School' is a school of fish, which divers swim past. IN and D ('the back of' cupboard) 'hide' inside SKIVERS, after SK; a skiver is British slang for someone dodging duty.",
+     "definitionFit": "Skin-divers swim underwater without a diving suit and can easily meet a shoal of fish."
     },
     "features": {
      "answerInScene": false,
@@ -1498,48 +1538,47 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
        "text": "having put on",
-       "note": "putting on weight means the weight goes into the middle"
+       "at": 65,
+       "note": "having put on means adding, so the weight follows"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "CRENE",
        "indicators": [
         {
-         "text": "to be used regularly",
-         "note": "using every other letter at a regular interval picks out alternate characters"
+         "text": "needing to be used regularly",
+         "at": 35,
+         "note": "used regularly means only every other letter is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "corset — needing",
-         "gives": "CRENE",
-         "select": "alternate",
-         "note": "the odd letters, taken until the run is complete"
+         "words": "corset",
+         "at": 26,
+         "note": "alternate letters of corset"
         }
        ]
       },
       {
        "words": "weight",
-       "gives": "TON",
-       "note": "a ton is a unit of weight"
+       "at": 79,
+       "gives": "TONNE",
+       "note": "a tonne is a metric weight"
       }
      ]
     },
     "explanation": {
-     "surface": "A fabric for underwear must be worn regularly by someone gaining weight.",
-     "walkthrough": "The alternate run through corset and needing yields C, R, E, N, E and then stops; TON goes in after the third letter.",
-     "definitionFit": "Cretonne is a heavy printed cotton fabric used for upholstery and curtains, so a sort of material."
+     "surface": "A dieter needs to wear a corset all the time, having gained weight.",
+     "walkthrough": "'Needing to be used regularly' takes C, R and E, alternate letters from CORSET; 'having put on' adds TONNE.",
+     "definitionFit": "Cretonne is a heavy printed cotton fabric used for curtains and upholstery."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "weight"
     }

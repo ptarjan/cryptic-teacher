@@ -1844,12 +1844,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "BISHOPRIC",
      "indicators": [
       {
        "text": "Remove ends from",
-       "note": "removing the ends means cutting the final letter from each word"
+       "at": 0,
+       "note": "each of the three words loses its final letter, its end"
       }
      ],
      "parts": [
@@ -1858,31 +1857,34 @@
        "parts": [
         {
          "words": "bin",
-         "gives": "BI",
-         "note": "without its final letter"
+         "at": 17,
+         "note": "taken as written"
         },
         {
          "words": "show",
-         "gives": "SHO",
-         "note": "without its final letter"
+         "at": 25,
+         "note": "taken as written"
         },
         {
          "words": "price",
-         "gives": "PRIC",
-         "note": "without its final letter"
+         "at": 30,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "gives": "NWE"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for a shop: throw away rubbish and display prices, see?",
-     "walkthrough": "'See' looks like a tag like 'you see', but it is the definition: the area a bishop governs.",
-     "definitionFit": "A see is a bishop's diocese or office, and a bishopric is the same thing, the district under a bishop's authority."
+     "surface": "Instructions for a shopkeeper: clear out the bins and put the prices on display.",
+     "walkthrough": "'See' is not the verb: a see is a bishop's diocese, the same thing as a bishopric. Lose the last letters of BIN, SHOW and PRICE to get BI, SHO and PRIC.",
+     "definitionFit": "A see is the district under a bishop's authority, which is exactly what a bishopric is."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "see"
     }
    }
@@ -2649,36 +2651,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TITANIA",
-     "indicators": [
-      {
-       "text": "docked",
-       "note": "a docked tail is cut short, so the last letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "docked",
+         "at": 13,
+         "note": "a docked tail is cut short, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "Famous liner",
-         "gives": "TITANI",
-         "note": "the ship that sank in 1912, missing its final letter"
+         "at": 0,
+         "gives": "TITANIC",
+         "note": "the Titanic is the most famous ocean liner, sunk in 1912"
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "gives": "C"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 22,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A celebrated ocean liner has come into port, carrying a queen.",
-     "walkthrough": "'Docked' looks like the ship arriving in port, which it never did; it means cut short.",
-     "definitionFit": "Titania is queen of the fairies in Shakespeare's A Midsummer Night's Dream, wife of Oberon."
+     "surface": "A celebrated ship pulls into port, with a queen aboard.",
+     "walkthrough": "'Docked' looks like a ship coming into harbour, but it means cut short: TITANIC loses its C.",
+     "definitionFit": "Titania is queen of the fairies in Shakespeare's A Midsummer Night's Dream."
     },
     "features": {
      "answerInScene": false,
@@ -2709,53 +2715,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "mainly",
-       "note": "mainly means most but not all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 32,
+         "note": "only the first letter of his is wanted"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first",
-           "note": "the first of a word is its opening letter, the only one kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "his",
-           "note": "its opening letter"
-          }
-         ]
-        },
-        {
-         "words": "speech",
-         "gives": "ORATIO",
-         "note": "an oration is a formal speech, cut short by one letter"
+         "words": "his",
+         "at": 28,
+         "note": "first letter of his"
         }
        ]
       },
       {
-       "gives": "I"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mainly",
+         "at": 46,
+         "note": "mainly means most of it, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "speech",
+         "at": 38,
+         "gives": "ORATION",
+         "note": "an oration is a formal speech"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Prince of Denmark's personality shows in his opening soliloquy.",
-     "walkthrough": "'Character of Hamlet' reads as his personality; it means a person in the play.",
-     "definitionFit": "Horatio is Hamlet's loyal friend in Shakespeare's tragedy, the one who survives to tell the story."
+     "surface": "Someone from Hamlet appears in the prince's first big speech, mostly.",
+     "walkthrough": "H from 'his first', then ORATION without its last letter.",
+     "definitionFit": "Horatio is Hamlet's loyal friend in Shakespeare's play, the one left to tell his story."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Character"
+     "misdirectedWord": "speech"
     }
    }
   },
@@ -2780,42 +2790,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ICARUS",
-     "indicators": [
-      {
-       "text": "cut short",
-       "note": "something cut short loses its end, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "one is I as a Roman numeral"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 17,
+         "note": "cut short means the last letter is removed"
+        }
+       ],
        "parts": [
         {
-         "words": "One",
-         "gives": "I",
-         "note": "the Roman numeral for one"
+         "words": "great singer",
+         "at": 4,
+         "gives": "CARUSO",
+         "note": "Enrico Caruso was a celebrated Italian operatic tenor"
         },
         {
-         "words": "great singer",
-         "gives": "CARUS",
-         "note": "Enrico Caruso, the Italian tenor, missing his final letter"
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A star singer's career ended early by a plane crash.",
-     "walkthrough": "The 'aerial tragedy' suggests an air crash; it is the Greek myth of the boy who flew too near the sun.",
-     "definitionFit": "Icarus flew on wings of wax and feathers made by his father Daedalus; they melted and he fell into the sea."
+     "surface": "A star tenor's career ends abruptly in some disaster in the skies.",
+     "walkthrough": "I (one), then CARUSO missing its final O.",
+     "definitionFit": "In Greek myth Icarus flew too near the sun on wings of wax and fell into the sea."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "aerial"
+     "misdirectedWord": "singer"
     }
    }
   },
@@ -2939,68 +2953,75 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one thing in another sits inside it"
+       "at": 10,
+       "note": "in says the monarch's letters are placed inside what is left of the state"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "banished",
+         "at": 34,
+         "note": "banished means sent away, so a letter leaves the word for state"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
+         "words": "state",
+         "at": 13,
+         "gives": "COUNTRY",
+         "note": "a country is a state"
+        },
+        {
+         "op": "homophone",
+         "spelt": "U",
          "indicators": [
           {
-           "text": "banished",
-           "note": "what is banished is sent away, so those letters are removed"
+           "text": "reportedly",
+           "at": 23,
+           "note": "reportedly means as it is spoken, so the word is taken by its sound"
           }
          ],
          "parts": [
           {
-           "words": "state",
-           "gives": "COUNTRY",
-           "note": "a state is a country"
-          },
-          {
-           "op": "homophone",
-           "spelt": "U",
-           "indicators": [
-            {
-             "text": "reportedly",
-             "note": "something reported is said aloud, so only the sound of the word matters"
-            }
-           ],
-           "parts": [
-            {
-             "words": "you",
-             "gives": "YOU",
-             "note": "the letter's name is said like this pronoun"
-            }
-           ]
+           "words": "you",
+           "at": 19,
+           "gives": "YOU",
+           "note": "you sounds like the letter U"
           }
          ]
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
         }
        ]
       },
       {
-       "words": "monarch",
-       "gives": "R",
-       "note": "R for rex or regina, king or queen"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "monarch",
+         "at": 2,
+         "gives": "R",
+         "note": "R is the abbreviation for rex or regina, king or queen"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A deposed king is exiled from his own country, and the speaker says it is the reverse.",
-     "walkthrough": "The state loses its U, then takes the A and R inside, after its fifth letter.",
-     "definitionFit": "Contrary means opposed or opposite, so 'just the opposite' is an everyday phrase for the same idea."
+     "surface": "Someone asks whether a ruler banished you from the country, and is told it was the reverse.",
+     "walkthrough": "'Banished' takes U, the letter that 'reportedly' sounds like you, out of COUNTRY to leave CONTRY; 'in' then puts A and R inside.",
+     "definitionFit": "Contrary means opposite in direction or nature, as in 'on the contrary'."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "state"
+     "misdirectedWord": "banished"
     }
    }
   },
@@ -3377,53 +3398,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OVEREXPOSED",
-     "indicators": [
-      {
-       "text": "head lost",
-       "note": "losing the head means dropping the first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "head lost",
+         "at": 26,
+         "note": "the first letter, the head of the word, is removed"
+        }
+       ],
        "parts": [
         {
          "words": "passion",
-         "gives": "OVE",
-         "note": "love is passion, without its first letter"
+         "at": 39,
+         "gives": "LOVE",
+         "note": "love is a passion"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "being about something means surrounding it, so one piece goes round another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "was lying",
-           "gives": "REPOSED",
-           "note": "to repose is to lie down"
-          },
-          {
-           "words": "kiss",
-           "gives": "X",
-           "note": "X is a kiss at the end of a letter"
-          }
-         ]
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 58,
+         "note": "about means going round, so the word for lying wraps the kiss"
+        }
+       ],
+       "parts": [
+        {
+         "words": "was lying",
+         "at": 48,
+         "gives": "REPOSED",
+         "note": "reposed means lay, was lying at rest"
+        },
+        {
+         "words": "kiss",
+         "at": 64,
+         "gives": "X",
+         "note": "X is the kiss at the end of a letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A celebrity in the tabloids, carried away by passion, lied about a kiss.",
-     "walkthrough": "'Was lying' suggests telling untruths, which fits the scandal; here it means resting.",
-     "definitionFit": "Someone overexposed has had too much media attention, so the public tires of them."
+     "surface": "A tabloid tale: someone lost their head in passion, and lied about a kiss.",
+     "walkthrough": "OVE is LOVE with its head gone; X goes inside REPOSED to give REXPOSED.",
+     "definitionFit": "Overexposed describes someone who has had too much media attention, so the public tires of them."
     },
     "features": {
      "answerInScene": true,
