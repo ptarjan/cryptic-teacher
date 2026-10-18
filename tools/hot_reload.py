@@ -32,11 +32,13 @@ CODE_PREFIXES = ("tools/",)
 
 def code_path(path):
     """Whether a changed file `path` (repo-relative) can change a running
-    queue: anything under tools/ but the tests and the prose."""
-    if not path.startswith(CODE_PREFIXES):
+    queue: a tools/ script (.py, .sh, .js), not a test and not data (tools/data/,
+    the .json files such as annotation_backlog.json, which change dozens of
+    times an hour and are read fresh by every unit)."""
+    if not path.startswith(CODE_PREFIXES) or path.startswith("tools/data/"):
         return False
     name = path.rsplit("/", 1)[-1]
-    return not (name.startswith("test_") or name.endswith((".md", ".txt")))
+    return name.endswith((".py", ".sh", ".js")) and not name.startswith("test_")
 
 
 def code_changed(paths):
