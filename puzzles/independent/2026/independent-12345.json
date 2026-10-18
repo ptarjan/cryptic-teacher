@@ -152,12 +152,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "originally",
-       "note": "the origin of a word is its first letter"
-      },
-      {
-       "text": "capital",
-       "note": "a word's capital is its first letter"
+       "text": "north of",
+       "at": 31,
+       "note": "in a down entry, north of means placed above the next piece"
       }
      ],
      "parts": [
@@ -165,36 +162,54 @@
        "op": "first",
        "indicators": [
         {
-         "text": "north of",
-         "note": "in a down answer, north means placed above"
+         "text": "originally",
+         "at": 14,
+         "note": "takes only the opening letter of built"
         }
        ],
        "parts": [
         {
          "words": "built",
-         "note": "first letter of 'built'"
+         "at": 25
         }
        ]
       },
       {
-       "words": "Lincoln",
-       "gives": "ABE",
-       "note": "Abe Lincoln, the US president"
-      },
-      {
-       "words": "Lincolnshire's",
-       "gives": "L",
-       "note": "first letter of 'Lincolnshire'"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Lincoln",
+         "at": 40,
+         "gives": "ABE",
+         "note": "Abe is Abraham Lincoln's first name"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "capital",
+           "at": 64,
+           "note": "capital means the head letter, so only the first letter of Lincolnshire is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Lincolnshire's",
+           "at": 49
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Directions for finding a tower in the English county of Lincolnshire.",
-     "walkthrough": "The surface places you in Lincolnshire, an English county, but the first 'Lincoln' is the American president Abe.",
-     "definitionFit": "The Tower of Babel was built in the city of Babel, according to Genesis."
+     "surface": "A tower first went up north of the city of Lincoln, Lincolnshire's county town.",
+     "walkthrough": "'Lincoln' looks like the English city; it is the American president Abe Lincoln.",
+     "definitionFit": "Babel is the biblical city where the tower meant to reach heaven was built."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Lincoln"
     }
@@ -445,44 +460,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "flying",
-       "note": "the letters fly about and land in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flying",
+         "at": 15,
+         "note": "the letters of green go flying and land in a new order"
+        }
+       ],
        "parts": [
         {
          "words": "green",
-         "note": "GREEN rearranged"
-        },
-        {
-         "words": "alien",
-         "gives": "ET",
-         "note": "E.T., the film's extra-terrestrial"
-        },
-        {
-         "words": "I see",
-         "gives": "IC",
-         "note": "read as the letters I, C"
+         "at": 9
         }
        ]
+      },
+      {
+       "words": "alien",
+       "at": 22,
+       "gives": "ET",
+       "note": "ET is the film alien, the extra-terrestrial"
+      },
+      {
+       "words": "I",
+       "at": 28,
+       "gives": "I"
+      },
+      {
+       "words": "see",
+       "at": 30,
+       "gives": "C",
+       "note": "C sounds like see, the letter name"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone spotting a little green alien in a flying saucer.",
-     "walkthrough": "'Animated green' suggests a cartoon, but 'Animated' is the definition; 'I see' is read out as two letters.",
-     "definitionFit": "Animated and energetic both mean lively."
+     "surface": "A lively green alien goes past, and I see it.",
+     "walkthrough": "GREEN becomes ENERG; C sounds like the word see, a crossword convention.",
+     "definitionFit": "Energetic means full of energy and life, just as animated means lively."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Animated"
+     "joke": "absurd",
+     "misdirectedWord": "green"
     }
    }
   },
@@ -818,37 +842,42 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "head of",
-       "note": "the head of a word is its first letter"
-      }
-     ],
      "parts": [
       {
        "words": "Charming",
+       "at": 0,
        "gives": "SPELLING",
-       "note": "charming = casting a spell"
+       "note": "charming as in casting a spell, spelling"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "entering"
+         "text": "entering",
+         "at": 22,
+         "note": "the letter enters the word for live, going inside it"
         }
        ],
        "parts": [
         {
          "words": "live",
+         "at": 31,
          "gives": "BE",
-         "note": "to live is to be"
+         "note": "to be is to live, exist"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "head of",
+           "at": 9,
+           "note": "takes only the first letter of Eton"
+          }
+         ],
          "parts": [
           {
            "words": "Eton",
-           "note": "first letter of 'Eton'"
+           "at": 17
           }
          ]
         }
@@ -857,13 +886,14 @@
      ]
     },
     "explanation": {
-     "surface": "A delightful headmaster of Eton, the English public school, takes part in a live quiz for pupils.",
-     "walkthrough": "'Charming head' reads as a pleasant headmaster; 'Charming' is SPELLING, as in casting a spell.",
-     "definitionFit": "A spelling bee is a competition in which pupils spell words aloud."
+     "surface": "A charming headmaster of Eton takes part in a live quiz for pupils.",
+     "walkthrough": "Eton is a famous English private school; 'Charming' reads as an adjective but is casting spells.",
+     "definitionFit": "A spelling bee is a competition where schoolchildren spell words aloud."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Charming"
     }
    }
@@ -1517,30 +1547,43 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "the last letter is lopped off"
-      },
-      {
        "text": "on",
-       "note": "in a down answer, the first part sits on top of the second"
+       "at": 16,
+       "note": "in a down entry, on means the first piece sits on top of the next"
       }
      ],
      "parts": [
       {
-       "words": "Climb",
-       "gives": "SCAL",
-       "note": "SCALE without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 6,
+         "note": "the word loses its end, its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Climb",
+         "at": 0,
+         "gives": "SCALE",
+         "note": "to scale is to climb"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "kept as it stands"
+       "at": 19,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions to keep climbing a ladder.",
-     "walkthrough": "A scala is an anatomical term for a spiral, ladder-like passage, as in the scala tympani of the inner ear.",
-     "definitionFit": "Scala is Latin for ladder, used for ladder-like structures in anatomy."
+     "surface": "Someone climbs on and on up a ladder-like frame.",
+     "definitionFit": "Scala is the anatomical term for a ladder- or staircase-like structure, as in the inner ear."
     },
     "features": {
      "answerInScene": true,

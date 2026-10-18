@@ -1210,47 +1210,51 @@
      "indicators": [
       {
        "text": "to enter",
-       "note": "entering means going inside, so one piece is placed within another"
+       "at": 30,
+       "note": "the day and permit enter the island word, going inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retreat",
+         "at": 60,
+         "note": "to retreat is to go back, so the island's name is read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "retreat",
-           "note": "to retreat is to go backwards, so the letters run in reverse"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Mediterranean island",
-           "gives": "ELBA",
-           "note": "Elba is the Mediterranean island of Napoleon's exile"
-          }
-         ]
-        },
-        {
-         "words": "travel permit",
-         "gives": "VISA",
-         "note": "a visa permits travel into a country"
+         "words": "Mediterranean island",
+         "at": 39,
+         "gives": "ELBA",
+         "note": "Elba is an island in the Mediterranean"
         }
        ]
       },
       {
-       "words": "day",
-       "gives": "D",
-       "note": "D is the abbreviation for day"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "day",
+         "at": 12,
+         "gives": "D"
+        },
+        {
+         "words": "travel permit",
+         "at": 16,
+         "gives": "VISA",
+         "note": "a visa permits travel into a country"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A day visa is advised for a Mediterranean island holiday retreat.",
-     "walkthrough": "'Retreat' looks like a holiday hideaway, but it turns the island round; the day and permit go after its first letter.",
-     "definitionFit": "Something that is wise or prudent to do is what a person would suggest, so the adjective fits a recommended course."
+     "surface": "A day visa is advised for a trip to a Mediterranean island hideaway.",
+     "walkthrough": "ELBA backwards is ABLE, which holds DVISA after its first letter.",
+     "definitionFit": "Advisable means sensible and worth doing, so recommended."
     },
     "features": {
      "answerInScene": false,
@@ -1884,59 +1888,52 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protects",
+       "at": 37,
+       "note": "the outer letters protect the letter by surrounding it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "protects",
-         "note": "to protect is to shield by surrounding, so one piece goes around another"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "soldiers",
-           "gives": "RE",
-           "note": "the RE, Royal Engineers, are soldiers"
-          },
-          {
-           "op": "first",
-           "parts": [
-            {
-             "words": "bridgehead",
-             "note": "the head of bridge is its first letter"
-            }
-           ]
-          }
-         ]
+         "words": "soldiers'",
+         "at": 14,
+         "gives": "RE",
+         "note": "RE is the Royal Engineers, British army soldiers"
         },
         {
          "words": "eastern",
-         "gives": "E",
-         "note": "E is the abbreviation for eastern"
+         "at": 24,
+         "gives": "E"
+        },
+        {
+         "words": "line",
+         "at": 32,
+         "gives": "L"
         }
        ]
       },
       {
-       "words": "line",
-       "gives": "L",
-       "note": "L is the abbreviation for line"
+       "words": "bridgehead",
+       "at": 46,
+       "gives": "B",
+       "note": "the head, or first letter, of bridge"
       }
      ]
     },
     "explanation": {
-     "surface": "Soldiers holding an eastern line defend a captured bridgehead.",
-     "walkthrough": "'Bridgehead' is a military term, but here it is read as 'bridge head', the first letter of bridge, which the soldiers and the eastern line enclose between them. The Royal Engineers are a British army corps.",
-     "definitionFit": "Someone who rises against an established government is an insurgent, so the noun matches."
+     "surface": "An army's eastern line of soldiers defends a bridgehead against revolutionaries.",
+     "walkthrough": "'Revolutionary' wants to describe the soldiers but is the definition, used as a noun.",
+     "definitionFit": "A rebel is a person who rises against authority, a revolutionary."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "bridgehead"
     }
    }
