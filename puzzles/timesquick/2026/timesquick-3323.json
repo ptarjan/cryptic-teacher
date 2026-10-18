@@ -392,8 +392,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "upset",
-       "note": "in a down clue, upset turns the word upside down"
+       "text": "over",
+       "at": 11,
+       "note": "over puts the Tory piece above the article in this down answer"
       }
      ],
      "parts": [
@@ -401,37 +402,40 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "over",
-         "note": "in a down clue, the first part sits above the next"
+         "text": "upset",
+         "at": 5,
+         "note": "upset in a down clue means turned upside down, so con is read backwards"
         }
        ],
        "parts": [
         {
          "words": "Tory",
+         "at": 0,
          "gives": "CON",
-         "note": "Con = Conservative, the Tory party"
+         "note": "Con is short for Conservative, a Tory"
         }
        ]
       },
       {
        "words": "article",
+       "at": 16,
        "gives": "AN",
        "note": "an is the indefinite article"
       },
       {
        "words": "party",
+       "at": 25,
        "gives": "DO",
        "note": "a do is a party"
       }
      ]
     },
     "explanation": {
-     "surface": "A Conservative politician upset about a newspaper piece and a party that can't follow the rules.",
-     "walkthrough": "Tory is a British Conservative; the abbreviation CON turned upside down gives NOC.",
-     "definitionFit": "No can do is an informal way of saying you cannot comply."
+     "surface": "A Conservative upset about a newspaper article, refusing to go along with the party.",
+     "definitionFit": "No can do is an informal reply meaning that a request cannot be met."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "article"
     }
@@ -783,36 +787,38 @@
      "indicators": [
       {
        "text": "carrying",
-       "note": "the escape holds the other letters within it"
+       "at": 18,
+       "note": "carrying means holding the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Make a run for it",
-         "gives": "ESCAPE",
-         "note": "to escape is to make a run for it; split around LO"
-        },
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "L = left"
-        }
-       ]
+       "words": "Make a run for it",
+       "at": 0,
+       "gives": "ESCAPE",
+       "note": "to escape is to make a run for it"
       },
       {
-       "words": "over",
-       "gives": "O",
-       "note": "O = over, the cricket abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "left",
+         "at": 27,
+         "gives": "L"
+        },
+        {
+         "words": "over",
+         "at": 32,
+         "gives": "O",
+         "note": "O is the cricket scoring abbreviation for an over"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A thief bolting with the leftover meat.",
-     "walkthrough": "Left over reads as leftovers but is two separate abbreviations. An over is a set of six balls in cricket.",
-     "definitionFit": "Definition by description: a thin boneless cut, usually veal, beaten flat and fried."
+     "surface": "Fleeing with leftover meat, as a dog might from a kitchen.",
+     "definitionFit": "An escalope is a thin boneless cut of meat, beaten flat and usually fried."
     },
     "features": {
      "answerInScene": true,

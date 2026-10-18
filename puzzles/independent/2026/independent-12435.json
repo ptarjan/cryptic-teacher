@@ -1092,33 +1092,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "outside",
-       "note": "standing outside something means going round it, so the insect wraps around the single letter"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "close to",
-         "note": "the close of a word is where it stops, so only its final letter is wanted"
+         "text": "outside",
+         "at": 14,
+         "note": "outside means the insect wraps round the next letter"
         }
        ],
        "parts": [
         {
          "words": "insect",
+         "at": 7,
          "gives": "BEE",
-         "note": "the bee is the crossword's default insect"
+         "note": "a bee is an insect"
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "close to",
+           "at": 22,
+           "note": "close to means the last letter, of sunken"
+          }
+         ],
          "parts": [
           {
-           "words": "close to sunken",
-           "note": "the letter that closes the word sunken"
+           "words": "sunken",
+           "at": 31,
+           "note": "last letter of sunken"
           }
          ]
         }
@@ -1126,14 +1130,20 @@
       },
       {
        "words": "well",
+       "at": 38,
        "gives": "FIT",
-       "note": "someone fit and well is in good health"
+       "note": "fit means well, in good health"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Well' is the pivot: it reads as part of 'sunken well' in the surface and as a word for healthy in the wordplay.",
-     "definitionFit": "To benefit someone is to do them good, the same helping hand 'assist' names, though benefit can be a noun as well."
+     "surface": "An insect hovering beside a sunken well.",
+     "definitionFit": "To benefit someone is to help or do them good, a synonym of assist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "well"
     }
    }
   },

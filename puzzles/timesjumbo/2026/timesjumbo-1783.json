@@ -1903,44 +1903,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENGLISHELM",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "attached to",
+       "at": 6,
+       "note": "attached to says the wheel piece is joined on after the reworked letters"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "gnarled",
-         "note": "gnarled means twisted, so SINGLE is twisted into new order"
-        },
-        {
-         "text": "attached to"
+         "at": 25,
+         "note": "gnarled means twisted and knotted, so the letters of single are bent into a new order"
         }
        ],
        "parts": [
         {
          "words": "single",
-         "note": "anagram of SINGLE"
-        },
-        {
-         "words": "Wheel",
-         "gives": "HELM",
-         "note": "the helm is a ship's wheel"
+         "at": 18
         }
        ]
+      },
+      {
+       "words": "Wheel",
+       "at": 0,
+       "gives": "HELM",
+       "note": "the helm is a ship's steering wheel"
       }
      ]
     },
     "explanation": {
-     "surface": "A wheel fixed to a lone, knotted old tree.",
-     "walkthrough": "'Gnarled' belongs to the tree in the surface; it is the anagram signal.",
-     "definitionFit": "Definition by category: a large hedgerow species ravaged by Dutch elm disease."
+     "surface": "A wheel fixed to a lone knotty tree, perhaps a rope swing or an old cart left in a field.",
+     "walkthrough": "'single' reads like a lone tree but is just anagram fodder; the helm is the wheel a ship is steered by.",
+     "definitionFit": "The English elm is a species of large elm native to Britain, so it is an example of a tree."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "gnarled"
+     "misdirectedWord": "Wheel"
     }
    }
   },
@@ -2016,51 +2020,51 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "opening of",
-       "note": "a word's opening is its first letter"
+       "text": "after",
+       "at": 12,
+       "note": "after places the drink piece later in the answer than the others"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "B",
        "indicators": [
         {
-         "text": "after"
+         "text": "opening of",
+         "at": 18,
+         "note": "the opening of a word is its first letter, here the start of bar"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "opening of bar",
-         "gives": "B",
-         "select": "first",
+         "words": "bar",
+         "at": 29,
          "note": "first letter of bar"
         }
        ]
       },
       {
        "words": "say",
+       "at": 34,
        "gives": "UTTER",
-       "note": "to utter is to say"
+       "note": "to utter something is to say it"
       },
       {
        "words": "drink",
+       "at": 6,
        "gives": "SCOTCH",
-       "note": "Scotch whisky"
+       "note": "Scotch is whisky, a drink"
       }
      ]
     },
     "explanation": {
-     "surface": "A sweet drink ordered as soon as the bar opens.",
-     "walkthrough": "'Sweet drink' reads as one phrase; 'Sweet' alone is the definition.",
-     "definitionFit": "Definition by category: a boiled confection of butter and brown sugar."
+     "surface": "Ordering a sweet drink as soon as the bar opens.",
+     "definitionFit": "Butterscotch is a hard brittle confection of butter and brown sugar, a kind of sweet or candy."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "drink"
+     "misdirectedWord": "say"
     }
    }
   },
@@ -2275,39 +2279,61 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "across"
+       "text": "across",
+       "at": 23,
+       "note": "across means the string of car letters stretches over the horse, holding it inside"
       }
      ],
      "parts": [
       {
-       "words": "Small car",
-       "gives": "SAUDI",
-       "note": "S = small, plus the car maker Audi"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Small",
+         "at": 0,
+         "gives": "S",
+         "note": "S is the clothing-size abbreviation for small"
+        },
+        {
+         "words": "car",
+         "at": 6,
+         "gives": "AUDI",
+         "note": "Audi is a make of car"
+        },
+        {
+         "words": "one",
+         "at": 10,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "advanced",
+         "at": 14,
+         "gives": "A",
+         "note": "A is advanced, as in A-level exams"
+        }
+       ]
       },
       {
        "words": "horse",
+       "at": 30,
        "gives": "ARAB",
        "note": "an Arab is a breed of horse"
-      },
-      {
-       "words": "one advanced",
-       "gives": "IA",
-       "note": "I = one, A = advanced, as in A level"
       }
      ]
     },
     "explanation": {
-     "surface": "A tiny car took a step forward across horse country.",
-     "walkthrough": "'Horse country' reads as a phrase for stud farms; 'horse' is wordplay and 'country' alone defines. The Arab breed does come from this region.",
-     "definitionFit": "Definition by category: a Gulf kingdom, one country among many."
+     "surface": "A small car and a rider pushing on through horse country.",
+     "walkthrough": "The whole string from 'Small' to 'advanced' is the holder, so the horse lands between the two letters I near its end.",
+     "definitionFit": "Saudi Arabia is the kingdom occupying most of the Arabian Peninsula, so it is a country."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "advanced"
+     "misdirectedWord": "horse"
     }
    }
   },
@@ -2481,25 +2507,27 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "shivering",
-       "note": "shivering letters shake into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "take off",
+       "at": 13,
+       "gives": "CATCHON",
+       "note": "to take off is to become popular, which is to catch on"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shivering",
+         "at": 31,
+         "note": "shivering means shaking, so the letters of headset are shaken into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "take off",
-         "gives": "CATCHON",
-         "note": "to catch on is to become popular, to take off"
-        },
-        {
          "words": "headset",
-         "note": "anagram of HEADSET"
+         "at": 22
         }
        ]
       }
@@ -2507,9 +2535,9 @@
     },
     "spelling": "CATCH ONE'S DEATH",
     "explanation": {
-     "surface": "Someone feels unwell, pulls off their headphones and starts shivering.",
-     "walkthrough": "'Take off headset' reads as removing headphones; 'take off' means catch on, and 'shivering' belongs to the wordplay, not the illness.",
-     "definitionFit": "Idiom: a hyperbolic phrase for catching a bad cold."
+     "surface": "Someone shivering after taking off a headset, as if feeling a chill.",
+     "walkthrough": "'take off' looks like removing the headset, but it is a phrase meaning catch on; 'shivering' rearranges HEADSET into ESDEATH.",
+     "definitionFit": "To catch one's death is an idiom for catching a bad cold, that is, to become sick."
     },
     "features": {
      "answerInScene": true,
@@ -2752,7 +2780,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "eating"
+       "text": "on",
+       "at": 26,
+       "note": "on places the left piece before the piano piece in this down answer"
       }
      ],
      "parts": [
@@ -2760,42 +2790,48 @@
        "op": "container",
        "indicators": [
         {
-         "text": "on"
+         "text": "eating",
+         "at": 6,
+         "note": "eating means the woman takes the brownie inside her"
         }
        ],
        "parts": [
         {
          "words": "Woman",
+         "at": 0,
          "gives": "SHE",
-         "note": "she = a woman; split S…HE"
+         "note": "she is a pronoun for a woman"
         },
         {
          "words": "brownie",
+         "at": 13,
          "gives": "ELF",
-         "note": "a brownie is a household elf of folklore"
+         "note": "a brownie is a household elf in folklore"
         }
        ]
       },
       {
        "words": "left",
-       "gives": "L",
-       "note": "L = left"
+       "at": 21,
+       "gives": "L"
       },
       {
        "words": "piano",
+       "at": 29,
        "gives": "P",
-       "note": "p = piano, quietly"
+       "note": "P is the musical abbreviation for piano, softly"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman eats a chocolate brownie she left on the piano.",
-     "walkthrough": "'Brownie' is a cake in the surface and a helpful sprite of folklore in the wordplay.",
-     "definitionFit": "Paraphrase: relying on your own efforts rather than outside assistance."
+     "surface": "A woman munching a chocolate brownie while playing piano, coping by herself.",
+     "walkthrough": "The brownie is not cake but a folklore sprite, an elf.",
+     "definitionFit": "Self-help is the practice of sorting out one's own problems without outside assistance."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "brownie"
     }
    }
