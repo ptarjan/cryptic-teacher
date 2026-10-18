@@ -708,46 +708,51 @@
      "indicators": [
       {
        "text": "covering",
-       "note": "what covers something wraps around it, so 'maple perhaps' wraps around 'a' and the caramel's edges"
+       "at": 25,
+       "note": "covering means going over and around, so the first piece encloses the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "maple perhaps",
-         "gives": "TREE",
-         "note": "a maple is an example of a tree, hence 'perhaps'"
-        },
-        {
-         "words": "a",
-         "note": "taken as printed"
-        }
-       ]
+       "words": "maple perhaps",
+       "at": 11,
+       "gives": "TREE",
+       "note": "a maple is an example of a tree"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "edges",
-         "note": "the edges of a word are its outer limits, its first and final letters"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "caramel's",
-         "gives": "CARAMEL",
-         "note": "the outside letters of caramel"
+         "words": "a",
+         "at": 34,
+         "gives": "A"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "edges",
+           "at": 46,
+           "note": "the edges of a word are its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "caramel's",
+           "at": 36,
+           "gives": "CARAMEL",
+           "note": "the word caramel, whose outer letters are taken"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Maple syrup poured over the rim of a toffee.",
-     "walkthrough": "The surface suggests maple syrup, but 'maple perhaps' is a tree, with 'perhaps' flagging a definition by example.",
-     "definitionFit": "Treacle is the British name for a thick dark sugar syrup, similar to molasses."
+     "surface": "Syrup from a maple tree coating the rim of a caramel sweet.",
+     "walkthrough": "'maple' seems to point to maple syrup, but it stands for TREE; CL, the edges of caramel, follow A inside it.",
+     "definitionFit": "Treacle is the thick dark sugar syrup made in refining sugar, also called molasses."
     },
     "features": {
      "answerInScene": true,

@@ -329,7 +329,8 @@
      "indicators": [
       {
        "text": "around",
-       "note": "letters placed around another word enclose it"
+       "at": 36,
+       "note": "around means enclosing, so the pieces go round the other word"
       }
      ],
      "parts": [
@@ -337,27 +338,14 @@
        "op": "charade",
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
+         "words": "Half of best",
+         "at": 0,
          "gives": "ST",
-         "indicators": [
-          {
-           "text": "Half of",
-           "note": "half of a word keeps just one of its two halves"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "best",
-           "gives": "ST",
-           "select": "last",
-           "note": "the second half of the four-letter word"
-          }
-         ]
+         "note": "the second half of the word best"
         },
         {
          "words": "silver",
+         "at": 13,
          "gives": "AG",
          "note": "Ag is the chemical symbol for silver"
         },
@@ -366,29 +354,31 @@
          "indicators": [
           {
            "text": "ultimately",
-           "note": "ultimately points to the final letter of the next word"
+           "at": 20,
+           "note": "ultimately means the final letter of the word"
           }
          ],
          "parts": [
           {
            "words": "lost",
-           "note": "the last letter of lost"
+           "at": 31
           }
          ]
         }
        ]
       },
       {
-       "words": "grandma",
+       "words": "grandma's",
+       "at": 43,
        "gives": "NAN",
-       "note": "nan is a British familiar word for a grandmother"
+       "note": "nan is grandma; the 's is just 'is'"
       }
      ]
     },
     "explanation": {
-     "surface": "Second-best silver lost at grandma's flat: a family heirloom gone missing.",
-     "walkthrough": "'Flat' looks like grandma's home, but it is the adjective defining the answer.",
-     "definitionFit": "Stagnant water is still and lifeless, and figuratively a flat market or economy shows no movement."
+     "surface": "Granny's flat has lost half its best silver.",
+     "walkthrough": "'flat' looks like a home; it means still and dull.",
+     "definitionFit": "Stagnant water does not flow, and a stagnant market is flat or inactive."
     },
     "features": {
      "answerInScene": false,
@@ -1037,43 +1027,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "posturing",
-       "note": "posturing is striking poses, so these letters take a new pose"
+       "text": "to stop",
+       "at": 22,
+       "note": "to stop means to plug a gap, so this phrase goes inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to stop",
-         "note": "something that stops a word blocks it in the middle, sitting inside it"
+         "text": "posturing",
+         "at": 36,
+         "note": "posturing means striking poses, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "moral",
-         "note": "rearranged from the five letters"
-        },
-        {
-         "words": "toeing the line",
-         "gives": "ONBRAND",
-         "note": "on brand means consistent with an organisation's official image"
+         "at": 30
         }
        ]
+      },
+      {
+       "words": "toeing the line",
+       "at": 6,
+       "gives": "ONBRAND",
+       "note": "on brand means conforming to an image, toeing the line"
       }
      ]
     },
     "explanation": {
-     "surface": "An actor conforming in order to end moral grandstanding.",
-     "walkthrough": "To be on brand is modern marketing jargon for conforming to the company line, so 'toeing the line' fits it.",
-     "definitionFit": "Marlon Brando was the American star of On the Waterfront and The Godfather, a celebrated screen performer."
+     "surface": "Conforming is the cure for moral grandstanding.",
+     "walkthrough": "ONBRAND goes inside MARLO, the anagram of moral, after its fourth letter.",
+     "definitionFit": "Marlon Brando was an American film actor, star of The Godfather."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "posturing"
     }

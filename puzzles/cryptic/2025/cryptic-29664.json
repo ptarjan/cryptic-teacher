@@ -1373,12 +1373,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ANTITHESIS",
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the preceding pieces wrap round what follows"
+       "at": 9,
+       "note": "about means around, so the other words go round the jumbled letters"
       }
      ],
      "parts": [
@@ -1387,40 +1386,43 @@
        "parts": [
         {
          "words": "A",
-         "note": "taken as written"
+         "at": 0,
+         "gives": "A"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "damaged",
-           "note": "something damaged is knocked out of shape, so these letters are reshaped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tin",
-           "note": "taken as written, to be rearranged"
-          },
-          {
-           "words": "report",
-           "gives": "THESIS",
-           "note": "a thesis is a written dissertation or report"
-          }
-         ]
+         "words": "report",
+         "at": 2,
+         "gives": "THESIS",
+         "note": "a thesis is a written report of research"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "damaged",
+         "at": 15,
+         "note": "damaged means broken up, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tin",
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A report about some tin foil that has been damaged, perhaps a kitchen mishap.",
-     "walkthrough": "'Foil' looks like the metal sheet; here it means a contrast.",
-     "definitionFit": "A foil is a person or thing that sets off another by contrast, and an exact opposite serves that role."
+     "surface": "A news item about some dented tin foil.",
+     "walkthrough": "'tin foil' reads as one thing, but foil is the definition, in its sense of a contrast; NTI sits after the A.",
+     "definitionFit": "A foil is something that sets off another by contrast, just as an antithesis is a direct opposite."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "foil"
     }

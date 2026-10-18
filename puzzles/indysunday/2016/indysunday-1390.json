@@ -440,45 +440,49 @@
      "indicators": [
       {
        "text": "hugs",
-       "note": "a hug wraps round someone, so one part encloses the others"
+       "at": 20,
+       "note": "hugs means holds inside, so the other pieces go into the first"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "give",
-         "gives": "AWARD",
-         "note": "to award is to give a prize"
-        },
-        {
-         "words": "with",
-         "gives": "W",
-         "note": "W is the abbreviation for with"
-        }
-       ]
+       "words": "give",
+       "at": 15,
+       "gives": "AWARD",
+       "note": "to award is to give"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "K",
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "bit of kissing",
-         "gives": "K",
-         "select": "first",
-         "note": "the opening letter"
+         "words": "with",
+         "at": 25,
+         "gives": "W"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 30,
+           "note": "a bit of the word here is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "kissing",
+           "at": 37
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is shy about handing out hugs and a little kissing.",
-     "walkthrough": "AWARD takes W and K after its first letter.",
-     "definitionFit": "Awkward can describe a person who feels uncomfortable and self-conscious, which is to be embarrassed."
+     "surface": "Someone shy is made to hand out hugs along with a little kissing.",
+     "walkthrough": "W and K go in after the first A of AWARD.",
+     "definitionFit": "Awkward can describe feeling uncomfortable or self-conscious, which is to be embarrassed."
     },
     "features": {
      "answerInScene": true,
@@ -1027,7 +1031,8 @@
      "indicators": [
       {
        "text": "up",
-       "note": "in a down light, up means read from bottom to top"
+       "at": 31,
+       "note": "in a down clue, up means the letters are read from the bottom"
       }
      ],
      "parts": [
@@ -1036,38 +1041,42 @@
        "indicators": [
         {
          "text": "about",
-         "note": "about means around, so one word goes round the others"
+         "at": 23,
+         "note": "about means around, so the third word goes round the first two"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "look",
-           "gives": "SEE",
-           "note": "to look is to see"
-          },
-          {
-           "words": "Look",
-           "gives": "LO",
-           "note": "lo is an old word meaning look!"
-          }
-         ]
+         "words": "look",
+         "at": 18,
+         "gives": "SEE",
+         "note": "to see is to look"
         },
         {
-         "words": "look here",
-         "gives": "HEY",
-         "note": "a call for attention, like saying look here"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Look",
+           "at": 0,
+           "gives": "LO",
+           "note": "lo is an old word meaning look"
+          },
+          {
+           "words": "look here",
+           "at": 6,
+           "gives": "HEY",
+           "note": "hey is an exclamation calling attention, like 'look here'"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A jumble of instructions to look in every direction, ending with where to look.",
-     "walkthrough": "The clue is a pile of looks: two exclamations go inside a verb, and the whole is then read from the bottom of the light upward.",
-     "definitionFit": "Eyeholes are the openings in a mask that the wearer sees through, the place to look out."
+     "surface": "A playful string of commands to look, ending by pointing to where to look.",
+     "walkthrough": "SEE goes round LOHEY to make SELOHEYE, which 'up' turns over.",
+     "definitionFit": "Eyeholes are the openings in a mask that a wearer sees through."
     },
     "features": {
      "answerInScene": true,
