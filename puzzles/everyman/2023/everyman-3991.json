@@ -234,50 +234,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CHARLESBABBAGE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "confused",
+       "at": 27,
+       "note": "confused means jumbled up, so the composers' letters are mixed into a new order"
+      },
+      {
+       "text": "off",
+       "at": 55,
+       "note": "runs off says the two run letters come away from the mixed pool"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CHARLESBABBAGE",
+       "op": "charade",
        "indicators": [
         {
-         "text": "confused with",
-         "note": "the composers' names are jumbled together"
+         "text": "and",
+         "at": 15,
+         "note": "and simply adds the next composer's name to the pool of letters"
         },
         {
-         "text": "off",
-         "note": "the runs are taken away before the jumbling"
+         "text": "with",
+         "at": 36,
+         "note": "with adds Barber's name alongside the others in the pool"
         }
        ],
        "parts": [
         {
          "words": "Bach",
-         "note": "the composer, as printed"
+         "at": 10
         },
         {
          "words": "Elgar's",
-         "note": "the composer, S included"
+         "at": 19
         },
         {
          "words": "Barber",
-         "note": "Samuel Barber, the composer, as printed"
-        },
-        {
-         "words": "runs",
-         "gives": "RR",
-         "note": "R is the cricket scorer's abbreviation for a run; runs, plural, removes two Rs"
+         "at": 41
         }
        ]
+      },
+      {
+       "words": "runs",
+       "at": 50,
+       "gives": "RR",
+       "note": "R is the cricket scorecard abbreviation for runs; plural here, so two of them"
       }
      ]
     },
     "explanation": {
-     "surface": "Three composers are muddled up, and the orchestra's scores go missing.",
-     "walkthrough": "Remove the two Rs from BACHELGARSBARBER, then rearrange. The clue reads like a concert programme; Babbage designed the Difference Engine, a mechanical computer.",
-     "definitionFit": "Charles Babbage was the Victorian inventor of the Difference and Analytical Engines, forerunners of the computer."
+     "surface": "A music critic muddles up three composers, Bach, Elgar and Barber, while a few runs go astray.",
+     "walkthrough": "'confused' mixes BACH, ELGARS and BARBER (joined by 'and' and then 'with'), sixteen letters; 'off' takes away two Rs (runs, R being the cricket abbreviation), and the fourteen left rearrange to the answer.",
+     "definitionFit": "Charles Babbage designed the Difference Engine and Analytical Engine, early mechanical computers, making him a celebrated inventor."
     },
     "features": {
      "answerInScene": false,
@@ -1463,50 +1474,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CRESTEDTIT",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev Spooner swapped the opening sounds of words"
-      },
-      {
-       "text": "briefly",
-       "note": "judgment is shortened to CRIT"
+       "at": 0,
+       "note": "Spooner's tells us to swap the opening sounds of the two words, as Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "assessed",
+       "at": 10,
+       "gives": "TESTED",
+       "note": "assessed means tested or examined"
+      },
+      {
+       "op": "homophone",
+       "spelt": "CRIT",
        "parts": [
         {
-         "unchecked": true,
-         "words": "assessed",
-         "gives": "CRESTED",
-         "soundsLike": "TESTED",
-         "note": "assessed = tested, which gives up its T and takes the CR from the next word"
-        },
-        {
-         "unchecked": true,
          "words": "judgment, briefly",
-         "gives": "TIT",
-         "soundsLike": "CRIT",
-         "note": "crit is short for critique, a judgment; it hands over its CR and takes the T"
+         "at": 19,
+         "gives": "KRIT",
+         "note": "crit, said krit, is short for criticism or critique, a judgment on a piece of work; its spoken onset is the kr sound that Spooner moves"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's hasty verdict on what they have assessed involves spotting a bird.",
-     "walkthrough": "Swap the opening sounds of TESTED and CRIT to get CRESTED TIT. A crit is a critique, the short form familiar from art schools.",
-     "definitionFit": "The crested tit is a small European songbird with a pointed crest."
+     "surface": "Someone receives a curt verdict after being examined and sees a bird.",
+     "walkthrough": "'Spooner's' swaps the opening T of TESTED with the opening CR of CRIT, turning TESTED CRIT into CRESTED TIT.",
+     "definitionFit": "The crested tit is a small European songbird with a pointed crest, a member of the tit family."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "judgment"
+     "joke": "absurd",
+     "misdirectedWord": "assessed"
     }
    }
   }

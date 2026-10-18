@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -293,37 +294,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PHOBIA",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "'mostly' means all but a little of the word, so it arrives without the letter it ends on."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Asian soup",
+       "at": 8,
+       "gives": "PHO",
+       "note": "pho is a Vietnamese noodle soup"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 19,
+         "note": "mostly means most but not all of the word, so its last letter goes"
+        }
+       ],
        "parts": [
         {
-         "words": "Asian soup",
-         "gives": "PHO",
-         "note": "pho is the Vietnamese beef noodle soup"
+         "words": "prejudice",
+         "at": 26,
+         "gives": "BIAS",
+         "note": "bias means prejudice"
         },
         {
-         "words": "prejudice",
-         "gives": "BIA",
-         "note": "prejudice is bias, docked of its final letter"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody's dread of Asian soup is dismissed as nothing more than prejudice.",
-     "walkthrough": "The fear and the prejudice in the surface are the same accusation, which is why the sentence reads as an opinion rather than as a set of instructions.",
-     "definitionFit": "A phobia is a fear, though a specific and irrational one — the clinical noun where an everyday speaker would just say fear."
+     "surface": "Someone is afraid of Asian soup, which is mostly just prejudice.",
+     "walkthrough": "Pho is a Vietnamese noodle broth, now common in Britain; 'Fear of' looks like the whole definition, but 'of' is a link and Fear alone is defined.",
+     "definitionFit": "A phobia is an extreme or irrational dread of something, a kind of fear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soup"
     }
    }
   },
@@ -348,38 +358,26 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reverse",
+     "reading": "H AND S",
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "H",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "sides of Harrods?",
-         "gives": "H",
-         "select": "outer",
-         "note": "the near side of the shop's name is the letter it begins with"
-        }
-       ]
-      },
-      {
-       "words": "both",
-       "gives": "AND",
-       "note": "taking one and the other means saying the joining word out loud, and here it is spelt out in letters"
-      },
-      {
-       "words": "sides of Harrods?",
-       "gives": "S",
-       "note": "the far side of the same name is the letter it finishes on"
+       "words": "both sides of Harrods",
+       "at": 15,
+       "note": "the sides of a word are its outer letters, so both sides of Harrods are its first letter joined by a conjunction to its last"
       }
      ]
     },
     "explanation": {
-     "surface": "The staff working at either end of Harrods, the Knightsbridge department store.",
-     "walkthrough": "Read the two end letters of the shop as a pair — H and S — and write the little joining word down as letters rather than saying it. That is the whole device.",
-     "definitionFit": "Hands are workers — factory hands, all hands on deck — so the plural noun answers 'people working' rather than naming any body part."
+     "surface": "Staff at the London department store Harrods, on duty all over the shop.",
+     "walkthrough": "Read the answer as H AND S: those are the letters at both sides of Harrods. Harrods is a famous London department store.",
+     "definitionFit": "Hands are workers, as in farmhands or all hands on deck: people employed to do manual work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sides"
     }
    }
   },
@@ -702,42 +700,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CAPPUCCINO",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "Cutting something shortens it, so the name arrives without the letter it ends on."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Top",
+       "at": 0,
+       "gives": "CAP",
+       "note": "a cap is a top, as on a bottle"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 18,
+         "note": "cut means shortened, so the composer's name loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Top",
-         "gives": "CAP",
-         "note": "the top of a bottle is its cap"
-        },
-        {
          "words": "star of opera",
-         "gives": "PUCCIN",
-         "note": "Puccini wrote Tosca and La Boheme, and his last letter is docked here"
+         "at": 4,
+         "gives": "PUCCINI",
+         "note": "Puccini, composer of La Boheme and Tosca, is a star of opera"
         },
         {
-         "words": "over",
-         "gives": "O",
-         "note": "o is the cricket scoreboard's short form for an over"
+         "gives": "I"
         }
        ]
+      },
+      {
+       "words": "over",
+       "at": 22,
+       "gives": "O",
+       "note": "O is the cricket scorecard abbreviation for over"
       }
      ]
     },
     "explanation": {
-     "surface": "Opera's biggest name has his part trimmed while everyone is out having a drink.",
-     "walkthrough": "'Top star of opera' reads as one phrase, and prising the first word off it is the whole solve — after that the composer is unmistakable.",
-     "definitionFit": "A cappuccino is the espresso-and-foamed-milk coffee, so 'drink' is the plain category word: the thing that ends up in the cup."
+     "surface": "A leading opera singer is cut down at the top, over a drink.",
+     "walkthrough": "'cut' trims PUCCINI to PUCCIN; CAP (top) goes in front and O (over, from cricket) behind.",
+     "definitionFit": "A cappuccino is an espresso coffee topped with frothed milk, a popular drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "star"
     }
    }
   },
@@ -804,37 +812,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADAMANTLY",
-     "indicators": [
-      {
-       "text": "eviscerated",
-       "note": "To eviscerate is to take the guts out, so the word keeps only its outermost letters."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Rock frontman",
+       "at": 0,
+       "gives": "ADAMANT",
+       "note": "Adam Ant fronted the 1980s rock band Adam and the Ants"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "eviscerated",
+         "at": 14,
+         "note": "eviscerated means gutted, with the insides taken out, so only the first and last letters remain"
+        }
+       ],
        "parts": [
         {
-         "words": "Rock frontman",
-         "gives": "ADAMANT",
-         "note": "Adam Ant fronted the British band Adam and the Ants in the 1980s"
-        },
-        {
          "words": "legally",
-         "gives": "LY",
-         "note": "the outside letters of the word, with its insides removed"
+         "at": 26,
+         "note": "the first and last letters of legally"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rock star is gutted in court and comes away with a conviction.",
-     "walkthrough": "'With conviction' sits beside 'legally' so that both belong to the courtroom, and the definition is the sense no jury ever uses.",
-     "definitionFit": "To say a thing adamantly is to say it with conviction, refusing to be shifted, so the adverb takes the phrase's place exactly."
+     "surface": "A rock singer is gutted, but in a lawful way, by his conviction.",
+     "walkthrough": "'eviscerated' guts legally to LY, which follows ADAM ANT, the 1980s rock singer.",
+     "definitionFit": "To act adamantly is to act firmly and unshakeably, refusing to change your mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "conviction"
     }
    }
   },
@@ -958,40 +972,44 @@
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "TA",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "'ultimately' points at the end of things, so the words before it give up only the letter each one finishes on."
+         "at": 10,
+         "note": "ultimately points to the last letter of each of the two words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Flat tuba ultimately",
-         "gives": "TA",
-         "select": "last",
-         "note": "the closing letters of those two words, in the order they stand"
+         "words": "Flat tuba",
+         "at": 0,
+         "note": "the last letters of Flat and tuba"
         }
        ]
       },
       {
        "words": "ruined",
+       "at": 21,
        "gives": "BLEW",
-       "note": "somebody who blew it ruined it"
+       "note": "blew, as in blew it, means ruined a chance"
       },
       {
        "words": "live",
+       "at": 28,
        "gives": "ARE",
-       "note": "to live is to be, and 'are' is that verb in the plural present"
+       "note": "are means exist, or live"
       }
      ]
     },
     "explanation": {
-     "surface": "A tuba playing flat wrecks a band's live set.",
-     "walkthrough": "'Live set' belongs to the band, not to the table, and 'ruined' is the dominant false path: it looks like an instruction to shuffle and is a past tense meaning wrecked.",
-     "definitionFit": "Tableware is the plates, glasses and cutlery laid out for a meal, which is exactly the set put in front of the people eating."
+     "surface": "A tuba player plays flat and wrecks a live set in front of a restaurant crowd.",
+     "walkthrough": "'ruined' looks like an anagram signal but is a synonym, as in 'blew it'; 'live' means exist rather than performed in front of an audience.",
+     "definitionFit": "Tableware means the plates, cutlery and glasses laid out for a meal, the set used by people eating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
     }
    }
   },
@@ -1016,37 +1034,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLACEMENT",
-     "indicators": [
-      {
-       "text": "Endless",
-       "note": "Endless means the end has gone, so the word turns up one letter shorter than it should be."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Endless",
+         "at": 0,
+         "note": "endless means without its end, so the last letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "amusement",
-         "gives": "PLA",
-         "note": "amusement is play, docked of its last letter"
+         "at": 8,
+         "gives": "PLAY",
+         "note": "play is amusement or recreation"
         },
         {
-         "words": "setter",
-         "gives": "CEMENT",
-         "note": "cement is a setter in the literal sense: pour it and it goes hard"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "words": "setter",
+       "at": 23,
+       "gives": "CEMENT",
+       "note": "cement is something that sets hard"
       }
      ]
     },
     "explanation": {
-     "surface": "Endless fun in the company of the person who compiles the crossword.",
-     "walkthrough": "'Setter' in a cryptic almost always means the compiler, so ME or MOG is what a solver reaches for first; here it is something that sets in a mixer.",
-     "definitionFit": "A placement is where something has been set down, and a setting is the position a thing is put in — both nouns name the same idea."
+     "surface": "A crossword setter finds endless fun in setting puzzles.",
+     "walkthrough": "The 'setter' is not the crossword compiler but a substance that sets hard.",
+     "definitionFit": "A placement is a position or arrangement, the way something is set in its place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "setter"
     }
    }
   },
@@ -1075,35 +1103,38 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "B",
        "indicators": [
         {
-         "text": "introductory",
-         "note": "An introduction comes at the very start, so only the character the word opens with is wanted."
+         "text": "introductory letter from",
+         "at": 7,
+         "note": "the introductory letter is the opening one, so the first letter of the next word is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "letter from bank",
-         "gives": "B",
-         "select": "first",
+         "words": "bank",
+         "at": 32,
          "note": "the first letter of bank"
         }
        ]
       },
       {
        "words": "loan",
+       "at": 41,
        "gives": "LEND",
        "note": "to loan is to lend"
       }
      ]
     },
     "explanation": {
-     "surface": "The bank writes an opening letter about muddling up a loan.",
-     "walkthrough": "'Letter from bank' reads as correspondence dropping through the door, and the letter wanted is a single character of the alphabet.",
-     "definitionFit": "To blend is to mix things up until they are one, which is 'mix up' in the same tense and the same everyday sense."
+     "surface": "A muddle over an initial letter from the bank and a loan.",
+     "walkthrough": "'introductory letter from' gives B, the first letter of bank, and LEND (loan) follows.",
+     "definitionFit": "To blend is to mix things together, the action done when you mix up ingredients."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letter"
     }
    }
   },
@@ -1209,41 +1240,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "YACHT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "ruptures",
+       "at": 8,
+       "note": "ruptures means breaks into, so the current goes inside the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "ruptures",
-         "note": "Something that ruptures a thing breaks into it, so this piece is forced inside rather than laid alongside."
-        },
-        {
          "text": "capsized",
-         "note": "A capsized craft has gone right over, so the word it applies to is written the other way round."
+         "at": 27,
+         "note": "capsized means turned over, so the word is read upside down, bottom to top in a down answer"
         }
        ],
        "parts": [
         {
          "words": "your once",
-         "gives": "YHT",
-         "note": "thy is the old-fashioned your, and it goes in overturned"
-        },
-        {
-         "words": "Current",
-         "gives": "AC",
-         "note": "AC is alternating current, the sort that comes out of the wall"
+         "at": 17,
+         "gives": "THY",
+         "note": "thy is the old word for your"
         }
        ]
+      },
+      {
+       "words": "Current",
+       "at": 0,
+       "gives": "AC",
+       "note": "AC is alternating current"
       }
      ]
     },
     "explanation": {
-     "surface": "A powerful current tears apart the boat you used to own.",
-     "walkthrough": "'Current' looks like the water doing the damage and is the electrical sort, while 'your once' is a single archaic word — the step that hides longest.",
-     "definitionFit": "A yacht is a boat, the pleasure kind under sail or engine, so 'boat' is the plain category word that covers it."
+     "surface": "An old tide breaks open the hull of your boat, which has turned over.",
+     "walkthrough": "'capsized' turns THY (your, in older English) into YHT, and AC (alternating current) 'ruptures' it between Y and HT.",
+     "definitionFit": "A yacht is a sailing or motor vessel used for pleasure or racing, a kind of boat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Current"
     }
    }
   },
@@ -1395,37 +1435,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHARADE",
-     "indicators": [
-      {
-       "text": "outwardly shunned",
-       "note": "What is shunned outwardly is dropped from the outside, so the word gives up the letter at each of its ends."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Tea",
+       "at": 0,
+       "gives": "CHA",
+       "note": "cha is slang for tea"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "outwardly shunned",
+         "at": 11,
+         "note": "outwardly shunned means the outside letters are avoided, so only the inner part of the word is kept"
+        }
+       ],
        "parts": [
         {
-         "words": "Tea",
-         "gives": "CHA",
-         "note": "cha, like char, is British slang for tea, taken from the Chinese"
-        },
-        {
          "words": "grader",
-         "gives": "RADE",
-         "note": "the word with the letters at its two ends taken away"
+         "at": 4,
+         "note": "the inner letters of grader, without its ends"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tea grader makes a visible point of having no time for pretence.",
-     "walkthrough": "Tea is worth learning twice over, since cha and char both stand for it, and the answer happens to name the very kind of clue it is sitting in.",
-     "definitionFit": "A charade is a pretence kept up for show — going through the motions of something nobody believes in — so the two nouns match."
+     "surface": "A tea grader is shunned for putting on a show.",
+     "walkthrough": "'outwardly shunned' strips the outer letters from grader to leave RADE, after CHA, slang for tea.",
+     "definitionFit": "A charade is an absurd sham, a show put on to keep up appearances, so a pretence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grader"
     }
    }
   },
@@ -1509,40 +1554,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "STREAKER",
      "indicators": [
       {
-       "text": "essentially",
-       "note": "The essence of a word is its very middle, so this points at the single letter sitting at the centre of it."
-      },
-      {
-       "text": "out for",
-       "note": "'out for' is an exchange: the letter named before it leaves and the piece named after it takes the vacated place."
+       "text": "essentially out for",
+       "at": 11,
+       "note": "essentially points to the central letter of the word, which goes out and gives way to the replacement"
       }
      ],
      "parts": [
       {
        "words": "Footballer",
+       "at": 0,
        "gives": "STRIKER",
-       "note": "a striker is the forward whose job is scoring"
+       "note": "a striker is a forward footballer whose job is to score"
       },
       {
-       "words": "essentially out",
-       "gives": "I",
-       "note": "the letter at the dead centre of that seven-letter word is the one that leaves"
+       "gives": "I"
       },
       {
        "words": "each",
-       "gives": "EA",
-       "note": "ea. is the price-list short form of each"
+       "at": 31,
+       "gives": "EA"
       }
      ]
     },
     "explanation": {
-     "surface": "A footballer is out of the game every time somebody runs across the pitch with nothing on.",
-     "walkthrough": "'Uncovered' looks like a wordplay instruction, a letter laid bare, and it belongs to the definition instead — which is where the pitch invader turns up.",
-     "definitionFit": "A streaker is somebody who runs naked across a pitch, so 'uncovered runner' is a literal description: wearing nothing, and running."
+     "surface": "A footballer is essentially out for each match and goes running elsewhere.",
+     "walkthrough": "STRIKER has I at its centre; 'essentially out for' takes it out and puts EA (each) in its place.",
+     "definitionFit": "A streaker is someone who runs naked through a public place, often a sports ground, so a runner without clothes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Footballer"
     }
    }
   }
