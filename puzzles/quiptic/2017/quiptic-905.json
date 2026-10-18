@@ -959,52 +959,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENCRYPT",
+     "op": "composite",
      "indicators": [
       {
        "text": "Awful",
-       "note": "something awful is a mess, so these letters are jumbled"
+       "at": 0,
+       "note": "awful suggests something in a mess, so the letters are rearranged"
+      },
+      {
+       "text": "has no",
+       "at": 16,
+       "note": "has no says the named letter is missing from the jumbled pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ENCRYPT",
-       "indicators": [
-        {
-         "text": "has no",
-         "note": "having none of something means it is missing, so those letters are dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "pity",
+         "at": 6,
          "note": "taken as written"
         },
         {
          "words": "Cern",
-         "note": "taken as written"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral one; it is removed"
+         "at": 11,
+         "note": "taken as written: CERN is the European particle physics laboratory"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 23,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
       }
      ]
     },
     "explanation": {
-     "surface": "A shame the CERN physics lab has nobody to secure its data.",
-     "definitionFit": "To encrypt data is to convert it into a cipher so that outsiders cannot read it."
+     "surface": "A sad remark that the CERN physics lab has no single thing to scramble its data with.",
+     "walkthrough": "PITY and CERN together hold the answer's letters plus an I; 'has no' one takes out the I, and 'Awful' rearranges the rest.",
+     "definitionFit": "To encrypt information is to convert it into a secret code so outsiders cannot read it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "one"
+     "misdirectedWord": "Awful"
     }
    }
   },

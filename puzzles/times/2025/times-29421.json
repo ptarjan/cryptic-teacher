@@ -1187,42 +1187,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Initially",
-       "note": "take the initial, first letter"
+       "text": "in",
+       "at": 18,
+       "note": "in tells us the opening letter is placed inside the other pieces"
       }
      ],
      "parts": [
       {
-       "words": "a vessel",
-       "gives": "AVAT",
-       "note": "a vessel = A VAT, a large tank"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 21
+        },
+        {
+         "words": "vessel",
+         "at": 23,
+         "gives": "VAT",
+         "note": "a vat is a large vessel for liquids"
+        }
+       ]
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
-         "text": "in",
-         "note": "the letter goes in the vessel"
+         "text": "Initially",
+         "at": 0,
+         "note": "initially means at the start, so only the first letter is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Initially seasick",
-         "gives": "S",
-         "select": "first",
-         "note": "first letter of seasick"
+         "words": "seasick",
+         "at": 10,
+         "note": "taken as written, and only its first letter kept"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A seasick sailor clinging on in a boat.",
-     "walkthrough": "'Vessel' suggests a ship, but it is a vat. 'Hold fast' is used in its sense of halt.",
-     "definitionFit": "A sailor's command meaning stop or cease, the nautical equivalent of 'halt there'."
+     "surface": "A queasy sailor aboard ship is told to hang on tight.",
+     "walkthrough": "'vessel' suggests a ship, matching the sailing surface, but it is a VAT. Avast is the old nautical order to stop.",
+     "definitionFit": "Avast is a sailors' command to stop or cease, which matches the old order hold fast."
     },
     "features": {
      "answerInScene": true,
@@ -1394,48 +1402,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NERVY",
-     "indicators": [
-      {
-       "text": "casually",
-       "note": "casually arranged letters are out of order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "in the end",
+         "at": 8,
+         "note": "in the end points to the final letter of the word"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "in the end",
-           "note": "take the end, last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Persian in the end",
-           "gives": "PERSIAN",
-           "note": "last letter of Persian"
-          }
-         ]
-        },
+         "words": "Persian",
+         "at": 0,
+         "note": "taken as written, and only its last letter kept"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "casually",
+         "at": 24,
+         "note": "casually suggests a careless arrangement, so the letters are jumbled"
+        }
+       ],
+       "parts": [
         {
          "words": "very",
-         "gives": "ERVY",
-         "note": "anagram fodder, 4 letters"
+         "at": 19,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Persian cat lounging about, while having a litter of kittens.",
-     "walkthrough": "The Persian cat primes 'having kittens' to be literal, but it is British slang for being very anxious.",
-     "definitionFit": "British slang: someone having kittens is in a state of great anxiety, jittery and on edge."
+     "surface": "A Persian cat, it turns out, is giving birth to kittens very casually.",
+     "walkthrough": "'having kittens' looks like a cat giving birth, matching the Persian, but it is the British idiom for being extremely anxious.",
+     "definitionFit": "Having kittens is British slang for being very agitated, and nervy describes someone jittery and on edge."
     },
     "features": {
      "answerInScene": false,

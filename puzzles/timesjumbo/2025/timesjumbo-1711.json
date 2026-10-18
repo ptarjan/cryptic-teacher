@@ -480,38 +480,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "head",
-       "note": "the head of a word is its first letter"
+       "text": "splits",
+       "at": 25,
+       "note": "the climber's letter splits the other word in two by going inside it"
       }
      ],
      "parts": [
       {
        "words": "having not tied the knot",
+       "at": 32,
        "gives": "UNWED",
-       "note": "unwed = not married"
+       "note": "to tie the knot is to marry, so someone who has not is unwed"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "splits",
-         "note": "A breaks into the word for unmarried"
+         "text": "head",
+         "at": 20,
+         "note": "the head of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "abseiler's head",
-         "gives": "ABSEILERHEAD",
-         "note": "first letter of abseiler"
+         "words": "abseiler's",
+         "at": 9,
+         "note": "taken as written, and only its first letter kept"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bold abseiler's head injury comes from a fall, as the knot was never tied.",
-     "walkthrough": "'Tied the knot' pulls toward ropes, fitting the abseiler; it means marriage.",
-     "definitionFit": "Plain synonym: not overawed or intimidated, so showing no fear."
+     "surface": "A climber roping down a cliff has a split head because a knot was left untied.",
+     "walkthrough": "'having not tied the knot' looks like a climbing mistake, matching the abseiler, but it is the idiom for marriage.",
+     "definitionFit": "Unawed means not overawed or daunted, so it describes someone fearless."
     },
     "features": {
      "answerInScene": false,
@@ -673,43 +676,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AJACCIO",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcomes",
+       "at": 16,
+       "note": "to welcome someone is to take them in, so the sailor goes inside the jumbled greeting"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Unexpected",
-         "note": "the letters of CIAO arrive in an unexpected order"
-        },
-        {
-         "text": "welcomes"
-        },
-        {
-         "text": "docked",
-         "note": "a docked tail is cut short, so JACK loses its end"
+         "at": 0,
+         "note": "unexpected suggests the word turns up in a surprising form, so its letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "ciao",
-         "note": "anagram fodder"
+         "at": 11,
+         "note": "taken as written: an Italian greeting"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "docked",
+         "at": 32,
+         "note": "docked means having its tail cut off, so the sailor loses his last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sailor",
+         "at": 25,
+         "gives": "JACK",
+         "note": "a jack, or jack tar, is a sailor"
         },
         {
-         "words": "sailor docked",
-         "gives": "JAC",
-         "note": "JACK (a sailor, as in Jack Tar) cut short"
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A surprise greeting for a sailor whose ship has tied up at a French harbour.",
-     "walkthrough": "'Docked' fits a sailor in port perfectly, and means cut short.",
-     "definitionFit": "Ajaccio is the chief port of Corsica, which is French."
+     "surface": "A surprise Italian greeting for a sailor arriving in a French harbour.",
+     "walkthrough": "'docked' fits the harbour scene, as if the sailor's ship had come in, but here it means cutting off a tail, as with a dog's.",
+     "definitionFit": "Ajaccio is the capital of Corsica, a French island, and a ferry port."
     },
     "features": {
      "answerInScene": true,
@@ -799,58 +818,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ILLICIT",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "needing medical assistance",
+       "at": 9,
+       "gives": "ILL",
+       "note": "someone ill needs a doctor's help"
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
+         "text": "somehow",
+         "at": 57,
+         "note": "somehow suggests the letters are put together in some new way, so they are rearranged"
+        },
+        {
          "text": "avoiding",
-         "note": "the letters N and Y are avoided, left out"
+         "at": 45,
+         "note": "avoiding means keeping away from, so the named letters are left out of the pool"
         }
        ],
        "parts": [
         {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "somehow",
-           "note": "they are not together, so have to be picked out in some way"
-          }
-         ],
          "parts": [
           {
-           "words": "needing medical assistance",
-           "gives": "ILL",
-           "note": "ill = sick"
+           "words": "in",
+           "at": 36,
+           "note": "taken as written"
           },
           {
-           "words": "in city",
-           "gives": "ICIT",
-           "note": "IN CITY with N and Y removed"
+           "words": "city",
+           "at": 39,
+           "note": "taken as written"
           }
          ]
         },
         {
-         "unchecked": true,
          "words": "NY",
-         "note": "the letters N and Y, taken out of 'in city'"
+         "at": 54,
+         "note": "taken as written: the abbreviation for New York"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sick criminal needs a doctor in town but keeps clear of New York.",
-     "walkthrough": "The N and Y leave 'in city' as separate letters, not as New York.",
-     "definitionFit": "Plain synonym: something forbidden by law, as in illicit drugs, is criminal."
+     "surface": "A crook needs a doctor in the city but somehow keeps clear of New York.",
+     "walkthrough": "IN and CITY hold the letters ICIT plus N and Y; 'avoiding NY' takes those two out, and the anagram signal in the clue rearranges what is left.",
+     "definitionFit": "Illicit means unlawful or forbidden, so it is a synonym for criminal as an adjective."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "NY"
+     "misdirectedWord": "city"
     }
    }
   },
@@ -1365,27 +1388,26 @@
      "op": "container",
      "indicators": [
       {
-       "text": "occupies"
+       "text": "occupies",
+       "at": 14,
+       "note": "to occupy a seat is to sit in it, so these pieces go inside the emptied seat"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "ST",
        "indicators": [
         {
          "text": "empty",
-         "note": "SEAT emptied of its middle leaves S and T"
+         "at": 23,
+         "note": "empty means with the contents removed, so only the outer letters remain"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "empty seat",
-         "gives": "ST",
-         "select": "outer",
-         "note": "SEAT without its inside"
+         "words": "seat",
+         "at": 29,
+         "note": "taken as written, then emptied"
         }
        ]
       },
@@ -1394,26 +1416,28 @@
        "parts": [
         {
          "words": "The way",
+         "at": 0,
          "gives": "HOW",
-         "note": "how = the way"
+         "note": "how means the way or manner something is done"
         },
         {
          "words": "scarf",
+         "at": 8,
          "gives": "BOA",
-         "note": "a boa is a feather scarf"
+         "note": "a boa is a long fluffy scarf"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spectator leaves a scarf on an empty seat in the stand.",
-     "walkthrough": "'Grandstand' is at the end and looks like the stadium; it is the verb meaning to play to the crowd.",
-     "definitionFit": "Plain synonym: both verbs mean showing off to spectators to win applause."
+     "surface": "At a sports stadium, someone's scarf is draped over an unoccupied seat in the stand.",
+     "walkthrough": "'grandstand' looks like a noun from the stadium picture but is the verb to show off. 'empty' turns seat into ST.",
+     "definitionFit": "To showboat is to show off to an audience, the same as the verb grandstand."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "grandstand"
     }
    }
@@ -2182,47 +2206,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "tablet possibly",
-      "at": 6
+      "text": "One's tablet possibly",
+      "at": 0,
+      "note": "read as a tablet is possibly one of these: a definition by example"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MEDICINE",
-     "indicators": [
-      {
-       "text": "reduced",
-       "note": "MEDIA is cut short by its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 22,
+         "note": "reduced means made shorter, so the last letter of the word is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "channels",
-         "gives": "MEDI",
-         "note": "MEDIA (channels of communication) reduced"
+         "at": 30,
+         "gives": "MEDIA",
+         "note": "media are channels of communication"
         },
         {
-         "words": "for movies",
-         "gives": "CINE",
-         "note": "cine- = to do with films"
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "for movies",
+       "at": 39,
+       "gives": "CINE",
+       "note": "cine is the prefix used for things to do with movies, as in cine film"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's tablet computer has fewer channels for watching films.",
-     "walkthrough": "'Tablet' and 'channels' suggest a streaming device; the tablet is a pill.",
-     "definitionFit": "Definition by example: a pill or tablet is one form in which drugs are taken."
+     "surface": "Someone's tablet computer has trimmed its list of film channels.",
+     "walkthrough": "'tablet' suggests a screen device, matching the channels and movies, but it is a pill. 'reduced' cuts MEDIA to MEDI.",
+     "definitionFit": "A tablet is one form a drug can take, so it is possibly an example of the remedy."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "tablet"
     }
    }
@@ -3436,51 +3464,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "curtailed",
-       "note": "curtailed literally means with the tail cut off, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "giving away",
-         "note": "giving something away means parting with it, so the word loses that letter"
+         "text": "curtailed",
+         "at": 4,
+         "note": "curtailed means having its tail cut off, so the last letter goes"
         }
        ],
        "parts": [
         {
-         "words": "Din curtailed",
-         "gives": "DI",
-         "note": "DIN without its last letter"
+         "words": "Din",
+         "at": 0,
+         "note": "taken as written, then shortened"
         },
         {
-         "words": "school",
-         "gives": "SCH",
-         "note": "sch = school"
-        },
-        {
-         "words": "debate",
-         "gives": "ARGUE",
-         "note": "argue = debate"
+         "gives": "N"
         }
        ]
       },
       {
-       "words": "uniform",
-       "gives": "U",
-       "note": "U = uniform in the phonetic alphabet, removed"
+       "words": "school",
+       "at": 14,
+       "gives": "SCH"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "giving away",
+         "at": 32,
+         "note": "giving away means surrendering, so the named letter is removed from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "debate",
+         "at": 21,
+         "gives": "ARGUE",
+         "note": "to argue is to debate"
+        },
+        {
+         "words": "uniform",
+         "at": 44,
+         "gives": "U",
+         "note": "Uniform is the NATO phonetic alphabet word for U"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Noise cut short a school debate about letting pupils ditch uniform.",
-     "walkthrough": "'On' puts ARGE after the other pieces. 'Uniform' reads as school clothes; it is U.",
-     "definitionFit": "To discharge someone is to release them, set them free."
+     "surface": "School noise cut short as a debate on scrapping uniforms gives pupils freedom.",
+     "walkthrough": "'curtailed' shortens Din to DI, and 'giving away uniform' takes U out of ARGUE to leave ARGE. 'free' is a verb here.",
+     "definitionFit": "To discharge someone is to release them, from hospital, prison or the army, which is to free them."
     },
     "features": {
      "answerInScene": false,

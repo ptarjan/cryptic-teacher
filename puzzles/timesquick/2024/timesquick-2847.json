@@ -953,53 +953,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NURSE",
-     "indicators": [
-      {
-       "text": "to lose heart",
-       "note": "the heart of a word is its middle, so losing it means the central letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 14,
+         "note": "in a down clue, up means the word is read from the bottom upwards, so backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "up",
-           "note": "in a down clue, up means read from bottom to top, so the letters run backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "hurry",
-           "gives": "RUN",
-           "note": "to run is to hurry"
-          }
-         ]
-        },
+         "words": "hurry",
+         "at": 8,
+         "gives": "RUN",
+         "note": "to hurry is to run"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to lose heart",
+         "at": 23,
+         "note": "losing heart means the middle letters of the word are taken out"
+        }
+       ],
+       "parts": [
         {
          "words": "sure",
-         "gives": "SE",
-         "note": "the word with its middle two letters removed"
+         "at": 18,
+         "note": "taken as written, then its middle removed"
+        },
+        {
+         "gives": "UR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice that you tend to rush things, and are bound to become discouraged.",
-     "walkthrough": "'Tend to' reads as 'be inclined to', but 'Tend' alone is the definition, meaning care for.",
-     "definitionFit": "To nurse a patient is to look after them, which is exactly what tending someone means."
+     "surface": "Advice to get a move on, though someone certain is losing their nerve.",
+     "walkthrough": "'to lose heart' removes UR, the middle of sure, leaving SE.",
+     "definitionFit": "To nurse a patient is to look after and care for them, which is what tend means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Tend"
+     "misdirectedWord": "heart"
     }
    }
   },
