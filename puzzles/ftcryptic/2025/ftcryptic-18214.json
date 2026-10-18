@@ -699,35 +699,38 @@
      "indicators": [
       {
        "text": "moved",
-       "note": "letters that are moved are put into a different order"
+       "at": 19,
+       "note": "moved means the remaining letters are shifted into a new order"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "PLATY",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half of",
-         "note": "half of a word means only its first five of ten letters are kept"
+         "at": 0,
+         "note": "half of means only the first five of the ten letters of platypuses are used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "platypuses",
-         "gives": "PLATY",
-         "select": "first",
-         "note": "the first half of this ten-letter word"
+         "at": 8,
+         "note": "the word whose first half is taken"
+        },
+        {
+         "gives": "PUSES",
+         "note": "the second half of platypuses, which is discarded"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some platypuses relocated somewhere that suits them.",
-     "definitionFit": "Aptly is an adverb meaning appropriately or fittingly, done in a manner that suits."
+     "surface": "Some of the duck-billed animals relocated, and fittingly so.",
+     "walkthrough": "'Half of' keeps PLATY, and 'moved' rearranges those five letters.",
+     "definitionFit": "Aptly is the adverb from apt, meaning fittingly or appropriately, in a suitable manner."
     },
     "features": {
      "answerInScene": false,
@@ -1066,40 +1069,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BONEHEAD",
      "indicators": [
       {
        "text": "for Spooner",
-       "note": "Spooner swapped the opening sounds of words, so the starts of the two words trade places"
+       "at": 13,
+       "note": "for Spooner means the opening sounds of the two words are swapped, as Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Perfect",
+       "at": 0,
+       "gives": "HONE",
+       "note": "to hone a skill is to perfect it"
+      },
+      {
+       "op": "homophone",
+       "spelt": "BEAD",
        "parts": [
         {
-         "unchecked": true,
-         "words": "Perfect",
-         "gives": "BONE",
-         "soundsLike": "HONE",
-         "note": "to hone is to perfect; its opening sound is traded for that of the next word"
-        },
-        {
-         "unchecked": true,
          "words": "plot",
-         "gives": "HEAD",
-         "soundsLike": "BED",
-         "note": "a bed is a garden plot; its opening sound is traded for that of the previous word"
+         "at": 8,
+         "gives": "BED",
+         "note": "a bed is a garden plot for flowers"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An ideal storyline for Spooner and his friend Charlie.",
-     "walkthrough": "'Charlie' looks like a friend's name, but a charlie is British slang for a fool.",
-     "definitionFit": "A bonehead is an informal word for a stupid person, just as a charlie is a silly fool."
+     "surface": "An ideal story for the Reverend Spooner and his friend Charlie.",
+     "walkthrough": "'for Spooner' swaps the first sounds of HONE and BED: hone bed becomes bone head. The swap works on sound, so the bed sound is written BEAD, the -ead spelt as in bread. In British slang a charlie is a fool.",
+     "definitionFit": "A bonehead is a stupid person, as is a charlie in British slang."
     },
     "features": {
      "answerInScene": false,
@@ -1566,35 +1567,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CHOIR",
      "indicators": [
       {
-       "text": "replacing",
-       "note": "replacing means one item takes over the place of another"
+       "text": "replacing last couple of",
+       "at": 5,
+       "note": "replacing last couple of means the final two letters give way to the king"
       }
      ],
      "parts": [
       {
+       "words": "select",
+       "at": 30,
+       "gives": "CHOICE",
+       "note": "choice as an adjective means select, of high quality"
+      },
+      {
+       "gives": "CE",
+       "note": "the last two letters of the word for select"
+      },
+      {
        "words": "King",
+       "at": 0,
        "gives": "R",
        "note": "R is Rex, Latin for king"
-      },
-      {
-       "words": "last couple of",
-       "gives": "CE",
-       "note": "the final two letters of the word for select, which get swapped out"
-      },
-      {
-       "words": "select",
-       "gives": "CHOICE",
-       "note": "choice as an adjective means select, top quality"
       }
      ]
     },
     "explanation": {
-     "surface": "A king takes the place of the last two members of an exclusive group of singers.",
-     "definitionFit": "A choir is an organised group of people who sing together, a body of singers."
+     "surface": "A monarch steps in for the final pair of an elite group of vocalists.",
+     "walkthrough": "Select reads like a verb, but it is the adjective, choice; 'replacing last couple of' swaps its CE for R.",
+     "definitionFit": "A choir is an organised group of singers, as in a church or cathedral."
     },
     "features": {
      "answerInScene": true,

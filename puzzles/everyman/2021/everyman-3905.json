@@ -49,53 +49,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BARGRAPH",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the word loses its final letter"
+       "text": "stocking",
+       "at": 28,
+       "note": "stocking means keeping in stock, so the pub and hotel hold the next part inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
+       "parts": [
+        {
+         "words": "pub",
+         "at": 14,
+         "gives": "BAR",
+         "note": "a bar is a pub"
+        },
+        {
+         "words": "hotel",
+         "at": 22,
+         "gives": "H",
+         "note": "H is hotel in the NATO phonetic alphabet"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "stocking",
-         "note": "a shop stocking goods keeps them inside, so the outer letters hold the inner ones"
+         "text": "mostly",
+         "at": 37,
+         "note": "mostly means most of the word, so its last letter is dropped"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "pub",
-           "gives": "BAR",
-           "note": "a bar is a pub"
-          },
-          {
-           "words": "hotel",
-           "gives": "H",
-           "note": "H is hotel in the NATO phonetic alphabet"
-          }
-         ]
+         "words": "pinot, perhaps",
+         "at": 44,
+         "gives": "GRAPE",
+         "note": "pinot is a variety of grape, so this is a definition by example"
         },
         {
-         "words": "pinot, perhaps",
-         "gives": "GRAP",
-         "note": "pinot is a kind of grape; without its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wine list or sales chart for a pub and hotel well supplied with pinot noir.",
-     "walkthrough": "Pinot is a grape variety, which is why 'perhaps' is there: it gives an example, so the solver must supply the category.",
-     "definitionFit": "A bar graph is a type of chart that shows quantities as rectangular columns of differing heights."
+     "surface": "A display showing a pub and hotel that keep a good supply of pinot.",
+     "walkthrough": "'stocking' is not hosiery but holding in stock: the pub and hotel enclose the shortened grape. 'perhaps' marks pinot as only one example of a grape.",
+     "definitionFit": "A bar graph is a chart that compares quantities using rectangular columns of differing heights."
     },
     "features": {
      "answerInScene": false,

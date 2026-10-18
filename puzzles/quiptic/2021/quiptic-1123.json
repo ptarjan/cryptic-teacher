@@ -94,29 +94,33 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SPRY",
      "indicators": [
       {
        "text": "being",
-       "note": "the setter treats this as saying one word is being another, so part of the first is swapped for a synonym"
+       "at": 7,
+       "note": "being is read as standing for, so the poke inside spoke is taken as being its synonym and swapped for it"
       }
      ],
      "parts": [
       {
        "words": "Spoke",
-       "note": "the whole word, read as an S followed by a separate four-letter word"
+       "at": 0,
+       "note": "the word spoke, read as S followed by poke"
       },
       {
-       "words": "poke",
+       "gives": "POKE",
+       "note": "the part of spoke that is swapped out"
+      },
+      {
        "gives": "PRY",
-       "note": "the tail of the word; to poke about is to pry, so a synonym takes its place while the S stays"
+       "note": "to pry is to poke, as in poking into someone's private affairs"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A loose clue: read 'Spoke' as S + POKE, and replace POKE with its synonym PRY (both mean to nose into things). The surface suggests a wheel's spoke.",
-     "definitionFit": "Spry describes someone, usually older, who is nimble and lively on their feet."
+     "surface": "Someone talked while staying nimble.",
+     "walkthrough": "Spoke looks like the past tense of speak, but read it as S plus POKE, then swap poke for its synonym PRY.",
+     "definitionFit": "Spry means lively and nimble, especially of an older person, the same as agile."
     },
     "features": {
      "answerInScene": false,
@@ -237,44 +241,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TIRAMISU",
+     "op": "composite",
      "indicators": [
       {
+       "text": "leaving",
+       "at": 2,
+       "note": "leaving means the lisp from the previous clue is left behind, its letters taken away"
+      },
+      {
        "text": "to go off",
-       "note": "food that goes off turns bad, and the remaining letters likewise spoil into a new order"
+       "at": 23,
+       "note": "to go off means to go bad, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TIRAMISU",
-       "indicators": [
-        {
-         "text": "leaving",
-         "note": "something leaving a place departs from it, so those letters are taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "spiritualism",
-         "note": "taken as written; the letters L, I, S, P are then removed, carried over from the previous clue"
-        }
-       ]
+       "words": "spiritualism",
+       "at": 10,
+       "note": "the anagram fodder, used as written"
+      },
+      {
+       "words": "…",
+       "at": 0,
+       "gives": "LISP",
+       "note": "the dots carry the lisp over from the end of the previous clue, 1 across"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone abandons spiritualism and goes off to eat dessert.",
-     "walkthrough": "The ellipsis links back to 1 across: its 'lisp' is what leaves SPIRITUALISM, and the remaining eight letters are rearranged.",
-     "definitionFit": "Tiramisu is an Italian dessert of coffee-soaked sponge and mascarpone, an example of a pudding."
+     "surface": "Someone with a speech impediment gives up communing with the dead to rush off for dessert.",
+     "walkthrough": "The dots carry the lisp over from 1 across. 'leaving' takes its letters out of spiritualism, and 'to go off' rearranges the rest.",
+     "definitionFit": "Tiramisu is an Italian dessert of coffee-soaked sponge layered with mascarpone cream."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "off"
+     "joke": "absurd",
+     "misdirectedWord": "leaving"
     }
    }
   },
@@ -1329,41 +1332,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "VERBATIM",
      "indicators": [
       {
        "text": "endlessly",
-       "note": "without an end, each word loses its final letter"
+       "at": 30,
+       "note": "endlessly means each word loses its last letter, its end"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "very",
-         "gives": "VER",
-         "note": "the word without its last letter"
-        },
-        {
-         "words": "bad",
-         "gives": "BA",
-         "note": "the word without its last letter"
-        },
-        {
-         "words": "time",
-         "gives": "TIM",
-         "note": "the word without its last letter"
-        }
-       ]
+       "words": "very bad time",
+       "at": 15,
+       "note": "the three words whose final letters are dropped"
+      },
+      {
+       "gives": "YDE",
+       "note": "the last letters of very, bad and time"
       }
      ]
     },
     "explanation": {
-     "surface": "Quoting someone exactly about a very bad time that seemed to go on forever.",
-     "walkthrough": "'Endlessly' sounds like the bad time dragging on, but it trims the last letter from each of the three words before it.",
-     "definitionFit": "Verbatim means in exactly the same words as originally used, a direct synonym."
+     "surface": "A grim period, recounted exactly as it happened.",
+     "walkthrough": "Cut the final letter from each word: VER, BA and TIM.",
+     "definitionFit": "Verbatim is Latin-derived and describes repeating something in exactly the same words."
     },
     "features": {
      "answerInScene": false,
