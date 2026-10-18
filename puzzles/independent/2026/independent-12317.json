@@ -139,44 +139,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INDIGNANT",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "at": 17,
+       "note": "in a down clue a supporting piece sits underneath, so the worker comes after"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "out",
-         "note": "dining is put out of order"
-        },
-        {
-         "text": "supporting"
+         "at": 35,
+         "note": "out means not in proper order, so the letters of dining are rearranged"
         }
        ],
        "parts": [
         {
          "words": "dining",
-         "note": "DINING rearranged"
-        },
-        {
-         "words": "worker",
-         "gives": "ANT",
-         "note": "the worker ant"
+         "at": 28
         }
        ]
+      },
+      {
+       "words": "worker",
+       "at": 10,
+       "gives": "ANT",
+       "note": "an ant is the classic crossword worker"
       }
      ]
     },
     "explanation": {
-     "surface": "A disgruntled employee is stuck propping up customers who are eating out.",
-     "walkthrough": "'Dining out' reads as a meal in a restaurant; 'out' is the instruction to rearrange. Ant = worker is a crossword staple.",
-     "definitionFit": "Indignant means aggrieved, resentful at unfair treatment."
+     "surface": "An employee is upset about having to hold up a restaurant meal.",
+     "walkthrough": "DINING rearranged gives INDIGN, with ANT beneath it.",
+     "definitionFit": "Indignant means angry at unfair treatment, the feeling of someone who has been wronged."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "out"
+     "misdirectedWord": "dining"
     }
    }
   },
@@ -270,38 +274,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "topless",
-       "note": "the word loses its first letter, its top in a down answer"
-      },
-      {
-       "text": "say",
-       "note": "cancans are an example of dances"
-      }
-     ],
      "parts": [
       {
        "words": "complete",
+       "at": 18,
        "gives": "UTTER",
-       "note": "utter = complete, as in utter nonsense"
+       "note": "utter means complete, as in utter nonsense"
       },
       {
-       "words": "cancans",
-       "gives": "ANCES",
-       "note": "cancans are DANCES; drop the D"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 27,
+         "note": "topless means without its top, in a down clue the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cancans, say",
+         "at": 35,
+         "gives": "DANCES",
+         "note": "cancans are examples of dances, signalled by say"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something racy: a complete show of topless cancan dancers.",
-     "walkthrough": "'Topless' works on DANCES, the word that 'cancans, say' stands for, not on CANCANS itself.",
-     "definitionFit": "Utterances are things said aloud, vocal expressions."
+     "surface": "Remarks made about a full show of bare-breasted cancan dancing.",
+     "walkthrough": "'topless cancans' paints a risque show; 'topless' removes the D from DANCES.",
+     "definitionFit": "Utterances are things spoken aloud, statements made with the voice."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "topless"
     }
    }

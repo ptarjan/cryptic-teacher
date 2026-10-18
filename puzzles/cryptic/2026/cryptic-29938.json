@@ -155,51 +155,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MOSES",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "condemned",
-         "note": "something condemned is wrecked, so its letters are knocked about"
+         "at": 21,
+         "note": "something condemned is wrecked or ruined, so the letters of some are knocked into a new order"
         }
        ],
        "parts": [
         {
          "words": "some",
-         "note": "SOME rearranged"
-        },
+         "at": 16
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "at foot of",
-           "note": "the foot of a word is its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "cross",
-           "note": "last letter of CROSS"
-          }
-         ]
+         "text": "at foot of",
+         "at": 31,
+         "note": "the foot is the bottom, in a down clue the last letter, of cross"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cross",
+         "at": 42
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A figure from the Bible, with the condemned at the foot of the cross, evokes the Crucifixion.",
-     "walkthrough": "The surface pulls toward the Gospels, but the figure is from the Old Testament.",
-     "definitionFit": "Moses led the Israelites out of Egypt in the Bible."
+     "surface": "A figure from scripture, some of those condemned at the base of the crucifix.",
+     "walkthrough": "'some' looks like it introduces a hidden word, but SOME is the fodder, rearranged to MOSE.",
+     "definitionFit": "Moses led the Israelites out of Egypt in the Old Testament, a major character of the Bible."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "condemned"
+     "misdirectedWord": "some"
     }
    }
   },
@@ -847,24 +847,20 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "turned",
-       "note": "a boy who has turned faces the other way, so his letters run backwards"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "fleeing",
-         "note": "something fleeing runs away"
+         "text": "turned",
+         "at": 4,
+         "note": "turned means turned round, so the boy word is read backwards"
         }
        ],
        "parts": [
         {
          "words": "Boy",
+         "at": 0,
          "gives": "LAD",
          "note": "a lad is a boy"
         }
@@ -872,30 +868,39 @@
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "fleeing",
+         "at": 18,
+         "note": "something fleeing runs away, so the letter for right leaves the alien word"
+        }
+       ],
        "parts": [
         {
          "words": "alien",
+         "at": 26,
          "gives": "MARTIAN",
-         "note": "a Martian is an alien"
+         "note": "a Martian is an alien from Mars"
         },
         {
          "words": "right",
-         "gives": "R",
-         "note": "r = right, removed from MARTIAN"
+         "at": 11,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boy turns and runs from an alien, then sees a four-legged animal.",
-     "walkthrough": "'Right' sounds like a direction to turn; it is the letter R leaving MARTIAN.",
-     "definitionFit": "A cryptic description: the dog breed famous for its black-spotted white coat is a spotted thing with four legs."
+     "surface": "A boy turned right, running from an alien, and saw a four-legged spotted creature.",
+     "walkthrough": "LAD backwards gives DAL; MARTIAN without R gives MATIAN.",
+     "definitionFit": "The Dalmatian is a dog breed known for its black or liver spots on a white coat."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "right"
+     "joke": "pun",
+     "misdirectedWord": "spotted"
     }
    }
   },
@@ -1380,51 +1385,55 @@
      "op": "container",
      "indicators": [
       {
-       "text": "piercing"
+       "text": "piercing",
+       "at": 47,
+       "note": "something piercing goes into another thing, so these letters sit inside the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "words": "beastly sound",
-         "gives": "LOW",
-         "note": "a low is the sound a cow makes"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "source of",
+           "at": 10,
+           "note": "the source is the start, so the first letter of loud is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "loud",
+           "at": 20
+          }
+         ]
         },
         {
-         "words": "that is",
-         "gives": "IE",
-         "note": "i.e. = that is; it pierces L+LOW after the L"
+         "words": "beastly sound",
+         "at": 25,
+         "gives": "LOW",
+         "note": "to low is to moo, the sound cattle make"
         }
        ]
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "source of",
-         "note": "the source of a word is its first letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "loud",
-         "note": "first letter of LOUD"
-        }
-       ]
+       "words": "that is",
+       "at": 39,
+       "gives": "IE",
+       "note": "ie is the abbreviation of id est, Latin for that is"
       }
      ]
     },
     "explanation": {
-     "surface": "Take cover from a loud piercing animal noise.",
-     "walkthrough": "'Piercing' reads as describing a shrill noise, which suits 'loud beastly sound'; it is a container instruction, and the beast here is a cow.",
-     "definitionFit": "An idiom: to stay out of sight and avoid notice is to hide."
+     "surface": "Hiding from where the noise of a loud animal is coming from.",
+     "definitionFit": "To lie low is to keep out of sight and avoid notice, which is to hide."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "piercing"
+     "misdirectedWord": "beastly"
     }
    }
   },

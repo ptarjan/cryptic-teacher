@@ -211,44 +211,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ASIA",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "up",
-       "note": "in a down clue, going up means reading the word from bottom to top"
+       "text": "for replacing inhabitants of",
+       "at": 16,
+       "note": "the inhabitants are the letters living inside, and they are swapped for the new ones"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "ASIA",
+       "words": "Africa",
+       "at": 45
+      },
+      {
+       "gives": "FRIC"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "for replacing",
-         "note": "one thing standing in for another means the clue's inner letters are swapped out"
+         "text": "up",
+         "at": 13,
+         "note": "in a down clue up means read from the bottom, so the word is reversed"
         }
        ],
        "parts": [
         {
          "words": "is",
-         "note": "taken as written"
-        },
-        {
-         "words": "inhabitants of Africa",
-         "gives": "FRIC",
-         "note": "the inhabitants of a word are its inner letters, all but the first and last"
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A note that one continent's peoples are being displaced by another's.",
-     "walkthrough": "The outer letters of the word Africa stay put; only its middle is swapped for the turned-round word.",
-     "definitionFit": "Asia is the largest of the continents, stretching from the Urals to the Pacific."
+     "surface": "Another continent stands in for the people of Africa.",
+     "walkthrough": "The inner letters of AFRICA (FRIC) give way to IS turned upwards, SI.",
+     "definitionFit": "Asia is the largest of the Earth's continents, so it is one of them."
     },
     "features": {
      "answerInScene": true,
@@ -1367,60 +1367,54 @@
      "indicators": [
       {
        "text": "assuming",
-       "note": "assuming means taking on or taking in, so the letters go inside"
+       "at": 17,
+       "note": "to assume is to take on, so the hybrid word takes in the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Cross",
+       "at": 0,
+       "gives": "MULE",
+       "note": "a mule is a cross between a horse and a donkey"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "Cross",
-         "gives": "MULE",
-         "note": "a mule is a cross between a horse and a donkey"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "to begin with",
-           "note": "to begin with means at the start, so just the opening letter is used"
+           "at": 34,
+           "note": "the first letter of Gandalf is taken"
           }
          ],
          "parts": [
           {
            "words": "Gandalf",
-           "note": "the first letter of Gandalf"
+           "at": 26
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "indicators": [
+        },
         {
-         "text": "repeatedly",
-         "note": "repeatedly says the selected letter is used more than once, here twice"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Gandalf",
-         "note": "the same letter again, as the clue asks for it more than once"
+         "words": "repeatedly",
+         "at": 6,
+         "gives": "G",
+         "note": "repeatedly means the same letter is given once more"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Gandalf crossing a wizard's path, fitting for Tolkien's wizard.",
-     "walkthrough": "'Cross' looks like a verb but is the hybrid animal; MULE takes in G twice: MU-GG-LE.",
-     "definitionFit": "In the Harry Potter books a Muggle is a person with no magical powers."
+     "surface": "An angry Gandalf, crossing a non-magical person again and again.",
+     "walkthrough": "'repeatedly' gives the opening letter of 'Gandalf' a second time. Gandalf is the wizard in Tolkien's books.",
+     "definitionFit": "In the Harry Potter books a muggle is a person without magical powers."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Cross"
     }
    }
