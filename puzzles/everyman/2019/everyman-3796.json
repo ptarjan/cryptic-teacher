@@ -471,22 +471,36 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "RIGHTONTHEDOT",
-     "indicators": [
-      {
-       "text": "restricted by",
-       "note": "something restricted is hemmed in, so it sits inside the words around it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "Topless",
-         "note": "without its top, a word loses its first letter"
+         "at": 0,
+         "note": "topless means with its top taken off, so the resort name loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "resort",
+         "at": 8,
+         "gives": "BRIGHTON",
+         "note": "Brighton is a seaside resort on the south coast of England"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "restricted by",
+         "at": 21,
+         "note": "restricted by means hemmed in, so the party word sits inside the other letters"
         }
        ],
        "parts": [
@@ -494,37 +508,31 @@
          "op": "charade",
          "parts": [
           {
-           "words": "resort",
-           "gives": "BRIGHTON",
-           "note": "Brighton is an English seaside resort on the south coast"
-          },
-          {
            "words": "the",
-           "note": "taken as written"
-          },
-          {
-           "words": "party",
-           "gives": "DO",
-           "note": "a do is a party or celebration"
+           "at": 35
           },
           {
            "words": "tense",
+           "at": 39,
            "gives": "T",
-           "note": "T is the grammatical abbreviation for tense"
+           "note": "T is the grammar abbreviation for tense"
           }
          ]
         },
         {
-         "gives": "B"
+         "words": "party",
+         "at": 15,
+         "gives": "DO",
+         "note": "a do is an informal word for a party"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A beach party at a nudist resort is reined in by uptight people.",
-     "walkthrough": "The party sits inside THE T, not inside the resort; T for tense is a grammar abbreviation.",
-     "definitionFit": "Right on the dot means precisely, exactly as required, which is one sense of the phrase just so."
+     "surface": "A seaside party at a nudist beach is curbed by tense authorities.",
+     "walkthrough": "'Topless' suggests sunbathing, but it removes the first letter of Brighton, a seaside resort in southern England.",
+     "definitionFit": "Right on the dot means exactly or precisely, especially of time, and just so likewise means exactly as it should be."
     },
     "features": {
      "answerInScene": false,
@@ -731,50 +739,54 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "STEEPISH",
      "indicators": [
       {
        "text": "not",
-       "note": "with one letter in and another not, one swaps out for the other"
+       "at": 31,
+       "note": "not tells the solver the hot letter is dropped and the Thai letter put in its place"
       }
      ],
      "parts": [
       {
        "words": "Embarrassed",
+       "at": 0,
        "gives": "SHEEPISH",
-       "note": "sheepish means awkwardly embarrassed"
+       "note": "sheepish means embarrassed or shamefaced"
+      },
+      {
+       "words": "hot",
+       "at": 35,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on a tap"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "starter",
-         "note": "a starter comes first, so just the opening letter is wanted"
+         "at": 22,
+         "note": "starter means the first letter of Thai, the start of the word"
         }
        ],
        "parts": [
         {
          "words": "Thai",
-         "note": "the first letter of Thai"
+         "at": 17,
+         "note": "first letter of Thai"
         }
        ]
-      },
-      {
-       "words": "hot",
-       "gives": "H",
-       "note": "H is the abbreviation for hot, as on taps"
       }
      ]
     },
     "explanation": {
-     "surface": "A diner is red-faced at the price of a Thai appetiser, which is mild but costly.",
-     "walkthrough": "T replaces the first H of SHEEPISH.",
-     "definitionFit": "A steep price is a very high one, and the suffix -ish softens it to rather or somewhat high."
+     "surface": "A diner is embarrassed that a Thai starter, not even spicy, cost so much.",
+     "walkthrough": "'starter' looks like the first course of a meal, but it gives the first letter of Thai, which takes the place of the first H in SHEEPISH.",
+     "definitionFit": "Steep is informal for overpriced, and the suffix -ish means somewhat, so steepish is fairly expensive, a little exorbitant."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "starter"
     }
    }

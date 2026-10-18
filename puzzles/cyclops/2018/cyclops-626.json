@@ -263,50 +263,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EPIGLOTTIS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not quite",
-       "note": "not quite means falling just short, so the word loses its final letter"
+       "text": "askew",
+       "at": 26,
+       "note": "askew means out of line or crooked, so the letters before it are set out of order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "G-spot",
+       "at": 0
+      },
+      {
+       "words": "It",
+       "at": 8
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "askew",
-         "note": "askew means crooked or out of line, so the letters are knocked out of order"
+         "text": "not quite",
+         "at": 16,
+         "note": "not quite the whole word: lies loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "G-spot",
-         "note": "taken as written, without the hyphen"
-        },
-        {
-         "words": "It",
-         "note": "taken as written"
-        },
-        {
          "words": "lies",
-         "gives": "LIE",
-         "note": "the word minus its last letter"
+         "at": 11,
+         "note": "the word lies minus its final S gives LIE"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A smutty question about where the G-spot is, answered with a coy evasion.",
-     "walkthrough": "The surface invites a search somewhere much lower; the letters of G-spot, it and a shortened lies are rearranged.",
-     "definitionFit": "The epiglottis is a flap of cartilage at the back of the throat covering the windpipe during swallowing."
+     "surface": "A smutty question about an erogenous zone, followed by a half-serious claim that it lies somewhere odd.",
+     "walkthrough": "'not quite' trims LIES to LIE; the anagram signal 'askew' then shuffles GSPOT, IT and LIE together.",
+     "definitionFit": "The epiglottis is the flap of cartilage at the back of the tongue that closes the windpipe when swallowing, so it is located in the throat."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "absurd",
      "misdirectedWord": "G-spot"
     }
@@ -1312,46 +1315,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LOUVRE",
      "indicators": [
       {
        "text": "grabbing",
-       "note": "to grab is to take hold of and clutch, so one piece wraps around another"
+       "at": 31,
+       "note": "grabbing means the shuffled letters hold another letter inside them"
       }
      ],
      "parts": [
       {
-       "words": "illicit lover",
-       "gives": "LOVER",
-       "note": "taken as written; illicit only colours the surface"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "illicit",
+         "at": 17,
+         "note": "illicit suggests something improper or irregular, so the letters of lover are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lover",
+         "at": 25
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "rear",
-         "note": "the rear of a word is its last letter"
+         "at": 50,
+         "note": "the rear of the name Trudeau is its final letter"
         }
        ],
        "parts": [
         {
          "words": "Trudeau's",
+         "at": 40,
          "gives": "TRUDEAU",
-         "note": "last letter of Trudeau"
+         "note": "Justin Trudeau, Canadian prime minister; his name ends in U"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Photos of a secret paramour groping the Canadian prime minister's backside.",
-     "walkthrough": "Pictures suggests scandalous photos, but means paintings, and 'here' points to where they hang.",
-     "definitionFit": "The Paris art museum houses paintings such as the Mona Lisa, so it is a place for pictures."
+     "surface": "A tabloid tease about a secret lover getting hold of the Canadian prime minister's bottom.",
+     "walkthrough": "'Lover' is not a synonym here but the anagram fodder, made illicit; the museum is the answer to 'Pictures here'.",
+     "definitionFit": "The Louvre in Paris is the world's most visited art museum, the place where famous paintings such as the Mona Lisa hang."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Pictures"
     }
    }
