@@ -43,47 +43,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VEEP",
-     "indicators": [
-      {
-       "text": "Briefly",
-       "note": "said briefly, a word is cut short, so its final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Briefly",
+         "at": 0,
+         "note": "said briefly, a word is cut short and loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "check",
-         "gives": "VE",
-         "note": "to vet is to check; cut short it loses its T"
+         "at": 8,
+         "gives": "VET",
+         "note": "to vet something is to check it over"
         },
         {
-         "op": "reversal",
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 30,
+         "note": "about means turned round, so those two letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
          "indicators": [
           {
-           "text": "about",
-           "note": "to turn about is to face the other way, so the letters run backwards"
+           "text": "case for",
+           "at": 14,
+           "note": "the case of a word is its outer shell, its first and last letters"
           }
          ],
          "parts": [
           {
-           "op": "outer",
-           "indicators": [
-            {
-             "text": "case for",
-             "note": "a case is the outside of something, so only the outer letters are wanted"
-            }
-           ],
-           "parts": [
-            {
-             "words": "police",
-             "note": "the first and last letters of police"
-            }
-           ]
+           "words": "police",
+           "at": 23,
+           "note": "its outer letters are P and E"
           }
          ]
         }
@@ -92,9 +98,9 @@
      ]
     },
     "explanation": {
-     "surface": "A quick inspection of how American police handle a vice investigation.",
-     "walkthrough": "'Vice' looks like crime for the police to check, but it is vice as in vice-president. VEEP is American slang for the vice-president.",
-     "definitionFit": "Veep is informal American slang for a vice-president, the deputy who stands in for the president."
+     "surface": "Police officers quickly inspect a case concerning vice in the US.",
+     "walkthrough": "'Briefly' trims VET to VE; 'case for' police gives PE, which 'about' turns to EP. 'vice' looks like crime but is short for vice-president.",
+     "definitionFit": "Veep is American slang for the vice-president, the 'vice' in the US government."
     },
     "features": {
      "answerInScene": false,
@@ -432,53 +438,61 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "MISSISSIPPI",
-     "indicators": [
-      {
-       "text": "during",
-       "note": "something happening during an event falls within it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Yearn for",
+       "at": 0,
+       "gives": "MISS",
+       "note": "to miss someone is to yearn for them"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "during",
+         "at": 16,
+         "note": "during means in the course of, so the drink goes into the middle of the following pieces"
+        }
+       ],
        "parts": [
         {
-         "words": "Yearn for",
-         "gives": "MISS",
-         "note": "to miss someone is to yearn for them"
-        },
-        {
-         "words": "one's",
-         "gives": "IS",
-         "note": "one is I, plus the 'S"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one's",
+           "at": 23,
+           "gives": "IS",
+           "note": "one is I, and 's is is, giving I'S"
+          },
+          {
+           "words": "irrational",
+           "at": 29,
+           "gives": "PI",
+           "note": "pi is the best-known irrational number"
+          }
+         ]
         },
         {
          "words": "drink",
+         "at": 10,
          "gives": "SIP",
          "note": "a sip is a small drink"
-        },
-        {
-         "words": "irrational",
-         "gives": "PI",
-         "note": "pi is the best-known irrational number"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone craves a drink while in an unreasonable frame of mind.",
-     "walkthrough": "'State' seems to mean a frame of mind, but it is a US state. Pi is irrational in the mathematical sense: it cannot be written as a fraction.",
-     "definitionFit": "Mississippi is one of the fifty United States, in the Deep South along the great river of that name."
+     "surface": "Someone longs for a drink while in a muddled, irrational state of mind.",
+     "walkthrough": "'irrational state' reads as a mood, but 'state' is the definition: a US state. 'one's' is I plus 'S, and pi is the best-known irrational number.",
+     "definitionFit": "Mississippi is one of the fifty states of the USA, on the Gulf of Mexico."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "irrational"
+     "misdirectedWord": "state"
     }
    }
   },
@@ -760,32 +774,31 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "REDFLAG",
+     "op": "homophone",
+     "spelt": "REDFLAG",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts trade places"
+       "at": 0,
+       "note": "the Reverend Spooner famously swapped the opening sounds of words, so this phrase is said with the starts of its two words traded"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "taken off cheap paper",
-       "gives": "REDFLAG",
-       "soundsLike": "FLED RAG",
-       "note": "taken off is fled, ran away; a rag is a cheap newspaper; swap their opening sounds"
+       "at": 10,
+       "gives": "FLEDRAG",
+       "note": "taken off means fled, and a rag is a cheap newspaper: FLED RAG, which a Spooner would say as the answer"
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner has run off with a cheap newspaper's emblem of left-wing politics.",
-     "walkthrough": "'The left' is the political left, not a direction. A rag is slang for a poor-quality newspaper.",
-     "definitionFit": "The red flag is the traditional banner of socialism and communism, so it stands for left-wing politics."
+     "surface": "Someone has made off with a downmarket tabloid that serves as an emblem of the political left.",
+     "walkthrough": "'Spooner's' swaps the opening FL of FLED with the R of RAG, and FLED RAG is spoken as RED FLAG.",
+     "definitionFit": "The red flag is the traditional banner of socialism and communism, so it stands for the political left."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "left"
     }
@@ -1399,33 +1412,42 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "lines",
+       "at": 29,
+       "note": "lines here means sits in line between, so the French word is lined up in the middle of the other two pieces"
+      }
+     ],
      "parts": [
       {
        "words": "boring",
+       "at": 35,
        "gives": "DRY",
-       "note": "something dry is dull and boring"
+       "note": "dull and boring things are called dry"
       },
       {
        "words": "of French",
+       "at": 19,
        "gives": "DE",
        "note": "de is French for of"
       },
       {
        "words": "Newton",
+       "at": 42,
        "gives": "N",
-       "note": "N is the symbol for a newton, the unit of force"
+       "note": "N is the symbol for the newton, the unit of force named after Isaac Newton"
       }
      ]
     },
     "explanation": {
-     "surface": "A Restoration-era writer finds French verse tedious for Isaac Newton.",
-     "walkthrough": "'Boring' looks like drilling into something, but it simply means dull. Newton is the unit of force, not the scientist; 'lines' fits the surface of a poet's verse.",
-     "definitionFit": "John Dryden was the leading English poet and playwright of the Restoration period after 1660."
+     "surface": "A Restoration-era author penned lines in French which bored Isaac Newton.",
+     "walkthrough": "'lines' is an unusual signal: the French word is lined up between the other two pieces. The Restoration is the English period after 1660, when Charles II returned to the throne.",
+     "definitionFit": "John Dryden was the leading poet and playwright of the Restoration period and the first Poet Laureate."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "boring"
     }
    }
@@ -1718,58 +1740,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CONGREGATE",
-     "indicators": [
-      {
-       "text": "a lot of",
-       "note": "a lot of something is most but not all of it, so the end is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 8,
+         "note": "a lot of something is most of it, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "ice cream",
-         "gives": "CON",
-         "note": "an ice-cream cone, shortened"
+         "at": 17,
+         "gives": "CONE",
+         "note": "a cone is an ice cream served in a wafer cone"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "something in a container is held within it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "jar",
-           "gives": "GRATE",
-           "note": "to jar on the nerves is to grate"
-          },
-          {
-           "words": "say",
-           "gives": "EG",
-           "note": "e.g., for example, means say"
-          }
-         ]
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 33,
+         "note": "in puts the abbreviation for say inside the word for jar"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jar",
+         "at": 36,
+         "gives": "GRATE",
+         "note": "to grate is to jar, as a noise grates on the nerves"
+        },
+        {
+         "words": "say",
+         "at": 28,
+         "gives": "EG",
+         "note": "eg, for example, means say"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Gather up a big stash of ice cream and put it in a jar.",
-     "walkthrough": "'Jar' looks like a container, but it is a verb meaning grate. The ice cream is a cone with its last letter lost.",
-     "definitionFit": "To congregate is to gather together in a group, which is a sense of collect used of people."
+     "surface": "Someone gathering up plenty of ice cream, perhaps stored in a jar.",
+     "walkthrough": "'jar' poses as a container, but it is a verb meaning to grate on someone; 'say' is the usual signal for an example.",
+     "definitionFit": "To congregate is to gather or assemble, so a crowd that congregates collects in one place."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "jar"
     }
    }
