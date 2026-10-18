@@ -463,55 +463,64 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "CARCASS",
-     "indicators": [
-      {
-       "text": "replacing",
-       "note": "replacing means one letter takes another's place in the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Around",
-       "gives": "CIRCA",
-       "note": "circa is Latin for around, used with dates"
-      },
-      {
-       "op": "first",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "the beginning of",
-         "note": "a beginning is the opening of a word, so its first letter is used"
+         "text": "replacing",
+         "at": 30,
+         "note": "replacing says the April letter takes the place of the one letter"
         }
        ],
        "parts": [
         {
-         "words": "April",
-         "note": "opening letter of April"
+         "words": "Around",
+         "at": 0,
+         "gives": "CIRCA",
+         "note": "circa is Latin for around, used with dates"
+        },
+        {
+         "words": "one",
+         "at": 40,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "the beginning of",
+           "at": 7,
+           "note": "the beginning of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "April",
+           "at": 24,
+           "note": "first letter of April"
+          }
+         ]
         }
        ]
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral one"
-      },
-      {
-       "words": "ship",
+       "words": "ship's",
+       "at": 44,
        "gives": "SS",
-       "note": "SS stands for steamship"
+       "note": "SS stands for steamship, a ship prefix"
       }
      ]
     },
     "explanation": {
-     "surface": "Around the start of April a ship's frame is swapped out.",
-     "walkthrough": "'Around' looks like a container signal but supplies CIRCA, whose I becomes A.",
-     "definitionFit": "A carcass can mean the skeleton or structural shell of a building or ship."
+     "surface": "Around early April, one ship's frame is being replaced in the dockyard.",
+     "walkthrough": "'Around' is not a container signal but the word circa; in it the A from 'the beginning of April' goes in 'replacing' the I ('one'), giving CARCA.",
+     "definitionFit": "A carcass is the structural skeleton of something, such as the bare frame of a building or ship."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Around"
     }

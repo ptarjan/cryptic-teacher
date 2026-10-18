@@ -159,58 +159,62 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LOSESFACE",
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "LOSESFACE",
+       "indicators": [
+        {
+         "text": "leaderless",
+         "at": 6,
+         "note": "leaderless means the word loses its leading letter"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "leaderless",
-           "note": "the word loses its first letter, its leader"
-          },
-          {
-           "text": "sadly",
-           "note": "CAFE is upset, so its letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Shut, leaderless",
-           "gives": "LOSE",
-           "note": "CLOSE without its C"
-          },
-          {
-           "words": "small",
-           "gives": "S",
-           "note": "S = small, as on clothing labels"
-          },
-          {
-           "words": "cafe sadly",
-           "gives": "FACE",
-           "note": "CAFE rearranged"
-          }
-         ]
+         "words": "Shut",
+         "at": 0,
+         "gives": "CLOSE",
+         "note": "to shut is to close"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "words": "small",
+       "at": 18,
+       "gives": "S",
+       "note": "S is the abbreviation for small, as on clothing labels"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sadly",
+         "at": 29,
+         "note": "sadly suggests something gone wrong, so the letters of cafe are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cafe",
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small cafe has sadly shut, and its good name has taken a knock.",
-     "walkthrough": "'Shut' wants to be the definition of a closed cafe; the definition is the idiom at the end, and 'sadly' only stirs CAFE.",
-     "definitionFit": "To lose face is to be humiliated, to suffer a loss of respect or standing."
+     "surface": "A small cafe that has closed, with nobody in charge, is a sad sight.",
+     "walkthrough": "'Shut' is CLOSE, and 'leaderless' drops its C; 'sadly' rearranges CAFE into FACE.",
+     "definitionFit": "To lose face is an idiom for being humiliated, a public blow to one's standing and reputation."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sadly"
+     "misdirectedWord": "Shut"
     }
    }
   },
@@ -451,52 +455,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ORIGAMI",
+     "indicators": [
+      {
+       "text": "visits",
+       "at": 33,
+       "note": "visits means the doctor word goes in among the other letters, as a visitor goes into a house"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
        "indicators": [
         {
          "text": "after",
-         "note": "'after' puts the note behind the A, so it follows it in the answer"
-        },
-        {
-         "text": "visits"
+         "at": 18,
+         "note": "after places the note behind the a"
         }
        ],
        "parts": [
         {
          "words": "love",
+         "at": 8,
          "gives": "O",
-         "note": "O = love, the zero score in tennis"
-        },
-        {
-         "words": "doctor",
-         "gives": "RIG",
-         "note": "to doctor = to rig, tamper with"
+         "note": "love is zero in tennis scoring, the letter O"
         },
         {
          "words": "a",
-         "note": "taken as printed"
+         "at": 24,
+         "gives": "A"
         },
         {
          "words": "note",
+         "at": 13,
          "gives": "MI",
-         "note": "mi, the third note of the sol-fa scale"
+         "note": "MI is the third note of the sol-fa scale"
         }
        ]
+      },
+      {
+       "words": "doctor",
+       "at": 26,
+       "gives": "RIG",
+       "note": "to doctor something is to tamper with it, to rig it"
       }
      ]
     },
     "explanation": {
-     "surface": "A love note is folded up after the doctor calls.",
-     "walkthrough": "'Doctor' wants to be DR or MO; here it is a verb, meaning to tamper, which gives RIG to slip between O and AMI.",
-     "definitionFit": "Origami is the Japanese art of folding paper into shapes."
+     "surface": "A love letter is folded up after a doctor calls round.",
+     "walkthrough": "'doctor' is a verb here, meaning to tamper with something, not a medic; 'visits' puts it inside the love-a-note letters, just after the O.",
+     "definitionFit": "Origami is the Japanese art of folding paper into decorative shapes."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "doctor"
     }
    }
@@ -1014,40 +1025,48 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TALKINGTO",
      "indicators": [
       {
-       "text": "off",
-       "note": "something that is off has gone"
-      },
-      {
-       "text": "for",
-       "note": "'for' as in 'in exchange for'"
+       "text": "off for",
+       "at": 27,
+       "note": "off for says one letter goes and another takes its place"
       }
      ],
      "parts": [
       {
        "words": "Approaching on foot",
+       "at": 0,
        "gives": "WALKINGTO",
-       "note": "walking to = approaching on foot"
+       "note": "approaching on foot is walking to a place"
       },
       {
        "words": "women",
-       "gives": "W",
-       "note": "W = women, the abbreviation"
+       "at": 21,
+       "gives": "W"
       },
       {
-       "words": "term's opening",
-       "gives": "T",
-       "note": "the first letter of 'term'"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening",
+         "at": 42,
+         "note": "the opening of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "term's",
+         "at": 35,
+         "note": "first letter of term's"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lecturer walks in to give the first lecture of term, with the women absent.",
-     "walkthrough": "'Lecture' is the definition in its telling-off sense, not the academic one the surface paints.",
-     "definitionFit": "A talking-to is a scolding, a lecture about bad behaviour."
+     "surface": "Walking towards the hall, a student without women heads to the first lecture of term.",
+     "walkthrough": "In WALKING TO, the W ('women') goes 'off' and the T from 'term's opening' comes in 'for' it.",
+     "definitionFit": "A talking-to is a scolding, an informal word for a reprimanding lecture."
     },
     "features": {
      "answerInScene": false,
@@ -1139,46 +1158,50 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "beginning",
-       "note": "take the first letter of each name"
+       "text": "to spin",
+       "at": 34,
+       "note": "to spin is to whirl round, so the letters are spun into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "parts": [
+        {
+         "words": "Stokes",
+         "at": 0,
+         "note": "first letter of Stokes"
+        }
+       ]
+      },
+      {
+       "words": "notices",
+       "at": 7,
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "to spin",
-         "note": "the letters are spun round into a new order"
+         "text": "beginning",
+         "at": 24,
+         "note": "beginning picks the first letter, and serves both names, Stokes and Carson's"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "Stokes",
-           "note": "the first letter of Stokes"
-          }
-         ]
-        },
-        {
-         "words": "notices",
-         "note": "anagram fodder, as printed"
-        },
-        {
-         "words": "Carson's beginning",
-         "gives": "C",
-         "note": "the first letter of Carson"
+         "words": "Carson's",
+         "at": 15,
+         "note": "first letter of Carson's"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cricket commentary: England's Ben Stokes spots a bowler named Carson starting to bowl spin.",
-     "walkthrough": "Ben Stokes is an England cricketer and a delivery is a ball bowled, so everything says cricket. The answer is childbirth: a delivery by surgery.",
-     "definitionFit": "A C-section, or Caesarean section, is a surgical delivery of a baby."
+     "surface": "England cricketer Ben Stokes spots Carson starting to bowl spin deliveries.",
+     "walkthrough": "'beginning' gives the first letters of both Stokes and Carson's, S and C, which join NOTICES to be spun. 'deliveries' is not cricket bowling but births.",
+     "definitionFit": "Caesarean sections are surgical births, so each one is a delivery of a baby."
     },
     "features": {
      "answerInScene": false,
@@ -1333,49 +1356,43 @@
      "indicators": [
       {
        "text": "off the rails",
-       "note": "PRIEST goes wild, its letters out of order"
+       "at": 7,
+       "note": "off the rails means out of control, so the letters are thrown into disorder"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Priest",
+       "at": 0
+      },
+      {
+       "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "'ultimately' means in the end, so only the word's final letter is used"
+         "at": 33,
+         "note": "ultimately takes the final letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "Priest",
-         "note": "anagram fodder, as printed"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "D",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "opioid ultimately",
-           "gives": "D",
-           "select": "last",
-           "note": "the last letter of opioid"
-          }
-         ]
+         "words": "opioid",
+         "at": 26,
+         "note": "last letter of opioid"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A priest who went off the rails on opioids has been banned.",
-     "walkthrough": "'Barred' looks like banned; it means marked with bars, as a zebra is.",
-     "definitionFit": "Barred means marked with bands or stripes, so striped."
+     "surface": "A priest has gone off the rails on opioids and has been banned.",
+     "walkthrough": "'ultimately' gives D from opioid; PRIEST plus D goes 'off the rails'. 'barred' is not banned but marked with bars.",
+     "definitionFit": "Striped means marked with bands, and a barred pattern is one crossed by stripes."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "barred"
     }
    }
@@ -1510,67 +1527,67 @@
      "op": "container",
      "indicators": [
       {
-       "text": "lying around",
-       "note": "the pair turns round, reading backwards"
+       "text": "eating",
+       "at": 44,
+       "note": "eating means the reversed pair takes the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "eating",
-         "note": "the reversed pair takes the tree letters inside"
+         "text": "lying around",
+         "at": 31,
+         "note": "lying around means the two words are turned to lie the other way"
         }
        ],
        "parts": [
         {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "nuts",
-           "note": "TREE goes crazy, its letters jumbled"
-          }
-         ],
          "parts": [
           {
            "words": "at",
-           "note": "taken as printed"
+           "at": 21,
+           "gives": "AT",
+           "note": "taken as written"
           },
           {
            "words": "river",
+           "at": 24,
            "gives": "PO",
-           "note": "the Po, Italy's longest river"
+           "note": "the Po is Italy's longest river"
           }
          ]
         }
        ]
       },
       {
-       "op": "reversal",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nuts",
+         "at": 56,
+         "note": "nuts means crazy, so the letters of tree are scrambled"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "tree nuts",
-           "gives": "ERET",
-           "note": "TREE rearranged"
-          }
-         ]
+         "words": "tree",
+         "at": 51
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pleasant afternoon by the river, lying about eating nuts from the trees.",
-     "walkthrough": "'Tree nuts' looks like a food group; 'nuts' is the anagram signal working on TREE.",
-     "definitionFit": "An operetta is a short, light opera, gentler fare than grand opera."
+     "surface": "A picnic by the river where people lie around eating nuts from a tree.",
+     "walkthrough": "The surface reads 'lying around' as lounging, but it turns the river-and-at pair backwards; 'nuts' is not food but madness, scrambling the tree.",
+     "definitionFit": "An operetta is a short, light opera, the gentle cousin of grand opera."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "nuts"
     }
    }
@@ -1856,42 +1873,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DRAMA",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "bum",
+       "at": 25,
+       "note": "a bum is a backside, so the letters are read from the back, right to left"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "DRAMA",
        "indicators": [
         {
-         "text": "bum",
-         "note": "bum = bad, faulty, so the letters are broken up"
-        },
-        {
          "text": "not",
-         "note": "'not' negates the word after it"
+         "at": 29,
+         "note": "not means the letter is left out of the phrase"
         }
        ],
        "parts": [
         {
          "words": "a mardy",
-         "note": "anagram fodder, as printed. The same letters also run on unbroken across neighbouring clue words, a coincidence of the pieces sitting side by side; the setter gives no hidden-word signal."
+         "at": 17,
+         "note": "the letters of a mardy; the answer showing backwards inside these words is a coincidence of the deletion-then-reversal route, not a separate hidden-word device"
         },
         {
          "words": "unknown",
+         "at": 33,
          "gives": "Y",
-         "note": "y is an algebraic unknown, removed from the fodder"
+         "note": "Y is one of the unknowns in algebra"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tantrum from a sulky layabout, nothing unusual there.",
-     "walkthrough": "'Mardy' is Northern English for sulky, and 'Mardy Bum' is an Arctic Monkeys song.",
-     "definitionFit": "Histrionics are over-the-top emotional displays, which is drama."
+     "surface": "A tantrum from a sulky layabout, the title of an Arctic Monkeys song.",
+     "walkthrough": "Mardy is Northern English for sulky, and 'Mardy Bum' is an Arctic Monkeys song. Take Y ('unknown') out of A MARDY with 'not', leaving AMARD, which 'bum' reads from the back.",
+     "definitionFit": "Drama, in the sense of a fuss, means overemotional behaviour, which is what histrionics are."
     },
     "features": {
      "answerInScene": true,

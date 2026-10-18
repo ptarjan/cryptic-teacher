@@ -149,53 +149,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ABSOLVE",
+     "op": "composite",
      "indicators": [
       {
        "text": "Cracked",
-       "note": "cracked things are broken into pieces, so the letters are smashed and rebuilt"
+       "at": 0,
+       "note": "cracked means broken, so the letters of the crockery are smashed and reassembled"
+      },
+      {
+       "text": "emerging",
+       "at": 29,
+       "note": "emerging says the wife letter comes out of the pool of letters before they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ABSOLVE",
-       "indicators": [
-        {
-         "text": "wife emerging",
-         "note": "something emerging comes out of where it was, so that letter leaves the group"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "vase",
-         "note": "taken as written"
+         "at": 8
         },
         {
          "words": "bowl",
-         "note": "taken as written, minus the wife's letter"
-        },
-        {
-         "words": "wife",
-         "gives": "W",
-         "note": "W is the abbreviation for wife; it is removed"
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "wife",
+       "at": 24,
+       "gives": "W",
+       "note": "W is the abbreviation for wife, as in genealogies"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who broke the crockery hopes the wife turning up will give them an excuse.",
-     "walkthrough": "Take W out of VASE plus BOWL and rearrange the seven letters left.",
-     "definitionFit": "To absolve someone is to free them from blame, which is what excusing a person does."
+     "surface": "A broken vase and bowl are explained away as the wife comes out to forgive the culprit.",
+     "walkthrough": "Pool the letters of VASE and BOWL, let W ('wife') come out ('emerging'), and the rest, 'Cracked', rearrange into the answer.",
+     "definitionFit": "To absolve someone is to free them from blame, which is to excuse them."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "emerging"
+     "misdirectedWord": "Cracked"
     }
    }
   },
@@ -1330,48 +1327,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ROOKS",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is dropped"
+       "text": "to accept",
+       "at": 19,
+       "note": "to accept means to take something in, so the shortened word holds the fine letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to accept",
-         "note": "to accept is to take in, so one piece is received inside another"
+         "text": "almost",
+         "at": 7,
+         "note": "almost means the word stops one letter short of its end"
         }
        ],
        "parts": [
         {
          "words": "rose",
-         "gives": "ROS",
-         "note": "the flower, with its last letter dropped"
+         "at": 14,
+         "gives": "ROSE",
+         "note": "taken as written"
         },
         {
-         "words": "fine",
-         "gives": "OK",
-         "note": "OK means fine"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "fine",
+       "at": 29,
+       "gives": "OK",
+       "note": "OK means fine, all right"
       }
      ]
     },
     "explanation": {
-     "surface": "Cheaters nearly stood up to accept a fine as punishment.",
-     "walkthrough": "'Rose' looks like the past tense of rise, but it is the flower; 'fine' is OK, not a penalty.",
-     "definitionFit": "To rook someone is to swindle them, so the verb rooks means defrauds, in the same tense as the definition."
+     "surface": "Swindlers nearly climbed to the top by accepting a penalty.",
+     "walkthrough": "'rose' is the past tense in the surface, but here it is just the word ROSE, which 'almost' trims to ROS. 'Cheats' is a verb here.",
+     "definitionFit": "To rook someone is to swindle them, so rooks is a verb meaning cheats."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "rose"
+     "misdirectedWord": "fine"
     }
    }
   },
@@ -1717,51 +1719,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASTRONOMER",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means most but not all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 2,
+         "note": "mostly means most of the word, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
-        },
-        {
          "words": "great",
-         "gives": "STRON",
-         "note": "strong in the sense of great, with its last letter dropped"
+         "at": 9,
+         "gives": "STRONG",
+         "note": "great in the sense of powerful is strong"
         },
         {
-         "words": "honour",
-         "gives": "OM",
-         "note": "OM is the Order of Merit, a British honour"
-        },
-        {
-         "words": "Queen",
-         "gives": "ER",
-         "note": "ER is Elizabeth Regina, the Queen"
+         "gives": "G"
         }
        ]
+      },
+      {
+       "words": "honour",
+       "at": 15,
+       "gives": "OM",
+       "note": "the OM, Order of Merit, is a British honour"
+      },
+      {
+       "words": "Queen",
+       "at": 22,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the late Queen's royal cipher"
       }
      ]
     },
     "explanation": {
-     "surface": "The Queen bestows a great honour on Patrick Moore.",
-     "walkthrough": "The surface fits: Moore was knighted. Sir Patrick Moore presented the BBC stargazing programme The Sky at Night for over fifty years.",
-     "definitionFit": "Patrick Moore was a famous British stargazer, an example of a scientist who studies stars and planets."
+     "surface": "The Queen gives a great honour to the television stargazer Patrick Moore.",
+     "walkthrough": "Sir Patrick Moore presented the BBC's The Sky at Night for over fifty years. 'mostly' trims STRONG to STRON; the OM is the Order of Merit, in the monarch's personal gift.",
+     "definitionFit": "Patrick Moore was a famous British amateur stargazer and broadcaster, so he is an example of an astronomer."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "great"
+     "misdirectedWord": "honour"
     }
    }
   }
