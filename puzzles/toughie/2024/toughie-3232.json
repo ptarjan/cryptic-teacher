@@ -916,62 +916,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TANGENT",
-     "indicators": [
-      {
-       "text": "leaves",
-       "note": "when something leaves it is taken away, so those letters are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaves",
+         "at": 3,
+         "note": "H and E leave the word the, leaving one letter"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "He",
-         "note": "the letters removed from the following word"
-        },
-        {
          "words": "the",
-         "gives": "T",
-         "note": "the word with its last two letters dropped"
+         "at": 10
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "without",
-           "note": "without can mean outside, so one word goes around another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "rep",
-           "gives": "AGENT",
-           "note": "a sales rep is an agent"
-          },
-          {
-           "words": "new",
-           "gives": "N",
-           "note": "N is the abbreviation for new"
-          }
-         ]
+         "words": "He",
+         "at": 0,
+         "gives": "HE",
+         "note": "the letters H and E"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 22,
+         "note": "without in its old sense of outside, the word for rep surrounds N"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rep",
+         "at": 18,
+         "gives": "AGENT",
+         "note": "a rep (representative) is an agent"
+        },
+        {
+         "words": "new",
+         "at": 14,
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man leaves the new representative without any job.",
-     "walkthrough": "'Without a function' sounds like being unemployed, but 'without' means outside and 'a function' is the definition.",
-     "definitionFit": "Tangent is a trigonometric function, the ratio of the opposite side to the adjacent one."
+     "surface": "A man walks off, leaving the new sales rep without a job.",
+     "walkthrough": "'without' means outside here: AGENT goes around N to give ANGENT, after the T left of 'the'.",
+     "definitionFit": "Tangent is one of the trigonometric functions, the ratio of the sine to the cosine."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "function"
     }
@@ -1799,25 +1800,27 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ANDALLTHAT",
      "indicators": [
       {
        "text": "Departing founders of",
-       "note": "the founders are the first letters, and they depart, so each word loses its initial"
+       "at": 0,
+       "note": "the founders of each word are its first letters, and they depart, leaving each word without its opening letter"
       }
      ],
      "parts": [
       {
        "words": "band call it what",
-       "note": "the four words taken as written"
+       "at": 22
+      },
+      {
+       "gives": "BCIW"
       }
      ]
     },
     "explanation": {
-     "surface": "Founding band members leave, and someone wonders what to call the group now; the reply is a shrug.",
-     "walkthrough": "Each of the four words loses its first letter.",
-     "definitionFit": "'And all that' and 'yadda yadda yadda' are both dismissive tags meaning 'and so on'."
+     "surface": "The founding members of a band leave and wonder what to call it.",
+     "walkthrough": "Remove the first letter of band, call, it and what: AND, ALL, T, HAT.",
+     "definitionFit": "Both are dismissive idioms for tedious detail left unsaid, meaning 'and so on' or 'et cetera'."
     },
     "features": {
      "answerInScene": false,

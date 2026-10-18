@@ -287,42 +287,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TROJANWAR",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "disheartened",
-       "note": "losing its heart means a word drops its central letters, used on both following words"
+       "text": "after mounting",
+       "at": 34,
+       "note": "in a down clue, mounting means going up, so everything is read from the bottom"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "after mounting",
-         "note": "in a down entry, mounting means climbing upwards, so the assembled letters run bottom to top"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "Sore",
+         "at": 0,
+         "gives": "RAW",
+         "note": "sore means raw"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "disheartened",
+           "at": 9,
+           "note": "losing the heart, the central letters, of both Navajo and rest"
+          }
+         ],
          "parts": [
           {
-           "words": "Sore",
-           "gives": "RAW",
-           "note": "a raw wound is a sore one"
+           "words": "Navajo rest",
+           "at": 22,
+           "note": "the two words Navajo and rest, each losing its middle two letters"
           },
           {
-           "words": "Navajo",
-           "gives": "NAJO",
-           "note": "Navajo with its middle pair VA removed"
-          },
-          {
-           "words": "rest",
-           "gives": "RT",
-           "note": "rest with its middle pair ES removed"
+           "gives": "VAES"
           }
          ]
         }
@@ -331,12 +330,12 @@
      ]
     },
     "explanation": {
-     "surface": "A sore and dispirited Navajo takes a rest after getting on a horse.",
-     "walkthrough": "'Disheartened' works on both Navajo and rest; the whole string RAW NAJO RT is then read upwards.",
-     "definitionFit": "The Trojan War, fought over Helen of Troy, is the conflict of Greek legend told by Homer."
+     "surface": "A sore and dispirited Navajo takes a rest after riding up, as if returning from a legendary battle.",
+     "walkthrough": "'disheartened' works on both Navajo (losing VA, giving NAJO) and rest (losing ES, giving RT). RAW + NAJO + RT, read upwards, gives the answer.",
+     "definitionFit": "The Trojan War is the conflict of Greek legend told in the Iliad, fought over Helen."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "mounting"
     }
