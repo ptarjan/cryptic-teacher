@@ -545,58 +545,59 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "TIMBER",
      "indicators": [
       {
        "text": "dodgy",
-       "note": "something dodgy is unreliable or crooked, so these letters are jumbled"
+       "at": 50,
+       "note": "something dodgy is unreliable or crooked, so the letters are bent into a new order"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "TIMBER",
        "indicators": [
         {
          "text": "replacing",
-         "note": "to replace is to take another's place, so one letter is swapped for another"
+         "at": 18,
+         "note": "the head of marketing takes the place of the unknown quantity within the word"
         }
        ],
        "parts": [
+        {
+         "words": "Brexit",
+         "at": 56
+        },
+        {
+         "words": "unknown quantity",
+         "at": 29,
+         "gives": "X",
+         "note": "in algebra x is the usual symbol for an unknown quantity"
+        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "Head of",
-           "note": "the head of a word is its first letter, which alone is kept"
+           "at": 0,
+           "note": "the head of a word is its first letter"
           }
          ],
          "parts": [
           {
            "words": "Marketing",
-           "note": "first letter of the word"
+           "at": 8,
+           "note": "the first letter of Marketing"
           }
          ]
-        },
-        {
-         "words": "'unknown quantity'",
-         "gives": "X",
-         "note": "in algebra x stands for an unknown quantity"
-        },
-        {
-         "words": "Brexit",
-         "note": "taken as written; its X is the letter swapped out"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A marketing chief takes the place of an unpredictable figure in a shaky Brexit agreement.",
-     "walkthrough": "'Deal' looks like the Brexit agreement, but it is the definition: deal is a British name for softwood planks.",
-     "definitionFit": "Deal is sawn pine or fir wood, so it is a kind of the building material cut from trees."
+     "surface": "A sneer at the Brexit agreement: swap in some marketing spin and it is still a shady deal.",
+     "walkthrough": "'deal' looks like the Brexit agreement, but it is the definition. Putting M for X gives BREMIT, which 'dodgy' rearranges.",
+     "definitionFit": "Deal is a word for sawn pine or fir planks, so it is a kind of timber."
     },
     "features": {
      "answerInScene": false,
@@ -1277,46 +1278,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RESIDUE",
-     "indicators": [
-      {
-       "text": "much reduced",
-       "note": "cut down a lot, so most of the word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "much reduced",
+         "at": 6,
+         "note": "most of the word is cut away, keeping only its opening letters"
+        }
+       ],
        "parts": [
         {
          "words": "House",
-         "gives": "RES",
-         "note": "residence cut short, as in estate agents' shorthand"
+         "at": 0,
+         "gives": "RESIDENCE",
+         "note": "a residence is a house or home"
         },
         {
-         "words": "I",
-         "note": "taken as written"
-        },
-        {
-         "words": "expected",
-         "gives": "DUE",
-         "note": "as in 'the train is due'"
+         "gives": "IDENCE"
         }
        ]
+      },
+      {
+       "words": "I",
+       "at": 21
+      },
+      {
+       "words": "expected",
+       "at": 23,
+       "gives": "DUE",
+       "note": "a baby that is expected is due"
       }
      ]
     },
     "explanation": {
-     "surface": "A homeowner sees the property's value slashed but still hopes for the rest.",
-     "walkthrough": "'Balance' looks like an account term tied to the house price; it means what is left.",
-     "definitionFit": "Both nouns mean the remainder, what is left over after the rest has gone."
+     "surface": "A homeowner who downsized drastically had been counting on some money left over.",
+     "walkthrough": "'much reduced' cuts RESIDENCE back to its first three letters, RES, the usual abbreviation for residence.",
+     "definitionFit": "A residue is what remains after the rest is taken away, the balance or remainder."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "reduced"
+     "misdirectedWord": "balance"
     }
    }
   },
@@ -1639,67 +1644,72 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXPAT",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
+       "text": "welcoming",
+       "at": 20,
+       "note": "to welcome someone is to take them in, so the rearranged letters surround the other letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "welcoming",
-         "note": "to welcome is to take in, so one piece goes inside another"
+         "text": "Crazy",
+         "at": 0,
+         "note": "crazy means wild or deranged, so the letters are jumbled"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "Crazy",
-           "note": "something crazy is deranged, so these letters are thrown into disorder"
+           "text": "almost",
+           "at": 13,
+           "note": "almost the whole word: its last letter is dropped"
           }
          ],
          "parts": [
           {
            "words": "Texan",
-           "gives": "TEXA",
-           "note": "the word minus its final letter"
+           "at": 6
+          },
+          {
+           "gives": "N"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader",
-           "note": "a leader goes in front, so only the opening letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "poll",
-           "note": "first letter of the word"
-          }
-         ]
+         "text": "leader",
+         "at": 35,
+         "note": "the leader of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poll",
+         "at": 30,
+         "note": "the first letter of poll"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mad Texan nearly embraces the frontrunner in the polls, who turns out to be an immigrant.",
-     "walkthrough": "The state resident's name loses its tail before it is rearranged, and only then does it take in the single letter.",
-     "definitionFit": "An expatriate is someone living abroad, away from their native country, so a settler from elsewhere."
+     "surface": "A wild man from Texas, embracing the frontrunner in the polls, has gone to live abroad.",
+     "walkthrough": "'Crazy' is the anagram signal on the cut-down Texan, not a description of the man; 'poll leader' is the first letter of poll, not a politician.",
+     "definitionFit": "An expat, short for expatriate, is someone who has made a home in a country other than their own."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Crazy"
     }

@@ -45,45 +45,47 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "COM",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half of",
-         "note": "only half of the following word is kept, here its opening three letters"
+         "at": 0,
+         "note": "only half of the word is kept, its first three letters, and the rest is dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "comic",
-         "gives": "COM",
-         "select": "first",
-         "note": "the first half of the six-letter word"
+         "at": 8,
+         "note": "the word that is cut in half"
+        },
+        {
+         "gives": "IC"
         }
        ]
       },
       {
        "words": "not much to look at",
+       "at": 16,
        "gives": "PLAIN",
-       "note": "plain describes someone unattractive"
+       "note": "a plain face is one that is not much to look at"
       },
       {
        "words": "editor",
-       "gives": "ED",
-       "note": "standard abbreviation for editor"
+       "at": 37,
+       "gives": "ED"
       }
      ]
     },
     "explanation": {
-     "surface": "An editor grumbles that a comic is half rubbish to look at.",
-     "definitionFit": "To complain is to grumble or voice dissatisfaction, the same thing as to moan."
+     "surface": "An editor dismisses a comedian's looks as unremarkable and grumbles about it.",
+     "walkthrough": "'Half of' keeps COM from COMIC; the 's is a link, joining it to the next piece.",
+     "definitionFit": "To complain is to grumble or express dissatisfaction, so complained is a synonym of moaned."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "comic"
+     "misdirectedWord": "comic's"
     }
    }
   },
@@ -775,36 +777,56 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TANGO",
      "indicators": [
       {
-       "text": "swaps with",
-       "note": "swaps with tells us two letters trade places within the country's name"
+       "text": "with",
+       "at": 12,
+       "note": "completing the exchange: the adult letter in turn goes where the Oscar letter was"
       }
      ],
      "parts": [
       {
-       "words": "Oscar",
-       "gives": "O",
-       "note": "O is Oscar in the NATO phonetic alphabet"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "swaps",
+         "at": 6,
+         "note": "to swap is to exchange, so the Oscar letter first takes over the position held by the adult letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Polynesian country",
+         "at": 26,
+         "gives": "TONGA",
+         "note": "Tonga is an island kingdom in Polynesia, in the South Pacific"
+        },
+        {
+         "gives": "A"
+        },
+        {
+         "words": "Oscar",
+         "at": 0,
+         "gives": "O",
+         "note": "Oscar is the NATO phonetic alphabet word for O"
+        }
+       ]
+      },
+      {
+       "gives": "O"
       },
       {
        "words": "adult",
+       "at": 17,
        "gives": "A",
-       "note": "A is the film certificate for adult"
-      },
-      {
-       "words": "Polynesian country",
-       "gives": "TONGA",
-       "note": "Tonga is an island kingdom in the South Pacific"
+       "note": "A is the film-classification abbreviation for adult"
       }
      ]
     },
     "explanation": {
-     "surface": "A Polynesian character called Oscar trades places with a grown-up.",
-     "walkthrough": "In TONGA the O and the A change positions, giving the dance.",
-     "definitionFit": "The tango is a ballroom dance originating in Argentina, an example of a dance."
+     "surface": "An Academy Award trades places with a grown-up in a South Sea island dance.",
+     "walkthrough": "'Oscar swaps with adult' means the O and the A of TONGA change places: 'swaps' writes O where the A was, making TONGO, and 'with' puts A where the O stood.",
+     "definitionFit": "The tango is a ballroom dance that began in Argentina, with sharp, gliding steps."
     },
     "features": {
      "answerInScene": false,

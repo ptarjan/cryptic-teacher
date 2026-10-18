@@ -935,46 +935,56 @@
      "indicators": [
       {
        "text": "to cross",
-       "note": "to cross is to lie athwart and enclose, so one piece is placed within another"
+       "at": 9,
+       "note": "the outer word lies across the other letters, spanning them, so they sit inside it"
       }
      ],
      "parts": [
       {
        "words": "Prepared",
+       "at": 0,
        "gives": "DRESSED",
-       "note": "dressed food, such as a dressed crab, has been prepared"
+       "note": "food that is prepared, like a salad, is dressed"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "IG",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially means at the start, so only the opening letters are kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "Italy and Greece",
-         "gives": "IG",
-         "select": "first",
-         "note": "the first letters of the two country names"
+         "words": "Italy",
+         "at": 18,
+         "gives": "I",
+         "note": "I is the international vehicle registration code for Italy"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 35,
+           "note": "the word sits after Greece, asking for only the first letter of that country"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Greece",
+           "at": 28,
+           "note": "the first letter of Greece"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone set off for a trip through Italy and Greece but wandered off course.",
-     "walkthrough": "The surface suggests a traveller's route, but the two countries give just their initials.",
-     "definitionFit": "To digress is to wander away from the main subject when speaking or writing, which is to stray."
+     "surface": "Someone ready to travel across Italy and Greece wandered off the planned route.",
+     "walkthrough": "'to cross' puts I (Italy) and G (first of Greece) inside DRESSED, after its first two letters.",
+     "definitionFit": "To digress is to wander from the main subject or path, so digressed is a synonym of strayed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cross"
+     "misdirectedWord": "Prepared"
     }
    }
   },
