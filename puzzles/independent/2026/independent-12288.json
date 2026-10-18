@@ -1330,42 +1330,70 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 29,
+       "note": "with here places the moved letter in among the letters of obtained"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "POLYGLOT",
-       "indicators": [
-        {
-         "text": "more eastern",
-         "note": "east lies to the right on a map, so a letter shifts further along the word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "parrot",
-         "gives": "POLLY",
-         "note": "Polly is the stock name for a pet parrot"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "more eastern",
+           "at": 34,
+           "note": "the letter named by languages, originally, must leave its spot in the parrot's name to sit further east, later in an across entry"
+          }
+         ],
+         "parts": [
+          {
+           "words": "parrot",
+           "at": 13,
+           "gives": "POLLY",
+           "note": "Polly is the stock name for a pet parrot"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         },
         {
          "words": "obtained",
+         "at": 20,
          "gives": "GOT",
-         "note": "got means obtained"
+         "note": "obtained means got"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "languages, originally",
-       "note": "the initial L identifies which letter of the parrot is moved"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 58,
+         "note": "originally points to the opening letter of the word languages"
+        }
+       ],
+       "parts": [
+        {
+         "words": "languages",
+         "at": 47,
+         "note": "first letter of languages"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A parrot that speaks several tongues is acquired along with more Eastern languages.",
-     "walkthrough": "Write POLLY then GOT, and move one L, the first letter of languages, further east, that is rightward, into GOT.",
-     "definitionFit": "A polyglot is a person who speaks several tongues, and the word also works as an adjective with that sense."
+     "surface": "A talkative parrot has picked up several more Eastern tongues.",
+     "walkthrough": "'More eastern' is not geography: in an across answer east is further right, so the L that 'languages, originally' names slides rightward out of the parrot's name and into the word for obtained.",
+     "definitionFit": "A polyglot is a person who speaks many tongues, so the adjective describes someone fluent in several."
     },
     "features": {
      "answerInScene": true,
