@@ -983,42 +983,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BLOWOUTS",
+     "op": "container",
      "indicators": [
       {
-       "text": "derelict",
-       "note": "a derelict building is in ruins, so 'so is' extends that state of disrepair to the letters that follow"
+       "text": "is housing",
+       "at": 33,
+       "note": "is housing means the jumbled letters hold the word for squat inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "is housing",
-         "note": "a word that houses another gives it shelter inside itself"
+         "text": "derelict",
+         "at": 16,
+         "note": "derelict means fallen into ruin, so the letters of these words are knocked into a new order"
         }
        ],
        "parts": [
         {
          "words": "but so",
-         "note": "these five letters rearranged"
-        },
-        {
-         "words": "squat",
-         "gives": "LOW",
-         "note": "squat means short and low"
+         "at": 26,
+         "note": "taken as written, the anagram fodder"
         }
        ]
+      },
+      {
+       "words": "squat",
+       "at": 10,
+       "gives": "LOW",
+       "note": "squat means short and low"
       }
      ]
     },
     "explanation": {
-     "surface": "A housing report: the flats and the squat are run-down, and so is the rest.",
-     "walkthrough": "'Squat' and 'derelict' suggest squatters in empty buildings; 'flats' are burst tyres, not apartments.",
-     "definitionFit": "A blowout is a sudden burst of a tyre, which leaves it flat, so flats here are punctures."
+     "surface": "A description of a run-down housing estate: apartments and squats in ruins, providing homes anyway.",
+     "walkthrough": "'Flats' and 'squat' suggest housing, but the flats are punctured tyres; 'derelict' jumbles 'but so' into B...OUTS, which 'is housing' LOW.",
+     "definitionFit": "A blowout is a sudden burst tyre, which leaves the motorist with a flat."
     },
     "features": {
      "answerInScene": false,
@@ -1465,56 +1467,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LIGATURE",
      "indicators": [
       {
        "text": "in",
-       "note": "placed in something means put inside it"
+       "at": 15,
+       "note": "in puts the scrambled letters inside the outer letters of lame"
       }
      ],
      "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 18,
+         "note": "extremely means taking the extreme, outer letters of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lame",
+         "at": 28,
+         "note": "its first and last letters are L and E"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "Useless",
-         "note": "an instrument that is useless is broken, so its letters are put back together differently"
+         "at": 0,
+         "note": "useless suggests the guitar is broken, so its letters are scrambled"
         }
        ],
        "parts": [
         {
          "words": "guitar",
-         "note": "the letters of this word rearranged"
-        },
-        {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "extremely",
-           "note": "the extremes of a word are its two ends, so only the outermost letters are used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "lame",
-           "note": "the first and last letters of this word"
-          }
-         ]
+         "at": 8,
+         "note": "taken as written, the anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A broken guitar in a truly awful rock band.",
-     "walkthrough": "'Band' wants to be the group with the guitar, but it is a binding strip.",
-     "definitionFit": "A ligature is a cord or thread used to tie something, such as a blood vessel, so it is a binding band."
+     "surface": "A critic dismisses a poor guitarist in a very feeble group of musicians.",
+     "walkthrough": "'band' looks like a music group to go with the guitar, but it is the definition in the sense of a binding strip.",
+     "definitionFit": "A ligature is a cord or strip used for tying, such as a thread binding a blood vessel."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "band"
     }
    }

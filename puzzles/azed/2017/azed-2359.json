@@ -560,56 +560,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRINKETER",
-     "indicators": [
-      {
-       "text": "useless",
-       "note": "read as use-less: the word loses the letters u, s, e"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 5,
+         "note": "round means the word for head is wrapped around the racecourse word"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "round",
-           "note": "going round something means surrounding it, so the second piece sits inside the first"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Head",
-           "gives": "TETE",
-           "note": "tête is French for head, used in English for a headdress"
-          },
-          {
-           "words": "racecourse",
-           "gives": "RINK",
-           "note": "Chambers gives rink as a course for racing, for skaters or curlers"
-          }
-         ]
+         "words": "Head",
+         "at": 0,
+         "gives": "TETE",
+         "note": "tête is French for head, in Chambers as a word for a head of hair"
         },
         {
+         "words": "racecourse",
+         "at": 11,
+         "gives": "RINK",
+         "note": "Chambers gives rink as a course for racing or tilting, its old sense"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "useless",
+         "at": 27,
+         "note": "read as use-less, ruse without its use: those three letters are subtracted"
+        }
+       ],
+       "parts": [
+        {
          "words": "ruse",
-         "gives": "R",
-         "note": "the word minus u, s and e"
+         "at": 35,
+         "note": "taken as written, before part of it is dropped"
+        },
+        {
+         "gives": "USE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The man in charge of a racecourse uses a futile trick, a plotter at heart.",
-     "walkthrough": "Read 'useless' as use-less: ruse without its u, s and e. Tête is French for head, also used in English for a tall headdress.",
-     "definitionFit": "A trinketer is an old word for one who intrigues or has secret dealings, a schemer."
+     "surface": "A racing manager loops the course, his scheme having proved pointless.",
+     "walkthrough": "'useless ruse' is read as 'ruse' less 'use', leaving just R; 'one plotted' means one who plotted, a schemer, not a plot of land.",
+     "definitionFit": "Chambers gives trinket as an old verb meaning to intrigue or deal underhandedly, so a trinketer is an intriguer or schemer."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "useless"
     }
@@ -1786,31 +1791,48 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ELANCE",
+     "op": "container",
      "indicators": [
       {
-       "text": "second",
-       "note": "picks out which letter of the word is to be shifted: the one in second position"
-      },
-      {
-       "text": "moving back a bit",
-       "note": "the named letter shifts a little towards the end of the word"
+       "text": "back a bit",
+       "at": 31,
+       "note": "back a bit sets the lifted letter down again a short way toward the end of the word"
       }
      ],
      "parts": [
       {
-       "words": "tangle",
-       "gives": "ENLACE",
-       "note": "to enlace is to entangle"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "moving",
+         "at": 24,
+         "note": "moving lifts that second letter out of its place in the word for tangle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tangle",
+         "at": 17,
+         "gives": "ENLACE",
+         "note": "to enlace is to entwine or tangle together"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "second in",
+       "at": 7,
+       "gives": "N",
+       "note": "the second letter in the word for tangle"
       }
      ]
     },
     "explanation": {
-     "surface": "A tangled affair, a brief fling, goes back a little.",
-     "walkthrough": "'second' means the second letter of ENLACE: that N moves two places back to give E-LA-N-CE.",
-     "definitionFit": "To elance is to throw or hurl, as a lance, so it means to fling."
+     "surface": "A short-lived fling turns into a tangle that's best stepped back from slightly.",
+     "walkthrough": "'moving' takes the N out of ENLACE, leaving ELACE, and 'back a bit' sets it two places later, giving the Chambers word for throwing like a lance.",
+     "definitionFit": "Elance is an archaic verb meaning to hurl or throw, as one would a lance, so it is to fling."
     },
     "features": {
      "answerInScene": false,

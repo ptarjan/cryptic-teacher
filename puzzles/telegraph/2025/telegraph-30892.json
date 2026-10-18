@@ -106,42 +106,52 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "partners",
+       "at": 50,
+       "note": "partners says the two pieces are paired up side by side"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "FIL",
+       "op": "deletion",
        "indicators": [
         {
          "text": "first three characters",
-         "note": "only the opening three characters of the word are kept, the rest discarded"
+         "at": 13,
+         "note": "only the first three characters of the four-letter word for movie are kept, so its last letter goes"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "movie's",
-         "gives": "FIL",
-         "select": "first",
-         "note": "a movie is a film; its opening letters"
+         "at": 5,
+         "gives": "FILM",
+         "note": "a movie is a film"
+        },
+        {
+         "gives": "M"
         }
        ]
       },
       {
        "words": "formerly your",
+       "at": 36,
        "gives": "THY",
-       "note": "thy is the archaic form of your"
+       "note": "thy is the old form of your, as in older English and the Bible"
       }
      ]
     },
     "explanation": {
-     "surface": "An adult film: a viewer reads its opening credits, the actors who used to be your partners.",
-     "walkthrough": "'Blue movie' runs together as one phrase in the surface, but Blue alone is the definition. 'Partners' is the join: the two pieces are paired.",
-     "definitionFit": "Blue in the sense of obscene or smutty matches filthy, as in a blue joke."
+     "surface": "An adult film's opening credits name the leading actors' former lovers.",
+     "walkthrough": "'Blue movie' reads as one phrase for a pornographic film, but 'Blue' alone is the definition and 'movie's' starts the wordplay.",
+     "definitionFit": "Blue jokes or films are smutty or indecent, which is what filthy means in this sense."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "movie's"
     }
    }

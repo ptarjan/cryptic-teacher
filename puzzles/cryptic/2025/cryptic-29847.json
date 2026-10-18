@@ -44,60 +44,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLECTRA",
+     "op": "container",
      "indicators": [
       {
-       "text": "depleted",
-       "note": "something depleted has had part of its stock used up, so a letter goes from the end"
+       "text": "round",
+       "at": 40,
+       "note": "round means the jumbled letters go around the abbreviation for city"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "round",
-         "note": "to go round something is to surround it, so one piece encloses another"
+         "text": "played",
+         "at": 33,
+         "note": "played suggests the remaining letters are toyed with and set in a new order"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "played",
-           "note": "letters that are played with get moved about freely into a new order"
+           "text": "depleted",
+           "at": 23,
+           "note": "depleted means reduced, so the word partly loses its last letter"
           }
          ],
          "parts": [
           {
            "words": "partly",
-           "gives": "PARTL",
-           "note": "the word itself, losing its final Y"
+           "at": 16,
+           "note": "taken as written, then cut short"
+          },
+          {
+           "gives": "Y"
           }
          ]
-        },
-        {
-         "words": "city",
-         "gives": "EC",
-         "note": "EC is the postcode district of the City of London"
         }
        ]
+      },
+      {
+       "words": "city",
+       "at": 46,
+       "gives": "EC",
+       "note": "EC is the postcode for the City of London, the crossword's usual city"
       }
      ]
     },
     "explanation": {
-     "surface": "Some worn-out guitarists strummed their way around a city on tour.",
-     "walkthrough": "'Guitar players' looks like musicians, but it means the picks they hold. 'Partly' is literal fodder: drop its last letter, rearrange, and wrap it round EC.",
-     "definitionFit": "Plectra is the plural of plectrum, the small pick a guitarist uses to pluck or strum the strings."
+     "surface": "A guitarist's picks, half worn away, get passed around the city.",
+     "walkthrough": "'played' looks like part of the guitar picture but is the anagram signal; 'depleted' only clips the last letter of 'partly' before the jumble, which then goes 'round' the city.",
+     "definitionFit": "Plectra are the small picks used to pluck guitar strings, so they are literally what plays a guitar."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "players"
+     "misdirectedWord": "played"
     }
    }
   },
@@ -1587,56 +1591,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "UNDERFOOT",
      "indicators": [
       {
        "text": "after",
-       "note": "after means following, so the later words in the clue are placed next in line rather than ahead"
+       "at": 14,
+       "note": "after places the round-and-junction pair second, following the cycled word for collapse"
       }
      ],
      "parts": [
       {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 29,
+         "note": "cycling means the front letters of the word are moved round to the back"
+        }
+       ],
+       "parts": [
+        {
+         "words": "collapse",
+         "at": 20,
+         "gives": "FOUNDER",
+         "note": "to founder is to collapse or fall in"
+        }
+       ]
+      },
+      {
        "op": "charade",
        "parts": [
         {
-         "op": "cycling",
-         "indicators": [
-          {
-           "text": "cycling",
-           "note": "cycling means rotating, so a letter moves from the start of the word to its end"
-          }
-         ],
-         "parts": [
-          {
-           "words": "collapse",
-           "gives": "FOUNDER",
-           "note": "to founder is to collapse or sink"
-          }
-         ]
-        },
-        {
          "words": "round",
+         "at": 37,
          "gives": "O",
          "note": "O is round in shape"
         },
         {
          "words": "junction",
+         "at": 43,
          "gives": "T",
-         "note": "a T-junction is shaped like the letter"
+         "note": "a T-junction is a road junction, so T stands for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something lies on the ground after a cyclist collapses going round a junction.",
-     "walkthrough": "'Cycling' suggests bicycles, but it tells you to move the F of FOUNDER from the front to the end.",
-     "definitionFit": "Underfoot means beneath one's feet, so whatever is underfoot lies on the ground being walked on."
+     "surface": "Someone lies on the ground after collapsing while out on a bike ride at a crossroads.",
+     "walkthrough": "'cycling' reads as bike riding, but it moves the front of the collapse word round to its back; to founder is to collapse, like a building. 'after' sets the circle and junction last.",
+     "definitionFit": "Something underfoot is lying on the floor beneath one's feet, i.e. down on the ground."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "cycling"
     }
    }
