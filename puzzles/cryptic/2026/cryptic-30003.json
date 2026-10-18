@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -229,37 +230,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PUMICE",
-     "indicators": [
-      {
-       "text": "turned",
-       "note": "A thing that has been turned now faces the other way, so the little word beside it is written from its last letter back to its first."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 10,
+         "note": "turned means turned round, so the little word is read backwards; in a down entry it is also turned upside down"
+        }
+       ],
        "parts": [
         {
          "words": "up",
-         "gives": "PU",
-         "note": "the two letters of 'up' written the other way round"
-        },
-        {
-         "words": "computer peripherals",
-         "gives": "MICE",
-         "note": "the things that sit beside a keyboard, plural of mouse"
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "computer peripherals",
+       "at": 25,
+       "gives": "MICE",
+       "note": "mice are pointing devices plugged into a computer, its peripherals"
       }
      ]
     },
     "explanation": {
-     "surface": "A rough character who arrived carrying the office keyboards and mice.",
-     "walkthrough": "'Turned up' looks like one phrase meaning arrived, and it is two things: the first word is the instruction and the second is what it acts on.",
-     "definitionFit": "An abrasive is any substance used to rub a surface down, and pumice — the frothy volcanic stone on the bathroom shelf — is the domestic one."
+     "surface": "Someone abrasive arrives with a box of computer accessories.",
+     "walkthrough": "'Abrasive' looks like it describes a person, but here it is a noun, a scouring material; 'turned' flips 'up' to give PU.",
+     "definitionFit": "Pumice is a light volcanic rock used for scouring and smoothing skin, so it is an abrasive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Abrasive"
     }
    }
   },
@@ -650,37 +655,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "FREED",
-     "indicators": [
-      {
-       "text": "returns",
-       "note": "A thing that returns comes back along the way it went, so the animal named before it is written from its last letter to its first."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Fine",
+       "at": 0,
+       "gives": "F",
+       "note": "F is the abbreviation for fine, as on pencil grades"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returns",
+         "at": 25,
+         "note": "returns means goes back, so the word is read in the reverse direction"
+        }
+       ],
        "parts": [
         {
-         "words": "Fine",
-         "gives": "F",
-         "note": "F is the grade stamped on a pencil for fine"
-        },
-        {
          "words": "supplier of venison",
-         "gives": "REED",
-         "note": "venison is deer meat, and this deer is facing the other way"
+         "at": 5,
+         "gives": "DEER",
+         "note": "venison is the meat of the deer"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The venison dealer comes back to trade once his fine has been paid.",
-     "walkthrough": "'Fine' opens the clue like a word of approval and is a single letter off a pencil. The comma is the only sign that the definition starts where it does.",
-     "definitionFit": "To be freed is to be let out of confinement, and 'out of jail' is that release at its most literal — the state afterwards, not the act."
+     "surface": "A good-quality venison dealer comes back home after release from prison.",
+     "walkthrough": "The supplier of venison is the animal itself, not a butcher; 'returns' reads it backwards after F, the pencil-grade abbreviation for fine.",
+     "definitionFit": "A prisoner who is freed has been released, so is out of jail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fine"
     }
    }
   },
@@ -1172,42 +1183,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INCIDENT",
-     "indicators": [
-      {
-       "text": "first off",
-       "note": "This phrase takes away the letter at the front of the word beside it, so what is left begins one letter later."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "As part of",
+       "at": 0,
+       "gives": "IN",
+       "note": "in means as part of, as in in the team"
+      },
+      {
+       "words": "detective force",
+       "at": 11,
+       "gives": "CID",
+       "note": "CID, the Criminal Investigation Department, is the detective branch of a British police force"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "first off",
+         "at": 33,
+         "note": "first off says the opening letter is taken off the word"
+        }
+       ],
        "parts": [
         {
-         "words": "As part of",
-         "gives": "IN",
-         "note": "to be part of something is to be in it"
-        },
-        {
-         "words": "detective force",
-         "gives": "CID",
-         "note": "the CID is the Criminal Investigation Department, the British police's plain-clothes detectives"
-        },
-        {
          "words": "sent",
-         "gives": "ENT",
-         "note": "the word 'sent' with its opening letter taken away"
+         "at": 28,
+         "note": "taken as written, before it loses its first letter"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A detective dispatched the moment trouble gets reported.",
-     "walkthrough": "'Sent first off' reads as being despatched straight away, and the phrase is really the word plus an instruction to dock its opening letter.",
-     "definitionFit": "An incident is any disturbance that breaks the ordinary run of things — the neutral word police and reporters both use for public trouble."
+     "surface": "Detectives from a police force are dispatched as a first priority to deal with a disturbance.",
+     "walkthrough": "'first off' drops the S from 'sent' to leave ENT. CID is the plain-clothes detective branch of British police forces.",
+     "definitionFit": "An incident is an event involving trouble or violence, so a disturbance such as police attend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
     }
    }
   },
@@ -1281,26 +1301,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "GOO",
      "indicators": [
       {
        "text": "not entirely",
-       "note": "This says the word is there but not all of it, and what gets left off is the letter at the end."
+       "at": 13,
+       "note": "not entirely means not the whole word, so the last letter is cut off"
       }
      ],
      "parts": [
       {
        "words": "satisfactory",
-       "gives": "GOO",
-       "note": "the four-letter word for a satisfactory result, here with its last letter left off"
+       "at": 26,
+       "gives": "GOOD",
+       "note": "good means satisfactory, as in good enough"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Something adhesive that falls just short of being good enough.",
-     "walkthrough": "'Not entirely satisfactory' is such a natural phrase — the mildest of complaints — that it reads as one verdict rather than a word plus an instruction.",
-     "definitionFit": "Goo is the informal word for any thick sticky substance, the stuff that clings to your fingers and will not shake off."
+     "surface": "Someone judges a gluey substance to be not quite up to standard.",
+     "walkthrough": "'not entirely' trims the D off GOOD.",
+     "definitionFit": "Goo is an informal word for a gooey or sticky substance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },

@@ -161,52 +161,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ABODE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "trimmed",
-         "note": "a trimmed word has its end cut off"
+         "at": 2,
+         "note": "trimmed means cut back at the end, so the word loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader",
-           "note": "the leader of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "A",
-           "note": "used as printed"
-          }
-         ]
+         "words": "physique",
+         "at": 10,
+         "gives": "BODY",
+         "note": "body, as in a muscular body, means physique"
         },
         {
-         "words": "trimmed physique",
-         "gives": "BOD",
-         "note": "BODY, a physique, loses its last letter"
-        },
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "emaciated leader",
-         "gives": "E",
-         "note": "first letter of emaciated"
+         "text": "leader",
+         "at": 29,
+         "note": "the leader of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "emaciated",
+         "at": 19,
+         "note": "only its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A slimmed-down, skeletal team leader is out digging.",
-     "walkthrough": "'Digs' looks like a verb at the end of the sentence, but it is the British noun for lodgings, a rented room.",
-     "definitionFit": "Digs is informal British for lodgings, a place you live: an abode."
+     "surface": "Someone with a slimmed-down physique is excavating for a gaunt leader.",
+     "walkthrough": "'trimmed' docks BODY to BOD, and 'leader' takes E from 'emaciated'. Digs is British slang for rented lodgings, and 'digs' here is a noun, not a verb.",
+     "definitionFit": "Digs are lodgings, a place where someone lives, and an abode is a home or dwelling."
     },
     "features": {
      "answerInScene": false,
@@ -240,41 +245,40 @@
      "indicators": [
       {
        "text": "infused with",
-       "note": "something infused with a flavour has it put inside"
+       "at": 4,
+       "note": "infused with means having something soaked into it, so a letter goes inside the word"
       }
      ],
      "parts": [
       {
        "words": "Jam",
+       "at": 0,
        "gives": "PICKLE",
-       "note": "a jam = a pickle, a tight spot"
+       "note": "a jam, a tight spot, is a pickle"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
          "text": "drop of",
-         "note": "a drop is a tiny first taste, the first letter"
+         "at": 17,
+         "note": "a drop is a tiny amount, so only the first letter is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "drop of rum",
-         "gives": "R",
-         "select": "first",
-         "note": "first letter of rum, placed inside PICKLE after the P"
+         "words": "rum",
+         "at": 25,
+         "note": "only its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Jam laced with rum makes a sensational spread.",
-     "walkthrough": "Jam is not the fruit preserve but a predicament, which is also what a pickle is.",
-     "definitionFit": "A plain synonym: the tingling you feel on your skin is a physical sensation."
+     "surface": "Preserves laced with a splash of rum make a delightful treat.",
+     "walkthrough": "'Jam' looks like the fruit spread, but it is a jam in the sense of a predicament: a pickle. 'infused with' puts the R from 'drop of rum' inside it.",
+     "definitionFit": "A prickle is a tingling or stinging feeling on the skin, a physical sensation."
     },
     "features": {
      "answerInScene": false,
@@ -1159,48 +1163,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Tip from",
-       "note": "the tip of a word is its first letter"
+       "text": "boards",
+       "at": 19,
+       "note": "boards means gets on, as onto a ship, so the letter goes inside the word"
       }
      ],
      "parts": [
       {
        "words": "incenses",
+       "at": 26,
        "gives": "ANGERS",
-       "note": "incenses = angers"
+       "note": "to incense someone is to anger them, so incenses means angers"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "L",
        "indicators": [
         {
-         "text": "boards",
-         "note": "to board is to get on inside, taking a passenger in"
+         "text": "Tip from",
+         "at": 0,
+         "note": "the tip of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Tip from left-wing",
-         "gives": "L",
-         "select": "first",
-         "note": "first letter of left-wing, placed inside ANGERS after ANG"
+         "words": "left-wing",
+         "at": 9,
+         "note": "only its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A left-wing activist boarding a bus infuriates middle management.",
-     "walkthrough": "Line managers are office bosses in the surface; here they are people managing fishing lines.",
-     "definitionFit": "Anglers handle fishing lines, so they are managers of lines."
+     "surface": "A hint from a left-wing source riles the bosses who manage the production line.",
+     "walkthrough": "'line managers' reads as office bosses, but the line is a fishing line. 'boards' puts the L from 'Tip from left-wing' inside ANGERS.",
+     "definitionFit": "Anglers are fishermen who control a fishing line, so they jokingly manage lines."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "line"
+     "misdirectedWord": "managers"
     }
    }
   },
@@ -1347,30 +1350,38 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "ANTI",
-     "indicators": [
-      {
-       "text": "primarily",
-       "note": "primarily means firstly, so take the first letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "all narrow-mindedness, Trumpism and idiots",
-       "gives": "ANTI",
-       "select": "first",
-       "note": "first letters of All Narrow-mindedness Trumpism Idiots"
+       "words": "all narrow-mindedness, Trumpism",
+       "at": 9,
+       "gives": "ANT",
+       "note": "the opening letters of all, narrow (the first half of narrow-mindedness) and Trumpism, which 'primarily' also covers"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 52,
+         "note": "primarily means firstly, so the opening letter of each word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "idiots",
+         "at": 45,
+         "note": "only its first letter is used"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A declaration of opposition to bigotry, Trump and fools.",
-     "walkthrough": "The whole clue is the definition too: someone saying 'I oppose' all those things is anti them. Note 'and' is skipped.",
-     "definitionFit": "Anti means opposed, which is what the speaker declares."
+     "surface": "A speaker declares opposition to bigotry, Trumpism and fools.",
+     "walkthrough": "'primarily' applies to the whole list: take the opening letters of all, narrow-mindedness, Trumpism and idiots, with 'and' just joining them. The whole clue is what someone against these things says.",
+     "definitionFit": "Anti describes someone set against something, so a person who opposes these things is anti them."
     },
     "features": {
      "answerInScene": true,
@@ -1399,57 +1410,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "AORTA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "will grab",
+       "at": 26,
+       "note": "to grab is to seize and hold, so the outer letters wrap round what follows"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "will grab",
-         "note": "to grab is to take hold of, holding inside"
-        }
-       ],
+       "words": "old drinker's club",
+       "at": 7,
+       "gives": "AA",
+       "note": "AA, Alcoholics Anonymous, is a fellowship for former drinkers"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "empty",
-           "note": "an emptied word keeps only its outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "old drinker's club",
-           "gives": "AA",
-           "note": "Alcoholics Anonymous, a club for former drinkers"
-          },
-          {
-           "words": "over",
-           "gives": "O",
-           "note": "O = over in cricket scoring"
-          }
-         ]
+         "words": "over",
+         "at": 36,
+         "gives": "O",
+         "note": "O is the cricket scoring abbreviation for an over"
         },
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "RT",
+         "op": "reversal",
          "indicators": [
           {
            "text": "on counter",
-           "note": "counter means against the direction, so back to front"
+           "at": 55,
+           "note": "counter means running the opposite way, so these letters are read backwards"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "empty tumbler on counter",
-           "gives": "RT",
-           "select": "outer",
-           "note": "TUMBLER emptied to TR, then reversed; O and RT go inside AA"
+           "op": "outer",
+           "indicators": [
+            {
+             "text": "empty",
+             "at": 41,
+             "note": "an empty word has its insides removed, leaving only its first and last letters"
+            }
+           ],
+           "parts": [
+            {
+             "words": "tumbler",
+             "at": 47,
+             "note": "with its inside emptied, the word keeps only its outer letters"
+            }
+           ]
           }
          ]
         }
@@ -1458,14 +1468,14 @@
      ]
     },
     "explanation": {
-     "surface": "A pub regular grabs a glass off the bar to drain it.",
-     "walkthrough": "Vessel suggests a drinking container, fitting the tumbler and bar; it is a blood vessel. Counter is not the bar but a reversal instruction.",
-     "definitionFit": "The aorta is the main artery, a blood vessel."
+     "surface": "A recovering drinkers' group snatches an empty glass left on a bar.",
+     "walkthrough": "'old drinker's club' is Alcoholics Anonymous, not a pub; 'empty' and 'on counter' work on 'tumbler', and 'will grab' puts O (cricket's over) plus the result inside.",
+     "definitionFit": "The aorta is the main artery leaving the heart, a blood vessel."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Vessel"
+     "misdirectedWord": "counter"
     }
    }
   },
@@ -1544,60 +1554,60 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "putting in",
-       "note": "put in means placed inside"
+       "at": 15,
+       "note": "putting in means inserting, so a letter is placed inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "second of",
-         "note": "the second letter of the word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Modify",
+         "at": 0,
          "gives": "ALTER",
-         "note": "alter = modify"
+         "note": "to alter something is to modify it"
         },
         {
-         "op": "nth",
-         "unchecked": true,
-         "gives": "L",
-         "n": 2,
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "second of planks",
-           "gives": "L",
-           "select": 2,
-           "note": "second letter of planks, placed inside ALTER after AL"
-          }
-         ]
+         "words": "shower",
+         "at": 7,
+         "gives": "RAIN",
+         "note": "rain is a shower"
         }
        ]
       },
       {
-       "words": "shower",
-       "gives": "RAIN",
-       "note": "a shower of rain"
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "second of",
+         "at": 26,
+         "note": "the second letter of the word that follows is the one used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "planks",
+         "at": 36,
+         "note": "only its second letter is used"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Renovating a bathroom shower by fitting planks from a four-wheel-drive.",
-     "walkthrough": "Shower is weather here, not a bathroom fitting.",
-     "definitionFit": "A 4x4 is an all-terrain vehicle, built to go off-road."
+     "surface": "A builder adapts a shower unit by fitting in a plank for an off-road vehicle.",
+     "walkthrough": "'shower' looks like a bathroom fitting, but it is a fall of rain; 'putting in' places the second letter of 'planks' inside the two words joined.",
+     "definitionFit": "A 4x4 is a four-wheel-drive car built to drive over every kind of ground, so it is all-terrain."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "shower"
     }
    }

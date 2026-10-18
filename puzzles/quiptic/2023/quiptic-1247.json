@@ -316,46 +316,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HORRID",
+     "op": "container",
      "indicators": [
       {
-       "text": "shortly",
-       "note": "shortly here means in short form, so the word loses its final letter"
+       "text": "around",
+       "at": 28,
+       "note": "around means surrounding, so the shortened word goes either side of the state's letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "around",
-         "note": "around means surrounding, so one piece wraps another"
+         "text": "shortly",
+         "at": 20,
+         "note": "shortly means cut short, so the word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "mob",
-         "gives": "HORD",
-         "note": "a horde is a mob; cut short it drops its last letter"
+         "at": 16,
+         "gives": "HORDE",
+         "note": "a horde is a large unruly crowd, a mob"
         },
         {
-         "words": "Rhode Island",
-         "gives": "RI",
-         "note": "RI is the US postal abbreviation for Rhode Island"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "Rhode Island",
+       "at": 35,
+       "gives": "RI",
+       "note": "RI is the US postal abbreviation for Rhode Island"
       }
      ]
     },
     "explanation": {
-     "surface": "A nasty crowd quickly gathers in the US state of Rhode Island.",
-     "walkthrough": "HORDE without its E goes around RI. 'Shortly' looks like 'soon', but it trims a word.",
-     "definitionFit": "Horrid is a near synonym for nasty or dreadful, describing something extremely disagreeable."
+     "surface": "A rowdy crowd gathers menacingly somewhere in Rhode Island.",
+     "walkthrough": "'mob' is a noun here, a crowd, not the verb to mob; 'shortly' docks its last letter and 'around' wraps what is left round the state's postal code.",
+     "definitionFit": "Horrid is an informal adjective for nasty or disagreeable, much the same as very unpleasant."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "shortly"
     }
