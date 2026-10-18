@@ -367,45 +367,45 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "unchecked": true,
-     "gives": "JUJU",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "twice",
-       "note": "twice tells us the shortened word is written down two times in a row"
+       "text": "reduced",
+       "at": 37,
+       "note": "reduced means each prison word is cut short, losing its final letter"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "JUJU",
-       "indicators": [
-        {
-         "text": "term reduced",
-         "note": "the term, or end, being cut back means the last letter of the prison word is lost"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "prison",
+         "words": "prison term",
+         "at": 25,
          "gives": "JUG",
-         "note": "jug is slang for prison"
+         "note": "jug is an old slang term for prison"
+        },
+        {
+         "words": "twice",
+         "at": 46,
+         "gives": "JUG",
+         "note": "twice means the same prison word is used a second time"
         }
        ]
+      },
+      {
+       "gives": "GG"
       }
      ]
     },
     "explanation": {
-     "surface": "Some remarkable influence gets a jail sentence cut, and then cut again.",
-     "walkthrough": "'Prison term reduced' reads as a shorter sentence; really the term (end) of the prison word is removed.",
-     "definitionFit": "Juju is a West African word for a charm or fetish and the magical force attributed to it."
+     "surface": "Someone with uncanny power gets a jail sentence cut not once but twice.",
+     "walkthrough": "'term' here means a word for prison, not a sentence served; jug is British slang for jail. Shortened, it gives JU, and 'twice' doubles that.",
+     "definitionFit": "Juju is West African magic, the supernatural force attributed to a charm or fetish."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "term"
     }
    }
@@ -858,36 +858,40 @@
      "indicators": [
       {
        "text": "is translated",
-       "note": "translating turns words into a different form, so the letters are reordered"
+       "at": 37,
+       "note": "translated suggests turning words into another form, so these letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "TIVELANGUA",
        "indicators": [
         {
          "text": "essence of",
-         "note": "the essence is the heart of something, so only the core of the phrase survives"
+         "at": 10,
+         "note": "the essence of a word is its core, so the word native loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "native language",
-         "gives": "TIVELANGUA",
-         "select": "middle",
-         "note": "two letters dropped from each end of the phrase"
+         "words": "native",
+         "at": 21,
+         "note": "the word native, trimmed to its core"
         }
        ]
+      },
+      {
+       "words": "language",
+       "at": 28,
+       "gives": "LANGUE",
+       "note": "langue is French for language, and the linguists' term for a language as a system"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone works out what the heart of a mother tongue is when it is rendered in another.",
-     "walkthrough": "The middle here is the phrase stripped of its outer two letters on each side, leaving ten letters to rearrange.",
-     "definitionFit": "Reckoning, in the sense of assessing or calculating a value, is what evaluating means."
+     "surface": "The heart of a native tongue being rendered into another, as an interpreter might.",
+     "walkthrough": "'essence of' leaves ATIV from NATIVE; 'language' is LANGUE, a term borrowed from French; 'is translated' rearranges ATIV plus LANGUE.",
+     "definitionFit": "Evaluating means assessing or estimating, which is a sense of reckoning as a present participle."
     },
     "features": {
      "answerInScene": false,

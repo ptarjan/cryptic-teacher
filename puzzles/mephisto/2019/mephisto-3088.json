@@ -823,11 +823,13 @@
     "definitions": [
      {
       "text": "Boy",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a male first name, short for Terence"
      },
      {
       "text": "fabric",
-      "at": 46
+      "at": 46,
+      "meaning": "second meaning: a looped cotton cloth used for towels"
      }
     ],
     "wordplay": {
@@ -835,44 +837,47 @@
      "indicators": [
       {
        "text": "stuffing",
-       "note": "stuffing means filling, so one piece goes inside the other"
+       "at": 16,
+       "note": "stuffing means one piece is packed inside the other"
       }
      ],
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "TY",
+       "op": "deletion",
        "indicators": [
         {
          "text": "empty",
-         "note": "an empty thing has had its contents removed, leaving only its outside letters"
+         "at": 25,
+         "note": "empty means the word for a plaything loses its inside, keeping only its outer letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "plaything",
-         "gives": "TY",
-         "select": "outer",
-         "note": "toy without its middle"
+         "at": 31,
+         "gives": "TOY",
+         "note": "a plaything is a toy"
+        },
+        {
+         "gives": "O"
         }
        ]
       },
       {
        "words": "to go wrong",
+       "at": 4,
        "gives": "ERR",
-       "note": "to err is to make a mistake"
+       "note": "to err is to go wrong or make a mistake"
       }
      ]
     },
     "explanation": {
-     "surface": "A naughty lad fills a hollowed-out toy with cloth.",
-     "walkthrough": "The answer is defined twice, once at each end, with the wordplay between.",
-     "definitionFit": "Terry is a boy's name, and terry is also the looped cotton cloth used for towels."
+     "surface": "A boy messes up by filling a hollow toy with cloth.",
+     "walkthrough": "The wordplay sits between two definitions, a boy's name at the start and a fabric at the end; 'empty' keeps only the outer letters of the plaything.",
+     "definitionFit": "Terry is a male first name, and also the looped cotton cloth of bath towels."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "stuffing"
     }

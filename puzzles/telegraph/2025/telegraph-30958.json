@@ -363,35 +363,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HANGDOG",
-     "indicators": [
-      {
-       "text": "extremely deficient",
-       "note": "lacking at the extremes means both end letters of the word are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Replace",
-       "gives": "CHANGE",
-       "note": "to change something is to replace it"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "extremely deficient",
+         "at": 8,
+         "note": "extremely deficient means the word is lacking its extremes, its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Replace",
+         "at": 0,
+         "gives": "CHANGE",
+         "note": "to replace something is to change it"
+        },
+        {
+         "gives": "CE"
+        }
+       ]
       },
       {
        "words": "setter, maybe",
+       "at": 28,
        "gives": "DOG",
-       "note": "a setter is a breed of dog; maybe flags an example"
+       "note": "a setter is one kind of dog; maybe flags the example"
       }
      ]
     },
     "explanation": {
-     "surface": "Swap out a hopeless crossword setter, who might well feel ashamed.",
-     "walkthrough": "'Setter' reads as the crossword compiler, but it is the gun dog.",
-     "definitionFit": "A hangdog look is shamefaced and guilty, the expression of someone ashamed."
+     "surface": "A call to sack a hopeless crossword setter, who should feel ashamed.",
+     "walkthrough": "The setter here is not the crossword compiler but the gun dog; 'extremely deficient' strips the outer letters from CHANGE.",
+     "definitionFit": "A hangdog look is sheepish and guilty, the face of someone ashamed."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "setter"
@@ -690,12 +699,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NOTABLE",
      "indicators": [
       {
        "text": "amongst",
-       "note": "amongst places the student among the other pieces, inside them"
+       "at": 22,
+       "note": "amongst means the student's letter sits among the others"
       }
      ],
      "parts": [
@@ -704,7 +712,8 @@
        "indicators": [
         {
          "text": "returning",
-         "note": "returning means going back, so the whole string is read in reverse"
+         "at": 44,
+         "note": "returning means the English-plus-staff string comes back the other way"
         }
        ],
        "parts": [
@@ -713,33 +722,35 @@
          "parts": [
           {
            "words": "English",
-           "gives": "E",
-           "note": "E is the abbreviation for English"
-          },
-          {
-           "words": "student",
-           "gives": "L",
-           "note": "L is a learner driver's plate, so a student"
+           "at": 30,
+           "gives": "E"
           },
           {
            "words": "staff",
+           "at": 38,
            "gives": "BATON",
-           "note": "a baton is a short staff or stick"
+           "note": "a baton is a staff or short stick"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "student",
+       "at": 14,
+       "gives": "L",
+       "note": "L, for learner, as on the L-plates of a learner driver"
       }
      ]
     },
     "explanation": {
-     "surface": "An eminent student is among the English faculty staff who come back.",
-     "definitionFit": "Notable means worthy of note, eminent, a synonym for distinguished."
+     "surface": "An eminent student among the English faculty staff coming back to college.",
+     "walkthrough": "'staff' looks like university employees, but it is a stick, a baton; 'returning' turns E plus BATON into NOTABE before the L goes in.",
+     "definitionFit": "Notable and distinguished are synonyms, both describing someone eminent and worthy of attention."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "staff"
     }
    }
@@ -1240,46 +1251,48 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "POTHERB",
      "indicators": [
       {
        "text": "cooked",
-       "note": "cooked means prepared or doctored, so the letters are mixed up"
+       "at": 16,
+       "note": "cooked suggests the ingredients are mixed up, so the letters are rearranged"
       }
      ],
      "parts": [
       {
+       "words": "broth",
+       "at": 10,
+       "note": "taken as written"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "POTHERB",
        "indicators": [
         {
          "text": "discarded",
-         "note": "something discarded is thrown away, so those letters are removed"
+         "at": 39,
+         "note": "discarded means the letters for since are thrown out of peas"
         }
        ],
        "parts": [
         {
-         "words": "broth",
-         "note": "taken as written"
-        },
-        {
          "words": "peas",
-         "note": "taken as written"
+         "at": 28,
+         "note": "the word peas, losing two letters"
         },
         {
          "words": "since",
+         "at": 33,
          "gives": "AS",
-         "note": "as can mean since, because"
+         "note": "as can mean since, as in 'as it was raining'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe: a vegetable broth cooked with peas, which have since been thrown out.",
-     "definitionFit": "A pot-herb is any plant whose leaves or stems are boiled as a vegetable."
+     "surface": "A recipe note: soup made with peas, which were then thrown away.",
+     "walkthrough": "'discarded' removes AS (since) from PEAS to leave PE; 'cooked' then rearranges BROTH plus PE.",
+     "definitionFit": "A pot herb is any leafy plant grown to be boiled and eaten, so it is a type of vegetable."
     },
     "features": {
      "answerInScene": true,
@@ -1450,25 +1463,27 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ELAND",
      "indicators": [
       {
        "text": "Coat shorn repeatedly",
-       "note": "shearing the outer coat again and again strips the outside letters, layer after layer"
+       "at": 0,
+       "note": "the outer coat of letters is clipped off the word Icelandic twice over, one layer from each end each time"
       }
      ],
      "parts": [
       {
        "words": "Icelandic",
-       "note": "taken as written"
+       "at": 27
+      },
+      {
+       "gives": "ICIC"
       }
      ]
     },
     "explanation": {
-     "surface": "A fleece clipped again and again from an Icelandic sheep.",
-     "walkthrough": "Two layers come off each end of the nine-letter word, leaving its core.",
-     "definitionFit": "The eland is a large African antelope, an animal."
+     "surface": "Fleece clipped again and again from an Icelandic sheep.",
+     "walkthrough": "Shearing ICELANDIC once leaves CELANDI; shearing again leaves the five-letter answer. Iceland's sheep make the surface natural, though the animal is African.",
+     "definitionFit": "An eland is a large African antelope, so it is an example of an animal."
     },
     "features": {
      "answerInScene": false,

@@ -413,47 +413,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DISEASE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Nearly",
-       "note": "nearly means not quite all, so the word loses its final letter"
+       "text": "dodgy",
+       "at": 17,
+       "note": "dodgy means unreliable or out of order, so these letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "dodgy",
-         "note": "something dodgy is unreliable and out of true, so the letters are put in a new order"
+         "text": "Nearly",
+         "at": 0,
+         "note": "nearly means not quite all of the word set, so its final letter goes"
         }
        ],
        "parts": [
         {
          "words": "set",
-         "gives": "SE",
-         "note": "the word without its final letter"
+         "at": 7,
+         "note": "the word set, cut short"
         },
         {
-         "words": "aside",
-         "note": "taken as written"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "aside",
+       "at": 11,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone almost dismisses a suspicious grievance.",
-     "walkthrough": "'Set aside' reads as one phrase; only 'set' is shortened, then joined to 'aside' and the seven letters jumbled.",
-     "definitionFit": "A complaint in the medical sense is an illness or ailment, so it can mean a disease."
+     "surface": "Someone almost dismisses a suspicious grumble.",
+     "walkthrough": "'Nearly' trims SET to SE; 'dodgy' then rearranges SE plus ASIDE.",
+     "definitionFit": "A complaint in the medical sense is an illness, which is what a disease is."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "complaint"
     }
    }
@@ -758,44 +761,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SHELTERED",
+     "op": "composite",
      "indicators": [
       {
+       "text": "but not",
+       "at": 24,
+       "note": "not tells us some letters of the fodder are left out of the answer"
+      },
+      {
        "text": "planned",
-       "note": "planned means arranged, so the surviving letters are set out in a fresh order"
+       "at": 35,
+       "note": "not as planned means the letters come out in an unintended arrangement"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SHELTERED",
-       "indicators": [
-        {
-         "text": "but not as",
-         "note": "but not as asks for every copy of the letter A to be taken out, reading the word as plural A's"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Theresa deal",
-         "note": "the name and the noun taken as written"
-        }
-       ]
+       "words": "Theresa deal",
+       "at": 10,
+       "note": "the fodder, taken as written"
+      },
+      {
+       "words": "as",
+       "at": 32,
+       "gives": "AA",
+       "note": "read as A's, the plural of the letter A, which are the letters dropped"
       }
      ]
     },
     "explanation": {
-     "surface": "A Brexit agreement shielded from criticism, though it did not go as Theresa May intended.",
-     "walkthrough": "'Not as planned' looks like one phrase; 'as' is read as the plural of the letter A, so both A's go before the rearrangement.",
-     "definitionFit": "Sheltered means shielded or protected from harm, weather or hardship."
+     "surface": "A political deal struck by Theresa May that went off course, a nod to the Brexit negotiations.",
+     "walkthrough": "Take THERESA DEAL, throw out its two As ('but not as', read as 'not A’s'), and 'planned' (as in not as planned) rearranges the remaining nine letters.",
+     "definitionFit": "Something sheltered is shielded from harm, so it is a synonym of protected."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "as"
+     "joke": "pun",
+     "misdirectedWord": "Theresa"
     }
    }
   },
@@ -1425,44 +1427,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ELDEST",
+     "op": "composite",
      "indicators": [
       {
        "text": "to turn",
-       "note": "to turn means to be turned around and rearranged, so what remains is reordered"
+       "at": 18,
+       "note": "to turn the letters is to set them in a different order"
+      },
+      {
+       "text": "not",
+       "at": 30,
+       "note": "not her means those three letters are left out of the fodder"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ELDEST",
-       "indicators": [
-        {
-         "text": "not her",
-         "note": "not her asks for those three letters to be removed from the word referred to"
-        }
-       ],
-       "parts": [
-        {
-         "words": "13",
-         "gives": "SHELTERED",
-         "note": "the answer to clue 13 in this grid, the down entry"
-        }
-       ]
+       "words": "13",
+       "at": 26,
+       "gives": "SHELTERED",
+       "note": "the answer to clue 13 down"
+      },
+      {
+       "words": "her",
+       "at": 34,
+       "gives": "HER",
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "The firstborn child is about to turn thirteen, and the bracket points out it is a boy, not a girl.",
-     "walkthrough": "'13' looks like an age but refers to 13-down; take H, E, R out of that answer and rearrange the six letters left.",
-     "definitionFit": "The eldest child is the one born first in a family."
+     "surface": "A family's firstborn is about to turn thirteen, but the clue says it is not the girl.",
+     "walkthrough": "13 points to the answer of 13 down, SHELTERED. Remove HER ('not her') to leave STELED, and 'to turn' rearranges those letters.",
+     "definitionFit": "The eldest is the oldest sibling, the one born first among a family's children."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "13"
     }
    }

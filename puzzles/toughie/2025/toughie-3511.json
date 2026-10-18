@@ -140,58 +140,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NITWITS",
+     "op": "composite",
      "indicators": [
       {
        "text": "wrongly",
-       "note": "something done wrongly is done out of order, so the remaining letters are rearranged"
+       "at": 12,
+       "note": "wrongly means the remaining letters are set down in the wrong order"
+      },
+      {
+       "text": "dismissing",
+       "at": 20,
+       "note": "dismissing means the named letters are sent out of the fodder before it is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NITWITS",
+       "words": "Wins title",
+       "at": 0,
+       "note": "the fodder, taken as written"
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "dismissing",
-         "note": "to dismiss is to send away, so those letters are taken out of the fodder"
-        },
-        {
          "text": "outsiders",
-         "note": "outsiders are the people on the edge, so only the first and last letters of the word are meant"
+         "at": 40,
+         "note": "outsiders are the letters on the outside, the first and last of the word"
         }
        ],
        "parts": [
         {
-         "words": "Wins title",
-         "note": "taken as written"
-        },
-        {
-         "op": "outer",
-         "parts": [
-          {
-           "words": "league's",
-           "gives": "LEAGUE",
-           "note": "the first and last letters of league"
-          }
-         ]
+         "words": "league's",
+         "at": 31,
+         "gives": "LEAGUE",
+         "note": "the word league, whose outer letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A team wins a title, and pundits who wrote them off are branded fools.",
-     "walkthrough": "Remove L and E from WINSTITLE, then rearrange WINSTIT into NITWITS.",
-     "definitionFit": "Nitwits are silly, foolish people; the plural matches the plural in the clue."
+     "surface": "A sports pundit sneering that a team winning the title by excluding the league's outsiders are idiots.",
+     "walkthrough": "'outsiders' gives LE, the outer letters of LEAGUE; 'dismissing' removes them from WINS TITLE, and 'wrongly' rearranges the seven letters left.",
+     "definitionFit": "Nitwits are silly, foolish people, so the word is a plural synonym for fools."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "league's"
+     "misdirectedWord": "outsiders"
     }
    }
   },
@@ -660,32 +656,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LATTE",
+     "op": "middle",
      "indicators": [
       {
        "text": "Unlimited",
-       "note": "without limits means without its boundaries, so the first and last letters are lost"
+       "at": 0,
+       "note": "unlimited means without its limits, so the word loses its first and last letters"
       }
      ],
      "parts": [
       {
        "words": "praise",
+       "at": 10,
        "gives": "FLATTER",
-       "note": "to flatter is to praise, often excessively"
+       "note": "to flatter is to praise, especially insincerely"
       }
      ]
     },
     "explanation": {
-     "surface": "Lavish compliments for the coffee a barista hands over.",
-     "walkthrough": "Strip F and R from the ends of FLATTER.",
-     "definitionFit": "A latte is espresso with steamed milk, a standard drink made and handed over by coffee-shop staff."
+     "surface": "Gushing compliments for whatever the coffee-shop barista hands over.",
+     "walkthrough": "'serves up' is not a reversal signal; it belongs to the definition, the thing a barista serves.",
+     "definitionFit": "A latte is an espresso coffee with steamed milk, a staple drink made by a barista in a café."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Unlimited"
+     "misdirectedWord": "praise"
     }
    }
   },
@@ -1466,32 +1462,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ATTIC",
+     "op": "middle",
      "indicators": [
       {
        "text": "Extremely deficient",
-       "note": "deficient at the extremes means missing its ends, so the first and last letters go"
+       "at": 0,
+       "note": "extremely deficient means lacking at its extremes, so the first and last letters go"
       }
      ],
      "parts": [
       {
        "words": "grid",
+       "at": 20,
        "gives": "LATTICE",
-       "note": "a lattice is a grid of crossed strips"
+       "note": "a lattice is a grid or criss-cross framework"
       }
      ]
     },
     "explanation": {
-     "surface": "A badly flawed grid being polished up.",
-     "walkthrough": "Remove L and E from the ends of LATTICE. Attic with a capital refers to ancient Athens.",
-     "definitionFit": "Attic style, from classical Athens, means elegant and pure, so it describes something polished or cultivated."
+     "surface": "A crossword grid that falls badly short while supposedly being polished.",
+     "walkthrough": "The answer is not the loft: Attic with a capital means of ancient Athens, and so elegant and refined in style.",
+     "definitionFit": "Attic describes the classical Athenian style, prized for its pure, elegant simplicity, so it means refined."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Extremely"
+     "aptDefinition": true,
+     "misdirectedWord": "refined"
     }
    }
   },
@@ -1591,47 +1587,48 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ESPERANTO",
      "indicators": [
       {
        "text": "broadcast",
-       "note": "broadcast means scattered widely, as seed is, so the letters are spread into a new order"
+       "at": 41,
+       "note": "broadcast means scattered widely, so the letters are mixed up"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ESPERANTO",
        "indicators": [
         {
          "text": "to ignore",
-         "note": "what you ignore is left out, so that letter is dropped from the word"
+         "at": 23,
+         "note": "to ignore the hard letter means leaving it out of the word hate"
         }
        ],
        "parts": [
         {
          "words": "hate",
-         "note": "taken as written"
+         "at": 12,
+         "note": "the word hate, losing a letter"
         },
         {
          "words": "hard",
+         "at": 18,
          "gives": "H",
-         "note": "H is the abbreviation for hard, as on pencils"
-        },
-        {
-         "words": "person",
-         "note": "taken as written"
+         "note": "H is the abbreviation for hard, as on pencil leads"
         }
        ]
+      },
+      {
+       "words": "person",
+       "at": 34,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Hate speech from a person that is hard to ignore when it goes out on air.",
-     "walkthrough": "Drop the H from HATE and rearrange ATE with PERSON.",
-     "definitionFit": "Esperanto is an invented international tongue devised by Zamenhof in 1887."
+     "surface": "Hateful language aimed at someone and spread on the airwaves, which is hard to overlook.",
+     "walkthrough": "'to ignore' takes H out of HATE to leave ATE; 'broadcast' rearranges ATE plus PERSON.",
+     "definitionFit": "Esperanto is the constructed international language devised by L. L. Zamenhof in 1887."
     },
     "features": {
      "answerInScene": false,
@@ -1769,42 +1766,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PHYSICIANS",
+     "op": "container",
      "indicators": [
       {
-       "text": "around",
-       "note": "around suggests letters thrown about, so the preceding words are rearranged"
+       "text": "nurses",
+       "at": 29,
+       "note": "nurses means holds in its arms, so the jumbled letters cradle the abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "nurses",
-         "note": "to nurse something is to hold it close, so these letters take the next piece inside"
+         "text": "around",
+         "at": 22,
+         "note": "around here means turned about, so the letters of Spain and shy are moved round"
         }
        ],
        "parts": [
         {
-         "words": "Spain, shy",
-         "note": "the eight letters rearranged"
+         "words": "Spain",
+         "at": 11,
+         "note": "taken as written"
         },
         {
-         "words": "in charge",
-         "gives": "IC",
-         "note": "IC is the abbreviation for in charge"
+         "words": "shy",
+         "at": 18,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "in charge",
+       "at": 36,
+       "gives": "IC",
+       "note": "IC is the abbreviation for in charge, as in 2IC, second in charge"
       }
      ]
     },
     "explanation": {
-     "surface": "Bashful doctors in Spain hanging around nurses who are in charge.",
-     "walkthrough": "'Nurses' sits naturally beside doctors in the surface, but here it is a verb meaning holds.",
-     "definitionFit": "Physicians are medical practitioners, the formal name for doctors of medicine."
+     "surface": "Medics working in Spain, too bashful to go near the nurses in charge.",
+     "walkthrough": "'nurses' looks like more medical staff beside the doctors, but it is the containment signal; 'around' is the anagram signal, not a container.",
+     "definitionFit": "Physicians are medical practitioners, the people addressed as doctors."
     },
     "features": {
      "answerInScene": true,
