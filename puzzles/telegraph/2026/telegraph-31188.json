@@ -1135,61 +1135,59 @@
      "indicators": [
       {
        "text": "around",
-       "note": "around means encircling, so one piece wraps the others"
+       "at": 5,
+       "note": "the look word goes around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Look",
+       "at": 0,
+       "gives": "GAZE",
+       "note": "to gaze is to look steadily"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Look",
-           "gives": "GAZE",
-           "note": "to gaze is to look steadily"
-          },
-          {
-           "words": "English",
-           "gives": "E",
-           "note": "E is the abbreviation for English"
-          }
-         ]
+         "words": "English",
+         "at": 12,
+         "gives": "E"
         },
         {
          "words": "lake",
+         "at": 20,
          "gives": "L",
-         "note": "L is the abbreviation for lake"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "indicators": [
+         "note": "L is the map abbreviation for lake"
+        },
         {
-         "text": "initially",
-         "note": "initially means at the start, so only the first letter of the next word is used"
-        }
-       ],
-       "parts": [
-        {
-         "words": "locating",
-         "note": "the opening letter of the word"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 25,
+           "note": "initially means the first letter of the next word is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "locating",
+           "at": 35
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone scans an English lake to spot an elegant animal.",
-     "walkthrough": "'initially' follows lake but applies to locating; lake gives L by its usual abbreviation. GAZE then wraps E, L, L.",
-     "definitionFit": "The gazelle is a slender, swift antelope famed for its elegance, so it is a fair example of a graceful animal."
+     "surface": "A walker looks around an English lake and spots an elegant animal.",
+     "definitionFit": "A gazelle is a slender, swift antelope known for its elegance."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "initially"
+     "misdirectedWord": "locating"
     }
    }
   },
