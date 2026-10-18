@@ -1776,32 +1776,61 @@ def series_chart(row, pages=()):
                "out of the puzzles known to exist (the grey is still to find)")
 
 
-def queue_flow(days, window):
-    """(in, out) a day over the last `window` days: downloads, and first
-    reads (downloaded's gain less queued's); (None, None) with one night.
-    `days` are the recorded nights only: the build carries the last night's
-    queue to today, which would read as a day of no change."""
-    got = progress.rate(progress.series_of(days, progress.DOWNLOADED), window)
-    grew = progress.rate(progress.series_of(days, progress.QUEUED), window)
-    return (None, None) if got is None or grew is None else (got, got - grew)
+def queue_depths(c):
+    """(to fetch, to read, to annotate) for one series' row c: scans known to
+    exist and not on disk (known less downloaded), scans on disk not read
+    (queued), filed puzzles with a clue unexplained (filed less hinted). A
+    queue the row has no count for is None; none is below 0."""
+    known, _, filed, _, hinted, downloaded, queued = c
+    fetch = None if known is None or downloaded is None else max(known - downloaded, 0)
+    return fetch, queued, max(filed - hinted, 0)
+
+
+def queue_flows(days, window):
+    """((fetch in, out), (read in, out), (annotate in, out)) a day over the
+    last `window` days of the recorded nights `days`, a part None where a
+    phase has fewer than two nights. Into fetch is known's gain, out is
+    downloaded's; into read is downloaded's gain, out is filed's (a scan read
+    for nothing, or a puzzle filed from another source, makes that only a
+    proxy); into annotate is filed's gain, out is hinted's."""
+    g = {ph: progress.rate(progress.series_of(days, ph), window)
+         for ph in (progress.KNOWN, progress.FILED, progress.HINTED, progress.DOWNLOADED)}
+    return ((g[progress.KNOWN], g[progress.DOWNLOADED]),
+            (g[progress.DOWNLOADED], g[progress.FILED]),
+            (g[progress.FILED], g[progress.HINTED]))
 
 
 def flow_text(flow):
     i, o = flow
-    return "needs 2 nights" if i is None else f"+{i:,.0f} in, &minus;{o:,.0f} read"
+    if i is None and o is None:
+        return "needs 2 nights"
+    def signed(n, sign):
+        n = round(n * sign)
+        return "0" if n == 0 else f"+{n:,}" if n > 0 else f"&minus;{-n:,}"
+    return f"{'?' if i is None else signed(i, 1)} / {'?' if o is None else signed(o, -1)}"
+
+
+def queue_cell(depth, flow):
+    return "&mdash;" if depth is None else f'{depth:,} <span class="muted">({flow_text(flow)})</span>'
 
 
 def queue_table(row, recorded):
-    """The queue by series: today's `row`, downloaded and not read, and
-    each series' 7-day flow over the `recorded` nights."""
+    """The three queues by series: to fetch, to read, to annotate, each its
+    depth in `row` and its 7-day flow a day over the `recorded` nights.
+    Series with every queue empty are left out; the biggest queue ranks
+    first; the last row is the total."""
+    depths = {s: queue_depths(c) for s, c in row.items()}
+    shown = sorted((s for s, d in depths.items() if any(d)),
+                   key=lambda s: -max(n or 0 for n in depths[s]))
     rows = []
-    for s, c in sorted(row.items(), key=lambda kv: -(kv[1][progress.QUEUED] or 0)):
-        if c[progress.DOWNLOADED] is None:
-            continue
+    for s in shown:
         one = {d: {s: r[s]} for d, r in recorded.items() if s in r}
-        rows.append(f"<tr><td>{esc(series_name(s))}</td><td>{c[progress.QUEUED]:,}</td>"
-                    f"<td>{c[progress.DOWNLOADED]:,}</td><td>{flow_text(queue_flow(one, 7))}</td></tr>")
-    return ("<table><tr><th>Series</th><th>Not read</th><th>Downloaded</th><th>7-day pace</th></tr>"
+        rows.append(f"<tr><td>{esc(series_name(s))}</td>" + "".join(
+            f"<td>{queue_cell(n, f)}</td>" for n, f in zip(depths[s], queue_flows(one, 7))) + "</tr>")
+    tot = [sum(d[i] or 0 for d in depths.values()) for i in range(3)]
+    rows.append("<tr><th>All series</th>" + "".join(
+        f"<th>{queue_cell(n, f)}</th>" for n, f in zip(tot, queue_flows(recorded, 7))) + "</tr>")
+    return ("<table><tr><th>Series</th><th>To fetch</th><th>To read</th><th>To annotate</th></tr>"
             + "".join(rows) + "</table>")
 
 
@@ -1878,7 +1907,7 @@ def progress_page(idx, today=None, now=None):
             "is scans on disk (archive.org and Gale newspaper editions, Gale Listener pages, Trove "
             "articles) never read yet, one puzzle an edition or page, a Trove article counted at the "
             "share of read articles that held one, and no more than is known and not yet filed. "
-            "Downloaded less filed is what is not read yet. "
+            "Downloaded less filed is what is not read yet; the queues below count it as to read. "
             "The running totals below are not nested: scans on disk and scans not read are the "
             "recorded counts, so each moves at its own pace and the gap to filed is real. "
             "In the bars each stage sits inside the one above, and the table shows the same "
@@ -1886,7 +1915,18 @@ def progress_page(idx, today=None, now=None):
             "counted on one day only. "
             "Filed, solved and hinted are recounted every time the site updates (London time "
             "above); known and downloaded are counted once a night.</p>",
-            *(("<h2>The read queue</h2>", queue_table(days[today], recorded)) if queued is not None else ()),
+            *(("<h2>The queues</h2>",
+               "<p>Three queues feed the goal, each shown as its depth now and, in brackets, its "
+               "seven-day flow a day: in / out. <strong>To fetch</strong> is scans known to exist and "
+               "not on disk yet (known less downloaded); the ledger finding puzzles feeds it and "
+               "downloads drain it. <strong>To read</strong> is scans on disk not read yet; downloads "
+               "feed it and puzzles filed drain it. <strong>To annotate</strong> is filed puzzles "
+               "with a clue still unexplained (filed less hinted); new files feed it and hints "
+               "drain it. Each flow is the change in a recorded count between nights, so a read "
+               "is counted as a puzzle filed, which also counts a puzzle filed from another source "
+               "and misses a scan read for nothing. A ? is a count recorded on fewer than two "
+               "nights. A series with all three queues empty is left out.</p>",
+               queue_table(days[today], recorded)) if queued is not None else ()),
             "<h2>Running totals</h2>", recent,
             *((f"<details><summary>All time, from {short_day(next(iter(days)))}</summary>",
                cumulative_chart(days, full=True)[0], "</details>") if trimmed else ()),
