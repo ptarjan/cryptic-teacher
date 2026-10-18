@@ -1342,41 +1342,50 @@
      "indicators": [
       {
        "text": "filling",
-       "note": "a filling sits within something, so the first pieces go inside the last"
+       "at": 36,
+       "note": "filling means going inside, so these pieces sit within the emptied tree"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "hollow",
+         "at": 44,
+         "note": "hollow means emptied out, so only the outer letters of the tree remain"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "hollow",
-           "note": "a hollow thing has nothing inside, so only the outer letters of the tree stay"
-          }
-         ],
-         "parts": [
-          {
-           "words": "upas-tree",
-           "note": "the first and last letters"
-          }
-         ]
+         "words": "upas-tree",
+         "at": 51
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in",
+         "at": 8,
+         "gives": "IN"
         },
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "almost",
-           "note": "almost the island is the island's name stopping short of its last letter"
+           "at": 29,
+           "note": "almost means not quite all, so the island loses its last letter"
           }
          ],
          "parts": [
           {
            "words": "S Pacific island",
+           "at": 11,
            "gives": "TAHITI",
-           "note": "the main island of French Polynesia"
+           "note": "Tahiti is an island in French Polynesia in the South Pacific"
           },
           {
            "gives": "I"
@@ -1384,22 +1393,17 @@
          ]
         }
        ]
-      },
-      {
-       "words": "in",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Tarmac on a South Seas island almost fills the hollow trunk of a poisonous tree.",
-     "walkthrough": "The upas is a Javanese tree with poisonous sap.",
-     "definitionFit": "Uintahite, or gilsonite, is a natural black asphalt mined in the Uinta Basin of Utah, hence its name."
+     "surface": "A tar deposit on a Pacific island fills a hollow poisonous tree.",
+     "walkthrough": "TAHITI 'almost' is TAHIT; with IN it fills the 'hollow' upas-tree, U...E.",
+     "definitionFit": "Uintahite is a natural asphalt, a black bitumen found in the Uinta region of Utah."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "hollow"
     }
    }

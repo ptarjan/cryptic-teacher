@@ -1544,29 +1544,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Wild"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "twice cut down"
+         "text": "Wild",
+         "at": 0,
+         "note": "wild means out of control, so the letters of shamrock are thrown into a new order"
         }
        ],
        "parts": [
         {
          "words": "shamrock",
-         "note": "anagram fodder, 8 letters"
-        },
+         "at": 5
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "twice cut down",
+         "at": 33,
+         "note": "twice cut down means the end is chopped off two times, losing the last two letters"
+        }
+       ],
+       "parts": [
         {
          "words": "Portuguese islands",
-         "gives": "AZOR",
-         "note": "the AZORES, 'twice cut down' — losing their last two letters"
+         "at": 14,
+         "gives": "AZORES",
+         "note": "the Azores are an archipelago belonging to Portugal"
+        },
+        {
+         "gives": "ES"
         }
        ]
       }
@@ -1574,8 +1587,14 @@
     },
     "spelling": "OCKHAM'S RAZOR",
     "explanation": {
-     "walkthrough": "The definition is the principle stated properly: entities are not to be multiplied beyond necessity. The clue then enacts it, cutting the Azores down before shaving the whole thing into shape.",
-     "definitionFit": "Ockham's razor is the principle of shaving away needless assumptions, so 'reducing unnecessary quantities' restates its own famous formula in plainer words."
+     "surface": "Wild clover and Atlantic islands are trimmed back.",
+     "walkthrough": "'Wild' rearranges SHAMROCK into OCKHAMSR, and AZORES 'twice cut down' loses its last two letters to make AZOR.",
+     "definitionFit": "Ockham's razor is the principle that entities should not be multiplied beyond necessity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Wild"
     }
    }
   }

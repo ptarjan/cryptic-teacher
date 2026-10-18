@@ -1546,37 +1546,54 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "without tail",
-       "note": "the tail of a word is its last letter, and 'without' leaves it off"
+       "text": "climbing",
+       "at": 28,
+       "note": "climbing in a down clue means the letters go upwards, read in reverse"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "climbing",
-         "note": "in a down clue letters that climb are written from the bottom of the grid upwards, so they read the other way round"
-        }
-       ],
        "parts": [
         {
-         "words": "Thing without tail",
-         "gives": "ITE",
-         "note": "an item is a thing, and here it loses its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "without tail",
+           "at": 6,
+           "note": "without tail means the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Thing",
+           "at": 0,
+           "gives": "ITEM",
+           "note": "an item is a thing"
+          },
+          {
+           "gives": "M"
+          }
+         ]
         },
         {
          "words": "unknown",
+         "at": 20,
          "gives": "Y",
-         "note": "an unknown quantity in algebra is x, y or z"
+         "note": "Y is an unknown in algebra"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a tale about some tailless animal, which is the wrong animal entirely. Y for an unknown comes from algebra and turns up constantly.",
-     "definitionFit": "mountain creature -> YETI: the abominable snowman said to haunt the Himalayas, known to the world only from the mountains it supposedly walks."
+     "surface": "A tailless thing climbs a mountain, an unknown creature.",
+     "walkthrough": "ITEM 'without tail' is ITE; add Y and 'climbing' reverses ITEY.",
+     "definitionFit": "The yeti is the legendary abominable snowman said to live in the Himalayas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },

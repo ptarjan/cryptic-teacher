@@ -196,11 +196,12 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "backed",
-       "note": "sends the opening and the fish backwards"
+       "text": "stores",
+       "at": 58,
+       "note": "stores means keeps inside, so the reversed pair holds the other pieces"
       }
      ],
      "parts": [
@@ -208,44 +209,53 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "stores",
-         "note": "the reversed letters hold IN GB inside them"
+         "text": "backed",
+         "at": 38,
+         "note": "backed means turned back to front, so the opening and the fish are read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "fish",
-         "gives": "EELS",
-         "note": "eels are fish; reversed they give SLEE"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "opening",
+           "at": 45,
+           "gives": "GAP",
+           "note": "an opening is a gap"
+          },
+          {
+           "words": "fish",
+           "at": 53,
+           "gives": "EELS",
+           "note": "eels are fish"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "op": "reversal",
-         "parts": [
-          {
-           "words": "opening",
-           "gives": "GAP",
-           "note": "a gap is an opening; reversed it gives PAG"
-          }
-         ]
+         "words": "in",
+         "at": 27,
+         "gives": "IN"
         },
         {
-         "words": "in Britain",
-         "gives": "INGB",
-         "note": "IN plus GB, the abbreviation for Great Britain, stored inside the reversed letters"
+         "words": "Britain",
+         "at": 30,
+         "gives": "GB",
+         "note": "GB is the abbreviation for Great Britain"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An odd note on where to find smoked herring, involving British fish shops.",
-     "walkthrough": "The surface is about kippers the smoked fish, and 'fish' nearby helps the trap; here a kipper is someone having a kip, British slang for a sleep. 'Backed' turns both the opening and the fish round together, as one string.",
-     "definitionFit": "Someone kipping, or sleeping, may well be found in a sleeping bag."
+     "surface": "A cryptic picture of smoked herrings stored somewhere in Britain.",
+     "walkthrough": "The kippers are not smoked fish but people who kip, which is British slang for sleep.",
+     "definitionFit": "A kipper here is someone having a kip, a nap, and sleepers bed down inside this padded bag when camping."
     },
     "features": {
      "answerInScene": false,
@@ -584,55 +594,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "turned up",
-       "note": "in a down clue, turning up means reading from the bottom, so the word goes backwards"
-      }
-     ],
      "parts": [
       {
        "words": "Faint",
+       "at": 0,
        "gives": "DIM",
-       "note": "dim = faint, of light"
+       "note": "faint means dim"
       },
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
          "text": "to check",
-         "note": "the reversed sound holds back the note by surrounding it"
+         "at": 22,
+         "note": "to check means to hold back or contain, so the reversed sound holds the note"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turned up",
+           "at": 12,
+           "note": "turned up in a down clue means the word is read from bottom to top, that is backwards"
+          }
+         ],
          "parts": [
           {
            "words": "sound",
+           "at": 6,
            "gives": "NOISE",
-           "note": "noise = sound; turned up it reads ESION, which then goes round the N"
-          },
-          {
-           "words": "note",
-           "gives": "N",
-           "note": "n is the abbreviation for note"
+           "note": "a sound is a noise"
           }
          ]
+        },
+        {
+         "words": "note",
+         "at": 31,
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A quiet sound is turned up so someone can check a note's amplitude, like a sound engineer.",
-     "walkthrough": "The surface is audio, where 'amplitude' means loudness and 'turned up' means louder; amplitude here means size, or extent.",
-     "definitionFit": "Amplitude in its general sense is extent or size, which is a dimension."
+     "surface": "A faint noise is amplified to measure its volume.",
+     "walkthrough": "In a down clue 'turned up' reads the sound word from the bottom upwards.",
+     "definitionFit": "Amplitude is size or extent, and a dimension is a measurement of extent."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "amplitude"
     }
    }
@@ -1543,20 +1556,32 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
        "text": "on",
-       "note": "in an across clue, A on B puts A after B"
+       "at": 4,
+       "note": "on in an across clue means placed after, so the word I'm follows the letter for time"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "time",
+       "at": 7,
+       "gives": "T"
+      },
+      {
+       "words": "I'm",
+       "at": 0,
+       "gives": "IM"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "running",
-         "note": "the letters of but run into a new order"
+         "text": "around",
+         "at": 24,
+         "note": "around means the shuffled letters go round the other piece"
         }
        ],
        "parts": [
@@ -1564,48 +1589,35 @@
          "op": "anagram",
          "indicators": [
           {
-           "text": "around",
-           "note": "the rearranged letters go round UK"
+           "text": "running",
+           "at": 16,
+           "note": "running suggests the letters of but moving about into a new order"
           }
          ],
          "parts": [
           {
-           "words": "I'm",
-           "note": "taken as written"
-          },
-          {
            "words": "but",
-           "note": "the letters of but rearranged; UK goes after the B"
+           "at": 12
           }
          ]
         },
         {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "UK",
-           "note": "taken as written"
-          }
-         ]
+         "words": "UK",
+         "at": 31
         }
        ]
-      },
-      {
-       "words": "time",
-       "gives": "T",
-       "note": "t is the abbreviation for time"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is on schedule but rushing around a British city.",
-     "walkthrough": "'UK city' reads as the definition, but UK is part of the letters and the city is in Mali.",
-     "definitionFit": "Timbuktu is a city in Mali, famous as a byword for somewhere remote."
+     "surface": "Someone is late and dashing about Britain.",
+     "walkthrough": "'running' looks like it acts on the whole phrase, but only but is rearranged, and UK is spelt out as written.",
+     "definitionFit": "Timbuktu is a historic city in Mali, often used to mean somewhere remote."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "UK"
+     "misdirectedWord": "running"
     }
    }
   },
@@ -1668,51 +1680,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
        "text": "carrying",
-       "note": "design holds the two letters inside it"
+       "at": 17,
+       "note": "carrying means holding inside, so the turned design word holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "in switch",
-         "note": "switched round, so the whole thing is read backwards"
+         "at": 43,
+         "note": "in switch means switched round, so the design word is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "design",
-           "gives": "DRAW",
-           "note": "to draw is to design; ZI goes in before its W"
-          },
-          {
-           "words": "variable",
-           "gives": "Z",
-           "note": "z is a letter used for a variable in algebra"
-          }
-         ]
-        },
+         "words": "design",
+         "at": 10,
+         "gives": "DRAW",
+         "note": "to draw is to design"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "words": "current",
+         "at": 35,
          "gives": "I",
-         "note": "i is the physics symbol for electric current"
+         "note": "I is the symbol for electric current"
+        },
+        {
+         "words": "variable",
+         "at": 26,
+         "gives": "Z",
+         "note": "Z is a variable in algebra"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An excellent electrical design running a variable current through a switch.",
-     "walkthrough": "The surface is circuitry, where switch is a component; 'in switch' tells you to switch the letters end to end. Wizard is British slang for excellent.",
-     "definitionFit": "Wizard is old-fashioned British slang for excellent."
+     "surface": "A clever circuit layout with a switch carrying current.",
+     "walkthrough": "'in switch' turns DRAW into WARD, and 'carrying' puts I + Z inside it after the W.",
+     "definitionFit": "Wizard is British slang used as an exclamation or adjective for something brilliant."
     },
     "features": {
      "answerInScene": false,
