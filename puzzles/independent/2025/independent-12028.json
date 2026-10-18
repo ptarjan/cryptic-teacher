@@ -652,44 +652,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "wanting",
-       "note": "the lone letter is in want of a swim, so the stroke follows it"
-      }
-     ],
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
          "text": "Back from",
-         "note": "the back of the word is its tail end, so only its final letter is taken"
+         "at": 0,
+         "note": "the back of a word is its final letter"
+        },
+        {
+         "text": "wanting",
+         "at": 16,
+         "note": "completes the selection: the class is wanting all but its back letter, which is the one kept"
         }
        ],
        "parts": [
         {
          "words": "class",
-         "note": "the final letter of class"
+         "at": 10
         }
        ]
       },
       {
        "words": "swim",
+       "at": 24,
        "gives": "CRAWL",
-       "note": "the crawl is a swimming stroke, front crawl"
+       "note": "the crawl is a swimming stroke"
       }
      ]
     },
     "explanation": {
-     "surface": "Back from school and longing for a swim, a pupil hurries off.",
-     "walkthrough": "'dash off' sounds like leaving in a hurry, but here it means writing something quickly.",
-     "definitionFit": "To scrawl is to write hastily and messily, just as dashing off a note means writing it quickly."
+     "surface": "Returning from a class with a longing to go swimming, a pupil rushes away.",
+     "walkthrough": "S, the back of 'class', comes before CRAWL. 'Dash off' means write hurriedly, not run.",
+     "definitionFit": "To scrawl is to write hastily and untidily, as when you dash off a note."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "dash"
     }
    }
@@ -1916,51 +1916,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DODGE",
-     "indicators": [
-      {
-       "text": "knocked over",
-       "note": "something knocked over ends upside down, so the short word is turned round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "DODGE",
        "indicators": [
         {
          "text": "cycling",
-         "note": "cycling moves a letter round from one end to the other, so the word's first letter goes to the back"
+         "at": 37,
+         "note": "cycling moves a letter round from one end of the word to the other"
         }
        ],
        "parts": [
         {
          "words": "eccentric",
+         "at": 27,
          "gives": "ODD",
-         "note": "an eccentric person is odd"
-        },
+         "note": "odd means eccentric"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "knocked over",
+         "at": 11,
+         "note": "knocked over means upended, so the abbreviation is written backwards"
+        }
+       ],
+       "parts": [
         {
          "words": "say",
+         "at": 6,
          "gives": "EG",
-         "note": "e.g. means for example, as does say"
+         "note": "eg (for example) is what 'say' means"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A duck, for instance, is bowled over by a weird cyclist.",
-     "walkthrough": "'Duck, say' looks like a bird given as an example, but the comma splits it: Duck is the definition and say gives the abbreviation.",
-     "definitionFit": "To duck is to dodge, lowering or moving to avoid a blow or an awkward question."
+     "surface": "A duck, for example, gets knocked down by a strange cyclist.",
+     "walkthrough": "ODD with its last D moved to the front gives DOD; EG backwards is GE.",
+     "definitionFit": "To duck is to evade or sidestep, exactly what dodging means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "say"
+     "joke": "pun",
+     "misdirectedWord": "Duck"
     }
    }
   }

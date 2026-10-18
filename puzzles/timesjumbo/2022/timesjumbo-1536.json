@@ -1156,42 +1156,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "METEOROLOGY",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endless",
-       "note": "something endless has had its end cut off, so the final letter goes"
+       "text": "involving",
+       "at": 16,
+       "note": "to involve is, in its old sense, to roll up and entangle, so the letters are mixed together"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "involving",
-         "note": "to involve originally meant to roll up or entangle, so the letters are twisted together"
+         "text": "endless",
+         "at": 26,
+         "note": "without its end, loop loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "loop",
-         "gives": "LOO",
-         "note": "the word without its last letter"
+         "at": 34
         },
         {
-         "words": "geometry",
-         "note": "taken as written"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "geometry",
+       "at": 43
       }
      ]
     },
     "explanation": {
-     "surface": "A branch of science dealing with infinite loops and geometry, like topology.",
-     "walkthrough": "The surface describes a mathematical field, but the shortened loop and geometry are just letters entangled together.",
-     "definitionFit": "Meteorology is the scientific study of the atmosphere and weather, a recognised branch of science."
+     "surface": "A branch of science that deals with loops and geometry.",
+     "walkthrough": "LOO (loop without its end) and GEOMETRY are mixed together.",
+     "definitionFit": "Meteorology is the scientific study of the atmosphere and weather forecasting, a field of study."
     },
     "features": {
      "answerInScene": false,
@@ -2589,41 +2591,43 @@
      "indicators": [
       {
        "text": "to engage",
-       "note": "gears that engage lock together, one held within the other, so a piece is enclosed"
+       "at": 26,
+       "note": "engaging means taking on or holding, so the programmer's letters hold the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "programmer",
-         "gives": "CODER",
-         "note": "a coder writes computer programs"
-        },
-        {
-         "words": "male",
-         "gives": "M",
-         "note": "M is short for male"
-        }
-       ]
+       "words": "programmer",
+       "at": 15,
+       "gives": "CODER",
+       "note": "a coder is a computer programmer"
       },
       {
-       "words": "staff",
-       "gives": "MAN",
-       "note": "to staff a post is to man it"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "male",
+         "at": 36,
+         "gives": "M"
+        },
+        {
+         "words": "staff",
+         "at": 41,
+         "gives": "MAN",
+         "note": "to man a post is to staff it"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boss tells a software developer to hire more male employees.",
-     "walkthrough": "'Male staff' looks like a single noun phrase, but it is a letter followed by a verb.",
-     "definitionFit": "A commander is someone in authority, especially in the armed forces, who gives orders."
+     "surface": "A boss tells a programmer to hire male staff.",
+     "walkthrough": "'Staff' reads as a noun for employees, but here it is the verb: to man a post.",
+     "definitionFit": "A commander is one who gives commands, such as a military officer in charge."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "staff"
+     "aptDefinition": false
     }
    }
   },
@@ -3038,39 +3042,43 @@
      "indicators": [
       {
        "text": "to keep",
-       "note": "to keep something is to hold on to it, so other pieces are held inside"
+       "at": 11,
+       "note": "to keep is to hold, so the power unit's letters hold the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Some power",
-         "gives": "WATT",
-         "note": "a watt is a unit of power, so some amount of it"
-        },
-        {
-         "words": "ruler",
-         "gives": "ER",
-         "note": "ER, Elizabeth Regina, was the Queen's royal cipher"
-        }
-       ]
+       "words": "Some power",
+       "at": 0,
+       "gives": "WATT",
+       "note": "a watt is a unit of power"
       },
       {
-       "words": "near",
-       "gives": "CLOSE",
-       "note": "close means near"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ruler",
+         "at": 19,
+         "gives": "ER",
+         "note": "ER is Elizabeth Regina, the Queen"
+        },
+        {
+         "words": "near",
+         "at": 25,
+         "gives": "CLOSE",
+         "note": "close means near"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A power grab keeps the monarch close to the throne room.",
-     "walkthrough": "'Throne room' suggests a royal chamber, fitting the ruler, but 'throne' is jokey slang for a toilet.",
-     "definitionFit": "A water closet, or WC, is a flushing toilet, and the throne is humorous slang for the toilet seat."
+     "surface": "A monarch uses some power to keep courtiers close to the throne room.",
+     "walkthrough": "'Throne room' suggests a palace, but it is a jokey name for the lavatory, the throne being the toilet seat.",
+     "definitionFit": "A water closet is a flushing toilet, humorously called the throne room, the throne being the seat."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "throne"

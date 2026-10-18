@@ -1049,39 +1049,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "cooked",
-       "note": "cooked means prepared or fiddled, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "at": 13,
+         "note": "cooked means falsified or messed with, so the letters of soup are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "soup",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "wrong",
-         "gives": "SIN",
-         "note": "a sin is a wrong"
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "wrong",
+       "at": 20,
+       "gives": "SIN",
+       "note": "a sin is a wrong"
       }
      ]
     },
     "explanation": {
-     "surface": "Chicken soup made badly.",
-     "walkthrough": "'Chicken soup' reads as a dish; the definition is only 'Chicken', and 'soup' is the fodder.",
-     "definitionFit": "A definition by class: a chicken killed young, from the French for chick."
+     "surface": "Chicken soup that has been badly made.",
+     "walkthrough": "POUS (soup rearranged) + SIN.",
+     "definitionFit": "A poussin is a very young chicken bred for eating."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "soup"
+     "aptDefinition": false
     }
    }
   },
@@ -1504,41 +1505,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NEONSIGN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to fill",
+       "at": 14,
+       "note": "the rearranged letters fill the space between the central pair"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
-         "text": "Model",
-         "note": "to model is to shape, so the letters are reshaped"
-        },
-        {
-         "text": "to fill",
-         "note": "what fills something sits inside it, so the anagram goes between the two Ns"
+         "text": "centre of",
+         "at": 22,
+         "note": "the centre of banner is its middle two letters"
         }
        ],
        "parts": [
         {
-         "words": "centre of banner",
-         "gives": "NN",
-         "note": "middle letters of baNNer"
-        },
+         "words": "banner",
+         "at": 32
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Model",
+         "at": 0,
+         "note": "to model is to shape, so the letters of 'goes in' are reshaped"
+        }
+       ],
+       "parts": [
         {
          "words": "goes in",
-         "gives": "EONSIG",
-         "note": "anagram fodder"
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A model steps in to fill the middle of a poster.",
-     "walkthrough": "'Model' reads as a noun, the person on the banner; it is a verb, reshaping GOES IN.",
-     "definitionFit": "A definition by function: a glowing sign that advertises a shop or bar."
+     "surface": "A model steps in to take the middle of a banner advertisement.",
+     "walkthrough": "'Model' looks like a fashion model doing the filling, but it is a verb telling you to reshape 'goes in'.",
+     "definitionFit": "A neon sign is an illuminated tube display used to promote a shop or business."
     },
     "features": {
      "answerInScene": true,

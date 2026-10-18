@@ -988,39 +988,43 @@
      "indicators": [
       {
        "text": "carrying",
-       "note": "to carry something is to hold it, so the outer word holds the following letters"
+       "at": 8,
+       "note": "carrying means holding inside, so the beers wrap around the letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Porters",
-         "gives": "BEERS",
-         "note": "porter is a type of dark beer"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Porters",
+       "at": 0,
+       "gives": "BEERS",
+       "note": "porter is a dark beer, so porters are beers"
       },
       {
-       "words": "king's",
-       "gives": "K",
-       "note": "K is the abbreviation for king in chess"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 17
+        },
+        {
+         "words": "king's",
+         "at": 19,
+         "gives": "K",
+         "note": "K is the chess and card abbreviation for king"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hotel porters are carrying a king's spectacles.",
-     "walkthrough": "'Porters' suggests luggage carriers; it is the dark beer. The 's of king's is ignored in the parse.",
-     "definitionFit": "Beakers are drinking vessels, so they are glasses in the sense of cups for drinking from."
+     "surface": "Railway porters carry a king's spectacles.",
+     "walkthrough": "'Porters' looks like baggage carriers, but porter is a dark beer. A and K go inside BEERS.",
+     "definitionFit": "Beakers are drinking vessels, wide cups or tumblers, and so are glasses."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Porters"
     }
    }

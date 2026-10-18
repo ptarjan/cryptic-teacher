@@ -164,12 +164,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BEMUSING",
      "indicators": [
       {
        "text": "in",
-       "note": "the Greek letter goes inside the reworked word"
+       "at": 30,
+       "note": "the Greek letter goes in among the other letters"
       }
      ],
      "parts": [
@@ -178,27 +177,29 @@
        "indicators": [
         {
          "text": "training",
-         "note": "training puts the letters through drills that change their order"
+         "at": 33,
+         "note": "training puts something into a new shape, so the letters of begins are reworked"
         }
        ],
        "parts": [
         {
-         "words": "Greek character",
-         "gives": "MU",
-         "note": "mu is the twelfth letter of the Greek alphabet"
-        },
-        {
          "words": "begins",
-         "note": "the six letters rearranged"
+         "at": 42
         }
        ]
+      },
+      {
+       "words": "Greek character",
+       "at": 14,
+       "gives": "MU",
+       "note": "mu is a letter of the Greek alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A Greek athlete starts training, which is puzzling.",
-     "walkthrough": "'Greek character' suggests a person from Greece; it is just a letter of the Greek alphabet, dropped into the middle of the rearranged word.",
-     "definitionFit": "Something bemusing bewilders you, which is exactly what a puzzle does."
+     "surface": "A Greek person in training is starting out, a puzzle to themselves.",
+     "walkthrough": "'Training' looks like part of the story of a Greek athlete, but it is the signal to rearrange 'begins'.",
+     "definitionFit": "Bemusing means perplexing or bewildering, which is the effect a puzzle has on someone."
     },
     "features": {
      "answerInScene": false,
@@ -394,13 +395,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOBRAINER",
+     "op": "container",
      "indicators": [
       {
-       "text": "much of",
-       "note": "much but not all of the word is used, so its end is cut"
+       "text": "in",
+       "at": 23,
+       "note": "the wet weather sits inside the scrambled letters"
       }
      ],
      "parts": [
@@ -409,32 +409,49 @@
        "indicators": [
         {
          "text": "sadly",
-         "note": "sadly suggests things have gone wrong, so the letters are in disorder"
+         "at": 41,
+         "note": "sadly here means badly, so the letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "wet weather",
-         "gives": "RAIN",
-         "note": "rain is wet weather"
-        },
-        {
-         "words": "Borneo",
-         "gives": "BORNE",
-         "note": "the island's name without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "much of",
+           "at": 26,
+           "note": "much of a word is most of it, so Borneo loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Borneo",
+           "at": 34
+          },
+          {
+           "gives": "O"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "wet weather",
+       "at": 11,
+       "gives": "RAIN",
+       "note": "rain is wet weather"
       }
      ]
     },
     "explanation": {
-     "surface": "A weather report: a breeze and rain over most of Borneo, unfortunately.",
-     "walkthrough": "'Breeze' looks like part of the weather report but is the definition: a breeze is an easy task.",
-     "definitionFit": "A no-brainer is a decision so easy it needs no thought, and a breeze is an easy job."
+     "surface": "A wind and rain over most of Borneo, sad news for the island.",
+     "walkthrough": "'Breeze' wants to be wind, beside the wet weather, but it means an easy task.",
+     "definitionFit": "A no-brainer is something needing no thought, and a breeze is likewise a task that is very easy."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Breeze"
     }
    }
@@ -602,47 +619,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MEMBRANE",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most of the word is kept, so its final letter is dropped"
+       "text": "hosted by",
+       "at": 19,
+       "note": "something hosted by another is inside it, so the screening word goes within the club word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "hosted by",
-         "note": "a host takes a guest inside, so one word sits within the other"
+         "text": "mostly",
+         "at": 41,
+         "note": "most of the word, so member loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "one in club",
-         "gives": "MEMBE",
-         "note": "MEMBER, someone belonging to a club, with its last letter cut"
+         "at": 29,
+         "gives": "MEMBER",
+         "note": "a member is one who belongs to a club"
         },
         {
-         "words": "was screened",
-         "gives": "RAN",
-         "note": "a film that was screened ran at the cinema"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "was screened",
+       "at": 5,
+       "gives": "RAN",
+       "note": "a film that ran was shown, so ran"
       }
      ]
     },
     "explanation": {
-     "surface": "A movie was shown at a members' club, hosted by one of its regulars.",
-     "walkthrough": "MEMBER loses its final R, and RAN goes inside to give MEMB-RAN-E.",
-     "definitionFit": "A membrane is a thin covering layer, the same sense as a film of oil or skin."
+     "surface": "A movie was shown at a club, hosted by one of its members.",
+     "walkthrough": "MEMBE is member cut short; RAN goes in before its last E.",
+     "definitionFit": "A membrane is a thin skin or layer, and a film is likewise a thin coating or sheet."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Film"
     }
    }
@@ -668,49 +691,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "shoddy",
-       "note": "something shoddy is badly made, so the letters are put together wrongly"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Record",
+       "at": 0,
+       "gives": "DISC",
+       "note": "a disc is a gramophone record"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "latest of",
+         "at": 7,
+         "note": "the latest letter of a word is its last"
+        }
+       ],
        "parts": [
         {
-         "words": "Record",
-         "gives": "DISC",
-         "note": "a gramophone record is a disc"
-        },
+         "words": "poor",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "latest of",
-           "note": "the latest letter of a word is its final one"
-          }
-         ],
-         "parts": [
-          {
-           "words": "poor",
-           "note": "final letter of the word poor"
-          }
-         ]
-        },
+         "text": "shoddy",
+         "at": 22,
+         "note": "shoddy means badly made, so the letters of diet are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "diet",
-         "note": "the four letters rearranged"
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A record of someone's poor eating habits brings them into disrepute.",
-     "walkthrough": "'In' is the link: the answer is in (a state of) bad repute.",
-     "definitionFit": "Discredit is loss of reputation or standing, the noun meaning dishonour or disgrace."
+     "surface": "A record of a poor, shoddy diet that leaves someone with a bad name.",
+     "walkthrough": "DISC + R + EDIT (diet rearranged).",
+     "definitionFit": "Discredit is loss of reputation or esteem, a state of disgrace or dishonour."
     },
     "features": {
      "answerInScene": false,
@@ -896,52 +922,54 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "GENEHACKMAN",
-     "indicators": [
-      {
-       "text": "found in",
-       "note": "the journalist is discovered sitting inside the other letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
+       "words": "Information",
+       "at": 0,
+       "gives": "GEN",
+       "note": "gen is British slang for information"
+      },
+      {
+       "op": "container",
+       "indicators": [
         {
-         "words": "Information",
-         "gives": "GEN",
-         "note": "gen is British slang for information"
-        },
+         "text": "found in",
+         "at": 23,
+         "note": "the journalist is found inside the rearranged letters"
+        }
+       ],
+       "parts": [
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "change of",
-           "note": "a change of the word means its letters are altered in order"
+           "at": 32,
+           "note": "a change of a word rearranges its letters"
           }
          ],
          "parts": [
           {
-           "words": "journalist",
-           "gives": "HACK",
-           "note": "a hack is a jobbing journalist"
-          },
-          {
            "words": "name",
-           "note": "the four letters rearranged"
+           "at": 42
           }
          ]
+        },
+        {
+         "words": "journalist",
+         "at": 12,
+         "gives": "HACK",
+         "note": "a hack is a journalist, especially a low-grade one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A reporter digs up the news that an actor has changed his name.",
-     "walkthrough": "Gen is British informal slang for information, as in 'get the gen'. The journalist sits inside the rearranged name rather than beside it.",
-     "definitionFit": "Gene Hackman was an Oscar-winning American film star, so he is an example of an actor."
+     "surface": "Information about a journalist who changed his name for the stage.",
+     "walkthrough": "Gen is British slang for information, short for general information.",
+     "definitionFit": "Gene Hackman was an American film star, Oscar winner for The French Connection and Unforgiven."
     },
     "features": {
      "answerInScene": true,
@@ -966,58 +994,62 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Antagonism?",
+      "text": "Antagonism",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "possibly",
-       "note": "possibly suggests one of several arrangements of these letters"
+       "text": "in",
+       "at": 34,
+       "note": "everything else goes inside the island's name"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "the letters sit inside the name of the island"
-        }
-       ],
+       "words": "Scottish island",
+       "at": 37,
+       "gives": "HOY",
+       "note": "Hoy is one of the Orkney islands"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Scottish island",
-         "gives": "HOY",
-         "note": "Hoy is one of the Orkney Islands"
-        },
-        {
-         "op": "charade",
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "possibly",
+           "at": 17,
+           "note": "possibly signals another arrangement of the letters of It's"
+          }
+         ],
          "parts": [
           {
            "words": "It's",
-           "note": "the three letters rearranged"
-          },
-          {
-           "words": "settled",
-           "gives": "LIT",
-           "note": "a bird that has settled has lit (alighted) on a branch"
+           "at": 12
           }
          ]
+        },
+        {
+         "words": "settled",
+         "at": 26,
+         "gives": "LIT",
+         "note": "lit, as a bird lit on a branch, means settled"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Is there ill feeling? Perhaps it has been settled on a Scottish island.",
-     "walkthrough": "'Settled' reads as resolved, but it means landed: LIT, as a bird alights.",
-     "definitionFit": "Hostility is open unfriendliness or opposition, a synonym for antagonism."
+     "surface": "Is there hostility? Perhaps it has been settled on a Scottish island.",
+     "walkthrough": "'Settled' reads as resolved, but here it is a bird alighting; Hoy is an island in Orkney, off the north of Scotland.",
+     "definitionFit": "Hostility is unfriendliness or opposition, a near synonym of antagonism."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "settled"
     }
@@ -1529,49 +1561,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "fancy",
-       "note": "fancy, as a verb, means imagine, and the letters are imagined in another order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fancy",
+         "at": 8,
+         "note": "fancy as an adjective means elaborate, so the letters are made over"
+        }
+       ],
        "parts": [
         {
          "words": "I bet a",
-         "note": "these five letters rearranged"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "motor racing",
+       "at": 14,
+       "gives": "FI",
+       "note": "F1 is Formula One motor racing, with the 1 read as the letter I"
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "motor racing",
-         "gives": "FI",
-         "note": "F1, Formula One, written with the digit as the letter I"
-        },
+         "text": "head",
+         "at": 37,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "head",
-           "note": "a head is at the front, so only the opening letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "company's",
-           "note": "first letter of company"
-          }
-         ]
+         "words": "company's",
+         "at": 27
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gambler backing a smart racing team is delighted.",
-     "walkthrough": "Formula One is abbreviated F1, and the digit 1 stands in for the letter I.",
-     "definitionFit": "Beatific describes the blissful, saintly joy of the blessed, so supremely happy is a close synonym."
+     "surface": "I bet the boss of a motor racing team is thrilled.",
+     "walkthrough": "BEATI is 'I bet a' rearranged; F1, written FI, is Formula One, the top motor racing series; C heads 'company's'.",
+     "definitionFit": "Beatific means blissful, showing or giving heavenly joy."
     },
     "features": {
      "answerInScene": true,
