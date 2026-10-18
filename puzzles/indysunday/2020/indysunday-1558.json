@@ -386,30 +386,48 @@
      "indicators": [
       {
        "text": "omitted",
-       "note": "omitted means those letters are left out of the longer word"
+       "at": 39,
+       "note": "omitted says these letters are left out of the sauce"
       }
      ],
      "parts": [
       {
        "words": "tomato sauce",
+       "at": 8,
        "gives": "PASSATA",
-       "note": "passata is sieved tomato sauce"
+       "note": "passata is sieved Italian tomato sauce"
       },
       {
-       "words": "half of salt",
-       "gives": "SA",
-       "note": "the first half of salt"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 26,
+         "note": "half of keeps only the front two of the four letters of salt, dropping the back two"
+        }
+       ],
+       "parts": [
+        {
+         "words": "salt",
+         "at": 34,
+         "note": "the word salt supplies the letters kept"
+        },
+        {
+         "gives": "LT"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe note: tomato sauce made with less salt.",
-     "definitionFit": "Pasta is an Italian food served as a meal, typically as a plate of noodles or shapes, so it is a dish."
+     "surface": "A recipe note: a dish of tomato sauce made with less salt than usual.",
+     "walkthrough": "'Half of' salt is SA (its last two letters dropped); 'omitted' takes SA out of PASSATA, the sieved tomato sauce, and what is left is the dish.",
+     "definitionFit": "Pasta is an Italian staple food served as a main course, so it is a dish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Dish"
+     "misdirectedWord": "salt"
     }
    }
   },
@@ -1639,35 +1657,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "REIGN",
      "indicators": [
       {
        "text": "replacing",
-       "note": "replacing means one letter takes the place of another in the word"
+       "at": 5,
+       "note": "replacing says the king's letter stands in place of the fellow's"
       }
      ],
      "parts": [
       {
-       "words": "King",
-       "gives": "R",
-       "note": "R is the abbreviation for rex, Latin for king"
+       "words": "fake",
+       "at": 25,
+       "gives": "FEIGN",
+       "note": "to feign is to fake or pretend"
       },
       {
        "words": "fellow",
-       "gives": "F",
-       "note": "F is the abbreviation for fellow"
+       "at": 15,
+       "gives": "F"
       },
       {
-       "words": "fake",
-       "gives": "FEIGN",
-       "note": "to feign is to fake or pretend"
+       "words": "King",
+       "at": 0,
+       "gives": "R",
+       "note": "R, from Rex, is the abbreviation for king"
       }
      ]
     },
     "explanation": {
-     "surface": "A king steps in to replace a man in a sham administration.",
-     "definitionFit": "A reign is the period of rule by a monarch, so it is a form of sovereign rule over a state."
+     "surface": "A king usurps a fellow in a sham administration.",
+     "walkthrough": "'Replacing' puts R (king) in place of F (fellow) in FEIGN.",
+     "definitionFit": "A monarch's reign is the period and act of his rule, so it is a form of government."
     },
     "features": {
      "answerInScene": true,

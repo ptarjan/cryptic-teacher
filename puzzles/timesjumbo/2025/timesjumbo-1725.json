@@ -282,65 +282,69 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ASTRAY",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "in says that letter goes inside the letters that follow"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "the letter is placed in the string that follows it"
-        },
-        {
-         "text": "front of",
-         "note": "the front of a word is its opening letter"
-        }
-       ],
        "parts": [
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "A",
          "indicators": [
           {
-           "text": "First of",
-           "note": "the first of a word is its opening letter"
+           "text": "front of",
+           "at": 17,
+           "note": "front of picks the opening letter of aircraft"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "front of aircraft",
-           "gives": "A",
-           "select": "first",
-           "note": "first letter of aircraft"
+           "words": "aircraft",
+           "at": 26,
+           "note": "the word aircraft supplies its first letter"
           }
          ]
         },
         {
-         "words": "First of subs",
-         "gives": "S",
-         "note": "first letter of subs"
-        },
-        {
          "words": "carrier",
+         "at": 35,
          "gives": "TRAY",
-         "note": "a tray carries things"
+         "note": "a tray is something that carries food or drinks"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "First of",
+         "at": 0,
+         "note": "first of picks the opening letter of subs"
+        }
+       ],
+       "parts": [
+        {
+         "words": "subs",
+         "at": 9,
+         "note": "the word subs supplies its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A submarine leads an aircraft carrier that has wandered off its route.",
-     "walkthrough": "'Aircraft carrier' is not one thing: 'front of aircraft' and 'carrier' are separate pieces, and the S slips in between them.",
-     "definitionFit": "A plain synonym: something that has strayed from its proper route has gone off course."
+     "surface": "A submarine leads the way ahead of an aircraft carrier that has strayed from its route.",
+     "walkthrough": "'In front of' looks like a running order, but 'in' is the container signal and 'front of aircraft' gives A: S goes inside A plus TRAY.",
+     "definitionFit": "Something gone astray has wandered from the right path, so it is off course."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "carrier"
     }
    }
@@ -1232,43 +1236,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "changing",
-       "note": "letters that are changing will not stay in the order given"
-      }
-     ],
      "parts": [
       {
        "words": "Job",
+       "at": 0,
        "gives": "POST",
-       "note": "a post = a job"
+       "note": "a post is a job or position"
       },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "twice",
-         "note": "twice means two times, so the word before it is used two times"
+         "text": "changing",
+         "at": 24,
+         "note": "changing says the letters of permit, son and is twice are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "permit son is twice",
-         "gives": "PERMITSONISIS",
-         "note": "anagram fodder, with IS doubled"
+         "words": "permit",
+         "at": 4
+        },
+        {
+         "words": "son",
+         "at": 11
+        },
+        {
+         "words": "is",
+         "at": 15
+        },
+        {
+         "words": "twice",
+         "at": 18,
+         "gives": "IS",
+         "note": "twice stands for a second copy of the word is just before it"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A work permit for a son keeps changing so that he can train as an artist.",
-     "walkthrough": "'Job permit' reads as a work visa; the two words go to different places.",
-     "definitionFit": "A definition by class: painters such as Cezanne, Gauguin and Van Gogh, who followed Impressionism, belong to this school."
+     "surface": "A job permit for a son is changed twice.",
+     "walkthrough": "'Twice' doubles IS, so the letters to rearrange are PERMIT, SON, IS and IS. Post-Impressionists such as Cézanne and Van Gogh followed the Impressionists.",
+     "definitionFit": "A Post-Impressionist is a painter of the movement after Impressionism, such as Gauguin, so the answer is an artist."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "permit"
     }
@@ -1689,56 +1702,40 @@
    "annotation": {
     "definitions": [
      {
-      "text": "perform again",
-      "at": 47
+      "text": "to perform again",
+      "at": 44
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "REENACT",
      "indicators": [
       {
        "text": "Apart from openers",
-       "note": "the openers of words are their first letters, and apart from them means without them"
+       "at": 0,
+       "note": "apart from openers says the first letter of each word is left out"
       },
       {
        "text": "together",
-       "note": "put together, so the four remnants join up"
+       "at": 35,
+       "note": "together says the letters left from the four words are run into one"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "are",
-         "gives": "RE",
-         "note": "are without A"
-        },
-        {
-         "words": "we",
-         "gives": "E",
-         "note": "we without W"
-        },
-        {
-         "words": "in",
-         "gives": "N",
-         "note": "in without I"
-        },
-        {
-         "words": "fact",
-         "gives": "ACT",
-         "note": "fact without F"
-        }
-       ]
+       "words": "are we in fact",
+       "at": 20,
+       "note": "the four words are written together once their first letters go"
+      },
+      {
+       "gives": "AWIF",
+       "note": "the first letters of are, we, in and fact"
       }
      ]
     },
     "explanation": {
-     "surface": "Performers ask whether they are back together for a reunion show.",
-     "walkthrough": "'Openers' are the opening letters, dropped from all four words.",
-     "definitionFit": "A plain description: to act out a past event or scene once more."
+     "surface": "Someone wonders whether, setting aside the opening acts, a group are in fact a single act again.",
+     "walkthrough": "'Apart from openers' drops the first letter of each of 'are we in fact', and 'together' runs the rest into one word: RE, E, N, ACT.",
+     "definitionFit": "To re-enact an event is to act it out once more, so it means to perform again."
     },
     "features": {
      "answerInScene": true,

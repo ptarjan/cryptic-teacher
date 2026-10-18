@@ -145,57 +145,51 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EVICT",
      "indicators": [
       {
        "text": "in the middle of",
-       "note": "one thing sitting in the middle of another is enclosed by it"
+       "at": 29,
+       "note": "in the middle of says the cut word sits inside the film's title"
       }
      ],
      "parts": [
       {
+       "words": "film",
+       "at": 46,
+       "gives": "ET",
+       "note": "ET is Spielberg's 1982 film about an alien"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "EVICT",
        "indicators": [
         {
          "text": "half-cut",
-         "note": "cut by half means only the front half of the word survives"
+         "at": 10,
+         "note": "half-cut says the word loses half its letters, here the back three"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "film",
-           "gives": "E",
-           "note": "first part of ET, Spielberg's film about the alien"
-          },
-          {
-           "words": "clergymen",
-           "gives": "VIC",
-           "note": "the first half of VICARS"
-          },
-          {
-           "words": "film",
-           "gives": "T",
-           "note": "last part of ET"
-          }
-         ]
+         "words": "clergymen",
+         "at": 19,
+         "gives": "VICARS",
+         "note": "vicars are Church of England clergymen"
+        },
+        {
+         "gives": "ARS",
+         "note": "the back half of vicars"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Drunk clergymen are thrown out halfway through a film screening.",
-     "walkthrough": "'Half-cut' looks like British slang for tipsy, but it trims VICARS to its front half, which then sits inside ET.",
-     "definitionFit": "To evict is to expel someone from a property, which is informally to chuck them out."
+     "surface": "Drunken clergymen are thrown out halfway through a film screening.",
+     "walkthrough": "'Half-cut' (British slang for drunk) trims VICARS to VIC, which goes 'in the middle of' ET.",
+     "definitionFit": "To evict a tenant is to throw them out of their home, so it means chuck out."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "half-cut"
@@ -281,48 +275,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HOLDALL",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "short means cut off at the end, so the last letter goes"
+       "text": "has",
+       "at": 23,
+       "note": "has, read with lining, says the lodgings hold the next word within them"
+      },
+      {
+       "text": "lining",
+       "at": 32,
+       "note": "lining says the next word is put inside the shortened lodgings, like a coat's lining"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "has",
-         "note": "to have something lining it is to hold it inside"
+         "text": "short",
+         "at": 4,
+         "note": "short says the last letter is cut off"
         }
        ],
        "parts": [
         {
          "words": "student digs",
-         "gives": "HALL",
-         "note": "halls of residence, with the final S dropped"
+         "at": 10,
+         "gives": "HALLS",
+         "note": "halls of residence, or halls, are university student lodgings; digs is British slang for lodgings"
         },
         {
-         "words": "grey",
-         "gives": "OLD",
-         "note": "grey as in grey-haired, aged"
+         "gives": "S",
+         "note": "the last letter of halls"
         }
        ]
+      },
+      {
+       "words": "grey",
+       "at": 27,
+       "gives": "OLD",
+       "note": "old means grey, as in grey-haired"
       }
      ]
     },
     "explanation": {
-     "surface": "A student's bag, kept in their lodgings, has a grey lining.",
-     "walkthrough": "Halls (of residence) is British for university housing; trimmed, it is lined with OLD after its first letter.",
-     "definitionFit": "A holdall is a large soft travel bag, so a type of bag."
+     "surface": "A student carries a bag to cramped lodgings with grey walls.",
+     "walkthrough": "'Short' turns HALLS into HALL, and with OLD as its 'lining' it becomes H-OLD-ALL: the shortened halls 'has' grey as its lining.",
+     "definitionFit": "A holdall is a large soft travelling bag that holds everything, so it is a bag."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "short"
+     "misdirectedWord": "digs"
     }
    }
   },
@@ -404,41 +409,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BLEMISH",
-     "indicators": [
-      {
-       "text": "not the top part",
-       "note": "in a down entry the top is the start, so the first letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "black",
+       "at": 7,
+       "gives": "B",
+       "note": "B is the pencil-grade abbreviation for black"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not the top part",
+         "at": 32,
+         "note": "not the top part says the first letter is dropped; in a down clue the top is the start"
+        }
+       ],
        "parts": [
         {
-         "words": "black",
-         "gives": "B",
-         "note": "B is the pencil abbreviation for black"
+         "words": "from Flanders",
+         "at": 17,
+         "gives": "FLEMISH",
+         "note": "Flemish means from Flanders, the Dutch-speaking region of Belgium"
         },
         {
-         "words": "from Flanders",
-         "gives": "LEMISH",
-         "note": "FLEMISH without its first letter"
+         "gives": "F",
+         "note": "the first letter of Flemish"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mark is black and comes from Flanders, minus its upper section.",
-     "definitionFit": "A blemish is a small flaw or spot on a surface, so a mark."
+     "surface": "A painting is described as dark and Flemish, minus its upper section.",
+     "walkthrough": "In a down clue the top of a word is its first letter, so 'not the top part' means the opening letter goes; the surface makes it sound like a cropped painting.",
+     "definitionFit": "A blemish is a small flaw or spot on a surface, so it is a mark."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Mark"
+     "misdirectedWord": "Mark's"
     }
    }
   },

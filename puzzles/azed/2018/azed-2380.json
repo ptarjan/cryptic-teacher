@@ -919,48 +919,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "POTION",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "First off",
-       "note": "first off means the opening letter is taken away"
+       "text": "out",
+       "at": 40,
+       "note": "out, in the sense of out of order, says the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "out",
-         "note": "out can mean disordered or wrong, so the letters are rearranged"
+         "text": "First off",
+         "at": 20,
+         "note": "first off says the opening letter of spoon is dropped"
         }
        ],
        "parts": [
         {
          "words": "spoon",
-         "gives": "POON",
-         "note": "spoon with its first letter taken off"
+         "at": 31,
+         "note": "the word spoon supplies the letters left after its first is dropped"
         },
         {
-         "words": "it",
-         "note": "taken as written"
+         "gives": "S",
+         "note": "the first letter of spoon"
         }
        ]
+      },
+      {
+       "words": "it",
+       "at": 37
       }
      ]
     },
     "explanation": {
-     "surface": "A barman asks for your drink order, then spoons it out.",
-     "walkthrough": "'What's your poison?' is a jokey way of asking what someone will drink; a potion is the drink that answers it.",
-     "definitionFit": "A potion is a dose of liquid, often magical or medicinal, and poison itself is one kind."
+     "surface": "A barman asks what you are drinking, then tells you to put the spoon away first.",
+     "walkthrough": "'First off' takes S from SPOON, leaving POON; with IT, 'out' rearranges POONIT. The definition is the barman's question, standing for a drink.",
+     "definitionFit": "'What's your poison?' is a jokey offer of a drink, and a potion is a drink, often a magical or medicinal one."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "spoon"
+     "misdirectedWord": "poison"
     }
    }
   },
@@ -980,63 +984,72 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Gelato",
+      "text": "Gelato?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SPUMONE",
-     "indicators": [
-      {
-       "text": "turned",
-       "note": "something turned round faces the other way, so its letters run backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "SPUMONE",
        "indicators": [
         {
          "text": "for",
-         "note": "'X for Y' means X stands in place of Y, swapping one letter group for another"
+         "at": 24,
+         "note": "for says the turned word stands in place of the letter for one"
         }
        ],
        "parts": [
         {
-         "words": "Sam",
-         "note": "taken as written"
-        },
-        {
-         "words": "up",
-         "note": "taken as written, to be turned round"
+         "words": "Sam's",
+         "at": 8,
+         "gives": "SAM",
+         "note": "the name Sam; the 's is read as 'has'"
         },
         {
          "words": "one",
+         "at": 28,
          "gives": "A",
-         "note": "a means one, the letter to replace"
+         "note": "a means one, as in 'a pound'"
         },
         {
-         "words": "numero uno",
-         "gives": "ONE",
-         "note": "numero uno is Italian for number one"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turned",
+           "at": 14,
+           "note": "turned says the word up is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "up",
+           "at": 21,
+           "gives": "UP",
+           "note": "the word up, read backwards"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "numero uno",
+       "at": 33,
+       "gives": "ONE",
+       "note": "numero uno is Italian and Spanish for number one"
       }
      ]
     },
     "explanation": {
-     "surface": "At the ice-cream parlour, Sam shows up to buy one for the boss.",
-     "walkthrough": "Read 'Sam's' as 'Sam has': SAM has PU in place of A, giving SPUM, then ONE.",
-     "definitionFit": "Spumone is a moulded Italian ice cream, so it is a type of gelato, the Italian word for ice cream."
+     "surface": "Sam has come back for an ice cream for himself, number one.",
+     "walkthrough": "'For' swaps the A (one) in SAM for PU ('up' turned), giving SPUM; 'numero uno' adds ONE. The question mark marks the definition as an example.",
+     "definitionFit": "Spumone is a moulded Italian ice cream with layers, so it is a kind of gelato, Italian ice cream."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Sam's"
+     "misdirectedWord": "turned"
     }
    }
   },
