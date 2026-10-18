@@ -206,12 +206,27 @@ def commit(path):
     subprocess.run(["bash", "-c", f'. tools/commit_puzzles.sh; ct_commit_puzzles "{JOB}"'], cwd=ROOT, check=True)
 
 
-def run(paths, write):
+def publish(pending):
+    """Push the local commits in `pending` (oldest first) to origin, so a killed run loses none."""
+    for sha in pending:
+        r = subprocess.run(["tools/push_puzzle_commit.sh", sha], cwd=ROOT)
+        if r.returncode:
+            print(f"push failed for {sha} (exit {r.returncode})", file=sys.stderr, flush=True)
+    pending.clear()
+
+
+def run(paths, write, push_every=0):
     out = []
+    pending = []
     with multiprocessing.Pool(jobs()) as pool:
         for r in pool.imap_unordered(_job, [(str(p), write) for p in paths], 8):
             if write and r[1]:
                 commit(r[0])
+                if push_every:
+                    pending.append(subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True,
+                                                  text=True, check=True).stdout.strip())
+                    if len(pending) >= push_every:
+                        publish(pending)
             out.append(r)
             print(f"[{len(out)}/{len(paths)}] {Path(r[0]).stem}: {len(r[1])} cleared", file=sys.stderr, flush=True)
     return out
@@ -235,13 +250,24 @@ def main():
                     "per shard, so a killed or split --write run resumes by running the shards again")
     ap.add_argument("--limit", type=int, help="only the first N flagged puzzles (a dry-run slice)")
     ap.add_argument("--ids", help="JSON list of puzzle ids or clue ids (puzzle#label): only those puzzles are loaded")
+    ap.add_argument("--start-after", help="puzzle id: skip the flagged puzzles up to and including this one, in file order "
+                    "(resume a killed run from the last id its log shows)")
+    ap.add_argument("--push-every", type=int, default=0, help="with --write, publish the commits every N puzzles "
+                    "(tools/push_puzzle_commit.sh), so a kill loses at most N unpushed commits")
     a = ap.parse_args()
     k, n = (int(x) for x in a.shard.split("/"))
-    paths = flagged_files()[k - 1::n][:a.limit]
+    paths = flagged_files()
+    if a.start_after:
+        stems = [p.stem for p in paths]
+        if a.start_after in stems:
+            paths = paths[stems.index(a.start_after) + 1:]
+        else:  # already cleared and off the list: resume at the first file sorting after it
+            paths = [p for p in paths if p.stem > a.start_after]
+    paths = paths[k - 1::n][:a.limit]
     if a.ids:
         want = {i.split("#")[0] for i in json.loads(Path(a.ids).read_text())}
         paths = [p for p in paths if p.stem in want]
-    results = run(paths, a.write)
+    results = run(paths, a.write, a.push_every if a.write else 0)
     total = collections.Counter()
     for r in results:  # update in place: sum() re-copies the whole Counter per puzzle
         total.update(r[2])
