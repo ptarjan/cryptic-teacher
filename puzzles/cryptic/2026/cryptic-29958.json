@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -54,45 +55,41 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "OXFORDSTREET",
+     "indicators": [
+      {
+       "text": "new",
+       "at": 34,
+       "note": "made new, so the letters of the two words are put in a fresh order"
+      },
+      {
+       "text": "diverting",
+       "at": 38,
+       "note": "turning aside from their course, so the books' letters are mixed in with the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "new",
-         "note": "A new arrangement of the same letters is still the same letters, which is all the word is asking for."
-        },
-        {
-         "text": "diverting",
-         "note": "To divert something is to send it off its own path and into another, so the shuffled letters end up running through the middle of the piece beside them."
-        }
-       ],
-       "parts": [
-        {
-         "words": "books",
-         "gives": "OT",
-         "note": "the Old Testament, the crossword's standard books, and these two letters open and close what follows"
-        },
-        {
-         "words": "for Dexter's",
-         "gives": "XFORDSTREE",
-         "note": "ten letters reset in a new order — the little word 'for' is raw material here, not a joiner"
-        }
-       ]
+       "words": "for Dexter's",
+       "at": 21
+      },
+      {
+       "words": "books",
+       "at": 48,
+       "gives": "OT",
+       "note": "OT is the Old Testament, a collection of books of the Bible"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody wants to know where to buy Dexter's entertaining new books.",
-     "walkthrough": "'For' reads as the word joining a definition to its wordplay and is really three letters of the fodder — leave it out and the count comes up short. Colin Dexter set Inspector Morse in Oxford, which is the trap: the city is spelt out, not remembered.",
-     "definitionFit": "Where you might shop → OXFORD STREET: London's main shopping street, a mile of department stores and the first place anyone names for a day's shopping."
+     "surface": "Someone might go shopping for Dexter's latest entertaining novels.",
+     "walkthrough": "'Diverting' reads as amusing books, but with 'new' it scrambles OT along with FORDEXTERS; the two letters do not sit together in the answer.",
+     "definitionFit": "Oxford Street is London's busiest retail street, lined with department stores and chain shops."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "for"
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "diverting"
     }
    }
   },
@@ -424,63 +421,73 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THEPINKPANTHER",
-     "indicators": [
-      {
-       "text": "loses",
-       "note": "A word that loses something hands it over and carries on without it, one letter shorter than it arrived."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "retained",
+         "at": 32,
+         "note": "the recording is held within the word for figure"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "retained",
-           "note": "What is retained is kept in rather than let go, so the two letters named stay inside the word in front of them."
-          }
-         ],
-         "parts": [
-          {
-           "words": "figure's",
-           "gives": "THINK",
-           "note": "to figure something is to think it — 'I figure we're late' — and the 's is simply 'has'"
-          },
-          {
-           "words": "recording's",
-           "gives": "EP",
-           "note": "an EP is a record with more tracks than a single and fewer than an album, and it lodges after the first two letters"
-          }
-         ]
+         "words": "figure's",
+         "at": 5,
+         "gives": "THINK",
+         "note": "to figure is to think or reckon"
         },
         {
-         "words": "piano",
-         "gives": "P",
-         "note": "p is the mark for piano, played softly, in written music"
+         "words": "recording's",
+         "at": 20,
+         "gives": "EP",
+         "note": "an EP is an extended-play record"
+        }
+       ]
+      },
+      {
+       "words": "piano",
+       "at": 14,
+       "gives": "P",
+       "note": "p is the musical abbreviation for piano, softly"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "loses",
+         "at": 45,
+         "note": "the word for nothing is dropped from the cross-referenced answer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "16",
+         "at": 42,
+         "gives": "ANOTHER",
+         "note": "the answer to 16, ANOTHER"
         },
         {
-         "words": "16 loses nothing",
-         "gives": "ANTHER",
-         "note": "the word at 16 down arrives whole and gives up its O, the round letter that stands for nothing"
+         "words": "nothing",
+         "at": 51,
+         "gives": "O",
+         "note": "O is the round symbol for nothing, zero"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A film figure's piano recording has been kept rather than wiped.",
-     "walkthrough": "The cross-reference does real work: 16 down's answer comes in entire and then drops a letter. 'Figure' is the verb rather than the noun the surface wants, and p for piano is the pianist's own shorthand.",
-     "definitionFit": "Film → THE PINK PANTHER: the 1963 Blake Edwards comedy whose cartoon cat outlived the plot and gave its name to a whole run of sequels."
+     "surface": "A cinema figure's piano recording is kept, while some other number loses nothing.",
+     "walkthrough": "'Film figure' looks like a single unit, but 'Film' alone is the definition and 'figure' means think. Removing O from ANOTHER leaves the big cat's name.",
+     "definitionFit": "The Pink Panther is the 1963 Blake Edwards comedy starring Peter Sellers as Inspector Clouseau, and its sequels."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "figure"
+     "misdirectedWord": "figure's"
     }
    }
   },
@@ -624,58 +631,67 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DIESELELECTRIC",
+     "op": "charade",
      "parts": [
       {
+       "words": "Day",
+       "at": 0,
+       "gives": "DIES",
+       "note": "dies is Latin for day"
+      },
+      {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "DIESELELECTRIC",
        "indicators": [
         {
          "text": "for replacement of",
-         "note": "One thing put in for another takes over its place as well as its job, so the letter named next is gone and the longer word stands where it stood."
-        },
-        {
-         "text": "retiring",
-         "note": "To retire is to withdraw the way you came, so the word it describes is set down back to front."
+         "at": 11,
+         "note": "the word for chosen goes in where the corps letter was"
         }
        ],
        "parts": [
         {
-         "words": "Day",
-         "gives": "DIES",
-         "note": "dies is Latin for day, the word behind diary and dial"
-        },
-        {
-         "words": "company",
-         "gives": "ELCRIC",
-         "note": "the company you keep is your circle, and that word is written backwards here"
-        },
-        {
-         "words": "chosen",
-         "gives": "ELECT",
-         "note": "the chosen few are the elect, five letters moving in"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "retiring",
+           "at": 39,
+           "note": "going back, so the word for company is turned backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "company",
+           "at": 48,
+           "gives": "CIRCLE",
+           "note": "a circle is a group of people, a company"
+          }
+         ]
         },
         {
          "words": "corps",
+         "at": 30,
          "gives": "C",
-         "note": "C is the army's own abbreviation for corps, and it is the letter that makes way"
+         "note": "C is an abbreviation for corps in military use"
+        },
+        {
+         "words": "chosen",
+         "at": 4,
+         "gives": "ELECT",
+         "note": "elect means chosen, as in president-elect"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A day has been fixed for a corps to be replaced inside a company that is standing down.",
-     "walkthrough": "Latin gives the day — dies, as in diary — and 'company' means a circle of friends rather than a firm. The swap happens inside that circle only after it has been turned round.",
-     "definitionFit": "generating some power → DIESEL-ELECTRIC: of a locomotive or ship whose diesel engine drives a generator, and the current it makes turns the wheels."
+     "surface": "A chosen date for reorganising an army corps within a company that is in decline produces some energy.",
+     "walkthrough": "'Retiring' turns CIRCLE into ELCRIC; ELECT then takes the place of its first C to make the second half.",
+     "definitionFit": "A diesel-electric system uses a diesel engine to drive a generator whose electricity powers the motors, as in locomotives."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "company"
+     "misdirectedWord": "retiring"
     }
    }
   },
@@ -719,40 +735,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CHILLOUT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Keeping in",
+       "at": 0,
+       "note": "the rearranged letters hold the setter's contraction inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Keeping in",
-         "note": "To keep something in is to hold it inside and not let it out, so the piece named goes within the other letters rather than after them."
-        },
-        {
          "text": "poorly",
-         "note": "Poorly means unwell, and a word in a poorly state comes out in no fit order."
+         "at": 18,
+         "note": "the letters of touch are in poor shape, so they are rearranged"
         }
        ],
        "parts": [
         {
          "words": "touch",
-         "note": "the five letters of 'touch' reset in a new order before anything is let inside them"
-        },
-        {
-         "words": "Enigmatist's going to",
-         "gives": "ILL",
-         "note": "the setter speaking of himself: 'I'm going to' is I'll, and the apostrophe is dropped on the way in"
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "Enigmatist's going to",
+       "at": 25,
+       "gives": "ILL",
+       "note": "the setter speaking as I: I'll means I will, I am going to"
       }
      ]
     },
     "explanation": {
-     "surface": "The setter, who is bad at staying in contact, is about to take a break.",
-     "walkthrough": "A Guardian setter writing himself into his own clue is standard practice, and 'Enigmatist's going to' is simply 'I'll'. That is where the pair of Ls comes from; nothing of 'keeping in touch' survives but its letters.",
-     "definitionFit": "take a break → CHILL OUT: to chill out is to stop, calm down and do nothing for a while, which is what taking a break comes to."
+     "surface": "The setter, feeling ill while staying in touch, announces a rest.",
+     "walkthrough": "'Poorly' turns TOUCH into CHOUT, which holds ILL, the setter's I'LL without the apostrophe.",
+     "definitionFit": "To chill out is slang for relaxing or calming down, so taking time off."
     },
     "features": {
      "answerInScene": true,
@@ -1042,70 +1061,56 @@
    "annotation": {
     "definitions": [
      {
-      "text": "supports",
-      "at": 10
+      "text": "Very good supports covering us when blasting?",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PITPROPS",
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PITPROPS",
+       "words": "Very good",
+       "at": 0,
+       "gives": "PI",
+       "note": "pi, short for pious, is the crossword sense of very good"
+      },
+      {
+       "op": "composite",
+       "indicators": [
+        {
+         "text": "covering",
+         "at": 19,
+         "note": "the shuffled supports must also cover the letters of us, which are then removed"
+        },
+        {
+         "text": "when blasting",
+         "at": 31,
+         "note": "blown apart, so the remaining letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "covering",
-           "note": "What covers a thing hides it from view, so the two letters named next are buried in the longer word and are pulled out of it."
-          }
-         ],
-         "parts": [
-          {
-           "op": "charade",
-           "indicators": [
-            {
-             "text": "when blasting",
-             "note": "A blast leaves nothing standing where it stood, and letters caught in one come down in another order."
-            }
-           ],
-           "parts": [
-            {
-             "words": "Very good",
-             "gives": "PI",
-             "note": "pi is the crossword's word for pious — so good it is insufferable"
-            },
-            {
-             "words": "supports",
-             "gives": "TPROPS",
-             "note": "the eight letters of the definition doing a second job, with the two spelling 'us' taken out and the remaining six rearranged"
-            }
-           ]
-          },
-          {
-           "unchecked": true,
-           "words": "us",
-           "note": "the pair of letters hiding in the longer word, and the pair that does not survive"
-          }
-         ]
+         "words": "supports",
+         "at": 10
+        },
+        {
+         "words": "us",
+         "at": 28
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "The supports shielding us while the blasting goes on are doing an excellent job.",
-     "walkthrough": "One word works twice over: 'supports' is the definition and it is also the letters, minus the us it conceals. PI for pious is worth keeping — it turns up wherever a clue says holy or sanctimonious.",
-     "definitionFit": "supports → PIT PROPS: the timber or steel posts that hold up the roof of a coal mine and keep the workings from coming down on the miners."
+     "surface": "Sturdy props hold up the roof over our heads while explosives go off.",
+     "walkthrough": "Remove US from SUPPORTS and rearrange the rest; the whole clue also describes the answer, timbers in a mine where blasting is done.",
+     "definitionFit": "Pit props are timber posts holding up the roof of a coal mine, protecting miners underneath during blasting."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "blasting"
+     "aptDefinition": true,
+     "misdirectedWord": "covering"
     }
    }
   },
@@ -1366,43 +1371,46 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ORION",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "but",
-         "note": "But here means except, so what follows it is the part left out rather than a part put in."
+         "at": 6,
+         "note": "means except, so our is taken without that letter"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "looking skyward",
-           "note": "In a down entry the sky is at the top, so a piece told to look that way is read upwards, last letter first."
-          }
-         ],
-         "parts": [
-          {
-           "words": "our",
-           "note": "the clue's own word, three letters, before anything is taken out of it"
-          },
-          {
-           "words": "for all to see",
-           "gives": "U",
-           "note": "a film rated U is Universal, passed for everyone to watch, and this is the letter that drops out"
-          }
-         ]
+         "words": "our",
+         "at": 26,
+         "gives": "OUR"
         },
         {
+         "words": "for all to see",
+         "at": 10,
+         "gives": "U",
+         "note": "U is the British film certificate for universal viewing"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "looking skyward",
+         "at": 46,
+         "note": "in a down clue, the letters read upwards, towards the sky"
+        }
+       ],
+       "parts": [
+        {
          "words": "most prominent",
-         "gives": "ION",
-         "note": "the most prominent of anything is No 1, written as No plus the Roman figure for one, then read the other way up"
+         "at": 30,
+         "gives": "NOI",
+         "note": "No. 1, written as NO with I for one, the most prominent"
         }
        ]
       }
@@ -1410,14 +1418,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "The brightest thing in our night sky is plainly there for anyone who looks up.",
-     "walkthrough": "Read straight, the sentence is a remark about the night sky; read again, every word of it is an instruction. The film certificate U, for Universal, is the piece that has to go.",
-     "definitionFit": "Read straight the whole clue describes the constellation: the most conspicuous figure in our night sky, visible to the naked eye from either hemisphere."
+     "surface": "Something up there, visible to everyone, is our most conspicuous sight in the night sky.",
+     "walkthrough": "The whole clue describes the answer too: the constellation is there for all to see, looking up. NO I read upwards gives ION.",
+     "definitionFit": "Orion, the Hunter, is among the most conspicuous constellations in the night sky, seen across the world."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "but"
+     "misdirectedWord": "most"
     }
    }
   },
@@ -1452,48 +1460,69 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "THROUGHTHENIGHT",
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "THROUGHTHENIGHT",
+       "op": "container",
        "indicators": [
         {
-         "text": "to hide face away",
-         "note": "A word's face is the letter it starts with, and hiding that away takes it off the front and buries it inside the word standing first."
+         "text": "to hide",
+         "at": 30,
+         "note": "the word for considered hides that front letter inside it"
         }
        ],
        "parts": [
         {
          "words": "Considered",
+         "at": 0,
          "gives": "THOUGHT",
-         "note": "what you considered, you thought: seven letters that open up to take a visitor in"
+         "note": "thought means considered, as a past tense"
         },
         {
-         "words": "Scotswoman",
-         "gives": "HEN",
-         "note": "hen is what a Glaswegian calls a woman, the Scots equivalent of a Londoner's love"
-        },
+         "words": "face",
+         "at": 38,
+         "gives": "R",
+         "note": "the front letter of the word for correct"
+        }
+       ]
+      },
+      {
+       "words": "Scotswoman",
+       "at": 11,
+       "gives": "HEN",
+       "note": "hen is a Scottish informal term of address for a woman"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "away",
+         "at": 43,
+         "note": "the face of the word for correct is moved away, leaving the rest"
+        }
+       ],
+       "parts": [
         {
          "words": "correct",
+         "at": 22,
          "gives": "RIGHT",
-         "note": "correct is right, five letters whose first is about to go missing from the front of them"
+         "note": "right means correct"
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody thought the Scotswoman was right to keep her face hidden all night.",
-     "walkthrough": "The letter that hides is the one 'correct' begins with, and it goes into another word rather than out of the clue altogether. Nothing is lost, which is why the letters still add up.",
-     "definitionFit": "from sundown to sunrise → THROUGH THE NIGHT: the phrase covers the whole span of darkness without a break, which is dusk to dawn exactly."
+     "surface": "A thoughtful Scottish woman is right to hide her face after dark.",
+     "walkthrough": "RIGHT loses its face R, which goes into THOUGHT as THROUGHT; HEN and IGHT follow.",
+     "definitionFit": "Through the night means for the whole of the hours of darkness, dusk till dawn."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "face"
     }
    }
@@ -1529,58 +1558,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ROBERTREINER",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "top tester",
-         "note": "To top a man is to behead him, which is what happens to the word for a tester: it loses the letter at its head."
+         "text": "top",
+         "at": 14,
+         "note": "the top letter of the word for tester is cut off"
         }
        ],
        "parts": [
         {
          "words": "tester",
-         "gives": "ROBER",
-         "note": "a tester is a prober, one who probes, and it arrives a letter short at the front"
+         "at": 18,
+         "gives": "PROBER",
+         "note": "a prober is someone who probes, testing or investigating"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "theatre's top",
-           "note": "The top of a written word is the letter it begins with, the same word in a quite different sense."
-          }
-         ],
-         "parts": [
-          {
-           "words": "theatre's",
-           "note": "the first letter of that word as the clue spells it"
-          }
-         ]
-        },
-        {
-         "words": "checker",
-         "gives": "REINER",
-         "note": "to rein a thing in is to check it, and one who does the reining takes the -er"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top",
+         "at": 39,
+         "note": "only the top, first, letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "theatre's",
+         "at": 29,
+         "note": "the word is used for its first letter"
+        }
+       ]
+      },
+      {
+       "words": "checker",
+       "at": 43,
+       "gives": "REINER",
+       "note": "a reiner is one who reins in, checking or restraining"
       }
      ]
     },
     "explanation": {
-     "surface": "One man is the best director going, the best tester and the theatre's best inspector.",
-     "walkthrough": "'Top' turns up three times and means something different each time: best in the definition, beheaded in the middle, first letter at the end. The man himself directed This Is Spinal Tap and When Harry Met Sally.",
-     "definitionFit": "Top director → ROBERT REINER: the American film-maker behind This Is Spinal Tap, Stand By Me and When Harry Met Sally, who works as Rob."
+     "surface": "A list of leading figures: a director, a tester and a theatre's chief inspector.",
+     "walkthrough": "The three 'top's do three jobs: part of the definition, cutting the head off PROBER, and picking T from 'theatre's'.",
+     "definitionFit": "Rob Reiner is an American film director of When Harry Met Sally and This Is Spinal Tap."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "top"
+     "misdirectedWord": "checker"
     }
    }
   },
