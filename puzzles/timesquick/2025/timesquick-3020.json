@@ -99,54 +99,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "THORAX",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "at": 12,
+       "note": "in a down clue, under puts the x-ray letter below, i.e. after, the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "under"
-        },
-        {
-         "text": "around"
+         "text": "around",
+         "at": 27,
+         "note": "around means the reworked rota letters go round the hospital letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
            "text": "new",
-           "note": "a new rota is the same letters made fresh, rearranged"
+           "at": 18,
+           "note": "new signals that the letters of rota are made into a fresh order"
           }
          ],
          "parts": [
           {
            "words": "rota",
-           "note": "ROTA rearranged"
-          },
-          {
-           "words": "hospital",
-           "gives": "H",
-           "note": "H = hospital, as on road signs"
+           "at": 22
           }
          ]
         },
         {
-         "words": "x-ray",
-         "gives": "X",
-         "note": "X is X-ray in the NATO alphabet"
+         "words": "hospital",
+         "at": 34,
+         "gives": "H",
+         "note": "H is the map abbreviation for hospital"
         }
        ]
+      },
+      {
+       "words": "x-ray",
+       "at": 6,
+       "gives": "X",
+       "note": "X-ray is the radio code word for X"
       }
      ]
     },
     "explanation": {
-     "surface": "A chest X-ray is scheduled on a new hospital rota.",
-     "walkthrough": "'Chest x-ray' reads as one medical phrase, but the definition stops at 'Chest' and 'x-ray' is just the letter X.",
-     "definitionFit": "The thorax is the chest, the part of the body between neck and abdomen."
+     "surface": "A chest X-ray taken under a new hospital duty rota.",
+     "walkthrough": "'new' turns ROTA into TORA, which goes round H to make THORA; X goes under it.",
+     "definitionFit": "The thorax is the anatomical name for the chest region, between neck and abdomen."
     },
     "features": {
      "answerInScene": true,

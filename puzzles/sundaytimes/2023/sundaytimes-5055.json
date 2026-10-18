@@ -655,55 +655,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "over"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "line",
+       "at": 20,
+       "gives": "L"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "about",
-         "note": "turning about faces the other way, so the whole string is read backwards"
+         "at": 25,
+         "note": "about here means turned round, so the tears-and-one group is read backwards"
         }
        ],
        "parts": [
         {
          "op": "container",
+         "indicators": [
+          {
+           "text": "over",
+           "at": 11,
+           "note": "the crying sits over the one, i.e. wraps around it"
+          }
+         ],
          "parts": [
           {
            "words": "Shed tears",
+           "at": 0,
            "gives": "CRY",
-           "note": "to cry is to shed tears"
+           "note": "to shed tears is to cry"
           },
           {
            "words": "one",
+           "at": 16,
            "gives": "I",
-           "note": "I is the Roman numeral one; it goes inside CRY, giving CIRY"
+           "note": "the Roman numeral for one is I"
           }
          ]
-        },
-        {
-         "words": "line",
-         "gives": "L",
-         "note": "L is the abbreviation for line"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone weeps over a single line in a song.",
-     "walkthrough": "CIRY plus L is CIRYL, which turned about gives the answer. The surface's tears over a line are the mechanics.",
-     "definitionFit": "A description: the words of a song are what it contains besides its tune."
+     "surface": "Someone weeping over a single line of a song.",
+     "walkthrough": "CRY wrapped round I gives CIRY; 'about' turns that to YRIC, and L for line goes in front.",
+     "definitionFit": "A lyric is the words of a song, the verbal content set to music."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "over"
+     "aptDefinition": true,
+     "misdirectedWord": "Shed"
     }
    }
   },
@@ -1084,39 +1089,43 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 14,
+       "note": "in means the I-and-left pair is placed inside the printer's name"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "printer?",
-         "gives": "EPSON",
-         "note": "Epson is a printer maker; the ? flags an example"
-        },
-        {
-         "words": "I",
-         "note": "the word itself"
-        }
-       ]
+       "words": "printer",
+       "at": 17,
+       "gives": "EPSON",
+       "note": "Epson is a well-known brand of printer, hinted by the question mark"
       },
       {
-       "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 7
+        },
+        {
+         "words": "left",
+         "at": 9,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A letter I left in the printer tray.",
-     "walkthrough": "'Letter' looks like a sheet of mail, fitting the printer; it is a Greek letter.",
-     "definitionFit": "A definition by example: the fifth letter of the Greek alphabet."
+     "surface": "Someone asking whether the letter they wrote was left in the printer.",
+     "walkthrough": "The question mark admits that the printer is a brand name, not a person who prints.",
+     "definitionFit": "Epsilon is the fifth character of the Greek alphabet."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Letter"
     }
    }
