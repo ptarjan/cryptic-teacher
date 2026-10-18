@@ -681,50 +681,53 @@
      "indicators": [
       {
        "text": "accepted by",
-       "note": "what is accepted is taken inside by the receiving word"
+       "at": 28,
+       "note": "the workers word takes in the other letters, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "workers",
-         "gives": "BEES",
-         "note": "worker bees, so workers can be bees in crosswords"
-        },
-        {
-         "words": "Company",
-         "gives": "CO",
-         "note": "standard abbreviation for company"
-        }
-       ]
+       "words": "workers",
+       "at": 40,
+       "gives": "BEES",
+       "note": "worker bees, so bees are a crossword stock word for workers"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points to the opening letter of the word it follows"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "manifesto",
-         "note": "opening letter of manifesto"
+         "words": "Company",
+         "at": 0,
+         "gives": "CO"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 18,
+           "note": "initially means only the first letter of manifesto is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "manifesto",
+           "at": 8
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A firm's founding statement is first approved by staff dressed in business suits.",
-     "walkthrough": "'In suits' looks like office clothing, but suits is the verb meaning flatters, and it is the definition.",
-     "definitionFit": "Becomes as a verb means flatters or looks good on, as a hat that becomes or suits its wearer."
+     "surface": "Staff in business suits sign up to a company manifesto.",
+     "walkthrough": "'Suits' looks like clothing but is the verb, as a colour suits you. COM goes inside BEES.",
+     "definitionFit": "Becomes in the sense of flatters or looks good on, as a hat becomes someone, which is to suit them."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "suits"
     }

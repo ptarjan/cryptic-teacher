@@ -662,50 +662,56 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one part wraps round the other"
+       "at": 9,
+       "note": "the surprise word goes about, around, the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Surprise",
-         "gives": "STAGGER",
-         "note": "to stagger is to astonish"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Surprise",
+       "at": 0,
+       "gives": "STAGGER",
+       "note": "to stagger is to astonish or surprise"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "returning",
-         "note": "returning means going back the way it came, so these words are read from right to left"
+         "at": 27,
+         "note": "returning means the phrase is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "celebrity",
-         "gives": "NAME",
-         "note": "a big name is a famous person"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 15,
+           "gives": "A"
+          },
+          {
+           "words": "celebrity",
+           "at": 17,
+           "gives": "NAME",
+           "note": "a big name is a celebrity"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A famous star unexpectedly makes a comeback on stage.",
-     "definitionFit": "A stage manager runs the backstage side of a theatre production, so is a theatre worker."
+     "surface": "People are astonished when a famous actor comes back to work in theatre.",
+     "walkthrough": "'Celebrity' gives the word for a famous person, as in a big name; 'returning' turns 'a' and that word round together.",
+     "definitionFit": "A stage manager runs the backstage operation of a production, so is a theatre worker."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Surprise"
+     "misdirectedWord": "celebrity"
     }
    }
   },
