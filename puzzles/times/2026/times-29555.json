@@ -113,21 +113,18 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "CO",
        "indicators": [
         {
          "text": "originally",
-         "note": "the original letters of words are their first ones"
+         "at": 10,
+         "note": "originally points to how each of cab and owner begins, so their first letters are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Cab owner originally",
-         "gives": "CO",
-         "select": "first",
-         "note": "first letters of Cab and Owner"
+         "words": "Cab owner",
+         "at": 0,
+         "note": "the words cab and owner, each giving its first letter"
         }
        ]
       },
@@ -136,28 +133,31 @@
        "indicators": [
         {
          "text": "in",
-         "note": "the caught letter goes inside the word for isolated"
+         "at": 28,
+         "note": "in places the letter for caught inside the word for isolated"
         }
        ],
        "parts": [
         {
          "words": "isolated",
+         "at": 31,
          "gives": "LONELY",
-         "note": "lonely = isolated; it takes C before its last letter"
+         "note": "lonely means isolated or remote"
         },
         {
          "words": "caught",
+         "at": 21,
          "gives": "C",
-         "note": "c = caught, the cricket scoring abbreviation"
+         "note": "C is the cricket scorecard abbreviation for caught"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A taxi owner has been stranded somewhere remote in a line of cabs.",
-     "walkthrough": "'Rank' reads as a taxi rank, which the cab supports, but it is military rank: a colonelcy is the office of colonel.",
-     "definitionFit": "The -cy suffix names an office or status, as in captaincy, so a colonelcy is one particular military rank."
+     "surface": "A taxi driver is caught in some lonely backwater.",
+     "walkthrough": "'originally' gives CO, and C (caught) goes 'in' LONELY to make LONELCY.",
+     "definitionFit": "A colonelcy is the rank or office of a colonel in the army."
     },
     "features": {
      "answerInScene": false,
@@ -594,45 +594,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to appear in"
+       "text": "to appear in",
+       "at": 21,
+       "note": "to appear in says the word for contend sits inside the letters picked out"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "LUVS",
        "indicators": [
         {
          "text": "every so often",
-         "note": "take letters at regular intervals"
+         "at": 44,
+         "note": "every so often takes alternate letters, here the second, fourth, sixth and eighth of El Jueves"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "El Jueves every so often",
-         "gives": "LUVS",
-         "select": "alternate",
-         "note": "even letters of eL jUeVeS"
+         "words": "El Jueves",
+         "at": 34,
+         "note": "the words El Jueves, of which every second letter is kept"
         }
        ]
       },
       {
        "words": "contend",
+       "at": 13,
        "gives": "VIE",
-       "note": "to vie is to contend; it goes before the S"
+       "note": "to vie is to contend or compete"
       }
      ]
     },
     "explanation": {
-     "surface": "Actors compete to be featured in El Jueves, a Spanish satirical weekly, from time to time.",
-     "walkthrough": "Luvvies is British slang, mildly mocking, for actors and theatre people, from their habit of calling each other 'luvvie'.",
-     "definitionFit": "Luvvies are actors, especially effusive or pretentious ones; 'say' marks actors as an example."
+     "surface": "Performers compete to feature in El Jueves, the Spanish satirical magazine, now and then.",
+     "walkthrough": "'every so often' picks LUVS from El Jueves, and VIE goes inside it ('to appear in').",
+     "definitionFit": "Luvvies is a British jokey term for actors and theatre people, mocking their gushing manner; 'say' marks actors as one example."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": true,
+     "misdirectedWord": "contend"
     }
    }
   },
@@ -777,56 +778,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NACHO",
+     "indicators": [
+      {
+       "text": "containing",
+       "at": 24,
+       "note": "containing means holding within, so the reversed letters enclose the letter for hot"
+      }
+     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "On the counter",
-         "note": "counter means going against the direction, so the letters run backwards"
+         "at": 0,
+         "note": "on the counter is read as counter, meaning in the opposite direction, so old tin is written backwards"
         }
        ],
        "parts": [
         {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "containing"
-          }
-         ],
          "parts": [
           {
            "words": "old",
-           "gives": "O",
-           "note": "o = old"
-          },
-          {
-           "words": "hot",
-           "gives": "H",
-           "note": "h = hot, as on a tap"
+           "at": 16,
+           "gives": "O"
           },
           {
            "words": "tin",
+           "at": 20,
            "gives": "CAN",
-           "note": "a tin is a can; with O it holds H, and the whole then runs backwards"
+           "note": "a can is a tin"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "hot",
+       "at": 35,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on taps"
       }
      ]
     },
     "explanation": {
-     "surface": "An old tin of something hot sits on a shop counter.",
-     "walkthrough": "'On the counter' paints a shop or bar, where nachos are served; here it tells you to read backwards.",
-     "definitionFit": "A nacho is a tortilla chip, usually served with melted cheese as a snack."
+     "surface": "A battered tin holding something hot sits on a shop counter as a snack.",
+     "walkthrough": "'On the counter' looks like a place in a shop; here it reverses O CAN to NACO, and H goes in ('containing').",
+     "definitionFit": "A nacho is a tortilla chip topped with cheese and other things, eaten as a snack."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "counter"
     }
    }
@@ -909,44 +912,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LEADTHEWAY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 36,
+       "note": "in puts the rearranged letters inside the word for latitude"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "latitude",
+       "at": 39,
+       "gives": "LEEWAY",
+       "note": "latitude in the sense of freedom of action is leeway"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "initially",
-         "note": "'initially' means at the start, so only the start of 'tracked' is used"
-        },
-        {
-         "text": "in"
+         "text": "changes",
+         "at": 28,
+         "note": "changes says the letters of had and the first of tracked are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "latitude",
-         "gives": "LEEWAY",
-         "note": "leeway = latitude, freedom of action; it opens after LE"
+         "words": "had",
+         "at": 6
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "ADTH",
          "indicators": [
           {
-           "text": "changes",
-           "note": "'changes' as a verb: the letters change their order"
+           "text": "initially",
+           "at": 10,
+           "note": "initially takes the first letter of tracked"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "had initially tracked",
-           "gives": "ADTH",
-           "select": "first",
-           "note": "HAD plus T, first of Tracked, rearranged"
+           "words": "tracked",
+           "at": 20,
+           "note": "the word tracked, giving its first letter"
           }
          ]
         }
@@ -955,9 +963,9 @@
      ]
     },
     "explanation": {
-     "surface": "A guide used edit tracking to follow changes in latitude on a journey.",
-     "walkthrough": "'Tracked changes' is a word-processing term and 'latitude' a map term, both red herrings. Latitude here is freedom to act, not a line on a map.",
-     "definitionFit": "To lead the way is to guide others, going first."
+     "surface": "A guide had initially kept track of changes in latitude.",
+     "walkthrough": "'latitude' looks geographical, but it means leeway. 'changes' turns HAD plus T ('initially' tracked) into ADTH, which goes 'in' LEEWAY.",
+     "definitionFit": "To lead the way is to go ahead and show others where to go, which is what a guide does."
     },
     "features": {
      "answerInScene": true,
@@ -1098,65 +1106,65 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "NIETZSCHE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "taking on"
-        },
-        {
-         "text": "from Sorbonne",
-         "note": "a word from the Sorbonne is French"
+         "text": "taking on",
+         "at": 11,
+         "note": "taking on means taking in or engaging, so the letters for new and school enclose the next pieces"
         }
        ],
        "parts": [
         {
-         "words": "New",
-         "gives": "N",
-         "note": "n = new"
+         "words": "New school",
+         "at": 0,
+         "gives": "NSCH",
+         "note": "N is the abbreviation for new and SCH the standard abbreviation for school"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "I = one, the Roman numeral"
-        },
-        {
-         "words": "and",
-         "gives": "ET",
-         "note": "et is French for 'and'; the Sorbonne is the Paris university"
-        },
-        {
-         "words": "unknown",
-         "gives": "Z",
-         "note": "z is an unknown in algebra"
-        },
-        {
-         "words": "school",
-         "gives": "SCH",
-         "note": "sch = school, the abbreviation"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "e = English"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one",
+           "at": 21,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          },
+          {
+           "words": "from Sorbonne and",
+           "at": 25,
+           "gives": "ET",
+           "note": "et is the French for and, as used at the Sorbonne in Paris"
+          },
+          {
+           "words": "unknown",
+           "at": 43,
+           "gives": "Z",
+           "note": "Z is one of the algebraic unknowns"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 51,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A new school hires a Sorbonne academic and an obscure English philosopher.",
-     "walkthrough": "'English philosopher' reads as one phrase, but English is only the final E and the philosopher is German.",
-     "definitionFit": "Friedrich Nietzsche was a 19th-century German philosopher."
+     "surface": "A new school takes on a mysterious English philosopher from the Sorbonne.",
+     "walkthrough": "'one from Sorbonne' tempts UN, the French for one; instead 'from Sorbonne' attaches to 'and', giving ET. N and SCH are 'taking on' IETZ, and E ends it.",
+     "definitionFit": "Friedrich Nietzsche was the nineteenth-century German thinker behind Thus Spoke Zarathustra."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "English"
+     "misdirectedWord": "Sorbonne"
     }
    }
   },
@@ -1257,57 +1265,54 @@
    "annotation": {
     "definitions": [
      {
-      "text": "make progress with Labour?",
-      "at": 45
+      "text": "to make progress with Labour?",
+      "at": 42
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "YOMP",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "Periodically",
-         "note": "'periodically' means at regular intervals, so letters are taken at every second position"
+         "text": "revolutionary",
+         "at": 14,
+         "note": "revolutionary means turning round, so those picked letters are read backwards"
         }
        ],
        "parts": [
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "YO",
          "indicators": [
           {
-           "text": "revolutionary",
-           "note": "a revolution turns things round, so the letters run backwards"
+           "text": "Periodically",
+           "at": 0,
+           "note": "periodically takes every other letter of Tory, here its second and fourth"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Periodically, revolutionary Tory",
-           "gives": "YO",
-           "select": "alternate",
-           "note": "even letters of tOrY are OY, turned round"
+           "words": "Tory",
+           "at": 28,
+           "note": "the word Tory, keeping its second and fourth letters"
           }
          ]
-        },
-        {
-         "words": "member",
-         "gives": "MP",
-         "note": "a Member of Parliament"
         }
        ]
+      },
+      {
+       "words": "member",
+       "at": 33,
+       "gives": "MP",
+       "note": "MP is Member of Parliament"
       }
      ]
     },
     "explanation": {
-     "surface": "A radical Conservative MP now and then works with the Labour Party to get things done.",
-     "walkthrough": "Yomp is British military slang for a long march carrying heavy kit. The political surface makes 'Labour' the party; it is plain hard labour, capitalised as disguise.",
-     "definitionFit": "To yomp is to march laboriously over rough ground, so to make progress with toil."
+     "surface": "A political question: is a rebellious Conservative MP going to advance alongside the Labour party?",
+     "walkthrough": "'Labour' with its capital looks like the political party, but it means hard work. 'Periodically' gives OY from Tory, 'revolutionary' makes it YO, and MP follows. Yomp is British military slang.",
+     "definitionFit": "To yomp is to march laboriously over rough country carrying heavy kit, a term from the Royal Marines."
     },
     "features": {
      "answerInScene": false,
@@ -1409,63 +1414,65 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SCENIC",
+     "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "SCENIC",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "on vacation",
-         "note": "the word is vacated, emptied of its middle"
-        },
-        {
-         "text": "cycling",
-         "note": "the last letter cycles round to the front"
+         "text": "served up",
+         "at": 31,
+         "note": "served up in a down clue means sent upwards, so the two letters are read bottom to top"
         }
        ],
        "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "CS",
          "indicators": [
           {
-           "text": "served up",
-           "note": "in a down clue, up means read bottom to top, so the letters reverse"
+           "text": "on vacation",
+           "at": 19,
+           "note": "on vacation means emptied out, so only the outer letters of canals remain"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "canals on vacation",
-           "gives": "CS",
-           "select": "outer",
-           "note": "CanalS emptied, leaving its outer letters; they go upwards"
+           "words": "canals",
+           "at": 12,
+           "note": "the word canals, keeping only its first and last letters"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 50,
+         "note": "cycling moves a letter from one end of the word round to the other"
+        }
+       ],
+       "parts": [
         {
          "words": "pleasant",
+         "at": 41,
          "gives": "NICE",
-         "note": "nice = pleasant; its final E moves to the front, giving ENIC"
+         "note": "nice means pleasant"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A holiday by picturesque canals offered some pleasant cycling.",
-     "walkthrough": "Holiday canals and cycling paint a tourist brochure; 'vacation' and 'cycling' are both instructions.",
-     "definitionFit": "Scenic means picturesque, having fine views."
+     "surface": "A scenic holiday by the canals, with a pleasant bike ride thrown in.",
+     "walkthrough": "'on vacation' empties canals to CS, 'served up' flips that to SC; 'cycling' moves the final E of NICE to the front, making ENIC.",
+     "definitionFit": "Scenic describes a place offering attractive views of natural scenery, much as picturesque does."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "cycling"
     }
    }
@@ -1607,57 +1614,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GLITZ",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "obscuring",
+       "at": 31,
+       "note": "obscuring means covering up, so the new letters hide and replace the opening letter"
+      },
+      {
+       "text": "entrance to",
+       "at": 41,
+       "note": "entrance to points to the first letter of the hotel's name as the one replaced"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "luxury hotel",
+       "at": 53,
+       "gives": "RITZ",
+       "note": "the Ritz is a famous luxury hotel in London"
+      },
+      {
+       "gives": "R"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "essentially",
-         "note": "the essence of a word is its middle"
+         "at": 19,
+         "note": "essentially takes the essence, the middle letters, of ugly"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "GL",
-         "indicators": [
-          {
-           "text": "obscuring entrance to",
-           "note": "to obscure a building's entrance is to hide its front, so the hotel's first letter disappears"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "ugly, essentially",
-           "gives": "GL",
-           "select": "middle",
-           "note": "middle letters of uGLy"
-          }
-         ]
-        },
-        {
-         "words": "luxury hotel",
-         "gives": "ITZ",
-         "note": "the RITZ, the London luxury hotel, without its first letter"
+         "words": "ugly",
+         "at": 13,
+         "note": "the word ugly, keeping its two middle letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone complains that showiness is ugly, mostly spoiling the entrance to a grand hotel.",
-     "walkthrough": "'Obscuring' sounds like tasteless decor hiding a hotel's doorway; it hides the R of Ritz.",
-     "definitionFit": "A plain synonym with a tone: glitz is informal for showy, tasteless glamour, which is what gaudiness means."
+     "surface": "Showiness is ugly, at heart, hiding the doorway of a smart hotel.",
+     "walkthrough": "'essentially' gives GL from ugly; in RITZ, it is 'obscuring' the 'entrance to' the name, the R, so GL takes its place.",
+     "definitionFit": "Glitz means ostentatious glamour or showy flashiness, the same as gaudiness."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "entrance"
+     "misdirectedWord": "obscuring"
     }
    }
   },
@@ -1852,57 +1859,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ATROCITY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "crushed",
-       "note": "crushed letters are squashed out of shape"
+       "text": "Before",
+       "at": 0,
+       "note": "before places the rearranged letters ahead of the last piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Before"
+         "text": "crushed",
+         "at": 36,
+         "note": "crushed means squashed out of shape, so the letters of riot act are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "riot act",
-         "gives": "ATROCIT",
-         "note": "RIOT ACT rearranged"
+         "words": "riot",
+         "at": 27
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "Y",
-         "indicators": [
-          {
-           "text": "closure of",
-           "note": "the closing letter of the word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "closure of factory",
-           "gives": "Y",
-           "select": "last",
-           "note": "last letter of factorY"
-          }
-         ]
+         "words": "act",
+         "at": 32
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "closure of",
+         "at": 7,
+         "note": "closure of means the end of factory, its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "factory",
+         "at": 18,
+         "note": "the word factory, giving its last letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Before a factory closed, strikers were brutally put down after the Riot Act was read.",
-     "walkthrough": "The Riot Act was a British law read aloud to disperse crowds; here RIOT ACT is only letters.",
-     "definitionFit": "An atrocity is an act of extreme cruelty, ruthless behaviour."
+     "surface": "Factory workers read the Riot Act, and are crushed by ruthless management before it closes.",
+     "walkthrough": "'crushed' turns RIOT ACT into ATROCIT, and 'closure of' factory gives Y. To read someone the Riot Act is to give them a stern warning.",
+     "definitionFit": "An atrocity is an act of extreme cruelty or wickedness, the sort of thing ruthless behaviour produces."
     },
     "features": {
      "answerInScene": true,

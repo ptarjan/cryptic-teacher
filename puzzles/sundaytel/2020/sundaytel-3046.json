@@ -212,75 +212,51 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ORIGAMI",
+     "op": "charade",
      "indicators": [
       {
-       "text": "securing",
-       "note": "to secure something is to hold it firmly, so the selected letters close around the city"
+       "text": "then",
+       "at": 48,
+       "note": "then places the single letter after the enclosed capital"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "then",
-         "note": "then signals the final piece is added at the end of what has been built"
+         "text": "securing",
+         "at": 30,
+         "note": "securing means holding fast, so those two letters enclose the capital"
         }
        ],
        "parts": [
         {
-         "op": "nth",
-         "n": 2,
-         "indicators": [
-          {
-           "text": "Second",
-           "note": "second asks for the letter in position two of the word that follows"
-          }
-         ],
-         "parts": [
-          {
-           "words": "companies",
-           "note": "the second letter of companies"
-          }
-         ]
+         "words": "Second and third of companies",
+         "at": 0,
+         "gives": "OM",
+         "note": "the second and third letters of companies"
         },
         {
          "words": "capital",
+         "at": 39,
          "gives": "RIGA",
          "note": "Riga is the capital of Latvia"
-        },
-        {
-         "op": "nth",
-         "n": 3,
-         "indicators": [
-          {
-           "text": "third",
-           "note": "third asks for the letter in position three of that same word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "companies",
-           "note": "the third letter of companies"
-          }
-         ]
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 53,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A business report: firms ranked second and third have secured capital, then one company folds.",
-     "walkthrough": "'Folding' looks like a business going bust; it is the definition, the Japanese art of paper folding.",
-     "definitionFit": "Origami is the Japanese craft of shaping paper by creasing it, so the art itself is folding."
+     "surface": "A business report: firms take hold of capital and then one of them folds.",
+     "walkthrough": "'one folding' looks like a failed company; 'folding' defines the Japanese art, and 'one' gives the I. OM, from 'companies', is 'securing' RIGA, 'then' I follows.",
+     "definitionFit": "Origami is the Japanese craft of folding paper into shapes, so the noun names a kind of folding."
     },
     "features": {
      "answerInScene": false,
@@ -686,45 +662,63 @@
      "indicators": [
       {
        "text": "collecting",
-       "note": "collecting means gathering something in, so the player word takes the selected letters inside"
+       "at": 19,
+       "note": "collecting means gathering in, so the player holds the central letters"
       }
      ],
      "parts": [
       {
        "words": "player",
+       "at": 12,
        "gives": "GAMER",
-       "note": "a gamer plays video games"
+       "note": "a gamer is someone who plays games"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "OSS",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in the middle",
-         "note": "in the middle keeps only the central letters of the word before it"
+         "text": "in the",
+         "at": 38,
+         "note": "in the, read with middle, also drops the last two letters of crosses so only the centre stays"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "crosses",
-         "gives": "OSS",
-         "select": "middle",
-         "note": "the three central letters of crosses"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "middle",
+           "at": 45,
+           "note": "middle, read with in the, keeps only the centre of crosses, so its first two letters go"
+          }
+         ],
+         "parts": [
+          {
+           "words": "crosses",
+           "at": 30,
+           "note": "the word crosses, cut down to its central three letters"
+          },
+          {
+           "gives": "CR"
+          }
+         ]
+        },
+        {
+         "gives": "ES"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fine player picks up crosses in midfield, like a footballer collecting crosses.",
-     "definitionFit": "Gossamer is the fine filmy thread of spiders' webs, and by extension any very delicate material."
+     "surface": "A footballer picks up some crosses in midfield.",
+     "walkthrough": "'in the middle' is one instruction trimming both outer pairs from crosses, CR and ES, to leave its centre; 'collecting' then places that just after the first letter of GAMER.",
+     "definitionFit": "Gossamer is a fine filmy cobweb, and by extension any delicate, sheer fabric."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "player"
+     "misdirectedWord": "crosses"
     }
    }
   },
@@ -798,43 +792,31 @@
      {
       "text": "Support for driver",
       "at": 0
-     },
-     {
-      "text": "a character",
-      "at": 20
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "TEE",
+     "indicators": [
+      {
+       "text": "did you say",
+       "at": 32,
+       "note": "did you say means the letter is heard spoken, not written"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Support for driver",
-       "note": "first meaning: the peg a golf ball sits on before being struck with a driver club"
-      },
-      {
-       "op": "homophone",
-       "spelt": "TEE",
-       "indicators": [
-        {
-         "text": "did you say",
-         "note": "did you say asks us to go by the spoken sound of the letter's name"
-        }
-       ],
-       "parts": [
-        {
-         "words": "a character",
-         "gives": "T",
-         "note": "the letter's name, spoken, is spelt this way"
-        }
-       ]
+       "words": "a character",
+       "at": 20,
+       "gives": "T",
+       "note": "a character is a letter of the alphabet, here T"
       }
      ]
     },
     "explanation": {
-     "surface": "A golfer asks whether the peg for the driver is a single letter.",
-     "walkthrough": "'Driver' suggests a motorist; it is the golf club used off the tee.",
-     "definitionFit": "A golfer's driver hits the ball from a small peg, and the twentieth letter of the alphabet is written out the same way."
+     "surface": "Someone asks whether a car's support is a matter of character.",
+     "walkthrough": "In golf the driver is the club, not someone at a wheel; the letter T, spoken, gives the peg it sits on.",
+     "definitionFit": "A tee is the small peg on which a golfer rests the ball before striking it with a driver."
     },
     "features": {
      "answerInScene": false,

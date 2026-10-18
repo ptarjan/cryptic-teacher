@@ -277,47 +277,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EMPRESSES",
+     "op": "composite",
      "indicators": [
       {
        "text": "out",
-       "note": "out can mean disordered or wrong, so the letters are rearranged"
+       "at": 12,
+       "note": "out means not in its proper state, so the letters of peer misses are rearranged"
+      },
+      {
+       "text": "ignored by",
+       "at": 17,
+       "note": "ignored by says the letter for current is left out of that pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EMPRESSES",
-       "indicators": [
-        {
-         "text": "ignored by",
-         "note": "something ignored is left out, so the letter for current is dropped from the phrase"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Peer misses",
-         "note": "taken as written"
+         "words": "Peer",
+         "at": 0
         },
         {
-         "words": "current",
-         "gives": "I",
-         "note": "I is the physics symbol for electric current"
+         "words": "misses",
+         "at": 5
         }
        ]
+      },
+      {
+       "words": "current",
+       "at": 28,
+       "gives": "I",
+       "note": "I is the physics symbol for electric current"
       }
      ]
     },
     "explanation": {
-     "surface": "A lord loses out, overlooked by the people in charge today.",
-     "walkthrough": "Remove I from PEER MISSES, then rearrange the remaining nine letters.",
-     "definitionFit": "Empresses are female monarchs who govern empires, so they are rulers."
+     "surface": "A lord who keeps failing at something is passed over by those currently in charge.",
+     "walkthrough": "'out' jumbles PEER MISSES; 'ignored by' drops I (current) from the pool, and the nine letters left make the answer.",
+     "definitionFit": "Empresses are female sovereigns of empires, or wives of emperors, so they are monarchs who rule."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "current"
     }
@@ -1654,28 +1655,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "COLLYWOBBLES",
      "indicators": [
       {
        "text": "for Spooner",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so that swap is applied here"
+       "at": 39,
+       "note": "for Spooner points to the Reverend Spooner, famous for swapping the first sounds of words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "twerp mends shoes",
-       "gives": "COLLYWOBBLES",
-       "soundsLike": "WALLY COBBLES",
-       "note": "a wally is British slang for a silly person, and a cobbler is someone who repairs footwear; swap their opening sounds"
+       "op": "homophone",
+       "spelt": "WOLLY",
+       "parts": [
+        {
+         "words": "twerp",
+         "at": 21,
+         "gives": "WALLY",
+         "note": "a wally is British slang for a silly, foolish person, said with a short o sound"
+        }
+       ]
+      },
+      {
+       "words": "mends shoes",
+       "at": 27,
+       "gives": "COBBLES",
+       "note": "a cobbler cobbles, that is mends shoes"
       }
      ]
     },
     "explanation": {
-     "surface": "A nervous shoemaker frets while the idiot repairs footwear.",
-     "walkthrough": "Swap the W of WALLY and the C of COBBLES to get COLLY WOBBLES.",
-     "definitionFit": "The collywobbles is an informal word for an attack of nerves or butterflies in the stomach."
+     "surface": "A silly person repairing footwear gets an attack of nerves.",
+     "walkthrough": "Swap the opening sounds of WALLY COBBLES ('for Spooner') to get COLLY WOBBLES. Wally is a British word for a fool.",
+     "definitionFit": "The collywobbles is an informal word for a fluttery stomach caused by anxiety or nerves."
     },
     "features": {
      "answerInScene": false,

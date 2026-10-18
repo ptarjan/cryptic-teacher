@@ -249,30 +249,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TEA",
      "indicators": [
       {
        "text": "short",
-       "note": "something short falls short of its full length, so the squad loses its last letter"
+       "at": 13,
+       "note": "short means missing its last letter, so the word for squad is cut at the end"
       }
      ],
      "parts": [
       {
-       "words": "squad short",
-       "gives": "TEA",
-       "note": "TEAM minus its final M"
+       "words": "squad",
+       "at": 7,
+       "gives": "TEAM",
+       "note": "a team is a squad of players"
+      },
+      {
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "A squad heads off while short of players.",
-     "walkthrough": "'Leaves' looks like a verb, someone departing; it is the noun.",
-     "definitionFit": "A definition by material: the drink is brewed from dried leaves, and loose tea is sold as tea leaves."
+     "surface": "A team departs having too few players.",
+     "walkthrough": "'Leaves' reads as a verb for going away, but it is the noun: tea leaves.",
+     "definitionFit": "Tea in its raw form is the dried leaves of the tea plant, sold loose or in bags."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Leaves"
     }
    }
@@ -828,47 +832,67 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COMBINATION",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "nothing is put in it, so O goes inside IT"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Groom",
+       "at": 0,
+       "gives": "COMB",
+       "note": "to groom hair is to comb it"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "arranged",
-         "note": "an arranged set is put into a new order, so the letters are rearranged"
+         "text": "in",
+         "at": 19,
+         "note": "in places the letter for nothing within the rearranged letters"
         }
        ],
        "parts": [
         {
-         "words": "Groom",
-         "gives": "COMB",
-         "note": "to groom hair is to comb it"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "arranged",
+           "at": 31,
+           "note": "arranged means put into an order, so the letters of it in an are shuffled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "it",
+           "at": 22
+          },
+          {
+           "words": "in",
+           "at": 25
+          },
+          {
+           "words": "an",
+           "at": 28
+          }
+         ]
         },
         {
-         "words": "nothing in it in an",
-         "gives": "INATION",
-         "note": "O (nothing) inside IT gives IOT; with IN AN these letters are arranged"
+         "words": "nothing",
+         "at": 11,
+         "gives": "O",
+         "note": "nothing is zero, shaped like the letter O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bridegroom brings nothing to an arranged marriage.",
-     "walkthrough": "'Groom' and 'marriage' make a wedding; the groom is a verb.",
-     "definitionFit": "A figurative synonym: a marriage of flavours or ideas is a joining of them."
+     "surface": "A bridegroom comes away with nothing from an arranged marriage.",
+     "walkthrough": "'Groom' is a verb here, giving COMB. 'arranged' turns IT IN AN into INATIN, and O for nothing goes 'in' it to make INATION.",
+     "definitionFit": "A marriage is a joining of two things, and a combination is likewise a union or blend of parts."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Groom"
     }
    }
@@ -953,42 +977,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SENTRYGO",
-     "indicators": [
-      {
-       "text": "wild",
-       "note": "something wild is out of control, so the letters of ORGY scatter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "broadcast",
+       "at": 6,
+       "gives": "SENT",
+       "note": "a message broadcast is one sent out over the airwaves"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wild",
+         "at": 19,
+         "note": "wild means out of control, so the letters of orgy run riot into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "broadcast",
-         "gives": "SENT",
-         "note": "a message broadcast has been sent out"
-        },
-        {
          "words": "orgy",
-         "gives": "RYGO",
-         "note": "the letters of ORGY rearranged"
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone watches a wild orgy on television.",
-     "walkthrough": "'Watch' looks like viewing; it is guard duty.",
-     "definitionFit": "An old military term: a soldier's turn of guard duty, a watch."
+     "surface": "A television programme was aired showing a wild orgy.",
+     "walkthrough": "Watch is a noun here, a period of guard duty, not a verb for viewing the broadcast. 'wild' turns ORGY into RYGO.",
+     "definitionFit": "Sentry-go is an old military term for a sentry's duty, the spell of guard someone keeps as a watch."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "Watch"
     }
    }
@@ -1178,53 +1200,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ICEFOG",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "poor",
+       "at": 13,
+       "note": "poor suggests badly done, so the letters of forecasting are rearranged"
+      },
+      {
+       "text": "about",
+       "at": 38,
+       "note": "about says the letters of rants appear scattered rather than in order"
+      },
+      {
+       "text": "leaves",
+       "at": 44,
+       "note": "leaves means goes away, so the letters of rants are taken out of the pool"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "poor",
-         "note": "a poor forecast is a bad one, so FORECASTING is jumbled"
-        },
-        {
-         "text": "about",
-         "note": "the rants are scattered about the word rather than together"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "ICEFOG",
-         "indicators": [
-          {
-           "text": "leaves",
-           "note": "the rants leave, so their letters are taken out"
-          }
-         ],
-         "parts": [
-          {
-           "words": "forecasting",
-           "note": "the whole word to start from"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "rants",
-         "note": "R, A, N, T, S are removed, leaving F O E C I G to be rearranged"
-        }
-       ]
+       "words": "forecasting",
+       "at": 18
+      },
+      {
+       "words": "rants",
+       "at": 32
       }
      ]
     },
     "explanation": {
-     "surface": "A weather forecaster botched a mist warning, and someone rants about it.",
-     "walkthrough": "The letters of RANTS are all inside FORECASTING, though scattered, which is what 'about' allows.",
-     "definitionFit": "A description: fog made of suspended ice crystals, found in very cold winters."
+     "surface": "A bad weather forecast for winter fog sets someone ranting before they storm out.",
+     "walkthrough": "Take R, A, N, T, S, the letters of 'rants', out of FORECASTING; the six left over (F, O, E, C, I, G) are rearranged into the answer.",
+     "definitionFit": "Ice fog is a winter fog made of tiny ice crystals hanging in the air, found in very cold climates."
     },
     "features": {
      "answerInScene": true,
