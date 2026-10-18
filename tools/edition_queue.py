@@ -406,8 +406,20 @@ LISTENER_SECONDS = 1800
 #: The core a scan unit pins itself to (-1: the host's last), OCR's one core.
 SCAN_CPU = "OCR_SCAN_CPU"
 #: A unit still running this long is killed and left for the next run.
-SCAN_SECONDS = 1200
-READ_SECONDS = 1200
+def seconds_from_env(name, default):
+    """Seconds from the environment variable `name`, or `default` when unset, not a number, or not above 0."""
+    try:
+        got = float(os.environ.get(name) or default)
+    except ValueError:
+        return default
+    return got if got > 0 else default
+
+
+#: CT_SCAN_SECONDS / CT_READ_SECONDS raise them: a read waits its turn on the one-slot VLM
+#: (~7.6 requests a minute across every unit), so with many reads at once 1200s kills
+#: reads that are only waiting; their cached replies (vlm_reader.ask_png) survive the kill.
+SCAN_SECONDS = seconds_from_env("CT_SCAN_SECONDS", 1200)
+READ_SECONDS = seconds_from_env("CT_READ_SECONDS", 1200)
 #: How often (seconds) the queue is planned again.
 REPLAN = 60
 #: While no core is idle, a plan is made every REPLAN * IDLE_BACKOFF seconds
