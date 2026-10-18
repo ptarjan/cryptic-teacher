@@ -572,42 +572,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NATIVE",
+     "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "putting something back here means turning it end to end"
+       "text": "in",
+       "at": 22,
+       "note": "one piece is placed in the middle of the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "centre of church",
+       "at": 25,
+       "gives": "NAVE",
+       "note": "the nave is the central body of a church, where the congregation sits"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the turned word inside the other"
+         "text": "back",
+         "at": 17,
+         "note": "putting a word back means writing it in reverse order"
         }
        ],
        "parts": [
         {
-         "words": "centre of church",
-         "gives": "NAVE",
-         "note": "the nave is the main central body of a church"
-        },
-        {
          "words": "it",
-         "gives": "TI",
-         "note": "it, turned round"
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A villager returns an item to the middle of the parish church.",
-     "definitionFit": "A local is a person from the area, which is what a native is."
+     "surface": "A villager returns something to the middle of the parish church.",
+     "walkthrough": "'back' turns it into TI, which goes 'in' NAVE. 'centre of church' is a whole word here, not the middle letter of church.",
+     "definitionFit": "A native is someone born in a place, a local as opposed to a visitor."
     },
     "features": {
      "answerInScene": true,
@@ -1082,37 +1083,36 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EMBOSS",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "in a down entry, up means the word is read from bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 8,
+         "note": "in a down clue, up means the word is read from the bottom, so it is reversed"
+        }
+       ],
        "parts": [
         {
          "words": "me",
-         "gives": "EM",
-         "note": "me, turned round"
-        },
-        {
-         "words": "superior",
-         "gives": "BOSS",
-         "note": "a boss is one's superior at work"
+         "at": 5
         }
        ]
+      },
+      {
+       "words": "superior",
+       "at": 16,
+       "gives": "BOSS",
+       "note": "a superior at work is one's boss"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to embarrass me in front of my manager.",
-     "walkthrough": "'Show me up' reads as an idiom for embarrass; only 'up' does any work, turning the word round.",
-     "definitionFit": "To emboss is to decorate a surface with raised designs, one particular way to ornament it."
+     "surface": "Embarrass me in front of my higher-up with some decoration.",
+     "walkthrough": "'Show me up' sounds like being humiliated; 'up' instead reverses me to EM. 'in a way' signals that embossing is one particular kind of ornamenting.",
+     "definitionFit": "To emboss is to decorate a surface with a raised design, one method of ornamenting it."
     },
     "features": {
      "answerInScene": false,

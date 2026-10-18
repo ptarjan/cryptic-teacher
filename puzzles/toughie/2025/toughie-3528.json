@@ -447,21 +447,20 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "KNOTS",
+     "op": "reverse",
+     "reading": "K NOT S",
      "parts": [
       {
-       "words": "Bans bank",
-       "gives": "KNOTS",
-       "note": "the second word is the first with its last letter changed; describe that change in a three-word phrase"
+       "words": "Bans bank having such",
+       "at": 0,
+       "note": "give the word bans a K where its S stands and it becomes bank, so bans turns into bank by having such a change"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether bans on a bank cause tangles.",
-     "walkthrough": "bank is bans with K, not S, at the end: read as K NOT S, that gives the answer.",
-     "definitionFit": "Knots are tangles or snags, and figuratively problems that are hard to unravel."
+     "surface": "A ban on a bank that has run into problems.",
+     "walkthrough": "Elgar's trick runs backwards: split the answer as K NOT S, an instruction to put K in place of S, and bans duly becomes bank. 'such' points at the answer itself.",
+     "definitionFit": "Knots are tangles, and figuratively problems or complications, as in tying oneself in knots."
     },
     "features": {
      "answerInScene": false,
@@ -681,46 +680,53 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "PEPPERONI",
-     "indicators": [
-      {
-       "text": "eating",
-       "note": "something eating another takes it inside, so one piece goes within the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "eating",
+         "at": 6,
+         "note": "something eating another takes it inside, so these letters are swallowed into the middle"
+        }
+       ],
        "parts": [
         {
-         "words": "Go",
-         "gives": "PEP",
-         "note": "go as in energy or vigour"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Go",
+           "at": 0,
+           "gives": "PEP",
+           "note": "go and pep both mean energy and vigour"
+          },
+          {
+           "words": "on",
+           "at": 3
+          }
+         ]
         },
         {
          "words": "a",
+         "at": 13,
          "gives": "PER",
-         "note": "a as in 'ten pounds a head', meaning per"
-        },
-        {
-         "words": "on",
-         "note": "taken as written"
-        },
-        {
-         "words": "single",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
+         "note": "per means a, as in five pounds a head"
         }
        ]
+      },
+      {
+       "words": "single",
+       "at": 15,
+       "gives": "I",
+       "note": "I is the Roman numeral for one, a single unit"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is urged on while eating a lone sausage.",
-     "walkthrough": "'Go on' reads as encouragement, but the two words are separate pieces that close round the word for 'a', as in 'a pound a head'.",
-     "definitionFit": "Pepperoni is a spicy Italian-style dried sausage, often sliced onto pizza."
+     "surface": "Someone urges another to keep on scoffing just one sausage.",
+     "walkthrough": "'Go on' looks like a phrase of encouragement but splits into two pieces, and 'eating' puts PER, as in 'a day' meaning 'per day', between them.",
+     "definitionFit": "Pepperoni is a spicy dried Italian-American salami, a type of sausage."
     },
     "features": {
      "answerInScene": true,
@@ -947,58 +953,54 @@
     "definitions": [
      {
       "text": "It's debatable",
-      "at": 50,
-      "note": "a clause describing the answer, which is a noun phrase: a moot point is something debatable"
+      "at": 50
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MOOTPOINT",
+     "op": "composite",
      "indicators": [
       {
        "text": "flexible",
-       "note": "something flexible can be bent into new shapes, so its letters are rearranged"
+       "at": 5,
+       "note": "something flexible bends into a new shape, so the letters take a new order"
+      },
+      {
+       "text": "for replacement of",
+       "at": 21,
+       "note": "the shilling is replaced, that is taken out of the letter pool, as the old coin was when Britain went decimal"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "MOOTPOINT",
-       "indicators": [
-        {
-         "text": "for replacement of",
-         "note": "for replacement of says one piece takes the place of another"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Most",
-         "note": "taken as written"
+         "at": 0
         },
         {
          "words": "option",
-         "note": "taken as written"
-        },
-        {
-         "words": "shilling",
-         "gives": "S",
-         "note": "s is the abbreviation for shilling, the old British coin"
+         "at": 14
         }
        ]
+      },
+      {
+       "words": "shilling",
+       "at": 40,
+       "gives": "S",
+       "note": "s. was the standard abbreviation for the old British shilling"
       }
      ]
     },
     "explanation": {
-     "surface": "A coin question: what is the most adaptable choice to replace the shilling? It's open to argument.",
-     "walkthrough": "The shuffled option takes the place of the S inside the first word; a shilling was a pre-1971 British coin.",
-     "definitionFit": "A moot point is a question open to argument, one still undecided and unsettled."
+     "surface": "The most adaptable option when the shilling was being replaced was open to argument.",
+     "walkthrough": "Pool the letters of most and option; 'for replacement of' takes out S for shilling, and 'flexible' rearranges what remains. The shilling was a pre-1971 British coin, written s.",
+     "definitionFit": "A moot point is a question open to argument and not settled, so it is debatable."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "shilling"
+     "misdirectedWord": "flexible"
     }
    }
   },
@@ -1416,8 +1418,7 @@
     "definitions": [
      {
       "text": "steps",
-      "at": 32,
-      "note": "plural noun for a dance, which the answer names in the singular"
+      "at": 32
      }
     ],
     "wordplay": {
@@ -1425,41 +1426,43 @@
      "indicators": [
       {
        "text": "supporting",
-       "note": "in a down answer, supporting means placed underneath"
+       "at": 17,
+       "note": "in a down clue the supporting piece sits underneath, so it comes second"
       }
      ],
      "parts": [
       {
        "words": "odd",
+       "at": 28,
        "gives": "RUM",
-       "note": "rum is British slang for odd or strange"
+       "note": "rum is British slang for odd or peculiar"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "BA",
+       "op": "deletion",
        "indicators": [
         {
          "text": "A couple of",
-         "note": "a couple means two, so just the opening pair of letters is taken"
+         "at": 0,
+         "note": "a couple means two, so only the opening pair of letters of the word survive"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "bars",
-         "gives": "BA",
-         "select": "first",
-         "note": "the first two letters"
+         "at": 12,
+         "note": "only the first couple of letters of this word are kept"
+        },
+        {
+         "gives": "RS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A couple of pub bars stand behind odd dance steps.",
-     "walkthrough": "'bars' suggests music or pubs, but only its first two letters are used.",
-     "definitionFit": "The rumba is a Cuban ballroom dance, a set pattern of steps to music."
+     "surface": "Two bars of music accompany some quirky dance moves.",
+     "walkthrough": "'A couple of' keeps just BA from bars, and 'supporting' puts it beneath RUM. 'steps' is the dance itself.",
+     "definitionFit": "The rumba is a Cuban ballroom dance, and steps is a loose word for a dance's routine."
     },
     "features": {
      "answerInScene": true,

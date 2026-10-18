@@ -395,44 +395,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ACCURATE",
+     "op": "composite",
      "indicators": [
       {
        "text": "about",
-       "note": "about suggests letters turned around and moved into a fresh order"
+       "at": 8,
+       "note": "about here means in a roundabout jumble, so the letters are rearranged"
+      },
+      {
+       "text": "No",
+       "at": 27,
+       "note": "saying no to something refuses it, so these letters are left out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ACCURATE",
-       "indicators": [
-        {
-         "text": "No sir",
-         "note": "No tells you to take away the letters of the word sir from the fodder"
-        }
-       ],
-       "parts": [
-        {
-         "words": "caricatures",
-         "note": "taken as written"
-        }
-       ]
+       "words": "caricatures",
+       "at": 14
+      },
+      {
+       "words": "sir",
+       "at": 30
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether cartoons are exactly right, and is firmly told no, sir.",
-     "walkthrough": "Remove S, I and R from CARICATURES and shuffle what is left.",
-     "definitionFit": "Spot on is an informal phrase meaning exactly right, precise or correct."
+     "surface": "Someone asks whether cartoons are true to life and is told no, sir.",
+     "walkthrough": "'No sir' removes S, I and R from the letters of caricatures, and 'about' rearranges the remaining CACATURE.",
+     "definitionFit": "Spot on is an informal phrase for exactly right, which is what accurate means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "sir"
     }
    }
   },
@@ -598,29 +593,20 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reverse",
+     "reading": "CAN + CAN",
      "parts": [
       {
-       "words": "Tin",
-       "gives": "CAN",
-       "note": "a tin is a container for food, also called a can"
-      },
-      {
-       "words": "tin's",
-       "gives": "CAN",
-       "note": "the second half of the name gets the same swap; the 's is just a link"
-      },
-      {
-       "unchecked": true,
        "words": "Tintin's",
-       "note": "the whole name is read as two halves, the comic-book reporter only being surface"
+       "at": 0,
+       "note": "read the answer as two pieces, each a can, and each can is a tin: the pair is tin tin, with the 's standing for 'is'"
       }
      ]
     },
     "explanation": {
-     "surface": "The boy reporter from the comic books has a favourite dance.",
-     "walkthrough": "Tintin is the Belgian comic-book reporter; split his name in two and swap each half for a synonym.",
-     "definitionFit": "The cancan is a high-kicking French music-hall routine performed by a line of dancers."
+     "surface": "The Belgian boy reporter Tintin is apparently fond of a particular dance.",
+     "walkthrough": "Tintin is the comic-book reporter, but here his name splits into two tins; a tin is a can.",
+     "definitionFit": "The cancan is a lively high-kicking dance from Parisian music halls."
     },
     "features": {
      "answerInScene": false,

@@ -158,46 +158,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SALVO",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is cut"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 13,
+         "note": "almost the whole word means it stops one letter short of its end"
+        }
+       ],
        "parts": [
         {
          "words": "lotion",
-         "gives": "SALV",
-         "note": "salve, a healing ointment, without its last letter"
+         "at": 6,
+         "gives": "SALVE",
+         "note": "a salve is a soothing ointment or lotion"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "beginning to",
-           "note": "the beginning of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "ooze",
-           "note": "first letter of the word"
-          }
-         ]
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 20,
+         "note": "the beginning of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ooze",
+         "at": 33,
+         "gives": "O",
+         "note": "the word whose first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tube of cream nearly splits open and starts seeping.",
-     "definitionFit": "A salvo is a simultaneous discharge of guns, a burst of fire, or figuratively a sudden burst of applause."
+     "surface": "A tube of cream bursts and the contents start to seep out.",
+     "walkthrough": "'almost' drops the last letter of SALVE, and 'beginning to' takes the O of ooze. 'Burst' is a noun here, not the verb the surface suggests.",
+     "definitionFit": "A salvo is a sudden burst of gunfire, or figuratively of applause or criticism."
     },
     "features": {
      "answerInScene": false,
@@ -296,47 +303,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CONGEREEL",
+     "op": "container",
      "indicators": [
       {
-       "text": "rotten",
-       "note": "rotten means decayed and broken down, so these letters fall into a new order"
+       "text": "inside",
+       "at": 31,
+       "note": "one set of letters is placed inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "basket",
+       "at": 5,
+       "gives": "CREEL",
+       "note": "a creel is a wicker basket used by anglers"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "inside",
-         "note": "inside places one piece within the other"
+         "text": "rotten",
+         "at": 24,
+         "note": "rotten suggests something decayed and broken down, so these letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "basket",
-         "gives": "CREEL",
-         "note": "a creel is an angler's wicker basket"
-        },
-        {
          "words": "gone",
-         "note": "the word gone with its letters rearranged"
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An angler's catch has gone off in the basket.",
-     "walkthrough": "Rotten looks like it describes the fish, but it signals rearranging the word before it, which then sits inside the basket.",
-     "definitionFit": "The conger eel is a large marine eel, and eels are a kind of fish."
+     "surface": "An angler's basket with a catch that has gone off within.",
+     "walkthrough": "The surface pictures stale bait in a basket; 'gone' is the letters to shuffle, not a sense of rotten, and 'that's' only links.",
+     "definitionFit": "The conger eel is a large marine eel, so it is a kind of fish."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "rotten"
+     "aptDefinition": false
     }
    }
   },

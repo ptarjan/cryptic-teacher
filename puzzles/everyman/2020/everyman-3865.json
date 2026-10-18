@@ -151,42 +151,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "UBEND",
      "indicators": [
       {
        "text": "unpleasant",
-       "note": "something unpleasant is not nice or orderly, hinting the letters should be disturbed"
+       "at": 8,
+       "note": "an unpleasant burden is a nasty, messed-up one, so its letters are jumbled"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "UBEND",
        "indicators": [
         {
-         "text": "exclusing",
-         "note": "excluding (as misspelt in the clue) tells us to leave a letter out of the word in front"
+         "text": "is exclusing",
+         "at": 26,
+         "note": "printed for 'is excluding': the letter is shut out of the word"
         }
        ],
        "parts": [
         {
          "words": "burden",
-         "note": "taken as written"
+         "at": 19
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "primarily",
-           "note": "primarily means at first, so only the opening letter of the word before it is wanted"
+           "at": 45,
+           "note": "primarily means first of all, so the word's first letter"
           }
          ],
          "parts": [
           {
            "words": "reek",
-           "note": "the first letter of reek"
+           "at": 39,
+           "note": "the word whose first letter is used"
           }
          ]
         }
@@ -196,9 +196,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A question about how a nasty load stops smelling.",
-     "walkthrough": "Take the R out of BURDEN and rearrange BUDEN. Read whole, the clue describes the trap's job: the water held in its curve keeps sewer smells out of the room.",
-     "definitionFit": "A U-bend is the curved pipe under a sink or toilet whose trapped water blocks foul odours from drains."
+     "surface": "A question about the plumbing that keeps a nasty smell at bay.",
+     "walkthrough": "'exclusing' is the printed spelling of 'excluding'. 'primarily' gives R from reek, which 'is exclusing' removes from burden to leave BUDEN, and 'unpleasant' rearranges that; read whole, the clue describes what the answer does.",
+     "definitionFit": "A U-bend is the water-filled trap under a sink or toilet that seals out drain smells."
     },
     "features": {
      "answerInScene": true,
@@ -412,52 +412,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RECURSION",
+     "op": "composite",
      "indicators": [
       {
-       "text": "dancing",
-       "note": "dancing letters move about, so the removed letters may be taken in any order"
+       "text": "suspicious",
+       "at": 19,
+       "note": "suspicious is used in the old sense of doubtful or dodgy, so the letters are scrambled"
       },
       {
-       "text": "suspicious",
-       "note": "suspicious suggests something fishy or not straight, so the remaining letters are rearranged"
+       "text": "denied",
+       "at": 44,
+       "note": "to be denied something is to have it taken away, so these letters leave the pool"
+      },
+      {
+       "text": "dancing",
+       "at": 55,
+       "note": "letters that are dancing move about, so they need not appear in this order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "RECURSION",
-       "indicators": [
-        {
-         "text": "denied",
-         "note": "being denied something means losing it, so those letters are taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Puerto Ricans",
-         "note": "taken as written"
-        },
-        {
-         "words": "tap",
-         "note": "taken as written; its letters are removed from the line above"
-        }
-       ]
+       "words": "Puerto Ricans",
+       "at": 30
+      },
+      {
+       "words": "tap",
+       "at": 51
       }
      ]
     },
     "explanation": {
-     "surface": "Wary Puerto Ricans are barred from tap dancing, so someone heads back to investigate.",
-     "walkthrough": "Remove T, A and P from PUERTO RICANS and rearrange what is left.",
-     "definitionFit": "Recursion is a process that refers back to or repeats itself, a returning to an earlier stage."
+     "surface": "Dodgy islanders go back to a tap-dancing show, banned from performing.",
+     "walkthrough": "Take the letters of tap out of Puerto Ricans, scattered as they are, and rearrange the rest.",
+     "definitionFit": "Recursion is a process that refers back to itself, a returning or recurring step, as in mathematics and computing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "dancing"
+     "misdirectedWord": "tap"
     }
    }
   },
@@ -1137,48 +1129,59 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "LEHAVRE",
      "indicators": [
       {
        "text": "Corrupt",
-       "note": "something corrupt has been spoilt or altered, so the letters are rearranged"
+       "at": 0,
+       "note": "something corrupt is spoilt or debased, so the letters are disordered"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "LEHAVRE",
        "indicators": [
         {
-         "text": "heading off",
-         "note": "with its heading off, a word loses its opening letter"
-        },
-        {
          "text": "abandoning",
-         "note": "abandoning something means leaving it behind, so that letter is dropped"
+         "at": 33,
+         "note": "to abandon something is to leave it behind, so this letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "chevalier's",
-         "gives": "CHEVALIER",
-         "note": "a chevalier is a French knight; the 's stands for is"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "heading off",
+           "at": 20,
+           "note": "the heading of a word is its first letter, which comes off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "chevalier's",
+           "at": 8,
+           "gives": "CHEVALIER",
+           "note": "a chevalier is a French knight; the 's stands for 'is', joining the word to its instruction"
+          },
+          {
+           "gives": "C"
+          }
+         ]
         },
         {
          "words": "one",
+         "at": 44,
          "gives": "I",
-         "note": "the Roman numeral for one, which is removed"
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crooked French knight leaves a city behind.",
-     "walkthrough": "Drop the C and the I from CHEVALIER and rearrange the remaining seven letters.",
-     "definitionFit": "Le Havre is a major port city in Normandy, on the mouth of the Seine in northern France."
+     "surface": "A disgraced French knight loses his lead and leaves a city.",
+     "walkthrough": "'heading off' drops the first letter, and 'abandoning one' drops an I, leaving HEVALER for 'Corrupt' to rearrange.",
+     "definitionFit": "Le Havre is a major port city in Normandy, northern France."
     },
     "features": {
      "answerInScene": true,

@@ -318,42 +318,44 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "EMRULE",
      "indicators": [
       {
        "text": "somehow",
-       "note": "somehow says the remaining letters fit together in some other way"
+       "at": 29,
+       "note": "somehow suggests the letters arrive in some other, unspecified order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "EMRULE",
        "indicators": [
         {
          "text": "out of bounds",
-         "note": "the bounds of a word are its two ends, and these are put out"
+         "at": 5,
+         "note": "the bounds of a word are its two ends, so the first and last letters are excluded"
         }
        ],
        "parts": [
         {
          "words": "demurely",
-         "note": "the word taken as written"
+         "at": 20,
+         "note": "the word whose inner letters are used"
+        },
+        {
+         "gives": "DY"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone darts off where they shouldn't, in an oddly demure manner.",
-     "walkthrough": "Drop the D and Y at the ends of demurely, then rearrange.",
-     "definitionFit": "This is the printer's long dash, the width of a letter M, used for parenthesis."
+     "surface": "Someone darts off where they should not go, though in a modest way.",
+     "walkthrough": "'out of bounds' trims demurely to EMUREL, and the closing indicator rearranges it. 'Dash' is a punctuation mark here, not a sprint.",
+     "definitionFit": "An em rule is the printer's name for the long dash, the width of a letter M."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Dash"
     }
    }
@@ -1284,41 +1286,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NOSTOS",
      "indicators": [
       {
        "text": "for",
-       "note": "one thing for another means it stands in its place"
+       "at": 6,
+       "note": "one thing put in for another replaces it, so the letters for quiet take the place of minute"
       }
      ],
      "parts": [
       {
-       "words": "Quiet",
-       "gives": "ST",
-       "note": "st! is a call for hush"
+       "words": "Greek province",
+       "at": 20,
+       "gives": "NOMOS",
+       "note": "a nomos is an administrative province of Greece"
       },
       {
        "words": "minute",
-       "gives": "M",
-       "note": "m is the abbreviation for minute"
+       "at": 10,
+       "gives": "M"
       },
       {
-       "words": "Greek province",
-       "gives": "NOMOS",
-       "note": "a nomos is a province or department of Greece"
+       "words": "Quiet",
+       "at": 0,
+       "gives": "ST",
+       "note": "st! is an old interjection calling for silence, hence quiet"
       }
      ]
     },
     "explanation": {
-     "surface": "Silence for a minute in a Greek region prompts verse from abroad.",
-     "walkthrough": "'Over there' means in Greece: the answer is a Greek word.",
-     "definitionFit": "A nostos is a Greek poem about a hero's homecoming, such as the Odyssey."
+     "surface": "A call for silence instead of a minute's pause in a Greek region gives rise to a poem.",
+     "walkthrough": "'over there' places the poem in Greece: the word is Greek for a homecoming.",
+     "definitionFit": "A nostos is a Greek epic poem about a hero's return home, like the Odyssey."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Quiet"
+     "misdirectedWord": "minute"
     }
    }
   },
@@ -1733,54 +1736,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MISANDRY",
      "indicators": [
       {
        "text": "boring",
-       "note": "boring means drilling into, so the first piece goes inside"
+       "at": 4,
+       "note": "boring means drilling into, so one piece goes inside the other"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "endlessly",
-         "note": "without its end the word loses its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endlessly",
+           "at": 18,
+           "note": "a word without its end loses its final letter"
+          }
+         ],
          "parts": [
           {
            "words": "female",
+           "at": 11,
            "gives": "MISS",
-           "note": "Miss is the title for an unmarried female"
+           "note": "a miss is a girl or young woman, a female"
           },
           {
-           "words": "One",
-           "gives": "AN",
-           "note": "an means one"
-          },
-          {
-           "words": "formal",
-           "gives": "DRY",
-           "note": "dry as in stiff, coolly formal"
+           "gives": "S"
           }
          ]
         },
         {
-         "gives": "S"
+         "words": "formal",
+         "at": 28,
+         "gives": "DRY",
+         "note": "dry can mean stiff and formal in manner"
         }
        ]
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "AN",
+       "note": "an is the indefinite article, meaning one"
       }
      ]
     },
     "explanation": {
-     "surface": "A tedious, stiff woman is said to dislike men.",
-     "definitionFit": "Misandry is hatred of men, the counterpart of misogyny."
+     "surface": "One dull woman, endlessly prim, who despises men.",
+     "walkthrough": "'boring' reads as dull in the surface but means drilling in; 'One' must be the article an, not I.",
+     "definitionFit": "Misandry is hatred of or contempt for males, the counterpart of misogyny."
     },
     "features": {
      "answerInScene": true,
