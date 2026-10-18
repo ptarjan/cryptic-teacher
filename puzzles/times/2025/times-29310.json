@@ -303,35 +303,38 @@
      "parts": [
       {
        "words": "Many, many",
+       "at": 0,
        "gives": "ATON",
-       "note": "a ton = a great many"
+       "note": "a ton is a large amount, as in a ton of work"
+      },
+      {
+       "words": "clubs",
+       "at": 11,
+       "gives": "C",
+       "note": "C is the card abbreviation for clubs"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "start to",
-         "note": "the start of a word is its first letter"
+         "at": 17,
+         "note": "the start to a word is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "clubs",
-         "note": "C = clubs, the card suit"
+         "words": "expand",
+         "at": 26,
+         "note": "first letter of expand"
         }
        ]
-      },
-      {
-       "words": "start to expand",
-       "gives": "E",
-       "note": "the first letter of Expand"
       }
      ]
     },
     "explanation": {
-     "surface": "A report that a great many clubs are opening branches right now.",
-     "walkthrough": "The doubled 'many' is one piece, A TON, not two separate numbers.",
-     "definitionFit": "A plain synonym: an adverbial phrase meaning without delay."
+     "surface": "A golf or social organisation with a vast number of clubs is told to grow now.",
+     "definitionFit": "At once means straight away, without delay."
     },
     "features": {
      "answerInScene": false,
@@ -361,57 +364,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AGGREGATE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "mostly",
-         "note": "most of a word, so all but its last letter"
+         "at": 17,
+         "note": "mostly means most but not all, so the last letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "trouble, mostly",
-         "gives": "AGGR",
-         "note": "AGGRO (British slang for trouble, aggression) without its O"
+         "words": "trouble",
+         "at": 8,
+         "gives": "AGGRO",
+         "note": "aggro is British slang for trouble or aggressive behaviour"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "E",
-         "indicators": [
-          {
-           "text": "close to",
-           "note": "the close of a word is its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "close to the",
-           "gives": "E",
-           "select": "last",
-           "note": "the last letter of thE"
-          }
-         ]
-        },
-        {
-         "words": "boarding site",
-         "gives": "GATE",
-         "note": "at an airport you board at the gate"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 24,
+         "note": "close to means the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 33,
+         "note": "last letter of the"
+        }
+       ]
+      },
+      {
+       "words": "boarding site",
+       "at": 37,
+       "gives": "GATE",
+       "note": "passengers board at an airport gate"
       }
      ]
     },
     "explanation": {
-     "surface": "A heap of trouble brewing near the departure gate.",
-     "walkthrough": "Aggro is British slang for aggressive trouble-making. 'Boarding site' suggests a building yard; it is the airport gate.",
-     "definitionFit": "A plain synonym: an aggregate is a whole formed by massing many units together."
+     "surface": "A spot of trouble near where passengers board a plane.",
+     "walkthrough": "AGGRO loses its O; then E and GATE.",
+     "definitionFit": "An aggregate is a whole formed by combining many parts, a mass or total."
     },
     "features": {
      "answerInScene": false,
@@ -717,48 +721,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "taking",
-       "note": "taking something away from a word removes letters from it"
-      }
-     ],
      "parts": [
       {
        "words": "drive",
+       "at": 24,
        "gives": "SPIN",
-       "note": "a spin is a drive in a car"
+       "note": "a spin is a short drive in a car"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "DLY",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in the middle",
-         "note": "the centre of 'hours' is its third letter, U"
+         "text": "taking",
+         "at": 35,
+         "note": "taking means removing, so duly loses a letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "duly taking hours in the middle",
-         "gives": "DLY",
-         "select": "middle",
-         "note": "DULY with U, the middle of hoUrs, taken out"
+         "words": "duly",
+         "at": 30
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "in the middle",
+           "at": 48,
+           "note": "the middle letter of hours, its third of five"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hours",
+           "at": 42
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A long drive that duly takes hours.",
-     "walkthrough": "'Taking' looks like 'lasting'; here it means removing, and what goes is the middle letter of 'hours', not the hours.",
-     "definitionFit": "Spindly describes limbs or stems long and thin out of proportion, so the two-word gloss is fair."
+     "surface": "A long drive taken dutifully, with hours spent in the middle.",
+     "walkthrough": "The middle of hours is U, and DULY taking away U leaves DLY.",
+     "definitionFit": "Spindly describes something thin and too long for its width, like legs or stems."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "taking"
     }
    }
@@ -788,51 +799,49 @@
      "indicators": [
       {
        "text": "overwhelmed by",
-       "note": "to be overwhelmed is to be engulfed"
+       "at": 40,
+       "note": "overwhelmed by means swamped inside the two end letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
          "text": "extremes of",
+         "at": 55,
          "note": "the extremes of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "LT",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "extremes of lust",
-           "gives": "LT",
-           "select": "outer",
-           "note": "the outer letters of LusT"
-          }
-         ]
-        },
-        {
-         "words": "single person",
-         "gives": "ONE",
-         "note": "one = a single person"
+         "words": "lust",
+         "at": 67
         }
        ]
       },
       {
-       "words": "remains",
-       "gives": "LIES",
-       "note": "lies = remains, as in 'lies still'"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "single person",
+         "at": 18,
+         "gives": "ONE",
+         "note": "one can mean a single person"
+        },
+        {
+         "words": "remains",
+         "at": 32,
+         "gives": "LIES",
+         "note": "to remain somewhere is to lie there"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lonely soul left overcome by desire.",
-     "walkthrough": "'Remains' is a verb here, not the noun for what is left over.",
-     "definitionFit": "A plain synonym in the superlative: lonely and solitary both mean alone."
+     "surface": "A lonely single person stays swamped by desire.",
+     "definitionFit": "Loneliest is the superlative of lonely, so the most isolated."
     },
     "features": {
      "answerInScene": true,
@@ -1065,41 +1074,38 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "ST",
        "indicators": [
         {
          "text": "to begin with",
-         "note": "the beginnings of words are their first letters"
+         "at": 40,
+         "note": "to begin with means the first letters of the two words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "speech therapy to begin with",
-         "gives": "ST",
-         "select": "first",
-         "note": "the first letters of Speech Therapy"
+         "words": "speech therapy",
+         "at": 25,
+         "note": "first letters of speech and therapy"
         }
        ]
       },
       {
        "words": "say",
+       "at": 55,
        "gives": "UTTER",
-       "note": "to utter is to say"
+       "note": "to say something is to utter it"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A question about what speech therapy tends to address.",
-     "walkthrough": "The whole clue defines the answer while its words also build it; the question mark flags that a stutter is only one possible focus.",
-     "definitionFit": "Read straight, the clue asks what a speech therapist might work on first, and a stammer is the classic case."
+     "surface": "Asking what a speech therapist might work on first.",
+     "walkthrough": "ST plus UTTER, and the whole clue also describes the answer.",
+     "definitionFit": "A stammer or stutter is a common speech problem that therapy treats."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "say"
+     "aptDefinition": true
     }
    }
   },

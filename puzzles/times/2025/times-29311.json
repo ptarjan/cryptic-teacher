@@ -154,47 +154,47 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "middle of",
-       "note": "takes the central letters of the word that follows"
+       "text": "following",
+       "at": 22,
+       "note": "following means the bees' home comes after the first piece"
       }
      ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "ARC",
        "indicators": [
         {
-         "text": "following",
-         "note": "to follow is to come behind, so the bees' home is written after the middle of the month"
+         "text": "middle of",
+         "at": 32,
+         "note": "the middle of a word drops its outer letters, so only the core of the month's name is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "middle of month",
-         "gives": "ARC",
-         "select": "middle",
-         "note": "the middle three letters of mARCh, a month"
+         "words": "month",
+         "at": 42,
+         "gives": "MARCH",
+         "note": "March is a month of the year"
         }
        ]
       },
       {
        "words": "where bees go",
+       "at": 8,
        "gives": "HIVE",
-       "note": "bees go home to the hive"
+       "note": "bees go home to a hive"
       }
      ]
     },
     "explanation": {
-     "surface": "A note of where the bees went in the middle of the month.",
-     "walkthrough": "'Month' has to be a particular month: mARCh supplies its middle three letters.",
-     "definitionFit": "A plain synonym: the noun for a stored collection of documents, with 'Records' read as a noun, not the verb the surface suggests."
+     "surface": "A puzzle about where bees head in the middle of the month.",
+     "walkthrough": "The month is MARCH; its middle, with the outer M and H gone, is ARC.",
+     "definitionFit": "An archive is a collection of historical documents, so records kept in store."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Records"
+     "misdirectedWord": "month"
     }
    }
   },
@@ -790,51 +790,53 @@
      "op": "container",
      "indicators": [
       {
-       "text": "raised"
+       "text": "in",
+       "at": 19,
+       "note": "in places the turned-up pair of words inside the word for position"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "position",
+       "at": 22,
+       "gives": "ROLE",
+       "note": "a position or job is a role"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in"
+         "text": "raised",
+         "at": 12,
+         "note": "in a down clue raised means the letters are read upwards, so backwards"
         }
        ],
        "parts": [
         {
-         "words": "position",
-         "gives": "ROLE",
-         "note": "a role is a position; the outer word"
-        },
-        {
-         "op": "reversal",
+         "op": "charade",
          "parts": [
           {
            "words": "Hit",
+           "at": 0,
            "gives": "RAM",
-           "note": "to ram is to hit"
+           "note": "to ram is to hit hard"
+          },
+          {
+           "words": "soldier",
+           "at": 4,
+           "gives": "GI",
+           "note": "GI is an American soldier"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "parts": [
-        {
-         "words": "soldier",
-         "gives": "GI",
-         "note": "GI = an American soldier"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier struck and hoisted into place, a messy business.",
-     "walkthrough": "'Raised' applies to both the hit and the soldier, not the soldier alone, which is why the setter puts it after both.",
-     "definitionFit": "A plain synonym, informal: a long-winded, fussy process full of needless steps."
+     "surface": "A story of a soldier hit and lifted into position, then a tangle of procedure.",
+     "walkthrough": "'Raised' turns the hit and the soldier over together, not the soldier alone, so the reversed pair reads IGMAR.",
+     "definitionFit": "A rigmarole is a long, tedious and complicated process or set of formalities."
     },
     "features": {
      "answerInScene": false,
@@ -1149,60 +1151,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARCHERY",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 30,
+       "note": "before puts the shortened protester ahead of the final letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "not",
-         "note": "'not male' asks for the protester without the letter standing for male"
-        },
-        {
-         "text": "end of",
-         "note": "the end of a word is its final letter"
+         "at": 20,
+         "note": "not male tells you to drop the letter standing for male from the protester"
         }
        ],
        "parts": [
         {
-         "words": "protester, not male",
-         "gives": "ARCHER",
-         "note": "a marcher is a protester; drop M for male"
+         "words": "protester",
+         "at": 9,
+         "gives": "MARCHER",
+         "note": "a marcher is someone on a protest march"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "Y",
-         "indicators": [
-          {
-           "text": "before",
-           "note": "before means ahead of in time, so in a down answer the trimmed protester is written above"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "end of rally",
-           "gives": "Y",
-           "select": "last",
-           "note": "last letter of rallY"
-          }
-         ]
+         "words": "male",
+         "at": 24,
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 37,
+         "note": "the end of a word is its last letter, here of rally"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rally",
+         "at": 44
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A demonstrator shot before the end of a rally.",
-     "walkthrough": "'Shooting' reads as violence at the rally; it is the sport.",
-     "definitionFit": "A definition by example: shooting as a sport takes many forms, and bow-and-arrow shooting is one."
+     "surface": "A protester at a rally gets shot, a grim news story.",
+     "walkthrough": "MARCHER without M is ARCHER; the end of rally is Y.",
+     "definitionFit": "Archery is the sport of shooting arrows with a bow."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "Shooting"
     }
    }
@@ -1327,43 +1333,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CUSTOM",
+     "op": "charade",
      "indicators": [
       {
-       "text": "running",
-       "note": "the letters of SCOUT are run into a new order"
+       "text": "after",
+       "at": 7,
+       "note": "after places the letter for Mike at the end"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "after",
-         "note": "after means following behind, so the Mike letter is written below the rearranged scout"
+         "text": "running",
+         "at": 13,
+         "note": "running suggests the letters of scout are set loose and rearranged"
         }
        ],
        "parts": [
         {
-         "words": "running scout",
-         "gives": "CUSTO",
-         "note": "anagram of SCOUT"
-        },
-        {
-         "words": "Mike",
-         "gives": "M",
-         "note": "Mike is M in the NATO alphabet"
+         "words": "scout",
+         "at": 21
         }
        ]
+      },
+      {
+       "words": "Mike's",
+       "at": 0,
+       "gives": "M",
+       "note": "Mike is M in the NATO phonetic alphabet; the 's stands for is"
       }
      ]
     },
     "explanation": {
-     "surface": "Mike chasing after a scout at a scouting jamboree.",
-     "walkthrough": "'Scout convention' reads as a jamboree, but the phrase splits: scout is anagram fodder and convention the definition. The 's is 'is'.",
-     "definitionFit": "A plain synonym: an accepted practice, the way things are usually done."
+     "surface": "Mike is pursuing a scout at some convention.",
+     "walkthrough": "SCOUT rearranged gives CUSTO, followed by M.",
+     "definitionFit": "A custom is a convention, an accepted way of behaving."
     },
     "features": {
      "answerInScene": false,

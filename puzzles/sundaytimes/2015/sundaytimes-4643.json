@@ -1022,58 +1022,61 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "outside means the vehicle wraps around what follows"
+       "at": 19,
+       "note": "outside means the vehicle wraps around the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "vehicle",
+       "at": 11,
+       "gives": "CAR",
+       "note": "a car is a vehicle"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "vehicle",
-           "gives": "CAR",
-           "note": "a car is a vehicle"
-          },
-          {
-           "words": "pub",
-           "gives": "INN",
-           "note": "an inn is a pub"
-          }
-         ]
+         "words": "pub",
+         "at": 27,
+         "gives": "INN",
+         "note": "an inn is a pub"
         },
         {
          "words": "a",
-         "note": "taken as written"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "indicators": [
+         "at": 36,
+         "gives": "A"
+        },
         {
-         "text": "in the front",
-         "note": "the front of a word is its opening letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "blonde",
-         "note": "the first letter of blonde"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "in the front",
+           "at": 45,
+           "note": "in the front means only the first letter is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "blonde",
+           "at": 38,
+           "note": "first letter of blonde"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A red car parked outside a pub, with a blonde sitting in the front seat.",
-     "definitionFit": "Cinnabar is a mercury ore whose name also describes a vivid scarlet colour."
+     "surface": "A red car parked outside the pub with a blonde in the passenger seat.",
+     "walkthrough": "Bright red looks like a description of the car; it is the definition, as cinnabar names a colour.",
+     "definitionFit": "Cinnabar is a mercury ore whose vivid red pigment names a vermilion colour."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
     }
    }
   },
@@ -1101,48 +1104,47 @@
      "op": "charade",
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "ANT",
+       "op": "deletion",
        "indicators": [
         {
          "text": "middle sections of",
-         "note": "the middle section of each word is its central three letters"
+         "at": 17,
+         "note": "middle sections means each word keeps only its central three letters, losing two at each end"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "frantic",
-         "gives": "ANT",
-         "select": "middle",
-         "note": "the central three letters of frantic"
+         "at": 36
+        },
+        {
+         "gives": "FRIC"
         }
        ]
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "LER",
+       "op": "deletion",
        "parts": [
         {
-         "unchecked": true,
          "words": "boleros",
-         "gives": "LER",
-         "select": "middle",
-         "note": "the central three letters of boleros"
+         "at": 44
+        },
+        {
+         "gives": "BOOS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A horn part played within the middle passages of some wild boleros.",
-     "definitionFit": "An antler is the branched bony horn of a deer."
+     "surface": "A horn plays a part in frenzied boleros, Spanish dances.",
+     "walkthrough": "fr-ANT-ic and bo-LER-os.",
+     "definitionFit": "An antler is the bony horn on the head of a deer."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Horn"
     }
    }
@@ -1174,55 +1176,58 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 42,
+       "note": "outside means the wife and left letters go around the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "outside",
-         "note": "outside means these two letters go around the rest"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "at court",
-           "gives": "WOO",
-           "note": "to court someone is to woo them"
-          },
-          {
-           "words": "anger",
-           "gives": "IRE",
-           "note": "ire is anger"
-          }
-         ]
+         "words": "wife",
+         "at": 32,
+         "gives": "W"
         },
         {
-         "words": "wife",
-         "gives": "W",
-         "note": "W is the abbreviation for wife"
+         "words": "left",
+         "at": 37,
+         "gives": "L"
         }
        ]
       },
       {
-       "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "shows anger",
+         "at": 9,
+         "gives": "IRE",
+         "note": "ire is anger; the verb form is old"
+        },
+        {
+         "words": "at court",
+         "at": 21,
+         "gives": "WOO",
+         "note": "to court someone is to woo them"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cleaner gets furious in court after his wife walks out.",
-     "walkthrough": "Scrubber could be a person, but it is a scouring pad; wire wool is steel wool.",
-     "definitionFit": "Wire wool is a mass of fine steel threads used for scouring, so it is a scrubber."
+     "surface": "Someone flies into a rage in court once his wife has walked out.",
+     "definitionFit": "Wire wool is steel wool, an abrasive pad used for scrubbing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "court"
+     "joke": "pun",
+     "misdirectedWord": "Scrubber"
     }
    }
   },
@@ -1304,40 +1309,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "shower",
-       "note": "a shower scatters drops everywhere, so these letters are scattered too"
+       "text": "after",
+       "at": 30,
+       "note": "after puts the rearranged words behind JAM"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "squash",
+       "at": 36,
+       "gives": "JAM",
+       "note": "to jam is to squash or squeeze"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "after",
-         "note": "after places the shuffled letters behind the squash"
+         "text": "shower",
+         "at": 23,
+         "note": "a shower scatters, so the letters of needs and a are sprinkled into a new order"
         }
        ],
        "parts": [
         {
-         "words": "squash",
-         "gives": "JAM",
-         "note": "a squash or crush of people is a jam"
+         "words": "needs",
+         "at": 15
         },
         {
-         "words": "needs a",
-         "note": "these letters rearranged"
+         "words": "a",
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A teenage sportsman needs to wash after a game of squash.",
-     "walkthrough": "Squash and player suggest sport, but the player is an actor and squash a crush. James Dean starred in Rebel Without a Cause.",
-     "definitionFit": "James Dean, an actor or player, became the icon of teenage rebellion in Rebel Without a Cause."
+     "surface": "A sportsman wants a shower after a game of squash.",
+     "walkthrough": "JAM then ESDEAN, an anagram of NEEDS A.",
+     "definitionFit": "James Dean played the troubled teen in Rebel Without a Cause; player means actor."
     },
     "features": {
      "answerInScene": false,
