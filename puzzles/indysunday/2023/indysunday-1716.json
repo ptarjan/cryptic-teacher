@@ -245,51 +245,55 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about can mean surrounding, so one piece wraps round the rest"
+       "at": 19,
+       "note": "about means ATE goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "worried",
-         "gives": "ATE",
-         "note": "something that worried you ate at you"
-        },
-        {
-         "words": "US city",
-         "gives": "LA",
-         "note": "LA is Los Angeles"
-        }
-       ]
+       "words": "worried",
+       "at": 11,
+       "gives": "ATE",
+       "note": "ate, as in 'what's eating you?', means worried"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "being evacuated",
-         "note": "an evacuated building is emptied of everything inside, so only the outer letters stay"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "risking",
-         "note": "only the first and last letters remain"
+         "words": "US city",
+         "at": 25,
+         "gives": "LA",
+         "note": "LA is Los Angeles"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "being evacuated",
+           "at": 41,
+           "note": "evacuated means emptied of its inside letters, leaving the first and last"
+          }
+         ],
+         "parts": [
+          {
+           "words": "risking",
+           "at": 33,
+           "note": "only its outer letters are used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Generally people are anxious about an American city at risk and having to be evacuated.",
-     "walkthrough": "'Worried' is past tense of a different idiom: what worried you ate (at) you.",
-     "definitionFit": "The phrase at large can mean as a whole, taken generally, as in society at large."
+     "surface": "Someone frets about an American city emptying in a crisis.",
+     "definitionFit": "At large can mean as a whole or generally, as in the public at large."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "evacuated"
+     "misdirectedWord": "worried"
     }
    }
   },

@@ -987,8 +987,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "recalled",
-       "note": "called back, i.e. running backwards"
+       "text": "on",
+       "at": 49,
+       "note": "on in a down clue puts the first piece above the second"
       }
      ],
      "parts": [
@@ -996,29 +997,26 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "on",
-         "note": "in a down clue, the first piece sits on top of the second"
+         "text": "recalled",
+         "at": 40,
+         "note": "recalled means called back, so the letters run backwards"
         }
        ],
        "parts": [
         {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "up",
-           "note": "in a down clue, up means written backwards"
-          }
-         ],
          "parts": [
           {
            "words": "cold",
+           "at": 19,
            "gives": "C",
-           "note": "c = cold, as on a tap"
+           "note": "C is the abbreviation for cold, as on taps"
           },
           {
            "words": "Italian sauces",
+           "at": 24,
            "gives": "RAGUS",
-           "note": "ragù is an Italian meat sauce"
+           "note": "ragus are Italian meat sauces"
           }
          ]
         }
@@ -1026,25 +1024,33 @@
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 60,
+         "note": "up in a down clue means read from bottom to top, backwards"
+        }
+       ],
        "parts": [
         {
          "words": "the way",
+         "at": 52,
          "gives": "TAO",
-         "note": "the Tao is 'the way' in Chinese philosophy"
+         "note": "Tao is the way in Chinese philosophy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook reheating cold pasta sauces on the way up to boost their appeal.",
-     "walkthrough": "Both parts are read upwards in this down clue. 'The way' is a Chinese philosophical term, not a road, which is why it is easy to miss.",
-     "definitionFit": "To sugar-coat something is to make it more appealing."
+     "surface": "A chef makes cold Italian sauces more appealing on the way up.",
+     "walkthrough": "C plus RAGUS backwards is SUGARC; TAO backwards is OAT.",
+     "definitionFit": "To sugarcoat is to make something more palatable or attractive by sweetening it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "way"
+     "misdirectedWord": "sauces"
     }
    }
   },
@@ -1373,12 +1379,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "touring",
-       "note": "goes round the next piece"
-      },
-      {
-       "text": "not quite",
-       "note": "the last letter is dropped"
+       "text": "next to",
+       "at": 24,
+       "note": "next to means the shortened Iona follows"
       }
      ],
      "parts": [
@@ -1386,39 +1389,54 @@
        "op": "container",
        "indicators": [
         {
-         "text": "next to",
-         "note": "the pieces sit side by side"
+         "text": "touring",
+         "at": 9,
+         "note": "touring means going round, so expat surrounds the island"
         }
        ],
        "parts": [
         {
          "words": "Emigrant",
+         "at": 0,
          "gives": "EXPAT",
-         "note": "an expat lives abroad; goes round I"
+         "note": "an expat is someone living abroad, an emigrant"
         },
         {
          "words": "island",
-         "gives": "I",
-         "note": "i = island"
+         "at": 17,
+         "gives": "I"
         }
        ]
       },
       {
-       "words": "Iona",
-       "gives": "ION",
-       "note": "Iona minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 38,
+         "note": "not quite means Iona loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Iona",
+         "at": 32
+        },
+        {
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An emigrant visits islands beside Iona, the Scottish holy isle, on a pilgrimage of repentance.",
-     "walkthrough": "Iona is a Scottish island famed as an early Christian site, which makes the penitent surface fit.",
-     "definitionFit": "A plain synonym with a religious flavour: to expiate a sin is to atone for it, making amends."
+     "surface": "An emigrant tours an island near Iona, the Hebridean isle.",
+     "definitionFit": "Expiation is atonement, the act of making amends for a wrong."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Iona"
+     "misdirectedWord": "Emigrant"
     }
    }
   },
