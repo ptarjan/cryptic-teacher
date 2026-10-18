@@ -507,34 +507,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BADDEBTS",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner swapped the opening sounds of words, so the starts of the two words trade places"
+       "at": 0,
+       "note": "Spooner's tells us to swap the opening sounds of the two words, after the Reverend Spooner's famous slips"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "father predicts",
-       "gives": "BADDEBTS",
-       "soundsLike": "DAD BETS",
-       "note": "a father is a dad, and to predict an outcome is to bet on it; swap the opening sounds of the pair"
+       "words": "father",
+       "at": 10,
+       "gives": "DAD",
+       "note": "dad is an everyday word for father"
+      },
+      {
+       "op": "homophone",
+       "spelt": "BEBTS",
+       "parts": [
+        {
+         "words": "predicts",
+         "at": 17,
+         "gives": "BETS",
+         "note": "bets in the sense of forecasts, as in I bet it rains"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner's dad forecasting which debtors will never settle up.",
-     "walkthrough": "Swap the first sounds of DAD BETS to hear the answer; DEBTS has a silent B, so the swap is by sound.",
-     "definitionFit": "Money owed that lenders write off because it will never be recovered is the noun phrase defined."
+     "surface": "A dad confidently forecasts that certain people will go unpaid.",
+     "walkthrough": "Swapping the first sounds of DAD BETS gives a phrase sounding like BAD DEBTS, since the B in debts is silent.",
+     "definitionFit": "Bad debts are sums owed that a lender writes off because they will never be repaid."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "father"
+     "misdirectedWord": "predicts"
     }
    }
   },
@@ -1527,36 +1537,35 @@
      "indicators": [
       {
        "text": "about",
-       "note": "turned about means facing the other way, so the kept letters run backwards"
+       "at": 9,
+       "note": "about here means turned round, so those central letters are read backwards"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "LLUD",
+       "op": "hidden",
        "indicators": [
         {
          "text": "taking the middle",
-         "note": "only the central part of the word is kept, its first and last letters discarded"
+         "at": 15,
+         "note": "taking the middle means only the central stretch of the word is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Colluded",
+         "at": 0,
          "gives": "LLUD",
-         "select": "middle",
-         "note": "the middle four of its eight letters"
+         "note": "taken as written; its central letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Conspirators colluded over who would get the central flat.",
-     "walkthrough": "'Flat' tempts as an apartment in the scene, but it means lifeless or boring.",
-     "definitionFit": "Flat describes something lacking interest or sparkle, just like something boring and uninspiring."
+     "surface": "Plotters who conspired over taking the centre ground, in a dreary way.",
+     "walkthrough": "'taking the middle' gives LLUD from the centre of COLLUDED, and 'about' turns it round.",
+     "definitionFit": "Flat and dull are synonyms when describing something lifeless, uninteresting or lacking sparkle."
     },
     "features": {
      "answerInScene": false,

@@ -1044,35 +1044,34 @@
      "parts": [
       {
        "words": "Spice Girl",
+       "at": 0,
        "gives": "GERI",
-       "note": "Geri Halliwell, Ginger Spice of the 1990s pop group"
+       "note": "Geri Halliwell was Ginger Spice in the Spice Girls"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "ATRIC",
        "indicators": [
         {
          "text": "barely",
-         "note": "something barely covered is stripped nearly bare, so its outermost letters are shed"
+         "at": 24,
+         "note": "something barely there is stripped bare, so the word loses its outer letters at both ends"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Irishman",
-         "gives": "ATRIC",
-         "select": "middle",
-         "note": "Patrick, a typical Irish name, without its first and last letters"
+         "at": 15,
+         "gives": "PATRICK",
+         "note": "Patrick is a stereotypically Irish name, after St Patrick"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Spice Girl and an Irishman who have barely aged at all.",
-     "walkthrough": "'Barely aged' reads as looking young; barely strips PATRICK, the stock Irishman, and aged is the definition.",
-     "definitionFit": "Geriatric describes old people, strictly their medical care, and informally anything elderly."
+     "surface": "A pop star and an Irish friend are described as only just old.",
+     "walkthrough": "Strip PATRICK bare of its first and last letters to leave ATRIC, then add GERI in front.",
+     "definitionFit": "Geriatric is used loosely to describe elderly people, so it can stand for old or aged."
     },
     "features": {
      "answerInScene": false,
@@ -1238,43 +1237,45 @@
      "indicators": [
       {
        "text": "drunk",
-       "note": "someone drunk staggers all over the place, so these letters lurch into a new order"
+       "at": 29,
+       "note": "drunk means intoxicated and reeling, so the letters are jumbled into a new order"
       }
      ],
      "parts": [
       {
        "words": "matures",
-       "note": "taken as written, to be rearranged"
+       "at": 20,
+       "note": "taken as written"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "PO",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half-cut",
-         "note": "cut in half leaves only one half, here the front part of the word"
+         "at": 50,
+         "note": "cut in half here means only the first half of the word port is kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "port",
-         "gives": "PO",
-         "select": "first",
-         "note": "the first half of the word"
+         "at": 40,
+         "note": "taken as written, then halved"
+        },
+        {
+         "gives": "RT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dull cheese ripens and is eaten with port by someone already tipsy.",
-     "walkthrough": "Half-cut is British slang for drunk, a second anagram-sounding word, but here it literally halves port.",
-     "definitionFit": "Mousetrap is British slang for cheap, bland cheddar, the sort fit only for baiting a trap."
+     "surface": "Bland cheese ripens, consumed with a glass of port by someone a bit tipsy.",
+     "walkthrough": "'Half-cut' is British slang for drunk, but here it literally halves PORT to PO; MATURES plus PO is then rearranged.",
+     "definitionFit": "Mousetrap is a colloquial term for cheap, ordinary cheese, the kind you would bait a trap with."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "half-cut"
