@@ -1330,34 +1330,42 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "LEGO",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "initially means at the start, so each word gives its opening letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "lightsaber Ewoks gave Obi-Wan",
-       "gives": "LEGO",
-       "select": "first",
-       "note": "the first letters of these four words"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 34,
+         "note": "initially means the opening letter of each of the following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lightsaber Ewoks gave",
+         "at": 4,
+         "note": "the words whose first letters are taken"
+        }
+       ]
+      },
+      {
+       "words": "Obi-Wan",
+       "at": 26,
+       "gives": "O",
+       "note": "the hyphenated name counts as one word, so initially it gives only its O"
       }
      ]
     },
     "explanation": {
-     "surface": "Star Wars characters hand a laser sword to the Jedi master.",
-     "walkthrough": "Ewoks are furry creatures from Star Wars, and Obi-Wan Kenobi is a Jedi in the films.",
-     "definitionFit": "Lego is a brand of plastic interlocking bricks for children to build models with."
+     "surface": "A Star Wars scene: the furry Ewoks hand Obi-Wan Kenobi a lightsaber.",
+     "walkthrough": "The Star Wars names are there for the picture; only their first letters count.",
+     "definitionFit": "Lego is the Danish brand of plastic building bricks, a children's toy that also comes in Star Wars sets."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Toy"
+     "misdirectedWord": "lightsaber"
     }
    }
   },

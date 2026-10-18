@@ -43,44 +43,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SANDSHOE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 11,
+       "note": "the sensible word wears the moved letters, wrapped around them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "sensible",
+       "at": 19,
+       "gives": "SANE",
+       "note": "sane means sensible, of sound mind"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "Moved",
-         "note": "the letters of HODS are moved about"
-        },
-        {
-         "text": "wearing"
+         "at": 0,
+         "note": "the hods are moved about, their letters shifted into a new order"
         }
        ],
        "parts": [
         {
-         "words": "sensible",
-         "gives": "SANE",
-         "note": "sane = sensible"
-        },
-        {
          "words": "hods",
-         "note": "HODS rearranged, sitting inside SAN…E"
+         "at": 6,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A builder's labourer carries hods about in practical shoes.",
-     "walkthrough": "'Sensible footwear' reads as one phrase, but 'sensible' belongs to the wordplay.",
-     "definitionFit": "A sandshoe is a plimsoll, a light canvas shoe with a rubber sole: an example of footwear."
+     "surface": "Building labourers shift their hods while wearing practical boots.",
+     "walkthrough": "'sensible footwear' looks like one phrase, but 'sensible' belongs to the wordplay, and the item 'wearing' the 'Moved' hods is the sensible word.",
+     "definitionFit": "A sandshoe is a light canvas shoe with a rubber sole, a type of footwear."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sensible"
+     "misdirectedWord": "Moved"
     }
    }
   },
@@ -105,43 +110,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 35,
+       "note": "out says the letter is left out of the cake"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "left out",
-         "note": "one L, for left, is literally left out of the cake's name"
-        }
-       ],
-       "parts": [
-        {
-         "words": "German Christmas cake",
-         "gives": "STOLLEN",
-         "note": "stollen is a German fruit loaf eaten at Christmas"
-        },
-        {
-         "gives": "L"
-        }
-       ]
+       "words": "German Christmas cake",
+       "at": 4,
+       "gives": "STOLLEN",
+       "note": "stollen is a German fruit loaf eaten at Christmas"
       },
       {
-       "unchecked": true,
-       "words": "one left out",
-       "note": "L = left; drop one of the cake's two L's"
+       "words": "one left",
+       "at": 26,
+       "gives": "L",
+       "note": "L is the abbreviation for left; one of the two in the cake goes"
       }
      ]
     },
     "explanation": {
-     "surface": "A German Christmas cake served hot, with one slice left out.",
-     "walkthrough": "'Hot' seems to describe the cake straight from the oven; here it is slang for stolen goods.",
-     "definitionFit": "Slang sense: 'hot' goods are ones recently taken by theft and still risky to sell."
+     "surface": "A German Christmas cake fresh from the oven, with one slice missing.",
+     "walkthrough": "'Hot' reads as describing the cake; it is slang for stolen goods. Stollen has two Ls, and only one is taken 'out'.",
+     "definitionFit": "Hot is slang for stolen, as in hot goods that a fence will not touch."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Hot"
     }
    }
@@ -287,41 +286,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "packed with"
+       "text": "packed with",
+       "at": 12,
+       "note": "the word is packed with the middle letters, holding them inside"
       }
      ],
      "parts": [
       {
        "words": "rather",
+       "at": 5,
        "gives": "SOONER",
-       "note": "'I'd sooner' = 'I'd rather'"
+       "note": "sooner means rather, as in I'd sooner not"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "CH",
        "indicators": [
         {
          "text": "in the middle",
-         "note": "take the two central letters of 'deckchairs'"
+         "at": 35,
+         "note": "only the two central letters of the word are used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "deckchairs in the middle",
-         "gives": "CH",
-         "select": "middle",
-         "note": "the middle two letters of the ten in deCKCHairs, placed inside S…OONER"
+         "words": "deckchairs",
+         "at": 24,
+         "note": "the word whose middle letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boat crammed with deckchairs in the middle of the deck.",
-     "walkthrough": "Deckchairs fit the nautical picture neatly, which hides that only their two central letters are used.",
-     "definitionFit": "A schooner, a sailing vessel with two or more masts, is one kind of boat."
+     "surface": "A vessel whose deck is crowded with deckchairs amidships.",
+     "walkthrough": "'deckchairs' has ten letters, so its middle is the pair CH, which SOONER is 'packed with'.",
+     "definitionFit": "A schooner is a sailing vessel with two or more masts, a kind of boat."
     },
     "features": {
      "answerInScene": true,
@@ -460,38 +459,36 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PASTPARTICIPLES",
+     "indicators": [
+      {
+       "text": "Dodgy",
+       "at": 0,
+       "note": "dodgy means unsound, so the letters are not to be trusted in their order"
+      },
+      {
+       "text": "around",
+       "at": 20,
+       "note": "around has the pipes' letters strewn around the art, all jumbled into one pool"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "Dodgy",
-         "note": "dodgy pipes are unsound, so their letters are rearranged"
-        },
-        {
-         "text": "around"
-        }
-       ],
-       "parts": [
-        {
-         "words": "plastic pipes",
-         "note": "PLASTIC PIPES rearranged, split to go around the next piece"
-        },
-        {
-         "words": "museum pieces",
-         "gives": "ART",
-         "note": "the art in a museum, sitting inside PASTP…ICIPLES"
-        }
-       ]
+       "words": "plastic pipes",
+       "at": 6,
+       "note": "taken as written"
+      },
+      {
+       "words": "museum pieces",
+       "at": 27,
+       "gives": "ART",
+       "note": "art is what a gallery or museum displays"
       }
      ]
     },
     "explanation": {
-     "surface": "Dodgy plastic plumbing around museum exhibits has cracked and leaked.",
-     "walkthrough": "'Cracked and leaked' reads as what the pipes did, but the definition is grammatical.",
-     "definitionFit": "Definition by example: 'cracked' and 'leaked' are both past participles of verbs, hence 'perhaps'."
+     "surface": "Faulty plastic plumbing round museum exhibits has split and dripped.",
+     "walkthrough": "'Dodgy' and 'around' shuffle PLASTIC PIPES with ART into one pool. 'cracked and leaked' look like the pipes' failings, but they are examples of the answer: grammatical forms of verbs.",
+     "definitionFit": "Cracked and leaked are examples of past participles, the verb forms used after has or have."
     },
     "features": {
      "answerInScene": false,
@@ -630,41 +627,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "periodically",
-       "note": "take every other letter of 'stood up'"
+       "text": "hiding",
+       "at": 41,
+       "note": "the alternate letters hide the handkerchief inside them"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "TOU",
        "indicators": [
         {
-         "text": "hiding"
+         "text": "periodically",
+         "at": 28,
+         "note": "periodically means at regular intervals, so every other letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "stood up periodically",
-         "gives": "TOU",
-         "select": "alternate",
-         "note": "the even letters of sToOd Up"
+         "words": "stood up",
+         "at": 19,
+         "note": "the words whose alternate letters are taken"
         }
        ]
       },
       {
        "words": "something up your sleeve",
+       "at": 48,
        "gives": "HANKY",
-       "note": "a handkerchief tucked up a sleeve, placed inside T…OU"
+       "note": "a hanky, a handkerchief, is often tucked up a sleeve"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stood up in a funny way, as if concealing a trick up their sleeve.",
-     "walkthrough": "'Something up your sleeve' suggests a secret plan, but here it is literal: people keep hankies there.",
-     "definitionFit": "Idiom: 'You shouldn't have!' is what one says on receiving a gift, a polite way to express gratitude."
+     "surface": "Someone stood up on a date, hiding a secret plan.",
+     "walkthrough": "'stood up' read 'periodically' gives TOU, its second, fourth and sixth letters, 'hiding' the hanky inside.",
+     "definitionFit": "Thank you is the polite phrase said on receiving a gift, the same as you shouldn't have."
     },
     "features": {
      "answerInScene": false,
@@ -695,57 +692,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOODLE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "take the last letter of 'eaten'"
+         "at": 13,
+         "note": "ultimately means at the end, the last letter"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "N",
-         "indicators": [
-          {
-           "text": "not quite finished",
-           "note": "the last letter of OODLES is missing"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "ultimately eaten",
-           "gives": "N",
-           "select": "last",
-           "note": "last letter of eateN"
-          }
-         ]
+         "words": "eaten",
+         "at": 24,
+         "note": "the word whose last letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not quite finished",
+         "at": 37,
+         "note": "but not quite finished means the word stops short, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a lot",
+         "at": 30,
+         "gives": "OODLES",
+         "note": "oodles means a lot, a great quantity"
         },
         {
-         "words": "a lot, but not quite finished",
-         "gives": "OODLE",
-         "note": "OODLES = a lot, with its final S dropped"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner has eaten a lot of ramen but not quite finished the bowl.",
-     "walkthrough": "The surface is a meal left unfinished; 'not quite finished' actually trims a word.",
-     "definitionFit": "Part for whole: ramen is a Japanese soup made of wheat noodles, so one strand is a bit of it."
+     "surface": "A diner who ate a big bowl of ramen and nearly cleared it.",
+     "walkthrough": "'ultimately eaten' gives N; OODLES 'but not quite finished' drops its S to give OODLE.",
+     "definitionFit": "Ramen is a Japanese dish of noodles in broth, so one noodle is a bit of it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "finished"
+     "misdirectedWord": "eaten"
     }
    }
   },
@@ -828,53 +825,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SENDSOUT",
-     "indicators": [
-      {
-       "text": "possibly",
-       "note": "ONE STUD could possibly be rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at the front",
+         "at": 14,
+         "note": "at the front means the first letter"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "at the front",
-           "note": "take the first letter of 'secured'"
-          }
-         ],
-         "parts": [
-          {
-           "words": "secured at the front",
-           "gives": "SECURED",
-           "note": "first letter of Secured"
-          }
-         ]
-        },
+         "words": "secured",
+         "at": 6,
+         "note": "the word whose first letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 42,
+         "note": "possibly says these letters may form something else, rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "one stud",
-         "gives": "ENDSOUT",
-         "note": "ONE STUD rearranged"
+         "at": 32,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fence posts are secured at the front with a single stud.",
-     "walkthrough": "'Posts' looks like wooden stakes, which is what 'secured' and 'stud' support; it is the verb for mailing things.",
-     "definitionFit": "Synonym of the verb: to post letters is to dispatch them by mail."
+     "surface": "Fence posts fixed at the front with a single stud.",
+     "walkthrough": "'Posts' reads as a noun, fence posts; it is the verb, to mail. S is 'secured' 'at the front'; ONE STUD 'possibly' becomes ENDSOUT.",
+     "definitionFit": "To send out letters is to post them, dispatching mail."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Posts"
     }
    }

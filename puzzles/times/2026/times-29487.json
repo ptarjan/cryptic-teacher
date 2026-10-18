@@ -96,29 +96,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "BOO",
      "indicators": [
       {
        "text": "incomplete",
-       "note": "the word is left unfinished, losing its last letter"
+       "at": 6,
+       "note": "the word is left incomplete, losing its final letter"
       }
      ],
      "parts": [
       {
-       "words": "Bible incomplete",
-       "gives": "BOO",
-       "note": "the Bible is the Good BOOK; drop its last letter"
+       "words": "Bible",
+       "at": 0,
+       "gives": "BOOK",
+       "note": "the Bible is the Good Book, so simply the book"
+      },
+      {
+       "gives": "K"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone objects out loud to an edition of the Bible with pages missing.",
-     "walkthrough": "The Bible is called 'the Book', so it stands for BOOK here.",
-     "definitionFit": "A plain synonym: jeering at a performer is the classic way to voice criticism."
+     "surface": "A puzzled query about a partial Bible, then an order to speak out against something.",
+     "walkthrough": "The Bible is often called the Book; left 'incomplete' it loses its last letter, K.",
+     "definitionFit": "To boo is to jeer aloud, a vocal way of expressing disapproval."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Bible"
     }
@@ -148,47 +151,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "starts off",
-       "note": "take the first letters of the following words"
+       "text": "filling",
+       "at": 27,
+       "note": "the picked letters fill the vehicle, sitting inside it"
       }
      ],
      "parts": [
       {
        "words": "vehicle",
+       "at": 35,
        "gives": "CAR",
        "note": "a car is a vehicle"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "IG",
        "indicators": [
         {
-         "text": "filling",
-         "note": "the letters go inside, filling the next word"
+         "text": "starts off",
+         "at": 6,
+         "note": "the starts of the words, their first letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "starts off in garage",
-         "gives": "IG",
-         "select": "first",
-         "note": "first letters of 'in' and 'garage'"
+         "words": "in garage",
+         "at": 17,
+         "note": "the words whose first letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Exhaust smoke builds up from a car left running in a garage.",
-     "walkthrough": "C(IG)AR. 'Smoke' reads as fumes, but here it is a noun for something you smoke.",
-     "definitionFit": "'Smoke' as a noun is anything you smoke, as in 'fancy a smoke?', and a rolled tobacco leaf is one."
+     "surface": "Someone lights up in the garage, filling the car with fumes.",
+     "walkthrough": "'starts off in garage' gives IG, the first letters of 'in' and 'garage', and that pair is 'filling' CAR.",
+     "definitionFit": "A cigar is a roll of tobacco leaf for smoking, so a smoke in everyday speech."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "Smoke"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "garage"
     }
    }
   },
@@ -316,28 +318,30 @@
     ],
     "wordplay": {
      "op": "alternate",
-     "unchecked": true,
-     "gives": "OCTAL",
      "indicators": [
       {
+       "text": "of",
+       "at": 18,
+       "note": "of points to the words the spaced-out letters are taken from"
+      },
+      {
        "text": "seen at intervals",
-       "note": "only every other letter is visible"
+       "at": 34,
+       "note": "only every other letter is seen, at regular intervals"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "of roach trails",
-       "gives": "OCTAL",
-       "select": "alternate",
-       "note": "the even letters of rOaChTrAiLs"
+       "words": "roach trails",
+       "at": 21,
+       "note": "the words whose alternate letters are read"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about how many trails cockroaches leave, spotted here and there.",
-     "walkthrough": "'Concerning number' looks like 'about how many'; it is the definition, as octal describes a number system (base eight).",
-     "definitionFit": "Octal means relating to the base-eight number system."
+     "surface": "An angler wonders how many roach, a river fish, leave trails that appear now and again.",
+     "walkthrough": "Letters of 'roach trails' 'seen at intervals': the second, fourth and every other one.",
+     "definitionFit": "Octal relates to the base-eight number system, a way of counting in eights."
     },
     "features": {
      "answerInScene": false,
@@ -473,40 +477,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WIMBLEDON",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeps",
+       "at": 8,
+       "note": "the outer word keeps the shuffled letters inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Success",
+       "at": 0,
+       "gives": "WIN",
+       "note": "a win is a success"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "keeps",
-         "note": "the success holds the other letters inside"
-        },
-        {
          "text": "playing",
-         "note": "the letters are played with, rearranged"
+         "at": 23,
+         "note": "the letters of me bold are playing about, rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Success",
-         "gives": "WIN",
-         "note": "a win is a success"
-        },
-        {
          "words": "me bold",
-         "note": "ME BOLD rearranged"
+         "at": 14,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A player says winning keeps them playing boldly in a tournament.",
-     "walkthrough": "WI(MBLEDO)N. The ellipsis leads into the next clue, whose 'match' plays on the tennis theme.",
-     "definitionFit": "Wimbledon is the tennis tournament held each summer in London."
+     "surface": "A player's winning run gives them the confidence to compete in a big event.",
+     "walkthrough": "'playing' looks like part of the tennis scene, but it is the signal to shuffle 'me bold'; the trailing dots run on into the next clue, 8 Down.",
+     "definitionFit": "Wimbledon is the famous annual tennis championship held in south-west London."
     },
     "features": {
      "answerInScene": true,

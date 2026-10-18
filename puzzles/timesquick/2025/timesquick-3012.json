@@ -368,29 +368,31 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "PIC",
      "indicators": [
       {
        "text": "most",
-       "note": "most of a word is the word less its last letter"
+       "at": 6,
+       "note": "only most of the word is kept, all but its last letter"
       }
      ],
      "parts": [
       {
-       "words": "most choose",
-       "gives": "PIC",
-       "note": "PICK = choose, without its last letter"
+       "words": "choose",
+       "at": 11,
+       "gives": "PICK",
+       "note": "to pick is to choose"
+      },
+      {
+       "gives": "K"
       }
      ]
     },
     "explanation": {
-     "surface": "Picking the picture most people would choose.",
-     "walkthrough": "'Most' reads as 'the majority', but it trims PICK to PIC.",
-     "definitionFit": "Informal abbreviation: pic is short for picture, any image."
+     "walkthrough": "'most' asks for most of PICK: drop its last letter, K.",
+     "definitionFit": "Pic is informal shorthand for a picture or photograph, so an image."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "most"
     }
@@ -994,44 +996,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 10,
+       "note": "the insolence goes about, around, the other letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "about",
-         "note": "one piece goes about, around, another"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Insolence",
-         "gives": "LIP",
-         "note": "lip = cheek, insolence"
-        },
-        {
-         "words": "male",
-         "gives": "M",
-         "note": "M is the abbreviation for male"
-        }
-       ]
+       "words": "Insolence",
+       "at": 0,
+       "gives": "LIP",
+       "note": "lip is cheeky talk, insolence"
       },
       {
-       "unchecked": true,
-       "words": "'s",
-       "note": "surface padding, the possessive glue before the definition"
+       "words": "male's",
+       "at": 16,
+       "gives": "M",
+       "note": "M is the abbreviation for male; the 's means 'is'"
       }
      ]
     },
     "explanation": {
-     "surface": "Cheeky talk about a man's disability.",
-     "walkthrough": "'Lip' for cheeky talk is a British idiom: 'Don't give me any lip.'",
-     "definitionFit": "Near-synonym as nouns: a limp is the uneven walk that lameness causes."
+     "surface": "A man's cheeky manner masking an injury that makes him hobble.",
+     "walkthrough": "'about' puts LIP around M, the abbreviation for male.",
+     "definitionFit": "A limp is an uneven gait caused by an injured leg, the outward sign of lameness."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Insolence"
     }
    }
   },
@@ -1199,37 +1195,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GRANOLA",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 35,
+       "note": "by places the grandmother next to the cooked letters"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GRANOLA",
+       "words": "nan",
+       "at": 38,
+       "gives": "GRAN",
+       "note": "nan is a familiar name for a grandmother, as is gran"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "at": 28,
+         "note": "the shortened loaf is cooked, its letters stirred into a new order"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
            "text": "endlessly",
-           "note": "the word loses its last letter"
-          },
-          {
-           "text": "cooked",
-           "note": "the letters are cooked into a new order"
+           "at": 18,
+           "note": "the word loses its end, the final letter"
           }
          ],
          "parts": [
           {
-           "words": "nan",
-           "gives": "GRAN",
-           "note": "nan and gran are both grandmother"
+           "words": "loaf",
+           "at": 13,
+           "note": "taken as written"
           },
           {
-           "words": "loaf endlessly",
-           "gives": "OLA",
-           "note": "LOAF without its last letter, LOA, cooked into OLA"
+           "gives": "F"
           }
          ]
         }
@@ -1238,14 +1245,13 @@
      ]
     },
     "explanation": {
-     "surface": "Grandma bakes a loaf, American breakfast-style.",
-     "walkthrough": "'Nan' is not the Indian bread, tempting beside 'loaf' and 'cooked': it is British for grandmother, GRAN, which comes first.",
-     "definitionFit": "Granola, toasted oats with nuts and fruit, is a breakfast food mainly called that in the US."
+     "surface": "Grandma bakes bread for an American morning meal.",
+     "walkthrough": "'nan' looks like the Indian bread, next to 'loaf', but here it is a grandmother; 'by' sets her beside the 'endlessly' trimmed and 'cooked' loaf.",
+     "definitionFit": "Granola is the American name for a baked oat-and-nut cereal eaten in the morning."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "nan"
     }
    }
@@ -1367,40 +1373,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Conductor",
-      "at": 0
+      "text": "Conductor's",
+      "at": 0,
+      "note": "the definition is Conductor; the 's stands for 'is'"
      }
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "used with",
+       "at": 33,
+       "note": "used with joins the energy symbol on after the rest"
+      }
+     ],
      "parts": [
       {
        "words": "chosen",
+       "at": 12,
        "gives": "ELECT",
-       "note": "the elect are the chosen, as in 'president-elect'"
+       "note": "elect means chosen, as in the president-elect"
       },
       {
        "words": "baton perhaps",
+       "at": 19,
        "gives": "ROD",
-       "note": "a baton is one kind of rod"
+       "note": "a baton is one example of a rod"
       },
       {
        "words": "energy",
+       "at": 43,
        "gives": "E",
-       "note": "E is the symbol for energy"
+       "note": "E is the physics symbol for energy"
       }
      ]
     },
     "explanation": {
      "surface": "An orchestra conductor's chosen baton, wielded with gusto.",
-     "walkthrough": "The surface is all orchestra, but the conductor is electrical. The 's stands for 'is', linking definition to wordplay.",
-     "definitionFit": "An electrode is a conductor through which current enters or leaves."
+     "walkthrough": "The conductor and baton suggest an orchestra; the conductor here is electrical.",
+     "definitionFit": "An electrode is a solid electrical conductor through which current enters or leaves a circuit."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Conductor"
+     "misdirectedWord": "Conductor's"
     }
    }
   }
