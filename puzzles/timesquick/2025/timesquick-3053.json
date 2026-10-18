@@ -1160,44 +1160,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DICTATOR",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 26,
+       "note": "around means the rearranged letters are placed about the court abbreviation"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "manoeuvring",
-         "note": "the letters of ADROIT are manoeuvred into a new order"
-        },
-        {
-         "text": "around"
+         "at": 14,
+         "note": "manoeuvring means moving pieces around, so the letters of adroit are shifted into a new order"
         }
        ],
        "parts": [
         {
          "words": "adroit",
-         "note": "ADROIT rearranged"
-        },
-        {
-         "words": "court",
-         "gives": "CT",
-         "note": "CT = court, the street-sign abbreviation"
+         "at": 7
         }
        ]
+      },
+      {
+       "words": "court",
+       "at": 33,
+       "gives": "CT",
+       "note": "CT is the abbreviation for court, as in street addresses"
       }
      ]
     },
     "explanation": {
-     "surface": "A despot skilfully plots his moves around the royal court.",
-     "walkthrough": "'Manoeuvring' reads as political scheming, fitting a tyrant at court; it is the instruction to rearrange ADROIT.",
-     "definitionFit": "A plain synonym: an absolute ruler who holds unchecked power, as tyrants do."
+     "surface": "A despot cleverly working his way round the royal court.",
+     "walkthrough": "'adroit manoeuvring' reads as a skilful political move, but 'manoeuvring' is the instruction to rearrange, and 'court' gives its two-letter address abbreviation.",
+     "definitionFit": "A dictator rules with absolute power, which is what a tyrant does."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "manoeuvring"
+     "misdirectedWord": "court"
     }
    }
   },
