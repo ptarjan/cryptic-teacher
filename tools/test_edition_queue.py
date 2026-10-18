@@ -1568,7 +1568,79 @@ check("unchanged_eq keeps the old list while an equal one is rebuilt, else the n
 check("scans run one at a time: the default and any --scan-workers are capped at 1", (1, 1),
       (eq.SCAN_WORKERS, eq.argparse.ArgumentParser and 1))
 import inspect
-check("dispatch caps scan_workers at SCAN_WORKERS", True, "min(scan_workers, SCAN_WORKERS)" in inspect.getsource(eq.dispatch))
+check("dispatch caps scan_workers at scan_cap()", True, "min(scan_workers, scan_cap())" in inspect.getsource(eq.dispatch))
+
+# CT_SCAN_WORKERS raises the scan cap; unset, empty or junk keeps 1.
+scan_env = os.environ.pop("CT_SCAN_WORKERS", None)
+caps = []
+for v in (None, "", "junk", "0", "-3", "8"):
+    if v is None:
+        os.environ.pop("CT_SCAN_WORKERS", None)
+    else:
+        os.environ["CT_SCAN_WORKERS"] = v
+    caps.append(eq.scan_cap())
+check("CT_SCAN_WORKERS: default 1, junk or below 1 ignored, else the cap", [1, 1, 1, 1, 1, 8], caps)
+check("--scan-workers defaults to the cap", True, "default=scan_cap()" in inspect.getsource(eq))
+
+# Scans spread over cores while several run: each takes a core no other holds.
+spread_dir, real_tmp = tempfile.mkdtemp(), tempfile.tempdir
+tempfile.tempdir = spread_dir
+got_cpus = [eq.spread_cpu([0, 1, 2, 3]) for _ in range(5)]
+tempfile.tempdir = real_tmp
+for fd in eq.SCAN_CPU_LOCKS:
+    os.close(fd)
+eq.SCAN_CPU_LOCKS.clear()
+check("spread_cpu: the last free core each time, then one by pid when all are held",
+      ([3, 2, 1, 0], True), (got_cpus[:4], got_cpus[4] in (0, 1, 2, 3)))
+pin_probe = ("import os, runpy, sys\n"
+             "m = runpy.run_path('edition_queue.py', run_name='probe')\n"
+             "m['pin_scan']()\n"
+             "print(sorted(os.sched_getaffinity(0)), file=sys.stderr)\n")
+last_cpu = sorted(os.sched_getaffinity(0))[-1:]
+for cap in ("1", "4"):
+    pin_got = subprocess.run([sys.executable, "-c", pin_probe], capture_output=True, text=True, timeout=120,
+                             env={**os.environ, "CT_SCAN_WORKERS": cap, "TMPDIR": spread_dir}).stderr.strip().splitlines()[-1]
+    check(f"pin_scan with CT_SCAN_WORKERS={cap}: one core, the last when nothing else holds it", str(last_cpu), pin_got)
+hold = [os.open(os.path.join(spread_dir, f"ct_scan_cpu_{sorted(os.sched_getaffinity(0))[-1]}.lock"), os.O_CREAT | os.O_RDWR)]
+import fcntl as _fc
+_fc.flock(hold[0], _fc.LOCK_EX)
+pin_got = subprocess.run([sys.executable, "-c", pin_probe], capture_output=True, text=True, timeout=120,
+                         env={**os.environ, "CT_SCAN_WORKERS": "4", "TMPDIR": spread_dir}).stderr.strip().splitlines()[-1]
+check("pin_scan with several scans at once: the last core held, it takes another one core",
+      (1, False), (len(eval(pin_got)), eval(pin_got) == last_cpu) if len(sorted(os.sched_getaffinity(0))) > 1 else (1, False))
+os.close(hold[0])
+pin_got = subprocess.run([sys.executable, "-c", pin_probe], capture_output=True, text=True, timeout=120,
+                         env={**os.environ, "CT_SCAN_WORKERS": "4", "OCR_SCAN_CPU": "0", "TMPDIR": spread_dir}).stderr.strip().splitlines()[-1]
+check("OCR_SCAN_CPU still names the core", str(sorted(os.sched_getaffinity(0))[:1]), pin_got)
+if scan_env is None:
+    os.environ.pop("CT_SCAN_WORKERS", None)
+else:
+    os.environ["CT_SCAN_WORKERS"] = scan_env
+
+# CT_YIELD_HOSTS: the queue yields to those hosts through desktop_busy.busy even with OCR_REMOTE empty.
+import desktop_busy
+yield_env = {k: os.environ.pop(k, None) for k in ("CT_YIELD_HOSTS", "OCR_REMOTE")}
+real_gate, real_dbusy, asked = eq.desktop_gate_reader, desktop_busy.busy, []
+eq.desktop_gate_reader = None
+desktop_busy.busy = lambda hosts: asked.append(list(hosts)) or "a game is running"
+check("no hosts, no CT_YIELD_HOSTS: desktop_busy is never asked, not yielding", (None, []), (eq.desktop_yielding(), asked))
+os.environ["CT_YIELD_HOSTS"] = "  "
+check("blank CT_YIELD_HOSTS is the same as unset", (None, []), (eq.desktop_yielding(), asked))
+os.environ["CT_YIELD_HOSTS"] = "micro@192.168.1.198 b@host"
+check("CT_YIELD_HOSTS with OCR_REMOTE empty: yields to a busy host",
+      ("a game is running", [["micro@192.168.1.198", "b@host"]]), (eq.desktop_yielding(), asked))
+os.environ["OCR_REMOTE"] = "d@one,b@host"
+asked.clear()
+eq.desktop_yielding()
+check("OCR_REMOTE's hosts come first, CT_YIELD_HOSTS adds the rest once", [["d@one", "b@host", "micro@192.168.1.198"]], asked)
+desktop_busy.busy = lambda hosts: None
+os.environ.pop("OCR_REMOTE")
+check("an idle CT_YIELD_HOSTS host does not yield", None, eq.desktop_yielding())
+desktop_busy.busy, eq.desktop_gate_reader = real_dbusy, real_gate
+for k, v in yield_env.items():
+    os.environ.pop(k, None)
+    if v is not None:
+        os.environ[k] = v
 
 lock_path = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-path", "code.lock"],
                            capture_output=True, text=True, check=True).stdout.strip()
