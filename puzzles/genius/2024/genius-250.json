@@ -160,40 +160,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ESSEX",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Travelling up and down",
-       "note": "in a down answer, going up reads the letters backwards before going down reads them forwards"
+       "text": "and down",
+       "at": 14,
+       "note": "and down says the second region's letters follow, read the normal way down the grid"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Travelling up",
+         "at": 0,
+         "note": "in a down answer, travelling up the grid reads the region's letters from bottom to top"
+        }
+       ],
        "parts": [
         {
          "words": "East Sussex",
-         "gives": "ES",
-         "note": "East Sussex lies in England's South East, SE, here read going up"
-        },
-        {
-         "words": "Kent",
+         "at": 23,
          "gives": "SE",
-         "note": "Kent is also in the South East, SE, here read coming down"
-        },
-        {
-         "gives": "X",
-         "note": "the letter the wordplay leaves out, supplied as the preamble says"
+         "note": "East Sussex lies in England's South East, SE"
         }
        ]
+      },
+      {
+       "words": "Kent",
+       "at": 36,
+       "gives": "SE",
+       "note": "Kent is also in the South East, SE, here read coming down the grid"
+      },
+      {
+       "gives": "X",
+       "note": "the letter the wordplay leaves out, supplied as the preamble says: X is 10"
       }
      ]
     },
     "explanation": {
      "surface": "A traveller criss-crosses the south-eastern counties and wonders which one comes next.",
-     "walkthrough": "The region is written once going up the grid and once coming down; the missing X (10) completes the county. Essex, East Sussex and Kent are counties around London.",
+     "walkthrough": "'Travelling up' reads SE backwards, as ES, in this down answer; 'and down' then adds SE the right way round. The missing X (10) completes the county. Essex, East Sussex and Kent are counties around London.",
      "definitionFit": "The list of south-eastern English counties continues naturally with Essex, a county north-east of London."
     },
     "features": {
@@ -234,6 +242,7 @@
      "parts": [
       {
        "words": "not working",
+       "at": 18,
        "gives": "OFF",
        "note": "a machine that is off is not working"
       },
@@ -242,34 +251,33 @@
        "indicators": [
         {
          "text": "at first",
-         "note": "at first points to the opening letter of each of the words that follow"
+         "at": 30,
+         "note": "at first asks for the opening letter of each of the words that follow"
         }
        ],
        "parts": [
         {
          "words": "so PowerPoint's",
+         "at": 40,
          "note": "the opening letters of these two words"
         }
        ]
       },
       {
        "gives": "I",
-       "note": "the letter the wordplay leaves out, supplied as the preamble says"
+       "note": "the letter the wordplay leaves out, supplied as the preamble says: I is 1"
       },
       {
-       "op": "first",
-       "parts": [
-        {
-         "words": "needed",
-         "note": "the opening letter of needed"
-        }
-       ]
+       "words": "needed",
+       "at": 56,
+       "gives": "N",
+       "note": "the opening letter of needed, still under 'at first'"
       }
      ]
     },
     "explanation": {
      "surface": "A presenter whose delivery is failing at first decides to lean on slides.",
-     "walkthrough": "'Delivery' suggests a speech, but it is cricket bowling. The missing I (1) sits between the P and the N.",
+     "walkthrough": "'Delivery' suggests a speech, but it is cricket bowling. 'at first' takes S, P and N from 'so PowerPoint's needed'; the missing I (1) sits between the P and the N.",
      "definitionFit": "Off-spin is a cricket bowling technique in which the ball turns from the off side, one type of delivery."
     },
     "features": {
@@ -769,25 +777,25 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TEE",
+     "op": "middle",
      "indicators": [
       {
        "text": "Sanded",
-       "note": "sanding wears away the edges, so the word loses its outside letters"
+       "at": 0,
+       "note": "sanding wears away the edges of a piece of wood, so the word loses its outside letters"
       }
      ],
      "parts": [
       {
        "words": "steel",
-       "note": "taken as written before its ends are worn off"
+       "at": 7,
+       "note": "steel without its outside letters, S and L"
       }
      ]
     },
     "explanation": {
      "surface": "A metal pin has been smoothed with sandpaper.",
-     "walkthrough": "The pair TH is then added, giving TEETH in the grid.",
+     "walkthrough": "'Sanded' strips the ends off steel. This is one of the twelve normal clues: the pair TH is then added, giving TEETH in the grid.",
      "definitionFit": "A tee is the small peg a golfer sets the ball on for a drive."
     },
     "features": {
@@ -822,30 +830,34 @@
      "parts": [
       {
        "words": "The boy's",
+       "at": 0,
        "gives": "HIS",
-       "note": "the possessive of he"
+       "note": "his is the possessive of he, the boy"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "first to",
-         "note": "the first of a word is its opening letter, so only that is kept"
+         "at": 10,
+         "note": "first to here asks for the opening letter of the word after it"
         }
        ],
        "parts": [
         {
          "words": "try",
+         "at": 19,
          "note": "the opening letter of try"
         }
        ]
       },
       {
        "gives": "I",
-       "note": "the letter the wordplay leaves out, supplied as the preamble says"
+       "note": "the letter the wordplay leaves out, supplied as the preamble says: I is 1"
       },
       {
        "words": "eat",
+       "at": 27,
        "gives": "DINE",
        "note": "to dine is to eat a meal"
       }
@@ -853,8 +865,8 @@
     },
     "explanation": {
      "surface": "A boy is the first to try a vital dietary supplement and eat.",
-     "walkthrough": "The missing I (1) sits between the T and the eating word.",
-     "definitionFit": "Histidine is an essential amino acid, one the body needs from diet or supplements."
+     "walkthrough": "'first to' takes T from try; the missing I (1) sits between the T and DINE.",
+     "definitionFit": "Histidine is an essential amino acid, one the body must get from diet or supplements."
     },
     "features": {
      "answerInScene": true,
@@ -879,52 +891,52 @@
    "annotation": {
     "definitions": [
      {
-      "text": "warning",
-      "at": 38
+      "text": "gives warning",
+      "at": 32
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "HARBINGER",
      "indicators": [
       {
        "text": "grimly",
-       "note": "grimly suggests a mangled, distorted form, so the letters are reshaped"
+       "at": 25,
+       "note": "grimly suggests something mangled and distorted, so the remaining letters are reshaped"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "HARBINGER",
        "indicators": [
         {
          "text": "ignoring",
-         "note": "to ignore something is to leave it out"
+         "at": 12,
+         "note": "to ignore the word us is to leave it out of Bushranger"
         }
        ],
        "parts": [
         {
          "words": "Bushranger",
-         "note": "an Australian outlaw of the bush"
+         "at": 0,
+         "note": "an Australian outlaw of the bush, taken as written"
         },
         {
          "words": "us",
+         "at": 21,
          "note": "taken as written, to be removed"
-        },
-        {
-         "gives": "I",
-         "note": "the letter the wordplay leaves out, supplied as the preamble says"
         }
        ]
+      },
+      {
+       "gives": "I",
+       "note": "the letter the wordplay leaves out, supplied as the preamble says: I is 1"
       }
      ]
     },
     "explanation": {
      "surface": "An outback outlaw passes us by and grimly issues a threat.",
-     "walkthrough": "The missing I (1) is added to the letters left after removing the pronoun.",
-     "definitionFit": "A harbinger is a sign or forerunner that heralds something to come, so it serves as a warning."
+     "walkthrough": "'ignoring' takes US out of Bushranger, leaving BHRANGER; add the missing I (1) and 'grimly' rearranges the lot.",
+     "definitionFit": "A harbinger is a forerunner or sign that heralds what is coming, so it serves as a warning."
     },
     "features": {
      "answerInScene": true,
@@ -964,10 +976,11 @@
      "parts": [
       {
        "gives": "L",
-       "note": "the letter the wordplay leaves out, supplied as the preamble says"
+       "note": "the letter the wordplay leaves out, supplied as the preamble says: L is 50"
       },
       {
        "words": "Notice",
+       "at": 0,
        "gives": "AD",
        "note": "an ad is a notice in a paper"
       },
@@ -976,12 +989,14 @@
        "indicators": [
         {
          "text": "in",
-         "note": "something in another sits between its letters"
+         "at": 26,
+         "note": "in puts one pair of letters between the two letters for years"
         }
        ],
        "parts": [
         {
          "words": "years",
+         "at": 29,
          "gives": "YY",
          "note": "Y is the abbreviation for year, doubled for the plural"
         },
@@ -990,13 +1005,14 @@
          "parts": [
           {
            "words": "Democrat",
+           "at": 7,
            "gives": "D",
-           "note": "D is the abbreviation for Democrat"
+           "note": "D is the abbreviation for Democrat in US politics"
           },
           {
            "words": "advanced",
-           "gives": "A",
-           "note": "A is the abbreviation for advanced"
+           "at": 17,
+           "gives": "A"
           }
          ]
         }
@@ -1006,7 +1022,7 @@
     },
     "explanation": {
      "surface": "An announcement says an elderly Democrat is turning a year older in late March.",
-     "walkthrough": "'advanced in years' reads as old, but advanced is A and years is YY. The missing L (50) comes first.",
+     "walkthrough": "'advanced in years' reads as old, but advanced is A and years is YY, so DA goes in YY to make YDAY. The missing L (50) comes first.",
      "definitionFit": "Lady Day, the Feast of the Annunciation, falls on 25 March and was a traditional English quarter day."
     },
     "features": {
@@ -1037,30 +1053,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ATHLETIC",
+     "op": "container",
      "indicators": [
       {
-       "text": "Start off",
-       "note": "the start of a word is its opening letter, and off means it is removed"
+       "text": "becoming",
+       "at": 20,
+       "note": "becoming marks the change as the shortened word turns into the answer, taking in the letter the preamble supplies"
       }
      ],
      "parts": [
       {
-       "words": "pitiable",
-       "gives": "PATHETIC",
-       "note": "pathetic means arousing pity"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Start off",
+         "at": 0,
+         "note": "the start of the word is its opening letter, and off says it is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pitiable",
+         "at": 10,
+         "gives": "PATHETIC",
+         "note": "pathetic means arousing pity"
+        },
+        {
+         "gives": "P",
+         "note": "the opening letter of the word for pitiable"
+        }
+       ]
       },
       {
        "gives": "L",
-       "note": "the letter the wordplay leaves out, supplied as the preamble says"
+       "note": "the letter the wordplay leaves out, supplied as the preamble says: L is 50"
       }
      ]
     },
     "explanation": {
      "surface": "Someone starts out feeble but grows powerful.",
-     "walkthrough": "The missing L (50) goes after the first three remaining letters.",
+     "walkthrough": "'Start off' drops the first letter of PATHETIC, leaving ATHETIC; the missing L (50), one of the preamble's Roman numerals, goes in after the third letter.",
      "definitionFit": "An athletic person is fit and muscular, which is to say physically strong."
     },
     "features": {
@@ -1391,33 +1423,34 @@
      "parts": [
       {
        "words": "a",
-       "note": "the first of the two copies of a"
+       "at": 11
       },
       {
        "gives": "V",
-       "note": "the letter the wordplay leaves out, supplied as the preamble says"
+       "note": "the letter the wordplay leaves out, supplied as the preamble says: V is 5"
       },
       {
        "words": "twice",
+       "at": 5,
        "gives": "A",
-       "note": "twice calls for the letter a a second time"
+       "note": "twice calls for the letter a to be written a second time"
       },
       {
        "words": "second",
-       "gives": "S",
-       "note": "S is the abbreviation for second"
+       "at": 13,
+       "gives": "S"
       },
       {
        "words": "time",
-       "gives": "T",
-       "note": "T is the abbreviation for time"
+       "at": 20,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
      "surface": "An instruction to halt, repeated for a second time.",
-     "walkthrough": "The missing V (5) sits between the two As.",
-     "definitionFit": "Avast is a nautical command meaning stop or hold."
+     "walkthrough": "'a' is written twice, A then A; the missing V (5) sits between them.",
+     "definitionFit": "Avast is a nautical command meaning hold or cease, so a sailor's word to halt."
     },
     "features": {
      "answerInScene": false,
@@ -1626,32 +1659,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REVERE",
+     "op": "container",
      "indicators": [
       {
        "text": "receives",
-       "note": "the phrase only receives the wanted word, holding it inside, so its outer letters are discarded"
+       "at": 18,
+       "note": "one word receiving another takes it in, so the second sits inside the first"
       }
      ],
      "parts": [
       {
-       "words": "For ever and ever",
-       "gives": "FOREVEREVER",
-       "note": "read as 'for ever' joined to 'ever', with and as the join"
+       "words": "For",
+       "at": 0,
+       "gives": "RE",
+       "note": "re means about or for, as in a business letter's heading"
+      },
+      {
+       "words": "ever and ever",
+       "at": 4,
+       "gives": "EVER",
+       "note": "for ever and ever is an emphatic way of saying ever, always"
       }
      ]
     },
     "explanation": {
-     "surface": "An eternal hymn of praise.",
-     "walkthrough": "'and' joins 'for ever' to 'ever', so the word sits across foR EVER + Ever with the opening FO and closing VER dropped. The pair ND is then added, giving REVEREND in the grid.",
-     "definitionFit": "To revere is to honour and venerate, which is close to praising."
+     "surface": "An eternal hymn of praise, as at the close of a prayer.",
+     "walkthrough": "'receives' puts the word for ever inside RE, the letter-heading sense of 'for'. This is one of the twelve normal clues: the pair ND is then added, giving REVEREND in the grid.",
+     "definitionFit": "To revere is to honour and venerate, which comes close to praising."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ever"
+     "misdirectedWord": "receives"
     }
    }
   },
@@ -1736,39 +1775,34 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "AVERSE",
-     "indicators": [
-      {
-       "text": "from time to time",
-       "note": "something done from time to time happens at intervals, so only every other letter is kept"
-      }
-     ],
+     "op": "container",
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "AERSE",
+       "indicators": [
+        {
+         "text": "from time to time",
+         "at": 24,
+         "note": "something done from time to time happens at intervals, so only every other letter is kept"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
          "words": "make crosses",
-         "gives": "AERSE",
-         "select": "alternate",
+         "at": 11,
          "note": "the second, fourth, sixth, eighth and tenth letters"
         }
        ]
       },
       {
        "gives": "V",
-       "note": "the letter the wordplay leaves out, supplied as the preamble says"
+       "note": "the letter the wordplay leaves out, supplied as the preamble says: V is 5"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who only occasionally makes their mark, unwillingly.",
-     "walkthrough": "The missing V (5) follows the first kept letter; all sixteen omissions, the Roman numerals, add up to 250.",
+     "surface": "Someone who only occasionally makes their mark, and unwillingly.",
+     "walkthrough": "'from time to time' keeps the even letters of 'make crosses', AERSE; the missing V (5) follows the A. All sixteen omissions are Roman numerals, adding up to 250.",
      "definitionFit": "Averse means opposed or unwilling, which is close to reluctant."
     },
     "features": {
