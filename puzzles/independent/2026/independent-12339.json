@@ -513,37 +513,36 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARGUS",
-     "indicators": [
-      {
-       "text": "Discovered",
-       "note": "dis-covered: LARGE loses its covering, its outer letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Discovered",
+         "at": 0,
+         "note": "discovered means the word large has its cover, its outer letters, stripped off"
+        }
+       ],
        "parts": [
         {
          "words": "large",
-         "gives": "ARG",
-         "note": "LARGE without its first and last letters"
-        },
-        {
-         "words": "American",
-         "gives": "US",
-         "note": "US = American"
+         "at": 11,
+         "note": "large without its first and last letters leaves ARG"
         }
        ]
+      },
+      {
+       "words": "American",
+       "at": 17,
+       "gives": "US"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone has found a big pheasant from America.",
-     "walkthrough": "'Discovered' means found in the surface; here it is read as un-covered, stripping LARGE.",
-     "definitionFit": "The argus is a large Asian pheasant with eyespots on its long wing feathers."
+     "surface": "Someone has spotted a big pheasant in the United States.",
+     "walkthrough": "'Discovered' reads as found, but it means uncovered: LARGE without its first and last letters is ARG.",
+     "definitionFit": "The argus is a large Southeast Asian bird of the pheasant family, with eye-spotted wing feathers."
     },
     "features": {
      "answerInScene": true,
@@ -1288,40 +1287,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EARSHOT",
-     "indicators": [
-      {
-       "text": "heading off",
-       "note": "BEARS loses its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 6,
+         "note": "heading off means the first letter, the head of the word in a down clue, is removed"
+        }
+       ],
        "parts": [
         {
          "words": "Bears",
-         "gives": "EARS",
-         "note": "BEARS without its head"
+         "at": 0,
+         "gives": "BEARS",
+         "note": "taken as written"
         },
         {
-         "words": "in",
-         "gives": "HOT",
-         "note": "in = fashionable, hot"
+         "gives": "B"
         }
        ]
+      },
+      {
+       "words": "in",
+       "at": 18,
+       "gives": "HOT",
+       "note": "something in, or fashionable, is hot"
       }
      ]
     },
     "explanation": {
-     "surface": "Some bears are heading away, and we can hear them in the distance.",
-     "walkthrough": "'In' looks like a preposition; it is the adjective for fashionable.",
-     "definitionFit": "Earshot is the range within which we can hear."
+     "surface": "Bears lumber off into the distance, still audible.",
+     "walkthrough": "BEARS 'heading off' drops its B to leave EARS, and 'in' gives HOT as in trendy.",
+     "definitionFit": "Earshot is the range within which sounds can be heard, so it is the reach of our hearing."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "in"
     }
@@ -1597,34 +1600,37 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ASSORT",
      "indicators": [
       {
-       "text": "missing"
+       "text": "missing",
+       "at": 27,
+       "note": "missing means the document goes without the two pages"
       }
      ],
      "parts": [
       {
        "words": "official document",
+       "at": 9,
        "gives": "PASSPORT",
-       "note": "a passport is an official document"
+       "note": "a passport is an official travel document"
       },
       {
        "words": "a couple of pages",
+       "at": 35,
        "gives": "PP",
-       "note": "p = page; two of them removed"
+       "note": "P is the abbreviation for page, so two of them are PP"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is sorting through an official document with two pages torn out.",
-     "walkthrough": "The surface pictures a damaged passport, which is exactly what the wordplay does.",
-     "definitionFit": "A plain synonym: both mean arranging things into kinds or groups."
+     "surface": "An official is told to classify a document that has lost two pages.",
+     "walkthrough": "PASSPORT 'missing' both its P letters, the 'couple of pages', leaves ASSORT.",
+     "definitionFit": "To assort is to sort or arrange things into groups by kind, which is to categorise them."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "pages"
     }
    }
   },

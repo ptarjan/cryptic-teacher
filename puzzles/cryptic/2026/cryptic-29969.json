@@ -538,37 +538,35 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "ultimately",
-       "note": "'ultimately' means at the very end, and the end of the word beside it is where the single letter comes from."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "cutting",
-         "note": "someone cutting in pushes into the middle of something already under way, so the letter lands inside rather than after."
+         "at": 22,
+         "note": "cutting means the letter slices into the word it, sitting inside it"
         }
        ],
        "parts": [
         {
          "words": "it",
-         "note": "the clue's own word, taken as it stands, and about to be split open"
+         "at": 30
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "N",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 11,
+           "note": "ultimately means take only the final letter of Moderation"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Moderation ultimately",
-           "gives": "N",
-           "select": "last",
-           "note": "the closing letter of moderation"
+           "words": "Moderation",
+           "at": 0,
+           "note": "the last letter of Moderation is N"
           }
          ]
         }
@@ -576,15 +574,21 @@
       },
       {
        "words": "wet",
+       "at": 34,
        "gives": "RAINING",
-       "note": "when it is wet outside, it is raining"
+       "note": "raining describes wet weather"
       }
      ]
     },
     "explanation": {
-     "surface": "Restraint at last proving good enough, while a soggy sort picks up new skills.",
-     "walkthrough": "'Cutting it' reads as the idiom for being good enough, and the two words are not even in the same piece of the wordplay: one is an instruction, the other is material.",
-     "definitionFit": "Someone in training is acquiring skills — the phrase covers athletes and apprentices alike, both still mid-process rather than finished."
+     "surface": "Taking it easy in the end cuts into training on a rainy day.",
+     "walkthrough": "'Moderation ultimately' gives N, which goes 'cutting' into IT to make INT, then RAINING follows.",
+     "definitionFit": "Someone in training is being taught or practising, so they are developing their abilities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wet"
     }
    }
   },
@@ -662,7 +666,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "then",
+      "text": "then!",
       "at": 35
      }
     ],
@@ -674,27 +678,39 @@
        "indicators": [
         {
          "text": "works",
-         "note": "'works' claims the phrase functions as raw material: put to work, its letters take up new positions."
+         "at": 12,
+         "note": "works means the letters are worked over into a new order"
         }
        ],
        "parts": [
         {
          "words": "The satanic",
-         "note": "ten letters of fodder"
+         "at": 0
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "atheist can too",
-       "note": "these three words hold the very same ten letters over again, which is the setter's joke rather than extra material"
+       "op": "cryptic",
+       "parts": [
+        {
+         "words": "atheist can too",
+         "at": 19,
+         "note": "a second anagram adding no letters: atheist can holds exactly the same ten letters, so it too works into the answer"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A claim that satanic writings work, and that an atheist could manage as much.",
-     "walkthrough": "Both phrases carry the same ten letters: 'the satanic' and 'atheist can' each rearrange into IN THAT CASE, and the exclamation mark is the setter enjoying the coincidence.",
-     "definitionFit": "'Then' in the sense of 'if so': 'then I'll walk' and 'in that case I'll walk' are the same sentence."
+     "surface": "A believer grumbles that if the devil can operate, an unbeliever might as well do so too.",
+     "walkthrough": "Paul gives two anagrams: THE SATANIC rearranged, and ATHEIST CAN 'too', which rearranges to exactly the same letters, as the surface hints.",
+     "definitionFit": "In that case and then! both mean 'if so', a conclusion drawn from what was just said."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "satanic"
     }
    }
   },
@@ -1133,42 +1149,49 @@
     "definitions": [
      {
       "text": "pacifist",
-      "at": 31,
-      "note": "'Pacifist' is a noun and the answer an adjective; the setter is using it the way we say 'pacifist sympathies', with the noun doing an adjective's work."
+      "at": 31
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IRENIC",
-     "indicators": [
-      {
-       "text": "Not quite",
-       "note": "'Not quite' stops the word just short of its full length, so the final letter never gets written down."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Wrath",
+       "at": 0,
+       "gives": "IRE",
+       "note": "ire is wrath, anger"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not quite",
+         "at": 17,
+         "note": "not quite means the word for appealing stops one letter short of complete"
+        }
+       ],
        "parts": [
         {
-         "words": "Wrath",
-         "gives": "IRE",
-         "note": "ire is wrath"
+         "words": "appealing",
+         "at": 6,
+         "gives": "NICE",
+         "note": "something nice is appealing"
         },
         {
-         "words": "appealing",
-         "gives": "NIC",
-         "note": "NICE means appealing, and it is cut short of its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Wondering whether anger has its attractions, and deciding not quite.",
-     "walkthrough": "Irenic comes from Eirene, the Greek goddess of peace, and describes anything meant to make peace. The question mark after 'appealing' warns that the synonym is about to be docked.",
-     "definitionFit": "Irenic means aiming at peace, which is the outlook a pacifist holds — the adjective to their noun."
+     "surface": "Is anger ever attractive? Not really, says the peace lover.",
+     "definitionFit": "Irenic means aiming at peace and conciliation, so it describes a peaceable, pacifist outlook as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appealing"
     }
    }
   },
@@ -1249,26 +1272,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OAST",
      "indicators": [
       {
        "text": "Top off",
-       "note": "in a down entry the top is the first letter, and 'off' is what takes it away."
+       "at": 0,
+       "note": "top off means the first letter is removed, as the word's top in a down entry"
       }
      ],
      "parts": [
       {
        "words": "beach",
-       "gives": "OAST",
-       "note": "the five-letter word for the shoreline, with its opening C taken off"
+       "at": 9,
+       "gives": "COAST",
+       "note": "the coast is the shore, the beach"
+      },
+      {
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody stripped to the waist on the beach, drying off.",
-     "walkthrough": "An oast is the kiln with the white cowl on its roof that dries hops for brewing, a familiar shape in the Kent countryside.",
-     "definitionFit": "An oast is a hop-drying kiln, so 'drier' names it by the single job the building was put up to do."
+     "surface": "Someone takes their top off at the beach to dry out.",
+     "walkthrough": "An oast is a kiln for drying hops, a feature of the Kent countryside in England, often with a cone-shaped roof.",
+     "definitionFit": "An oast is a kiln used to dry hops, so it is literally a drying apparatus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drier"
     }
    }
   },
@@ -1294,26 +1325,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "FESTE",
      "indicators": [
       {
        "text": "Interminable",
-       "note": "'Interminable' means without end, so the word it describes gives up the letter it ends on."
+       "at": 0,
+       "note": "interminable means without an end, so the word loses its last letter"
       }
      ],
      "parts": [
       {
        "words": "rot",
-       "gives": "FESTE",
-       "note": "the six-letter verb for what rot does to fruit, docked of the letter it ends on"
+       "at": 13,
+       "gives": "FESTER",
+       "note": "to fester is to rot"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Endless nonsense, served up to an idiot.",
-     "walkthrough": "'Rot' is the British word for nonsense in the surface and a verb in the wordplay. Feste is the jester who sings Twelfth Night out with the wind and the rain.",
-     "definitionFit": "10 is FOOL: Feste is the licensed jester of Twelfth Night, employed at Olivia's house to be witty for a living."
+     "surface": "Endless nonsense is spouted by a fool.",
+     "walkthrough": "10 is the answer to 10 across, FOOL; Feste is the fool in Shakespeare's Twelfth Night. 'Rot' looks like nonsense but is the verb fester.",
+     "definitionFit": "Feste is the witty jester, or professional clown, who serves Olivia in Twelfth Night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rot"
     }
    }
   },
