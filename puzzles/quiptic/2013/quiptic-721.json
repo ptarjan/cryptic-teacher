@@ -161,33 +161,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "carelessly",
-       "note": "something done carelessly is jumbled, so these letters are thrown out of order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Do without",
+       "at": 0,
+       "gives": "FORGO",
+       "note": "to forgo something is to do without it"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "carelessly",
+         "at": 16,
+         "note": "the letters of tent are thrown together carelessly in a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Do without",
-         "gives": "FORGO",
-         "note": "to forgo something is to do without it"
-        },
-        {
          "words": "tent",
-         "note": "the letters of tent rearranged"
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A camper goes without a tent after carelessly leaving it behind.",
-     "definitionFit": "Something forgotten has been left behind because nobody remembered it."
+     "surface": "A camper goes without a tent that was carelessly left at the site.",
+     "definitionFit": "Something forgotten has been overlooked, as when an item is left behind by mistake."
     },
     "features": {
      "answerInScene": true,
@@ -217,68 +219,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NUDGED",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "out here means disordered, so the letters before it are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "new",
+       "at": 11,
+       "gives": "N"
+      },
+      {
+       "words": "dugout",
+       "at": 15,
+       "gives": "UDG",
+       "note": "read as two words, dug out: the letters of dug, knocked out of order"
+      },
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "second",
+         "at": 27,
+         "note": "the second letter of team is used"
+        }
+       ],
        "parts": [
         {
-         "words": "new",
-         "gives": "N",
-         "note": "N is the abbreviation for new"
-        },
+         "words": "team",
+         "at": 34,
+         "note": "only its second letter is used"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "dugout",
-         "gives": "UDG",
-         "note": "the first three letters, dug, rearranged; the rest of the word is the signal"
-        },
+         "text": "leading",
+         "at": 39,
+         "note": "the leading letter of division is its first"
+        }
+       ],
+       "parts": [
         {
-         "op": "nth",
-         "n": 2,
-         "indicators": [
-          {
-           "text": "second",
-           "note": "second points at the letter in position two of the following word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "team",
-           "note": "the second letter of team"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leading",
-           "note": "leading picks the front letter of the word that follows"
-          }
-         ],
-         "parts": [
-          {
-           "words": "division",
-           "note": "the first letter of division"
-          }
-         ]
+         "words": "division",
+         "at": 47,
+         "note": "only its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football report: a new dugout for the reserve side, who are top of the division.",
-     "walkthrough": "The footballing dugout must be split: dug is the fodder and out its signal.",
-     "definitionFit": "To nudge is to push gently, so nudged is the past tense of pushed in that soft sense."
+     "surface": "A football manager gets a new dugout and a reserve side heads its league.",
+     "walkthrough": "Split dugout into 'dug out', where out tells you to rearrange DUG as UDG; then E, the second letter of team, comes before D.",
+     "definitionFit": "To nudge is to push gently, often with the elbow, so nudged means pushed."
     },
     "features": {
      "answerInScene": false,

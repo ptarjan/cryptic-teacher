@@ -433,61 +433,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GNOCCHI",
      "indicators": [
       {
        "text": "around",
-       "note": "around means the rearranged letters surround the next piece"
+       "at": 28,
+       "note": "the rearranged letters go around the letter for noon"
       }
      ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "GNOCCHI",
        "indicators": [
         {
          "text": "possibly",
-         "note": "possibly means the letters remaining could be arranged some other way"
+         "at": 19,
+         "note": "possibly signals that the remaining letters may be read in another order"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "GNOCCHI",
          "indicators": [
           {
            "text": "leaves",
-           "note": "one that leaves departs, so that letter is taken out of the city"
+           "at": 4,
+           "note": "one leaves the city name, so that letter is taken out"
           }
          ],
          "parts": [
           {
-           "words": "One",
-           "gives": "A",
-           "note": "a means one, and it is removed rather than added"
-          },
-          {
            "words": "Chicago",
-           "note": "the city, taken as letters"
+           "at": 11
           },
           {
-           "words": "noon",
-           "gives": "N",
-           "note": "N is the abbreviation for noon"
+           "words": "One",
+           "at": 0,
+           "gives": "A",
+           "note": "A means one, as in a single thing"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "noon",
+       "at": 35,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller leaving Chicago around midday to go out for an Italian meal.",
-     "walkthrough": "'One' is A here, not I: CHICAGO loses its A, and the rest is rearranged around N.",
-     "definitionFit": "Gnocchi are small Italian dumplings, usually of potato, served like pasta."
+     "surface": "Someone flies out of Chicago around midday, looking for an Italian meal.",
+     "walkthrough": "Take A ('One') out of Chicago, rearrange the rest as GOCCHI ('possibly'), and put N inside.",
+     "definitionFit": "Gnocchi are small Italian dumplings made from potato or semolina, served as a pasta course."
     },
     "features": {
      "answerInScene": true,

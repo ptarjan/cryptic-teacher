@@ -1323,29 +1323,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VOLCANO",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without an end means each word loses its final letter"
+       "text": "active",
+       "at": 24,
+       "note": "active as in in motion, so the letters are stirred into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "active",
-         "note": "active letters are busy and moving, so they rearrange themselves"
+         "text": "endlessly",
+         "at": 14,
+         "note": "each of the three words loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "Cone of lava",
-         "gives": "CONOLAV",
-         "note": "each word with its last letter removed"
+         "at": 0
+        },
+        {
+         "gives": "EFA",
+         "note": "the final letters of cone, of and lava, which are removed"
         }
        ]
       }
@@ -1353,9 +1356,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A volcanic cone of lava that never stops erupting.",
-     "walkthrough": "The whole clue is both wordplay and definition: a cone built of lava that may erupt indefinitely.",
-     "definitionFit": "A volcano is a mountain built up as a cone of hardened lava, and may stay active for ages."
+     "surface": "A description of a mountain that keeps pouring out lava.",
+     "walkthrough": "Removing each word's end leaves CON, O and LAV, and 'active' rearranges them; the whole clue also describes the answer.",
+     "definitionFit": "A volcano is a mountain built up of erupted lava, and an active one may go on erupting for ages."
     },
     "features": {
      "answerInScene": true,
@@ -1721,43 +1724,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "working",
-       "note": "a working thing is in motion, so these letters get moved about"
+       "text": "in",
+       "at": 30,
+       "note": "the rearranged letters sit inside the football nickname"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Liverpool",
+       "at": 33,
+       "gives": "REDS",
+       "note": "Liverpool Football Club are nicknamed the Reds"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the rearranged word inside the club's nickname"
+         "text": "working",
+         "at": 17,
+         "note": "working as in being worked over, so the letters of only are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Liverpool",
-         "gives": "REDS",
-         "note": "the Reds is the nickname of Liverpool Football Club"
-        },
-        {
          "words": "only",
-         "note": "letters to be rearranged"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A painter of portraits who only works in Liverpool.",
-     "walkthrough": "Liverpool is the football club, not the city.",
-     "definitionFit": "Sir Joshua Reynolds was the leading eighteenth-century English portraitist, first president of the Royal Academy."
+     "surface": "A painter of portraits says he works only in the city of Liverpool.",
+     "walkthrough": "Liverpool is the football club, the Reds, not the city; 'working' rearranges only to YNOL inside.",
+     "definitionFit": "Sir Joshua Reynolds was the leading 18th-century English portraitist and first president of the Royal Academy."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Liverpool"
     }

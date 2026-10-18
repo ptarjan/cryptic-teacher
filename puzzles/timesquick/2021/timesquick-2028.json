@@ -173,48 +173,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SURNAME",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "to put it briefly is to shorten it, so part of the word is dropped"
+       "text": "to go round",
+       "at": 42,
+       "note": "the word for certain goes round the other letters, enclosing them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "to go round",
-         "note": "going round something means surrounding it, so one piece encloses the other"
-        }
-       ],
-       "parts": [
-        {
-         "words": "certain",
-         "gives": "SURE",
-         "note": "sure means certain"
-        },
-        {
-         "words": "Vietnam",
-         "gives": "NAM",
-         "note": "'Nam is the familiar short form of the country's name"
-        }
-       ]
+       "words": "certain",
+       "at": 34,
+       "gives": "SURE",
+       "note": "sure means certain"
+      },
+      {
+       "words": "Vietnam briefly",
+       "at": 54,
+       "gives": "NAM",
+       "note": "'Nam is the common short name for Vietnam"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone researching family history is sure to go round Vietnam.",
-     "walkthrough": "The inserted piece does not land in the middle of its host but after its second letter, which is the part solvers tend to miss.",
-     "definitionFit": "A surname is the family name, so it tells you which family a person belongs to."
+     "surface": "A family history: someone was sure to travel around Vietnam for a short time.",
+     "walkthrough": "'Nam is the short name American soldiers used for Vietnam, which 'briefly' signals here.",
+     "definitionFit": "A surname is a family name, so it tells you which family someone belongs to."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "round"
+     "misdirectedWord": "family"
     }
    }
   },
@@ -1100,50 +1090,53 @@
      "indicators": [
       {
        "text": "securing",
-       "note": "to secure something is to hold it fast, so one piece is gripped inside the other"
+       "at": 14,
+       "note": "the abbreviation holds the other letters securely inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Hire purchase",
-         "gives": "HP",
-         "note": "the initial letters of the two words; hire purchase is the British term for buying on instalments"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Hire purchase",
+       "at": 0,
+       "gives": "HP",
+       "note": "HP is the abbreviation for hire purchase, the British term for buying on instalments"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "first",
-         "note": "the first of a word is its opening letter, which is all that is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "rookie's",
-         "note": "the opening letter of the word"
+         "words": "a",
+         "at": 23
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first",
+           "at": 34,
+           "note": "first means the first letter of rookie's is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rookie's",
+           "at": 25,
+           "note": "only its first letter is used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A beginner buys their first instrument on the instalment plan.",
-     "walkthrough": "'Hire purchase' is the British term for buying on credit and paying in instalments; it wraps A and R.",
-     "definitionFit": "A harp is a large stringed instrument plucked with the fingers, one kind of instrument."
+     "surface": "A novice musician buys their first instrument on credit.",
+     "walkthrough": "Hire purchase is the British name for paying by instalments; HP holds A and R.",
+     "definitionFit": "The harp is a large stringed instrument played by plucking, a classic example of a musical instrument."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "securing"
+     "aptDefinition": false
     }
    }
   },

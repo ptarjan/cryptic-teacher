@@ -698,54 +698,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EWERS",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "endless means the final letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "EWERS",
        "indicators": [
         {
          "text": "turned up",
-         "note": "in a down clue, turning up flips the word so it reads from the bottom"
+         "at": 3,
+         "note": "in a down clue, turning a word up means reading it from bottom to top, so backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "We",
-           "gives": "EW",
-           "note": "the pronoun, read upwards"
-          },
-          {
-           "words": "Irish",
-           "gives": "ERS",
-           "note": "Erse is the Irish Gaelic language, here losing its tail"
-          }
-         ]
+         "words": "We",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 18,
+         "note": "the Irish language name loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Irish",
+         "at": 26,
+         "gives": "ERSE",
+         "note": "Erse is an old name for the Irish (Gaelic) language"
+        },
+        {
+         "gives": "E",
+         "note": "the last letter of Erse, which goes"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sports report: we arrived with Irish bowlers or baseball pitchers.",
-     "walkthrough": "Erse is an old name for the Gaelic languages, especially Irish.",
-     "definitionFit": "Ewers are large jugs, and pitcher is another name for a jug."
+     "surface": "Someone describes overturning some large jugs made in Ireland.",
+     "walkthrough": "'turned up' gives EW from We in this down entry; Erse is the old name for Irish Gaelic, and 'endless' cuts it to ERS.",
+     "definitionFit": "Ewers are large jugs with wide mouths, so they are pitchers in the sense of vessels for pouring water."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "pitchers"
     }
    }
@@ -1229,41 +1232,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REVEAL",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "most of means all but the last letter is kept"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 8,
+         "note": "most of a word is all but its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "red",
-         "gives": "RE",
-         "note": "the colour word losing its final letter"
+         "at": 16
         },
         {
-         "words": "meat",
-         "gives": "VEAL",
-         "note": "veal is calf meat"
+         "gives": "D",
+         "note": "the last letter of red, which goes"
         }
        ]
+      },
+      {
+       "words": "meat",
+       "at": 20,
+       "gives": "VEAL",
+       "note": "veal is meat from a calf"
       }
      ]
     },
     "explanation": {
-     "surface": "Taking the cover off a dish of mostly rare meat.",
-     "definitionFit": "To reveal is to expose or disclose, to take the cover off."
+     "surface": "A cook removes the cover from a dish of underdone red meat.",
+     "definitionFit": "To reveal something is to uncover it, bringing a hidden thing into view."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "red"
+     "misdirectedWord": "Uncover"
     }
    }
   },
