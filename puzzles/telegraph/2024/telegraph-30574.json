@@ -198,28 +198,35 @@
      "indicators": [
       {
        "text": "skywards",
-       "note": "in a down answer, going skywards means reading from the bottom up"
+       "at": 28,
+       "note": "skywards in a down clue means written upwards, so the letters read in reverse"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "beginning to",
-         "note": "only the first letter of elevate is wanted"
-        }
-       ],
        "parts": [
         {
          "words": "Number",
+         "at": 0,
          "gives": "SUM",
          "note": "a sum is a number"
         },
         {
-         "words": "beginning to elevate",
-         "gives": "E",
-         "note": "the first letter of elevate"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "at": 7,
+           "note": "beginning to takes the first letter of elevate"
+          }
+         ],
+         "parts": [
+          {
+           "words": "elevate",
+           "at": 20
+          }
+         ]
         }
        ]
       }
@@ -227,9 +234,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A question about which things can rise into the sky, answered: not these.",
-     "walkthrough": "The whole clue defines the answer: emus are flightless, so they are the birds that never take off. SUM then E, turned upward, spells them.",
-     "definitionFit": "Emus are large flightless Australian birds, a number of creatures that never go skywards."
+     "surface": "A number of creatures that will never get off the ground.",
+     "walkthrough": "The whole clue defines the answer: emus are flightless, so they are not things that rise skywards.",
+     "definitionFit": "Emus are large flightless Australian birds, so they never take to the sky."
     },
     "features": {
      "answerInScene": true,
@@ -475,34 +482,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "converted",
-       "note": "converted letters are changed into another form"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Livingstone, say",
+       "at": 0,
+       "gives": "KEN",
+       "note": "Ken Livingstone was the first Mayor of London, an example of a Ken"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "converted",
+         "at": 18,
+         "note": "converted means changed, so the letters of any are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Livingstone, say",
-         "gives": "KEN",
-         "note": "Ken Livingstone was Mayor of London; 'say' marks him as one example of a Ken"
-        },
-        {
          "words": "any",
-         "note": "the letters of any, rearranged"
+         "at": 28
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The explorer David Livingstone converting Africans to Christianity.",
-     "walkthrough": "Livingstone suggests David the missionary explorer, but it is Ken Livingstone, the London politician, who supplies KEN.",
-     "definitionFit": "The demonym for a native of the East African country of Kenya, covering either sex, as the definition takes care to say."
+     "surface": "The explorer Livingstone converting Africans to Christianity.",
+     "walkthrough": "Livingstone suggests the missionary David, but it is the London politician Ken Livingstone.",
+     "definitionFit": "A Kenyan is a native or citizen of Kenya, a country in East Africa."
     },
     "features": {
      "answerInScene": true,

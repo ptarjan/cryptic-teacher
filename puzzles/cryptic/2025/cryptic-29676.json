@@ -284,51 +284,55 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OSTRACISED",
      "indicators": [
       {
        "text": "through",
-       "note": "going through something means the letters pass inside its outer pair"
+       "at": 37,
+       "note": "the dictionary letters run through, i.e. wrap around, the rest"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "OSTRACISED",
-       "indicators": [
-        {
-         "text": "moving back to front",
-         "note": "the final letter of the word is shifted round to its beginning"
-        }
-       ],
+       "words": "dictionary",
+       "at": 45,
+       "gives": "OED",
+       "note": "OED is the Oxford English Dictionary"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "dictionary",
-         "gives": "OED",
-         "note": "the Oxford English Dictionary"
-        },
-        {
          "words": "Southern",
-         "gives": "S",
-         "note": "S is the abbreviation for southern"
+         "at": 0,
+         "gives": "S"
         },
         {
-         "words": "racist",
-         "note": "taken as written"
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "moving back to front",
+           "at": 16,
+           "note": "moving back to front tells us the last letter of racist goes to the start"
+          }
+         ],
+         "parts": [
+          {
+           "words": "racist",
+           "at": 9
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Southern bigot changing his ways and earning official condemnation in the dictionary.",
-     "walkthrough": "'moving' looks like a change of heart, but it shifts one letter round; the dictionary splits so that the rest sits inside it.",
-     "definitionFit": "To be ostracised is to be shunned and excluded from a group, that is, rejected by others."
+     "surface": "A southern bigot is shunned after looking things up in a dictionary.",
+     "walkthrough": "'Southern racist' reads as one phrase, but S is a separate piece; 'back to front' moves only the final letter to the start.",
+     "definitionFit": "Ostracised means shunned or excluded by a group, a synonym of rejected."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "moving"
     }
@@ -759,52 +763,60 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "QUICKMARCH",
-     "indicators": [
-      {
-       "text": "is replacing",
-       "note": "replacing means one piece takes the place of another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "25",
-       "gives": "QUICHE",
-       "note": "the first word of the answer at 25 across"
-      },
-      {
-       "words": "the man",
-       "gives": "HE",
-       "note": "he is a man's pronoun; this is the piece removed"
-      },
-      {
-       "op": "last",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "finally",
-         "note": "finally picks out the last letter of the word that follows"
+         "text": "is replacing",
+         "at": 30,
+         "note": "is replacing says the new letter takes the place of the one named after it"
         }
        ],
        "parts": [
         {
-         "words": "work",
-         "note": "the final letter of work"
+         "words": "25",
+         "at": 0,
+         "gives": "QUICHE",
+         "note": "a cross-reference to the answer at 25 across, the egg tart quiche"
+        },
+        {
+         "words": "the man's",
+         "at": 43,
+         "gives": "HE",
+         "note": "the man is HE, here read as the pronoun"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 17,
+           "note": "finally picks the last letter of work"
+          }
+         ],
+         "parts": [
+          {
+           "words": "work",
+           "at": 25
+          }
+         ]
         }
        ]
       },
       {
        "words": "31 days",
+       "at": 5,
        "gives": "MARCH",
        "note": "March is a month of 31 days"
       }
      ]
     },
     "explanation": {
-     "surface": "A cryptic memo about a month's work and a change in someone's instructions.",
-     "walkthrough": "25 refers to the first word of the answer at 25 across; 'the man' is the pronoun swapped out.",
-     "definitionFit": "Quick march is a military command telling soldiers to start marching at normal pace."
+     "surface": "A cryptic sequence of numbers and a man's order, read as a puzzle.",
+     "walkthrough": "QUICHE (25 across) loses HE for K, the last letter of 'work', giving QUICK; then add MARCH.",
+     "definitionFit": "Quick march is a military command ordering troops to march at normal pace."
     },
     "features": {
      "answerInScene": false,

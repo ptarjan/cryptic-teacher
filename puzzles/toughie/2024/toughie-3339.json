@@ -623,7 +623,8 @@
      "indicators": [
       {
        "text": "recalled",
-       "note": "recalled means called back, so the whole assembled string is read backwards"
+       "at": 45,
+       "note": "recalled is read as called back, so the whole construction is read in the opposite direction"
       }
      ],
      "parts": [
@@ -632,41 +633,45 @@
        "indicators": [
         {
          "text": "provided over",
-         "note": "something provided over another thing is laid round it, so the quote wraps the drink"
+         "at": 17,
+         "note": "provided over is taken as laid over the top, so the quote word is spread around the other pieces"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "quote",
-           "gives": "CITE",
-           "note": "to cite is to quote"
-          },
-          {
-           "words": "morning",
-           "gives": "AM",
-           "note": "a.m. stands for the morning"
-          }
-         ]
+         "words": "quote",
+         "at": 11,
+         "gives": "CITE",
+         "note": "to quote is to cite"
         },
         {
-         "words": "drink",
-         "gives": "GIN",
-         "note": "gin is a drink"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "morning",
+           "at": 31,
+           "gives": "AM",
+           "note": "AM is the standard abbreviation for morning (ante meridiem)"
+          },
+          {
+           "words": "drink",
+           "at": 39,
+           "gives": "GIN",
+           "note": "gin is a drink"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone offers a cryptic quotation about an early-morning tipple, half remembered.",
-     "walkthrough": "CITE wraps AMGIN to make CITAMGINE, which read backwards is ENIGMATIC.",
-     "definitionFit": "Enigmatic describes something puzzling and hard to interpret, a direct synonym of mysterious."
+     "surface": "Someone sips a morning drink while recalling a puzzling quotation.",
+     "walkthrough": "'provided over' reads as a condition, but here it means laid over the morning drink, and 'recalled' (called back) turns everything round at the end.",
+     "definitionFit": "Something enigmatic is puzzling or hard to understand, a straight synonym of mysterious."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "recalled"
     }
@@ -840,36 +845,39 @@
      "indicators": [
       {
        "text": "written about",
-       "note": "being written about places one word around another, so the poet surrounds the single year"
+       "at": 7,
+       "note": "the poet has written about, i.e. wrapped round, the following pieces, so they sit inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Poet's",
-         "gives": "BARD",
-         "note": "a bard is a poet; the 's is 'is'"
-        },
-        {
-         "words": "single",
-         "gives": "ONE",
-         "note": "one is single"
-        }
-       ]
+       "words": "Poet's",
+       "at": 0,
+       "gives": "BARD",
+       "note": "a bard is a poet; the 's is read as 'has'"
       },
       {
-       "words": "year",
-       "gives": "Y",
-       "note": "y is the abbreviation for year"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "single",
+         "at": 21,
+         "gives": "ONE",
+         "note": "single means one"
+        },
+        {
+         "words": "year",
+         "at": 28,
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A literary note on a poet who wrote about one year spent at the churchyard that inspired a famous elegy.",
-     "walkthrough": "Thomas Gray's 'Elegy Written in a Country Churchyard' is the poem meant, so the definition points to a graveyard.",
-     "definitionFit": "Boneyard is an informal word for a cemetery or graveyard, the kind of country churchyard that prompted Gray's poem."
+     "surface": "A poet writes about a single year spent in a churchyard like Gray's.",
+     "walkthrough": "Thomas Gray's 'Elegy Written in a Country Churchyard' is set in a graveyard, which a boneyard is.",
+     "definitionFit": "Boneyard is an informal word for a cemetery or graveyard, the setting of Gray's famous poem."
     },
     "features": {
      "answerInScene": true,
