@@ -108,59 +108,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BACKLASH",
      "indicators": [
       {
        "text": "choked by",
-       "note": "something choked is gripped round the throat, so the party word encloses the rest"
+       "at": 27,
+       "note": "the word for party closes round the other letters as if choking them"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "party's",
+       "at": 37,
+       "gives": "BASH",
+       "note": "a bash is a party"
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "Liberal to step down",
+         "at": 5,
+         "note": "Liberal is L, and stepping down sends that L from the top of the word to the bottom"
+        }
+       ],
        "parts": [
         {
-         "op": "cycling",
-         "unchecked": true,
-         "gives": "BACKLASH",
-         "indicators": [
-          {
-           "text": "to step down",
-           "note": "in a down entry stepping down means moving lower, so the first letter goes to the bottom"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Want",
-           "gives": "LACK",
-           "note": "to want is to lack"
-          },
-          {
-           "words": "party's",
-           "gives": "BASH",
-           "note": "a bash is a party"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "Liberal",
-         "note": "the L for Liberal is the letter that moves"
+         "words": "Want",
+         "at": 0,
+         "gives": "LACK",
+         "note": "to want is to lack"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Liberal leader is pressed to resign amid a party's backlash.",
-     "walkthrough": "LACK starts with L, the Liberal; moving it down gives ACKL, which BASH then holds.",
-     "definitionFit": "A backlash is a strong adverse public reaction, so it is a negative reaction."
+     "surface": "A political party pushes its Liberal to resign, and the move provokes hostility.",
+     "walkthrough": "Liberal is not a separate piece added on: it names the L already in the word for want, which steps down from first place to last.",
+     "definitionFit": "A backlash is a strong adverse response from the public to some event or change."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Want"
+     "misdirectedWord": "Liberal"
     }
    }
   },
@@ -1219,34 +1209,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "manoeuvres",
-       "note": "manoeuvres are moves, so the letters of crude are moved about"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "master",
+       "at": 20,
+       "gives": "PRO",
+       "note": "a master of a craft is a pro, an expert"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "manoeuvres",
+         "at": 6,
+         "note": "the letters of crude are moved about into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "master",
-         "gives": "PRO",
-         "note": "a pro is an expert, a master of the craft"
-        },
-        {
          "words": "Crude",
-         "note": "the letters of crude rearranged"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Clumsy work carried out by a master builder.",
-     "walkthrough": "'Master builder' reads as one phrase, but master is the wordplay and builder alone is the definition.",
-     "definitionFit": "A producer makes or creates things, so in a loose sense a builder is one who produces."
+     "surface": "A rough piece of work is pushed through by a top construction boss.",
+     "walkthrough": "'Master builder' looks like one phrase but splits: PRO from master, and builder is the definition.",
+     "definitionFit": "A producer is one who makes or creates things, as a builder constructs them."
     },
     "features": {
      "answerInScene": false,
@@ -1277,35 +1269,57 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RESPOND",
      "indicators": [
       {
-       "text": "head out for",
-       "note": "a letter heading out to make room for something else means a swap of one for the other"
+       "text": "in",
+       "at": 18,
+       "note": "in the word for mailing again, the swap of letters takes place"
+      },
+      {
+       "text": "out for",
+       "at": 39,
+       "note": "the head letter goes out and Post Office takes its place"
       }
      ],
      "parts": [
       {
-       "words": "Again mail letter in envelope",
+       "words": "Again mail letter",
+       "at": 0,
        "gives": "RESEND",
-       "note": "to send a letter again"
+       "note": "to resend a letter is to mail it again"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "at": 34,
+         "note": "the head of envelope is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "envelope",
+         "at": 21
+        }
+       ]
       },
       {
        "words": "Post Office",
-       "gives": "PO",
-       "note": "standard abbreviation"
+       "at": 47,
+       "gives": "PO"
       }
      ]
     },
     "explanation": {
-     "surface": "Re-posting a letter after taking it out to the Post Office counter.",
-     "walkthrough": "The head of envelope, an E, leaves RESEND and PO takes its place. 'Post Office counter' looks like one phrase but counter is the definition.",
-     "definitionFit": "To counter is to reply or answer back, so it shares the verb sense of respond."
+     "surface": "Instructions for reposting a letter at the Post Office counter.",
+     "walkthrough": "The E of RESEND, the head of 'envelope', is swapped for PO. 'Post Office counter' reads as a place, but counter is the verb.",
+     "definitionFit": "To counter a remark is to reply or answer it, which is to respond."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "counter"
     }
    }
