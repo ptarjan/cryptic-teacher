@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -49,54 +50,82 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TRAFALGARSQUARE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "from the east",
-         "note": "Something coming from the east is travelling west, and on an across line that means its letters are read from the far end back."
-        },
-        {
-         "text": "wiping out",
-         "note": "Wiping out is erasing, so whatever is named next is rubbed off the word in front of it."
-        },
-        {
-         "text": "half of five",
-         "note": "Cut the word 'five' down the middle and the back half, VE, is the pair that gets rubbed off."
-        },
-        {
-         "text": "say",
-         "note": "'Say' is the setter's 'for example', so the number quoted is only one instance of the class being described."
+         "at": 5,
+         "note": "in an across clue, from the east means read from right to left, backwards"
         }
        ],
        "parts": [
         {
          "words": "Wind",
-         "gives": "TRAF",
-         "note": "Wind in the bodily sense is a FART, and it arrives here facing the other way."
-        },
-        {
-         "words": "Portuguese region",
-         "gives": "ALGAR",
-         "note": "Portugal's sunny southern province is the ALGARVE, turning up two letters lighter."
-        },
-        {
-         "words": "hundred",
-         "gives": "SQUARE",
-         "note": "A hundred is ten times ten, which makes it one example of a square number."
+         "at": 0,
+         "gives": "FART",
+         "note": "fart is slang for breaking wind"
         }
        ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wiping out",
+         "at": 37,
+         "note": "wiping out means erasing, so letters are taken away from the region"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Portuguese region",
+         "at": 19,
+         "gives": "ALGARVE",
+         "note": "the Algarve is the southern coastal region of Portugal"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half of",
+           "at": 48,
+           "note": "half of a four-letter word is two of its letters, here the second pair"
+          }
+         ],
+         "parts": [
+          {
+           "words": "five",
+           "at": 56,
+           "note": "its second half gives VE"
+          },
+          {
+           "gives": "FI"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "hundred, say",
+       "at": 61,
+       "gives": "SQUARE",
+       "note": "one hundred is ten times ten, a square number, so it exemplifies a square"
       }
      ]
     },
     "explanation": {
-     "surface": "An easterly gale over a Portuguese holiday coast while somebody scrubs half of five hundred off a total.",
-     "walkthrough": "'Wind' is the bodily sort rather than the weather, and 'hundred, say' asks not for the number but for the class it belongs to: ten times ten.",
-     "definitionFit": "Trafalgar Square is the point London's road distances are measured from, so it answers 'city centre' as one capital's official middle."
+     "surface": "A traveller's complaint about wind, Portugal and an odd sum in a city centre.",
+     "walkthrough": "'from the east' means read right to left in an across answer; 'half of five' is the back half of the word five, which 'wiping out' takes from the Algarve. One hundred is ten squared, hence 'say'. Trafalgar Square is London's central plaza.",
+     "definitionFit": "Trafalgar Square is the large public plaza at the heart of London, often treated as its central point."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Wind"
     }
    }
   },
@@ -200,60 +229,69 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ACCLAIM",
+     "indicators": [
+      {
+       "text": "Surprisingly",
+       "at": 0,
+       "note": "surprisingly hints at something unexpected, so the letters come out in an unexpected order"
+      }
+     ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "ACCLAIM",
        "indicators": [
         {
-         "text": "Surprisingly",
-         "note": "What turns out surprisingly has not come out in the order you expected, so these letters are re-sorted."
+         "text": "dropping",
+         "at": 22,
+         "note": "dropping means letting go, so one letter is lost from the club name"
         },
         {
          "text": "for",
-         "note": "'Dropping one thing for another' is the everyday phrase for a swap, so a new letter takes the old one's place."
+         "at": 36,
+         "note": "for means in place of, so a new letter stands where the old one was"
         }
        ],
        "parts": [
         {
          "words": "AC Milan",
-         "note": "The Italian football club's name is the raw material, all seven letters of it."
+         "at": 13,
+         "note": "the Italian football club, taken as written"
+        },
+        {
+         "words": "name",
+         "at": 31,
+         "gives": "N"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "dropping",
-           "note": "Dropping a player is leaving them out of the side, and here a letter is left out of the fodder."
-          },
-          {
            "text": "initially",
-           "note": "'Initially' asks only for the letter the word beside it begins with."
+           "at": 45,
+           "note": "initially means at the start, picking the first letter"
           }
          ],
          "parts": [
           {
-           "words": "name",
-           "note": "N is the standard shortening of name, and it is the letter that goes."
+           "words": "club",
+           "at": 40,
+           "note": "supplies its first letter C"
           }
          ]
-        },
-        {
-         "words": "club initially",
-         "gives": "C",
-         "note": "The letter 'club' begins with comes on in its place."
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "AC Milan leave a player out of the squad in favour of a new signing and are applauded for it.",
-     "walkthrough": "Both 'AC Milan' and 'club' point at football, which hides the fact that one of them is a pile of letters and the other is a single one.",
-     "definitionFit": "Acclaim is loud public approval, so 'praise' is a plain synonym — the noun, the applause a crowd gives."
+     "surface": "AC Milan surprisingly lose a big name, yet the club's early form wins praise.",
+     "walkthrough": "In AC MILAN, C (club 'initially') replaces N ('dropping name for'), giving ACMILAC; 'Surprisingly' rearranges those letters. AC Milan is an Italian football club.",
+     "definitionFit": "Acclaim is enthusiastic public approval, so it is a strong form of praise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
     }
    }
   },
@@ -382,36 +420,33 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "lacking",
-       "note": "What is lacking is simply absent, so the letter named after it never appears."
+       "text": "lacking leadership",
+       "at": 28,
+       "note": "lacking leadership means without the leading letter, so the first letter goes"
       }
      ],
      "parts": [
       {
        "words": "People like Trump and Putin",
+       "at": 0,
        "gives": "PRESIDENTS",
-       "note": "Both men hold their country's top office, and the word for people like them runs to ten letters."
+       "note": "Trump and Putin are both presidents"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "P",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "leadership",
-         "gives": "P",
-         "select": "first",
-         "note": "Leadership here is the leading letter, the P at the front, and that is what goes missing."
-        }
-       ]
+       "gives": "P"
       }
      ]
     },
     "explanation": {
-     "surface": "Two strongmen of the modern sort, said to have no leadership about them whatsoever.",
-     "walkthrough": "Presidents are leaders by definition, so 'lacking leadership' is a joke about the two men long before it is an instruction about a letter.",
-     "definitionFit": "Residents are the people who live in a place, which is what 'members of the local community' says in longer words."
+     "surface": "Trump and Putin lack leadership, unlike the people next door.",
+     "walkthrough": "'lacking leadership' drops the leading P of PRESIDENTS.",
+     "definitionFit": "Residents are the people who live in a place, so they make up its local population."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "leadership"
     }
    }
   },
@@ -636,42 +671,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STERILE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "criminal",
+       "at": 9,
+       "note": "criminal in the sense of crooked, so the letters are bent into a new order"
+      },
+      {
+       "text": "abandons",
+       "at": 18,
+       "note": "abandons means leaves behind, so these letters are removed from the pool"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "STERILE",
-       "indicators": [
-        {
-         "text": "criminal",
-         "note": "Something criminal is bent out of its proper shape, so the letters beside it come out in a different order."
-        },
-        {
-         "text": "abandons",
-         "note": "To abandon something is to walk away and leave it behind, so the letter named is left out."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Tireless",
-         "note": "The word itself is the raw material, eight letters for a seven-letter answer."
-        },
-        {
-         "words": "a son",
-         "gives": "S",
-         "note": "S is the genealogist's abbreviation for son, and one of the two esses walks out."
-        }
-       ]
+       "words": "Tireless",
+       "at": 0,
+       "note": "the word, taken as written for rearranging"
+      },
+      {
+       "words": "a son",
+       "at": 27,
+       "gives": "S",
+       "note": "S is the abbreviation for son, and a means one of them"
       }
      ]
     },
     "explanation": {
-     "surface": "A crook who never stops working walking out on his own boy.",
-     "walkthrough": "The letter count does the telling: eight letters clued for a seven-letter answer means something has to go before any shuffling starts.",
-     "definitionFit": "Sterile ground grows nothing and a sterile discussion produces nothing, so 'unproductive' is the sense the two share."
+     "surface": "A tireless criminal walks out on his son and proves unproductive.",
+     "walkthrough": "TIRELESS has one S more than the answer: when it 'abandons a son' it leaves TIRELES, and 'criminal' rearranges those letters.",
+     "definitionFit": "Sterile means barren or incapable of producing offspring or results, so it is fruitless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
     }
    }
   },
@@ -1023,8 +1058,9 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "'Mostly' keeps most of the word and drops the last letter."
+       "text": "combined",
+       "at": 30,
+       "note": "combined means mixed together, so all these letters are blended into a new order"
       }
      ],
      "parts": [
@@ -1032,38 +1068,45 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "combined",
-         "note": "Combining things mixes them together, so the letters on either side come out in a new order."
+         "text": "mostly",
+         "at": 23,
+         "note": "mostly means not quite all, so the name loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "left",
-           "note": "Someone who has left is gone, so the letter named just before it is not in the mix."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Liz mostly",
-           "gives": "LI",
-           "note": "The name loses its tail, leaving two letters for the mix."
-          },
-          {
-           "words": "shepherd",
-           "gives": "SEPHERD",
-           "note": "The whole word joins in, minus one of its two aitches."
-          },
-          {
-           "words": "second husband",
-           "gives": "H",
-           "note": "H is the abbreviation for husband, and it is the second of the two in 'shepherd' that goes."
-          }
-         ]
+         "words": "Liz",
+         "at": 19,
+         "note": "the name, trimmed to LI"
         },
         {
+         "gives": "Z"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after second",
+         "at": 53,
+         "note": "after second points to the second of the word's two husband letters"
+        },
+        {
+         "text": "left",
+         "at": 74,
+         "note": "left means departed, so the letter is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shepherd",
+         "at": 44,
+         "note": "the word, taken as written"
+        },
+        {
+         "words": "husband",
+         "at": 66,
          "gives": "H"
         }
        ]
@@ -1071,9 +1114,14 @@
      ]
     },
     "explanation": {
-     "surface": "Liz teaming up with a shepherd once her second husband has walked out on her.",
-     "walkthrough": "'Second husband' is one instruction rather than a remark about Liz's marriages: it counts the aitches in the word before it and removes the later one.",
-     "definitionFit": "An eldership is the office held by a church elder, the lay post that governs a Presbyterian congregation."
+     "surface": "A church role goes to Liz, joined with a shepherd after her second husband walked out.",
+     "walkthrough": "'mostly' trims LIZ to LI; removing the second H of SHEPHERD ('second husband left') leaves SHEPERD; 'combined' mixes the two. 'shepherd' suggests the church sense of a pastor, but here it is fodder.",
+     "definitionFit": "Eldership is the office of an elder, a lay leadership role in Presbyterian and other churches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shepherd"
     }
    }
   },
