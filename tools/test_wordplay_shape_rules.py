@@ -317,7 +317,60 @@ check("the redo gate names a deletion scope", True, any(
     f.startswith("deletionScope") for f in shape_queue.findings(
         {"clue": {"text": "x"}, "solution": "BORON"}, {"wordplay": del_over("endlessly", "E", "BORE", "ON"), "definitions": []})))
 
-for field in ("bareInitial", "deletionScope", "wrongRole", "deletionInside", "nestedContainer","anagramSynonym", "misplacedIndicator", "scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
+# Round 7: five shapes that passed every rule (12 of 300 passing clues wrong).
+def mids(*inds):
+    return {"op": "charade", "parts": [{"op": "middle", **({"indicators": [{"text": t}]} if t else {}),
+                                        "parts": [{"words": w, "gives": g}]}
+                                       for t, w, g in zip(inds, ("giving", "chord", "flat"), ("VI", "O", "LA"))]}
+check("one indicator over three middles leaves two unmarked", 2, v.unindicated_uncovered(mids("essentially", None, None)))
+check("an indicator on each is fine", 0, v.unindicated_uncovered(mids("essentially", "heart of", "inside")))
+check("an adjacent pair of one selection may share one", 0, v.unindicated_uncovered(
+    {"op": "charade", "parts": [{"op": "first", "indicators": [{"text": "tops"}], "parts": [{"words": "so", "gives": "S"}]},
+                                {"op": "first", "parts": [{"words": "extend", "gives": "E"}]}]}))
+check("but not a pair of deletions", 1, v.unindicated_uncovered(
+    {"op": "charade", "parts": [{"op": "deletion", "indicators": [{"text": "lacking"}], "parts": [{"words": "a", "gives": "AB"}, {"gives": "B"}]},
+                                {"op": "deletion", "parts": [{"words": "c", "gives": "CD"}, {"gives": "D"}]}]}))
+poss = {"op": "charade", "parts": [{"op": "anagram", "indicators": [{"text": "possibly"}], "parts": [{"words": "wrap", "gives": "WRAP"}]},
+                                   {"words": "possibly", "gives": "CRACKERS"}]}
+check("an indicator that is also a leaf's words is claimed twice", 1, v.shared_indicators(poss))
+check("unless the clue says the word twice", 0, v.shared_indicators(poss, "possibly wrap possibly"))
+check("a deletion's own cut words are told truly", 0, v.shared_indicators(
+    {"op": "deletion", "indicators": [{"text": "topless"}], "parts": [{"words": "x", "gives": "TERROR"}, {"words": "topless", "gives": "T"}]}))
+check("two ops with the same indicator", 1, v.shared_indicators(
+    {"op": "charade", "parts": [{"op": "reversal", "indicators": [{"text": "up", "at": 3}], "parts": [{"words": "a", "gives": "A"}]},
+                                {"op": "reversal", "indicators": [{"text": "up", "at": 3}], "parts": [{"words": "b", "gives": "B"}]}]}))
+half = {"op": "charade", "parts": [{"op": "deletion", "indicators": [{"text": "only half of"}],
+                                    "parts": [{"words": "live"}, {"gives": "VE"}]},
+                                   {"words": "ones", "gives": "ON"}]}
+check("a bare half of a word beside a half indicator is counted", 1, v.half_leaves(half))
+check("with no half indicator it is an abbreviation, not counted", 0, v.half_leaves(
+    {"op": "charade", "parts": [{"words": "ones", "gives": "ON"}, {"words": "x", "gives": "Y"}]}))
+tolkien = {"op": "deletion", "indicators": [{"text": "Not half"}],
+           "parts": [{"op": "charade", "parts": [{"words": "Tolman", "gives": "TOLMAN"}, {"words": "Kili", "gives": "KILI"},
+                                                 {"words": "Ents", "gives": "ENTS"}]}, {"gives": "MANLITS"}]}
+check("one half deletion picking letters out of three words is counted", 1, v.deletion_scattered(tolkien))
+check("a run of one piece is not", 0, v.deletion_scattered(
+    {**tolkien, "parts": [tolkien["parts"][0], {"gives": "ILI"}]}))
+check("a reverse reading over a phrase of 3+ words is counted", 1, v.reverse_phrase(
+    {"op": "reverse", "reading": "ROUGH + HEWN", "parts": [{"words": "When cryptic maybe"}]}))
+check("a short one, or one that says this, is not", 0, v.reverse_phrase(
+    {"op": "reverse", "parts": [{"words": "by and"}]}) + v.reverse_phrase(
+    {"op": "reverse", "parts": [{"words": "This could make pals"}]}))
+inspiration = {"op": "deletion", "indicators": [{"text": "before its conclusion"}],
+               "parts": [{"op": "charade", "parts": [{"words": "popular", "gives": "IN"}, {"words": "turn", "gives": "SPIN"},
+                                                     {"words": "helping", "gives": "RATION"}]}, {"gives": "N"}]}
+check("a cut that is one piece's N, once the answer picks the reading", 1, v.deletion_inside_component(
+    inspiration, "Muse helping to support popular turn before its conclusion", "INSPIRATION"))
+check("is not counted without the answer", 0, v.deletion_inside_component(
+    inspiration, "Muse helping to support popular turn before its conclusion"))
+check("OMEGA with G swapped for RT is a verified substitution", [], v.unverified_unchecked(
+    {"op": "substitution", "unchecked": True, "gives": "OMERTA", "indicators": [{"text": "made"}],
+     "parts": [{"words": "x", "gives": "OMEGA"}, {"words": "good", "gives": "G"}, {"words": "y", "gives": "RT"}]}))
+check("twentieth giving T is not a bare initial", 0, v.bare_initials(
+    {"op": "charade", "parts": [{"words": "collection of data", "gives": "FILE"}, {"words": "twentieth", "gives": "T"}]}))
+
+for field in ("unindicatedBare", "sharedIndicator", "halfLeaf", "deletionScattered", "reversePhrase",
+              "bareInitial", "deletionScope", "wrongRole", "deletionInside", "nestedContainer","anagramSynonym", "misplacedIndicator", "scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
               "leafFold", "repeatedSelection", "singleLeaf", "bareInCharade", "anagramOfContainer"):
     check(f"wordplay.{field} is a ratchet field", True, f"wordplay.{field}" in v.BACKLOG_MARKERS)
 warn = v.shape_warnings("1A", {"wordplay": cc, "definitions": []})

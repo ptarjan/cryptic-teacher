@@ -3811,6 +3811,16 @@ def _verified_substitution(node, parts):
     -> WELLNESS, cryptic-29499 8d), and one letter that takes the place of the other piece's
     first or last (G for the leader of RULES -> GULES, timesjumbo-1354 52d)."""
     want = wordplay.letters(node.get("gives"))
+    if len(parts) == 3 and want:  # whole, the piece that goes, the piece that replaces it (OMEGA, G, RT -> OMERTA)
+        try:
+            for whole in wordplay.values(parts[0]):
+                for old in wordplay.values(parts[1]):
+                    for new in wordplay.values(parts[2]):
+                        if old and whole.count(old) == 1 and whole.replace(old, new) == want and new != old:
+                            return parts[0]
+        except (wordplay.WordplayError, KeyError, TypeError, ValueError, IndexError):
+            return None
+        return None
     if len(parts) != 2 or not want:
         return None
     try:
@@ -3844,6 +3854,9 @@ def _verified_leaf(node):
         return None
     if op == "substitution":
         return _verified_substitution(node, parts)
+    if len(parts) == 1 and op == "hidden" and parts[0].get("op") in wordplay.SELECT and parts[0].get("unchecked") \
+            and wordplay.letters(node.get("gives")) == wordplay.letters(parts[0].get("gives")) and node.get("gives"):
+        return _verified_leaf(parts[0])  # a hidden word over a selection already computed (INCA, mid of skincare)
     if len(parts) != 1 or "op" in parts[0]:
         return None
     leaf = parts[0]
@@ -4416,6 +4429,13 @@ DELETION_SCOPE = "deletion whose removed letters are not where its indicator say
 #: 138k leaves give a letter string the word list lacks, and 17 of 20 sampled were right.
 WRONG_ROLE = "indicator filed on an op of another type"
 DELETION_INSIDE = "deletion over a charade that takes letters from one piece, or a whole piece the charade added"
+#: Round 7 (12 of 300 passing clues wrong, 4.0%): five shapes the earlier rules passed. Each hit
+#: sample of 20 was judged by hand against the same standard as the rules above.
+UNINDICATED_BARE = "op with no indicator of its own (or one indicator shared by several ops)"
+SHARED_INDICATOR = "indicator words claimed twice: on two ops, or also as a leaf's clue words"
+HALF_LEAF = "leaf giving half of its word with no op carrying the half"
+DELETION_SCATTERED = "one 'half' deletion over several words, its letters picked out of all of them"
+REVERSE_PHRASE = "reverse reading over a whole phrase of the clue"
 
 
 @functools.lru_cache(maxsize=1)
@@ -4455,6 +4475,9 @@ def _word_leaves(tree):
 
 
 BARE_INITIAL_MIN_LETTERS = 6
+_ORDINALS = {w.upper(): chr(65 + i) for i, w in enumerate(
+    "first second third fourth fifth sixth seventh eighth ninth tenth eleventh twelfth thirteenth fourteenth "
+    "fifteenth sixteenth seventeenth eighteenth nineteenth twentieth".split())}
 
 
 def bare_initials(tree):
@@ -4478,6 +4501,11 @@ def bare_initials(tree):
             continue
         if any(a.get("op") in wordplay.SELECT for a in anc):
             continue
+        if any(a.get("op") == "deletion" and any(p is leaf for p in (a.get("parts") or [])[1:])
+               and any(wordplay.letters(i.get("text")) == words for i in a.get("indicators") or []) for a in anc):
+            continue  # del<Wifeless>(.., [Wifeless]W): the words that cut name what is cut (RIGHTING)
+        if words in _ORDINALS and _ORDINALS[words] == gives:
+            continue  # twentieth is T, the twentieth letter (FILET)
         # kilograms -> K as kilos are: the unit's long form is its prefix's word plus "gram(s)"
         forms = {words, bare, re.sub(r"GRAMS?$", "", bare)}
         if not any(len(k) == 1 for w in forms for k in usage.get(w, {})) and not _known_pair(leaf["words"], gives) \
@@ -4509,7 +4537,7 @@ _DEL_HEART = re.compile(r"\b(heart|centre|center|middle|core|disheartened|heartl
 _DEL_HALF = re.compile(r"\bhalf\b|\bhalf-", re.I)
 
 
-def deletion_inside_component(tree, clue=None):
+def deletion_inside_component(tree, clue=None, answer=None):
     """Deletions over a charade (indicator anywhere in the clue) that take letters from
     ONE piece, or take whole pieces the charade added. ARCH+IDEA+CON less I,
     "originally dismissed" after "notion" (indysunday-1538 9d): an indicator acts on the
@@ -4530,10 +4558,14 @@ def deletion_inside_component(tree, clue=None):
         less E "finished early", RAM+BUNCH less H "mostly", ODO+ROUSE less E "endless"):
         the same cut is del(ALE, E) inside the charade, which is where the indicator sits.
         3699 newly counted over the corpus, 20 of 20 sampled judged wrong.
+    With `answer`, a deletion that is the whole tree is also read on only the readings that
+    leave the answer (round 7: INSPIRATION, IN+SPIN+RATION less N "before its conclusion":
+    the N that makes the answer is SPIN's, but the other Ns made the letters ambiguous).
     Needs the clue text; with none it counts nothing."""
     if not clue:
         return 0
     n = 0
+    want_all = wordplay.letters(answer) if answer else None
     for node in _walk(tree):
         parts = node.get("parts") or []
         if node.get("op") != "deletion" or len(parts) < 2 or node.get("unchecked") \
@@ -4552,30 +4584,35 @@ def deletion_inside_component(tree, clue=None):
             continue
         heart, half = bool(_DEL_HEART.search(text)), bool(_DEL_HALF.search(text))
         named = bool(_DEL_END.search(text) or _DEL_HEAD.search(text) or (_DEL_MIDDLE.search(text) and not heart))
-        seen, in_piece, whole_pieces = 0, True, True
-        end_piece, any_piece = True, False
-        for combo in itertools.product(*cvals):
-            f = "".join(combo)
-            bounds = [0]
-            for c in combo:
-                bounds.append(bounds[-1] + len(c))
-            for rs in itertools.product(*cuts):
-                for r in {"".join(rs), "".join(reversed(rs))}:
-                    if not r:
-                        continue
-                    for m in re.finditer("(?=" + re.escape(r) + ")", f):
-                        s, e = m.start(), m.start() + len(r)
-                        seen += 1
-                        one = any(a <= s and e <= b for a, b in zip(bounds, bounds[1:]))
-                        is_piece = any(a == s and b == e for a, b in zip(bounds, bounds[1:]))
-                        edge = s == 0 or e == len(f)
-                        centred = abs(s - (len(f) - len(r)) / 2) <= 1
-                        whole_pieces = whole_pieces and s in bounds and e in bounds
-                        in_piece = in_piece and one and not is_piece and (not edge or half) \
-                            and not (heart and centred)
-                        end_piece = end_piece and one and not is_piece and edge
-                        any_piece = any_piece or is_piece
-        n += bool(seen) and ((not named and in_piece) or whole_pieces or end_piece or any_piece)
+        for want in ((None, want_all) if want_all and node is tree else (None,)):
+            seen, in_piece, whole_pieces = 0, True, True
+            end_piece, any_piece = True, False
+            for combo in itertools.product(*cvals):
+                f = "".join(combo)
+                bounds = [0]
+                for c in combo:
+                    bounds.append(bounds[-1] + len(c))
+                for rs in itertools.product(*cuts):
+                    for r in {"".join(rs), "".join(reversed(rs))}:
+                        if not r:
+                            continue
+                        for m in re.finditer("(?=" + re.escape(r) + ")", f):
+                            s, e = m.start(), m.start() + len(r)
+                            if want and f[:s] + f[e:] != want:
+                                continue
+                            seen += 1
+                            one = any(a <= s and e <= b for a, b in zip(bounds, bounds[1:]))
+                            is_piece = any(a == s and b == e for a, b in zip(bounds, bounds[1:]))
+                            edge = s == 0 or e == len(f)
+                            centred = abs(s - (len(f) - len(r)) / 2) <= 1
+                            whole_pieces = whole_pieces and s in bounds and e in bounds
+                            in_piece = in_piece and one and not is_piece and (not edge or half) \
+                                and not (heart and centred)
+                            end_piece = end_piece and one and not is_piece and edge
+                            any_piece = any_piece or is_piece
+            if seen and ((not named and in_piece) or whole_pieces or end_piece or any_piece):
+                n += 1
+                break
     return n
 
 
@@ -4607,6 +4644,122 @@ def deletion_scope(tree, any_whole=False):
                     ok = ok or (f.endswith(r) if end else f.startswith(r))
         n += not ok
     return n
+
+
+#: Selections that two adjacent words may share one indicator for ("so extend tops" over
+#: first(so) + first(extend)) and the sound pair ("doubly" over two homophones): the one
+#: shared form a solver is still told the truth by (cyclops-591 7d SPARSE judged fine in
+#: round 7). Any other op, or three of these, with one indicator is a lie about the clue.
+_SHARED_OK = frozenset(wordplay.SELECT) | {"homophone"}
+
+
+def unindicated_uncovered(tree):
+    """Checked ops that need an indicator and have none, other than the second of an
+    adjacent pair of one selection or homophone op whose twin carries the indicator.
+    unindicated_ops counts those too; this is the stricter reading (round 7, 12 of 300
+    passing clues wrong: VIOLA, mid<essentially> shared by three middles; MARACA, one
+    "all names withheld" over three deletions; ETUI, CHATE, the insertion and the hidden
+    word nothing signals). Same exclusions as unindicated_ops."""
+    spoken = {id(p) for s in _walk(tree) if s.get("op") == "spoonerism"
+              for p in s.get("parts") or [] if isinstance(p, dict) and p.get("op") == "homophone"}
+    n = 0
+    for parent in [{"parts": [tree]}] + list(_walk(tree)):
+        groups = {}
+        for p in parent.get("parts") or []:
+            if isinstance(p, dict) and p.get("op") in NEEDS_INDICATOR and not p.get("unchecked") \
+                    and id(p) not in spoken:
+                groups.setdefault(p["op"], []).append(p)
+        for op, ns in groups.items():
+            bare = [x for x in ns if not x.get("indicators")]
+            if bare and not (op in _SHARED_OK and len(ns) == 2 and len(bare) == 1):
+                n += len(bare)
+    return n
+
+
+def shared_indicators(tree, clue=None):
+    """Indicator words claimed twice: the same text (at the same `at`, or with none) filed on
+    two ops, or an indicator whose words are also a leaf's clue words. toughie-3361 12a
+    PRAWNCRACKERS: "possibly" is the anagram indicator and again the leaf that gives
+    CRACKERS. Leaves in a cryptic definition are the clue, not claims. A word the clue
+    itself says twice ("Ruin, ruin") may be both, so it is let go when `clue` is given."""
+    flat = wordplay.letters(clue) if clue else ""
+    seen, texts, leaves, cut_words = {}, [], [], set()
+    for node in _walk(tree):
+        if node.get("op") == "cryptic":
+            continue
+        for i in node.get("indicators") or []:
+            key = (wordplay.letters(i.get("text")), i.get("at"))
+            if key[0] and flat.count(key[0]) < 2:
+                seen[key] = seen.get(key, 0) + 1
+                texts.append((key[0], i.get("at")))
+        if "op" not in node and node.get("words") and "at" not in node:
+            leaves.append(wordplay.letters(node["words"]))
+        if node.get("op") in ("deletion", "container"):
+            # "topless" over [topless]S names what goes; "onboard" over [onboard]SS is the
+            # holder and says it holds: the one word is truthfully both
+            cut_words |= {wordplay.letters(p.get("words")) for p in (node.get("parts") or [])[1:]
+                          if isinstance(p, dict) and "op" not in p}
+            if node["op"] == "container":
+                cut_words |= {wordplay.letters(p.get("words")) for p in (node.get("parts") or [])[:1]
+                              if isinstance(p, dict) and "op" not in p}
+    n = sum(c - 1 for c in seen.values() if c > 1)
+    n += sum(1 for t, at in texts if at is None and t in leaves and t not in cut_words)
+    return n
+
+
+def half_leaves(tree):
+    """Leaves of one clue word that give exactly its first or last half, with no selection
+    op above and no abbreviation saying so: quiptic-1389 22d LION, "only half of" filed on
+    live -> LI and again, unmarked, on ones -> ON (one indicator over two words)."""
+    pairs, usage = _attested()
+    if not usage or not any(re.search(r"\bhalf\b|\bhalves\b|50\s*%|\bhalf-", str(i.get("text") or ""), re.I)
+                            for n in _walk(tree) for i in n.get("indicators") or []):
+        return 0  # no half indicator in the tree: a short leaf is an abbreviation (STR strait, DOL dollar)
+    n = 0
+    for leaf, anc in _word_leaves(tree):
+        words, gives = wordplay.letters(leaf["words"]), wordplay.letters(leaf["gives"])
+        if len(leaf["words"].split()) != 1 or len(words) < 4 or len(gives) * 2 != len(words) \
+                or not (words.startswith(gives) or words.endswith(gives)) or leaf.get("select"):
+            continue
+        if any(a.get("op") in wordplay.SELECT or a.get("op") == "hidden" for a in anc) \
+                or _known_pair(leaf["words"], gives):
+            continue
+        n += 1
+    return n
+
+
+def deletion_scattered(tree):
+    """Deletions over a charade whose removed letters (3+) are in no reading a run of the
+    charade's letters: they are picked out of several pieces at once (everyman-3903 6d
+    TOLKIEN, "Not half" taking MANLITS across Tolman, Kili and Ents). One "half" acts on
+    one piece; the evaluator removes the letters from anywhere, so it passes."""
+    n = 0
+    for node in _walk(tree):
+        parts = node.get("parts") or []
+        if node.get("op") != "deletion" or node.get("unchecked") or len(parts) != 2 \
+                or not all(isinstance(p, dict) for p in parts) or parts[0].get("op") != "charade" \
+                or len(parts[0].get("parts") or []) < 2:
+            continue
+        text = " ".join(str(i.get("text") or "") for i in node.get("indicators") or [])
+        if parts[1].get("words") or not re.search(r"\bhalf\b|\bhalves\b|50\s*%|\bhalf-", text, re.I):
+            continue  # only the "half" form is measured: "lacking leaders" over each word is told true
+        try:
+            wholes, cuts = wordplay.values(parts[0]), wordplay.values(parts[1])
+        except Exception:
+            continue
+        if wholes and cuts and all(len(r) >= 3 for r in cuts) and not any(r in f for f in wholes for r in cuts):
+            n += 1
+    return n
+
+
+def reverse_phrase(tree):
+    """A reverse (self-referential) reading over 3+ clue words: the wordplay is the answer
+    read as an instruction on the whole phrase, which a solver cannot check or follow
+    (sundaytimes-5086 12a ROUGHHEWN, quiptic-1146 20d LINEDUP). A phrase that says "this" points
+    at the answer and is the Azed form ("This could make pals" SLAPUP), so it is left."""
+    return sum(1 for n in _walk(tree) if n.get("op") == "reverse" and not n.get("unchecked")
+               and any(len(str(p.get("words") or "").split()) >= 3 and not re.search(r"\bthis\b", str(p["words"]), re.I)
+                       for p in n.get("parts") or [] if isinstance(p, dict)))
 
 
 def _clue_words(text):
@@ -4711,7 +4864,7 @@ def lesson_warnings(tag, ann, held):
     return out
 
 
-def shape_warnings(tag, ann, clue=None):
+def shape_warnings(tag, ann, clue=None, answer=None):
     """The findings for one annotation's tree shape, each a ratchet marker."""
     tree = ann.get("wordplay")
     out = []
@@ -4786,9 +4939,24 @@ def shape_warnings(tag, ann, clue=None):
     if k := wrong_role_indicators(tree):
         out.append(f"{tag}: {k} {WRONG_ROLE}: put each indicator on the op it signals (a reversal "
                    f"word on rev<...>, a container word on ins<...>, an anagram word on ana<...>)")
-    if k := deletion_inside_component(tree, clue):
+    if k := deletion_inside_component(tree, clue, answer):
         out.append(f"{tag}: {k} {DELETION_INSIDE}: the indicator acts on the one piece it sits by, "
                    f"del(piece, letters) inside the charade; add no piece only to remove it")
+    if k := unindicated_uncovered(tree):
+        out.append(f"{tag}: {k} {UNINDICATED_BARE}: give each op its own indicator word from the clue; "
+                   f"one indicator covers one op (a pair of first/last/middle picks may share one)")
+    if k := shared_indicators(tree, clue):
+        out.append(f"{tag}: {k} {SHARED_INDICATOR}: a clue word does one job; name the indicator "
+                   f"once and the leaf's letters from other words")
+    if k := half_leaves(tree):
+        out.append(f"{tag}: {k} {HALF_LEAF}: a half of a word is picked by an op "
+                   f"(first/last of its letters), once per word")
+    if k := deletion_scattered(tree):
+        out.append(f"{tag}: {k} {DELETION_SCATTERED}: 'half' acts on one word; write a deletion "
+                   f"per word, del(word, its half)")
+    if k := reverse_phrase(tree):
+        out.append(f"{tag}: {k} {REVERSE_PHRASE}: say what the words do (an anagram, a hidden "
+                   f"word, a charade), not a reading of the whole phrase")
     return out
 
 
@@ -5028,7 +5196,7 @@ def tree_view(puzzle):
                             f"fodder is one pool of letters, so its pieces are its own parts "
                             f"(ana(x + y)); a word that only joins them is a link word, and an "
                             f"anagram indicator goes on ana<...>")
-        warnings += shape_warnings(_tag_of(puzzle, where), ann, (held.get("clue") or {}).get("text"))
+        warnings += shape_warnings(_tag_of(puzzle, where), ann, (held.get("clue") or {}).get("text"), held.get("solution") or None)
         warnings += lesson_warnings(_tag_of(puzzle, where), ann, held)
         warnings += follow_warnings(_tag_of(puzzle, where), ann, held, puzzle)
     return viewed, errors, warnings
@@ -5354,6 +5522,11 @@ BACKLOG_MARKERS = {
     "wordplay.deletionScope": (DELETION_SCOPE,),
     "wordplay.wrongRole": (WRONG_ROLE,),
     "wordplay.deletionInside": (DELETION_INSIDE,),
+    "wordplay.unindicatedBare": (UNINDICATED_BARE,),
+    "wordplay.sharedIndicator": (SHARED_INDICATOR,),
+    "wordplay.halfLeaf": (HALF_LEAF,),
+    "wordplay.deletionScattered": (DELETION_SCATTERED,),
+    "wordplay.reversePhrase": (REVERSE_PHRASE,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }

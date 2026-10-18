@@ -125,6 +125,7 @@ def findings(entry, ann=None):
     # so the gate is every rule in _validator_rules() but unchecked_step (see gated()).
     rules = _validator_rules()
     clue = (entry.get("clue") or {}).get("text", "")
+    ann = {**ann, "_answer": _answer(entry)}
     return found + [f"{k}: {_why(k)}" for k in gated() if rules[k](wp, ann, clue)]
 
 
@@ -160,7 +161,18 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                     "indicator on the op it signals",
        "deletionInside": "a deletion over a charade takes letters from one piece (or takes a whole piece "
                          "the charade added): the indicator acts on that piece alone, so delete inside "
-                         "the charade, del(piece, letters), and add no piece only to remove it"}
+                         "the charade, del(piece, letters), and add no piece only to remove it",
+       "unindicatedBare": "an op has no indicator word of its own, or one indicator is filed for several "
+                          "ops: give each op the clue word that signals it (a pair of first/last picks "
+                          "may share one); if the clue gives none, the tree is not the solver's route",
+       "sharedIndicator": "the same indicator words are claimed twice (on two ops, or again as a leaf's "
+                          "clue words): a clue word does one job",
+       "halfLeaf": "a leaf gives half of its word with no op carrying the half: pick it with an op, "
+                   "once per word, each with the clue word that says so",
+       "deletionScattered": "one 'half' deletion over several words picks its letters from all of them: "
+                            "'half' acts on one word, so delete inside each word",
+       "reversePhrase": "a reverse reading over a whole phrase of the clue: say what the words do "
+                        "(an anagram, a hidden word, a charade)"}
 
 
 def _validator_rules():
@@ -182,7 +194,12 @@ def _validator_rules():
             "bareInitial": lambda t, a, c: V.bare_initials(t),
             "deletionScope": lambda t, a, c: V.deletion_scope(t),
             "wrongRole": lambda t, a, c: V.wrong_role_indicators(t),
-            "deletionInside": lambda t, a, c: V.deletion_inside_component(t, c),
+            "deletionInside": lambda t, a, c: V.deletion_inside_component(t, c, a.get("_answer") or None),
+            "unindicatedBare": lambda t, a, c: V.unindicated_uncovered(t),
+            "sharedIndicator": lambda t, a, c: V.shared_indicators(t, c),
+            "halfLeaf": lambda t, a, c: V.half_leaves(t),
+            "deletionScattered": lambda t, a, c: V.deletion_scattered(t),
+            "reversePhrase": lambda t, a, c: V.reverse_phrase(t),
             # A step taken as filed that tools/clear_unchecked.py could not verify:
             # fires while any node of the tree still carries the flag.
             # (steps V.step_verified computes from their leaf do not count: fix round 4)
