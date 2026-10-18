@@ -355,60 +355,66 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "filthy",
-       "note": "filthy suggests something messed up, so its letters are disordered"
+       "text": "clutching",
+       "at": 31,
+       "note": "clutching means the shortened word holds the scrambled bib in its middle"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "clutching",
-         "note": "to clutch something is to hold it inside"
+         "text": "off",
+         "at": 26,
+         "note": "off means the editor's letters are taken away from the drunk word"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "off",
-           "note": "off means removed, so the journalist's letters are taken away"
-          }
-         ],
-         "parts": [
-          {
-           "words": "pissed",
-           "gives": "SLOSHED",
-           "note": "sloshed is slang for drunk"
-          },
-          {
-           "words": "journo",
-           "gives": "ED",
-           "note": "ed is short for editor, removed here"
-          }
-         ]
+         "words": "pissed",
+         "at": 10,
+         "gives": "SLOSHED",
+         "note": "pissed is British slang for drunk, which is also sloshed"
         },
         {
+         "words": "journo's",
+         "at": 17,
+         "gives": "ED",
+         "note": "a journalist's boss is the editor, ED, so the journo stands for ED here"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "filthy",
+         "at": 41,
+         "note": "filthy suggests something messed up, so the letters of bib are rearranged"
+        }
+       ],
+       "parts": [
+        {
          "words": "bib",
-         "note": "the letters of bib, reshuffled"
+         "at": 48
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An untidy drunk hack clutches a dirty bib.",
-     "definitionFit": "Slobbish describes the behaviour of a slob, someone lazy and untidy."
+     "surface": "A drunk, scruffy hack wanders off still wearing a grubby bib.",
+     "walkthrough": "Journo is crossword shorthand for an editor; 'pissed' and 'filthy' read as insults in the surface, but one is a synonym for drunk and the other the anagram signal.",
+     "definitionFit": "Someone slobbish behaves like a slob, careless and untidy, which is exactly what slovenly describes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pissed"
+     "misdirectedWord": "filthy"
     }
    }
   },
@@ -1251,39 +1257,40 @@
    "annotation": {
     "definitions": [
      {
-      "text": "the busy manager's desk?",
-      "at": 39
+      "text": "stuff dominating the busy manager's desk?",
+      "at": 22
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "pisspoor",
-       "note": "something piss-poor is badly done, so these letters are badly ordered"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Trendy",
+       "at": 0,
+       "gives": "IN",
+       "note": "something trendy is in, fashionable"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "pisspoor",
+         "at": 8,
+         "note": "pisspoor means very badly done, so the letters of arty are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "Trendy",
-         "gives": "IN",
-         "note": "in means fashionable"
-        },
-        {
          "words": "arty",
-         "note": "the four letters of arty, rearranged"
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fashionable but dreadful artwork cluttering up an overworked executive's desk.",
-     "walkthrough": "The definition is a little loose: the answer is the tray of incoming papers that fills a busy manager's desk, not the desk itself.",
-     "definitionFit": "A busy manager's desk is dominated by the tray holding work still to be dealt with."
+     "surface": "A busy manager's desk is buried under fashionable but dreadful artsy rubbish.",
+     "definitionFit": "An in-tray holds incoming papers and correspondence, which pile up and dominate an overworked manager's workspace."
     },
     "features": {
      "answerInScene": true,

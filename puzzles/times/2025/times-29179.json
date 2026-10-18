@@ -141,57 +141,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TIGRESS",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
        "indicators": [
         {
          "text": "Finally",
-         "note": "the final letter of the next word is taken"
+         "at": 0,
+         "note": "finally points to the last letter of effect"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "T",
-         "indicators": [
-          {
-           "text": "dislodging",
-           "note": "to dislodge something is to knock it out of place, so N is removed"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Finally effect",
-           "gives": "T",
-           "select": "last",
-           "note": "last letter of effect"
-          }
-         ]
+         "words": "effect",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dislodging",
+         "at": 22,
+         "note": "dislodging means the new letter is knocked out of the word for entry"
+        }
+       ],
+       "parts": [
+        {
+         "words": "entry",
+         "at": 15,
+         "gives": "INGRESS",
+         "note": "ingress is a formal word for entry"
         },
         {
-         "words": "entry, dislodging new",
-         "gives": "IGRESS",
-         "note": "INGRESS (entry) with N (new) knocked out"
+         "words": "new",
+         "at": 33,
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A burglar at last forces a way in, turfing out a newly arrived cat.",
-     "walkthrough": "'Effect entry' reads as a single phrase about getting in, but it splits: 'Finally effect' is one letter and 'entry' is the word to be trimmed.",
-     "definitionFit": "A tigress is a female tiger, one of the big cats."
+     "surface": "Something finally makes its way in, displacing a newly arrived cat.",
+     "definitionFit": "A tigress is a female tiger, one of the big wild cats."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "entry"
+     "misdirectedWord": "effect"
     }
    }
   },
@@ -370,59 +370,57 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "involving",
-       "note": "the church letters involve, enclose, the others"
+       "at": 28,
+       "note": "involving means the church and artist letters wrap round the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "half of",
-         "note": "only the first half of High is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "church",
+         "at": 14,
          "gives": "CE",
-         "note": "CE = Church of England"
+         "note": "CE is the Church of England"
         },
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "half of High",
-           "gives": "HI",
-           "note": "first half of HIGH"
-          },
-          {
-           "words": "Mass",
-           "gives": "M",
-           "note": "m is the symbol for mass in physics"
-          }
-         ]
+         "words": "artist",
+         "at": 21,
+         "gives": "RA",
+         "note": "RA is a Royal Academician, an artist"
         }
        ]
       },
       {
-       "words": "artist",
-       "gives": "RA",
-       "note": "RA = Royal Academician"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "half of High",
+         "at": 38,
+         "gives": "HI",
+         "note": "the first half of the word high is HI"
+        },
+        {
+         "words": "Mass",
+         "at": 51,
+         "gives": "M",
+         "note": "M is the symbol for mass in physics"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A church painter fantasises during part of a High Mass.",
-     "walkthrough": "'High Mass' reads as one church service, but it splits into two words doing separate jobs: half a word, and a physics symbol.",
-     "definitionFit": "A chimera is a wild, impossible fancy, named after the monster of Greek myth."
+     "surface": "An artist in church has a strange vision during part of a High Mass.",
+     "definitionFit": "A chimera is a fanciful illusion or impossible fantasy, a wild figment of imagination."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Mass"
     }
@@ -571,51 +569,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "installed in",
-       "note": "what is installed is put inside"
+       "text": "in",
+       "at": 32,
+       "note": "in means the bird and letter go inside the word for strange"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "strange",
-         "gives": "RUM",
-         "note": "rum = odd, strange"
-        },
-        {
-         "words": "Female bird",
-         "gives": "HEN",
-         "note": "a hen is a female bird"
-        }
-       ]
+       "words": "strange",
+       "at": 35,
+       "gives": "RUM",
+       "note": "rum is British slang for strange"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "only the first letter of installed is used"
-        },
-        {
-         "text": "strange",
-         "note": "rum is an old word for strange"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "installed",
-         "note": "first letter of installed"
+         "words": "Female bird",
+         "at": 0,
+         "gives": "HEN",
+         "note": "a hen is a female bird"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 12,
+           "note": "initially points to the first letter of installed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "installed",
+           "at": 22
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hen is somehow placed inside a peculiar chemical element.",
-     "walkthrough": "'Strange' looks like an adjective for the element, but it is the outer word, RUM, which takes in HEN and I.",
-     "definitionFit": "Rhenium is a rare metallic chemical element, Re."
+     "surface": "A hen is the first thing put inside some odd element.",
+     "definitionFit": "Rhenium is a chemical element, a rare heavy metal with atomic number 75."
     },
     "features": {
      "answerInScene": false,
@@ -954,45 +951,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RESIDENCE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coating",
+       "at": 40,
+       "note": "coating means the rearranged cerise surrounds the study"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "unusual",
-         "note": "an unusual arrangement of the letters"
-        },
-        {
-         "text": "coating",
-         "note": "the rearranged letters coat, surround, the study word"
+         "at": 25,
+         "note": "unusual means the letters of cerise appear in an odd order"
         }
        ],
        "parts": [
         {
          "words": "cerise",
-         "note": "anagram of CERISE"
-        },
-        {
-         "words": "study",
-         "gives": "DEN",
-         "note": "a den is a study"
+         "at": 33
         }
        ]
+      },
+      {
+       "words": "study",
+       "at": 15,
+       "gives": "DEN",
+       "note": "a den is a study or private room"
       }
      ]
     },
     "explanation": {
-     "surface": "A house whose study has been painted an odd cherry-red colour.",
-     "walkthrough": "'Coating' sounds like paint on the walls, which suits cerise, but it is the instruction to surround.",
-     "definitionFit": "A plain synonym: a formal word for the place where someone lives."
+     "surface": "A house whose study is painted an unusual cherry-red colour.",
+     "definitionFit": "A residence is a home or dwelling, the place where someone lives."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "coating"
+     "misdirectedWord": "cerise"
     }
    }
   },
@@ -1020,42 +1019,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "take letters at regular intervals: the 1st, 3rd and 5th"
+       "text": "embracing",
+       "at": 34,
+       "note": "embracing means the picked letters hold the sweetheart inside"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "SNE",
        "indicators": [
         {
-         "text": "embracing",
-         "note": "the outer letters embrace the inner word"
+         "text": "regularly",
+         "at": 24,
+         "note": "regularly means every other letter is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "singer regularly",
-         "gives": "SNE",
-         "select": "alternate",
-         "note": "S, N, E: alternate letters of singer"
+         "words": "singer",
+         "at": 17,
+         "note": "alternate letters of singer give SNE"
         }
        ]
       },
       {
        "words": "sweetheart",
+       "at": 44,
        "gives": "LOVE",
-       "note": "love = sweetheart, as a term of address"
+       "note": "love is a term for a sweetheart"
       }
      ]
     },
     "explanation": {
-     "surface": "A singer from central Europe holds a lover close.",
-     "walkthrough": "'Singer' looks like part of the definition, a European vocalist, but it only supplies letters.",
-     "definitionFit": "A Slovene is a person from Slovenia, in central Europe."
+     "surface": "A singer from central Europe now and then hugs a loved one.",
+     "definitionFit": "A Slovene comes from Slovenia, a country in central Europe."
     },
     "features": {
      "answerInScene": true,
@@ -1152,46 +1149,48 @@
      "indicators": [
       {
        "text": "embodying",
-       "note": "to embody something is to hold it within"
+       "at": 19,
+       "note": "embodying means the first pair contain the second pair"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "book",
-           "gives": "B",
-           "note": "b = book"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I = one, Roman numeral"
-          }
-         ]
+         "words": "bachelor",
+         "at": 5,
+         "gives": "B",
+         "note": "B is the abbreviation for bachelor, as in degrees"
         },
         {
-         "words": "American",
-         "gives": "AM",
-         "note": "Am = American"
+         "words": "one",
+         "at": 15,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
         }
        ]
       },
       {
-       "words": "bachelor",
-       "gives": "B",
-       "note": "b = bachelor, as in degrees"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "at": 29,
+         "gives": "AM"
+        },
+        {
+         "words": "book",
+         "at": 38,
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A single man in a movie personifies a great American novel.",
-     "walkthrough": "B and I, bachelor and one, hold AM and B between them.",
-     "definitionFit": "Bambi is the 1942 Disney film about a young deer."
+     "surface": "A single man, one who personifies American literature, on film.",
+     "definitionFit": "Bambi is the 1942 Disney animated film about a young deer."
     },
     "features": {
      "answerInScene": false,
@@ -1274,15 +1273,10 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "in a down clue, upset turns the word upside down, reversing it"
-      }
-     ],
      "parts": [
       {
        "words": "young girl",
+       "at": 14,
        "gives": "MISS",
        "note": "a miss is a young girl"
       },
@@ -1290,24 +1284,25 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "perhaps",
-         "note": "a pet is only one example of a teacher's favourite"
+         "text": "upset",
+         "at": 25,
+         "note": "upset in a down clue means turned upside down, so the word reads backwards"
         }
        ],
        "parts": [
         {
-         "words": "teacher's favourite",
+         "words": "teacher's favourite, perhaps",
+         "at": 31,
          "gives": "PET",
-         "note": "the teacher's pet is the favourite pupil"
+         "note": "a teacher's pet is a favourite pupil"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A schoolgirl's blunder spoils the teacher's pet's standing.",
-     "walkthrough": "'Perhaps' is there because a pet is only one kind of favourite; the teacher's pet is the stock example.",
-     "definitionFit": "A misstep is a false step, a mistake or wrong move."
+     "surface": "A young girl's blunder upsets the teacher's favourite pupil.",
+     "definitionFit": "A misstep is a wrong step or blunder, a mistaken action."
     },
     "features": {
      "answerInScene": true,
@@ -1402,42 +1397,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "originally",
-       "note": "only the first letter of novel is used"
+       "text": "accepted by",
+       "at": 26,
+       "note": "accepted by means the letter is taken inside the editors"
       }
      ],
      "parts": [
       {
        "words": "two press chiefs",
+       "at": 38,
        "gives": "EDED",
-       "note": "ED = editor, twice"
+       "note": "ED is an editor, chief of a newspaper; two of them give EDED"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "accepted by",
-         "note": "what is accepted is taken in"
+         "text": "originally",
+         "at": 15,
+         "note": "originally points to the first letter of novel"
         }
        ],
        "parts": [
         {
-         "words": "novel originally",
-         "note": "first letter of novel"
+         "words": "novel",
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A finished novel is approved by two newspaper bosses.",
-     "walkthrough": "N goes inside the first ED: E-N-D ED. 'Chiefs' suggests first letters, but a press chief is an editor, ED.",
-     "definitionFit": "Ended and finished both mean brought to a close."
+     "surface": "A finished novel was originally taken on by two newspaper editors.",
+     "definitionFit": "Something that has ended is over and complete, which is what finished means."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "chiefs"
+     "misdirectedWord": "novel"
     }
    }
   },
@@ -1525,31 +1522,35 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "STEROID",
      "indicators": [
       {
        "text": "wanting",
-       "note": "wanting means lacking, so the A is dropped"
+       "at": 14,
+       "note": "wanting means lacking, so the a is removed"
       }
      ],
      "parts": [
       {
-       "words": "Heavenly body wanting a",
-       "gives": "STEROID",
-       "note": "ASTEROID without its A"
+       "words": "Heavenly body",
+       "at": 0,
+       "gives": "ASTEROID",
+       "note": "an asteroid is a small heavenly body orbiting the sun"
+      },
+      {
+       "words": "a",
+       "at": 22,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A celestial object is missing a medicine for breathing trouble.",
-     "walkthrough": "The question mark flags that a steroid is one example of an asthma treatment, not a definition of it.",
-     "definitionFit": "A definition by example, flagged by the question mark: corticosteroid inhalers are a standard way to calm inflamed airways."
+     "surface": "A star or planet lacking something, asking about asthma remedies.",
+     "definitionFit": "Inhaled corticosteroid drugs are a standard medication used to control asthma; the question mark flags this example."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "wanting"
+     "aptDefinition": true,
+     "misdirectedWord": "Heavenly"
     }
    }
   },
