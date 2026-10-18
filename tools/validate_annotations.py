@@ -1405,6 +1405,39 @@ def check_indicators(tag, ann, clue, errors, warnings):
 SOUND_TYPES = ("homophone", "spoonerism")
 
 
+def _sound_over_step(tree):
+    """The op of a step (first, del, hid, ...) a sound() wraps, else None."""
+    nodes = [tree]
+    while nodes:
+        n = nodes.pop()
+        if isinstance(n, dict):
+            if n.get("op") == "homophone":
+                for p in n.get("parts") or []:
+                    if isinstance(p, dict) and p.get("op") not in (None, "homophone"):
+                        return p["op"]
+            nodes.extend(n.get("parts") or [])
+    return None
+
+
+def plain_spoonerism(ann):
+    """True when the only sound in the clue is spoon(a, b): the onsets swap in
+    the letters the two blocks give (CORE FAST -> FORE CAST), so no word is
+    heard that differs from a word spelt and there is nothing for `soundsLike`
+    to carry. Demanding one trapped runs into sound([x]W, W), which fails the
+    'nothing was heard' rule instead. spoon(a, b, SPELT) swaps by sound, and
+    still names the word heard."""
+    if "homophone" in types_of(ann):
+        return False
+    nodes, found = [ann.get("wordplay")], []
+    while nodes:
+        n = nodes.pop()
+        if isinstance(n, dict):
+            if n.get("op") == "spoonerism":
+                found.append(n)
+            nodes.extend(n.get("parts") or [])
+    return bool(found) and not any("spelt" in n for n in found)
+
+
 def check_sound_names_its_source(tag, ann, errors, warnings):
     """A homophone must name the word you say aloud, as a field, not as prose.
 
@@ -1420,7 +1453,7 @@ def check_sound_names_its_source(tag, ann, errors, warnings):
     whose type declares a sound, and it must differ from what the block gives —
     a `soundsLike` equal to the output is not a homophone, it is a spelling.
     """
-    is_sound = any(t in types_of(ann) for t in SOUND_TYPES)
+    is_sound = any(t in types_of(ann) for t in SOUND_TYPES) and not plain_spoonerism(ann)
     heard = [b for b in ann.get("blocks", []) if b.get("soundsLike")]
     for b in heard:
         if not b.get("gives"):
@@ -1451,6 +1484,12 @@ def check_sound_names_its_source(tag, ann, errors, warnings):
             here = (f"In this clue the block to fix is {frag!r} > {gives!r}: write it in "
                     f"`wp` as sound<indicator>([{frag}]HEARD, {gives}) with HEARD the "
                     f"word you say aloud for {frag!r}, not {gives!r} itself. ")
+        over = _sound_over_step(ann.get("wordplay"))
+        if over:
+            here = (f"Here sound() wraps a `{over}` step, and a sound takes ONE leaf: "
+                    f"write the letters that step gives as the leaf, "
+                    f"sound<indicator>([the clue words]LETTERS, SPELT), and say in the "
+                    f"leaf's note how the words give those letters. ") + here
         errors.append(
             f"{tag}: type {ann.get('type')!r} but no block says what is said aloud. "
             f"{here}"
@@ -4508,10 +4547,14 @@ def _validate_puzzle(puzzle, corpus=False, schema=True):
             # clue that states its theme (`themeClue`, filed by hand, when the
             # paper prints the gimmick in a clue: nation-3337's 30-across).
             if not frag and not (b.get("gives") and theme_source(puzzle)):
-                errors.append(f"{tag}: a block with no clueFragment is for letters the "
+                what = f" giving {b['gives']!r}" if b.get("gives") else ""
+                errors.append(f"{tag}: a block with no clueFragment{what} is for letters the "
                               f"preamble supplies, and needs `gives` and a puzzle with a "
                               f"preamble (or a filed themeClue); otherwise quote the "
-                              f"clue words it parses")
+                              f"clue words it parses: in `wp` write that piece as "
+                              f"[clue words]LETTERS rather than bare LETTERS. Letters "
+                              f"a del() took out and an ins() puts back are still the "
+                              f"letters of a clue word, so quote that word")
 
         # Letter mechanics.
         build = assembly(ann)

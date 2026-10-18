@@ -225,9 +225,10 @@ Four first runs in ten fail, most often on these rules. Get them right first tim
 - `features.misdirectedWord` is one word, copied exactly as printed in the clue.
 - A homophone or Spoonerism names the word said aloud on ONE leaf, or the first check
   fails ("no block says what is said aloud", the commonest first failure). `sound<ind>([clue
-  words]HEARD, SPELT)`: never `sound` over a charade (`[a]X + [b]Y`); merge it into one leaf
-  `[a b]XY`, or put the charade outside the `sound`. A Spoonerism is `spoon<ind>(sound([word]HEARD,
-  SPELT), b)`; `spoon(a, b)` and `spoon(a, b, SPELT)` alone name no sound and fail.
+  words]HEARD, SPELT)`: `sound` over a charade of side-by-side leaves (`[a]X + [b]Y`) is merged
+  into one leaf `[a b]XY` for you; over a step (`first`, `del`, `hid`) write the step's letters as
+  the leaf. A Spoonerism that swaps the written letters is plain `spoon(a, b)`; one that swaps by
+  sound is `spoon<ind>(sound([word]HEARD, SPELT), b)` and `spoon(a, b, SPELT)` alone fails.
 
 - To change many clues, Write `{"8-down": {"field": value}}` to a file and add
   `--patch <file>` to the check; a heredoc or fix script is refused. Each field is

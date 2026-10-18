@@ -678,6 +678,8 @@ def view(ann, entry, puzzle=None):
     # A tree that gives no block (a palindrome of the whole answer) leaves a
     # double definition its definitions' blocks.
     out["blocks"] = (_blocks(tree, got) or (dd_blocks if len(defs) > 1 else [])) if tree else dd_blocks
+    out["blocks"] = name_repeated_pieces(out["blocks"])
+    name_clue_words_in_indicator_notes(out)
     if tree and (asm := _assembly(tree, got)):
         out["assembly"] = asm
     if tree:
@@ -687,6 +689,48 @@ def view(ann, entry, puzzle=None):
         if key in ann:
             out[key] = ann[key]
     return out
+
+
+def name_repeated_pieces(blocks):
+    """A bare piece with no note whose letters an earlier block already gave
+    is that block's letters used again (ins(del([new]N, ...), N): the N taken
+    out goes back in). It is shown against the clue words that gave them the
+    first time, which the first check's 'a block with no clueFragment' would
+    otherwise refuse and send the run to write them out. A piece that has a
+    note of its own (a theme's letters, a connective) is left as filed."""
+    out, seen = [], {}
+    for b in blocks:
+        b = dict(b)
+        key = _letters(b.get("gives"))
+        if (not str(b.get("clueFragment") or "").strip() and key and not b.get("note")
+                and not b.get("select") and not b.get("soundsLike") and key in seen):
+            b["clueFragment"] = seen[key]
+            b["note"] = f"{b['gives']} again: the letters {seen[key]!r} gave, used a second time"
+        elif str(b.get("clueFragment") or "").strip() and key and key not in seen:
+            seen[key] = b["clueFragment"]
+        out.append(b)
+    return out
+
+
+def name_clue_words_in_indicator_notes(v):
+    """An indicator note may point at a block's clue words but never its
+    letters (the indicators rung comes first): "the other letters go around
+    the H" becomes "... around the “hospital”". Each capitalised word of a note
+    that spells a block's letters is swapped, in the view, for the clue words
+    that block parses, so the first check's 'gives away the letters' does not
+    send the run back to reword it. Letters of the answer have no block to
+    point at and are left for the check to name."""
+    import validate_annotations as V
+    for ind in v.get("indicators") or []:
+        note = ind.get("note")
+        if not note:
+            continue
+        for w in dict.fromkeys(V.letters_given_in(note, v)):
+            frag = next((b["clueFragment"] for b in v.get("blocks") or []
+                         if _letters(b.get("gives")).upper() == w and b.get("clueFragment")), None)
+            if frag:
+                note = re.sub(rf"\b{w}\b", lambda m: f"“{frag}”", note)
+        ind["note"] = note
 
 
 def view_puzzle(puzzle, problems=None):
@@ -835,6 +879,8 @@ def from_model(m, entry, puzzle=None):
         # A note that only says the table's abbreviation is derivable: dropped,
         # not refused, since view() shows the same gloss from the table.
         strip_abbreviation_notes(out["wordplay"])
+        drop_vacuous_sound(out["wordplay"])
+        merge_sounded_charade(out["wordplay"], clue)
     elif notes:
         raise wordplay.WordplayError(f"notes {sorted(notes)} name no definition, and there is no `wp`")
     elif len(defs) < 2 and not m.get("definedByPreamble"):
@@ -843,6 +889,60 @@ def from_model(m, entry, puzzle=None):
         if k in m:
             out[k] = m[k]
     return out
+
+
+def drop_vacuous_sound(tree):
+    """spoon(sound([head]HAIR, HAIR), b) swaps onsets in written letters, so
+    the sound() beside it hears nothing (HEARD equals SPELT): the run added it
+    to satisfy the sound check, which then failed it as 'nothing was heard'.
+    Replaced by its leaf, in place, when the spoon names no SPELT of its own
+    (spoon(a, b, SPELT) swaps by sound and needs the word heard)."""
+    if not isinstance(tree, dict):
+        return
+    parts = tree.get("parts") or []
+    for i, p in enumerate(parts):
+        if (tree.get("op") == "spoonerism" and "spelt" not in tree
+                and isinstance(p, dict) and p.get("op") == "homophone"
+                and len(p.get("parts") or []) == 1 and not p.get("indicators")):
+            leaf = p["parts"][0]
+            import wordplay
+            if "op" not in leaf and _letters(wordplay.leaf_letters(leaf)) == _letters(p.get("spelt")):
+                parts[i] = leaf
+                continue
+        drop_vacuous_sound(p)
+
+
+def merge_sounded_charade(tree, clue):
+    """sound(A + B, SPELT) over leaves that sit side by side in the clue is
+    one sound of the joined words: the single leaf [A B]ABGIVES the sound
+    rung wants (soundsLike is a block field, and a charade has no one block to
+    carry it). Merged in place, with a note joining the leaves' notes, so the
+    run is not sent back to write what it already wrote. A charade with an
+    indicator, a non-leaf part or words apart in the clue is left alone."""
+    import wordplay
+    if not isinstance(tree, dict):
+        return
+    parts = tree.get("parts") or []
+    if tree.get("op") == "homophone" and len(parts) == 1 and parts[0].get("op") == "charade":
+        leaves = parts[0].get("parts") or []
+        ok = (len(leaves) > 1 and not parts[0].get("indicators")
+              and all(isinstance(x, dict) and "op" not in x and x.get("words") and "at" in x
+                      and not x.get("unchecked") and not x.get("select") for x in leaves))
+        if ok:
+            ok = all(not clue[a["at"] + len(a["words"]):b["at"]].strip()
+                     and b["at"] >= a["at"] + len(a["words"])
+                     for a, b in zip(leaves, leaves[1:]))
+        if ok:
+            first, last = leaves[0], leaves[-1]
+            words = clue[first["at"]:last["at"] + len(last["words"])]
+            gives = "".join(wordplay.leaf_letters(x) for x in leaves)
+            notes = [x.get("note") or abbreviation_gloss(x) or article_gloss(x)
+                     or f"{x['words']} gives {wordplay.leaf_letters(x)}" for x in leaves]
+            parts[0] = {"words": words, "at": first["at"], "gives": gives,
+                        "note": "; ".join(n.rstrip(". ") for n in notes)}
+        return
+    for p in parts:
+        merge_sounded_charade(p, clue)
 
 
 def to_model(ann):
