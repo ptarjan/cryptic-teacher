@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -236,47 +237,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPIELS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 12,
+       "note": "in a down clue, one piece on another sits above it, so the jumble comes first"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "rocks",
-         "note": "A boat that rocks throws its cargo about, and letters beside it will not stay in the order they were handed over."
+         "at": 6,
+         "note": "to rock is to shake, so the letters are shaken into a new order"
         }
        ],
        "parts": [
         {
          "words": "Piles",
-         "gives": "SPIEL",
-         "note": "the five letters of 'piles' in a fresh order"
-        },
+         "at": 0,
+         "note": "the fodder, taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "on top of",
-           "note": "In a down entry whatever sits on top of a thing is written above it, and the top of a word is the letter it begins with."
-          }
-         ],
-         "parts": [
-          {
-           "words": "soil",
-           "note": "the first letter of 'soil'"
-          }
-         ]
+         "text": "top of",
+         "at": 15,
+         "note": "the top of a word in a down clue is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soil",
+         "at": 22,
+         "note": "first letter of soil"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Stones heaped over the earth to build up a couple of playing fields.",
-     "walkthrough": "'Pitches' sits where it reads as the cricket square being built out of rocks and soil, and the sense wanted is a salesman's practised patter.",
-     "definitionFit": "A spiel is the fast talk of somebody selling you something, which is what a pitch is in the sales sense — both plural here."
+     "surface": "Someone stacks stones on top of the earth to make pitches.",
+     "walkthrough": "'Rocks' looks like stones but is the anagram signal, turning PILES into SPIEL.",
+     "definitionFit": "Spiels are sales pitches, the rehearsed patter of a salesperson."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rocks"
     }
    }
   },
@@ -343,37 +357,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "JILTED",
-     "indicators": [
-      {
-       "text": "getting end away",
-       "note": "The end of a word is its last letter, and 'away' sends that letter off, so the name arrives one short."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "getting end away",
+         "at": 15,
+         "note": "the word loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "Jack's partner",
-         "gives": "JIL",
-         "note": "Jack and Jill went up the hill, and her name turns up here minus its last letter"
+         "at": 0,
+         "gives": "JILL",
+         "note": "Jill goes with Jack in the nursery rhyme"
         },
         {
-         "words": "Bill's partner",
-         "gives": "TED",
-         "note": "Bill and Ted, the pair of the Excellent Adventure films"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "Bill's partner",
+       "at": 37,
+       "gives": "TED",
+       "note": "Ted is Bill's partner in the film Bill & Ted's Excellent Adventure"
       }
      ]
     },
     "explanation": {
-     "surface": "Jack's girlfriend slipping off with Bill's mate.",
-     "walkthrough": "'Getting your end away' is British slang for a night that ends in bed, which is why the phrase reads as part of the affair rather than as an instruction to lose a letter.",
-     "definitionFit": "To be jilted is to be dropped by somebody who breaks off the romance, so 'dropped' is the everyday word for that same desertion."
+     "surface": "A love triangle: Jill runs off with Ted and Jack is left behind.",
+     "walkthrough": "'Getting end away' sounds like an affair, but it means JILL loses her final letter.",
+     "definitionFit": "To be jilted is to be dumped by a lover, abruptly cast aside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "end"
     }
    }
   },
@@ -758,41 +782,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNEARTHING",
-     "indicators": [
-      {
-       "text": "pants",
-       "note": "British slang for rubbish, and letters called rubbish are letters not standing in the order they ought to be."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "pants",
+         "at": 23,
+         "note": "pants as an adjective means rubbish or messed up, so the letters are jumbled"
+        }
+       ],
        "parts": [
         {
          "words": "a hunter's",
-         "gives": "UNEARTH",
-         "note": "the seven letters of 'a hunter' in a fresh order"
-        },
-        {
-         "words": "in",
-         "note": "the word is taken at face value, two letters straight off the page"
-        },
-        {
-         "words": "German",
-         "gives": "G",
-         "note": "g is the dictionary's short form for German"
+         "at": 12,
+         "gives": "AHUNTER",
+         "note": "the letters of a hunter, with the 's read as 'is' joining the fodder to its indicator"
         }
        ]
+      },
+      {
+       "words": "in",
+       "at": 30
+      },
+      {
+       "words": "German",
+       "at": 33,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A phrasebook rendering a complaint about a hunter's trousers into German.",
-     "walkthrough": "The quotation marks make the first half look like a phrase waiting to be translated, so 'in German' reads as the instruction when it is two more pieces of the build.",
-     "definitionFit": "To unearth a thing is to dig it up, and 'turning up' is what you say when the digging finally produces it."
+     "surface": "A quoted German phrase about a hunter's trousers.",
+     "walkthrough": "'Pants' looks like trousers but is British slang for rubbish, an anagram signal. 'In German' gives IN plus G.",
+     "definitionFit": "Unearthing something is discovering it, as when an object turns up after digging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pants"
     }
    }
   },
@@ -1044,37 +1074,48 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "Almost a whole word means all of it bar the end, so the last letter never arrives."
+       "text": "out",
+       "at": 44,
+       "note": "out as in wrong or disordered, so the letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "to",
+       "at": 29,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "out",
-         "note": "A shoulder that is out is out of its proper place, and the letters go the same way."
+         "text": "almost",
+         "at": 32,
+         "note": "almost means not quite all, so the last letter of ring is dropped"
         }
        ],
        "parts": [
         {
-         "words": "to",
-         "note": "the word itself, handing over two letters of the fodder"
+         "words": "ring",
+         "at": 39,
+         "note": "ring without its last letter"
         },
         {
-         "words": "almost ring",
-         "gives": "RIN",
-         "note": "'ring' with its last letter left off"
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A band striking up, the sound not quite filling the hall.",
-     "walkthrough": "'Out' sits at the end of the clue where it reads as part of 'ring out', and it is the shuffling instruction; the definition runs all the way to 'starting'.",
-     "definitionFit": "The intro is the opening passage a band plays before the song proper gets going, so the definition names it by when you hear it."
+     "surface": "A band has just started playing as the bell is about to ring out.",
+     "walkthrough": "'Almost' trims RING to RIN, and 'out' mixes those letters with TO.",
+     "definitionFit": "An intro is the opening passage of a song, what the band plays as it gets going."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ring"
     }
    }
   },
@@ -1151,42 +1192,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CABARET",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 5,
+       "note": "the nude piece goes inside the jumbled letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "The word puts one piece inside another rather than beside it."
-        },
-        {
          "text": "rude",
-         "note": "Rude also means rough and unfinished — a rude hut, a rude sketch — and letters left rough do not keep their order."
+         "at": 8,
+         "note": "rude in the sense of rough or unrefined, so the letters are left in disorder"
         }
        ],
        "parts": [
         {
          "words": "act",
-         "gives": "CAT",
-         "note": "the three letters of 'act' in another order, then opened up to take more"
-        },
-        {
-         "words": "Nude",
-         "gives": "BARE",
-         "note": "nude and bare are the same idea: nothing on"
+         "at": 13,
+         "note": "the fodder, taken as written"
         }
        ]
+      },
+      {
+       "words": "Nude",
+       "at": 0,
+       "gives": "BARE",
+       "note": "bare means nude"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A nude performer in a risqué stage act.",
-     "walkthrough": "Read straight, the four words describe the sort of show the answer names; read as instructions, the same four words build it — which is what the question mark is admitting.",
-     "definitionFit": "A cabaret is a floor show of songs and turns, often risqué, so the clue read straight through is a fair description of one."
+     "surface": "A naked performer in a lewd show.",
+     "walkthrough": "The whole clue is both the wordplay and a playful description of a risqué floor show.",
+     "definitionFit": "Cabaret is nightclub entertainment, historically sometimes featuring nude or risqué acts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rude"
     }
    }
   },
@@ -1207,46 +1257,53 @@
     "definitions": [
      {
       "text": "jokey remarks",
-      "at": 24,
-      "note": "Banter is a mass noun for the whole exchange, while 'jokey remarks' is plural and names the individual quips it is made of."
+      "at": 24
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BANTER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 10,
+       "note": "the jumbled letters go inside the pub"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "pub",
+       "at": 13,
+       "gives": "BAR",
+       "note": "a bar is a pub"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "cooks",
-         "note": "To cook the books is to rearrange the figures dishonestly, and the number beside the word gets the same treatment."
-        },
-        {
-         "text": "in",
-         "note": "The word places the shuffled letters inside the word that follows it."
+         "at": 4,
+         "note": "to cook is to doctor or falsify, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "pub",
-         "gives": "BAR",
-         "note": "the pub is the bar, and it is about to be split open"
-        },
-        {
          "words": "Ten",
-         "gives": "NTE",
-         "note": "the three letters of 'ten' in a fresh order"
+         "at": 0,
+         "note": "the fodder, taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ten chefs working a pub kitchen and trading jokes over the pans.",
-     "walkthrough": "'Ten cooks' reads as a kitchen full of staff, which hides both the number being three letters and 'cooks' being the instruction to shuffle them.",
-     "definitionFit": "Banter is the light back-and-forth teasing between friends, so it is a run of jokey remarks rather than any single one."
+     "surface": "Ten chefs in a pub swap jokes.",
+     "walkthrough": "'Cooks' looks like chefs, but it is the anagram signal working on TEN.",
+     "definitionFit": "Banter is playful teasing talk, good-natured jokey exchanges."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooks"
     }
    }
   },
@@ -1277,45 +1334,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TIMING",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 37,
+       "note": "in a down clue, one piece on another sits above it"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "Turning",
-         "note": "Turning a thing round leaves it facing the other way, so the letters are written in the opposite order."
+         "at": 23,
+         "note": "turning the word round means reading it in the opposite direction"
         },
         {
          "text": "up",
-         "note": "This is a down entry, so letters travelling up are read from the bottom of the grid towards the top."
-        },
-        {
-         "text": "on",
-         "note": "In a down entry whatever sits on something else is written above it."
+         "at": 34,
+         "note": "in a down clue, up means the word reads from bottom to top"
         }
        ],
        "parts": [
         {
          "words": "it",
-         "gives": "TI",
-         "note": "the two letters of 'it' climbing the grid, so they arrive the other way round"
-        },
-        {
-         "words": "Dynasty",
-         "gives": "MING",
-         "note": "the Ming were the Chinese dynasty of the blue-and-white porcelain"
+         "at": 31
         }
        ]
+      },
+      {
+       "words": "Dynasty",
+       "at": 40,
+       "gives": "MING",
+       "note": "the Ming dynasty ruled China from 1368 to 1644"
       }
      ]
     },
     "explanation": {
-     "surface": "Turning up the volume on an episode of Dynasty.",
-     "walkthrough": "The italics make 'Dynasty' the 1980s soap on the television, and the word wanted is the Chinese dynasty of the vases.",
-     "definitionFit": "Timing is what turns a line into a laugh — comedians say it is everything — so 'the making of a good joke' names it by its effect."
+     "surface": "A comedian dials up the jokes about a TV soap called Dynasty.",
+     "walkthrough": "'Turning it up' sounds like raising volume; it reverses IT. The question mark flags a definition by example: delivery is what makes a joke land.",
+     "definitionFit": "Comic timing, the pacing of a punchline, is often said to be what makes or breaks a joke."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Dynasty"
     }
    }
   },
@@ -1475,54 +1540,64 @@
      "op": "container",
      "indicators": [
       {
-       "text": "activity",
-       "note": "Letters in a state of activity are letters on the move, not sitting in the order they were handed over."
+       "text": "in",
+       "at": 44,
+       "note": "the middle piece goes inside the mall"
       }
      ],
      "parts": [
       {
        "words": "shopping centre",
+       "at": 47,
        "gives": "MALL",
-       "note": "the shopping centre is the mall, and it splits open to take the rest"
+       "note": "a mall is a shopping centre"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
          "text": "around",
-         "note": "What goes around a thing encloses it, so the shuffled letters close over the piece named next."
+         "at": 33,
+         "note": "the jumbled letters go around the next piece"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "in",
-           "note": "The word drops everything assembled so far inside the word that follows."
+           "text": "activity",
+           "at": 24,
+           "note": "letters put into activity are stirred about, so they are rearranged"
           }
          ],
          "parts": [
           {
            "words": "such",
-           "gives": "USCH",
-           "note": "the four letters of 'such' in another order"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "one is written I, the Roman numeral"
+           "at": 19,
+           "note": "the fodder, taken as written"
           }
          ]
+        },
+        {
+         "words": "one",
+         "at": 40,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The sort of goings-on that happen all around you in a shopping centre.",
-     "walkthrough": "'Such' points back at nothing in particular, which is what makes it so hard to see as four loose letters rather than as a word describing the activity.",
-     "definitionFit": "A music hall was the Victorian variety theatre of songs, comic turns and singalongs, so 'Entertainment' names it by what was sold there."
+     "surface": "Busy goings-on at a shopping centre are a kind of entertainment.",
+     "walkthrough": "'Such activity' reads as a description of bustle, but 'activity' is the anagram signal; the shopping centre is the outermost layer.",
+     "definitionFit": "Music hall was Victorian variety theatre, a popular form of British entertainment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "activity"
     }
    }
   },
@@ -1692,26 +1767,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CLOWN",
      "indicators": [
       {
        "text": "changes sides",
-       "note": "In crosswords right is R and left is L, so changing sides swaps the one letter for the other."
+       "at": 10,
+       "note": "right swaps to left, so the letter for right is replaced by the letter for left"
       }
      ],
      "parts": [
       {
        "words": "Sovereign",
+       "at": 0,
        "gives": "CROWN",
-       "note": "the sovereign is the crown, the monarchy spoken of as an institution"
+       "note": "the crown stands for the sovereign, the monarch"
+      },
+      {
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A monarch switching political allegiance and being called a fool for it.",
-     "walkthrough": "The dash sets 'fool!' up as the insult somebody shouts at a turncoat, which is what stops it reading as the definition it actually is.",
-     "definitionFit": "A clown is the circus fool in the white face and big shoes, and 'fool' is what anyone behaving like one gets called."
+     "surface": "A monarch switches allegiance, and the clue calls them a fool.",
+     "walkthrough": "'Changes sides' sounds political; it swaps R (right) for L (left).",
+     "definitionFit": "A clown is a buffoon, someone who plays the fool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
     }
    }
   }
