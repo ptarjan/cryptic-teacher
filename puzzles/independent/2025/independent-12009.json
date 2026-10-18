@@ -375,29 +375,39 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "MEACULPA",
-     "indicators": [
-      {
-       "text": "entering",
-       "note": "entering means these letters go inside the following word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "words": "maiden",
+       "at": 14,
+       "gives": "M",
+       "note": "M is the cricket abbreviation for a maiden over"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "complex",
-         "note": "complex means intricate and tangled, so the letters are mixed up"
+         "text": "entering",
+         "at": 31,
+         "note": "entering means going inside, so the letter for you is placed within the rearranged palace"
         }
        ],
        "parts": [
         {
-         "words": "maiden",
-         "gives": "M",
-         "note": "M is the cricket scorebook abbreviation for a maiden over"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "complex",
+           "at": 47,
+           "note": "complex here means intricate or tangled, so the letters of palace are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "palace",
+           "at": 40
+          }
+         ]
         },
         {
          "op": "homophone",
@@ -405,32 +415,31 @@
          "indicators": [
           {
            "text": "heard",
-           "note": "heard means the word is taken by its sound, as a single letter that sounds the same"
+           "at": 21,
+           "note": "heard signals that the word you is replaced by the letter that sounds the same when spoken"
           }
          ],
          "parts": [
           {
            "words": "you",
+           "at": 27,
            "gives": "YOU",
-           "note": "the letter sounds like this pronoun"
+           "note": "the word you is pronounced exactly like the letter U"
           }
          ]
-        },
-        {
-         "words": "palace",
-         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A confession of blame after a maiden was overheard inside a palace complex.",
-     "definitionFit": "Mea culpa is Latin for 'through my fault', an admission of one's own error."
+     "surface": "A confession that a young woman overheard you going into a palace complex.",
+     "walkthrough": "'heard' applies only to 'you'; the definition is the whole opening phrase, Latin for 'through my fault'.",
+     "definitionFit": "Mea culpa is the Latin phrase, from the Confiteor prayer, used as an admission of personal guilt."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "complex"
     }
    }
@@ -1563,59 +1572,61 @@
      "indicators": [
       {
        "text": "tucking into",
-       "note": "tucking into food means eating it, taking it inside"
+       "at": 27,
+       "note": "tucking into means getting inside, so the large English blokes go within the alternate letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 50,
+         "note": "regularly means taking every other letter, here the second, fourth, sixth and eighth of meatballs"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "alternate",
-           "indicators": [
-            {
-             "text": "regularly",
-             "note": "regularly means at even intervals, so every second letter is kept"
-            }
-           ],
-           "parts": [
-            {
-             "words": "meatballs",
-             "note": "second, fourth, sixth and eighth letters"
-            }
-           ]
-          },
-          {
-           "words": "blokes",
-           "gives": "MEN",
-           "note": "blokes is British slang for men"
-          }
-         ]
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
+         "words": "meatballs",
+         "at": 40
         }
        ]
       },
       {
-       "words": "large",
-       "gives": "L",
-       "note": "L is the abbreviation for large"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large",
+         "at": 6,
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
+        },
+        {
+         "words": "English",
+         "at": 12,
+         "gives": "E"
+        },
+        {
+         "words": "blokes",
+         "at": 20,
+         "gives": "MEN",
+         "note": "blokes are men"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Big English lads tuck into a plate of meatballs.",
-     "definitionFit": "Elemental means fundamental or essential, relating to first principles, so basic."
+     "surface": "A plain scene of big English men eating meatballs.",
+     "walkthrough": "'Tucking into' wants to mean eating, but it is the insertion signal.",
+     "definitionFit": "Elemental describes something fundamental or primary, the same sense as basic."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tucking"
     }
    }
   },

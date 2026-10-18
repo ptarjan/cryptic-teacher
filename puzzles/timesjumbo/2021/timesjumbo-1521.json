@@ -473,55 +473,61 @@
      "indicators": [
       {
        "text": "hugging",
-       "note": "a hug wraps arms around someone, so one word closes around the pair"
+       "at": 29,
+       "note": "hugging means holding close, so the shortened word wraps the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 14,
+         "note": "leaving means going away, so the hotel letter drops out of the word"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "leaving",
-           "note": "whatever is leaving goes away, so that letter drops out of the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Church member",
-           "gives": "CATHOLIC",
-           "note": "a member of the Roman Catholic church"
-          },
-          {
-           "words": "hotel",
-           "gives": "H",
-           "note": "H is hotel in the NATO alphabet; this is the letter taken away"
-          }
-         ]
+         "words": "Church member",
+         "at": 0,
+         "gives": "CATHOLIC",
+         "note": "a Catholic is a member of the Catholic Church"
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "words": "hotel",
+         "at": 22,
+         "gives": "H",
+         "note": "H is hotel in the NATO phonetic alphabet"
         }
        ]
       },
       {
-       "words": "bishop",
-       "gives": "B",
-       "note": "B is the chess notation for bishop"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 37,
+         "gives": "A"
+        },
+        {
+         "words": "bishop",
+         "at": 39,
+         "gives": "B",
+         "note": "B is the chess abbreviation for bishop"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A churchgoer checks out of a hotel, embraces a bishop, and collapses in tears.",
-     "walkthrough": "'breaking down' sounds like weeping, but it is the scientific sense of decomposing.",
-     "definitionFit": "Catabolic describes the metabolic process in which complex molecules are broken into simpler ones, releasing energy."
+     "surface": "A churchgoer storms out of a hotel embracing a bishop, and breaks down.",
+     "walkthrough": "Removing H leaves CATOLIC; AB goes in after CAT.",
+     "definitionFit": "Catabolic describes the metabolic process in which complex molecules are broken down into simpler ones."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "breaking"
     }
    }
@@ -2059,39 +2065,43 @@
      "indicators": [
       {
        "text": "to grab",
-       "note": "to grab something is to clutch it, so one word closes around the others"
+       "at": 8,
+       "note": "to grab means to seize hold of, so the attempt holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Attempt",
-         "gives": "TRY",
-         "note": "a try is an attempt"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Attempt",
+       "at": 0,
+       "gives": "TRY",
+       "note": "an attempt is a try"
       },
       {
-       "words": "bit of underwear",
-       "gives": "VEST",
-       "note": "in Britain a vest is a sleeveless undershirt"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 16,
+         "gives": "A"
+        },
+        {
+         "words": "bit of underwear",
+         "at": 18,
+         "gives": "VEST",
+         "note": "a vest is an undershirt, an item of underwear in British English"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A performer tries to snatch a piece of lingerie during a cabaret striptease.",
-     "walkthrough": "'burlesque' suggests the striptease show, but here it means a mocking imitation. A British vest is an undershirt.",
-     "definitionFit": "A travesty is a grotesque parody or mockery, which is the literary sense of burlesque."
+     "surface": "A performer in a burlesque show tries to snatch an item of underwear.",
+     "walkthrough": "In British English a vest is worn under a shirt; AVEST goes between TR and Y.",
+     "definitionFit": "A travesty is a grotesque imitation, and a burlesque is a mocking parody of the same kind."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "burlesque"
     }
    }
