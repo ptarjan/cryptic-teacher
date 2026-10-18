@@ -816,47 +816,71 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "THEJUMBLIES",
-     "indicators": [
-      {
-       "text": "not the 2nd Thursday but the 1st of January",
-       "note": "'not X but Y' swaps one piece for another, here the second abbreviation for Thursday for the opening letter of January"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "21",
-       "gives": "THETHUMB",
-       "note": "21 across is UNDER THE THUMB; its 'under' is obeyed, so 'sits' goes below THE THUMB in this down entry"
-      },
-      {
-       "words": "Thursday",
-       "gives": "TH",
-       "note": "TH is the calendar abbreviation for Thursday; the second one in THE THUMB is dropped"
-      },
-      {
-       "words": "January",
-       "gives": "J",
-       "note": "the first letter of January, the '1st' the clue names"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 19,
+         "note": "says the Thursday letters are not wanted in the cross-referenced phrase"
+        },
+        {
+         "text": "but",
+         "at": 40,
+         "note": "introduces what goes in their place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "21",
+         "at": 15,
+         "gives": "THETHUMB",
+         "note": "21-across is UNDER THE THUMB: its 'under' tells us the other piece sits beneath, and THE THUMB supplies the letters"
+        },
+        {
+         "words": "the 2nd Thursday",
+         "at": 23,
+         "gives": "TH",
+         "note": "TH is the calendar abbreviation for Thursday, and it is the second TH in the phrase that goes"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "the 1st of",
+           "at": 44,
+           "note": "only the first letter of the following word is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "January",
+           "at": 55,
+           "note": "the month, supplying just its initial"
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "sits",
+       "at": 10,
        "gives": "LIES",
-       "note": "a thing that lies somewhere sits there"
+       "note": "to sit is to lie, as an object lies on a shelf"
       }
      ]
     },
     "explanation": {
-     "surface": "A calendar puzzle about a work by Lear, with dates swapped from a Thursday to New Year's Day.",
-     "walkthrough": "'The 2nd Thursday' and 'the 1st of January' look like dates, but they are letter instructions. In a down entry, 'sits 21' means 'sits under the thumb', so the cross-reference supplies both the letters and their position.",
-     "definitionFit": "Edward Lear wrote The Jumblies, the nonsense poem about folk who went to sea in a sieve."
+     "surface": "A literary note about one of Edward Lear's poems and the dates on which it was written.",
+     "walkthrough": "Read the cross-reference in full as 'sits under the thumb': the 'under' is a placing instruction, so in this down answer the sitting word goes beneath the altered phrase, which 'not' and 'but' change to THEJUMB.",
+     "definitionFit": "The Jumblies is Edward Lear's nonsense poem about the creatures who went to sea in a sieve."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Thursday"
+     "misdirectedWord": "sits"
     }
    }
   },
@@ -1372,32 +1396,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HELLO",
-     "indicators": [
-      {
-       "text": "plucking wings of",
-       "note": "plucking a bird's wings pulls off its sides, so the word for 'chicken' loses its outer letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "husband",
-       "gives": "H",
-       "note": "H is the abbreviation for husband"
+       "at": 9,
+       "gives": "H"
       },
       {
-       "words": "chicken",
-       "gives": "YELLOW",
-       "note": "chicken and yellow both mean cowardly"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "plucking wings of",
+         "at": 17,
+         "note": "the outer letters on each side of the word are pulled off, like a bird's wings"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chicken",
+         "at": 35,
+         "gives": "YELLOW",
+         "note": "chicken and yellow both mean cowardly"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A husband greets someone while plucking a chicken for dinner.",
-     "walkthrough": "'Chicken' looks like the bird being plucked, but means cowardly, which is YELLOW; losing its Y and W leaves ELLO.",
-     "definitionFit": "Hello is the everyday word spoken when meeting someone or answering a phone."
+     "surface": "A husband greets someone while preparing a chicken for the oven.",
+     "walkthrough": "'chicken' looks like the bird, but it is the adjective for cowardly, YELLOW; 'plucking wings of' strips its first and last letters to leave ELLO.",
+     "definitionFit": "Hello is the everyday word said when meeting or welcoming someone, a salutation."
     },
     "features": {
      "answerInScene": false,
@@ -1532,28 +1561,26 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "KIN",
      "indicators": [
       {
        "text": "Contents of",
-       "note": "the contents of a word are what is inside it, without the outer letters"
+       "at": 0,
+       "note": "the inside of the word, without its first and last letters"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "penniless",
-       "gives": "KIN",
-       "select": "middle",
-       "note": "penniless = skint, British slang for broke; its inside letters are kept"
+       "at": 12,
+       "gives": "SKINT",
+       "note": "skint is British slang for having no money"
       }
      ]
     },
     "explanation": {
-     "surface": "What's inside the penniless household.",
-     "walkthrough": "Skint is informal British for having no money. The false path is to look for a hidden word in 'penniless' itself.",
-     "definitionFit": "Kin are relatives, the people related to you by blood."
+     "surface": "Relatives are discovered to have nothing in their pockets.",
+     "walkthrough": "'Contents of penniless' looks like a hidden word in 'penniless', but nothing fits there; it is the inside of SKINT, British slang for broke.",
+     "definitionFit": "Kin are a person's relatives, the people related by blood within a family."
     },
     "features": {
      "answerInScene": true,

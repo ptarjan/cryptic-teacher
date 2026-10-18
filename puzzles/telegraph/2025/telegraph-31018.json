@@ -603,49 +603,47 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "returns",
+       "at": 17,
+       "note": "comes back, so the letters found are read in the opposite direction"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "hidden",
        "indicators": [
         {
-         "text": "returns",
-         "note": "something that returns goes back the way it came, so read the letters backwards"
+         "text": "in",
+         "at": 25,
+         "note": "the answer lies inside the run of letters of the following words"
+        },
+        {
+         "text": "taking off 50 per cent",
+         "at": 48,
+         "note": "half of the fourteen letters are removed, from the two ends, leaving the middle seven"
         }
        ],
        "parts": [
         {
-         "op": "hidden",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "in tells us the letters sit inside the words that follow, spanning them"
-          }
-         ],
-         "parts": [
-          {
-           "words": "after e.g. Nevada's",
-           "gives": "REGNEVA",
-           "note": "a run of letters from the end of the first word through the start of the last"
-          }
-         ]
+         "words": "after e.g. Nevada's",
+         "at": 28,
+         "gives": "REGNEVA",
+         "note": "the words whose letters, run together, hold the answer backwards"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "taking off 50 per cent",
-       "note": "surface padding, giving the run a plausible story"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone seeking revenge comes back after Nevada cuts something by half.",
-     "walkthrough": "The abbreviation and the state name look like pieces to manipulate, but the answer simply lies backwards across them.",
-     "definitionFit": "To avenge a wrong is to get even for it, so one who gets even is an avenger."
+     "surface": "Someone describes a traveller coming back after a trip to a US state and leaving half behind.",
+     "walkthrough": "Reading 'after e.g. Nevada's' backwards gives SADAVENGEERETFA; 'taking off 50 per cent' trims seven letters from the outside, three at one end and four at the other.",
+     "definitionFit": "An avenger takes revenge for a wrong, which is what getting even with someone means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Nevada's"
     }
@@ -1299,39 +1297,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXCON",
-     "indicators": [
-      {
-       "text": "exempted from",
-       "note": "exempted from means let off, so letters are excused and removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "text",
-       "note": "taken as written"
-      },
-      {
-       "words": "Times",
-       "gives": "TT",
-       "note": "T is time, so two of them"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "exempted from",
+         "at": 6,
+         "note": "the two time letters are excused from the word, so they are taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "text",
+         "at": 20,
+         "note": "taken as written, before letters are removed"
+        },
+        {
+         "words": "Times",
+         "at": 0,
+         "gives": "TT",
+         "note": "T is the physics symbol for time, so 'times' here is two of them"
+        }
+       ]
       },
       {
        "words": "hoax",
+       "at": 25,
        "gives": "CON",
        "note": "a con is a trick or hoax"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper drops a hoax message about a released criminal.",
-     "walkthrough": "'Times' suggests the newspaper or multiplication, but means two T's for time; take them from TEXT to leave EX.",
-     "definitionFit": "An ex-con is a former prisoner, a criminal who has served time and been let out."
+     "surface": "A message is sent saying a scam has freed a criminal, with the time stamps removed.",
+     "walkthrough": "'Times' looks like a newspaper but is the plural of T, the symbol for time; 'exempted from' takes both Ts out of TEXT.",
+     "definitionFit": "An ex-con is a former convict, a criminal who has served time and been let out of prison."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Times"
     }

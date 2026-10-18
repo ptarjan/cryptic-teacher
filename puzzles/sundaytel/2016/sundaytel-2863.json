@@ -151,31 +151,34 @@
      "indicators": [
       {
        "text": "following",
-       "note": "following puts the phrase before it after the next word, so the order is swapped"
+       "at": 12,
+       "note": "the 'that is' abbreviation comes after the writer, so it is placed second"
       }
      ],
      "parts": [
       {
-       "words": "writer",
+       "words": "writer from same place",
+       "at": 22,
        "gives": "SCOTT",
-       "note": "Sir Walter Scott, the Scottish novelist"
+       "note": "Sir Walter Scott, the novelist, came from Scotland, the same country as the dog"
       },
       {
        "words": "that is",
+       "at": 4,
        "gives": "IE",
-       "note": "i.e., Latin id est"
+       "note": "IE is the abbreviation of id est, Latin for 'that is'"
       }
      ]
     },
     "explanation": {
-     "surface": "A dog that trails a writer who comes from the same town.",
-     "walkthrough": "'From same place' is a nod: the terrier and Walter Scott both come from Scotland.",
-     "definitionFit": "A Scottie is a Scottish terrier, a small wiry-coated dog breed."
+     "surface": "A dog trots along behind an author who comes from its own home country.",
+     "walkthrough": "'following' puts IE after the writer. Both the terrier and Sir Walter Scott hail from Scotland, which is what 'from same place' points at.",
+     "definitionFit": "A Scottie is the familiar short name for a Scottish terrier, a small wiry-haired breed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "place"
+     "misdirectedWord": "writer"
     }
    }
   },
@@ -638,48 +641,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARMYANT",
+     "op": "container",
      "indicators": [
       {
-       "text": "one's lost",
-       "note": "the word one goes missing from the preceding word"
+       "text": "about",
+       "at": 39,
+       "note": "the tirade wraps around what is left of the money"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 30,
+         "gives": "A"
+        },
+        {
+         "words": "tirade",
+         "at": 32,
+         "gives": "RANT",
+         "note": "a rant is a long angry speech, a tirade"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means going round, so the outer words wrap the inner piece"
+         "text": "'s lost",
+         "at": 54,
+         "note": "the word 'one' is lost from inside the money word"
         }
        ],
        "parts": [
         {
-         "words": "a tirade",
-         "gives": "ARANT",
-         "note": "a tirade is a rant"
+         "words": "money",
+         "at": 45,
+         "note": "taken as written, before part of it is removed"
         },
         {
-         "words": "money",
-         "gives": "MY",
-         "note": "money with the letters O, N, E taken out"
+         "words": "one",
+         "at": 51,
+         "note": "taken as written: these three letters are the ones removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A furious verbal attack: a long rant about money that someone has lost.",
-     "walkthrough": "The stinging attack looks verbal but the definition is literal: an insect that stings.",
-     "definitionFit": "Army ants are tropical ants that swarm and raid in huge columns, stinging their prey."
+     "surface": "Someone hurls an angry outburst at a person who has lost money.",
+     "walkthrough": "The surface pictures an angry speech, but 'stinging attack' belongs to the definition: an insect, not a critic. The ''s' of 'one's' reads as 'is', so 'one is lost' from the money word.",
+     "definitionFit": "Army ants are tropical ants that raid in huge columns and bite and sting their prey, attacking en masse."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "stinging"
+     "misdirectedWord": "attack"
     }
    }
   },

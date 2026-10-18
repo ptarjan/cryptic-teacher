@@ -307,41 +307,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 16,
+       "note": "the condition word goes inside the string of initials"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "SPLFS",
        "indicators": [
         {
          "text": "at first",
-         "note": "take the first letter of each word it governs"
+         "at": 52,
+         "note": "only the opening letter of each of these five words is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "some prosthetic limbs feel stiff at first",
-         "gives": "SPLFS",
-         "select": "first",
-         "note": "S, P, L, F, S: the first letters of the five words"
+         "words": "some prosthetic limbs feel stiff",
+         "at": 19,
+         "note": "the five words that supply their initial letters"
         }
        ]
       },
       {
        "words": "provided",
+       "at": 7,
        "gives": "IF",
-       "note": "if = provided (that)"
+       "note": "if means provided, as in 'provided that'"
       }
      ]
     },
     "explanation": {
-     "surface": "An amputee's complaint that artificial limbs start out stiff at the joints.",
-     "walkthrough": "'Joints' seems to be about knees and elbows in this surface; it is slang for cannabis cigarettes. IF slips in after the third initial.",
-     "definitionFit": "Spliffs are cannabis cigarettes, commonly called joints."
+     "surface": "A note that artificial legs can seem rigid when first fitted.",
+     "walkthrough": "'Joints' looks anatomical in this limb setting, but it is slang for cannabis cigarettes, and 'some' is not a hidden-word signal here but one of the five words whose initials are used.",
+     "definitionFit": "Spliffs are hand-rolled cannabis cigarettes, which are also called joints in slang."
     },
     "features": {
      "answerInScene": false,
@@ -631,30 +631,35 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "LIE",
      "indicators": [
       {
        "text": "mostly",
-       "note": "most of the word: drop its last letter"
+       "at": 6,
+       "note": "most of the word is kept, its final letter dropped"
       }
      ],
      "parts": [
       {
        "words": "Song",
-       "gives": "LIE",
-       "note": "a German art song, as by Schubert, minus its last letter"
+       "at": 0,
+       "gives": "LIED",
+       "note": "a lied is a German art song, as by Schubert"
+      },
+      {
+       "gives": "D",
+       "note": "the last letter of the song word, which is lost"
       }
      ]
     },
     "explanation": {
-     "surface": "A remark that most of a song's story is made up.",
-     "walkthrough": "The song is a LIED (plural lieder), the German art song; 'mostly' docks its D.",
-     "definitionFit": "A plain synonym: an untruth is a piece of fiction."
+     "surface": "A song that is largely made up.",
+     "walkthrough": "A lied (plural lieder) is a German song for voice and piano; 'mostly' drops its last letter.",
+     "definitionFit": "A lie is an untruth, something invented rather than fact, much like a piece of fiction."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Song"
     }
    }
   },
@@ -1113,46 +1118,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "brought about"
+       "text": "brought about",
+       "at": 18,
+       "note": "the rupture word is brought round, enclosing the two initials"
       }
      ],
      "parts": [
       {
        "words": "rupture",
+       "at": 10,
        "gives": "HERNIA",
-       "note": "a hernia is a rupture"
+       "note": "a hernia is a rupture, where an organ pushes through the wall around it"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "IB",
        "indicators": [
         {
          "text": "originally",
-         "note": "the original, first letters of 'in Belfast'"
+         "at": 43,
+         "note": "only the first letter of each of the two words is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "in Belfast originally",
-         "gives": "IB",
-         "select": "first",
-         "note": "the first letters of In and Belfast"
+         "words": "in Belfast",
+         "at": 32,
+         "note": "the two words that supply their first letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A news line about a political rift in Ireland that began in Belfast.",
-     "walkthrough": "'Rupture' suggests a political split; it is a medical one. 'In' is part of the letter selection, not a container word.",
-     "definitionFit": "The Latin name the Romans used for Ireland, still seen in poetry and on old maps."
+     "surface": "A medical story about an injury suffered in the capital of Northern Ireland.",
+     "walkthrough": "'originally' gives IB from 'in Belfast', and 'brought about' has HERNIA go round it. The 's on Ireland stands for 'is'.",
+     "definitionFit": "Hibernia is the Latin name the Romans gave the island of Ireland, still used poetically."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rupture"
+     "misdirectedWord": "brought"
     }
    }
   },
@@ -1243,40 +1248,43 @@
      "parts": [
       {
        "words": "Understanding",
+       "at": 0,
        "gives": "GRASP",
-       "note": "a grasp of something is an understanding of it"
+       "note": "a grasp of a subject is an understanding of it"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "THE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "60 per cent of",
-         "note": "three of the five letters of THESE, the first three"
+         "at": 14,
+         "note": "three of the five letters are kept, the last two dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "60 per cent of these",
-         "gives": "THE",
-         "select": "first",
-         "note": "the first 3 of the 5 letters of THESE"
+         "words": "these",
+         "at": 29,
+         "note": "taken as written, before it is cut down"
+        },
+        {
+         "gives": "SE",
+         "note": "the last two of the five letters, which are dropped"
         }
        ]
       },
       {
        "words": "irritate",
+       "at": 35,
        "gives": "NETTLE",
-       "note": "to nettle is to irritate"
+       "note": "to nettle someone is to irritate them"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who gets why most of these people are annoyed, and acts.",
-     "walkthrough": "A percentage in a clue asks for that share of a word's letters. To grasp the nettle is a British idiom: a nettle stings less if seized firmly.",
-     "definitionFit": "To grasp the nettle is to tackle a difficulty boldly, acting decisively."
+     "surface": "Someone has a partial understanding of what annoys them and decides to act.",
+     "walkthrough": "'60 per cent of' keeps the first three of the five letters of 'these', giving THE.",
+     "definitionFit": "To grasp the nettle is an idiom for tackling a difficult problem boldly and without hesitation."
     },
     "features": {
      "answerInScene": false,
