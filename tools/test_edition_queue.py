@@ -260,8 +260,8 @@ check("eq.by_urgency: CT_NEWEST_FIRST puts those papers' likely filers first, an
       ["gale-old-gain", "gale-hand", "other", "gale-new", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units)])
 rr = lambda rel, date, reason, **k: (2, 0, 0, {"rel": rel, "date": date, "paper": "times", "rank": 2, "reason": reason, **k})
-check("eq.by_urgency: CT_NEWEST_FIRST, rank 2 rereads after a refusal or short read ahead of ones whose page holds the puzzle",
-      ["refused", "never", "short", "changed-new", "changed-old"],
+check("eq.by_urgency: CT_NEWEST_FIRST, never read first, then rereads after a refusal or short read, then ones whose page holds the puzzle",
+      ["never", "refused", "short", "changed-new", "changed-old"],
       [u["rel"] for u in eq.by_urgency([
           rr("changed-new", "2020", "inputs changed"),
           rr("short", "2010", "short Times page, its third clue column read since"),

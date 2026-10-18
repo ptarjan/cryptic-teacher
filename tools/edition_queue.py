@@ -842,13 +842,17 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
 
 def files_likely_tier(rank, unit):
     """A newest-first paper's unit's tier: 0 for one likely to file new
-    (rank 0 or 1, fa.likely_gain > 0, a refusal a fix landed for), 1 for a
-    reread in FIX_LANDED, 2 for any other."""
+    (rank 0 or 1, fa.likely_gain > 0), 1 for a reread a fix landed for (a
+    refusal's or one in FIX_LANDED), 2 for any other. A refusal's reread is
+    not tier 0: "a fix landed" only means code touching its cause changed,
+    and on 10-18 the 1,126 Gale no-reading-parses rereads (mostly the
+    2005-06 layout) held 3,300 never-read FT pages behind them."""
     reason = unit.get("reason") or ""
-    if (rank <= 1 or fa.likely_gain(unit) > 0
-            or (reason.startswith("refused ") and reason.endswith(" before its fix"))):
+    if rank <= 1 or fa.likely_gain(unit) > 0:
         return 0
-    return 1 if reason in FIX_LANDED else 2
+    if reason in FIX_LANDED or (reason.startswith("refused ") and reason.endswith(" before its fix")):
+        return 1
+    return 2
 
 
 def newest_first_papers():
