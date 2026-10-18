@@ -275,42 +275,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ESTATE",
-     "indicators": [
-      {
-       "text": "Each leader leaving",
-       "note": "every word loses its leader, meaning its first letter departs"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leader leaving",
+         "at": 5,
+         "note": "a word's leader is its first letter, and leaving means it goes, so the word loses its opening letter"
+        }
+       ],
        "parts": [
         {
          "words": "best",
-         "gives": "EST",
-         "note": "the word without its first letter"
+         "at": 20
         },
         {
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Each",
+         "at": 0,
+         "note": "each extends the same instruction to the second word, so it too loses its leader"
+        }
+       ],
+       "parts": [
+        {
          "words": "mate",
-         "gives": "ATE",
-         "note": "the word without its first letter"
+         "at": 25
+        },
+        {
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Every party leader departs, leaving their closest friend sitting in the car.",
-     "walkthrough": "'Each' looks like a word to use, but it tells you to behead both following words. An estate car is the British name for a station wagon.",
-     "definitionFit": "In Britain an estate is a long-bodied car with a rear door and loading space, an example of a vehicle type."
+     "surface": "Every leading figure departs, the best friend taking the car.",
+     "walkthrough": "'Each leader leaving' applies to both words: best loses B and mate loses M, leaving EST + ATE. 'in' is a link to the definition.",
+     "definitionFit": "An estate is a British term for a station wagon, a car with an extended rear load space."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Each"
+     "misdirectedWord": "leader"
     }
    }
   },
