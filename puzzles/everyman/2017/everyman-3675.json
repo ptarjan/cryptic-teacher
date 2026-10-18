@@ -941,43 +941,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ALLEVIATE",
      "indicators": [
       {
        "text": "filled with",
-       "note": "being filled with something means holding it inside, so the shortened word sits in the middle"
+       "at": 21,
+       "note": "filled with means the first pair of words wraps around the shortened word for bad"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Completely",
+         "at": 0,
+         "gives": "ALL",
+         "note": "all means completely, as in all alone"
+        },
+        {
+         "words": "consumed",
+         "at": 11,
+         "gives": "ATE",
+         "note": "ate means consumed"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "endless",
-         "note": "endless means without an end, so the last letter of the word for bad goes"
+         "at": 33,
+         "note": "endless means the word for bad loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Completely",
-           "gives": "ALL",
-           "note": "all means completely, as in all alone"
-          },
-          {
-           "words": "bad",
-           "gives": "EVIL",
-           "note": "evil means wicked or bad"
-          },
-          {
-           "words": "consumed",
-           "gives": "ATE",
-           "note": "consumed food means ate it"
-          }
-         ]
+         "words": "bad",
+         "at": 41,
+         "gives": "EVIL",
+         "note": "evil means bad"
         },
         {
          "gives": "L"
@@ -987,13 +990,13 @@
      ]
     },
     "explanation": {
-     "surface": "Someone is utterly eaten up with a nasty mood.",
-     "walkthrough": "'Bad temper' reads as one phrase, but 'bad' belongs to the wordplay and 'temper' alone is the definition, used as a verb.",
-     "definitionFit": "To temper something is to moderate or soften it, which is what alleviating pain or hardship does."
+     "surface": "Someone eats everything while full of a foul mood.",
+     "walkthrough": "'bad temper' reads as one phrase, but 'bad' is wordplay and 'temper' alone is the definition, used as a verb meaning to soften.",
+     "definitionFit": "To temper something is to moderate or lessen it, which is what alleviating pain or distress does."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "temper"
     }
    }

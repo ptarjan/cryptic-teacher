@@ -744,52 +744,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IRUETHEDAY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "halves of",
-       "note": "taking only half of each word means the other half is thrown away"
+       "text": "Put together",
+       "at": 0,
+       "note": "put together means the two kept halves are joined and then followed by the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "halves of",
+         "at": 13,
+         "note": "halves of means only the back half of each of the two words is kept"
+        }
+       ],
        "parts": [
         {
-         "words": "fair",
-         "gives": "IR",
-         "note": "the second half of the word"
+         "words": "fair clue",
+         "at": 23,
+         "note": "taken as written, losing the front half of each word"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "awfully",
-           "note": "done awfully means badly done, so the letters come out in a muddle"
-          }
-         ],
-         "parts": [
-          {
-           "words": "clue",
-           "gives": "UE",
-           "note": "the second half of the word"
-          },
-          {
-           "words": "yet had",
-           "note": "taken as written"
-          }
-         ]
+         "gives": "FACL"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awfully",
+         "at": 42,
+         "note": "awfully means done badly, so the letters of yet had are mangled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yet had",
+         "at": 34,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A setter combines bits of a decent clue and regrets the clumsy result.",
-     "walkthrough": "Both halves taken are the back halves, IR from fair and UE from clue; the front halves are discarded.",
-     "definitionFit": "Saying you rue the day is an idiom of remorse, wishing something had never happened."
+     "surface": "A setter regrets awkwardly combining bits of a fair clue.",
+     "walkthrough": "In this crossword-themed puzzle the surface sounds like a solver's complaint; the front halves FA and CL are dropped, keeping IR and UE.",
+     "definitionFit": "Saying 'I rue the day' is an idiom voicing regret about something that happened."
     },
     "features": {
      "answerInScene": true,
@@ -1098,40 +1104,39 @@
      "parts": [
       {
        "words": "modern car",
+       "at": 8,
        "gives": "EV",
-       "note": "EV is an electric vehicle"
+       "note": "EV, an electric vehicle, is the modern car"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "OLVE",
        "indicators": [
         {
          "text": "interior from",
-         "note": "the interior of a word is everything except its outer letters"
+         "at": 24,
+         "note": "interior from means only the inside letters of the word are kept, its ends dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "one who works on things like this",
-         "gives": "OLVE",
-         "select": "middle",
-         "note": "someone who works on crosswords is a solver; its inside letters are kept"
+         "at": 38,
+         "gives": "SOLVER",
+         "note": "a solver is someone who works on crosswords, things like this puzzle"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzler helps design a modern car from the inside out.",
-     "walkthrough": "'Things like this' means crossword clues, so the person who works on them is a SOLVER, whose interior is OLVE.",
-     "definitionFit": "To evolve is to grow or change gradually into a more advanced form, which is what developing means."
+     "surface": "An electric car gets its insides from a crossword fan.",
+     "walkthrough": "'things like this' points at the puzzle itself: the person who works on crosswords is a SOLVER, whose interior is OLVE.",
+     "definitionFit": "To evolve is to develop gradually over time."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "car"
+     "misdirectedWord": "interior"
     }
    }
   },

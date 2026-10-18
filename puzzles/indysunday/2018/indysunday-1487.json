@@ -46,51 +46,39 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "County",
+       "at": 0,
        "gives": "CHES",
-       "indicators": [
-        {
-         "text": "side",
-         "note": "one side of a word is one of its halves, so only half of the county's name is kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "County",
-         "gives": "CHES",
-         "select": "first",
-         "note": "the front half of Cheshire, an English county"
-        }
-       ]
+       "note": "Ches is the standard abbreviation for Cheshire, an English county"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "opening",
-         "note": "an opening is where something begins, so only the first letter of that word is kept"
+         "at": 14,
+         "note": "opening points to the first letter of side's"
         }
        ],
        "parts": [
         {
          "words": "side's",
-         "note": "first letter of side's"
+         "at": 7,
+         "note": "the first letter of side's"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A county sports team's first match of the season.",
-     "walkthrough": "'County side' looks like a cricket team; read it as one side (half) of CHESHIRE, an English county in the north-west.",
-     "definitionFit": "Chess is a board game played between two players with kings, queens and pawns."
+     "surface": "A county team's first match.",
+     "walkthrough": "Cheshire is a county in north-west England, shortened to CHES; 'opening' looks like a chess opening but just takes the first letter of 'side's'.",
+     "definitionFit": "Chess is a board game for two players with kings, queens and pawns."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "side's"
+     "misdirectedWord": "opening"
     }
    }
   },
@@ -1174,84 +1162,90 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SERAPHIM",
+     "op": "charade",
      "indicators": [
       {
-       "text": "admitted by",
-       "note": "admitted means let in, so the charge goes inside the other letters"
+       "text": "pursuing",
+       "at": 19,
+       "note": "pursuing means the film letters come after the rest, chasing it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "pursuing",
-         "note": "pursuing means chasing behind, so this part comes at the end"
+         "text": "admitted by",
+         "at": 35,
+         "note": "admitted by means the charge is let inside the letters that follow"
         }
        ],
        "parts": [
         {
-         "words": "London area",
-         "gives": "SE",
-         "note": "SE is the south-east postcode district of London"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "London area",
+           "at": 47,
+           "gives": "SE",
+           "note": "SE is the postcode district for south-east London"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "leader of",
+             "at": 59,
+             "note": "leader of takes the first letter of the next word"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Hell's",
+             "at": 69,
+             "note": "the first letter of Hell's"
+            }
+           ]
+          }
+         ]
         },
         {
          "words": "charge",
+         "at": 28,
          "gives": "RAP",
-         "note": "a rap is a criminal charge"
-        },
+         "note": "a rap is a criminal charge, as in a murder rap"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader of",
-           "note": "the leader of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Hell's",
-           "note": "first letter of Hell's"
-          }
-         ]
-        },
+         "text": "oddly ignored",
+         "at": 5,
+         "note": "oddly ignored means the letters in odd positions are skipped and the rest kept"
+        }
+       ],
+       "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "IM",
-         "indicators": [
-          {
-           "text": "oddly ignored",
-           "note": "ignoring the odd letters keeps just the even-numbered ones"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Film",
-           "gives": "IM",
-           "select": "alternate",
-           "note": "the second and fourth letters of film"
-          }
-         ]
+         "words": "Film",
+         "at": 0,
+         "note": "with its odd letters dropped, Film leaves its second and fourth letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A film about a London chapter of the Hell's Angels biker gang facing charges.",
-     "walkthrough": "Hell's Angels reads as the biker gang, but Hell's only gives its first letter and Angels is the definition.",
-     "definitionFit": "Seraphim are the highest order of angels, the plural of seraph."
+     "surface": "A biker film is skipped while its leader faces a charge in London.",
+     "walkthrough": "'Hell's Angels' looks like the biker gang, but 'Angels' alone is the definition.",
+     "definitionFit": "Seraphim are the highest order of angels in Christian tradition."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Angels"
+     "misdirectedWord": "Hell's"
     }
    }
   },

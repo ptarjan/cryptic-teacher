@@ -94,53 +94,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PERU",
-     "indicators": [
-      {
-       "text": "turned up",
-       "note": "in a down clue, turned up means the word is read from bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 20,
+         "note": "in a down clue, turned up means the word is read from the bottom upwards"
+        }
+       ],
        "parts": [
         {
          "words": "salesperson",
-         "gives": "PER",
-         "note": "a rep, short for representative, is a salesperson"
-        },
+         "at": 8,
+         "gives": "REP",
+         "note": "a rep, short for representative, is a travelling salesperson"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "U",
+       "indicators": [
         {
-         "op": "homophone",
-         "spelt": "U",
-         "indicators": [
-          {
-           "text": "you heard",
-           "note": "heard means we want a letter that sounds like the word you"
-          }
-         ],
-         "parts": [
-          {
-           "words": "you",
-           "gives": "YOU",
-           "note": "the letter U is pronounced like you"
-          }
-         ]
+         "text": "heard",
+         "at": 35,
+         "note": "heard means the letter is chosen for how the word sounds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you",
+         "at": 31,
+         "gives": "YOU",
+         "note": "the word you, said aloud, is the letter U"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sales rep turns up in some country, so you're told.",
-     "definitionFit": "This South American nation, home to Lima and Machu Picchu, is a country in the Andes."
+     "surface": "A sales rep arrives in some country, as you've been told.",
+     "walkthrough": "'turned up' suggests arriving, but in a down clue it reverses REP into PER; 'heard' turns 'you' into its sound-alike letter U.",
+     "definitionFit": "Peru is a South American nation, so it is an example of a country."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "up"
+     "misdirectedWord": "turned"
     }
    }
   },
