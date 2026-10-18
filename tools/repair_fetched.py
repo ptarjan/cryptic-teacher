@@ -51,6 +51,13 @@ or, where several hold the letters it counts, the one the clue list puts next
 after the clue. A tie that survives both is left alone: a guess would be stored
 as fact.
 
+Link words filed as wordplay leaves. A letterless unchecked leaf in a charade
+whose note says surface padding or joining words is a link word, and linkWords
+is derived from the clue words nothing covers, so the repair is to take the leaf
+out (--padding-only does just this). Left alone: other jobs in the note,
+pronouns, placeholders, long phrases, and clues where padding is most of the
+words; the tree must give the same answer after.
+
 WHAT IT ONLY REPORTS
 
 A mis-filed date. convert() refuses a page whose two stated dates are more
@@ -86,7 +93,9 @@ corpus, and rebuilding it here would race any fetch that is running.
 """
 import argparse
 import bisect
+import collections
 import copy
+import re
 import json
 import sys
 from datetime import timedelta
@@ -212,12 +221,114 @@ def in_range(number, args):
             and (args.end is None or number <= args.end))
 
 
-def repair(path, puzzle, apply_it):
+# Link words misfiled as letterless wordplay leaves. linkWords is derived (the
+# clue words no span covers), so the repair is to take the leaf out of the tree.
+PAD_NOTE = re.compile(r"^(?:the extra word, )?(?:surface padding|joins the|a joining word|joining word)",
+                      re.I)
+# A note that gives the leaf another job: a letter it supplies, a preamble
+# rule, a cross-reference, an Azed meaning, a reference back.
+PAD_BAD = re.compile(r"letter|preamble|theme|cross-ref|meaning|definition|indicator|superfluous"
+                     r"|spare|refer|stands for|hidden|split|halves|removed", re.I)
+LINK_WORDS = {"and", "with", "a", "an", "the", "on", "in", "to", "at", "of", "for", "by", "from",
+              "is", "be", "as", "so", "or", "but", "then", "while", "when", "that", "which"}
+PRONOUNS = {"it", "this", "he", "she", "they", "them", "her", "him", "his", "its", "their", "these",
+            "those", "there's", "'ll"}
+SKIPPED = collections.Counter()  # why a candidate was left alone, for the report
+
+
+def _padding_kind(leaf):
+    """None when the leaf is not a candidate; 'ok' when it is a link word;
+    otherwise the reason it is skipped."""
+    if "op" in leaf or not leaf.get("unchecked") or not leaf.get("words") or leaf.get("gives"):
+        return None
+    words, note = leaf["words"].strip().lower(), leaf.get("note") or ""
+    padded = bool(PAD_NOTE.match(note))
+    if not padded and not (note == "" and words in LINK_WORDS):
+        return "other note or word, not clearly padding"
+    if PAD_BAD.search(note):
+        return "note gives it another job"
+    if words in PRONOUNS:
+        return "pronoun, may refer back"
+    if len(words.split()) > 4:
+        return "long phrase, may be wordplay"
+    if re.search(r"\d|\bacross\b|\bdown\b", words):
+        return "placeholder or cross-reference"
+    return "ok"
+
+
+def unpad_charades(entry, puzzle):
+    """Take padding leaves out of the charades of one entry's wordplay. Returns
+    the words removed. Only a leaf the tree can lose without changing the
+    answer: the tree is evaluated before and after, and the change is dropped
+    if it differs."""
+    ann = entry.get("annotation") or {}
+    tree = ann.get("wordplay")
+    if not isinstance(tree, dict):
+        return []
+    work = copy.deepcopy(tree)
+    removed = []
+
+    def go(node):
+        dropped = False
+        if node.get("op") == "charade":
+            keep = []
+            for p in node.get("parts") or []:
+                kind = _padding_kind(p) if isinstance(p, dict) else None
+                if kind == "ok":
+                    removed.append(p["words"])
+                    dropped = True
+                elif kind:
+                    SKIPPED[kind] += 1
+                    keep.append(p)
+                else:
+                    keep.append(p)
+            node["parts"] = keep
+        for i, p in enumerate(node.get("parts") or []):
+            if isinstance(p, dict):
+                node["parts"][i] = go(p)
+        # A charade of one piece with nothing else of its own is that piece.
+        if dropped and len(node.get("parts") or []) == 1 \
+                and set(node) <= {"op", "parts"}:
+            return node["parts"][0]
+        return node
+
+    work = go(work)
+    if not removed:
+        return []
+    # Padding that is most of the clue is a themed or odd clue, not link words.
+    clue_words = len((entry.get("clue") or {}).get("text", "").split())
+    if len(removed) > 2 or sum(len(w.split()) for w in removed) * 2 > clue_words:
+        SKIPPED["padding is most of the clue"] += len(removed)
+        return []
+    import annotation
+    try:
+        was = annotation.view(copy.deepcopy(ann), entry, puzzle)["answer"]
+        now_ann = dict(ann, wordplay=work)
+        now = annotation.view(now_ann, entry, puzzle)["answer"]
+    except Exception:
+        SKIPPED["tree no longer evaluates"] += len(removed)
+        return []
+    if was != now:
+        SKIPPED["tree no longer evaluates"] += len(removed)
+        return []
+    ann["wordplay"] = work
+    return removed
+
+
+def repair(path, puzzle, apply_it, padding_only=False):
     """Repair one file. Returns the one-line report, or None if it was clean."""
     before = json.dumps(puzzle, sort_keys=True, ensure_ascii=False)
     fixed = copy.deepcopy(puzzle)
 
     notes = []
+    if padding_only:
+        unpadded = [(entry_id(e), w) for e in fixed["entries"] for w in unpad_charades(e, fixed)]
+        if not unpadded:
+            return None
+        if apply_it:
+            fetcher.write_puzzle_file(path, fixed)
+        return f"{path.stem}: link words taken out of the wordplay: " \
+               + ", ".join(f"{eid} {w!r}" for eid, w in unpadded)
     letters = normalise_solutions(fixed)
     if letters:
         notes.append(f"{len(letters)} solution(s) normalised: "
@@ -241,6 +352,11 @@ def repair(path, puzzle, apply_it):
                      + ", ".join(" + ".join(g) for g in rebuilt))
     groups.collapse(fixed["entries"], kept)
 
+    unpadded = [(entry_id(e), w) for e in fixed["entries"] for w in unpad_charades(e, fixed)]
+    if unpadded:
+        notes.append("link words filed as wordplay leaves taken out: "
+                     + ", ".join(f"{eid} {w!r}" for eid, w in unpadded))
+
     if json.dumps(fixed, sort_keys=True, ensure_ascii=False) == before:
         return None
     if apply_it:
@@ -256,6 +372,8 @@ def main(argv):
                     help="write the repairs; without it nothing is written")
     ap.add_argument("--dry-run", action="store_true",
                     help="report only, which is what happens anyway")
+    ap.add_argument("--padding-only", action="store_true",
+                    help="only take link words out of the wordplay; no other repair")
     ap.add_argument("--series", help="one series key: cryptic, quiptic, everyman…")
     ap.add_argument("--from", dest="start", type=int,
                     help="lowest puzzle number to consider")
@@ -285,7 +403,7 @@ def main(argv):
             continue
         examined += 1
         wanted.add(path.stem)
-        line = repair(path, puzzle, args.apply)
+        line = repair(path, puzzle, args.apply, args.padding_only)
         if line:
             repaired += 1
             print(line)
@@ -308,6 +426,8 @@ def main(argv):
             print(f"{pid}: dated {day(stored)}, but its neighbours put it "
                   f"{window} — mis-filed, re-fetch it")
 
+    for why, count in sorted(SKIPPED.items()):
+        print(f"padding-like leaf left alone ({why}): {count}")
     verb = "repaired" if args.apply else "would repair"
     print(f"{examined} file(s) examined, {verb} {repaired}, "
           f"{misfiled} mis-filed date(s) to re-fetch by hand")
