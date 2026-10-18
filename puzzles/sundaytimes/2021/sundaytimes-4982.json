@@ -757,47 +757,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "WINCHESTERRIFLE",
-     "indicators": [
-      {
-       "text": "is",
-       "note": "saying one thing now is another means that letter is swapped for the other one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "hauls",
+       "at": 7,
        "gives": "WINCHES",
-       "note": "to winch is to haul up with a winding machine"
+       "note": "winches as a verb means hauls up with a winding drum"
       },
       {
-       "words": "shocking",
-       "gives": "TERRIBLE",
-       "note": "shocking in the sense of appallingly bad"
-      },
-      {
-       "words": "bishop",
-       "gives": "B",
-       "note": "B is the chess abbreviation for bishop"
-      },
-      {
-       "words": "fine",
-       "gives": "F",
-       "note": "F is the pencil-grade abbreviation for fine"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "but bishop is fine",
+         "at": 23,
+         "note": "bishop is the chess abbreviation B and fine is the pencil-grade F, so the B in the word gives way to an F"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shocking",
+         "at": 13,
+         "gives": "TERRIBLE",
+         "note": "shocking means terrible"
+        },
+        {
+         "gives": "B"
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scandal about an arms haul, though the bishop involved is unharmed.",
-     "walkthrough": "In TERRIBLE the B is replaced by F.",
-     "definitionFit": "The Winchester rifle is a famous American lever-action repeating firearm of the nineteenth century."
+     "surface": "A gun that drags along something dreadful, though the clergyman says it is all right.",
+     "walkthrough": "'but bishop is fine' swaps the B of TERRIBLE for F, giving TERRIFLE; the surface's reassuring bishop is just a letter exchange.",
+     "definitionFit": "The Winchester rifle is a famous American lever-action repeating firearm, a classic example of a gun."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "bishop"
+     "misdirectedWord": "fine"
     }
    }
   },
