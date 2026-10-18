@@ -167,29 +167,44 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "RITEOFPASSAGE",
      "indicators": [
       {
        "text": "Strangely",
-       "note": "the letters behave strangely, turning up in a new order"
+       "at": 0,
+       "note": "strangely says the letters that follow behave oddly, ending up in a new order"
       }
      ],
      "parts": [
       {
-       "words": "goes ape — a first",
-       "note": "all thirteen letters of GOES APE A FIRST, rearranged"
+       "words": "goes",
+       "at": 10,
+       "note": "taken as written"
+      },
+      {
+       "words": "ape",
+       "at": 15,
+       "note": "taken as written"
+      },
+      {
+       "words": "a",
+       "at": 21
+      },
+      {
+       "words": "first",
+       "at": 23,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone goes wild for the first time at a big moment in their life.",
-     "walkthrough": "The dash invites you to read 'goes ape' as the whole story; it is simply the start of the thirteen letters to rearrange.",
-     "definitionFit": "A rite of passage is a ceremony or milestone marking a move to a new stage of life, such as coming of age."
+     "surface": "Someone goes wild like an ape for the first time, a milestone moment.",
+     "walkthrough": "'Goes ape' looks like the idiom for losing one's temper, but the four words GOES, APE, A and FIRST are the anagram fodder, thirteen letters in all.",
+     "definitionFit": "A rite of passage is a ceremony or experience marking a major transition in a person's life, like coming of age."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "ape"
     }
    }
@@ -485,43 +500,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CATERER",
+     "op": "container",
      "indicators": [
       {
-       "text": "new",
-       "note": "a new version of the word has its letters in a fresh order"
+       "text": "enthralling",
+       "at": 34,
+       "note": "enthralling means holding captive, so the rearranged letters hold the time letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "enthralling",
-         "note": "to enthral is to hold captive, so the rearranged letters hold the next piece"
+         "text": "new",
+         "at": 22,
+         "note": "new says the career letters take a fresh arrangement"
         }
        ],
        "parts": [
         {
-         "words": "new career",
-         "gives": "CAERER",
-         "note": "the letters of career rearranged"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "standard abbreviation, held after the second letter"
+         "words": "career",
+         "at": 26,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "time",
+       "at": 46,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone starting a new career in food finds it takes up all their time.",
-     "walkthrough": "The brackets make 'enthralling time' look like an aside about the job, but they hold the container step: T goes inside the shuffled CAREER.",
-     "definitionFit": "A definition by description: a caterer's business is supplying food and drink for functions."
+     "surface": "A cook begins a new line of work, and finds the time spent gripping.",
+     "walkthrough": "'New' rearranges CAREER, and 'enthralling' has those letters hold T; the brackets make 'enthralling time' look like a description of the job.",
+     "definitionFit": "A caterer supplies meals and refreshments for events or institutions, so a professional supplier of food."
     },
     "features": {
      "answerInScene": true,
@@ -552,30 +567,35 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "RACONTEUR",
      "indicators": [
       {
        "text": "out of order",
-       "note": "the letters are out of their proper order and must be rearranged"
+       "at": 32,
+       "note": "out of order means the letters of near and court are not in their proper sequence"
       }
      ],
      "parts": [
       {
-       "words": "near court",
-       "note": "the nine letters of NEAR COURT rearranged"
+       "words": "near",
+       "at": 18,
+       "note": "taken as written"
+      },
+      {
+       "words": "court",
+       "at": 23,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A telltale hanging round a courtroom is behaving improperly.",
-     "walkthrough": "'Telling tales' suggests a sneak, but here it just means a storyteller.",
-     "definitionFit": "A definition by description: a raconteur is someone admired for telling anecdotes well."
+     "surface": "A gossip by the courtroom is ruled out of order by the judge.",
+     "walkthrough": "'Out of order' suggests a courtroom ruling, but it tells you to rearrange the letters of NEAR and COURT together.",
+     "definitionFit": "A raconteur is a skilled storyteller who entertains with anecdotes, someone known for spinning yarns."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "court"
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
     }
    }
   },
@@ -1170,43 +1190,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "omitted from",
+       "at": 11,
+       "note": "omitted from means the letter I is left out of the rant word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "omitted from",
-         "note": "the letter is left out of the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "rant",
-         "gives": "TIRADE",
-         "note": "a tirade is a rant"
-        },
-        {
-         "gives": "I"
-        }
-       ]
+       "words": "rant",
+       "at": 24,
+       "gives": "TIRADE",
+       "note": "a tirade is a long angry speech, a rant"
       },
       {
-       "unchecked": true,
-       "words": "I omitted from",
-       "note": "the I is taken out of TIRADE"
+       "words": "I",
+       "at": 9,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A businessperson's speech has had the self-centred 'I' cut out of it.",
-     "walkthrough": "The clue reads backwards to its instruction: find the word for rant first, then remove the I.",
-     "definitionFit": "A plain synonym: trade and business both mean buying and selling commercially."
+     "surface": "A company's angry outburst is cut from the record.",
+     "walkthrough": "'Omitted from' takes the I out of TIRADE, the long angry speech that 'rant' stands for.",
+     "definitionFit": "Trade means commerce or a line of commercial activity, so it is synonymous with business."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Business"
+     "misdirectedWord": "rant"
     }
    }
   },

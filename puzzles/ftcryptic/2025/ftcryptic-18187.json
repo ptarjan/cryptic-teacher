@@ -155,59 +155,75 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "THEDEFENCERESTS",
-     "indicators": [
-      {
-       "text": "arrested",
-       "note": "someone arrested is held, so this word is held within the others"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "THEDEFENCERESTS",
+       "words": "temperature",
+       "at": 37,
+       "gives": "T"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "raising",
-         "note": "in a down entry raising a letter moves it higher, so it changes position earlier in the word"
+         "text": "arrested",
+         "at": 10,
+         "note": "arrested means held, so the sportsman is caught inside the other letters"
         }
        ],
        "parts": [
         {
-         "words": "he",
-         "note": "taken as written"
-        },
-        {
-         "words": "hates",
-         "gives": "DETESTS",
-         "note": "to detest is to hate"
-        },
-        {
-         "words": "temperature",
-         "gives": "T",
-         "note": "T is the abbreviation for temperature"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "he",
+           "at": 20,
+           "gives": "HE",
+           "note": "taken as written"
+          },
+          {
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "raising",
+             "at": 29,
+             "note": "raising means the temperature letter is lifted out of the hates word and moved up to the top of this down answer"
+            }
+           ],
+           "parts": [
+            {
+             "words": "hates",
+             "at": 23,
+             "gives": "DETESTS",
+             "note": "detests means hates"
+            },
+            {
+             "gives": "T",
+             "note": "the first T of the hates word, the one that moves up"
+            }
+           ]
+          }
+         ]
         },
         {
          "words": "Sportsman",
+         "at": 0,
          "gives": "FENCER",
-         "note": "a fencer is a sportsman who duels with swords"
+         "note": "a fencer is a sportsman who duels with foils or sabres"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A detained athlete gets heated, hating the court case that ends in his acquittal.",
-     "walkthrough": "In a down entry raising a letter moves it upwards, so the T jumps to the top of the hating phrase before the sportsman is held inside.",
-     "definitionFit": "Defence counsel say this formula in court to signal they have finished presenting their side."
+     "surface": "An athlete is under arrest and furious, while the courtroom heat rises at the close of a defence case.",
+     "walkthrough": "'Raising' lifts the T of 'temperature' out of the hates word, leaving DEESTS, and sets it at the very top of this down entry; 'arrested' then holds the sportsman inside the rest.",
+     "definitionFit": "Barristers say this stock courtroom phrase when they finish presenting evidence on their client's behalf, hoping for a not-guilty verdict."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Sportsman"
+     "aptDefinition": true,
+     "misdirectedWord": "arrested"
     }
    }
   },
@@ -238,32 +254,66 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ROASTBEEF",
-     "indicators": [
-      {
-       "text": "swaps tips",
-       "note": "two words exchanging their tips trade their leading letters with each other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Claim",
-       "gives": "BOAST",
-       "note": "to boast is to claim proudly"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "swaps",
+         "at": 11,
+         "note": "swaps says the two words exchange letters, here the claim word taking the bank word's first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Claim",
+         "at": 0,
+         "gives": "BOAST",
+         "note": "to boast is to claim proudly"
+        },
+        {
+         "gives": "B",
+         "note": "the first letter, or tip, of the claim word, which goes to the bank word"
+        },
+        {
+         "gives": "R",
+         "note": "the first letter, or tip, of the bank word, which goes to the claim word"
+        }
+       ]
       },
       {
-       "words": "bank",
-       "gives": "REEF",
-       "note": "a reef is a bank of rock or sand in the sea"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "tips about",
+         "at": 17,
+         "note": "tips about says the exchanged letters are the tips, the first letter of each word, turned about between them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bank",
+         "at": 6,
+         "gives": "REEF",
+         "note": "a reef is a bank of rock or sand in the sea"
+        },
+        {
+         "gives": "R",
+         "note": "the bank word's own first letter, given away"
+        },
+        {
+         "gives": "B",
+         "note": "the claim word's first letter, received in exchange"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bank's claims department trades advice about a Sunday newspaper special.",
-     "walkthrough": "The tips here are the first letters, which trade places between the two words. Roast beef is the classic British Sunday lunch.",
-     "definitionFit": "The traditional British Sunday lunch centres on a joint of roasted meat from cattle."
+     "surface": "A bank boasts about switching around its Sunday special offer.",
+     "walkthrough": "'Swaps tips about' makes BOAST and REEF trade first letters, giving ROAST and BEEF. 'Bank' looks financial, but it is a sandbank.",
+     "definitionFit": "The roast beef dinner is the traditional British Sunday lunch, the special meal of the week."
     },
     "features": {
      "answerInScene": false,
@@ -354,36 +404,47 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "KITCHENGARDEN",
      "indicators": [
       {
        "text": "for core of",
-       "note": "'for' means in place of, so new letters replace the central one of the word"
+       "at": 20,
+       "note": "for core of means the new letters take the place of the middle of the family word"
       }
      ],
      "parts": [
       {
        "words": "family",
+       "at": 32,
        "gives": "KIN",
-       "note": "kin are family"
+       "note": "kin means family"
       },
       {
-       "words": "Long",
-       "gives": "ITCH",
-       "note": "to long for is to itch for"
+       "gives": "I",
+       "note": "the core, or central letter, of the family word"
       },
       {
-       "words": "ready to fight",
-       "gives": "ENGARDE",
-       "note": "en garde is the fencing call to take guard, ready to fight"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Long",
+         "at": 0,
+         "gives": "ITCH",
+         "note": "to itch is to long for something"
+        },
+        {
+         "words": "ready to fight",
+         "at": 5,
+         "gives": "ENGARDE",
+         "note": "en garde is the fencer's call to take guard, ready to fight"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An ambitious relative is spoiling for a fight over the family business's growth area.",
-     "walkthrough": "The middle I of KIN is replaced by ITCH plus EN GARDE. 'Growth area' sounds like business jargon but means where vegetables grow.",
-     "definitionFit": "A plot where household vegetables and herbs are cultivated is literally a place for plants to grow."
+     "surface": "A yearning to fight for the heart of one's family.",
+     "walkthrough": "ITCH and EN GARDE replace the I at the centre of KIN, so the answer is K + ITCH EN GARDE + N.",
+     "definitionFit": "A kitchen garden is a plot where vegetables and herbs are grown for the household, so an area for growing."
     },
     "features": {
      "answerInScene": false,
@@ -684,58 +745,65 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RIPSNORTINGLY",
-     "indicators": [
-      {
-       "text": "Apoplectic",
-       "note": "someone apoplectic is beside themselves with rage, so the word is thrown into disorder"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "RIPSNORTINGLY",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "leaves",
-         "note": "leaves means departs, so the letters of the following word go out of the one before"
+         "text": "Apoplectic",
+         "at": 0,
+         "note": "apoplectic means wild with rage, so the letters of prison are thrown into disorder"
         }
        ],
        "parts": [
         {
          "words": "prison",
-         "note": "taken as written"
-        },
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaves",
+         "at": 26,
+         "note": "leaves means the employment word departs from the officer word"
+        }
+       ],
+       "parts": [
         {
          "words": "officer",
+         "at": 18,
+         "gives": "OFFICER",
          "note": "taken as written"
         },
         {
          "words": "employment",
+         "at": 33,
          "gives": "OFFICE",
-         "note": "an office is a post or employment"
-        },
-        {
-         "words": "prickling",
-         "gives": "TINGLY",
-         "note": "tingly means prickling"
+         "note": "an office is a post or position of employment"
         }
        ]
+      },
+      {
+       "words": "prickling",
+       "at": 44,
+       "gives": "TINGLY",
+       "note": "tingly means prickling, with a stinging sensation"
       }
      ]
     },
     "explanation": {
-     "surface": "An enraged prison officer quits his job, prickling with fury.",
-     "walkthrough": "Taking OFFICE out of OFFICER leaves just R.",
-     "definitionFit": "Rip-snorting means wildly boisterous or furious, so doing something this way is with violent energy."
+     "surface": "A furious prison warder quits the job, tingling with rage.",
+     "walkthrough": "'Prison officer' reads as one figure, but 'Apoplectic' jumbles PRISON into RIPSNO and OFFICER loses OFFICE to leave R; the answer is an adverb, matching 'with fury'.",
+     "definitionFit": "Ripsnortingly means in a boisterous, violently energetic manner, which matches acting in a rage."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leaves"
+     "misdirectedWord": "officer"
     }
    }
   },
@@ -813,48 +881,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HOODLUM",
+     "op": "composite",
      "indicators": [
       {
        "text": "grating",
-       "note": "grating suggests scraping and shredding, so the remaining letters are broken up and rearranged"
+       "at": 7,
+       "note": "grating suggests something harsh and jarring, so the letters are scraped into a new order"
+      },
+      {
+       "text": "shown the way out",
+       "at": 33,
+       "note": "shown the way out means the letters of duet are removed from the fodder"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HOODLUM",
-       "indicators": [
-        {
-         "text": "shown the way out",
-         "note": "someone shown the way out is ejected, so those letters leave the fodder"
-        }
-       ],
-       "parts": [
-        {
-         "words": "loud-mouthed",
-         "note": "taken as written"
-        },
-        {
-         "words": "duet",
-         "note": "taken as written; its four letters are removed"
-        }
-       ]
+       "words": "loud-mouthed",
+       "at": 15,
+       "note": "taken as written"
+      },
+      {
+       "words": "duet",
+       "at": 28,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A noisy pair of singers is thrown out of the venue for their grating voices.",
-     "walkthrough": "Removing D, U, E and T from the loud word leaves LOMOUHD, which is rearranged. 'Rowdy' looks like an adjective but is the noun, a rowdy person.",
-     "definitionFit": "A rowdy as a noun is a rough troublemaker, which a hoodlum, a young thug, also is."
+     "surface": "A pair of raucous, tuneless singers gets ejected from the venue.",
+     "walkthrough": "'Shown the way out' takes D, U, E and T out of LOUDMOUTHED, and 'grating' rearranges the L, O, M, O, H, D left. 'Rowdy' is a noun here.",
+     "definitionFit": "A rowdy as a noun is a rough, noisy troublemaker, much like a thug or street tough."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Rowdy"
+     "misdirectedWord": "duet"
     }
    }
   },
@@ -1446,25 +1507,33 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MEW",
      "indicators": [
       {
        "text": "divided",
-       "note": "dividing the capitalised group splits off its first two letters as a name, which is then swapped for the pronoun it stands for"
+       "at": 8,
+       "note": "divided means the abbreviation is split into its setter part and a final letter"
       }
      ],
      "parts": [
       {
        "words": "IOW",
-       "note": "taken as written, then split into IO and W; Io is the setter, who would call themselves me"
+       "at": 16,
+       "note": "taken as written; IO, the first two letters, is the setter of this puzzle"
+      },
+      {
+       "gives": "IO",
+       "note": "Io is the setter's pseudonym, so from the setter's mouth it becomes me"
+      },
+      {
+       "gives": "ME",
+       "note": "what the setter calls themself"
       }
      ]
     },
     "explanation": {
-     "surface": "Jeering at someone over a split of the Isle of Wight.",
-     "walkthrough": "IOW is the abbreviation for the Isle of Wight, an island off southern England; split it as IO plus W, and Io is this puzzle's setter.",
-     "definitionFit": "A cat's call is its cry, the high thin sound a kitten makes."
+     "surface": "Looks like an abbreviation for the Isle of Wight cut in two.",
+     "walkthrough": "IOW looks like the Isle of Wight, but 'divided' splits it as IO + W: Io is this puzzle's setter, who would say ME, so the answer is ME + W.",
+     "definitionFit": "A mew is the cry a cat makes, so it is literally a call from a cat."
     },
     "features": {
      "answerInScene": false,

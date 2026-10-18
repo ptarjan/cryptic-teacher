@@ -265,47 +265,55 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ENORMOUS",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 15,
+       "note": "with here means having inside, so the rodent, rearranged, holds the and-not word"
+      }
+     ],
      "parts": [
       {
        "op": "cycling",
        "indicators": [
         {
-         "text": "leading with its tail",
-         "note": "the creature's final letter goes first, so its last letter is moved round to the front"
+         "text": "leading",
+         "at": 7,
+         "note": "leading, together with its tail, says the rodent's last letter is brought round to lead the word"
+        },
+        {
+         "text": "its tail",
+         "at": 20,
+         "note": "its tail names the rodent's final letter as the one that moves to the front"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Rodent",
-           "gives": "MOUSE",
-           "note": "a mouse is a small rodent"
-          },
-          {
-           "words": "and not",
-           "gives": "NOR",
-           "note": "nor means 'and not'"
-          }
-         ]
+         "words": "Rodent",
+         "at": 0,
+         "gives": "MOUSE",
+         "note": "a mouse is a small rodent"
         }
        ]
+      },
+      {
+       "words": "and not",
+       "at": 30,
+       "gives": "NOR",
+       "note": "nor means and not, as in neither this nor that"
       }
      ]
     },
     "explanation": {
-     "surface": "A rodent walks backwards, yet is not actually very big.",
-     "walkthrough": "With its last letter moved to the front the rodent is split after that letter, and 'and not' slots in straight after it.",
-     "definitionFit": "Enormous is a stronger synonym of huge; something really big in size fits the adjective exactly."
+     "surface": "A mouse walks backwards, tail first, and isn't really very large at all.",
+     "walkthrough": "'Leading ... its tail' turns the rodent into EMOUS, and 'with' has it hold NOR just after its new first letter. 'Not really big' reads as one phrase, but 'not' belongs to the wordplay and 'really big' is the definition.",
+     "definitionFit": "Enormous means huge or immense, very large in size, so really big is a plain synonym."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "really"
+     "misdirectedWord": "not"
     }
    }
   },
@@ -1513,37 +1521,47 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 20,
+       "note": "with says the two pieces are joined, the shortened our following the disapproving sound"
+      }
+     ],
      "parts": [
       {
        "words": "Express disapproval",
+       "at": 0,
        "gives": "TUT",
-       "note": "tut is a click of the tongue showing disapproval"
+       "note": "tut is the clicking sound made to show disapproval"
       },
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "OR",
+       "op": "deletion",
        "indicators": [
         {
          "text": "heartless",
-         "note": "heartless means the middle is taken out, leaving only the outside letters"
+         "at": 29,
+         "note": "heartless means the middle letter of our is removed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "with our",
-         "gives": "OR",
-         "select": "outer",
-         "note": "the first and last letters of 'our'; 'with' joins it on"
+         "words": "our",
+         "at": 25,
+         "note": "taken as written"
+        },
+        {
+         "gives": "U",
+         "note": "the central letter, or heart, of our"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Pupils grumble about their cold-hearted teacher.",
-     "definitionFit": "A tutor is a private instructor or university teacher who guides students individually."
+     "surface": "Someone tuts at a teacher who has no compassion for the class.",
+     "walkthrough": "'Heartless' removes the middle letter of 'our', and 'with' joins what is left after the tutting sound.",
+     "definitionFit": "A tutor is a private teacher, or one who gives individual instruction at a university."
     },
     "features": {
      "answerInScene": true,

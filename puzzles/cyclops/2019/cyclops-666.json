@@ -330,41 +330,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WHODUNNIT",
-     "indicators": [
-      {
-       "text": "to turn",
-       "note": "turning something changes its order, so these letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to turn",
+         "at": 4,
+         "note": "to turn tells us to rearrange the letters of how"
+        }
+       ],
        "parts": [
         {
          "words": "How",
-         "note": "the word's letters rearranged"
-        },
-        {
-         "words": "Brown",
-         "gives": "DUN",
-         "note": "dun is a dull greyish-brown colour"
-        },
-        {
-         "words": "mug",
-         "gives": "NIT",
-         "note": "a mug and a nit are both fools"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "Brown",
+       "at": 12,
+       "gives": "DUN",
+       "note": "dun is a dull greyish-brown colour"
+      },
+      {
+       "words": "mug",
+       "at": 23,
+       "gives": "NIT",
+       "note": "a mug is a fool, and so is a nit (short for nitwit)"
       }
      ]
     },
     "explanation": {
-     "surface": "A tale of how Gordon Brown turned things around with the help of a fool.",
-     "walkthrough": "'Brown' looks like Gordon Brown, the former Labour prime minister, but it is just the colour; 'mug' is British slang for a gullible person.",
-     "definitionFit": "A whodunnit is a detective novel or play built around identifying a murderer, a particular kind of story."
+     "surface": "A satirical recipe for overturning Gordon Brown, with the help of some fool's tale.",
+     "walkthrough": "'Brown' looks like Gordon Brown, the former Labour prime minister, but it is the colour DUN; 'to turn' rearranges HOW to WHO. Mug and nit are both British slang for a fool.",
+     "definitionFit": "A whodunnit is a detective story or crime novel, so a story is a fair if broad definition for it."
     },
     "features": {
      "answerInScene": false,
@@ -869,37 +870,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EERIE",
-     "indicators": [
-      {
-       "text": "Powerless",
-       "note": "P stands for power, so being without power means losing that letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Powerless",
+         "at": 0,
+         "note": "powerless means the letter P, standard for power, is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "Lords member",
-         "gives": "EER",
-         "note": "a peer sits in the House of Lords; without its P"
+         "at": 10,
+         "gives": "PEER",
+         "note": "a peer sits in the House of Lords"
         },
         {
-         "words": "That is",
-         "gives": "IE",
-         "note": "i.e., Latin id est, means that is"
+         "gives": "P",
+         "note": "P is the abbreviation for power"
         }
        ]
+      },
+      {
+       "words": "That is",
+       "at": 24,
+       "gives": "IE",
+       "note": "i.e. is the abbreviation for id est, that is"
       }
      ]
     },
     "explanation": {
-     "surface": "A member of the House of Lords without real power is a menacing thing.",
-     "walkthrough": "The House of Lords is Britain's unelected upper chamber, whose members are peers; 'Powerless' also jokes about its limited authority.",
-     "definitionFit": "Eerie means strange and frightening, and something sinister likewise gives a sense of threat or menace."
+     "surface": "A peer stripped of influence, a sinister figure in the House of Lords.",
+     "walkthrough": "'Powerless' drops P from PEER, leaving EER; the House of Lords is the UK's upper chamber, whose members are peers.",
+     "definitionFit": "Eerie means strange and frightening, uncanny in a way that hints at something sinister."
     },
     "features": {
      "answerInScene": false,
@@ -1059,26 +1065,36 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "RABBI",
      "indicators": [
       {
-       "text": "take time off",
-       "note": "T stands for time, so taking time off removes that letter"
+       "text": "take",
+       "at": 23,
+       "note": "take ... off means remove the letter named from the talk word"
+      },
+      {
+       "text": "off",
+       "at": 33,
+       "note": "take ... off means remove the letter named from the talk word"
       }
      ],
      "parts": [
       {
        "words": "talk",
-       "gives": "RABBI",
-       "note": "to rabbit is to chatter, from rhyming slang rabbit and pork; its T dropped"
+       "at": 16,
+       "gives": "RABBIT",
+       "note": "rabbit is British slang for talk, from the rhyming slang rabbit and pork"
+      },
+      {
+       "words": "time",
+       "at": 28,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A religious leader gives a talk about taking a break from work.",
-     "walkthrough": "To rabbit (on) is British slang for chattering endlessly, from the rhyming slang 'rabbit and pork' for talk.",
-     "definitionFit": "A rabbi is the ordained teacher and spiritual head of a Jewish congregation, so a Jewish religious leader."
+     "surface": "A rabbi's long talk prompts someone to take a break.",
+     "walkthrough": "In British slang to rabbit (on) is to chatter, from Cockney rhyming slang 'rabbit and pork'; 'take time off' removes T from RABBIT.",
+     "definitionFit": "A rabbi is a Jewish scholar and teacher who leads a congregation in worship."
     },
     "features": {
      "answerInScene": true,
