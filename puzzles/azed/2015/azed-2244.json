@@ -1149,14 +1149,28 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to divide",
+       "at": 19,
+       "note": "one piece is set to divide the other, so it sits inside it splitting it in two"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "half of sweet exactly",
+       "at": 29,
+       "gives": "BON",
+       "note": "a bonbon is a sweet, and exactly half of BONBON is BON"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "made to divide",
-         "note": "dividing something splits it in two, so this piece goes in the middle"
+         "text": "made",
+         "at": 14,
+         "note": "made in the sense of made up or fashioned anew, so the letters are rearranged"
         }
        ],
        "parts": [
@@ -1165,57 +1179,35 @@
          "indicators": [
           {
            "text": "mostly",
-           "note": "mostly means not quite all, so the final letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "sweet",
-           "gives": "BONBON",
-           "note": "a bonbon is a sweet"
-          },
-          {
-           "gives": "NB"
-          }
-         ]
-        },
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "half of",
-           "note": "taking half of a word discards the other half"
+           "at": 7,
+           "note": "mostly means the word loses its final letter"
           }
          ],
          "parts": [
           {
            "words": "Shaver",
+           "at": 0,
            "gives": "RAZOR",
            "note": "a razor is a shaver"
           },
           {
-           "gives": "OR"
+           "gives": "R"
           }
          ]
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "exactly",
-       "note": "surface padding that also confirms the halving: the sweet's two halves are identical"
       }
      ]
     },
     "explanation": {
-     "surface": "A shaver is jammed into a sweet and proves too tough to bite.",
-     "walkthrough": "'Exactly' is fair because the sweet's two halves are identical, so either half gives the same letters.",
-     "definitionFit": "Borazon is boron nitride, an industrial abrasive almost as hard as diamond."
+     "surface": "Someone describes a razor cutting a sweet precisely in half, and the material is very hard.",
+     "walkthrough": "'mostly' trims RAZOR to RAZO; 'made' rearranges that to ORAZ, which goes 'to divide' BON, exactly half of BONBON.",
+     "definitionFit": "Borazon is a boron nitride abrasive, a synthetic substance almost as hard as diamond."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Shaver"
+     "misdirectedWord": "made"
     }
    }
   },

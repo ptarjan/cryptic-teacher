@@ -969,39 +969,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PRIMULA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 31,
+       "note": "the rearranged name goes around the border, holding it inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "replanted",
-         "note": "PAUL's letters are set out anew"
-        },
-        {
-         "text": "around"
+         "at": 21,
+         "note": "replanted means set in the ground again in a new arrangement, so the name's letters are reordered"
         }
        ],
        "parts": [
         {
          "words": "Paul",
-         "note": "anagram of PAUL, split P…ULA"
-        },
-        {
-         "words": "border",
-         "gives": "RIM",
-         "note": "a rim is an edge"
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "border",
+       "at": 38,
+       "gives": "RIM",
+       "note": "a rim is a border or edge"
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener named Paul moves a flower round the edge of a bed.",
-     "walkthrough": "'Border' pulls towards the flower bed; it is just RIM.",
-     "definitionFit": "The primula is the primrose family of flowering plants."
+     "surface": "A gardener named Paul has moved a flowering plant to the edge of a bed.",
+     "definitionFit": "The primula is a genus of flowering plants including primroses and cowslips."
     },
     "features": {
      "answerInScene": true,
@@ -1780,43 +1783,52 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "EXPENSE",
+     "op": "container",
      "indicators": [
       {
-       "text": "moving into"
-      },
-      {
-       "text": "without",
-       "note": "'without' means lacking, so the region loses its A"
+       "text": "moving into",
+       "at": 9,
+       "note": "the European letter moves into the gap, going inside the shortened word"
       }
      ],
      "parts": [
       {
-       "words": "region",
-       "gives": "EXPANSE",
-       "note": "an expanse is a wide region"
-      },
-      {
-       "words": "without a",
-       "gives": "EXPNSE",
-       "note": "the A of EXPANSE is taken out"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 28,
+         "note": "without tells us the following letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "region",
+         "at": 21,
+         "gives": "EXPANSE",
+         "note": "an expanse is a wide area or region"
+        },
+        {
+         "words": "a",
+         "at": 36,
+         "gives": "A"
+        }
+       ]
       },
       {
        "words": "European",
-       "gives": "E",
-       "note": "E = European, and it fills the gap"
+       "at": 0,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A European relocates to a region with no charge.",
-     "walkthrough": "'Without a cost' reads as free; 'a' belongs to the wordplay and 'cost' alone is the definition.",
-     "definitionFit": "A plain synonym: money laid out on something, as in 'at great cost'."
+     "surface": "A European relocating to a new area, apparently without paying.",
+     "walkthrough": "'without a' turns EXPANSE into EXPNSE, and the European E 'moving into' the space left gives the answer.",
+     "definitionFit": "An expense is something you pay out, a cost incurred."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "without"
     }
@@ -2790,50 +2802,50 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "the last letter of reputation"
+       "text": "on",
+       "at": 28,
+       "note": "in a down clue, on means placed above, so the stake and letter sit on top of the Scots word"
       }
      ],
      "parts": [
       {
        "words": "Stake",
+       "at": 0,
        "gives": "ANTE",
-       "note": "an ante is a poker stake"
+       "note": "an ante is a stake put up in poker before the deal"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "N",
        "indicators": [
         {
-         "text": "on",
-         "note": "in a down clue, one thing on another sits above it, so the pieces run in order"
+         "text": "ultimately",
+         "at": 17,
+         "note": "ultimately points to the very end of reputation, its last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "reputation ultimately",
-         "gives": "N",
-         "select": "last",
-         "note": "last letter of reputation"
+         "words": "reputation",
+         "at": 6,
+         "note": "the word reputation supplies its final letter"
         }
        ]
       },
       {
        "words": "no Scottish",
+       "at": 31,
        "gives": "NAE",
-       "note": "nae = no in Scots"
+       "note": "nae is the Scots word for no"
       }
      ]
     },
     "explanation": {
-     "surface": "A Scot refuses to bet their reputation on a radio.",
-     "walkthrough": "NAE is Scots for 'no'.",
-     "definitionFit": "Antennae are aerials for sending or receiving radio signals."
+     "surface": "A gambler risks their good name on a Scots refusal to buy radio gear.",
+     "walkthrough": "NAE is Scots for no; in a down entry 'on' puts the first pieces on top of it.",
+     "definitionFit": "Antennae are aerials, the rods or wires a radio uses to send and receive signals."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Stake"
     }
@@ -3175,26 +3187,41 @@
      "parts": [
       {
        "words": "nothing to a Frenchman",
+       "at": 14,
        "gives": "RIEN",
-       "note": "rien = nothing in French"
+       "note": "rien is French for nothing"
       },
       {
-       "words": "almost nothing to an American",
-       "gives": "ZI",
-       "note": "ZIP, US slang for nothing, cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 41,
+         "note": "almost means the word is cut short by its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nothing to an American",
+         "at": 48,
+         "gives": "ZIP",
+         "note": "zip is American slang for nothing"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Wagner opera means nothing to the French and not much to Americans.",
-     "walkthrough": "The surface is a cultural jibe; both 'nothings' are just foreign words for zero.",
-     "definitionFit": "Rienzi is Wagner's early opera about a Roman tribune."
+     "surface": "Someone shrugs that a Wagner opera means nothing to a Frenchman and next to nothing to an American.",
+     "walkthrough": "RIEN is French for nothing; ZIP, American for nothing, is cut by 'almost' to ZI.",
+     "definitionFit": "Rienzi is an early Wagner opera, first staged in Dresden in 1842, about the Roman tribune Cola di Rienzi."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "nothing"
+     "aptDefinition": false
     }
    }
   },
@@ -3322,46 +3349,51 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "will follow",
+       "at": 2,
+       "note": "will follow puts I after the rest, at the end"
+      }
+     ],
      "parts": [
+      {
+       "words": "Manchester United",
+       "at": 14,
+       "gives": "MU",
+       "note": "MU is the common abbreviation for Manchester United"
+      },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "will follow",
-         "note": "a follower comes behind, so I goes at the end"
-        },
-        {
          "text": "initially",
-         "note": "first letters of football team"
+         "at": 46,
+         "note": "initially picks out the first letter of each of the words football and team"
         }
        ],
        "parts": [
         {
-         "words": "Manchester United",
-         "note": "initials of the club"
+         "words": "football team",
+         "at": 32,
+         "note": "the opening letters of football and team"
         }
        ]
       },
       {
-       "words": "football team initially",
-       "gives": "FT",
-       "note": "first letters of football and team"
-      },
-      {
        "words": "I",
-       "note": "I as it stands"
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "A fan will follow Manchester United, turning up in plain clothes.",
-     "walkthrough": "Mufti is the military word for civilian clothes worn off duty.",
-     "definitionFit": "Mufti is plain clothes worn by someone who usually wears a uniform."
+     "surface": "A fan says they will follow Manchester United's team in ordinary clothes, not the kit.",
+     "definitionFit": "Mufti is plain clothes worn by someone who usually wears a uniform, such as a soldier off duty."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "follow"
+     "misdirectedWord": "gear"
     }
    }
   },

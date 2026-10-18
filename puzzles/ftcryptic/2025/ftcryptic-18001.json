@@ -512,49 +512,48 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "STRIDE",
      "indicators": [
       {
-       "text": "tail raised",
-       "note": "in a down clue raising the tail reads the final letters upward, the other way round"
+       "text": "with tail raised",
+       "at": 31,
+       "note": "in a down entry the last letters are lifted, so the final pair is read upwards in reverse"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "STRIDE",
        "indicators": [
         {
          "text": "not",
-         "note": "not means leave out the item that follows"
+         "at": 19,
+         "note": "not tells us to leave out the letter for softly"
         }
        ],
        "parts": [
         {
          "words": "like a zebra",
+         "at": 5,
          "gives": "STRIPED",
-         "note": "a zebra has stripes"
+         "note": "a zebra is striped"
         },
         {
          "words": "softly",
+         "at": 23,
          "gives": "P",
-         "note": "p, piano, is the musical marking for soft"
+         "note": "p (piano) is the musical abbreviation for softly"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to walk like a zebra: loudly, with tail held high.",
-     "walkthrough": "Removing P leaves STRIED; its tail, the last two letters ED, is then turned upward.",
+     "surface": "A description of someone walking with a zebra's stripes, quietly, tail held high.",
+     "walkthrough": "'not softly' drops P from STRIPED, leaving STRIED; 'with tail raised' turns its last two letters, ED, upwards to DE.",
      "definitionFit": "A stride is a long step, and to stride is to walk with long steps."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "tail"
     }
    }
@@ -895,48 +894,52 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "OMNIVOROUS",
      "indicators": [
       {
        "text": "struggling",
-       "note": "struggling suggests disorder, so these letters are thrown into a new order"
+       "at": 12,
+       "note": "struggling suggests things thrashing about, so these letters are thrown into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OMNIVOROUS",
+       "words": "Our",
+       "at": 0
+      },
+      {
+       "words": "Simon's",
+       "at": 4,
+       "gives": "SIMON",
+       "note": "Simon's stands for Simon is, so only the name gives letters"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "unbounded",
-         "note": "unbounded means without boundaries, so the first and last letters go"
+         "at": 28,
+         "note": "unbounded means the word loses its outer letters, leaving the middle of love"
         }
        ],
        "parts": [
         {
-         "words": "Our Simon's",
-         "gives": "OURSIMON",
-         "note": "taken as written; the 's is surface only"
-        },
-        {
          "words": "love",
-         "note": "taken as written, then trimmed to its middle"
+         "at": 38,
+         "note": "the word love minus its first and last letters supplies OV"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Simon is wrestling with a love that consumes him entirely.",
-     "definitionFit": "An omnivorous animal eats everything, plant and meat alike, so it consumes all."
+     "surface": "Our Simon is having a hard time with a love that consumes him completely.",
+     "walkthrough": "'unbounded' reduces love to OV; 'struggling' mixes OUR, SIMON and OV together.",
+     "definitionFit": "An omnivorous creature eats every kind of food, so it is figuratively all-consuming."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "love"
+     "misdirectedWord": "struggling"
     }
    }
   },

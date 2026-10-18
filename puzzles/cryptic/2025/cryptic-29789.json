@@ -1115,71 +1115,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHEESE",
-     "indicators": [
-      {
-       "text": "50% off",
-       "note": "taking fifty percent off removes half the letters of a word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "50% off",
+         "at": 0,
+         "note": "50% off, like a half-price sale, takes away half of the word, here its first two letters"
+        }
+       ],
        "parts": [
         {
          "words": "rich",
-         "gives": "CH",
-         "note": "the word with its first half removed"
+         "at": 8
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "EE",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "regularly means at even intervals, so every other letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Eastern European",
-           "gives": "EE",
-           "select": "first",
-           "note": "the opening letter of each word"
-          }
-         ]
-        },
+         "gives": "RI"
+        }
+       ]
+      },
+      {
+       "words": "Eastern",
+       "at": 13,
+       "gives": "E",
+       "note": "E is the compass abbreviation for east or Eastern"
+      },
+      {
+       "words": "European",
+       "at": 21,
+       "gives": "E"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "SE",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "stew",
-           "gives": "SE",
-           "select": "alternate",
-           "note": "first and third letters"
-          }
-         ]
+         "text": "regularly",
+         "at": 35,
+         "note": "regularly means taking letters at regular intervals, every other one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stew",
+         "at": 30,
+         "note": "the word stew supplies its first and third letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cut-price rich goulash-style stew from Eastern Europe, plus other foods.",
-     "walkthrough": "The definition says 'other' because the answer follows 18 Down's meal in the grid.",
-     "definitionFit": "Cheese is a dairy product made from curdled milk, an example of a food."
+     "surface": "A recipe: a rich Eastern European stew, cut down, served with other food.",
+     "walkthrough": "'50% off' leaves CH of rich; 'stew regularly' gives SE. 'Eastern European' looks like one nationality but is two separate E abbreviations.",
+     "definitionFit": "Cheese is a food made from pressed milk curds; 'other' sets it apart from the stew in the surface."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rich"
+     "misdirectedWord": "stew"
     }
    }
   },
