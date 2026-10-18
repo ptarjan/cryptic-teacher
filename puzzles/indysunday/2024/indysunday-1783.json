@@ -153,51 +153,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REDBREAST",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held by",
+       "at": 17,
+       "note": "held by means the Batman letter sits inside the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "held by"
-        },
-        {
          "text": "wrongly",
-         "note": "the letters of 'arrested' are set out wrongly, i.e. rearranged"
+         "at": 25,
+         "note": "wrongly signals that the letters of arrested are set out in a different order"
         }
        ],
        "parts": [
         {
          "words": "arrested",
-         "gives": "REDREAST",
-         "note": "anagram fodder, 8 letters"
-        },
+         "at": 33
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "takes the first letter of 'Batman'"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Batman initially",
-           "gives": "BATMAN",
-           "note": "first letter of Batman, placed after RED"
-          }
-         ]
+         "text": "initially",
+         "at": 7,
+         "note": "initially means only the first letter of Batman is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Batman",
+         "at": 0,
+         "note": "first letter B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Batman is locked up after Robin is wrongfully arrested.",
-     "walkthrough": "The Batman-and-Robin surface makes Robin the sidekick; in the answer it is the bird, and the capital R hides that.",
-     "definitionFit": "Redbreast is an old name for the robin, from its red chest."
+     "surface": "Batman's sidekick Robin has been wrongfully taken into custody.",
+     "walkthrough": "'Robin' looks like Batman's partner in the surface, but here it is the bird. 'wrongly' rearranges ARRESTED to REDREAST, and 'held by' puts the B from 'Batman initially' inside it.",
+     "definitionFit": "A robin is commonly called a robin redbreast, after the orange-red feathers on its chest."
     },
     "features": {
      "answerInScene": false,
@@ -603,45 +606,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "REDUNDANT",
+     "indicators": [
+      {
+       "text": "unfortunately",
+       "at": 14,
+       "note": "unfortunately suggests things have gone awry, so the remaining letters are jumbled"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "REDUNDANT",
        "indicators": [
         {
-         "text": "unfortunately",
-         "note": "the letters end up badly arranged, i.e. rearranged"
-        },
-        {
          "text": "losing",
-         "note": "what the word is losing goes missing from it"
+         "at": 28,
+         "note": "losing means a letter is taken away from the 23 answer"
         }
        ],
        "parts": [
         {
          "words": "23",
+         "at": 11,
          "gives": "UNDERSTAND",
-         "note": "the answer to 23 across"
+         "note": "the answer to 23 across, which is UNDERSTAND"
         },
         {
          "words": "seconds",
-         "gives": "S",
-         "note": "s = second; one S is removed, leaving UNDERTAND to rearrange"
+         "at": 35,
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who has lost their job fails to grasp it all quickly.",
-     "walkthrough": "A number in a clue stands for another answer, here UNDERSTAND from 23 across.",
-     "definitionFit": "Someone made redundant has lost their job because it is no longer needed."
+     "surface": "A jobless person unluckily misses out on a second chance at something.",
+     "walkthrough": "23 across is UNDERSTAND; 'losing seconds' removes S to leave UNDERTAND, and 'unfortunately' rearranges those letters.",
+     "definitionFit": "Someone made redundant has lost their job because the post is no longer needed, so they are unemployed."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "seconds"
     }
@@ -672,46 +676,45 @@
      "indicators": [
       {
        "text": "hiding",
-       "note": "something hiding a thing keeps it inside, out of sight, so the distance word wraps the letters"
+       "at": 25,
+       "note": "hiding means the far word conceals the purist letters within it"
       }
      ],
      "parts": [
       {
        "words": "distant",
+       "at": 17,
        "gives": "FAR",
-       "note": "far = distant"
+       "note": "far means distant"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "RI",
        "indicators": [
         {
          "text": "heart of",
-         "note": "the middle two letters of 'purist'"
+         "at": 32,
+         "note": "heart of means the central letters of purist are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "heart of purist",
-         "gives": "RI",
-         "select": "middle",
-         "note": "pu-RI-st"
+         "words": "purist",
+         "at": 41,
+         "note": "the middle letters RI"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A monk keeps aloof while secretly a zealot at heart.",
-     "walkthrough": "'Purist' has six letters, so its heart is the middle pair.",
-     "definitionFit": "A definition by example: a member of a mendicant order such as the Franciscans, the word coming from Latin frater, brother."
+     "surface": "A cleric keeps apart from others, concealing a deep love of strictness.",
+     "walkthrough": "'Religious man' is the whole definition and 'is' only links it. Because purist has an even number of letters, its 'heart of' is a pair, which 'hiding' tucks into the distant word.",
+     "definitionFit": "A friar is a member of a mendicant Christian order such as the Franciscans, a religious brother."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "hiding"
+     "misdirectedWord": "purist"
     }
    }
   },
@@ -841,37 +844,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SHIPWRIGHT",
-     "indicators": [
-      {
-       "text": "around",
-       "note": "the letters of 'whips' are moved around"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 6,
+         "note": "around here means the letters of whips are turned about into a new order"
+        }
+       ],
        "parts": [
         {
          "words": "Whips",
-         "gives": "SHIPW",
-         "note": "anagram fodder, 5 letters"
-        },
-        {
-         "words": "genuine",
-         "gives": "RIGHT",
-         "note": "right = genuine, as in the right stuff"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "genuine",
+       "at": 21,
+       "gives": "RIGHT",
+       "note": "right in the sense of true or genuine, as in the right answer"
       }
      ]
     },
     "explanation": {
-     "surface": "A whip-cracking boss inspecting a real artisan.",
-     "walkthrough": "'Craft person' looks like a craftsman; the craft is a ship, and a shipwright builds them.",
-     "definitionFit": "A shipwright builds ships, which are craft."
+     "surface": "Someone cracks whips while dealing with an authentic artisan.",
+     "walkthrough": "'around' could suggest a container, but here it shuffles the whips letters, and 'meeting' only joins the parts. 'craft' is a boat, not handiwork.",
+     "definitionFit": "A shipwright builds and repairs ships, so he is a person who makes sea craft, vessels."
     },
     "features": {
      "answerInScene": false,
@@ -1118,42 +1120,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UTOPIA",
-     "indicators": [
-      {
-       "text": "rebuilt",
-       "note": "the letters of 'patio' are built again in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Uniform",
+       "at": 0,
+       "gives": "U",
+       "note": "U is Uniform in the NATO phonetic alphabet"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rebuilt",
+         "at": 14,
+         "note": "rebuilt means the patio letters are put together again differently"
+        }
+       ],
        "parts": [
         {
-         "words": "Uniform",
-         "gives": "U",
-         "note": "U in the NATO phonetic alphabet"
-        },
-        {
          "words": "patio",
-         "gives": "TOPIA",
-         "note": "anagram fodder, 5 letters"
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A smoothly rebuilt patio makes the perfect setting.",
-     "walkthrough": "'Uniform' looks like an adjective describing the patio; it is the radio code word for U.",
-     "definitionFit": "From Thomas More's imagined perfect island, the word now names any perfect state of affairs."
+     "surface": "A uniformly reconstructed patio makes the perfect garden setting.",
+     "walkthrough": "'Uniform' is not an adjective here but the radio-alphabet word for its letter, and 'rebuilt' tells you the patio is reconstructed, its letters reordered; 'in' just links to the definition.",
+     "definitionFit": "A utopia is an imagined perfect society or place, from Thomas More's book of that name."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Uniform"
+     "misdirectedWord": "patio"
     }
    }
   },
@@ -1354,47 +1355,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Starts to",
-       "note": "take the first letters of 'go loopy'"
+       "text": "during",
+       "at": 19,
+       "note": "during means the picked letters come within the month's name"
       }
      ],
      "parts": [
       {
        "words": "month",
+       "at": 26,
        "gives": "JUNE",
-       "note": "the month of June"
+       "note": "June is a month"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "GL",
        "indicators": [
         {
-         "text": "during",
-         "note": "the letters go inside the month"
+         "text": "Starts to",
+         "at": 0,
+         "note": "starts to means the opening letter of each of the two words is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Starts to go loopy",
-         "gives": "GL",
-         "select": "first",
-         "note": "first letters of go and loopy"
+         "words": "go loopy",
+         "at": 10,
+         "note": "first letters G and L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Going crazy one month in the rainforest.",
-     "walkthrough": "'Starts to go loopy' reads as someone beginning to crack; 'starts' asks for the first letters.",
-     "definitionFit": "A jungle is dense tropical forest."
+     "surface": "Things begin to get crazy in the middle of summer in the tropical forest.",
+     "walkthrough": "'Starts to' applies to both words, go and loopy, and 'during' puts those two letters within the summer month, before its final letter.",
+     "definitionFit": "A jungle is dense tropical forest, and rainforest is the usual term for such wet, tangled woodland."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Starts"
+     "misdirectedWord": "loopy"
     }
    }
   },
@@ -1631,41 +1631,40 @@
      "indicators": [
       {
        "text": "hanging around",
-       "note": "to hang around something is to stay about it on all sides, so the medal word surrounds the letter"
+       "at": 14,
+       "note": "hanging around means the medal word surrounds the stick letter"
       }
      ],
      "parts": [
       {
        "words": "medal",
+       "at": 8,
        "gives": "GONG",
-       "note": "gong is British slang for a medal"
+       "note": "gong is British slang for a medal or decoration"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "I",
        "indicators": [
         {
          "text": "middle of",
-         "note": "the central letter of 'stick'"
+         "at": 29,
+         "note": "middle of means the central letter of stick is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "middle of stick",
-         "gives": "I",
-         "select": "middle",
-         "note": "st-I-ck"
+         "words": "stick",
+         "at": 39,
+         "note": "middle letter I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A retirement medal hangs on a stick.",
-     "walkthrough": "'Leaving medal' reads as a farewell award; 'leaving' is the definition and the medal is a gong, British slang for a decoration.",
-     "definitionFit": "A plain synonym: both describe departing, as in 'I'm going now'."
+     "surface": "A departing person's decoration dangles around the middle of a stick.",
+     "walkthrough": "In Britain a gong is informal for a medal or honour. 'hanging around' puts I, the middle of STICK, inside GONG.",
+     "definitionFit": "Going and leaving are synonyms as present participles, both meaning departing or setting off."
     },
     "features": {
      "answerInScene": false,

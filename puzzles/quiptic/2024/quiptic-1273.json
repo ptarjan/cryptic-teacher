@@ -1299,42 +1299,49 @@
      }
     ],
     "wordplay": {
-     "op": "composite",
+     "op": "anagram",
      "indicators": [
       {
        "text": "unfortunately",
        "at": 16,
-       "note": "unfortunately suggests things have gone awry, so the letters of simpletons are thrown into disorder"
-      },
-      {
-       "text": "missing",
-       "at": 30,
-       "note": "missing means the mass symbol is absent from the letters being rearranged"
+       "note": "unfortunately suggests things have gone wrong, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
-       "words": "simpletons",
-       "at": 5,
-       "note": "taken as written as the anagram material"
-      },
-      {
-       "words": "mass",
-       "at": 38,
-       "gives": "M",
-       "note": "M is the symbol for mass in physics"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 30,
+         "note": "missing means a letter is taken out of simpletons"
+        }
+       ],
+       "parts": [
+        {
+         "words": "simpletons",
+         "at": 5
+        },
+        {
+         "words": "mass",
+         "at": 38,
+         "gives": "M",
+         "note": "M is the standard abbreviation for mass in physics"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some foolish people, sadly short of numbers, are vain.",
-     "walkthrough": "'Missing' takes the M out of SIMPLETONS, leaving SIPLETONS, and 'unfortunately' rearranges what is left.",
-     "definitionFit": "Vain in the sense of futile or to no purpose means the same as pointless, as in a vain attempt."
+     "surface": "Some foolish people have sadly skipped church service.",
+     "walkthrough": "'missing mass' takes M out of SIMPLETONS, leaving SIPLETONS, and 'unfortunately' rearranges those letters. 'Vain' is meant in the sense of in vain, futile.",
+     "definitionFit": "Vain can mean futile or producing no result, as in a vain attempt, which is exactly a pointless one."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Vain"
+     "joke": "pun",
+     "misdirectedWord": "mass"
     }
    }
   },
@@ -1589,7 +1596,7 @@
       {
        "text": "borders missing",
        "at": 9,
-       "note": "borders missing means the word loses its edges, its first and last letters"
+       "note": "borders missing means the first and last letters of the word are dropped"
       }
      ],
      "parts": [
@@ -1597,17 +1604,17 @@
        "words": "Controls",
        "at": 0,
        "gives": "LIMITATIONS",
-       "note": "limitations are controls or restrictions"
+       "note": "limitations are controls or restrictions placed on something"
       }
      ]
     },
     "explanation": {
-     "surface": "Without border controls, counterfeit goods flood in.",
-     "walkthrough": "'Borders missing' removes the L and S at the ends of LIMITATIONS.",
-     "definitionFit": "A knock-off is a cheap copy of a branded product, an imitation of the real thing."
+     "surface": "Regulations at a frontier have gone astray, leaving a counterfeit.",
+     "walkthrough": "Controls are LIMITATIONS; 'borders missing' strips the outer L and S.",
+     "definitionFit": "A knock-off is a cheap copy of a branded product, a fake or imitation of the real thing."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "borders"
     }

@@ -42,53 +42,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SUPPOSE",
+     "op": "container",
      "indicators": [
       {
-       "text": "unfinished",
-       "note": "something left unfinished lacks its ending, so the final letter is dropped"
+       "text": "in",
+       "at": 25,
+       "note": "in means the other letters go inside the shortened meal"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "to be in something is to sit inside it, so these letters go inside the other piece"
+         "text": "unfinished",
+         "at": 28,
+         "note": "unfinished means the meal word loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "meal",
-           "gives": "SUPPE",
-           "note": "an evening meal, a supper, with its last letter dropped"
-          },
-          {
-           "words": "succeeded",
-           "gives": "S",
-           "note": "S is the standard abbreviation for succeeded in family trees"
-          }
-         ]
+         "words": "meal",
+         "at": 39,
+         "gives": "SUPPER",
+         "note": "supper is an evening meal"
         },
         {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "nothing",
+         "at": 7,
          "gives": "O",
-         "note": "nothing is zero, written as the letter O"
+         "note": "O looks like zero, nothing"
+        },
+        {
+         "words": "succeeded",
+         "at": 15,
+         "gives": "S",
+         "note": "S is the genealogical abbreviation for succeeded"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone decides that nothing good came of a half-eaten dinner.",
-     "walkthrough": "'Succeeded' looks like a verb about the meal, but it is the genealogical abbreviation; both small pieces go in just before the shortened meal's last letter.",
-     "definitionFit": "To suppose something is to take it as true without proof, a direct synonym for that verb."
+     "surface": "Take it for granted that nothing went well during a meal left half eaten.",
+     "walkthrough": "'unfinished' cuts SUPPER to SUPPE, and 'in' puts O and S inside it, before its last letter. S for succeeded comes from family trees.",
+     "definitionFit": "To suppose something is to assume it is true without proof, a close synonym."
     },
     "features": {
      "answerInScene": false,
@@ -687,39 +693,39 @@
      "op": "charade",
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "DE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "half of a word is one of its two equal parts, so only two of its four letters survive"
+         "at": 13,
+         "note": "half of means only two of the four letters of rude are kept, here the back pair"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "rude",
-         "gives": "DE",
-         "select": "last",
-         "note": "the second half of the word"
+         "at": 21
+        },
+        {
+         "gives": "RU"
         }
        ]
       },
       {
        "words": "authors",
+       "at": 26,
        "gives": "SCRIBES",
-       "note": "scribes is a jocular word for writers"
+       "note": "scribes are writers or authors"
       }
      ]
     },
     "explanation": {
-     "surface": "Newspaper stories drawn from the coarser half of a group of writers.",
-     "walkthrough": "'Reports' is a verb here, matching DESCRIBES; the surface wants it as a noun for news stories.",
-     "definitionFit": "To report something is to give an account of it, which is what describing does."
+     "surface": "Accounts taken from a few impolite writers.",
+     "walkthrough": "'half of rude' keeps the second half, DE, dropping the first two letters; 'from' only links the definition.",
+     "definitionFit": "Describes and reports are verbs for giving an account of something, here in the third person singular."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Reports"
     }
@@ -1577,46 +1583,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TEALS",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is dropped"
+       "text": "captures",
+       "at": 11,
+       "note": "captures means the shortened word takes the fifty letter inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "captures",
-         "note": "to capture something is to hold it inside, so one piece surrounds another"
+         "text": "almost",
+         "at": 4,
+         "note": "almost means the tease word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "Guy",
-         "gives": "TEAS",
-         "note": "to guy someone is to tease or mock them, here less its last letter"
+         "at": 0,
+         "gives": "TEASE",
+         "note": "to guy someone is to make fun of them, to tease"
         },
         {
-         "words": "50",
-         "gives": "L",
-         "note": "L is the Roman numeral for fifty"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "50",
+       "at": 20,
+       "gives": "L",
+       "note": "L is fifty in Roman numerals"
       }
      ]
     },
     "explanation": {
      "surface": "A man nearly catches fifty waterfowl.",
-     "walkthrough": "'Guy' looks like a man, but it is an old verb meaning to make fun of, so it gives TEASE.",
-     "definitionFit": "Teal are small freshwater ducks, so teals is a plural naming several of them."
+     "walkthrough": "'Guy' looks like a man but is the verb to mock; 'almost' gives TEAS, which 'captures' L.",
+     "definitionFit": "Teal are small freshwater ducks, so teals is a plural for those waterbirds."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Guy"
     }
@@ -1762,41 +1773,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SISTERS",
-     "indicators": [
-      {
-       "text": "dismissing conclusion of",
-       "note": "dismissing the conclusion sends away the end, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Son",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "is",
+       "at": 4
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dismissing",
+         "at": 16,
+         "note": "dismissing means the brusque word sends away one of its letters"
+        }
+       ],
        "parts": [
         {
-         "words": "Son",
-         "gives": "S",
-         "note": "S is the abbreviation for son"
-        },
-        {
-         "words": "is",
-         "note": "taken as written"
-        },
-        {
          "words": "brusque",
-         "gives": "TERS",
-         "note": "terse means curt or brusque, here less its last letter"
+         "at": 7,
+         "gives": "TERSE",
+         "note": "terse means curt or brusque"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "conclusion of",
+           "at": 27,
+           "note": "conclusion of means the last letter of the word that follows"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the",
+           "at": 41,
+           "note": "last letter E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A son is curt with his family and refuses to let them finish.",
-     "walkthrough": "'The relatives' looks like the object of the dismissal, but only 'relatives' is the definition; TERSE loses its final E.",
-     "definitionFit": "Sisters are female siblings, so they are a particular kind of family member."
+     "surface": "A boy is short with his family, cutting the talk short.",
+     "walkthrough": "'the' at the end is not a link word: 'conclusion of the' is its last letter, E, which 'dismissing' takes off the brusque word. 'is' stands for itself between the son letter and that word.",
+     "definitionFit": "Sisters are female siblings, so they are relatives in the same family."
     },
     "features": {
      "answerInScene": true,
