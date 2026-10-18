@@ -216,32 +216,33 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DATALOGGER",
      "indicators": [
       {
        "text": "within",
-       "note": "within tells us the jumbled letters go inside the following word"
+       "at": 45,
+       "note": "within says the jumbled letters go inside the obelus"
       }
      ],
      "parts": [
+      {
+       "words": "obelus",
+       "at": 52,
+       "gives": "DAGGER",
+       "note": "an obelus is the printer's dagger mark"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "randomized",
-         "note": "randomized means put in no fixed order, so these letters are rearranged"
+         "at": 34,
+         "note": "randomized says the letters of a lot are shuffled into a new arrangement"
         }
        ],
        "parts": [
         {
          "words": "a lot",
-         "note": "the two words rearranged"
-        },
-        {
-         "words": "obelus",
-         "gives": "DAGGER",
-         "note": "an obelus is the dagger sign used in printing"
+         "at": 28
         }
        ]
       }
@@ -249,14 +250,13 @@
     },
     "spelling": "DATA LOGGER",
     "explanation": {
-     "surface": "A technical description of a recording gadget whose output has been jumbled inside a printed mark.",
-     "walkthrough": "An obelus is the printer's dagger sign (†), used to mark footnotes or obsolete words; the mixed-up letters are slipped in after its second letter.",
-     "definitionFit": "A data logger is an electronic instrument that automatically records measurements over time."
+     "surface": "A self-operating recorder places a jumbled lot inside a printer's mark.",
+     "walkthrough": "An obelus is the printer's dagger sign, used to mark footnotes or doubtful passages.",
+     "definitionFit": "A data logger is an electronic instrument that records measurements automatically over time."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "obelus"
+     "aptDefinition": false
     }
    }
   },
@@ -323,49 +323,51 @@
     "definitions": [
      {
       "text": "E.g. croup",
-      "at": 0,
-      "note": "croup is an example of the old general sense of the word"
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "loosely",
-       "note": "loosely suggests something not held in its set arrangement, so these letters are reordered"
+       "text": "holds",
+       "at": 25,
+       "note": "holds says the jumbled letters keep the next piece inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "holds",
-         "note": "holds means the jumbled letters wrap round the next element"
+         "text": "loosely",
+         "at": 17,
+         "note": "loosely says the letters of a nag are arranged freely"
         }
        ],
        "parts": [
         {
          "words": "a nag",
-         "note": "the two words rearranged"
-        },
-        {
-         "words": "on the spot",
-         "gives": "IN",
-         "note": "in can mean present, on the spot"
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "on the spot",
+       "at": 31,
+       "gives": "IN",
+       "note": "in can mean present at a place, on the spot"
       }
      ]
     },
     "explanation": {
-     "surface": "A loosely held horse pictured beside a cough remedy note, croup being the example given.",
-     "walkthrough": "Croup tempts as the horse's rump, fitting the nag, but it is the childhood throat illness given as an example of the answer's old sense.",
-     "definitionFit": "Angina once meant any inflammatory throat complaint, such as quinsy or croup, before narrowing to the heart condition."
+     "surface": "A horse with croup, a nag that's loosely held in place.",
+     "walkthrough": "'Croup' suggests a horse's rump next to 'nag', but here it is the throat ailment.",
+     "definitionFit": "Chambers defines angina as any inflammatory affection of the throat, such as quinsy or croup."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "croup"
     }
@@ -722,57 +724,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HOSANNA",
+     "op": "container",
      "indicators": [
       {
-       "text": "reproduced",
-       "note": "reproduced suggests copying in new form, so these letters are reshaped"
+       "text": "among",
+       "at": 16,
+       "note": "among says the pair of letters sits in the middle of the shuffled name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "among",
-         "note": "among puts the first piece inside the rearranged letters"
+         "text": "reproduced",
+         "at": 29,
+         "note": "reproduced says the letters are bred into a new arrangement"
         }
        ],
        "parts": [
         {
          "words": "Noah's",
-         "note": "the name rearranged"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "AN",
-         "indicators": [
-          {
-           "text": "Pair of",
-           "note": "a pair of a word takes just its opening two letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "animals",
-           "gives": "AN",
-           "select": "first",
-           "note": "the first two letters"
-          }
-         ]
+         "at": 22,
+         "note": "taken as written, without the apostrophe"
         }
        ]
+      },
+      {
+       "words": "Pair of animals",
+       "at": 0,
+       "gives": "AN",
+       "note": "the first pair of letters of animals"
       }
      ]
     },
     "explanation": {
-     "surface": "The animals that went into Noah's ark two by two have bred, and someone gives thanks.",
-     "walkthrough": "'Reproduced' fits the animals breeding, but it signals a rearrangement of NOAHS, with AN set inside.",
-     "definitionFit": "Hosanna is a cry of praise or adoration to God, equivalent to an exclamation of 'praise be'."
+     "surface": "Two creatures on Noah's Ark have bred, a cause for rejoicing.",
+     "walkthrough": "'Pair of animals' suggests the Ark's two-by-two, but it means the first two letters of the word 'animals'.",
+     "definitionFit": "Hosanna is a cry of adoration to God, an exclamation of praise in worship."
     },
     "features": {
      "answerInScene": false,
@@ -1019,43 +1008,33 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DOMANIAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "briefly means cut short, so the word loses its end"
+       "text": "filled with",
+       "at": 13,
+       "note": "filled with says the desire goes inside the short buck"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "filled with",
-         "note": "filled with means the next piece goes inside the shortened word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Buck",
-         "gives": "DOL",
-         "note": "a buck is a dollar, cut short"
-        },
-        {
-         "words": "obsessive desire",
-         "gives": "MANIA",
-         "note": "a mania is an obsessive craving"
-        }
-       ]
+       "words": "Buck briefly",
+       "at": 0,
+       "gives": "DOL",
+       "note": "a buck is a dollar, and DOL is its short form"
+      },
+      {
+       "words": "obsessive desire",
+       "at": 25,
+       "gives": "MANIA",
+       "note": "a mania is an obsessive enthusiasm or craving"
       }
      ]
     },
     "explanation": {
-     "surface": "A male deer gripped by obsessive desire, apparently to do with land.",
-     "walkthrough": "Buck is US slang for a dollar, not a male deer.",
-     "definitionFit": "Domanial is the adjective of domain, relating to an estate or landed property."
+     "surface": "A deer, cut short, is gripped by a fixation with property.",
+     "walkthrough": "'Buck' sounds like a male deer but is US slang for a dollar, abbreviated DOL.",
+     "definitionFit": "Domanial is an adjective relating to a domain, land or landed property held as an estate."
     },
     "features": {
      "answerInScene": false,
@@ -1716,46 +1695,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "POON",
+     "op": "container",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of means nearly all, so the last letter is dropped"
+       "text": "occupying",
+       "at": 5,
+       "note": "occupying says the duck goes inside the shortened location"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "occupying",
-         "note": "occupying means sitting inside, so this piece goes within the next"
+         "text": "most of",
+         "at": 15,
+         "note": "most of says the location loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "its frequent location",
-         "gives": "PON",
-         "note": "a duck is often found on a pond, cut short"
+         "at": 23,
+         "gives": "POND",
+         "note": "a pond is the place a duck is often found"
         },
         {
-         "words": "Duck",
-         "gives": "O",
-         "note": "a duck in cricket is a score of nought, O"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "Duck",
+       "at": 0,
+       "gives": "O",
+       "note": "duck is zero in cricket, which looks like the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "A duck takes over most of its usual pond, near an Indian tree.",
-     "walkthrough": "In cricket a duck is a score of nought, so it gives O; it then sits inside POND shorn of its last letter.",
-     "definitionFit": "Poon is an East Indian tree whose straight timber was used for masts and spars."
+     "surface": "A duck settles in most of its usual pond, beside an Indian tree.",
+     "walkthrough": "A duck is a score of zero in cricket, hence O.",
+     "definitionFit": "Poon is an East Indian tree whose wood was used for ships' masts and spars."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Duck"
     }
@@ -2153,52 +2137,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SERRAE",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 34,
+         "note": "backing says the shortened stop is read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "backing",
-           "note": "backing means moving backwards, so the shortened word is read in reverse"
+           "text": "almost",
+           "at": 22,
+           "note": "almost says the word loses its last letter"
           }
          ],
          "parts": [
           {
            "words": "stop",
-           "gives": "ARRES",
-           "note": "to arrest is to stop, cut short"
+           "at": 29,
+           "gives": "ARREST",
+           "note": "to arrest is to stop or halt"
+          },
+          {
+           "gives": "T"
           }
          ]
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is short for English"
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 42,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "Items with teeth almost bring English reversing to a halt.",
-     "definitionFit": "Serrae are saw-like structures or organs in zoology, things edged with tooth-like projections."
+     "surface": "Things with teeth nearly halt the English as they back off.",
+     "walkthrough": "ARREST loses its last letter to give ARRES, which reversed is SERRA.",
+     "definitionFit": "Serrae are saw-like toothed structures or edges, plural of serra, so things with teeth."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Articles"
+     "misdirectedWord": "stop"
     }
    }
   }

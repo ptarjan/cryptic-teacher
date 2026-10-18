@@ -52,35 +52,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "around",
-       "note": "something turned around faces the other way, so its letters run backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 47,
+         "note": "around says the procedure word is turned round"
+        }
+       ],
        "parts": [
         {
-         "words": "computers, etc",
-         "gives": "TI",
-         "note": "IT = information technology"
-        },
-        {
-         "words": "procedure around",
+         "words": "procedure",
+         "at": 37,
          "gives": "STEP",
-         "note": "a step is a procedure; turned around it reads PETS"
+         "note": "a step is a measure or procedure"
         }
        ]
+      },
+      {
+       "words": "computers, etc",
+       "at": 54,
+       "gives": "IT",
+       "note": "IT, information technology, covers computers and the like"
       }
      ]
     },
     "explanation": {
-     "surface": "A job ad for someone to run a science laboratory, with a nod to its computer procedures.",
-     "walkthrough": "'Lab' looks like a laboratory, but it is a Labrador dog, which is why the definition carries 'possibly'.",
-     "definitionFit": "A definition by example: minding a Labrador while its owners are away is one kind of animal-minding job."
+     "surface": "Running a laboratory needs a method for dealing with computers and other kit.",
+     "walkthrough": "'Lab' looks like a laboratory but is a Labrador dog.",
+     "definitionFit": "To pet-sit is to look after someone's animal, such as a Labrador, while they are away."
     },
     "features": {
      "answerInScene": false,
@@ -112,26 +115,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EALING",
      "indicators": [
       {
        "text": "Cockney",
-       "note": "London Cockney speech famously drops the H at the start of a word"
+       "at": 0,
+       "note": "Cockneys famously drop the H at the start of words"
       }
      ],
      "parts": [
       {
-       "words": "Cockney restoring",
-       "gives": "EALING",
-       "note": "restoring = HEALING; a Cockney says it without the H"
+       "words": "restoring",
+       "at": 8,
+       "gives": "HEALING",
+       "note": "healing means restoring to health"
+      },
+      {
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "surface": "A Cockney doing up a corner of London.",
-     "walkthrough": "Cockneys are Londoners, so 'their city' is London; the definition only makes sense once the Cockney is read.",
-     "definitionFit": "A west London borough, so a district of the Cockneys' own city."
+     "surface": "A Londoner rebuilding a district of their own city.",
+     "walkthrough": "A Cockney is a working-class East Londoner, so 'their city' is London, where Ealing is a borough.",
+     "definitionFit": "Ealing is a district and borough in west London, the city Cockneys call home."
     },
     "features": {
      "answerInScene": true,
@@ -522,45 +528,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Fancy",
-       "note": "fancy means elaborate, dressed up, so the letters are rearranged"
+       "text": "adopted by",
+       "at": 12,
+       "note": "adopted by says the jumbled crest is taken inside the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "one unspecified",
+       "at": 23,
+       "gives": "ANY",
+       "note": "any means one, no matter which"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "adopted by",
-         "note": "a child adopted by a family is taken in, so these letters go inside"
+         "text": "Fancy",
+         "at": 0,
+         "note": "fancy as a verb means to imagine freely, so the letters of crest rearrange"
         }
        ],
        "parts": [
         {
-         "words": "Fancy crest",
-         "gives": "CESTR",
-         "note": "CREST rearranged, sitting between AN and Y"
-        },
-        {
-         "words": "one unspecified",
-         "gives": "ANY",
-         "note": "any = one, no matter which"
+         "words": "crest",
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An elaborate coat of arms is taken up by some anonymous family.",
-     "walkthrough": "'Crest' and 'family' paint heraldry, which is fitting for the answer.",
-     "definitionFit": "A plain synonym: one's line of descent, the family one comes from."
+     "surface": "An ornate coat of arms taken up by some anonymous household.",
+     "definitionFit": "Ancestry means lineage or descent, the line of forebears that makes up a family."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
     }
    }
   },

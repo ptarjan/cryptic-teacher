@@ -228,40 +228,42 @@
      "indicators": [
       {
        "text": "getting in",
-       "note": "getting in means entering, so this pair of letters is put inside the other word"
+       "at": 9,
+       "note": "getting in says the following pieces go inside the baby's things"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "baby's things",
-         "gives": "LAYETTE",
-         "note": "a layette is a set of clothes and equipment for a newborn baby"
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "baby's things",
+       "at": 20,
+       "gives": "LAYETTE",
+       "note": "a layette is a set of clothes and equipment for a newborn baby"
       },
       {
-       "words": "female",
-       "gives": "F",
-       "note": "F is the standard abbreviation for female"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "female",
+         "at": 2,
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman squeezing in among the baby clothes, in a general sort of way.",
-     "walkthrough": "'In general' looks like a phrase meaning broadly; 'in' is a link and 'general' the definition.",
-     "definitionFit": "The Marquis de Lafayette was a French military commander who fought in the American Revolutionary War."
+     "surface": "A woman arrives with all the newborn's clothing and gear, generally speaking.",
+     "walkthrough": "'in general' reads like 'generally', but 'general' is the definition: the French general Lafayette, hero of the American Revolution.",
+     "definitionFit": "The Marquis de Lafayette was a French military officer who served as a major general in the American Revolutionary War."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "general"
     }
    }
@@ -458,39 +460,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "spreading",
-       "note": "spreading scatters things about, so the letters of the word are moved around"
+       "text": "about",
+       "at": 57,
+       "note": "about says the scattered letters wrap around the company"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means surrounding, so the shuffled letters go round the other piece"
+         "text": "spreading",
+         "at": 41,
+         "note": "spreading says the letters of money are spread out and rearranged"
         }
        ],
        "parts": [
         {
          "words": "money",
-         "note": "the five letters rearranged"
-        },
-        {
-         "words": "small company",
-         "gives": "CO",
-         "note": "Co is the short form of company"
+         "at": 51
         }
        ]
+      },
+      {
+       "words": "small company",
+       "at": 27,
+       "gives": "CO",
+       "note": "CO is the short form of company"
       }
      ]
     },
     "explanation": {
-     "surface": "A little firm makes savings by spreading its cash around carefully.",
-     "definitionFit": "An economy is a cost-cutting measure, such as making economies in a household budget."
+     "surface": "A cost cut achieved by a little firm that splashes its cash around.",
+     "definitionFit": "An economy is a reduction in spending, a thrifty measure that saves money."
     },
     "features": {
      "answerInScene": true,
@@ -737,35 +742,39 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the first word wraps the others"
+       "at": 19,
+       "note": "about says the lines go around the remaining pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "lines",
-         "gives": "RY",
-         "note": "RY is short for railway, a set of lines"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "lines",
+       "at": 13,
+       "gives": "RY",
+       "note": "RY is the abbreviation for railway, the lines a train runs on"
       },
       {
-       "words": "non-drinker",
-       "gives": "TT",
-       "note": "TT stands for teetotal"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 25,
+         "gives": "A"
+        },
+        {
+         "words": "non-drinker",
+         "at": 27,
+         "gives": "TT",
+         "note": "TT stands for teetotal, someone who never drinks alcohol"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Grumpy remarks aimed at someone who doesn't drink.",
-     "walkthrough": "'Lines' suggests spoken words; in crosswords it is often railway lines.",
-     "definitionFit": "Ratty is British informal for irritable or cross, as in getting ratty with someone."
+     "surface": "Grumpy remarks made about someone who refuses a drink.",
+     "walkthrough": "RY (railway) is the crossword's usual 'lines'; TT means teetotal.",
+     "definitionFit": "Ratty is informal British slang for irritable or short-tempered."
     },
     "features": {
      "answerInScene": false,
@@ -1467,65 +1476,61 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RAGDOLL",
      "indicators": [
       {
        "text": "during",
-       "note": "during means within, so one piece sits inside the other"
+       "at": 16,
+       "note": "during says the scrambled dog goes inside the shortened march"
       }
      ],
      "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 23,
+         "note": "brief says the march word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "march",
+         "at": 29,
+         "gives": "RALLY",
+         "note": "a rally is a mass march or demonstration"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "barking",
-         "note": "barking is British slang for mad, so these letters go haywire"
+         "at": 8,
+         "note": "barking means mad in British slang, so the letters of dog go crazy and rearrange"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "brief",
-           "note": "brief means cut short, so the word for a march loses its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "march",
-             "gives": "RALLY",
-             "note": "a rally is a protest march"
-            },
-            {
-             "words": "dog",
-             "note": "the three letters rearranged"
-            }
-           ]
-          },
-          {
-           "gives": "Y"
-          }
-         ]
+         "words": "dog",
+         "at": 4
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small dog yapping all through a short protest march.",
-     "walkthrough": "'Toy dog' looks like a breed such as a toy poodle; the definition is just the first word.",
-     "definitionFit": "A rag doll is a soft children's plaything made of cloth."
+     "surface": "A toy dog yaps throughout a short protest march.",
+     "walkthrough": "'Toy dog' looks like one phrase for a small breed, but 'Toy' alone is the definition. Barking is British slang for mad: GDO sits inside RALL (rally cut short).",
+     "definitionFit": "A rag doll is a children's plaything made of cloth stuffed with soft material."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "barking"
     }
    }

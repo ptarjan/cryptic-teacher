@@ -191,48 +191,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AFGHANIS",
      "indicators": [
       {
        "text": "welcoming",
-       "note": "to welcome someone is to take them in, so one piece goes inside the other"
+       "at": 19,
+       "note": "welcoming says the pieces open up to take the fellow in"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "AFGHANIS",
-       "indicators": [
-        {
-         "text": "Cycling",
-         "note": "going round in a cycle, the final letter moves round to the front"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "country",
-         "gives": "GHANA",
-         "note": "the West African country"
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "Cycling",
+           "at": 0,
+           "note": "cycling says a letter of the country moves round from one end to the other"
+          }
+         ],
+         "parts": [
+          {
+           "words": "country",
+           "at": 8,
+           "gives": "GHANA",
+           "note": "Ghana is a country in West Africa"
+          }
+         ]
         },
         {
          "words": "is",
-         "note": "taken as written"
-        },
-        {
-         "words": "fellow",
-         "gives": "F",
-         "note": "F is the abbreviation for fellow"
+         "at": 16,
+         "gives": "IS"
         }
        ]
+      },
+      {
+       "words": "fellow",
+       "at": 29,
+       "gives": "F"
       }
      ]
     },
     "explanation": {
-     "surface": "A cycling-mad nation is warmly receiving its own compatriots.",
-     "walkthrough": "Cycling here moves a word's last letter round to its front. 'Fellow' looks like part of the definition, but only 'countrymen' defines.",
-     "definitionFit": "Afghanis are natives of Afghanistan, so they are fellow countrymen of one another."
+     "surface": "A cyclist's homeland warmly receives his compatriots.",
+     "walkthrough": "'Cycling' looks like a hobby but moves the African country's final A round to its front, making AGHAN; F is welcomed straight after that A.",
+     "definitionFit": "Afghanis are people of Afghanistan, so they are fellow countrymen to one another."
     },
     "features": {
      "answerInScene": false,
@@ -581,41 +586,48 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "OFSTED",
      "indicators": [
       {
-       "text": "there's a little fantasy for you",
-       "note": "this phrase swaps one letter for another, putting a small bit of the word fantasy where the letter u stood"
+       "text": "there's",
+       "at": 31,
+       "note": "there's ... for you frames a swap, offering one letter where another stood"
+      },
+      {
+       "text": "for",
+       "at": 56,
+       "note": "for says one letter stands in place of another, the fantasy bit taking the place of you"
       }
      ],
      "parts": [
       {
        "words": "kicked out",
+       "at": 18,
        "gives": "OUSTED",
-       "note": "ousted means kicked out"
+       "note": "ousted means expelled or kicked out"
       },
       {
-       "op": "first",
-       "parts": [
-        {
-         "words": "fantasy",
-         "note": "a little of the word: its first letter"
-        }
-       ]
+       "words": "you",
+       "at": 60,
+       "gives": "U",
+       "note": "U is text-speak for you"
+      },
+      {
+       "words": "a little fantasy",
+       "at": 39,
+       "gives": "F",
+       "note": "a little of fantasy is its first letter, F"
       }
      ]
     },
     "explanation": {
-     "surface": "School inspectors get sacked, and someone sneers that it's wishful thinking.",
-     "walkthrough": "'For you' is read as 'for U': swap the U in OUSTED for F to give OFSTED.",
-     "definitionFit": "Ofsted is the English body that inspects schools and assesses teaching standards."
+     "surface": "Inspectors of teachers have been booted out, which may be wishful thinking.",
+     "walkthrough": "Ofsted is the UK government body that inspects schools. In OUSTED the U (text-speak 'you') is swapped for F.",
+     "definitionFit": "Ofsted is England's school inspection agency, whose inspectors assess teaching standards."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "you"
+     "misdirectedWord": "fantasy"
     }
    }
   },

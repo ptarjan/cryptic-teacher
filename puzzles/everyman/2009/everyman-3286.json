@@ -1005,24 +1005,20 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "NARWHAL",
-     "indicators": [
-      {
-       "text": "seen round",
-       "note": "being seen round something means encircling it, so letters wrap that one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NARWHAL",
+       "words": "Name",
+       "at": 0,
+       "gives": "N"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "briefly",
-         "note": "briefly means cut short, so the word loses its last letter"
+         "text": "seen round",
+         "at": 21,
+         "note": "seen round says the pieces are seen wrapped round the last letter"
         }
        ],
        "parts": [
@@ -1030,33 +1026,46 @@
          "op": "charade",
          "parts": [
           {
-           "words": "Name",
-           "gives": "N",
-           "note": "N is the abbreviation for name"
-          },
-          {
            "words": "a",
-           "note": "taken as written"
+           "at": 5,
+           "gives": "A"
           },
           {
-           "op": "last",
+           "op": "deletion",
            "indicators": [
             {
-             "text": "stern of",
-             "note": "a ship's stern is its back end, so only the final letter is kept"
+             "text": "briefly",
+             "at": 13,
+             "note": "briefly says the whale word loses its last letter"
             }
            ],
            "parts": [
             {
-             "words": "icebreaker",
-             "note": "its final letter"
+             "words": "whale",
+             "at": 7,
+             "gives": "WHALE"
+            },
+            {
+             "gives": "E"
             }
            ]
-          },
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "indicators": [
           {
-           "words": "whale",
-           "gives": "WHAL",
-           "note": "whale cut short"
+           "text": "stern of",
+           "at": 32,
+           "note": "stern of means the last letter, the back of a ship"
+          }
+         ],
+         "parts": [
+          {
+           "words": "icebreaker",
+           "at": 41,
+           "note": "the source of the final letter"
           }
          ]
         }
@@ -1066,13 +1075,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Identify a whale glimpsed briefly around the back of an icebreaker ship.",
-     "walkthrough": "The whole clue doubles as the definition: a whale sighted near an Arctic icebreaker; the question mark admits it is a description by example.",
-     "definitionFit": "The narwhal is a tusked Arctic whale that lives among sea ice, exactly where icebreakers work."
+     "surface": "Identify the whale glimpsed near the back of an icebreaking ship.",
+     "walkthrough": "The R from the end of 'icebreaker' sits between A and WHAL; the narwhal's tusk makes it a natural icebreaker, hence the question mark.",
+     "definitionFit": "The narwhal is an Arctic whale with a long spiral tusk, living among sea ice."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "stern"
     }
    }
