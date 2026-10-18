@@ -964,51 +964,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VERMICELLI",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "chopped",
-       "note": "something chopped has a piece cut off its end"
-      },
-      {
-       "text": "half of",
-       "note": "half of a word leaves only its first three of six letters"
+       "text": "cooked",
+       "at": 38,
+       "note": "cooked as in cooked up, the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Liver",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "cooked",
-         "note": "cooked food is transformed, so the letters are mixed into a new form"
+         "text": "chopped",
+         "at": 10,
+         "note": "chopped means cut short, losing its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Liver",
-         "note": "taken as written"
+         "words": "mix",
+         "at": 6,
+         "note": "taken as written before losing its last letter"
         },
         {
-         "words": "mix",
-         "gives": "MI",
-         "note": "the word with its last letter lopped off"
-        },
+         "gives": "X"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 23,
+         "note": "the first half of the word, its first three of six letters"
+        }
+       ],
+       "parts": [
         {
          "words": "celery",
-         "gives": "CEL",
-         "note": "its first half"
+         "at": 31,
+         "note": "taken as written before losing its second half"
+        },
+        {
+         "gives": "ERY"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe: chopped liver and some celery cooked with pasta.",
-     "walkthrough": "'Mix' looks like an anagram cue, but it is fodder; 'cooked' does the mixing.",
-     "definitionFit": "Vermicelli is a very thin noodle-like type of pasta."
+     "surface": "A recipe: chop liver, mix with some celery and cook it all in pasta.",
+     "walkthrough": "MI (mix 'chopped') and CEL ('half of' celery) join LIVER, and all ten letters are 'cooked' into the pasta.",
+     "definitionFit": "Vermicelli is a very thin string pasta, its name meaning 'little worms' in Italian."
     },
     "features": {
      "answerInScene": true,
@@ -1145,36 +1160,39 @@
      "indicators": [
       {
        "text": "involving",
-       "note": "a thing that involves others takes them inside it"
+       "at": 6,
+       "note": "involving means enclosing, wrapping around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Story",
-         "gives": "LIE",
-         "note": "a lie is a made-up story"
-        },
-        {
-         "words": "fashionable",
-         "gives": "IN",
-         "note": "in means in fashion"
-        }
-       ]
+       "words": "Story",
+       "at": 0,
+       "gives": "LIE",
+       "note": "a story can mean a lie, a fib"
       },
       {
-       "words": "German",
-       "gives": "GER",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fashionable",
+         "at": 16,
+         "gives": "IN",
+         "note": "in means fashionable, as in the in thing"
+        },
+        {
+         "words": "German",
+         "at": 28,
+         "gives": "GER"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tale about trendy German underwear for women.",
-     "walkthrough": "The story splits after its first letter to take the two other pieces.",
-     "definitionFit": "Lingerie is women's underwear, often frilly, which 'frillies' playfully describes."
+     "surface": "A tale about a stylish German and her lacy underwear.",
+     "walkthrough": "The story is a fib, not a tale; the two inserted pieces split it after its first letter.",
+     "definitionFit": "Lingerie is women's underwear, often lacy or frilly, so frillies is a playful colloquial synonym."
     },
     "features": {
      "answerInScene": true,
