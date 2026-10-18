@@ -232,44 +232,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRIXIE",
+     "op": "container",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without an end means the final letter is cut off"
+       "text": "to grab",
+       "at": 21,
+       "note": "to grab something is to take it into your hold, so the shortened word closes around the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to grab",
-         "note": "grabbing something means holding it, so one piece goes inside another"
+         "text": "endlessly",
+         "at": 5,
+         "note": "endlessly says the word loses its final letter, its end"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "tries",
-           "gives": "TRIE",
-           "note": "the word tries minus its last letter"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I is the Roman numeral one"
-          }
-         ]
+         "words": "tries",
+         "at": 15,
+         "note": "the word tries supplies the letters before trimming"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 29,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
         },
         {
          "words": "kiss",
+         "at": 33,
          "gives": "X",
-         "note": "X is the kiss at the end of a letter"
+         "note": "a kiss is written X at the end of a letter"
         }
        ]
       }
@@ -277,11 +282,11 @@
     },
     "explanation": {
      "surface": "A girl keeps trying to snatch a single kiss from someone.",
-     "walkthrough": "TRIE, with its end trimmed, wraps around I and X, the numeral one and the kiss sign.",
-     "definitionFit": "Trixie is a female given name, so it is an example of a girl in crossword terms."
+     "walkthrough": "'endlessly' cuts TRIES to TRIE, and 'to grab' has TRIE close round IX (one, kiss) after its first two letters.",
+     "definitionFit": "Trixie is a female given name, so it is an example of a girl."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "grab"
     }

@@ -210,38 +210,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "beginning to",
-       "note": "the beginning of 'recover' is its first letter"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "restricted by",
-         "note": "the letter is hemmed in by the word for inferior"
+         "at": 32,
+         "note": "a thing restricted by another is hemmed in by it, so the first letter sits inside the word for inferior"
         }
        ],
        "parts": [
         {
          "words": "inferior",
+         "at": 46,
          "gives": "BAD",
-         "note": "bad = inferior, poor quality; it holds the R"
+         "note": "inferior means bad"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "R",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "at": 10,
+           "note": "the beginning of recover is its first letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "beginning to recover",
-           "gives": "R",
-           "select": "first",
-           "note": "first letter of recover"
+           "words": "recover",
+           "at": 23,
+           "note": "the word recover supplies its first letter"
           }
          ]
         }
@@ -249,18 +248,19 @@
       },
       {
        "words": "implant",
+       "at": 55,
        "gives": "BURY",
-       "note": "to implant is to bury, set deep in"
+       "note": "to implant something in the ground is to bury it"
       }
      ]
     },
     "explanation": {
-     "surface": "A science-fiction writer on the mend after a botched implant.",
-     "walkthrough": "Ray Bradbury wrote Fahrenheit 451. 'Implant' feels like surgery in the surface; it is simply 'bury'.",
-     "definitionFit": "Ray Bradbury was an American science-fiction (SF) author."
+     "surface": "Someone beginning to recover is hampered by a poor implant, presented as a medical setback.",
+     "walkthrough": "SF is short for science fiction, so the definition asks for a science-fiction writer.",
+     "definitionFit": "Ray Bradbury was an American science-fiction writer, author of Fahrenheit 451."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "implant"
     }
@@ -640,30 +640,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LESMISERABLES",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 17,
+       "note": "about means surrounding, so the word for not so much goes round the shuffled letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "not so much",
+       "at": 5,
+       "gives": "LESS",
+       "note": "not so much means less"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about"
-        },
-        {
          "text": "revolutionary",
-         "note": "the letters are turned over, overthrown, into a new order"
+         "at": 23,
+         "note": "revolutionary means turned over, so the letters of rebel's aim are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "not so much",
-         "gives": "LESS",
-         "note": "less = not so much; it wraps round the anagram"
-        },
-        {
          "words": "rebel's aim",
-         "note": "anagram of REBELSAIM, 9 letters"
+         "at": 37,
+         "note": "the letters of rebel's aim are the anagram fodder"
         }
        ]
       }
@@ -671,9 +676,9 @@
     },
     "spelling": "LES MISÉRABLES",
     "explanation": {
-     "surface": "A book questioning how much the revolutionary rebel really wanted.",
-     "walkthrough": "Fitting, since Victor Hugo's novel is full of revolutionary rebels at the barricades.",
-     "definitionFit": "Les Misérables is Victor Hugo's novel, a book."
+     "surface": "A book about a rebel's revolutionary aim, which fits the novel's own plot.",
+     "walkthrough": "'revolutionary' fits the novel's subject, the Paris uprising of 1832, which hides its role as the anagram signal.",
+     "definitionFit": "Les Misérables is Victor Hugo's novel, so it is a famous book."
     },
     "features": {
      "answerInScene": true,
@@ -892,41 +897,54 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "50 per cent of",
-       "note": "half of the name Noel is taken"
+       "text": "reconstituted",
+       "at": 30,
+       "note": "reconstituted means made up again in a new form, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "reconstituted",
-         "note": "put together anew, so the letters are rearranged"
+         "text": "50 per cent of",
+         "at": 0,
+         "note": "50 per cent is half, so only half of the name Noel is kept"
         }
        ],
        "parts": [
         {
-         "words": "50 per cent of Noel",
-         "gives": "EL",
-         "note": "the second half of NOEL"
+         "words": "Noel",
+         "at": 15,
+         "note": "the name Noel supplies its second half"
         },
         {
-         "words": "Coward is",
-         "note": "anagram fodder, 8 letters"
+         "gives": "NO"
         }
        ]
+      },
+      {
+       "words": "Coward",
+       "at": 20,
+       "note": "the letters of Coward are part of the fodder"
+      },
+      {
+       "words": "is",
+       "at": 27,
+       "note": "the letters of is are part of the fodder"
       }
      ]
     },
     "explanation": {
-     "surface": "One witty playwright partly rebuilt from another.",
-     "walkthrough": "Noel Coward and Oscar Wilde were both celebrated wits and playwrights, which is what makes the surface ring true.",
-     "definitionFit": "Oscar Wilde was the Irish writer of The Importance of Being Earnest."
+     "surface": "A literary joke: half of one playwright rebuilt becomes another, both famous wits.",
+     "walkthrough": "Half of Noel gives EL; with COWARD and IS that is the pool reconstituted into the answer. Noël Coward and the answer were both celebrated English-language wits.",
+     "definitionFit": "Oscar Wilde was an Irish playwright and novelist, the writer the clue calls this one."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Coward"
     }
    }
   },
@@ -1065,44 +1083,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DISPERSAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "adopted by",
+       "at": 16,
+       "note": "something adopted by another is taken in by it, so is goes inside the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "is adopted by",
-         "note": "IS is taken in by the other letters"
-        },
-        {
          "text": "on the move",
-         "note": "the pedlars' letters move into a new order"
+         "at": 35,
+         "note": "on the move means shifting, so the letters of pedlars are rearranged"
         }
        ],
        "parts": [
         {
          "words": "pedlars",
-         "note": "anagram of PEDLARS, split around IS"
-        },
-        {
-         "words": "is",
-         "note": "as written"
+         "at": 27,
+         "note": "the letters of pedlars are the anagram fodder"
         }
        ]
+      },
+      {
+       "words": "is",
+       "at": 13
       }
      ]
     },
     "explanation": {
-     "surface": "Travelling salesmen taking on the job of distributing goods.",
-     "walkthrough": "The surface is about sales rounds; the travelling pedlars are only letters to be rearranged.",
-     "definitionFit": "Plain synonym: spreading things out over an area is distributing them."
+     "surface": "Travelling pedlars take on goods as they move about, a picture of trading.",
+     "definitionFit": "Dispersal is the spreading of things over an area, which is distribution."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pedlars"
+     "misdirectedWord": "adopted"
     }
    }
   },
@@ -1199,56 +1219,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MOVE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 16,
+       "note": "after puts the shortened word behind the single letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "Almost",
-         "note": "the word for finished falls short of its last letter"
-        },
-        {
          "text": "opening",
-         "note": "the opening letter of 'master's'"
+         "at": 31,
+         "note": "the opening of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "after"
-          }
-         ],
-         "parts": [
-          {
-           "words": "master's opening",
-           "gives": "MASTEROPENING",
-           "note": "first letter of master"
-          }
-         ]
+         "words": "master's",
+         "at": 22,
+         "note": "the word master supplies its first letter"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means not quite complete, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "finished",
+         "at": 7,
+         "gives": "OVER",
+         "note": "finished means over"
         },
         {
-         "words": "Almost finished",
-         "gives": "OVE",
-         "note": "OVER = finished, less its last letter"
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chess master's opening gambit, and the game is nearly over.",
-     "walkthrough": "'Opening gambit' reads as a single chess phrase; it has to be split, 'opening' going with 'master's' and 'gambit' standing alone as the definition.",
-     "definitionFit": "A gambit is a calculated move, in chess or otherwise."
+     "surface": "A chess game nearly over after the master's first gambit.",
+     "walkthrough": "The chess picture makes 'opening gambit' look like one phrase, but 'opening' works on master's and 'gambit' alone is the definition.",
+     "definitionFit": "A gambit is an opening manoeuvre in chess or a calculated action, so it is a move."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "opening"
+     "misdirectedWord": "finished"
     }
    }
   },
@@ -1792,57 +1820,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HYMNAL",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "disheartened",
-         "note": "each word loses its heart, its middle letters"
+         "at": 30,
+         "note": "disheartened means losing the heart, so each word's middle letters go"
         }
        ],
        "parts": [
         {
-         "words": "holy",
-         "gives": "HY",
-         "note": "HOLY without its middle letters OL"
+         "words": "holy men",
+         "at": 43,
+         "note": "the words holy men supply their outer letters once their hearts are removed"
         },
         {
-         "words": "men",
-         "gives": "MN",
-         "note": "MEN without its middle E"
-        },
+         "gives": "OLE"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 52,
+       "gives": "A"
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "at first",
-           "note": "the first letter of 'lot'"
-          }
-         ],
-         "parts": [
-          {
-           "words": "a",
-           "note": "as written"
-          }
-         ]
-        },
+         "text": "at first",
+         "at": 58,
+         "note": "at first points to the first letter of lot"
+        }
+       ],
+       "parts": [
         {
-         "words": "lot at first",
-         "gives": "L",
-         "note": "first letter of lot"
+         "words": "lot",
+         "at": 54,
+         "note": "the word lot supplies its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dispirited holy men going through a lot of scripture.",
-     "walkthrough": "'Disheartened' sounds like the holy men's mood; it strips the middles from both words.",
-     "definitionFit": "Plain description: a church's book of hymns gathers sacred songs, religious texts, in one volume."
+     "surface": "Holy men, a great many of them, losing heart at the start of something.",
+     "walkthrough": "'disheartened' strips the middles from HOLY and MEN to leave HY and MN; then A and L (lot 'at first').",
+     "definitionFit": "A hymnal is a hymn book, a bound collection of sacred songs used in worship."
     },
     "features": {
      "answerInScene": true,

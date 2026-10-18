@@ -926,41 +926,43 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "COCKROACH",
      "indicators": [
       {
        "text": "on board",
-       "note": "on board means inside a vehicle, so the jumbled letters go within the bus word"
+       "at": 24,
+       "note": "being on board a vehicle means inside it, so the shuffled letters go within the bus"
       }
      ],
      "parts": [
+      {
+       "words": "single-decker",
+       "at": 33,
+       "gives": "COACH",
+       "note": "a single-decker is a bus, here a coach"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "violently",
-         "note": "violent movement throws things about, so these letters are scrambled"
+         "at": 14,
+         "note": "violently shaken, the letters of rock are thrown into a new order"
         }
        ],
        "parts": [
         {
          "words": "rock",
-         "note": "rock rearranged"
-        },
-        {
-         "words": "single-decker",
-         "gives": "COACH",
-         "note": "a coach is a single-deck bus"
+         "at": 9,
+         "note": "the letters of rock are the anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A passenger spots a bug while the bus lurches about.",
-     "walkthrough": "'See' just invites the solver to look; the rearranged rock goes after the first letter of COACH.",
-     "definitionFit": "The cockroach is an insect regarded as a household pest."
+     "surface": "Someone sees a pest and starts rocking wildly aboard a one-level bus.",
+     "walkthrough": "'See' only joins the clue; 'single-decker' sounds like a bus type, and a coach is one.",
+     "definitionFit": "The cockroach is a common household insect regarded as vermin, a classic example of a pest."
     },
     "features": {
      "answerInScene": true,
@@ -1050,43 +1052,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "cooked",
-       "note": "cooked means altered or doctored, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "fish",
+       "at": 21,
+       "gives": "SKATE",
+       "note": "a skate is a flat fish"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "at": 26,
+         "note": "cooked here means tampered with, so the letters of in hot are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "fish",
-         "gives": "SKATE",
-         "note": "the skate is a flat fish"
-        },
-        {
          "words": "in hot",
-         "note": "these letters rearranged"
-        },
-        {
-         "words": "Riviera resort",
-         "gives": "NICE",
-         "note": "Nice is a resort city on the French Riviera"
+         "at": 33,
+         "note": "the letters of in hot are the anagram fodder"
         }
        ]
+      },
+      {
+       "words": "Riviera resort",
+       "at": 40,
+       "gives": "NICE",
+       "note": "Nice is a resort city on the French Riviera"
       }
      ]
     },
     "explanation": {
-     "surface": "Legal trouble for a chef serving fish in a sweltering Côte d'Azur town.",
-     "walkthrough": "'Court' looks like a law court, but it is the verb: to court trouble is to invite it.",
-     "definitionFit": "To skate on thin ice is an idiom for taking risks, inviting danger."
+     "surface": "A seaside meal: fish cooked somewhere hot in a Riviera town.",
+     "walkthrough": "'Court' looks like a noun, a tennis or law court, but it is a verb here: to court trouble is to invite it.",
+     "definitionFit": "To skate on thin ice is an idiom for taking a risk, inviting danger, which is courting trouble."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Court"
     }
    }

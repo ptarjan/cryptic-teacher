@@ -183,47 +183,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DESPERADO",
+     "op": "charade",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
+       "text": "after",
+       "at": 24,
+       "note": "after puts the shortened element behind the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "abroad",
+         "at": 36,
+         "note": "abroad means scattered widely, so the letters of speed are rearranged"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "abroad",
-           "note": "abroad suggests wandering far afield, so the letters are scattered"
-          }
-         ],
-         "parts": [
-          {
-           "words": "speed",
-           "note": "taken as written"
-          }
-         ]
-        },
+         "words": "speed",
+         "at": 30,
+         "note": "the letters of speed are the anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 17,
+         "note": "mostly means most but not all, so the last letter goes"
+        }
+       ],
+       "parts": [
         {
          "words": "element",
-         "gives": "RADO",
-         "note": "radon, the radioactive gas, without its last letter"
+         "at": 9,
+         "gives": "RADON",
+         "note": "radon is a chemical element"
+        },
+        {
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A criminal element fleeing abroad at speed.",
-     "walkthrough": "'Criminal element' reads as a phrase, but the definition is the first word and 'element' is a chemical one.",
-     "definitionFit": "A desperado is a reckless outlaw, a criminal of the Wild West kind."
+     "surface": "A criminal, mostly a component of a speeding gang, flees overseas.",
+     "walkthrough": "'abroad' turns SPEED into DESPE, and 'mostly' cuts RADON to RADO.",
+     "definitionFit": "A desperado is a reckless outlaw, a violent criminal of the Wild West kind."
     },
     "features": {
      "answerInScene": true,
@@ -1361,48 +1373,52 @@
    "annotation": {
     "definitions": [
      {
-      "text": "'Land of Hope …'",
-      "at": 32
+      "text": "Land of Hope",
+      "at": 33
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RURITANIA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "short",
-       "note": "short means the word lacks its final letter"
+       "text": "Playing",
+       "at": 0,
+       "note": "playing means performing freely, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "air twice",
+       "at": 8,
+       "gives": "AIRAIR",
+       "note": "the word air written twice"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Playing",
-         "note": "playing something like music reworks it, so the letters are rearranged"
+         "text": "short",
+         "at": 19,
+         "note": "short means cut, so the last letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "air twice",
-         "gives": "AIRAIR",
-         "note": "the word air written out twice"
+         "words": "tune",
+         "at": 25,
+         "note": "the word tune supplies its letters once trimmed"
         },
         {
-         "words": "tune",
-         "gives": "TUN",
-         "note": "the word tune without its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A band twice playing a short tune, the patriotic 'Land of Hope and Glory'.",
-     "walkthrough": "The definition plays on Elgar's 'Land of Hope and Glory': Ruritania is the land invented by the novelist Anthony Hope.",
-     "definitionFit": "Ruritania is the fictional kingdom of Anthony Hope's novel The Prisoner of Zenda, so it is Hope's land."
+     "surface": "A musician plays a melody twice, a brief tune from Land of Hope and Glory.",
+     "walkthrough": "Land of Hope and Glory is the British patriotic song, but Hope here is Anthony Hope, author of The Prisoner of Zenda.",
+     "definitionFit": "Ruritania is the fictional central European kingdom invented by novelist Anthony Hope."
     },
     "features": {
      "answerInScene": false,
