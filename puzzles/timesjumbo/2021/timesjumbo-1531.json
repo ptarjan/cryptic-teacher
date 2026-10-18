@@ -216,48 +216,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRUDEAU",
+     "op": "container",
      "indicators": [
       {
-       "text": "Briefly",
-       "note": "saying something briefly cuts it short, so the word loses its final letter"
+       "text": "after interruption from",
+       "at": 14,
+       "note": "after interruption from means the shortened word has the other piece put into it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "after interruption from",
-         "note": "an interruption breaks into the middle of something, so one piece sits within the other"
+         "text": "Briefly",
+         "at": 0,
+         "note": "Briefly means the word for tense loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "tense",
-         "gives": "TAU",
-         "note": "taut means tense; trimmed, it loses its last letter"
+         "at": 8,
+         "gives": "TAUT",
+         "note": "taut means tense, pulled tight"
         },
         {
-         "words": "impolite",
-         "gives": "RUDE",
-         "note": "rude is a direct synonym of impolite"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "impolite",
+       "at": 38,
+       "gives": "RUDE",
+       "note": "impolite means rude"
       }
      ]
     },
     "explanation": {
-     "surface": "A former leader grows tense for a moment after a rude heckle.",
-     "walkthrough": "TRUDEAU fits both Pierre Trudeau and his son Justin, each a former Canadian prime minister.",
-     "definitionFit": "Pierre and Justin Trudeau both led Canada's government in the past, so either counts as a former premier."
+     "surface": "A former leader grows tense after being rudely interrupted.",
+     "walkthrough": "'Old' belongs to the definition, not the wordplay. Pierre Trudeau was prime minister of Canada.",
+     "definitionFit": "Pierre Trudeau led Canada in the 1970s and early 1980s, a past head of government."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "tense"
+     "misdirectedWord": "impolite"
     }
    }
   },
@@ -457,42 +462,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GRUEL",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "chopped",
-       "note": "chopping a word lops off its end, so a final letter is lost"
+       "text": "up",
+       "at": 26,
+       "note": "in a down clue, up means the letters are read from the bottom upwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "up",
-         "note": "in a down entry, going up means reading from bottom to top"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "Large",
+         "at": 0,
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
+        },
+        {
+         "words": "English",
+         "at": 6,
+         "gives": "E"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "chopped",
+           "at": 18,
+           "note": "chopped means the last letter of the word for egg is cut off"
+          }
+         ],
          "parts": [
           {
-           "words": "Large",
-           "gives": "L",
-           "note": "L is the clothing abbreviation for large"
-          },
-          {
-           "words": "English",
-           "gives": "E",
-           "note": "E is the abbreviation for English"
-          },
-          {
            "words": "egg",
-           "gives": "URG",
-           "note": "to egg someone on is to urge them; cut short it loses the E"
+           "at": 14,
+           "gives": "URGE",
+           "note": "to egg someone on is to urge them"
+          },
+          {
+           "gives": "E"
           }
          ]
         }
@@ -501,9 +511,9 @@
      ]
     },
     "explanation": {
-     "surface": "A big English egg hacked to bits makes an unappealing meal.",
-     "walkthrough": "'Egg' is a verb here, not food.",
-     "definitionFit": "Gruel is thin oatmeal boiled in water, the proverbial dreary food of workhouses and prisons."
+     "surface": "A big English egg is chopped up into an unappealing meal.",
+     "walkthrough": "The verb egg (urge) is not the breakfast item. URGE chopped is URG; LEURG read upwards gives the answer.",
+     "definitionFit": "Gruel is thin porridge of oats boiled in water, a byword for unappealing food."
     },
     "features": {
      "answerInScene": true,
@@ -2416,41 +2426,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNDRESS",
-     "indicators": [
-      {
-       "text": "advancing",
-       "note": "advancing means moving forward, so one letter shifts to an earlier position"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "With river advancing",
+         "at": 0,
+         "note": "R is the map abbreviation for river, and advancing means that letter moves one place forward in the word for beneath"
+        }
+       ],
        "parts": [
         {
-         "words": "With river advancing, beneath",
-         "gives": "UNDRE",
-         "note": "under means beneath; its R, the abbreviation for river, moves one place earlier"
+         "words": "beneath",
+         "at": 22,
+         "gives": "UNDER",
+         "note": "beneath means under"
         },
         {
-         "words": "vessel",
-         "gives": "SS",
-         "note": "SS is the prefix for a steamship"
+         "gives": "ER",
+         "note": "the last two letters of the word for beneath, river letter last"
+        },
+        {
+         "gives": "RE",
+         "note": "the same two letters once the river letter has moved forward"
         }
        ]
+      },
+      {
+       "words": "vessel",
+       "at": 30,
+       "gives": "SS",
+       "note": "SS stands for steamship, a vessel"
       }
      ]
     },
     "explanation": {
-     "surface": "With the tide coming in below the boat, someone gets ready for a dip.",
-     "walkthrough": "The question mark admits that stripping off is only one way to get ready for a swim.",
-     "definitionFit": "Before a swim you take your clothes off to change into a costume, so undressing is a natural preliminary."
+     "surface": "As the river rises under a boat, someone gets ready to go into the water.",
+     "walkthrough": "'Advancing' moves the river letter one place towards the front of the word; the question mark flags that undressing is only an example of getting ready to swim.",
+     "definitionFit": "Before swimming one takes off one's clothes, hence the question mark on this example."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "advancing"
     }
    }
@@ -2619,46 +2639,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTERVIEW",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
+       "text": "thrilled",
+       "at": 21,
+       "note": "thrilled means the letters are stirred up into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "thrilled",
-         "note": "being thrilled means being stirred up, so the letters are mixed"
+         "text": "mostly",
+         "at": 14,
+         "note": "mostly means the last letter of were is dropped"
         }
        ],
        "parts": [
         {
          "words": "were",
-         "gives": "WER",
-         "note": "the word without its final letter"
+         "at": 9
         },
         {
-         "words": "invite",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "invite",
+       "at": 35
       }
      ]
     },
     "explanation": {
-     "surface": "Spectators were delighted to receive an invitation.",
-     "walkthrough": "'Audience' looks like a crowd of spectators; it means a formal meeting, as with the Pope.",
-     "definitionFit": "An audience is a formal meeting granted by someone important, and an interview is likewise an arranged face-to-face meeting."
+     "surface": "An audience was largely delighted to be invited.",
+     "walkthrough": "WER (were without its last letter) and INVITE are rearranged together.",
+     "definitionFit": "An audience is a formal interview or meeting granted by someone important, such as a monarch or pope."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Audience"
     }
    }
@@ -2684,41 +2706,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TWIRL",
-     "indicators": [
-      {
-       "text": "to cancel final",
-       "note": "cancelling the final drops whatever comes last, so the end letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to cancel final",
+         "at": 6,
+         "note": "to cancel final means the last letter of the word for idiot is removed"
+        }
+       ],
        "parts": [
         {
          "words": "Idiot",
-         "gives": "TWI",
-         "note": "a twit is an idiot; it loses its last letter"
+         "at": 0,
+         "gives": "TWIT",
+         "note": "a twit is an idiot"
         },
         {
-         "words": "sort of football",
-         "gives": "RL",
-         "note": "RL is rugby league, a code of football"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "a sort of football",
+       "at": 24,
+       "gives": "RL",
+       "note": "RL is short for rugby league, one code of football"
       }
      ]
     },
     "explanation": {
-     "surface": "A fan rants that cancelling the cup final would be a footballing revolution.",
-     "walkthrough": "'Revolution' sounds political; it is a single spin. Rugby league is one of the football codes.",
-     "definitionFit": "A twirl is one quick spin round, and a revolution is one complete turn about an axis."
+     "surface": "A fool calls off the cup final, provoking a football uprising.",
+     "walkthrough": "TWIT loses its last letter; RL is rugby league.",
+     "definitionFit": "A twirl is a quick spin, one full turn, as a revolution is."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "revolution"
     }
    }
@@ -3201,41 +3228,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BANAL",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "something short is cut off before its end, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Don't permit",
+       "at": 0,
+       "gives": "BAN",
+       "note": "to ban is to not permit"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 22,
+         "note": "short means the last letter of all is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Don't permit",
-         "gives": "BAN",
-         "note": "to ban is to forbid"
+         "words": "anything",
+         "at": 13,
+         "gives": "ALL",
+         "note": "to ban all is to ban anything, so all stands for anything here"
         },
         {
-         "words": "anything",
-         "gives": "AL",
-         "note": "all, meaning anything whatever, without its last letter"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dress code forbids any skimpy clothing being worn.",
-     "walkthrough": "'Short to be worn' suggests a hemline; 'worn' means hackneyed.",
-     "definitionFit": "A banal remark is trite and overused, and worn describes an expression so familiar it has lost its force."
+     "surface": "A dress code forbids wearing anything too short.",
+     "walkthrough": "'Worn' looks like it means being worn as clothing; here it means hackneyed.",
+     "definitionFit": "Worn here means trite or overused, like a stale phrase, which is what banal means."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "worn"
     }

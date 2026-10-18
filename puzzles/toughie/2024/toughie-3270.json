@@ -751,43 +751,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "wrong",
-       "note": "something gone wrong is out of order, so its letters are jumbled"
-      },
-      {
-       "text": "fixed",
-       "note": "fixed here means doctored or rearranged, as a rigged result is, so the letters are reordered"
+       "text": "without",
+       "at": 29,
+       "note": "without means outside, so the rearranged goes wraps around the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "without",
-         "note": "without in its old sense means outside, so the first word goes around the second"
+         "text": "wrong",
+         "at": 23,
+         "note": "wrong means the letters of goes are put out of order"
         }
        ],
        "parts": [
         {
          "words": "goes",
-         "note": "an anagram of goes"
-        },
+         "at": 18
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fixed",
+         "at": 37,
+         "note": "fixed means the letters of spiel are repaired into a new arrangement"
+        }
+       ],
+       "parts": [
         {
          "words": "spiel",
-         "note": "an anagram of spiel"
+         "at": 43
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A preacher's sermon falls flat because it lacks a well-rehearsed patter.",
-     "walkthrough": "'Without' looks like 'lacking', but it means outside: one jumbled word wraps around the other.",
-     "definitionFit": "To gospelise is to preach the Christian gospel to people, evangelising, which is a preacher's work."
+     "surface": "A sermon goes badly without its usual rehearsed patter.",
+     "walkthrough": "'Without' here means outside, not lacking: GOSE (from goes) goes around SPELI (from spiel).",
+     "definitionFit": "To gospelise is to evangelise or preach the gospel, a preacher's job."
     },
     "features": {
      "answerInScene": true,
@@ -897,52 +907,44 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ICEBUCKETS",
+     "op": "charade",
      "indicators": [
       {
        "text": "wearing",
-       "note": "something worn is surrounded by the wearer's clothes or jewels, so one word goes inside"
+       "at": 26,
+       "note": "in a down clue, wearing means the jewellery sits on top of the male"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "18",
-         "note": "the answer at 18-down reads as an instruction to release a word and let its letters go loose"
-        }
-       ],
-       "parts": [
-        {
-         "words": "jewellery",
-         "gives": "ICE",
-         "note": "ice is slang for diamonds"
-        },
-        {
-         "words": "male",
-         "gives": "BUCK",
-         "note": "a buck is a male deer or rabbit"
-        },
-        {
-         "words": "18",
-         "gives": "SET",
-         "note": "the first word of the 18-down answer, whose second word says it is to be freed"
-        }
-       ]
+       "words": "jewellery",
+       "at": 34,
+       "gives": "ICE",
+       "note": "ice is slang for diamonds or jewellery"
+      },
+      {
+       "words": "male",
+       "at": 21,
+       "gives": "BUCK",
+       "note": "a buck is a male deer or rabbit"
+      },
+      {
+       "words": "18",
+       "at": 46,
+       "gives": "ETS",
+       "note": "18 is SET FREE, read as an instruction: set, freed into a new order, gives these letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A man in his finery is told he is free to go.",
-     "walkthrough": "The 18-down answer reads as 'SET free', so its first word is shuffled into a new order; the male sits between the diamonds and that result.",
-     "definitionFit": "An ice bucket keeps wine or drinks chilled, so it is a cooler; the plural matches 'more than one'."
+     "surface": "A bloke in bling is liberated.",
+     "walkthrough": "The cross-reference to 18 (SET FREE) is read as 'set' freed, an anagram of SET.",
+     "definitionFit": "Ice buckets keep bottles chilled, so each one is a cooler for drinks."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "cooler"
     }
    }
@@ -1162,15 +1164,10 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "shortly",
-       "note": "shortly means in abbreviated form, so the metal is given as its chemical symbol"
-      }
-     ],
      "parts": [
       {
        "words": "E.g. radio",
+       "at": 0,
        "gives": "SET",
        "note": "a radio is an example of a set, a receiving apparatus"
       },
@@ -1179,33 +1176,37 @@
        "indicators": [
         {
          "text": "plugging",
-         "note": "a plug fills a hole, so one piece is put inside the other"
+         "at": 21,
+         "note": "plugging means the engineers fill a gap inside the metal's symbol"
         }
        ],
        "parts": [
         {
-         "words": "heavy metal",
+         "words": "heavy metal shortly",
+         "at": 30,
          "gives": "FE",
-         "note": "Fe is the chemical symbol for iron, a heavy metal"
+         "note": "Fe is the chemical symbol, a short form, for iron, a heavy metal"
         },
         {
          "words": "engineers",
+         "at": 11,
          "gives": "RE",
-         "note": "the Royal Engineers, a British army corps"
+         "note": "RE is the Royal Engineers, the British Army corps"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Radio engineers briefly turn to playing heavy metal music.",
-     "walkthrough": "'Heavy metal' suggests a music genre, but it is iron. RE, the Royal Engineers, is a regular crossword abbreviation.",
-     "definitionFit": "Set free means liberated, so it matches released; the definition reads 'being released' as the state that results."
+     "surface": "Radio engineers are patching a heavy metal track to broadcast it.",
+     "walkthrough": "'Heavy metal' suggests rock music; it is iron, whose chemical symbol is Fe. The Royal Engineers are a British Army corps.",
+     "definitionFit": "To set free is to release, so being released fits as the phrase in its participle sense."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "metal"
+     "joke": "pun",
+     "misdirectedWord": "heavy"
     }
    }
   },

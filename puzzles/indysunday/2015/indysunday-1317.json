@@ -106,48 +106,55 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "COSTARICA",
-     "indicators": [
-      {
-       "text": "exchanged for",
-       "note": "one thing exchanged for another is swapped out and replaced"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Price",
+       "at": 0,
        "gives": "COST",
-       "note": "the cost is the price"
+       "note": "cost means price"
       },
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 6
       },
       {
-       "words": "wealthy",
-       "gives": "RICH",
-       "note": "rich means wealthy"
-      },
-      {
-       "words": "husband",
-       "gives": "H",
-       "note": "H abbreviates husband; this letter is swapped out"
-      },
-      {
-       "words": "a",
-       "note": "the replacement letter"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "exchanged for",
+         "at": 24,
+         "note": "exchanged for means the husband's letter is swapped out and the next one put in its place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wealthy",
+         "at": 8,
+         "gives": "RICH",
+         "note": "wealthy means rich"
+        },
+        {
+         "words": "husband",
+         "at": 16,
+         "gives": "H"
+        },
+        {
+         "words": "a",
+         "at": 38,
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone weighs the cost of trading a rich spouse for a home in Central America.",
-     "walkthrough": "RICH loses its H in favour of A, giving RICA.",
-     "definitionFit": "Costa Rica is a country lying between Nicaragua and Panama on the Central American isthmus."
+     "surface": "A rich man's price is a trade of husbands for a place in Central America.",
+     "walkthrough": "The surface reads like a gold-digger's bargain; the second 'a' is the letter swapped in, so the definition is just 'place in Central America'.",
+     "definitionFit": "Costa Rica is a country in Central America, between Nicaragua and Panama."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "husband"
     }
@@ -1097,37 +1104,39 @@
      "indicators": [
       {
        "text": "therein",
-       "note": "therein means inside that, so one piece goes within the other"
+       "at": 34,
+       "note": "therein means the farewell goes inside the rearranged letters"
       }
      ],
      "parts": [
-      {
-       "words": "read",
-       "gives": "DERA",
-       "note": "the word read rearranged"
-      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "out",
-         "note": "letters out of place have been put into a new order"
+         "at": 21,
+         "note": "out means the letters of read are put out of order"
         }
        ],
        "parts": [
         {
-         "words": "farewell",
-         "gives": "VALE",
-         "note": "vale is the Latin for farewell"
+         "words": "read",
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "farewell",
+       "at": 25,
+       "gives": "VALE",
+       "note": "vale is Latin for farewell"
       }
      ]
     },
     "explanation": {
-     "surface": "A goodbye message for an Irish politician is read aloud.",
-     "walkthrough": "Vale is Latin, familiar from valedictory speeches.",
-     "definitionFit": "Eamon de Valera was Ireland's Taoiseach and later its President."
+     "surface": "An Irish statesman's farewell speech is read aloud.",
+     "walkthrough": "DERA, an anagram of read, holds VALE. Éamon de Valera led Ireland as taoiseach and president.",
+     "definitionFit": "Éamon de Valera was a founding figure of the Irish state, its leading politician for decades."
     },
     "features": {
      "answerInScene": true,

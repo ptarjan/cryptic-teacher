@@ -391,46 +391,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BABOON",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "short means cut off before the end, so a last letter goes"
+       "text": "broken by",
+       "at": 11,
+       "note": "broken by means the first word is split open and the other piece set inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "bar",
+       "at": 7,
+       "gives": "BAN",
+       "note": "to bar something is to ban it"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "broken by",
-         "note": "a thing broken by another has that other thing pushed into its middle"
+         "text": "short",
+         "at": 21,
+         "note": "short means the last letter of the word for kick is dropped"
         }
        ],
        "parts": [
         {
-         "words": "bar",
-         "gives": "BAN",
-         "note": "to bar is to ban"
+         "words": "kick",
+         "at": 27,
+         "gives": "BOOT",
+         "note": "a kick is a boot"
         },
         {
-         "words": "kick",
-         "gives": "BOO",
-         "note": "BOOT, a kick, lacking its final letter"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drinker kicks at a pub bar and smashes it.",
-     "walkthrough": "'Bar' reads as the pub counter, but here it is a verb meaning prohibit.",
-     "definitionFit": "Baboons are large African primates with dog-like muzzles, a kind of Old World monkey."
+     "surface": "A monkey smashes through a bar with a feeble kick.",
+     "walkthrough": "'Bar' looks like a pub or a rod, but here it is the verb meaning forbid.",
+     "definitionFit": "A baboon is a large ground-dwelling primate of Africa, one species of monkey."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "bar"
     }
@@ -1430,12 +1435,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OFFTHESHELF",
      "indicators": [
       {
        "text": "seen amongst",
-       "note": "a thing seen amongst others sits in the middle of them"
+       "at": 22,
+       "note": "seen amongst means the article sits between the other pieces"
       }
      ],
      "parts": [
@@ -1444,37 +1448,40 @@
        "parts": [
         {
          "words": "rotten",
+         "at": 35,
          "gives": "OFF",
-         "note": "food that has gone off is rotten"
+         "note": "food that has gone rotten is off"
         },
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "decomposing",
-           "note": "something decomposing breaks down, so these letters are broken up and rebuilt"
+           "at": 43,
+           "note": "decomposing means the letters of flesh break down and re-form"
           }
          ],
          "parts": [
           {
-           "words": "article",
-           "gives": "THE",
-           "note": "the definite article"
-          },
-          {
            "words": "flesh",
-           "note": "taken as written"
+           "at": 55
           }
          ]
         }
        ]
+      },
+      {
+       "words": "article",
+       "at": 14,
+       "gives": "THE",
+       "note": "THE is the definite article"
       }
      ]
     },
     "explanation": {
-     "surface": "A gruesome find of an item lying in rotting meat.",
-     "walkthrough": "'Article' looks like an item but is the grammar term for a word like 'the'.",
-     "definitionFit": "Goods taken straight from a shop's stock rather than custom-made are standard factory items, which is the sense here."
+     "surface": "Something grim is spotted in a heap of rotting flesh.",
+     "walkthrough": "'Article' is the grammatical kind (a, an, the), not a news piece or an item of goods.",
+     "definitionFit": "Goods bought off the shelf are standard stock items, not made to order."
     },
     "features": {
      "answerInScene": false,

@@ -1327,37 +1327,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SLOOP",
-     "indicators": [
-      {
-       "text": "unfinished",
-       "note": "unfinished means the end is missing, so the place name loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "words": "son",
+       "at": 42,
+       "gives": "S"
+      },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "returned",
-         "note": "returned means sent back, so the combined letters are read in the other direction"
+         "at": 30,
+         "note": "returned means the shortened word is read back to front"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "unfinished",
+           "at": 18,
+           "note": "unfinished means the last letter of Poole is cut off"
+          }
+         ],
          "parts": [
           {
            "words": "Poole",
-           "gives": "POOL",
-           "note": "Poole is a port town in Dorset, here cut short"
+           "at": 11
           },
           {
-           "words": "son",
-           "gives": "S",
-           "note": "standard abbreviation for son"
+           "gives": "E"
           }
          ]
         }
@@ -1366,14 +1368,14 @@
      ]
     },
     "explanation": {
-     "surface": "A boat built in Poole, left incomplete and sailed back by a son.",
-     "walkthrough": "Poole is a harbour town on England's south coast, apt for a sailing boat.",
-     "definitionFit": "A sloop is a one-masted sailing vessel, a kind of craft."
+     "surface": "A boat sails back from the Dorset harbour town of Poole with a son aboard.",
+     "walkthrough": "Poole without its last letter is POOL; 'returned' turns that round to LOOP, and S for son goes in front.",
+     "definitionFit": "A sloop is a single-masted sailing vessel, so it is a kind of craft."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Craft"
+     "misdirectedWord": "Poole"
     }
    }
   },
