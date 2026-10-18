@@ -271,24 +271,25 @@ def unpad_charades(entry, puzzle):
     def go(node):
         dropped = False
         if node.get("op") == "charade":
-            keep = []
-            for p in node.get("parts") or []:
-                kind = _padding_kind(p) if isinstance(p, dict) else None
-                if kind == "ok":
-                    removed.append(p["words"])
-                    dropped = True
-                elif kind:
-                    SKIPPED[kind] += 1
-                    keep.append(p)
-                else:
-                    keep.append(p)
-            node["parts"] = keep
+            parts = node.get("parts") or []
+            kinds = [_padding_kind(p) if isinstance(p, dict) else None for p in parts]
+            keep = [p for p, k in zip(parts, kinds) if k != "ok"]
+            SKIPPED.update(k for k in kinds if k and k != "ok")
+            # A charade of one piece with nothing else of its own is that piece.
+            # One with fields of its own, or whose piece is an unchecked step
+            # that would become the root (the validator then wants arity for
+            # it), needs a rewrite, not code: the leaf stays where it is.
+            if len(keep) < len(parts) and len(keep) == 1 \
+                    and (set(node) > {"op", "parts"} or keep[0].get("unchecked") and "op" in keep[0]):
+                SKIPPED["removal would leave a one-piece charade needing a rewrite"] += 1
+            elif len(keep) < len(parts) and keep:
+                removed.extend(p["words"] for p, k in zip(parts, kinds) if k == "ok")
+                dropped = True
+                node["parts"] = keep
         for i, p in enumerate(node.get("parts") or []):
             if isinstance(p, dict):
                 node["parts"][i] = go(p)
-        # A charade of one piece with nothing else of its own is that piece.
-        if dropped and len(node.get("parts") or []) == 1 \
-                and set(node) <= {"op", "parts"}:
+        if dropped and len(node["parts"]) == 1:
             return node["parts"][0]
         return node
 
