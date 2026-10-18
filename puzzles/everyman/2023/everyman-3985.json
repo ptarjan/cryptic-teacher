@@ -396,30 +396,26 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "BREAKINGTHEBANK",
      "indicators": [
       {
        "text": "Somewhat",
-       "note": "somewhat means to some extent, so only part of the following words is used"
-      },
-      {
-       "text": "kept",
-       "note": "what is kept is held within, so the letters lie inside the run of words"
+       "at": 0,
+       "note": "somewhat means only part of, so the answer is a stretch of the words that follow"
       }
      ],
      "parts": [
       {
-       "words": "sombre, a king (Theban)",
+       "words": "sombre, a king (Theban) kept",
+       "at": 9,
        "gives": "BREAKINGTHEBANK",
-       "note": "the letters run on from the end of the first word through to the end of the bracketed one"
+       "note": "the letters run on unbroken from the last three of sombre to the first of kept, ignoring the spaces and brackets"
       }
      ]
     },
     "explanation": {
-     "surface": "A gloomy king of Thebes who keeps asking for excessive sums.",
-     "walkthrough": "It is sombRE A KING THEBAN; the K of 'kept' completes it, so 'kept' also provides its first letter after 'Theban'.",
-     "definitionFit": "The idiom describes something costing more than one can afford, which is the same as costing excessive sums."
+     "surface": "A gloomy Theban king was kept by someone who expected far too much payment.",
+     "walkthrough": "'Somewhat' hides the answer across the words, starting at the B of 'sombre' and ending at the K of 'kept'; the parentheses around Theban only dress the surface.",
+     "definitionFit": "Something breaking the bank costs more than one can afford, an idiom for excessive expense."
     },
     "features": {
      "answerInScene": false,
@@ -813,43 +809,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NIRVANA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "having peeled off",
-       "note": "peeling removes the skin, so the outermost letters are taken away"
+       "text": "writhing",
+       "at": 30,
+       "note": "writhing means twisting about, so the remaining letters squirm into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "middle",
        "indicators": [
         {
-         "text": "writhing",
-         "note": "writhing is twisting about, so the letters twist into a new order"
+         "text": "having peeled off",
+         "at": 11,
+         "note": "peeled like fruit, so the outer letters of Invariant come away"
         }
        ],
        "parts": [
         {
          "words": "Invariant",
-         "gives": "NVARIAN",
-         "note": "the word without its first and last letters"
+         "at": 0,
+         "note": "the word taken as written, whose first and last letters are then peeled away"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something unchanging sheds its skin and squirms in a state of joy.",
-     "walkthrough": "Strip the outer I and T, then rearrange what is left.",
-     "definitionFit": "In Buddhism this is the final state of release from suffering, and generally it means perfect happiness or peace."
+     "surface": "Something constant shed its skin and is now squirming in a state of bliss.",
+     "walkthrough": "'having peeled off' strips the first and last letters from INVARIANT, leaving NVARIAN; 'writhing' rearranges those seven letters.",
+     "definitionFit": "Nirvana is the Buddhist state of perfect peace, and loosely any condition of ecstatic happiness."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Invariant"
+     "misdirectedWord": "peeled"
     }
    }
   },

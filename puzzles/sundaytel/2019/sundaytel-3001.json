@@ -339,34 +339,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RIESLING",
+     "op": "container",
      "indicators": [
       {
-       "text": "blurred",
-       "note": "blurred lines are no longer distinct, so their letters lose their order"
+       "text": "featuring",
+       "at": 12,
+       "note": "the outfit word features the rest, holding it inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "dress",
+       "at": 6,
+       "gives": "RIG",
+       "note": "to rig someone out is to dress them, and a rig is an outfit"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "featuring",
-         "note": "a thing featuring something includes it within itself"
+         "text": "blurred",
+         "at": 22,
+         "note": "lines made blurred lose their shape, so its letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "dress",
-         "gives": "RIG",
-         "note": "to rig out is to dress"
-        },
-        {
          "words": "lines",
-         "gives": "ESLIN",
-         "note": "the word lines rearranged"
+         "at": 30
         }
        ]
       }
@@ -374,11 +374,12 @@
     },
     "explanation": {
      "surface": "A white dress with a fuzzy striped pattern.",
-     "definitionFit": "Riesling is a grape and the white wine made from it, so 'White' is a wine by its colour."
+     "walkthrough": "'White' looks like the colour of the dress, but it is the definition: a white wine. 'featuring' puts the 'blurred' lines inside the outfit word.",
+     "definitionFit": "Riesling is a white grape and the wine made from it, typical of Germany and Alsace."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "White"
     }
    }
@@ -455,40 +456,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTERPOSE",
-     "indicators": [
-      {
-       "text": "cut off",
-       "note": "cutting off removes the end of the word before it"
-      }
-     ],
+     "op": "anagram",
      "parts": [
       {
-       "op": "anagram",
+       "words": "sport",
+       "at": 10,
+       "note": "taken as written, part of the anagram fodder"
+      },
+      {
+       "words": "I",
+       "at": 16
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut off",
+         "at": 24,
+         "note": "cut off means the last letter of need is chopped away"
+        }
+       ],
        "parts": [
         {
-         "words": "sport",
-         "note": "taken as written"
-        },
-        {
-         "words": "I",
-         "note": "taken as written"
-        },
-        {
          "words": "need",
-         "gives": "NEE",
-         "note": "need without its last letter"
+         "at": 18
+        },
+        {
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sportsman complains that a muscle needs to be removed.",
-     "walkthrough": "No word in the clue clearly signals the rearrangement; at best 'sport' does double duty as both fodder and a hint to play with the letters.",
-     "definitionFit": "To interpose is to put oneself between others or intervene, which is muscling in."
+     "surface": "An athlete in a crisis begs to have a muscle removed.",
+     "walkthrough": "'cut off' trims NEED to NEE, and the letters of SPORT, I and NEE are rearranged; no word clearly signals the rearrangement, though 'sport' hints at playing with letters.",
+     "definitionFit": "To interpose is to intervene or put oneself between others, which is barging in uninvited."
     },
     "features": {
      "answerInScene": false,

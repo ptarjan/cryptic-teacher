@@ -849,39 +849,41 @@
      "parts": [
       {
        "words": "double",
+       "at": 13,
        "gives": "TWIN",
-       "note": "a twin is a double, an exact counterpart"
+       "note": "a twin is a double, someone's exact likeness"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "GE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "halved",
-         "note": "halved means only half the word is kept, here its front portion"
+         "at": 25,
+         "note": "cut in half, so only the first two of the four letters of gets survive"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "gets",
-         "gives": "GE",
-         "select": "first",
-         "note": "the first half of the four-letter word"
+         "at": 20,
+         "note": "the word taken as written, whose second half is cut off"
+        },
+        {
+         "gives": "TS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone gets a sudden pain twice over, though only half as bad.",
-     "definitionFit": "A sharp brief pang or ache, physical or emotional, is called this."
+     "surface": "Someone feels a sharp pain as their twin is cut in two.",
+     "walkthrough": "'halved' keeps the first half of 'gets', and that follows TWIN (double).",
+     "definitionFit": "A twinge is a brief sharp stab of pain, as of a joint or tooth."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "gets"
+     "misdirectedWord": "double"
     }
    }
   },

@@ -1413,46 +1413,33 @@
      "parts": [
       {
        "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right"
+       "at": 21,
+       "gives": "R"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "cooked",
-         "note": "cooked ingredients are mixed and changed, so the letters are stirred around"
+         "at": 48,
+         "note": "cooked ingredients are mixed and changed, so the central letters are stirred into a new order"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
+         "words": "middle for monsieur",
+         "at": 28,
          "gives": "NSIE",
-         "indicators": [
-          {
-           "text": "middle for",
-           "note": "middle asks for only the central letters of the following word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "monsieur",
-           "gives": "NSIE",
-           "select": "middle",
-           "note": "the four central letters of the eight"
-          }
-         ]
+         "note": "the middle of the eight-letter word monsieur is its central four letters, NSIE, with two stripped from each end"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French chef's verdict on a successful soufflé.",
-     "walkthrough": "'Middle for monsieur' suggests a French word for middle; it is just the centre of the word monsieur.",
-     "definitionFit": "A well-made soufflé puffs up in the oven, so it has risen."
+     "surface": "A French chef's verdict that a soufflé is well risen and properly cooked.",
+     "walkthrough": "'middle for monsieur' takes the four central letters of MONSIEUR, NSIE, and 'cooked' rearranges them; R (right) goes in front.",
+     "definitionFit": "A good soufflé is one that has puffed up high in the oven, so it is well risen."
     },
     "features": {
      "answerInScene": true,
@@ -1478,45 +1465,46 @@
     "definitions": [
      {
       "text": "this lough",
-      "at": 32
+      "at": 32,
+      "note": "a lough is an Irish lake, and this one is named by the answer"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NEAGH",
+     "op": "composite",
      "indicators": [
       {
        "text": "plied",
-       "note": "plied means worked or twisted, so the letters are rearranged"
+       "at": 47,
+       "note": "plied means worked over and twisted, so the letters of dinghies at are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NEAGH",
+       "words": "dinghies at",
+       "at": 14,
+       "note": "taken as written, the ten letters of the anagram fodder"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "dinghies at",
-         "note": "the ten letters taken as written"
-        },
-        {
          "words": "It's",
-         "note": "taken as written, letters to remove"
+         "at": 27,
+         "note": "taken as written, letters that join the answer in the fodder"
         },
         {
          "words": "I'd",
-         "note": "taken as written, letters to remove"
+         "at": 43,
+         "note": "taken as written, more letters that join the answer in the fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sailing small boats on a lake, wondering where they are.",
-     "walkthrough": "A composite anagram: the answer plus IT'S and I'D together rearrange to DINGHIES AT. Lough Neagh in Northern Ireland is the largest lake in the British Isles.",
-     "definitionFit": "Lough Neagh is a large Northern Irish lake where dinghies would sail."
+     "surface": "A sailor asks where dinghies are kept and is told: on this Irish lake I used to sail.",
+     "walkthrough": "A composite anagram: 'plied' says the letters of DINGHIES AT rearrange into IT'S, the answer and I'D, so take out I, T, S, I, D and the five left make the lough. Lough Neagh, in Northern Ireland, is the largest lake in the British Isles.",
+     "definitionFit": "Lough Neagh is a large freshwater lake west of Belfast, where boats sail."
     },
     "features": {
      "answerInScene": true,
@@ -1797,37 +1785,43 @@
      "indicators": [
       {
        "text": "captivated by",
-       "note": "captivated means held captive, so the word sits inside the other letters"
+       "at": 15,
+       "note": "held captive by, so the always word sits between the two outer letters"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "PS",
+       "indicators": [
+        {
+         "text": "extremes of",
+         "at": 29,
+         "note": "the extremes of a word are its first and last letters"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "extremes of prettiness",
-         "gives": "PS",
-         "select": "outer",
-         "note": "first and last letters of the word"
+         "words": "prettiness",
+         "at": 41,
+         "note": "the word taken as written, whose first and last letters are used"
         }
        ]
       },
       {
        "words": "always",
+       "at": 8,
        "gives": "EER",
-       "note": "e'er is a poetic contraction of ever"
+       "note": "e'er is a poetic contraction of ever, meaning always"
       }
      ]
     },
     "explanation": {
      "surface": "Men forever charmed by beauty.",
-     "definitionFit": "Peers are equals or fellows, people of the same standing."
+     "walkthrough": "'extremes of prettiness' gives P and S, and 'captivated by' puts EER (poetic for always) between them.",
+     "definitionFit": "Peers are equals or companions, men of the same standing, which is what fellows means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "captivated"
     }
