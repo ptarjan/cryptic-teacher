@@ -83,8 +83,13 @@ def _by_entry(puzzle, want):
 
 
 def flagged(puzzle):
-    """{entry id ("22-across"): reason} for this puzzle's pending clues."""
-    return _by_entry(puzzle, pending().get(puzzle.get("id")))
+    """{entry id ("22-across"): reason} for this puzzle's pending clues, less the
+    stale ones (settled(): no detector the row names fires on the tree now), so
+    the burn's bag and a run skip them without the file being rewritten under it;
+    tools/prune_shape_queue.py drops the rows."""
+    got = _by_entry(puzzle, pending().get(puzzle.get("id")))
+    by_id = {f"{e['number']}-{e['direction']}": e for e in puzzle.get("entries") or []}
+    return {k: why for k, why in got.items() if not settled(by_id[k], why)}
 
 
 def listed(puzzle):
@@ -112,6 +117,46 @@ def findings(entry, ann=None):
            "wp": wp, "defs": ann.get("definitions") or [], "andLit": bool(ann.get("andLit"))}
     return [f"{k}: {v}" if isinstance(v, str) else k
             for _, hits in ss.run_detectors([row]) for k, v in hits.items() if k in ss.PRECISION]
+
+
+def _validator_rules():
+    """{reason class: fn(tree, ann, clue) -> truthy when it fires}: the
+    tools/validate_annotations.py rules a row's reason can name. The shape_suspects
+    detectors (arity_ins, del_single, ...) are read from findings() instead."""
+    import validate_annotations as V
+    return {"anagramOfContainer": lambda t, a, c: V.anagram_of_container(t),
+            "scrambledLeaf": lambda t, a, c: V.scrambled_leaves(t),
+            "indFolded": lambda t, a, c: V.folded_indicators(t),
+            "fakeParts": lambda t, a, c: V.fake_parts(t),
+            "bareInCharade": lambda t, a, c: V.bare_in_charade(t, a),
+            "inDefinition": lambda t, a, c: V.in_definition(a),
+            "leafFold": lambda t, a, c: V.leaf_folds(t),
+            "anaCharade": lambda t, a, c: V.anagram_charades(t)}
+
+
+def settled(entry, reason):
+    """True when every detector the row's reason names is known and none fires on
+    the entry's annotation as it stands: the row is stale (the clue was fixed
+    by another sweep, or the detector changed after the row was queued) and a
+    run on it would redo a clue nothing flags (~4k tokens). A reason that names
+    anything else (model-fixable, walkthrough, ...) or a clue with no tree is
+    never settled: only the model can say those are done."""
+    ann = entry.get("annotation")
+    if not ann or ann.get("wordplay") is None:
+        return False
+    names = [p.split(":")[0].strip() for p in str(reason).split("; ")]
+    rules = _validator_rules()
+    import shape_suspects as ss
+    if not names or any(n not in rules and n not in ss.PRECISION for n in names):
+        return False
+    fired = {f.split(":")[0] for f in findings(entry)}
+    clue = (entry.get("clue") or {}).get("text", "")
+    for n in names:
+        if n in fired:
+            return False
+        if n in rules and rules[n](ann["wordplay"], ann, clue):
+            return False
+    return True
 
 
 def regressions(entry, new):
