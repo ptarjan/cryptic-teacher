@@ -1017,45 +1017,55 @@
     "definitions": [
      {
       "text": "Place holding final of competition?",
-      "at": 0,
-      "indicators": [
-       {
-        "text": "holding",
-        "note": "to hold is to keep something within you, so the place takes the letter inside it"
-       },
-       {
-        "text": "final of",
-        "note": "the last letter of the next word"
-       }
-      ]
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "unchecked": true,
-     "gives": "ARENA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 6,
+       "note": "a place holding something has it inside, so the letter goes within"
+      }
+     ],
      "parts": [
       {
        "words": "Place",
+       "at": 0,
        "gives": "AREA",
-       "note": "an area is a place"
+       "note": "an area is a place or region"
       },
       {
-       "words": "final of competition",
-       "gives": "N",
-       "note": "last letter of competitioN"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "final of",
+         "at": 14,
+         "note": "the final of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "competition",
+         "at": 23,
+         "gives": "N",
+         "note": "the word competition, whose last letter N is taken"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A question about where a cup final might be staged.",
-     "walkthrough": "The whole clue is both the wordplay and the definition, as the question mark hints: an arena is just the place to hold a final.",
-     "definitionFit": "An arena is a venue where competitions and finals are held."
+     "surface": "A question about which venue will host the deciding match of a contest.",
+     "walkthrough": "The whole clue is both wordplay and definition: AREA holds N, the final letter of competition, and the result is a venue where a final may be staged.",
+     "definitionFit": "An arena is a stadium or enclosed space where sporting contests, such as a cup final, are held."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "final"
     }
    }
   },

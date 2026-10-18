@@ -554,63 +554,71 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ARSENIC",
-     "indicators": [
-      {
-       "text": "retired",
-       "note": "retiring is drawing back, so the letters for 'artist' go the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "ARSENIC",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "cycling",
-         "note": "cycling round means the city's letters rotate, the front one moving to the back"
+         "text": "retired",
+         "at": 7,
+         "note": "retired means withdrawn or gone back, so the letters are read in reverse"
         }
        ],
        "parts": [
         {
          "words": "artist",
+         "at": 15,
          "gives": "RA",
-         "note": "RA = Royal Academician, the usual crossword artist"
-        },
+         "note": "RA is a Royal Academician, the crossword's stock artist"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially means at the start, so only the first letter of 'seen' is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "seen",
-           "note": "the first letter of Seen"
-          }
-         ]
-        },
+         "text": "initially",
+         "at": 22,
+         "note": "initially means at the start, so only the first letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seen",
+         "at": 32,
+         "gives": "S",
+         "note": "the word seen, whose first letter S is taken"
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 37,
+         "note": "cycling means going round, so a letter moves from one end of the word to the other"
+        }
+       ],
+       "parts": [
         {
          "words": "city",
+         "at": 45,
          "gives": "NICE",
-         "note": "Nice, the city on the French Riviera"
+         "note": "Nice is a city on the French Riviera"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A retired painter was seen bicycling round a city with poison.",
-     "walkthrough": "NICE rotated by one letter becomes ENIC, the N moving to the end. 'Cycling' reads as a bike ride but tells you to rotate.",
-     "definitionFit": "Arsenic is a chemical element whose compounds are notoriously toxic, the classic poisoner's choice."
+     "surface": "An artist who has retired is first seen cycling around a city, apparently pursued by poison.",
+     "walkthrough": "'Retired' turns RA into AR; 'cycling' moves the last letter of NICE to the front, giving ENIC.",
+     "definitionFit": "Arsenic is a highly toxic chemical element, long notorious as a murderer's poison."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "cycling"
     }
@@ -1210,36 +1218,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SOREST",
      "indicators": [
       {
        "text": "covering",
-       "note": "covering something hides it and takes its place, so the son stands in for the female"
+       "at": 16,
+       "note": "to cover for someone is to stand in for them, so the son's letter takes the female's place"
       }
      ],
      "parts": [
       {
-       "words": "son",
-       "gives": "S",
-       "note": "s = son, as in family trees"
+       "words": "wooded area",
+       "at": 35,
+       "gives": "FOREST",
+       "note": "a forest is a large wooded area"
       },
       {
        "words": "female",
-       "gives": "F",
-       "note": "f = female; this letter is replaced"
+       "at": 25,
+       "gives": "F"
       },
       {
-       "words": "wooded area",
-       "gives": "FOREST",
-       "note": "a forest is a large wooded area"
+       "words": "son",
+       "at": 12,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A gentle son shields a woman in the woods.",
-     "walkthrough": "'Most tender' reads as loving; it means most painful. F in FOREST is swapped for S.",
-     "definitionFit": "Tender can mean painful to the touch, like a bruise, so the most tender spot is the most sore."
+     "surface": "A son shelters a woman in a forest, nursing the most painful wounds.",
+     "walkthrough": "In FOREST the F for female is replaced by S for son. 'Tender' is the sense of sore, painful to the touch, not gentle.",
+     "definitionFit": "Sore means painful or sensitive to the touch, so the most painful spot is the sorest."
     },
     "features": {
      "answerInScene": false,

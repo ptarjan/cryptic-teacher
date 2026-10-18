@@ -535,35 +535,39 @@
      "parts": [
       {
        "words": "Perhaps measure of gin",
+       "at": 0,
        "gives": "SINGLE",
-       "note": "a single is one measure of spirits; Perhaps marks it as one example"
+       "note": "a single is one standard measure of a spirit such as gin, a double being two; perhaps marks it as an example"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "in the end",
-         "note": "takes only the final letter of 'it'"
+         "at": 30,
+         "note": "the end of a word is its last letter"
         }
        ],
        "parts": [
         {
-         "words": "it in the end",
-         "gives": "IT",
-         "note": "last letter of it"
+         "words": "it",
+         "at": 27,
+         "gives": "T",
+         "note": "the word it, whose last letter T is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone muses that a gin and It (gin and Italian vermouth) is ultimately the best drink.",
-     "walkthrough": "Gin and It is a classic cocktail, which disguises the split; top is a noun, the garment.",
-     "definitionFit": "Definition by example: a sleeveless vest is one kind of top, the garment."
+     "surface": "A drinker decides that a measure of gin and It, Italian vermouth, is the best drink of all.",
+     "walkthrough": "Gin and It is a cocktail of gin and Italian vermouth, but here 'it in the end' only gives T. 'Top' is not 'the best' but a garment.",
+     "definitionFit": "A singlet is a sleeveless vest worn on the upper body, so a kind of top."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "top"
     }
    }
@@ -1652,50 +1656,55 @@
      "indicators": [
       {
        "text": "in it",
-       "note": "the letters go inside the little drink"
+       "at": 46,
+       "note": "these letters go in it, that is inside the little drink"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "a drop of",
-         "note": "a drop is a tiny amount, the first letter"
-        }
-       ],
+       "words": "Little drink",
+       "at": 11,
+       "gives": "TOT",
+       "note": "a tot is a small measure of spirits"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Little drink",
-         "gives": "TOT",
-         "note": "a tot is a small drink"
+         "words": "a",
+         "at": 29,
+         "gives": "A"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "drop of",
+           "at": 31,
+           "note": "a drop is a tiny amount, here just the first letter of the word"
+          }
+         ],
          "parts": [
           {
-           "words": "a",
-           "note": "as printed"
+           "words": "sherry",
+           "at": 39,
+           "gives": "S",
+           "note": "the word sherry, whose first letter S is taken"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "drop of sherry",
-       "gives": "S",
-       "note": "first letter of sherry"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's idea of breakfast is a small glass with a dash of sherry in it.",
-     "walkthrough": "The question mark marks Breakfast as an example: toast is one breakfast item.",
-     "definitionFit": "Definition by example, flagged by the question mark: browned bread is a morning staple."
+     "surface": "Someone takes a nip of liquor laced with a splash of sherry as their morning meal.",
+     "walkthrough": "'Drop of sherry' gives S, and A with S goes 'in it', inside TOT. The question mark warns that the definition is an example: toast is a breakfast food.",
+     "definitionFit": "Toast, browned sliced bread, is a classic morning meal, eaten with butter or marmalade."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "absurd",
      "misdirectedWord": "drink"
     }

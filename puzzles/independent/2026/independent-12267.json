@@ -543,40 +543,53 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "UNAFRAID",
-     "indicators": [
-      {
-       "text": "Head of",
-       "note": "the head of a word is its opening letter, the one that is about to travel"
-      },
-      {
-       "text": "moves forward",
-       "note": "a letter that moves forward advances along the word, leaving its place at the front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "entertainment",
-       "gives": "FUN",
-       "note": "fun is entertainment"
-      },
-      {
-       "words": "a",
-       "note": "taken as written"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "Head of",
+         "at": 0,
+         "note": "the head of a word is its first letter, the one that is shifted here"
+        },
+        {
+         "text": "moves forward",
+         "at": 40,
+         "note": "the leading letter moves on past the others, to the back of the group"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "entertainment",
+           "at": 8,
+           "gives": "FUN",
+           "note": "fun is amusement or entertainment"
+          },
+          {
+           "words": "a",
+           "at": 30,
+           "gives": "A"
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "charge",
+       "at": 32,
        "gives": "RAID",
-       "note": "a raid is a sudden charge or attack"
+       "note": "a raid is an attack, a charge on a position"
       }
      ]
     },
     "explanation": {
-     "surface": "A bold entertainment boss presses on despite facing an accusation.",
-     "walkthrough": "'Charge' suggests a legal accusation but means an attack. 'Head of entertainment' looks like a job title, yet only the first letter travels, two places along.",
-     "definitionFit": "To be unafraid is to show no fright or dread, the plain meaning of acting without fear."
+     "surface": "An entertainment boss, accused of something, carries on regardless and shows no fear.",
+     "walkthrough": "FUN and A make FUNA; its head, F, moves forward to the end, giving UNAF, and RAID follows. 'Head of entertainment' looks like a single letter, but it is the F that travels.",
+     "definitionFit": "Unafraid means showing no fear, the same as acting without fear."
     },
     "features": {
      "answerInScene": true,
@@ -723,35 +736,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "GLOSSY",
      "indicators": [
       {
        "text": "for",
-       "note": "one thing given for another is swapped in its place"
+       "at": 7,
+       "note": "one thing for another means it takes that other's place"
       }
      ],
      "parts": [
       {
-       "words": "Damage",
-       "gives": "LOSS",
-       "note": "damage can mean loss, as in 'damage to property'"
+       "words": "gay",
+       "at": 20,
+       "gives": "GAY",
+       "note": "the word gay, taken as written"
       },
       {
        "words": "adult",
+       "at": 11,
        "gives": "A",
-       "note": "A is the film-rating abbreviation for adult"
+       "note": "A is the film-classification abbreviation for adult"
       },
       {
-       "words": "gay",
-       "note": "taken as written"
+       "words": "Damage",
+       "at": 0,
+       "gives": "LOSS",
+       "note": "loss is damage or harm suffered"
       }
      ]
     },
     "explanation": {
-     "surface": "Compensation sought by an adult over something printed in a gay publication.",
-     "walkthrough": "GAY swaps its A for LOSS. 'Gay magazine' reads as one phrase, but 'in' separates the wordplay from the definition.",
-     "definitionFit": "A glossy is a magazine printed on shiny paper, typically fashion or celebrity, so the noun names the publication."
+     "surface": "A gay magazine is accused of harming adults.",
+     "walkthrough": "In GAY, the A for adult is swapped for LOSS, giving G-LOSS-Y. The definition is the noun: a glossy is a magazine printed on shiny paper.",
+     "definitionFit": "A glossy is an expensive magazine printed on shiny paper and full of photographs."
     },
     "features": {
      "answerInScene": true,
@@ -1339,55 +1355,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LAHNDA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "half of",
-       "note": "keeping only half of a word means cutting the other half away"
+       "text": "on top of that",
+       "at": 56,
+       "note": "in a down clue, on top of something means placed above it, so the country's letter comes before the next piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 25,
+         "note": "half of a four-letter word is two letters, here the first two"
+        }
+       ],
        "parts": [
         {
          "words": "Laos",
-         "gives": "LA",
-         "note": "half of the four letters: the front pair"
+         "at": 33
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "oddly",
-           "note": "something arranged oddly is out of its normal order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Hungary",
-           "gives": "H",
-           "note": "H is Hungary's international vehicle code"
-          },
-          {
-           "words": "and",
-           "note": "taken as written, as anagram fodder"
-          }
-         ]
+         "gives": "OS"
+        }
+       ]
+      },
+      {
+       "words": "Hungary",
+       "at": 48,
+       "gives": "H",
+       "note": "H is the international vehicle registration code for Hungary"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 42,
+         "note": "oddly means in an odd or strange way, so the letters of and are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and",
+         "at": 38
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A geography quiz mixing up a language of Pakistan with Laos and Hungary.",
-     "walkthrough": "'Oddly' tempts you to take the odd letters of HUNGARY; it shuffles 'and' instead. 'Hungary on top of that' places H above the shuffled word in this down entry.",
-     "definitionFit": "Lahnda is a group of Punjabi dialects of western Punjab, a tongue used in parts of Pakistan."
+     "surface": "A note on which languages are spoken in Pakistan, mentioning Laos and Hungary for good measure.",
+     "walkthrough": "'Half of Laos' gives LA, and 'oddly' rearranges AND to NDA, with H for Hungary 'on top of that'. 'Oddly' tempts you to take odd letters of Hungary, but it acts on 'and'.",
+     "definitionFit": "Lahnda is a group of Punjabi-related dialects, also called Western Punjabi, used in Pakistan."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "oddly"
     }

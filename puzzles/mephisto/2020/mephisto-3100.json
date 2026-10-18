@@ -549,55 +549,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EMESIS",
      "indicators": [
       {
        "text": "eats",
-       "note": "something that eats takes food inside, so one piece goes within the other"
+       "at": 13,
+       "note": "a girl who eats something takes it inside her, so these letters go within the others"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "half of",
-         "note": "half of a word means only part is kept and the rest dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Eastern",
-           "gives": "E",
-           "note": "E is the abbreviation for Eastern"
-          },
-          {
-           "words": "repast",
-           "gives": "MEAL",
-           "note": "a repast is a meal"
-          },
-          {
-           "words": "girl",
-           "gives": "SIS",
-           "note": "sis is short for sister"
-          }
-         ]
+         "words": "Eastern",
+         "at": 0,
+         "gives": "E"
         },
         {
-         "gives": "AL"
+         "words": "girl",
+         "at": 8,
+         "gives": "SIS",
+         "note": "SIS, short for sister, is a familiar word for a girl"
         }
        ]
+      },
+      {
+       "words": "half of repast",
+       "at": 18,
+       "gives": "ME",
+       "note": "a repast is a MEAL, and its first half is ME"
       }
      ]
     },
     "explanation": {
-     "surface": "A girl from the east wolfs down a meal and then shows signs of an upset stomach.",
-     "walkthrough": "The eastern girl is E SIS together, and she takes in ME, the first half of MEAL.",
-     "definitionFit": "Emesis is the medical term for vomiting, which is a sign of a stomach upset."
+     "surface": "A girl from the East eats only half her meal, and someone wonders whether her stomach is upset.",
+     "walkthrough": "Repast is first turned into MEAL, and half of that, ME, goes inside E + SIS just after the E. The question mark marks the definition as an example rather than a synonym.",
+     "definitionFit": "Emesis is the medical term for vomiting, which is a clear sign that the stomach is in trouble."
     },
     "features": {
      "answerInScene": true,
@@ -1311,54 +1298,47 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "terrible",
+       "at": 22,
+       "note": "terrible soups are messed up, so their letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "terrible",
-         "note": "terrible suggests something wrecked and disordered, so the letters are jumbled"
-        }
-       ],
-       "parts": [
-        {
-         "words": "soups",
-         "note": "taken as written"
-        }
-       ]
+       "words": "soups",
+       "at": 31
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "E",
        "indicators": [
         {
          "text": "start of",
-         "note": "start of points to the first letter of the answer referred to"
+         "at": 39,
+         "note": "the start of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "9",
-         "gives": "E",
-         "select": "first",
-         "note": "first letter of the answer to clue 9"
+         "at": 48,
+         "gives": "EMESIS",
+         "note": "9 refers to the answer at 9-down, EMESIS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bad bean and pea soup brings on stomach trouble.",
-     "walkthrough": "Clue 9 is the vomiting answer, which the surface makes the result of bad soup.",
-     "definitionFit": "Pousse is an obsolete Spenserian form of pulse, meaning pease or legumes such as beans and peas."
+     "surface": "Soup made of beans and peas is so terrible it brings on the vomiting of the previous clue.",
+     "walkthrough": "The '9' points to the answer of 9-down, whose first letter E joins SOUPS to be rearranged. Pousse is an obsolete word for pulse.",
+     "definitionFit": "Pousse is an old form of pulse, the collective term for the edible seeds of legumes such as beans and peas."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "terrible"
     }
    }

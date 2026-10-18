@@ -604,45 +604,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FAMOUS",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "something short has been cut off, so the word loses its final letter"
-      },
-      {
-       "text": "scratching tail",
-       "note": "scratching means striking out, and the thing struck out is the word's end letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 11,
+         "note": "short means cut off before the end, so the last letter of fat goes"
+        }
+       ],
        "parts": [
         {
          "words": "fat",
-         "gives": "FA",
-         "note": "fat with its final letter dropped"
+         "at": 6,
+         "gives": "FAT"
         },
         {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "scratching tail",
+         "at": 24,
+         "note": "to scratch something is to strike it out, here the rodent's final letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "rodent",
-         "gives": "MOUS",
-         "note": "a mouse with its final letter dropped"
+         "at": 17,
+         "gives": "MOUSE",
+         "note": "a mouse is a small rodent"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A well-known plump little rodent scratching its tail.",
-     "definitionFit": "Someone noted is well known and celebrated, the same sense as famous."
+     "surface": "A plump, stubby rodent with its tail clawed off is noticed.",
+     "walkthrough": "'Short' trims fat to FA and 'scratching tail' cuts MOUSE to MOUS. 'Fat, short rodent' reads as one animal, but fat is a separate piece.",
+     "definitionFit": "Noted, as an adjective, means well known or celebrated, the same as famous."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "scratching"
+     "joke": "absurd",
+     "misdirectedWord": "fat"
     }
    }
   },
@@ -1658,51 +1674,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WEARABLE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "without bottom half",
-       "note": "the lower half of a word is removed, which in an across clue means its last half"
+       "text": "ordered",
+       "at": 22,
+       "note": "letters that are ordered are put into a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "a bra we",
+       "at": 13
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without bottom half",
+         "at": 36,
+         "note": "in an across clue the bottom half of a word is its second half, which is removed"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "ordered",
-           "note": "ordered means put into a fresh sequence, so these letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "a bra we",
-           "note": "the letters to be rearranged"
-          }
-         ]
+         "words": "Lewd",
+         "at": 31
         },
         {
-         "words": "Lewd",
-         "gives": "LE",
-         "note": "lewd with its second half cut away"
+         "gives": "WD"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether a bra they ordered is decent to wear, or too lewd for lack of a bottom half.",
-     "definitionFit": "Something wearable is fit or suitable to be worn, so it is acceptable to put on."
+     "surface": "Someone asks whether a newly ordered bra is fit to wear, the lewd lower half being left off.",
+     "walkthrough": "'Without bottom half' reduces Lewd to LE, which joins A BRA WE before 'ordered' rearranges all eight letters.",
+     "definitionFit": "Clothing that is wearable is suitable or fit to be put on and worn."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "bottom"
     }
    }
