@@ -107,42 +107,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PRINCESS",
+     "op": "container",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without its end, the measuring word loses its final letter"
+       "text": "covered by",
+       "at": 24,
+       "note": "covered by means held inside the journalists' word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "journalists",
+       "at": 35,
+       "gives": "PRESS",
+       "note": "the press is the collective term for journalists"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "covered by",
-         "note": "something covered by another sits inside it, so the journalists wrap round the measure"
+         "text": "endlessly",
+         "at": 14,
+         "note": "endlessly means without its end, so the final letter goes"
         }
        ],
        "parts": [
         {
-         "words": "journalists",
-         "gives": "PRESS",
-         "note": "the press is the body of journalists"
+         "words": "measure",
+         "at": 6,
+         "gives": "INCH",
+         "note": "an inch is a measure of length"
         },
         {
-         "words": "measure",
-         "gives": "INC",
-         "note": "INCH, a measure of length, with its last letter dropped"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A royal measure has been reported on, endlessly, by the press pack.",
-     "definitionFit": "A princess is a female member of a royal family, so a royal in the noun sense."
+     "surface": "A royal story being measured out and covered by the press.",
+     "walkthrough": "'endlessly' cuts INCH to INC, and 'covered by' wraps PRESS around it. The definition is a noun: a royal is a member of the royal family.",
+     "definitionFit": "A princess is a female member of a royal family, so she is a royal."
     },
     "features": {
      "answerInScene": true,
@@ -452,46 +458,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BAMBINO",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter goes"
+       "text": "among",
+       "at": 14,
+       "note": "among places the home word inside the grass"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "among",
-         "note": "something among another is placed inside it"
+         "text": "mostly",
+         "at": 32,
+         "note": "mostly means most but not all, so the last letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "tall grass",
-         "gives": "BAMBO",
-         "note": "BAMBOO, a tall grass, without its last letter"
+         "at": 20,
+         "gives": "BAMBOO",
+         "note": "bamboo is a tall woody grass"
         },
         {
-         "words": "at home",
-         "gives": "IN",
-         "note": "to be in is to be at home"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "at home",
+       "at": 6,
+       "gives": "IN",
+       "note": "in means at home"
       }
      ]
     },
     "explanation": {
-     "surface": "A child playing at home among the tall grass of the garden.",
-     "definitionFit": "Bambino is the Italian word for a baby or young child, used informally in English."
+     "surface": "A child at home, playing among tall grasses.",
+     "walkthrough": "'mostly' cuts BAMBOO to BAMBO, and 'among' sets IN inside it.",
+     "definitionFit": "Bambino is an Italian word for a baby or young child, used informally in English."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "grass"
     }
    }
   },
@@ -1029,42 +1042,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOSEHEART",
+     "op": "container",
      "indicators": [
       {
-       "text": "without initial",
-       "note": "without its initial means the secret word loses its first letter"
+       "text": "in",
+       "at": 7,
+       "note": "in places the gathering word inside the secret word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "the gathering word goes inside the secret word"
+         "text": "without initial",
+         "at": 17,
+         "note": "without initial means its first letter is taken away"
         }
        ],
        "parts": [
         {
          "words": "secret",
-         "gives": "LOSET",
-         "note": "CLOSET, as in a closet fan, minus its first letter"
+         "at": 10,
+         "gives": "CLOSET",
+         "note": "closet as an adjective means secret, as in a closet fan"
         },
         {
-         "words": "Gather",
-         "gives": "HEAR",
-         "note": "to gather news is to hear it"
+         "gives": "C"
         }
        ]
+      },
+      {
+       "words": "Gather",
+       "at": 0,
+       "gives": "HEAR",
+       "note": "to gather news is to hear it"
       }
      ]
     },
     "explanation": {
-     "surface": "Meeting secretly with no first move, then giving up hope.",
-     "definitionFit": "To lose heart is an idiom meaning to become discouraged and give up hope."
+     "surface": "Meeting in secret, then losing hope from the very start.",
+     "walkthrough": "'without initial' drops the C of CLOSET to leave LOSET, and 'in' puts HEAR inside it.",
+     "definitionFit": "To lose heart is an idiom for becoming discouraged, giving up hope."
     },
     "features": {
      "answerInScene": false,

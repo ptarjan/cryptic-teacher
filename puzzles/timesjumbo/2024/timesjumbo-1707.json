@@ -947,43 +947,55 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "nearly",
-       "note": "nearly, not quite, so the last letter is dropped"
+       "text": "when reversing",
+       "at": 24,
+       "note": "the whole assembled string is turned round so it reads from right to left"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "when reversing",
-         "note": "reversing is backing up, so the whole string is read backwards"
-        }
-       ],
        "parts": [
         {
          "words": "you once",
+         "at": 4,
          "gives": "YE",
          "note": "ye is the old form of you"
         },
         {
-         "words": "nearly hit",
-         "gives": "STRUC",
-         "note": "STRUCK without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "nearly",
+           "at": 13,
+           "note": "nearly means not quite all, so the final letter of the word for hit is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hit",
+           "at": 20,
+           "gives": "STRUCK",
+           "note": "struck means hit"
+          },
+          {
+           "gives": "K"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A driver who almost knocked someone down while backing up.",
-     "walkthrough": "'Bow' could be a ship's front or an archer's weapon; here it is the greeting, the woman's form made by bending the knees.",
-     "definitionFit": "A plain synonym: the bob of the knees made in greeting, the counterpart of a man's bow."
+     "surface": "A cryptic instruction for a bow, as if someone nearly struck you while stepping backwards.",
+     "walkthrough": "YE plus STRUC (STRUCK with 'nearly' dropping its last letter) gives YESTRUC, and 'when reversing' turns it into CURTSEY.",
+     "definitionFit": "A curtsey is a formal bending of the knees in greeting, a kind of bow made by women."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "reversing"
+     "misdirectedWord": "hit"
     }
    }
   },
@@ -1198,40 +1210,40 @@
      "parts": [
       {
        "words": "river",
+       "at": 13,
        "gives": "EXE",
-       "note": "the Exe is a river in Devon"
+       "note": "the Exe is a river in Devon, a crossword favourite"
       },
       {
        "words": "dock",
+       "at": 19,
        "gives": "CUT",
-       "note": "to dock pay is to cut it"
+       "note": "to dock a tail is to cut it"
       },
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "IVE",
+       "op": "middle",
        "indicators": [
         {
          "text": "limitless",
-         "note": "RIVER loses its first and last letters"
+         "at": 27,
+         "note": "without its limits, i.e. with the first and last letters taken off"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "limitless river",
-         "gives": "IVE",
-         "select": "outer",
-         "note": "RIVER without its outer letters"
+         "words": "river",
+         "at": 37,
+         "gives": "RIVER",
+         "note": "taken as the word itself"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A harbour master running a dock that lies on a river.",
-     "walkthrough": "'Dock' looks like a quay in this river scene; it is the verb, as in docking pay.",
-     "definitionFit": "A plain synonym: a senior person who runs a business."
+     "surface": "Someone running a riverside dock that sits on a river.",
+     "walkthrough": "'limitless' strips the outer letters from RIVER, leaving IVE.",
+     "definitionFit": "An executive is a manager, a person who runs a business or organisation."
     },
     "features": {
      "answerInScene": false,
@@ -1391,41 +1403,40 @@
      "indicators": [
       {
        "text": "without",
-       "note": "remove the letters that follow"
+       "at": 31,
+       "note": "without means the following letters are taken away"
       }
      ],
      "parts": [
       {
        "words": "put back together again",
+       "at": 7,
        "gives": "REASSEMBLE",
-       "note": "to reassemble is to put back together"
+       "note": "to reassemble something is to put it back together again"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "AS",
        "indicators": [
         {
          "text": "initially",
-         "note": "take the first letters of any silvering"
+         "at": 53,
+         "note": "the first letters of the two words before it"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "any silvering initially",
-         "gives": "AS",
-         "select": "first",
-         "note": "first letters of Any Silvering, removed"
+         "words": "any silvering",
+         "at": 39,
+         "note": "A and S are the first letters of any and silvering"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A broken mirror glued back together but with none of its silver backing.",
-     "walkthrough": "'Mirror' is a verb, to copy, not the glass the rest of the clue is about.",
-     "definitionFit": "A plain synonym: to mirror something is to look just like it."
+     "surface": "A mirror being rebuilt with none of its reflective backing.",
+     "walkthrough": "'initially' gives AS from 'any silvering', and 'without' removes those from REASSEMBLE.",
+     "definitionFit": "To mirror something is to resemble it closely, copying it as a reflection would."
     },
     "features": {
      "answerInScene": false,
@@ -1502,55 +1513,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "ditching",
-       "note": "to ditch is to throw away, so the English letter is thrown out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ditching",
+         "at": 18,
+         "note": "ditching means dropping, so one letter is thrown out"
+        }
+       ],
        "parts": [
         {
          "words": "Bostonian patriot",
+         "at": 0,
          "gives": "REVERE",
-         "note": "Paul Revere, the Boston silversmith of the American Revolution"
+         "note": "Paul Revere, the Boston patriot of the American Revolution famous for his midnight ride"
         },
         {
-         "words": "ditching English",
-         "gives": "REVER",
-         "note": "REVERE without one E"
-        },
-        {
-         "op": "homophone",
-         "spelt": "T",
-         "indicators": [
-          {
-           "text": "vocally",
-           "note": "said with the voice, so we go by how the drink sounds"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tea",
-           "gives": "TEA",
-           "note": "the letter T is said like tea"
-          }
-         ]
+         "words": "English",
+         "at": 27,
+         "gives": "E"
         }
        ]
       },
       {
-       "gives": "REVERE"
+       "op": "homophone",
+       "spelt": "T",
+       "indicators": [
+        {
+         "text": "vocally",
+         "at": 39,
+         "note": "vocally means as it sounds when spoken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tea",
+         "at": 35,
+         "gives": "TEA",
+         "note": "the word tea said aloud sounds like the letter T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Boston patriot throws out the English tea as his answer, a nod to the Boston Tea Party.",
-     "walkthrough": "The Boston Tea Party is in the picture: patriots ditched British tea. The definition is a business-English usage.",
-     "definitionFit": "A regional and business usage: to 'revert to' someone is to get back to them with an answer."
+     "surface": "Revere, without the English, answers vocally about tea, a nod to the Boston Tea Party.",
+     "walkthrough": "Paul Revere rode to warn of British troops in 1775. 'ditching' removes one E from REVERE to leave REVER.",
+     "definitionFit": "To revert, in business correspondence, is to get back to someone with a response."
     },
     "features": {
      "answerInScene": false,
@@ -3113,47 +3125,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "primarily",
-       "note": "take the first letters of perhaps and preserved"
+       "text": "in",
+       "at": 34,
+       "note": "in places the letters inside the beer"
       }
      ],
      "parts": [
       {
        "words": "beer",
+       "at": 37,
        "gives": "ALE",
-       "note": "ale is beer"
+       "note": "ale is a kind of beer"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "PP",
        "indicators": [
         {
-         "text": "in",
-         "note": "'in beer' reads as the preserving liquid, but it also puts the letters inside the beer"
+         "text": "primarily",
+         "at": 24,
+         "note": "the first letters of the two words before it"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "perhaps preserved primarily",
-         "gives": "PP",
-         "select": "first",
-         "note": "first letters of Perhaps Preserved"
+         "words": "perhaps preserved",
+         "at": 6,
+         "note": "P and P are the first letters of perhaps and preserved"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fruit kept, perhaps, in beer.",
-     "walkthrough": "'Perhaps' looks like a hedge on the preserving; it is just a source of a letter.",
-     "definitionFit": "A definition by example: the commonest orchard fruit."
+     "surface": "Fruit, perhaps preserved, steeped in beer.",
+     "walkthrough": "'Fruit perhaps' looks like a definition by example, but 'perhaps' belongs to the wordplay; 'Fruit' alone defines.",
+     "definitionFit": "An apple is a common tree fruit, round with red or green skin."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "perhaps"
+     "misdirectedWord": "preserved"
     }
    }
   },
