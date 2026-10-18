@@ -339,44 +339,45 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HEADLONGRUSH",
      "indicators": [
       {
        "text": "in",
-       "note": "one thing placed in another sits inside it"
+       "at": 20,
+       "note": "in places the rearranged letters within the word for quiet"
       }
      ],
      "parts": [
+      {
+       "words": "quiet",
+       "at": 23,
+       "gives": "HUSH",
+       "note": "hush means quiet, as a noun or command"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "destroyed",
-         "note": "something destroyed is broken apart, so these letters must be put back in a fresh order"
+         "at": 10,
+         "note": "destroyed means the letters of 'Old range' are broken up and rebuilt"
         }
        ],
        "parts": [
         {
          "words": "Old range",
-         "note": "the eight letters, rearranged"
-        },
-        {
-         "words": "quiet",
-         "gives": "HUSH",
-         "note": "hush means silence or quiet"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old cattle range wrecked when the herd charges, a quiet moment turning into chaos.",
-     "walkthrough": "'Old range' sounds like a cattle range from the frontier; the two words are anagram fodder, placed inside HUSH.",
-     "definitionFit": "A stampede is a panicked, reckless dash by a crowd, exactly a hasty headlong charge forward."
+     "surface": "An old mountain range is wrecked in a silent rush of animals.",
+     "walkthrough": "'range' suggests mountains, but here it is just eight letters to rearrange; 'quiet' is the full word hush, not the usual SH or P.",
+     "definitionFit": "A headlong rush is a reckless, frantic surge forward, which is what a stampede of panicking animals or people is."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "range"
     }
@@ -680,53 +681,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VALENCIA",
+     "op": "container",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most but not all of a word means its last letter is dropped"
+       "text": "having consumed",
+       "at": 9,
+       "note": "having consumed shows the reworked 'Cave in' swallows the shortened ale"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "having consumed",
-         "note": "what has been consumed is now inside the consumer"
+         "text": "resort",
+         "at": 41,
+         "note": "to re-sort is to sort again, so the letters are put into a new order"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "in resort",
-           "note": "to re-sort something is to sort it again, putting letters in a new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Cave in",
-           "note": "taken as written"
-          }
-         ]
-        },
+         "words": "Cave in",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 25,
+         "note": "most of means the last letter of ale is dropped"
+        }
+       ],
+       "parts": [
         {
          "words": "ale",
-         "gives": "AL",
-         "note": "the word without its final letter"
+         "at": 33,
+         "note": "ale loses its final E to leave AL"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tourist collapses after drinking too much beer at a Mediterranean holiday resort.",
-     "walkthrough": "'Resort' looks like a holiday spot, but split as re-sort it tells you to rearrange CAVE IN with AL inside.",
-     "definitionFit": "Valencia is a major Spanish city with a large seaport on the Mediterranean coast."
+     "surface": "Someone collapses after drinking too much beer at a Mediterranean holiday town.",
+     "walkthrough": "'resort' reads as a holiday destination but is the anagram signal, making VENCIA from CAVE IN; 'most of' cuts ale to AL, which it has consumed.",
+     "definitionFit": "Valencia is a large Spanish city and seaport on the Mediterranean coast."
     },
     "features": {
      "answerInScene": true,

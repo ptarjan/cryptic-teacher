@@ -971,44 +971,51 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GINSBERG",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "upset means turned over, which in a down clue flips the order of the letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "GINSBERG",
        "indicators": [
         {
          "text": "cycling",
-         "note": "cycling means going round, so the leading letters move to the end of the word"
+         "at": 15,
+         "note": "cycling means letters are rotated from the front of the word to its back"
         }
        ],
        "parts": [
         {
          "words": "kicks off",
+         "at": 5,
          "gives": "BEGINS",
-         "note": "to kick off is to begin"
-        },
+         "note": "to kick off is to start, so 'kicks off' means begins"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 39,
+         "note": "upset in a down clue means the letters are turned upside down, read in the opposite direction"
+        }
+       ],
+       "parts": [
         {
          "op": "outer",
          "indicators": [
           {
            "text": "extremely",
-           "note": "extremely means at the extremes, so only the end letters are kept"
+           "at": 29,
+           "note": "extremely means take only the outermost letters of gear"
           }
          ],
          "parts": [
           {
            "words": "gear",
-           "note": "first and last letters"
+           "at": 23,
+           "gives": "GR",
+           "note": "the end letters of gear are G and R"
           }
          ]
         }
@@ -1017,9 +1024,9 @@
      ]
     },
     "explanation": {
-     "surface": "A poet gets off his bike in a rage when the gears slip.",
-     "walkthrough": "'Kicks off' looks like the poet getting off his bike, but it means starts. Allen Ginsberg was the American Beat poet.",
-     "definitionFit": "Allen Ginsberg, author of Howl, was a leading American Beat Generation writer of verse."
+     "surface": "A poet gets going on a bicycle whose gear is badly damaged.",
+     "walkthrough": "'cycling' moves BE from the front of BEGINS to the back, giving GINSBE; 'extremely' takes GR from gear, and 'upset' turns it to RG.",
+     "definitionFit": "Allen Ginsberg was the American Beat poet who wrote Howl."
     },
     "features": {
      "answerInScene": false,
@@ -1536,26 +1543,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LATIN",
+     "op": "middle",
      "indicators": [
       {
        "text": "Endlessly",
-       "note": "without ends means both the first and last letters are cut"
+       "at": 0,
+       "note": "endlessly means the word loses both its first and last letters"
       }
      ],
      "parts": [
       {
        "words": "criticising",
+       "at": 10,
        "gives": "SLATING",
-       "note": "slating is harshly criticising"
+       "note": "to slate is to criticise harshly, so criticising is slating"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps complaining about outdated jargon.",
-     "definitionFit": "Latin, spoken by the ancient Romans, is a classical tongue no longer in everyday spoken use."
+     "surface": "Someone keeps on and on complaining about old-fashioned words.",
+     "walkthrough": "'Endlessly' strips the S and G from SLATING.",
+     "definitionFit": "Latin is the classical tongue of ancient Rome, no longer spoken as a native language, hence old or dead."
     },
     "features": {
      "answerInScene": true,

@@ -289,43 +289,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EARSHOT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 36,
+       "note": "round tells us the anagram goes around the letter for area"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "running",
-         "note": "letters running about get jumbled"
-        },
-        {
-         "text": "round",
-         "note": "the jumbled letters go round the other piece"
+         "at": 28,
+         "note": "running suggests the letters of 'others' are in motion and rearranged"
         }
        ],
        "parts": [
         {
          "words": "others",
-         "note": "OTHERS rearranged"
-        },
-        {
-         "words": "area",
-         "gives": "A",
-         "note": "a = area, the standard abbreviation"
+         "at": 21
         }
        ]
+      },
+      {
+       "words": "area",
+       "at": 42,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Something about how far a person can hear other people jogging round a district.",
-     "walkthrough": "The A goes in after the first letter: E(A)RSHOT.",
-     "definitionFit": "Earshot is the range within which a sound can be heard."
+     "surface": "Someone describes the range of their hearing by listening to other people jogging past.",
+     "walkthrough": "'running' rearranges OTHERS to ERSHOT, and 'round' puts that around A (area) after its first letter.",
+     "definitionFit": "Earshot is the distance within which a sound can be heard, the limit of hearing range."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "running"
     }
@@ -651,59 +653,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "VEHICLE",
+     "indicators": [
+      {
+       "text": "moved around",
+       "at": 6,
+       "note": "moved around signals that the letters are shifted into a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Clive",
+       "at": 0
+      },
+      {
+       "op": "alternate",
        "indicators": [
         {
-         "text": "moved",
-         "note": "Clive's letters are moved into a new order"
+         "text": "regularly",
+         "at": 25,
+         "note": "regularly means taking every other letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "Clive",
-         "note": "CLIVE rearranged"
-        },
-        {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "EH",
-         "indicators": [
-          {
-           "text": "around",
-           "note": "the rearranged letters go around the other piece"
-          },
-          {
-           "text": "regularly",
-           "note": "take letters at regular intervals: the 2nd and 4th"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Delhi",
-           "gives": "EH",
-           "select": "alternate",
-           "note": "the even letters of dElHi"
-          }
-         ]
+         "words": "Delhi",
+         "at": 19,
+         "note": "the even letters of Delhi are E and H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Clive travelling around Delhi often, in some wheeled contraption.",
-     "walkthrough": "'Regularly' looks like 'often' but picks every other letter of Delhi. V(EH)ICLE.",
-     "definitionFit": "A vehicle is anything with wheels used for transport."
+     "surface": "A man named Clive travels about the Indian capital in some sort of wheeled transport.",
+     "walkthrough": "The surface puts Clive in India, but 'Delhi' only donates its even letters, and 'moved around' works on the name and those letters together.",
+     "definitionFit": "A vehicle is any conveyance such as a car, cart or bus, typically running on wheels."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "regularly"
+     "misdirectedWord": "moved"
     }
    }
   },

@@ -1120,46 +1120,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CEREMONY",
      "indicators": [
       {
        "text": "introducing",
-       "note": "to introduce is to bring inside, so a piece is placed within others"
+       "at": 17,
+       "note": "introducing means the rearranged letters are brought in between the church and state abbreviations"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Church",
+         "at": 0,
+         "gives": "CE",
+         "note": "CE is the Church of England"
+        },
+        {
+         "words": "state",
+         "at": 11,
+         "gives": "NY",
+         "note": "NY is the abbreviation for New York, an American state"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "organised",
-         "note": "organising puts things into a new order, so these letters are rearranged"
+         "at": 34,
+         "note": "organised means the letters of 'more' are put into a fresh order"
         }
        ],
        "parts": [
         {
-         "words": "Church",
-         "gives": "CE",
-         "note": "CE is the Church of England"
-        },
-        {
          "words": "more",
-         "note": "taken as written"
-        },
-        {
-         "words": "state",
-         "gives": "NY",
-         "note": "NY is New York, a US state"
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Church and state bring in more orderly religious rites.",
-     "walkthrough": "Church and state together wrap round the rearranged word; 'and' is only the join.",
-     "definitionFit": "A ceremony is a formal act performed according to fixed custom, which is what a ritual is."
+     "surface": "Church and state bring in a more orderly form of ritual.",
+     "walkthrough": "'state' is not a condition but a US state, New York. 'Church and state' reads as a constitutional pairing, but they are two abbreviations with the reorganised word 'introducing' between them.",
+     "definitionFit": "A ceremony is a formal ritual performed on a solemn or special occasion."
     },
     "features": {
      "answerInScene": true,
@@ -1769,26 +1776,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "CARGO",
      "indicators": [
       {
        "text": "carried by",
-       "note": "what is carried by something travels inside it, so its outer letters are shed and only the inside counts"
+       "at": 5,
+       "note": "carried by means the answer sits inside the French word, so its outer letters are shed"
       }
      ],
      "parts": [
       {
        "words": "French snail",
+       "at": 16,
        "gives": "ESCARGOT",
-       "note": "escargot is French for snail"
+       "note": "escargot is the French word for snail, eaten as a delicacy"
+      },
+      {
+       "gives": "EST"
       }
      ]
     },
     "explanation": {
-     "surface": "A burden borne by a snail from France, which already carries its house.",
-     "walkthrough": "The letters are not in the clue itself: first turn French snail into ESCARGOT, then look inside it.",
-     "definitionFit": "Cargo is goods carried by a ship, plane or vehicle, which is a load."
+     "surface": "A cargo of goods is being transported on the back of a snail from France.",
+     "walkthrough": "The question mark flags that the hiding word is not in the clue: the answer is carried inside ESCARGOT, which loses ES at the front and T at the end.",
+     "definitionFit": "Cargo is the goods carried by a ship, plane or vehicle, in other words its load."
     },
     "features": {
      "answerInScene": true,
@@ -1903,42 +1913,48 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "LORRY",
-     "indicators": [
-      {
-       "text": "shunting into",
-       "note": "to shunt is to push aside, so one piece pushes in and displaces a letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "See",
+       "at": 0,
        "gives": "LO",
-       "note": "lo is an old word for look or see"
+       "note": "lo is an old word for look or see, as in 'lo and behold'"
       },
       {
-       "words": "posh car",
-       "gives": "RR",
-       "note": "RR is Rolls-Royce"
-      },
-      {
-       "words": "railway",
-       "gives": "RY",
-       "note": "RY is an abbreviation for railway"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "shunting into",
+         "at": 13,
+         "note": "shunting is moving rolling stock about, here pushing the car's letter into the railway abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "railway",
+         "at": 27,
+         "gives": "RY"
+        },
+        {
+         "words": "posh car",
+         "at": 4,
+         "gives": "R",
+         "note": "R stands for Rolls, the Rolls-Royce being the archetypal posh car"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Watch a luxury car being shoved onto a goods wagon.",
-     "walkthrough": "The Rolls-Royce displaces the first letter of the railway abbreviation. 'Railway truck' looks like one phrase, but only truck defines.",
-     "definitionFit": "Lorry is the British word for a large goods vehicle, what Americans call a truck."
+     "surface": "Someone is told to watch a luxury car being shunted onto a railway goods wagon.",
+     "walkthrough": "'railway truck' reads as one item, but 'railway' gives RY and 'truck' alone defines. Some solvers take posh car as RR and merge it with RY; either way the letters come out the same.",
+     "definitionFit": "A lorry is the British word for a large goods truck."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "railway"
+     "misdirectedWord": "shunting"
     }
    }
   }

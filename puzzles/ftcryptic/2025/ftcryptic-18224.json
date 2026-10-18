@@ -48,26 +48,32 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BLEAK",
      "indicators": [
       {
        "text": "changing of sides during",
-       "note": "sides are right and left, so within the interval word one side letter is swapped for the other"
+       "at": 10,
+       "note": "changing of sides means right swaps for left within the word, as teams change ends at half-time"
       }
      ],
      "parts": [
       {
        "words": "half-time",
+       "at": 35,
        "gives": "BREAK",
-       "note": "the break between the two halves of a match"
+       "note": "half-time is the break in the middle of a match"
+      },
+      {
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A football team trudges through a dismal half-time as the players swap ends.",
-     "walkthrough": "In BREAK the R (right) is changed to L (left), just as teams change sides at the interval.",
-     "definitionFit": "Bleak describes a dreary, comfortless outlook or mood, a close synonym of joyless and gloomy."
+     "surface": "At half-time in a match the teams swap ends of the pitch.",
+     "walkthrough": "Changing ends at half-time is real football practice, but here the sides are the letters R (right) and L (left): the R in BREAK becomes an L.",
+     "definitionFit": "Bleak describes something dreary, grim and without comfort or hope, which is what cheerless means."
     },
     "features": {
      "answerInScene": false,
@@ -157,43 +163,43 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "EGO",
      "indicators": [
       {
        "text": "lift",
-       "note": "in a down clue lifting raises the letters so they read from bottom to top"
+       "at": 2,
+       "note": "lift in a down clue means the letters are raised, so read from bottom to top"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EGO",
+       "op": "middle",
        "indicators": [
         {
          "text": "skinned",
-         "note": "skinning strips off the outside, so the first and last letters are removed"
+         "at": 7,
+         "note": "skinned means the outer letters are stripped off, as skin from a rabbit"
         }
        ],
        "parts": [
         {
          "words": "rabbit",
+         "at": 15,
          "gives": "ROGER",
-         "note": "Roger Rabbit, the cartoon star of Who Framed Roger Rabbit"
+         "note": "Roger Rabbit is the cartoon star of the 1988 film Who Framed Roger Rabbit"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook hoists a freshly skinned rabbit off the table.",
-     "walkthrough": "ROGER loses its outer letters to leave OGE, which is read upwards as EGO.",
-     "definitionFit": "Ego is the Latin first-person pronoun and the psychological term for one's sense of self."
+     "surface": "Someone describes hoisting a rabbit that has been skinned for the pot.",
+     "walkthrough": "'rabbit' is not any rabbit but the cartoon Roger; 'skinned' leaves OGE and 'lift' turns it upwards.",
+     "definitionFit": "The ego is the self, the 'I' of psychology, so the word can stand for the first person."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "rabbit"
     }
    }
@@ -671,34 +677,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TITAN",
-     "indicators": [
-      {
-       "text": "wings taking flight",
-       "note": "the wings of a word are its outer letters, and they fly away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "bird",
+       "at": 6,
        "gives": "TIT",
        "note": "a tit is a small songbird"
       },
       {
-       "words": "many",
-       "note": "taken as written"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "wings taking flight",
+         "at": 21,
+         "note": "the wings are the outer letters, and taking flight means they fly away, leaving the middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "many",
+         "at": 16,
+         "note": "many without its outer M and Y leaves AN"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A huge bird with many wings takes to the air.",
-     "definitionFit": "The Titans were the gigantic gods of Greek myth, so the name now means any colossus."
+     "surface": "A huge bird with a great many wings takes off.",
+     "walkthrough": "'many wings' looks like a description of the bird, but the wings belong to the word 'many', whose M and Y fly off.",
+     "definitionFit": "In Greek myth the Titans were a race of giant gods, so a titan is any giant figure."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "wings"
     }
    }
@@ -1137,50 +1151,59 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ESTABLISH",
-     "indicators": [
-      {
-       "text": "cycling",
-       "note": "cycling rotates the word so its final letter comes round to the front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ESTABLISH",
+       "op": "cycling",
        "indicators": [
         {
-         "text": "capital taken from",
-         "note": "the capital is the first letter, and it is removed"
+         "text": "cycling",
+         "at": 7,
+         "note": "cycling means the last letter is moved round to the front of the word"
         }
        ],
        "parts": [
         {
          "words": "firm",
+         "at": 15,
          "gives": "STABLE",
-         "note": "stable means firm and steady"
-        },
+         "note": "firm means steady or stable"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "capital taken from",
+         "at": 25,
+         "note": "capital taken from means the initial letter is removed"
+        }
+       ],
+       "parts": [
         {
          "words": "shark",
+         "at": 44,
          "gives": "FISH",
-         "note": "a shark is a fish, hence the question mark"
+         "note": "a shark is an example of a fish, hence the question mark"
+        },
+        {
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bicycle company is founded with money taken from a loan shark.",
-     "walkthrough": "A shark is only one fish, which the question mark admits.",
-     "definitionFit": "To establish a business or institution is to found it and get it going."
+     "surface": "A business is founded around bikes, with money raised from a loan shark.",
+     "walkthrough": "'firm' looks like a company but means stable; 'cycling' gives ESTABL, and 'capital taken from' turns FISH into ISH.",
+     "definitionFit": "To establish something is to set it up or found it, as with a business or institution."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "shark"
+     "joke": "pun",
+     "misdirectedWord": "firm"
     }
    }
   },
@@ -1479,52 +1502,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NULLIFY",
      "indicators": [
       {
        "text": "in",
-       "note": "the pieces sit inside the city abbreviation"
+       "at": 35,
+       "note": "in means the other pieces go inside the abbreviation for New York"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NULLIFY",
-       "indicators": [
-        {
-         "text": "naked",
-         "note": "something naked is stripped, so the word loses its outer letters"
-        }
-       ],
+       "words": "New York",
+       "at": 38,
+       "gives": "NY"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "New York",
-         "gives": "NY",
-         "note": "NY is the abbreviation for New York"
-        },
-        {
-         "words": "attractions",
-         "gives": "PULLS",
-         "note": "pulls are draws or attractions"
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "naked",
+           "at": 8,
+           "note": "naked means the word is stripped of its outer letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "attractions",
+           "at": 14,
+           "gives": "PULLS",
+           "note": "pulls are attractions, things that draw people in"
+          }
+         ]
         },
         {
          "words": "provided",
+         "at": 26,
          "gives": "IF",
-         "note": "if means provided that"
+         "note": "if means provided, as in 'provided that'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A campaign to ban the nude shows offered in New York.",
-     "definitionFit": "To nullify a law or agreement is to cancel it and make it void."
+     "surface": "A city does away with nude shows on offer in New York.",
+     "walkthrough": "'naked attractions' suggests strip clubs, but 'naked' strips PULLS down to ULL.",
+     "definitionFit": "To nullify is to make void or cancel, which is to abolish something."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "naked"
     }
    }
