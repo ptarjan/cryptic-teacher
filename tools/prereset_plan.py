@@ -114,8 +114,19 @@ FIVE_HOUR = ".prereset.five-hour"
 # A token is weighted by its list price: per token type relative to uncached
 # input, times the model family's input price in $/MTok (an unknown family
 # costs as Opus). The burn's own turns are the records whose cwd is this tree.
-SPEND_WINDOW_S = 3600
+# Six hours, not one: a one-hour window read a short spike (18-27 points an
+# hour) as the rate for the whole rest of the window, so the pacer found the
+# bridge alone would reach 99%, gave the burn 0, and the quota went unspent
+# (Paul 2026-10-17: "Why aren't we burning").
+SPEND_WINDOW_S = 6 * 3600
 METER_STALE_S = 900
+# While the meter has real headroom the need never falls under FLOOR_RUNS: the
+# bridge's projection is a guess, a quiet bridge leaves hours that cannot be
+# bought back. Headroom is the meter now plus the floor runs' own spend to its
+# reset staying under HEADROOM_PCT (the bridge is left out: it is the guess);
+# the ramp-down near EXHAUSTED is untouched, as that sum is then over it.
+FLOOR_RUNS = 2
+HEADROOM_PCT = 95.0
 TOKEN_WEIGHT = {"input_tokens": 1.0, "cache_creation_input_tokens": 1.25,
                 "cache_read_input_tokens": 0.1, "output_tokens": 5.0}
 MODEL_WEIGHT = {"opus": 5.0, "sonnet": 3.0, "haiku": 1.0}
@@ -171,8 +182,12 @@ def paced_need(meter, pct, hours_left, rate, bridge_rate, ratio):
         if rate <= 0 or ratio <= 0:
             return None
         hours = aim_hours(meter, hours_left)
-        left = (EXHAUSTED - pct) * ratio - max(0.0, bridge_rate or 0.0) * hours
-        return max(0, round(left / (hours * rate)))
+        bridge = max(0.0, bridge_rate or 0.0) * hours
+        left = (EXHAUSTED - pct) * ratio - bridge
+        need = max(0, round(left / (hours * rate)))
+        if meter == "session" and need < FLOOR_RUNS and pct + FLOOR_RUNS * hours * rate / ratio < HEADROOM_PCT:
+            return FLOOR_RUNS
+        return need
     except (TypeError, ValueError, ZeroDivisionError, OverflowError):
         return None
 
@@ -642,7 +657,11 @@ NEED_CASES = [(("weekly",) + a, w) for a, w in [
     # five-hour mode: 71 points left by the reset 4h out, bridge 10 an hour, 2 a run-hour
     ((28, 4.0, 2.0, 10, 1.0), 4),
     ((28, 4.0, 2.0, 0, 1.0), 9),      # a quiet bridge leaves the burn more
-    ((28, 4.0, 2.0, 24, 1.0), 0),     # the rooms alone spend the window by the reset
+    ((28, 4.0, 2.0, 24, 1.0), 2),     # the rooms alone would spend it, but headroom keeps the floor
+    # 2026-10-17: 36% with 3.6h left, bridge 17.7 an hour from a spike: floor, not 0
+    ((36, 3.6, 2.0, 17.7, 1.0), 2),
+    ((85, 3.0, 2.0, 30, 1.0), 0),     # 85 + 12 is over 95: ramp-down wins, no floor
+    ((94, 1.0, 2.0, 30, 1.0), 0),
     # 9 points due at the reset, 0.25h out: 4.5 run-hours
     ((90, 0.25, 2.0, 0, 1.0), 18),
     ((99, 0.25, 2.0, 0, 1.0), 0),     # at EXHAUSTED: none, never on into a lockout
