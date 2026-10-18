@@ -1503,37 +1503,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "STATEDEPARTMENT",
-     "indicators": [
-      {
-       "text": "new start needed",
-       "note": "a new start means the opening letter is swapped for a different one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "said",
+       "at": 18,
        "gives": "STATED",
        "note": "stated means said"
       },
       {
-       "words": "home unit",
-       "gives": "APARTMENT",
-       "note": "an apartment is a dwelling unit within a block"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "new start needed in",
+         "at": 23,
+         "note": "a new start means the first letter of the following word is swapped for another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "home unit",
+         "at": 43,
+         "gives": "APARTMENT",
+         "note": "an apartment is a home that is one unit within a building"
+        },
+        {
+         "gives": "A"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "American officials explain that a fresh start is needed in a domestic unit.",
-     "walkthrough": "The opening A of APARTMENT becomes E; the clue leaves the solver to find which letter fits.",
-     "definitionFit": "The State Department is the US government's foreign ministry, where its diplomatic officials are based."
+     "surface": "A report that a flat needs refitting from the beginning.",
+     "walkthrough": "'new start needed in' replaces the A at the front of APARTMENT with E.",
+     "definitionFit": "The State Department is the American federal ministry for foreign affairs, where US diplomatic officials work."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "home"
+     "misdirectedWord": "unit"
     }
    }
   }

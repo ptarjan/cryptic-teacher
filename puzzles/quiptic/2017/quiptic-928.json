@@ -746,50 +746,54 @@
      "indicators": [
       {
        "text": "inside",
-       "note": "the captured pieces are placed within the walls of the stronghold"
+       "at": 25,
+       "note": "inside means the preceding letters go within the stronghold"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "stronghold",
-         "gives": "FORT",
-         "note": "a fort is a fortified stronghold"
-        },
-        {
-         "words": "Capture",
-         "gives": "GET",
-         "note": "to get someone can mean to catch them"
-        }
-       ]
+       "words": "stronghold",
+       "at": 32,
+       "gives": "FORT",
+       "note": "a fort is a fortified stronghold"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "leader",
-         "note": "the leader of a word is its opening letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "invaders'",
-         "note": "first letter of the word"
+         "words": "Capture",
+         "at": 0,
+         "gives": "GET",
+         "note": "to get can mean to capture or catch"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 18,
+           "note": "the leader of the word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "invaders'",
+           "at": 8
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A defender proposes seizing the attackers' commander in the castle, and is told it's impossible.",
-     "walkthrough": "The question mark and 'No way!' read as part of the story, but the exclamation is the definition.",
-     "definitionFit": "Both are dismissive exclamations refusing a request outright, telling someone there is no chance."
+     "surface": "A defender refuses to let the invaders take their chief into the castle.",
+     "walkthrough": "The question mark ends the surface scene; the exclamation 'No way!' is the definition.",
+     "definitionFit": "'Forget it!' is an idiom of flat refusal, meaning there is no chance at all."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Capture"
     }
    }
@@ -1286,36 +1290,40 @@
      "indicators": [
       {
        "text": "container for",
-       "note": "a container holds something, so the metal wraps around the next pieces"
+       "at": 6,
+       "note": "a container holds things, so the metal word wraps around the letters for one and doubly fine"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Metal",
-         "gives": "TIN",
-         "note": "tin is a metal"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
-        }
-       ]
+       "words": "Metal",
+       "at": 0,
+       "gives": "TIN",
+       "note": "tin is a metallic element"
       },
       {
-       "words": "doubly fine",
-       "gives": "FF",
-       "note": "F is the pencil-grade abbreviation for fine, doubled"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 20,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "doubly fine",
+         "at": 24,
+         "gives": "FF",
+         "note": "F is the pencil-grade abbreviation for fine, so doubly gives two of them"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tin box holds a single, excellent snack.",
-     "walkthrough": "A tiffin is also a metal lunchbox in India, which makes the surface apt.",
-     "definitionFit": "Tiffin is an Anglo-Indian word for a light midday lunch or snack."
+     "surface": "A tin box for one person's lunch, which is very nice indeed.",
+     "walkthrough": "'Metal container' reads as one phrase for a tin box, but 'container for' is the instruction and Metal alone is the element.",
+     "definitionFit": "Tiffin is an Anglo-Indian term for a light midday snack or lunch."
     },
     "features": {
      "answerInScene": true,
