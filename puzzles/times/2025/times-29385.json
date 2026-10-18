@@ -829,42 +829,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TODEATH",
+     "op": "container",
      "indicators": [
       {
-       "text": "novel",
-       "note": "novel means new, so the letters of THAT are made into something new"
+       "text": "in",
+       "at": 20,
+       "note": "in places the poetry inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in"
+         "text": "novel",
+         "at": 28,
+         "note": "novel means new and different, so the letters of that are given a new order"
         }
        ],
        "parts": [
         {
-         "words": "that novel",
-         "gives": "TATH",
-         "note": "THAT rearranged"
-        },
-        {
-         "words": "poetry",
-         "gives": "ODE",
-         "note": "an ode is a poem"
+         "words": "that",
+         "at": 23
         }
        ]
+      },
+      {
+       "words": "poetry",
+       "at": 13,
+       "gives": "ODE",
+       "note": "an ode is a lyric poem, so a piece of poetry"
       }
      ]
     },
     "explanation": {
-     "surface": "A reader complains that a book has too many poems in it.",
-     "walkthrough": "'Novel' is the book in the surface and the anagram signal in the wordplay.",
-     "definitionFit": "An idiom: doing something to death means overdoing it, far too much."
+     "surface": "A critic complains a novel contains an excess of verse.",
+     "walkthrough": "'novel' looks like a book in the surface, but it only tells you to reshuffle that; the poetry goes in the middle of the result.",
+     "definitionFit": "To death is an idiom meaning to an extreme degree, as in 'bored to death', so excessively."
     },
     "features": {
      "answerInScene": false,
@@ -894,40 +895,50 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "AGGRO",
-     "indicators": [
-      {
-       "text": "postponing",
-       "note": "to postpone is to put later"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "very eager",
-       "gives": "AGOG",
-       "note": "agog = very eager"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "postponing",
+         "at": 14,
+         "note": "postponing something puts it off till later, so the letter for love is lifted out of its place and moved further along"
+        }
+       ],
+       "parts": [
+        {
+         "words": "very eager",
+         "at": 34,
+         "gives": "AGOG",
+         "note": "agog means very eager or excited"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       },
       {
        "words": "Romeo",
+       "at": 45,
        "gives": "R",
-       "note": "Romeo is R in the NATO alphabet"
+       "note": "R is Romeo in the NATO phonetic alphabet"
       },
       {
        "words": "love",
+       "at": 25,
        "gives": "O",
-       "note": "love = O, a nil score in tennis; it moves from inside AGOG to the end"
+       "note": "love is nil in tennis scoring, which looks like O"
       }
      ]
     },
     "explanation": {
-     "surface": "Street fighting breaks out as a lovestruck Romeo puts off his romance.",
-     "walkthrough": "Build AGOG plus R, then postpone the O: it leaves its place in AGOG and goes last. Aggro is British slang for aggressive trouble-making.",
-     "definitionFit": "Aggro is British slang for aggressive, violent behaviour, typically by gangs or football crowds."
+     "surface": "A gang puts off romance, swapping it for an overeager Romeo.",
+     "walkthrough": "'postponing love' takes the O out of AGOG and puts it off till later: AGG, then R for Romeo, then the postponed O. Aggro is British slang for aggressive trouble-making.",
+     "definitionFit": "Aggro, short for aggravation, is informal British slang for aggressive behaviour, fighting and hostility, especially between gangs or fans."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Romeo"
     }
@@ -1072,39 +1083,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "turned"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Advanced",
+       "at": 0,
+       "gives": "A",
+       "note": "A is the standard abbreviation for advanced, as in A level"
+      },
+      {
+       "words": "child",
+       "at": 9,
+       "gives": "SON",
+       "note": "a son is a child"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 15,
+         "note": "turned means turned round, so the word for handle is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "turned handle",
+         "words": "handle",
+         "at": 22,
          "gives": "NAME",
-         "note": "a handle is a name; turned round it reads EMAN"
-        },
-        {
-         "words": "child",
-         "gives": "NOS",
-         "note": "a son is a child"
-        },
-        {
-         "words": "Advanced",
-         "gives": "A",
-         "note": "A = advanced, as in A level"
+         "note": "a handle is slang for a name"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A precocious child spins a handle all in one go.",
-     "walkthrough": "'Handle' is slang for a name, not something you turn.",
-     "definitionFit": "As one man means everyone together, simultaneously: all at once."
+     "surface": "A precocious youngster swung round a door handle.",
+     "walkthrough": "'handle' is slang for a person's name, as in a CB radio handle; the surface makes it a door handle being turned.",
+     "definitionFit": "As one man is an idiom meaning everyone acting together at the same moment, in unison."
     },
     "features": {
      "answerInScene": false,
@@ -1638,47 +1654,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENNEAGRAM",
+     "op": "container",
      "indicators": [
       {
-       "text": "trained",
-       "note": "trained means shaped or taught, so the letters of MEN EARN are reshaped"
+       "text": "Pocketing",
+       "at": 0,
+       "note": "pocketing means putting away inside, so the outer letters hold the inner ones"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Pocketing"
+         "text": "trained",
+         "at": 19,
+         "note": "trained means taught a new discipline, so the letters of men earn are shaped into a new order"
         }
        ],
        "parts": [
         {
-         "words": "trained men earn",
-         "gives": "ENNERAM",
-         "note": "MEN EARN rearranged"
+         "words": "men earn",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 10,
+         "gives": "A"
         },
         {
-         "words": "a grand",
-         "gives": "AG",
-         "note": "A + G, where G = grand, a thousand pounds"
+         "words": "grand",
+         "at": 12,
+         "gives": "G",
+         "note": "G is slang shorthand for a grand, a thousand pounds or dollars"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Well-drilled workers take home a thousand pounds and earn nine times over.",
-     "walkthrough": "The surface is all about money, and 'figure' looks like a sum; the answer is a nine-pointed diagram.",
-     "definitionFit": "An enneagram is a nine-pointed figure, from Greek ennea, nine."
+     "surface": "Skilled workers who pocket a thousand are paid well enough to earn a nine-times multiple.",
+     "walkthrough": "'trained' rearranges MEN EARN as ENNE-RAM, and 'Pocketing' puts A and G between those halves.",
+     "definitionFit": "An enneagram is a nine-pointed figure, often drawn as a star within a circle, used in a personality-typing system."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "figure"
+     "misdirectedWord": "trained"
     }
    }
   },

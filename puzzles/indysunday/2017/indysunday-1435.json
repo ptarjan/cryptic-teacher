@@ -670,55 +670,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CLAVIER",
+     "op": "container",
      "indicators": [
       {
-       "text": "never ending",
-       "note": "a word that is never ending has had its final letter cut off"
+       "text": "In",
+       "at": 0,
+       "note": "in placed before the rest tells you one piece is set inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "In",
-         "note": "'In' places one piece inside the other one named alongside it"
+         "text": "never ending",
+         "at": 9,
+         "note": "never ending means the word has no end, so its last letter is lost"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "CLAR",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Clare",
-           "gives": "CLAR",
-           "select": "first",
-           "note": "the Irish county name without its last letter"
-          }
-         ]
+         "words": "Clare",
+         "at": 3
         },
         {
-         "words": "contest",
-         "gives": "VIE",
-         "note": "to vie is to compete or contest"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "contest",
+       "at": 22,
+       "gives": "VIE",
+       "note": "to vie is to compete or contest"
       }
      ]
     },
     "explanation": {
-     "surface": "A competition in County Clare, which never seems to finish, is held for a musical instrument.",
-     "walkthrough": "Clare is a county in the west of Ireland; 'In' sits at the front of the clue but governs the contest going inside the shortened county.",
-     "definitionFit": "A clavier is a keyboard instrument such as a harpsichord or clavichord; the word is also used for any keyboard."
+     "surface": "A recital in County Clare features an unending contest for some instrument.",
+     "walkthrough": "Clare is a county in the west of Ireland; the surface makes it a place where the contest happens, but its letters are the container.",
+     "definitionFit": "A clavier is a keyboard instrument, such as a harpsichord or clavichord, the name Bach used in The Well-Tempered Clavier."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Clare"
     }
@@ -1070,43 +1064,46 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TOGETHER",
-     "indicators": [
-      {
-       "text": "over",
-       "note": "over means turned over, so the word is read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "TOGETHER",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "cycling",
-         "note": "cycling sends the letters round in a loop, so the last moves up to the front"
+         "text": "over",
+         "at": 4,
+         "note": "over means turned over, so the letters of got are read backwards"
         }
        ],
        "parts": [
         {
          "words": "Got",
-         "note": "taken as written"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 15,
+         "note": "cycling means going round, so a letter at one end of there travels round to the other end"
+        }
+       ],
+       "parts": [
         {
          "words": "there",
-         "note": "taken as written"
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cyclist reached somewhere just as the others did.",
-     "walkthrough": "THERE cycled moves its final E to the front.",
-     "definitionFit": "Together, as in all arriving together, means simultaneously, at one moment."
+     "surface": "Someone made it across to the other side by bike.",
+     "walkthrough": "'cycling' looks like bike riding in the surface, but it tells you to rotate the letters of there, as 'over' tells you to turn got round.",
+     "definitionFit": "Together can mean simultaneously, as in 'they all spoke together', happening in the same moment."
     },
     "features": {
      "answerInScene": false,

@@ -1110,56 +1110,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SETUPHOME",
+     "op": "composite",
      "indicators": [
       {
        "text": "new",
-       "note": "something new is made afresh, so the following words are rebuilt in another order"
+       "at": 16,
+       "note": "new here means made afresh, so the letters are put into a new order"
+      },
+      {
+       "text": "with no",
+       "at": 32,
+       "note": "with no means lacking, so a letter is removed from the fodder"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SETUPHOME",
+       "words": "empty house",
+       "at": 20
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "with no end of",
-         "note": "without the end of a word means only its final letter is taken away from the mix"
+         "text": "end of",
+         "at": 40,
+         "note": "the end of a word is its last letter"
         }
        ],
        "parts": [
         {
-         "words": "empty",
-         "note": "taken as written"
-        },
-        {
-         "words": "house",
-         "note": "taken as written"
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "joy",
-           "note": "the final letter of the word, to be removed"
-          }
-         ]
+         "words": "joy",
+         "at": 47,
+         "gives": "Y",
+         "note": "last letter of joy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A couple move into an empty new house, but it brings them little happiness.",
-     "definitionFit": "To set up home is the idiom for beginning to live somewhere, establishing a household."
+     "surface": "A couple moves into a fresh, unfurnished house that brings them little happiness.",
+     "walkthrough": "'with no' takes Y ('end of joy') out of EMPTY HOUSE, and 'new' rearranges the nine letters left.",
+     "definitionFit": "To set up home is to establish a household, typically when a couple begins living together."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "new"
+     "misdirectedWord": "empty"
     }
    }
   },

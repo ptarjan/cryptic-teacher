@@ -402,52 +402,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "BYHOOKORBYCROOK",
+     "spelt": "BYHOOKORBYCROOK",
      "indicators": [
       {
        "text": "Reportedly",
-       "note": "what is reported is heard, so a spoken word stands for one spelt differently"
+       "at": 0,
+       "note": "reportedly means as people say it, so the phrase is heard rather than read"
       }
      ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "BY",
-       "parts": [
-        {
-         "words": "purchase",
-         "gives": "BUY",
-         "note": "to purchase is to buy, and it serves before both tools"
-        }
-       ]
-      },
-      {
-       "words": "tools for fisherman",
-       "gives": "HOOK",
-       "note": "an angler catches fish on a hook"
-      },
-      {
-       "words": "or",
-       "note": "or stays as it is"
-      },
-      {
-       "words": "shepherd",
-       "gives": "CROOK",
-       "note": "a shepherd's hooked staff is a crook"
+       "words": "purchase tools for fisherman or shepherd",
+       "at": 11,
+       "gives": "BUYHOOKORBUYCROOK",
+       "note": "purchase is buy, a fisherman's tool is a hook and a shepherd's is a crook, so the instruction reads buy hook or buy crook"
       }
      ]
     },
     "explanation": {
-     "surface": "Shopping for equipment for an angler or a shepherd.",
-     "walkthrough": "'Purchase' does double duty: buy a hook or buy a crook, each spoken buy spelt BY.",
-     "definitionFit": "The idiom by hook or by crook means by whatever method is possible, fair or foul."
+     "surface": "A shopper is told to buy either angling gear or a herding staff.",
+     "walkthrough": "'purchase' does duty for both items: buy hook or buy crook. Said out loud, buy sounds just like by, giving the idiom.",
+     "definitionFit": "By hook or by crook is an idiom meaning by whatever means necessary, fair or foul."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "tools"
+     "misdirectedWord": "purchase"
     }
    }
   },
@@ -647,46 +628,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ILLHEALTH",
      "indicators": [
       {
        "text": "containing",
-       "note": "to contain is to hold inside, so one piece goes within another"
+       "at": 23,
+       "note": "containing means holding within, so the other letters sit inside this pair"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "The Italian",
+         "at": 0,
+         "gives": "IL",
+         "note": "il is the Italian for the"
+        },
+        {
+         "words": "hospital",
+         "at": 12,
+         "gives": "H",
+         "note": "H is the standard abbreviation for hospital, as on road signs"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "new",
-         "note": "made new, the word's letters are arranged afresh"
+         "at": 34,
+         "note": "new means made afresh, so the letters of lethal are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "The Italian",
-         "gives": "IL",
-         "note": "il is Italian for the"
-        },
-        {
-         "words": "hospital",
-         "gives": "H",
-         "note": "h is hospital, as on road signs"
-        },
-        {
          "words": "lethal",
-         "note": "the letters to rearrange"
+         "at": 38
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Italian hospital harbouring a deadly new disease.",
-     "walkthrough": "The possessive 's reads as 'has', so the Italian article and the hospital letter together hold the jumbled word between them.",
-     "definitionFit": "Ill health is a state of being unwell, a plain synonym for sickness or poor condition."
+     "surface": "An Italian hospital is treating a fresh deadly disease.",
+     "walkthrough": "'The Italian' is a foreign-language article, il; the hospital's single letter goes after it, and the reshuffled lethal is held between them.",
+     "definitionFit": "Ill health is a state of poor physical condition, a general word for sickness or disease."
     },
     "features": {
      "answerInScene": true,

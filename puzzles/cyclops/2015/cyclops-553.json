@@ -112,48 +112,52 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "CARDVOTE",
      "indicators": [
       {
        "text": "Liberal",
-       "note": "a liberal reading is loose and free, so the letters are not kept to their printed order"
+       "at": 9,
+       "note": "liberal means free and loose, so the letters are taken freely and rearranged"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "CARDVOTE",
        "indicators": [
         {
-         "text": "would abandon one for right",
-         "note": "abandoning one thing in favour of another means swapping a letter out and a different one in"
+         "text": "would abandon",
+         "at": 26,
+         "note": "abandoning one thing for another means dropping it and taking the other instead"
+        },
+        {
+         "text": "for",
+         "at": 44,
+         "note": "for marks what comes in as the replacement"
         }
        ],
        "parts": [
         {
          "words": "advocate",
-         "note": "taken as written"
+         "at": 17
         },
         {
          "words": "one",
+         "at": 40,
          "gives": "A",
-         "note": "a is the article meaning one"
+         "note": "A as the indefinite article means one"
         },
         {
          "words": "right",
-         "gives": "R",
-         "note": "R is the standard abbreviation for right"
+         "at": 48,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Liberal Democrat would gladly drop first-past-the-post for proportional representation.",
-     "walkthrough": "Drop one A from the word advocate, add R, then shuffle. A card vote is the trade-union practice of casting votes weighted by membership size.",
-     "definitionFit": "In a card vote each delegate's ballot counts in proportion to the members they represent, so voting power is weighted by numbers."
+     "surface": "A Liberal Democrat campaigner gives up one cause for a fairer voting system.",
+     "walkthrough": "'would abandon one for right' swaps an A in ADVOCATE for R, and 'Liberal' rearranges the result. A card vote is the trade-union block vote, where each delegate's vote counts for the members represented.",
+     "definitionFit": "In a card vote each delegate's ballot is weighted by the membership they speak for, so the result is in proportion to numbers represented."
     },
     "features": {
      "answerInScene": true,
@@ -766,54 +770,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PUBES",
+     "op": "composite",
      "indicators": [
       {
        "text": "unlikely",
-       "note": "an unlikely version of a word is an improbable one, so its letters are rearranged"
+       "at": 8,
+       "note": "an unlikely form of a word is an implausible version of it, so the letters are shuffled"
+      },
+      {
+       "text": "kicked out",
+       "at": 35,
+       "note": "kicked out means removed, so a letter is thrown out of the fodder before rearranging"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PUBES",
+       "words": "Superb",
+       "at": 0
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "kicked out",
-         "note": "whatever is kicked out is thrown away, so that letter is removed"
+         "text": "leader",
+         "at": 28,
+         "note": "a word's leader is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "Superb",
-         "note": "taken as written"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader",
-           "note": "a leader goes in front, so only the opening letter of the word is wanted"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Republican",
-           "note": "the first letter of Republican"
-          }
-         ]
+         "words": "Republican",
+         "at": 17,
+         "gives": "R",
+         "note": "first letter of Republican"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An unlikely Republican figure ousts President George Bush.",
-     "walkthrough": "'Bush' wants to be George Bush; it is slang for pubic hair.",
-     "definitionFit": "Bush is vulgar slang for a thick growth of pubic hair, so the two are equivalent in crude speech."
+     "surface": "A remark that an improbable Republican boss ousted George W Bush would be superb.",
+     "walkthrough": "'Republican leader' is R; 'kicked out' removes it from SUPERB and 'unlikely' rearranges the remaining SUPEB. Bush is slang for pubic hair, which the surface hides behind the president.",
+     "definitionFit": "Pubes is slang for pubic hair, and bush is a vulgar slang name for the same growth."
     },
     "features": {
      "answerInScene": false,
