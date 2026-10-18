@@ -2785,51 +2785,55 @@
      "indicators": [
       {
        "text": "receiving",
-       "note": "to receive is to take in, so one piece holds others"
+       "at": 24,
+       "note": "the famous person receives these letters, taking them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "famous person",
-         "gives": "NAME",
-         "note": "a name is a celebrity, as in a big name"
-        },
-        {
-         "words": "answer",
-         "gives": "A",
-         "note": "A is the abbreviation for answer"
-        }
-       ]
+       "words": "famous person",
+       "at": 9,
+       "gives": "NAME",
+       "note": "a name, as in 'a big name', is a famous person"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "extremely",
-         "note": "the extremes of a word are its two ends"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "short",
-         "note": "the first and last letters of short"
+         "words": "answer",
+         "at": 34,
+         "gives": "A"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "extremely",
+           "at": 42,
+           "note": "the extremes of the word are its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "short",
+           "at": 52,
+           "note": "only its outer letters are used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A celebrity gives a very brief hello after being asked a question.",
-     "walkthrough": "'Extremely short' gives just the two end letters, which join the answer letter inside the celebrity before its final letter.",
-     "definitionFit": "Namaste is a respectful Hindu salutation spoken with palms pressed together, a form of saying hello."
+     "surface": "A celebrity is greeted, answers, and is extremely brusque.",
+     "walkthrough": "'famous person' is a name in the sense of 'a big name'; 'extremely' acts on short alone.",
+     "definitionFit": "Namaste is the Indian salutation spoken with palms pressed together and a slight bow."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "extremely"
+     "misdirectedWord": "short"
     }
    }
   },

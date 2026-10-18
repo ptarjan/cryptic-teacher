@@ -93,20 +93,28 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "raised",
-       "note": "in a down clue, raising a word lifts it upward, reading it bottom to top"
+       "text": "to cut",
+       "at": 32,
+       "note": "the hatchet cuts into the tree, so these letters go inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "tree",
+       "at": 39,
+       "gives": "ALDER",
+       "note": "the alder is a tree"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "to cut",
-         "note": "the reversed letters cut into the tree, sitting inside it"
+         "text": "raised",
+         "at": 13,
+         "note": "in a down clue, raising something reads it from bottom to top, so it is turned round"
         }
        ],
        "parts": [
@@ -114,43 +122,29 @@
          "op": "charade",
          "parts": [
           {
-           "words": "tree",
-           "gives": "AL",
-           "note": "the ALDER, opened up to take the insert"
+           "words": "new",
+           "at": 20,
+           "gives": "N"
           },
           {
-           "words": "new",
-           "gives": "N",
-           "note": "N is the standard abbreviation for new"
-          }
-         ]
-        },
-        {
-         "op": "reversal",
-         "parts": [
-          {
            "words": "hatchet",
+           "at": 24,
            "gives": "AXE",
-           "note": "a hatchet is a small axe; N + AXE read upward gives EXAN"
+           "note": "an axe is a hatchet"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "tree",
-       "gives": "DER",
-       "note": "the rest of ALDER"
       }
      ]
     },
     "explanation": {
-     "surface": "A mighty ruler taking a fresh hatchet to a tree.",
-     "walkthrough": "'Great' is part of the definition, not praise: Alexander the Great is the leader meant.",
-     "definitionFit": "Alexander the Great led the Macedonian conquest of Persia."
+     "surface": "Someone lifts a brand-new hatchet in order to chop down a tree.",
+     "walkthrough": "'raised' suits a down clue, where a word read upward is reversed; 'Great' is part of the name, not praise.",
+     "definitionFit": "Alexander the Great, the Macedonian conqueror, is the leader whose epithet was 'the Great'."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "Great"
     }
@@ -181,46 +175,45 @@
      "indicators": [
       {
        "text": "after tossing",
-       "note": "tossing throws the letters of YOU BAT about"
+       "at": 41,
+       "note": "once the letters have been tossed like a coin they land in a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "you",
+       "at": 17,
+       "note": "taken as written"
+      },
+      {
+       "words": "bat",
+       "at": 21,
+       "note": "taken as written"
+      },
+      {
+       "op": "nth",
+       "n": 2,
        "indicators": [
         {
          "text": "second for",
-         "note": "take the second letter of the word that follows"
+         "at": 25,
+         "note": "second for once means the second letter of the word once"
         }
        ],
        "parts": [
         {
-         "words": "you bat",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "nth",
-         "unchecked": true,
-         "gives": "N",
-         "n": 2,
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "second for once",
-           "gives": "N",
-           "select": 2,
-           "note": "the second letter of ONCE"
-          }
-         ]
+         "words": "once",
+         "at": 36,
+         "note": "its second letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cricket captain, cheerful after winning the toss, lets the opposition bat second for a change.",
-     "walkthrough": "The cricket picture makes 'tossing' the coin toss and 'second' the batting order; in fact 'tossing' mixes letters and 'second' picks a letter out of 'once'.",
-     "definitionFit": "Buoyant means cheerful and optimistic."
+     "surface": "A cricket captain, having lost the toss, tells a teammate to bat second for a change.",
+     "walkthrough": "The surface is cricket batting order, but 'second for once' picks a single letter, the second of the word once.",
+     "definitionFit": "Buoyant describes someone cheerful and optimistic, whose mood stays up as though floating."
     },
     "features": {
      "answerInScene": false,
@@ -299,44 +292,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "uncovered",
-       "note": "strip the cover, the outer letters, from UCAS"
-      }
-     ],
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "CA",
+       "op": "middle",
        "indicators": [
         {
-         "text": "less",
-         "note": "take away the letter for university"
+         "text": "uncovered",
+         "at": 5,
+         "note": "with its cover taken off, the word loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "UCAS uncovered",
-         "gives": "CA",
-         "select": "outer",
-         "note": "UCAS without its first and last letters"
+         "words": "UCAS",
+         "at": 0,
+         "note": "the UK university admissions service, used here only for its letters"
         }
        ]
       },
       {
-       "words": "shortage, less university",
-       "gives": "PACITY",
-       "note": "PAUCITY, a shortage, minus U for university"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "less",
+         "at": 25,
+         "note": "less means without, so the letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shortage",
+         "at": 15,
+         "gives": "PAUCITY",
+         "note": "paucity means a shortage"
+        },
+        {
+         "words": "university",
+         "at": 30,
+         "gives": "U"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "UCAS, the UK university admissions service, reveals a shortfall in available places.",
-     "walkthrough": "UCAS is the body that handles UK university applications, which makes the surface a news headline about places; 'uncovered' here strips the word's outer letters.",
-     "definitionFit": "Capacity is the space available, how much something can hold."
+     "surface": "The admissions service exposes a lack of places now that fewer university spots are open.",
+     "walkthrough": "UCAS is the UK university admissions service; here it supplies only its inner letters.",
+     "definitionFit": "Capacity is the amount of room a place has, the space there is to fill."
     },
     "features": {
      "answerInScene": true,
@@ -423,34 +425,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Working",
-       "note": "the letters of UPTOWN are put to work in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Working",
+         "at": 0,
+         "note": "working the letters over remakes them into a new order"
+        }
+       ],
        "parts": [
         {
          "words": "uptown",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "crew",
-         "gives": "EIGHT",
-         "note": "a rowing eight is a crew of eight oarsmen"
+         "at": 8,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "crew",
+       "at": 16,
+       "gives": "EIGHT",
+       "note": "an eight is a rowing crew of eight oarsmen"
       }
      ]
     },
     "explanation": {
-     "surface": "A work crew in a smart part of town grows larger.",
-     "walkthrough": "'Crew' sounds like staff being hired; it is the rowing boat called an eight.",
-     "definitionFit": "To put on weight is to expand, grow heavier."
+     "surface": "A rowing crew, now working uptown, has grown in size.",
+     "walkthrough": "In rowing, an eight is a boat crewed by eight oarsmen.",
+     "definitionFit": "To put on weight is to get fatter, so a body that has done so has grown bigger."
     },
     "features": {
      "answerInScene": false,
@@ -1023,58 +1028,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPECULATE",
-     "indicators": [
-      {
-       "text": "cryptic",
-       "note": "the letters of CLUES are written in a cryptic, disguised order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "cracking",
-         "note": "the penny breaks into the jumbled clues"
+         "at": 6,
+         "note": "the penny cracks open the other letters and sits inside them"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "cryptic",
+           "at": 15,
+           "note": "cryptic means obscure or puzzling, so the letters are scrambled"
+          }
+         ],
          "parts": [
           {
-           "words": "cryptic clues",
-           "gives": "SECUL",
-           "note": "first letter of SECUL, an anagram of CLUES"
-          },
-          {
-           "words": "had",
-           "gives": "ATE",
-           "note": "to have a meal is to eat, so had = ate"
+           "words": "clues",
+           "at": 23,
+           "note": "taken as written"
           }
          ]
         },
         {
          "words": "Penny",
-         "gives": "P",
-         "note": "p is a penny"
+         "at": 0,
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "had",
+       "at": 29,
+       "gives": "ATE",
+       "note": "had a meal means ate"
       }
      ]
     },
     "explanation": {
-     "surface": "A solver whose penny hasn't dropped, forced to guess at cryptic clues.",
-     "walkthrough": "The surface is the solver's own experience; 'had' is ate, as in having dinner.",
-     "definitionFit": "To speculate is to guess without firm evidence."
+     "surface": "Penny, working through some cryptic clues, was forced to guess.",
+     "walkthrough": "Penny looks like a solver's name, but it is the coin abbreviation.",
+     "definitionFit": "To speculate is to form a theory without firm evidence, a conjecture."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cracking"
+     "misdirectedWord": "Penny"
     }
    }
   },
@@ -1437,49 +1443,48 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LORRY",
      "indicators": [
       {
        "text": "having traded",
-       "note": "one letter is swapped for another"
+       "at": 10,
+       "note": "one letter is traded for another, so it is swapped out"
       },
       {
-       "text": "for"
+       "text": "for",
+       "at": 30,
+       "note": "for names what the traded letter is exchanged with, its replacement"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "small",
-         "note": "S for small, as on clothing labels: the letter given up from SORRY"
-        },
-        {
-         "words": "large",
-         "gives": "L",
-         "note": "L for large, as on clothing labels, takes the S's place at the front"
-        },
-        {
-         "words": "Regretful",
-         "gives": "ORRY",
-         "note": "SORRY, regretful, after its S is traded away"
-        }
-       ]
+       "words": "Regretful",
+       "at": 0,
+       "gives": "SORRY",
+       "note": "sorry means regretful"
+      },
+      {
+       "words": "small",
+       "at": 24,
+       "gives": "S",
+       "note": "S is the clothing abbreviation for small"
+      },
+      {
+       "words": "large",
+       "at": 34,
+       "gives": "L",
+       "note": "L is the clothing abbreviation for large"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sorry for trading in a small car for a bigger one.",
-     "walkthrough": "S and L are the clothing-size abbreviations for small and large; in SORRY the S becomes L. A lorry is a truck.",
-     "definitionFit": "A lorry is a large goods vehicle, a truck."
+     "surface": "Someone sorry for swapping a small car for a big one.",
+     "walkthrough": "Small and large are clothing sizes here; lorry is the British word for a truck.",
+     "definitionFit": "A lorry is the British word for a truck, a large goods vehicle."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "traded"
+     "misdirectedWord": "Regretful"
     }
    }
   },
@@ -1573,47 +1578,51 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "return",
-       "note": "Jack's word comes back reversed"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "different",
-         "note": "the letters of GIANT made different"
+         "text": "return",
+         "at": 23,
+         "note": "to return is to go back, so the letters are read backwards"
         }
        ],
        "parts": [
         {
          "words": "Jack",
+         "at": 18,
          "gives": "TAR",
-         "note": "jack and tar are both old words for a sailor"
+         "note": "a jack tar, or tar, is a sailor"
         }
        ]
       },
       {
        "op": "anagram",
+       "indicators": [
+        {
+         "text": "different",
+         "at": 35,
+         "note": "a different form of the word means its letters are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "giant",
-         "note": "anagram fodder"
+         "at": 45,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dramatist rewriting Jack and the Beanstalk with Jack coming back and a new giant.",
-     "walkthrough": "Jack and the giant call up the fairy tale; Jack is a sailor, TAR. Terence Rattigan was a British playwright (The Winslow Boy).",
-     "definitionFit": "Terence Rattigan wrote plays such as The Browning Version."
+     "surface": "A dramatist whose play brings Jack back, alongside a different giant.",
+     "walkthrough": "Jack and the giant suggest the beanstalk tale, but Jack here is a sailor.",
+     "definitionFit": "Terence Rattigan was an English dramatist, author of The Winslow Boy and The Browning Version."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Jack"
     }
