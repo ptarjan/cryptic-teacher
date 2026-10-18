@@ -291,51 +291,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "HAUL",
      "indicators": [
       {
        "text": "going to",
-       "note": "one letter going to another means it is swapped out for the university abbreviation"
+       "at": 54,
+       "note": "the first letter of imports goes, replaced by university's letter, so one letter gives way to another"
       }
      ],
      "parts": [
       {
        "words": "adverse weather",
+       "at": 19,
        "gives": "HAIL",
-       "note": "hail is a kind of adverse weather"
+       "note": "hail is a nasty kind of weather"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "primarily",
-         "note": "primarily means in first place, so only the opening letter of 'imports' counts"
+         "at": 44,
+         "note": "primarily points to the first letter of imports"
         }
        ],
        "parts": [
         {
          "words": "imports",
-         "note": "first letter of imports, the letter replaced"
+         "at": 36,
+         "note": "supplies its first letter"
         }
        ]
       },
       {
        "words": "university",
-       "gives": "U",
-       "note": "U is the standard abbreviation for university"
+       "at": 63,
+       "gives": "U"
       }
      ]
     },
     "explanation": {
-     "surface": "A lorry driver moving imports through bad weather, bound for a university delivery.",
-     "walkthrough": "HAIL changes its I for U. 'Transport goods' is the definition as a verb phrase: to haul freight.",
-     "definitionFit": "To haul is to carry or drag a heavy load, as trucking firms do with freight over long distances."
+     "surface": "A haulier moving goods through a hailstorm, with imports bound for a university.",
+     "walkthrough": "'imports primarily' is I; 'going to university' turns that I in HAIL into U.",
+     "definitionFit": "To haul is to carry or cart goods, as a haulage firm does by lorry."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "imports"
+     "misdirectedWord": "going"
     }
    }
   },
@@ -1895,27 +1897,51 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SINGLET",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "skirt the wrong way round",
-       "note": "a word's skirt is its outer edge, so the two end letters of the word for itches trade places"
+       "text": "with skirt",
+       "at": 22,
+       "note": "with its skirt, the edge of the word, so the change is made at the two outer letters"
       }
      ],
      "parts": [
       {
-       "words": "itches",
-       "gives": "TINGLES",
-       "note": "tingles = itches, prickly sensations"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "the wrong way round",
+         "at": 33,
+         "note": "the outer letters are put on the wrong way round, each taking the other's place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "itches",
+         "at": 15,
+         "gives": "TINGLES",
+         "note": "tingles are prickling sensations, itches"
+        },
+        {
+         "gives": "T"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A wrestler's kit is uncomfortable, with a skirt put on back to front.",
-     "walkthrough": "Only the outer letters of TINGLES trade places; the middle INGLE stays as it is. A singlet is the one-piece suit amateur wrestlers wear.",
-     "definitionFit": "Amateur wrestlers compete in a tight one-piece sleeveless suit, which is the standard uniform of the sport."
+     "surface": "A wrestler's kit itches because the skirt is on back to front.",
+     "walkthrough": "Itches gives TINGLES. 'with skirt the wrong way round' swaps only its edge letters: the opening T becomes S (SINGLES) and the closing S becomes T, leaving the middle untouched.",
+     "definitionFit": "A singlet is the sleeveless one-piece leotard worn by amateur wrestlers."
     },
     "features": {
      "answerInScene": true,
