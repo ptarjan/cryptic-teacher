@@ -1348,48 +1348,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "dilapidated",
-       "note": "something dilapidated has fallen apart, so the letters are rearranged"
+       "text": "before",
+       "at": 32,
+       "note": "before means this piece comes ahead of the last letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dilapidated",
+         "at": 4,
+         "note": "dilapidated means falling apart, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "Old",
-         "note": "the three letters of old rearranged"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "church, shortly",
+       "at": 16,
+       "gives": "CE",
+       "note": "CE, for Church of England, is a short form of church"
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "words": "church, shortly",
-         "gives": "CE",
-         "note": "CE abbreviates the Church of England"
-        },
+         "text": "end of",
+         "at": 39,
+         "note": "the end of a word is its last letter"
+        }
+       ],
+       "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "end of means only the last letter of the following word is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "mass",
-           "note": "the final letter of mass"
-          }
-         ]
+         "words": "mass",
+         "at": 46,
+         "note": "last letter of mass"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ruined old church's organ falls silent shortly before the end of the service.",
-     "definitionFit": "Dolce is the name of a soft-toned organ stop, so dolces are organ stops."
+     "surface": "An old run-down church where the organ falls silent near the end of Mass.",
+     "definitionFit": "A dolce is a soft-toned organ stop, so the plural names several such stops."
     },
     "features": {
      "answerInScene": true,
@@ -1545,52 +1556,56 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the first pieces inside the boundary letters"
+       "at": 13,
+       "note": "in places the male and learner letters inside the outer letters of Calcutta"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
          "text": "confines of",
-         "note": "the confines of a word are its edges, its first and last letters"
+         "at": 16,
+         "note": "the confines of a word are its boundary letters, first and last"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "parts": [
-          {
-           "words": "Calcutta",
-           "note": "the first and last letters of Calcutta"
-          }
-         ]
-        },
-        {
-         "words": "learner",
-         "gives": "L",
-         "note": "L for learner, as on L-plates"
+         "words": "Calcutta",
+         "at": 28,
+         "note": "first and last letters of Calcutta"
         }
        ]
       },
       {
-       "words": "Male",
-       "gives": "HE",
-       "note": "he is a male pronoun"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Male",
+         "at": 0,
+         "gives": "HE",
+         "note": "he is a male pronoun"
+        },
+        {
+         "words": "learner",
+         "at": 5,
+         "gives": "L",
+         "note": "L is for learner, as on L-plates"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A boy studying within Calcutta's limits.",
-     "walkthrough": "The whole clue is also the definition: a chela is a disciple in India, and Calcutta (Kolkata) is an Indian city.",
-     "definitionFit": "A chela is a pupil or disciple of a guru in Hinduism, a learner on the Indian subcontinent."
+     "surface": "A male student living within the city limits of Calcutta.",
+     "walkthrough": "The whole clue is both wordplay and definition: a chela is an Indian disciple, so an Indian city fits.",
+     "definitionFit": "In India a chela is a disciple or pupil of a guru, a male student."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "confines"
+     "aptDefinition": true
     }
    }
   },

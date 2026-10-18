@@ -1355,54 +1355,68 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "up",
-       "note": "in a down clue going up means reading from the bottom, so backwards"
-      },
-      {
-       "text": "flipping",
-       "note": "flipping turns things over, so the pair is read backwards"
+       "text": "eating",
+       "at": 8,
+       "note": "eating means the reversed wind word swallows the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "eating",
-         "note": "eating takes something inside, so letters go within the word"
+         "text": "up",
+         "at": 5,
+         "note": "in a down clue up means the letters read upwards, so backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "Wind",
+         "at": 0,
+         "gives": "AIR",
+         "note": "air is wind, moving air"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping",
+         "at": 15,
+         "note": "flipping means turning over, so this pair is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
          "parts": [
           {
-           "words": "Wind",
-           "gives": "AIR",
-           "note": "a wind is a current of air"
+           "words": "joint",
+           "at": 24,
+           "gives": "J",
+           "note": "J is slang for a joint, a cannabis cigarette"
           },
           {
-           "words": "joint",
-           "gives": "J",
-           "note": "J is slang for a cannabis joint"
+           "words": "ordinary",
+           "at": 35,
+           "gives": "O",
+           "note": "O is short for ordinary, as in O level"
           }
          ]
-        },
-        {
-         "words": "ordinary",
-         "gives": "O",
-         "note": "O is an abbreviation for ordinary"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone ends up having a joint and plain wine.",
-     "definitionFit": "This red wine comes from a region of northern Spain bearing the same name."
+     "surface": "Someone gets wound up while smoking a joint with cheap plonk.",
+     "walkthrough": "'Wind up' looks like a phrase meaning annoy; it is AIR reversed to RIA.",
+     "definitionFit": "Rioja is red or white Spanish wine from the La Rioja region."
     },
     "features": {
      "answerInScene": true,
@@ -1481,40 +1495,44 @@
      "indicators": [
       {
        "text": "in which",
-       "note": "in which says the following pieces go inside the word before it"
+       "at": 5,
+       "note": "in which says the spot holds the following letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Spot",
-         "gives": "DOT",
-         "note": "a spot is a small round mark"
-        },
-        {
-         "words": "you",
-         "gives": "U",
-         "note": "text-speak spelling"
-        }
-       ]
+       "words": "Spot",
+       "at": 0,
+       "gives": "DOT",
+       "note": "a dot is a spot"
       },
       {
-       "words": "bishop",
-       "gives": "B",
-       "note": "B is the chess notation for bishop"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "you",
+         "at": 14,
+         "gives": "U",
+         "note": "U sounds like you, as in text speak"
+        },
+        {
+         "words": "bishop",
+         "at": 22,
+         "gives": "B",
+         "note": "B is the chess abbreviation for bishop"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A place where you and a bishop will watch Hitchcock's film Suspicion.",
-     "definitionFit": "Doubt and suspicion both describe a feeling of uncertainty or mistrust about something."
+     "surface": "A place where you and a bishop will spot suspicious activity.",
+     "definitionFit": "Doubt is uncertainty or mistrust, a feeling that something may not be true."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Suspicion"
+     "misdirectedWord": "Spot"
     }
    }
   },
