@@ -50,8 +50,6 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "LE",
        "indicators": [
         {
          "text": "half",
@@ -60,10 +58,7 @@
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "left",
-         "gives": "LE",
-         "select": "first",
          "note": "the first half of the word left"
         }
        ]
@@ -458,14 +453,15 @@
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "E",
+         "indicators": [
+          {
+           "text": "starting",
+           "note": "these words say which letters are picked from the word"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "starting east",
-           "gives": "E",
-           "select": "first",
+           "words": "east",
            "note": "the first letter of east"
           }
          ]
