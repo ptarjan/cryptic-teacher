@@ -50,36 +50,37 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "TH",
+       "op": "deletion",
        "indicators": [
         {
          "text": "First couple of",
-         "note": "a couple is two, so take the first two letters of the word that follows"
+         "at": 0,
+         "note": "first couple of means keep only the opening two letters of the next word, dropping the rest"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "First couple of thuds",
-         "gives": "TH",
-         "select": "first",
-         "note": "the opening two letters of THUDS"
+         "words": "thuds",
+         "at": 16,
+         "note": "the first two letters of thuds are taken"
+        },
+        {
+         "gives": "UDS"
         }
        ]
       },
       {
        "words": "below",
+       "at": 22,
        "gives": "UNDER",
-       "note": "under = below"
+       "note": "under means below"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone hears a pair of thuds from downstairs and takes fright.",
-     "walkthrough": "The definition is a verb phrase, so 'make' belongs to it rather than acting as a link.",
-     "definitionFit": "Used as a verb, it describes a loud menacing rumble, like a storm overhead, which alarms."
+     "surface": "The first few heavy bumps from downstairs are a frightening noise.",
+     "walkthrough": "'First couple of' gives TH from thuds; 'below' is a synonym, not a position instruction.",
+     "definitionFit": "To thunder is to make a loud booming roar, a sound that alarms like a storm."
     },
     "features": {
      "answerInScene": true,

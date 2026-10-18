@@ -741,12 +741,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PLATO",
      "indicators": [
       {
        "text": "outside",
-       "note": "pieces placed outside go around something, so they enclose the remaining letter"
+       "at": 34,
+       "note": "outside means the reversed letters sit around the capital letter"
       }
      ],
      "parts": [
@@ -755,7 +754,8 @@
        "indicators": [
         {
          "text": "climbing",
-         "note": "in a down entry climbing means going upward, so the letters read from bottom to top"
+         "at": 12,
+         "note": "in a down clue climbing means going upwards, so the letters read from bottom to top"
         }
        ],
        "parts": [
@@ -764,44 +764,46 @@
          "parts": [
           {
            "words": "old",
-           "gives": "O",
-           "note": "O is a standard abbreviation for old"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "capital",
-             "note": "a capital is an upper-case initial, so only the leading letter of the word is kept"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Turkish",
-             "note": "the first letter of the word"
-            }
-           ]
+           "at": 21,
+           "gives": "O"
           },
           {
            "words": "mountain",
+           "at": 25,
            "gives": "ALP",
            "note": "an alp is a high mountain"
           }
          ]
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "capital",
+         "at": 50,
+         "note": "capital means the first letter, the capital letter of a word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Turkish",
+         "at": 42,
+         "note": "the first letter of Turkish is taken"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A thinker ascends an ancient peak near Ankara.",
-     "walkthrough": "'Turkish capital' points to Ankara, but 'capital' here means capital letter, the T at the start of Turkish.",
-     "definitionFit": "Plato was the ancient Greek thinker, student of Socrates and founder of the Academy in Athens."
+     "surface": "A thinker scales an ancient peak just beyond the city of Ankara.",
+     "walkthrough": "'climbing' turns O and ALP upward into PLAO, which goes 'outside' T, the 'capital' of Turkish. 'Turkish capital' suggests Ankara, but it means the initial letter.",
+     "definitionFit": "Plato was the ancient Athenian thinker, pupil of Socrates and author of the Republic."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "capital"
     }
    }
