@@ -151,53 +151,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KERFUFFLE",
-     "indicators": [
-      {
-       "text": "not half",
-       "note": "only half of the word survives, so the first two of its four letters are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not half",
+         "at": 6,
+         "note": "not half means the word wake loses one of its two halves, here the front pair"
+        }
+       ],
        "parts": [
         {
          "words": "Wake",
-         "gives": "KE",
-         "note": "the second half of the word wake"
+         "at": 0
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "about means going around, so one piece wraps around another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "upset",
-           "gives": "RUFFLE",
-           "note": "to ruffle someone is to upset or disturb them"
-          },
-          {
-           "words": "loud",
-           "gives": "F",
-           "note": "f, forte, is the musical marking for loud"
-          }
-         ]
+         "gives": "WA"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 21,
+         "note": "about means the word for upset goes around the letter for loud"
+        }
+       ],
+       "parts": [
+        {
+         "words": "upset",
+         "at": 15,
+         "gives": "RUFFLE",
+         "note": "to upset someone is to ruffle them"
+        },
+        {
+         "words": "loud",
+         "at": 27,
+         "gives": "F",
+         "note": "F is forte, the musical abbreviation for loud"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone woken up, half of them annoyed by a noisy fuss.",
-     "walkthrough": "'About' does not wrap the whole word: the loud letter goes inside, just after its first letter. Forte is the musical term for loud.",
-     "definitionFit": "A kerfuffle is a fuss or disturbance, an informal word for noisy commotion or disorder."
+     "surface": "A funeral wake gets so rowdy that someone is upset by the noise.",
+     "definitionFit": "A kerfuffle is a fuss or disturbance, the same idea as a noisy commotion."
     },
     "features": {
      "answerInScene": true,
@@ -281,46 +284,56 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "RHODEISLAND",
+     "op": "charade",
      "indicators": [
       {
-       "text": "in",
-       "note": "in says one piece is placed inside another"
+       "text": "followed by",
+       "at": 10,
+       "note": "followed by puts what comes next after the first two letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Run",
+       "at": 0,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for run"
+      },
+      {
+       "words": "hard",
+       "at": 4,
+       "gives": "H",
+       "note": "H stands for hard, as on pencils"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 37,
+         "note": "in places the shuffled letters inside the word for unusual"
+        }
+       ],
        "parts": [
         {
-         "words": "Run",
-         "gives": "R",
-         "note": "R is the cricket abbreviation for run"
+         "words": "unusual",
+         "at": 40,
+         "gives": "ODD",
+         "note": "something unusual is odd"
         },
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "mutated",
-           "note": "something mutated has changed its form, so the letters are rearranged"
+           "at": 22,
+           "note": "mutated means changed in form, so the letters of aliens are rearranged"
           }
          ],
          "parts": [
           {
-           "words": "hard",
-           "gives": "H",
-           "note": "H is the pencil-grade abbreviation for hard"
-          },
-          {
            "words": "aliens",
-           "note": "the six letters reshuffled"
-          },
-          {
-           "words": "unusual",
-           "gives": "ODD",
-           "note": "odd means strange or unusual"
+           "at": 30
           }
          ]
         }
@@ -329,9 +342,9 @@
      ]
     },
     "explanation": {
-     "surface": "Fleeing at speed from mutant extraterrestrials in some strange place.",
-     "walkthrough": "'State' is a US state here, not a condition; the jumbled letters sit inside the word for unusual.",
-     "definitionFit": "Rhode Island is the smallest of the fifty United States, so it is an example of a state."
+     "surface": "A sci-fi plot: sprint for it as mutant aliens take over some strange country.",
+     "walkthrough": "'Mutated' turns aliens into EISLAN, which sits 'in' ODD.",
+     "definitionFit": "Rhode Island is the smallest of the fifty US states, in New England."
     },
     "features": {
      "answerInScene": false,
@@ -719,41 +732,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WETBLANKET",
+     "op": "container",
      "indicators": [
       {
-       "text": "silly",
-       "note": "silly means foolish or disordered, so the letters are jumbled"
+       "text": "in",
+       "at": 25,
+       "note": "in puts the word for vacuous inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "in says one piece sits inside the other"
+         "text": "silly",
+         "at": 28,
+         "note": "silly suggests nonsense, so the letters of tweet are jumbled"
         }
        ],
        "parts": [
         {
          "words": "tweet",
-         "note": "the five letters rearranged"
-        },
-        {
-         "words": "vacuous",
-         "gives": "BLANK",
-         "note": "blank means empty of thought or expression"
+         "at": 34
         }
        ]
+      },
+      {
+       "words": "vacuous",
+       "at": 17,
+       "gives": "BLANK",
+       "note": "a vacuous look is a blank one"
       }
      ]
     },
     "explanation": {
-     "surface": "A killjoy posting an empty-headed, foolish message on social media.",
-     "definitionFit": "A wet blanket is a person who dampens others' fun, an idiom for a killjoy who spoils enjoyment."
+     "surface": "A killjoy posting something empty-headed on social media.",
+     "walkthrough": "'Silly' rearranges tweet as WETET, which splits as WET and ET around BLANK.",
+     "definitionFit": "A wet blanket is a person who dampens everyone else's fun, just like a killjoy."
     },
     "features": {
      "answerInScene": true,
@@ -846,44 +861,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BOISTEROUS",
+     "op": "container",
      "indicators": [
       {
-       "text": "rocky",
-       "note": "rocky means unsteady, so the following letters are shaken into a new order"
+       "text": "skirting",
+       "at": 8,
+       "note": "skirting means going round the edge, so the vehicle wraps round the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Vehicle",
+       "at": 0,
+       "gives": "BUS",
+       "note": "a bus is a vehicle"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "skirting",
-         "note": "skirting means going round the edge of, so the vehicle surrounds the rest"
+         "text": "rocky",
+         "at": 17,
+         "note": "rocky means unsteady, so the letters of rise too are shaken up"
         }
        ],
        "parts": [
         {
-         "words": "Vehicle",
-         "gives": "BUS",
-         "note": "a bus is a road vehicle"
-        },
-        {
          "words": "rise, too",
-         "note": "the seven letters rearranged"
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A coach skirting a craggy hill climb, the ride far too bumpy.",
-     "definitionFit": "Boisterous means noisy and rowdy, and of weather or sea it means rough and stormy."
+     "surface": "A coach drives around a stony hill, which is far too bumpy a ride.",
+     "walkthrough": "'Rocky' turns rise too into OISTERO, which goes between the B and US.",
+     "definitionFit": "Boisterous play is rough, noisy and unrestrained, so the two words overlap in sense."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "rocky"
     }
@@ -1193,65 +1210,62 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HORRENDOUS",
      "indicators": [
       {
        "text": "in",
-       "note": "in says one piece goes inside another"
+       "at": 25,
+       "note": "in puts the rearranged letters inside the shortened word for the singers"
       }
      ],
      "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without leader",
+         "at": 45,
+         "note": "without leader means the first letter of the word for the singers is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "group of singers",
+         "at": 28,
+         "gives": "CHORUS",
+         "note": "a chorus is a group of singers"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "distorted",
-         "note": "something distorted is twisted out of shape, so the letters change order"
+         "at": 9,
+         "note": "distorted means twisted out of shape, so the letters of drone are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "without leader",
-           "note": "having no leader means the front letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "group of singers",
-             "gives": "CHORUS",
-             "note": "a chorus is a body of singers"
-            },
-            {
-             "words": "drone",
-             "note": "the five letters rearranged"
-            }
-           ]
-          },
-          {
-           "gives": "C"
-          }
-         ]
+         "words": "drone",
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dreadful warped drone from a choir that has lost its conductor.",
-     "walkthrough": "'Leader' suggests a conductor, but it means only the first letter of the group's word.",
-     "definitionFit": "Horrendous and dreadful are synonyms, both meaning extremely unpleasant or shockingly bad."
+     "surface": "A choir's droning has gone horribly out of tune since its leader left.",
+     "walkthrough": "'Without leader' leaves HORUS; 'distorted' turns drone into RENDO, which goes 'in' after HOR.",
+     "definitionFit": "Horrendous means shockingly bad, the same sense as dreadful."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leader"
+     "misdirectedWord": "drone"
     }
    }
   },

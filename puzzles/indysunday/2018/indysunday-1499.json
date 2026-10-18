@@ -136,17 +136,22 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DENIAL",
      "indicators": [
       {
        "text": "Losing",
-       "note": "losing one letter in exchange for another, as 'for duke' says, swaps a single letter"
+       "at": 0,
+       "note": "losing says a letter goes out of the word for servant"
+      },
+      {
+       "text": "for",
+       "at": 27,
+       "note": "for says the duke's letter takes the place of the one lost"
       }
      ],
      "parts": [
       {
        "words": "servant",
+       "at": 37,
        "gives": "MENIAL",
        "note": "a menial is a domestic servant"
       },
@@ -155,32 +160,34 @@
        "indicators": [
         {
          "text": "ultimately",
-         "note": "ultimately points to the final letter of the word heirloom"
+         "at": 16,
+         "note": "ultimately points to the final letter of heirloom"
         }
        ],
        "parts": [
         {
          "words": "heirloom",
-         "note": "the last letter of the word"
+         "at": 7,
+         "note": "the final letter of heirloom"
         }
        ]
       },
       {
        "words": "duke",
-       "gives": "D",
-       "note": "D is the standard abbreviation for duke"
+       "at": 31,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A servant is sacked after a family heirloom goes missing on the duke's watch.",
-     "walkthrough": "MENIAL swaps its M for D to give DENIAL.",
-     "definitionFit": "A denial is a refusal or rejection, as when a claim or request is turned down out of hand."
+     "surface": "A servant who mislaid the family heirloom is sacked by the duke.",
+     "walkthrough": "'Losing heirloom ultimately' removes the M of MENIAL, and 'for duke' puts D in its place.",
+     "definitionFit": "A denial is a refusal or rejection, and dismissal can mean rejecting a claim out of hand."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Losing"
+     "misdirectedWord": "dismissal"
     }
    }
   },
