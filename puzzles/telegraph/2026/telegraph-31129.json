@@ -46,38 +46,43 @@
      "indicators": [
       {
        "text": "bored by",
-       "note": "something bored by another thing has that thing drilled into its middle"
+       "at": 11,
+       "note": "bored by means pierced by, so the other pieces are drilled into the errand boy"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Errand boy",
-         "gives": "PAGE",
-         "note": "a page is a boy who runs errands"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Errand boy",
+       "at": 0,
+       "gives": "PAGE",
+       "note": "a page is a boy who runs errands"
       },
       {
-       "words": "ship's",
-       "gives": "SS",
-       "note": "SS is the abbreviation for steamship"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 20
+        },
+        {
+         "words": "ship's",
+         "at": 22,
+         "gives": "SS",
+         "note": "SS, steamship, is the standard ship abbreviation"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A young messenger has a long sea voyage on a ship.",
-     "definitionFit": "A passage is a voyage by sea or air, as in booking a passage to America."
+     "surface": "A young messenger finds a sea voyage tedious.",
+     "walkthrough": "'bored' suggests weariness on a dull voyage, but it means drilled into.",
+     "definitionFit": "A passage is a voyage, especially a crossing by sea, as in working one's passage."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "bored"
     }
    }
@@ -1148,7 +1153,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Adult",
+      "text": "Adult's",
       "at": 0
      }
     ],
@@ -1157,50 +1162,54 @@
      "indicators": [
       {
        "text": "seen in",
-       "note": "seen in means appearing inside, so pieces are placed within another"
+       "at": 27,
+       "note": "seen in means appearing inside, so the other pieces go into the crowd word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "crowd",
-         "gives": "GROUP",
-         "note": "a group is a crowd of people"
-        },
-        {
-         "words": "wife",
-         "gives": "W",
-         "note": "W is the abbreviation for wife"
-        }
-       ]
+       "words": "crowd",
+       "at": 35,
+       "gives": "GROUP",
+       "note": "a group is a crowd or gathering"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points at the first letter of the word it follows"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "not",
-         "note": "the first letter of not"
+         "words": "wife",
+         "at": 8,
+         "gives": "W"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 17,
+           "note": "initially takes the first letter of not"
+          }
+         ],
+         "parts": [
+          {
+           "words": "not",
+           "at": 13
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An adult's wife is not spotted at first among the crowd.",
-     "definitionFit": "A grown-up is a fully developed person, an adult as opposed to a child."
+     "surface": "A grown man notices that his wife is missing among the throng.",
+     "walkthrough": "'not initially seen' reads as missing, but 'initially' just takes N from not. The definition reads 'Adult's' as 'Adult is'.",
+     "definitionFit": "A grown-up is someone fully mature, a word used especially by or to children for an adult."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "initially"
+     "misdirectedWord": "not"
     }
    }
   },

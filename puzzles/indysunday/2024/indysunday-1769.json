@@ -490,42 +490,50 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the song wraps around the other letters"
+       "at": 13,
+       "note": "about means surrounding, so the song goes around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "heading to",
-         "note": "the heading of a word is its top, so take its first letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "song",
-         "gives": "ARIA",
-         "note": "an aria is an operatic song"
-        },
-        {
-         "words": "Hoskins",
-         "gives": "ME",
-         "note": "the setter is Hoskins, so he refers to himself"
-        }
-       ]
+       "words": "song",
+       "at": 8,
+       "gives": "ARIA",
+       "note": "an aria is a song in an opera"
       },
       {
-       "words": "heading to Nashville",
-       "gives": "N",
-       "note": "first letter of Nashville"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Hoskins",
+         "at": 19,
+         "gives": "ME",
+         "note": "Hoskins is the setter, so the setter's name stands for me"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "heading to",
+           "at": 27,
+           "note": "heading to takes the first letter, the head, of Nashville"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Nashville",
+           "at": 38
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A country-music song about the setter going off to Nashville.",
-     "walkthrough": "'Country song' begs to be read together as country music; split it and 'Country' is the definition while 'song' starts the wordplay.",
-     "definitionFit": "A plain definition by category: this is a nation in the Caucasus."
+     "surface": "A country song about the setter travelling to Nashville, home of country music.",
+     "walkthrough": "'Country song' looks like one idea but splits: Country is the definition and song is ARIA.",
+     "definitionFit": "Armenia is a nation in the South Caucasus, a sovereign state."
     },
     "features": {
      "answerInScene": false,
@@ -559,36 +567,39 @@
      "indicators": [
       {
        "text": "around",
-       "note": "the tan goes around, encircling the other letters"
+       "at": 11,
+       "note": "around means surrounding, so the sunbathing word wraps the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Catch rays",
-         "gives": "TAN",
-         "note": "you tan when you catch the sun's rays"
-        },
-        {
-         "words": "excellent",
-         "gives": "AI",
-         "note": "A1 = excellent, with the 1 read as I"
-        }
-       ]
+       "words": "Catch rays",
+       "at": 0,
+       "gives": "TAN",
+       "note": "to catch rays is to sunbathe, to tan"
       },
       {
-       "words": "Welsh",
-       "gives": "W",
-       "note": "W = Welsh"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "excellent",
+         "at": 18,
+         "gives": "AI",
+         "note": "A1 means excellent, written here as AI"
+        },
+        {
+         "words": "Welsh",
+         "at": 28,
+         "gives": "W"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sunbathing on a fine Welsh island such as Anglesey.",
-     "walkthrough": "'Welsh island' reads as one phrase, but Welsh gives only one letter and the island is on the other side of the world.",
-     "definitionFit": "A definition by category: this is an island off the coast of China."
+     "surface": "Sunbathing on a fine Welsh island.",
+     "walkthrough": "A1, meaning first-rate, is taken as the letters AI.",
+     "definitionFit": "Taiwan is a large island off the south-east coast of China."
     },
     "features": {
      "answerInScene": false,
@@ -1424,51 +1435,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "upset",
-       "note": "in a down answer, upset means turned upside down, so read the letters backwards"
+       "text": "about",
+       "at": 17,
+       "note": "about means surrounding, so the turned letters go around the guides"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so the turned letters go around the guides"
+         "text": "upset",
+         "at": 11,
+         "note": "upset in a down answer means turned upside down, read upwards"
         }
        ],
        "parts": [
         {
-         "words": "Old",
-         "gives": "O",
-         "note": "O = old"
-        },
-        {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
-           "words": "artist",
-           "gives": "RA",
-           "note": "RA = Royal Academician"
+           "words": "Old",
+           "at": 0,
+           "gives": "O"
           },
           {
-           "words": "Girl Guides'",
-           "gives": "GG",
-           "note": "GG = Girl Guides"
+           "words": "artist",
+           "at": 4,
+           "gives": "RA",
+           "note": "RA, Royal Academician, is a standard artist abbreviation"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "Girl Guides'",
+       "at": 23,
+       "gives": "GG",
+       "note": "GG is the abbreviation for Girl Guides"
       }
      ]
     },
     "explanation": {
-     "surface": "An elderly painter is angry at the girl scouts' rowdy conduct.",
-     "walkthrough": "'Old artist' looks like one painter, but it is two abbreviations joined and then turned over. Aggro is British slang for trouble.",
-     "definitionFit": "British slang: short for aggravation, it means aggressive or violent conduct."
+     "surface": "An aged painter is upset about a troop of Girl Guides behaving badly.",
+     "walkthrough": "'upset' acts only on the old artist, read upwards in this down entry, before the guides go inside.",
+     "definitionFit": "Aggro is British slang for aggressive, hostile or violent conduct, short for aggravation."
     },
     "features": {
      "answerInScene": true,
