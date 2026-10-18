@@ -1544,62 +1544,65 @@
      "indicators": [
       {
        "text": "to accept",
-       "note": "accepting something means taking it in"
+       "at": 5,
+       "note": "the love word accepts, that is takes inside it, the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Love",
+       "at": 0,
+       "gives": "ZERO",
+       "note": "love is a zero score in tennis"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Love",
-           "gives": "ZERO",
-           "note": "love is a score of nothing"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "a",
+         "at": 15,
+         "gives": "A"
         },
         {
          "words": "new",
-         "gives": "N",
-         "note": "N is the abbreviation for new"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "with no",
-         "note": "with no means the named part is taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "job",
-         "note": "taken as written"
+         "at": 17,
+         "gives": "N"
         },
         {
-         "words": "objection",
-         "gives": "OB",
-         "note": "ob is short for objection"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "with no",
+           "at": 25,
+           "note": "the word job is written without the letters for objection"
+          }
+         ],
+         "parts": [
+          {
+           "words": "job",
+           "at": 21,
+           "gives": "JOB",
+           "note": "taken as written before removal"
+          },
+          {
+           "words": "objection",
+           "at": 33,
+           "gives": "OB",
+           "note": "OB is a Chambers abbreviation for objection"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone happily taking a new job on the irrigation crew without complaint.",
-     "definitionFit": "A zanjero is the official in the southwestern US and Mexico who manages irrigation ditches and water shares."
+     "surface": "Someone takes a job that nobody objects to, as a worker on irrigation.",
+     "walkthrough": "A zanjero is a superintendent who manages irrigation canals in the south-western US and Latin America, from Spanish zanja, a ditch.",
+     "definitionFit": "The zanjero oversees the distribution of water through ditches and canals, so he is an irrigation official."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Love"
     }
