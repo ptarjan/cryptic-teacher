@@ -44,31 +44,30 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "INCOME",
      "indicators": [
       {
        "text": "after part exchange",
-       "note": "two sections of a phrase trading places means the back portion moves round to the front"
+       "at": 35,
+       "note": "the two parts of the phrase swap places, its second part moving to the front"
       }
      ],
      "parts": [
       {
        "words": "instruction to enter",
+       "at": 14,
        "gives": "COMEIN",
-       "note": "what you call out when someone knocks at the door"
+       "note": "'Come in!' is what you call to someone knocking at the door"
       }
      ]
     },
     "explanation": {
-     "surface": "A car dealer explains that the money comes in once you trade in your old vehicle.",
-     "walkthrough": "'Part exchange' looks like the British phrase for trading in an old car against a new one; here the two words of COME IN simply swap to give INCOME.",
-     "definitionFit": "Proceeds are the money received from a sale or business, which is exactly what earnings or revenue mean."
+     "surface": "A car dealer pockets the proceeds after taking an old vehicle in part exchange.",
+     "walkthrough": "'after part exchange' tells you to swap the two halves of COME IN. Part exchange is the British term for a trade-in, where an old item counts towards the price of a new one.",
+     "definitionFit": "Proceeds are the money earned from a sale or activity, which is income."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "exchange"
     }
    }
@@ -885,48 +884,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCHEDULE",
-     "indicators": [
-      {
-       "text": "50%",
-       "note": "fifty percent is a half, so the word loses half its letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "50%",
+         "at": 22,
+         "note": "fifty per cent is half, so only the first three of the six letters of school are kept"
+        }
+       ],
        "parts": [
         {
          "words": "school",
-         "gives": "SCH",
-         "note": "the first three of the six letters"
+         "at": 14,
+         "gives": "SCHOOL",
+         "note": "the word school, written out in full"
         },
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "to head north",
-           "note": "in a down entry, travelling north means reading from the bottom upwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "escape",
-           "gives": "ELUDE",
-           "note": "to elude is to escape"
-          }
-         ]
+         "gives": "OOL"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to head north",
+         "at": 33,
+         "note": "in a down clue, heading north means travelling upwards, so the word is read from the bottom back to the top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "escape",
+         "at": 26,
+         "gives": "ELUDE",
+         "note": "to elude is to escape from"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A school timetable notes that half the pupils run off northwards.",
-     "walkthrough": "'For' is the link after the definition, and '50%' applies to the word before it, not to 'escape'. SCH is also a standard abbreviation for school.",
-     "definitionFit": "A schedule is a plan listing times of events, which is what a timetable sets out."
+     "surface": "A pupil's timetable says half the school is to flee northwards.",
+     "walkthrough": "'50%' keeps SCH, half of SCHOOL; 'to head north' turns ELUDE upwards into EDULE.",
+     "definitionFit": "A schedule is a plan listing the times at which events are due to happen."
     },
     "features": {
      "answerInScene": true,

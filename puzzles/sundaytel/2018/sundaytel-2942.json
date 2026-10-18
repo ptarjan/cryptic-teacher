@@ -229,35 +229,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "INSTAL",
-     "indicators": [
-      {
-       "text": "having change of heart",
-       "note": "the heart of a word is its middle, and changing it here means its two central letters swap round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Isn't",
-       "note": "the contraction, apostrophe dropped"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "having change of heart",
+         "at": 6,
+         "note": "the heart of the word is its middle pair of letters, and changing it here means those two trading places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Isn't",
+         "at": 0,
+         "gives": "ISNT",
+         "note": "the letters of isn't, the apostrophe dropped"
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 31,
+       "gives": "A"
       },
       {
        "words": "learner",
+       "at": 33,
        "gives": "L",
-       "note": "L for learner, as on an L-plate"
+       "note": "L for learner, as on a British learner driver's L-plate"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone refuses to change their mind, while a novice gets installed.",
-     "walkthrough": "The two middle letters of the contraction trade places, then A and L follow; INSTAL is a variant spelling of install.",
-     "definitionFit": "To instal is to set something up or put it in position, as with fitting equipment."
+     "surface": "Someone refuses to change their mind, so a trainee is appointed instead.",
+     "walkthrough": "'having change of heart' makes the two middle letters of ISNT trade places, giving INST. Instal is the British spelling of install.",
+     "definitionFit": "To instal someone is to put them in place, as in installing a new chairman in office."
     },
     "features": {
      "answerInScene": false,
@@ -836,44 +844,45 @@
    "annotation": {
     "definitions": [
      {
-      "text": "in part of country",
-      "at": 36
+      "text": "part of country",
+      "at": 39
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "REGIONAL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "switching sides",
-       "note": "sides are left and right, so each letter standing for one is exchanged for the other"
+       "text": "switching sides in",
+       "at": 20,
+       "note": "sides here are left and right, so the L and R letters in the word exchange positions"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "REGIONAL",
        "indicators": [
         {
          "text": "endlessly",
-         "note": "without an end means the final letter is dropped"
+         "at": 10,
+         "note": "endlessly means without its end, so legionary loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "Legionary",
-         "note": "a soldier of a Roman legion, taken as written"
+         "at": 0
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Roman soldier keeps changing allegiance in some province.",
-     "walkthrough": "Dropping the last letter leaves LEGIONAR; then the L at the front becomes R and the R at the back becomes L, since L and R are left and right.",
-     "definitionFit": "Regional describes something relating to or located in one area of a nation, as opposed to national."
+     "surface": "A Roman soldier keeps defecting in some province of the empire.",
+     "walkthrough": "'endlessly' cuts LEGIONARY to LEGIONAR, and 'switching sides' swaps its L (left) and R (right), the only change made.",
+     "definitionFit": "Regional means belonging to a region, a particular area or part of a country."
     },
     "features": {
      "answerInScene": true,

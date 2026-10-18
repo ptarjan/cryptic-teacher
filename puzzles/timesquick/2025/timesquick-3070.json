@@ -1121,35 +1121,33 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "SAL",
        "indicators": [
         {
          "text": "Heads of",
-         "note": "the heads of words are their first letters"
+         "at": 0,
+         "note": "the head of a word is its first letter, so take the opening letter of each of the next three words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Heads of secret aerospace lab",
-         "gives": "SAL",
-         "select": "first",
-         "note": "S, A, L: first letters of secret, aerospace, lab"
+         "words": "secret aerospace lab",
+         "at": 9,
+         "note": "these three words supply their opening letters, S, A and L"
         }
        ]
       },
       {
        "words": "dealing with",
+       "at": 30,
        "gives": "ADDRESSING",
-       "note": "addressing a problem is dealing with it"
+       "note": "to address a problem is to deal with it"
       }
      ]
     },
     "explanation": {
-     "surface": "A secret aerospace lab working on a rocket's booster stage.",
-     "walkthrough": "Rocket is a peppery salad leaf (arugula in the US), and a dressing boosts it; the question mark flags that pun.",
-     "definitionFit": "Salad dressing livens up leaves such as rocket, so it is jokingly a rocket booster."
+     "surface": "A hush-hush space laboratory working on something to boost a rocket's launch.",
+     "walkthrough": "'Heads of' takes the first letters of secret aerospace lab, giving SAL. Rocket is not the spacecraft but the peppery salad leaf (arugula in the US); what boosts its flavour is a dressing, hence the question mark.",
+     "definitionFit": "A salad dressing such as vinaigrette enhances the taste of leaves like rocket, so it boosts them."
     },
     "features": {
      "answerInScene": false,

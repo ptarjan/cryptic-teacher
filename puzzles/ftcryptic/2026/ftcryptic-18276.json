@@ -154,40 +154,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUMBA",
-     "indicators": [
-      {
-       "text": "unfinished",
-       "note": "something unfinished lacks its end, so each word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Leaving",
+         "at": 0,
+         "note": "leaving here means leaving off the end, so the steak word drops its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "steak",
-         "gives": "RUM",
-         "note": "rump steak, a cut from the hindquarters, without its last letter"
+         "at": 8,
+         "gives": "RUMP",
+         "note": "rump is a cut of beef steak"
         },
         {
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 29,
+         "note": "something unfinished lacks its ending, so the roll word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "bread roll",
-         "gives": "BA",
-         "note": "a bap is a soft British bread roll, here without its last letter"
+         "at": 18,
+         "gives": "BAP",
+         "note": "a bap is a soft bread roll, a British word"
+        },
+        {
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner walks away from half-eaten steak and roll to go dancing.",
-     "walkthrough": "Steak here is RUMP and the roll is a BAP, a soft flat bread roll common in Britain; both are cut short before joining.",
-     "definitionFit": "The rumba is a ballroom and Latin American dance of Cuban origin with a distinctive hip movement."
+     "surface": "A diner leaves their steak and roll half-eaten to get up and dance.",
+     "walkthrough": "'Leaving' cuts RUMP to RUM and 'unfinished' cuts BAP, a British soft bread roll, to BA.",
+     "definitionFit": "The rumba is a Cuban ballroom dance with a distinctive hip movement."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Leaving"
     }
@@ -572,47 +591,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BARKINGMAD",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means nearly but not quite, so the word stops one letter short"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Counter",
+       "at": 0,
+       "gives": "BAR",
+       "note": "a bar is the counter where drinks are served"
+      },
+      {
+       "words": "Charles",
+       "at": 8,
+       "gives": "KING",
+       "note": "Charles III is the British king"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 22,
+         "note": "almost means nearly all, so the word for built loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Counter",
-         "gives": "BAR",
-         "note": "a bar is a counter where drinks are served"
-        },
-        {
-         "words": "Charles",
-         "gives": "KING",
-         "note": "Charles III is the British king"
-        },
-        {
          "words": "built",
-         "gives": "MAD",
-         "note": "built is made, without its final letter"
+         "at": 16,
+         "gives": "MADE",
+         "note": "something built is made"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something King Charles built nearly fell apart with cracks.",
-     "walkthrough": "'Counter' looks like a verb opposing Charles, but it is a noun, the bar.",
-     "definitionFit": "Barking mad is British slang for completely insane, and cracked is an informal word for crazy."
+     "surface": "A pub counter that King Charles nearly finished building turns out to be completely broken.",
+     "walkthrough": "'almost' trims MADE to MAD. Barking mad is British slang for completely insane.",
+     "definitionFit": "Being cracked is informal for being crazy; barking mad is an intensified British way of saying utterly insane."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Counter"
+     "misdirectedWord": "cracked"
     }
    }
   },
@@ -823,32 +847,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MILLSTONE",
      "indicators": [
       {
        "text": "from Spooner",
-       "note": "Reverend Spooner was famous for swapping the opening sounds of words"
+       "at": 16,
+       "note": "Dr Spooner swapped the opening sounds of words, so the starts of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Quiet complaint",
-       "gives": "MILLSTONE",
-       "soundsLike": "STILL MOAN",
-       "note": "quiet is still, a complaint is a moan; swap their opening sounds"
+       "words": "Quiet",
+       "at": 0,
+       "gives": "STILL",
+       "note": "still means quiet, as in a still night"
+      },
+      {
+       "op": "homophone",
+       "spelt": "MONE",
+       "parts": [
+        {
+         "words": "complaint",
+         "at": 6,
+         "gives": "MOAN",
+         "note": "a moan is a complaint"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner grumbles quietly while some rock is being crushed.",
-     "walkthrough": "'Crushing' looks like Spooner's action, but it describes the rock: one that crushes grain.",
-     "definitionFit": "A millstone is one of the pair of heavy round stones that grind grain in a mill, a rock used for crushing."
+     "surface": "A grumble whispered by Dr Spooner about grinding stone.",
+     "walkthrough": "Swap the first sounds of 'still moan' and you hear 'mill stone'. A millstone is the heavy stone wheel that grinds corn.",
+     "definitionFit": "A millstone is one of a pair of large circular stones used to grind grain into flour."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "crushing"
     }
    }
@@ -979,38 +1014,54 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "finishes off",
+       "at": 9,
+       "note": "the finishes of the three drinks are their last letters, which are added after the relative in turn"
+      },
+      {
+       "text": "and",
+       "at": 26,
+       "note": "and here just joins the gin letter to the tonic letter that follows it"
+      },
+      {
+       "text": "and",
+       "at": 36,
+       "note": "the second and adds the Scotch letter on at the very end"
+      }
+     ],
      "parts": [
       {
        "words": "Relative",
+       "at": 0,
        "gives": "UNCLE",
-       "note": "an uncle is a family relative"
+       "note": "an uncle is a relative"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "NCH",
-       "indicators": [
-        {
-         "text": "finishes off",
-         "note": "the finish of a word is its end, so only the last letters are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "gin and tonic and Scotch",
-         "gives": "NCH",
-         "select": "last",
-         "note": "the final letters of the three drinks"
-        }
-       ]
+       "words": "gin",
+       "at": 22,
+       "gives": "N",
+       "note": "the last letter of gin, its finish"
+      },
+      {
+       "words": "tonic",
+       "at": 30,
+       "gives": "C",
+       "note": "the last letter of tonic, its finish"
+      },
+      {
+       "words": "Scotch",
+       "at": 40,
+       "gives": "H",
+       "note": "the last letter of Scotch, its finish"
       }
      ]
     },
     "explanation": {
-     "surface": "An uncle downs a G and T and a whisky to unwind.",
-     "walkthrough": "'Finishes off' looks like drinking up, but it takes the last letters; 'and' between the drinks is just joining them.",
-     "definitionFit": "To unclench a fist or jaw is to release tension from it, which is to let it relax."
+     "surface": "A relation knocks back the last of the G&T and whisky to unwind.",
+     "walkthrough": "'finishes off' applies to each drink in turn, gin, tonic and Scotch, giving N, C and H; the two ands only string them together, so one indicator serves three selections.",
+     "definitionFit": "To unclench is to loosen a tightened fist or jaw, releasing tension, which is to relax it."
     },
     "features": {
      "answerInScene": false,
@@ -1109,29 +1160,30 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "SANDHU",
+     "op": "deletion",
      "indicators": [
       {
        "text": "two thirds of",
-       "note": "two thirds of a nine-letter word keeps six letters, here the opening ones"
+       "at": 17,
+       "note": "two thirds of a nine-letter word is its first six letters, the last three being dropped"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "military academy",
-       "gives": "SANDHU",
-       "select": "first",
-       "note": "Sandhurst is the British Army's officer training academy; its first six of nine letters"
+       "at": 31,
+       "gives": "SANDHURST",
+       "note": "Sandhurst is the Royal Military Academy, where British Army officers train"
+      },
+      {
+       "gives": "RST"
       }
      ]
     },
     "explanation": {
-     "surface": "A Sikh surname shares much with a British military academy.",
-     "walkthrough": "Sandhurst, in Berkshire, is where British Army officers train.",
-     "definitionFit": "Sandhu is a common Jat clan surname among Sikhs from the Punjab region of India and Pakistan."
+     "surface": "A Sikh surname is shared by two thirds of the cadets at an officer school.",
+     "walkthrough": "Sandhurst, the British Army's officer training academy, has nine letters; keep the first six.",
+     "definitionFit": "Sandhu is a common Punjabi Jat surname held by many Sikh families."
     },
     "features": {
      "answerInScene": false,
