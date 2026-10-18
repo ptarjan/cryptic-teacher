@@ -1762,40 +1762,53 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "FIGHTER",
+     "op": "charade",
      "indicators": [
       {
-       "text": "cycling",
-       "note": "cycling moves letters round, taking the first and putting it at the end"
+       "text": "next to",
+       "at": 47,
+       "note": "next to places the river's letter directly after the rest"
       }
      ],
      "parts": [
       {
        "words": "female",
-       "gives": "F",
-       "note": "F is the abbreviation for female"
+       "at": 20,
+       "gives": "F"
       },
       {
-       "words": "rowing crew",
-       "gives": "EIGHT",
-       "note": "an eight is a racing boat with eight rowers"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 39,
+         "note": "cycling sends a letter round from the front of the crew's word to its back"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rowing crew",
+         "at": 27,
+         "gives": "EIGHT",
+         "note": "an eight is a racing boat crewed by eight rowers"
+        }
+       ]
       },
       {
        "words": "river",
+       "at": 55,
        "gives": "R",
-       "note": "R is the abbreviation for river"
+       "note": "R is the map abbreviation for river"
       }
      ]
     },
     "explanation": {
-     "surface": "A boxer and a women's rowing crew cycling along a river.",
-     "walkthrough": "EIGHT with its first letter moved to the end becomes IGHTE.",
-     "definitionFit": "A boxer is one example of a fighter, someone who fights in combat sports; 'perhaps' marks the example."
+     "surface": "A boxer, along with a women's crew, bikes alongside a river.",
+     "walkthrough": "EIGHT cycled becomes IGHTE, with the E moved to the end, so F + IGHTE + R.",
+     "definitionFit": "A boxer is one example of someone who fights for sport, hence the 'perhaps'."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cycling"
     }

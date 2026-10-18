@@ -462,45 +462,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "playing",
-       "note": "letters that are playing are at play, moving about freely into a new arrangement"
+       "text": "split by",
+       "at": 6,
+       "note": "split by means the first word is broken open and the other letters set inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Pills",
+       "at": 0,
+       "gives": "TABLETS",
+       "note": "tablets are pills"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "split by",
-         "note": "something split by another thing has that thing driven into its middle"
+         "text": "playing",
+         "at": 20,
+         "note": "playing suggests the letters of nine are moved about into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Pills",
-         "gives": "TABLETS",
-         "note": "tablets are pills"
-        },
-        {
          "words": "nine",
-         "note": "the four letters rearranged"
+         "at": 15,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Medicine is divided among nine people during a match.",
-     "walkthrough": "The rearranged letters go in just before the final S of the pills word.",
-     "definitionFit": "Table tennis, or ping-pong, is an example of a game played with bats and a light ball."
+     "surface": "Medication is divided up by nine people at play in a game.",
+     "walkthrough": "'playing' sits beside 'game' as if describing the sport, but it is the signal to rearrange nine.",
+     "definitionFit": "Table tennis, or ping-pong, is a sport played with bats and a light ball over a net."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "playing"
+     "misdirectedWord": "Pills"
     }
    }
   },
@@ -652,40 +656,51 @@
      "indicators": [
       {
        "text": "engulfs",
-       "note": "to engulf is to swallow up, so the other pieces end up inside"
+       "at": 11,
+       "note": "to engulf is to swallow up, so the other letters go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Defamation",
-         "gives": "LIBEL",
-         "note": "libel is written defamation"
-        },
-        {
-         "words": "king",
-         "gives": "R",
-         "note": "R stands for rex, Latin for king"
-        }
-       ]
+       "words": "Defamation",
+       "at": 0,
+       "gives": "LIBEL",
+       "note": "libel is defamation in written form"
       },
       {
-       "words": "and a",
-       "gives": "A",
-       "note": "'and' joins; the A is taken as written"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "and",
+         "at": 24,
+         "note": "and simply adds the second piece after the first, both going in together"
+        }
+       ],
+       "parts": [
+        {
+         "words": "king",
+         "at": 19,
+         "gives": "R",
+         "note": "R is short for rex, Latin for king"
+        },
+        {
+         "words": "a",
+         "at": 28,
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A slander case swallows up a monarch and a member of parliament.",
-     "definitionFit": "A Liberal is a member of the Liberal Party, an example of a politician."
+     "surface": "A slander case swallows up a monarch and an MP.",
+     "walkthrough": "The definition is the last word, 'politician', not 'Defamation' at the start.",
+     "definitionFit": "A Liberal is a member of a Liberal party, so a political figure."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "engulfs"
+     "misdirectedWord": "king"
     }
    }
   },

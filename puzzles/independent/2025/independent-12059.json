@@ -181,28 +181,56 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BEARINMIND",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of two words here trade places"
+       "at": 9,
+       "note": "Spooner swapped the starting sounds of words, so the opening consonants are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "horse having no good options",
-       "gives": "BEARINMIND",
-       "soundsLike": "MARE IN BIND",
-       "note": "a horse is a mare, and having no good options is being in a bind; swap the opening sounds M and B"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "homophone",
+         "spelt": "MEAR",
+         "indicators": [
+          {
+           "text": "?",
+           "at": 47,
+           "note": "the question mark flags that the swap is by spoken sound, so the result is spelt as it sounds"
+          }
+         ],
+         "parts": [
+          {
+           "words": "horse",
+           "at": 19,
+           "gives": "MARE",
+           "note": "a mare is a female horse; Spooner works by sound, so the word is taken as it is spoken, not as spelt"
+          }
+         ]
+        },
+        {
+         "words": "having",
+         "at": 25,
+         "gives": "IN",
+         "note": "a horse having trouble is in it, so having gives IN"
+        }
+       ]
+      },
+      {
+       "words": "no good options",
+       "at": 32,
+       "gives": "BIND",
+       "note": "a bind is a fix, a situation with no good options"
       }
      ]
     },
     "explanation": {
-     "surface": "A cryptic request to recall a horse trapped in a hopeless predicament.",
-     "walkthrough": "Exchanging the M of mare and the B of bind turns 'mare in bind' into 'bear in mind', which fits the puzzle's set of bears.",
-     "definitionFit": "To keep something in mind is to remember it or not forget to take it into account."
+     "surface": "A puzzled question: what to remember about a mare in a tight spot.",
+     "walkthrough": "MARE IN BIND with the M and B swapped is spoken as BEAR IN MIND.",
+     "definitionFit": "To bear something in mind is to keep it in your memory and take it into account."
     },
     "features": {
      "answerInScene": false,

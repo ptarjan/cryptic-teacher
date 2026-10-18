@@ -484,40 +484,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OREGON",
-     "indicators": [
-      {
-       "text": "(almost)",
-       "note": "almost means not quite all, so the last letter of the phrase is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "mineral",
+       "at": 6,
+       "gives": "ORE",
+       "note": "ore is rock containing a valuable mineral"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 23,
+         "note": "almost means not quite the whole word, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "mineral",
-         "gives": "ORE",
-         "note": "ore is a mineral that is mined"
+         "words": "used up",
+         "at": 14,
+         "gives": "GONE",
+         "note": "something used up is gone, all consumed"
         },
         {
-         "words": "used up",
-         "gives": "GON",
-         "note": "used up means gone, here without its final letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A US state whose mineral deposits are nearly exhausted.",
-     "walkthrough": "'State' is not a verb here but one of the United States.",
-     "definitionFit": "Oregon is a state in the north-western United States, on the Pacific coast."
+     "surface": "An official claims some mineral supply has nearly run out.",
+     "walkthrough": "'State' looks like a verb meaning declare, but it names a US state.",
+     "definitionFit": "Oregon is one of the fifty American states, in the Pacific Northwest."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "State"
     }
@@ -665,90 +669,64 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "GNOCCHI",
-     "indicators": [
-      {
-       "text": "intervenes",
-       "note": "something that intervenes comes between other things, so the hotel letter is placed inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GNOCCHI",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "almost",
-         "note": "almost means not quite all, so the word loses its final letter"
+         "text": "somehow",
+         "at": 18,
+         "note": "somehow says the letters are arranged in some other way"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 6,
+           "note": "almost means not quite the whole word, so its last letter goes"
+          }
+         ],
          "parts": [
           {
-           "op": "anagram",
-           "indicators": [
-            {
-             "text": "somehow",
-             "note": "somehow suggests things arranged in some unspecified way, so the remaining letters are jumbled"
-            }
-           ],
-           "parts": [
-            {
-             "words": "gone",
-             "gives": "GON",
-             "note": "the word gone without its last letter"
-            },
-            {
-             "op": "first",
-             "unchecked": true,
-             "gives": "CC",
-             "indicators": [
-              {
-               "text": "initially",
-               "note": "initially points to the beginnings, so only the first letter of each following word is kept"
-              }
-             ],
-             "parts": [
-              {
-               "unchecked": true,
-               "words": "causing concern",
-               "gives": "CC",
-               "select": "first",
-               "note": "first letters of these two words"
-              }
-             ]
-            },
-            {
-             "words": "hotel",
-             "gives": "H",
-             "note": "Hotel is H in the NATO phonetic alphabet"
-            }
-           ]
+           "words": "gone",
+           "at": 13,
+           "gives": "GONE",
+           "note": "taken as written before losing its end"
           },
           {
-           "op": "first",
-           "parts": [
-            {
-             "words": "intervenes",
-             "note": "first letter of this word, which also signals the insertion"
-            }
-           ]
+           "gives": "E"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 27,
+         "note": "initially means at the start, so each of the following four words gives only its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "causing concern — hotel intervenes",
+         "at": 37,
+         "note": "the first letter of each of these four words"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone worried that the pasta has nearly run out, while a hotel steps in to help.",
-     "walkthrough": "The rearranged remnant of gone is followed by the initials of causing, concern and intervenes; H then sits between the Cs and the I. The final I has to come from intervenes doing double duty, a loose point in the clue.",
-     "definitionFit": "Gnocchi are small Italian dumplings usually classed with pasta, made from potato or semolina dough."
+     "surface": "The pasta has nearly run out, which is starting to worry the hotel staff.",
+     "walkthrough": "'hotel intervenes' looks like an instruction to insert H, but 'initially' reaches all four words that follow it, the last two included.",
+     "definitionFit": "Gnocchi are small Italian dumplings, usually of potato and flour, and are classed as a type of pasta."
     },
     "features": {
      "answerInScene": true,
@@ -1193,42 +1171,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SETUP",
-     "indicators": [
-      {
-       "text": "With no introduction",
-       "note": "lacking an introduction means the word is missing its opening letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "With no introduction",
+         "at": 0,
+         "note": "without its introduction the word loses its opening letter"
+        }
+       ],
        "parts": [
         {
          "words": "use",
-         "gives": "SE",
-         "note": "the word use without its first letter"
+         "at": 22,
+         "note": "taken as written before losing its first letter"
         },
         {
-         "words": "sheep",
-         "gives": "TUP",
-         "note": "a tup is a ram, a male sheep"
+         "gives": "U"
         }
        ]
+      },
+      {
+       "words": "sheep",
+       "at": 26,
+       "gives": "TUP",
+       "note": "a tup is a ram, a male sheep"
       }
      ]
     },
     "explanation": {
-     "surface": "A farmer, without preamble, puts the flock to work in some scheme.",
-     "walkthrough": "TUP is a dialect word for a ram, common in crosswords.",
-     "definitionFit": "A setup is the way something is organised or arranged, as in the office setup."
+     "surface": "An instruction to employ sheep in some display, without any preamble.",
+     "walkthrough": "'sheep' is not EWE here but the British word for a ram.",
+     "definitionFit": "A set-up is the way something is organised or laid out, its configuration."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "introduction"
+     "misdirectedWord": "sheep"
     }
    }
   },
@@ -1556,42 +1537,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "POSTERIOR",
-     "indicators": [
-      {
-       "text": "not half",
-       "note": "not half means only half the word survives, here its second pair of letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "advertisement",
+       "at": 7,
+       "gives": "POSTER",
+       "note": "a poster is a printed advertisement put up on a wall"
+      },
+      {
+       "words": "one",
+       "at": 22,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not half",
+         "at": 26,
+         "note": "not half means one half of the word is taken away, here its first two letters"
+        }
+       ],
        "parts": [
         {
-         "words": "advertisement",
-         "gives": "POSTER",
-         "note": "a poster is a printed advertisement"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral for one"
-        },
-        {
          "words": "poor",
-         "gives": "OR",
-         "note": "the second half of this word"
+         "at": 35,
+         "note": "taken as written before losing half"
+        },
+        {
+         "gives": "PO"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Behind a billboard someone sits who is hardly penniless.",
-     "walkthrough": "'Behind' looks like a preposition but is the noun for one's rear. 'Not half' is also a British phrase meaning 'very much'.",
-     "definitionFit": "Posterior is a jocular noun for the buttocks, which is also what a behind is."
+     "surface": "Someone lags behind a publicity campaign, being not very well off.",
+     "walkthrough": "'Behind' reads as a preposition, but it is the noun: the backside.",
+     "definitionFit": "Posterior is a jocular word for the buttocks, the part one sits on."
     },
     "features": {
      "answerInScene": false,
