@@ -338,44 +338,45 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "EYELASH",
+     "indicators": [
+      {
+       "text": "managed",
+       "at": 10,
+       "note": "managed in the sense of handled or worked over, so the letters are rearranged"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "EYELASH",
        "indicators": [
         {
-         "text": "managed",
-         "note": "letters that are managed are handled and reorganised into a new order"
-        },
-        {
          "text": "without",
-         "note": "'without' means lacking, so the fodder loses the letter named next"
+         "at": 19,
+         "note": "without here means lacking, so the named letter is dropped from the fodder"
         }
        ],
        "parts": [
         {
          "words": "He easily",
-         "note": "fodder before the deletion"
+         "at": 0
         },
         {
          "words": "one",
+         "at": 27,
          "gives": "I",
-         "note": "one = I, the Roman numeral; removed from the fodder"
+         "note": "one is the Roman numeral I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone coped comfortably, though balding.",
-     "walkthrough": "The surface pictures a bald man; the 'bit of hair' is a much smaller thing than it suggests.",
-     "definitionFit": "A part-for-whole definition: one lash on the eyelid is a single small hair."
+     "surface": "A boast that someone coped easily, missing out on something by a hair.",
+     "walkthrough": "'without one' takes the I out of HE EASILY, leaving HEEASLY; 'managed' then rearranges those letters.",
+     "definitionFit": "An eyelash is a single short hair growing on the edge of the eyelid."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "managed"
     }
@@ -1273,45 +1274,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GAPYEAR",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "receives",
+       "at": 4,
+       "note": "receives means takes in, so the second part goes inside the first"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Kit",
+       "at": 0,
+       "gives": "GEAR",
+       "note": "kit is equipment, or gear"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "receives",
-         "note": "a thing that receives takes something in, so the kit takes the other letters inside it"
-        },
-        {
          "text": "out",
-         "note": "'out' as in out of order or out of joint: the letters are disturbed and rearranged"
+         "at": 17,
+         "note": "out in the sense of disordered, so the letters of pay are shuffled"
         }
        ],
        "parts": [
         {
-         "words": "Kit",
-         "gives": "GEAR",
-         "note": "kit = gear"
-        },
-        {
          "words": "pay",
-         "note": "rearranged"
+         "at": 13
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A student is given kit and money for time off from studying.",
-     "walkthrough": "The phrase is British: a year off between school and university, often spent travelling.",
-     "definitionFit": "A year taken off before or during higher education is a break from study."
+     "surface": "A student's equipment gets paid for before a year off from study.",
+     "walkthrough": "'Kit' reads as a verb in the surface, kitting out a student, but it is the noun for equipment; 'out' scrambles the pay that it receives.",
+     "definitionFit": "A gap year is a year out between school and university, a pause from studying."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "out"
+     "misdirectedWord": "Kit"
     }
    }
   },

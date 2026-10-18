@@ -535,40 +535,33 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "INFER",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "tucked in",
-       "note": "tucking something in pushes it inside, so a letter goes into the body of the word"
+       "text": "with the head tucked in",
+       "at": 14,
+       "note": "the head of the word is its first letter, and tucking it in moves it from the front to just inside"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "INFER",
-       "indicators": [
-        {
-         "text": "the head",
-         "note": "the head is the first letter, which must be lifted out before it is moved"
-        }
-       ],
-       "parts": [
-        {
-         "words": "better",
-         "gives": "FINER",
-         "note": "finer as in of better quality"
-        }
-       ]
+       "words": "better",
+       "at": 7,
+       "gives": "FINER",
+       "note": "finer means better, of higher quality"
+      },
+      {
+       "gives": "FIN"
+      },
+      {
+       "gives": "INF"
       }
      ]
     },
     "explanation": {
-     "surface": "An improvement results from keeping your head down.",
-     "walkthrough": "Take the first letter off the front of the word for 'better' and push it into the middle.",
-     "definitionFit": "To infer is to reach a conclusion by reasoning from evidence, which is what deducing means."
+     "surface": "A tip that it is better to keep your head down.",
+     "walkthrough": "The head of FINER, its F, is moved from the front and tucked inside what is left, INER.",
+     "definitionFit": "To infer is to reach a conclusion from evidence, which is to deduce."
     },
     "features": {
      "answerInScene": false,
@@ -749,37 +742,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CUTLASS",
-     "indicators": [
-      {
-       "text": "Largely",
-       "note": "largely means mostly but not wholly, so the last letter is cut"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Largely",
+         "at": 0,
+         "note": "largely means most of it, so the last letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "appealing",
-         "gives": "CUT",
-         "note": "cute means appealing; without its tail"
+         "at": 8,
+         "gives": "CUTE",
+         "note": "cute means attractive or appealing"
         },
         {
-         "words": "young lady",
-         "gives": "LASS",
-         "note": "a lass is a girl"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "young lady",
+       "at": 18,
+       "gives": "LASS",
+       "note": "a lass is a girl or young woman"
       }
      ]
     },
     "explanation": {
-     "surface": "A mostly attractive young woman is the subject of a sketch.",
-     "walkthrough": "'Drawn' suggests a portrait; swords are drawn from their scabbards.",
-     "definitionFit": "A cutlass is a short curved sword, and swords are pulled out of the scabbard before use."
+     "surface": "An attractive girl being sketched by an artist.",
+     "walkthrough": "'drawn' suggests a sketch, but the definition means a weapon pulled from its sheath.",
+     "definitionFit": "A cutlass is a short curved sword, the kind of blade that is drawn before a fight."
     },
     "features": {
      "answerInScene": false,
@@ -1211,30 +1208,30 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "WINGS",
      "indicators": [
       {
        "text": "cycling",
-       "note": "cycling goes round and round, so letters rotate from the front to the back"
+       "at": 34,
+       "note": "cycling moves the first letter round to the end"
       }
      ],
      "parts": [
       {
        "words": "music",
+       "at": 24,
        "gives": "SWING",
-       "note": "swing is a style of big-band jazz"
+       "note": "swing is a style of jazz music"
       }
      ]
     },
     "explanation": {
-     "surface": "A collection of Paul McCartney's songs to listen to while riding a bike.",
-     "walkthrough": "Move the first letter of the jazz style to the end.",
-     "definitionFit": "Wings was the band Paul McCartney formed after the Beatles, so it is a group he assembled."
+     "surface": "A collection of Paul McCartney's music for bike riders.",
+     "walkthrough": "'cycling' moves the S of SWING to the back. Wings was the band Paul McCartney formed after the Beatles.",
+     "definitionFit": "Wings was the rock group McCartney led in the 1970s, a band he put together."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "cycling"
     }
    }
