@@ -1305,48 +1305,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WEALTHY",
+     "op": "container",
      "indicators": [
       {
-       "text": "dubious",
-       "note": "the tale is doubtful, not in its true form, so its letters are rearranged"
+       "text": "about",
+       "at": 16,
+       "note": "the question word goes about, around, the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "question",
+       "at": 7,
+       "gives": "WHY",
+       "note": "why is a question word"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "the question goes around the rest"
+         "text": "dubious",
+         "at": 22,
+         "note": "a dubious tale is a shady, twisted one, so its letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "question",
-         "gives": "WHY",
-         "note": "why? is a question"
-        },
-        {
-         "words": "dubious tale",
-         "gives": "EALT",
-         "note": "TALE rearranged"
+         "words": "tale",
+         "at": 30
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks a leading question about a doubtful story.",
-     "walkthrough": "'Loaded question' is a set phrase, but 'Loaded' stands alone as the definition.",
-     "definitionFit": "Informal synonym: loaded is slang for rich."
+     "surface": "Someone asks a pointed, loaded question about a story that sounds fishy.",
+     "walkthrough": "'Loaded question' reads as one phrase, but 'Loaded' alone is the definition, meaning rich. 'dubious' turns TALE into EALT, which WHY goes 'about'.",
+     "definitionFit": "Loaded is informal slang for having lots of money, so it means wealthy."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Loaded"
     }
    }
@@ -1592,67 +1591,71 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MONTANA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 29,
+       "note": "the letter is wearing the reversed letters, which go around it like clothes"
+      }
+     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "finally",
-         "note": "what comes finally, at the end, is the last letter"
-        },
-        {
          "text": "the wrong way",
-         "note": "going the wrong way means running backwards, so the letters reverse"
+         "at": 53,
+         "note": "the wrong way means the shortened word is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "wearing",
-           "note": "the make-up goes on around it, like clothes"
+           "text": "mostly",
+           "at": 46,
+           "note": "mostly means all but the last letter is used"
           }
          ],
          "parts": [
           {
-           "words": "make-up, mostly",
-           "gives": "ANATOM",
-           "note": "anatomy is your physical make-up; drop the Y"
+           "words": "make-up",
+           "at": 37,
+           "gives": "ANATOMY",
+           "note": "your anatomy is your physical make-up"
           },
           {
-           "op": "last",
-           "unchecked": true,
-           "gives": "N",
-           "indicators": [
-            {
-             "text": "mostly",
-             "note": "most of the word but not all, so its last letter goes"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "finally seen",
-             "gives": "N",
-             "select": "last",
-             "note": "last letter of seeN"
-            }
-           ]
+           "gives": "Y"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 16,
+         "note": "finally points to the last letter of seen"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seen",
+         "at": 24,
+         "note": "its last letter is N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Helena is spotted at last wearing badly applied make-up.",
-     "walkthrough": "Helena looks like a woman; it is a US state capital.",
-     "definitionFit": "Definition by description: the US state whose capital city is Helena."
+     "surface": "A woman named Helena finally appears in public with her make-up smeared on wrongly.",
+     "walkthrough": "Helena is not a woman but the state capital of Montana. 'mostly' cuts ANATOMY to ANATOM, 'the wrong way' turns it into MOTANA, and the N from 'finally seen' is 'wearing' it.",
+     "definitionFit": "Helena is the capital city of the US state of Montana, so the state is where Helena lies."
     },
     "features": {
      "answerInScene": false,

@@ -43,29 +43,42 @@
      }
     ],
     "wordplay": {
-     "op": "homophone",
-     "spelt": "LOCATE",
-     "indicators": [
-      {
-       "text": "talking",
-       "note": "talking means the words are judged by how they sound when spoken, not how they are spelt"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "mean talking girl",
-       "gives": "LOWKATE",
-       "note": "mean is LOW (a low trick) and the girl is KATE; said together they make the answer"
+       "op": "homophone",
+       "spelt": "LO",
+       "indicators": [
+        {
+         "text": "talking",
+         "at": 33,
+         "note": "talking means the word is taken as it is spoken, not as it is spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mean",
+         "at": 28,
+         "gives": "LOW",
+         "note": "low means mean or base"
+        }
+       ]
+      },
+      {
+       "words": "girl",
+       "at": 41,
+       "gives": "CATE",
+       "note": "Cate is a girl's name, as in the actress Cate Blanchett"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tries to track down a girl with a nasty tongue.",
-     "walkthrough": "'Mean talking girl' reads as a girl who speaks unkindly, but mean is the adjective low and the girl's name is Kate.",
-     "definitionFit": "To locate something is to find out exactly where it is, which is discovering its whereabouts."
+     "surface": "Someone sets out to track down a spiteful, gossiping girl.",
+     "walkthrough": "'mean talking girl' reads as one nasty gossip, but 'talking' acts on 'mean' alone: LOW said aloud is spelt LO, and the girl follows it.",
+     "definitionFit": "To locate something is to find where it is, so it means to discover its whereabouts."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "mean"
     }
@@ -1068,37 +1081,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNEARTH",
-     "indicators": [
-      {
-       "text": "stripping off",
-       "note": "stripping off removes the outer layer, so the name loses its first and last letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "A French",
+       "at": 0,
        "gives": "UNE",
-       "note": "une is French for a, feminine form"
+       "note": "une is the French feminine form of a"
       },
       {
-       "words": "girl",
-       "gives": "MARTHA",
-       "note": "a girl's name"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "stripping off",
+         "at": 14,
+         "note": "stripping off a word's outer layer removes its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl",
+         "at": 9,
+         "gives": "MARTHA",
+         "note": "Martha is a girl's name"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French girl undresses to show off; the dots run on into the next clue.",
-     "walkthrough": "'stripping off' sounds racy, but it just trims the name at both ends.",
-     "definitionFit": "To unearth something is to dig it up or bring it to light, which is to reveal it."
+     "surface": "A French girl undresses to show what is underneath, the ellipsis carrying on into the next clue.",
+     "walkthrough": "'A French' must be the feminine UNE, to agree with 'girl'; the girl is MARTHA, and 'stripping off' leaves ARTH.",
+     "definitionFit": "To unearth something is to dig it up and bring it to light, so it means to reveal."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "stripping"
     }
    }

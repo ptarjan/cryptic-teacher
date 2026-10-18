@@ -43,57 +43,57 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "COMPLAINED",
      "indicators": [
       {
        "text": "about",
-       "note": "about suggests being turned around and moved about, so the letters get rearranged"
+       "at": 7,
+       "note": "about signals the letters are turned about into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "COMPLAINED",
        "indicators": [
         {
          "text": "no",
-         "note": "no means without, so the selected letter is taken away from the rest"
+         "at": 28,
+         "note": "no wonder, ultimately means the last letter of wonder is not there, taken out of compiler"
         }
        ],
        "parts": [
         {
          "words": "compiler",
-         "note": "taken as written"
-        },
-        {
-         "words": "and",
-         "note": "taken as written"
+         "at": 13
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "ultimately",
-           "note": "ultimately points to the very end of the word it follows, its final letter"
+           "at": 39,
+           "note": "ultimately points to the final letter of wonder"
           }
          ],
          "parts": [
           {
            "words": "wonder",
-           "note": "the last letter of wonder, which is removed"
+           "at": 31,
+           "note": "its last letter is R"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "and",
+       "at": 24
       }
      ]
     },
     "explanation": {
-     "surface": "Someone grumbled about the person who set the puzzle, and understandably so.",
-     "walkthrough": "Remove the R from COMPILER AND, then rearrange the ten letters left.",
-     "definitionFit": "To moan is to grumble, the same as to have complained."
+     "surface": "Someone grumbled about the puzzle setter, and the setter concedes it is hardly surprising.",
+     "walkthrough": "'ultimately' gives R, the end of 'wonder'; 'no' removes it from COMPILER to leave COMPILE, and 'about' shuffles that with AND.",
+     "definitionFit": "To complain is to grumble or express dissatisfaction, so complained is a synonym of moaned."
     },
     "features": {
      "answerInScene": true,
@@ -521,56 +521,55 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ORDINARILY",
      "indicators": [
       {
        "text": "mixed",
-       "note": "mixed means stirred together, so the letters are jumbled"
+       "at": 26,
+       "note": "a mixed drink has its ingredients stirred together, so the letters are rearranged"
       }
      ],
      "parts": [
       {
+       "words": "royal",
+       "at": 12
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ORDINARILY",
        "indicators": [
         {
          "text": "leaves",
-         "note": "when someone leaves they go away, so that letter departs from the rest"
+         "at": 5,
+         "note": "the king leaves, departing from the word drink"
         }
        ],
        "parts": [
         {
-         "words": "King",
-         "gives": "K",
-         "note": "K is the chess abbreviation for king; it is the letter removed"
-        },
-        {
-         "words": "royal",
-         "note": "taken as written"
-        },
-        {
          "words": "drink",
-         "note": "taken as written"
+         "at": 18
         },
         {
-         "words": "I",
-         "note": "taken as written"
+         "words": "King",
+         "at": 0,
+         "gives": "K",
+         "note": "K is the chess abbreviation for king"
         }
        ]
+      },
+      {
+       "words": "I",
+       "at": 24
       }
      ]
     },
     "explanation": {
-     "surface": "The monarch walks away from a cocktail I have prepared, as is customary.",
-     "walkthrough": "Remove the K from ROYAL DRINK I and rearrange the rest.",
-     "definitionFit": "As a rule is an idiom meaning usually, in the normal course of things."
+     "surface": "A monarch walks out on a regal cocktail someone has just blended.",
+     "walkthrough": "'King leaves' takes K out of DRINK to give DRIN; 'mixed' then rearranges ROYAL, DRIN and I.",
+     "definitionFit": "Something done ordinarily happens usually, in the normal course of things, which is what as a rule means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "leaves"
+     "misdirectedWord": "drink"
     }
    }
   },

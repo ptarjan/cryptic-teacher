@@ -230,37 +230,48 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DANGEROUS",
      "indicators": [
       {
        "text": "around",
-       "note": "the shortened word goes around the other piece, enclosing it"
+       "at": 21,
+       "note": "the shortened verb goes around the skinned sausages"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "DANGEROUS",
        "indicators": [
         {
          "text": "cut",
-         "note": "something cut is shortened, so the last letter goes"
-        },
-        {
-         "text": "skinless",
-         "note": "removing the skin strips off the outer letters at each end"
+         "at": 17,
+         "note": "a word that is cut loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "put out",
+         "words": "to put out",
+         "at": 6,
          "gives": "DOUSE",
-         "note": "to douse a fire is to put it out"
+         "note": "to douse a fire or light is to put it out"
         },
         {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "skinless",
+         "at": 28,
+         "note": "taking the skin off a word strips its first and last letters"
+        }
+       ],
+       "parts": [
+        {
          "words": "sausages",
+         "at": 37,
          "gives": "BANGERS",
          "note": "bangers is British slang for sausages"
         }
@@ -269,14 +280,14 @@
      ]
     },
     "explanation": {
-     "surface": "A warning that slicing round sausages after peeling them is a hazardous job.",
-     "walkthrough": "Bangers is British slang for sausages; skinless strips both ends, and cut takes only the last letter.",
-     "definitionFit": "Something dangerous carries risk or is likely to cause harm, the same as risky."
+     "surface": "A warning that dousing a barbecue around half-cooked sausages is hazardous.",
+     "walkthrough": "Bangers is British slang for sausages; 'skinless' strips their outer letters, and 'cut' drops the last letter of the verb before 'around' wraps it round them.",
+     "definitionFit": "Something dangerous carries a hazard, so it is risky; the two adjectives are synonyms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "put"
+     "misdirectedWord": "cut"
     }
    }
   },
@@ -852,44 +863,51 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "FIREDOOR",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner famously swapped the opening sounds of words, so the starts are exchanged"
+       "at": 16,
+       "note": "Spooner swapped the opening sounds of a pair of words"
       }
      ],
      "parts": [
       {
        "words": "awful",
+       "at": 26,
        "gives": "DIRE",
        "note": "dire means awful"
       },
       {
-       "words": "quartet",
-       "gives": "FOUR",
-       "note": "a quartet is a group of four"
-      },
-      {
-       "unchecked": true,
-       "words": "Spooner's awful quartet",
-       "gives": "FIREDOOR",
-       "soundsLike": "DIRE FOUR",
-       "note": "say the two words for awful and quartet with their opening sounds swapped"
+       "op": "homophone",
+       "spelt": "FOOR",
+       "indicators": [
+        {
+         "text": "on hearing",
+         "at": 5,
+         "note": "on hearing signals that the word is taken by its sound, which rhymes with door, not by its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "quartet",
+         "at": 32,
+         "gives": "FOUR",
+         "note": "a quartet is four"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Walking out after hearing a terrible string quartet.",
-     "walkthrough": "Swapping the first sounds works because door rhymes with four. Spooner was an Oxford don famous for such slips.",
-     "definitionFit": "A fire door is an emergency exit, a door built to let people escape a burning building."
+     "surface": "Someone leaves at once on hearing a dreadful string quartet.",
+     "walkthrough": "Say DIRE FOUR aloud: FOUR rhymes with door, so 'on hearing' lets it be spelt FOOR. 'Spooner's' then swaps the opening D and F, giving the emergency exit.",
+     "definitionFit": "A fire door is an emergency way out of a building, so it serves as an exit."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "quartet"
+     "joke": "pun",
+     "misdirectedWord": "Exit"
     }
    }
   },
@@ -915,48 +933,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "KHAZI",
+     "spelt": "KHAZI",
      "indicators": [
       {
        "text": "to pick up",
-       "note": "to pick up words is to catch them by ear, so we want a sound"
+       "at": 15,
+       "note": "to pick up a sound is to hear it, so the phrase is taken by ear"
       }
      ],
      "parts": [
       {
-       "words": "taxis",
-       "gives": "CAR",
-       "note": "a taxi is a car"
-      },
-      {
-       "words": "the last of 26",
-       "gives": "Z",
-       "note": "the last of the 26 letters of the alphabet, said 'zee' in New York"
-      },
-      {
-       "op": "homophone",
-       "spelt": "KHAZI",
-       "parts": [
-        {
-         "words": "NYC taxis",
-         "gives": "CARZEE",
-         "note": "said the American way, car plus the last letter"
-        }
-       ]
+       "words": "the last of 26 NYC taxis",
+       "at": 26,
+       "gives": "CARZEE",
+       "note": "the last of the 26 letters is Z, said zee in New York, and a taxi is a car: car plus zee"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzled question about where to go to hail New York's yellow cabs.",
-     "walkthrough": "NYC tells you the letter is spoken the American way, zee not zed. A khazi is British slang for a toilet.",
-     "definitionFit": "Where one goes is a coy euphemism for the lavatory, and the slang word is a toilet."
+     "surface": "A question about a place to collect the final New York cab in a fleet of twenty-six.",
+     "walkthrough": "Americans say Z as 'zee', so 'car zee' sounds like the answer. KHAZI is British slang for a toilet.",
+     "definitionFit": "The place one 'goes' is a euphemism for the toilet, and a khazi is British slang for a lavatory."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "26"
+     "misdirectedWord": "pick"
     }
    }
   },
@@ -1155,42 +1158,44 @@
      "indicators": [
       {
        "text": "bound by",
-       "note": "something bound by another is wrapped inside it"
+       "at": 6,
+       "note": "the books are bound by, that is enclosed within, the rearranged letters"
       }
      ],
      "parts": [
       {
-       "words": "realist",
-       "gives": "ARISTLE",
-       "note": "the seven letters rearranged"
-      },
-      {
        "op": "anagram",
        "indicators": [
         {
-         "text": "neo-",
-         "note": "neo means new, so the following letters are made new by rearranging"
+         "text": "neo",
+         "at": 15,
+         "note": "neo means new, signalling a fresh arrangement of the word realist"
         }
        ],
        "parts": [
         {
-         "words": "Books",
-         "gives": "OT",
-         "note": "OT is the Old Testament, a set of books"
+         "words": "realist",
+         "at": 19
         }
        ]
+      },
+      {
+       "words": "Books",
+       "at": 0,
+       "gives": "OT",
+       "note": "OT is the Old Testament, a collection of books"
       }
      ]
     },
     "explanation": {
-     "surface": "Books bound by a philosopher of the neo-realist school.",
-     "walkthrough": "Neo-realist looks like a single school of thought; neo- signals the shuffle of realist.",
-     "definitionFit": "The Greek thinker who taught Alexander the Great is among the most famous philosophers in history."
+     "surface": "Some volumes held by a modern realist thinker.",
+     "walkthrough": "'neo' means new, so it signals a new order for the letters of 'realist'; the Old Testament's books are then 'bound by' that result.",
+     "definitionFit": "Aristotle was the ancient Greek thinker, pupil of Plato, so he is an example of a philosopher."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "neo-realist"
+     "misdirectedWord": "neo"
     }
    }
   },
