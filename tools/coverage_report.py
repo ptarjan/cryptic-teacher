@@ -42,7 +42,7 @@ import json
 import statistics
 import sys
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 
 import puzzle_paths
 import series as series_meta
@@ -178,8 +178,11 @@ def is_date_keyed(held):
     return checked
 
 
-def audit(puzzles, today):
-    """One row per series, each with a (possibly empty) list of flags."""
+def audit(puzzles, today, waiting=None):
+    """One row per series, each with a (possibly empty) list of flags.
+    `waiting` is {series: newest date} of puzzles fetched but held back in
+    clues_only/ for their answers (waiting_dates): the feed did answer, so
+    they count against STALE, though not as filed puzzles."""
     by_series = defaultdict(list)
     for p in puzzles:
         by_series[p["series"]].append(p)
@@ -203,11 +206,11 @@ def audit(puzzles, today):
         # skipped rather than guessed at.
         if dates:
             newest, oldest = dates[-1], dates[0]
-            quiet = (today - newest).days
+            quiet = (today - max(newest, (waiting or {}).get(name, newest))).days
             depth = (newest - oldest).days
             stale_after = STALE_AFTER_DAYS.get(name)
             if stale_after and quiet > stale_after:
-                flags.append(f"STALE nothing since {newest} ({quiet}d)")
+                flags.append(f"STALE nothing since {today - timedelta(days=quiet)} ({quiet}d)")
             if depth < SHALLOW_DAYS:
                 flags.append(f"SHALLOW spans {depth}d, never backfilled")
         else:
@@ -307,6 +310,23 @@ def held_puzzles():
     return rows
 
 
+def waiting_dates():
+    """{series: newest date} of the clues-only holds (clues_only/), puzzles
+    the feed delivered that wait on answers before they file: genius-280
+    sat there from 2026-10-05 while the report called the series STALE."""
+    import clues_only
+    out = {}
+    for path in clues_only.files():
+        p = json.loads(path.read_text(encoding="utf-8"))
+        try:
+            day = date.fromisoformat(str(p.get("date"))[:10])
+        except ValueError:
+            continue
+        series = series_meta.parse_id(p["id"])[0]
+        out[series] = max(day, out.get(series, day))
+    return out
+
+
 def main(argv):
     quiet = "--quiet" in argv
     # Two audiences, one report. A dead feed is tonight's problem and worth
@@ -314,7 +334,7 @@ def main(argv):
     # fire the same alert every night until the walk finishes, which is how an
     # alert stops being read. --stale-only is the half that is allowed to shout.
     stale_only = "--stale-only" in argv
-    rows = audit(held_puzzles(), datetime.now(timezone.utc).date())
+    rows = audit(held_puzzles(), datetime.now(timezone.utc).date(), waiting_dates())
     if stale_only:
         for r in rows:
             r["flags"] = [f for f in r["flags"] if f.startswith("STALE")]
