@@ -40,52 +40,58 @@
     "definitions": [
      {
       "text": "another character",
-      "at": 34
+      "at": 34,
+      "note": "Hamlet's friend in Shakespeare's play, so another character from the same work"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HORATIO",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "first",
-         "note": "the first letter of Hamlet"
+         "at": 9,
+         "note": "only the opening letter of the prince's name is used"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "interrupted",
-           "note": "the speech is cut off before its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Hamlet's first",
-           "gives": "HAMLETFIRST",
-           "note": "first letter of Hamlet"
-          }
-         ]
+         "words": "Hamlet's",
+         "at": 0,
+         "note": "the word whose first letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "interrupted",
+         "at": 22,
+         "note": "the speech is cut off before its end, losing its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "speech",
+         "at": 15,
+         "gives": "ORATION",
+         "note": "an oration is a formal speech"
         },
         {
-         "words": "speech interrupted",
-         "gives": "ORATIO",
-         "note": "ORATION with its last letter cut off"
+         "gives": "N",
+         "note": "the last letter of the word for speech"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The prince opens his mouth on stage and another player cuts across him.",
-     "walkthrough": "The definition leans on the surface: Horatio is another character in Hamlet, Hamlet's loyal friend.",
-     "definitionFit": "Horatio is a character in Hamlet besides the prince himself."
+     "surface": "In the play, Hamlet's opening soliloquy is cut short by someone else on stage.",
+     "walkthrough": "H, the first letter of Hamlet, is followed by ORATION interrupted, which stops short of its N to give ORATIO.",
+     "definitionFit": "Horatio is Hamlet's loyal friend in Shakespeare's tragedy, a different figure in the same drama as the prince."
     },
     "features": {
      "answerInScene": true,
@@ -479,48 +485,49 @@
     "definitions": [
      {
       "text": "crosswords",
-      "at": 34
+      "at": 34,
+      "note": "read as cross words, meaning angry speech; the definition is a noun use of ranting"
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "A little",
-       "note": "only a little of the word is taken, its first letter"
+       "text": "in",
+       "at": 23,
+       "note": "the single letter goes inside the word for judging"
       }
      ],
      "parts": [
       {
        "words": "judging",
+       "at": 26,
        "gives": "RATING",
-       "note": "rating = judging, assessing"
+       "note": "rating something is judging or assessing it"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "N",
        "indicators": [
         {
-         "text": "in"
+         "text": "A little",
+         "at": 0,
+         "note": "just a small piece of the next word, its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "A little narrow-minded",
-         "gives": "N",
-         "select": "first",
-         "note": "first letter of narrow-minded"
+         "words": "narrow-minded",
+         "at": 9,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is being a bit petty about how crosswords are judged.",
-     "walkthrough": "The definition is split: read 'crosswords' as cross words, angry words, which is what ranting is.",
-     "definitionFit": "Ranting is angry speech, cross words."
+     "surface": "Someone judging crossword puzzles is a bit narrow-minded.",
+     "walkthrough": "N, a little of narrow-minded, goes in RATING. The definition splits as cross words: ranting is angry talk, not puzzles.",
+     "definitionFit": "Ranting is loud, angry speech, and angry speech can be called cross words."
     },
     "features": {
      "answerInScene": false,
@@ -779,58 +786,55 @@
      {
       "text": "as a way of teaching",
       "at": 32,
-      "note": "Socratic is an adjective; the definition describes a teaching method rather than naming it"
+      "note": "Socratic is an adjective; 'as a way of teaching' describes a method, as the adjective does"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SOCRATIC",
-     "indicators": [
-      {
-       "text": "Used",
-       "note": "used means worn and knocked about, so the letters are disordered"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Used",
+         "at": 0,
+         "note": "the letters of actors' are put to use in a fresh order"
+        }
+       ],
        "parts": [
         {
          "words": "actors'",
-         "note": "ACTORS rearranged"
-        },
+         "at": 5,
+         "note": "the word whose letters are rearranged"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "IC",
-         "indicators": [
-          {
-           "text": "occasionally",
-           "note": "only now and then a letter is taken, every other one"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "piece occasionally",
-           "gives": "IC",
-           "select": "alternate",
-           "note": "second and fourth letters of pIeCe"
-          }
-         ]
+         "text": "occasionally",
+         "at": 19,
+         "note": "only now and then, so every other letter of piece is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "piece",
+         "at": 13,
+         "note": "the word whose alternate letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drama teacher uses bits of actors' scripts now and then in class.",
-     "walkthrough": "The Socratic method teaches by asking questions, after the Greek philosopher Socrates.",
-     "definitionFit": "Socratic describes teaching by questioning, Socrates' method."
+     "surface": "Bits of an actors' script were used now and then in the classroom.",
+     "walkthrough": "'Used' rearranges actors' to SOCRAT, and piece taken 'occasionally', every other letter, gives IC.",
+     "definitionFit": "The Socratic method is a style of instruction that draws out understanding through a sequence of questions, after the Greek philosopher."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Used"
     }

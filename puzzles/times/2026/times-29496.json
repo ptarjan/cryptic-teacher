@@ -106,57 +106,57 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "border of",
-       "note": "a border is the edge, so take the outside letters of LINCOLNSHIRE"
+       "text": "over",
+       "at": 17,
+       "note": "in a down clue the stab piece sits over the last piece, above it"
       }
      ],
      "parts": [
       {
        "words": "With",
-       "gives": "W",
-       "note": "w = with, as in w/"
+       "at": 0,
+       "gives": "W"
       },
       {
        "words": "success",
+       "at": 5,
        "gives": "HIT",
-       "note": "a hit is a success"
+       "note": "a hit is a success, as in a hit record"
       },
       {
        "words": "go",
+       "at": 14,
        "gives": "STAB",
-       "note": "to have a go = to have a stab"
+       "note": "to have a go is to have a stab at something"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "LE",
        "indicators": [
         {
-         "text": "over",
-         "note": "in a down clue, one part sits over the next"
+         "text": "border of",
+         "at": 22,
+         "note": "the edges of the county name, its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "border of Lincolnshire",
-         "gives": "LE",
-         "select": "outer",
-         "note": "the first and last letters of LINCOLNSHIRE"
+         "words": "Lincolnshire",
+         "at": 32,
+         "note": "the word whose outer letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone crosses successfully into a town just across the Lincolnshire boundary.",
-     "walkthrough": "The surface puts the town in Lincolnshire, but WHITSTABLE is a seaside town in Kent famous for oysters; Lincolnshire only supplies its two edge letters.",
-     "definitionFit": "Whitstable is a town on the north Kent coast."
+     "surface": "Having succeeded, someone crosses the county boundary of Lincolnshire.",
+     "walkthrough": "Whitstable is a seaside town in Kent famous for oysters, nowhere near Lincolnshire, an English county. 'border of' Lincolnshire is LE, and a stab is a go.",
+     "definitionFit": "Whitstable is a small coastal settlement on the north Kent coast of England."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Lincolnshire"
+     "misdirectedWord": "border"
     }
    }
   },
@@ -182,29 +182,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "GAS",
      "indicators": [
       {
        "text": "short",
-       "note": "a word cut short loses its last letter"
+       "at": 9,
+       "note": "the word is cut short, losing its final letter"
       }
      ],
      "parts": [
       {
-       "words": "cut short",
-       "gives": "GAS",
-       "note": "GASH (a cut) without its final H"
+       "words": "cut",
+       "at": 5,
+       "gives": "GASH",
+       "note": "a gash is a deep cut"
+      },
+      {
+       "gives": "H",
+       "note": "the last letter of the word for cut"
       }
      ]
     },
     "explanation": {
-     "surface": "A conversation that ended abruptly.",
-     "walkthrough": "'Cut short' looks like one phrase describing the chat; split it, and 'cut' is GASH, 'short' the instruction. To gas is British slang for chatting idly.",
-     "definitionFit": "To gas is to chat at length about nothing much."
+     "surface": "A conversation was ended early.",
+     "walkthrough": "GASH, a cut, made 'short' by dropping its H. Gas is informal British and Irish for idle talk.",
+     "definitionFit": "Gas as a verb means to talk at length about trivial things, to chatter."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "cut"
     }
@@ -533,49 +537,53 @@
      "op": "container",
      "indicators": [
       {
-       "text": "managed",
-       "note": "the pilots are handled into a new order"
+       "text": "to arrest",
+       "at": 15,
+       "note": "the rearranged letters seize and hold the bird inside them"
       }
      ],
      "parts": [
       {
-       "words": "Pilots managed",
-       "gives": "POLIST",
-       "note": "PILOTS rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "managed",
+         "at": 7,
+         "note": "the pilots' letters are handled and reorganised"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pilots",
+         "at": 0,
+         "note": "the letters of the word, used as anagram fodder"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "to arrest",
-         "note": "the rearranged pilots take the bird into custody"
+         "text": "over",
+         "at": 31,
+         "note": "the bird's name is turned over to read backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "over",
-           "note": "in a down clue, the bird is turned upside down"
-          }
-         ],
-         "parts": [
-          {
-           "words": "flyer over",
-           "gives": "TERGE",
-           "note": "EGRET, a heron-like bird, flipped; it goes inside POLIST"
-          }
-         ]
+         "words": "flyer",
+         "at": 25,
+         "gives": "EGRET",
+         "note": "an egret is a heron-like bird, a flyer"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Airline pilots arranged for a disruptive passenger to be arrested.",
-     "walkthrough": "The aviation picture makes 'flyer' look like a passenger; it is a bird. 'Managed' is a less common anagram signal: the letters are handled into a new arrangement.",
-     "definitionFit": "A poltergeist is a noisy spirit that throws things about, a disruptive presence."
+     "surface": "Pilots succeeded in detaining someone flying past.",
+     "walkthrough": "'Pilots managed' reads as a sentence about aviators succeeding; 'managed' actually reorganises Pilots, and the egret, a heron-like bird, is turned 'over' before being taken 'to arrest'.",
+     "definitionFit": "A poltergeist is a mischievous spirit blamed for noises and objects being thrown about, a troublesome unseen visitor."
     },
     "features": {
      "answerInScene": false,
@@ -1039,43 +1047,46 @@
      "indicators": [
       {
        "text": "lively",
-       "note": "the letters are jumped about into a new order"
+       "at": 20,
+       "note": "the letters are set moving into a new order"
       }
      ],
      "parts": [
       {
        "words": "drag",
-       "note": "anagram fodder, used as it stands"
+       "at": 27,
+       "note": "taken as written"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "PARIES",
+       "op": "deletion",
        "indicators": [
         {
          "text": "heartlessly",
-         "note": "PARTIES loses its heart, the central T"
+         "at": 40,
+         "note": "the middle letter of the seven-letter word is taken out"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "parties heartlessly",
-         "gives": "PARIES",
-         "select": "middle",
-         "note": "PARTIES without its middle letter T"
+         "words": "parties",
+         "at": 32,
+         "note": "the word whose heart is removed"
+        },
+        {
+         "gives": "T",
+         "note": "the central letter of parties"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A killjoy is heartlessly running down some lively drag parties.",
-     "walkthrough": "The heart comes out before the letters are rearranged: PARTIES has seven letters, so its heart is the single T.",
-     "definitionFit": "A disparager is someone who belittles or criticises."
+     "surface": "Drag parties are put on without much spirit, and somebody complains.",
+     "walkthrough": "'heartlessly' takes the central T from parties to leave PARIES; 'lively' shuffles that with DRAG.",
+     "definitionFit": "A disparager belittles or runs down others, so is a person who criticises."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "lively"
     }
@@ -1102,53 +1113,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "POMPOSITY",
-     "indicators": [
-      {
-       "text": "Withdrawing",
-       "note": "drawing back, so the work runs backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Withdrawing",
+         "at": 0,
+         "note": "the word for work is drawn back, reversed"
+        }
+       ],
        "parts": [
         {
-         "words": "Withdrawing work",
-         "gives": "PO",
-         "note": "OP (opus, a work) turned round"
+         "words": "work",
+         "at": 12,
+         "gives": "OP",
+         "note": "op is short for opus, a musical work"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "puncturing",
+         "at": 30,
+         "note": "the proposal word goes through the middle of the writer's word, splitting it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the writer's",
+         "at": 41,
+         "gives": "MY",
+         "note": "the setter speaking of himself: my"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "puncturing",
-           "note": "the proposal pierces the writer's word, sitting inside it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "the writer's",
-           "gives": "MY",
-           "note": "the writer is the setter, so 'the writer's' = MY"
-          },
-          {
-           "words": "put forward",
-           "gives": "POSIT",
-           "note": "to posit is to put forward an idea; it goes inside MY"
-          }
-         ]
+         "words": "put forward",
+         "at": 17,
+         "gives": "POSIT",
+         "note": "to posit is to put forward an idea"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer withdraws a submitted piece, which takes his ego down a peg.",
-     "walkthrough": "'Puncturing self-importance' is a stock phrase, so the surface makes it one idea; here it is the placing instruction. In crosswords 'the writer' is the setter, giving MY.",
-     "definitionFit": "Pomposity is an inflated sense of one's own importance."
+     "surface": "Pulling back a work that was proposed, and deflating the author's vanity.",
+     "walkthrough": "OP reversed by 'Withdrawing' gives PO; POSIT 'puncturing' MY gives MPOSITY.",
+     "definitionFit": "Pomposity is a pompous, self-important manner, an inflated sense of one's own worth."
     },
     "features": {
      "answerInScene": true,
@@ -1388,54 +1402,73 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "turned",
-       "note": "the queen and others run backwards"
-      },
-      {
        "text": "on",
-       "note": "in an across clue, one part comes after the other"
+       "at": 42,
+       "note": "in an across clue the following pieces sit on, after, the emperor"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "very",
+       "at": 45,
+       "gives": "SO",
+       "note": "so means very, as in so tired"
+      },
+      {
+       "words": "old",
+       "at": 50,
+       "gives": "O"
+      },
+      {
+       "words": "emperor",
+       "at": 54,
+       "gives": "NERO",
+       "note": "Nero was the notorious Roman emperor"
+      },
+      {
+       "words": "King",
+       "at": 12,
+       "gives": "R",
+       "note": "R stands for rex, Latin for king"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 35,
+         "note": "the queen and others are turned round to read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Queen and others turned",
-         "gives": "RETAL",
-         "note": "R (regina) + ET AL (and others), turned round"
-        },
-        {
-         "words": "King",
-         "gives": "R",
-         "note": "R = rex, king"
-        },
-        {
-         "words": "emperor",
-         "gives": "OREN",
-         "note": "the Roman emperor"
-        },
-        {
-         "words": "old",
-         "gives": "O",
-         "note": "o = old"
-        },
-        {
-         "words": "very",
-         "gives": "OS",
-         "note": "so = very, as in so good"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Queen",
+           "at": 18,
+           "gives": "R",
+           "note": "R stands for regina, Latin for queen"
+          },
+          {
+           "words": "and others",
+           "at": 24,
+           "gives": "ETAL",
+           "note": "et al is short for et alii, Latin for and others"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "In time, the royal family and courtiers rose against an ancient emperor.",
-     "walkthrough": "'Turned on' reads as 'attacked', but it splits: 'turned' reverses the queen and others, 'on' puts them after the emperor. Rex and regina both give R.",
-     "definitionFit": "An idiom for an unspecified future moment, a plain equivalent of the single adverb."
+     "surface": "In the end the royal family and courtiers turned against an ancient emperor.",
+     "walkthrough": "R (King) and then R plus ETAL 'turned' to give LATER, all 'on' SO, O and NERO.",
+     "definitionFit": "Sooner or later is an idiom meaning at some point in the future, inevitably."
     },
     "features": {
      "answerInScene": false,
@@ -1725,41 +1758,46 @@
      {
       "text": "for pregnant women",
       "at": 31,
-      "note": "MATERNITY is used attributively (maternity wear), matching the phrase 'for pregnant women'."
+      "note": "maternity is used as an adjective for things meant for expectant mothers"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MATERNITY",
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MATERNITY",
+       "words": "Couple",
+       "at": 0,
+       "gives": "MATE",
+       "note": "to mate is to couple or pair up"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "swimming",
+         "at": 22,
+         "note": "the letters move about freely into a new order"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
            "text": "briefly",
-           "note": "cut the word short, dropping its last letter"
-          },
-          {
-           "text": "swimming",
-           "note": "the letters move about into a new order"
+           "at": 7,
+           "note": "the word is shortened by its final letter"
           }
          ],
          "parts": [
           {
-           "words": "Couple",
-           "gives": "MATE",
-           "note": "to mate is to couple"
+           "words": "trying",
+           "at": 15,
+           "note": "the word that is shortened"
           },
           {
-           "words": "briefly trying swimming",
-           "gives": "RNITY",
-           "note": "TRYING without its G, rearranged"
+           "gives": "G",
+           "note": "the last letter of trying"
           }
          ]
         }
@@ -1768,14 +1806,14 @@
      ]
     },
     "explanation": {
-     "surface": "A pair quickly try out swimming classes designed for expectant mothers.",
-     "walkthrough": "'Briefly' looks as if it trims 'Couple', but it works on 'trying'. Maternity is used as an adjective, as in maternity wear, which fits 'for pregnant women'.",
-     "definitionFit": "Maternity clothes or wards are ones intended for pregnant women."
+     "surface": "Pairing up after a short try at swimming, for expectant mothers.",
+     "walkthrough": "'Couple' is a verb here, to mate, not a noun for two people; 'briefly' trims trying before 'swimming' shuffles it.",
+     "definitionFit": "Maternity wear and maternity wards are designed for expectant mothers, those carrying a baby."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Couple"
+     "misdirectedWord": "swimming"
     }
    }
   },
@@ -1796,39 +1834,52 @@
     "definitions": [
      {
       "text": "Perhaps Mr",
-      "at": 0
+      "at": 0,
+      "note": "Mr is one example of a title, hence perhaps"
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TITLE",
      "indicators": [
       {
-       "text": "has left for hotel"
+       "text": "has",
+       "at": 16,
+       "note": "the levy word has, takes on, the left letter in the swap"
+      },
+      {
+       "text": "for",
+       "at": 25,
+       "note": "the left letter stands in for the hotel letter"
       }
      ],
      "parts": [
       {
        "words": "Levy",
+       "at": 11,
        "gives": "TITHE",
-       "note": "a tithe is a levy of a tenth"
+       "note": "a tithe was a levy of a tenth of produce paid to the church"
       },
       {
-       "words": "left for hotel",
-       "gives": "L",
-       "note": "L = left replaces H = hotel (NATO alphabet)"
+       "words": "hotel",
+       "at": 29,
+       "gives": "H",
+       "note": "H is hotel in the NATO phonetic alphabet"
+      },
+      {
+       "words": "left",
+       "at": 20,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A man named Levy has checked out of his hotel.",
-     "walkthrough": "'Mr Levy' reads as a person's name; split it, and 'Perhaps Mr' is the definition while Levy is a tax.",
-     "definitionFit": "Mr is an example of a title, hence 'perhaps'."
+     "surface": "A man called Levy has checked out of his hotel.",
+     "walkthrough": "'Mr Levy' looks like a person's name, but Levy is a separate word: TITHE, with L (left) 'for' H (hotel).",
+     "definitionFit": "A title is a form of address like Mr, Dr or Lady placed before a person's name."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Levy"
     }
    }

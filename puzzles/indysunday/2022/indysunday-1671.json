@@ -449,42 +449,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCOTTIE",
-     "indicators": [
-      {
-       "text": "cancels opening",
-       "note": "cancelling the opening means removing the first letter of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cancels opening",
+         "at": 17,
+         "note": "the venue's name loses its first letter, its opening being cancelled"
+        }
+       ],
        "parts": [
         {
          "words": "racing venue",
-         "gives": "SCOT",
-         "note": "Ascot, the Berkshire racecourse, without its first letter"
+         "at": 4,
+         "gives": "ASCOT",
+         "note": "Ascot is the famous racecourse in Berkshire, England"
         },
         {
-         "words": "fixture",
-         "gives": "TIE",
-         "note": "a tie is a fixture in a cup competition, as in a cup tie"
+         "gives": "A",
+         "note": "the first letter of the venue name"
         }
        ]
+      },
+      {
+       "words": "fixture",
+       "at": 33,
+       "gives": "TIE",
+       "note": "a fixture is a scheduled match, which in British football can be called a tie"
       }
      ]
     },
     "explanation": {
-     "surface": "A greyhound track calls off its first meeting of the season.",
-     "walkthrough": "'Dog racing venue' reads as a greyhound track, but 'Dog' is the definition. ASCOT is an English horse racecourse; a tie is a sports match, especially in a knockout cup.",
-     "definitionFit": "The Scottish terrier is a breed of small dog, and this is its familiar short name."
+     "surface": "A racecourse calls off the first event on its programme.",
+     "walkthrough": "ASCOT is a racecourse in England; 'cancels opening' drops its A to leave SCOT, and a cup tie is a fixture.",
+     "definitionFit": "A Scottie is the familiar name for a Scottish terrier, a breed of small dog."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "racing"
+     "misdirectedWord": "fixture"
     }
    }
   },
@@ -1416,46 +1421,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PEOPLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "boundless",
-       "note": "without bounds means without edges, so the first and last letters are removed"
+       "text": "embodies",
+       "at": 17,
+       "note": "the footballer's name holds the other piece within it, as a body contains something"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Brazilian legend",
+       "at": 0,
+       "gives": "PELE",
+       "note": "Pelé was the great Brazilian footballer"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "embodies",
-         "note": "to embody is to contain within one's body, so one piece holds another"
+         "text": "boundless",
+         "at": 26,
+         "note": "without its bounds, the word hope loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "Brazilian legend",
-         "gives": "PELE",
-         "note": "Pelé is the celebrated Brazilian footballer"
-        },
-        {
          "words": "hope",
-         "gives": "OP",
-         "note": "the word with its outer letters removed"
+         "at": 36,
+         "note": "the word whose middle letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A famous Brazilian sportsman represents optimism for the whole human race.",
-     "walkthrough": "The surface reads as a tribute; the legend's name opens to take in the shortened word.",
-     "definitionFit": "Humanity as a collective noun means human beings in general, which is what the plural word denotes."
+     "surface": "A famous Brazilian footballer is the embodiment of hope.",
+     "walkthrough": "'Brazilian legend' is the footballer Pelé, written PELE without the accent; 'boundless' strips hope to its middle, and PELE 'embodies' that between its second and third letters.",
+     "definitionFit": "People, meaning humans collectively, is a synonym for humanity as the whole human race."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "embodies"
     }

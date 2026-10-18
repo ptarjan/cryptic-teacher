@@ -463,7 +463,8 @@
      "indicators": [
       {
        "text": "entertaining",
-       "note": "to entertain guests is to take them in, so one piece holds another"
+       "at": 34,
+       "note": "the two single letters hold the business word between them, as a host entertains a guest"
       }
      ],
      "parts": [
@@ -472,26 +473,24 @@
        "parts": [
         {
          "words": "Island",
+         "at": 0,
          "gives": "I",
-         "note": "I is the standard abbreviation for island"
+         "note": "I is the standard map abbreviation for island"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "A",
          "indicators": [
           {
            "text": "the leader in",
-           "note": "a leader goes at the front, so only the opening letter is kept"
+           "at": 8,
+           "note": "just the opening letter of after-hours is taken"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "after-hours",
-           "gives": "A",
-           "select": "first",
-           "note": "after-hours begins with A"
+           "at": 22,
+           "note": "the word whose first letter is used"
           }
          ]
         }
@@ -499,6 +498,7 @@
       },
       {
        "words": "business",
+       "at": 47,
        "gives": "BIZ",
        "note": "biz is informal shorthand for business, as in showbiz"
       }
@@ -506,13 +506,13 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Asks which island leads the way in late-night clubbing and entertainment.",
-     "walkthrough": "The whole clue is both the wordplay and the definition: the answer is the island famous for its all-night club trade, and the question mark admits the loose fit.",
-     "definitionFit": "The Balearic holiday destination in the Mediterranean is renowned worldwide for its nightclubs, a leader in that late-night trade."
+     "surface": "Which island leads the world in late-night entertainment as an industry?",
+     "walkthrough": "I (island) and A (the leader in after-hours) entertain BIZ. The whole clue also describes the answer, a Balearic island famous for its nightclubs.",
+     "definitionFit": "Ibiza, the Spanish Mediterranean island, is renowned for clubs that run through the night, so its tourism is a nightlife industry."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "entertaining"
     }
    }
@@ -764,44 +764,44 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HEIGHT",
      "indicators": [
       {
        "text": "breaks",
-       "note": "breaking into something means getting inside it, so one piece goes within another"
+       "at": 5,
+       "note": "the earl's letter splits the cycled word, breaking into it"
       }
      ],
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "HEIGHT",
        "indicators": [
         {
          "text": "cycling",
-         "note": "a cycle goes round and round, so letters move from the front to the back in turn"
+         "at": 22,
+         "note": "the leg word's opening letter is moved round to its end"
         }
        ],
        "parts": [
         {
          "words": "upper leg",
+         "at": 12,
          "gives": "THIGH",
          "note": "the thigh is the upper part of the leg"
-        },
-        {
-         "words": "Earl",
-         "gives": "E",
-         "note": "E is the abbreviation for earl"
         }
        ]
+      },
+      {
+       "words": "Earl",
+       "at": 0,
+       "gives": "E",
+       "note": "E is the standard abbreviation for earl in peerage lists"
       }
      ]
     },
     "explanation": {
-     "surface": "An aristocrat breaks his thigh while out cycling, perhaps on a hill some way up.",
-     "walkthrough": "'Cycling' reads as riding a bicycle; here it moves the leading T to the back, and the earl then breaks in after the first letter.",
-     "definitionFit": "A height is an altitude or elevation, the measure of how far above the ground something is."
+     "surface": "A nobleman fractures his thigh while out on his bike.",
+     "walkthrough": "Cycling THIGH moves its T to the end to give HIGHT; E, for Earl, then breaks in after the first H.",
+     "definitionFit": "Height is the measure of how far something rises above the ground, an elevation."
     },
     "features": {
      "answerInScene": false,
@@ -884,27 +884,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EDGE",
+     "op": "middle",
      "indicators": [
       {
        "text": "unwrapped",
-       "note": "unwrapping takes off the outer covering, so the first and last letters are removed"
+       "at": 25,
+       "note": "the outer letters of the word are stripped off like wrapping"
       }
      ],
      "parts": [
       {
        "words": "book of accounts",
+       "at": 8,
        "gives": "LEDGER",
-       "note": "a ledger is the book in which accounts are kept"
+       "note": "a ledger is the book in which financial accounts are kept"
       }
      ]
     },
     "explanation": {
-     "surface": "Sketching out an accounts book that has just been taken out of its packaging.",
-     "walkthrough": "'Outline' looks like a verb meaning summarise, but it is a noun: the boundary line of a shape.",
-     "definitionFit": "The edge of a shape is its boundary or rim, the contour that traces round it."
+     "surface": "A set of financial records is taken out of its packaging to show an overview.",
+     "walkthrough": "LEDGER with its wrapping, the first and last letters, taken away.",
+     "definitionFit": "An edge is the boundary line of a shape, so it traces its outline."
     },
     "features": {
      "answerInScene": false,
@@ -1630,43 +1630,55 @@
     "definitions": [
      {
       "text": "Norton",
-      "at": 0
+      "at": 0,
+      "note": "Graham Norton is the Irish TV chat show host, so Norton calls up his first name"
      }
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "and",
+       "at": 32,
+       "note": "and joins the agricultural letter on after the first two, so the pieces run in clue order"
+      }
+     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "GRA",
        "indicators": [
         {
          "text": "principally",
-         "note": "principal means chief or first, so each word gives its opening letter"
+         "at": 50,
+         "note": "only the principal, or first, letter of each of these place-describing words is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Gloucestershire: remote and agricultural",
-         "gives": "GRA",
-         "select": "first",
-         "note": "the opening letters of the county, remote and agricultural"
+         "words": "Gloucestershire: remote",
+         "at": 8,
+         "note": "the two words whose first letters are taken"
         }
        ]
       },
       {
+       "words": "agricultural",
+       "at": 36,
+       "gives": "A",
+       "note": "its first letter A, the same 'principally' reaching across the 'and' to this third word"
+      },
+      {
        "words": "meat",
+       "at": 62,
        "gives": "HAM",
        "note": "ham is cured pork, a meat"
       }
      ]
     },
     "explanation": {
-     "surface": "A village of Norton in Gloucestershire, an English county, is described as isolated farmland, raising mostly livestock.",
-     "walkthrough": "'Norton, Gloucestershire' reads as a place name; Norton is the surname of the TV chat-show host.",
-     "definitionFit": "Graham Norton is an Irish television presenter, so the forename is what goes with his surname."
+     "surface": "A description of the village of Norton in Gloucestershire, isolated and farming, mainly livestock.",
+     "walkthrough": "Norton is a real village in Gloucestershire, so the surface reads like a gazetteer; in the answer it is the surname of broadcaster Graham Norton. 'Principally' takes GR from Gloucestershire and remote, 'and' adds A from agricultural, and meat gives HAM.",
+     "definitionFit": "Graham Norton is a well-known television presenter, so his surname leads to his forename."
     },
     "features": {
      "answerInScene": false,
