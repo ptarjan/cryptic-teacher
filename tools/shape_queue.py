@@ -154,7 +154,12 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
        "bareInitial": "a leaf gives the first letter of its word with no selection op: "
                       "use first<indicator>(word)",
        "deletionScope": "a deletion over a charade names an end but the removed letters are not at the "
-                        "charade's end: the indicator acts on one piece, so delete inside the charade"}
+                        "charade's end: the indicator acts on one piece, so delete inside the charade",
+       "wrongRole": "an indicator is filed on an op of another type (a reversal word on the container, "
+                    "a container word on the anagram, a selection word on the container): put each "
+                    "indicator on the op it signals",
+       "deletionInside": "a deletion over a charade has its indicator among the pieces and takes letters "
+                         "from one piece: it acts on the piece before it, so delete inside the charade"}
 
 
 def _validator_rules():
@@ -175,6 +180,8 @@ def _validator_rules():
             "misplacedIndicator": lambda t, a, c: V.misplaced_indicators(t),
             "bareInitial": lambda t, a, c: V.bare_initials(t),
             "deletionScope": lambda t, a, c: V.deletion_scope(t),
+            "wrongRole": lambda t, a, c: V.wrong_role_indicators(t),
+            "deletionInside": lambda t, a, c: V.deletion_inside_component(t, c),
             # A step taken as filed that tools/clear_unchecked.py could not verify:
             # fires while any node of the tree still carries the flag.
             "unchecked_step": lambda t, a, c: any(n.get("unchecked") for n in V._walk(t))}

@@ -4040,6 +4040,85 @@ def anagram_synonyms(tree):
     return n
 
 
+#: Indicator roles swapped between ops that pass every evaluator check (timesjumbo-1682
+#: 5d PERSUADE "to limit" on the reversal; independent-12339 13a HAPPY outer<about>,
+#: ins<Extremely>; times-29467 9a CATSUIT hid<returned>, rev<from>; cryptic-29995 6d
+#: HANGOUT): an indicator the corpus files under ONE other op type nearly always and under
+#: this one almost never (tools/data/indicator_roles.json, counted by
+#: tools/build_indicator_roles.py over the annotations: the uses of each owned word under
+#: each op). Words that serve several ops (about, over, out, round, in) fail the ownership
+#: bar and are never flagged. The charade is no owner: its words are plain juxtaposition
+#: ("after") that setters put on other ops too.
+ROLE_MIN_USES = 20
+ROLE_OWNED = 0.95
+ROLE_OWN_MAX = 0.02
+#: The corroboration a lone flag needs (a swap of two ops flags both): the tree holds an op
+#: of the owner type with no indicator or one the corpus files there at most this often.
+#: Without it a lone "flipping" on an anagram (BIRTHDATE) or "coming back" on a homophone
+#: was a legitimate setter's use in 3 of 20 sampled hits.
+ROLE_WEAK = 0.05
+ROLE_TYPES = frozenset(_OP_LEXICON.values())
+#: Words that are a link between fodder and result as much as an indicator: "tie, poles INTO
+#: small diagram" is an anagram (INSET, RUIN: 2 of 3 sampled "into" hits were right).
+ROLE_LINKS = frozenset({"INTO"})
+
+
+def indicator_role_key(text):
+    """An indicator phrase as indicator_roles.json keys it: each word's letters, space-joined."""
+    return " ".join(w for w in (wordplay.letters(x) for x in str(text or "").split()) if w)
+
+
+@functools.lru_cache(maxsize=1)
+def _indicator_roles():
+    """{indicator: {op type: uses}} from tools/data/indicator_roles.json; {} when absent."""
+    path = ROOT / "tools" / "data" / "indicator_roles.json"
+    return json.loads(path.read_text()) if path.exists() else {}
+
+
+def wrong_role_indicators(tree):
+    """How many indicators on a checked op of a type (anagram, reversal, container,
+    deletion, hidden, homophone, selection) whose lexicon word is owned by another type:
+    at least ROLE_MIN_USES uses there making up ROLE_OWNED of its uses, and at most
+    ROLE_OWN_MAX of them under this op's own type."""
+    nodes = [n for n in _walk(tree) if _OP_LEXICON.get(n.get("op")) and not n.get("unchecked")]
+    n = 0
+    for node in nodes:
+        own = _OP_LEXICON[node["op"]]
+        for i in node.get("indicators") or []:
+            key = indicator_role_key(i.get("text"))
+            counts = _role_counts(key)
+            total = sum(counts.values())
+            if total < ROLE_MIN_USES:
+                continue
+            top = max(counts, key=counts.get)
+            if key in ROLE_LINKS or {own, top} == {"hidden_word", "letter_selection"} \
+                    or (own == "hidden_word" and top == "container"):
+                continue  # a hidden word is signalled by container words ("to welcome", "holding")
+                #           and by selection words ("essentially", "somewhat"); see ROLE_LINKS
+            if top != own and counts[top] >= ROLE_OWNED * total and counts.get(own, 0) <= ROLE_OWN_MAX * total \
+                    and any(_OP_LEXICON[o["op"]] == top and _lacks_role(o, top) for o in nodes):
+                n += 1
+    return n
+
+
+def _role_counts(key):
+    """{op type: uses} of an indicator key from indicator_roles.json, the types a vote counts
+    for (a charade, substitution or composite is none)."""
+    return {t: c for t, c in (_indicator_roles().get(key) or {}).items() if t in ROLE_TYPES}
+
+
+def _lacks_role(op, kind):
+    """Whether op node `op`, of type `kind`, has no indicator, or only ones the corpus never
+    files under `kind` (at most ROLE_WEAK of the uses of a word of ROLE_MIN_USES+, or a word
+    rarer than that)."""
+    for i in op.get("indicators") or []:
+        counts = _role_counts(indicator_role_key(i.get("text")))
+        total = sum(counts.values())
+        if total >= ROLE_MIN_USES and counts.get(kind, 0) > ROLE_WEAK * total:
+            return False  # a word the corpus knows for this type; a rarer one ("an anagram of") is no known one
+    return True
+
+
 def misplaced_indicators(tree):
     """How many indicators on a checked op that the lexicon files only under another op."""
     lex = _indicator_lexicon()
@@ -4079,6 +4158,14 @@ def misplaced_indicators(tree):
 #:     redo has no other way to write a repeat.
 BARE_INITIAL = "leaf gives the first letter of its words with no selection"
 DELETION_SCOPE = "deletion whose removed letters are not where its indicator says"
+#: Two more, from the second resample (10-18, 7 wrong in 100 passing clues); see
+#: wrong_role_indicators and deletion_inside_component. Measured over the 506k trees,
+#: 20 random hits each judged by hand: 951 hits, 20/20 (and 20/20 on a second draw
+#: before the lone-flag corroboration) for the role rule; 1124 hits, 20/20 and 20/20 for
+#: the deletion rule. A third, a leaf giving a non-word (MORECAMBE CAMBE), was dropped:
+#: 138k leaves give a letter string the word list lacks, and 17 of 20 sampled were right.
+WRONG_ROLE = "indicator filed on an op of another type"
+DELETION_INSIDE = "deletion over a charade whose indicator sits among its pieces and takes letters from one piece"
 
 
 @functools.lru_cache(maxsize=1)
@@ -4149,6 +4236,71 @@ _DEL_HEAD = re.compile(
     r"\b(headless(ly)?|beheaded|topless|decapitated|unopened|leaderless|not starting|"
     r"(?:without|losing|dropping|missing|lacking|shedding|abandoning) (?:its |his |her |their |the |an? )?"
     r"(?:head|top|lead|start|opening|first|beginning))\b", re.I)
+
+
+#: Indicators that point inside a word, so a deletion by one may take a middle letter.
+_DEL_MIDDLE = re.compile(r"\b(heart|centre|center|middle|core|inside|interior|gutted|empty|emptied|hollow|"
+                         r"disheartened|heartless|innards|guts|bowels|ends?|edges?|extremities|"
+                         r"outsides?|regularly|alternate|odd|even)\w*", re.I)
+
+
+def _clue_start(node, low):
+    """Where the first of the clue words under `node` sits in the lower-cased clue `low`, or -1."""
+    at = [low.find(str(n["words"]).lower()) for n in _walk(node) if "op" not in n and n.get("words")]
+    return -1 if not at or min(at) < 0 else min(at)
+
+
+def deletion_inside_component(tree, clue=None):
+    """Deletions over a charade whose indicator names no end or middle, sits in the clue
+    BETWEEN the charade's pieces, and whose removed letters lie, in every reading, inside
+    ONE piece (neither a run of whole pieces nor an end of the whole). ARCH+IDEA+CON less I,
+    "originally dismissed" after "notion" (indysunday-1538 9d): an indicator among the
+    pieces acts on the piece before it, so the deletion is del(IDEA, I) inside the charade.
+    An indicator after every piece ("Al leaves", "mostly") is read as the whole's and left
+    alone. Needs the clue text to place the words; with none it counts nothing."""
+    if not clue:
+        return 0
+    low = str(clue).lower()
+    n = 0
+    for node in _walk(tree):
+        parts = node.get("parts") or []
+        if node.get("op") != "deletion" or len(parts) < 2 or node.get("unchecked") \
+                or not all(isinstance(p, dict) for p in parts) or parts[0].get("op") != "charade":
+            continue
+        text = " ".join(str(i.get("text") or "") for i in node.get("indicators") or [])
+        if _DEL_END.search(text) or _DEL_HEAD.search(text) or _DEL_MIDDLE.search(text):
+            continue
+        comps = parts[0].get("parts") or []
+        if len(comps) < 2 or not all(isinstance(c, dict) for c in comps):
+            continue
+        first, last = _clue_start(comps[0], low), _clue_start(comps[-1], low)
+        where = [low.find(str(i.get("text") or "").lower()) for i in node.get("indicators") or []]
+        if min(first, last) < 0 or not where or not all(first <= w < last for w in where):
+            continue
+        try:
+            cvals = [sorted(wordplay.values(c)) for c in comps]
+            cuts = [sorted(wordplay.values(p)) for p in parts[1:]]
+        except Exception:
+            continue
+        if any(not v for v in cvals) or any(not v for v in cuts):
+            continue
+        ok = False
+        for combo in itertools.product(*cvals):
+            f = "".join(combo)
+            bounds, at = {0}, 0
+            for c in combo:
+                at += len(c)
+                bounds.add(at)
+            for rs in itertools.product(*cuts):
+                for r in {"".join(rs), "".join(reversed(rs))}:
+                    if not r:
+                        continue
+                    for m in re.finditer("(?=" + re.escape(r) + ")", f):
+                        s, e = m.start(), m.start() + len(r)
+                        ok = ok or s == 0 or e == len(f) or (s in bounds and e in bounds) \
+                            or any(s < b < e for b in bounds)  # spans a join: not inside one piece
+        n += not ok
+    return n
 
 
 def deletion_scope(tree, any_whole=False):
@@ -4355,6 +4507,12 @@ def shape_warnings(tag, ann, clue=None):
     if k := deletion_scope(tree):
         out.append(f"{tag}: {k} {DELETION_SCOPE}: an end-cutting indicator acts on the one piece it "
                    f"follows, del(piece, letters) inside the charade")
+    if k := wrong_role_indicators(tree):
+        out.append(f"{tag}: {k} {WRONG_ROLE}: put each indicator on the op it signals (a reversal "
+                   f"word on rev<...>, a container word on ins<...>, an anagram word on ana<...>)")
+    if k := deletion_inside_component(tree, clue):
+        out.append(f"{tag}: {k} {DELETION_INSIDE}: an indicator among the pieces of a charade acts on "
+                   f"the piece before it, del(piece, letters) inside the charade")
     return out
 
 
@@ -4922,6 +5080,8 @@ BACKLOG_MARKERS = {
     "wordplay.misplacedIndicator": (MISPLACED_INDICATOR,),
     "wordplay.bareInitial": (BARE_INITIAL,),
     "wordplay.deletionScope": (DELETION_SCOPE,),
+    "wordplay.wrongRole": (WRONG_ROLE,),
+    "wordplay.deletionInside": (DELETION_INSIDE,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }

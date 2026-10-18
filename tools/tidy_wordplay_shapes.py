@@ -66,7 +66,11 @@ FIELDS = {
     "wordplay.misplacedIndicator": lambda ann: V.misplaced_indicators(ann.get("wordplay")),
     "wordplay.bareInitial": lambda ann: V.bare_initials(ann.get("wordplay")),
     "wordplay.deletionScope": lambda ann: V.deletion_scope(ann.get("wordplay")),
+    "wordplay.wrongRole": lambda ann: V.wrong_role_indicators(ann.get("wordplay")),
+    "wordplay.deletionInside": lambda ann, clue=None: V.deletion_inside_component(ann.get("wordplay"), clue),
 }
+#: Fields whose finding places words in the clue, so counts() hands them its text.
+NEEDS_CLUE = {"wordplay.deletionInside"}
 
 
 def _inner(p):
@@ -117,9 +121,9 @@ def flatten_puzzle(puzzle):
 def counts(puzzle):
     """{field: clues with a finding}."""
     out = collections.Counter()
-    for _, _, ann in puzzle_schema.annotations(puzzle):
+    for _, entry, ann in puzzle_schema.annotations(puzzle):
         for f, fn in FIELDS.items():
-            out[f] += bool(fn(ann))
+            out[f] += bool(fn(ann, (entry.get("clue") or {}).get("text")) if f in NEEDS_CLUE else fn(ann))
     return out
 
 
