@@ -48,12 +48,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ALPACA",
      "indicators": [
       {
        "text": "clothing",
-       "note": "clothing covers whatever wears it, so one piece is wrapped around another"
+       "at": 33,
+       "note": "the mountain and area letters wrap round the other two like clothes"
       }
      ],
      "parts": [
@@ -62,27 +61,40 @@
        "parts": [
         {
          "words": "mountain",
+         "at": 17,
          "gives": "ALP",
          "note": "an alp is a high mountain"
         },
         {
-         "words": "a cold",
-         "gives": "AC",
-         "note": "A as written, plus C, the abbreviation for cold on a tap"
+         "words": "area's",
+         "at": 26,
+         "gives": "A",
+         "note": "A is the abbreviation for area, with 's binding it to what follows"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 10,
+         "gives": "A"
         },
         {
-         "words": "area",
-         "gives": "A",
-         "note": "A is the abbreviation for area"
+         "words": "cold",
+         "at": 12,
+         "gives": "C",
+         "note": "C is the abbreviation for cold, as on taps"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sourcing fleece from a chilly highland region.",
-     "walkthrough": "'Mountain area' reads as one place, but the two words supply separate pieces that wrap around the middle pair.",
-     "definitionFit": "Alpaca is the soft fibre shorn from the South American animal of that name, sold as yarn and cloth."
+     "surface": "Wool sourced from the garments worn in a chilly highland district.",
+     "walkthrough": "'clothing' puts A and C (a cold) inside ALP plus A (mountain, area).",
+     "definitionFit": "Alpaca is the soft fleece of the alpaca, a South American relative of the llama, and the cloth made from it."
     },
     "features": {
      "answerInScene": true,
@@ -449,31 +461,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EVOLVE",
      "indicators": [
       {
        "text": "Extremists must abandon",
-       "note": "the extremes of a word are its outer letters, and abandoning them strips both ends away"
+       "at": 0,
+       "note": "the letters at the two extremes of the word leave it, so its first and last letters go"
       }
      ],
      "parts": [
       {
        "words": "gun",
+       "at": 24,
        "gives": "REVOLVER",
-       "note": "a revolver is a handgun with a rotating cylinder"
+       "note": "a revolver is a handgun"
+      },
+      {
+       "gives": "RR"
       }
      ]
     },
     "explanation": {
-     "surface": "A call for militants to lay down arms so that things can move forward.",
-     "walkthrough": "'Extremists' looks like political radicals; it means the end letters, the two Rs of REVOLVER.",
-     "definitionFit": "To evolve is to develop gradually, advancing step by step toward a more complex or improved state."
+     "surface": "Militants are told to lay down their weapons for the sake of progress.",
+     "walkthrough": "'Extremists must abandon' strips the outer Rs from REVOLVER.",
+     "definitionFit": "To evolve is to develop gradually, which is to advance step by step."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Extremists"
     }
    }

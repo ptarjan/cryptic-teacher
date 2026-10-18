@@ -411,48 +411,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ASHCART",
+     "op": "composite",
      "indicators": [
       {
        "text": "Broken",
-       "note": "something broken is in pieces, so what is left is put back in another order"
+       "at": 0,
+       "note": "broken signals that the letters of the coat-hangers are rearranged"
+      },
+      {
+       "text": "missing",
+       "at": 25,
+       "note": "the letters of gone are absent from the mix, so they are taken out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ASHCART",
-       "indicators": [
-        {
-         "text": "gone missing",
-         "note": "what has gone missing is no longer there, so those letters are taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "coat-hangers",
-         "note": "taken as written"
-        },
-        {
-         "words": "gone",
-         "note": "these four letters are removed, one by one, from the fodder"
-        }
-       ]
+       "words": "coat-hangers",
+       "at": 7
+      },
+      {
+       "words": "gone",
+       "at": 20,
+       "note": "these four letters are removed from the pool"
       }
      ]
     },
     "explanation": {
-     "surface": "Bent wire coat-hangers have disappeared onto the bin lorry.",
-     "walkthrough": "Strike G, O, N and E from COATHANGERS to leave CATHARS, then rearrange.",
-     "definitionFit": "An ash cart was the old horse-drawn vehicle collecting household ashes and rubbish, the forerunner of the bin lorry."
+     "surface": "Broken coat-hangers have disappeared onto the bin lorry.",
+     "walkthrough": "A composite anagram: 'missing' takes the letters of GONE out of COAT-HANGERS, and 'Broken' rearranges what is left.",
+     "definitionFit": "An ash cart was a cart for collecting household ashes and rubbish, an old-fashioned name for a dustcart."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Broken"
+     "misdirectedWord": "refuse"
     }
    }
   },
@@ -582,47 +574,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IDAHOAN",
-     "indicators": [
-      {
-       "text": "disheartened",
-       "note": "losing one's heart means the central part is taken out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "arranged",
+         "at": 10,
+         "note": "the three letters of aid are put in a new order"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "arranged",
-           "note": "arranged means put into a chosen order, so the letters are reordered"
-          }
-         ],
-         "parts": [
-          {
-           "words": "aid",
-           "note": "taken as written"
-          }
-         ]
-        },
+         "words": "aid",
+         "at": 19,
+         "note": "the word aid, rearranged"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "disheartened",
+         "at": 28,
+         "note": "the heart, the middle four letters, is removed from the word"
+        }
+       ],
+       "parts": [
         {
          "words": "hooligan",
-         "gives": "HOAN",
-         "note": "the word with its central four letters removed"
+         "at": 41,
+         "note": "the word hooligan, with its centre taken out"
+        },
+        {
+         "gives": "OLIG"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A politician has organised help along with a dispirited thug.",
-     "walkthrough": "'Statesman' suggests a politician, but here it is a man from a US state. HOOLIGAN loses OLIG from its middle.",
-     "definitionFit": "An Idahoan is a native of Idaho, so quite literally a man of one American state."
+     "surface": "A politician arranges help for a heartless thug.",
+     "walkthrough": "'Statesman' wants to be a politician, but it is a man from a US state. 'arranged' turns AID into IDA, and 'disheartened' takes the middle OLIG out of HOOLIGAN to leave HOAN.",
+     "definitionFit": "An Idahoan is a native or resident of the US state of Idaho, so literally a state's man."
     },
     "features": {
      "answerInScene": false,

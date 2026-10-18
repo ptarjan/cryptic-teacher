@@ -336,35 +336,36 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "EPONYMOUS",
      "indicators": [
       {
        "text": "last of",
-       "note": "the final letter of the whole string is the one picked out to move"
+       "at": 13,
+       "note": "picks out the final letter of the pair of animals as the one to move"
       },
       {
        "text": "put first",
-       "note": "placing something first sends it to the front, so the end letter jumps ahead"
+       "at": 33,
+       "note": "that final letter is moved to the front of the word"
       }
      ],
      "parts": [
       {
        "words": "two animals",
+       "at": 21,
        "gives": "PONYMOUSE",
-       "note": "a pony and a mouse, side by side"
+       "note": "a pony and a mouse, written one after the other"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about Lassie the dog: the final one of a pair of creatures goes to the front.",
-     "walkthrough": "Lassie is the film named after its canine star, so the title character is eponymous; move the end E of the animals to the start.",
-     "definitionFit": "Eponymous describes the character a work is named after, as the collie gives her name to the film."
+     "surface": "Was Lassie the sort of dog that gave other animals priority?",
+     "walkthrough": "PONY and MOUSE written together; 'last of' and 'put first' move the final E to the front.",
+     "definitionFit": "Lassie is the title character of the films named after her, so she is eponymous, giving her name to the work."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Lassie"
+     "misdirectedWord": "first"
     }
    }
   },
@@ -1426,57 +1427,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TERRORISE",
+     "op": "container",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "without a heart means the middle letter is taken away"
+       "text": "admitted by",
+       "at": 11,
+       "note": "let in by, so these letters go inside the outer word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "admitted by",
-         "note": "what is admitted is let in, so it goes inside the outer word"
+         "text": "heartless",
+         "at": 27,
+         "note": "the middle letter of the word is taken out"
         }
        ],
        "parts": [
         {
          "words": "the",
-         "gives": "TE",
-         "note": "the word with its middle letter removed"
+         "at": 23,
+         "note": "the word the, losing its middle letter"
         },
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Mistake",
-           "gives": "ERROR",
-           "note": "an error is a mistake"
-          },
-          {
-           "words": "is",
-           "note": "taken as written"
-          }
-         ]
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Mistake",
+         "at": 0,
+         "gives": "ERROR",
+         "note": "an error is a mistake"
+        },
+        {
+         "words": "is",
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cruel bully confesses to an error.",
-     "walkthrough": "'heartless bully' wants to be read together as a picture of cruelty; 'heartless' applies to 'the' instead.",
-     "definitionFit": "To bully someone is to intimidate them, and to terrorise them is to fill them with fear by threats."
+     "surface": "A cruel tormentor owns up to being wrong.",
+     "walkthrough": "'heartless' takes the H from THE to leave TE, and ERROR plus IS is 'admitted by' it.",
+     "definitionFit": "To terrorise is to frighten and intimidate, which is how a bully behaves."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "heartless"
+     "misdirectedWord": "admitted"
     }
    }
   },

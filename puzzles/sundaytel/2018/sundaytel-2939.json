@@ -94,28 +94,42 @@
      }
     ],
     "wordplay": {
-     "op": "homophone",
-     "spelt": "HEARHEAR",
-     "indicators": [
-      {
-       "text": "pronounced",
-       "note": "pronounced means spoken, so the word for present is taken by its sound"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Repeatedly pronounced present",
-       "gives": "HEREHERE",
-       "note": "present means here, said twice"
+       "words": "Repeatedly",
+       "at": 0,
+       "gives": "HEAR",
+       "note": "asks for the sounded word twice over, so this supplies the second copy of it"
+      },
+      {
+       "op": "homophone",
+       "spelt": "HEAR",
+       "indicators": [
+        {
+         "text": "pronounced",
+         "at": 11,
+         "note": "pronounced means spoken aloud, so the word is replaced by one that sounds the same"
+        }
+       ],
+       "parts": [
+        {
+         "words": "present",
+         "at": 22,
+         "gives": "HERE",
+         "note": "here means present, as when answering a register"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps saying they are present, which comes across as agreeing.",
-     "definitionFit": "The phrase is the traditional cry of approval in Parliament and at meetings."
+     "surface": "Saying 'present' over and over to signal that you concur.",
+     "walkthrough": "HERE (present) is 'pronounced' as HEAR, and 'Repeatedly' asks for it twice.",
+     "definitionFit": "Hear, hear is the cry of approval in Parliament and at meetings, voicing support for a speaker."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "present"
     }

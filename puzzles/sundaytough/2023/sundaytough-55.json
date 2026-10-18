@@ -1626,55 +1626,56 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means surrounding, so two words go round the selected letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Crook",
-         "gives": "HOOD",
-         "note": "a hood is a hoodlum, a criminal"
-        },
-        {
-         "words": "boasts",
-         "gives": "CROWS",
-         "note": "to crow is to boast"
-        }
-       ]
+       "words": "Crook",
+       "at": 0,
+       "gives": "HOOD",
+       "note": "a hood is a gangster or crook"
       },
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "ED",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "case",
-         "note": "a case is the outside of something, so only the outer letters are kept"
+         "text": "about",
+         "at": 13,
+         "note": "turned about, so the two letters are read backwards"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "detective's",
-         "gives": "ED",
-         "select": "outer",
-         "note": "the first and last letters of detective"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "case",
+           "at": 31,
+           "note": "the case of a word is its outside, its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "detective's",
+           "at": 19,
+           "gives": "DETECTIVE",
+           "note": "the word detective, whose 's ties it to case"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "boasts",
+       "at": 6,
+       "gives": "CROWS",
+       "note": "to crow is to boast"
       }
      ]
     },
     "explanation": {
-     "surface": "A criminal brags about a detective's murder case.",
-     "walkthrough": "'Murder' looks like the crime; it is the collective noun for a flock of crows.",
-     "definitionFit": "A group of crows is called a murder, so several of these grey-and-black birds could form one."
+     "surface": "A villain brags about a detective's investigation, perhaps into a killing.",
+     "walkthrough": "'murder' looks like the crime the detective is on, but a murder is the collective noun for crows. The case of DETECTIVE is DE, turned 'about' to ED.",
+     "definitionFit": "A group of crows is called a murder, so a flock of these grey-and-black crows could be one."
     },
     "features": {
      "answerInScene": false,

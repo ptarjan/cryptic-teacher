@@ -446,63 +446,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "USUAL",
+     "op": "composite",
      "indicators": [
       {
        "text": "Deviously",
-       "note": "going deviously means taking a crooked route, so the remaining letters are jumbled"
+       "at": 0,
+       "note": "going about things deviously means by a roundabout route, so the name's letters are rearranged"
+      },
+      {
+       "text": "refused",
+       "at": 19,
+       "note": "the central letter is turned away, so it is taken out of the letter pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "USUAL",
+       "words": "Ursula's",
+       "at": 10,
+       "gives": "URSULA",
+       "note": "the name Ursula, with 's read as 'has'"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "refused",
-         "note": "a thing refused is turned away, so that letter is thrown out of the name"
+         "text": "what's central for",
+         "at": 27,
+         "note": "the middle letter of the five-letter name is the one picked out"
         }
        ],
        "parts": [
         {
-         "words": "Ursula's",
-         "gives": "URSULA",
-         "note": "the name taken as written; the 's is 'has'"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "R",
-         "indicators": [
-          {
-           "text": "what's central for",
-           "note": "what is central for a word is its middle letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Boris",
-           "gives": "R",
-           "select": "middle",
-           "note": "the middle of the five-letter name"
-          }
-         ]
+         "words": "Boris",
+         "at": 46,
+         "note": "the name whose middle letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ursula, being sly, has turned down what matters most to Boris, which is just what you would expect.",
-     "walkthrough": "Remove the R from Ursula and rearrange the five letters left.",
-     "definitionFit": "Usual and typical both describe what is normal and regularly to be expected."
+     "surface": "Ursula slyly turned down whatever mattered most to Boris, as usual.",
+     "walkthrough": "A composite anagram: 'refused' takes R (what's central for Boris) out of URSULA, and 'Deviously' rearranges the remaining letters.",
+     "definitionFit": "Usual means normal or customary, the ordinary run of things, so it matches typical."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Boris"
     }
@@ -1622,42 +1611,32 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TRAT",
+     "op": "composite",
      "indicators": [
       {
        "text": "pickled",
-       "note": "pickled means preserved in brine and also drunk, either way scrambled into a new order"
+       "at": 24,
+       "note": "pickled means mixed up or muddled, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TRAT",
-       "parts": [
-        {
-         "words": "Ristorante",
-         "note": "the opening word doubles as the full set of letters to be rearranged"
-        },
-        {
-         "words": "roes",
-         "note": "taken as written, to be taken away"
-        },
-        {
-         "words": "in",
-         "note": "taken as written, to be taken away"
-        }
-       ]
+       "words": "Ristorante",
+       "at": 0,
+       "note": "the anagram's result: its letters are those of roes and in plus the answer"
+      },
+      {
+       "words": "roes in",
+       "at": 32,
+       "note": "these letters, added to the answer, make up the restaurant word"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "An Italian restaurant where pickled fish roe is on the menu.",
-     "walkthrough": "A composite anagram: the answer plus roes and in can be rearranged into Ristorante, so take the letters of roes and in out of that word. The whole clue also describes the place.",
-     "definitionFit": "Trat is short for trattoria, a simple Italian eating place, the kind of restaurant where a diner might order pickled roe."
+     "surface": "An Italian restaurant: the sort of place where you might be served pickled fish roe.",
+     "walkthrough": "A composite anagram read the other way round: ROES and IN added to the answer, 'pickled', give RISTORANTE, so the answer is RISTORANTE less those letters.",
+     "definitionFit": "Trat is a colloquial short form of trattoria, an informal Italian eating house."
     },
     "features": {
      "answerInScene": true,

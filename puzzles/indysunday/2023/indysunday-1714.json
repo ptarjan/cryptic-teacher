@@ -561,58 +561,35 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ONION",
      "indicators": [
       {
        "text": "accepted",
-       "note": "something accepted is taken in, so it ends up inside"
+       "at": 27,
+       "note": "to accept is to take in, so the letter I goes inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ONION",
-       "indicators": [
-        {
-         "text": "cut",
-         "note": "a cut word is trimmed, losing its final letter"
-        }
-       ],
-       "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "one",
-           "gives": "ON",
-           "note": "ONE trimmed of its final letter"
-          },
-          {
-           "words": "I",
-           "note": "taken as written"
-          },
-          {
-           "words": "twice",
-           "gives": "ON",
-           "note": "calls for the trimmed word a second time"
-          }
-         ]
-        }
-       ]
+       "words": "one cut twice",
+       "at": 10,
+       "gives": "ONON",
+       "note": "the word one with its last letter cut off gives ON, and twice means two copies of it"
+      },
+      {
+       "words": "I",
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "A cook admitting they sliced a vegetable twice.",
-     "walkthrough": "'twice' doubles the shortened word, and the letter I goes between the two copies.",
-     "definitionFit": "The onion is a common bulb vegetable used in cooking almost everywhere."
+     "surface": "A cook chops a vegetable twice and owns up to it.",
+     "walkthrough": "'cut' trims the last letter from 'one', 'twice' doubles the result, and 'accepted' takes the single I in.",
+     "definitionFit": "An onion is a bulb vegetable used throughout cooking."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "misdirectedWord": "accepted"
     }
    }
   },
@@ -839,47 +816,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PROFUMO",
-     "indicators": [
-      {
-       "text": "a lot of",
-       "note": "a lot of something is most but not all of it, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "favouring",
+       "at": 5,
+       "gives": "PRO",
+       "note": "pro means in favour of"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 15,
+         "note": "most of the word but not all, so its final letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "favouring",
-         "gives": "PRO",
-         "note": "to be pro something is to be in favour of it"
-        },
-        {
          "words": "fun",
-         "gives": "FU",
-         "note": "the word without its last letter"
+         "at": 24,
+         "note": "the word fun, shortened"
         },
         {
-         "words": "instant",
-         "gives": "MO",
-         "note": "a mo is a moment, British informal"
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "instant",
+       "at": 29,
+       "gives": "MO",
+       "note": "a mo is a moment, an instant"
       }
      ]
     },
     "explanation": {
-     "surface": "A man called John who prefers lots of instant fun.",
-     "walkthrough": "John Profumo was the British war minister brought down by the 1963 scandal involving Christine Keeler.",
-     "definitionFit": "John Profumo was the Conservative cabinet minister whose resignation in 1963 shook the government."
+     "surface": "Someone named John is all for having plenty of fun right now.",
+     "walkthrough": "'a lot of' fun is FU. John Profumo was the British minister at the centre of the 1963 Profumo affair, with Christine Keeler (16-across).",
+     "definitionFit": "John Profumo was the Conservative War Secretary brought down by the 1963 scandal named after him."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "John"
+     "misdirectedWord": "instant"
     }
    }
   },
@@ -1140,46 +1121,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "DUSTBIN",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner swapped the opening sounds of words, so initial sounds trade places"
+       "at": 0,
+       "note": "Spooner swapped the opening sounds of a pair of words, so the starts of the raid word and the noise word trade places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "BUST",
        "parts": [
         {
-         "unchecked": true,
          "words": "raid",
-         "gives": "DUST",
-         "soundsLike": "BUST",
-         "note": "a police bust is a raid; it takes the opening sound of the next word"
-        },
-        {
-         "unchecked": true,
-         "words": "noise",
-         "gives": "BIN",
-         "soundsLike": "DIN",
-         "note": "a din is a loud noise; it takes the opening sound of the previous word"
+         "at": 10,
+         "gives": "BUHST",
+         "note": "a bust is a police raid, written here as it is spoken (BUHST) since Spooner swapped sounds"
         }
        ]
+      },
+      {
+       "words": "noise",
+       "at": 16,
+       "gives": "DIN",
+       "note": "a din is a loud noise"
       }
      ]
     },
     "explanation": {
-     "surface": "A noisy raid that nobody wants happening here.",
-     "walkthrough": "Swapping the opening sounds of BUST DIN gives DUST BIN. The definition is cryptic: a dustbin is where we put things we don't want.",
-     "definitionFit": "A dustbin is the British word for a household rubbish bin, the receptacle for unwanted waste."
+     "surface": "A police raid makes a racket nobody wants around.",
+     "walkthrough": "'Spooner's' swaps the opening sounds of BUST and DIN, giving DUST BIN.",
+     "definitionFit": "A dustbin is the household bin for rubbish, the stuff people want out of the house."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "here"
+     "misdirectedWord": "raid"
     }
    }
   },
@@ -1321,31 +1299,45 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LAGGARD",
      "indicators": [
       {
-       "text": "needing new start",
-       "note": "a new start means the opening letter is replaced by a different one"
+       "text": "needing",
+       "at": 16,
+       "note": "the writer's name needs something changed, signalling a swap of one letter"
+      },
+      {
+       "text": "start",
+       "at": 28,
+       "note": "the opening letter of the writer's name is the one that is replaced"
       }
      ],
      "parts": [
       {
        "words": "writer",
+       "at": 9,
        "gives": "HAGGARD",
-       "note": "H. Rider Haggard wrote King Solomon's Mines"
+       "note": "H. Rider Haggard, author of King Solomon's Mines"
+      },
+      {
+       "gives": "H"
+      },
+      {
+       "words": "new",
+       "at": 24,
+       "gives": "L",
+       "note": "L is the learner plate, marking someone new"
       }
      ]
     },
     "explanation": {
-     "surface": "A slow author who needs a fresh beginning.",
-     "walkthrough": "The new first letter is not clued; the definition and crossing letters settle it as L.",
-     "definitionFit": "A laggard is someone who falls behind, and the word is also used as an adjective meaning slow."
+     "surface": "A slow author needs a fresh beginning.",
+     "walkthrough": "The writer is H. Rider Haggard; 'needing new start' replaces his H with L (a learner, someone new).",
+     "definitionFit": "A laggard is someone who falls behind, and as an adjective it means slow or dawdling."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "start"
+     "misdirectedWord": "writer"
     }
    }
   },
@@ -1549,53 +1541,58 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Girl",
+      "text": "Girl's",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WILMA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "not entirely",
-       "note": "not entirely means incomplete, so the last letter is dropped"
+       "text": "supported by",
+       "at": 30,
+       "note": "in a down clue the second piece sits beneath the first, holding it up"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "supported by",
-         "note": "in a down entry, something supported sits on top, so the other piece follows below"
+         "text": "not entirely",
+         "at": 17,
+         "note": "the word is not complete, so its last letter goes"
         }
        ],
        "parts": [
         {
          "words": "intention",
-         "gives": "WIL",
-         "note": "will is intention, shortened by its final letter"
+         "at": 7,
+         "gives": "WILL",
+         "note": "will is intention or determination"
         },
         {
-         "words": "mother",
-         "gives": "MA",
-         "note": "ma is an informal word for mother"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "mother",
+       "at": 43,
+       "gives": "MA",
+       "note": "ma is mother"
       }
      ]
     },
     "explanation": {
-     "surface": "A girl whose plan is only half-backed by her mum.",
-     "walkthrough": "The 's reads as 'is', linking the definition to the wordplay; Girl stands for a female name.",
-     "definitionFit": "Wilma is a female given name, and crosswords often define names with 'girl'."
+     "surface": "A girl's plans only partly win her mother's backing.",
+     "walkthrough": "WILL, 'not entirely', gives WIL, and 'supported by' puts MA under it.",
+     "definitionFit": "Wilma is a female first name, as in Wilma Flintstone."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "intention"
+     "misdirectedWord": "supported"
     }
    }
   },
@@ -1841,43 +1838,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NAE",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "Half-forgotten",
-       "note": "if half is forgotten, only the other half remains"
+       "text": "back",
+       "at": 22,
+       "note": "the remaining letters are read in reverse order"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "back",
-         "note": "going back means travelling the opposite way, so the letters run backwards"
+         "text": "Half-forgotten",
+         "at": 0,
+         "note": "half of the word's letters, the first three, are left out"
         }
        ],
        "parts": [
         {
          "words": "Korean",
-         "gives": "EAN",
-         "note": "the second half of the word"
+         "at": 15,
+         "note": "the word Korean, halved"
+        },
+        {
+         "gives": "KOR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Asking whether a half-remembered Korean is back in Glasgow, and hearing no.",
-     "walkthrough": "Glasgow points to Scots dialect, where 'nae' is the word for no.",
-     "definitionFit": "Nae is the Scots form of 'no', as heard in Glasgow and across Scotland."
+     "surface": "A Korean visitor to Glasgow is half forgotten as he heads back.",
+     "walkthrough": "'Half-forgotten' drops KOR from KOREAN to leave EAN, and 'back' reverses it.",
+     "definitionFit": "Nae is the Scots form of no, as heard in Glasgow."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Glasgow"
+     "misdirectedWord": "Korean"
     }
    }
   },
@@ -1903,44 +1903,44 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GERRYMANDER",
      "indicators": [
       {
        "text": "around",
-       "note": "around means on all sides, so one piece wraps the other"
+       "at": 33,
+       "note": "the look word goes round the other letters"
       }
      ],
      "parts": [
       {
+       "words": "look",
+       "at": 28,
+       "gives": "GANDER",
+       "note": "a gander is a look, as in 'take a gander'"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "GERRYMANDER",
        "indicators": [
         {
          "text": "beginning to end",
-         "note": "sending the beginning to the end moves the first letter round to the back"
+         "at": 10,
+         "note": "the first letter is moved to the back of the word"
         }
        ],
        "parts": [
         {
          "words": "Cheerful",
+         "at": 0,
          "gives": "MERRY",
          "note": "merry means cheerful"
-        },
-        {
-         "words": "look",
-         "gives": "GANDER",
-         "note": "a gander is a look, as in 'take a gander'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone cheerful from start to finish, looking around a piece of equipment.",
-     "walkthrough": "'rig' looks like a noun for equipment, but it is the verb meaning to fix an outcome.",
-     "definitionFit": "To gerrymander is to manipulate electoral boundaries for advantage, a way of fixing an election."
+     "surface": "A cheerful person looks around a rig from start to finish.",
+     "walkthrough": "'beginning to end' moves the M of MERRY to its tail (ERRYM), and the look word goes 'around' that.",
+     "definitionFit": "To gerrymander is to rig electoral boundaries for party advantage."
     },
     "features": {
      "answerInScene": false,

@@ -49,53 +49,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BUSSTOP",
-     "indicators": [
-      {
-       "text": "Heartless",
-       "note": "a thing without a heart has lost its middle, so the central letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 16,
+         "note": "the two outer letters go round the American letters"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "about",
-           "note": "about means around, so one piece wraps itself round another"
+           "text": "Heartless",
+           "at": 0,
+           "note": "the heart of the word, its middle three letters, is removed"
           }
          ],
          "parts": [
           {
            "words": "barbs",
-           "gives": "BS",
-           "note": "the word with its middle letters removed keeps only its ends"
+           "at": 10,
+           "note": "the word barbs, with its middle taken out"
           },
           {
-           "words": "American",
-           "gives": "US",
-           "note": "US is the standard abbreviation for American"
+           "gives": "ARB"
           }
          ]
         },
         {
-         "words": "head",
-         "gives": "TOP",
-         "note": "the head of something is its top"
+         "words": "American",
+         "at": 22,
+         "gives": "US"
         }
        ]
+      },
+      {
+       "words": "head",
+       "at": 31,
+       "gives": "TOP",
+       "note": "top means head, the uppermost part"
       }
      ]
     },
     "explanation": {
-     "surface": "A sports coach is greeted with barbed insults from the stands.",
-     "walkthrough": "B(US)S + TOP. 'Coach' looks like a sports trainer, but here it is a long-distance bus.",
-     "definitionFit": "A coach is a large passenger road vehicle, and a stop is where waiting passengers board it."
+     "surface": "Cruel jibes surround the American head coach, as everyone expected.",
+     "walkthrough": "'coach' wants to be a sports trainer; it is a bus. 'Heartless' takes ARB out of BARBS to leave BS, which goes 'about' US.",
+     "definitionFit": "A bus stop is where a waiting passenger expects a coach or bus to pull in."
     },
     "features": {
      "answerInScene": false,
@@ -200,44 +204,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SEAFRET",
      "indicators": [
       {
        "text": "from Spooner",
-       "note": "Reverend Spooner famously swapped the opening sounds of neighbouring words"
+       "at": 13,
+       "note": "Spooner swapped the opening sounds of a pair of words, so the starts of the two words trade places"
       }
      ],
      "parts": [
       {
-       "words": "Gratis",
-       "gives": "FREE",
-       "note": "gratis means without charge"
+       "op": "homophone",
+       "spelt": "FREA",
+       "parts": [
+        {
+         "words": "Gratis",
+         "at": 0,
+         "gives": "FREE",
+         "note": "free means gratis, costing nothing; it is written here as it sounds, rhyming with sea, because Spooner swapped sounds"
+        }
+       ]
       },
       {
        "words": "telly",
+       "at": 7,
        "gives": "SET",
-       "note": "a television is a TV set"
-      },
-      {
-       "unchecked": true,
-       "words": "Gratis telly",
-       "gives": "SEAFRET",
-       "soundsLike": "FREE SET",
-       "note": "swap the opening sounds of the two words"
+       "note": "a set is a television set"
       }
      ]
     },
     "explanation": {
-     "surface": "Free television from Spooner comes with a fuzzy picture.",
-     "walkthrough": "FREE SET with its opening sounds exchanged becomes SEA FRET. 'Hazy picture' suggests bad reception, but the haze is real weather.",
-     "definitionFit": "A sea fret is a cold coastal mist drifting in from the North Sea, which blurs the view."
+     "surface": "A free television set that gives only a fuzzy image.",
+     "walkthrough": "'from Spooner' swaps the opening sounds of FREE SET, giving 'see fret', heard as SEA FRET.",
+     "definitionFit": "A sea fret is a mist rolling in off the sea, which blurs the view along the coast."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "picture"
+     "misdirectedWord": "telly"
     }
    }
   },
@@ -717,48 +721,52 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "WEALTHY",
-     "indicators": [
-      {
-       "text": "left for Republican",
-       "note": "one letter standing for another means it is swapped out and replaced"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Wife",
-       "gives": "W",
-       "note": "W is the abbreviation for wife"
+       "at": 0,
+       "gives": "W"
       },
       {
-       "words": "unrefined",
-       "gives": "EARTHY",
-       "note": "earthy humour is coarse and unrefined"
-      },
-      {
-       "words": "left",
-       "gives": "L",
-       "note": "L is left"
-      },
-      {
-       "words": "Republican",
-       "gives": "R",
-       "note": "R is Republican"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 22,
+         "note": "one letter is swapped in for another, so the letter for left replaces the one for Republican"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unrefined",
+         "at": 6,
+         "gives": "EARTHY",
+         "note": "earthy means coarse or unrefined"
+        },
+        {
+         "words": "Republican",
+         "at": 26,
+         "gives": "R"
+        },
+        {
+         "words": "left",
+         "at": 17,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A coarse wife ditches the Republicans for the left and is making a fortune baking.",
-     "walkthrough": "W + EARTHY with its R replaced by L. 'Dough' looks like baking but is slang for money.",
-     "definitionFit": "Rolling in it is an idiom for having heaps of money, and dough is slang for cash."
+     "surface": "A coarse wife quits the Republicans, though she is still rich.",
+     "walkthrough": "In EARTHY (unrefined) the R (Republican) is swapped out, with L (left) put in its place.",
+     "definitionFit": "Rolling in dough is slang for having plenty of money, dough meaning cash."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "dough"
+     "misdirectedWord": "left"
     }
    }
   },
