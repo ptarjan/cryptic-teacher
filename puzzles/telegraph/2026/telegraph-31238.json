@@ -568,43 +568,40 @@
     ],
     "wordplay": {
      "op": "container",
-     "indicators": [
-      {
-       "text": "on",
-       "note": "placed on here means set within, so one piece is put inside the next"
-      }
-     ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "hardwood",
-         "gives": "TEAK",
-         "note": "teak is a tropical hardwood"
-        },
-        {
-         "words": "best",
-         "note": "taken as written"
-        }
-       ]
+       "words": "hardwood",
+       "at": 16,
+       "gives": "TEAK",
+       "note": "teak is a tropical hardwood"
       },
       {
-       "words": "Working",
-       "gives": "ON",
-       "note": "a machine that is working is on"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Working",
+         "at": 0,
+         "note": "to work something is to knead or rework it, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on best",
+         "at": 8
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A carpenter selects a fine cut of the best hardwood to work on.",
-     "walkthrough": "Two nested insertions: the working piece goes inside best, and that lot inside the hardwood.",
-     "definitionFit": "A T-bone is a prime cut of beef with a T-shaped bone, so a quality cut from the butcher."
+     "surface": "A carpenter is busy with the finest timber, picking a cut.",
+     "walkthrough": "'Working on' reads as busy with, but 'Working' rearranges ON BEST into BONEST, which sits between the T and EAK of TEAK; no word signals the insertion.",
+     "definitionFit": "A T-bone steak is a prime cut of beef, cut with the T-shaped bone left in."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "aptDefinition": true,
+     "misdirectedWord": "Working"
     }
    }
   },
@@ -633,41 +630,52 @@
      "indicators": [
       {
        "text": "escorted by",
-       "note": "someone escorted is surrounded and accompanied, so one piece is enclosed by the other"
+       "at": 24,
+       "note": "someone escorted has company on each side, so these letters are flanked by the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "words": "a romantic partner",
-         "gives": "ADATE",
-         "note": "A as written plus DATE, someone you go out with"
+         "words": "a",
+         "at": 36,
+         "gives": "A"
         },
         {
-         "words": "queen",
-         "gives": "QU",
-         "note": "QU is an abbreviation for queen"
+         "words": "romantic partner",
+         "at": 38,
+         "gives": "DATE",
+         "note": "a date is the person you go out with"
         }
        ]
       },
       {
-       "words": "English",
-       "gives": "E",
-       "note": "E is the abbreviation for English"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "at": 10,
+         "gives": "E"
+        },
+        {
+         "words": "queen",
+         "at": 18,
+         "gives": "QU"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A capable English queen arrives on the arm of her beloved.",
-     "walkthrough": "The queen here is QU rather than the more usual ER or R.",
-     "definitionFit": "Competent in the sense of satisfactory, good enough for the purpose, matches adequate."
+     "surface": "An able English queen is accompanied by her lover.",
+     "definitionFit": "Adequate means good enough for the task, which is what a competent person or job is."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "queen"
+     "misdirectedWord": "escorted"
     }
    }
   },

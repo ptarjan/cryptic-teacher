@@ -252,45 +252,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SUSHI",
-     "indicators": [
-      {
-       "text": "set up",
-       "note": "in a down clue, 'up' turns the letters to read from bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to set up",
+         "at": 18,
+         "note": "in a down entry, setting up means turning the word so it reads upwards"
+        }
+       ],
        "parts": [
         {
          "words": "American",
-         "gives": "SU",
-         "note": "US, turned round"
-        },
-        {
-         "words": "shut up",
-         "gives": "SH",
-         "note": "the word you say to silence someone"
-        },
-        {
-         "words": "island",
-         "gives": "I",
-         "note": "standard abbreviation"
+         "at": 28,
+         "gives": "US"
         }
        ]
+      },
+      {
+       "words": "shut up",
+       "at": 37,
+       "gives": "SH",
+       "note": "sh is a call to be quiet, to shut up"
+      },
+      {
+       "words": "island",
+       "at": 48,
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "A Japanese gift to arrange for an American held captive on an island.",
-     "walkthrough": "'Shut up' looks like locked away; here it is the instruction SH.",
-     "definitionFit": "Sushi is a Japanese dish, something a Japanese restaurant offers."
+     "surface": "A Japanese dish is prepared for a silenced American on an island.",
+     "definitionFit": "Sushi is a Japanese dish of vinegared rice with raw fish, a typical item served there."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "shut"
     }
@@ -533,42 +532,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "top two",
-       "note": "the top two letters of a word are its first two"
+       "text": "get stuck into",
+       "at": 17,
+       "note": "these letters are thrust inside the other word"
       }
      ],
      "parts": [
       {
        "words": "member",
+       "at": 32,
        "gives": "ARM",
-       "note": "an arm is a member of the body"
+       "note": "an arm is a limb or member"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LA",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "get stuck into",
-         "note": "the two letters go inside another word"
+         "text": "top two",
+         "at": 9,
+         "note": "only the top two letters of the down light are kept, the rest discarded"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Labour's top two",
-         "gives": "LA",
-         "select": "first",
-         "note": "first two letters of Labour"
+         "words": "Labour's",
+         "at": 0,
+         "gives": "LABOUR",
+         "note": "the British Labour party, used for its opening letters"
+        },
+        {
+         "gives": "BOUR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two senior Labour figures attack a party member to set an example.",
-     "walkthrough": "'Member' looks like a party member; it is a limb.",
-     "definitionFit": "A plain synonym: an alarm is a signal that warns of danger, as in 'raise the alarm'."
+     "surface": "Two senior Labour figures attack a party member in alarm.",
+     "definitionFit": "An alarm is a signal that warns of danger."
     },
     "features": {
      "answerInScene": false,
@@ -1222,69 +1223,73 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SKINDEEP",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 31,
+       "note": "this piece follows the one named after it"
+      },
+      {
+       "text": "wants",
+       "at": 17,
+       "note": "the type wants, or needs, what follows, so the next piece is joined on behind it"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "up",
-         "note": "in a down clue, 'up' turns PEE to read from bottom to top"
-        },
-        {
-         "text": "after"
+         "text": "start of",
+         "at": 37,
+         "note": "the start of the word is its first letter"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
+         "words": "summer",
+         "at": 46,
          "gives": "S",
-         "indicators": [
-          {
-           "text": "start of",
-           "note": "the start of a word is its first letter"
-          },
-          {
-           "text": "wants"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "start of summer",
-           "gives": "S",
-           "select": "first",
-           "note": "first letter of summer"
-          }
-         ]
-        },
+         "note": "taken for its first letter"
+        }
+       ]
+      },
+      {
+       "words": "type",
+       "at": 12,
+       "gives": "KIND",
+       "note": "a kind is a type or sort"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "type",
-         "gives": "KIND",
-         "note": "a type is a kind"
-        },
+         "text": "up",
+         "at": 28,
+         "note": "in a down entry, up means read from the bottom"
+        }
+       ],
+       "parts": [
         {
          "words": "piss",
-         "gives": "EEP",
-         "note": "PEE, turned round"
+         "at": 23,
+         "gives": "PEE",
+         "note": "to piss is to pee"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shallow sort is looking for a boozy session once summer begins.",
-     "walkthrough": "'Piss-up' is British slang for a drinking session, but the hyphen hides a split: 'piss' is PEE and 'up' flips it.",
-     "definitionFit": "Skin-deep means only on the surface, superficial."
+     "surface": "A shallow sort is after a drinking session once summer arrives.",
+     "walkthrough": "A piss-up is British slang for a drinking binge, but here PEE is reversed.",
+     "definitionFit": "Skin-deep describes something shallow, affecting only the surface, as in beauty is only skin-deep."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "piss-up"
+     "misdirectedWord": "piss"
     }
    }
   },

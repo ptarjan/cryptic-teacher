@@ -301,53 +301,57 @@
      "indicators": [
       {
        "text": "in",
-       "note": "these letters sit in the middle of the shortened name"
+       "at": 19,
+       "note": "these letters are placed inside the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 22,
+         "note": "only the first half of the name is kept, the rest dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "half of",
-           "note": "only half the surname is wanted, its first four letters, and the rest is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "English reformer's",
-           "gives": "WYCLIFFE",
-           "note": "John Wycliffe, fourteenth-century English church reformer"
-          },
-          {
-           "gives": "IFFE"
-          }
-         ]
+         "words": "English reformer's",
+         "at": 30,
+         "gives": "WYCLIFFE",
+         "note": "John Wycliffe was the English church reformer behind the first English Bible"
         },
         {
-         "words": "Hospital",
-         "gives": "H",
-         "note": "H is the abbreviation for hospital, as on road signs"
+         "gives": "IFFE"
         }
        ]
       },
       {
-       "words": "vagueness",
-       "gives": "HAZE",
-       "note": "a haze is mental fog"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Hospital",
+         "at": 0,
+         "gives": "H"
+        },
+        {
+         "words": "vagueness",
+         "at": 9,
+         "gives": "HAZE",
+         "note": "a haze is a state of mental vagueness"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A medical cure for bruises somehow linked to a hazy hospital and a Reformation figure.",
-     "walkthrough": "Wycliffe was the fourteenth-century reformer behind the first English Bible; the half kept is the front four letters, split after its third.",
-     "definitionFit": "Wych hazel, or witch hazel, yields an astringent lotion traditionally dabbed on bruises."
+     "surface": "A hazy idea about hospitals sits within a remedy linked to an English religious reformer.",
+     "walkthrough": "Half of WYCLIFFE is WYCL; H and HAZE go between its C and L.",
+     "definitionFit": "Witch hazel is an astringent lotion from a shrub, long used to soothe bruises."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "reformer's"
     }

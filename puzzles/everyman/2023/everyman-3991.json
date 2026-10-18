@@ -50,37 +50,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "a little",
-       "note": "only a little of the word, its first letter"
-      }
-     ],
      "parts": [
       {
-       "words": "Perhaps Marilyn",
+       "words": "Perhaps Marilyn's",
+       "at": 0,
        "gives": "FRENCH",
-       "note": "Marilyn French, the American novelist; 'perhaps' marks her as one example of a French"
+       "note": "Marilyn French was an American feminist author, so a Marilyn may be a French"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "to take care of"
+         "text": "to take care of",
+         "at": 29,
+         "note": "taking care of someone is holding them close, so these letters go round another"
         }
        ],
        "parts": [
         {
          "words": "sweetheart",
+         "at": 18,
          "gives": "HON",
-         "note": "hon, short for honey, a term of endearment"
+         "note": "hon, short for honey, is an endearment for a sweetheart"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "a little",
+           "at": 45,
+           "note": "just a little of the word, its first letter"
+          }
+         ],
          "parts": [
           {
            "words": "rusty",
-           "note": "a little of rusty: its first letter"
+           "at": 54,
+           "gives": "R",
+           "note": "taken for its opening letter"
           }
          ]
         }
@@ -89,9 +96,9 @@
      ]
     },
     "explanation": {
-     "surface": "Marilyn's lover is asked to look after an old, somewhat rusty instrument.",
-     "walkthrough": "'Marilyn' pulls towards Monroe, but the setter wants a surname: Marilyn French wrote The Women's Room. The 's stands for 'has', joining her to the sweetheart.",
-     "definitionFit": "The French horn is a brass instrument with a coiled tube and a wide flared bell."
+     "surface": "Marilyn Monroe's lover seems to be tending a slightly corroded instrument.",
+     "walkthrough": "Marilyn suggests Monroe, but it is the novelist Marilyn French; HON goes round R to make HORN.",
+     "definitionFit": "The French horn is a brass orchestral instrument with a coiled tube and a wide bell."
     },
     "features": {
      "answerInScene": true,
@@ -596,48 +603,70 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "right away",
-       "note": "R, right, goes away from the seafood"
-      },
-      {
-       "text": "most of",
-       "note": "all but the last letter of the roll"
-      }
-     ],
      "parts": [
       {
        "words": "Gorges",
+       "at": 0,
        "gives": "CHINES",
-       "note": "a chine is a deep narrow ravine, a gorge"
+       "note": "chines are deep ravines or gorges, as on the south coast of England"
       },
       {
        "words": "English",
-       "gives": "E",
-       "note": "E is the standard abbreviation for English"
+       "at": 10,
+       "gives": "E"
       },
       {
-       "words": "seafood, right",
-       "gives": "CAB",
-       "note": "CRAB with R, right, removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "right away",
+         "at": 27,
+         "note": "R for right is sent away, so it is dropped from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seafood",
+         "at": 18,
+         "gives": "CRAB",
+         "note": "crab is a seafood"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
-       "words": "roll",
-       "gives": "BAGE",
-       "note": "BAGEL, a bread roll, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 44,
+         "note": "most of a word is all but its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "roll",
+         "at": 52,
+         "gives": "BAGEL",
+         "note": "a bagel is a ring-shaped bread roll"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone gorges on English crab, then most of a bread roll and some greens.",
-     "walkthrough": "'Gorges' reads as a verb for overeating, which suits the menu, but it is the noun: chines are ravines, a word most familiar from the Isle of Wight.",
-     "definitionFit": "Chinese cabbage, such as pak choi or napa cabbage, is a leafy vegetable."
+     "surface": "Someone stuffs themselves on English seafood and a bread roll, plus a vegetable.",
+     "walkthrough": "Gorges looks like a verb for overeating, but it is the noun CHINES. CRAB without R gives CAB, and BAGEL cut short gives BAGE.",
+     "definitionFit": "Chinese cabbage, such as pak choi, is a leafy vegetable grown widely in East Asia."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Gorges"
     }
    }
