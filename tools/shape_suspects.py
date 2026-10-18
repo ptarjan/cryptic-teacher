@@ -78,8 +78,9 @@ def d_arity_other(r):
 
 def d_del_single(r):
     """A deletion with one part: the letters it removes are not stated."""
+    import validate_annotations as V
     for n in nodes(r["wp"]):
-        if n.get("op") == "deletion" and len(n.get("parts") or []) == 1:
+        if n.get("op") == "deletion" and len(n.get("parts") or []) == 1 and V.del_single(n):
             return "del with one part (what it removes is not stated)"
 
 
