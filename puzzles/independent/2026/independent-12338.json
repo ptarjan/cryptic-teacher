@@ -597,46 +597,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "touch of",
-       "note": "just a touch, the first letter"
+       "text": "in",
+       "at": 23,
+       "note": "in tells us the preceding pieces go inside the word for vital"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "the letters go inside the word for vital"
-        }
-       ],
-       "parts": [
-        {
-         "words": "vital",
-         "gives": "KEY",
-         "note": "key = vital, crucial"
-        },
-        {
-         "words": "I'd",
-         "note": "as printed, without the apostrophe"
-        }
-       ]
+       "words": "vital",
+       "at": 26,
+       "gives": "KEY",
+       "note": "something vital is key, as in a key player"
       },
       {
-       "op": "first",
+       "op": "charade",
        "parts": [
         {
-         "words": "nephritis",
-         "note": "first letter"
+         "words": "I'd",
+         "at": 0,
+         "gives": "ID",
+         "note": "I'd is written without its apostrophe"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "touch of",
+           "at": 4,
+           "note": "a touch of something is just a little of it, here its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nephritis",
+           "at": 13,
+           "note": "supplies its first letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A patient reports a little nephritis, inflammation of the kidney, in a vital organ.",
-     "walkthrough": "'Vital organ' reads as one phrase, but vital is wordplay (KEY) and organ alone is the definition. Nephritis is itself a kidney disease.",
-     "definitionFit": "A plain category definition: the kidney is one of the body's organs, the very one nephritis attacks."
+     "surface": "A medical note: a hint of nephritis, a kidney inflammation, found in a vital organ.",
+     "walkthrough": "'touch of' takes N from nephritis; ID and N together go 'in' KEY (vital).",
+     "definitionFit": "The kidney is one of the body's organs, so the general word stands for this specific example."
     },
     "features": {
      "answerInScene": true,
@@ -1178,57 +1184,63 @@
      "op": "container",
      "indicators": [
       {
-       "text": "back in",
-       "note": "the back letter of the word"
+       "text": "wearing",
+       "at": 25,
+       "note": "the briefs are worn around the other pieces, so those pieces sit inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "briefs",
+       "at": 33,
+       "gives": "UNDERPANTS",
+       "note": "briefs are a style of men's underpants"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "briefs",
-         "gives": "UNDERPANTS",
-         "note": "briefs are underpants"
-        },
         {
          "op": "reversal",
          "indicators": [
           {
            "text": "Turned",
-           "note": "something turned faces the other way, so MY is read backwards"
+           "at": 0,
+           "note": "turned round, the word my is read backwards"
           }
          ],
          "parts": [
           {
            "words": "my",
-           "note": "as printed"
+           "at": 7,
+           "note": "taken as written before being turned"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "last",
-       "indicators": [
+        },
         {
-         "text": "wearing",
-         "note": "the briefs wrap around the letters, as clothes around a body"
-        }
-       ],
-       "parts": [
-        {
-         "words": "shame",
-         "note": "last letter"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "back in",
+           "at": 10,
+           "note": "the back of a word is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "shame",
+           "at": 18,
+           "note": "supplies its final letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone turns away in embarrassment at being seen in skimpy briefs.",
-     "walkthrough": "'Short' suggests skimpy clothing, but an underpayment leaves you short of money.",
-     "definitionFit": "Underpayments are payments that fall short of what is owed."
+     "surface": "Someone turns away blushing, caught in nothing but their briefs.",
+     "walkthrough": "'shame' looks like part of the story, but only its back letter is used. The definition is playful: payments that come up short.",
+     "definitionFit": "Underpayments are sums that fall short of what is owed, so they are rather short."
     },
     "features": {
      "answerInScene": false,

@@ -516,51 +516,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "working",
-       "note": "working suggests something busy and being reshaped, so the words after it are reordered"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Good man",
+       "at": 0,
+       "gives": "ST",
+       "note": "a good man is a saint, abbreviated ST"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "working",
+         "at": 9,
+         "note": "working means in operation, so the letters are worked into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Good man",
-         "gives": "ST",
-         "note": "ST is short for saint, the crossword's good man"
-        },
-        {
-         "words": "in sales",
+         "words": "in",
+         "at": 17,
          "note": "anagram fodder"
         },
         {
-         "op": "homophone",
-         "spelt": "STEEL",
-         "indicators": [
-          {
-           "text": "picked up",
-           "note": "a word picked up is caught by ear, so we want what sounds like it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Rob",
-           "gives": "STEAL",
-           "note": "to rob is to steal"
-          }
-         ]
+         "words": "sales",
+         "at": 20,
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "STEEL",
+       "indicators": [
+        {
+         "text": "picked up",
+         "at": 26,
+         "note": "picked up means heard, so the word for rob is replaced by one that sounds the same"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rob",
+         "at": 36,
+         "gives": "STEAL",
+         "note": "to rob is to steal"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A decent man in a sales job is overheard being accused of robbery.",
-     "walkthrough": "The definition is cryptic: a metal that never tarnishes keeps on shining, so it is an example of something ever-shining.",
-     "definitionFit": "Stainless steel is a chromium alloy that resists rust and tarnish, so it stays bright and gleaming."
+     "surface": "A shop worker of saintly virtue is caught on tape robbing the till.",
+     "walkthrough": "The surface pictures a saintly shop worker who steals; only the last word goes through the sound change, while the saint and the shuffled letters are spelt as built.",
+     "definitionFit": "This alloy resists rust and keeps its shine, hence an ever-shining example, with the question mark marking a playful definition."
     },
     "features": {
      "answerInScene": false,
@@ -1238,55 +1248,61 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the pieces before it inside the shortened word after it"
+       "at": 38,
+       "note": "in places the preceding pieces inside the letters taken from tears"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "on and off",
+         "at": 48,
+         "note": "on and off means intermittently, so only every other letter is used"
+        }
+       ],
        "parts": [
         {
-         "op": "alternate",
-         "indicators": [
-          {
-           "text": "head of",
-           "note": "head of points to the opening letter of the next word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tears",
-           "note": "its first, third and fifth letters"
-          }
-         ]
+         "words": "tears",
+         "at": 41,
+         "note": "its alternate letters are used"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "left",
+         "at": 21,
+         "gives": "L"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "on and off",
-           "note": "on and off means taking one letter, skipping one, and so on"
+           "text": "head of",
+           "at": 26,
+           "note": "the head of a word is its first letter"
           }
          ],
          "parts": [
           {
            "words": "KGB",
-           "note": "its first letter"
+           "at": 34,
+           "note": "supplies its first letter"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
       }
      ]
     },
     "explanation": {
-     "surface": "After long negotiations, a KGB chief walks out in tears, now and again.",
-     "definitionFit": "Talks are formal discussions, often prolonged negotiations between parties trying to reach agreement."
+     "surface": "A spy-thriller moment: someone left a senior KGB man weeping intermittently.",
+     "walkthrough": "'on and off' takes TAS from tears; L (left) and K ('head of' KGB) go 'in' it.",
+     "definitionFit": "Talks are formal negotiations, often lengthy, so extended discussions is a fair synonym."
     },
     "features": {
      "answerInScene": true,
