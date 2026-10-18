@@ -401,57 +401,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SHAFTESBURY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Endlessly",
-         "note": "a word without end loses its last letter"
+         "at": 0,
+         "note": "the word is cut off before its end, losing the final letter"
         }
        ],
        "parts": [
         {
-         "words": "Endlessly cheated",
-         "gives": "SHAFTE",
-         "note": "SHAFTED without its last letter"
+         "words": "cheated",
+         "at": 10,
+         "gives": "SHAFTED",
+         "note": "shafted is slang for cheated or done down"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "S",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally points to the last letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "clients finally",
-           "gives": "S",
-           "select": "last",
-           "note": "last letter of clients"
-          }
-         ]
-        },
-        {
-         "words": "sink",
-         "gives": "BURY",
-         "note": "bury = sink into the ground"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 26,
+         "note": "only the closing letter of the word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clients",
+         "at": 18,
+         "note": "the word whose last letter is taken"
+        }
+       ]
+      },
+      {
+       "words": "sink",
+       "at": 34,
+       "gives": "BURY",
+       "note": "to bury something is to sink it in the ground"
       }
      ]
     },
     "explanation": {
-     "surface": "A swindler's victims getting their own back by doing away with an old aristocrat.",
-     "walkthrough": "Shafted is slang for cheated. The Earls of Shaftesbury include the 7th Earl, the Victorian reformer who lived to 84.",
-     "definitionFit": "Shaftesbury is an earldom, so an Earl of Shaftesbury, here an old one."
+     "surface": "A con man, having swindled his customers, finally sinks an elderly aristocrat.",
+     "walkthrough": "The 7th Earl of Shaftesbury was the Victorian reformer, remembered by Shaftesbury Avenue and the Eros statue in Piccadilly Circus.",
+     "definitionFit": "The Earls of Shaftesbury are a long-standing English peerage, the best known being the nineteenth-century social reformer of that title."
     },
     "features": {
      "answerInScene": true,
@@ -747,42 +748,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "regularly means every other letter"
+       "text": "stops",
+       "at": 18,
+       "note": "the regular letters stop up the vital word, plugging a gap inside it"
       }
      ],
      "parts": [
       {
        "words": "vital",
+       "at": 24,
        "gives": "KEY",
-       "note": "key = vital, as in a key issue"
+       "note": "key means vital, as in a key witness"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "IDN",
        "indicators": [
         {
-         "text": "stops",
-         "note": "to stop a gap is to fill it, so these letters go inside"
+         "text": "regularly",
+         "at": 8,
+         "note": "every other letter of the word is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Binding regularly",
-         "gives": "IDN",
-         "select": "alternate",
-         "note": "letters 2, 4 and 6 of bInDiNg"
+         "words": "Binding",
+         "at": 0,
+         "note": "the word whose alternate letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A contract that stops a vital organ from being used.",
-     "walkthrough": "'Vital organ' looks like the whole definition, but 'vital' is KEY and only 'organ' defines.",
-     "definitionFit": "A definition by class: the blood-filtering bean-shaped body part is one of the body's organs."
+     "surface": "Something binding blocks a vital organ, a medical picture of an obstruction.",
+     "walkthrough": "'vital organ' looks like the whole definition, but 'vital' is KEY; the alternate letters of Binding, IDN, go inside it.",
+     "definitionFit": "A kidney is one of the pair of organs that filter waste from the blood."
     },
     "features": {
      "answerInScene": true,
@@ -1184,44 +1184,36 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Uncovered",
-       "note": "an uncovered word loses its outer letters"
-      }
-     ],
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "AFT",
+       "op": "middle",
        "indicators": [
         {
-         "text": "nearly",
-         "note": "nearly a word is the word short of its last letter"
+         "text": "Uncovered",
+         "at": 0,
+         "note": "the boats lose their covering, the outside letters at both ends"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Uncovered rudimentary boats",
-         "gives": "AFT",
-         "select": "outer",
-         "note": "RAFTS with its outer letters removed"
+         "words": "rudimentary boats",
+         "at": 10,
+         "gives": "RAFTS",
+         "note": "rafts are the simplest kind of boat"
         }
        ]
       },
       {
        "words": "nearly all",
+       "at": 29,
        "gives": "MOST",
-       "note": "most = nearly all"
+       "note": "most means nearly all"
       }
      ]
     },
     "explanation": {
-     "surface": "Open rafts, almost all of them lying at the back of the boat.",
-     "walkthrough": "Rafts are the rudimentary boats, lashed-together logs. 'Nearly all' is a synonym (MOST), not a cutting instruction.",
-     "definitionFit": "Aftmost means furthest aft, the part of a ship nearest the stern."
+     "surface": "Crude open boats, almost all of them lined up at the back of a ship.",
+     "definitionFit": "Aftmost is the nautical superlative of aft, describing the part of a vessel closest to its stern."
     },
     "features": {
      "answerInScene": true,
@@ -1320,8 +1312,7 @@
     "definitions": [
      {
       "text": "I'm optimistic",
-      "at": 0,
-      "note": "the definition is a first-person statement, standing for the saying that expresses it"
+      "at": 0
      }
     ],
     "wordplay": {
@@ -1329,50 +1320,43 @@
      "indicators": [
       {
        "text": "should move",
-       "note": "letters that move change their order"
+       "at": 33,
+       "note": "the letters are told to shift into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "sleeping partners",
+       "at": 15
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "contents",
-         "note": "a word's contents are its inside letters"
+         "text": "'s contents",
+         "at": 52,
+         "note": "the shop's contents are its inside letters, without its ends"
         }
        ],
        "parts": [
         {
-         "words": "sleeping partners",
-         "note": "anagram fodder, 16 letters"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "HO",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "shop's contents",
-           "gives": "HO",
-           "select": "middle",
-           "note": "inside letters of sHOp"
-          }
-         ]
+         "words": "shop",
+         "at": 48,
+         "note": "the word whose inner letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Business investors who never do anything being told to clear out the stock.",
-     "walkthrough": "A sleeping partner is a business investor who takes no active part. The definition speaks in the first person: saying the proverb is how you declare you are hopeful.",
-     "definitionFit": "Saying 'hope springs eternal' amounts to saying I'm optimistic."
+     "surface": "Investors who take no active part are told to move along to another shop.",
+     "walkthrough": "Sleeping partners are investors in a business who play no part in running it. HO, the inside of shop, joins their letters for the rearrangement.",
+     "definitionFit": "The proverb 'hope springs eternal' is said by someone who stays optimistic despite the odds, so it stands for 'I'm optimistic'."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "sleeping"
+     "misdirectedWord": "partners"
     }
    }
   },
@@ -1846,45 +1830,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "saving outskirts",
-       "note": "saving means except, so the word is taken without its outer letters"
+       "text": "in",
+       "at": 38,
+       "note": "the trimmed development goes inside the spa town"
       }
      ],
      "parts": [
       {
        "words": "spa town",
+       "at": 41,
        "gives": "BATH",
-       "note": "Bath, the English spa city; it holds EQUE"
+       "note": "Bath in Somerset is England's famous Roman spa town"
       },
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "EQUE",
+       "op": "middle",
        "indicators": [
         {
-         "text": "in",
-         "note": "development in spa town places those letters inside the town"
+         "text": "saving outskirts",
+         "at": 21,
+         "note": "saving means except, so the word is taken except its outer letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "development",
-         "gives": "EQUE",
-         "select": "outer",
-         "note": "SEQUEL without its outer letters"
+         "at": 8,
+         "gives": "SEQUEL",
+         "note": "a sequel is a later development or follow-up"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Handing on a property development, but keeping the land on the edges of a spa town.",
-     "walkthrough": "A sequel is a development, as in a later turn of events. 'Saving' means except here, not keeping.",
-     "definitionFit": "A plain synonym: leaving your goods to heirs in a will is passing them on."
+     "surface": "A property development in a spa town that spares the outskirts.",
+     "walkthrough": "'saving' looks like keeping the outskirts but means except them: SEQUEL without its ends is EQUE.",
+     "definitionFit": "To bequeath something is to pass it on to heirs in a will."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "saving"
     }
@@ -1983,66 +1967,85 @@
      "indicators": [
       {
        "text": "about",
-       "note": "one word goes about the others, surrounding them"
+       "at": 39,
+       "note": "the former right-winger goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "what's behind",
-         "note": "what is behind a word is its last letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "words": "former",
+         "at": 19,
+         "gives": "EX",
+         "note": "ex means former, as in an ex-wife"
+        },
+        {
+         "words": "right-winger",
+         "at": 26,
+         "gives": "TORY",
+         "note": "a Tory is a member of the British Conservative Party"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
          "indicators": [
           {
-           "text": "half-forgotten",
-           "note": "half of the word is left out"
+           "text": "what's behind",
+           "at": 45,
+           "note": "the letter at the back of the word is used"
           }
          ],
          "parts": [
           {
-           "words": "former right-winger",
-           "gives": "EXTORY",
-           "note": "ex-Tory; it goes about the rest"
-          },
-          {
-           "op": "last",
-           "parts": [
-            {
-             "words": "what's behind covert",
-             "gives": "WHATBEHINDCOVERT",
-             "note": "last letter of covert"
-            }
-           ]
+           "words": "covert",
+           "at": 59,
+           "note": "the word whose last letter is taken"
           }
          ]
         },
         {
          "words": "Irish",
-         "gives": "IR",
-         "note": "IR = Irish"
+         "at": 66,
+         "gives": "IR"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half-forgotten",
+           "at": 78,
+           "note": "half of the word's letters are dropped and half kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "past",
+           "at": 72,
+           "gives": "PAST",
+           "note": "the word that loses its second half"
+          },
+          {
+           "gives": "ST"
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "past, half-forgotten",
-       "gives": "PA",
-       "note": "first half of PAST"
       }
      ]
     },
     "explanation": {
-     "surface": "A purge of a one-time Conservative who hid a secret Irish past.",
-     "walkthrough": "A Tory is a member of Britain's Conservative Party, so an ex-Tory is a former right-winger.",
-     "definitionFit": "Extirpatory means serving to extirpate, to root out entirely."
+     "surface": "A former Conservative digs into a secret Irish history that is half forgotten.",
+     "walkthrough": "EX and TORY form the outside, and TIRPA (T, IR and PA) goes between them.",
+     "definitionFit": "Extirpatory describes acting to extirpate, which is to pull up by the roots or destroy completely."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "covert"
     }
@@ -2922,42 +2925,44 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "EUMENIDES",
-     "indicators": [
-      {
-       "text": "cycling",
-       "note": "cycled letters move the first to the end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "eg French, Italian and Spanish",
+       "at": 18,
+       "gives": "EU",
+       "note": "France, Italy and Spain are members of the EU, the European Union"
+      },
+      {
+       "words": "guys",
+       "at": 49,
+       "gives": "MEN",
+       "note": "men means guys"
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 57,
+         "note": "the letters of the team word go round, the first moving to the end"
+        }
+       ],
        "parts": [
         {
-         "words": "eg French, Italian and Spanish",
-         "gives": "EU",
-         "note": "all members of the EU"
-        },
-        {
-         "words": "guys",
-         "gives": "MEN",
-         "note": "guys = men"
-        },
-        {
          "words": "team",
-         "gives": "IDES",
-         "note": "SIDE cycled, its S moved to the end"
+         "at": 65,
+         "gives": "SIDE",
+         "note": "a side is a team"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Three European riders in a cycle race team.",
-     "walkthrough": "'Cycling' reads as the sport, but it moves the first letter of SIDE to the end.",
-     "definitionFit": "The Eumenides, or Furies, were the three goddesses of vengeance in Greek myth."
+     "surface": "French, Italian and Spanish riders form part of a cycling team.",
+     "walkthrough": "'cycling' reads as the sport but moves the S of SIDE to the end, giving IDES.",
+     "definitionFit": "The Eumenides are the three Furies of Greek myth, the avenging goddesses in Aeschylus's play of that name."
     },
     "features": {
      "answerInScene": false,
@@ -2989,30 +2994,21 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Extremely",
-       "note": "the extremes of a word are its outer letters"
-      }
-     ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "VE",
        "indicators": [
         {
-         "text": "almost",
-         "note": "almost a word is the word short of its last letter"
+         "text": "Extremely",
+         "at": 0,
+         "note": "only the extreme letters, first and last, of the word are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Extremely vile",
-         "gives": "VE",
-         "select": "outer",
-         "note": "outer letters of vile"
+         "words": "vile",
+         "at": 10,
+         "note": "the word whose outside letters are used"
         }
        ]
       },
@@ -3021,32 +3017,49 @@
        "indicators": [
         {
          "text": "catching",
-         "note": "to catch is to hold inside"
+         "at": 31,
+         "note": "the shortened arachnid catches the letter, holding it inside"
         }
        ],
        "parts": [
         {
-         "words": "arachnid almost",
-         "gives": "SPIDE",
-         "note": "SPIDER without its last letter; it catches A"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 24,
+           "note": "the last letter of the word is left off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "arachnid",
+           "at": 15,
+           "gives": "SPIDER",
+           "note": "a spider is an arachnid"
+          },
+          {
+           "gives": "R"
+          }
+         ]
         },
         {
          "words": "a",
-         "note": "as printed"
+         "at": 40
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nasty spider nearly catching a wasp.",
-     "walkthrough": "Spiders do catch wasps, so the surface is a nature scene; the answer is the wasps' scientific family name.",
-     "definitionFit": "Vespidae is the family of social wasps, hornets and their relatives."
+     "surface": "A nasty spider almost catches a wasp, as spiders do.",
+     "walkthrough": "'etc' reflects the family including hornets and other social wasps.",
+     "definitionFit": "Vespidae is the zoological family name for social wasps, hornets and yellowjackets."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "catching"
+     "misdirectedWord": "vile"
     }
    }
   },
@@ -3383,47 +3396,61 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "intermittently",
-       "note": "intermittently means every other letter"
+       "text": "on",
+       "at": 26,
+       "note": "in an across answer, the loaf letters sit on, after, the stove"
       }
      ],
      "parts": [
       {
-       "words": "stove that doesn't close",
-       "gives": "PRIMU",
-       "note": "PRIMUS without its last letter"
-      },
-      {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "LA",
+       "op": "deletion",
        "indicators": [
         {
          "text": "that doesn't close",
-         "note": "a word that doesn't close loses its last letter"
+         "at": 35,
+         "note": "the stove word does not finish, so its closing letter is missing"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "loaf intermittently",
-         "gives": "LA",
-         "select": "alternate",
-         "note": "letters 1 and 3 of LoAf"
+         "words": "stove",
+         "at": 29,
+         "gives": "PRIMUS",
+         "note": "a Primus is a portable paraffin stove"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "intermittently",
+         "at": 11,
+         "note": "every other letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "loaf",
+         "at": 6,
+         "note": "the word whose alternate letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A kitchen scene: bread baking in fits and starts on a stove with a faulty door.",
-     "walkthrough": "A Primus is a portable paraffin camping stove, a trade name. 'Plant' reads as a verb, to put in the ground, but it is the definition.",
-     "definitionFit": "Primula is the genus of primroses and cowslips, a plant."
+     "surface": "A loaf left on a camping stove that won't shut off.",
+     "walkthrough": "A Primus is the classic camping stove. Alternate letters of loaf give LA.",
+     "definitionFit": "Primula is the genus of plants including primroses and cowslips."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Plant"
+     "misdirectedWord": "loaf"
     }
    }
   },
@@ -3575,70 +3602,71 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "eating",
-       "note": "a word eating a letter takes it inside"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "tail",
-         "note": "a word's tail is its last letter"
+         "text": "brought back",
+         "at": 5,
+         "note": "the word is brought back in the reverse direction"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
+         "words": "Bird",
+         "at": 0,
          "gives": "BIRD",
-         "indicators": [
-          {
-           "text": "brought back",
-           "note": "letters brought back read in reverse"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Bird",
-           "gives": "BIRD",
-           "select": "last",
-           "note": "as printed; brought back to DRIB"
-          }
-         ]
+         "note": "taken as written"
         }
        ]
       },
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "eating",
+         "at": 28,
+         "note": "the flatfish swallows the letter, which goes inside it"
+        }
+       ],
        "parts": [
         {
          "words": "flatfish",
+         "at": 18,
          "gives": "SANDDABS",
-         "note": "sand dabs, small flatfish; they eat R"
+         "note": "sanddabs are small flatfish of the Pacific"
         },
         {
-         "words": "flounder's tail",
-         "gives": "R",
-         "note": "last letter of flounder"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "'s tail",
+           "at": 43,
+           "note": "the flounder's tail is the final letter of that word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "flounder",
+           "at": 35,
+           "note": "the word whose last letter is taken"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A seabird returning with fish, pecking at a flounder's tail bit by bit.",
-     "walkthrough": "'Flatfish' is plural here: sand dabs. Flounder is itself a flatfish, which pulls the eye away from the dabs.",
-     "definitionFit": "An idiom: drib and drab are old words for tiny amounts, so the pair means bit by bit."
+     "surface": "A bird brings home a flatfish that has eaten the tail of a flounder.",
+     "walkthrough": "'flounder' looks like part of the fish theme, but only its last letter, R, is used.",
+     "definitionFit": "Dribs and drabs is an idiom for small amounts arriving bit by bit, matching small quantities at a time."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "flounder"
+     "misdirectedWord": "flounder's"
     }
    }
   },

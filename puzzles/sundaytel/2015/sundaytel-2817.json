@@ -259,39 +259,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KANSAS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "50% of",
-       "note": "only half of the word survives, the opening half being dropped"
-      },
-      {
-       "text": "plus earlier 25%",
-       "note": "a further quarter of the same word is kept, the stretch coming just before the half already taken"
+       "text": "plus",
+       "at": 45,
+       "note": "plus means in addition, so the quarter is added on after the half"
       }
      ],
      "parts": [
       {
-       "words": "Alaskans",
-       "note": "taken as written, then trimmed to its second half"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "50% of",
+         "at": 27,
+         "note": "half of the eight-letter word is kept, the second four letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Alaskans",
+         "at": 34,
+         "note": "the word that is cut in half"
+        },
+        {
+         "gives": "ALAS"
+        }
+       ]
       },
       {
-       "words": "Alaskans",
-       "note": "the same word again, trimmed to its second quarter"
+       "words": "earlier 25%",
+       "at": 50,
+       "gives": "AS",
+       "note": "the quarter of the same word that comes just before that half, its third and fourth letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A trivia-style claim about one US state's share of Alaskan residents.",
-     "walkthrough": "Split the word into quarters AL, AS, KA, NS; take the last half, then add the quarter preceding it.",
-     "definitionFit": "Kansas is one of the fifty US states, in the Midwest."
+     "surface": "A US state where you will meet half of all Alaskans, plus a quarter more from earlier.",
+     "walkthrough": "Split ALASKANS into quarters AL, AS, KA, NS: the back half is KANS, and the quarter just earlier than it is AS.",
+     "definitionFit": "Kansas is a state in the central plains of the United States."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Alaskans"
+     "misdirectedWord": "earlier"
     }
    }
   },

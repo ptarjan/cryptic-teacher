@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -46,7 +47,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "twisted"
+       "text": "during",
+       "at": 33,
+       "note": "the American and the twisted foot come in the middle of the pause"
       }
      ],
      "parts": [
@@ -54,51 +57,75 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "during"
+         "text": "off",
+         "at": 65,
+         "note": "the beginning of limp is taken off the pause, removing one of its letters"
         }
        ],
        "parts": [
         {
          "words": "pause",
+         "at": 40,
          "gives": "LULL",
-         "note": "a lull is a pause in the noise"
+         "note": "a lull is a pause or quiet spell"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "L",
          "indicators": [
           {
-           "text": "off"
+           "text": "beginning to",
+           "at": 47,
+           "note": "only the opening letter of the next word is meant"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "beginning to limp",
-           "gives": "L",
-           "select": "first",
-           "note": "the first letter of Limp — the L that LULL gives up"
+           "words": "limp",
+           "at": 60,
+           "note": "the word whose first letter is removed"
           }
          ]
         }
        ]
       },
       {
-       "op": "anagram",
+       "op": "charade",
        "parts": [
         {
-         "words": "American twisted foot",
-         "gives": "STFU",
-         "note": "US for American and FT for foot, shaken together"
+         "words": "American",
+         "at": 11,
+         "gives": "US"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "twisted",
+           "at": 20,
+           "note": "the abbreviation for foot is turned round"
+          }
+         ],
+         "parts": [
+          {
+           "words": "foot",
+           "at": 28,
+           "gives": "FT"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two abbreviations do the quiet work here: US for American and ft for foot. The letter that leaves is named by 'beginning to limp', so it is the pause word that gets trimmed, not the anagram.",
-     "definitionFit": "Lustful means driven by desire, and 'passionate' covers the same heat — the carnal sense of passion rather than the enthusiast's."
+     "surface": "An American with a twisted foot pauses, then sets off limping.",
+     "walkthrough": "One L comes off LULL to leave LUL; US and TF (FT turned round) go after its first letter.",
+     "definitionFit": "Lustful means full of sexual desire, which is one sense of passionate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "foot"
     }
    }
   },
@@ -379,48 +406,49 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "though held in",
+       "at": 30,
+       "note": "the politician and the elected word are, for all that, held inside the prison"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "held in"
-        }
-       ],
+       "words": "prison",
+       "at": 45,
+       "gives": "JUG",
+       "note": "jug is slang for prison"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "prison",
-           "gives": "JUG",
-           "note": "jug is old slang for prison"
-          },
-          {
-           "words": "politician",
-           "gives": "MP",
-           "note": "a Member of Parliament"
-          }
-         ]
+         "words": "politician",
+         "at": 9,
+         "gives": "MP",
+         "note": "MP stands for Member of Parliament"
         },
         {
          "words": "elected",
+         "at": 21,
          "gives": "IN",
-         "note": "a candidate who wins is in"
+         "note": "in means elected, as a candidate who gets in"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "though",
-       "note": "surface only — it lets the sentence pretend the man is jailed despite winning his seat"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Jug for prison is Victorian slang that survives mostly in crosswords, and 'held in' works twice over: the surface's custody and the instruction to insert.",
-     "definitionFit": "To jump bail or jump a queue is to get past something you were meant to go through, so 'avoiding' names that dodging sense of the verb."
+     "surface": "A politician dodging trouble despite being elected, yet locked up all the same.",
+     "walkthrough": "'Avoiding' is the definition, as in jumping a queue or a question.",
+     "definitionFit": "To jump something, such as a queue or a hurdle, is to bypass or skip it, so jumping can mean avoiding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "elected"
     }
    }
   },
@@ -529,38 +557,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EVERYMAN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "beset by",
+       "at": 33,
+       "note": "the extremely word is surrounded by the turned reputation"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "beset by"
-        },
-        {
-         "text": "inversion of"
+         "text": "inversion of",
+         "at": 42,
+         "note": "the word for reputation is read backwards"
         }
        ],
        "parts": [
         {
          "words": "reputation",
-         "gives": "EMAN",
-         "note": "your NAME is your reputation, written backwards"
-        },
-        {
-         "words": "extremely",
-         "gives": "VERY",
-         "note": "extremely and very are the same intensifier"
+         "at": 55,
+         "gives": "NAME",
+         "note": "name means reputation, as in a good name"
         }
        ]
+      },
+      {
+       "words": "extremely",
+       "at": 23,
+       "gives": "VERY",
+       "note": "very means extremely"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Extremely' looks like an instruction to take outside letters, which is the trap — here it is only a synonym. The answer also names the Observer's own crossword.",
-     "definitionFit": "Everyman is the title character of the medieval morality play, summoned by Death, so the definition points at one named hero who stands for all of us."
+     "surface": "The protagonist of a medieval play is utterly overwhelmed when his good name is turned upside down.",
+     "walkthrough": "NAME turned round is EMAN, and VERY goes after its E.",
+     "definitionFit": "Everyman is the title character of the fifteenth-century English morality play, standing for all humanity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
     }
    }
   },
@@ -585,40 +625,52 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MECHANISM",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "taking",
+       "at": 4,
+       "note": "the setter takes on the opening, which follows him"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Phi",
+       "at": 0,
+       "gives": "ME",
+       "note": "Phi is the setter, who is ME from his own point of view"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "to include"
+         "text": "to include",
+         "at": 19,
+         "note": "the opening encloses the reversed word"
         }
        ],
        "parts": [
         {
-         "words": "Phi",
-         "gives": "ME",
-         "note": "Phi is this setter's pen name, so he is ME"
+         "words": "opening",
+         "at": 11,
+         "gives": "CHASM",
+         "note": "a chasm is a deep opening in the ground"
         },
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "reverse of"
+           "text": "reverse of",
+           "at": 30,
+           "note": "the popular word is turned round"
           }
          ],
          "parts": [
           {
-           "words": "opening",
-           "gives": "CHASM",
-           "note": "a chasm is a gaping opening in the ground"
-          },
-          {
            "words": "popular",
-           "gives": "NI",
-           "note": "IN means popular, turned round"
+           "at": 41,
+           "gives": "IN",
+           "note": "in means popular, as in the in crowd"
           }
          ]
         }
@@ -627,8 +679,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "When a clue names the setter — Phi here — it almost always means ME or I. Bank that one: it turns an apparently impossible proper noun into two letters.",
-     "definitionFit": "A mechanism is the working parts that make something go, so 'device' is a plain synonym taken at the machinery end of the word."
+     "surface": "The setter takes up an opening that will include a reverse of something popular.",
+     "walkthrough": "Setters often refer to themselves by their pseudonym, here Phi, meaning ME.",
+     "definitionFit": "A mechanism is a piece of machinery or a working device."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Phi"
     }
    }
   },
@@ -717,35 +775,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "cycling",
+     "indicators": [
+      {
+       "text": "perceived back to front",
+       "at": 29,
+       "note": "the valley is viewed with the letter at its back brought round to its front"
+      }
+     ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "EDEN",
-       "indicators": [
-        {
-         "text": "perceived back to front"
-        }
-       ],
-       "parts": [
-        {
-         "words": "valley",
-         "gives": "DENE",
-         "note": "a dene is a narrow wooded valley"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "back to front",
-       "note": "read literally: the letter at the back moves to the front"
+       "words": "valley",
+       "at": 15,
+       "gives": "DENE",
+       "note": "a dene is a narrow wooded valley"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Cycling is not reversal — only the last letter travels, and the rest keep their order. A word that came back reversed would read ENED, which is nothing at all.",
-     "definitionFit": "The Eden rises in the Pennines and runs north through Carlisle to the Solway, so 'Cumbrian river' defines it by example."
+     "surface": "A river in Cumbria flows through a valley you notice running the wrong way.",
+     "walkthrough": "Only the final E moves to the front; the word is not read backwards. A dene is a northern English word for a narrow valley.",
+     "definitionFit": "The Eden flows through Cumbria in north-west England to the Solway Firth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
     }
    }
   },
@@ -922,43 +977,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GODETIA",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "leave",
+       "at": 17,
+       "gives": "GO",
+       "note": "go means leave, as in 'I must go'"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "to revert"
-        },
-        {
-         "text": "a lot of"
+         "text": "surrounded by",
+         "at": 37,
+         "note": "the reversed word sits inside the shortened wood"
         }
        ],
        "parts": [
         {
-         "words": "leave",
-         "gives": "GO",
-         "note": "to leave is to go"
-        },
-        {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "surrounded by"
+           "text": "a lot of",
+           "at": 51,
+           "note": "most of the wood is used, so its last letter goes"
           }
          ],
          "parts": [
           {
-           "words": "a lot of wood",
-           "gives": "DEA",
-           "note": "deal is softwood board, and most of it is DEA"
+           "words": "wood",
+           "at": 60,
+           "gives": "DEAL",
+           "note": "deal is pine or fir timber"
           },
           {
+           "gives": "L"
+          }
+         ]
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "to revert",
+           "at": 26,
+           "note": "the word it is turned back to front"
+          }
+         ],
+         "parts": [
+          {
            "words": "it",
-           "gives": "TI",
-           "note": "IT reverted"
+           "at": 23
           }
          ]
         }
@@ -967,8 +1037,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "Deal is the timber trade's name for pine or fir board, and that piece of vocabulary is what the clue turns on; the colon does the work of 'is'.",
-     "definitionFit": "Godetia is a garden annual grown for its papery pink and mauve blooms, so 'flowering plant' defines it by example — one genus for the class."
+     "surface": "Instructions to abandon something to grow wild deep in the woods.",
+     "walkthrough": "Deal is softwood timber; most of it, DEA, wraps round TI, which is IT reversed.",
+     "definitionFit": "Godetia is a North American annual grown in gardens for its showy summer blooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wood"
     }
    }
   },
@@ -994,35 +1070,46 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "TOWELLING",
+     "indicators": [
+      {
+       "text": "recycled",
+       "at": 15,
+       "note": "the letters go round, with the end of the word brought to the front"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "TOWELLING",
        "indicators": [
         {
          "text": "almost",
-         "note": "the closing N goes, leaving WELLINGTO"
-        },
-        {
-         "text": "recycled"
+         "at": 8,
+         "note": "the last letter of the city is dropped"
         }
        ],
        "parts": [
         {
          "words": "NZ city",
+         "at": 0,
          "gives": "WELLINGTON",
-         "note": "Wellington is New Zealand's capital"
+         "note": "Wellington is the capital of New Zealand"
+        },
+        {
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Recycled' does two jobs at once: it sounds like reused cloth, and it asks for a cycle — letters travelling from one end to the other in their existing order.",
-     "definitionFit": "Towelling is the looped cotton cloth that towels and dressing gowns are made of, so 'fabric' is a plain synonym for the material itself."
+     "surface": "Fabric from a New Zealand city has nearly all been recycled.",
+     "walkthrough": "WELLINGTO, without its final N, has its last two letters TO moved to the front.",
+     "definitionFit": "Towelling is the thick looped cotton cloth that towels and bathrobes are made of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recycled"
     }
    }
   },
@@ -1260,39 +1347,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "initially"
+       "text": "under",
+       "at": 29,
+       "note": "in a down answer the lower piece comes after the upper one"
       }
      ],
      "parts": [
       {
        "words": "thoroughly wet",
+       "at": 35,
        "gives": "STEEP",
-       "note": "to steep something is to soak it right through"
+       "note": "to steep is to soak something thoroughly"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "LE",
        "indicators": [
         {
-         "text": "under"
+         "text": "initially",
+         "at": 19,
+         "note": "the opening letters of the two words are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Lovers' encounter, initially",
-         "gives": "LE",
-         "select": "first",
-         "note": "the opening letters of Lovers and Encounter"
+         "words": "Lovers' encounter",
+         "at": 0,
+         "note": "the two words whose first letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Thoroughly wet' wants a verb, not an adjective — steep as in steeping tea — and in a down entry 'under' puts the initials at the foot of the word.",
-     "definitionFit": "A steeple is the tower and spire rising off a church roof, so 'part of church' names it by where it sits rather than what it does."
+     "surface": "A romantic meeting under a dripping church spire.",
+     "walkthrough": "In a down clue 'under' puts the letters from 'Lovers' encounter' below, so after, STEEP.",
+     "definitionFit": "A steeple is the tall tower, often topped by a spire, that rises from a church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lovers'"
     }
    }
   },
@@ -1701,50 +1795,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ECLOGUE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "the reflected energy goes inside the other letters"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "at": 27,
+         "gives": "E"
+        },
+        {
+         "words": "crossword feature",
+         "at": 35,
+         "gives": "CLUE",
+         "note": "every crossword answer has a clue"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "reflected"
+         "text": "reflected",
+         "at": 14,
+         "note": "the energy word is read backwards, as in a mirror"
         }
        ],
        "parts": [
         {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the standard abbreviation for English"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in"
-          }
-         ],
-         "parts": [
-          {
-           "words": "crossword feature",
-           "gives": "CLUE",
-           "note": "the thing you are reading is a clue"
-          },
-          {
-           "words": "energy",
-           "gives": "OG",
-           "note": "GO is energy — 'plenty of go' — turned round"
-          }
-         ]
+         "words": "energy",
+         "at": 7,
+         "gives": "GO",
+         "note": "go means energy or get-up-and-go"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Crossword feature' pointing at the word clue is the setter winking at you, and GO for energy is the piece to remember: it turns up reversed as often as not.",
-     "definitionFit": "An eclogue is a short pastoral poem in the tradition of Virgil, so 'Poem' defines it by class — the general word for a very particular kind."
+     "surface": "A poem's energy shows up in an English crossword.",
+     "walkthrough": "GO turned round is OG, and it sits inside E plus CLUE.",
+     "definitionFit": "An eclogue is a short pastoral poem, often a dialogue between shepherds, as in Virgil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
     }
    }
   }
