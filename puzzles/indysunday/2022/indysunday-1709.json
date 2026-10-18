@@ -1023,39 +1023,48 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "entering",
-       "note": "entering means just coming through the door, so the next piece follows straight on"
+       "at": 13,
+       "note": "entering means the one letter goes inside the other pieces"
       }
      ],
      "parts": [
       {
-       "words": "auditorium",
-       "gives": "HALL",
-       "note": "a concert hall is an auditorium"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "auditorium",
+         "at": 22,
+         "gives": "HALL",
+         "note": "an auditorium is a hall"
+        },
+        {
+         "words": "successfully",
+         "at": 33,
+         "gives": "WELL",
+         "note": "doing something well is doing it successfully"
+        }
+       ]
       },
       {
        "words": "one",
+       "at": 9,
        "gives": "I",
-       "note": "I is the Roman numeral one"
-      },
-      {
-       "words": "successfully",
-       "gives": "WELL",
-       "note": "doing something well is doing it successfully"
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A singer makes a triumphant entrance into the concert venue.",
-     "walkthrough": "Geri Halliwell was Ginger Spice of the Spice Girls.",
-     "definitionFit": "Halliwell had a string of chart hits both with the Spice Girls and as a solo singer, making her a famous chart singer."
+     "surface": "A celebrity makes a successful entrance on stage.",
+     "definitionFit": "Geri Halliwell was Ginger Spice, a singer in the 1990s girl group the Spice Girls."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "auditorium"
     }
    }
   },

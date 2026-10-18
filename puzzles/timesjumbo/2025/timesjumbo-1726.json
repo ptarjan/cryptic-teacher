@@ -229,37 +229,38 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "desperately",
-       "note": "letters scrambling desperately end up in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Search",
+       "at": 0,
+       "gives": "COMB",
+       "note": "to comb an area is to search it thoroughly"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "desperately",
+         "at": 21,
+         "note": "doing something desperately is wild and frantic, so these letters are thrown into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Search",
-         "gives": "COMB",
-         "note": "to comb an area is to search it thoroughly"
-        },
-        {
          "words": "three ravines",
-         "note": "the letters of THREE RAVINES, rearranged"
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A search party scours three gorges in a frantic hunt.",
-     "walkthrough": "Search looks like the whole instruction, but it only gives COMB; the anagram is of the next two words alone.",
-     "definitionFit": "A combine harvester is the big machine that reaps and threshes grain, a piece of farm equipment."
+     "surface": "Someone frantically hunts through three gorges for a lost farm machine.",
+     "definitionFit": "A combine harvester is the large machine that reaps, threshes and cleans grain crops in one pass."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Search"
     }
@@ -349,42 +350,57 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "predominantly",
-       "note": "predominantly means for the most part, so most of the word is kept"
-      },
-      {
-       "text": "raised",
-       "note": "in a down entry, raising a word turns it to read from bottom to top"
+       "text": "found on",
+       "at": 41,
+       "note": "in a down clue, a piece found on another sits above it"
       }
      ],
      "parts": [
       {
-       "words": "plant",
-       "gives": "TRE",
-       "note": "TREE, a plant, with its last letter gone"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "predominantly",
+         "at": 27,
+         "note": "predominantly means most of the word is used, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plant",
+         "at": 21,
+         "gives": "TREE",
+         "note": "a tree is a large plant"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "on",
-         "note": "in a down entry, a piece on another sits above it"
+         "text": "raised",
+         "at": 50,
+         "note": "raised in a down clue means the word is read upwards, so reversed"
         }
        ],
        "parts": [
         {
          "words": "window shelf",
+         "at": 57,
          "gives": "SILL",
-         "note": "the sill is the shelf at the bottom of a window"
+         "note": "a sill is the ledge at the bottom of a window"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pot plant is found sitting on a raised windowsill.",
-     "walkthrough": "The surface puts the plant on a window shelf; the definition runs up to garden, and plant starts the wordplay.",
-     "definitionFit": "A trellis is a lattice framework in a garden for climbing plants."
+     "surface": "A garden plant is mainly found on a window ledge.",
+     "walkthrough": "'Framework for garden plant' reads as one phrase, but the definition stops at 'garden'; the plant starts the wordplay.",
+     "definitionFit": "A trellis is a lattice of wood or wire that supports climbing plants in a garden."
     },
     "features": {
      "answerInScene": true,
@@ -606,42 +622,41 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "around"
-      }
-     ],
      "parts": [
       {
        "words": "conservative",
-       "gives": "CON",
-       "note": "CON = Conservative, as in the party"
+       "at": 17,
+       "gives": "CON"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "beginning of",
-         "note": "the beginning of May is its first letter"
+         "text": "around",
+         "at": 37,
+         "note": "around means the sacked word goes round the other letter"
         }
        ],
        "parts": [
         {
          "words": "sacked",
+         "at": 30,
          "gives": "FIRED",
-         "note": "sacked from a job = fired"
+         "note": "to be sacked is to be fired from a job"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "M",
+         "indicators": [
+          {
+           "text": "beginning of",
+           "at": 44,
+           "note": "the beginning of a word is its first letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "beginning of May",
-           "gives": "M",
-           "select": "first",
-           "note": "the first letter of MAY"
+           "words": "May",
+           "at": 57
           }
          ]
         }
@@ -650,14 +665,13 @@
      ]
     },
     "explanation": {
-     "surface": "A lifelong Tory is dismissed at the start of May, perhaps after an election.",
-     "walkthrough": "Dyed-in-the-wool and conservative sit side by side as if describing one diehard; the definition is only the first.",
-     "definitionFit": "Wool dyed before spinning keeps its colour for good, so the phrase means fixed in one's habits or beliefs."
+     "surface": "A dedicated Tory lost their job in early May.",
+     "definitionFit": "Both describe someone whose habits or beliefs are fixed and settled, such as a confirmed bachelor."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "conservative"
+     "misdirectedWord": "May"
     }
    }
   },
@@ -2809,54 +2823,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Originally",
-       "note": "originally means at the start, so the first letters are taken"
-      }
-     ],
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
-         "text": "From",
-         "note": "the kiss is taken away from the name"
+         "text": "Originally",
+         "at": 0,
+         "note": "originally points to the start of each word, so the first letters are taken"
         }
        ],
        "parts": [
         {
          "words": "song entitled",
-         "note": "the first letters of SONG and ENTITLED"
+         "at": 12
         }
        ]
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "From",
+         "at": 31,
+         "note": "from here means taken away from, so the kiss letter is removed"
+        }
+       ],
        "parts": [
         {
          "words": "A Rose",
+         "at": 36,
          "gives": "AXL",
-         "note": "read as a name: Axl Rose, singer with Guns N' Roses"
+         "note": "Axl Rose, lead singer of Guns N' Roses, abbreviated as A. Rose"
         },
         {
          "words": "Kiss",
+         "at": 26,
          "gives": "X",
-         "note": "X = kiss, as at the end of a letter; it is removed"
+         "note": "X is the conventional symbol for a kiss"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pop-trivia fact about who sang Kiss From A Rose.",
-     "walkthrough": "The song title looks like one unit, but Kiss is X and A Rose is the rocker Axl Rose. The whole clue is also true of the singer.",
-     "definitionFit": "The British soul singer who had a 1994 hit with Kiss From A Rose, so the man the pronoun points to."
+     "surface": "A trivia fact naming the singer who recorded a 1994 hit.",
+     "walkthrough": "A semi-&lit: the song title doubles as wordplay, the Guns N' Roses singer losing a kiss, so you need pop knowledge on both sides.",
+     "definitionFit": "The British soul singer Seal recorded Kiss From A Rose, so he is the man the clue refers to."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Rose"
+     "misdirectedWord": "Kiss"
     }
    }
   },
