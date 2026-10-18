@@ -1111,51 +1111,54 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in",
-       "note": "'is in' places one thing inside another"
+       "text": "is in",
+       "at": 22,
+       "note": "is in means the next pieces sit inside the gloomy word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "gloomy",
+       "at": 28,
+       "gives": "DARK",
+       "note": "dark means gloomy"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "gloomy",
-         "gives": "DARK",
-         "note": "gloomy = dark"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "drained",
+           "at": 8,
+           "note": "drained means emptied, leaving only the outer letters of emotion"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Emotion",
+           "at": 0
+          }
+         ]
         },
         {
          "words": "male",
-         "gives": "M",
-         "note": "M = male"
-        }
-       ]
-      },
-      {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "drained"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Emotion",
-         "note": "the outer letters of EMOTION"
+         "at": 17,
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man, emotionally exhausted, sinks into a gloomy state of mind.",
-     "walkthrough": "'Gloomy state' reads as a mood; 'state' alone is the definition, a nation, with a nod to Hamlet's 'something is rotten in the state of Denmark'.",
-     "definitionFit": "A definition by example: the Scandinavian kingdom is one of many nations, and Hamlet calls it a state."
+     "surface": "A man spent of feeling sinks into depression.",
+     "walkthrough": "'drained' gives EN, and 'is in' puts EN and M inside DARK after its first letter.",
+     "definitionFit": "Denmark is a Scandinavian country, a sovereign nation."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "state"
     }
    }
@@ -1291,42 +1294,58 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "exhausted"
-      },
-      {
-       "text": "endless",
-       "note": "PLUMB loses its last letter"
+       "text": "after",
+       "at": 30,
+       "note": "after puts the outer letters behind the shortened plumbing word"
       }
      ],
      "parts": [
       {
-       "words": "work mending pipes",
-       "gives": "PLUM",
-       "note": "to plumb is to do plumbing work; endless, it loses its B"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 36,
+         "note": "endless means the last letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work mending pipes",
+         "at": 44,
+         "gives": "PLUMB",
+         "note": "to plumb is to work as a plumber"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       },
       {
        "op": "outer",
        "indicators": [
         {
-         "text": "after"
+         "text": "exhausted",
+         "at": 20,
+         "note": "exhausted means emptied, keeping only the outer letters of perhaps"
         }
        ],
        "parts": [
         {
          "words": "perhaps",
-         "note": "the outer letters of PERHAPS"
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plumber, worn out after a job fixing pipes, slumps down.",
-     "walkthrough": "'Perhaps exhausted' reads like a guess at why someone flops down; it is PERHAPS with its inside drained.",
-     "definitionFit": "To plump down is to drop heavily into a seat."
+     "surface": "A plumber collapses, worn out after an endless shift fixing pipes.",
+     "walkthrough": "'endless' trims PLUMB to PLUM, and 'exhausted' leaves PS from perhaps, which comes after.",
+     "definitionFit": "To plump is to sit or drop down heavily and suddenly."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "perhaps"
     }
@@ -1590,31 +1609,26 @@
    "annotation": {
     "definitions": [
      {
-      "text": "\"Fatty\"",
-      "at": 0
+      "text": "Fatty",
+      "at": 1
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "originally",
-       "note": "the first letter of ARBUCKLE"
-      }
-     ],
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
-         "text": "flipping",
-         "note": "to flip something is to turn it over"
+         "text": "originally",
+         "at": 18,
+         "note": "originally means the first letter of Arbuckle"
         }
        ],
        "parts": [
         {
          "words": "Arbuckle",
-         "note": "the first letter of ARBUCKLE"
+         "at": 8
         }
        ]
       },
@@ -1622,22 +1636,33 @@
        "op": "container",
        "indicators": [
         {
-         "text": "bears"
+         "text": "bears",
+         "at": 54,
+         "note": "bears means carries within, so the shot word holds the reversed letters"
         }
        ],
        "parts": [
         {
          "words": "shot",
+         "at": 49,
          "gives": "DOSE",
-         "note": "a shot of medicine is a dose"
+         "note": "a dose is a shot of medicine"
         },
         {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "flipping",
+           "at": 29,
+           "note": "flipping means turned over, so the letters run backwards"
+          }
+         ],
          "parts": [
           {
            "words": "religious",
+           "at": 38,
            "gives": "PI",
-           "note": "PI, short for pious"
+           "note": "PI is short for pious, religious"
           }
          ]
         }
@@ -1646,14 +1671,13 @@
      ]
     },
     "explanation": {
-     "surface": "Silent-film comedian Roscoe 'Fatty' Arbuckle turns religious and shoots bears.",
-     "walkthrough": "The nickname is lifted out as the definition. PI is the standard short form of pious.",
-     "definitionFit": "A plain synonym from biology: the technical adjective for fat-storing, as in the tissue under the skin."
+     "surface": "Silent star Fatty Arbuckle, flipping from piety, was photographed.",
+     "walkthrough": "Roscoe Arbuckle was a silent-film comedian nicknamed Fatty. 'flipping' turns PI into IP, and 'bears' puts it inside DOSE.",
+     "definitionFit": "Adipose means consisting of or relating to body fat, as in adipose tissue."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "absurd",
+     "aptDefinition": false,
      "misdirectedWord": "shot"
     }
    }

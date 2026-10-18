@@ -216,33 +216,39 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "start to",
-       "note": "the start of a word is its first letter"
-      }
-     ],
      "parts": [
       {
        "words": "I",
-       "note": "used as printed"
+       "at": 0
       },
       {
-       "words": "start to gentrify",
-       "gives": "G",
-       "note": "first letter of gentrify"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start to",
+         "at": 2,
+         "note": "the start of gentrify is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gentrify",
+         "at": 11
+        }
+       ]
       },
       {
        "words": "small room",
+       "at": 20,
        "gives": "LOO",
-       "note": "a loo is a toilet, a small room"
+       "note": "the loo is the lavatory, a small room"
       }
      ]
     },
     "explanation": {
-     "surface": "A homeowner announces they are starting to smarten up a small room in the house.",
-     "walkthrough": "A loo is everyday British for a toilet; \"house\" is the definition, not where the room is.",
-     "definitionFit": "A definition by example: a dome of snow blocks built by Inuit people is a kind of house."
+     "surface": "I begin to smarten up the box room at home.",
+     "walkthrough": "The loo is British slang for the toilet. 'house' is a verb in the surface but the noun for a dwelling here.",
+     "definitionFit": "An igloo is an Inuit dwelling built from blocks of snow."
     },
     "features": {
      "answerInScene": false,
@@ -424,29 +430,38 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Half of",
-       "note": "take one half of the word that follows"
-      }
-     ],
      "parts": [
       {
-       "words": "Half of amount",
-       "gives": "UNT",
-       "note": "the last three of amount's six letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Half of",
+         "at": 0,
+         "note": "half of means only three of the six letters of amount are used, the back half"
+        }
+       ],
+       "parts": [
+        {
+         "words": "amount",
+         "at": 8
+        },
+        {
+         "gives": "AMO"
+        }
+       ]
       },
       {
        "words": "stopped",
+       "at": 15,
        "gives": "ENDED",
-       "note": "stopped = ended"
+       "note": "ended means stopped"
       }
      ]
     },
     "explanation": {
-     "surface": "A payment halted halfway because the accounts were badly run.",
-     "walkthrough": "Take the back half of amount, not the front AMO.",
-     "definitionFit": "A loose synonym: left uncared for, as a neglected garden is not looked after or managed."
+     "surface": "Payments are cut by half and the accounts were run badly.",
+     "walkthrough": "'Half of' keeps UNT, the back half of AMOUNT.",
+     "definitionFit": "Something untended has been neglected, left without care or attention."
     },
     "features": {
      "answerInScene": false,
@@ -531,36 +546,39 @@
      "indicators": [
       {
        "text": "including",
-       "note": "the first piece takes the second inside it"
+       "at": 13,
+       "note": "including means the people word holds the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Those people",
-         "gives": "THEY",
-         "note": "those people = they"
-        },
-        {
-         "words": "old",
-         "gives": "O",
-         "note": "a standard abbreviation of old"
-        }
-       ]
+       "words": "Those people",
+       "at": 0,
+       "gives": "THEY",
+       "note": "they means those people"
       },
       {
-       "words": "record",
-       "gives": "LOG",
-       "note": "a log is a written record"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "at": 23,
+         "gives": "O"
+        },
+        {
+         "words": "record",
+         "at": 27,
+         "gives": "LOG",
+         "note": "a log is a record"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A group consulting an ancient record during their religious research.",
-     "walkthrough": "\"Record\" suggests a vinyl disc beside \"old\", but here it is a written account, like a ship's log.",
-     "definitionFit": "A plain synonym: the academic study of God and religious belief."
+     "surface": "Those people keep an old record of religious study.",
+     "walkthrough": "'including' puts O and LOG inside THEY.",
+     "definitionFit": "Theology is the academic discipline concerned with God and faith."
     },
     "features": {
      "answerInScene": true,
@@ -742,38 +760,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "ultimately",
-       "note": "take the ultimate, meaning last, letter"
-      }
-     ],
      "parts": [
       {
        "words": "enjoyable",
+       "at": 10,
        "gives": "FUN",
-       "note": "enjoyable = fun"
+       "note": "fun means enjoyable"
       },
       {
        "words": "good",
-       "gives": "G",
-       "note": "abbreviation of good"
+       "at": 25,
+       "gives": "G"
       },
       {
-       "words": "sushi",
-       "gives": "I",
-       "note": "last letter of sushi"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 36,
+         "note": "ultimately means the last letter of sushi"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sushi",
+         "at": 30
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone praises the mushrooms served with sushi.",
-     "walkthrough": "The surface reads as a restaurant review, with good sushi; here good is only its abbreviation.",
-     "definitionFit": "A definition by example the other way round: mushrooms are the best-known members of this kingdom."
+     "surface": "Mushrooms are tasty with good sushi, in the end.",
+     "definitionFit": "Mushrooms are fruiting bodies of members of the plural kingdom of moulds and toadstools."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "enjoyable"
     }
    }
   },
@@ -1214,29 +1238,31 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "shortly",
-       "note": "use the shortened form, the contraction"
-      }
-     ],
      "parts": [
       {
-       "words": "Our group would",
-       "gives": "WED",
-       "note": "we would shortened with an apostrophe"
+       "words": "Our group",
+       "at": 0,
+       "gives": "WE",
+       "note": "we means our group"
+      },
+      {
+       "words": "would shortly",
+       "at": 10,
+       "gives": "D",
+       "note": "would shortened is the contraction 'd"
       },
       {
        "words": "sound a bell",
+       "at": 24,
        "gives": "DING",
-       "note": "a bell's sound"
+       "note": "to ding is to sound a bell"
       }
      ]
     },
     "explanation": {
-     "surface": "We would soon ring bells in celebration.",
-     "walkthrough": "\"Shortly\" reads as \"soon\" but asks for a contraction. Ringing bells suits the answer, as church bells ring after a marriage.",
-     "definitionFit": "A definition by example: a marriage ceremony and party is one kind of celebration."
+     "surface": "Our group would soon ring a bell to celebrate.",
+     "walkthrough": "'would shortly' is the 'd of we'd.",
+     "definitionFit": "A wedding is a marriage ceremony and the festivities that follow."
     },
     "features": {
      "answerInScene": true,
@@ -1464,29 +1490,34 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "ultimately",
-       "note": "take the ultimate, meaning last, letter"
-      }
-     ],
      "parts": [
       {
        "words": "Fruit",
+       "at": 0,
        "gives": "PEAR",
        "note": "a pear is a fruit"
       },
       {
-       "words": "cordial",
-       "gives": "L",
-       "note": "last letter of cordial"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 14,
+         "note": "ultimately means the last letter of cordial"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cordial",
+         "at": 6
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fruit squash that ends up an unappetising grey.",
-     "walkthrough": "\"Fruit cordial\" reads as one drink, but the fruit and the cordial split into separate pieces.",
-     "definitionFit": "A colour named after a gem: the pale, lustrous grey-white of an oyster's pearl."
+     "surface": "A fruit drink turns out to be a dull grey.",
+     "definitionFit": "Pearl names a pale bluish-grey shade like the lustre of an oyster's gem."
     },
     "features": {
      "answerInScene": false,
@@ -1517,38 +1548,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "beginning to",
-       "note": "the beginning of a word is its first letter"
-      },
-      {
-       "text": "jacket",
-       "note": "a jacket is the outside, so take the outer letters"
-      }
-     ],
      "parts": [
       {
-       "words": "burn",
-       "gives": "B",
-       "note": "first letter of burn"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 24,
+         "note": "the beginning of burn is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "burn",
+         "at": 37
+        }
+       ]
       },
       {
        "words": "fuel",
+       "at": 42,
        "gives": "OIL",
        "note": "oil is a fuel"
       },
       {
-       "words": "engineer's",
-       "gives": "ER",
-       "note": "outer letters of engineer"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "jacket",
+         "at": 58,
+         "note": "a jacket is the outside, so only the outer letters of engineer are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "engineer's",
+         "at": 47,
+         "gives": "ENGINEER",
+         "note": "the engineer, with 's as a possessive link"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An engineer checks that the central heating burns fuel properly.",
-     "walkthrough": "\"Jacket\" is not clothing; it is the outer layer of engineer.",
-     "definitionFit": "A definition by function: the unit that heats water for a central heating system."
+     "surface": "A heating engineer's jacket catches fire from burning oil.",
+     "walkthrough": "'jacket' keeps ER, the first and last letters of engineer.",
+     "definitionFit": "A boiler heats water for radiators in a home heating system."
     },
     "features": {
      "answerInScene": true,

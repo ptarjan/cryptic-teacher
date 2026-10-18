@@ -23,7 +23,8 @@
   "check": "30 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -218,45 +219,49 @@
      "indicators": [
       {
        "text": "wrapped",
-       "note": "To wrap something is to go round the outside of it, so the word named before it closes over what comes after."
+       "at": 14,
+       "note": "being wrapped round something means the male word goes around the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "guy",
-         "gives": "HE",
-         "note": "a guy is a he, the pronoun standing in for the man"
-        },
-        {
-         "words": "in",
-         "note": "the little word taken off the page as the two letters it is spelt with"
-        }
-       ]
+       "words": "guy's",
+       "at": 8,
+       "gives": "HE",
+       "note": "HE is a guy, a male; the 's reads as is"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "top",
-         "note": "In a down entry the top of a word is the letter printed highest, which is the one it begins with."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "glitzy",
-         "note": "the letter that word begins on"
+         "words": "in",
+         "at": 22,
+         "gives": "IN"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "top",
+           "at": 32,
+           "note": "the top of glitzy is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "glitzy",
+           "at": 25
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A partner-swapper done up inside a flashy sparkly top.",
-     "walkthrough": "Wrapped in reads as one instruction and would put the guy inside something; in fact he does the wrapping and the word in is two of the letters he closes over. Glitzy contributes a single letter, not a shuffle.",
-     "definitionFit": "A hinge is the fitting a door or a gate swings on, so swinger names it by the one thing it exists to do."
+     "surface": "A swinger is a chap draped in a sparkly top.",
+     "walkthrough": "'wrapped' puts IN and G inside HE. 'Swinger' suggests a partygoer; it is the thing a door swings on.",
+     "definitionFit": "A hinge is the pivot on which a door or lid swings open and shut."
     },
     "features": {
      "answerInScene": false,
@@ -731,48 +736,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Gutted",
-       "note": "Something gutted has had its insides taken out, leaving only the letters standing at the two ends."
+       "text": "accepting",
+       "at": 20,
+       "note": "accepting means taking in, so the outer letters hold the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "accepting",
-         "note": "What a word accepts it takes inside itself, so the letters named after it go within the ones already found."
+         "text": "Gutted",
+         "at": 0,
+         "note": "gutted means the insides are removed, leaving only the outer letters of creationists"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "parts": [
-          {
-           "words": "creationists",
-           "note": "the two letters at the ends of that word, everything between them thrown away"
-          }
-         ]
-        },
-        {
-         "words": "massive",
-         "gives": "OS",
-         "note": "os is outsize, the clothing label's word for huge"
+         "words": "creationists",
+         "at": 7
         }
        ]
       },
       {
-       "words": "flash",
-       "gives": "MO",
-       "note": "a flash is a moment, and mo is the short form — back in a mo"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "massive",
+         "at": 30,
+         "gives": "OS",
+         "note": "OS is outsize, massive"
+        },
+        {
+         "words": "flash",
+         "at": 38,
+         "gives": "MO",
+         "note": "a mo is a moment, a flash"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Devastated creationists coming round to the Big Bang.",
-     "walkthrough": "Gutted means devastated of the creationists in the sentence and means hollowed out in the parse, and both readings are live at once. Creationists put the world at a few thousand years old, which is what a massive flash would overturn.",
-     "definitionFit": "The whole clue reads straight: a creationist who let the Big Bang in would end up with precisely the expanding universe the answer names."
+     "surface": "A dig at creationists: concede the Big Bang and you get the universe.",
+     "walkthrough": "'accepting' puts OS and MO between C and S. The massive flash is the Big Bang, which created the universe.",
+     "definitionFit": "The cosmos is the ordered universe, which science says arose from the Big Bang."
     },
     "features": {
      "answerInScene": true,

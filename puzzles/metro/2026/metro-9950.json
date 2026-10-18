@@ -726,36 +726,50 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "heading off",
-       "note": "A heading sits at the top, and heading off takes the first letter away from the word in front of it."
-      },
-      {
        "text": "after",
-       "note": "After sends what has just been described behind the piece named next, so the dog goes in first."
+       "at": 34,
+       "note": "after places the shortened flying word behind the dog"
       }
      ],
      "parts": [
       {
        "words": "mutt",
+       "at": 40,
        "gives": "CUR",
-       "note": "a cur is a mongrel dog, the word a Victorian villain spits"
+       "note": "a cur is a mongrel, a mutt"
       },
       {
-       "words": "took wing",
-       "gives": "LEW",
-       "note": "a bird that took wing flew, and the instruction beside it lifts the f off the front"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 22,
+         "note": "heading off means the first letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "took wing",
+         "at": 11,
+         "gives": "FLEW",
+         "note": "flew means took wing"
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bird by the water that flew off the moment a dog appeared.",
-     "walkthrough": "'Took wing, heading off' reads as one continuous flight, and the comma is the only sign that a letter goes missing. The curlew is the long curve-billed wader whose call carries across an estuary at dusk.",
-     "definitionFit": "The curlew feeds on estuary mud and tideline, so shore bird places it by habitat rather than naming its family."
+     "surface": "A bird on the beach flew away when chased by a stray dog.",
+     "walkthrough": "'heading off' cuts FLEW to LEW, and 'after' places it behind CUR.",
+     "definitionFit": "The curlew is a long-billed wader commonly found on mudflats and coasts."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "heading"
+     "misdirectedWord": "mutt"
     }
    }
   },

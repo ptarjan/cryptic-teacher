@@ -262,41 +262,45 @@
      "indicators": [
       {
        "text": "containing",
-       "note": "containing means holding inside, so the place word wraps the next two"
+       "at": 6,
+       "note": "containing means the place word holds the following pieces inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Place",
-         "gives": "LIEU",
-         "note": "lieu means place, as in 'in lieu of'"
-        },
-        {
-         "words": "person",
-         "gives": "PER",
-         "note": "per. is the dictionary abbreviation for person"
-        }
-       ]
+       "words": "Place",
+       "at": 0,
+       "gives": "LIEU",
+       "note": "lieu means place, as in in lieu of"
       },
       {
-       "words": "deserted",
-       "gives": "D",
-       "note": "d. is a recorded abbreviation for deserted"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "person",
+         "at": 17,
+         "gives": "PER",
+         "note": "per means for each person, as in a charge per head"
+        },
+        {
+         "words": "deserted",
+         "at": 25,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "spelling": "LIE PERDU",
     "explanation": {
-     "surface": "Someone hides in a lonely spot to spring a surprise attack.",
-     "definitionFit": "To lie perdu is to stay concealed, especially lying in hiding ready to attack, from the French for lost."
+     "surface": "A place where someone abandoned lies in wait to spring a trap.",
+     "walkthrough": "'containing' puts PER and D inside LIEU. Lie perdu means to lie hidden, a French borrowing.",
+     "definitionFit": "To lie perdu is to stay concealed, lurking unseen, especially to surprise an enemy."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "deserted"
+     "misdirectedWord": "person"
     }
    }
   },
