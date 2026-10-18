@@ -458,43 +458,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "REPORTER",
+     "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "going back means reading the abbreviation from right to left once"
+       "text": "getting in",
+       "at": 24,
+       "note": "getting in means the drink goes inside the royal letters back and forth"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "getting in",
-         "note": "getting something in means taking it inside, between the two halves"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Brenda's back and forth",
-         "gives": "REER",
-         "note": "Brenda is Private Eye's name for the Queen, ER; written backwards then forwards"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 9,
+           "note": "back means Brenda's royal letters are read in reverse for the first pair"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Brenda's",
+           "at": 0,
+           "gives": "ER",
+           "note": "Brenda is Private Eye's nickname for the Queen, whose cipher is ER"
+          }
+         ]
         },
         {
-         "words": "booze",
-         "gives": "PORT",
-         "note": "port is a fortified wine"
+         "words": "and forth",
+         "at": 14,
+         "gives": "ER",
+         "note": "and forth: the same royal letters again, this time read forwards"
         }
        ]
+      },
+      {
+       "words": "booze",
+       "at": 35,
+       "gives": "PORT",
+       "note": "port is a fortified wine, a kind of booze"
       }
      ]
     },
     "explanation": {
-     "surface": "The Queen pacing to and fro while stocking up on drink for a visiting journalist.",
-     "walkthrough": "Private Eye has long called Queen Elizabeth 'Brenda'; ER is her royal cipher.",
-     "definitionFit": "A reporter writes news for a paper, so is a representative of the press."
+     "surface": "The Queen, walking to and fro, is fetching drink in for a press officer.",
+     "walkthrough": "Brenda is Private Eye's long-running nickname for the Queen. 'Back and forth' reads her royal initials both ways, one copy on each side, and the drink is getting in between them.",
+     "definitionFit": "A reporter is a journalist, someone who represents the press."
     },
     "features": {
      "answerInScene": true,
@@ -692,58 +705,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "IMPORT",
      "indicators": [
       {
        "text": "Squeezing",
-       "note": "squeezing means gripping between, so the member goes inside"
+       "at": 0,
+       "note": "squeezing means the following phrase's letters close round the member"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "IORT",
+       "indicators": [
+        {
+         "text": "it's said",
+         "at": 30,
+         "note": "it's said marks that the sound of the phrase, not its spelling, gives the letters"
+        }
+       ],
        "parts": [
         {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        },
-        {
-         "words": "member",
-         "gives": "MP",
-         "note": "Member of Parliament"
-        },
-        {
-         "op": "homophone",
-         "spelt": "ORT",
-         "indicators": [
-          {
-           "text": "it's said",
-           "note": "something said is heard rather than read, so the word is taken by its sound"
-          }
-         ],
-         "parts": [
-          {
-           "words": "should",
-           "gives": "OUGHT",
-           "note": "should means ought, which in a British accent sounds like this spelling"
-          }
-         ]
+         "words": "one should",
+         "at": 18,
+         "gives": "IOUGHT",
+         "note": "one should = I ought, said aloud"
         }
        ]
+      },
+      {
+       "words": "member",
+       "at": 10,
+       "gives": "MP",
+       "note": "MP, Member of Parliament"
       }
      ]
     },
     "explanation": {
-     "surface": "A rude image of squeezing a member, then a warning about what one ought to bring.",
-     "walkthrough": "In a non-rhotic British accent 'ought' and the made-up ORT sound alike.",
+     "surface": "A politician is squeezed while being told what he ought to bring along.",
+     "walkthrough": "'It's said' asks for the sound of 'I ought', which in a British accent without a sounded R comes out as I-ORT; 'Squeezing' then puts the member inside that sound.",
      "definitionFit": "To import is to bring goods into a country from abroad."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "member"
     }
    }

@@ -223,48 +223,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LANGOUSTE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "leaves",
+       "at": 4,
+       "note": "leaves means the one departs, its letter taken out of the pool"
+      },
+      {
+       "text": "peculiarly",
+       "at": 11,
+       "note": "peculiarly means in an odd way, so the remaining letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "leaves",
-         "note": "to leave is to go away, so the I departs from the word"
-        }
-       ],
-       "parts": [
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "peculiarly",
-           "note": "in an odd, irregular way, so the letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "gelatinous",
-           "gives": "GELATNOUS",
-           "note": "GELATINOUS with its I removed; anagram fodder, 9 letters"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "One",
-         "note": "one = I, the letter that leaves"
-        }
-       ]
+       "words": "gelatinous",
+       "at": 22,
+       "note": "the word as written, the letter pool"
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "One diner walks away from an oddly jelly-like lobster.",
-     "walkthrough": "'Leaves' could be foliage, but here it is the verb: one letter walks out.",
-     "definitionFit": "Plain translation: the French word names the spiny or rock lobster, a crustacean without big claws."
+     "surface": "Someone walks away from a strangely jelly-like crustacean.",
+     "walkthrough": "A composite: take the Roman one out of gelatinous ('leaves') and rearrange the rest ('peculiarly').",
+     "definitionFit": "Langouste is the French name for the spiny lobster or crawfish, a clawless relative of the lobster."
     },
     "features": {
      "answerInScene": true,
@@ -416,26 +405,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OARED",
      "indicators": [
       {
        "text": "denied starter",
-       "note": "to be denied your starter is to lose the first course, so the word loses its first letter"
+       "at": 5,
+       "note": "denied starter means the word for rose loses its first letter"
       }
      ],
      "parts": [
       {
        "words": "Rose",
-       "gives": "OARED",
-       "note": "SOARED (rose, as a bird does) without its first letter S"
+       "at": 0,
+       "gives": "SOARED",
+       "note": "rose in the sense of went up, as a bird soared"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman called Rose, refused a first course, had an argument.",
-     "walkthrough": "'Rose' looks like a name or a flower but is the past tense of rise; 'had a row' reads as a quarrel but means rowed a boat.",
-     "definitionFit": "Verb sense: to oar is an old word for to row, so the past tense means rowed, not quarrelled."
+     "surface": "A flower without its first bloom, or a quarrel over gardening.",
+     "walkthrough": "'Rose' wants to be the flower, but it is the past tense of rise; 'denied starter' drops its first letter. 'Had a row' means rowed a boat, not quarrelled.",
+     "definitionFit": "Oared means propelled by oars, so to have oared is to have rowed a boat."
     },
     "features": {
      "answerInScene": false,
@@ -710,57 +702,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EINDHOVEN",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "wingless",
-         "note": "a bird's wings are at its sides, so the word loses its outer letters"
+         "at": 17,
+         "note": "wingless means the bird's name loses its outer letters, its wings at either side"
         }
        ],
        "parts": [
         {
-         "words": "English",
-         "gives": "E",
-         "note": "E = English"
-        },
+         "words": "kestrel",
+         "at": 8,
+         "gives": "WINDHOVER",
+         "note": "windhover is an old name for the kestrel, which hovers facing the wind"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "words": "kestrel, wingless",
-         "gives": "INDHOVE",
-         "note": "WINDHOVER, a name for the kestrel, without its first and last letters"
-        },
+         "text": "close to",
+         "at": 27,
+         "note": "close to picks the closing letter of Vatican"
+        }
+       ],
+       "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "N",
-         "indicators": [
-          {
-           "text": "close to",
-           "note": "the close of something is its end, so take the last letter of Vatican"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "close to Vatican",
-           "gives": "N",
-           "select": "last",
-           "note": "last letter of VaticaN"
-          }
-         ]
+         "words": "Vatican",
+         "at": 36,
+         "note": "the word whose last letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An English kestrel with clipped wings ends up near the Vatican.",
-     "walkthrough": "'Vatican City' reads as one place, but City is the definition on its own. Windhover is an old name for the kestrel, from its hovering; Hopkins wrote a poem of that title.",
-     "definitionFit": "Definition by example: a Dutch city, home of Philips and PSV."
+     "surface": "An English bird of prey with clipped wings lands near Vatican City.",
+     "walkthrough": "'Vatican City' reads as one place, but City alone is the definition. Windhover is a rural name for the kestrel, made famous by Hopkins's poem; 'wingless' clips both ends.",
+     "definitionFit": "Eindhoven is a large city in the southern Netherlands, home of the electronics company Philips."
     },
     "features": {
      "answerInScene": false,
@@ -793,47 +782,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "periodically",
-       "note": "at regular intervals, so take every other letter"
+       "text": "seen in",
+       "at": 20,
+       "note": "seen in means the chosen letters appear inside the way out"
       }
      ],
      "parts": [
       {
        "words": "way out",
+       "at": 28,
        "gives": "EXIT",
        "note": "an exit is a way out"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "PLO",
        "indicators": [
         {
-         "text": "seen in",
-         "note": "to be seen in a place is to be inside it"
+         "text": "periodically",
+         "at": 7,
+         "note": "periodically means at regular intervals, so every other letter of Apollo is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Apollo periodically",
-         "gives": "PLO",
-         "select": "alternate",
-         "note": "2nd, 4th and 6th letters of aPoLlO"
+         "words": "Apollo",
+         "at": 0,
+         "note": "the word whose alternate letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Apollo mission, now and then spotted on a far-out adventure.",
-     "walkthrough": "'Way out' reads as far-out, describing the adventure, but it is the container.",
-     "definitionFit": "Plain synonym: a daring deed or bold escapade."
+     "surface": "Something of the Greek god glimpsed in a far-out escapade.",
+     "walkthrough": "'Periodically' takes the second, fourth and sixth letters of Apollo, and they are 'seen in' the way out after its first two letters.",
+     "definitionFit": "An exploit is a daring deed or feat, a bold adventure."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "out"
+     "misdirectedWord": "way"
     }
    }
   },
@@ -1434,30 +1422,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Mostly",
-       "note": "mostly means not quite all, so the word loses its last letter"
-      },
-      {
        "text": "recycled",
-       "note": "recycled material is broken down and remade, so the letters are rearranged"
+       "at": 17,
+       "note": "recycled means the letters are processed and remade into a new order"
       }
      ],
      "parts": [
       {
-       "words": "Mostly maddened",
-       "gives": "MADDENE",
-       "note": "MADDENED without its last letter; anagram fodder, 7 letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means most of the word maddened, without its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "maddened",
+         "at": 7,
+         "note": "the word as written, before it is cut short"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone half-crazed takes the empties to the recycling bank.",
-     "walkthrough": "The recycling surface fits the empties perfectly, which hides that 'recycled' is the anagram signal.",
-     "definitionFit": "British slang: drained bottles left after a drinking session."
+     "surface": "Someone driven nearly crazy by the empties going to the recycling bank.",
+     "walkthrough": "'Mostly' cuts the last letter off maddened and 'recycled' rearranges what is left. Dead men is informal British slang for empty bottles after a drinking session.",
+     "definitionFit": "Dead men, or dead soldiers, is slang for bottles that have been drunk dry."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "recycled"
     }
    }
@@ -1601,41 +1601,35 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "deserting",
+       "at": 35,
+       "note": "deserting means the British letter leaves the swelling's name"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "deserting",
-         "note": "a deserter abandons his post, so B leaves the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Something nasty afoot",
-         "gives": "BUNION",
-         "note": "a bunion is a painful swelling on the foot"
-        },
-        {
-         "gives": "B"
-        }
-       ]
+       "words": "Something nasty afoot",
+       "at": 0,
+       "gives": "BUNION",
+       "note": "a bunion is a painful swelling on the foot, literally something nasty on a foot"
       },
       {
-       "unchecked": true,
        "words": "British",
-       "note": "B = British, the letter that deserts"
+       "at": 27,
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "Something sinister is going on as the British walk out of an alliance.",
-     "walkthrough": "'Something nasty afoot' reads as a plot brewing, but 'afoot' is literal: on the foot.",
-     "definitionFit": "Plain synonym: a joining together of parties or states."
+     "surface": "Something sinister is brewing as the British pull out of a pact.",
+     "walkthrough": "'Afoot' usually means under way, but here it means on a foot: a painful swelling. The British letter 'deserting' leaves the rest.",
+     "definitionFit": "A union is a joining together of parties, an alliance or federation."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "afoot"

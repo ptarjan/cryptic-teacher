@@ -379,22 +379,22 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ERITREA",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "crossing",
-       "note": "crossing means the following words straddle the next piece, holding it between them"
+       "text": "Raised",
+       "at": 0,
+       "note": "raised in a down clue means the whole is turned upwards, read from bottom to top"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "Raised",
-         "note": "in a down clue, raised means the letters are read from the bottom upwards"
+         "text": "crossing",
+         "at": 25,
+         "note": "crossing means the run of letters goes across the letter for East, taking it inside"
         }
        ],
        "parts": [
@@ -403,32 +403,34 @@
          "parts": [
           {
            "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "East",
-           "gives": "E",
-           "note": "E is the abbreviation for East"
+           "at": 7
           },
           {
            "words": "Republican",
-           "gives": "R",
-           "note": "R stands for Republican"
+           "at": 9,
+           "gives": "R"
           },
           {
            "words": "flag",
+           "at": 20,
            "gives": "TIRE",
-           "note": "to flag is to tire"
+           "note": "to flag is to tire, grow weary"
           }
          ]
+        },
+        {
+         "words": "East",
+         "at": 34,
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Republican banner is hoisted on the way across eastern Africa.",
-     "definitionFit": "Eritrea is a country on the Red Sea coast in the Horn of Africa."
+     "surface": "A rebel banner is hoisted over the eastern part of an African country.",
+     "walkthrough": "'East African' reads as one phrase, but East is the wordplay's E. 'Flag' is the verb meaning tire: A, R and TIRE are 'crossing' E just after the A, and the whole is 'Raised', read upwards.",
+     "definitionFit": "Eritrea is a country on the Red Sea coast of the Horn of Africa, an independent nation since 1993."
     },
     "features": {
      "answerInScene": true,
@@ -1022,45 +1024,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TEACHES",
+     "op": "container",
      "indicators": [
       {
-       "text": "brief",
-       "note": "something brief is cut short, so the word loses its last letter"
+       "text": "to enter",
+       "at": 20,
+       "note": "to enter means the word for every one goes inside the shortened trial"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to enter",
-         "note": "entering means going inside, so one piece sits within the other"
+         "text": "brief",
+         "at": 29,
+         "note": "brief means the trial is cut short, losing its last letter"
         }
        ],
        "parts": [
         {
          "words": "trial",
-         "gives": "TES",
-         "note": "a test is a trial, with its final letter dropped"
+         "at": 35,
+         "gives": "TEST",
+         "note": "a test is a trial"
         },
         {
-         "words": "every one",
-         "gives": "EACH",
-         "note": "each means every one"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "every one",
+       "at": 10,
+       "gives": "EACH",
+       "note": "each means every one"
       }
      ]
     },
     "explanation": {
-     "surface": "A judge instructs all parties to attend a short hearing.",
-     "definitionFit": "Teaches and instructs both mean imparts knowledge or skill to someone."
+     "surface": "A teacher instructs every pupil to sit a short exam.",
+     "walkthrough": "'Brief' drops the final letter of the word for a trial, and the word for every one goes 'to enter' it after the first T.",
+     "definitionFit": "To teach someone is to instruct them, giving lessons or guidance."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "trial"
     }
@@ -1409,77 +1417,74 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "LONGISH",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "one piece sits inside the pair of initials"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "LONGISH",
        "indicators": [
         {
          "text": "Half of",
-         "note": "half of a word means keeping only one half and losing the rest"
+         "at": 0,
+         "note": "half of means only the first three of the capital's six letters are kept"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "UK capital",
+         "at": 8,
+         "gives": "LONDON",
+         "note": "London is the capital of the UK"
+        },
+        {
+         "gives": "DON"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 22,
+         "note": "in means the little word goes inside the initial letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 36,
+           "note": "initially picks the first letter of each of good and hands"
+          }
+         ],
          "parts": [
           {
-           "words": "UK capital",
-           "gives": "LON",
-           "note": "the first half of London"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "initially",
-             "note": "initially points to the opening letters of the words before it"
-            }
-           ],
-           "parts": [
-            {
-             "words": "good",
-             "note": "the first letter of good"
-            }
-           ]
-          },
-          {
-           "words": "is",
-           "note": "taken as written"
-          },
-          {
-           "op": "first",
-           "parts": [
-            {
-             "words": "hands",
-             "note": "the first letter of hands"
-            }
-           ]
+           "words": "good hands",
+           "at": 25,
+           "note": "the words whose first letters are taken"
           }
          ]
+        },
+        {
+         "words": "is",
+         "at": 19,
+         "note": "the word as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Half of London is in safe hands, and the city sprawls.",
-     "definitionFit": "Longish means rather long, somewhat extended in length."
+     "surface": "Half of London feels safe and is somewhat sprawling.",
+     "walkthrough": "'Half of' keeps the front half of London; then 'is' goes 'in' the initial letters of good hands.",
+     "definitionFit": "Longish means rather long, so something longish is somewhat extended or spread out."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "capital"
+     "misdirectedWord": "hands"
     }
    }
   },

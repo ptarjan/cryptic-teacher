@@ -1227,38 +1227,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SHIA",
+     "op": "composite",
      "indicators": [
       {
        "text": "involved",
-       "note": "involved means tangled together, so the letters are jumbled"
+       "at": 21,
+       "note": "involved means tangled together, so the letters are rearranged into one another"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SHIA",
-       "indicators": [
-        {
-         "text": "with —",
-         "note": "the dash marks a blank, so the following words are taken out of the earlier letters"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Ismailian, he",
-         "note": "taken as written"
+         "words": "Ismailian",
+         "at": 0,
+         "note": "the word as written, part of the composite's letter pool"
         },
         {
+         "words": "he",
+         "at": 11,
+         "note": "the word as written, completing the pool"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "I am",
-         "note": "taken as written, to be removed"
+         "at": 16,
+         "note": "the words as written, letters set against the pool"
         },
         {
          "words": "line",
-         "note": "taken as written, to be removed"
+         "at": 37,
+         "note": "the word as written, more letters set against the pool"
         }
        ]
       }
@@ -1266,14 +1270,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "An Ismaili explains which branch of Islam he follows, leaving a blank for its name.",
-     "walkthrough": "A compound anagram: the letters of 'Ismailian, he' equal those of I AM, LINE and the answer together, so removing the first two leaves the answer's letters. The whole clue is the definition: Ismailis are a Shia branch.",
-     "definitionFit": "The Ismailis are a branch of Shia Islam, so an Ismaili would name Shia as the line he belongs to."
+     "surface": "A follower of the Ismaili sect describes himself as belonging to a particular line of faith, with a word left blank.",
+     "walkthrough": "A composite: the letters of I AM, the answer and LINE, mixed together ('involved'), make ISMAILIAN plus HE. Fill the dash with the answer and the clue is what an Ismaili might say.",
+     "definitionFit": "The Ismailis are a branch of Shia Islam, so an Ismaili believer is a member of that wider Muslim tradition."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "line"
+     "misdirectedWord": "involved"
     }
    }
   },

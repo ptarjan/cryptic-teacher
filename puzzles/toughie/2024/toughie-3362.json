@@ -817,38 +817,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MOOTED",
-     "indicators": [
-      {
-       "text": "sprays",
-       "note": "spray scatters things about, so the remaining letters are thrown into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MOOTED",
+       "words": "low",
+       "at": 9,
+       "gives": "MOO",
+       "note": "to low is to moo, as cattle do"
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
+         "text": "sprays",
+         "at": 18,
+         "note": "sprays suggests letters scattered about, so the word tide is jumbled"
+        },
+        {
          "text": "without",
-         "note": "without means lacking, so a letter is dropped from the word before it"
+         "at": 25,
+         "note": "without means the current's letter is left out of the jumble"
         }
        ],
        "parts": [
         {
-         "words": "low",
-         "gives": "MOO",
-         "note": "to low is to moo like cattle"
-        },
-        {
          "words": "tide",
-         "note": "taken as written"
+         "at": 13,
+         "note": "the word as written, the fodder"
         },
         {
          "words": "current",
+         "at": 33,
          "gives": "I",
          "note": "I is the symbol for electric current"
         }
@@ -857,9 +856,9 @@
      ]
     },
     "explanation": {
-     "surface": "A shallow tide throwing up spray when there is no current flowing.",
-     "walkthrough": "'Low' looks like an adjective for the tide, but it is the verb for what cattle do.",
-     "definitionFit": "Mooted means raised for debate or argued over, so a mooted point is a disputed one."
+     "surface": "An argument over the water's ebb, spraying the shore with no current running.",
+     "walkthrough": "A composite: jumble tide ('sprays') but 'without' the letter for current, giving TED after the cow's call. I is the physics symbol for current.",
+     "definitionFit": "To moot a point is to raise it for debate, so a mooted question is one argued over."
     },
     "features": {
      "answerInScene": false,
@@ -1058,41 +1057,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ECLECTIC",
-     "indicators": [
-      {
-       "text": "backing",
-       "note": "backing means going backwards, so the abbreviation before it is read from the end"
-      },
-      {
-       "text": "first half over",
-       "note": "turned over means flipped, so only the opening half of the team's name is written backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "church",
-       "gives": "CE",
-       "note": "CE is the Church of England"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 13,
+         "note": "backing means the church's letters are read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "church",
+         "at": 6,
+         "gives": "CE",
+         "note": "CE is Church of England"
+        }
+       ]
       },
       {
-       "words": "Glasgow team",
-       "gives": "CELTIC",
-       "note": "Celtic is a Glasgow football club"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "first half over",
+         "at": 35,
+         "note": "first half over means the front half of the team's name is turned over, read backwards, while the rest stays"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Glasgow team",
+         "at": 21,
+         "gives": "CELTIC",
+         "note": "Celtic, the Glasgow football club"
+        },
+        {
+         "gives": "CEL"
+        },
+        {
+         "gives": "LEC"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A broad church supporting a Glasgow football side, with the first half done.",
-     "walkthrough": "'Broad church' looks like one phrase but splits: broad is the definition. Celtic's first half CEL is reversed, TIC kept.",
-     "definitionFit": "Eclectic means drawing on a wide range of sources, so broad in scope or taste."
+     "surface": "A broad-minded church is supporting a Glasgow football side, which is ahead at half-time.",
+     "walkthrough": "Church 'backing' gives EC. Celtic is a Glasgow football club; 'first half over' flips only its first half, so the name becomes LECTIC.",
+     "definitionFit": "Eclectic means drawing on a broad range of sources, wide-ranging in taste."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "church"
+     "misdirectedWord": "Broad"
     }
    }
   },
