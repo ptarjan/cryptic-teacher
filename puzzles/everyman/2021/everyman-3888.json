@@ -353,46 +353,61 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "HEAVEHO",
+     "op": "charade",
      "indicators": [
       {
-       "text": "becoming",
-       "note": "one thing becoming another means it is swapped out, so one letter is replaced by a different one"
+       "text": "'s next to",
+       "at": 2,
+       "note": "is next to means the following pieces are placed alongside, one after the other"
       }
      ],
      "parts": [
       {
-       "words": "He's",
+       "words": "He",
+       "at": 0,
        "gives": "HE",
-       "note": "taken as written, the 's meaning 'is'"
-      },
-      {
-       "words": "a",
        "note": "taken as written"
       },
       {
-       "words": "bar",
-       "gives": "VETO",
-       "note": "to veto something is to bar it"
+       "words": "a",
+       "at": 13,
+       "gives": "A"
       },
       {
-       "words": "temperature",
-       "gives": "T",
-       "note": "T is the abbreviation for temperature; this letter is replaced"
-      },
-      {
-       "words": "hot",
-       "gives": "H",
-       "note": "H is the abbreviation for hot, as on a tap"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "becoming",
+         "at": 32,
+         "note": "becoming signals that one letter turns into another in the word for bar"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bar",
+         "at": 15,
+         "gives": "VETO",
+         "note": "to bar something is to veto it, and a veto is a bar"
+        },
+        {
+         "words": "temperature",
+         "at": 20,
+         "gives": "T"
+        },
+        {
+         "words": "hot",
+         "at": 41,
+         "gives": "H",
+         "note": "H is the abbreviation for hot, as on taps"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man standing next to a pub counter, getting heated and being turned away.",
-     "walkthrough": "'Bar' suggests a pub, but it is a verb meaning forbid, and the temperature letter in it is the one that turns hot.",
-     "definitionFit": "Giving someone the heave-ho is an informal idiom for dismissing or throwing them out."
+     "surface": "A man stands at a pub bar, the heat rising, as he is turned away.",
+     "walkthrough": "Bar here is a verb meaning to forbid, giving VETO; 'temperature becoming hot' turns it into VEHO, and \"'s next to\" lines HE and A up before it.",
+     "definitionFit": "The heave-ho is an informal expression for a dismissal or being thrown out, so it means rejection."
     },
     "features": {
      "answerInScene": true,
@@ -828,48 +843,48 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "NEGOTIATOR",
      "indicators": [
       {
        "text": "Unhappy",
-       "note": "unhappy suggests being out of sorts, so the letters are put in a new order"
+       "at": 0,
+       "note": "unhappy letters are in a disturbed state, so they are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "NEGOTIATOR",
        "indicators": [
         {
          "text": "away twice",
-         "note": "sent away two times means two copies of that letter are taken out"
+         "at": 26,
+         "note": "away twice says the runs letter goes from the word on two occasions"
         }
        ],
        "parts": [
         {
          "words": "interrogator",
+         "at": 8,
          "note": "taken as written"
         },
         {
          "words": "runs",
-         "gives": "R",
-         "note": "R is the cricket abbreviation for runs; it is removed twice"
+         "at": 21,
+         "gives": "RR",
+         "note": "R is the cricket abbreviation for runs; twice means two of them"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A miserable questioner flees twice and ends up as an envoy.",
-     "walkthrough": "'Twice' means two of the three R's in the questioner go, and the ten letters left are rearranged.",
-     "definitionFit": "A negotiator conducts discussions to reach agreement, which is central to the work of an envoy or diplomat."
+     "surface": "An interrogator, fed up, flees twice and turns to a career in diplomacy.",
+     "walkthrough": "'runs away twice' removes two Rs from INTERROGATOR, leaving INTEOGATOR; 'Unhappy' then rearranges those ten letters.",
+     "definitionFit": "A negotiator works out agreements between parties, which is the essential job of a diplomat."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "runs"
+     "misdirectedWord": "Unhappy"
     }
    }
   },
@@ -943,59 +958,90 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "ingested",
+       "at": 58,
+       "note": "ingested means taken inside, so these letters go into the middle of the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "out",
-         "note": "out suggests being put out of order, so the letters are rearranged"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Dine",
-         "note": "taken as written"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "IB",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "the starters of",
-           "note": "starters come first, so just the opening letter of each word is used"
+           "text": "out",
+           "at": 5,
+           "note": "out means the letters are put out of their order, so rearranged"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "intestines and brains",
-           "gives": "IB",
-           "select": "first",
-           "note": "the first letters of the two organs"
+           "words": "Dine",
+           "at": 0,
+           "note": "taken as written"
           }
          ]
+        },
+        {
+         "words": "in France: the",
+         "at": 9,
+         "gives": "LE",
+         "note": "le is French for the"
         }
        ]
       },
       {
-       "words": "in France: the",
-       "gives": "LE",
-       "note": "le is French for the"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "and",
+         "at": 47,
+         "note": "and simply joins the two picked letters together, one after the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "starters of",
+           "at": 24,
+           "note": "starters are what open a meal, so the starters of words are their opening letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "intestines",
+           "at": 36,
+           "note": "first letter I"
+          }
+         ]
+        },
+        {
+         "words": "brains",
+         "at": 51,
+         "gives": "B",
+         "note": "B is the starter, the first letter, of brains, the same instruction carried over"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French restaurant meal of offal starters that turns out to be inedible.",
-     "walkthrough": "'In France: the' gives the French article; 'ingested' just carries the eating picture along.",
-     "definitionFit": "Something inedible cannot be eaten, which is the same as being unsuitable to consume."
+     "surface": "Eating out in France, the offal starters of intestines and brains prove inedible.",
+     "walkthrough": "The surface reads as a grim French menu, but France only supplies the French article; the two starters are slipped between the rearranged DINE and that article.",
+     "definitionFit": "Something inedible cannot be eaten, which is exactly what unfit for consumption says."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Dine"
+     "joke": "pun",
+     "misdirectedWord": "starters"
     }
    }
   },
@@ -1241,43 +1287,43 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "AGNUSDEI",
      "indicators": [
       {
        "text": "moving",
-       "note": "moving means shifting position, so the remaining letters change places"
+       "at": 25,
+       "note": "moving letters are shifted about into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "AGNUSDEI",
        "indicators": [
         {
          "text": "to ignore",
-         "note": "to ignore something is to leave it out, so that letter is dropped"
+         "at": 5,
+         "note": "to ignore something is to leave it out, so the letter goes"
         }
        ],
        "parts": [
         {
-         "words": "Hard",
-         "gives": "H",
-         "note": "H is the pencil-grade abbreviation for hard"
+         "words": "anguished",
+         "at": 15,
+         "note": "taken as written"
         },
         {
-         "words": "anguished",
-         "note": "taken as written"
+         "words": "Hard",
+         "at": 0,
+         "gives": "H",
+         "note": "H is the abbreviation for hard, as on pencils"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "It is difficult to disregard a heartfelt, emotional prayer.",
-     "walkthrough": "'Moving' looks like an adjective for the prayer, but it is the anagram signal.",
-     "definitionFit": "The Agnus Dei, Latin for Lamb of God, is a prayer said or sung during the Mass."
+     "surface": "An anguished, moving prayer that is hard to disregard.",
+     "walkthrough": "'Hard to ignore' drops the H from ANGUISHED, giving ANGUISED; 'moving' then rearranges those letters. 'moving' looks like an adjective for the prayer but is the anagram signal.",
+     "definitionFit": "The Agnus Dei ('Lamb of God') is a Christian prayer said or sung in the Mass."
     },
     "features": {
      "answerInScene": true,

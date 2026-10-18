@@ -101,43 +101,44 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "EASY",
+     "indicators": [
+      {
+       "text": "cycling",
+       "at": 30,
+       "note": "cycling means letters are rotated round from one end of the word to the other"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "indicators": [
         {
-         "text": "ultimately",
-         "note": "the ultimate letter of a word is its last"
-        },
-        {
-         "text": "cycling",
-         "note": "letters go round: the first letter moves to the end"
+         "text": "stops",
+         "at": 24,
+         "note": "stops means this letter closes off the other piece, coming at its end"
         }
        ],
        "parts": [
         {
          "words": "old agreement",
-         "gives": "EAY",
-         "note": "YEA, an old word for yes, with its Y cycled to the back"
+         "at": 38,
+         "gives": "YEA",
+         "note": "yea is an old word for yes, a vote of agreement"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "S",
          "indicators": [
           {
-           "text": "stops"
+           "text": "ultimately",
+           "at": 13,
+           "note": "ultimately points to the final letter of the word before it"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Minds ultimately",
-           "gives": "S",
-           "select": "last",
-           "note": "last letter of Minds, which goes inside the cycled word"
+           "words": "Minds",
+           "at": 7,
+           "note": "last letter S"
           }
          ]
         }
@@ -146,15 +147,14 @@
      ]
     },
     "explanation": {
-     "surface": "Simple Minds, the Scottish rock band, stopping touring by bike for some old contract.",
-     "walkthrough": "Simple Minds is a 1980s Scottish band, but the clue splits the name: 'Simple' is the definition and 'Minds' only gives its S, which stops the gap in EA…Y.",
-     "definitionFit": "Easy and simple both mean not difficult."
+     "surface": "Simple Minds, the Scottish band, finally quit touring and break an old deal.",
+     "walkthrough": "Simple Minds is a Scottish rock band, which hides the definition. The S at the end of Minds 'stops' YEA, giving YEAS; 'cycling' moves the Y round to the back.",
+     "definitionFit": "Something easy is straightforward and needs no effort, which is what simple means here."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "cycling"
+     "aptDefinition": true,
+     "misdirectedWord": "Simple"
     }
    }
   },
@@ -403,47 +403,47 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "CALAMARI",
      "indicators": [
       {
        "text": "manoeuvring",
-       "note": "the letters of 'racial' are moved about"
+       "at": 28,
+       "note": "manoeuvring means moving around, so these letters are shuffled into a new order"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
          "text": "uncovered",
-         "note": "the cover, the outer letters, of 'Game' is taken off"
+         "at": 11,
+         "note": "uncovered means the word loses its covers, its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "racial",
-         "note": "anagram of RACIAL, split to take the next piece: CAL…ARI"
-        },
-        {
-         "words": "Game uncovered",
-         "gives": "AM",
-         "note": "the inside of 'Game' once its outer letters are stripped, set in the middle of the rearranged letters"
+         "words": "Game",
+         "at": 6,
+         "note": "inner letters AM"
         }
        ]
+      },
+      {
+       "words": "racial",
+       "at": 21,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A remark about the racial politics in the television drama Squid Game.",
-     "walkthrough": "Squid Game is printed in italics as the TV show, but the title is split: 'Squid' alone is the definition.",
-     "definitionFit": "Calamari is squid, especially served as food."
+     "surface": "A nod to the TV drama Squid Game, its racial politics unmasked and argued over.",
+     "walkthrough": "Squid Game is a Korean TV drama, so 'Squid' seems part of a title; it alone is the definition. 'Game uncovered' gives AM, which joins RACIAL to be rearranged.",
+     "definitionFit": "Calamari is squid prepared as food, usually in battered rings, the Italian word for squid."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Game"
+     "aptDefinition": false,
+     "misdirectedWord": "Squid"
     }
    }
   },
@@ -474,45 +474,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INLAWS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 26,
+       "note": "around means the rearranged letters sit on either side of this one"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "violently",
-         "note": "the letters of 'slain' are thrown about"
-        },
-        {
-         "text": "around"
+         "at": 16,
+         "note": "violently means roughly thrown about, so these letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "slain",
-         "note": "anagram of SLAIN, opened up to take the W"
-        },
-        {
-         "words": "west",
-         "gives": "W",
-         "note": "W = west, the compass point"
+         "at": 10,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "west",
+       "at": 33,
+       "gives": "W",
+       "note": "W is the compass abbreviation for west"
       }
      ]
     },
     "explanation": {
-     "surface": "A family feud: relatives killed violently somewhere out west.",
-     "walkthrough": "The murderous surface has 'relations' as victims; they are just the definition.",
-     "definitionFit": "Relations here means relatives, and in-laws are relatives acquired through marriage."
+     "surface": "Relatives brutally murdered somewhere out in the west.",
+     "walkthrough": "'slain violently' rearranges SLAIN to INLAS, and 'around' puts that round W for west.",
+     "definitionFit": "In-laws are relatives by marriage, a family connection such as a mother-in-law or brother-in-law."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "slain"
+     "misdirectedWord": "Relations"
     }
    }
   },
@@ -590,32 +594,37 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "OAKY",
+     "op": "substitution",
      "indicators": [
       {
        "text": "internally upset",
-       "note": "only the inside letters, KA, are turned over"
+       "at": 17,
+       "note": "internally upset means the inner letters are overturned, read the other way round, while the ends stay put"
       }
      ],
      "parts": [
       {
        "words": "fine",
+       "at": 7,
        "gives": "OKAY",
-       "note": "okay = fine; its two middle letters are the ones turned round"
+       "note": "okay means fine, all right"
+      },
+      {
+       "gives": "KA"
+      },
+      {
+       "gives": "AK"
       }
      ]
     },
     "explanation": {
-     "surface": "A business reassuring everyone it is fine despite internal turmoil.",
-     "walkthrough": "'Firm' reads as a company; it is the adjective, hard as oak.",
-     "definitionFit": "Oaky means like oak, and so hard and firm."
+     "surface": "A company is in good shape, though in-house there has been upheaval.",
+     "walkthrough": "'Firm' suggests a company but is an adjective for hard like oak. OKAY with its inside 'upset' turns KA around to AK.",
+     "definitionFit": "Oaky means like oak, and oak is proverbially hard, so here oaky stands for hard and solid."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "Firm"
     }
    }
@@ -927,47 +936,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "not wrapped",
-       "note": "the word's wrapping, its outer letters, is removed"
+       "text": "in",
+       "at": 21,
+       "note": "in means these letters go inside the waxy thing"
       }
      ],
      "parts": [
       {
        "words": "something waxy",
+       "at": 24,
        "gives": "CANDLE",
-       "note": "a candle, split to hold the next piece: CAN…DLE"
+       "note": "a candle is made of wax"
       },
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "OO",
+       "op": "middle",
        "indicators": [
         {
-         "text": "in",
-         "note": "the result goes inside the candle"
+         "text": "not wrapped",
+         "at": 9,
+         "note": "not wrapped means the outer letters, its wrapping, are removed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "food not wrapped",
-         "gives": "OO",
-         "select": "outer",
-         "note": "fOOd without its first and last letters, placed within the waxy thing"
+         "words": "food",
+         "at": 4,
+         "note": "inner letters OO"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Pet food served without packaging, packed in a waxy coating.",
-     "walkthrough": "'Pet food' is a false pair: 'Pet' is the verb to cuddle and 'food' is just letters.",
-     "definitionFit": "Pet is used as the verb meaning to kiss and cuddle, and canoodle is an informal synonym for that."
+     "surface": "Pet food served loose, not packaged, inside a waxy container.",
+     "walkthrough": "'Pet' looks like an animal but is a verb, to fondle. 'food not wrapped' leaves OO, which goes in CANDLE.",
+     "definitionFit": "To canoodle is to kiss and cuddle amorously, and to pet is to caress in the same way."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Pet"
     }
    }
@@ -1080,41 +1087,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BYGONE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involves",
+       "at": 16,
+       "note": "involves means the farewell word holds the other piece inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "farewell",
+       "at": 7,
+       "gives": "BYE",
+       "note": "bye is a word of farewell"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "involves",
-         "note": "the farewell wraps round the drink"
-        },
-        {
          "text": "lifting",
-         "note": "in a down clue, lifting turns a word upward, so it reads backwards"
+         "at": 25,
+         "note": "lifting in a down clue means raising the word up, so it reads from bottom to top"
         }
        ],
        "parts": [
         {
-         "words": "farewell",
-         "gives": "BYE",
-         "note": "bye = goodbye, split to hold the drink: BY…E"
-        },
-        {
          "words": "drink",
-         "gives": "GON",
-         "note": "nog, an eggy or strong drink, turned upward and placed within the farewell"
+         "at": 33,
+         "gives": "NOG",
+         "note": "nog is a drink, as in eggnog, or a strong ale"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Saying goodbye to a former colleague involves raising a glass.",
-     "walkthrough": "'Lifting drink' looks like a toast at a leaving party; in a down entry it reverses NOG.",
-     "definitionFit": "Former and bygone are plain synonyms, both meaning belonging to the past."
+     "surface": "A goodbye to the past that includes raising a glass.",
+     "walkthrough": "'lifting' turns NOG upwards to GON in this down clue, and BYE 'involves' it.",
+     "definitionFit": "Bygone describes something from times past, so it is a synonym of former."
     },
     "features": {
      "answerInScene": true,
@@ -1573,46 +1584,44 @@
      "indicators": [
       {
        "text": "spanning",
-       "note": "the tax stretches across the other piece"
+       "at": 13,
+       "note": "spanning means the tax word stretches across and around the other letters"
       }
      ],
      "parts": [
       {
        "words": "tax",
+       "at": 9,
        "gives": "EXCISE",
-       "note": "excise duty, a tax; split: EX…CISE"
+       "note": "excise is a tax on goods made at home"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "ER",
        "indicators": [
         {
          "text": "off and on",
-         "note": "letters are skipped and taken in turn"
+         "at": 29,
+         "note": "off and on means taking letters only every other time, skipping the rest"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "years, off and on",
-         "gives": "ER",
-         "select": "alternate",
-         "note": "yEaRs, every other letter, which the tax spans"
+         "words": "years",
+         "at": 22,
+         "note": "alternate letters E and R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Calculating a tax that runs across several years, on and off.",
-     "walkthrough": "'Work out' looks like calculating the tax; it is the definition, meaning to exercise.",
-     "definitionFit": "Work out is the gym sense, and exercise as a verb means the same physical training."
+     "surface": "Calculate a tax bill that covers several years, intermittently.",
+     "walkthrough": "'Work out' looks like doing a sum, but the answer is physical training. 'years, off and on' gives ER, and EXCISE is 'spanning' it.",
+     "definitionFit": "To exercise is to do physical training, which is exactly what to work out means in a gym."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "Work"
     }
    }
