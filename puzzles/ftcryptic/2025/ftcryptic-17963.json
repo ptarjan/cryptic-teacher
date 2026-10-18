@@ -558,39 +558,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OPTIC",
-     "indicators": [
-      {
-       "text": "got rid of",
-       "note": "getting rid of something removes it, so those letters are taken out of the first word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Hope",
-       "note": "taken as written"
-      },
-      {
-       "words": "he",
-       "note": "taken as written, then removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "got rid of",
+         "at": 8,
+         "note": "got rid of says the letters of he are thrown out of the word hope"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hope",
+         "at": 0,
+         "note": "taken as written, before two letters go"
+        },
+        {
+         "words": "he",
+         "at": 5,
+         "gives": "HE",
+         "note": "taken as written: the letters removed"
+        }
+       ]
       },
       {
        "words": "spasm",
+       "at": 19,
        "gives": "TIC",
        "note": "a tic is an involuntary muscular spasm"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone hopes a man has shaken off a twitch in his eye.",
-     "definitionFit": "Optic is an adjective meaning relating to the eye or vision."
+     "surface": "Someone hoped a man had cured his twitching eyelid.",
+     "walkthrough": "'Hope' reads as a wish, but it is just the word whose H and E are removed; 'of the eye' is an adjectival definition.",
+     "definitionFit": "Optic is an adjective meaning relating to the eye or vision, as in the optic nerve."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "spasm"
+     "misdirectedWord": "Hope"
     }
    }
   },
@@ -1246,54 +1255,55 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "DANSEUR",
-     "indicators": [
-      {
-       "text": "cycles",
-       "note": "cycles means rotates, so the last letter moves round to the front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycles",
+         "at": 34,
+         "note": "cycles says the letters of and are rotated, the last letter moving round to the front"
+        }
+       ],
        "parts": [
         {
          "words": "and",
-         "gives": "DAN",
-         "note": "taken as written, then rotated"
-        },
+         "at": 30,
+         "note": "taken as written, before it is rotated"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "backwards",
-           "note": "backwards means the word is read from end to start"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Parisian streets",
-           "gives": "RUES",
-           "note": "rues are streets in French"
-          }
-         ]
+         "text": "backwards",
+         "at": 58,
+         "note": "backwards says the word for Parisian streets is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Parisian streets",
+         "at": 41,
+         "gives": "RUES",
+         "note": "rue is French for street, so Parisian streets are rues"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A performer gives a touching show and pedals backwards through the streets of Paris.",
-     "walkthrough": "'Moving performance' suggests emotion, but it is literal: a dancer moves.",
-     "definitionFit": "A danseur is a male ballet dancer, someone who performs through movement."
+     "surface": "A performer gives a touching show and then bikes through Paris in reverse.",
+     "walkthrough": "'cycles' looks like riding a bike through Paris; it rotates AND into DAN, and 'backwards' turns RUES into SEUR. 'moving' means the dancer moves, not that he is touching.",
+     "definitionFit": "A danseur is a male ballet dancer, and dancing is a performance made of movement."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "moving"
+     "misdirectedWord": "cycles"
     }
    }
   },
@@ -1765,37 +1775,35 @@
      "indicators": [
       {
        "text": "after breaking up",
-       "note": "splitting the first word into two parts lets each half be read on its own"
+       "at": 30,
+       "note": "breaking up says the one clue word cowboy is split into its two halves, each of which could become another word"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Cowboy",
-       "note": "the whole word, which is broken into its two halves below"
-      },
-      {
        "words": "Cow",
+       "at": 0,
        "gives": "LOWER",
-       "note": "a cow lows, so it is a lower"
+       "note": "the first half of cowboy once it is broken up: a cow is something that lows, a lower"
       },
       {
        "words": "boy",
+       "at": 3,
        "gives": "ED",
-       "note": "Ed, a boy's name"
+       "note": "the second half of cowboy: Ed is a boy's name"
       }
      ]
     },
     "explanation": {
-     "surface": "A cowhand might get gloomy after a romance ends.",
-     "walkthrough": "'Cowboy' must be split: a cow is something that lows, and Ed is a boy.",
-     "definitionFit": "Lowered means brought down, as spirits or mood are when depressed."
+     "surface": "A cowhand might grow gloomy after a relationship ends.",
+     "walkthrough": "'breaking up' sounds like a romance ending, but it tells you to split the cowboy in two; 'could become' then turns each half into something it can be called, the cow by the noise it makes.",
+     "definitionFit": "Lowered can mean dejected or brought down in spirits, so it works as a synonym of depressed."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "Cowboy"
+     "misdirectedWord": "breaking"
     }
    }
   },

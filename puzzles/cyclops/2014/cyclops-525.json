@@ -684,54 +684,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BRIBERY",
-     "indicators": [
-      {
-       "text": "composition",
-       "note": "a composition is something put together, so the letters are arranged afresh"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "BRIBERY",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "for",
-         "note": "one thing for another means swapping it in place of the other"
+         "text": "composition",
+         "at": 7,
+         "note": "a composition is something put together, so the altered letters are composed into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Bieber",
-         "note": "the pop singer's name, taken as written"
-        },
-        {
-         "words": "Right",
-         "gives": "R",
-         "note": "R is the usual abbreviation for right"
-        },
-        {
-         "words": "Ecstasy",
-         "gives": "E",
-         "note": "E is slang for the drug ecstasy"
-        },
-        {
-         "words": "unknown",
-         "gives": "Y",
-         "note": "in algebra y is an unknown quantity"
+         "op": "substitution",
+         "indicators": [
+          {
+           "text": "for",
+           "at": 26,
+           "note": "'Right for Ecstasy' says the letter for right replaces one letter for ecstasy in the pop star's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Bieber",
+           "at": 0
+          },
+          {
+           "words": "Ecstasy",
+           "at": 30,
+           "gives": "E",
+           "note": "E is the drug slang abbreviation for ecstasy"
+          },
+          {
+           "words": "Right",
+           "at": 20,
+           "gives": "R"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "unknown",
+       "at": 41,
+       "gives": "Y",
+       "note": "y is one of the algebraic unknowns, x, y and z"
       }
      ]
     },
     "explanation": {
-     "surface": "A Justin Bieber song title, then a jibe about how to get the police on your side.",
-     "walkthrough": "One E in the singer's name becomes R, the result is jumbled, and Y follows. The Met is London's Metropolitan Police, whose officers were embroiled in a payments-for-stories scandal.",
-     "definitionFit": "Paying off officers is a corrupt method of securing their help; the question mark marks the satirical swipe at the police."
+     "surface": "A satirical song title by Justin Bieber about drugs, tied to police corruption.",
+     "walkthrough": "'Right for Ecstasy' swaps one E in BIEBER for R, giving BIEBRR, and 'composition' rearranges that to BRIBER. The Met is London's Metropolitan Police, and the question mark points at the Eye's tales of bent coppers.",
+     "definitionFit": "Bribery means paying someone to act improperly, a corrupt means of persuading police officers to help."
     },
     "features": {
      "answerInScene": false,

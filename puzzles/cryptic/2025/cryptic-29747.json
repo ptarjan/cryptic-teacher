@@ -457,35 +457,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AUTO",
-     "indicators": [
-      {
-       "text": "sheared off",
-       "note": "shearing trims away the edges, so the outermost letters are lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 10,
+       "gives": "A"
       },
       {
-       "words": "sofa bed",
-       "gives": "FUTON",
-       "note": "a futon is a mattress that folds into a sofa"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "sheared off",
+         "at": 21,
+         "note": "sheared off means clipped at both edges, so the word for sofa bed loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sofa bed",
+         "at": 12,
+         "gives": "FUTON",
+         "note": "a futon is a Japanese-style mattress that folds into a sofa, a sofa bed"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Castors on a sofa bed have been cut off.",
-     "walkthrough": "The futon loses its first and last letters, leaving UTO. 'Wheels' is informal slang for a car.",
-     "definitionFit": "Wheels is slang for a car, and auto is the informal American term for a motor car."
+     "surface": "Someone's car is parked inside a sofa bed whose ends have been sliced away.",
+     "walkthrough": "'Wheels' is slang for a car, and the definition; 'in' just joins it to the wordplay. Trimming FUTON at both ends leaves UTO.",
+     "definitionFit": "Auto is short for automobile, and wheels is informal for a car, so the two are slang synonyms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "absurd",
      "misdirectedWord": "Wheels"
     }
    }
@@ -1156,46 +1163,26 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARRANGER",
-     "indicators": [
-      {
-       "text": "pulled from",
-       "note": "pulling something out removes it, leaving the rest behind"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "arrives",
+       "at": 14,
        "gives": "ARR",
-       "note": "ARR is the timetable abbreviation for arrives"
+       "note": "arr is the timetable abbreviation for arrives"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "finally points to the last letter of the word before it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "rose",
-         "note": "the final letter of rose"
-        }
-       ]
-      },
-      {
-       "words": "wreath",
-       "note": "taken as written; without the E it becomes wrath, a synonym of anger"
+       "words": "rose finally pulled from wreath",
+       "at": 26,
+       "gives": "ANGER",
+       "note": "the last letter of rose is E, and pulling it from wreath leaves wrath, which means anger"
       }
      ]
     },
     "explanation": {
-     "surface": "A florist turns up, and the last rose is plucked from a funeral garland.",
-     "walkthrough": "Taking E out of WREATH leaves WRATH, which must then be swapped for its synonym ANGER to join ARR.",
-     "definitionFit": "A florist is one example of someone who arranges things, in this case composing displays of cut flowers."
+     "surface": "A florist turns up and the last rose is taken out of the wreath, perhaps to make it fit.",
+     "walkthrough": "This is a two-stage piece: removing E from WREATH gives WRATH, and wrath is another word for ANGER. The question mark marks florist as an example.",
+     "definitionFit": "A florist arranges flowers into bouquets and displays, so a florist is one kind of arranger."
     },
     "features": {
      "answerInScene": true,
