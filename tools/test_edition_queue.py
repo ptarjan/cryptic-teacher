@@ -235,17 +235,25 @@ check("eq.by_urgency: CT_NEWEST_FIRST unset leaves the order alone",
       ["gale-hand", "other", "gale-old-gain", "gale-new", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units)])
 os.environ["CT_NEWEST_FIRST"] = "gale, times"
-check("eq.by_urgency: CT_NEWEST_FIRST puts those papers first, likely-to-file ahead of the rest, newest first in each",
-      ["gale-old-gain", "gale-hand", "gale-new", "times-mid", "other"],
+check("eq.by_urgency: CT_NEWEST_FIRST puts those papers' likely filers first, another paper's never-read ahead of their rereads",
+      ["gale-old-gain", "gale-hand", "other", "gale-new", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units)])
 rr = lambda rel, date, reason, **k: (2, 0, 0, {"rel": rel, "date": date, "paper": "times", "rank": 2, "reason": reason, **k})
 check("eq.by_urgency: CT_NEWEST_FIRST, rank 2 rereads after a refusal or short read ahead of ones whose page holds the puzzle",
-      ["refused", "short", "never", "changed-new", "changed-old"],
+      ["refused", "never", "short", "changed-new", "changed-old"],
       [u["rel"] for u in eq.by_urgency([
           rr("changed-new", "2020", "inputs changed"),
           rr("short", "2010", "short Times page, its third clue column read since"),
           rr("changed-old", "2000", "inputs changed"),
           rr("refused", "2015", "refused no-reading-parses before its fix"),
+          (1, 0, 0, {"rel": "never", "date": "1990", "paper": "times", "rank": 1, "reason": "never read"})])])
+check("eq.by_urgency: CT_NEWEST_FIRST, a fix-landed reread after another paper's never-read, before other rereads",
+      ["never", "ft-never", "short", "changed", "ft-stale"],
+      [u["rel"] for u in eq.by_urgency([
+          rr("changed", "2020", "inputs changed"),
+          rr("short", "2010", "solution short, read by other code"),
+          (3, 1, 0, {"rel": "ft-stale", "date": "1985", "paper": "ft", "rank": 3, "reason": "scan stale"}),
+          (1, 1, 1, {"rel": "ft-never", "date": "1980", "paper": "ft", "rank": 1, "reason": "never read"}),
           (1, 0, 0, {"rel": "never", "date": "1990", "paper": "times", "rank": 1, "reason": "never read"})])])
 check("eq.newest_first: a named paper's unit, not rank 0", [True, False, False],
       [eq.newest_first(u) for u in (nf_units[1][3], nf_units[2][3], nf_units[3][3])])
