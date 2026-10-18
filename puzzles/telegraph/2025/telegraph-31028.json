@@ -1332,40 +1332,40 @@
      "parts": [
       {
        "words": "Odd",
+       "at": 0,
        "gives": "RUM",
-       "note": "rum is an old-fashioned word for strange"
+       "note": "rum is British slang for odd or peculiar"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "BA",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "first half",
-         "note": "first half means only the opening portion of the following word is kept"
+         "text": "first half to",
+         "at": 4,
+         "note": "only the first half of the word barn is kept, so its last two letters go"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "barn",
-         "gives": "BA",
-         "select": "first",
-         "note": "the first two of its four letters"
+         "at": 18
+        },
+        {
+         "gives": "RN"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A strange start to a country barn dance.",
-     "walkthrough": "'Barn dance' looks like one phrase; 'barn' is wordplay and 'dance' alone is the definition.",
-     "definitionFit": "This lively Cuban ballroom style is a well-known Latin dance."
+     "surface": "A peculiar opening section to a country barn dance.",
+     "walkthrough": "'Odd' is not the indicator it seems to be; it is the adjective RUM, British slang for strange. 'first half to barn' keeps BA, dropping RN.",
+     "definitionFit": "The rumba is a ballroom dance of Cuban origin, danced to a lively rhythm."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "barn"
+     "misdirectedWord": "Odd"
     }
    }
   },
@@ -1462,35 +1462,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SCRIBBLE",
      "indicators": [
       {
        "text": "must replace",
-       "note": "must replace says one letter takes another's place in the word"
+       "at": 2,
+       "note": "the letter I has to take the place of the American letter inside the game"
       }
      ],
      "parts": [
       {
-       "words": "I",
-       "note": "taken as written"
+       "words": "game",
+       "at": 27,
+       "gives": "SCRABBLE",
+       "note": "Scrabble is the board game of making words from letter tiles"
       },
       {
        "words": "American",
-       "gives": "A",
-       "note": "A is a common abbreviation for American"
+       "at": 15,
+       "gives": "A"
       },
       {
-       "words": "game",
-       "gives": "SCRABBLE",
-       "note": "the board game of building words from letter tiles"
+       "words": "I",
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to swap a player out of a game and leave in a hurry.",
-     "walkthrough": "In SCRABBLE, the A is swapped for I.",
-     "definitionFit": "To scribble is to write hastily, and to dash off a note means the same."
+     "surface": "An instruction to swap an American player out of a game, then hurry away.",
+     "walkthrough": "In SCRABBLE, the I 'must replace' the A for American, turning the game into a word for writing hurriedly.",
+     "definitionFit": "To scribble is to write something quickly and carelessly, as when you jot a note."
     },
     "features": {
      "answerInScene": false,

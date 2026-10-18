@@ -236,52 +236,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DATA",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "short",
-       "note": "short says the word for notice is cut down to an abbreviated form"
+       "text": "turned over",
+       "at": 40,
+       "note": "flipping the pair upside down in a down clue means reading the letters backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "turned over",
-         "note": "something turned over is upended, so the letters run the other way"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "at",
-           "note": "taken as written"
-          },
-          {
-           "words": "notice",
-           "gives": "AD",
-           "note": "an advertisement is a notice, and AD is its short form"
-          }
-         ]
+         "words": "at",
+         "at": 24
+        },
+        {
+         "words": "short notice",
+         "at": 27,
+         "gives": "AD",
+         "note": "an ad, short for advertisement, is a brief notice"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Figures handed over at the last minute get flipped around.",
-     "walkthrough": "AT + AD reads backwards as DATA.",
-     "definitionFit": "Data are facts and figures collected for analysis, the stuff of statistics."
+     "surface": "Figures are produced at the last moment and then handed over.",
+     "walkthrough": "'short notice' is a pun: not a notice given late but a notice whose name is shortened, AD from advertisement. 'turned over' reverses AT + AD.",
+     "definitionFit": "Figures and facts collected for analysis are what the word data refers to."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "notice"
+     "joke": "pun",
+     "misdirectedWord": "short"
     }
    }
   },
@@ -727,26 +717,29 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "TAPAS",
      "indicators": [
       {
+       "text": "Two portions of",
+       "at": 0,
+       "note": "the word pasta is cut into two parts, PAS and TA"
+      },
+      {
        "text": "exchanged",
-       "note": "exchanged means the two sections swap places with each other"
+       "at": 22,
+       "note": "the two parts swap places, so the back part comes to the front"
       }
      ],
      "parts": [
       {
-       "words": "Two portions of pasta",
-       "gives": "PASTA",
-       "note": "the word split into two sections, PAS and TA"
+       "words": "pasta",
+       "at": 16
       }
      ]
     },
     "explanation": {
-     "surface": "Two helpings of Italian pasta are traded for a Spanish meal.",
-     "walkthrough": "Swap the halves of PAS-TA to get TA-PAS.",
-     "definitionFit": "Tapas are small savoury dishes served in Spain, typically with drinks."
+     "surface": "Two helpings of pasta are swapped for a Spanish dish.",
+     "walkthrough": "Split 'pasta' into its 'Two portions' PAS and TA; when they are 'exchanged' you get TA then PAS.",
+     "definitionFit": "These small savoury snacks served with drinks are a classic dish of Spain."
     },
     "features": {
      "answerInScene": true,
@@ -813,35 +806,24 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "TEES",
-     "indicators": [
-      {
-       "text": "Sides of",
-       "note": "the sides of a word are its two edges, its first and last letters"
-      }
-     ],
+     "op": "rebus",
+     "reading": "T and T",
      "parts": [
       {
-       "op": "outer",
-       "parts": [
-        {
-         "words": "Trent",
-         "note": "the first and last letters of Trent are both T"
-        }
-       ]
+       "words": "Sides of Trent",
+       "at": 0,
+       "note": "the word Trent begins and ends with the letter T, so its two sides are Ts, written out as letter names (tee, tee)"
       }
      ]
     },
     "explanation": {
-     "surface": "The banks of the Trent, or of some other river in England.",
-     "walkthrough": "The two outer letters of Trent are a pair of Ts, spelt out as TEES. The Tees is a river in north-east England.",
-     "definitionFit": "The Tees is an English river other than the Trent, flowing to the North Sea at Middlesbrough."
+     "surface": "The banks of the Trent, or some other river in England.",
+     "walkthrough": "Trent is itself an English river, which is why the answer is the 'other' one; the 'sides' are not riverbanks but the end letters of the word.",
+     "definitionFit": "The Tees is a river in north-east England, reaching the sea at Middlesbrough."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Sides"
     }
