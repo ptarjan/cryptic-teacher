@@ -579,44 +579,68 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "Mostly a word is all of it bar the end, so the final letter comes off before anything else is done."
-      }
-     ],
      "parts": [
       {
-       "words": "Tries to win at tag",
-       "gives": "PLAYSIT",
-       "note": "in the children's game one child is 'it', and chasing the others is playing that role"
+       "words": "Tries to win at",
+       "at": 0,
+       "gives": "PLAYS",
+       "note": "to play a game is to try to win at it"
+      },
+      {
+       "words": "tag",
+       "at": 16,
+       "gives": "IT",
+       "note": "in the playground game of tag, the chaser is 'it'"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "around",
-         "note": "To go around something is to enclose it, so the piece just built opens up and the next one is set inside."
+         "at": 35,
+         "note": "around means the shortened word goes round the letter for yard"
         }
        ],
        "parts": [
         {
-         "words": "stands",
-         "gives": "BEAR",
-         "note": "to bear a thing is to stand it, put up with it, and the word arrives one letter short"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 21,
+           "note": "mostly means all but the last letter of the word for stands is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "stands",
+           "at": 28,
+           "gives": "BEARS",
+           "note": "stands in the sense of tolerates, bears"
+          },
+          {
+           "gives": "S"
+          }
+         ]
         },
         {
          "words": "yard",
-         "gives": "Y",
-         "note": "Y is the standing abbreviation for a yard of length"
+         "at": 42,
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The colon makes 'tag: mostly stands around' read as one scene in a playground, which hides the join. 'Stands' is the verb meaning tolerates, not the things spectators sit on.",
-     "definitionFit": "thinks on one's feet -> PLAYS IT BY EAR: a musician playing by ear works without written music, and the phrase came to mean improvising as you go."
+     "surface": "A child in a playground game of tag hangs about the yard working out what to do next.",
+     "walkthrough": "'mostly' trims BEARS to BEAR, and 'around' puts Y inside it to make BYEAR.",
+     "definitionFit": "To play it by ear is an idiom for improvising rather than following a plan, just as someone thinking on their feet does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tag"
     }
    }
   },
