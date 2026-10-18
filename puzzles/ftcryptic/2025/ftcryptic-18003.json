@@ -895,50 +895,55 @@
      "indicators": [
       {
        "text": "covering",
-       "note": "covering means one piece wraps around the others"
+       "at": 29,
+       "note": "covering means wrapped round, so the charts enclose the river pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "charts",
-         "gives": "MAPS",
-         "note": "maps are charts"
-        },
-        {
-         "words": "River",
-         "gives": "OUSE",
-         "note": "the Ouse is an English river"
-        }
-       ]
+       "words": "charts",
+       "at": 22,
+       "gives": "MAPS",
+       "note": "maps are charts"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "ends",
-         "note": "ends asks for the first and last letters of the word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Tiber's",
-         "gives": "TIBER",
-         "note": "outside letters"
+         "words": "River",
+         "at": 38,
+         "gives": "OUSE",
+         "note": "the Ouse is an English river"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "ends",
+           "at": 52,
+           "note": "ends are the first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Tiber's",
+           "at": 44,
+           "gives": "TIBER",
+           "note": "Tiber, the river through Rome"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Exterminators need maps that cover the Tiber from source to mouth.",
-     "definitionFit": "Mousetraps catch mice, so they are devices for controlling pests."
+     "surface": "Rodent catchers consult maps of the Tiber and its banks.",
+     "definitionFit": "Mousetraps are devices for catching mice, the household vermin."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "River"
     }
    }
