@@ -1177,35 +1177,50 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "DAILYDOZEN",
-     "indicators": [
-      {
-       "text": "switching variable",
-       "note": "switching one algebraic unknown for another swaps a single letter in the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Servant",
+       "at": 0,
        "gives": "DAILY",
-       "note": "a daily is a cleaner who comes in each day"
+       "note": "a daily is a cleaner who comes in each day, a servant"
       },
       {
-       "words": "most senior member",
-       "gives": "DOYEN",
-       "note": "the doyen is the senior member of a group"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "switching",
+         "at": 29,
+         "note": "one variable letter in the senior member is switched for another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "most senior member",
+         "at": 9,
+         "gives": "DOYEN",
+         "note": "the doyen is the most senior member of a group"
+        },
+        {
+         "gives": "Y"
+        },
+        {
+         "words": "variable",
+         "at": 39,
+         "gives": "Z",
+         "note": "z, like y, is a variable in algebra"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A servant, the eldest of the staff, varies their exercise routine.",
-     "walkthrough": "Y and Z are both letters used as variables in algebra, so one replaces the other in DOYEN.",
-     "definitionFit": "The daily dozen is a set of physical workouts done each morning to stay fit."
+     "surface": "A servant, the household's longest-serving member, swaps a variable while doing exercises.",
+     "walkthrough": "In DOYEN the variable Y is switched for the variable Z.",
+     "definitionFit": "The daily dozen is a set of physical exercises done each morning, a routine workout."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "variable"
     }
@@ -1480,63 +1495,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IWOJIMA",
+     "op": "container",
      "indicators": [
       {
-       "text": "reduced",
-       "note": "reduced means cut down, so letters are trimmed away"
+       "text": "clothing",
+       "at": 36,
+       "note": "the alternate letters clothe, that is wrap around, the short name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
        "indicators": [
         {
-         "text": "clothing",
-         "note": "clothing something wraps around it"
+         "text": "regularly",
+         "at": 15,
+         "note": "regularly means every other letter is taken"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "IWOA",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "doing something regularly means at even intervals, so every other letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "view local",
-           "gives": "IWOA",
-           "select": "alternate",
-           "note": "the even-placed letters of the two words"
-          }
-         ]
-        },
-        {
-         "words": "James",
-         "gives": "JIM",
-         "note": "Jim is a shortened form of James"
+         "words": "view local",
+         "at": 25
         }
        ]
+      },
+      {
+       "words": "James reduced",
+       "at": 45,
+       "gives": "JIM",
+       "note": "Jim is the shortened form of James"
       }
      ]
     },
     "explanation": {
-     "surface": "People on an island here regularly see locals wearing James's cut-down clothes.",
-     "walkthrough": "Take every second letter across both words, not just one. The definition works by pointing to the place where islanders live.",
-     "definitionFit": "Iwo Jima is a small Japanese volcanic island, famous for a Second World War battle, so where islanders are found."
+     "surface": "Islanders hereabouts regularly see local garments worn by a James cut down to size.",
+     "walkthrough": "'Islanders here' defines by place: the answer is where those islanders live. The Battle of Iwo Jima was fought there in 1945.",
+     "definitionFit": "Iwo Jima is a Pacific island, so its islanders are found there."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "local"
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clothing"
     }
    }
   },
@@ -1726,47 +1726,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNTYPICAL",
-     "indicators": [
-      {
-       "text": "Two-thirds of",
-       "note": "taking two of three parts means a third is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Two-thirds of",
+         "at": 0,
+         "note": "keeping two-thirds of the bar's six letters means dropping its first two"
+        }
+       ],
        "parts": [
         {
          "words": "chocolate bar",
-         "gives": "UNTY",
-         "note": "Bounty is a coconut chocolate bar; its last four letters"
+         "at": 14,
+         "gives": "BOUNTY",
+         "note": "Bounty is a coconut-filled chocolate bar"
         },
         {
-         "words": "magpie",
-         "gives": "PICA",
-         "note": "Pica is the magpie's genus name"
-        },
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "the abbreviation for left"
+         "gives": "BO"
         }
        ]
+      },
+      {
+       "words": "magpie",
+       "at": 28,
+       "gives": "PICA",
+       "note": "Pica is the magpie's scientific genus name"
+      },
+      {
+       "words": "left",
+       "at": 35,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A magpie made off with part of a chocolate bar left outside.",
-     "walkthrough": "'Out there' looks like a location but means unconventional.",
-     "definitionFit": "Something out there is weird or unconventional, so it is not representative of the norm."
+     "surface": "A magpie flying off with most of a chocolate bar left outdoors.",
+     "walkthrough": "Two-thirds of BOUNTY is UNTY.",
+     "definitionFit": "Out there is slang for unconventional or strange, which is what untypical means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "there"
+     "misdirectedWord": "magpie"
     }
    }
   },

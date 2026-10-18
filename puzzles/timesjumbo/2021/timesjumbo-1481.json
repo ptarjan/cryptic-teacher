@@ -1044,12 +1044,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SCHARNHORST",
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the letters before it are placed around what follows"
+       "at": 23,
+       "note": "the outer pieces go about the article and the navy, with them inside"
       }
      ],
      "parts": [
@@ -1058,40 +1057,49 @@
        "parts": [
         {
          "words": "School",
-         "gives": "SCH",
-         "note": "SCH is the abbreviation for school"
+         "at": 0,
+         "gives": "SCH"
         },
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "novel",
-           "note": "novel means new, so the letters of the word before it take a new form"
+           "at": 17,
+           "note": "novel means new, so the letters of short take a new order"
           }
          ],
          "parts": [
           {
-           "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "Royal Navy",
-           "gives": "RN",
-           "note": "RN is the abbreviation for Royal Navy"
-          },
-          {
            "words": "short",
-           "note": "taken as written"
+           "at": 11
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 29,
+         "gives": "A"
+        },
+        {
+         "words": "Royal Navy",
+         "at": 31,
+         "gives": "RN",
+         "note": "RN is the Royal Navy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A school reads a short novel about a naval battleship lost in the war.",
-     "definitionFit": "The Scharnhorst was a German battleship sunk by the Royal Navy at the Battle of the North Cape in December 1943."
+     "surface": "A school owns a short novel about a Royal Navy warship lost in the war.",
+     "walkthrough": "'novel' looks like the book the school has, but it is an adjective meaning new, the mixing signal for 'short'.",
+     "definitionFit": "The Scharnhorst was a German battleship sunk by the Royal Navy at the Battle of North Cape in December 1943."
     },
     "features": {
      "answerInScene": true,
@@ -2294,62 +2302,65 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GREENGROCER",
      "indicators": [
       {
        "text": "accepted by",
-       "note": "something accepted by another is taken inside it"
+       "at": 17,
+       "note": "the gram letter is taken in by the naïve youth, sitting inside the combined words"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "wanting",
-         "note": "wanting means lacking, so the letter that follows is removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "naïve",
-           "gives": "GREEN",
-           "note": "green means inexperienced"
-          },
-          {
-           "words": "gram",
-           "gives": "G",
-           "note": "G is the abbreviation for gram"
-          },
-          {
-           "words": "leather-clad youth",
-           "gives": "ROCKER",
-           "note": "rockers were 1960s British bikers in leather jackets"
-          }
-         ]
+         "words": "naïve",
+         "at": 29,
+         "gives": "GREEN",
+         "note": "green means inexperienced or naïve"
         },
         {
-         "words": "kilos",
-         "gives": "K",
-         "note": "K is short for kilos"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "wanting",
+           "at": 54,
+           "note": "wanting means lacking, so the letter for kilos is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "leather-clad youth",
+           "at": 35,
+           "gives": "ROCKER",
+           "note": "a rocker was a 1960s British youth in a leather jacket, on a motorbike"
+          },
+          {
+           "words": "kilos",
+           "at": 62,
+           "gives": "K",
+           "note": "K is short for kilo"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "gram",
+       "at": 12,
+       "gives": "G",
+       "note": "g is the symbol for gram"
       }
      ]
     },
     "explanation": {
-     "surface": "A naive biker sells grams but has run out of kilos.",
-     "walkthrough": "Gram is also a pulse such as chickpea, which a greengrocer might sell.",
-     "definitionFit": "A greengrocer is a shopkeeper selling fruit and vegetables, so a supplier of fresh produce."
+     "surface": "A naïve leather-jacketed youth accepting a gram while short of kilos, like a dealer.",
+     "walkthrough": "'wanting' takes K out of ROCKER, giving ROCER.",
+     "definitionFit": "A greengrocer sells fruit and vegetables, so is a supplier of produce."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "gram"
     }
    }

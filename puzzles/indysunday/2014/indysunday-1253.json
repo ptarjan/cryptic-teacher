@@ -290,36 +290,48 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TENCH",
      "indicators": [
       {
-       "text": "when penultimate is caught",
-       "note": "the second-to-last letter is replaced, with the cricket abbreviation for caught taking its place"
+       "text": "when",
+       "at": 19,
+       "note": "when here sets the condition under which the letter is swapped"
+      },
+      {
+       "text": "is",
+       "at": 36,
+       "note": "is joins the letter to its replacement: the penultimate is now the caught letter"
       }
      ],
      "parts": [
       {
        "words": "one decimated",
+       "at": 5,
        "gives": "TENTH",
        "note": "decimating takes one in ten, so one decimated is a tenth"
       },
       {
+       "words": "penultimate",
+       "at": 24,
+       "gives": "T",
+       "note": "the last letter but one, here the second T"
+      },
+      {
        "words": "caught",
+       "at": 39,
        "gives": "C",
-       "note": "c is the cricket scorecard abbreviation for caught"
+       "note": "C is the cricket scorecard abbreviation for caught"
       }
      ]
     },
     "explanation": {
-     "surface": "A fish population is cut by a tenth when the second-last one gets hooked.",
-     "walkthrough": "The penultimate T of TENTH gives way to C.",
-     "definitionFit": "The tench is a European freshwater fish of the carp family."
+     "surface": "A fish population thinned out by a tenth, with the second-last one landed.",
+     "walkthrough": "Replace the last-but-one letter of TENTH with C.",
+     "definitionFit": "The tench is a freshwater fish of the carp family, common in European ponds."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "caught"
+     "misdirectedWord": "decimated"
     }
    }
   },
@@ -821,7 +833,8 @@
      "indicators": [
       {
        "text": "backed",
-       "note": "backed means going backwards, so the following words are read in reverse"
+       "at": 9,
+       "note": "backed means the whole assembly is read from the end to the start"
       }
      ],
      "parts": [
@@ -830,37 +843,36 @@
        "indicators": [
         {
          "text": "in",
-         "note": "the earlier letters are placed inside the church abbreviation"
+         "at": 41,
+         "note": "the three pieces go inside the church abbreviation"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "church",
-           "gives": "CH",
-           "note": "CH is the usual abbreviation for church; it is split open"
-          },
-          {
-           "words": "nothing",
-           "gives": "O",
-           "note": "zero, nothing, looks like the letter O"
-          }
-         ]
+         "words": "church",
+         "at": 44,
+         "gives": "CH"
         },
         {
          "op": "charade",
          "parts": [
           {
            "words": "when",
+           "at": 16,
            "gives": "IF",
-           "note": "if can mean when, as in 'if it rains'"
+           "note": "if can mean when, as in 'if it rains, stay in'"
           },
           {
            "words": "press",
+           "at": 21,
            "gives": "IRON",
            "note": "to iron clothes is to press them"
+          },
+          {
+           "words": "nothing",
+           "at": 33,
+           "gives": "O",
+           "note": "O looks like zero, nothing"
           }
          ]
         }
@@ -869,13 +881,13 @@
      ]
     },
     "explanation": {
-     "surface": "A clergyman retreats when the newspapers find nothing scandalous in his church.",
-     "walkthrough": "'press' suggests the newspapers, but it is the verb for ironing; 'backed' turns 'when press' round as one string.",
-     "definitionFit": "Reverend is a courtesy title given to clergy, so it is an example of an honorific."
+     "surface": "A clergyman retreats when the newspapers discover nothing going on in his church.",
+     "walkthrough": "'press' looks like the newspapers, but it means IRON. C(IF IRON O)H read backwards gives the answer.",
+     "definitionFit": "Reverend is a title of respect placed before a clergyman's name, which is exactly what an honorific is."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "press"
     }
    }
@@ -1391,47 +1403,59 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "CAPTIVATE",
-     "indicators": [
-      {
-       "text": "having time for queen",
-       "note": "having one thing for another means a swap, so one letter replaces another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "about",
+       "at": 6,
        "gives": "CA",
-       "note": "ca. abbreviates circa, about"
+       "note": "ca is short for circa, Latin for about"
       },
       {
-       "words": "soldier",
-       "gives": "PRIVATE",
-       "note": "a private is a soldier of the lowest rank"
-      },
-      {
-       "words": "time",
-       "gives": "T",
-       "note": "T is the abbreviation for time"
-      },
-      {
-       "words": "queen",
-       "gives": "R",
-       "note": "R for Regina, queen; this letter is swapped out"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "having",
+         "at": 20,
+         "note": "the soldier having one letter in place of another means his letters are altered by a swap"
+        },
+        {
+         "text": "for",
+         "at": 32,
+         "note": "time stands in for queen, replacing it in the soldier"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soldier",
+         "at": 12,
+         "gives": "PRIVATE",
+         "note": "a private is a soldier of the lowest rank"
+        },
+        {
+         "words": "queen",
+         "at": 36,
+         "gives": "R",
+         "note": "R stands for Regina, queen"
+        },
+        {
+         "words": "time",
+         "at": 27,
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A charming soldier makes time for the queen.",
-     "walkthrough": "PRIVATE becomes PTIVATE when T replaces R.",
-     "definitionFit": "To charm someone is to captivate them, holding their attention with delight."
+     "surface": "A soldier's charm, with time traded in place of a queen.",
+     "walkthrough": "'queen' is the Latin Regina, abbreviated to its first letter as on coins and postboxes.",
+     "definitionFit": "To charm someone is to captivate them: both mean to delight and hold their attention."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "queen"
     }
    }
   },
