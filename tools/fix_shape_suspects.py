@@ -214,17 +214,27 @@ def r_ins_split(node, parent, ctx):
             idx = [i for i, x in enumerate(side) if x == g]
             if idx and idx[0] > 0 and idx[-1] < len(parts) - 1 and idx == list(range(idx[0], idx[-1] + 1)):
                 found.add((idx[0], idx[-1]))
-    if len(found) != 1:
+    if len(found) > 1 or (not found and len(parts) != 3):
         return None
-    i, j = found.pop()
-    inner = charade(copy.deepcopy(parts[i:j + 1]))
-    outer = charade(copy.deepcopy(parts[:i] + parts[j + 1:]))
-    for arm in (inner, outer):
-        seen = [(p.get("words"), p.get("at")) for p in arm.get("parts") or [] if leaf(p) and p.get("words")]
-        if len(seen) != len(set(seen)):
-            return None     # the same clue words twice in one arm: a container inside it
-    new = checked(node, parts=[outer, inner])
-    return new if gives_ok(new, want) else None
+
+    def build(i, j):
+        inner = charade(copy.deepcopy(parts[i:j + 1]))
+        outer = charade(copy.deepcopy(parts[:i] + parts[j + 1:]))
+        for arm in (inner, outer):
+            seen = [(p.get("words"), p.get("at")) for p in arm.get("parts") or [] if leaf(p) and p.get("words")]
+            if len(seen) != len(set(seen)):
+                return None     # the same clue words twice in one arm: a container inside it
+        new = checked(node, parts=[outer, inner])
+        return new if gives_ok(new, want) else None
+    if found:
+        return build(*found.pop())
+    # No indicator position decides it (it sits inside a part's words or the parts are unplaced):
+    # a flat 3-part charade is part 2 inside parts 1+3, when no other single part held
+    # by the other two also spells the answer.
+    if any(not leaf(p) or p.get("unchecked") for p in parts):
+        return None
+    reads = [build(i, i) for i in range(3)]
+    return reads[1] if reads[1] and not reads[0] and not reads[2] else None
 
 
 def r_del_removed(node, parent, ctx):
@@ -728,9 +738,11 @@ def load_ledger(ledger, key):
     return done
 
 
-def run(apply, n_examples, seed, limit=None, jobs=4, ledger=None):
+def run(apply, n_examples, seed, limit=None, jobs=4, ledger=None, only=None):
     global _JOB
     suspects = json.loads(SUSPECTS.read_text())["suspects"]
+    if only:    # just the suspects whose reason names this detector
+        suspects = [s for s in suspects if only in s["reason"].split("; ")[0].split(":")[0]]
     if limit:
         random.seed(seed)
         suspects = random.sample(suspects, limit)
@@ -800,8 +812,9 @@ def main():
     ap.add_argument("--limit", type=int, help="a random sample of this many suspects (testing)")
     ap.add_argument("--jobs", type=int, default=4, help="worker processes (default 4)")
     ap.add_argument("--ledger", help="jsonl of finished puzzles: a re-run with the same suspects file resumes after them")
+    ap.add_argument("--only", help="only suspects whose first detector is this one (e.g. arity_ins)")
     a = ap.parse_args()
-    run(a.apply, a.examples, a.seed, a.limit, a.jobs, a.ledger)
+    run(a.apply, a.examples, a.seed, a.limit, a.jobs, a.ledger, a.only)
 
 
 if __name__ == "__main__":
