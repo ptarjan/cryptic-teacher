@@ -204,44 +204,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "dispersed",
-       "note": "dispersed means scattered about, so the word before it has its letters mixed"
+       "text": "in",
+       "at": 35,
+       "note": "the shuffled cider letters sit inside the vapour word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "vapour",
+       "at": 38,
+       "gives": "MIST",
+       "note": "mist is fine water vapour hanging in the air"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the jumbled letters inside the word that follows"
+         "text": "dispersed",
+         "at": 25,
+         "note": "scattered about, so the letters of cider are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "vapour",
-         "gives": "MIST",
-         "note": "mist is fine water vapour in the air"
-        },
-        {
          "words": "cider",
-         "note": "the letters of cider rearranged"
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cider spilt in a fog hides a trail from tracking hounds.",
-     "walkthrough": "'Throw off scent' looks like part of the cider story, but it is the whole definition: to lead astray.",
-     "definitionFit": "To misdirect is to send someone the wrong way, just as throwing pursuers off the scent leads them astray."
+     "surface": "The smell of cider is lost as it drifts away into a haze.",
+     "definitionFit": "To misdirect someone is to lead them astray, as a hound is thrown off a trail."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "scent"
     }
    }
@@ -1239,47 +1241,55 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NIPPERS",
      "indicators": [
       {
        "text": "replacing",
-       "note": "replacing tells us one letter takes the place of another"
+       "at": 9,
+       "note": "one letter takes the place of another in the fish word"
+      },
+      {
+       "text": "head of",
+       "at": 19,
+       "note": "the head of smoked fish is its first letter, K, which is removed"
       }
      ],
      "parts": [
       {
        "words": "smoked fish",
+       "at": 27,
        "gives": "KIPPERS",
        "note": "kippers are smoked herrings"
+      },
+      {
+       "gives": "K"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "head of",
-         "note": "head of picks the first letter of the word that follows"
+         "at": 44,
+         "note": "the head of narwhal is its first letter"
         }
        ],
        "parts": [
         {
          "words": "narwhal",
-         "note": "first letter of narwhal"
+         "at": 52
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Swapping the front of a kipper for a narwhal's head.",
-     "walkthrough": "The K at the head of KIPPERS gives way to N; nippers is British slang for small children.",
-     "definitionFit": "Nippers is an informal British word for young kids."
+     "surface": "Kids are making a fishy swap in a recipe, putting a narwhal in place of kippers.",
+     "walkthrough": "KIPPERS with its K swapped for N (head of narwhal) gives the answer.",
+     "definitionFit": "Nippers is informal British slang for small children."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "head"
+     "joke": "absurd"
     }
    }
   },

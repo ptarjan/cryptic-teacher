@@ -544,22 +544,22 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "VISION",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "in",
-       "note": "one thing in another sits inside it"
+       "text": "to the north",
+       "at": 32,
+       "note": "in a down clue, going north means the letters are read from the bottom upwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "to the north",
-         "note": "in a down clue, heading north means reading upwards"
+         "text": "in",
+         "at": 16,
+         "note": "lives sits inside the number-and-four pair"
         }
        ],
        "parts": [
@@ -568,32 +568,34 @@
          "parts": [
           {
            "words": "number",
-           "gives": "NO",
-           "note": "No. is the abbreviation for number"
-          },
-          {
-           "words": "lives",
-           "gives": "IS",
-           "note": "lives means exists, is"
+           "at": 19,
+           "gives": "NO"
           },
           {
            "words": "four",
+           "at": 26,
            "gives": "IV",
-           "note": "IV is the Roman numeral four"
+           "note": "IV is four in Roman numerals"
           }
          ]
+        },
+        {
+         "words": "lives",
+         "at": 10,
+         "gives": "IS",
+         "note": "he lives = he is, so lives gives IS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A beauty resides at number four, up the road.",
-     "walkthrough": "NO IS IV read upwards gives VISION.",
-     "definitionFit": "A vision can be a person of striking beauty, as in 'she was a vision in white'."
+     "surface": "A beauty is said to live at house number four, up the road to the north.",
+     "walkthrough": "'To the north' turns the whole assembly, since in a down entry north means upwards; 'stunner' is a beautiful person, not a blow.",
+     "definitionFit": "A vision is a person of striking beauty, just as a stunner is."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "lives"
     }

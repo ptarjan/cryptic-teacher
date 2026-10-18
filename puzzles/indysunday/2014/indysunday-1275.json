@@ -496,46 +496,49 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means going around, so one word wraps the others"
+       "at": 5,
+       "note": "the try word goes round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Hear",
-         "gives": "TRY",
-         "note": "to hear a case in court is to try it"
-        },
-        {
-         "words": "American",
-         "gives": "US",
-         "note": "standard abbreviation for American"
-        }
-       ]
+       "words": "Hear",
+       "at": 0,
+       "gives": "TRY",
+       "note": "a judge will hear or try a case"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "finally keeps only the closing letter of the word it follows"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "president",
-         "note": "the last letter of president"
+         "words": "American",
+         "at": 11,
+         "gives": "US"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 30,
+           "note": "the last letter of president"
+          }
+         ],
+         "parts": [
+          {
+           "words": "president",
+           "at": 20
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to listen to stories of a US president who stayed loyal to the end.",
-     "walkthrough": "'Hear' suggests listening, but here it is the legal sense: a judge hears a case.",
-     "definitionFit": "A trusty friend is reliable and loyal, a close synonym of faithful."
+     "surface": "Listening to a US president's closing words, being loyal.",
+     "walkthrough": "'Hear' is the courtroom sense, as a judge hears a case.",
+     "definitionFit": "Trusty means reliable and loyal, the way a faithful servant is."
     },
     "features": {
      "answerInScene": false,
@@ -723,37 +726,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "cast",
-       "note": "cast suggests throwing something out so that it lands in a new arrangement"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cast",
+         "at": 16,
+         "note": "cast as in thrown or moulded anew, so the letters of net are reshaped"
+        }
+       ],
        "parts": [
         {
          "words": "net",
-         "note": "the three letters rearranged"
-        },
-        {
-         "words": "fish",
-         "gives": "ANGLE",
-         "note": "to fish with a rod and line is to angle"
+         "at": 21
         }
        ]
+      },
+      {
+       "words": "fish",
+       "at": 6,
+       "gives": "ANGLE",
+       "note": "to angle is to fish with a rod"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice on catching fish by throwing out a net.",
-     "walkthrough": "The rearranged letters of net come first, followed by the fishing verb.",
-     "definitionFit": "To entangle is to trap or snare something so it cannot get free, as a net catches a fish."
+     "surface": "Fishing advice: land your catch by throwing out a net.",
+     "walkthrough": "NET rearranged gives ENT.",
+     "definitionFit": "To entangle is to snare or trap something, as a net does."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cast"
     }
@@ -781,12 +786,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ORDEAL",
      "indicators": [
       {
        "text": "during",
-       "note": "during means within the span of, so one piece sits inside the other"
+       "at": 24,
+       "note": "the even letters go inside the jumbled lord letters"
       }
      ],
      "parts": [
@@ -795,46 +799,45 @@
        "indicators": [
         {
          "text": "amazing",
-         "note": "something amazing has been thrown into confusion, so its letters are jumbled"
+         "at": 31,
+         "note": "amazing here means bewildering, so the letters are muddled"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "EA",
-         "indicators": [
-          {
-           "text": "ignoring the odds",
-           "note": "ignoring the odd-numbered letters keeps only the second, fourth and so on"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Desai",
-           "gives": "EA",
-           "select": "alternate",
-           "note": "the even-positioned letters of Desai"
-          }
-         ]
-        },
+         "words": "Lord's",
+         "at": 39,
+         "gives": "LORD",
+         "note": "only LORD is the fodder; the 's is the possessive"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "words": "Lord",
-         "note": "the four letters rearranged"
+         "text": "ignoring the odds",
+         "at": 6,
+         "note": "skip the odd letters and keep the even ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Desai",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cricket talk: an Indian batsman named Desai struggling through a Test match at Lord's.",
-     "walkthrough": "Lord's is the London cricket ground, and a Test is an international match, which makes 'test' look like part of the cricket scene.",
-     "definitionFit": "An ordeal is a severe trial or painful experience, so it is a test of endurance."
+     "surface": "An Indian batsman Desai is outstanding during a cricket Test at Lord's.",
+     "walkthrough": "Lord's is the London cricket ground, so the surface reads as a Test match report.",
+     "definitionFit": "An ordeal is a painful trial, a severe test of endurance."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "test"
     }
    }
@@ -1359,35 +1362,38 @@
      "indicators": [
       {
        "text": "appears in",
-       "note": "appearing in something means showing up within it"
+       "at": 13,
+       "note": "the politician turns up inside the vogue word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Vogue",
-         "gives": "RAGE",
-         "note": "a rage is a craze or fashion, the vogue"
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Vogue",
+       "at": 24,
+       "gives": "RAGE",
+       "note": "a rage is a craze or vogue"
       },
       {
-       "words": "politician",
-       "gives": "MP",
-       "note": "Member of Parliament"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "politician",
+         "at": 2,
+         "gives": "MP",
+         "note": "MP is a Member of Parliament"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A politician features in the fashion magazine and stirs up a scandal.",
-     "walkthrough": "Vogue looks like the magazine; lower-cased it means a craze.",
-     "definitionFit": "To rampage is to rush about violently, which is to storm around."
+     "surface": "A politician features in a fashion magazine and stirs up a storm.",
+     "walkthrough": "'Vogue' is the magazine in the surface but means fashion here.",
+     "definitionFit": "To rampage is to storm about violently and destructively."
     },
     "features": {
      "answerInScene": false,

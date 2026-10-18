@@ -721,33 +721,33 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PRISSILY",
      "indicators": [
       {
        "text": "covering",
-       "note": "covering something means going around it, so the first word wraps the second"
+       "at": 6,
+       "note": "the snoop word wraps around the stripped weapon"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PRISSILY",
+       "words": "Snoop",
+       "at": 0,
+       "gives": "PRY",
+       "note": "to pry is to snoop"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "naked",
-         "note": "naked means stripped of covering, so the word loses its outer letters at both ends"
+         "at": 15,
+         "note": "stripped of its outer layer, so the first and last letters go"
         }
        ],
        "parts": [
         {
-         "words": "Snoop",
-         "gives": "PRY",
-         "note": "to pry is to snoop"
-        },
-        {
          "words": "weapon",
+         "at": 21,
          "gives": "MISSILE",
          "note": "a missile is a weapon"
         }
@@ -756,13 +756,13 @@
      ]
     },
     "explanation": {
-     "surface": "A nosy parker spots a nude figure brandishing a weapon and reacts primly.",
-     "walkthrough": "'Naked' here strips both ends of the word, not only its first letter.",
-     "definitionFit": "Prissily means in a fussily prim, easily shocked manner, which is how a prude behaves."
+     "surface": "A peeping Tom covers up someone's exposed weapon in a prim manner.",
+     "definitionFit": "Prissily means in a fussy, prim and easily shocked way, as a prude behaves."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "naked"
     }
    }
@@ -1208,34 +1208,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "silly",
-       "note": "silly means foolish and disordered, so the letters are scrambled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "silly",
+         "at": 6,
+         "note": "silly signals the letters of bored are knocked about"
+        }
+       ],
        "parts": [
         {
          "words": "Bored",
-         "note": "the letters rearranged"
-        },
-        {
-         "words": "designer",
-         "gives": "CK",
-         "note": "CK is Calvin Klein, the fashion designer's label"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "designer",
+       "at": 17,
+       "gives": "CK",
+       "note": "CK is Calvin Klein, the fashion designer"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone fed up with their designer foundation make-up.",
-     "walkthrough": "'Foundation' suggests make-up; it means the base. Bedrock is also the Flintstones' home town.",
-     "definitionFit": "Bedrock is the solid rock under soil, and figuratively the fundamental principle on which something rests."
+     "surface": "Someone is bored stiff by a fashion designer's make-up foundation.",
+     "walkthrough": "'Foundation' looks like make-up in the surface; here it is the bottom layer. BORED rearranged gives BEDRO.",
+     "definitionFit": "Bedrock is the solid rock under soil, hence the fundamental basis of anything."
     },
     "features": {
      "answerInScene": false,
@@ -1769,43 +1771,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BETTYBOOP",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "upset means knocked over and disordered, so the letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "speculation",
+       "at": 39,
+       "gives": "BET",
+       "note": "a bet is a speculative wager"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 30,
+         "note": "knocked over, so the letters of Top Boy are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "speculation",
-         "gives": "BET",
-         "note": "a bet is a speculation"
-        },
-        {
          "words": "Top Boy",
-         "gives": "TYBOOP",
-         "note": "the letters of the TV title rearranged"
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lively character in the TV drama Top Boy is shaken by rumours.",
-     "walkthrough": "Top Boy is a British TV crime drama. 'Animated' suggests lively; here it means a cartoon. Betty Rubble is also in The Flintstones.",
-     "definitionFit": "Betty Boop is the flapper cartoon star created by Max Fleischer in the 1930s."
+     "surface": "A cartoon figure appears in the TV drama Top Boy, upset by gossip.",
+     "walkthrough": "Top Boy is a British TV crime drama, which makes the surface read as casting news.",
+     "definitionFit": "Betty Boop is the flapper cartoon star of 1930s Fleischer Studios animations."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Animated"
+     "misdirectedWord": "speculation"
     }
    }
   },
