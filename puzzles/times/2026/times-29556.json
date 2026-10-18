@@ -208,45 +208,57 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "HAREBRAINED",
      "indicators": [
       {
-       "text": "taking maiden's place in"
+       "text": "taking",
+       "at": 25,
+       "note": "taking signals that the new letters come in as a replacement"
+      },
+      {
+       "text": "place in",
+       "at": 41,
+       "note": "in the place of: the named letter is swapped out for the new ones within the seraglio word"
       }
      ],
      "parts": [
       {
        "words": "seraglio",
+       "at": 50,
        "gives": "HAREM",
-       "note": "a seraglio is a harem"
+       "note": "a seraglio is the women's quarters of an Ottoman palace, a harem"
       },
       {
-       "words": "maiden",
+       "words": "maiden's",
+       "at": 32,
        "gives": "M",
-       "note": "m = maiden, a cricket over with no runs; it is swapped out"
+       "note": "M is the cricket abbreviation for a maiden over"
       },
       {
-       "words": "bachelor",
-       "gives": "B",
-       "note": "b = bachelor; it takes M's place, making HAREB"
-      },
-      {
-       "words": "showered",
-       "gives": "RAINED",
-       "note": "rained = showered down"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bachelor",
+         "at": 6,
+         "gives": "B"
+        },
+        {
+         "words": "showered",
+         "at": 15,
+         "gives": "RAINED",
+         "note": "it showered means it rained"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dizzy single man takes a shower and then stands in for a woman in a harem.",
-     "walkthrough": "In cricket a maiden is an over in which no runs are scored, hence M; the one-letter swap happens before the weather word is added.",
-     "definitionFit": "Harebrained means rash or flighty, much like giddy in its sense of frivolous."
+     "surface": "A dizzy single man, fresh from a shower, finds himself in a sultan's harem.",
+     "walkthrough": "Only the final M of HAREM goes, replaced by B plus RAINED.",
+     "definitionFit": "Harebrained means foolishly rash or flighty, close in sense to giddy, frivolous."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "showered"
     }
    }
@@ -434,53 +446,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "first",
-       "note": "take the opening letter of 'deck'"
-      }
-     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "D",
        "indicators": [
         {
-         "text": "abandoning"
+         "text": "first on",
+         "at": 10,
+         "note": "first on picks out the opening letter of the word that follows"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "first on deck",
-         "gives": "D",
-         "select": "first",
-         "note": "first letter of deck"
+         "words": "deck",
+         "at": 19,
+         "note": "deck supplies its first letter"
         }
        ]
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoning",
+         "at": 38,
+         "note": "abandoning means the ship letters are left out of the calm word"
+        }
+       ],
        "parts": [
         {
          "words": "totally calm",
+         "at": 25,
          "gives": "WINDLESS",
-         "note": "without any wind at all"
+         "note": "windless describes air that is completely still"
         },
         {
          "words": "ship",
+         "at": 49,
          "gives": "SS",
-         "note": "SS = steamship; removed from WINDLESS"
+         "note": "SS is the abbreviation for steamship"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A becalmed sailing scene where Peter comes up on deck first and then leaves the ship.",
-     "walkthrough": "'Peter' looks like a sailor's name; with 'out' it is the verb meaning to fade away.",
-     "definitionFit": "To peter out is to diminish gradually to nothing, which is what dwindling does."
+     "surface": "Sailors on deck lose heart as the wind dies and they leave the becalmed ship.",
+     "walkthrough": "'Peter out' could be a sailor named Peter, but it is the definition. Removing SS from WINDLESS leaves WINDLE, after D.",
+     "definitionFit": "To peter out is to fade away gradually, just as something that dwindles shrinks to nothing."
     },
     "features": {
      "answerInScene": false,
@@ -793,45 +806,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "ARMEDFORCES",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner swapped the opening sounds of words"
+       "at": 0,
+       "note": "Spooner signals swapping the opening sounds of two words, here moving a single consonant across"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "bred",
+       "at": 10,
+       "gives": "FARMED",
+       "note": "to have farmed animals is to have bred them"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ORCES",
        "parts": [
         {
-         "unchecked": true,
-         "words": "bred",
-         "gives": "ARMED",
-         "soundsLike": "FARMED",
-         "note": "farmed = bred; it hands its F over"
-        },
-        {
-         "unchecked": true,
-         "words": "'ackneys etc",
-         "gives": "FORCES",
-         "soundsLike": "’ORSES",
-         "note": "hackneys and the like are horses, with the H dropped as the apostrophe shows; it takes the F"
+         "words": "ackneys etc",
+         "at": 16,
+         "gives": "ORSES",
+         "note": "hackneys are horses; with the h dropped, Cockney style, they are 'orses, said like the end of forces"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Horses bred for use by the army, in a Cockney-flavoured spelling.",
-     "walkthrough": "The dropped H of 'ackneys matters: FARMED 'ORSES has only the F to swap, giving ARMED FORCES. A hackney is a breed of horse.",
-     "definitionFit": "The armed forces are a country's military services taken together."
+     "surface": "The Reverend Spooner talks about raising Cockney horses for the army.",
+     "walkthrough": "'Farmed 'orses' becomes ''armed forses': the Spoonerism moves just the F, since the second word has no opening consonant to swap. Hackneys are a breed of carriage horse.",
+     "definitionFit": "The armed forces are a nation's army, navy and air force taken together, its military."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "bred"
     }
    }
@@ -1279,49 +1290,43 @@
      "indicators": [
       {
        "text": "spread",
-       "note": "ROMEO's letters are spread about"
+       "at": 24,
+       "note": "spread means scattered about, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Romeo",
+       "at": 18
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
          "text": "clothing",
-         "note": "just the outside layer of 'girl'"
+         "at": 43,
+         "note": "clothing is the outside, so only the outer letters of the word are taken"
         }
        ],
        "parts": [
         {
-         "words": "Romeo",
-         "note": "anagram fodder, the whole word"
-        },
-        {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "GL",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "girl's clothing",
-           "gives": "GL",
-           "select": "outer",
-           "note": "the outer letters of girl"
-          }
-         ]
+         "words": "girl's",
+         "at": 36,
+         "gives": "GIRL",
+         "note": "girl, read without its possessive"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lover sprawling across the aisle with his girlfriend's clothes.",
-     "walkthrough": "Romeo wants to be the R of the radio alphabet; here all five letters are fodder.",
-     "definitionFit": "Legroom is the space in front of a seat, such as the gap to the next row."
+     "surface": "Romeo lies sprawled out beside a girl's clothes.",
+     "walkthrough": "'clothing' gives the outside of GIRL, GL; 'spread' mixes those with ROMEO.",
+     "definitionFit": "Legroom is the space in front of a seat, as on a plane, where passengers stretch their legs."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Romeo"
     }
    }

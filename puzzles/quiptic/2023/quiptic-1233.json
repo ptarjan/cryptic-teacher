@@ -106,47 +106,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ATNOTIME",
+     "op": "composite",
      "indicators": [
       {
        "text": "shaking",
-       "note": "shaking something jumbles it up, so the letters are thrown into a new order"
+       "at": 6,
+       "note": "shaking means stirred up, so the remaining letters are rearranged"
+      },
+      {
+       "text": "to drop",
+       "at": 25,
+       "note": "to drop says the named letters are let fall out of the longer word first"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ATNOTIME",
-       "indicators": [
-        {
-         "text": "to drop",
-         "note": "dropping something means letting it go, so some letters are removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "temptation",
-         "note": "taken as written"
-        },
-        {
-         "words": "physical training",
-         "gives": "PT",
-         "note": "PT is the standard abbreviation for physical training"
-        }
-       ]
+       "words": "temptation",
+       "at": 14
+      },
+      {
+       "words": "physical training",
+       "at": 33,
+       "gives": "PT",
+       "note": "PT is the abbreviation for physical training, school exercise"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone resolves never to give in to the lure of skipping their exercise sessions.",
-     "walkthrough": "Take one P and one T out of TEMPTATION, leaving EMTATION, then rearrange those eight letters.",
-     "definitionFit": "Both are adverbs of time meaning on no occasion whatsoever, the phrase being an emphatic version."
+     "surface": "Someone vows never to shake off the urge to skip the gym.",
+     "walkthrough": "'to drop' takes P and T out of TEMPTATION, leaving TEMATION, and 'shaking' rearranges those eight letters.",
+     "definitionFit": "At no time is a phrase meaning on no occasion whatever, an emphatic way of saying never."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "shaking"
     }
@@ -612,48 +604,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VIRTUALLY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Mostly",
-       "note": "mostly means not entirely, so the final letter is dropped"
+       "text": "having",
+       "at": 15,
+       "note": "having means the first piece has the friend attached to it, so the two are joined in that order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "having",
-         "note": "having something means owning it as well, so one piece is added next to the other"
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means most but not all of the word, so its last letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "benefit",
-         "gives": "VIRTU",
-         "note": "a virtue is a benefit or advantage, as in 'by virtue of'; drop its last letter"
+         "at": 7,
+         "gives": "VIRTUE",
+         "note": "a virtue is a benefit or advantage, as in the virtue of a plan"
         },
         {
-         "words": "friend",
-         "gives": "ALLY",
-         "note": "an ally is a friend on one's side"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "friend",
+       "at": 22,
+       "gives": "ALLY",
+       "note": "an ally is a friend or supporter"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone gains almost every advantage from a friendship that exists only in name.",
-     "walkthrough": "VIRTUE loses its final E before ALLY is attached.",
-     "definitionFit": "Virtually means in effect though not formally, so something is so in all respects except the official label."
+     "surface": "An advantage that comes mostly from having a friend.",
+     "walkthrough": "'Mostly benefit' looks like an adverb on its noun, but 'Mostly' trims VIRTUE to VIRTU, 'having' attaches ALLY, and the definition is the phrase at the end.",
+     "definitionFit": "Virtually means almost entirely, true in effect though not in formal fact, as when something is so in all but name."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "friend"
+     "aptDefinition": true,
+     "misdirectedWord": "Mostly"
     }
    }
   },
@@ -1494,43 +1491,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CREDIT",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "something short is cut down, so the final letter is removed"
+       "text": "describing",
+       "at": 19,
+       "note": "describing means drawing a line round, so the shortened word encloses the wine"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "describing",
-         "note": "to describe originally meant to draw around, so one piece encircles another"
+         "text": "short",
+         "at": 7,
+         "note": "short means cut off before its end, so the final letter goes"
         }
        ],
        "parts": [
         {
          "words": "quote",
-         "gives": "CIT",
-         "note": "to cite is to quote; lose its last letter"
+         "at": 13,
+         "gives": "CITE",
+         "note": "to cite something is to quote it"
         },
         {
-         "words": "wine",
-         "gives": "RED",
-         "note": "red is a type of wine"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "wine",
+       "at": 30,
+       "gives": "RED",
+       "note": "red is wine of that colour"
       }
      ]
     },
     "explanation": {
-     "surface": "A critic's brief quotation lavishes praise on a wine.",
-     "walkthrough": "'describing' carries the old crossword sense of drawing a line around something, not portraying it in words.",
-     "definitionFit": "Credit is acknowledgement and approval given for an achievement, so to give credit is to praise."
+     "surface": "A wine critic gives a brief, quotable line of praise.",
+     "walkthrough": "'describing' is used in its geometric sense of drawing a line round something, so the shortened quote word goes around the wine.",
+     "definitionFit": "To give someone credit is to acknowledge and praise what they have achieved."
     },
     "features": {
      "answerInScene": true,

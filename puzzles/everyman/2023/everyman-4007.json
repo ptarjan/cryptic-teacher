@@ -734,44 +734,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ALANTURING",
+     "op": "composite",
      "indicators": [
       {
        "text": "reconsidered",
-       "note": "to reconsider is to think again and rework, so the letters are put in a new order"
+       "at": 14,
+       "note": "reconsidered means thought about again and so rearranged, telling us to shuffle the letters"
+      },
+      {
+       "text": "with",
+       "at": 39,
+       "note": "with here joins the instruction, saying the word comes along with something it must shed"
+      },
+      {
+       "text": "to lose",
+       "at": 52,
+       "note": "to lose says the named letter must be taken out of the longer word before rearranging"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ALANTURING",
-       "indicators": [
-        {
-         "text": "with nothing to lose",
-         "note": "having something to lose means dropping it, so a letter is taken away from the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "granulation",
-         "note": "taken as written"
-        },
-        {
-         "words": "nothing",
-         "gives": "O",
-         "note": "nothing is zero, which looks like the letter O"
-        }
-       ]
+       "words": "granulation",
+       "at": 27
+      },
+      {
+       "words": "nothing",
+       "at": 44,
+       "gives": "O",
+       "note": "O is the round figure zero, nothing"
       }
      ]
     },
     "explanation": {
-     "surface": "A mathematician rethinks a grain-sized process, having nothing left to lose.",
-     "walkthrough": "'with nothing to lose' sounds like a desperate gamble, but it means the O must go from GRANULATION before the remaining ten letters are rearranged.",
-     "definitionFit": "Alan Turing was the British mathematician and codebreaker who founded theoretical computer science and worked at Bletchley Park."
+     "surface": "A mathematician rethinks the process of granulation, with nothing at stake.",
+     "walkthrough": "'with nothing to lose' reads like an idiom but tells us to take the O out of GRANULATION; 'reconsidered' then rearranges the ten letters left, GRANULATIN.",
+     "definitionFit": "Alan Turing was the British mathematician and codebreaker who founded theoretical computer science."
     },
     "features": {
      "answerInScene": true,
@@ -920,36 +917,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GRAVLAX",
-     "indicators": [
-      {
-       "text": "Not entirely",
-       "note": "something not entirely there is incomplete, so the word is cut short by its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not entirely",
+         "at": 0,
+         "note": "not entirely means the word is incomplete, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "dignified",
-         "gives": "GRAV",
-         "note": "grave means solemn and dignified; its final letter is dropped"
+         "at": 13,
+         "gives": "GRAVE",
+         "note": "grave means serious and dignified in manner"
         },
         {
-         "words": "sloppy",
-         "gives": "LAX",
-         "note": "lax means careless or sloppy"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "sloppy",
+       "at": 24,
+       "gives": "LAX",
+       "note": "lax means careless or sloppy"
       }
      ]
     },
     "explanation": {
-     "surface": "A waiter's slapdash plating of salmon falls short of elegance.",
-     "walkthrough": "The surface pairs 'dignified' and 'sloppy' as contrasting judgements of the serving; really they are two consecutive pieces of the dish's Scandinavian name.",
+     "surface": "A waiter, only half dignified, serves salmon in a careless way.",
+     "walkthrough": "'sloppy' looks like it describes the serving, but it supplies the second piece; 'Not entirely' drops only the final E of the first word.",
      "definitionFit": "Gravlax is a Scandinavian dish of raw salmon cured with salt, sugar and dill, served in thin slices."
     },
     "features": {

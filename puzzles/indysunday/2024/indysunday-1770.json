@@ -49,40 +49,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "XRAYING",
-     "indicators": [
-      {
-       "text": "Violently",
-       "note": "something treated violently is thrown about, so the letters of ANGRY I land in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Cross",
+       "at": 0,
+       "gives": "X",
+       "note": "X is the shape of a cross"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Violently",
+         "at": 7,
+         "note": "violently means wildly, so the letters of angry and I are thrown about"
+        }
+       ],
        "parts": [
         {
-         "words": "Cross",
-         "gives": "X",
-         "note": "a cross is the letter X"
+         "words": "angry",
+         "at": 17
         },
         {
-         "words": "angry, I",
-         "gives": "RAYING",
-         "note": "ANGRY plus I, rearranged"
+         "words": "I",
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks if you are cross, and the reply is that they are so furious they will soon be breaking bones.",
-     "walkthrough": "The opening question mark makes 'Cross?' look like a question about mood; it is the letter X. 'Snapping' is photographing, not breaking, which the 'possibly' flags.",
-     "definitionFit": "A definition by example with a pun: 'snap' is slang for taking a photograph, so photographing bones with X-rays is one way of snapping them."
+     "surface": "Someone furious says they will set about breaking bones.",
+     "walkthrough": "'Cross' looks like part of the angry mood, but it is the letter X; 'Violently' mixes ANGRY and I into RAYING.",
+     "definitionFit": "Radiographers are x-raying when they take pictures of bones, often to see whether one is broken."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "snapping"
@@ -342,57 +345,76 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Tell",
-      "at": 0
+      "text": "Tell's",
+      "at": 0,
+      "note": "read as 'Tell is', the verb to tell, with 's joining it to the wordplay"
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "APPRISE",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 27,
+       "note": "for means in place of, so the shortened risk replaces the lad's first letter"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "APPRISE",
+       "words": "apple",
+       "at": 7,
+       "gives": "APPLE",
+       "note": "the word apple, which has one letter swapped"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "brief",
-         "note": "something brief is cut short, so RISK loses its last letter"
-        },
-        {
-         "text": "for"
+         "text": "crown",
+         "at": 37,
+         "note": "the crown is the top, so the first letter of the word is meant"
         }
        ],
        "parts": [
         {
-         "words": "apple",
-         "note": "the word itself"
+         "words": "lad's",
+         "at": 31,
+         "note": "the word lad, whose first letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 14,
+         "note": "brief means cut short, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hazard",
+         "at": 20,
+         "gives": "RISK",
+         "note": "a hazard is a risk"
         },
         {
-         "words": "brief hazard",
-         "gives": "RIS",
-         "note": "RISK without its K"
-        },
-        {
-         "words": "lad's crown",
-         "gives": "L",
-         "note": "the top letter of LAD, which RIS replaces"
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "William Tell shooting an apple off his son's head, a danger to the boy's crown.",
-     "walkthrough": "The surface is the William Tell legend, so 'Tell' looks like a name; it is the verb, and the apple is just letters to edit.",
-     "definitionFit": "A formal synonym: to apprise is to inform, from the French 'appris', learned, so telling someone news fits."
+     "surface": "William Tell's apple, briefly a danger to the boy's head.",
+     "walkthrough": "William Tell shot an apple off his son's head. 'brief' cuts RISK to RIS, which goes 'for' the L of APPLE.",
+     "definitionFit": "To apprise someone is to inform or notify them of something, to tell them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "apple"
+     "misdirectedWord": "Tell's"
     }
    }
   },
@@ -1230,46 +1252,55 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "DUKEDOM",
-     "indicators": [
-      {
-       "text": "for"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Conned",
-       "gives": "DUPED",
-       "note": "conned = duped"
-      },
-      {
-       "words": "king",
-       "gives": "K",
-       "note": "K is the king, as in chess"
-      },
-      {
-       "words": "power",
-       "gives": "P",
-       "note": "p = power; K replaces it"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 12,
+         "note": "for means in place of, so the king letter replaces the power letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Conned",
+         "at": 0,
+         "gives": "DUPED",
+         "note": "duped means tricked or conned"
+        },
+        {
+         "words": "power",
+         "at": 16,
+         "gives": "P",
+         "note": "P is the physics symbol for power"
+        },
+        {
+         "words": "king",
+         "at": 7,
+         "gives": "K",
+         "note": "K is the chess abbreviation for king"
+        }
+       ]
       },
       {
        "words": "medal",
+       "at": 23,
        "gives": "OM",
-       "note": "the Order of Merit, a British honour"
+       "note": "the OM, the Order of Merit, is a British honour"
       }
      ]
     },
     "explanation": {
-     "surface": "A king was tricked into swapping power for honours and titles.",
-     "walkthrough": "'King for power' reads as a trade; it is the instruction to put K where P was.",
-     "definitionFit": "A definition by description: the rank held by a duke, the highest hereditary title below prince, is a lordly title."
+     "surface": "A cheated monarch swaps power for a medal and a noble rank.",
+     "walkthrough": "Swapping K 'for' P turns DUPED into DUKED; the Order of Merit adds OM.",
+     "definitionFit": "A dukedom is the rank or territory of a duke, the highest hereditary title of nobility below royalty."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "power"
+     "misdirectedWord": "Conned"
     }
    }
   },
@@ -1493,55 +1524,80 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "TAKEABREATHER",
+     "op": "charade",
      "parts": [
       {
+       "words": "Try to pot",
+       "at": 0,
+       "gives": "TAKE",
+       "note": "in snooker, to take a ball is to attempt to pot it"
+      },
+      {
+       "words": "one",
+       "at": 11,
+       "gives": "A",
+       "note": "A is the indefinite article, meaning one"
+      },
+      {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "TAKEABREATHER",
        "indicators": [
         {
-         "text": "initially",
-         "note": "initially means at the start, so only the first letter of red is used"
-        },
-        {
-         "text": "maintaining"
+         "text": "maintaining",
+         "at": 30,
+         "note": "maintaining means the rest of the word is kept as it stands"
         },
         {
          "text": "finally switching to",
-         "note": "the final letter of BREAK is switched, swapped out for THE"
+         "at": 49,
+         "note": "the final letter of the word is switched out and the next pieces put in its place"
         }
        ],
        "parts": [
         {
-         "words": "Try to pot",
-         "gives": "TAKE",
-         "note": "in snooker, to take a ball is to pot it"
-        },
-        {
-         "words": "one",
-         "gives": "A",
-         "note": "one = a"
-        },
-        {
          "words": "break",
-         "note": "its final K is replaced by THE"
+         "at": 42,
+         "gives": "BREAK",
+         "note": "a break is a run of scoring shots in snooker"
         },
         {
-         "words": "red",
-         "gives": "R",
-         "note": "first letter"
+         "gives": "K"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "the",
+           "at": 70,
+           "gives": "THE",
+           "note": "the word the as written"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "initially",
+             "at": 20,
+             "note": "initially means the opening letter is taken"
+            }
+           ],
+           "parts": [
+            {
+             "words": "red",
+             "at": 15,
+             "note": "the word red, whose first letter is used"
+            }
+           ]
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A snooker player lines up a red and builds a break, then reaches for the rest.",
-     "walkthrough": "Snooker words are everywhere: break, red, pot and the rest (a cue support). 'The' supplies letters for the swap, and 'rest' alone is the definition.",
-     "definitionFit": "An idiom: stopping briefly to recover your breath means resting, as a snooker player might between frames."
+     "surface": "A snooker player lines up a red and keeps the break going before moving on to the colours.",
+     "walkthrough": "The snooker surface hides that 'the rest' is not the snooker cue rest but a pause. 'maintaining' keeps BREA; 'initially' gives the R of red to follow THE in place of the final K.",
+     "definitionFit": "To take a breather is the idiom for pausing to rest for a short while."
     },
     "features": {
      "answerInScene": false,

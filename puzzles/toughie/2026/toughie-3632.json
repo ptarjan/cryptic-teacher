@@ -818,64 +818,72 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LAGIOCONDA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not quite",
-       "note": "not quite all of something means a little is missing from the end"
+       "text": "Cryptic",
+       "at": 0,
+       "note": "cryptic means puzzling and obscure, so the letters that follow are to be scrambled"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "and",
+       "at": 8
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Cryptic",
-         "note": "something cryptic is mysterious and obscure, so the letters are scrambled out of their plain order"
+         "text": "not quite",
+         "at": 18,
+         "note": "not quite means the word falls one letter short, so its final letter goes"
         }
        ],
        "parts": [
         {
-         "words": "and cagy",
-         "gives": "ANDCAG",
-         "note": "taken as written, losing its final letter"
+         "words": "cagy",
+         "at": 12
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "last",
-           "note": "the last of a word is its final letter only"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Leonardo's",
-           "gives": "LEONARDO",
-           "note": "the final letter of the painter's name"
-          }
-         ]
-        },
-        {
-         "words": "oil",
-         "note": "taken as written"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 39,
+         "note": "last picks the final letter of the painter's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Leonardo's",
+         "at": 28,
+         "gives": "LEONARDO",
+         "note": "Leonardo, read without the possessive"
+        }
+       ]
+      },
+      {
+       "words": "oil",
+       "at": 44
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "An evasive answer about the oil Leonardo used last.",
-     "walkthrough": "'Cryptic' and 'cagy' both suit the painting's famously enigmatic smile, which is why they are chosen; 'oil' does double duty, as letters and as the kind of painting.",
-     "definitionFit": "La Gioconda is the Italian title of the Mona Lisa, Leonardo da Vinci's famous oil painting on poplar panel."
+     "surface": "The Mona Lisa's famous smile is enigmatic and guarded, the last oil painting Leonardo worked on.",
+     "walkthrough": "'not quite' cuts CAGY to CAG, 'last' takes the O ending LEONARDO, and 'Cryptic' mixes AND, CAG, O and OIL. The whole clue also describes the painting's enigmatic sitter.",
+     "definitionFit": "La Gioconda is the Italian name for the Mona Lisa, Leonardo da Vinci's portrait in oils, which he kept working on until late in life."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "last"
+     "misdirectedWord": "Cryptic"
     }
    }
   },
@@ -1127,50 +1135,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CENTAVO",
+     "op": "composite",
      "indicators": [
       {
        "text": "sadly",
-       "note": "sadly suggests things gone wrong, so the letters can come in any order"
+       "at": 37,
+       "note": "sadly here suggests the airlines letters are themselves jumbled, so they need not appear in order"
+      },
+      {
+       "text": "excluded from",
+       "at": 43,
+       "note": "excluded from means those letters are removed from the longer phrase"
       },
       {
        "text": "revamped",
-       "note": "to revamp is to renovate and rework, so the remaining letters are reshaped"
+       "at": 57,
+       "note": "revamped means remade, so what remains of the phrase is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CENTAVO",
-       "indicators": [
-        {
-         "text": "excluded from",
-         "note": "what is excluded is shut out, so these letters are removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "airlines",
-         "note": "taken as written, letters removed in any order"
-        },
-        {
-         "words": "national service",
-         "note": "taken as written"
-        }
-       ]
+       "words": "national service",
+       "at": 66
+      },
+      {
+       "words": "airlines",
+       "at": 28
       }
      ]
     },
     "explanation": {
-     "surface": "Brazil's state carriers are cut out of a revamped national service budget, all for a pittance.",
-     "walkthrough": "'Real' looks like an adjective but is Brazil's currency. Remove A, I, R, L, I, N, E, S from the fifteen letters and rearrange the seven left.",
-     "definitionFit": "The Brazilian real is divided into one hundred centavos, so one centavo is a hundredth part of that currency."
+     "surface": "Brazil's currency is shrunk while airlines are sadly kept out of a reformed national service.",
+     "walkthrough": "The real is Brazil's currency, so the opening phrase is a definition, not a percentage. Take the letters of AIRLINES out of NATIONAL SERVICE and rearrange the seven left.",
+     "definitionFit": "A centavo is the hundredth part of the Brazilian real, so it is one per cent of that currency unit."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "real"
     }
@@ -1261,42 +1261,73 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a big plus",
+      "text": "a big plus?",
       "at": 27
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "GREEKCROSS",
-     "indicators": [
-      {
-       "text": "Leaders trading",
-       "note": "trading means exchanging, so the front letters swap places"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Bay",
-       "gives": "CREEK",
-       "note": "a creek is a small bay or inlet"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "Leaders",
+         "at": 0,
+         "note": "the leaders are the first letters of the two words, the ones that change places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bay",
+         "at": 19,
+         "gives": "CREEK",
+         "note": "a creek is a small bay or inlet"
+        },
+        {
+         "gives": "C"
+        },
+        {
+         "gives": "G"
+        }
+       ]
       },
       {
-       "words": "144",
-       "gives": "GROSS",
-       "note": "a gross is twelve dozen"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "trading",
+         "at": 8,
+         "note": "trading means exchanging, so each word gives its first letter to the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "144",
+         "at": 23,
+         "gives": "GROSS",
+         "note": "a gross is a dozen dozens, 144"
+        },
+        {
+         "gives": "G"
+        },
+        {
+         "gives": "C"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Managers making deals in a harbour think a huge sum is a big bonus.",
-     "walkthrough": "Swap the C and G at the heads of CREEK and GROSS. The question mark admits that a plus sign is only shaped like this cross.",
-     "definitionFit": "A Greek cross has four arms of equal length, exactly the shape of a plus sign drawn large."
+     "surface": "Swapping managers in Bay 144 would surely be a big advantage.",
+     "walkthrough": "'Leaders trading' swaps the first letters of CREEK and GROSS, each taking the other's. The question mark warns that 'plus' means the sign, not a benefit.",
+     "definitionFit": "A Greek cross has four arms of equal length, exactly the shape of a large plus sign."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Leaders"
+     "joke": "pun",
+     "misdirectedWord": "plus"
     }
    }
   },
@@ -1322,12 +1353,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "COW",
      "indicators": [
       {
        "text": "cases",
-       "note": "to case something is to enclose it, so these letters go round another"
+       "at": 35,
+       "note": "cases means encloses, so the two abbreviations hold the letter between them"
       }
      ],
      "parts": [
@@ -1336,40 +1366,43 @@
        "parts": [
         {
          "words": "caught",
+         "at": 23,
          "gives": "C",
-         "note": "c is the cricket scorecard abbreviation for caught"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "in van",
-           "note": "the van is the front of an army, so only the leading letter is wanted"
-          }
-         ],
-         "parts": [
-          {
-           "words": "one",
-           "note": "the first letter of the word"
-          }
-         ]
+         "note": "C is the cricket abbreviation for caught"
         },
         {
          "words": "with",
-         "gives": "W",
-         "note": "W is the abbreviation for with"
+         "at": 30,
+         "gives": "W"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "in van",
+         "at": 15,
+         "note": "the van is the front of a group, so this takes the leading letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 11,
+         "note": "the word one, whose leading letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A thug in a van, arrested with suitcases, bullies someone.",
-     "walkthrough": "'Van' looks like a vehicle, but the van is the front, short for vanguard.",
-     "definitionFit": "To cow someone is to frighten them into submission, which is what it means to intimidate a person."
+     "surface": "Someone in a van is caught carrying luggage and used to frighten others.",
+     "walkthrough": "Van here is the vanguard, the front, so 'in van' takes the O starting 'one'; 'cases' puts it between C and W.",
+     "definitionFit": "To cow someone is to frighten them into submission, to intimidate or browbeat them."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "van"
     }
@@ -1396,31 +1429,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COR",
+     "op": "middle",
      "indicators": [
       {
        "text": "unveiled",
-       "note": "removing a veil strips the outer covering, so the outside letters go"
+       "at": 22,
+       "note": "unveiled means the outer covering is removed, so the first and last letters are stripped off"
       }
      ],
      "parts": [
       {
        "words": "tally for the game",
+       "at": 3,
        "gives": "SCORE",
-       "note": "the score is the running tally in a match"
+       "note": "the score is the running total of points in a game"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone shows off their own points count for a game.",
-     "walkthrough": "'My' looks like a possessive but is the exclamation of surprise. Cor is a British exclamation like 'gosh'.",
-     "definitionFit": "Both are mild exclamations of surprise or amazement, interchangeable as an interjection like wow or gosh."
+     "surface": "A player reveals the points total for the match.",
+     "walkthrough": "'My' looks like a possessive, but it is an exclamation of surprise.",
+     "definitionFit": "Cor is a British exclamation of surprise, like 'my!' or 'gosh!'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "My"
     }
    }

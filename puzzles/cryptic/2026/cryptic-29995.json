@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -199,42 +200,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "case of",
-       "note": "A case is what encloses a thing, so what is wanted from the word after it is its outside — the letters at either end."
+       "text": "in",
+       "at": 22,
+       "note": "in puts the outer letters inside the tree"
       }
      ],
      "parts": [
       {
        "words": "tree",
+       "at": 25,
        "gives": "BAY",
-       "note": "the bay is an evergreen whose leaves go into a stew, and a crossword regular"
+       "note": "the bay is a laurel tree"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "WD",
        "indicators": [
         {
-         "text": "in",
-         "note": "'In' puts one piece within another: the letters just taken go inside the word that follows."
+         "text": "case of",
+         "at": 9,
+         "note": "the case of a word is its outer shell, its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "case of wood",
-         "gives": "WD",
-         "select": "outer",
-         "note": "the case of WOOD is its shell: the first letter and the last, with the middle discarded"
+         "words": "wood",
+         "at": 17,
+         "note": "the word wood, whose outside letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crate of timber wedged up in a tree.",
-     "walkthrough": "'Case of wood' sounds like a packing crate and is really an order to take two letters off the ends of a word. Everything else in the clue is one short synonym.",
-     "definitionFit": "Bawdy means coarsely and openly sexual, so 'Explicit' matches it in the sense of leaving nothing decently unsaid."
+     "surface": "A carving in a tree's wood turns out to be rather rude.",
+     "walkthrough": "'case of' leaves WD from wood, which goes 'in' BAY.",
+     "definitionFit": "Bawdy means coarsely humorous about sex, openly explicit in a ribald way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
     }
    }
   },
@@ -262,52 +267,64 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "Something placed about a thing is wrapped round it, so the word before goes outside the letter named after it."
+       "text": "in",
+       "at": 17,
+       "note": "in places the song-with-letter between the two odd letters"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "RG",
        "indicators": [
         {
          "text": "oddly",
-         "note": "Oddly points at the odd-numbered letters — take the first and the third and leave the rest behind."
+         "at": 25,
+         "note": "oddly takes the odd-numbered letters, the first and third, of the word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "in raga oddly",
-         "gives": "RG",
-         "select": "alternate",
-         "note": "the first and third letters of 'raga', the other two left out"
+         "words": "raga",
+         "at": 20,
+         "note": "the word raga, a form of Indian music"
         }
        ]
       },
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 5,
+         "note": "about means going round, so the song wraps the letter"
+        }
+       ],
        "parts": [
         {
          "words": "Song",
+         "at": 0,
          "gives": "HYMN",
-         "note": "a hymn is a song, the churchgoing sort"
+         "note": "a hymn is a religious song"
         },
         {
          "words": "India",
+         "at": 11,
          "gives": "I",
-         "note": "India is the letter I in the radio alphabet, alongside Alpha and Bravo"
+         "note": "India is I in the NATO phonetic alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A song about India that sounds oddly like a raga.",
-     "walkthrough": "'Oddly' looks like a comment on how odd the resemblance is, and is really the instruction that thins 'raga' down to two letters. One container sits inside another here.",
-     "definitionFit": "Rhyming words match in sound at their ends, so 'similar in sound' describes exactly the relation the word names."
+     "surface": "A song about India fits oddly inside an Indian raga that sounds alike.",
+     "walkthrough": "'about' puts I inside HYMN to make HYMIN; 'oddly' takes R and G from raga, and HYMIN goes 'in' between them.",
+     "definitionFit": "Rhyming words share their ending sounds, so they are alike in how they are heard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "India"
     }
    }
   },
@@ -756,66 +773,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "shade",
-      "at": 42
+      "text": "in shade",
+      "at": 39,
+      "note": "read as 'in this shade': the answer names a shade of colour"
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "AZUREBLUE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "below",
+       "at": 13,
+       "note": "below, in a down entry, means the river comes beneath, so after, the capital letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "below",
-         "note": "In a down entry, below means further down the column, so the piece it marks is parked at the foot of the answer."
-        },
-        {
-         "text": "in",
-         "note": "'In' is the whole instruction: the letter it introduces is dropped inside the letters already assembled."
+         "text": "capital of",
+         "at": 19,
+         "note": "the capital, or head, of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "capital of",
-           "note": "A country's capital is its chief city, and the same joke makes it the chief letter of the country's name."
-          }
-         ],
-         "parts": [
-          {
-           "words": "A",
-           "note": "the clue's own first word, taken at face value"
-          }
-         ]
-        },
-        {
-         "words": "capital of Zimbabwe",
-         "gives": "Z",
-         "note": "not Harare but the letter the country's name starts with"
-        },
-        {
-         "words": "river",
-         "gives": "URE",
-         "note": "the Ure runs through the Yorkshire dale named after it, and setters use it constantly"
-        },
-        {
-         "words": "down",
-         "gives": "BLUE",
-         "note": "feeling down is feeling low, and there is a colour word for that mood"
+         "words": "Zimbabwe",
+         "at": 30,
+         "note": "the word Zimbabwe, whose first letter is used"
         }
        ]
+      },
+      {
+       "words": "river",
+       "at": 2,
+       "gives": "URE",
+       "note": "the Ure is a river in Yorkshire, England, a crossword favourite"
+      },
+      {
+       "words": "down",
+       "at": 8,
+       "gives": "BLUE",
+       "note": "to feel down is to feel blue, sad"
       }
      ]
     },
     "explanation": {
-     "surface": "A river running below the Zimbabwean capital, deep in shadow.",
-     "walkthrough": "'Capital of Zimbabwe' invites you to think of Harare and wants one letter; 'down' is a mood rather than a direction, though a direction is what the next word does with it.",
-     "definitionFit": "Azure blue is the clear deep blue of a cloudless sky, so 'shade' names it as one particular tint among many."
+     "surface": "A river runs downhill south of Zimbabwe's capital, its waters a deep colour.",
+     "walkthrough": "'capital of' gives Z, and 'below' sets the river URE beneath it in this down entry; 'down' looks like a direction for the river, but it is a synonym for sad.",
+     "definitionFit": "Azure blue is a bright, clear sky-blue colour, a shade of blue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "down"
     }
    }
   },
@@ -884,48 +900,38 @@
     "definitions": [
      {
       "text": "that would never take off",
-      "at": 29,
-      "note": "The definition is a description, not a noun: a relative clause pointing at a bird that could not fly, so it cannot simply be swapped into a sentence."
+      "at": 29
      }
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "GREATAUK",
+     "spelt": "GREATAUK",
      "indicators": [
       {
        "text": "reportedly",
-       "note": "A report passes on what was said, so what follows is written from the sound of the words rather than from their spelling."
+       "at": 16,
+       "note": "reportedly means as it is said out loud, so we want a word that sounds like the phrase"
       }
      ],
      "parts": [
       {
-       "words": "Dreary",
-       "gives": "GREY",
-       "note": "a dreary day is a grey one, the weather sense"
-      },
-      {
-       "words": "lecture",
-       "gives": "TALK",
-       "note": "a lecture is a talk delivered to an audience"
-      },
-      {
-       "op": "homophone",
-       "spelt": "GREATAUK",
-       "parts": [
-        {
-         "words": "Dreary lecture, reportedly",
-         "gives": "GREYTALK",
-         "note": "said aloud, those two words run together and the break between them shifts one letter to the left"
-        }
-       ]
+       "words": "Dreary lecture",
+       "at": 0,
+       "gives": "GREYTALK",
+       "note": "dreary means grey and a lecture is a talk, giving grey talk"
       }
      ]
     },
     "explanation": {
-     "surface": "A lecture so dull, by all accounts, that it was never going anywhere.",
-     "walkthrough": "Where the gap falls is the whole joke: say the two words and the break slides, turning dull conversation into a bird. The great auk was a flightless North Atlantic seabird, extinct by 1852.",
-     "definitionFit": "The great auk was flightless, so a description of something that could never leave the ground names the bird exactly."
+     "surface": "A dull lecture is reported as one that would never get off the ground.",
+     "walkthrough": "Said quickly, 'grey talk' sounds like the bird's name. 'take off' is meant literally: it could not fly.",
+     "definitionFit": "The great auk was a large flightless seabird of the North Atlantic, hunted to extinction in the 1840s."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lecture"
     }
    }
   },
@@ -1015,41 +1021,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "POPPINGCANDY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "impressed by",
+       "at": 20,
+       "note": "impressed by means pressed into, so the jumbled letters are placed inside the flower"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "flower",
+       "at": 13,
+       "gives": "POPPY",
+       "note": "the poppy is a flower"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "impressed by",
-         "note": "To impress is to press one thing into another, so what follows is pressed into the middle of the letters that came before."
-        },
-        {
          "text": "when excited",
-         "note": "Excited means agitated, jumping about, and letters in that state will not stay in the order the clue gives them."
+         "at": 41,
+         "note": "when excited means once stirred up, so the letters of dancing are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "flower",
-         "gives": "POPPY",
-         "note": "the red field flower of the cornfields and the war graves"
-        },
-        {
          "words": "dancing",
-         "gives": "INGCAND",
-         "note": "the seven letters of 'dancing' in a fresh order"
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A charming girl, and a flower won over by an excited dance.",
-     "walkthrough": "The flower is split almost at its end, which is why it stays out of sight: only its last letter is left over on the far side of the seven shuffled ones.",
-     "definitionFit": "Popping candy is the sherbet that crackles on the tongue, so 'Sweet thing' names it by the confectionery sense of sweet."
+     "surface": "A sweetheart, the apple of someone's eye, gets excited dancing.",
+     "walkthrough": "'Sweet thing' sounds like a term of endearment but means a confection, one of the puzzle's space-themed sweets. 'impressed by' sets the jumbled letters inside the flower before its last letter.",
+     "definitionFit": "Popping candy is a fizzing sweet that crackles in the mouth, sold in the UK as Space Dust."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sweet"
     }
    }
   },
@@ -1122,27 +1136,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "RESITS",
+     "op": "substitution",
      "indicators": [
       {
        "text": "turning tail",
-       "note": "Turning tail is running away, and read literally it turns the tail of a word round — the last two letters change places."
+       "at": 31,
+       "note": "the tail, the last two letters, is turned round so its order is reversed"
       }
      ],
      "parts": [
       {
        "words": "restrain oneself",
+       "at": 13,
        "gives": "RESIST",
-       "note": "to resist is to hold yourself back from something you want"
+       "note": "to resist is to hold back, to restrain oneself"
+      },
+      {
+       "gives": "ST"
+      },
+      {
+       "gives": "TS"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice before more exams: keep a grip on yourself, then run.",
-     "walkthrough": "Two letters move and no more, which is the smallest turn a clue can ask for and the easiest to miss when the word already looks nearly right.",
-     "definitionFit": "A resit is the exam you take again after failing it, so 'Extra tests' matches it, plural for plural."
+     "surface": "Faced with extra exams, a student tries not to run away.",
+     "walkthrough": "'turning tail' looks like fleeing, but it means flipping the final ST of RESIST.",
+     "definitionFit": "Resits are exams taken again after a failure, extra tests for the student."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
     }
    }
   },

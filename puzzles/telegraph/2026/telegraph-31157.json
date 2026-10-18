@@ -855,53 +855,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STORMLANTERN",
+     "op": "container",
      "indicators": [
       {
-       "text": "at sea",
-       "note": "at sea means confused and all over the place, so the letters are muddled"
+       "text": "in",
+       "at": 31,
+       "note": "in tells us the jumbled word and the temperature letter go inside the ship's rear"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in places the preceding letters inside the ship's rear"
-        }
-       ],
+       "words": "ship's rear",
+       "at": 34,
+       "gives": "STERN",
+       "note": "the stern is the back end of a ship"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "ship's rear",
-         "gives": "STERN",
-         "note": "the stern is the back of a ship"
-        },
-        {
-         "op": "charade",
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "at sea",
+           "at": 24,
+           "note": "at sea means confused, all over the place, so the letters of normal are jumbled"
+          }
+         ],
          "parts": [
           {
-           "words": "temperature",
-           "gives": "T",
-           "note": "standard abbreviation for temperature"
-          },
-          {
            "words": "normal",
-           "gives": "ORMLAN",
-           "note": "the letters of normal rearranged"
+           "at": 17
           }
          ]
+        },
+        {
+         "words": "temperature",
+         "at": 5,
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lamp hangs at the back of a ship sailing in normal temperatures.",
-     "walkthrough": "T plus the rearranged NORMAL go between S and TERN.",
-     "definitionFit": "A storm lantern is a hurricane lamp with a glass shield, a kind of light that stays lit in wind."
+     "surface": "A sailor hangs a lamp at the back of the boat while the weather stays calm at sea.",
+     "walkthrough": "'at sea' rearranges NORMAL to ORMLAN, which with T goes 'in' the stern; 'at sea' also fits the nautical surface, hiding its job.",
+     "definitionFit": "A storm lantern is a windproof paraffin lamp with a glass shield, made for use outdoors in bad weather."
     },
     "features": {
      "answerInScene": true,
@@ -931,47 +931,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REPAYMENT",
+     "op": "container",
      "indicators": [
       {
-       "text": "criminal",
-       "note": "criminal means crooked or bent, so the letters are twisted out of order"
+       "text": "entering",
+       "at": 13,
+       "note": "entering means the scrambled letters go into the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "confess",
+       "at": 22,
+       "gives": "REPENT",
+       "note": "to confess and repent are close: owning up to sins with regret"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "entering",
-         "note": "entering means going inside, so the scrambled month sits within confess"
+         "text": "criminal",
+         "at": 4,
+         "note": "criminal means bent or wrong, so the letters of May are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "confess",
-         "gives": "REPENT",
-         "note": "to repent is to own up and feel remorse"
-        },
-        {
          "words": "May",
-         "gives": "AYM",
-         "note": "the letters of May rearranged"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A criminal named May turns up to confess what a debtor owes.",
-     "walkthrough": "May looks like a name or the month, but it is just letters to scramble.",
-     "definitionFit": "A creditor expects money owed to be paid back, and this noun is that act of paying back."
+     "surface": "A crook named May walks in and owns up, as a lender chases what is owed.",
+     "walkthrough": "May looks like a name or a month, but 'criminal' scrambles it to AYM, which goes 'entering' REPENT.",
+     "definitionFit": "A creditor demands repayment, the paying back of a loan, from anyone who owes money."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "May"
     }
    }
@@ -1218,43 +1218,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "terribly",
-       "note": "terribly suggests something badly done, so the letters are jumbled"
+       "text": "receives",
+       "at": 27,
+       "note": "receives means the outer letters take in the oxygen symbol"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "receives",
-         "note": "to receive is to take in, so the jumbled word holds the gas symbol"
+         "text": "terribly",
+         "at": 11,
+         "note": "terribly suggests something done badly, so the letters of tired are rearranged"
         }
        ],
        "parts": [
         {
          "words": "tired",
-         "note": "the letters of tired rearranged"
-        },
-        {
-         "words": "oxygen",
-         "gives": "O",
-         "note": "O is the chemical symbol for oxygen"
+         "at": 20
         }
        ]
+      },
+      {
+       "words": "oxygen",
+       "at": 36,
+       "gives": "O",
+       "note": "O is the chemical symbol for oxygen"
       }
      ]
     },
     "explanation": {
-     "surface": "An exhausted newspaper chief is given oxygen.",
-     "definitionFit": "The editor runs a newspaper or bulletin and decides what appears, the person in charge of the content."
+     "surface": "An exhausted newspaper chief is given oxygen to revive.",
+     "walkthrough": "'terribly' turns TIRED into EDITR, and 'receives' puts O inside it before the final R.",
+     "definitionFit": "The editor is the person in charge of a newspaper or news programme, deciding what is published."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "oxygen"
     }
    }
   },
@@ -1400,47 +1405,26 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HETUP",
-     "indicators": [
-      {
-       "text": "What's seen in",
-       "note": "only the part visible inside the next words is kept, a short run straddling the gap between them"
-      }
-     ],
+     "op": "reverse",
+     "reading": "HET + UP",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "op": "reversal",
-         "parts": [
-          {
-           "words": "White House",
-           "gives": "TEH",
-           "note": "letters spanning the end of White and the start of House, read upward in this down entry"
-          }
-         ]
-        },
-        {
-         "words": "What's seen",
-         "gives": "UP",
-         "note": "what the solver sees in the grid is those letters running upward, so the direction itself is spelt out"
-        }
-       ]
+       "words": "What's seen in White House",
+       "at": 0,
+       "note": "read the answer as a down-clue instruction: HET going UP gives TEH, and those letters are what you see inside whiTE House"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about the frantic mood seen inside the American president's residence.",
-     "walkthrough": "A composite trick: the hidden letters read upward in this down entry, so the answer is literally HET going UP.",
-     "definitionFit": "The phrase is an informal British idiom for being worked up, anxious or excited about something."
+     "surface": "A question about the frantic mood inside the American president's residence.",
+     "walkthrough": "In a down entry 'up' means written backwards, so the answer itself describes TEH, which straddles whiTE House.",
+     "definitionFit": "Het up is an informal British idiom for worked up, anxious or excited."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "seen"
     }
    }
   },
@@ -1517,40 +1501,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SOMNOLENT",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "out suggests being put out of order, so the letters are reshuffled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 7,
+         "note": "out means put out of order, so the letters of moon's are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "Moon's",
-         "gives": "SOMNO",
-         "note": "the letters of moons rearranged"
-        },
-        {
-         "words": "fast",
-         "gives": "LENT",
-         "note": "Lent is the Christian season of fasting"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "fast",
+       "at": 12,
+       "gives": "LENT",
+       "note": "Lent is the Christian period of fasting before Easter"
       }
      ]
     },
     "explanation": {
-     "surface": "With the moon gone, someone fasting is growing sleepy.",
-     "walkthrough": "Fast looks like an adjective for quick, but it is the noun for abstaining from food.",
-     "definitionFit": "Somnolent is a formal word for sleepy, from the Latin for sleep, describing someone nodding off."
+     "surface": "Once the moon is gone, a hungry faster feels sleepy.",
+     "walkthrough": "'out' rearranges MOONS to SOMNO; 'fast' is the noun here, the Christian season of fasting.",
+     "definitionFit": "Somnolent describes a sleepy, heavy-eyed state, ready to doze off."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "fast"
     }
