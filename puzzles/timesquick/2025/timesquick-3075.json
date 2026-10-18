@@ -1154,52 +1154,55 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BLINI",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "for flipping",
+       "at": 28,
+       "note": "flipping means turning over, so the whole assembly is read backwards, which in a down clue means upwards"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "containing"
+         "text": "containing",
+         "at": 9,
+         "note": "containing means holding inside, so nothing goes between the other two letters"
         }
        ],
        "parts": [
         {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "flipping",
-           "note": "flipping turns the result over, reading it backwards"
-          }
-         ],
          "parts": [
           {
            "words": "One",
+           "at": 0,
            "gives": "I",
-           "note": "I is the Roman numeral one"
-          },
-          {
-           "words": "nothing",
-           "gives": "NIL",
-           "note": "nil is nothing"
+           "note": "I is the Roman numeral for one"
           },
           {
            "words": "book",
-           "gives": "B",
-           "note": "B is the abbreviation for book"
+           "at": 4,
+           "gives": "B"
           }
          ]
+        },
+        {
+         "words": "nothing",
+         "at": 20,
+         "gives": "NIL",
+         "note": "nil means nothing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cookbook with no advice on tossing pancakes.",
-     "walkthrough": "'Flipping pancakes' reads as tossing them in the pan; flipping is the reversal of I-NIL-B, and 'pancakes' stands alone.",
-     "definitionFit": "Definition by example: these are small buckwheat pancakes from Russian cooking, one particular kind of pancake."
+     "surface": "A single cookbook with nothing in it for tossing pancakes.",
+     "walkthrough": "'containing' puts NIL between I and B to make INILB, which 'for flipping' turns over.",
+     "definitionFit": "Blini are small Russian buckwheat pancakes, often served with soured cream and caviar."
     },
     "features": {
      "answerInScene": true,

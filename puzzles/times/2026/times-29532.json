@@ -561,46 +561,44 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "MOR",
        "indicators": [
         {
          "text": "originally",
-         "note": "take the first letter of each of the next three words"
+         "at": 21,
+         "note": "originally means at the origin, so the opening letter of each following word is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "originally mixing ogham, runes",
-         "gives": "MOR",
-         "select": "first",
-         "note": "first letters of Mixing, Ogham, Runes"
+         "words": "mixing ogham, runes",
+         "at": 32,
+         "note": "first letters of mixing, ogham and runes"
         }
        ]
       },
       {
        "words": "minute",
+       "at": 56,
        "gives": "SEC",
-       "note": "a minute and a sec are both a short moment: 'wait a sec'"
+       "note": "SEC is short for second, as in 'wait a sec', a minute"
       },
       {
        "words": "lines",
+       "at": 63,
        "gives": "ODE",
-       "note": "an ode is some lines of verse"
+       "note": "an ode is a poem, lines of verse"
       }
      ]
     },
     "explanation": {
-     "surface": "A history of writing that began by blending ogham, runes and tiny marks.",
-     "walkthrough": "Ogham and runes are ancient scripts and 'minute lines' suggests dots and dashes, so the surface pulls towards the answer; 'minute' is the noun, a moment, not the adjective meaning tiny.",
-     "definitionFit": "Morse code is a system for sending messages by dots and dashes."
+     "surface": "A code-breaker's note that ancient alphabets blended with tiny marks form a signalling system.",
+     "walkthrough": "'mixing' looks like an anagram signal but is just one of the three words whose first letters 'originally' takes.",
+     "definitionFit": "Morse code is the telegraph system of dots and dashes used to send messages."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "minute"
+     "misdirectedWord": "mixing"
     }
    }
   },
@@ -1061,48 +1059,46 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "perhaps",
-       "note": "Nemo is one example of a clownfish"
-      },
-      {
        "text": "loses",
-       "note": "what is lost is no longer there"
-      },
-      {
-       "text": "at first",
-       "note": "the letter to go is F, the first of FAITH"
+       "at": 26,
+       "note": "loses means a letter is taken away from the fish's name"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Nemo perhaps",
-         "gives": "CLOWNFISH",
-         "note": "Nemo in Finding Nemo is a clownfish"
-        },
-        {
-         "words": "loses faith at first",
-         "gives": "CLOWNISH",
-         "note": "CLOWNFISH without F"
-        }
-       ]
+       "words": "Nemo perhaps",
+       "at": 13,
+       "gives": "CLOWNFISH",
+       "note": "Nemo, the cartoon fish in Finding Nemo, is a clownfish; 'perhaps' marks him as an example"
       },
       {
-       "gives": "CLOWNFISH"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 38,
+         "note": "at first means the opening letter of the word before"
+        }
+       ],
+       "parts": [
+        {
+         "words": "faith",
+         "at": 32,
+         "note": "first letter of faith"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nemo acting the fool after losing his faith.",
-     "walkthrough": "Nemo is the clownfish hero of the Pixar film Finding Nemo; 'faith' has nothing to do with belief, it just supplies its first letter.",
-     "definitionFit": "Clownish means behaving like a clown, a fool."
+     "surface": "A cartoon fish behaves foolishly once it starts to lose its beliefs.",
+     "walkthrough": "Nemo here is not the Latin 'nobody' or Jules Verne's captain but the clownfish of the Pixar film; 'loses faith at first' drops its F.",
+     "definitionFit": "Clownish means behaving like a clown, silly or buffoonish, as a fool does."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "faith"
     }
    }
@@ -1249,55 +1245,57 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "SPLODGE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 23,
+       "note": "in a down clue on means placed above what follows"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
        "indicators": [
         {
          "text": "cycling",
-         "note": "the last letter of PLODS goes round to the front"
-        },
-        {
-         "text": "on"
+         "at": 15,
+         "note": "cycling means going round, so the last letter rides round to the front"
         }
        ],
        "parts": [
         {
-         "words": "policemen cycling",
-         "gives": "SPLOD",
-         "note": "PLODS with the S moved to the front"
-        },
+         "words": "policemen",
+         "at": 5,
+         "gives": "PLODS",
+         "note": "plod is British slang for the police, so policemen are plods"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "GE",
-         "indicators": [
-          {
-           "text": "borders",
-           "note": "a country's borders are its edges, so only the first and last letters of GREECE are kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Greece's borders",
-           "gives": "GE",
-           "select": "outer",
-           "note": "first and last letters of GREECE"
-          }
-         ]
+         "text": "borders",
+         "at": 35,
+         "note": "borders are the outer edges, so the first and last letters are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Greece's",
+         "at": 26,
+         "gives": "GREECE",
+         "note": "first and last letters of Greece"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spotting police on bicycles near the Greek frontier.",
-     "walkthrough": "Plod is British slang for the police, after Mr Plod the policeman in the Noddy books. 'Spot' reads as a verb, to see; it is the noun, a blot.",
-     "definitionFit": "A plain synonym, mostly British and informal: a splodge is an irregular spot of ink, paint or colour."
+     "surface": "Police officers out on their bikes in the hills on the edge of Greece.",
+     "walkthrough": "'cycling' looks like bike riding but moves the final S of PLODS round to the front; 'on' then sets that above the borders of Greece.",
+     "definitionFit": "A splodge is a blot or large irregular spot of colour or dirt."
     },
     "features": {
      "answerInScene": false,
@@ -1329,12 +1327,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ANTIHERO",
      "indicators": [
       {
        "text": "probing",
-       "note": "I pokes into the jumbled letters"
+       "at": 7,
+       "note": "probing means poking into, so the writer's letter goes inside the jumbled word"
       }
      ],
      "parts": [
@@ -1343,33 +1340,34 @@
        "indicators": [
         {
          "text": "badly",
-         "note": "ANOTHER is written badly, jumbled"
+         "at": 23,
+         "note": "badly means in poor order, so the letters of the next word are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Writer",
-         "gives": "I",
-         "note": "the writer of the clue is I, the setter"
-        },
-        {
-         "words": "another badly",
-         "gives": "ANTHERO",
-         "note": "ANOTHER rearranged around the I"
+         "words": "another",
+         "at": 15
         }
        ]
+      },
+      {
+       "words": "Writer",
+       "at": 0,
+       "gives": "I",
+       "note": "the writer of a clue refers to themself as I"
       }
      ]
     },
     "explanation": {
-     "surface": "A writer digging into another's poorly drawn main character.",
-     "walkthrough": "'Badly' seems to describe 'flawed'; it only jumbles ANOTHER.",
-     "definitionFit": "An antihero is a central character without the usual heroic virtues."
+     "surface": "An author pokes at someone else's poorly drawn hero.",
+     "walkthrough": "'badly' rearranges ANOTHER to ANTHERO, and 'probing' slips I in after the first three letters.",
+     "definitionFit": "An antihero is a central character who lacks conventional heroic qualities, a protagonist with flaws."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "badly"
+     "aptDefinition": true,
+     "misdirectedWord": "probing"
     }
    }
   },
@@ -1457,40 +1455,47 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "THRALL",
      "indicators": [
       {
        "text": "after",
-       "note": "the I that comes after the H"
+       "at": 8,
+       "note": "after here means once the change is made, the word reads as follows"
       },
       {
        "text": "becomes",
-       "note": "to become is to turn into something else, so the I turns into A"
+       "at": 18,
+       "note": "becomes means one letter turns into another in place"
       }
      ],
      "parts": [
       {
        "words": "Tremble",
+       "at": 0,
        "gives": "THRILL",
-       "note": "thrill = tremble with excitement"
+       "note": "a thrill is a tremble or quiver of excitement"
       },
       {
-       "words": "one becomes a",
-       "gives": "THRALL",
-       "note": "the I (one) turns into A"
+       "words": "one",
+       "at": 14,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "a",
+       "at": 26,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone shaking once they are made a slave.",
-     "walkthrough": "'A slave' reads as one phrase; the 'a' belongs to the wordplay, as the letter replacing I.",
-     "definitionFit": "A plain synonym from Old Norse; a thrall was a bondservant, the sense kept alive in 'enthralled'."
+     "surface": "Someone shivers after a person is made into a slave.",
+     "walkthrough": "'after' is not placing anything: the word for tremble is read 'after one becomes a', once its I has changed into A.",
+     "definitionFit": "A thrall is a person in bondage, a serf or slave."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "a"
+     "misdirectedWord": "one"
     }
    }
   },
@@ -1623,66 +1628,69 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXTOL",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 15,
+       "note": "in an across clue on means placed after what follows it"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
        "indicators": [
         {
          "text": "back of",
-         "note": "the back of a word is its end, so this takes the last letter of THE"
-        },
-        {
-         "text": "cut",
-         "note": "TOLL loses its last letter"
+         "at": 18,
+         "note": "back of means the last letter of the next word"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "E",
-         "indicators": [
-          {
-           "text": "on",
-           "note": "placed on, in the sense of added on after"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "back of The",
-           "gives": "E",
-           "select": "last",
-           "note": "last letter of THE"
-          }
-         ]
+         "words": "The",
+         "at": 26,
+         "note": "last letter of The"
+        }
+       ]
+      },
+      {
+       "words": "Times",
+       "at": 30,
+       "gives": "X",
+       "note": "X is the multiplication sign, read as 'times'"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 11,
+         "note": "cut means a letter is chopped from the end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tax",
+         "at": 7,
+         "gives": "TOLL",
+         "note": "a toll is a charge or tax"
         },
         {
-         "words": "Times",
-         "gives": "X",
-         "note": "x is the multiplication sign, times"
-        },
-        {
-         "words": "tax cut",
-         "gives": "TOL",
-         "note": "TOLL, a tax, with the last letter cut"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Applauding a tax cut printed on the back page of The Times.",
-     "walkthrough": "'The Times' looks like the newspaper this crossword appears in; it splits into E and X.",
-     "definitionFit": "A plain synonym; extol is the more formal verb, from Latin for 'raise up', so it means praise lavishly."
+     "surface": "A newspaper welcomes a tax cut in its back pages.",
+     "walkthrough": "'The Times' looks like the newspaper, but it is two pieces: the back of The, and the times sign. The cut toll goes 'on' after them.",
+     "definitionFit": "To extol something is to praise it highly and enthusiastically."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Times"
     }
    }
@@ -1709,44 +1717,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SPEARHEAD",
+     "spelt": "SPEARHEAD",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "swap the opening sounds of the two words, as Rev. Spooner did"
+       "at": 35,
+       "note": "according to Spooner tells us to swap the opening sounds of the two words, as the Reverend Spooner did"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "HEAR",
        "parts": [
         {
-         "unchecked": true,
-         "words": "moved fast",
-         "gives": "SPEAR",
-         "soundsLike": "SPED",
-         "note": "moved fast = sped; it hands its opening SP over and takes an H in exchange"
-        },
-        {
-         "unchecked": true,
          "words": "at this point",
-         "gives": "HEAD",
-         "soundsLike": "HERE",
-         "note": "at this point = here; it gives up its H and takes the SP back"
+         "at": 9,
+         "gives": "HERE",
+         "note": "at this point means here, said aloud like hear"
         }
        ]
+      },
+      {
+       "words": "moved fast",
+       "at": 23,
+       "gives": "SPED",
+       "note": "sped means moved fast"
       }
      ]
     },
     "explanation": {
-     "surface": "An army's front line rushing forward at this point.",
-     "walkthrough": "The Rev. William Spooner, an Oxford don, was known for swapping the starts of words, so the clue's pair is said with its opening sounds exchanged.",
-     "definitionFit": "The spearhead is the leading force of an attack, the vanguard."
+     "surface": "A report that something has just raced through this spot.",
+     "walkthrough": "'at this point' is here, said like HEAR; 'according to Spooner' swaps the H and SP sounds of 'hear sped' to give 'spear hed', which is how the answer sounds.",
+     "definitionFit": "The spearhead is the leading force of an attack or movement, the vanguard."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "moved"
     }
    }
   },
