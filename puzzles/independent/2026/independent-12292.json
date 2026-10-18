@@ -155,48 +155,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TACTIC",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "Almost",
-       "note": "almost means not quite all, so the final letter is dropped"
+       "text": "coming up",
+       "at": 23,
+       "note": "coming up suits a down entry, where letters read upwards are reversed"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "coming up",
-         "note": "in a down clue, coming up means reading from the bottom to the top, so the order flips"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Almost",
+           "at": 0,
+           "note": "almost means the word falls one letter short, losing its last"
+          }
+         ],
          "parts": [
           {
            "words": "quote",
-           "gives": "CIT",
-           "note": "to quote is to cite, less its last letter"
+           "at": 7,
+           "gives": "CITE",
+           "note": "to cite is to quote"
           },
           {
-           "words": "Tom, say",
-           "gives": "CAT",
-           "note": "a tom is a male cat; 'say' marks it as an example"
+           "gives": "E"
           }
          ]
+        },
+        {
+         "words": "Tom, say",
+         "at": 13,
+         "gives": "CAT",
+         "note": "a tom is a male cat, so Tom is an example of a cat"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone nearly cites a man called Tom while coming up with a scheme.",
-     "walkthrough": "Tom looks like a person's name, but here a tom is a male cat.",
-     "definitionFit": "A tactic is a planned course of action to reach an aim, so it is a synonym of plan."
+     "surface": "Someone nearly quotes a man named Tom while coming up with a plan.",
+     "walkthrough": "'Almost' cuts CITE to CIT; with CAT after it, 'coming up' reverses CITCAT. 'Tom, say' looks like a man's name, but a tom is a male cat.",
+     "definitionFit": "A tactic is a planned move made to reach a goal, a kind of plan."
     },
     "features": {
      "answerInScene": false,
@@ -297,52 +302,55 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DRILLING",
      "indicators": [
       {
        "text": "instead of",
-       "note": "instead of means in place of, so one letter swaps out for another"
+       "at": 27,
+       "note": "instead of says one letter replaces another in the word for cooking"
       }
      ],
      "parts": [
       {
        "words": "Cooking",
+       "at": 0,
        "gives": "GRILLING",
        "note": "grilling is a way of cooking"
+      },
+      {
+       "words": "Gateshead",
+       "at": 38,
+       "gives": "G",
+       "note": "read as Gates head: the head, or first letter, of Gates"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "back in",
-         "note": "the back of a word is its final letter, so only the end is kept"
+         "at": 8,
+         "note": "back in means the last letter of Sunderland"
         }
        ],
        "parts": [
         {
          "words": "Sunderland",
-         "note": "the final letter of the town name"
+         "at": 16,
+         "note": "its last letter is used"
         }
        ]
-      },
-      {
-       "words": "Gateshead",
-       "gives": "G",
-       "note": "read as Gate's head: the first letter of gate"
       }
      ]
     },
     "explanation": {
-     "surface": "Cooking in Sunderland beats cooking in neighbouring Gateshead, which is dull.",
-     "walkthrough": "Sunderland and Gateshead are neighbouring towns in north-east England; Gateshead splits into 'Gate's head', its first letter G.",
-     "definitionFit": "Drilling a hole is boring one, since to bore means to make a hole with a turning tool."
+     "surface": "A cookery note about Sunderland and Gateshead, two neighbouring towns in north-east England.",
+     "walkthrough": "'back in Sunderland' gives D, which goes 'instead of' G, the head of 'Gateshead', in GRILLING. Boring means making a hole, not dull.",
+     "definitionFit": "Drilling a hole and boring a hole are the same action, so the two words are synonyms."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Gateshead"
+     "misdirectedWord": "boring"
     }
    }
   },
@@ -367,48 +375,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPRINKLE",
-     "indicators": [
-      {
-       "text": "curtailed",
-       "note": "curtailed means cut short, so the tail letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curtailed",
+         "at": 12,
+         "note": "curtailed means cut short, so the last letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "season",
-         "gives": "SPRIN",
-         "note": "spring, one of the seasons, without its last letter"
+         "at": 5,
+         "gives": "SPRING",
+         "note": "spring is a season of the year"
         },
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "trekking northwards",
-           "note": "in a down clue travelling north means going up the column, so the letters run backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "deer",
-           "gives": "ELK",
-           "note": "the elk is a large deer"
-          }
-         ]
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "trekking northwards",
+         "at": 28,
+         "note": "in a down entry, going northwards means the letters are read upwards, in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deer",
+         "at": 23,
+         "gives": "ELK",
+         "note": "an elk is a large deer"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Herds of deer head north and disperse once their season is cut short.",
-     "walkthrough": "The spring season loses its G before the reversed deer is added.",
-     "definitionFit": "To sprinkle is to scatter small drops or particles lightly over a surface."
+     "surface": "A short season sees deer migrating north and scattering.",
+     "walkthrough": "'curtailed' trims SPRING to SPRIN; 'trekking northwards' turns ELK into KLE.",
+     "definitionFit": "To sprinkle is to scatter small drops or bits over a surface."
     },
     "features": {
      "answerInScene": false,
@@ -987,48 +1000,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IGNEOUS",
+     "op": "composite",
      "indicators": [
       {
        "text": "erupting",
-       "note": "an eruption throws material about violently, so the remaining letters land in a new order"
+       "at": 22,
+       "note": "erupting means bursting out violently, so the letters of subregion are thrown into a new order"
+      },
+      {
+       "text": "escaping from",
+       "at": 8,
+       "note": "escaping from says the brother letters get out of the word and are left behind"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "IGNEOUS",
-       "indicators": [
-        {
-         "text": "escaping from",
-         "note": "whatever escapes from a place leaves it, so those letters are taken out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "subregion",
-         "note": "taken as written"
-        },
-        {
-         "words": "Brother",
-         "gives": "BR",
-         "note": "BR is the abbreviation for brother"
-        }
-       ]
+       "words": "subregion",
+       "at": 31,
+       "note": "taken as written"
+      },
+      {
+       "words": "Brother",
+       "at": 0,
+       "gives": "BR"
       }
      ]
     },
     "explanation": {
-     "surface": "A monk flees from a region where a volcano is erupting, rocks flying.",
-     "walkthrough": "The volcanic surface fits the answer neatly: igneous rocks form from cooled lava.",
-     "definitionFit": "Igneous is the adjective for rocks formed from solidified molten magma, so it describes a class of rocks."
+     "surface": "A monk escapes from a volcanic region where rocks are being described.",
+     "walkthrough": "'escaping from' takes BR out of the letters of SUBREGION, leaving SUEGION, which 'erupting' rearranges. Erupting suits the volcanic sense of the answer.",
+     "definitionFit": "Igneous rock forms from cooled magma or lava, so the word is used to classify such rocks."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Brother"
     }
    }
@@ -1193,42 +1198,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GLUTEN",
-     "indicators": [
-      {
-       "text": "heading off",
-       "note": "with its heading taken off a word loses its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Block up",
+       "at": 0,
+       "gives": "GLUT",
+       "note": "to glut is to choke or block up"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 18,
+         "note": "heading off means the first letter of the word is removed"
+        }
+       ],
        "parts": [
         {
-         "words": "Block up",
-         "gives": "GLUT",
-         "note": "to glut is to choke or clog by overfilling"
+         "words": "hideout",
+         "at": 9,
+         "gives": "DEN",
+         "note": "a den is a hideout"
         },
         {
-         "words": "hideout",
-         "gives": "EN",
-         "note": "a den is a hideout; drop its first letter"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone seals up a hiding place, then leaves to supply food.",
-     "walkthrough": "'Block up' reads as sealing the hideout, but it is a separate verb for clogging.",
-     "definitionFit": "Gluten is the protein found in wheat and other cereals that gives dough its elasticity."
+     "surface": "Someone blocks the entrance to a hideout before setting off with protein supplies.",
+     "walkthrough": "'heading off' trims DEN to EN after GLUT.",
+     "definitionFit": "Gluten is the protein found in wheat and other cereal grains."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "hideout"
+     "misdirectedWord": "Block"
     }
    }
   },
@@ -1525,45 +1534,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SMACKERS",
      "indicators": [
       {
-       "text": "take out",
-       "note": "taking something out removes it to make room for a replacement"
+       "text": "to take out",
+       "at": 5,
+       "note": "to take out says letters are removed from the word for nuts"
       },
       {
        "text": "for",
-       "note": "one thing given for another is a swap"
+       "at": 24,
+       "note": "for here means in exchange for, so new letters go where the removed ones were"
       }
      ],
      "parts": [
       {
        "words": "Nuts",
+       "at": 0,
        "gives": "CRACKERS",
-       "note": "crackers is British slang for mad"
+       "note": "crackers is slang for mad, nuts"
       },
       {
        "words": "credit",
+       "at": 17,
        "gives": "CR",
        "note": "CR is the accounting abbreviation for credit"
       },
       {
-       "words": "son's",
-       "gives": "S",
-       "note": "S is the abbreviation for son"
-      },
-      {
-       "words": "million",
-       "gives": "M",
-       "note": "M is the abbreviation for million"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "son's",
+         "at": 28,
+         "gives": "S",
+         "note": "S is the abbreviation for son, as in family trees"
+        },
+        {
+         "words": "million",
+         "at": 34,
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "It is crazy to withdraw credit meant for a son's million pounds.",
-     "walkthrough": "'Nuts' looks like an exclamation; it means crazy, CRACKERS, whose CR swaps for S and M.",
-     "definitionFit": "Smackers is informal slang for pounds sterling or dollars, the units of money."
+     "surface": "It's mad to cancel your credit for your son's million pounds.",
+     "walkthrough": "'to take out' removes CR from CRACKERS, and 'for' puts SM in its place. Smackers is British slang for pounds sterling.",
+     "definitionFit": "Smackers is informal for pounds, the British currency, or dollars in the US."
     },
     "features": {
      "answerInScene": true,
@@ -1593,44 +1610,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NURSED",
+     "op": "composite",
      "indicators": [
       {
        "text": "distribution of",
-       "note": "distributing things spreads them around, so the letters are redealt in a new order"
+       "at": 13,
+       "note": "distribution means handing out in different places, so the letters of refunds are spread into a new order"
+      },
+      {
+       "text": "ignored",
+       "at": 44,
+       "note": "ignored means the fellow letter is passed over and left out"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NURSED",
-       "indicators": [
-        {
-         "text": "ignored",
-         "note": "whatever is ignored is left out of account, so it is removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "refunds",
-         "note": "taken as written"
-        },
-        {
-         "words": "fellow",
-         "gives": "F",
-         "note": "F is the abbreviation for fellow"
-        }
-       ]
+       "words": "refunds",
+       "at": 29,
+       "note": "taken as written"
+      },
+      {
+       "words": "fellow",
+       "at": 37,
+       "gives": "F",
+       "note": "F is the abbreviation for fellow, as in FRS"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone managed the paying out of refunds while one man was left out.",
-     "walkthrough": "Remove the F from the fodder before rearranging the remaining six letters.",
-     "definitionFit": "To nurse someone is to care for them, especially when ill, so nursed means looked after."
+     "surface": "Someone managed the handing out of refunds, though one man was left out.",
+     "walkthrough": "'ignored' drops F from REFUNDS, leaving REUNDS, which 'distribution of' rearranges.",
+     "definitionFit": "To nurse someone is to take care of them, so nursed means took care of."
     },
     "features": {
      "answerInScene": false,
@@ -1666,57 +1676,66 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "COUNTERATTACKED",
-     "indicators": [
-      {
-       "text": "taking over",
-       "note": "to take over is to seize control in place of another, so one letter replaces a different one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "noble",
+       "at": 12,
        "gives": "COUNT",
        "note": "a count is a European nobleman"
       },
       {
        "words": "queen",
+       "at": 18,
        "gives": "ER",
-       "note": "ER stands for Elizabeth Regina"
+       "note": "ER, Elizabeth Regina, is the regnal cipher of the Queen"
       },
       {
-       "words": "diplomat's",
-       "gives": "ATTACHE",
-       "note": "an attaché is a junior embassy diplomat"
-      },
-      {
-       "words": "king",
-       "gives": "K",
-       "note": "K is king in chess notation"
-      },
-      {
-       "words": "hotel",
-       "gives": "H",
-       "note": "Hotel is H in the NATO phonetic alphabet"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "taking over",
+         "at": 33,
+         "note": "taking over says the king letter takes the place of the hotel letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diplomat's",
+         "at": 45,
+         "gives": "ATTACHE",
+         "note": "an attaché is a junior diplomat at an embassy"
+        },
+        {
+         "words": "hotel",
+         "at": 56,
+         "gives": "H",
+         "note": "H is hotel in the NATO phonetic alphabet"
+        },
+        {
+         "words": "king",
+         "at": 28,
+         "gives": "K",
+         "note": "K is the chess abbreviation for king"
+        }
+       ]
       },
       {
        "words": "day",
-       "gives": "D",
-       "note": "D is the abbreviation for day"
+       "at": 65,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Aristocrats and royals retaliate after a diplomat's hotel is seized in daylight.",
-     "walkthrough": "The K replaces the H in ATTACHE; D follows at the end.",
-     "definitionFit": "To counter-attack is to strike back in response to an assault, so counter-attacked means hit back at."
+     "surface": "A noble, a queen and a king turn on a diplomat's hotel in a daytime raid.",
+     "walkthrough": "In ATTACHE, 'taking over' swaps the H (hotel) for K (king), giving ATTACKE; COUNT and ER go before and D after.",
+     "definitionFit": "To counter-attack is to strike back after being attacked, the military sense of hitting back."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "hotel"
+     "misdirectedWord": "noble"
     }
    }
   }

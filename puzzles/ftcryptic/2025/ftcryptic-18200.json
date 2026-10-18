@@ -440,12 +440,11 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "EGRET",
      "indicators": [
       {
        "text": "surging",
-       "note": "surging means rising up, and in a down entry rising reads from bottom to top"
+       "at": 26,
+       "note": "surging means rising up, which in a down entry reads the letters from bottom to top"
       }
      ],
      "parts": [
@@ -454,23 +453,25 @@
        "indicators": [
         {
          "text": "in",
-         "note": "the answer sits inside the run of letters of the following words"
+         "at": 12,
+         "note": "in says the letters are found inside the words water gets"
         }
        ],
        "parts": [
         {
          "words": "water gets",
-         "gives": "ERGET",
-         "note": "the letters spanning the two words"
+         "at": 15,
+         "gives": "TERGE",
+         "note": "the run of letters across these words is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A white wading bird stands in water that is rushing forward.",
-     "walkthrough": "Read 'water gets' backwards to find the bird. 'White heron' fits the egret, a small white heron.",
-     "definitionFit": "The egret is a heron, typically with pure white plumage, such as the little egret."
+     "surface": "A white heron wades in water that is beginning to surge.",
+     "walkthrough": "'in' picks TERGE out of 'water gets', and 'surging' turns it upwards.",
+     "definitionFit": "An egret is a kind of heron, usually with white plumage."
     },
     "features": {
      "answerInScene": true,
@@ -597,52 +598,54 @@
    "annotation": {
     "definitions": [
      {
-      "text": "cancel plans?",
+      "text": "cancel plans",
       "at": 37
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SCRUB",
+     "op": "container",
      "indicators": [
       {
-       "text": "backed",
-       "note": "going backwards means the pronoun is read from right to left"
+       "text": "in",
+       "at": 25,
+       "note": "in says the trimmed crew goes inside the vessel"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "U-boat",
+       "at": 28,
+       "gives": "SUB",
+       "note": "a U-boat is a German submarine, a sub"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "the remainder is placed inside the vessel"
+         "text": "away from",
+         "at": 10,
+         "note": "away from says those letters are taken out of crew"
         }
        ],
        "parts": [
         {
-         "words": "U-boat",
-         "gives": "SUB",
-         "note": "a U-boat is a submarine, a sub for short"
+         "words": "crew",
+         "at": 20,
+         "note": "taken as written"
         },
         {
-         "op": "deletion",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "away from",
-           "note": "taking something away from a word removes those letters from it"
+           "text": "backed",
+           "at": 3,
+           "note": "backed means moved backwards, so the letters of We are written in reverse"
           }
          ],
          "parts": [
           {
-           "words": "crew",
-           "note": "taken as written"
-          },
-          {
            "words": "We",
-           "gives": "EW",
-           "note": "the pronoun reversed"
+           "at": 0
           }
          ]
         }
@@ -651,9 +654,9 @@
      ]
     },
     "explanation": {
-     "surface": "The sailors retreat from a submarine crew, perhaps calling off a mission.",
-     "walkthrough": "The reversed pronoun comes off the end of the crew, and what is left goes inside the vessel.",
-     "definitionFit": "To scrub a launch or meeting is informal for calling it off or abandoning arrangements."
+     "surface": "A submarine crew retreats and calls off its mission.",
+     "walkthrough": "'backed' turns WE into EW, and 'away from' removes it from CREW to leave CR; 'in' puts CR inside SUB.",
+     "definitionFit": "To scrub a plan is informal for calling it off, so to scrub is to cancel plans."
     },
     "features": {
      "answerInScene": true,
@@ -808,12 +811,16 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BRIDESHEADREVISITED",
      "indicators": [
       {
        "text": "places",
-       "note": "placing something in another word puts the letter inside the fodder"
+       "at": 12,
+       "note": "places says one letter is set into another word"
+      },
+      {
+       "text": "in",
+       "at": 27,
+       "note": "in says the English letter goes inside the reworked letters"
       }
      ],
      "parts": [
@@ -822,34 +829,37 @@
        "indicators": [
         {
          "text": "troubled",
-         "note": "something troubled is disturbed, so all the letters are stirred up"
+         "at": 52,
+         "note": "troubled means stirred up, so the letters of Barsetshire and divided are thrown into a new order"
         }
        ],
        "parts": [
         {
          "words": "Barsetshire",
-         "note": "Trollope's fictional county, taken as written"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
+         "at": 30,
+         "note": "taken as written; Trollope's fictional county"
         },
         {
          "words": "divided",
+         "at": 43,
          "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 19,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A novel sets English characters in Trollope's county, which is split and in turmoil.",
-     "walkthrough": "Barsetshire is the fictional county of Trollope's novels, a tempting literary distraction here.",
-     "definitionFit": "The 1945 novel by Evelyn Waugh follows Charles Ryder's involvement with the aristocratic Flyte family."
+     "surface": "A Waugh novel moves an Englishman into Trollope's Barsetshire, a county split and in turmoil.",
+     "walkthrough": "'troubled' rearranges BARSETSHIRE and DIVIDED together, and 'places ... in' sets E among those letters. Barsetshire is the imaginary county of Anthony Trollope's novels.",
+     "definitionFit": "Brideshead Revisited is Evelyn Waugh's 1945 novel about the Flyte family."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "places"
     }
