@@ -337,35 +337,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CHOWDER",
      "indicators": [
       {
        "text": "to replace",
-       "note": "replacing swaps something out and puts a substitute in its place"
+       "at": 4,
+       "note": "the first word is put in to replace a single letter of the drink, taking its place"
+      },
+      {
+       "text": "part of",
+       "at": 19,
+       "note": "the letter being replaced is one part of the drink's name, a piece already inside it"
       }
      ],
      "parts": [
       {
-       "words": "How",
-       "note": "taken as written"
-      },
-      {
-       "words": "one part",
-       "gives": "I",
-       "note": "I is the Roman numeral for one, here a single part of the drink's name"
-      },
-      {
        "words": "beverage",
+       "at": 27,
        "gives": "CIDER",
-       "note": "cider is an apple drink"
+       "note": "cider is a beverage"
+      },
+      {
+       "words": "one",
+       "at": 15,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "How",
+       "at": 0,
+       "gives": "HOW",
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A cook asking how to swap part of a drink into a soup recipe.",
-     "walkthrough": "'How' reads as the question word that starts an instruction, but it is the replacement itself: it goes into CIDER where the I was.",
-     "definitionFit": "A chowder is a thick North American soup, typically made with clams or fish."
+     "surface": "Cooking advice on swapping part of a drink into a soup recipe.",
+     "walkthrough": "'How' looks like it opens a question, but it is the letters that go in: they replace the I, standing for one, in CIDER.",
+     "definitionFit": "Chowder is a thick soup, typically made with clams or fish and milk."
     },
     "features": {
      "answerInScene": true,
@@ -702,65 +710,72 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CLERGYMAN",
+     "op": "container",
      "indicators": [
       {
-       "text": "topless",
-       "note": "without a top means the first letter is lost"
+       "text": "about",
+       "at": 16,
+       "note": "the honest word goes about, around, the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "honest",
+       "at": 9,
+       "gives": "CLEAN",
+       "note": "clean means honest, above board"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so one piece goes round the rest"
+         "text": "before",
+         "at": 36,
+         "note": "the shortened party comes before the letter for mass"
         }
        ],
        "parts": [
         {
-         "words": "honest",
-         "gives": "CLEAN",
-         "note": "clean as in above board, honest"
-        },
-        {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "before",
-           "note": "before places one piece ahead of the next in the sequence"
+           "text": "topless",
+           "at": 22,
+           "note": "topless means losing the top, or first, letter"
           }
          ],
          "parts": [
           {
            "words": "party",
-           "gives": "RGY",
-           "note": "an orgy is a wild party; it loses its first letter"
+           "at": 30,
+           "gives": "ORGY",
+           "note": "an orgy is a wild party"
           },
           {
-           "words": "Mass",
-           "gives": "M",
-           "note": "M is the abbreviation for mass"
+           "gives": "O"
           }
          ]
+        },
+        {
+         "words": "Mass",
+         "at": 43,
+         "gives": "M",
+         "note": "M is the abbreviation for mass in physics"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clergyman being frank about a topless party held just before church.",
-     "walkthrough": "The scandalous picture of a minister and a topless party is the joke; 'Mass' is just M, the physics symbol, not the church service.",
-     "definitionFit": "A minister of religion is a member of the clergy, a priest or pastor."
+     "surface": "A churchman, honest about a racy party held before he says Mass.",
+     "walkthrough": "'Topless party' plays on a raunchy scene, but 'topless' just drops the first letter of the wild party, leaving RGY, which goes 'before' the M; 'about' wraps the honest word round them.",
+     "definitionFit": "A minister is a member of the clergy, especially in Protestant churches, so a clergyman is one."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "Mass"
+     "joke": "pun",
+     "misdirectedWord": "topless"
     }
    }
   },
@@ -2254,37 +2269,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NICELY",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "something short is missing its end, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 4,
+         "note": "short means cut off at the end, losing the last letter"
+        }
+       ],
        "parts": [
         {
          "words": "Cut",
-         "gives": "NIC",
-         "note": "a nick is a cut, losing its last letter"
+         "at": 0,
+         "gives": "NICK",
+         "note": "a nick is a small cut"
         },
         {
-         "words": "see",
-         "gives": "ELY",
-         "note": "a see is a bishop's diocese, and Ely is one, in Cambridgeshire"
+         "gives": "K"
         }
        ]
+      },
+      {
+       "words": "see",
+       "at": 11,
+       "gives": "ELY",
+       "note": "Ely, a cathedral city in Cambridgeshire, is a bishop's see"
       }
      ]
     },
     "explanation": {
-     "surface": "Something trimmed down, looking fine.",
-     "walkthrough": "'see' is not the verb but a bishop's seat; Ely is the crossword's favourite cathedral city.",
-     "definitionFit": "Doing something nicely means doing it pleasingly or properly, the same as doing it well."
+     "surface": "Trim the hair a little and you'll see properly.",
+     "walkthrough": "'Cut short' takes NICK down to NIC. A see is the seat of a bishop, and Ely is the crossword's favourite one.",
+     "definitionFit": "Nicely and well both mean in a satisfactory or pleasing way, so the adverbs are synonyms."
     },
     "features": {
      "answerInScene": false,
@@ -2434,43 +2453,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RECUMBENT",
+     "op": "container",
      "indicators": [
       {
-       "text": "Skinned",
-       "note": "with its skin off, the outer letters are stripped away"
+       "text": "in",
+       "at": 17,
+       "note": "the skinned animal goes in, inside, the word for new"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "new",
+       "at": 20,
+       "gives": "RECENT",
+       "note": "recent means new"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one piece inside another"
+         "text": "Skinned",
+         "at": 0,
+         "note": "skinned means with the outer layer removed, so the first and last letters go"
         }
        ],
        "parts": [
         {
-         "words": "new",
-         "gives": "RECENT",
-         "note": "recent means new"
-        },
-        {
          "words": "elephant",
-         "gives": "UMB",
-         "note": "JUMBO, a nickname for an elephant, with both ends gone"
+         "at": 8,
+         "gives": "JUMBO",
+         "note": "Jumbo is a pet name for an elephant, after the famous London Zoo elephant"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A peeled elephant inside a newly built apartment.",
-     "walkthrough": "'flat' looks like the apartment of the surface but is the adjective for lying down; the question mark flags this. Jumbo is a stock name for an elephant.",
-     "definitionFit": "Recumbent means lying down, so a body stretched out horizontally on its back."
+     "surface": "A gruesome image of a flayed elephant in a newly bought apartment.",
+     "walkthrough": "'Flat' looks like an apartment, but it is the adjective, lying flat. 'Skinned' strips JUMBO to UMB, which goes 'in' RECENT.",
+     "definitionFit": "Recumbent means lying down, so flat on one's back; the question mark warns that flat is an adjective here."
     },
     "features": {
      "answerInScene": false,
@@ -2592,37 +2613,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AGRA",
-     "indicators": [
-      {
-       "text": "50%",
-       "note": "fifty per cent is half, so only half the letters stay"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "area",
+       "at": 12,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "50%",
+         "at": 18,
+         "note": "half of the word is taken away, leaving its first three letters"
+        }
+       ],
        "parts": [
         {
-         "words": "area",
-         "gives": "A",
-         "note": "A is the abbreviation for area"
+         "words": "free",
+         "at": 22,
+         "gives": "GRATIS",
+         "note": "gratis means free of charge"
         },
         {
-         "words": "free",
-         "gives": "GRA",
-         "note": "gratis means free; its first half is kept"
+         "gives": "TIS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Half of some Indian urban district is open to all.",
-     "walkthrough": "Gratis, meaning free of charge, loses its second half.",
-     "definitionFit": "Agra is a city in Uttar Pradesh, northern India, home of the Taj Mahal."
+     "surface": "Half of some district of an Indian city is offered free of charge.",
+     "walkthrough": "'50% free' keeps half of GRATIS, GRA. Agra is the city of the Taj Mahal.",
+     "definitionFit": "Agra is a major city in Uttar Pradesh, northern India, home of the Taj Mahal."
     },
     "features": {
      "answerInScene": true,
@@ -3026,41 +3050,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ATRIA",
-     "indicators": [
-      {
-       "text": "won't finish",
-       "note": "something that won't finish is missing its end, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "won't finish",
+         "at": 10,
+         "note": "the word does not finish, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
+         "words": "hearing",
+         "at": 2,
+         "gives": "TRIAL",
+         "note": "a trial is a hearing in court"
         },
         {
-         "words": "hearing",
-         "gives": "TRIA",
-         "note": "a trial is a court hearing, cut short"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A legal hearing that won't conclude in the courts.",
-     "walkthrough": "'courts' looks like law courts and fits the hearing, but here it means courtyards.",
-     "definitionFit": "An atrium is an open central hall or courtyard, and its plural names several such spaces."
+     "surface": "A court hearing that will never reach its conclusion.",
+     "walkthrough": "'Courts' suggests law courts, which the hearing supports, but it means courtyards. 'Won't finish' cuts TRIAL to TRIA.",
+     "definitionFit": "An atrium is an open central court or hall in a building, and atria is its plural."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "courts"
     }
    }

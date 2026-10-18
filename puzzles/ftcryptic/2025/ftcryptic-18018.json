@@ -802,49 +802,56 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TOURNIQUET",
      "indicators": [
       {
        "text": "in",
-       "note": "one group of letters goes in another"
+       "at": 36,
+       "note": "the rearranged letters go in, inside, the two letters that form the case"
       }
      ],
      "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "case of",
+         "at": 39,
+         "note": "the case of a word is its outside, its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "toxicologist",
+         "at": 47,
+         "note": "the first and last letters of toxicologist"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "otherwise",
-         "note": "otherwise means in a different way, so the letters are arranged differently"
+         "at": 26,
+         "note": "otherwise means in another way, so the letters of unique and or are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "unique or",
-         "note": "the letters of unique and or rearranged"
+         "words": "unique",
+         "at": 16
         },
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "case of",
-           "note": "a case is the outer covering, so only the first and last letters are taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "toxicologist",
-           "note": "first and last letters of toxicologist"
-          }
-         ]
+         "words": "or",
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A poison expert carries a one-of-a-kind medical instrument.",
+     "surface": "A piece of medical kit, one-of-a-kind or not, sits in a poisons expert's bag.",
+     "walkthrough": "'Case of' reads as a carrying case but means the outer letters of toxicologist; 'otherwise' jumbles the next two words to OURNIQUE, which 'in' sets inside that case.",
      "definitionFit": "A tourniquet is a band tightened round a limb to stop bleeding, a piece of first-aid equipment."
     },
     "features": {
