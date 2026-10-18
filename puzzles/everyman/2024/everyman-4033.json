@@ -994,45 +994,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "prepared",
-       "note": "food that is prepared is worked on, so the letters are reworked"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "headless",
-         "note": "a word without its head has lost its first letter"
+         "at": 19,
+         "note": "losing its head, the word fish drops its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fish",
+         "at": 28
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "prepared",
+         "at": 5,
+         "note": "a meal that is prepared is made up, so its letters are reworked"
         }
        ],
        "parts": [
         {
          "words": "Meal",
-         "note": "part of the fodder"
-        },
-        {
-         "words": "fish",
-         "gives": "ISH",
-         "note": "FISH without its first letter"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fish dish is cooked for a biblical figure.",
-     "walkthrough": "In Genesis, Abraham's first son was born to Hagar.",
-     "definitionFit": "A definition by example: the Bible names two sons of Abraham, this one and Isaac."
+     "surface": "Cooking a meal with fish whose heads were cut off, for a Biblical figure.",
+     "walkthrough": "'Meal prepared' looks like cooking, but 'prepared' rearranges MEAL into MAEL.",
+     "definitionFit": "In Genesis, Ishmael is the elder son of Abraham, born to Hagar."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Meal"
+     "misdirectedWord": "prepared"
     }
    }
   },

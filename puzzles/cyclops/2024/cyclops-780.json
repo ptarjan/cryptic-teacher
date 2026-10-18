@@ -849,41 +849,43 @@
      "indicators": [
       {
        "text": "drinks",
-       "note": "the ex-vice president takes the other letters inside"
+       "at": 41,
+       "note": "the drinker takes the others in, so they go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "ex-vice president",
-         "gives": "PENCE",
-         "note": "Mike Pence, former US vice president"
-        },
-        {
-         "words": "'right'",
-         "gives": "R",
-         "note": "standard abbreviation"
-        }
-       ]
+       "words": "ex-vice president",
+       "at": 23,
+       "gives": "PENCE",
+       "note": "Mike Pence was US vice president under Trump"
       },
       {
-       "words": "tea",
-       "gives": "CHA",
-       "note": "cha is slang for tea"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "right",
+         "at": 49,
+         "gives": "R"
+        },
+        {
+         "words": "tea",
+         "at": 56,
+         "gives": "CHA",
+         "note": "cha is slang for tea"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mike Pence, perhaps a bit fusty, sips the correct sort of tea.",
-     "walkthrough": "\"Possibly\" looks like a hedge on the surface; with old-fashioned it is the definition, flagging that the answer is archaic.",
-     "definitionFit": "Perchance is an archaic word for possibly or perhaps."
+     "surface": "A former US vice president drinks a proper cup of tea, perhaps.",
+     "definitionFit": "Perchance is an archaic word meaning perhaps or by chance."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Possibly"
+     "misdirectedWord": "drinks"
     }
    }
   },
@@ -1148,36 +1150,38 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the Conservative and the hack go in the spot"
+       "at": 18,
+       "note": "the Conservative and hack letters go in the spot word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "spot",
+       "at": 21,
+       "gives": "SEE",
+       "note": "to spot is to see"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "spot",
-         "gives": "SEE",
-         "note": "to spot is to see"
+         "words": "Conservative",
+         "at": 0,
+         "gives": "C"
         },
         {
          "words": "hack",
+         "at": 13,
          "gives": "ED",
-         "note": "a hack is a journalist; ED is an editor"
+         "note": "a hack is a journalist, and ED is short for editor"
         }
        ]
-      },
-      {
-       "words": "Conservative",
-       "gives": "C",
-       "note": "standard abbreviation"
       }
      ]
     },
     "explanation": {
-     "surface": "A Tory journalist in a tight spot is told to back out.",
-     "walkthrough": "\"Spot\" looks like a noun, a tight spot; it is the verb, to see.",
-     "definitionFit": "To secede is to withdraw formally from a union or body."
+     "surface": "A Tory journalist in a tight spot is told to retract.",
+     "definitionFit": "To secede is to withdraw formally from a union or federation."
     },
     "features": {
      "answerInScene": true,

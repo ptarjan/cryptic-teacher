@@ -50,70 +50,57 @@
      "indicators": [
       {
        "text": "in",
-       "note": "A Z goes inside what is left of the diagram"
+       "at": 11,
+       "note": "A and the variable are placed within the shortened diagram word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "minus one",
+         "at": 22,
+         "note": "the diagram word loses one letter, its last"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "minus one",
-           "note": "the diagram loses one letter, its last"
-          }
-         ],
-         "parts": [
-          {
-           "words": "diagram",
-           "gives": "PLAN",
-           "note": "a plan is a diagram, as of a building"
-          },
-          {
-           "gives": "N"
-          }
-         ]
+         "words": "diagram",
+         "at": 14,
+         "gives": "PLAN",
+         "note": "a plan is a diagram, as of a building"
         },
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "minus one",
-           "gives": "PLA",
-           "note": "PLAN drops one letter, its final N"
-          },
-          {
-           "gives": "PL"
-          }
-         ]
+         "gives": "N"
         }
        ]
       },
       {
-       "op": "deletion",
+       "op": "charade",
        "parts": [
         {
-         "words": "A variable",
-         "gives": "AZ",
-         "note": "A, plus Z, a letter standing for an unknown in algebra"
+         "words": "A",
+         "at": 0
         },
         {
-         "gives": "A"
+         "words": "variable",
+         "at": 2,
+         "gives": "Z",
+         "note": "Z is a typical algebraic variable"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A maths lesson: a variable is placed in a diagram, one taken away, and the result is squared.",
-     "walkthrough": "The dash and 'is square' make it read as algebra, but square is the definition, a town square, and 'variable' is the usual crossword signal for X, Y or Z.",
-     "definitionFit": "A plaza is an open public square in a town."
+     "surface": "Like a maths exercise: a variable in a figure, subtract one, and the result is squared.",
+     "walkthrough": "'square' looks like maths but is an open public space.",
+     "definitionFit": "A plaza is an open public space in a town, like a square."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "square"
     }
    }
@@ -442,8 +429,7 @@
     "definitions": [
      {
       "text": "their son?",
-      "at": 50,
-      "note": "the question mark admits the definition depends on the names just given in the clue"
+      "at": 50
      }
     ],
     "wordplay": {
@@ -452,61 +438,38 @@
       {
        "text": "embraces",
        "at": 10,
-       "note": "embraces means holds within, so the letters go inside"
+       "note": "to embrace is to hold in the arms, so the patriarch holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Patriarch",
+       "at": 0,
+       "gives": "JOB",
+       "note": "Job is one of the patriarchs of the Old Testament"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "and",
-         "at": 27,
-         "note": "and carries the embrace over to a second letter, so it also goes inside the patriarch"
+         "text": "ultimately",
+         "at": 37,
+         "note": "ultimately takes the final letter of each of the two names, Rebecca and Isaac"
         }
        ],
        "parts": [
         {
-         "words": "Patriarch",
-         "at": 0,
-         "gives": "JOB",
-         "note": "Job is one of the Old Testament patriarchs"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "at": 37,
-           "note": "ultimately takes the last letter of each of the two names"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Isaac",
-           "at": 31,
-           "note": "the name Isaac, whose last letter is taken"
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "op": "last",
-       "parts": [
-        {
-         "words": "Rebecca",
-         "at": 19,
-         "note": "the name Rebecca, whose last letter is taken"
+         "words": "Rebecca and Isaac",
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A biblical patriarch embraces Rebecca and Isaac, perhaps their son.",
-     "walkthrough": "'ultimately' serves both names, giving A and C, which JOB 'embraces'. The definition leans on the clue's own names: Rebecca and Isaac were the parents of twins Esau and Jacob in Genesis.",
-     "definitionFit": "In Genesis, Jacob is the younger twin born to Isaac and his wife Rebecca."
+     "surface": "A Bible patriarch hugs Rebecca and Isaac, and the question is who their son was.",
+     "walkthrough": "In Genesis Isaac and Rebecca are the parents of the twins Esau and Jacob.",
+     "definitionFit": "In Genesis, Isaac married Rebecca and their children were the twins Esau and Jacob."
     },
     "features": {
      "answerInScene": true,

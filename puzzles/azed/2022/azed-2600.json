@@ -1335,41 +1335,44 @@
      "indicators": [
       {
        "text": "keeping",
-       "note": "keeping something means holding it, so these go inside the outer piece"
+       "at": 20,
+       "note": "the surprised exclamation keeps the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "I'm surprised",
-         "gives": "OH",
-         "note": "oh is an exclamation of surprise"
-        },
-        {
-         "words": "near",
-         "gives": "TO",
-         "note": "to can mean near or close, as in 'pull the door to'"
-        }
-       ]
+       "words": "I'm surprised",
+       "at": 0,
+       "gives": "OH",
+       "note": "oh is an exclamation of surprise"
       },
       {
-       "words": "drunk",
-       "gives": "LIT",
-       "note": "lit is slang for drunk"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "near",
+         "at": 28,
+         "gives": "TO",
+         "note": "to can mean near or close, as in a door pulled to"
+        },
+        {
+         "words": "drunk",
+         "at": 33,
+         "gives": "LIT",
+         "note": "lit is slang for drunk"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is surprised that a nearly drunk person can still keep their balance.",
-     "walkthrough": "OH holds TO and LIT.",
-     "definitionFit": "Otoliths are small chalky stones in the inner ear that help sense gravity and keep the body balanced."
+     "surface": "Someone is astonished to stay close to a drunk who needs help standing up.",
+     "definitionFit": "An otolith is a tiny chalky particle in the inner ear that helps sense gravity and keep balance."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "near"
+     "aptDefinition": true,
+     "misdirectedWord": "drunk"
     }
    }
   },

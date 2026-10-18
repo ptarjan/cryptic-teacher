@@ -464,53 +464,60 @@
     "definitions": [
      {
       "text": "mountainous area",
-      "at": 50,
-      "note": "The answer is plural in form but names one region, so the singular 'area' defines it fairly."
+      "at": 50
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "wandering",
-       "note": "someone wandering keeps to no fixed route, and letters with no fixed route arrive in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Husband",
+       "at": 0,
+       "gives": "H"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "initially",
-         "note": "what a word is initially is the letter it opens with, and only that one joins the mix"
+         "text": "wandering",
+         "at": 37,
+         "note": "wandering letters stray from their places, so they are rearranged"
         }
        ],
        "parts": [
         {
+         "words": "dashing",
+         "at": 13
+        },
+        {
          "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 27,
+           "note": "takes the opening letter of looks"
+          }
+         ],
          "parts": [
           {
-           "words": "Husband",
-           "note": "H is the standard abbreviation for husband, as on a form"
+           "words": "looks",
+           "at": 21
           }
          ]
-        },
-        {
-         "words": "dashing",
-         "note": "seven letters of fodder, straight from the clue"
-        },
-        {
-         "words": "looks",
-         "gives": "L",
-         "note": "the opening letter of looks"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Husband with dashing looks' is a compliment in the surface and three separate scraps in the parse; splitting that phrase up is the whole trick.",
-     "definitionFit": "mountainous area -> HIGHLANDS: the Scottish Highlands are the mountainous north and west of Scotland, and the word names any upland country."
+     "surface": "A husband with dashing looks roams across a mountain region.",
+     "walkthrough": "'dashing looks' reads as handsome, but dashing is the fodder and looks gives only L.",
+     "definitionFit": "The Highlands are the mountainous region of northern Scotland, and generally any upland terrain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dashing"
     }
    }
   },
@@ -905,8 +912,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "designed to deliberately make you angry",
-      "at": 37
+      "text": "it's designed to deliberately make you angry",
+      "at": 32
      }
     ],
     "wordplay": {
@@ -914,44 +921,45 @@
      "indicators": [
       {
        "text": "New",
-       "note": "something remade as new is built again from the same material, which is what happens to these letters"
+       "at": 0,
+       "note": "a new version of something is remade, so these letters are reordered"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "oddly lacking",
-         "note": "the odd-numbered letters are the ones missing, so only the second and the fourth survive"
+         "at": 9,
+         "note": "SEAT without its odd-numbered letters keeps only the second and fourth"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "ET",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "SEAT oddly lacking",
-           "gives": "ET",
-           "select": "alternate",
-           "note": "drop the first and third letters of the four and its even ones are left"
-          }
-         ]
+         "words": "SEAT",
+         "at": 4
         },
         {
-         "words": "airbag",
-         "note": "six letters of fodder, straight from the clue"
+         "gives": "SA"
         }
        ]
+      },
+      {
+       "words": "airbag",
+       "at": 23
       }
      ]
     },
     "explanation": {
-     "walkthrough": "SEAT in capitals is the Spanish car maker, which is why the whole surface reads as a motoring review rather than a note about the internet.",
-     "definitionFit": "designed to deliberately make you angry -> RAGE BAIT: online content posted to provoke furious replies, bait in the angler's sense, cast to get a bite."
+     "surface": "A new Seat car without an airbag is enough to make anyone furious.",
+     "walkthrough": "SEAT is a Spanish car maker. Without its odd letters it leaves ET, and ET plus AIRBAG is rearranged.",
+     "definitionFit": "Rage bait is online content crafted to provoke anger so that people engage with it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "SEAT"
     }
    }
   },
