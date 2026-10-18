@@ -771,7 +771,8 @@ LAYOUT = [
     ("annotating", "tools/drop_failed_clues.py", "blank just the clues whose annotations fail validation, so the rest ship"),
     ("annotating", "tools/clue_bag.py", "which tail puzzles one annotate session takes together: a bag"),
     ("annotating", "tools/annotate_bag_prompt.md", "the task a bagged session (several tail puzzles at once) is given"),
-    ("annotating", "tools/test_clue_bag.py", "which tail puzzles share one annotate session, and which never do"),
+    ("annotating", "tools/test_annotate_bag.py", "the bag's one view and one annotations file"),
+    ("annotating", "tools/test_clue_bag.py","which tail puzzles share one annotate session, and which never do"),
     ("annotating", "tools/build_spellings.py", "writes tools/data/lexicons/spellings.json: answer letters mapped to the spelling with an apostrophe or accent, for the lesson checks"),
     ("annotating", "tools/clear_unchecked.py", "drops the unchecked flag from wordplay trees that evaluate to their answer without it, one commit per puzzle (wordplay.unchecked)"),
     ("annotating", "tools/fill_spellings.py", "writes the `spelling` that tools/lesson_checks.py flags as unsaid (spelling.unsaid), where the answer letters give only one"),
@@ -799,6 +800,7 @@ LAYOUT = [
     ("annotating", "tools/test_og_prose_family.py", "does the og card's own-prose family check ignore words quoted from the clue?"),
     ("annotating", "tools/test_repair_padding.py", "tests that repair_fetched takes link words out of the wordplay, and only those"),
     ("annotating", "tools/test_ci_cache_partial.js", "a cold result cache must be able to refill over several runs"),
+    ("annotating", "tools/annotate_bag.py", "the files a bag session (tools/annotate_bag_prompt.md) works from and writes"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

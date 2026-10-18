@@ -389,6 +389,10 @@ run_claude() {
   [ -n "$fill" ] || for m in $(worker_bag_ids "$RUNS/$tag.sid"); do
     python3 tools/annotate_check.py --view "$m" >/dev/null
   done
+  # A bag has one combined view too (tools/annotate_bag.py), the file its prompt names.
+  if [ -z "$fill" ] && [ "$(worker_bag_ids "$RUNS/$tag.sid" | wc -w)" -gt 1 ]; then
+    python3 tools/annotate_bag.py view $(worker_bag_ids "$RUNS/$tag.sid") >/dev/null
+  fi
   worker_annotate "$tag" "$log" "$RUNS/$tag.sid" "$prompt" "$note" "$fill"
   local rc=$?
   # Running out of window is how this job is SUPPOSED to end, so a plain failure
@@ -551,6 +555,7 @@ bag_prompt() {
   local tmpl ids
   tmpl=$(<tools/annotate_bag_prompt.md)
   ids=$(tr '\n' ' ' <"$1")
+  tmpl="${tmpl//@FIRST@/$(head -n1 "$1")}"
   printf '%s' "${tmpl//@IDS@/${ids% }}"
 }
 
@@ -1558,7 +1563,7 @@ if [ "$seo_ok" = 1 ] && command -v node >/dev/null 2>&1; then
 fi
 # The annotation payloads apply_annotations.py consumed, swept for the same
 # reason daily_update.sh sweeps them: ignored is not the same as cleaned up.
-rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json "$REPO/tools/_scan_"*.png
+rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json "$REPO/tools/_bag_"* "$REPO/tools/_scan_"*.png
 
 if [ -n "$(git --no-optional-locks status --porcelain)" ]; then
   # Everything, for the reason daily_update.sh gives at its own `add -A`: this

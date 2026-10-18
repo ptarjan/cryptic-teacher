@@ -2913,6 +2913,7 @@ tools/clue_bag.py                              which tail puzzles one annotate s
                                                together: a bag
 tools/annotate_bag_prompt.md                   the task a bagged session (several tail puzzles
                                                at once) is given
+tools/test_annotate_bag.py                     the bag's one view and one annotations file
 tools/test_clue_bag.py                         which tail puzzles share one annotate session,
                                                and which never do
 tools/build_spellings.py                       writes tools/data/lexicons/spellings.json:
@@ -2987,5 +2988,8 @@ tools/test_repair_padding.py                   tests that repair_fetched takes l
                                                of the wordplay, and only those
 tools/test_ci_cache_partial.js                 a cold result cache must be able to refill over
                                                several runs
+tools/annotate_bag.py                          the files a bag session
+                                               (tools/annotate_bag_prompt.md) works from and
+                                               writes
 ```
 <!-- LAYOUT-END -->
