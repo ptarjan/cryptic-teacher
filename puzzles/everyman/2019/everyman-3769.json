@@ -1043,7 +1043,8 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places that single letter inside the longer word"
+       "at": 29,
+       "note": "in places the letter inside the shortened range word"
       }
      ],
      "parts": [
@@ -1052,14 +1053,16 @@
        "indicators": [
         {
          "text": "not first",
-         "note": "not the first means the opening letter is removed"
+         "at": 39,
+         "note": "not first means the opening letter of the range word is dropped"
         }
        ],
        "parts": [
         {
          "words": "range",
+         "at": 32,
          "gives": "SPECTRUM",
-         "note": "a spectrum is a full range"
+         "note": "a spectrum is a full range of something"
         },
         {
          "gives": "S"
@@ -1067,32 +1070,17 @@
        ]
       },
       {
-       "op": "nth",
-       "unchecked": true,
+       "words": "second item of clothing",
+       "at": 5,
        "gives": "L",
-       "n": 2,
-       "indicators": [
-        {
-         "text": "second",
-         "note": "second points to the letter in position two of the next word"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "item of clothing",
-         "gives": "L",
-         "select": 2,
-         "note": "position two of clothing"
-        }
-       ]
+       "note": "the second letter of the word clothing"
       }
      ]
     },
     "explanation": {
-     "surface": "Choosing a second garment from a selection, but not the first one.",
-     "walkthrough": "SPECTRUM drops S to give PECTRUM, which then takes L after its P. 'Pick' seems to mean choose; it is the noun.",
-     "definitionFit": "A plectrum is the small flat piece used to pluck guitar strings, commonly called a pick."
+     "surface": "Choose a second garment from a clothing range, but not the first one.",
+     "walkthrough": "'Pick' looks like a verb for choosing clothes; it is the noun for a guitar pick.",
+     "definitionFit": "A plectrum is the small flat piece a guitarist strums with, commonly called a pick."
     },
     "features": {
      "answerInScene": false,

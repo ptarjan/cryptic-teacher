@@ -535,46 +535,48 @@
      "indicators": [
       {
        "text": "worn by",
-       "note": "something worn is outside its wearer, so the costume wraps the other letters"
+       "at": 18,
+       "note": "a garment worn by someone wraps around them, so the costume encloses the letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "costume",
-         "gives": "DRESS",
-         "note": "a dress is a costume or outfit"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "standard abbreviation for English"
-        }
-       ]
+       "words": "costume",
+       "at": 10,
+       "gives": "DRESS",
+       "note": "a dress is a costume"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points to the first letter of the word before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "princess",
-         "note": "the opening letter of princess"
+         "words": "English",
+         "at": 26,
+         "gives": "E"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 44,
+           "note": "initially takes the first letter of princess"
+          }
+         ],
+         "parts": [
+          {
+           "words": "princess",
+           "at": 34
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A royal's outfit is so dull it makes people gloomy.",
-     "walkthrough": "E and P go inside DRESS after its first letter. 'Blue' means sad, not a colour.",
-     "definitionFit": "To depress someone is to make them feel low, and 'blue' is a common word for sad."
+     "surface": "An English princess's outfit makes someone feel sad.",
+     "definitionFit": "To depress someone is to make them sad, and feeling blue means feeling sad."
     },
     "features": {
      "answerInScene": false,
@@ -812,40 +814,44 @@
      "indicators": [
       {
        "text": "about",
-       "note": "the nosy verb goes about, that is around, the words that follow"
+       "at": 9,
+       "note": "about means around, so the prying word goes around the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Was nosy",
-         "gives": "PRIED",
-         "note": "to pry is to be nosy"
-        },
-        {
-         "words": "work",
-         "gives": "OP",
-         "note": "op. is short for opus, a work"
-        }
-       ]
+       "words": "Was nosy",
+       "at": 0,
+       "gives": "PRIED",
+       "note": "pried means was nosy, poked into others' business"
       },
       {
-       "words": "he has",
-       "gives": "HES",
-       "note": "contracted to he's"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "work",
+         "at": 15,
+         "gives": "OP",
+         "note": "OP is short for opus, a work"
+        },
+        {
+         "words": "he has",
+         "at": 20,
+         "gives": "HES",
+         "note": "he has contracts to he's"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone snooped on what a man has done and spread word of it beforehand.",
-     "definitionFit": "To prophesy is to foretell, predicting events before they happen."
+     "surface": "Someone snooped into a job and described it beforehand.",
+     "definitionFit": "To prophesy is to foretell, so prophesied means predicted, spoke of before it happened."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "work"
+     "misdirectedWord": "nosy"
     }
    }
   },
