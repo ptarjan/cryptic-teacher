@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -568,49 +569,41 @@
     "definitions": [
      {
       "text": "March?",
-      "at": 26
+      "at": 26,
+      "note": "the question mark flags that march is used as a noun, a protest walk, not the month"
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "shown minus tail",
+       "at": 6,
+       "note": "shown without its tail means the word appears with its last letter cut off"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "minus",
-         "note": "minus a thing is that thing taken away, so the letter named next comes off the word before it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Devil",
-         "gives": "DEMON",
-         "note": "the devil wanted here is the evil spirit of pacts and possession, five letters long"
-        },
-        {
-         "words": "tail",
-         "gives": "N",
-         "note": "the tail of a word is its final letter, here the last of the five just named"
-        }
-       ]
+       "words": "Devil",
+       "at": 0,
+       "gives": "DEMON",
+       "note": "a demon is a devil or evil spirit"
       },
       {
-       "unchecked": true,
-       "words": "shown",
-       "note": "surface only: it makes the devil something on display and hands over no letters"
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A painted devil with the tail left out.",
-     "walkthrough": "'March' is the noun — placards and a route through town — and the capital letter is there to point you at the month instead. Demo is short for demonstration, which is where both senses meet.",
-     "definitionFit": "March? -> DEMO: a demo is a protest march, the question mark owning that a march is only one of the forms a demonstration takes."
+     "surface": "A puzzled note that a devil turned up without its tail one March.",
+     "walkthrough": "'March' with its capital looks like the month; it is a protest march. 'shown minus tail' drops the N from DEMON.",
+     "definitionFit": "A demo is short for demonstration, a public protest that often takes the form of a march."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "March"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "March?"
     }
    }
   },
@@ -1041,42 +1034,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARLINGTON",
-     "indicators": [
-      {
-       "text": "leaving first",
-       "note": "to leave first is to go before anybody else, and what goes here is the word's own first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving first",
+         "at": 6,
+         "note": "the first letter goes, as if leaving the word"
+        }
+       ],
        "parts": [
         {
          "words": "Angel",
-         "gives": "ARLING",
-         "note": "an angel is a darling — be an angel and pass the salt — and this is that word with its opening letter gone"
+         "at": 0,
+         "gives": "DARLING",
+         "note": "darling and angel are both terms of endearment for a loved one"
         },
         {
-         "words": "century",
-         "gives": "TON",
-         "note": "a ton is a hundred: a batsman's century, or a hundred miles an hour"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "century",
+       "at": 20,
+       "gives": "TON",
+       "note": "a ton is a hundred, as a century is"
       }
      ]
     },
     "explanation": {
-     "surface": "An angel setting off ahead of the rest from a cemetery dating to the first century.",
-     "walkthrough": "Arlington National Cemetery, across the Potomac from Washington, is where America buries its war dead. 'First century' reads as a date and splits neatly between the two halves of the wordplay.",
-     "definitionFit": "cemetery -> ARLINGTON: Arlington is the United States' national military burial ground in Virginia, one named cemetery standing for the word itself."
+     "surface": "An angel figure departing a hundred-year-old graveyard.",
+     "walkthrough": "'leaving first' cuts the D from DARLING to give ARLING; ton is British slang for a hundred, as in a century of runs. Arlington is the US national military cemetery in Virginia.",
+     "definitionFit": "Arlington National Cemetery, near Washington DC, is the famous burial ground for American service personnel."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "first"
+     "misdirectedWord": "Angel"
     }
    }
   },
@@ -1164,42 +1161,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ALEPPO",
-     "indicators": [
-      {
-       "text": "fizzy",
-       "note": "a fizzy drink is full of bubbles that will not settle, and the letters named next will not stay put either"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Drink",
+       "at": 0,
+       "gives": "ALE",
+       "note": "ale is a drink, a kind of beer"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fizzy",
+         "at": 6,
+         "note": "fizzy suggests bubbling agitation, so the letters of pop are stirred into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Drink",
-         "gives": "ALE",
-         "note": "ale is the drink, three letters and a crossword staple"
-        },
-        {
          "words": "pop",
-         "gives": "PPO",
-         "note": "the three letters of POP shaken into a different order"
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Knocking back a fizzy drink somewhere in Syria.",
-     "walkthrough": "Both halves of the surface are beverages, which is what hides the join: one is a synonym and the other is raw letters. Aleppo is the great city of northern Syria, famous for its citadel and its soap.",
-     "definitionFit": "Syrian city -> ALEPPO: Aleppo is the largest city in the north of Syria, one member standing in for the class the definition names."
+     "surface": "An order for a beer and a fizzy soft drink in a Syrian city.",
+     "walkthrough": "'fizzy' looks like it describes the pop, but it signals that POP is rearranged into PPO.",
+     "definitionFit": "Aleppo is one of the largest cities in Syria, in the north of the country."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pop"
+     "misdirectedWord": "fizzy"
     }
    }
   },
@@ -1300,57 +1296,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SANCHOPANZA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grasping",
+       "at": 33,
+       "note": "grasping means holding, so the shortened verse wraps around the other pieces"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "timeless",
-         "note": "time is T, so a word that is timeless has gone missing that one letter"
+         "at": 18,
+         "note": "without T, the abbreviation for time, so that letter goes"
         }
        ],
        "parts": [
         {
          "words": "verse",
-         "gives": "SANZA",
-         "note": "a verse of a poem is a stanza, here arriving without its T"
+         "at": 27,
+         "gives": "STANZA",
+         "note": "a stanza is a verse of a poem"
         },
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "grasping",
-           "note": "to grasp a thing is to close your hand right round it, so the pieces named after it end up inside"
-          }
-         ],
-         "parts": [
-          {
-           "words": "an",
-           "note": "the clue's own article, taken as two letters"
-          },
-          {
-           "words": "axe",
-           "gives": "CHOP",
-           "note": "to axe a budget is to chop it"
-          }
-         ]
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "an",
+         "at": 42
+        },
+        {
+         "words": "axe",
+         "at": 45,
+         "gives": "CHOP",
+         "note": "to chop is to axe, as in cutting a budget"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Spanish squire hanging on to an axe inside a poem that never dates.",
-     "walkthrough": "'An' is not grammar here but two of the letters, which is what makes the insertion so nearly invisible. Sancho Panza is the peasant who rides his donkey behind the knight for the whole novel.",
-     "definitionFit": "Spanish squire -> SANCHO PANZA: Don Quixote's squire, the farm labourer who follows his knight round Spain and talks sense at him throughout."
+     "surface": "A squire in a poem stripped of time, clutching an axe.",
+     "walkthrough": "'timeless' removes the T from STANZA to leave SANZA, which, 'grasping' AN and CHOP, gives SANCHO PANZA, Don Quixote's squire in the theme novel by Cervantes.",
+     "definitionFit": "Sancho Panza is the squire who serves Don Quixote in the novel by the Spanish author Cervantes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "axe"
+     "misdirectedWord": "verse"
     }
    }
   },
@@ -1604,37 +1605,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "INDIA",
-     "indicators": [
-      {
-       "text": "sent to the West",
-       "note": "west is leftwards on the map and on the grid, so the letters named before it run backwards along the row"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Home",
+       "at": 0,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "sent to the West",
+         "at": 10,
+         "note": "in an across answer west is to the left, so the word is written right to left"
+        }
+       ],
        "parts": [
         {
-         "words": "Home",
-         "gives": "IN",
-         "note": "somebody at home is in, as in 'is she in?'"
-        },
-        {
          "words": "help",
-         "gives": "DIA",
-         "note": "help is aid, written here from right to left"
+         "at": 5,
+         "gives": "AID",
+         "note": "aid is help"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A home help being posted off to the West Country.",
-     "walkthrough": "'The West Country' is Devon and Cornwall, and reading those two words as one phrase is the trap; the definition is the last word on its own. 'Home help' splits the same way.",
-     "definitionFit": "Country -> INDIA: the world's most populous country, named by nothing more than the category it belongs to, which is what makes the capital letter such good cover."
+     "surface": "A domestic helper being dispatched to the West Country, the south-west of England.",
+     "walkthrough": "The surface reads 'West Country', a region of south-west England, but 'Country' is split off as the definition, and 'Home' means at home, in.",
+     "definitionFit": "India is a nation in South Asia, so it is an example of a country."
     },
     "features": {
      "answerInScene": false,

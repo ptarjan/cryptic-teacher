@@ -62,17 +62,17 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "OUCHT",
      "indicators": [
       {
        "text": "first to last",
+       "at": 33,
        "note": "the opening letter is carried round to the far end of the word, so the order rotates by one"
       }
      ],
      "parts": [
       {
        "words": "style",
+       "at": 26,
        "gives": "TOUCH",
        "note": "a touch is a characteristic manner or style, as in an artist's touch"
       }
@@ -80,8 +80,8 @@
     },
     "explanation": {
      "surface": "Someone hunting for any trace of Scottish flair in an outfit or a performance.",
-     "walkthrough": "The T at the front of the word for style moves to the back to give OUCHT.",
-     "definitionFit": "OUCHT is a Scots dialect word for 'aught', meaning anything at all."
+     "walkthrough": "'first to last' moves the T at the front of TOUCH to the back.",
+     "definitionFit": "OUCHT is a Scots dialect form of 'aught', meaning anything at all."
     },
     "features": {
      "answerInScene": false,
@@ -179,31 +179,50 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CLOMP",
      "indicators": [
       {
-       "text": "regularly intervening",
-       "note": "intervening at regular intervals means slotting in between the letters one at a time, alternately"
+       "text": "intervening",
+       "at": 52,
+       "note": "intervening means coming between, so the second letter slots in after the next letter of the policeman"
       }
      ],
      "parts": [
       {
-       "words": "copper",
-       "gives": "COP",
-       "note": "a cop is a police officer"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 42,
+         "note": "regularly means at regular intervals, so the first letter of the Lord Mayor goes in after the first letter of the policeman"
+        }
+       ],
+       "parts": [
+        {
+         "words": "copper",
+         "at": 19,
+         "gives": "COP",
+         "note": "a cop is a police officer, as a copper is"
+        },
+        {
+         "words": "Lord",
+         "at": 31,
+         "gives": "L",
+         "note": "L is the usual abbreviation for Lord, as in LM for Lord Mayor"
+        }
+       ]
       },
       {
-       "words": "Lord Mayor",
-       "gives": "LM",
-       "note": "standard abbreviation for Lord Mayor"
+       "words": "Mayor",
+       "at": 36,
+       "gives": "M",
+       "note": "M stands for Mayor in the abbreviation LM, Lord Mayor"
       }
      ]
     },
     "explanation": {
      "surface": "A police constable plodding the streets while the Lord Mayor keeps getting in the way.",
-     "walkthrough": "L and M go in after the C and the O of the policeman, one each, giving C-L-O-M-P.",
-     "definitionFit": "To clomp is to walk with heavy, noisy tread, just what a constable pounding a beat does."
+     "walkthrough": "LM, the abbreviation for Lord Mayor, is 'regularly intervening': L goes in after the C of COP, making CLOP, and M after the O.",
+     "definitionFit": "To clomp is to walk with a heavy, noisy tread, just what a constable pounding a beat does."
     },
     "features": {
      "answerInScene": true,
@@ -233,36 +252,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HALM",
+     "op": "charade",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the word loses its final letter"
+       "text": "under",
+       "at": 12,
+       "note": "in a down answer, under means placed after, below the other piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 23,
+         "note": "mostly means not quite all, so the word loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "hat",
-         "gives": "HA",
-         "note": "hat without its last letter"
+         "at": 18,
+         "gives": "HAT",
+         "note": "the word hat itself, before it loses a letter"
         },
         {
-         "words": "…",
-         "gives": "LM",
-         "note": "the ellipsis carries over the Lord Mayor from the previous clue, abbreviated as before"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "Appearing",
+       "at": 2,
+       "gives": "LM",
+       "note": "with the ellipsis, what appears is the Lord Mayor from the previous clue, abbreviated LM as before"
       }
      ]
     },
     "explanation": {
-     "surface": "The Lord Mayor of the previous clue turns up wearing a straw hat.",
-     "walkthrough": "The dots tie this clue to 2-down, whose Lord Mayor (LM) is what appears under the shortened hat; in a down answer, under means after.",
+     "surface": "The Lord Mayor of the previous clue turns up wearing a hat made mostly of straw.",
+     "walkthrough": "The dots tie this clue to 2-down: its Lord Mayor (LM) is what appears 'under' HA, the hat cut short by 'mostly'.",
      "definitionFit": "HALM is a variant spelling of haulm, the stalks or stems of crops used as straw."
     },
     "features": {
@@ -292,42 +322,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TALKTALL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "unleashed",
-       "note": "unleashed here is read as 'un-i.e.-d', letting go of the letters of i.e. from the word before"
+       "text": "whirling",
+       "at": 9,
+       "note": "whirling sends the letters spinning into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "atlatl's",
+       "at": 18,
+       "gives": "ATLATL",
+       "note": "an atlatl is a spear-thrower; the 's is read as 'has', joining it to what follows"
+      },
+      {
+       "op": "alternate",
        "indicators": [
         {
-         "text": "whirling",
-         "note": "whirling sends the letters spinning into a new order"
+         "text": "i.e. unleashed",
+         "at": 34,
+         "note": "i.e. unleashed means the letters i and e are let loose from the word like, leaving only its other two letters"
         }
        ],
        "parts": [
         {
-         "words": "atlatl's",
-         "gives": "ATLATL",
-         "note": "an atlatl is a spear-thrower; the 's is read as 'has'"
-        },
-        {
-         "words": "like … i.e.",
-         "gives": "LK",
-         "note": "the word like with the letters of i.e. let go"
+         "words": "like",
+         "at": 27,
+         "note": "the word like, which keeps its L and K once its I and E are let go"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone showing off by whirling an Aztec spear-thrower around, the ellipsis trailing off into a free-range i.e.",
-     "walkthrough": "Remove I and E from like to leave LK, then mix those two letters with the six of atlatl.",
+     "surface": "Someone showing off by whirling an Aztec spear-thrower around, the ellipsis trailing off into a loose i.e.",
+     "walkthrough": "'i.e. unleashed' lets the I and E go from LIKE, leaving LK; 'whirling' then mixes those two letters with the six of ATLATL.",
      "definitionFit": "To talk tall is to boast or speak grandiloquently, a verbal way of showing off."
     },
     "features": {
@@ -358,48 +389,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AUTOCAR",
+     "op": "container",
      "indicators": [
       {
-       "text": "abroad",
-       "note": "abroad can mean widely scattered, so the letters are spread into a new order"
+       "text": "round",
+       "at": 33,
+       "note": "the rearranged letters go round the state's abbreviation, holding it inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "round",
-         "note": "round means going around the outside of what follows"
+         "text": "abroad",
+         "at": 26,
+         "note": "abroad means astray or all over the place, so the letters are scattered into a new order"
         }
        ],
        "parts": [
         {
          "words": "a tour",
-         "gives": "AUTOR",
-         "note": "the five letters of a tour rearranged"
-        },
-        {
-         "words": "California",
-         "gives": "CA",
-         "note": "standard abbreviation for the US state"
+         "at": 19,
+         "note": "the letters of a tour, to be rearranged"
         }
        ]
+      },
+      {
+       "words": "California",
+       "at": 39,
+       "gives": "CA",
+       "note": "CA is the US postal abbreviation for California"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A road trip round California in a motor vehicle.",
-     "walkthrough": "The whole clue is both definition and wordplay: one might well tour California in an autocar.",
-     "definitionFit": "An autocar is an old term for a motor car, the vehicle in which a touring trip might be taken."
+     "surface": "A question about which vehicle a visitor uses to tour around California.",
+     "walkthrough": "'abroad' rearranges A TOUR to AUTOR, which goes 'round' CA. The whole clue also describes the vehicle, a motor car for a touring trip.",
+     "definitionFit": "Autocar is an old word for a motor car, the kind of vehicle you might take touring."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "abroad"
     }
    }
   },
@@ -583,46 +616,47 @@
     "definitions": [
      {
       "text": "Veteran signing up",
-      "at": 0
+      "at": 0,
+      "note": "veteran flags an old or obsolete sense of the word"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ATTESTING",
-     "indicators": [
-      {
-       "text": "spoilt",
-       "note": "something spoilt is damaged out of its proper shape, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spoilt",
+         "at": 25,
+         "note": "something spoilt is damaged out of its proper shape, so the letters of state are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "state",
-         "gives": "ATTES",
-         "note": "the letters of state rearranged"
-        },
-        {
-         "words": "cash",
-         "gives": "TIN",
-         "note": "tin is slang for money"
-        },
-        {
-         "words": "grand",
-         "gives": "G",
-         "note": "G is short for a grand, a thousand pounds or dollars"
+         "at": 19
         }
        ]
+      },
+      {
+       "words": "cash",
+       "at": 37,
+       "gives": "TIN",
+       "note": "tin is old slang for money"
+      },
+      {
+       "words": "grand",
+       "at": 43,
+       "gives": "G",
+       "note": "G is short for a grand, a thousand pounds or dollars"
       }
      ]
     },
     "explanation": {
      "surface": "An old soldier enlisting in a state that showers recruits with money.",
-     "walkthrough": "Veteran is part of the definition, flagging an old or obsolete sense rather than an old soldier.",
-     "definitionFit": "To attest was formerly to enrol a recruit for military service, so attesting meant enlisting or signing up."
+     "walkthrough": "'spoilt' rearranges STATE to ATTES. 'Veteran' is part of the definition, flagging an old sense rather than an old soldier.",
+     "definitionFit": "To attest was formerly to enrol a recruit for military service, so attesting meant enlisting."
     },
     "features": {
      "answerInScene": true,
@@ -764,25 +798,43 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "BERTH",
      "indicators": [
       {
-       "text": "gives this accommodation",
-       "note": "giving accommodation means housing something within, so only the lodged middle stretch of the spelt-out phrase is kept"
+       "text": "accommodation",
+       "at": 23,
+       "note": "accommodation means housing: the answer is lodged in the phrase, so the letters after it go too"
       }
      ],
      "parts": [
       {
-       "words": "No. 3",
-       "gives": "NUMBERTHREE",
-       "note": "the abbreviation written out in full"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "gives this",
+         "at": 12,
+         "note": "the written-out phrase gives this answer, yielding it from within, so its front letters are shed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "No. 3",
+         "at": 6,
+         "gives": "NUMBERTHREE",
+         "note": "the abbreviation written out in full as number three"
+        },
+        {
+         "gives": "NUM"
+        }
+       ]
+      },
+      {
+       "gives": "REE"
       }
      ]
     },
     "explanation": {
      "surface": "Cabin number three provides the sleeping accommodation.",
-     "walkthrough": "The answer only appears once No. 3 is written out in full: drop the NUM at the front and REE at the end.",
+     "walkthrough": "The answer only appears once No. 3 is written out in full as NUMBER THREE: 'gives this accommodation' says the phrase houses it, so drop NUM (leaving BERTHREE) and REE.",
      "definitionFit": "A berth is a sleeping place or cabin on a ship or train."
     },
     "features": {
@@ -1447,26 +1499,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TUIS",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "with coating switched",
-       "note": "the coating is the outer layer, the end letters, and switching them swaps their places"
+       "text": "switched",
+       "at": 42,
+       "note": "switched means the two outer letters trade places, so the T at the end now becomes S"
       }
      ],
      "parts": [
       {
-       "words": "match",
-       "gives": "SUIT",
-       "note": "to suit is to match"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "with coating",
+         "at": 29,
+         "note": "the coating is the outer layer of the word, its end letters: the S at the front takes the place of the T"
+        }
+       ],
+       "parts": [
+        {
+         "words": "match",
+         "at": 23,
+         "gives": "SUIT",
+         "note": "to suit is to match, as colours suit each other"
+        },
+        {
+         "gives": "S"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "gives": "T"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
      "surface": "Exotic birds whose plumage changes as part of a mating match.",
-     "walkthrough": "Only the outermost S and T trade places; the middle stays put.",
+     "walkthrough": "'with coating switched' swaps the outer S and T of SUIT (via TUIT); the middle UI stays put.",
      "definitionFit": "The tui is a New Zealand songbird, foreign from a British point of view."
     },
     "features": {
@@ -1497,48 +1573,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PALPATIONS",
+     "op": "container",
      "indicators": [
       {
-       "text": "altered",
-       "note": "altered means changed, so the letters are rearranged"
+       "text": "involving",
+       "at": 33,
+       "note": "involving means taking in, so the rearranged letters wrap round the courtyard"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "involving",
-         "note": "involving means wrapping around and including"
+         "text": "altered",
+         "at": 19,
+         "note": "altered means changed, so the letters of plans are put in a new order"
         }
        ],
        "parts": [
         {
          "words": "plans",
-         "gives": "PALNS",
-         "note": "the letters of plans rearranged"
-        },
-        {
-         "words": "courtyard",
-         "gives": "PATIO",
-         "note": "a patio is a paved courtyard"
+         "at": 27
         }
        ]
+      },
+      {
+       "words": "courtyard",
+       "at": 43,
+       "gives": "PATIO",
+       "note": "a patio is a paved courtyard"
       }
      ]
     },
     "explanation": {
-     "surface": "An architect checking revised plans that now include a courtyard.",
-     "walkthrough": "Means of examining sounds like an inspector's methods; it is a doctor feeling the body.",
-     "definitionFit": "Palpation is medical examination by touch, so palpations are means of examining a patient."
+     "surface": "A doctor's methods of examination being redrawn around a courtyard.",
+     "walkthrough": "'altered' and 'involving' both apply: the courtyard sits inside the reshuffled plans, splitting them three and two.",
+     "definitionFit": "Palpations are examinations by touch, a medical method of checking organs with the hands."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "examining"
+     "aptDefinition": false,
+     "misdirectedWord": "plans"
     }
    }
   },
@@ -2001,12 +2077,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ECADS",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the abbreviation for died inside the other word's letters"
+       "at": 30,
+       "note": "in means the abbreviation goes inside the rearranged letters"
       }
      ],
      "parts": [
@@ -2015,32 +2090,34 @@
        "indicators": [
         {
          "text": "broken",
-         "note": "broken means shattered into pieces that are reassembled"
+         "at": 33,
+         "note": "broken means smashed apart, so the letters of case are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "died",
-         "gives": "D",
-         "note": "standard abbreviation for died"
-        },
-        {
          "words": "case",
-         "gives": "ECAS",
-         "note": "the letters of case rearranged"
+         "at": 40
         }
        ]
+      },
+      {
+       "words": "died",
+       "at": 25,
+       "gives": "D",
+       "note": "D is the standard abbreviation for died, as in genealogies"
       }
      ]
     },
     "explanation": {
-     "surface": "A broken specimen case of plants that have died.",
-     "definitionFit": "An ecad is a plant form adapted to a particular habitat, a distinct ecological variant."
+     "surface": "A specimen case broken open, the plants in it dead.",
+     "walkthrough": "'broken' turns CASE into ECAS, with D going 'in' before the S.",
+     "definitionFit": "An ecad is a plant form adapted to its habitat, a distinct ecological type in botany."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "items"
+     "misdirectedWord": "died"
     }
    }
   }

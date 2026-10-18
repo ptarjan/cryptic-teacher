@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -284,53 +285,68 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IMPOLITIC",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "totally",
+       "at": 32,
+       "note": "totally here means in total, all added together, so the two shortened words are joined"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Mostly",
-         "note": "'Mostly' means all but a little, and the little left behind is the final letter of the word it governs."
+         "at": 0,
+         "note": "mostly means not quite all of the word, so its final letter is dropped"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "The second one does the same job on the next word, docking its last letter before the two pieces are laid end to end."
-          }
-         ],
-         "parts": [
-          {
-           "words": "rude",
-           "gives": "IMPOLIT",
-           "note": "rude is IMPOLITE, and most of that is everything but the E"
-          },
-          {
-           "words": "unfriendly",
-           "gives": "IC",
-           "note": "unfriendly is ICY, and most of ICY is its first two letters"
-          }
-         ]
+         "words": "rude",
+         "at": 7,
+         "gives": "IMPOLITE",
+         "note": "rude means impolite"
         },
         {
-         "unchecked": true,
-         "words": "totally",
-         "note": "surface only, and the setter's joke as well: two mostlys laid end to end come to a totally"
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 13,
+         "note": "again not quite all of the word: its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unfriendly",
+         "at": 20,
+         "gives": "ICY",
+         "note": "an icy manner is cold and unfriendly"
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A verdict on somebody who is rude, cold and stupid with it.",
-     "walkthrough": "'Foolish' is doing all the defining on its own, and the word in front of it belongs to the insult in the surface. IMPOLITIC is the political sort of foolish: ill-judged rather than dim.",
-     "definitionFit": "IMPOLITIC means ill-judged — the foolishness of a move that will cost you, not stupidity of mind."
+     "surface": "Someone sizing up a person who is somewhat rude, rather cold, and altogether a fool.",
+     "walkthrough": "'Mostly' cuts the E from IMPOLITE to leave IMPOLIT, the second 'mostly' cuts the Y from ICY to leave IC, and 'totally' (in total) adds them up.",
+     "definitionFit": "An impolitic action is unwise or imprudent in the circumstances, which is what foolish means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "totally"
     }
    }
   },
@@ -743,42 +759,48 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Some overnight",
+      "text": "Some overnight for this",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LATESHIFT",
-     "indicators": [
-      {
-       "text": "turning up",
-       "note": "In a down entry 'up' points back towards the start, so the letters just named are written in from the bottom."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "at": 35,
+         "note": "in a down answer, turning up means the letters are read bottom to top, so backwards"
+        }
+       ],
        "parts": [
         {
          "words": "and others",
-         "gives": "LATE",
-         "note": "'and others' after a name in a list is et al, and those four letters are then read the other way"
-        },
-        {
-         "words": "quickly go",
-         "gives": "SHIFT",
-         "note": "to shift is to move fast — 'shift it!' shouted at somebody dawdling"
+         "at": 24,
+         "gives": "ETAL",
+         "note": "et al, short for the Latin et alii, means and others"
         }
        ]
+      },
+      {
+       "words": "quickly go",
+       "at": 46,
+       "gives": "SHIFT",
+       "note": "to shift is to move fast, as in 'that car can really shift'"
       }
      ]
     },
     "explanation": {
-     "surface": "Staff who come in overnight for this job and others, then leave in a hurry.",
-     "walkthrough": "Et al is the Latin tag that follows a name in a reference list, standing for 'and others', and here it is four letters to be read upwards.",
-     "definitionFit": "A LATE SHIFT is the working stretch that runs on into the night, so 'Some overnight' picks out the part of the night that gets worked."
+     "surface": "A puzzle-solver musing that some people stay up overnight for this crossword while others rush off.",
+     "walkthrough": "ET AL 'turning up' gives LATE, then SHIFT. The definition is cryptic: a late shift is work some people do overnight.",
+     "definitionFit": "A late shift is a work period running into the night, which some employees work overnight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "turning"
     }
    }
   },
