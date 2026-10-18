@@ -1311,50 +1311,72 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CONFESSOR",
+     "op": "charade",
      "indicators": [
       {
-       "text": "carrying",
-       "note": "something carrying a load holds it within, so the first two pieces wrap around another"
+       "text": "and",
+       "at": 34,
+       "note": "the second and adds the gold on after everything built so far"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "carrying",
+         "at": 20,
+         "note": "the prisoner and guards together carry the iron, holding it between them"
+        }
+       ],
        "parts": [
         {
-         "words": "Prisoner",
-         "gives": "CON",
-         "note": "a con is a convict"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "and",
+           "at": 9,
+           "note": "and joins the prisoner to the guards, the guards coming straight after him"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Prisoner",
+           "at": 0,
+           "gives": "CON",
+           "note": "a con is a convict, a prisoner"
+          },
+          {
+           "words": "guards",
+           "at": 13,
+           "gives": "SS",
+           "note": "the SS were the Nazi guard units, so SS stands for guards"
+          }
+         ]
         },
         {
          "words": "iron",
+         "at": 29,
          "gives": "FE",
          "note": "Fe is the chemical symbol for iron"
-        },
-        {
-         "words": "and guards",
-         "gives": "SS",
-         "note": "the SS were Hitler's guards, its name meaning protection squad"
-        },
-        {
-         "words": "and gold",
-         "gives": "OR",
-         "note": "or is gold in heraldry"
         }
        ]
+      },
+      {
+       "words": "gold",
+       "at": 38,
+       "gives": "OR",
+       "note": "or is the heraldic word for gold"
       }
      ]
     },
     "explanation": {
-     "surface": "A convict and his warders smuggle iron and gold for the prison chaplain.",
-     "walkthrough": "Prisoner and guards together form one outer shell around iron; OR for gold is a heraldic term crosswords use often.",
-     "definitionFit": "A confessor is a priest who hears confessions and gives spiritual counsel."
+     "surface": "A prison scene: an inmate and his warders hauling metal and treasure.",
+     "walkthrough": "'carrying' governs 'Prisoner and guards' as one unit, making CONFESS, so the iron sits where the two meet; 'priest' is the definition, not a fourth person in the scene.",
+     "definitionFit": "A confessor is a priest who hears confessions and grants absolution."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "guards"
     }

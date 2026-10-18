@@ -550,27 +550,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INALL",
+     "op": "middle",
      "indicators": [
       {
        "text": "stripping",
-       "note": "stripping takes off the outer layer, so the first and last letters are removed"
+       "at": 20,
+       "note": "stripping takes off the outer layer, so the word loses its first and last letters"
       }
      ],
      "parts": [
       {
        "words": "at the end",
+       "at": 30,
        "gives": "FINALLY",
        "note": "finally means at the end"
       }
      ]
     },
     "explanation": {
-     "surface": "Everybody was thought about, though the stripping came last.",
-     "walkthrough": "Take the F and Y off FINALLY.",
-     "definitionFit": "In all means in total, counting everyone or everything together, which is everyone considered."
+     "surface": "Someone thought about going naked at the close of an evening.",
+     "walkthrough": "'stripping' reads as undressing in the surface, but it peels the outer letters off FINALLY, leaving INALL.",
+     "definitionFit": "In all means in total, counting every one, so it describes everyone taken into account."
     },
     "features": {
      "answerInScene": false,
@@ -1092,49 +1092,54 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "EPERGNE",
      "indicators": [
       {
        "text": "Back",
-       "note": "back means going in the opposite direction, so the whole string is read from its end"
+       "at": 0,
+       "note": "back tells us the whole string built from the rest is read in reverse"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "EPERGNE",
-       "indicators": [
-        {
-         "text": "cycling",
-         "note": "cycling moves letters round from one end to the other like a wheel turning"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "fresh",
-         "gives": "GREEN",
-         "note": "green means new or inexperienced"
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "cycling",
+           "at": 11,
+           "note": "cycling rotates the word, moving its opening letters round to the end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fresh",
+           "at": 5,
+           "gives": "GREEN",
+           "note": "green means fresh or new"
+          }
+         ]
         },
         {
          "words": "class for Games",
+         "at": 19,
          "gives": "PE",
-         "note": "physical education, the school lesson for sports"
+         "note": "PE, physical education, is the school class for games"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A school sports lesson returning to support a centrepiece at the Games.",
-     "walkthrough": "Rotate GREEN to ENGRE by moving letters from front to back, add PE, then read ENGREPE backwards. In British schools Games is the sports lesson.",
-     "definitionFit": "An epergne is an ornamental branched stand placed in the middle of a dining table, a table centrepiece."
+     "surface": "A note about returning to a new bike-riding course in preparation for an athletic contest.",
+     "walkthrough": "'cycling' turns GREEN into ENGRE; add PE to get ENGREPE, and 'Back' reverses it all. 'Games' looks like an athletic tournament; PE is just school sport.",
+     "definitionFit": "An epergne is an ornamental stand with dishes or vases used as a table centrepiece."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Games"
+     "misdirectedWord": "cycling"
     }
    }
   },
