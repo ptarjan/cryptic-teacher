@@ -90,51 +90,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOURISH",
+     "op": "charade",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "with no ends means both the very first and the very last letters are dropped"
+       "text": "after",
+       "at": 40,
+       "note": "after means the following pieces come behind the letter for noon"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "noon",
+       "at": 46,
+       "gives": "N"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "after",
-         "note": "following something places these letters behind another piece in the reading order"
+         "text": "endlessly",
+         "at": 26,
+         "note": "endlessly means without its ends, so the first and last letters of tourist go"
         }
        ],
        "parts": [
         {
-         "words": "noon",
-         "gives": "N",
-         "note": "N is a standard abbreviation for noon"
-        },
-        {
          "words": "tourist",
-         "gives": "OURIS",
-         "note": "the word with its two outer letters T removed"
-        },
-        {
-         "words": "hot",
-         "gives": "H",
-         "note": "H is the abbreviation for hot, as on a tap"
+         "at": 17,
+         "note": "tourist without its first and last letters leaves OURIS"
         }
        ]
+      },
+      {
+       "words": "hot",
+       "at": 36,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on a tap"
       }
      ]
     },
     "explanation": {
-     "surface": "A tour guide feeding a visitor on a scorching day just past midday.",
-     "walkthrough": "The pieces are written in the order N, OURIS, H: 'hot after noon' puts the noon letter first, with the clipped tourist sitting between.",
-     "definitionFit": "To nourish someone is to give them the food and sustenance they need to stay healthy and grow."
+     "surface": "Feeding a visitor a meal that stays warm well into the afternoon.",
+     "walkthrough": "'endlessly' trims TOURIST to OURIS; the N for noon comes first because the rest follows 'after' it.",
+     "definitionFit": "To nourish someone is to supply them with the nutriment they need, i.e. to feed them."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "noon"
     }
@@ -552,43 +553,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "JUNE",
+     "op": "container",
      "indicators": [
       {
-       "text": "detailed",
-       "note": "de-tailed means having its tail cut off, so the final letter goes"
+       "text": "to carry",
+       "at": 15,
+       "note": "to carry means the shortened plane holds the peacekeepers inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to carry",
-         "note": "carrying something means holding it inside, so one piece goes within another"
+         "text": "detailed",
+         "at": 6,
+         "note": "detailed is read as de-tailed, so the jet loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "Plane",
-         "gives": "JE",
-         "note": "a jet without its last letter"
+         "at": 0,
+         "gives": "JET",
+         "note": "a jet is an aeroplane"
         },
         {
-         "words": "peacekeepers",
-         "gives": "UN",
-         "note": "the United Nations sends peacekeeping forces"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "peacekeepers",
+       "at": 24,
+       "gives": "UN",
+       "note": "the UN, the United Nations, sends peacekeeping forces"
       }
      ]
     },
     "explanation": {
-     "surface": "A military aircraft briefed to transport peacekeeping troops for a month's tour.",
-     "walkthrough": "'detailed' looks like 'assigned to a duty', but it is read as de-tailed: JET loses its T, then holds UN.",
-     "definitionFit": "June is the sixth calendar month of the year, so it is one example of a month."
+     "surface": "An aircraft is assigned to transport UN troops for a month.",
+     "walkthrough": "'detailed' looks like 'assigned' but means docked of its tail, and 'to carry' puts the peacekeepers inside what is left.",
+     "definitionFit": "June is the sixth month of the year, so it is one example of a month."
     },
     "features": {
      "answerInScene": false,
@@ -1239,43 +1245,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DISLIKE",
+     "op": "container",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "without a heart means the central letter is cut out"
+       "text": "tackling",
+       "at": 16,
+       "note": "tackling means taking on, so the word for dying grips the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "pass on",
+       "at": 8,
+       "gives": "DIE",
+       "note": "to pass on is a euphemism for to die"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "tackling",
-         "note": "tackling something means wrapping round and grappling with it, so one piece goes around another"
+         "text": "review of",
+         "at": 25,
+         "note": "review is read as re-view, looking back, so the letters run backwards"
         }
        ],
        "parts": [
         {
-         "words": "pass on",
-         "gives": "DIE",
-         "note": "to pass on is a euphemism for to die"
-        },
-        {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "review of",
-           "note": "to review is to look back, so the letters are read backwards"
+           "text": "heartless",
+           "at": 35,
+           "note": "heartless means losing the central letter"
           }
          ],
          "parts": [
           {
            "words": "murders",
-           "gives": "KILS",
-           "note": "kills, with the middle letter L removed"
+           "at": 45,
+           "gives": "KILLS",
+           "note": "murders means kills"
+          },
+          {
+           "gives": "L"
           }
          ]
         }
@@ -1284,14 +1296,14 @@
      ]
     },
     "explanation": {
-     "surface": "A critic who hates having to write up a review of a brutal murder novel.",
-     "walkthrough": "'pass on' looks like declining a job but is a euphemism for dying; 'review' here means looking back.",
-     "definitionFit": "Dislike is a feeling of aversion or distaste for something; as a verb it is a milder synonym of hate."
+     "surface": "Someone hates passing up the chance to take on a review of a series of murders.",
+     "walkthrough": "'heartless' takes the middle letter out of the word for murders, 'review of' turns it backwards, and 'tackling' puts that inside the word for pass on.",
+     "definitionFit": "To dislike something is to feel aversion to it, so it can stand for hate as a verb."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "pass"
+     "misdirectedWord": "review"
     }
    }
   },

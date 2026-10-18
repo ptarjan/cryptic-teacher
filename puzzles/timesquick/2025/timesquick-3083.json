@@ -608,53 +608,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NIGHTFALL",
-     "indicators": [
-      {
-       "text": "Weird",
-       "note": "weird means strange and out of the ordinary, so the letters of the next word come out of their ordinary order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Weird",
+         "at": 0,
+         "note": "something weird is strange and twisted out of its usual shape, so the letters of thing are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Weird thing",
-         "gives": "NIGHT",
-         "note": "THING rearranged"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially means at the start, so take the first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "initially frightens",
-           "gives": "FRIGHTENS",
-           "note": "first letter of frightens"
-          }
-         ]
-        },
-        {
-         "words": "everybody",
-         "gives": "ALL",
-         "note": "everybody is all"
+         "words": "thing",
+         "at": 6
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 12,
+         "note": "initially means at the start, so only the opening letter of frightens is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "frightens",
+         "at": 22,
+         "note": "the opening letter of frightens is F"
+        }
+       ]
+      },
+      {
+       "words": "everybody",
+       "at": 32,
+       "gives": "ALL",
+       "note": "everybody means all"
       }
      ]
     },
     "explanation": {
-     "surface": "A strange creature scares everyone once darkness falls.",
-     "walkthrough": "The surface's 'weird thing' is a monster, but 'weird' only rearranges THING.",
-     "definitionFit": "Descriptive definition: a phrase describing the moment evening turns to darkness."
+     "surface": "A spooky creature scares everyone once darkness falls.",
+     "walkthrough": "Weird looks like an adjective describing the thing, but it is the signal to rearrange its letters.",
+     "definitionFit": "Nightfall is the onset of evening, the moment the light fades and darkness arrives."
     },
     "features": {
      "answerInScene": true,
@@ -933,30 +933,30 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "STET",
      "indicators": [
       {
        "text": "changes",
-       "note": "what changes becomes different, so the letters take a different order"
+       "at": 17,
+       "note": "changes means the letters of the answer to 12 across are altered in order"
       }
      ],
      "parts": [
       {
        "words": "12",
-       "gives": "STET",
-       "note": "the answer to 12 Across, TEST, rearranged"
+       "at": 14,
+       "gives": "TEST",
+       "note": "the answer to 12 across is TEST"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to keep something in place while making changes.",
-     "walkthrough": "The number 12 stands for the answer to 12 Across, whose letters are the fodder.",
-     "definitionFit": "Specialist sense: the proofreader's mark, Latin for 'let it stand', telling the printer to keep a struck-out word."
+     "surface": "An instruction to keep something in place while the twelfth item gets altered.",
+     "walkthrough": "12 across is TEST; 'changes' rearranges those four letters.",
+     "definitionFit": "Stet is the proofreader's mark telling the printer to let a deleted passage stand, i.e. keep it."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "changes"
     }
    }
