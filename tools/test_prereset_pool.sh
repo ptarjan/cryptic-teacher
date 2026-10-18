@@ -41,10 +41,11 @@ WIDTH_FILE="$tree/width"
 export POOL_LAUNCH_GAP=0.1
 POOL_CHECK_SECS=0   # a checkpoint after every run, so a width change lands at once
 POOL_SYNC_SECS=2    # and a mid-pool sync, at least once
+RELOAD_ASKED=0      # the script sets it at its top level; reload_due reads it
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 for fn in pool_live pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
           pool_replan pool_plan_mismatch pool_kill_tree pool_topup pool_topup_room pool_finished pool_adopted_done \
-          needs_solve solve_applied resumed_first; do
+          needs_solve solve_applied resumed_first reload_due; do
   block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
   if [ -z "$block" ]; then echo "FAIL tools/prereset_backfill.sh no longer defines $fn()"; exit 1; fi
   eval "$block"
@@ -341,13 +342,14 @@ set -uo pipefail
 CODE=old
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 for fn in pool_live pool_mark pool_launch pool_reap pool_adopted_done pool_interval_start \
-          pool_checkpoint run_pool resumed_first shell_sum reexec_self reexec_load pool_topup pool_topup_room; do
+          pool_checkpoint run_pool resumed_first shell_sum reexec_self reexec_load pool_topup pool_topup_room reload_due; do
   block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
   [ -n "$block" ] || { echo "ALERT tools/prereset_backfill.sh no longer defines $fn()" >>"$EVENTS"; exit 1; }
   eval "$block"
 done
 eval "$(sed -n '/^REEXEC_VARS=(/,/)$/p' "$SCRIPT")"
 POOL_LAUNCH_GAP_US=100000 POOL_CHECK_SECS=0 POOL_SYNC_SECS=1 POOL_POLL_SECS=0.2
+RELOAD_ASKED=0 WATCH_PID=""
 RUN_LOG="$tree/runlog" PRERESET_SELF="$0" SHELL_FILES=("$0") RUNS="$tree/runs" DRY_RUN=0
 queue=($IDS) at=0 requeued=" " resumed=" " naps=0 NAPPED=0 WAVE_FAILED_IDS=() wide=""
 resets_in=1 RESET_AT=0 STOP_AT=0 MAX_NAPS=1 POOL_PHASE=annotate fields=() field_i=0
