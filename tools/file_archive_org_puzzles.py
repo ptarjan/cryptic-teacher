@@ -839,6 +839,7 @@ def windows(grid, third=None, margin=40, above=None, left=None, split=None, lead
     title's foot) down, comes first, and the column under the grid starts at
     `split` (lead_column(): the 1983-86 FT). The left
     column starts `margin` left of the grid (the Times outdents its numbers).
+    A `split` tuple (first, second, end) is three columns under the grid.
     With `right`, (x1, gutter, bottom) (right_columns()), the two columns are
     right of the grid, from RIGHT_RISE over its top down to `bottom`, split
     at the gutter, the second ending at x1 (the 2014 Times).
@@ -862,6 +863,10 @@ def windows(grid, third=None, margin=40, above=None, left=None, split=None, lead
     if above:
         top, split, right, x0 = (above + (gx0 - margin,))[:4]
         return [(x0, split, split, top), (split, right, right, top)]
+    if isinstance(split, tuple):
+        # Three columns under the grid, the last overhanging it (over_gutters()).
+        g1, g2, x1 = split
+        return [(gx0 - margin, g1, g1, gy1 - 5), (g1, g2, g2, gy1 - 5), (g2, x1, x1, gy1 - 5)]
     mid = gx0 + (gx1 - gx0) / 2 - 10 if split is None else split
     out = [(gx0 - margin, mid, gx1 + 15, gy1 - 5), (mid, gx1 + 15, gx1 + 15, gy1 - 5)]
     if lead:
@@ -924,7 +929,7 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
     gx0, gy0, gx1, gy1 = grid
     bottom = gy0 - 3 if above else right[2] if right else left[2] if left else gy1 + 1.8 * (gx1 - gx0)
     wins = windows(grid, third, margin, above, left, split, lead, right)
-    reach = gx1 + RIGHT_REACH if above is None and not left and not right else None
+    reach = gx1 + RIGHT_REACH if above is None and not left and not right and not isinstance(split, tuple) else None
     cols = [[] for _ in wins]
     heights = sorted(w[3] - w[1] for ws in lines for w in ws)
     height = heights[len(heights) // 2] if heights else None
@@ -1343,6 +1348,59 @@ def right_gutter(lines, grid, right):
     x1, bottom = right
     lo, hi = gx1 + RIGHT_GUTTER[0] * (x1 - gx1), gx1 + RIGHT_GUTTER[1] * (x1 - gx1)
     return x1, gutter(lines, (lo, bottom, hi, bottom), gy0 - RIGHT_RISE, lo, hi), bottom
+
+
+#: The Times' three clue columns under a grid (Gale, ~2006-12 to 2013, where
+#: a box of text sits beside the grid): they are each a third of the span from
+#: the grid's left edge to where the ink under it ends (overhang()), so the
+#: third column overhangs the grid. The band under the grid's foot, from
+#: OVER_BAND of the grid's width right of its edge, is inked like text only
+#: there (a two-column page's margin is clean paper and binder holes).
+OVER_BAND, OVER_DEPTH, OVER_INK = (0.08, 0.3), (0.05, 0.6), 0.03
+#: How far past the grid's edge, as a share of its width, the third column
+#: may end; the window (px) and ink share that make an x a column's.
+OVER_REACH, OVER_WINDOW, OVER_COLUMN_INK = 0.7, 9, 0.04
+#: How far either side of a third of the span, as a share of the grid's
+#: width, a gutter between the three columns may lie.
+OVER_GUTTER = 0.06
+
+
+def overhang(img, grid):
+    """The x where a third clue column under `grid` ends (it overhangs the
+    grid's right edge), or None for the usual two columns: the band right of
+    the grid's edge and under its foot is inked like text (OVER_INK of it)
+    and the page leaves room there."""
+    gx0, gy0, gx1, gy1 = grid
+    gw = gx1 - gx0
+    box = (int(gx1 + OVER_BAND[0] * gw), int(gy1 + OVER_DEPTH[0] * gw),
+           int(gx1 + OVER_BAND[1] * gw), int(gy1 + OVER_DEPTH[1] * gw))
+    if box[2] > img.width or box[3] > img.height:
+        return None
+    band = img.crop(box).convert("L")
+    if sum(band.histogram()[:128]) < OVER_INK * band.width * band.height:
+        return None
+    # Where the columns end: the last x whose neighbourhood is inked like
+    # text, out to OVER_REACH (a speck or a punched hole is not a column).
+    from PIL import Image
+    x0, far = int(gx1 + OVER_BAND[0] * gw), min(img.width, int(gx1 + OVER_REACH * gw))
+    strip = img.crop((x0, box[1], far, int(gy1 + OVER_DEPTH[1] * gw))).convert("L").point(lambda v: 255 if v < 128 else 0)
+    ink = [v / 255 for v in strip.resize((strip.width, 1), Image.BOX).getdata()]
+    ends = [x for x in range(len(ink)) if sum(ink[x:x + OVER_WINDOW]) >= OVER_WINDOW * OVER_COLUMN_INK]
+    return x0 + ends[-1] + OVER_WINDOW if ends else None
+
+
+def over_gutters(lines, grid, x1):
+    """(first, second, x1): the two x's between the three clue columns under
+    `grid` that end at `x1` (overhang()), each where the fewest words
+    (`lines`, every reading's) cross near a third of the span."""
+    gx0, _, gx1, gy1 = grid
+    gw = gx1 - gx0
+    bottom = gy1 + 1.8 * gw
+    out = []
+    for k in (1, 2):
+        mid = gx0 + k * (x1 - gx0) / 3 - 10
+        out.append(gutter(lines, (gx0, bottom, gx1, bottom), gy1, mid - OVER_GUTTER * gw, mid + OVER_GUTTER * gw))
+    return out[0], out[1], x1
 
 
 def lead_column(title, grid, margin=40):
@@ -3463,9 +3521,14 @@ def read_puzzle(d, found, hit, solutions):
     # width wide (beside), or the one column left_column() finds.
     column = left_column(lines, gbox) if side == "below" and top is None and not paper.four else None
     crop = (gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)) if beside else column and column[::2]
+    # The 2006-13 Times' three columns under the grid, the third overhanging
+    # it: read from a crop that reaches its end (a page that ends soon under
+    # the grid is not the 2014 Times' clues right of it).
+    over = overhang(img, gbox) if side == "below" and top is None and not column and not paper.four \
+        and not third else None
     # The 2014 Times: the clue columns right of a grid at the page's foot.
     right = right_columns(img, gbox) if side == "below" and top is None and not column and not paper.four \
-        and not third else None
+        and not third and not over else None
     # The 2005 Times: the same, the grid left of its title (side "left").
     if side == "left" and paper.key in ("times", "gale") and not paper.four and not third:
         right = right_columns(img, gbox, RIGHT_SPAN_LEFT)
@@ -3473,8 +3536,9 @@ def read_puzzle(d, found, hit, solutions):
             beside, crop = False, None
     lead = lead_column(hit["box"], gbox, m) if side == "right" else \
         indented_column(hit["box"], gbox, m) if side == "below" and top is None and not column and not right \
-        and not paper.four else None
-    rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", third, m, top,
+        and not over and not paper.four else None
+    rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json",
+                                (over - gbox[2] - 15, gbox[3]) if over else third, m, top,
                                 crop, lead, x0, right) for which in READERS}
     # The scan's grid, read before the clues: the 1930 Times prints no
     # counts, so its clues take theirs from it.
@@ -3517,7 +3581,8 @@ def read_puzzle(d, found, hit, solutions):
     if right:
         right = right_gutter(every, gbox, right)
     if not paper.four:
-        split = under_gutter(every, gbox) if above is None and left is None and not right else None
+        split = over_gutters(every, gbox, over) if over else \
+            under_gutter(every, gbox) if above is None and left is None and not right else None
         cols = {"djvu": columns(lines, gbox, third, m, above, left, split, lead, right)}
         for which in READERS:
             cols[which] = columns(rapid[which], gbox, third, m, above, left, split, lead, right)
@@ -4404,6 +4469,22 @@ def _linked(d, scan, held, paper=None):
 _LINKED = {}
 
 
+#: (first day, last day, ISO time) of the Gale Times pages (about 2006-11 to
+#: 2013) whose third clue column (overhang()) was not read before that time:
+#: a held row with fewer clues than lights, read before it, is read again.
+REREAD_THREE_COLUMNS = ("2006-11-01", "2013-12-31", "2026-10-18T04:37:45+00:00")
+
+
+def short_three_columns(row):
+    """Whether `row` is a Gale Times edition of REREAD_THREE_COLUMNS' days with
+    a puzzle held short of clues (fewer than lights, none refused)."""
+    scan = row.get("scan") or {}
+    first, last, _ = REREAD_THREE_COLUMNS
+    return str(scan.get("item", "")).startswith("GaleTimes") and first <= str(scan.get("date", "")) <= last and any(
+        not v.get("complete") and not v.get("refused") and v.get("clues", 0) < v.get("lights", 0)
+        for v in row.get("verdicts", ()))
+
+
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
@@ -4414,6 +4495,8 @@ def fix_reason(row):
         t = REREAD_REFUSED.get(v.get("cause"))
         if t and scan_queue.read_before(row, scan_queue.when(t)):
             return f"refused {v['cause']} before its fix"
+    if short_three_columns(row) and scan_queue.read_before(row, scan_queue.when(REREAD_THREE_COLUMNS[2])):
+        return "short Times page, its third clue column read since"
     if row.get("solutionKey") != solution_key():
         for v in row.get("verdicts", ()):
             s = v.get("solution")

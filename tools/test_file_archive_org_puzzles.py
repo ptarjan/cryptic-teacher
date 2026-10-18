@@ -604,6 +604,45 @@ check("the two columns right of the grid read in order, the solution's heading e
       [[l[4] for l in col] for col in rcols])
 check("a line headed Yesterday's solution stops a column", True, f.stops("Yesterday's solution 25,732"))
 
+# The 2006-13 Times (Gale): a grid mid-page with three clue columns under it,
+# the third overhanging the grid's right edge (2007-03-14, No 23,548).
+ogrid = (1150, 1287, 1870, 1999)
+opage = Image.new("L", (3296, 2955), 255)
+ImageDraw.Draw(opage).rectangle((1900, 2050, 2121, 2600), fill=0)  # the third column's text, as ink
+oend = f.overhang(opage, ogrid)
+check("a third clue column under the grid, overhanging it, ends where its ink does (within the window)", True,
+      oend is not None and 2121 <= oend <= 2121 + f.OVER_WINDOW)
+check("a blank page under the grid has no third column", None, f.overhang(Image.new("L", (3296, 2955), 255), ogrid))
+speck = Image.new("L", (3296, 2955), 255)
+ImageDraw.Draw(speck).rectangle((2000, 2100, 2010, 2110), fill=0)
+check("a speck in the margin is no third column", None, f.overhang(speck, ogrid))
+check("a grid with no room under it has no third column", None, f.overhang(opage, (1150, 2500, 1870, 3200)))
+owords = [[(1110, 2050, 1420, 2072, "1 Nag CAMRA to move into")], [(1110, 2080, 1420, 2102, "stronger drink (8)")],
+          [(1480, 2050, 1780, 2072, "23 Tough punishment suspending")], [(1480, 2080, 1780, 2102, "paratrooper (4,4)")],
+          [(1805, 2050, 2105, 2072, "7 Sweet air must flow over one")], [(1805, 2080, 2105, 2102, "(8)")]]
+og = f.over_gutters(owords, ogrid, 2121)
+check("the gutters lie between the three columns, the last one ending where it was found", True,
+      1420 < og[0] < 1480 and 1780 < og[1] < 1805 and og[2] == 2121)
+ocols = f.columns(owords, ogrid, split=og)
+check("three columns under the grid read in order, the third past the grid's edge",
+      [["1 Nag CAMRA to move into", "stronger drink (8)"], ["23 Tough punishment suspending", "paratrooper (4,4)"],
+       ["7 Sweet air must flow over one", "(8)"]], [[l[4] for l in col] for col in ocols])
+check("the three windows start at the grid's outdented edge and end at the third's end",
+      (1110, 2121), (f.windows(ogrid, split=og)[0][0], f.windows(ogrid, split=og)[2][1]))
+# A held Times page short of clues, read before the third column was, is due again.
+held = {"scan": {"item": "GaleTimes2007UKEnglish", "date": "2007-03-14"}, "readAt": "2026-10-12T19:37:42+00:00",
+        "verdicts": [{"number": 23548, "clues": 22, "lights": 28, "complete": False}]}
+check("a held Gale Times 2007 page short of clues is read again", "short Times page, its third clue column read since",
+      f.fix_reason(held))
+check("a whole one, a refused one, another paper's, a 2014 page, or one read since is not", [None] * 5,
+      [f.fix_reason({**held, "verdicts": [{"clues": 28, "lights": 28, "complete": True}]}),
+       f.fix_reason({**held, "verdicts": [{"refused": "x", "cause": "crashed"}]}),
+       f.fix_reason({**held, "scan": {"item": "GaleTelegraph2007UKEnglish", "date": "2007-03-14"}}),
+       f.fix_reason({**held, "scan": {"item": "GaleTimes2014UKEnglish", "date": "2014-09-17"}}),
+       f.fix_reason({**held, "readAt": "2099-01-01T00:00:00+00:00"})])
+check("the third-column reread time is not in the future", True,
+      scan_queue.when(f.REREAD_THREE_COLUMNS[2]) <= scan_queue.when("now"))
+
 # fault(): what the filer refuses to file, and what the print really has.
 for text, enum, cells, want in [
         ("Corrects sexually innocent Poles 22 Affected by American", "8", 8, "holds a clue number"),
