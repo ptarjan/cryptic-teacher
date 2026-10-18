@@ -251,56 +251,62 @@
      "indicators": [
       {
        "text": "burying",
-       "note": "the soldier holds the rest buried inside him"
+       "at": 19,
+       "note": "a word burying something holds it inside, so the soldier's word surrounds the rest"
       }
      ],
      "parts": [
       {
        "words": "soldier",
+       "at": 11,
        "gives": "SENTRY",
-       "note": "a sentry is a soldier on guard"
+       "note": "a sentry is a soldier standing guard"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "around",
-         "note": "the explosive wraps around the old bay"
+         "at": 37,
+         "note": "the explosive goes around the old bay, enclosing it"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "explosive",
-           "gives": "TNT",
-           "note": "TNT is an explosive"
-          },
-          {
-           "words": "old",
-           "gives": "O",
-           "note": "O = old"
-          }
-         ]
+         "words": "explosive",
+         "at": 27,
+         "gives": "TNT",
+         "note": "TNT is trinitrotoluene, the explosive"
         },
         {
-         "words": "bay",
-         "gives": "COVE",
-         "note": "a cove is a small bay"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "old",
+           "at": 44,
+           "gives": "O"
+          },
+          {
+           "words": "bay",
+           "at": 48,
+           "gives": "COVE",
+           "note": "a cove is a small bay"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier shunned by his unit after hiding explosives near an old bay.",
-     "walkthrough": "Two containers nest: the explosive wraps the old bay, and the soldier buries the lot. To send someone to Coventry, an English city, is a British idiom for refusing to speak to them.",
-     "definitionFit": "To be sent to Coventry is to be ostracised, deliberately ignored by everyone."
+     "surface": "A soldier buries a bomb near an old bay and is shunned by his comrades.",
+     "walkthrough": "TNT around O + COVE gives TOCOVENT, which goes inside SENTRY after SENT. Sent to Coventry is a British idiom for being ignored by everyone.",
+     "definitionFit": "The idiom means deliberately ignored and shut out by a group, which is what being ostracised is."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "bay"
     }
    }
   },
@@ -1074,52 +1080,63 @@
      "indicators": [
       {
        "text": "catches",
-       "note": "the bond holds the rest inside"
+       "at": 5,
+       "note": "the bond word catches the rest, holding it inside"
       }
      ],
      "parts": [
       {
        "words": "Bond",
+       "at": 0,
        "gives": "FUSE",
-       "note": "to fuse is to bond"
+       "note": "to fuse is to bond things together, so FUSE"
       },
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
          "text": "crossing",
-         "note": "the youth comes across, meeting the large letter side by side"
+         "at": 23,
+         "note": "the pair one and youth stretch across the large letter, sitting either side of it"
         }
        ],
        "parts": [
         {
-         "words": "one",
-         "gives": "I",
-         "note": "I = one"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one",
+           "at": 13,
+           "gives": "I",
+           "note": "one is the Roman numeral I"
+          },
+          {
+           "words": "youth",
+           "at": 17,
+           "gives": "LAD",
+           "note": "a lad is a youth"
+          }
+         ]
         },
         {
          "words": "large",
+         "at": 32,
          "gives": "L",
-         "note": "L = large"
-        },
-        {
-         "words": "youth",
-         "gives": "LAD",
-         "note": "a lad is a youth"
+         "note": "L is the clothing-size abbreviation for large"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "James Bond grabbing a young man running over a big dam.",
-     "walkthrough": "'Bond' wants the spy and 'barrage' a dam; they are a verb and a burst of gunfire.",
-     "definitionFit": "A fusillade is a rapid series of shots, a barrage."
+     "surface": "James Bond grabs a young man crossing a large barrier, or similar spy action.",
+     "walkthrough": "I and LAD sit either side of L to give ILLAD, which goes inside FUSE.",
+     "definitionFit": "A fusillade is a burst of many shots fired at once, the same thing as a barrage of fire."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "barrage"
+     "misdirectedWord": "Bond"
     }
    }
   },
@@ -1147,41 +1164,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "is overwhelmed by",
-       "note": "the shock word swamps the other letters, holding them inside"
+       "text": "overwhelmed by",
+       "at": 10,
+       "note": "being overwhelmed by something puts these pieces inside the word that follows"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "shock",
-         "gives": "APPAL",
-         "note": "to appal is to shock"
-        },
-        {
-         "words": "Artist",
-         "gives": "RA",
-         "note": "RA = Royal Academician, an artist"
-        }
-       ]
+       "words": "shock",
+       "at": 25,
+       "gives": "APPAL",
+       "note": "to appal is to shock"
       },
       {
-       "words": "is",
-       "note": "kept as it is"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Artist",
+         "at": 0,
+         "gives": "RA",
+         "note": "RA is a Royal Academician, a crossword artist"
+        },
+        {
+         "words": "is",
+         "at": 7
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A painter stunned when told what the work is worth.",
-     "walkthrough": "The artist is overwhelmed at the valuation in the surface; in the wordplay the artist and 'is' are literally inside APPAL.",
-     "definitionFit": "A plain synonym: an expert's estimate of what something is worth, as for insurance."
+     "surface": "A painter is stunned by a shocking assessment of his work.",
+     "walkthrough": "RA and IS go inside APPAL.",
+     "definitionFit": "An appraisal is an assessment of something's worth, which is a valuation."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "overwhelmed"
+     "misdirectedWord": "Artist"
     }
    }
   },

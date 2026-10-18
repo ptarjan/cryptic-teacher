@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -188,57 +189,67 @@
    "annotation": {
     "definitions": [
      {
-      "text": "language issues",
+      "text": "language issues?",
       "at": 48
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "Stopping just short of a word means its final letter never gets written down."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "on vacation",
-         "note": "A word away on holiday has been emptied of everyone inside it, and only the two letters at the door stay behind."
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means not quite all, so the last letter is cut"
         }
        ],
        "parts": [
         {
          "words": "half",
+         "at": 7,
          "gives": "SEMI",
-         "note": "semi- is the prefix for half, as in semicircle or semi-final"
+         "note": "semi means half"
         },
         {
-         "words": "opposed to",
-         "gives": "ANTI",
-         "note": "anti is the everyday word for being against something"
-        },
-        {
-         "op": "outer",
-         "parts": [
-          {
-           "words": "crosswords",
-           "note": "the first and last letters of that word, all that survives the clear-out"
-          }
-         ]
+         "gives": "I"
         }
        ]
       },
       {
-       "gives": "I"
+       "words": "opposed to",
+       "at": 12,
+       "gives": "ANTI",
+       "note": "anti means opposed to"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "on vacation",
+         "at": 34,
+         "note": "a word on vacation has been emptied, leaving only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crosswords",
+         "at": 23
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Setters reach for semi- whenever they want half, and the trick here is that only part of it survives. The dash marks where the wordplay stops.",
-     "definitionFit": "language issues -> SEMANTICS: semantics is the study of meaning in language, and arguing over semantics is arguing over what words denote."
+     "surface": "Someone half against doing crosswords on holiday wonders about wordplay.",
+     "walkthrough": "SEMI loses its I, then ANTI, then CS from emptied crosswords.",
+     "definitionFit": "Semantics is the study of meaning in words, so its questions concern language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
     }
    }
   },
@@ -1128,40 +1139,44 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "stripped off",
-       "note": "Strip a word and the covering comes off first, which here means the letter at each end goes and the middle is left bare."
+       "text": "playing",
+       "at": 23,
+       "note": "playing means acting a part, so the letters perform in a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Sean",
+       "at": 0
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "playing",
-         "note": "An actor playing a part pretends to be someone he is not, and letters doing that will not keep their own order."
+         "text": "stripped off",
+         "at": 10,
+         "note": "stripped off means the outer letters are removed, leaving the middle of Bean"
         }
        ],
        "parts": [
         {
-         "words": "Sean",
-         "note": "the first name is handed over entire, all four letters of it"
-        },
-        {
-         "op": "middle",
-         "parts": [
-          {
-           "words": "Bean",
-           "note": "the middle pair of the surname, once the outer letter at each end has been taken off"
-          }
-         ]
+         "words": "Bean",
+         "at": 5
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Sean Bean has played a great many parts, though never this one. 'Playing' is the shuffle instruction and the actor is only there to lend letters.",
-     "definitionFit": "Trojan hero -> AENEAS: Aeneas carried his father out of burning Troy and founded the Roman line in Virgil's epic, so he is a hero of Troy by name."
+     "surface": "The actor Sean Bean has undressed to play a hero of Troy.",
+     "walkthrough": "SEAN and EA (Bean with its outsides removed) are rearranged.",
+     "definitionFit": "Aeneas is the Trojan prince who escapes Troy in Virgil's Aeneid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "playing"
     }
    }
   },
