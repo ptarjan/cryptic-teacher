@@ -57,45 +57,47 @@
      "indicators": [
       {
        "text": "poor",
-       "note": "poor means in bad shape, so the letters are knocked out of order"
+       "at": 8,
+       "note": "a poor version of the words is a badly made one, so their letters are rearranged"
       }
      ],
      "parts": [
       {
        "words": "score",
-       "note": "anagram fodder"
+       "at": 13
       },
       {
        "words": "Guardian",
-       "note": "anagram fodder"
+       "at": 24
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "debut",
-         "note": "a debut is a first appearance, so only the first letter of crossword is taken"
+         "at": 43,
+         "note": "a debut is a first appearance, so only the word's opening letter is used"
         }
        ],
        "parts": [
         {
-         "words": "crossword debut",
-         "gives": "CROSSWORD",
-         "note": "first letter of Crossword"
+         "words": "crossword",
+         "at": 33,
+         "note": "first letter of crossword"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor makes a miserable showing on their first attempt at the Guardian crossword.",
-     "walkthrough": "The 's after Medic reads as 'Medic is', joining definition to wordplay. The Guardian is where this puzzle appeared, so the surface is a wink at the paper itself.",
-     "definitionFit": "Category: a cardiac surgeon is a doctor who operates on the heart."
+     "surface": "A doctor laments a low score on their first attempt at the Guardian crossword.",
+     "walkthrough": "'poor' rearranges SCORE, GUARDIAN and C, the 'debut' of crossword, to give the two-word answer; 's and 'with' just link.",
+     "definitionFit": "A cardiac surgeon is a doctor who operates on the heart, a specialist kind of medic."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "score"
+     "misdirectedWord": "poor"
     }
    }
   },
@@ -302,67 +304,46 @@
     "definitions": [
      {
       "text": "trying to make friends and influence people",
-      "at": 41,
-      "note": "the definition is a verb phrase; the answer is a noun for such a campaign"
+      "at": 41
      }
     ],
     "wordplay": {
-     "op": "cryptic",
-     "unchecked": true,
-     "gives": "CHARMOFFENSIVE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Clue for March",
+       "at": 0,
+       "gives": "CHARMOFF",
+       "note": "the answer's first two words are themselves a crossword clue for the month: 'off' is an anagram signal applied to a word whose letters rearrange into March"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one letter inside the others"
+         "text": "desperately",
+         "at": 29,
+         "note": "done desperately, wildly, so the letters are thrown into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Clue for March",
-         "gives": "CHARMOFF",
-         "note": "the month's five letters can be rearranged into another word, so a clue for the month could give that word plus an anagram indicator"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "desperately",
-           "note": "desperately means wildly, so the letters of seven are thrown about"
-          }
-         ],
-         "parts": [
-          {
-           "op": "anagram",
-           "parts": [
-            {
-             "words": "seven",
-             "note": "anagram fodder"
-            }
-           ]
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I = one, the Roman numeral"
-          }
-         ]
+         "words": "one in seven",
+         "at": 16,
+         "gives": "ISEVEN",
+         "note": "one is the Roman numeral I, which goes in with the letters of seven to make the pool"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cryptic instruction followed by a picture of someone straining to be liked.",
-     "walkthrough": "The first piece is a reverse clue: you must imagine a clue whose answer is MARCH. CHARM with the anagram indicator OFF does that job.",
-     "definitionFit": "Exact term: a charm offensive is a deliberate campaign of friendliness to win people over."
+     "surface": "A self-help pitch: a crossword hint for a month, then a lonely one among seven trying hard to win people over.",
+     "walkthrough": "CHARM OFF would clue MARCH, 'off' acting as an anagram signal. Then 'one in seven' gives I with SEVEN, which 'desperately' rearranges to ENSIVE.",
+     "definitionFit": "A charm offensive is a deliberate campaign of friendliness to win support, echoing Dale Carnegie's book title."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "March"
     }
    }
@@ -1459,35 +1440,33 @@
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "GES",
        "indicators": [
         {
          "text": "at last",
-         "note": "at last means at the end, so each word gives its final letter"
+         "at": 22,
+         "note": "only the final letter of each of these words is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Teaching the students at last",
-         "gives": "GES",
-         "select": "last",
-         "note": "last letters of teachinG thE studentS"
+         "words": "Teaching the students",
+         "at": 0,
+         "note": "last letters of Teaching, the and students"
         }
        ]
       },
       {
        "words": "mathematician",
+       "at": 31,
        "gives": "TURING",
-       "note": "Alan Turing, the British mathematician"
+       "note": "Alan Turing, the British mathematician and codebreaker"
       }
      ]
     },
     "explanation": {
-     "surface": "A mathematics lecturer finally getting through to students by waving their hands about.",
-     "walkthrough": "The surface reads as one teacher's lesson, but the first three words only supply their last letters.",
-     "definitionFit": "Plain synonym: gesturing is communicating with movements of the hands or body."
+     "surface": "A maths teacher finally getting through to a class by waving his arms about.",
+     "walkthrough": "'at last' takes G, E and S from the ends of 'Teaching the students'; Turing is the mathematician.",
+     "definitionFit": "Gesturing means communicating with hand and arm movements, a form of non-verbal communication."
     },
     "features": {
      "answerInScene": true,
@@ -1586,41 +1565,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "regularly means at regular intervals, so every other letter of nurse is kept"
+       "text": "in",
+       "at": 40,
+       "note": "the picked letters go inside the other word"
       }
      ],
      "parts": [
       {
        "words": "motion",
+       "at": 43,
        "gives": "TURD",
-       "note": "a motion is a bowel movement, and a turd is what it produces"
+       "note": "a motion is a bowel movement, hence crudely a turd"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "NRE",
        "indicators": [
         {
-         "text": "in"
+         "text": "regularly",
+         "at": 30,
+         "note": "taking letters at regular intervals, every other one starting with the first"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "nurse regularly",
-         "gives": "NRE",
-         "select": "alternate",
-         "note": "odd letters of NuRsE"
+         "words": "nurse",
+         "at": 24,
+         "note": "alternate letters of nurse: N, R, E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone blushing when a nurse keeps appearing during their movements.",
-     "walkthrough": "'Motion' suggests movement, but it is the medical sense, a bowel motion, which explains why the nurse would cause embarrassment.",
-     "definitionFit": "Plain description: to turn red is to blush, the look of someone embarrassed."
+     "surface": "Someone blushes on seeing a nurse during a bodily function.",
+     "walkthrough": "'motion' looks like movement but is the medical sense, a bowel motion. 'regularly' picks NRE from nurse, which goes 'in' TURD.",
+     "definitionFit": "To turn red is to blush, the visible sign of embarrassment or shame."
     },
     "features": {
      "answerInScene": true,

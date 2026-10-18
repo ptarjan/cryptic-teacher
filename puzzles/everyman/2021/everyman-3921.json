@@ -256,56 +256,65 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "FATTYACIDS",
-     "indicators": [
-      {
-       "text": "eating",
-       "note": "whatever eats something takes it inside, so these letters swallow another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "eating",
+         "at": 39,
+         "note": "the policemen take the 'a' into their mouths, so it goes inside the run of letters"
+        }
+       ],
        "parts": [
         {
-         "words": "tubby",
-         "gives": "FATTY",
-         "note": "tubby means plump"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "tubby",
+           "at": 23,
+           "gives": "FATTY",
+           "note": "tubby means fat, plump: fatty"
+          },
+          {
+           "words": "policemen",
+           "at": 29,
+           "gives": "CID",
+           "note": "CID, the Criminal Investigation Department, stands for detective policemen"
+          }
+         ]
         },
         {
          "words": "a",
-         "note": "taken as written"
-        },
+         "at": 46,
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "policemen",
-         "gives": "CID",
-         "note": "the Criminal Investigation Department, the British plain-clothes detectives"
-        },
+         "text": "bit of",
+         "at": 48,
+         "note": "only a small piece of the word is used, here its opening letter"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "a bit of",
-           "note": "only a small piece of the next word is wanted, namely its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "shortbread",
-           "note": "opening letter"
-          }
-         ]
+         "words": "shortbread",
+         "at": 55,
+         "note": "first letter of shortbread"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Plump officers in their cells, munching on a biscuit.",
-     "walkthrough": "The 'cells' are biological, not prison ones. The CID is the British police detective branch, and shortbread is a Scottish butter biscuit.",
-     "definitionFit": "Fatty acids are carboxylic acids that make up lipids, found in membranes of every living cell."
+     "surface": "Overweight police officers munching shortbread, with a nod to the cells they might lock people in.",
+     "walkthrough": "'Cells' suggests police cells, fitting the policemen, but means biological cells. 'eating' puts A inside FATTY CID, giving FATTYACID; 'bit of' takes S from shortbread to end it.",
+     "definitionFit": "Fatty acids are organic molecules found in the membranes and fat stores of living cells."
     },
     "features": {
      "answerInScene": false,
@@ -337,36 +346,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SCRUB",
      "indicators": [
       {
        "text": "becoming",
-       "note": "one thing becoming another means it turns into it, so a letter is swapped for a new one"
+       "at": 16,
+       "note": "the husband turns into something else, so one letter is swapped for another"
       }
      ],
      "parts": [
       {
+       "words": "Bush",
+       "at": 33,
+       "gives": "SHRUB",
+       "note": "a bush is a shrub"
+      },
+      {
        "words": "husband",
-       "gives": "H",
-       "note": "standard abbreviation"
+       "at": 8,
+       "gives": "H"
       },
       {
        "words": "cold",
+       "at": 25,
        "gives": "C",
-       "note": "C for cold, as on a tap"
-      },
-      {
-       "words": "Bush",
-       "gives": "SHRUB",
-       "note": "a bush is a shrub"
+       "note": "C is the abbreviation for cold, as on taps"
       }
      ]
     },
     "explanation": {
-     "surface": "A wife deserting her husband who has grown chilly towards her somewhere out in the bush.",
-     "walkthrough": "The capital on 'Bush' suggests the American president, but it is just a plant; swap the H in SHRUB for C to get SCRUB.",
-     "definitionFit": "To scrub a plan informally means to cancel or drop it entirely."
+     "surface": "Someone deserts their husband in the bush as the weather turns cold.",
+     "walkthrough": "'becoming' swaps the H of SHRUB for C.",
+     "definitionFit": "To scrub a plan is to cancel or drop it, an informal sense of the verb."
     },
     "features": {
      "answerInScene": false,
@@ -648,51 +658,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NUKES",
-     "indicators": [
-      {
-       "text": "losing head",
-       "note": "losing its head means the word drops its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a little",
+         "at": 22,
+         "note": "just a small bit of the word is taken, its opening letter"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "a little",
-           "note": "just a little of the next word is used, namely its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "nightcap",
-           "note": "opening letter"
-          }
-         ]
-        },
+         "words": "nightcap",
+         "at": 31,
+         "note": "first letter of nightcap"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing head",
+         "at": 52,
+         "note": "the word drops its leading letter, its head"
+        }
+       ],
+       "parts": [
         {
          "words": "nobleman's",
-         "gives": "UKES",
-         "note": "DUKES with its first letter removed"
+         "at": 41,
+         "gives": "DUKES",
+         "note": "a duke is a nobleman, so nobleman's gives DUKE'S, written DUKES"
+        },
+        {
+         "gives": "D",
+         "note": "the first letter of the nobleman word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An aristocrat warming up his bedtime drink in the microwave.",
-     "walkthrough": "The nobleman is a DUKE, and the 's stays to give DUKES before the beheading. 'Nightcap' looks like the drink being reheated, but supplies one letter.",
-     "definitionFit": "To nuke food is informal slang, chiefly American, for heating it quickly in a microwave oven."
+     "surface": "A bedtime drink warmed in the microwave, with an aristocrat losing his head thrown in.",
+     "walkthrough": "'a little' takes N from nightcap; 'losing head' drops the D of DUKES (the duke's, from nobleman's), leaving UKES.",
+     "definitionFit": "To nuke food is slang for heating it in a microwave oven."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "nightcap"
     }
    }
