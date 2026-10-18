@@ -199,73 +199,75 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "NARC",
+       "op": "deletion",
        "indicators": [
         {
          "text": "50% reduction of",
-         "note": "cutting each of the following words by half means keeping only its front half"
+         "at": 10,
+         "note": "a 50% reduction halves each following word, keeping its first half"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "narcotic",
-         "gives": "NARC",
-         "select": "first",
-         "note": "the first half: four of its eight letters"
+         "at": 27,
+         "note": "the first half of narcotic is kept"
+        },
+        {
+         "gives": "OTIC"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "ISS",
+       "op": "deletion",
        "parts": [
         {
-         "unchecked": true,
          "words": "issues",
-         "gives": "ISS",
-         "select": "first",
-         "note": "the first half: three of its six letters"
+         "at": 36,
+         "note": "the first half of issues is kept"
+        },
+        {
+         "gives": "UES"
         }
        ]
       },
       {
-       "op": "first",
+       "op": "deletion",
        "parts": [
         {
          "words": "in",
-         "note": "the first half: one of its two letters"
+         "at": 43,
+         "note": "the first half of in is kept"
+        },
+        {
+         "gives": "N"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "SM",
+       "op": "deletion",
        "parts": [
         {
-         "unchecked": true,
          "words": "smug",
-         "gives": "SM",
-         "select": "first",
-         "note": "the first half: two of its four letters"
+         "at": 46,
+         "note": "the first half of smug is kept"
+        },
+        {
+         "gives": "UG"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A report that halving drug problems has left someone feeling pleased with themselves.",
-     "walkthrough": "The halving applies to all four words, 'narcotic issues in smug', not just 'narcotic', which is where most solvers stall.",
-     "definitionFit": "Narcissism is excessive vanity and love of oneself, named after the Greek youth enamoured of his own reflection."
+     "surface": "A smug person's drug problems produce self-love — halving their narcotic use is the achievement.",
+     "walkthrough": "Halve each of narcotic, issues, in and smug: NARC + ISS + I + SM.",
+     "definitionFit": "Narcissism is excessive love of oneself, named after Narcissus, who fell for his own reflection."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "issues"
+     "misdirectedWord": "reduction"
     }
    }
   },
