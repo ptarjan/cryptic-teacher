@@ -463,7 +463,7 @@ def _blocks(node, got):
     one = len(parts) == 1 and "op" not in parts[0] and "words" in parts[0]
     if OP_TYPE[op] == "letter_selection" and one:
         b = _blocks(parts[0], got)[0]
-        gives = got.get(id(node)) or min(wordplay.values(node), default=None)
+        gives = got.get(id(node)) or min(wordplay.values(node), key=lambda v: (len(v), v), default=None)
         return [_block(**{**b, "gives": gives, "select": node["n"] if op == "nth" else op,
                           "note": b.get("note") or select_note(op, node.get("n"), gives)})]
     if op == "hidden" and one:

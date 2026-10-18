@@ -1470,7 +1470,7 @@ def check_sound_names_its_source(tag, ann, errors, warnings):
                           f"comes out as: swap them (soundsLike {b['gives']!r}, gives "
                           f"{b['soundsLike']!r})")
     if not is_sound:
-        if heard:
+        if heard and not plain_spoonerism(ann):
             errors.append(f"{tag}: a block declares soundsLike but the type is "
                           f"{ann.get('type')!r} — add the sound to the type or drop the field")
         return
