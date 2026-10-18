@@ -770,8 +770,13 @@ def by_urgency(units):
         named = newest_first_papers()
         newest = [t for t in units if t[3].get("paper") in named]
         newest.sort(key=lambda t: t[3].get("date", ""), reverse=True)
-        newest.sort(key=lambda t: not files_likely(t[0], t[3]))  # stable: newest first in each group
-        units = newest +[t for t in units if t[3].get("paper") not in named]
+        newest.sort(key=lambda t: files_likely_tier(t[0], t[3]))  # stable: newest first in each group
+        rest = [t for t in units if t[3].get("paper") not in named]
+        # Another paper's never read/scanned units go ahead of the named papers' rereads: once the named
+        # papers' new pages are read, those rereads mostly end "already held" or an update (10-18: 34 new
+        # filings of 184 writes), and 3,300 never-read FT pages waited behind ~30k of them.
+        units = ([t for t in newest if files_likely_tier(t[0], t[3]) == 0] + [t for t in rest if t[0] <= 1]
+                 + [t for t in newest if files_likely_tier(t[0], t[3]) > 0] + [t for t in rest if t[0] > 1])
     return [u for *_, u in units]
 
 
@@ -783,13 +788,15 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               "read without the VLM")
 
 
-def files_likely(rank, unit):
-    """Whether a unit of a newest-first paper is likely to file something:
-    rank 0 or 1, a rank 2 or higher with fa.likely_gain > 0, or a reread
-    whose reason is a refusal or short read a fix has landed for."""
+def files_likely_tier(rank, unit):
+    """A newest-first paper's unit's tier: 0 for one likely to file new
+    (rank 0 or 1, fa.likely_gain > 0, a refusal a fix landed for), 1 for a
+    reread in FIX_LANDED, 2 for any other."""
     reason = unit.get("reason") or ""
-    return (rank <= 1 or fa.likely_gain(unit) > 0
-            or (reason.startswith("refused ") and reason.endswith(" before its fix")) or reason in FIX_LANDED)
+    if (rank <= 1 or fa.likely_gain(unit) > 0
+            or (reason.startswith("refused ") and reason.endswith(" before its fix"))):
+        return 0
+    return 1 if reason in FIX_LANDED else 2
 
 
 def newest_first_papers():
