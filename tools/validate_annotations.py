@@ -3983,6 +3983,12 @@ ORDERING_INDICATORS = frozenset(
     "early|late|last|finally|at last|at the end|"
     "to follow|coming after|going after|in pursuit of|pursuing|close to|near|adjacent to|"
     "touching|joined to|attached to".split("|"))
+#: Position words, read "A initially B" = A first, "A covers B" = A above B in a down clue, that
+#: pass as a charade once the letters concatenate (ANGELUS, TELESCOPE, OUTDO, PLEAD; fix round 3):
+#: a container misfiled this way would not spell the answer in order. Still flagged when a
+#: selection op in the charade has no indicator of its own (quiptic-170 1a ADAMANT first(talk)),
+#: the sign the word belongs to that op. Cleared rows judged 16/20 before that guard.
+POSITION_INDICATORS = frozenset("initially|covers|covering|covered by|to cover".split("|"))
 
 
 #: An inner container whose indicator says its piece goes in apart from the other
@@ -4023,21 +4029,33 @@ ANAGRAM_SYNONYM = "synonym scrambled inside an anagram"
 def anagram_synonyms(tree):
     """How many leaves of 2+ letters, giving other letters than their own words, sit in a
     charade directly under an anagram beside a leaf that gives its own words (the mix
-    of fodder and stand-in). A lone synonym scrambled is not counted."""
+    of fodder and stand-in), or directly under the anagram beside such a leaf (azed-2671
+    16a BAROCCOS: ana(crab, [lettuce]COS)). A lone synonym scrambled is not counted."""
     n = 0
     for node in _walk(tree):
         if node.get("op") != "anagram":
             continue  # unchecked steps count: toughie-3430 3d files its stand-in unchecked
-        for p in node.get("parts") or []:
-            if not (isinstance(p, dict) and p.get("op") == "charade"):
-                continue  # a lone synonym scrambled is an indirect anagram, which setters do write
+        pools = [node] + [p for p in node.get("parts") or [] if isinstance(p, dict) and p.get("op") == "charade"]
+        for p in pools:  # a lone synonym scrambled is an indirect anagram, which setters do write
             pool = [q for q in p.get("parts") or [] if isinstance(q, dict) and "op" not in q
                     and q.get("words")]
             same = [q for q in pool if not q.get("gives") or wordplay.letters(q["gives"]) == wordplay.letters(q["words"])]
             n += bool(same) and sum(1 for q in pool if len(wordplay.letters(q.get("gives"))) >= 2
                                     and wordplay.letters(q["gives"]) != wordplay.letters(q["words"])
-                                    and not q.get("select"))
+                                    and not q.get("select")
+                                    and (p is not node or _stand_in(q)))
     return n
+
+
+def _stand_in(leaf):
+    """Whether a leaf directly under an anagram plainly gives a different word for its words: 3+
+    letters, no digit (a cross-reference gives the other answer, whose letters are the fodder),
+    and not a piece of its own letters (BIN -> BI is a cut the leaf did inline). Measured 10-18:
+    without these, 10 of 20 sampled direct-leaf hits were right. A well-known pair (lettuce
+    -> COS) is not exempt: scrambling it is the fault."""
+    words, gives = wordplay.letters(leaf["words"]), wordplay.letters(leaf["gives"])
+    return len(gives) >= 3 and not re.search(r"\d", str(leaf["words"])) \
+        and not (words.startswith(gives) or words.endswith(gives) or gives in words)
 
 
 #: Indicator roles swapped between ops that pass every evaluator check (timesjumbo-1682
@@ -4081,24 +4099,52 @@ def wrong_role_indicators(tree):
     at least ROLE_MIN_USES uses there making up ROLE_OWNED of its uses, and at most
     ROLE_OWN_MAX of them under this op's own type."""
     nodes = [n for n in _walk(tree) if _OP_LEXICON.get(n.get("op")) and not n.get("unchecked")]
-    n = 0
+    flagged, swappable = set(), []  # flagged: (node, indicator) ids; swappable: (id, node type, owner type)
     for node in nodes:
         own = _OP_LEXICON[node["op"]]
-        for i in node.get("indicators") or []:
+        for at, i in enumerate(node.get("indicators") or []):
             key = indicator_role_key(i.get("text"))
             counts = _role_counts(key)
             total = sum(counts.values())
-            if total < ROLE_MIN_USES:
+            if total < ROLE_MIN_USES or key in ROLE_LINKS or {own, max(counts, key=counts.get)} == {"hidden_word", "letter_selection"}:
                 continue
             top = max(counts, key=counts.get)
-            if key in ROLE_LINKS or {own, top} == {"hidden_word", "letter_selection"} \
-                    or (own == "hidden_word" and top == "container"):
+            if top == own or counts.get(own, 0) > ROLE_OWN_MAX * total:
+                continue
+            if counts[top] >= ROLE_SWAP_OWNED * total:
+                swappable.append(((id(node), at), own, top))
+            if (own == "hidden_word" and top == "container") or counts[top] < ROLE_OWNED * total:
                 continue  # a hidden word is signalled by container words ("to welcome", "holding")
                 #           and by selection words ("essentially", "somewhat"); see ROLE_LINKS
-            if top != own and counts[top] >= ROLE_OWNED * total and counts.get(own, 0) <= ROLE_OWN_MAX * total \
-                    and any(_OP_LEXICON[o["op"]] == top and _lacks_role(o, top) for o in nodes):
-                n += 1
-    return n
+            if any(_OP_LEXICON[o["op"]] == top and _lacks_role(o, top) for o in nodes):
+                flagged.add((id(node), at))
+    for a, own_a, top_a in swappable:  # a is (node id, indicator index); a mutual swap is its own corroboration (EGRET)
+        if any(b[0][0] != a[0] and b[1] == top_a and _swap_alike(b[2], own_a) for b in swappable):
+            flagged.add(a)
+    return len(flagged) + reversal_of_anagram(tree)
+
+
+#: Owner share a word needs when the swap with another op is the corroboration: sundaytimes-5202
+#: 22a EGRET files rev<stuffing>(hid<back>(..)): "back" is 92% reversal (the rest selections),
+#: "stuffing" 82% container, neither at ROLE_OWNED.
+ROLE_SWAP_OWNED = 0.8
+
+
+def _swap_alike(top, own):
+    """Whether an op of type `own` may carry a word whose owner is `top`: the same type, or a
+    container word on a hidden word (the exemption above)."""
+    return top == own or {top, own} == {"container", "hidden_word"}
+
+
+def reversal_of_anagram(tree):
+    """A reversal with an indicator that wraps an anagram directly while another reversal in the
+    tree has none: the reversal indicator ("back") was hung on the anagram, whose own indicator
+    already scrambles it, and the real reversal was left bare (mephisto-3148 18a STRESSOR:
+    rev<back>(ana<troubled>(rest)) + rev(ROSS))."""
+    nodes = [n for n in _walk(tree) if n.get("op") == "reversal" and not n.get("unchecked")]
+    bare = any(not n.get("indicators") for n in nodes)
+    return sum(1 for n in nodes if bare and n.get("indicators") and any(
+        isinstance(p, dict) and p.get("op") == "anagram" for p in n.get("parts") or []))
 
 
 def _role_counts(key):
@@ -4119,6 +4165,20 @@ def _lacks_role(op, kind):
     return True
 
 
+def _positional_charade(node, key):
+    """Whether a POSITION_INDICATORS word on charade `node` plausibly says order. Not when a
+    selection op among its pieces has no indicator of its own (quiptic-170 1a ADAMANT
+    first(talk): the word belongs to that op), nor "initially" over a run of one-letter pieces
+    (cryptic-29255 SCAM: it picks the initials), nor a cover word beside a container or outer
+    op (cryptic-29703 HIJACK: "covering" is the container's)."""
+    parts = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+    if any(p.get("op") in wordplay.SELECT and not p.get("indicators") for p in parts):
+        return False
+    if key == "initially":
+        return not (len(parts) >= 3 and all("op" not in p and len(wordplay.letters(p.get("gives"))) == 1 for p in parts))
+    return not any(p.get("op") in ("container", "outer") for p in parts)
+
+
 def misplaced_indicators(tree):
     """How many indicators on a checked op that the lexicon files only under another op."""
     lex = _indicator_lexicon()
@@ -4133,6 +4193,8 @@ def misplaced_indicators(tree):
         for i in node.get("indicators") or []:
             key = " ".join(w for w in (wordplay.letters(x) for x in str(i.get("text") or "").split()) if w)
             if not key or lex.get(own, {}).get(key, 0) or key.lower() in ORDERING_INDICATORS:
+                continue
+            if key.lower() in POSITION_INDICATORS and _positional_charade(node, key.lower()):
                 continue
             n += any(c >= MISPLACED_MIN_USES for t, d in lex.items() if t != own
                      for c in [d.get(key, 0)])
@@ -4273,7 +4335,8 @@ def deletion_inside_component(tree, clue=None):
         comps = parts[0].get("parts") or []
         if len(comps) < 2 or not all(isinstance(c, dict) for c in comps):
             continue
-        first, last = _clue_start(comps[0], low), _clue_start(comps[-1], low)
+        starts = [_clue_start(c, low) for c in comps]  # clue order, not charade order (<chasing>)
+        first, last = (min(starts), max(starts)) if min(starts) >= 0 and len(set(starts)) > 1 else (-1, -1)
         where = [low.find(str(i.get("text") or "").lower()) for i in node.get("indicators") or []]
         if min(first, last) < 0 or not where or not all(first <= w < last for w in where):
             continue
