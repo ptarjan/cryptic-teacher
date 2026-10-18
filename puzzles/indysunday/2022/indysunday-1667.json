@@ -743,52 +743,61 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RUNOFTHEMILL",
      "indicators": [
       {
        "text": "calling in",
-       "note": "someone calling in drops by and steps inside, so these letters go between others"
+       "at": 38,
+       "note": "calling in is visiting, so these letters drop in among the others"
       }
      ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "work",
+         "at": 9,
+         "gives": "RUN",
+         "note": "to run a machine is to work it"
+        },
+        {
+         "words": "sick",
+         "at": 49,
+         "gives": "ILL",
+         "note": "ill means sick"
+        }
+       ]
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
          "text": "over",
-         "note": "in a down entry, one piece over another sits above it, so it comes first"
+         "at": 14,
+         "note": "in a down clue, over places the frequent-time piece above the edging piece"
         }
        ],
        "parts": [
         {
-         "words": "work",
-         "gives": "RUN",
-         "note": "to run a machine or business is to work it"
-        },
-        {
          "words": "many a time",
+         "at": 26,
          "gives": "OFT",
-         "note": "oft is an old word for often"
+         "note": "oft is an old word for often, many a time"
         },
         {
          "words": "border",
+         "at": 19,
          "gives": "HEM",
          "note": "a hem is the border of a garment"
-        },
-        {
-         "words": "sick",
-         "gives": "ILL",
-         "note": "ill is a synonym for sick"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lazy worker across the border keeps phoning in sick.",
-     "walkthrough": "'Calling in sick' looks like one phrase; 'calling in' puts the old word for often inside RUN-HEM, and ILL follows.",
-     "definitionFit": "Something ordinary and unremarkable, like goods straight from a factory, is commonplace and merely average."
+     "surface": "A tired worker repeatedly phones in sick from across the border.",
+     "walkthrough": "In a down clue, 'over' puts one piece above the next; 'calling in' then drops the frequent piece and the border inside work and sick.",
+     "definitionFit": "Run-of-the-mill describes something ordinary and unremarkable, so mediocre is a close synonym."
     },
     "features": {
      "answerInScene": true,
@@ -1049,45 +1058,64 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ROOSEVELT",
-     "indicators": [
-      {
-       "text": "tucked in",
-       "note": "something tucked in is pushed inside, so a letter goes into the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ROOSEVELT",
+       "words": "bear's associate",
+       "at": 6,
+       "gives": "ROO",
+       "note": "Roo is a friend of Winnie-the-Pooh, the bear in A. A. Milne's stories"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "tail",
-         "note": "the tail is the last letter, taken off the end of the word"
+         "text": "with",
+         "at": 35,
+         "note": "with says the slim word comes accompanied by its own tail, which is then placed inside it"
+        },
+        {
+         "text": "in",
+         "at": 52,
+         "note": "in places the folded-away letter back inside the shortened word"
         }
        ],
        "parts": [
         {
-         "words": "bear's associate",
-         "gives": "ROO",
-         "note": "Roo is a friend of Winnie-the-Pooh, a bear"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "tucked",
+           "at": 45,
+           "note": "tucked means the end letter of the slim word is folded away from its usual place"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nicely slim",
+           "at": 23,
+           "gives": "SVELTE",
+           "note": "svelte means elegantly slender"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         },
         {
-         "words": "nicely slim",
-         "gives": "SVELTE",
-         "note": "svelte means elegantly slender"
+         "words": "tail",
+         "at": 40,
+         "gives": "E",
+         "note": "the tail of svelte is its last letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A teddy bear's companion looks pleasingly trim once its tail is tucked away.",
-     "walkthrough": "'Teddy bear' reads as one toy; Teddy is the definition, and the bear is Pooh. SVELTE moves its final E inside to make SEVELT.",
-     "definitionFit": "Teddy was the nickname of US president Theodore Roosevelt, after whom the teddy bear was named."
+     "surface": "A toy bear's companion is pictured as pleasingly slender, with its tail tucked away.",
+     "walkthrough": "'tucked' lifts the final E off SVELTE, leaving SVELT, and 'in' sets that E inside it as SEVELT. The teddy bear is named after President Theodore 'Teddy' Roosevelt, who refused to shoot a captive bear.",
+     "definitionFit": "Teddy was the familiar nickname of Theodore Roosevelt, the 26th US president."
     },
     "features": {
      "answerInScene": true,

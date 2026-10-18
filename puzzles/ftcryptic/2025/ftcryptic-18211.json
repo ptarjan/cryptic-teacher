@@ -51,21 +51,19 @@
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "AF",
        "indicators": [
         {
          "text": "Uncovered",
-         "note": "a word uncovered has lost its outer layer, so only its inside letters stay"
+         "at": 0,
+         "note": "uncovered means the outer letters, the covering, are stripped from the word for idiotic"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "idiotic",
-         "gives": "AF",
-         "select": "middle",
-         "note": "idiotic is DAFT; stripping its first and last letters leaves the middle two"
+         "at": 10,
+         "gives": "DAFT",
+         "note": "daft means silly or idiotic"
         }
        ]
       },
@@ -74,17 +72,20 @@
        "indicators": [
         {
          "text": "about",
-         "note": "about means going round, so one piece wraps around another here"
+         "at": 22,
+         "note": "about means the made-up story goes around the next letter"
         }
        ],
        "parts": [
         {
          "words": "lie",
+         "at": 18,
          "gives": "FICTION",
-         "note": "a lie is a fiction, something made up"
+         "note": "fiction is an untruth, a lie"
         },
         {
          "words": "large",
+         "at": 28,
          "gives": "L",
          "note": "L is the clothing-size abbreviation for large"
         }
@@ -93,9 +94,9 @@
      ]
     },
     "explanation": {
-     "surface": "Someone is upset by a big, stupid lie that was told about them.",
-     "walkthrough": "'Uncovered' looks like it means exposed, but it strips the outside letters from a synonym of idiotic rather than from the word itself.",
-     "definitionFit": "An affliction is a source of suffering or pain, a plain synonym for something causing misery."
+     "surface": "Someone exposes a foolish, outsized falsehood that is causing upset.",
+     "walkthrough": "'Uncovered' looks like a description of an exposed lie, but it is an instruction to strip the outer letters from the word for idiotic.",
+     "definitionFit": "An affliction is something that causes pain or suffering, such as an illness or misfortune."
     },
     "features": {
      "answerInScene": true,
@@ -1159,48 +1160,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SADDHUS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "fighting",
-       "note": "letters that are fighting are thrown about in a scuffle and land out of order"
+       "text": "over",
+       "at": 23,
+       "note": "in a down clue, over places the unhappy word above the rest"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SADDHUS",
+       "words": "unhappy",
+       "at": 15,
+       "gives": "SAD",
+       "note": "sad means unhappy"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "missing",
-         "note": "missing means absent, so the word that follows is taken away"
+         "text": "fighting",
+         "at": 46,
+         "note": "letters that are fighting are in a scuffle, thrown into a new order"
         }
        ],
        "parts": [
         {
-         "words": "unhappy",
-         "gives": "SAD",
-         "note": "unhappy means sad"
-        },
-        {
-         "words": "Hindus",
-         "note": "taken as written"
-        },
-        {
-         "words": "in",
-         "note": "taken as written, the letters removed"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "missing",
+           "at": 35,
+           "note": "missing means the letters of in are taken out of Hindus"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Hindus",
+           "at": 28
+          },
+          {
+           "words": "in",
+           "at": 43,
+           "gives": "IN"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Holy men are distressed that fellow Hindus are absent from the battle.",
-     "walkthrough": "HINDUS minus IN leaves HDUS, which is rearranged to DHUS; in a down clue SAD goes over it.",
-     "definitionFit": "A sadhu is a Hindu holy man who has renounced worldly life, so plural sadhus are ascetics."
+     "surface": "Holy men are distressed that some fellow Hindus are absent from the conflict.",
+     "walkthrough": "'missing' takes I and N out of HINDUS, leaving HDUS, which 'fighting' rearranges to DHUS; 'over' puts SAD above it.",
+     "definitionFit": "Sadhus or saddhus are Hindu holy men who renounce worldly life and live as wandering ascetics."
     },
     "features": {
      "answerInScene": true,

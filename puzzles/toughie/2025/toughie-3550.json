@@ -677,59 +677,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENEMIES",
+     "op": "container",
      "indicators": [
       {
-       "text": "A lot of",
-       "note": "a lot of something is most but not all of it, so the final letter goes"
+       "text": "surrounding",
+       "at": 26,
+       "note": "surrounding tells us the rearranged letters go around the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "surrounding",
-         "note": "surrounding puts one piece on all sides of another"
+         "text": "possibly",
+         "at": 17,
+         "note": "possibly signals that the remaining letters may be rearranged into another word"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "possibly",
-           "note": "possibly means in some other arrangement, so the letters can be reordered"
+           "text": "A lot of",
+           "at": 0,
+           "note": "a lot of a word, but not all of it, means its final letter is dropped"
           }
          ],
          "parts": [
           {
            "words": "nemeses",
-           "gives": "NEMESE",
-           "note": "the word less its final letter"
+           "at": 9
+          },
+          {
+           "gives": "S"
           }
          ]
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 38,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A crowd of arch-rivals closing in on a single victim.",
-     "walkthrough": "The whole clue doubles as the definition: many foes ganging up on one person are that person's foes.",
-     "definitionFit": "Nemeses are bitter adversaries, and a pack of them surrounding a lone person are hostile opponents."
+     "surface": "A wry question about whether a person's many arch-rivals might gang up and close in on them.",
+     "walkthrough": "'A lot of' drops the last S of NEMESES, leaving NEMESE; 'possibly' rearranges that to ENEMES; 'surrounding' puts it round I (one).",
+     "definitionFit": "Several nemeses closing in on one person are, taken together, that person's foes, so the whole clue describes the answer."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "lot"
     }
    }
   },
@@ -1193,38 +1198,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOMADS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "nearly",
-       "note": "nearly all of something lacks its final letter"
+       "text": "played",
+       "at": 16,
+       "note": "played suggests the letters are performed in a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Dan",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "played",
-         "note": "the letters are played around with, shifting their order"
+         "text": "nearly",
+         "at": 9,
+         "note": "nearly means the last letter of Moss is left off"
         }
        ],
        "parts": [
         {
-         "words": "Dan Moss",
-         "gives": "DANMOS",
-         "note": "the name less its last letter"
+         "words": "Moss",
+         "at": 4,
+         "note": "taken as written"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A footballer called Dan Moss almost turned out for a team named Rovers.",
-     "walkthrough": "Rovers is a common British football club name, but here it simply means wanderers.",
-     "definitionFit": "People who roam from place to place without settling are wanderers, the same thing as rovers."
+     "surface": "A footballer called Dan Moss almost turned out for a club named Rovers.",
+     "walkthrough": "'Rovers' looks like a football club name, as in Blackburn Rovers or Bristol Rovers, but here it simply means wanderers.",
+     "definitionFit": "Rovers are people who wander from place to place, just as nomads travel without a fixed home."
     },
     "features": {
      "answerInScene": false,

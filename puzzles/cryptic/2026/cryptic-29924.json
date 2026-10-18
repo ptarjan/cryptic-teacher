@@ -54,55 +54,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPECIALCORRESPONDENT",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most of ANDREW: the last letter goes"
+       "text": "off",
+       "at": 68,
+       "note": "off, as in gone off or rotten, signals that the gathered letters are spoiled and rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "scoops",
+       "at": 35
+      },
+      {
+       "words": "Prince",
+       "at": 43
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "off",
-         "note": "the letters are set off, jumbled out of their order"
+         "text": "mostly",
+         "at": 57,
+         "note": "mostly means all but the last letter of Andrew is used"
         }
        ],
        "parts": [
         {
-         "words": "scoops",
-         "note": "anagram fodder"
+         "words": "Andrew",
+         "at": 50
         },
         {
-         "words": "Prince",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "Andrew mostly",
-         "gives": "ANDRE",
-         "note": "ANDREW without its last letter"
-        },
-        {
-         "words": "let",
-         "note": "anagram fodder"
+         "gives": "W"
         }
        ]
+      },
+      {
+       "words": "let",
+       "at": 64
       }
      ]
     },
     "explanation": {
-     "surface": "A tabloid reporter covering the royal scandal as Prince Andrew largely escapes punishment.",
-     "walkthrough": "The surface makes 'let off' a verdict on the prince, but 'let' is fodder and 'off' alone mixes the letters; 'scoops' too is fodder, not newspaper jargon. The answer runs on into 9 down.",
-     "definitionFit": "A special correspondent is a journalist sent to report on a particular story or subject for a paper."
+     "surface": "A tabloid's exclusive stories report that Prince Andrew has largely escaped punishment.",
+     "walkthrough": "'let off' reads as a phrase meaning excused, but 'let' is fodder and 'off' alone signals the anagram of SCOOPS, PRINCE, LET and ANDRE (Andrew 'mostly', minus its W).",
+     "definitionFit": "A special correspondent is a journalist sent to report on a particular story or region for a newspaper."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "let"
+     "misdirectedWord": "off"
     }
    }
   },
@@ -617,60 +619,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "looking back"
+       "text": "around",
+       "at": 30,
+       "note": "around means the reversed word encloses the next letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "around"
+         "text": "looking back",
+         "at": 16,
+         "note": "looking back means the word for smelling organs is read in reverse"
         }
        ],
        "parts": [
         {
          "words": "they smell",
+         "at": 4,
          "gives": "NOSES",
          "note": "noses are what smell"
-        },
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "A",
-         "indicators": [
-          {
-           "text": "start of",
-           "note": "only the first letter of adolescence is used"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "start of adolescence",
-           "gives": "A",
-           "select": "first",
-           "note": "first letter, put inside after SE"
-          }
-         ]
+         "text": "start of",
+         "at": 37,
+         "note": "the start of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "adolescence",
+         "at": 46,
+         "note": "its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A remark about the age at which teenagers start to smell.",
-     "walkthrough": "'Age' is a verb here: timber is seasoned, or aged, before use.",
-     "definitionFit": "To season wood or food is to age or mature it."
+     "surface": "Teenagers are told that at their age they start to smell, as they look back on adolescence.",
+     "walkthrough": "'looking back' turns NOSES into SESON, and 'around' wraps that round the A from 'start of adolescence'.",
+     "definitionFit": "To season wood or cheese is to let it age or mature until ready for use, so the verb fits."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "they"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Age"
     }
    }
   },
@@ -747,51 +751,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ESTABLISH",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "wrong",
+       "at": 17,
+       "note": "wrong signals that the letters of herbalists are put in a wrong, new order"
+      },
+      {
+       "text": "having dismissed",
+       "at": 23,
+       "note": "having dismissed says a letter is sent away from that pool before rearranging"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "wrong",
-         "note": "the letters are put in the wrong order"
-        }
-       ],
-       "parts": [
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "having dismissed",
-           "note": "the R is sent away before mixing"
-          }
-         ],
-         "parts": [
-          {
-           "words": "herbalists",
-           "gives": "HEBALISTS",
-           "note": "HERBALISTS without R"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "recipe",
-         "note": "R, the abbreviation for recipe (Latin, 'take') on prescriptions, is removed"
-        }
-       ]
+       "words": "herbalists",
+       "at": 6
+      },
+      {
+       "words": "recipe",
+       "at": 40,
+       "gives": "R",
+       "note": "R is the abbreviation for recipe, from the Latin for 'take' on prescriptions"
       }
      ]
     },
     "explanation": {
-     "surface": "Showing herbalists to be mistaken after they threw out a prescription.",
-     "walkthrough": "R for recipe comes from old prescriptions, where it stood for Latin 'take'.",
-     "definitionFit": "Establishing a claim means showing it to be true beyond doubt, the same as proving it."
+     "surface": "Someone shows that herbal practitioners were mistaken after they threw out a remedy.",
+     "walkthrough": "R for recipe is the old prescription abbreviation, seen in the symbol Rx; take R from HERBALISTS and rearrange what is left.",
+     "definitionFit": "To establish a fact is to prove or demonstrate it beyond doubt."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "recipe"
     }
@@ -974,45 +966,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PROFILE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "in means the reversed word sits inside the house word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "mansion",
+       "at": 27,
+       "gives": "PILE",
+       "note": "a pile is a large, imposing house"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "hanging up"
-        },
-        {
-         "text": "in",
-         "note": "in means inside, so the reversed FOR is placed inside the mansion"
+         "text": "hanging up",
+         "at": 13,
+         "note": "in a down clue, hanging up means the word reads upwards, so in reverse"
         }
        ],
        "parts": [
         {
-         "words": "mansion",
-         "gives": "PILE",
-         "note": "a stately pile is a big house; ROF goes after its P"
-        },
-        {
          "words": "for",
-         "gives": "ROF",
-         "note": "FOR read upwards"
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A portrait being hung on the wall of a stately home.",
-     "walkthrough": "'For' looks like a link word but is the fodder. A pile is British informal for a large, grand house.",
-     "definitionFit": "A profile is a side-view portrait, or a written portrait of a person."
+     "surface": "A painting of someone is to be hung on the wall of a stately home.",
+     "walkthrough": "A pile is informal British for a grand house; 'hanging up' turns FOR into ROF, which goes 'in' it.",
+     "definitionFit": "A profile is a side-on portrait or a short biographical sketch of someone."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "for"
+     "misdirectedWord": "hanging"
     }
    }
   },
@@ -1043,42 +1038,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DOUBLEDIP",
-     "indicators": [
-      {
-       "text": "broadcast",
-       "note": "to broadcast is to scatter, so BLUE's letters are scattered"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Get on",
+       "at": 0,
+       "gives": "DO",
+       "note": "to do is to get on or fare, as in 'how are you doing?'"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broadcast",
+         "at": 12,
+         "note": "broadcast means scattered widely, so the letters of blue are strewn into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Get on",
-         "gives": "DO",
-         "note": "as in 'how are you doing?', how are you getting on"
-        },
-        {
-         "words": "blue broadcast",
-         "gives": "UBLE",
-         "note": "anagram of BLUE"
-        },
-        {
-         "words": "saucy thing",
-         "gives": "DIP",
-         "note": "a dip is a sauce you dunk food in"
+         "words": "blue",
+         "at": 7
         }
        ]
+      },
+      {
+       "words": "saucy thing",
+       "at": 27,
+       "gives": "DIP",
+       "note": "a dip is a sauce for dunking food"
       }
      ]
     },
     "explanation": {
-     "surface": "Riding a rude TV show, with something risqué, during an economic slump.",
-     "walkthrough": "'Blue' and 'saucy' both suggest smut, but one is anagram fodder and the other is literal: a dip is a sauce. A double-dip recession dips, recovers briefly, then dips again.",
-     "definitionFit": "A double-dip is a recession that falls twice before recovering."
+     "surface": "Someone is urged to start on a racy programme alongside something cheeky while the economy slumps.",
+     "walkthrough": "'broadcast' looks like television news, but it scatters BLUE into UBLE. 'saucy' hints at smut, but a dip is a sauce.",
+     "definitionFit": "A double-dip is a recession that briefly recovers then falls back into decline, a W-shaped downturn."
     },
     "features": {
      "answerInScene": false,
@@ -1109,39 +1104,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "Last couple in",
-       "note": "points to the final two letters of BAR"
-      },
-      {
-       "text": "re-ordered",
-       "note": "those two letters swap places"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "pure",
-         "gives": "YREV",
-         "note": "as in 'the very truth', pure truth"
+         "text": "Last couple in",
+         "at": 0,
+         "note": "the last couple of letters in bar are the only ones whose order changes"
         },
         {
-         "words": "Last couple in bar re-ordered",
-         "gives": "ARB",
-         "note": "BAR with its last two letters swapped"
+         "text": "re-ordered",
+         "at": 19,
+         "note": "re-ordered says those two letters swap places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bar",
+         "at": 15
         }
        ]
+      },
+      {
+       "words": "pure",
+       "at": 30,
+       "gives": "VERY",
+       "note": "very in its sense of sheer or utter, as in 'the very truth'"
       }
      ]
     },
     "explanation": {
-     "surface": "The final pair left in a pub ordering neat spirits again.",
-     "walkthrough": "The surface is closing time with the last couple re-ordering drinks, and 'pure spirit' suggests neat vodka; 'spirit' is the definition, meaning courage.",
-     "definitionFit": "Spirit in the sense of courage, as in showing spirit under fire, is a plain synonym."
+     "surface": "A tavern rearranges its spirits, and a pure measure is served.",
+     "walkthrough": "'Last couple in' and 're-ordered' swap only the final AR of BAR, making BRA. 'spirit' tempts as a drink, but it means courage.",
+     "definitionFit": "Spirit in the sense of courage or pluck is what bravery is."
     },
     "features": {
      "answerInScene": false,
@@ -1219,12 +1216,12 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "HUBRIS",
+     "op": "container",
      "indicators": [
       {
-       "text": "upset"
+       "text": "over",
+       "at": 37,
+       "note": "over means these letters lie over, enclosing, the next one"
       }
      ],
      "parts": [
@@ -1232,38 +1229,43 @@
        "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "words": "lead form",
+         "at": 13,
+         "gives": "HB",
+         "note": "HB is a grade of pencil lead, hard black"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "over"
+           "text": "upset",
+           "at": 31,
+           "note": "in a down clue, upset means the word is turned upside down, so read backwards"
           }
          ],
          "parts": [
           {
-           "words": "lead form",
-           "gives": "HB",
-           "note": "HB is a grade of pencil lead"
-          },
-          {
-           "words": "uniform",
-           "gives": "U",
-           "note": "U in the NATO phonetic alphabet, inside HB"
+           "words": "teacher",
+           "at": 23,
+           "gives": "SIR",
+           "note": "sir is how pupils address a male teacher"
           }
          ]
-        },
-        {
-         "words": "teacher upset",
-         "gives": "RIS",
-         "note": "SIR (a teacher, as pupils address him) reversed"
         }
        ]
+      },
+      {
+       "words": "uniform",
+       "at": 42,
+       "gives": "U",
+       "note": "U is uniform in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A form teacher who is annoyed about the school uniform shows pride.",
-     "walkthrough": "'Form teacher' is a single phrase in the surface, but it splits: 'lead form' is the pencil grade HB and 'teacher' is SIR.",
-     "definitionFit": "Hubris is the Greek word for the excessive pride that comes before a fall, a plain synonym here."
+     "surface": "A schoolmaster is distressed about the uniform policy in a senior class.",
+     "walkthrough": "'lead form teacher' reads like a head of year, but 'lead form' is a pencil-lead grade, and 'upset' only turns the teacher.",
+     "definitionFit": "Hubris is excessive pride or self-confidence, the kind of arrogance that invites a fall."
     },
     "features": {
      "answerInScene": false,
@@ -1481,46 +1483,43 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "essentially",
-       "note": "the essence, the middle, of bell"
+       "text": "distressed",
+       "at": 41,
+       "note": "distressed means agitated, so the letters are thrown into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Rang",
+       "at": 14
+      },
+      {
+       "words": "fire",
+       "at": 19
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "distressed",
-         "note": "the letters are distressed, knocked out of shape"
+         "text": "essentially",
+         "at": 29,
+         "note": "essentially means the essence, the middle letters, of bell"
         }
        ],
        "parts": [
         {
-         "words": "Rang fire",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "EL",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "bell essentially",
-           "gives": "EL",
-           "select": "middle",
-           "note": "the middle letters of bell"
-          }
-         ]
+         "words": "bell",
+         "at": 24,
+         "note": "its middle letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fire alarm going off in some building, with the bell sounding frantic.",
-     "walkthrough": "The surface is a fire alarm, but 'fire' in the definition means shoot a gun, hence the question mark. The second 'fire' is fodder, a separate word from the first.",
-     "definitionFit": "A rifle range is a place where you fire guns at targets."
+     "surface": "A panicked alarm: someone rang the fire bell in great distress.",
+     "walkthrough": "'Fire' looks like a blaze, but means shooting with a gun, which one does at the answer.",
+     "definitionFit": "A rifle range is a place set up for target practice, where people fire guns."
     },
     "features": {
      "answerInScene": false,
