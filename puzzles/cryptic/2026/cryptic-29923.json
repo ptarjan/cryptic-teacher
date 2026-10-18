@@ -577,42 +577,40 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "half of",
-       "note": "'half of' asks for one of two equal parts"
-      },
-      {
        "text": "first",
-       "note": "'first' means ahead of the rest"
+       "at": 33,
+       "note": "first puts the second and the half train ahead of left"
       }
      ],
      "parts": [
       {
        "words": "second",
-       "gives": "S",
-       "note": "s = second"
+       "at": 12,
+       "gives": "S"
       },
       {
        "words": "half of train",
+       "at": 19,
        "gives": "CHOO",
-       "note": "half of CHOO-CHOO, a child's word for a train"
+       "note": "choo-choo is a child's word for a train, and half of it is choo"
       },
       {
        "words": "left",
-       "gives": "L",
-       "note": "L = left, placed last because the rest goes 'first'"
+       "at": 6,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for rearranging the carriages of a train.",
-     "walkthrough": "'Second half of train' reads as the back half of a train; it is 'second' (S) plus half of choo-choo. The opening 'Train' is the definition, a verb, and the setter reuses the word on purpose.",
-     "definitionFit": "Plain synonym: to school a horse or a pupil is to train it."
+     "surface": "A train has left, and the second half of it went first.",
+     "walkthrough": "'Train' at the start is a verb, the definition; the later 'train' is a choo-choo.",
+     "definitionFit": "To school someone is to train or educate them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "second"
+     "misdirectedWord": "train"
     }
    }
   },
@@ -1318,41 +1316,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' means being inside something"
+       "at": 30,
+       "note": "in places the article and university inside the language"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "another language",
-         "gives": "FRENCH",
-         "note": "French is a language other than Spanish"
-        },
-        {
-         "words": "Article in Spanish",
-         "gives": "EL",
-         "note": "el = the in Spanish"
-        }
-       ]
+       "words": "another language",
+       "at": 33,
+       "gives": "FRENCH",
+       "note": "French is a language other than Spanish"
       },
       {
-       "words": "university",
-       "gives": "U",
-       "note": "U = university; EL and U go inside FRENCH"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Article in Spanish",
+         "at": 0,
+         "gives": "EL",
+         "note": "el is the Spanish word for the"
+        },
+        {
+         "words": "university",
+         "at": 19,
+         "gives": "U"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grammar point about a Spanish word that has no equivalent in another language.",
-     "walkthrough": "The saying is 'there's no such thing as a free lunch'. The answer runs on into 23 down.",
-     "definitionFit": "Definition by proverb: the economists' saying holds that nothing comes without a hidden cost."
+     "surface": "A grammar note: an article in a Spanish university's name rendered in another tongue that doesn't exist.",
+     "walkthrough": "'Spanish' tempts you to look for a Spanish answer; it only tells you which language's article to use, and the host language is a different one.",
+     "definitionFit": "The saying 'there's no such thing as a free lunch' holds that nothing comes without cost."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "exist"
+     "misdirectedWord": "language"
     }
    }
   },

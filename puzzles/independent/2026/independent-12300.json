@@ -1785,36 +1785,40 @@
      "indicators": [
       {
        "text": "holds",
-       "note": "to hold something is to have it inside, so one piece sits within another"
+       "at": 11,
+       "note": "holds means contains, so these letters go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "That place",
-         "gives": "THERE",
-         "note": "there means in that place"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "That place",
+       "at": 0,
+       "gives": "THERE",
+       "note": "there means that place"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "ultimately",
-         "note": "ultimate means final, so the last letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "patient",
-         "note": "its final letter"
+         "words": "a",
+         "at": 17
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 28,
+           "note": "ultimately means at the end, taking the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "patient",
+           "at": 19,
+           "note": "last letter of patient"
+          }
+         ]
         }
        ]
       }
@@ -1822,14 +1826,13 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A hospital room where, in the end, someone under the knife is kept.",
-     "walkthrough": "The whole clue is also the definition: an operating theatre is where a patient is held for surgery.",
-     "definitionFit": "The operating theatre is the hospital room where surgery takes place on someone under anaesthetic."
+     "surface": "A riddle about where a patient finally ends up.",
+     "walkthrough": "Read whole, the clue describes an operating theatre, the place that holds a patient for surgery.",
+     "definitionFit": "An operating theatre is a hospital room where surgery is performed on a patient."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "place"
+     "aptDefinition": true
     }
    }
   },
