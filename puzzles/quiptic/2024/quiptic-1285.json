@@ -266,39 +266,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Cryptic",
-       "note": "something cryptic is puzzling and disguised, so the letters of CLUE are scrambled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Cryptic",
+         "at": 0,
+         "note": "cryptic means puzzling or obscure, so the word's letters are disguised by rearranging"
+        }
+       ],
        "parts": [
         {
          "words": "clue",
-         "note": "the letters of CLUE, rearranged"
-        },
-        {
-         "words": "I had",
-         "gives": "ID",
-         "note": "I'd is the contraction of I had"
+         "at": 8,
+         "note": "taken as written for rearranging"
         }
        ]
+      },
+      {
+       "words": "I had",
+       "at": 13,
+       "gives": "ID",
+       "note": "I had contracts to I'd, giving ID"
       }
      ]
     },
     "explanation": {
-     "surface": "A setter admitting they had a cryptic clue in mind for a mathematician.",
-     "walkthrough": "The self-referential surface makes 'Cryptic clue' look like a description of the clue itself; instead 'Cryptic' tells you to scramble CLUE.",
-     "definitionFit": "Euclid was the ancient Greek mathematician known as the father of geometry."
+     "surface": "A solver confesses that a cryptic clue gave them a mathematician.",
+     "walkthrough": "'Cryptic' reads as describing the clue, but it is the instruction to disguise the word 'clue' itself; 'I had' contracts as it would in speech.",
+     "definitionFit": "Euclid was the ancient Greek geometer whose Elements founded classical geometry."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Cryptic"
     }
    }
@@ -535,61 +537,68 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MILIEU",
+     "indicators": [
+      {
+       "text": "probing",
+       "at": 13,
+       "note": "probing means poking into, so the fib-telling sits inside the other letters"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "probing",
-         "note": "I LIE pushes into the other letters, as a probe goes inside"
-        }
-       ],
        "parts": [
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "M",
          "indicators": [
           {
            "text": "head of",
-           "note": "the first letter of McGill"
+           "at": 21,
+           "note": "the head of a word is its first letter"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "head of McGill",
-           "gives": "M",
-           "select": "first",
-           "note": "first letter of McGill"
+           "words": "McGill",
+           "at": 29,
+           "note": "supplies its first letter M"
           }
          ]
         },
         {
-         "words": "I tell fibs",
-         "gives": "ILIE",
-         "note": "I lie = I tell fibs"
+         "words": "University",
+         "at": 36,
+         "gives": "U"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 0,
+         "gives": "I"
         },
         {
-         "words": "University",
-         "gives": "U",
-         "note": "U = university, the standard abbreviation"
+         "words": "tell fibs",
+         "at": 2,
+         "gives": "LIE",
+         "note": "to tell fibs is to lie"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone confesses to lying while snooping into a Canadian university's past.",
-     "walkthrough": "McGill University is a real institution in Montreal, so the name looks whole; only its M is used, with U from University.",
-     "definitionFit": "A milieu is a person's social background or environment."
+     "surface": "Someone admits lying while investigating the background of McGill University.",
+     "walkthrough": "I LIE goes inside M (head of McGill) and U (University).",
+     "definitionFit": "A milieu is the social setting or surroundings someone lives in, which is their background."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "McGill"
+     "misdirectedWord": "probing"
     }
    }
   },
@@ -668,42 +677,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GERIATRIC",
-     "indicators": [
-      {
-       "text": "battered",
-       "note": "knocked out of shape, so CAR IT is rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Ginger Spice",
+       "at": 0,
+       "gives": "GERI",
+       "note": "Ginger Spice of the Spice Girls is Geri Halliwell"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "battered",
+         "at": 18,
+         "note": "battered means knocked about, so these letters are knocked into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Ginger Spice",
-         "gives": "GERI",
-         "note": "Geri Halliwell was Ginger Spice in the Spice Girls"
+         "words": "car",
+         "at": 27,
+         "note": "taken as written for rearranging"
         },
         {
-         "words": "car — it",
-         "gives": "ATRIC",
-         "note": "CAR + IT rearranged; the ’s after it is 'is', joining to the definition"
+         "words": "it's",
+         "at": 33,
+         "gives": "IT",
+         "note": "the word it, with the 's read as a link meaning is"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pop star's banged-up car, dismissed as ancient.",
-     "walkthrough": "The Spice Girls were a British 1990s pop group; Ginger Spice was Geri Halliwell. 'It's' looks like the subject of the definition, but IT is fodder and 's is the link.",
-     "definitionFit": "Geriatric properly describes medical care of the elderly; in casual use it is a jokey word for anything ancient."
+     "surface": "Ginger Spice has a battered old car, and it's ancient.",
+     "walkthrough": "The Spice Girls were a 1990s British pop group; Ginger Spice was Geri Halliwell. 'battered' rearranges CAR + IT into ATRIC.",
+     "definitionFit": "Geriatric literally concerns the care of the elderly, and is used loosely to mean aged or decrepit."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Ginger"
+     "misdirectedWord": "battered"
     }
    }
   },
@@ -986,50 +1001,48 @@
     "definitions": [
      {
       "text": "Ships",
-      "at": 0,
-      "note": "Ships is plural; an armada is a single fleet made of ships"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "oddly",
-       "note": "take the odd-numbered letters"
+       "text": "carrying",
+       "at": 24,
+       "note": "carrying means holding within, so one part goes inside the other"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "ARA",
        "indicators": [
         {
-         "text": "carrying",
-         "note": "those letters hold the bananas inside"
+         "text": "oddly",
+         "at": 18,
+         "note": "oddly picks the letters in odd positions: first, third, fifth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "abroad oddly",
-         "gives": "ARA",
-         "select": "alternate",
-         "note": "A-b-R-o-A-d, first, third and fifth letters"
+         "words": "abroad",
+         "at": 11,
+         "note": "its odd letters give ARA"
         }
        ]
       },
       {
        "words": "bananas",
+       "at": 33,
        "gives": "MAD",
-       "note": "bananas = crazy; it goes in after AR"
+       "note": "bananas is slang for crazy, mad"
       }
      ]
     },
     "explanation": {
-     "surface": "Foreign ships arriving with a cargo of bananas.",
-     "walkthrough": "'Bananas' looks like the cargo but is slang for mad.",
-     "definitionFit": "A collective noun: an armada is a large fleet, most famously the Spanish one of 1588, so it stands for many vessels."
+     "surface": "Ships coming from overseas are loaded with bananas.",
+     "walkthrough": "The bananas look like cargo, but here they are slang for crazy; the ships' 'carrying' is what puts that word inside the odd letters.",
+     "definitionFit": "An armada is a fleet of warships, most famously the Spanish one of 1588."
     },
     "features": {
      "answerInScene": true,
@@ -1253,41 +1266,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STOCKINGS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cutting",
+       "at": 8,
+       "note": "cutting means slicing into, so the monarch goes inside the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "cutting",
-         "note": "the monarch cuts into the costs, going inside"
-        },
-        {
          "text": "high",
-         "note": "drunk or intoxicated, so the letters of COSTS are jumbled"
+         "at": 16,
+         "note": "high in the sense of intoxicated, so the letters reel into a new order"
         }
        ],
        "parts": [
         {
          "words": "costs",
-         "gives": "STOCS",
-         "note": "COSTS rearranged"
-        },
-        {
-         "words": "Monarch",
-         "gives": "KING",
-         "note": "a king is a monarch; it goes in after STOC"
+         "at": 21,
+         "note": "taken as written for rearranging"
         }
        ]
+      },
+      {
+       "words": "Monarch",
+       "at": 0,
+       "gives": "KING",
+       "note": "a king is a monarch"
       }
      ]
     },
     "explanation": {
-     "surface": "A ruler slashing the steep prices of socks and tights.",
-     "walkthrough": "'High costs' reads as a single phrase for expensive prices; 'high' is actually the anagram indicator.",
-     "definitionFit": "A definition by category: hosiery is the trade word for leg coverings, and stockings are its classic example."
+     "surface": "A king slashes high prices for hosiery.",
+     "walkthrough": "'high' looks like a description of the costs, but in its sense of drunk it is the signal to jumble that word.",
+     "definitionFit": "Stockings are close-fitting leg coverings, a standard kind of hosiery."
     },
     "features": {
      "answerInScene": true,
@@ -1619,50 +1635,44 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "primarily",
-       "note": "the first letter of odious"
+       "text": "rogue",
+       "at": 25,
+       "note": "rogue in the sense of uncontrolled or out of line, so the letters go astray into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Depicts",
+       "at": 0,
+       "note": "taken as written for rearranging"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "rogue",
-         "note": "letters gone rogue, out of order"
+         "text": "primarily",
+         "at": 8,
+         "note": "primarily means first of all, picking the first letter"
         }
        ],
        "parts": [
         {
-         "words": "Depicts",
-         "note": "seven letters of fodder"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "O",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "primarily odious",
-           "gives": "O",
-           "select": "first",
-           "note": "first letter of odious"
-          }
-         ]
+         "words": "odious",
+         "at": 18,
+         "note": "supplies its first letter O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A portrait of a hateful villain resembling the North Korean leader.",
-     "walkthrough": "'Primarily' seems to apply to 'Depicts', offering a D, but it belongs to 'odious'; 'rogue' is the anagram indicator, not a noun.",
-     "definitionFit": "Kim Jong Un rules North Korea as a dictator, so he is despotic; the question mark marks a definition by example."
+     "surface": "A cartoon depicts an odious rogue resembling the North Korean leader.",
+     "walkthrough": "'rogue' rearranges DEPICTS plus O (first letter of odious, signalled by 'primarily').",
+     "definitionFit": "Kim Jong Un rules North Korea as an absolute dictator, the very model of a tyrannical ruler."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "rogue"
     }
    }
