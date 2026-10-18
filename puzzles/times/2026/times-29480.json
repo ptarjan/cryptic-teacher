@@ -182,31 +182,47 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ROUTE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "getting right to the top"
+       "text": "to the top",
+       "at": 42,
+       "note": "to the top, in a down clue, says the right letter is placed at the head of the word"
       }
      ],
      "parts": [
       {
-       "words": "unconventional",
-       "gives": "OUTRE",
-       "note": "outré = unconventional, bizarre"
+       "words": "right",
+       "at": 36,
+       "gives": "R"
       },
       {
-       "words": "right",
-       "gives": "R",
-       "note": "R = right, moved from the end of OUTRE to the front"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "getting",
+         "at": 28,
+         "note": "getting right to the top means the right letter is lifted out of its place in the word, so it is removed there"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unconventional",
+         "at": 8,
+         "gives": "OUTRE",
+         "note": "outré means unconventional or bizarre"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An unconventional career path that nonetheless reaches the top.",
-     "walkthrough": "Nothing is added or lost: the R already in OUTRE simply travels to the top of this down entry.",
-     "definitionFit": "A route is a way or path from one place to another."
+     "surface": "Someone takes an unusual pathway yet still reaches the top on the right side.",
+     "walkthrough": "OUTRE is a French loan meaning eccentric. 'Getting right to the top' lifts its R out of the fourth place to leave OUTE, and puts the R at the front.",
+     "definitionFit": "A route is a way or course taken to get somewhere, which is what a pathway is."
     },
     "features": {
      "answerInScene": true,
@@ -425,48 +441,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AUSTRIA",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 23,
+       "note": "involving means the first part wraps around and takes in the America letters"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "curtailed",
-         "note": "TRIAL loses its tail, the last letter"
-        },
-        {
-         "text": "involving",
-         "note": "a case involving someone has them caught up in it, so the shortened trial surrounds the country"
-        }
-       ],
        "parts": [
         {
          "words": "A",
-         "note": "as printed"
+         "at": 0
         },
         {
-         "words": "America",
-         "gives": "US",
-         "note": "US = America, placed inside"
-        },
-        {
-         "words": "court case",
-         "gives": "TRIA",
-         "note": "TRIAL = court case, curtailed"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "curtailed",
+           "at": 2,
+           "note": "curtailed means cut short, so the court case word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "court case",
+           "at": 12,
+           "gives": "TRIAL",
+           "note": "a trial is a case heard in court"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "America",
+       "at": 33,
+       "gives": "US"
       }
      ]
     },
     "explanation": {
-     "surface": "A shortened legal case between the United States and some other nation.",
-     "walkthrough": "The definition says 'another' country because America is already in the clue as the first one.",
-     "definitionFit": "Definition by example: Austria is one of many countries, and 'another' separates it from the America already in the wordplay."
+     "surface": "A shortened legal case involves the United States and a foreign nation.",
+     "walkthrough": "'Another' only tells the solver that the answer is a different country from the America in the wordplay.",
+     "definitionFit": "Austria is a landlocked nation in central Europe, a different state from the America named in the clue."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "case"
     }
    }
   },
@@ -620,42 +648,41 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "keeping",
-       "note": "to keep something is to hold on to it, so CAT holds the letter inside"
-      }
-     ],
      "parts": [
       {
        "words": "Cartoon dog",
+       "at": 0,
        "gives": "PLUTO",
-       "note": "Pluto, Mickey Mouse's dog"
+       "note": "Pluto is Mickey Mouse's pet dog in Disney cartoons"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "ultimately",
-         "note": "ultimately means in the end, so take the final letter"
+         "text": "keeping",
+         "at": 20,
+         "note": "keeping means the cat word holds the next letters inside it"
         }
        ],
        "parts": [
         {
          "words": "cat",
-         "note": "as printed, split open"
+         "at": 16
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "R",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 37,
+           "note": "ultimately picks out only the last letter of animator"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "animator ultimately",
-           "gives": "R",
-           "select": "last",
-           "note": "last letter of animatoR, inside CAT"
+           "words": "animator",
+           "at": 28,
+           "note": "its final letter is R"
           }
          ]
         }
@@ -664,13 +691,14 @@
      ]
     },
     "explanation": {
-     "surface": "Cartoon characters holding on to the animator who made his fortune from them.",
-     "walkthrough": "The cartoon surface makes 'a rich person' look like Walt Disney himself.",
-     "definitionFit": "A plutocrat is someone whose power comes from wealth."
+     "surface": "A cartoon dog and cat are kept by a wealthy animator.",
+     "walkthrough": "'Ultimately' gives R from animator, and 'keeping' puts R inside CAT to make CRAT.",
+     "definitionFit": "A plutocrat is someone whose power comes from great wealth, so a wealthy individual."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cartoon"
     }
    }
   },
@@ -886,56 +914,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LORELEI",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 34,
+       "note": "about means the that-is letters surround the large letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "recalled",
-         "note": "IE called back, read in reverse"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "Body of learning",
+         "at": 0,
+         "gives": "LORE",
+         "note": "lore is a body of traditional knowledge"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "about"
+           "text": "recalled",
+           "at": 25,
+           "note": "recalled means called back, so the letters are taken in reverse order"
           }
          ],
          "parts": [
           {
-           "words": "Body of learning",
-           "gives": "LORE",
-           "note": "lore = a body of traditional knowledge"
-          },
-          {
            "words": "that is",
-           "gives": "EI",
-           "note": "IE = id est, that is, reversed"
+           "at": 17,
+           "gives": "IE",
+           "note": "i.e. is the abbreviation for id est, that is"
           }
          ]
-        },
-        {
-         "words": "large",
-         "gives": "L",
-         "note": "L = large, the clothing size; it goes between LORE and EI"
         }
        ]
+      },
+      {
+       "words": "large",
+       "at": 40,
+       "gives": "L",
+       "note": "L is the standard abbreviation for large, as on clothing sizes"
       }
      ]
     },
     "explanation": {
-     "surface": "A scholarly tradition remembered around a major strand of Rhineland legend.",
-     "walkthrough": "The Lorelei is a rock on the Rhine where, in legend, a siren lured boatmen to their deaths.",
-     "definitionFit": "The Lorelei siren is a figure of Rhine legend."
+     "surface": "A body of folk knowledge is remembered about a big feature of Rhine legends.",
+     "walkthrough": "'About' wraps the whole of the first part, not just the reversed piece, around the large letter, which lands between the two Es.",
+     "definitionFit": "The Lorelei is a siren of German legend whose song lured Rhine boatmen onto the rock that bears her name."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
     }
    }
   },
@@ -1349,34 +1382,25 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to have Liberals displaced",
+       "at": 7,
+       "note": "Liberals are the letter L, and displacing them moves the two Ls to new positions, rearranging the word"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "displaced",
-         "note": "the Ls change places within the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Likely",
-         "note": "anagram fodder, 6 letters"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "to have Liberals displaced",
-       "note": "the two Ls (Liberals) are the letters moved"
+       "words": "Likely",
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "A Yorkshire town probably going to see its Liberal councillors removed.",
-     "walkthrough": "Ilkley is a spa town in West Yorkshire, known for Ilkley Moor. Moving the two Ls of LIKELY is all it takes.",
-     "definitionFit": "Definition by category: Ilkley is one particular town in West Yorkshire, famous from the song 'On Ilkla Moor Baht 'at'."
+     "surface": "Liberals are likely to be ousted from a Yorkshire town at the next election.",
+     "walkthrough": "Liberals in crosswords are L. Moving both Ls in LIKELY to new places gives the town, using the same six letters.",
+     "definitionFit": "Ilkley is a spa town in West Yorkshire, famous for its moor and the song about it."
     },
     "features": {
      "answerInScene": true,

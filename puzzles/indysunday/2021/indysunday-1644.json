@@ -971,49 +971,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ALLSPICE",
      "indicators": [
       {
        "text": "must swallow",
-       "note": "swallowing takes something inside, so one piece encloses the other"
+       "at": 54,
+       "note": "must swallow says the one word takes the shuffled tablets inside it, as a patient swallows pills"
       }
      ],
      "parts": [
       {
+       "words": "one",
+       "at": 50,
+       "gives": "ACE",
+       "note": "an ace is the one in a pack of cards"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "ALLSPICE",
        "indicators": [
         {
          "text": "first couple taken last",
-         "note": "the opening pair of letters is moved round to the end of the word"
+         "at": 24,
+         "note": "first couple taken last moves the opening two letters of the tablets word round to its end"
         }
        ],
        "parts": [
         {
          "words": "tablets",
+         "at": 14,
          "gives": "PILLS",
-         "note": "pills are tablets"
-        },
-        {
-         "words": "one",
-         "gives": "ACE",
-         "note": "an ace is a one in cards"
+         "note": "pills are tablets of medicine"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for taking ground-seed pills in a particular order.",
-     "walkthrough": "An ace counts as one in a pack of cards; it wraps round the tablets after their opening pair moves to the back.",
-     "definitionFit": "Allspice is a spice made from the dried and ground berries of the pimento tree."
+     "surface": "A patient is told to swallow a tablet ground from seed, after shuffling the pills.",
+     "walkthrough": "'Powdered' looks like a description of the tablets, but 'Powdered seed' is the definition. The ace counts as one because it is the single pip in a pack of cards.",
+     "definitionFit": "Allspice is the dried, ground berry of the pimento tree, used as a spice in cooking."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "swallow"
+     "misdirectedWord": "one"
     }
    }
   },

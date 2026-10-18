@@ -43,42 +43,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DEFECTOR",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "in a down clue, 'up' turns the word to read bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 20,
+         "note": "up, in a down clue, means the word is read from the bottom, so its letters are reversed"
+        }
+       ],
        "parts": [
         {
-         "words": "fed up",
-         "gives": "DEF",
-         "note": "FED turned upward"
+         "words": "fed",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "East End",
+         "at": 28,
+         "note": "East End speech, the London Cockney accent, drops the aitch at the start of a word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bully",
+         "at": 37,
+         "gives": "HECTOR",
+         "note": "to hector is to bully or browbeat"
         },
         {
-         "words": "East End bully",
-         "gives": "ECTOR",
-         "note": "HECTOR (to bully) said without its H"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A turncoat, sick of being pushed around by a London thug, finally switches sides.",
-     "walkthrough": "The East End is London's Cockney heartland, where an initial H goes unspoken, so HECTOR becomes 'ECTOR.",
-     "definitionFit": "A plain synonym: someone who crosses over to the enemy side betrays their own, so is a traitor to it."
+     "surface": "A turncoat has had enough of being pushed around by a tough from the East End of London.",
+     "walkthrough": "'Fed up' reads as one phrase meaning tired of, but it splits into a word and its reversal signal. The East End is the part of London where the Cockney accent drops a word's opening aitch.",
+     "definitionFit": "A defector is someone who abandons their country or side for an enemy, so a traitor to the cause."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "East"
+     "misdirectedWord": "up"
     }
    }
   },
@@ -356,36 +370,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GAGGLE",
-     "indicators": [
-      {
-       "text": "broken",
-       "note": "a broken thing is in pieces, so the letters of LEG are broken up and reassembled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "something funny",
+       "at": 24,
+       "gives": "GAG",
+       "note": "a gag is a joke, something funny"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 45,
+         "note": "broken means smashed apart, so the letters of leg are put back together in a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "something funny",
-         "gives": "GAG",
-         "note": "a joke"
-        },
-        {
          "words": "leg",
-         "note": "LEG rearranged"
+         "at": 52
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone laughs at a man with a broken leg, which is hardly a joke.",
-     "walkthrough": "'Flyers' suggests airline passengers; the group is of geese.",
-     "definitionFit": "The collective noun for geese, birds that fly, though strictly only when they are on the ground."
+     "surface": "A comedian finds a broken leg amusing, joking about a flock overhead.",
+     "walkthrough": "'Broken' rearranges LEG as GLE. 'Flyers' suggests pilots, but the group meant is birds.",
+     "definitionFit": "A gaggle is the collective noun for a flock of geese, which are birds that fly."
     },
     "features": {
      "answerInScene": false,
@@ -1236,56 +1250,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PARLIAMENT",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Standard",
+       "at": 0,
+       "gives": "PAR",
+       "note": "par is the standard or normal level, as in golf"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "returned",
-         "note": "the letters of EMAIL come back the other way"
+         "at": 17,
+         "note": "returned means sent back, so the message word is read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "Standard",
-         "gives": "PAR",
-         "note": "the standard score, as in golf"
-        },
-        {
          "words": "message",
-         "gives": "LIAME",
-         "note": "EMAIL, reversed"
-        },
+         "at": 9,
+         "gives": "EMAIL",
+         "note": "an email is an electronic message"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "vacant",
-           "note": "emptied of its middle, leaving only the outside letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "nearest vacant",
-           "note": "N…T, the outside of nearest"
-          }
-         ]
+         "text": "vacant",
+         "at": 37,
+         "note": "vacant means emptied, so nearest loses everything but its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nearest",
+         "at": 29,
+         "note": "with its inside emptied, nearest keeps only its first and last letters, N and T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A standard letter is sent back to the closest empty home.",
-     "walkthrough": "'Vacant house' reads as an empty home; 'vacant' belongs to 'nearest', and 'house' stands alone as the definition.",
-     "definitionFit": "A legislative chamber is a house, as in the House of Commons or House of Lords."
+     "surface": "A routine letter is sent back to the nearest empty home.",
+     "walkthrough": "'Returned' turns EMAIL into LIAME. 'Vacant' empties nearest down to its first and last letters, NT.",
+     "definitionFit": "Parliament is a legislative chamber, and each of its chambers is called a house, as in the House of Commons."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "house"
     }
    }
@@ -1311,34 +1328,32 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "SOHO",
+     "op": "nth",
+     "n": 2,
      "indicators": [
       {
        "text": "get naked",
-       "note": "stripping each word removes its outer letters"
+       "at": 16,
+       "note": "get naked means each of these words strips off its outer letters, its clothing, leaving only the middle"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Ask cop why not",
-       "gives": "SOHO",
-       "select": "middle",
-       "note": "the middle letter of each of the four words"
+       "at": 0,
+       "note": "each of these three-letter words, stripped of its first and last letters, leaves just its middle letter"
       }
      ]
     },
     "explanation": {
-     "surface": "A cheeky challenge to a policeman: why not strip off in a racy London district?",
-     "walkthrough": "The surface fits because the district is famous for nightlife and, historically, strip clubs.",
-     "definitionFit": "A definition by example: a district of London's West End, and 'this' points back to the surface's striptease."
+     "surface": "A puzzled visitor wonders why the police don't arrest people who strip off in a racy area of London.",
+     "walkthrough": "Stripping the first and last letters from each of the four words leaves one letter apiece: S, O, H and O.",
+     "definitionFit": "Soho is a district in London's West End, long known for nightlife, theatres and its once-seedy reputation."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "naked"
     }
    }
