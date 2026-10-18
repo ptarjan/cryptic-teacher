@@ -565,37 +565,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VICTIM",
-     "indicators": [
-      {
-       "text": "never-ending",
-       "note": "something with no ending has lost its last part, so each word is cut short at the tail"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "never",
+         "at": 12,
+         "note": "half of 'never-ending': something that never ends has lost its last letter, here the word for evil"
+        }
+       ],
        "parts": [
         {
          "words": "evil",
-         "gives": "VIC",
-         "note": "vice, an evil, without its final letter"
+         "at": 25,
+         "gives": "VICE",
+         "note": "vice is wickedness or evil"
         },
         {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ending",
+         "at": 18,
+         "note": "the other half of 'never-ending': the word for period likewise loses its last letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "period",
-         "gives": "TIM",
-         "note": "time, a period, without its final letter"
+         "at": 30,
+         "gives": "TIME",
+         "note": "time can mean a period, as in 'a time of plenty'"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone suffers harm during an endless era of wickedness.",
-     "walkthrough": "'Never-ending' applies to both following words: vice and time each lose their last letter.",
-     "definitionFit": "A casualty is someone injured or killed, a person who suffers harm, just as a victim does."
+     "surface": "A sufferer caught up in an era of endless wickedness.",
+     "walkthrough": "'Never-ending' does double duty: it docks the last letter of VICE (evil) and of TIME (period), giving VIC and TIM.",
+     "definitionFit": "A casualty is a person hurt or killed by some event, which is what a victim is."
     },
     "features": {
      "answerInScene": true,
