@@ -308,58 +308,69 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "WELCOME",
      "indicators": [
       {
        "text": "receives",
-       "note": "receiving someone means taking them in, so the abbreviation goes inside"
+       "at": 47,
+       "note": "receives means takes in, so the company letters go inside the rest"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "WELCOME",
+       "op": "charade",
        "indicators": [
         {
-         "text": "shortened",
-         "note": "shortened means cut down, so the word loses its final letter"
+         "text": "before",
+         "at": 33,
+         "note": "before puts the shortened word ahead of the setter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "shortened",
+           "at": 10,
+           "note": "shortened means the word loses its last letter"
+          }
+         ],
          "parts": [
           {
            "words": "considerably",
-           "gives": "WEL",
-           "note": "well means considerably, as in well over; shortened it drops its last L"
+           "at": 20,
+           "gives": "WELL",
+           "note": "well can mean considerably, as in well over budget"
           },
           {
-           "words": "company",
-           "gives": "CO",
-           "note": "Co is the abbreviation for company"
-          },
-          {
-           "words": "setter",
-           "gives": "ME",
-           "note": "the setter refers to themself as me"
+           "gives": "L"
           }
          ]
+        },
+        {
+         "words": "setter",
+         "at": 40,
+         "gives": "ME",
+         "note": "the setter refers to themself as me"
         }
        ]
+      },
+      {
+       "words": "company",
+       "at": 56,
+       "gives": "CO"
       }
      ]
     },
     "explanation": {
-     "surface": "A setter's party cut short before guests arrive.",
-     "definitionFit": "A welcome is the greeting or reception given to someone arriving."
+     "surface": "A curtailed reception comes before the crossword compiler gets a visit from guests.",
+     "walkthrough": "'considerably' is the adverb well, as in well ahead; the company goes inside the whole of the shortened word plus the setter, not just the setter.",
+     "definitionFit": "A welcome is the greeting given to an arriving guest, the way they are received."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "considerably"
+     "misdirectedWord": "Reception"
     }
    }
   },
@@ -1089,47 +1100,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EARNERS",
+     "op": "container",
      "indicators": [
       {
-       "text": "Mostly",
-       "note": "mostly means not quite all, so the word loses its last letter"
+       "text": "about",
+       "at": 15,
+       "note": "about means surrounding, so the shortened word goes round the rector's letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so the shortened word surrounds the abbreviation"
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means the word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "sincere",
-         "gives": "EARNES",
-         "note": "earnest means sincere; mostly drops its final T"
+         "at": 7,
+         "gives": "EARNEST",
+         "note": "earnest means sincere and serious"
         },
         {
-         "words": "rector",
-         "gives": "R",
-         "note": "R is the abbreviation for rector"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "rector's",
+       "at": 21,
+       "gives": "R",
+       "note": "R is the abbreviation for rector"
       }
      ]
     },
     "explanation": {
-     "surface": "A vicar's fundraising schemes, described as largely genuine.",
-     "definitionFit": "Earners are sources of income; a nice little earner is a profitable scheme or sideline."
+     "surface": "A rather genuine vicar is behind some profit-making ventures.",
+     "walkthrough": "'rector's' reads as possessive, but it only supplies the abbreviation for rector.",
+     "definitionFit": "An earner, as in a nice little earner, is a venture or job that brings in income."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Mostly"
+     "misdirectedWord": "sincere"
     }
    }
   },
@@ -1381,40 +1398,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "crazy",
-       "note": "something crazy is disordered, so the letters before it are jumbled"
+       "text": "welcoming",
+       "at": 7,
+       "note": "welcoming means taking in, so the shuffled letters go inside the voyage word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Voyage",
+       "at": 0,
+       "gives": "FLIGHT",
+       "note": "a flight is a journey through the air"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "welcoming",
-         "note": "welcoming means taking in a guest, so the jumbled letters go inside"
+         "text": "crazy",
+         "at": 22,
+         "note": "crazy means wild and disordered, so the letters of stir are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Voyage",
-         "gives": "FLIGHT",
-         "note": "a flight is a journey by air"
-        },
-        {
          "words": "stir",
-         "note": "the letters of stir rearranged"
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trip hosting a woman named Dawn, driven mad from being cooped up.",
-     "walkthrough": "'Stir-crazy' reads as one word, but stir is the fodder and crazy the signal; 'Dawn' looks like a name.",
-     "definitionFit": "First light is the moment the sun's glow first appears at daybreak."
+     "surface": "A journey welcomes aboard a woman called Dawn who has gone stir-crazy.",
+     "walkthrough": "'Dawn' looks like a passenger's name but is the definition, and 'stir-crazy' must be split into fodder and indicator.",
+     "definitionFit": "First light is the earliest glimmer of daylight in the morning, the moment of daybreak."
     },
     "features": {
      "answerInScene": false,
@@ -1661,59 +1681,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RIGHTOFCENTRE",
-     "indicators": [
-      {
-       "text": "changes",
-       "note": "changes means the word before is altered into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "RIGHTOFCENTRE",
+       "op": "middle",
        "indicators": [
         {
          "text": "rejecting outsiders",
-         "note": "rejecting the outsiders throws out the first and last letters"
+         "at": 37,
+         "note": "rejecting outsiders means the first and last letters of the resort are thrown away"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "seaside resort",
-           "gives": "RIGHTO",
-           "note": "Brighton, the south-coast English resort, without its outer letters"
-          },
-          {
-           "words": "following",
-           "gives": "F",
-           "note": "f is the abbreviation for following"
-          },
-          {
-           "words": "recent",
-           "note": "the letters of recent reshuffled"
-          }
-         ]
+         "words": "seaside resort",
+         "at": 22,
+         "gives": "BRIGHTON",
+         "note": "Brighton is a seaside resort on England's south coast"
+        }
+       ]
+      },
+      {
+       "words": "following",
+       "at": 57,
+       "gives": "F",
+       "note": "F is the abbreviation for following, as in page references"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changes",
+         "at": 74,
+         "note": "changes means the letters of recent are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "recent",
+         "at": 67
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Tory-leaning coastal town turning people away after recent reforms.",
-     "walkthrough": "Brighton is a seaside resort on England's south coast.",
-     "definitionFit": "Right-of-centre describes moderately conservative politics, leaning to the right but not far."
+     "surface": "A mildly Tory beach town shuns incomers after recent developments.",
+     "walkthrough": "'rejecting outsiders' sounds like a resort turning away visitors, but it strips the resort's first and last letters.",
+     "definitionFit": "Right of centre describes a political position leaning moderately towards the right, mildly Tory."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "following"
+     "misdirectedWord": "conservative"
     }
    }
   }

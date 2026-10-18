@@ -626,38 +626,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "tangled",
-       "note": "tangled things are twisted out of order, as the letters are"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "tangled",
+         "at": 6,
+         "note": "tangled means twisted together, so the letters of in the are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "in the",
-         "note": "anagram fodder, 5 letters"
-        },
-        {
-         "words": "densely packed place",
-         "gives": "CITY",
-         "note": "a city is a crowded place"
+         "at": 14
         }
        ]
+      },
+      {
+       "words": "densely packed place",
+       "at": 21,
+       "gives": "CITY",
+       "note": "a city is a large, crowded settlement"
       }
      ]
     },
     "explanation": {
-     "surface": "Tree roots tangled under a crowded city.",
-     "walkthrough": "'Roots' sounds botanical, but it means where a person's family comes from.",
-     "definitionFit": "Your roots are your ancestral and cultural origins, the group you descend from."
+     "surface": "Roots get knotted in tightly packed ground.",
+     "walkthrough": "'Roots' reads like plant roots, but it means ancestry, and 'in' belongs to the fodder rather than being a link word.",
+     "definitionFit": "Ethnicity is the cultural or national heritage a person comes from, their ancestral origins."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Roots"
     }
    }
@@ -736,26 +738,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "CRAVE",
      "indicators": [
       {
        "text": "mostly",
-       "note": "mostly means not quite all, so the word loses its last letter"
+       "at": 30,
+       "note": "mostly means almost all of the word, so its last letter goes"
       }
      ],
      "parts": [
       {
-       "words": "chicken, mostly",
-       "gives": "CRAVE",
-       "note": "chicken = cowardly, a six-letter synonym; 'mostly' drops its final N"
+       "words": "chicken",
+       "at": 21,
+       "gives": "CRAVEN",
+       "note": "craven means cowardly, as does chicken"
+      },
+      {
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone longing for chicken.",
-     "walkthrough": "Chicken is the adjective, cowardly, not something to eat.",
-     "definitionFit": "A plain synonym: to long for or yearn for something."
+     "surface": "A longing for most of a chicken.",
+     "walkthrough": "'chicken' looks like the food being craved but means cowardly.",
+     "definitionFit": "To crave something is to long for it intensely, a strong desire."
     },
     "features": {
      "answerInScene": false,
@@ -1497,52 +1502,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GENOA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "shortened",
-       "note": "a shortened word is cut short, so it loses its final letter"
-      },
-      {
-       "text": "trimming edges",
-       "note": "trimming cuts off edges, so the first and last letters go"
+       "text": "after",
+       "at": 27,
+       "note": "after places the shortened boatbuilder behind the trimmed word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
        "indicators": [
         {
-         "text": "after",
-         "note": "the boatbuilder comes after the trimmed ages in the answer"
+         "text": "trimming edges",
+         "at": 33,
+         "note": "trimming edges means cutting off the first and last letters"
         }
        ],
        "parts": [
         {
          "words": "ages",
-         "gives": "GE",
-         "note": "AGES without its edge letters"
+         "at": 52
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortened",
+         "at": 17,
+         "note": "shortened means the last letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boatbuilder",
+         "at": 5,
+         "gives": "NOAH",
+         "note": "Noah built the ark in the Bible"
         },
         {
-         "words": "boatbuilder shortened",
-         "gives": "NOA",
-         "note": "NOAH, builder of the Ark, without his last letter"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sailmaker trimming a boatbuilder's work.",
-     "walkthrough": "The boatbuilder is the biblical one who built the Ark.",
-     "definitionFit": "A large jib that overlaps the mainsail, named after the Italian port."
+     "surface": "A sail made by a boatbuilder, cut down after its edges were trimmed for years.",
+     "walkthrough": "'boatbuilder' points to the biblical ark-builder, not a shipyard; 'for' is a link word.",
+     "definitionFit": "A genoa is a large jib, a foresail on a yacht that overlaps the mainsail."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "trimming"
+     "misdirectedWord": "boatbuilder"
     }
    }
   },
@@ -1667,48 +1683,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
      "indicators": [
       {
        "text": "cast",
-       "note": "to cast is to throw, so the letters are thrown into a new order"
+       "at": 9,
+       "note": "cast means thrown into a new shape, so the letters are rearranged"
+      },
+      {
+       "text": "short of",
+       "at": 14,
+       "note": "short of means lacking, so the letter a is removed from the fodder"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "short of",
-         "note": "short of means lacking, so the word goes without the A"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "Sopranos",
-           "note": "anagram fodder, 8 letters"
-          },
-          {
-           "gives": "A"
-          }
-         ]
-        }
-       ]
+       "words": "Sopranos",
+       "at": 0
       },
       {
-       "unchecked": true,
        "words": "a",
-       "note": "removed from the fodder"
+       "at": 23
       }
      ]
     },
     "explanation": {
-     "surface": "The cast of The Sopranos, the mafia TV drama, missing its godfather.",
-     "walkthrough": "The Mafia godfather is a red herring: the other kind stands for a child at baptism.",
-     "definitionFit": "A definition by example: a godparent formally vouches for a child at baptism, hence the question mark."
+     "surface": "The cast of The Sopranos is missing a mafia godfather.",
+     "walkthrough": "'godfather' suggests the mafia drama, but a godfather sponsors a child at baptism.",
+     "definitionFit": "A sponsor at a christening is a godparent who answers for the child, hence the question mark."
     },
     "features": {
      "answerInScene": false,
