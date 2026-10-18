@@ -162,40 +162,43 @@
      "indicators": [
       {
        "text": "that's trapped",
-       "note": "a trap catches and holds its prey inside, so one piece encloses the others"
+       "at": 4,
+       "note": "the cat holds the following letters inside itself"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Cat",
-         "gives": "LYNX",
-         "note": "the lynx is a wild cat"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Cat",
+       "at": 0,
+       "gives": "LYNX",
+       "note": "the lynx is a wild cat"
       },
       {
-       "words": "rook",
-       "gives": "R",
-       "note": "R is the chess notation for a rook"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 19,
+         "gives": "A"
+        },
+        {
+         "words": "rook's",
+         "at": 21,
+         "gives": "R",
+         "note": "R is the chess notation for rook"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cat has caught a bird and is now gripping its windpipe.",
-     "walkthrough": "'Rook' suggests the bird, which fits the hunting picture, but it is the chess piece, abbreviated R.",
-     "definitionFit": "The larynx, or voice box, sits at the top of the windpipe and forms part of the respiratory passage."
+     "surface": "A cat has caught a bird and now it is stuck in its windpipe.",
+     "definitionFit": "The larynx is the voice box, part of the passage carrying air to the lungs."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rook"
+     "misdirectedWord": "rook's"
     }
    }
   },
@@ -912,61 +915,60 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places these pieces inside another"
+       "at": 26,
+       "note": "the pieces sit inside the word for water"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "water",
+       "at": 29,
+       "gives": "AQUA",
+       "note": "aqua is Latin for water"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "words": "India",
+         "at": 11,
+         "gives": "I",
+         "note": "I is India in the NATO phonetic alphabet"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "up",
+           "at": 23,
+           "note": "in a down answer, up means the word is read from bottom to top"
+          }
+         ],
          "parts": [
           {
-           "words": "water",
-           "gives": "AQUA",
-           "note": "aqua is Latin for water"
-          },
-          {
-           "op": "reversal",
-           "indicators": [
-            {
-             "text": "up",
-             "note": "in a down clue going up means reading from the bottom, back to front"
-            }
-           ],
-           "parts": [
-            {
-             "words": "set",
-             "gives": "GEL",
-             "note": "to set, like a jelly, is to gel"
-            }
-           ]
+           "words": "set",
+           "at": 19,
+           "gives": "GEL",
+           "note": "jelly sets, or gels"
           }
          ]
         },
         {
          "words": "I",
-         "note": "taken as written"
+         "at": 17
         }
        ]
-      },
-      {
-       "words": "India",
-       "gives": "I",
-       "note": "I is India in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A plant brought over from India and grown hydroponically.",
-     "walkthrough": "'From India' suggests where the plant originates, but India is a single letter from the phonetic alphabet; in this down clue 'up' turns the following pair over.",
-     "definitionFit": "Aquilegia is the botanical name for columbine, a flowering garden plant."
+     "surface": "A gardener sets up a water feature with something from India.",
+     "definitionFit": "Aquilegia is the botanical genus of columbines, a flowering plant."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "India"
+     "misdirectedWord": "set"
     }
    }
   },

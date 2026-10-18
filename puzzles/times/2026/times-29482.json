@@ -99,40 +99,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BRECONBEACONS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "south of",
+       "at": 20,
+       "note": "in a down answer the scrambled letters come below, after, the first piece"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "British",
+       "at": 29,
+       "gives": "B"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "shot",
-         "note": "something shot is ruined, so the letters come out wrecked and rearranged"
-        },
-        {
-         "text": "south of",
-         "note": "in a down clue, south of a letter means written below it"
+         "at": 15,
+         "note": "shot means ruined or wrecked, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "British",
-         "gives": "B",
-         "note": "B = British"
+         "words": "Raccoon's",
+         "at": 0
         },
         {
-         "words": "Raccoon's been",
-         "note": "the twelve letters of RACCOONS BEEN rearranged"
+         "words": "been",
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hunter reports that a raccoon has been shot somewhere south of a British national park.",
-     "walkthrough": "'Shot' reads as gunfire but means the letters are wrecked. The Brecon Beacons are mountains in south Wales.",
-     "definitionFit": "The Beacons in south Wales were designated one of Britain's national parks in 1957."
+     "surface": "A raccoon has been shot south of the border in Britain.",
+     "definitionFit": "The Brecon Beacons is a mountain range in south Wales that forms a protected park."
     },
     "features": {
      "answerInScene": true,
@@ -531,39 +536,42 @@
      "indicators": [
       {
        "text": "collects",
-       "note": "a word that collects others gathers them up and holds them inside"
+       "at": 17,
+       "note": "the word for soon gathers the following pieces inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "soon",
-         "gives": "ANON",
-         "note": "anon = soon, in old usage"
-        },
-        {
-         "words": "six",
-         "gives": "VI",
-         "note": "VI = six in Roman numerals"
-        }
-       ]
+       "words": "soon",
+       "at": 12,
+       "gives": "ANON",
+       "note": "anon is an old word for soon"
       },
       {
-       "words": "grand",
-       "gives": "G",
-       "note": "G = grand, a thousand pounds"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "six",
+         "at": 26,
+         "gives": "VI",
+         "note": "VI is the Roman numeral six"
+        },
+        {
+         "words": "grand",
+         "at": 30,
+         "gives": "G",
+         "note": "G is slang for a grand, a thousand pounds"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French city will soon receive six thousand pounds.",
-     "walkthrough": "'Grand' reads as an adjective describing the city, but it is slang for a thousand, abbreviated G.",
-     "definitionFit": "The Provençal city on the Rhône was the seat of the popes in the 14th century."
+     "surface": "Someone will soon pick up six thousand.",
+     "definitionFit": "Avignon is a city in Provence, once the seat of the popes."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "grand"
     }

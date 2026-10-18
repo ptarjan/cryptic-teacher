@@ -48,34 +48,20 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "This could be",
-       "note": "a reverse clue: the answer read as an instruction says to make the following word anew, so its letters get rearranged"
-      }
-     ],
+     "op": "reverse",
+     "reading": "NEW TESTAMENT",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "This could be",
-         "gives": "NEW",
-         "note": "the answer itself opens with the instruction 'new', the signal to rearrange what follows"
-        },
-        {
-         "words": "statement",
-         "note": "rearranging these nine letters gives a word meaning a will or witness"
-        }
-       ]
+       "words": "could be statement",
+       "at": 5,
+       "note": "read as an instruction, the answer's first word is an anagram signal and its second word the fodder, and one possible rearrangement is statement"
       }
      ]
     },
     "explanation": {
-     "surface": "A note that Matthew's Gospel opens some anthology.",
-     "walkthrough": "A reverse clue: NEW TESTAMENT, read cryptically as 'new testament', is an instruction to rearrange TESTAMENT, and the result is 'statement'.",
-     "definitionFit": "The Gospel of Matthew is the first book of the Christian scriptures' second part, the New Testament."
+     "surface": "A remark about the Gospel of Matthew opening a collection of texts.",
+     "walkthrough": "'This could be statement' means the answer, read as instructions, produces 'statement': NEW is the anagram signal and TESTAMENT the fodder.",
+     "definitionFit": "The Gospel of Matthew is the first book of the Christian scriptures' second part."
     },
     "features": {
      "answerInScene": true,
@@ -1424,50 +1410,53 @@
      "indicators": [
       {
        "text": "guarding",
-       "note": "guarding means standing on either side of something to protect it, so it goes inside"
+       "at": 11,
+       "note": "the odd letters stand around the next pieces like guards"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 5,
+         "note": "take the first, third and so on letters"
+        }
+       ],
        "parts": [
         {
-         "op": "alternate",
-         "indicators": [
-          {
-           "text": "oddly",
-           "note": "oddly keeps the letters in odd-numbered positions of the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Crew",
-           "note": "the first and third letters of crew"
-          }
-         ]
-        },
-        {
-         "words": "an",
-         "note": "taken as written"
+         "words": "Crew",
+         "at": 0,
+         "note": "odd letters of crew"
         }
        ]
       },
       {
-       "words": "old",
-       "gives": "O",
-       "note": "O is the abbreviation for old"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "an",
+         "at": 20,
+         "gives": "AN"
+        },
+        {
+         "words": "old",
+         "at": 23,
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A strange crew protecting an ancient vessel.",
-     "walkthrough": "'Oddly' looks like 'strangely' but keeps letters one and three of 'Crew'.",
-     "definitionFit": "A canoe is a light narrow boat paddled by hand."
+     "surface": "The rowers strangely watch over an ancient vessel.",
+     "definitionFit": "A canoe is a light narrow vessel paddled by hand."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "oddly"
+     "misdirectedWord": "Crew"
     }
    }
   },
