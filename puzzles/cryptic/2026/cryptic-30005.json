@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -444,57 +445,71 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HODGEPODGE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 17,
+       "note": "with means the rearranged dog letters are accompanied by the final letter, placed straight after them"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Hot",
+       "at": 0,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on a tap"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "prepared",
-         "note": "Preparing food means chopping it and combining it, so what it touches comes out in a different arrangement."
+         "at": 8,
+         "note": "prepared means made ready in a new form, so the letters of dog are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Hot",
-         "gives": "H",
-         "note": "H is hot on a tap, a standard abbreviation"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "ODGE",
-         "indicators": [
-          {
-           "text": "last of",
-           "note": "'Last of' takes the final letter of the word it points at and nothing else."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "dog prepared with last of vegetable",
-           "gives": "ODGE",
-           "select": "last",
-           "note": "DOG and the E that ends VEGETABLE, rearranged"
-          }
-         ]
-        },
-        {
-         "words": "fat",
-         "gives": "PODGE",
-         "note": "podge is plumpness, the soft stuff on a podgy person"
+         "words": "dog",
+         "at": 4
         }
        ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "at": 22,
+         "note": "last of means the final letter of the word vegetable"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vegetable",
+         "at": 30,
+         "note": "the last letter of vegetable is E"
+        }
+       ]
+      },
+      {
+       "words": "fat",
+       "at": 40,
+       "gives": "PODGE",
+       "note": "podge is informal British for excess body fat, as in a podgy person"
       }
      ]
     },
     "explanation": {
-     "surface": "A hot dog being knocked together with the last of the vegetables and some fat.",
-     "walkthrough": "'Hot dog' looks like the snack and is two separate pieces of wordplay, one of them a single letter — keeping those two words joined is the surface's whole job.",
-     "definitionFit": "A hodgepodge is a jumble of unrelated odds and ends, so 'mixture' names it as a mess rather than as anything deliberately blended."
+     "surface": "A recipe: a hot dog cooked with the end of a vegetable and some fat.",
+     "walkthrough": "'Hot dog' reads as a snack, but the two words split: only 'dog' is rearranged by 'prepared', and 'fat' is a British noun for flab, not an adjective.",
+     "definitionFit": "A hodgepodge is a confused jumble of different things, so it is a synonym of a mixture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hot"
     }
    }
   },
@@ -529,68 +544,70 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "BYANYMEANS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "across",
+       "at": 14,
+       "note": "across means the heads word stretches across the other letters, holding them inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "across",
-         "note": "Something lying across a thing covers it, so the first word spreads over the letters named after it."
-        }
-       ],
+       "words": "heads",
+       "at": 8,
+       "gives": "BEANS",
+       "note": "beans is slang for heads, as in 'use your bean'"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "op": "last",
          "indicators": [
           {
-           "text": "east side",
-           "note": "East is the right-hand edge of any map, so the east side of a word is the letter it ends on."
+           "text": "'s east side",
+           "at": 25,
+           "note": "east side means the right-hand end, the last letter of the word city"
           }
          ],
          "parts": [
           {
-           "words": "heads",
-           "gives": "BEANS",
-           "note": "a bean is slang for a head, as in 'off his bean'"
-          },
-          {
-           "op": "last",
-           "unchecked": true,
-           "gives": "Y",
-           "indicators": [
-            {
-             "text": "cycling",
-             "note": "Cycling sends letters round a loop: the one at the front goes to the back and the rest keep their order."
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "city's east side",
-             "gives": "Y",
-             "select": "last",
-             "note": "the right-hand end of CITY is the letter it finishes on"
-            }
-           ]
+           "words": "city",
+           "at": 21,
+           "note": "the last letter of city is Y"
           }
          ]
         },
         {
-         "words": "many",
-         "gives": "ANYM",
-         "note": "MANY with its first letter sent round to the back"
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "cycling",
+           "at": 48,
+           "note": "cycling means a letter of many is moved from one end to the other, the M going round to the back"
+          }
+         ],
+         "parts": [
+          {
+           "words": "many",
+           "at": 43
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cyclist somehow crossing the east side of a city in a crowd of others.",
-     "walkthrough": "The vague adverb the clue opens with reads like an apology for a loose sentence, and it is the definition. 'Heads' looks like a verb going somewhere and is a plural noun standing still.",
-     "definitionFit": "'By any means' is the phrase for doing a thing however it can be done, and 'somehow' says the same with the method left unspecified."
+     "surface": "Somehow people head across to the eastern side of a city, many of them on bikes.",
+     "walkthrough": "'Heads' is slang here, not a verb, and the east side of a word in an across-style reading is its last letter; 'cycling' moves the first letter of many round to the back.",
+     "definitionFit": "By any means is an idiom meaning in whatever way is possible, so it stands in for somehow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
     }
    }
   },
@@ -917,31 +934,26 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FREEFORALL",
+     "op": "reverse",
+     "reading": "FREE FOR ALL",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "wordplay",
-         "gives": "FREE",
-         "note": "in wordplay, letters called free are ones you may move anywhere you like"
-        },
-        {
-         "words": "for 'floral'",
-         "gives": "FORALL",
-         "note": "the six letters of FLORAL in another order, which is what such an instruction would produce"
-        }
-       ]
+       "words": "wordplay for 'floral'",
+       "at": 14,
+       "note": "read as a cryptic instruction, the answer's words say set the letters of 'for all' free, and freeing them into a new order gives floral"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody wrestling with how to clue the word 'floral'.",
-     "walkthrough": "This one runs backwards: the answer is not built from the quoted word, it is the instruction that would clue the quoted word. Setters call that a reverse anagram.",
-     "definitionFit": "A free-for-all is a disorderly brawl that anyone may join in, so 'struggle' names it as a fight rather than as an effort."
+     "surface": "Someone grapples with the wordplay for a flowery word.",
+     "walkthrough": "The answer is itself a little clue for 'floral': FREE signals an anagram of FOR ALL. A free-for-all is a chaotic fight.",
+     "definitionFit": "A free-for-all is a disorganised brawl or contest open to anyone, so it is a struggle or melee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wordplay"
     }
    }
   },
@@ -1020,14 +1032,15 @@
        "indicators": [
         {
          "text": "Discovered",
-         "note": "Discovered means stripped of its cover, so the word loses the letter at each end and only the middle stays showing."
+         "at": 0,
+         "note": "discovered means uncovered, so the word your loses its outer letters, its cover"
         }
        ],
        "parts": [
         {
-         "words": "Discovered your",
-         "gives": "YOUR",
-         "note": "YOUR with its cover off: the Y and the R at the ends are gone"
+         "words": "your",
+         "at": 11,
+         "note": "your without its first and last letters is OU"
         }
        ]
       },
@@ -1036,28 +1049,47 @@
        "indicators": [
         {
          "text": "about",
-         "note": "Something placed about a thing surrounds it, so the book word closes over the letter named next."
+         "at": 21,
+         "note": "about means going around, so the book word encloses the next letter"
         }
        ],
        "parts": [
         {
          "words": "book",
+         "at": 16,
          "gives": "TOME",
-         "note": "a tome is a book, especially a heavy one"
+         "note": "a tome is a large book"
         },
         {
-         "words": "origin of Coriolis",
-         "gives": "C",
-         "note": "the letter the name starts from"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "origin of",
+           "at": 27,
+           "note": "origin of means the first letter of the word Coriolis"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Coriolis",
+           "at": 37,
+           "note": "the first letter of Coriolis is C"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone has turned up your book about where the Coriolis effect came from.",
-     "walkthrough": "'Discovered' is the trap: it reads as found, and it means uncovered — a word robbed of its outer letters. The physics is scenery, and lends a single initial.",
-     "definitionFit": "An outcome is what a thing results in, and 'effect' is the same relation seen from the other end: what was produced, not the producing."
+     "surface": "Someone discovered a textbook about the Coriolis effect, the deflection of moving air on a spinning Earth.",
+     "walkthrough": "'Discovered' looks like found, but it means uncovered: the word your loses its cover at both ends. 'Coriolis effect' is a real phrase, which hides that 'effect' is the definition.",
+     "definitionFit": "An outcome is a result or consequence, so it is a synonym of effect in the noun sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Discovered"
     }
    }
   },
@@ -1400,37 +1432,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "shunning both sides",
+       "at": 13,
+       "note": "shunning both sides means the word loses its first and last letters, keeping the middle"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PEAK",
-       "indicators": [
-        {
-         "text": "shunning",
-         "note": "To shun a thing is to have nothing to do with it, so whatever is named next is left out of the answer."
-        }
-       ],
-       "parts": [
-        {
-         "words": "talks",
-         "gives": "SPEAKS",
-         "note": "'talks' as a verb is SPEAKS"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "both sides",
-       "note": "the outermost letter at each end of that six-letter verb, an S either way, is what goes"
+       "words": "talks",
+       "at": 7,
+       "gives": "SPEAKS",
+       "note": "speaks means talks"
       }
      ]
     },
     "explanation": {
-     "surface": "A summit meeting where the two parties are refusing to speak to each other.",
-     "walkthrough": "'Summit talks' is the phrase the surface wants you to take as one thing, and the definition has finished after the first word of it.",
-     "definitionFit": "A peak is the topmost point of a mountain, and 'summit' is that same point named by the climber rather than by the map."
+     "surface": "A summit meeting where the talks are avoided by both opposing parties.",
+     "walkthrough": "SPEAKS loses the S at each side. 'Summit' suggests a diplomatic conference, but it is the top of a mountain.",
+     "definitionFit": "A peak is the pointed top of a mountain, so it is a synonym of summit in its geographical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Summit"
     }
    }
   },
@@ -1554,43 +1582,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "to tackle",
-       "note": "Tackling something means getting your arms round it, so the word in front closes over the letter that follows."
-      }
-     ],
      "parts": [
       {
        "words": "Jack and Jenny",
+       "at": 0,
        "gives": "ASSES",
-       "note": "a jack is a male donkey and a jenny a female one, so the plural covers the pair"
+       "note": "a jack is a male donkey and a jenny a female, so the pair are asses"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "beginning of",
-         "note": "'Beginning of' asks for the point a word starts at, which is its first letter and nothing more."
+         "text": "to tackle",
+         "at": 23,
+         "note": "to tackle means to take hold of, so the excited word grips the next letter inside it"
         }
        ],
        "parts": [
         {
          "words": "excited",
+         "at": 15,
          "gives": "SENT",
-         "note": "sent is old slang for carried away, the state a jazz record leaves you in"
+         "note": "sent is old slang for thrilled or excited, as in 'that music sends me'"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "M",
+         "indicators": [
+          {
+           "text": "beginning of",
+           "at": 33,
+           "note": "beginning of means the first letter of the word maths"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "beginning of maths",
-           "gives": "M",
-           "select": "first",
-           "note": "the first letter of MATHS"
+           "words": "maths",
+           "at": 46,
+           "note": "the first letter of maths is M"
           }
          ]
         }
@@ -1599,9 +1627,15 @@
      ]
     },
     "explanation": {
-     "surface": "Two donkeys getting worked up as they take on the start of a maths exam.",
-     "walkthrough": "Jack and Jenny read as a couple's names, and neither is a person: both belong to the same animal, which is the whole of what makes the surface hold together.",
-     "definitionFit": "An assessment is a formal judging of how somebody has done, and 'test' is the school word for the exercise set to arrive at one."
+     "surface": "Two children, Jack and Jenny, are excited to take on a maths exam.",
+     "walkthrough": "Jack and Jenny look like two pupils, but they are male and female donkeys. SENT 'tackles' M, the 'beginning of maths', after its S.",
+     "definitionFit": "An assessment is an evaluation of someone's ability, such as an exam, so it is a test."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Jack"
     }
    }
   }

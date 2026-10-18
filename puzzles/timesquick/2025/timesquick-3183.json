@@ -957,40 +957,41 @@
      "parts": [
       {
        "words": "over",
+       "at": 7,
        "gives": "O",
-       "note": "O is the cricket scorer's abbreviation for an over"
+       "note": "O is the cricket scoring abbreviation for an over"
       },
       {
        "words": "Pennsylvania",
+       "at": 12,
        "gives": "PA",
-       "note": "PA is the postal abbreviation for the US state"
+       "note": "PA is the postal abbreviation for the US state of Pennsylvania"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "QUE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "half a word is one of its two equal parts, so only three of six letters stay"
+         "at": 29,
+         "note": "half of means only the first three of the six letters of Quebec are kept, the back half dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Quebec",
-         "gives": "QUE",
-         "select": "first",
-         "note": "the opening three letters of the province name"
+         "at": 37
+        },
+        {
+         "gives": "BEC"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A weather report: overcast skies above Pennsylvania and part of Quebec.",
-     "walkthrough": "'Over' reads as 'above' in the weather picture, but it gives O, the cricket abbreviation.",
-     "definitionFit": "Opaque means not transparent, letting no light through, like murky or clouded glass or liquid."
+     "surface": "A weather report: skies are cloudy over Pennsylvania and across half of the Canadian province of Quebec.",
+     "walkthrough": "O, PA, then the front half of Quebec, QUE.",
+     "definitionFit": "Opaque means not transparent, letting no light through, as murky or cloudy liquid or glass is."
     },
     "features": {
      "answerInScene": false,

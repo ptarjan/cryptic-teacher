@@ -97,36 +97,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MATIER",
      "indicators": [
       {
        "text": "ousts",
-       "note": "to oust is to push out and take the place of, so one letter replaces another"
+       "at": 23,
+       "note": "ousts means the American letter pushes the European letter out of the job word and takes its place"
       }
      ],
      "parts": [
       {
-       "words": "American",
-       "gives": "A",
-       "note": "standard abbreviation for American"
+       "words": "job",
+       "at": 47,
+       "gives": "METIER",
+       "note": "a métier is a trade, profession or job"
       },
       {
        "words": "top European",
+       "at": 29,
        "gives": "E",
-       "note": "E for European; 'top' picks its first appearance"
+       "note": "the topmost E in the word, E being the abbreviation for European"
       },
       {
-       "words": "job",
-       "gives": "METIER",
-       "note": "a métier is one's trade or calling"
+       "words": "American",
+       "at": 14,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A friendlier American pushes a senior European colleague out of a post.",
-     "walkthrough": "METIER has two Es; 'top' says the first one goes, and A takes its place.",
-     "definitionFit": "Matey is informal British slang for sociable and pally, and this is its comparative form."
+     "surface": "An American worker displaces a European colleague from a post.",
+     "walkthrough": "In METIER, the 'top' (first, in a down entry) E is replaced by A. Matey is British slang for friendly, so MATIER is more friendly.",
+     "definitionFit": "Matey is informal British for sociable and pally, so its comparative means friendlier, more chummy."
     },
     "features": {
      "answerInScene": false,
@@ -941,45 +942,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VARIETAL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
+       "text": "ordered",
+       "at": 47,
+       "note": "ordered here means put into a new order, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "a",
+       "at": 29
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "ordered",
-         "note": "to order things is to arrange them, so the letters are rearranged"
+         "text": "mostly",
+         "at": 40,
+         "note": "mostly means most of the word relative is used, its final letter left off"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
+         "words": "relative",
+         "at": 31
         },
         {
-         "words": "relative",
-         "gives": "RELATIV",
-         "note": "the word without its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone orders a wine made from one named grape for a family member.",
-     "walkthrough": "Drop the final E of 'relative', add A, and rearrange all eight letters.",
-     "definitionFit": "Wine labelled after its single grape variety, such as a Merlot, is called this by wine merchants."
+     "surface": "Someone orders a wine made from a single grape, on the recommendation of a relative.",
+     "walkthrough": "'Mostly' trims relative to RELATIV; with A, 'ordered' rearranges those letters. 'Ordered' looks like buying wine, but it is the anagram signal.",
+     "definitionFit": "A varietal is a wine made mainly from one grape variety and labelled with that grape's name, such as Merlot."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "ordered"
     }
@@ -1348,60 +1351,61 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to eat",
+       "at": 13,
+       "note": "to eat means the first pieces take the other inside them, as food goes into a mouth"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "to eat",
-         "note": "eating takes something inside, so one piece goes within another"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Pester",
+         "at": 0,
          "gives": "BUG",
-         "note": "to bug is to annoy"
+         "note": "to bug someone is to pester them"
         },
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "EL",
-         "indicators": [
-          {
-           "text": "gutted",
-           "note": "gutting removes the insides, so only the outer letters survive"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "fish",
-           "gives": "EL",
-           "select": "outer",
-           "note": "an eel with its middle letter removed"
-          }
-         ]
+         "words": "adult",
+         "at": 7,
+         "gives": "A",
+         "note": "A is the film classification abbreviation for adult"
         }
        ]
       },
       {
-       "words": "adult",
-       "gives": "A",
-       "note": "A is the film classification for adult"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "gutted",
+         "at": 20,
+         "note": "gutted means the insides are removed, leaving only the outer letters of the fish word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fish",
+         "at": 27,
+         "gives": "EEL",
+         "note": "an eel is a fish"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nagging a grown-up into eating a cleaned fish that produces caviar.",
-     "walkthrough": "The fish to gut is EEL, and its middle E goes; the two letters left go inside BUG, with A after.",
-     "definitionFit": "This large sturgeon of the Caspian Sea yields the most prized and expensive fish roe, sold as caviar."
+     "surface": "A nagging adult urges someone to eat a cleaned fish.",
+     "walkthrough": "'Pester' must be read as a verb, and 'to eat' puts the gutted fish inside the pester-plus-adult letters straight after their first letter. The beluga sturgeon's roe is the most prized caviar.",
+     "definitionFit": "The beluga is a large sturgeon of the Caspian and Black Seas whose eggs are sold as luxury caviar."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "gutted"
+     "misdirectedWord": "Pester"
     }
    }
   },
@@ -1535,47 +1539,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "DUCKLINGS",
      "indicators": [
       {
        "text": "facing",
-       "note": "facing means set opposite and in front of, fixing which piece leads"
+       "at": 31,
+       "note": "facing means the first piece sits in front of the next one, so they are joined in that order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "cringe",
+       "at": 24,
+       "gives": "DUCK",
+       "note": "to duck is to bob down or flinch away, as in cringing"
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 44,
+         "note": "cycling means a letter is moved round from one end of the word to the other"
+        }
+       ],
        "parts": [
         {
-         "words": "cringe",
-         "gives": "DUCK",
-         "note": "to duck is to flinch away"
-        },
-        {
-         "op": "cycling",
-         "indicators": [
-          {
-           "text": "cycling",
-           "note": "going round in a cycle moves a letter from one end of the word to the other"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Chuck",
-           "gives": "SLING",
-           "note": "to sling is to throw"
-          }
-         ]
+         "words": "Chuck",
+         "at": 38,
+         "gives": "SLING",
+         "note": "to sling something is to chuck or throw it"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mere kids, perhaps, shrink from confronting someone called Chuck riding a bike.",
-     "walkthrough": "'Mere' reads as 'only', but it is a noun, a lake; the young of the birds on it are the answer. 'Perhaps' flags that they are only one example.",
-     "definitionFit": "Young ducks swimming on a lake or pond are an example of the offspring living on a stretch of water."
+     "surface": "Mere youngsters cringe when faced with a man named Chuck out on his bicycle.",
+     "walkthrough": "'Chuck' looks like a name, but it is a verb meaning throw; 'cycling' sends its first letter to the back, and 'facing' puts the cringe word in front. A mere is a lake, so the youngsters live there: 'perhaps' marks an example.",
+     "definitionFit": "Young ducks swimming on a lake or pond are examples of creatures growing up on a mere."
     },
     "features": {
      "answerInScene": false,

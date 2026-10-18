@@ -96,37 +96,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about"
-      }
-     ],
      "parts": [
       {
        "words": "Tory",
+       "at": 8,
        "gives": "CON",
-       "note": "Con is short for Conservative, i.e. a Tory"
+       "note": "CON is the abbreviation for Conservative, a Tory"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "leader",
-         "note": "the leader of 'dire' is its first letter"
+         "text": "about",
+         "at": 23,
+         "note": "about means going around, so the hint word surrounds the next letter"
         }
        ],
        "parts": [
         {
          "words": "hint",
+         "at": 18,
          "gives": "CLUE",
          "note": "a clue is a hint"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 34,
+           "note": "leader means the first letter of the word dire"
+          }
+         ],
          "parts": [
           {
-           "words": "dire leader",
-           "note": "first letter of 'dire'"
+           "words": "dire",
+           "at": 29,
+           "note": "the first letter of dire is D"
           }
          ]
         }
@@ -135,14 +141,13 @@
      ]
     },
     "explanation": {
-     "surface": "Someone goads a Conservative by hinting at an awful party leader.",
-     "walkthrough": "'Wind up' reads as 'tease' in the surface, the natural thing to do to a Tory, but the definition means 'finish'.",
-     "definitionFit": "A plain synonym: to wind up a meeting or speech is to bring it to a close."
+     "surface": "A Conservative politician wraps up with a hint about a dreadful leader.",
+     "walkthrough": "'Wind up' looks like teasing, but it means finish; the hint word goes 'about' the leader of 'dire', which lands just before its final letter.",
+     "definitionFit": "To wind up a speech or meeting is to bring it to an end, so it is an idiom for finish."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Wind"
     }
    }
@@ -542,41 +547,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to grab"
+       "text": "to grab",
+       "at": 8,
+       "note": "to grab means the unusual word seizes and holds the next letter inside it"
       }
      ],
      "parts": [
       {
        "words": "Unusual",
+       "at": 0,
        "gives": "STRANGE",
-       "note": "strange means unusual"
+       "note": "strange means unusual or odd"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "L",
        "indicators": [
         {
          "text": "head of",
-         "note": "the head of 'lizard' is its first letter"
+         "at": 16,
+         "note": "head of means the first letter of the word lizard"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "head of lizard",
-         "gives": "L",
-         "select": "first",
-         "note": "first letter of 'lizard'"
+         "words": "lizard",
+         "at": 24,
+         "note": "the first letter of lizard is L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An odd scene: someone seizes a lizard by the head and throttles it.",
-     "walkthrough": "'Grab' and 'choke' make the surface a single violent act, which hides that 'to grab' is only an instruction to hold a letter inside.",
-     "definitionFit": "A plain synonym: to choke someone is to throttle them by the neck."
+     "surface": "It is odd for someone to seize a lizard and throttle it.",
+     "walkthrough": "'Head of lizard' gives L, which STRANGE 'grabs' after its N.",
+     "definitionFit": "To strangle someone is to throttle them by squeezing the throat, so it is a synonym of choke."
     },
     "features": {
      "answerInScene": true,
@@ -1501,47 +1506,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Vacuous",
-       "note": "vacuous means empty, so 'police' keeps only its outer letters"
+       "text": "surrounding",
+       "at": 15,
+       "note": "surrounding means the emptied police word goes around the next piece"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "PE",
        "indicators": [
         {
-         "text": "surrounding",
-         "note": "to surround something is to enclose it"
+         "text": "Vacuous",
+         "at": 0,
+         "note": "vacuous means empty, so the word police is emptied of its middle letters, keeping only its ends"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Vacuous police",
-         "gives": "PE",
-         "select": "outer",
-         "note": "outer letters of 'police'"
+         "words": "police",
+         "at": 8,
+         "note": "the first and last letters of police, with everything between them removed, are P and E"
         }
        ]
       },
       {
        "words": "free",
+       "at": 27,
        "gives": "RID",
-       "note": "to rid is to free"
+       "note": "to rid is to free or clear"
       }
      ]
     },
     "explanation": {
-     "surface": "Brainless police officers ring a festival that costs nothing to attend.",
-     "walkthrough": "'Free festival' reads as a no-cost event; 'free' is a verb giving RID. RID goes between P and E.",
-     "definitionFit": "Pride is the annual LGBTQ+ festival and march."
+     "surface": "Clueless police surround a free festival, perhaps a rave.",
+     "walkthrough": "'Vacuous' empties police to PE, which goes 'surrounding' RID. Pride is the name of the annual LGBT+ festivals and parades.",
+     "definitionFit": "Pride events are celebrations of LGBT+ identity held in many cities each summer, each one a parade and party."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "free"
+     "misdirectedWord": "Vacuous"
     }
    }
   },
@@ -1566,33 +1570,35 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "EVILS",
+     "op": "deletion",
      "indicators": [
       {
        "text": "out-of-head",
-       "note": "DEVILS is out of its head, losing its first letter"
+       "at": 26,
+       "note": "out-of-head means the word has its first letter, its head, knocked off"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "out-of-head fiends",
-       "gives": "EVILS",
-       "select": "first",
-       "note": "fiends are DEVILS; the head letter D goes"
+       "words": "fiends",
+       "at": 38,
+       "gives": "DEVILS",
+       "note": "fiends are devils, evil spirits"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Wicked deeds committed by demons who are off their faces.",
-     "walkthrough": "'Out-of-head' looks like drug slang for high; it means the first letter goes.",
-     "definitionFit": "A plain synonym: sins and wrongdoings are evils."
+     "surface": "Sinful acts are committed by fiends who are out of their heads on drugs.",
+     "walkthrough": "DEVILS loses its head, D. 'Out-of-head' reads as intoxicated, but it is the deletion signal.",
+     "definitionFit": "Evils as a plural noun are wicked or harmful deeds, the wrongs and misdeeds a moralist condemns."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "out-of-head"
     }
    }
