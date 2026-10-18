@@ -421,54 +421,59 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "lifting"
-      }
-     ],
      "parts": [
       {
        "words": "Young man",
+       "at": 0,
        "gives": "SON",
-       "note": "a male child"
+       "note": "a son is a young man, someone's male child"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "wildly",
-         "note": "the letters of SNOGS run wild"
+         "text": "lifting",
+         "at": 21,
+         "note": "in a down clue, lifting means the word for gloom is read upwards, from bottom to top"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "gloom lifting",
-           "gives": "GOF",
-           "note": "gloom = fog, turned upward"
-          },
-          {
-           "words": "snogs wildly",
-           "gives": "SONGS",
-           "note": "anagram of SNOGS"
-          }
-         ]
+         "words": "gloom",
+         "at": 15,
+         "gives": "FOG",
+         "note": "fog is murky gloom"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wildly",
+         "at": 35,
+         "note": "wildly signals that the letters of snogs are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "snogs",
+         "at": 29,
+         "note": "taken as written, then rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A moody youth kissing passionately, as if in a steamy poem.",
-     "walkthrough": "Snog is British slang for a passionate kiss.",
-     "definitionFit": "The Old Testament book also called the Song of Solomon is a sequence of sensual love poems between two lovers."
+     "surface": "A young man, his dark mood clearing, kisses passionately while reading racy poetry.",
+     "walkthrough": "'lifting' turns FOG upwards to GOF; 'wildly' rearranges SNOGS to SONGS. SON + GOF + SONGS.",
+     "definitionFit": "The Song of Songs is the Old Testament book of love poetry, famous for its sensual, amorous imagery."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "gloom"
+     "misdirectedWord": "lifting"
     }
    }
   },
@@ -1171,40 +1176,42 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GARDA",
-     "indicators": [
-      {
-       "text": "up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 6,
+         "note": "in a down clue, up means the word for creep is read from bottom to top"
+        }
+       ],
        "parts": [
         {
-         "words": "Creep up",
-         "gives": "GARD",
-         "note": "creep = drag (move slowly), reversed"
-        },
-        {
-         "words": "a",
-         "note": "A, placed below"
+         "words": "Creep",
+         "at": 0,
+         "gives": "DRAG",
+         "note": "to drag is to move slowly, to creep along"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 12,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice on sneaking up on an Irish police officer.",
-     "walkthrough": "Limerick is an Irish city, not the comic verse.",
-     "definitionFit": "The Irish word for guard names both the Republic's police force and an individual officer in it."
+     "surface": "Someone sneaks up behind an Irish police officer.",
+     "walkthrough": "'up' reverses DRAG to GARD, which goes on A. Limerick is an Irish county, signalling an Irish term.",
+     "definitionFit": "The Garda Síochána is the Irish police force, and an individual officer is also called a garda."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Creep"
+     "aptDefinition": true,
+     "misdirectedWord": "Limerick"
     }
    }
   },
