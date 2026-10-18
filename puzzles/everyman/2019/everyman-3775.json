@@ -453,24 +453,26 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
+     "op": "hidden",
      "indicators": [
       {
        "text": "at heart",
-       "note": "the heart of a word is its centre, so only the middle letters are kept"
+       "at": 13,
+       "note": "at heart points to the core of the word, the three letters in its centre"
       }
      ],
      "parts": [
       {
        "words": "Indubitably",
-       "note": "the central three of its eleven letters"
+       "at": 0,
+       "gives": "BIT"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone declares that, without a doubt, deep down this is all rather tedious.",
-     "walkthrough": "'Boring' looks like dull, but it means drilling: the answer is the drill part.",
-     "definitionFit": "A drill bit is the cutting tool that bores holes, so it is a thing that does boring."
+     "surface": "A clue claiming something is undoubtedly dull.",
+     "walkthrough": "'boring' reads as dull, but it means drilling.",
+     "definitionFit": "A bit is the cutting tool fitted to a drill, the part that bores holes."
     },
     "features": {
      "answerInScene": false,
@@ -606,37 +608,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "messy",
-       "note": "a messy thing is in disorder, so the letters of the following word are scrambled"
+       "text": "with",
+       "at": 11,
+       "note": "with joins the home piece to the rearranged letters that follow it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "home",
+       "at": 6,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "messy",
+         "at": 16,
+         "note": "messy letters are jumbled into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "home",
-         "gives": "IN",
-         "note": "at home is in"
-        },
-        {
          "words": "pet",
-         "note": "these letters rearranged"
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grim, dirty house shared with an untidy animal.",
-     "definitionFit": "Lousy in the sense of hopeless at something: clumsy, lacking skill or competence."
+     "surface": "A household made filthy by an untidy pet.",
+     "walkthrough": "'Lousy' suggests lice from the pet, but it means bad at something.",
+     "definitionFit": "Inept means incompetent, and lousy is informal for poor at something, as in lousy at maths."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Lousy"
     }
    }
@@ -1394,7 +1407,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Movement",
+      "text": "Movement of Paolozzi, primarily overcoming movement of Riley, primarily",
       "at": 0
      }
     ],
@@ -1403,46 +1416,45 @@
      "indicators": [
       {
        "text": "overcoming",
-       "note": "in a down entry, overcoming means sitting on top of, so the letter goes above the rest"
+       "at": 32,
+       "note": "in a down clue, the letter overcoming the next piece sits on top of it"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "P",
        "indicators": [
         {
          "text": "primarily",
-         "note": "primarily points to the first part of the name, so only its initial letter is kept"
+         "at": 22,
+         "note": "primarily means first, so only the first letter of the name is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "of Paolozzi",
-         "gives": "P",
-         "select": "first",
-         "note": "the initial"
+         "words": "Paolozzi",
+         "at": 12,
+         "note": "Eduardo Paolozzi, the Scottish sculptor and pioneer of the movement"
         }
        ]
       },
       {
        "words": "movement of Riley, primarily",
+       "at": 43,
        "gives": "OPART",
-       "note": "Bridget Riley is chiefly known for op art"
+       "note": "op art is the movement Bridget Riley is primarily known for"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "Art history: one painter's movement took over from another's.",
-     "walkthrough": "The two 'movement's are different words: the first is the definition, the second starts the wordplay. Eduardo Paolozzi pioneered pop art in Britain; Bridget Riley is the leading op artist.",
-     "definitionFit": "Pop art was a mid-century art movement that took its imagery from advertising, comics and consumer goods."
+     "surface": "An art-history note setting one painter's movement against another's.",
+     "walkthrough": "Bridget Riley is the leading British op art painter; one letter on top of her movement gives his.",
+     "definitionFit": "Pop art was the 1950s-60s art style drawing on advertising and comics, which Paolozzi helped found."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "overcoming"
+     "aptDefinition": true
     }
    }
   },

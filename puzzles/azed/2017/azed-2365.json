@@ -820,7 +820,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Dice game?",
+      "text": "Dice game",
       "at": 0
      }
     ],
@@ -829,35 +829,39 @@
      "indicators": [
       {
        "text": "will include",
-       "note": "including something takes it inside"
+       "at": 19,
+       "note": "the Numbers piece will hold the other two pieces inside itself"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Numbers",
-         "gives": "NUM",
-         "note": "Num. abbreviates the Book of Numbers"
-        },
-        {
-         "words": "zero",
-         "gives": "O",
-         "note": "zero looks like the letter O"
-        }
-       ]
+       "words": "Numbers",
+       "at": 11,
+       "gives": "NUM",
+       "note": "Num is the abbreviation for the Book of Numbers in the Bible"
       },
       {
-       "words": "5",
-       "gives": "V",
-       "note": "Roman numeral five"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "zero",
+         "at": 32,
+         "gives": "O",
+         "note": "O looks like zero"
+        },
+        {
+         "words": "5",
+         "at": 41,
+         "gives": "V",
+         "note": "V is the Roman numeral for five"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gambler wonders whether the dice scores will include nought and five.",
-     "definitionFit": "Novum is an old dice game in which the main throws were nine and five."
+     "surface": "A question about a dice game whose scoring involves zero and five.",
+     "definitionFit": "Novum is an old dice game in which the key throws were nine and five."
     },
     "features": {
      "answerInScene": true,
