@@ -355,26 +355,26 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "GLUTEN",
      "indicators": [
       {
        "text": "with (unequal) parts switched",
-       "note": "two sections of different lengths change places, the front chunk moving to the back"
+       "at": 34,
+       "note": "the word splits into a short front piece and a longer back piece, and the two swap places"
       }
      ],
      "parts": [
       {
        "words": "stuff",
+       "at": 28,
        "gives": "ENGLUT",
-       "note": "englut is an old verb meaning to glut or stuff"
+       "note": "englut is an old word meaning to stuff or gorge, to swallow greedily"
       }
      ]
     },
     "explanation": {
-     "surface": "A diet note: something is shunned, its ingredients mixed in uneven portions.",
-     "walkthrough": "EN and GLUT are the two unequal parts; swapping them gives GLUTEN.",
-     "definitionFit": "Gluten is the wheat protein that coeliacs and those on gluten-free diets must avoid."
+     "surface": "Advice that some diets avoid a certain stuff, rearranged into a different form.",
+     "walkthrough": "ENGLUT (to stuff oneself, in Chambers) splits as EN and GLUT; 'with (unequal) parts switched' puts GLUT first.",
+     "definitionFit": "Gluten is the protein in wheat that coeliacs and those on gluten-free diets must avoid."
     },
     "features": {
      "answerInScene": true,
@@ -404,58 +404,53 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "be captivated by",
+       "at": 5,
+       "note": "to be captivated by something is to be held inside it, so the letter goes within the girls word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "be captivated by",
-         "note": "someone captivated is held captive, so one piece is held inside the other"
+         "text": "without ending",
+         "at": 28,
+         "note": "without its ending means the final letter is dropped"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "without ending",
-           "note": "without its ending means the word's last letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "girls",
-           "gives": "LASSES",
-           "note": "lasses are girls"
-          },
-          {
-           "gives": "S"
-          }
-         ]
+         "words": "girls",
+         "at": 22,
+         "gives": "LASSES",
+         "note": "lasses are girls, a northern and Scottish word"
         },
         {
-         "words": "I",
-         "note": "taken as written"
+         "gives": "S"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "'ll",
-       "note": "surface padding: the contraction only makes the sentence read naturally"
+       "words": "I'll",
+       "at": 0,
+       "gives": "I",
+       "note": "I'll reads as I will: the I is the piece, and will be captivated is the instruction"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone vows to be charmed by girls even without a happy ending.",
-     "walkthrough": "LASSES loses its final S to give LASSE, then I goes inside.",
-     "definitionFit": "A laisse is a stanza or tirade of varying length in Old French epic poetry, such as the chansons de geste."
+     "surface": "Someone promising to be charmed by girls, without end.",
+     "walkthrough": "Read I'll as 'I will': 'without ending' cuts LASSES to LASSE, and the I will 'be captivated by' it, sitting after LA.",
+     "definitionFit": "A laisse is a stanza or section of an Old French chanson de geste, an irregular run of verse lines on one assonance."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "girls"
+     "misdirectedWord": "captivated"
     }
    }
   },
@@ -476,59 +471,36 @@
     "definitions": [
      {
       "text": "Eric, maybe",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a surname, as of Eric Idle of Monty Python, the maybe flagging an example"
      },
      {
       "text": "not employed",
-      "at": 13
+      "at": 13,
+      "meaning": "second meaning: out of work, without a job"
      }
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "IDLE",
      "indicators": [
       {
        "text": "in",
-       "note": "the letters lie in the run of words that follows"
+       "at": 26,
+       "note": "in says the letters lie inside the words that follow"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Eric, maybe",
-         "note": "first meaning: Eric ... of Monty Python, a surname example"
-        },
-        {
-         "unchecked": true,
-         "words": "not employed",
-         "note": "second meaning: out of work"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "IDLE",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Lidl emporium",
-           "gives": "IDLE",
-           "select": "middle",
-           "note": "found inside the words, straddling the gap"
-          }
-         ]
-        }
-       ]
+       "words": "Lidl emporium",
+       "at": 29,
+       "note": "the letters run across the two words, from the end of one into the start of the next"
       }
      ]
     },
     "explanation": {
-     "surface": "Eric is jobless and wandering round a Lidl supermarket.",
-     "walkthrough": "Three routes to one word: the Python comedian, being unemployed, and the letters hidden in the shop name. Lidl is a discount supermarket chain.",
-     "definitionFit": "Idle means doing no work, and Eric Idle is a member of the Monty Python comedy team."
+     "surface": "Eric is out of work and spending time in a Lidl supermarket.",
+     "walkthrough": "Two definitions plus the answer lying inside 'Lidl emporium'. Eric Idle was a member of the Monty Python comedy team.",
+     "definitionFit": "Idle means without work, as in idle workers, and Idle is also the surname of the comedian Eric."
     },
     "features": {
      "answerInScene": true,
@@ -559,33 +531,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "mishandled",
-       "note": "handled badly, the letters are knocked into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Darling",
+       "at": 0,
+       "gives": "DEAR",
+       "note": "dear is a term of endearment, like darling"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mishandled",
+         "at": 23,
+         "note": "mishandled means handled roughly or wrongly, so the letters are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "Darling",
-         "gives": "DEAR",
-         "note": "dear is a term of endearment"
+         "words": "cute",
+         "at": 13,
+         "note": "taken as written, as anagram fodder"
         },
         {
-         "words": "cute tail",
-         "note": "these letters rearranged"
+         "words": "tail",
+         "at": 18,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pet's sweet little tail was handled roughly and dislocated.",
-     "definitionFit": "To dearticulate is to disjoint or dislocate, the opposite of articulating a joint."
+     "surface": "A sweet pet with a cute tail was handled roughly and injured.",
+     "walkthrough": "'mishandled' rearranges CUTE and TAIL into TICULATE, after DEAR.",
+     "definitionFit": "To dearticulate is to disjoint or dislocate, which is to put a limb out of joint."
     },
     "features": {
      "answerInScene": true,
@@ -683,37 +664,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENTANGLE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "disguised",
-       "note": "a disguise changes appearance, so these letters take a new form"
+       "text": "following",
+       "at": 13,
+       "note": "following means the word for fish comes after the other piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "disguised",
+         "at": 23,
+         "note": "disguised means made to look different, so the letters of net are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "net",
-         "gives": "ENT",
-         "note": "these letters rearranged"
-        },
-        {
-         "words": "fish",
-         "gives": "ANGLE",
-         "note": "to angle is to fish with rod and line"
+         "at": 33,
+         "note": "taken as written, as anagram fodder"
         }
        ]
+      },
+      {
+       "words": "fish",
+       "at": 8,
+       "gives": "ANGLE",
+       "note": "to angle is to fish with a rod and line"
       }
      ]
     },
     "explanation": {
-     "surface": "An angler is muddled by a camouflaged net.",
-     "walkthrough": "The fishing piece comes after the rearranged one, as 'following' says.",
-     "definitionFit": "To entangle is to confuse or involve in complications, like a snarl of lines."
+     "surface": "A fisherman confuses the fish with a net that is camouflaged.",
+     "walkthrough": "'disguised' turns NET into ENT, and ANGLE comes 'following' it.",
+     "definitionFit": "To entangle someone is to involve them in difficulty or perplexity, so it can mean to confuse."
     },
     "features": {
      "answerInScene": true,
@@ -963,48 +951,32 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ARIA",
+     "op": "composite",
      "indicators": [
       {
        "text": "in composition",
-       "note": "a composition puts the letters together anew, so they are rearranged"
+       "at": 11,
+       "note": "in composition means put together into a new arrangement, so the letters are reshuffled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "This",
-         "note": "stands for the answer itself"
-        },
-        {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "ARIA",
-         "parts": [
-          {
-           "words": "opens",
-           "note": "taken as written"
-          },
-          {
-           "words": "as in opera",
-           "note": "taken as written, the composite anagram's result"
-          }
-         ]
-        }
-       ]
+       "words": "as in opera",
+       "at": 28,
+       "note": "the anagram fodder, whose letters hold the answer plus those of opens"
+      },
+      {
+       "words": "opens",
+       "at": 5,
+       "note": "the letters taken away from the fodder, the clue saying this answer and opens make it up together"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A set piece that might open a musical composition, as one does in opera.",
-     "walkthrough": "A composite anagram: the answer plus OPENS rearranges to AS IN OPERA, so take those letters and remove OPENS. The whole clue also defines the answer.",
-     "definitionFit": "An aria is a solo song, a staple of operatic composition."
+     "surface": "A musing that a set piece opens a composition, in the way it might in an opera.",
+     "walkthrough": "'This' is the answer: it and OPENS, mixed 'in composition', make the letters of AS IN OPERA. Read whole, the clue also describes the answer, a solo set piece found in opera.",
+     "definitionFit": "An aria is a solo song for voice in an opera or oratorio, a set piece of vocal composition."
     },
     "features": {
      "answerInScene": true,
@@ -1035,45 +1007,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EPICIERS",
      "indicators": [
       {
        "text": "opening",
-       "note": "something opening a structure gets inside it"
+       "at": 32,
+       "note": "opening means prising apart the word for large works, so the other letters sit inside it"
       }
      ],
      "parts": [
+      {
+       "words": "large works",
+       "at": 40,
+       "gives": "EPICS",
+       "note": "epics are large-scale works, long poems or films"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "aroused",
-         "note": "stirred up, so the letters are shaken into another order"
+         "at": 20,
+         "note": "aroused means stirred up, so the letters of ire are mixed"
         }
        ],
        "parts": [
         {
          "words": "ire",
-         "gives": "IER",
-         "note": "these three letters rearranged"
-        },
-        {
-         "words": "large works",
-         "gives": "EPICS",
-         "note": "an epic is a large-scale work"
+         "at": 28,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
+    "spelling": "ÉPICIERS",
     "explanation": {
-     "surface": "Angry shopkeepers in France protest at a big construction project.",
-     "walkthrough": "'Opening' looks like a launch of the works, but it means getting inside them.",
-     "definitionFit": "An épicier is a French grocer, a shopkeeper selling provisions."
+     "surface": "French shopkeepers stirred to anger when big building works start.",
+     "walkthrough": "'aroused' turns IRE into IER, which goes inside EPICS, 'opening' it after EPIC.",
+     "definitionFit": "Épiciers are grocers in French, so the word names French shopkeepers who deal in groceries."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "works"
     }
@@ -1272,57 +1246,34 @@
      "indicators": [
       {
        "text": "coating",
-       "note": "a coating surrounds what it covers, so two pieces go around another"
+       "at": 52,
+       "note": "coating means wrapping round, so the doubled letter goes either side of the other piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "O",
-         "indicators": [
-          {
-           "text": "middle of",
-           "note": "the middle points to the central letter of the word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "chocolate",
-           "gives": "O",
-           "select": "middle",
-           "note": "the central of nine letters"
-          }
-         ]
-        },
-        {
-         "words": "(double)",
-         "gives": "O",
-         "note": "the middle letter used a second time"
-        }
-       ]
+       "words": "middle of chocolate (double)",
+       "at": 23,
+       "gives": "OO",
+       "note": "the middle letter of chocolate, its fifth, taken twice"
       },
       {
        "words": "on",
+       "at": 60,
        "gives": "RE",
-       "note": "re means on or about"
+       "note": "re means on, about, concerning"
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A biscuit puzzle: is it the one with chocolate on both sides?",
-     "walkthrough": "The single middle letter is doubled, and the pair surround RE, mirroring the biscuit's two chocolate halves round a cream centre.",
-     "definitionFit": "Oreo is a brand of sandwich biscuit, two chocolate wafers with a cream filling, eaten as a snack."
+     "surface": "A teatime treat with a double layer of chocolate on top.",
+     "walkthrough": "The middle of chocolate is O; '(double)' makes OO, and 'coating' puts it either side of RE, meaning on as in regarding.",
+     "definitionFit": "The Oreo is a well-known sandwich biscuit, the sort of treat taken with afternoon tea."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "on"
+     "aptDefinition": false,
+     "misdirectedWord": "coating"
     }
    }
   },
@@ -1737,48 +1688,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TREBLED",
+     "op": "composite",
      "indicators": [
       {
+       "text": "Lacking",
+       "at": 0,
+       "note": "lacking means going without, so the letter for advance is not among the letters used"
+      },
+      {
        "text": "ruined",
-       "note": "ruined means wrecked, so the letters are rearranged"
+       "at": 27,
+       "note": "ruined means wrecked, so the remaining letters are thrown into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TREBLED",
-       "indicators": [
-        {
-         "text": "Lacking",
-         "note": "lacking something means it is taken out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "advance",
-         "gives": "A",
-         "note": "A is an abbreviation for advance"
-        },
-        {
-         "words": "earl debt",
-         "note": "taken as written"
-        }
-       ]
+       "words": "earl debt",
+       "at": 17,
+       "note": "the anagram fodder, two words pooled"
+      },
+      {
+       "words": "advance",
+       "at": 8,
+       "gives": "A",
+       "note": "A is the abbreviation for advance, a loan paid ahead"
       }
      ]
     },
     "explanation": {
-     "surface": "An aristocrat's debt, with no advance offered, ruinously grew several times over.",
-     "walkthrough": "Take A out of EARL DEBT and rearrange what is left.",
-     "definitionFit": "Trebled means multiplied by three, a modest multiplying, hence 'somewhat'."
+     "surface": "An aristocrat's debt, ruinously grown, with no loan to cover it.",
+     "walkthrough": "'Lacking' A for advance, the letters of EARL DEBT leave ERLDEBT, which 'ruined' rearranges. 'somewhat' marks the definition as loose: tripling is one kind of multiplying.",
+     "definitionFit": "To treble a number is to multiply it by three, one particular case of multiplying."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "advance"
     }
    }
