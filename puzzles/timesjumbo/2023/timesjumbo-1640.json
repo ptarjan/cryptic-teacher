@@ -1688,47 +1688,50 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece goes round another"
+       "at": 20,
+       "note": "the stories word goes about, or around, the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Sensational stories",
-         "gives": "SHOCKERS",
-         "note": "shockers are lurid tales"
-        },
-        {
-         "words": "sailor",
-         "gives": "AB",
-         "note": "AB, able seaman"
-        }
-       ]
+       "words": "Sensational stories",
+       "at": 0,
+       "gives": "SHOCKERS",
+       "note": "shockers are lurid, sensational tales"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "turning over",
-         "note": "turning something over flips it end to end"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "brothers",
-         "gives": "BROS",
-         "note": "bros is the short form of brothers"
+         "words": "sailor",
+         "at": 26,
+         "gives": "AB",
+         "note": "AB, able seaman, is a common crossword sailor"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turning over",
+           "at": 42,
+           "note": "the brothers abbreviation is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "brothers",
+           "at": 33,
+           "gives": "BROS"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tabloid tales of seafaring brothers whose car flips over.",
-     "walkthrough": "SHOCKERS splits to hold the sailor and the reversed brothers.",
-     "definitionFit": "Shock absorbers are the dampers fitted to a vehicle's suspension to smooth out bumps in the road."
+     "surface": "Lurid tales about seafaring siblings flipping vehicle components.",
+     "definitionFit": "Shock absorbers are the dampers on a vehicle's suspension, so they are components of a car."
     },
     "features": {
      "answerInScene": true,
@@ -2128,34 +2131,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TEENYBOPPER",
      "indicators": [
       {
        "text": "from Spooner",
-       "note": "Reverend Spooner swapped the opening sounds of words, so starts are exchanged"
+       "at": 45,
+       "note": "Spooner swapped the opening sounds of words, which turns the two hats into the answer"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "two very different hats",
-       "gives": "TEENYBOPPER",
-       "soundsLike": "BEANY TOPPER",
-       "note": "a beanie is a close-fitting knitted cap and a topper is a tall formal hat"
+       "op": "homophone",
+       "spelt": "BEENY",
+       "parts": [
+        {
+         "words": "two very different",
+         "at": 21,
+         "gives": "BEANIE",
+         "note": "a beanie is a small knitted cap, said 'beeny', very unlike the tall hat that follows"
+        }
+       ]
+      },
+      {
+       "words": "hats",
+       "at": 40,
+       "gives": "TOPPER",
+       "note": "a topper is a top hat"
       }
      ]
     },
     "explanation": {
-     "surface": "A trendy youngster gets two clashing hats from an elderly clergyman.",
-     "walkthrough": "Swap the opening sounds of the casual cap and the formal hat to get the slang for a pop-mad teen.",
-     "definitionFit": "A teenybopper is a young teenager who follows the latest pop music and fashions, a fashionable youngster."
+     "surface": "A fashionable youngster is given a pair of mismatched hats by the Reverend.",
+     "walkthrough": "BEANIE and TOPPER are the two contrasting hats; swapping their opening B and T sounds gives the answer.",
+     "definitionFit": "A teenybopper is a young teenager who eagerly follows the latest pop fashions, a young trendy."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "hats"
+     "joke": "pun",
+     "misdirectedWord": "different"
     }
    }
   },

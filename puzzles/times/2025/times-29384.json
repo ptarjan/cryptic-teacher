@@ -1351,39 +1351,36 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ALTITUDE",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "reversed",
+       "at": 29,
+       "note": "the French article within the word is turned the other way round"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "ALTITUDE",
-       "indicators": [
-        {
-         "text": "reversed?",
-         "note": "reversed means turned back to front, applied here to 'the French' within the word for liberty"
-        }
-       ],
-       "parts": [
-        {
-         "words": "liberty",
-         "gives": "LATITUDE",
-         "note": "latitude = freedom, liberty"
-        },
-        {
-         "words": "the French",
-         "gives": "LA",
-         "note": "la = 'the' in French (feminine)"
-        }
-       ]
+       "words": "liberty",
+       "at": 10,
+       "gives": "LATITUDE",
+       "note": "latitude is freedom or scope to act"
+      },
+      {
+       "words": "the French",
+       "at": 18,
+       "gives": "LA",
+       "note": "la is the French feminine word for 'the'"
+      },
+      {
+       "gives": "AL"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about the lofty heights of French liberty turned upside down.",
-     "walkthrough": "The French article sits at the front of the word for liberty, and turning just that part gives the answer; 'Height of liberty' reads as one phrase but 'of' only links.",
-     "definitionFit": "A plain synonym: height above sea level or the ground."
+     "surface": "A question about how high the freedom of the French goes when overturned.",
+     "walkthrough": "The question mark admits the trick: only the French article sitting at the front of the word for liberty is turned, not the whole word.",
+     "definitionFit": "Altitude is height above sea level or the ground, a direct synonym."
     },
     "features": {
      "answerInScene": false,

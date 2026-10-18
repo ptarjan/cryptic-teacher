@@ -303,51 +303,69 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "in",
-       "note": "the river goes inside the city"
+       "text": "bordering",
+       "at": 39,
+       "note": "the last piece sits next to, bordering, what comes before it"
       }
      ],
      "parts": [
       {
        "words": "European",
-       "gives": "E",
-       "note": "E = European"
+       "at": 0,
+       "gives": "E"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "bordering",
-         "note": "a country bordering another sits right beside it, so A is placed directly after the city"
+         "text": "in",
+         "at": 15,
+         "note": "the river letter goes inside the shortened city"
         }
        ],
        "parts": [
         {
-         "words": "Piedmont city almost",
-         "gives": "TURI",
-         "note": "TURIN, the capital of Piedmont, without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 32,
+           "note": "the city loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Piedmont city",
+           "at": 18,
+           "gives": "TURIN",
+           "note": "Turin is the capital of Piedmont"
+          },
+          {
+           "gives": "N"
+          }
+         ]
         },
         {
          "words": "river",
-         "gives": "R",
-         "note": "R = river"
+         "at": 9,
+         "gives": "R"
         }
        ]
       },
       {
        "words": "a",
-       "note": "as written"
+       "at": 49
       }
      ]
     },
     "explanation": {
-     "surface": "A travel note about a European river passing near a Piedmont city.",
-     "walkthrough": "The surface suggests a modern tourist route; the answer is ancient history, and 'kingdom' is the only word hinting at it.",
-     "definitionFit": "Etruria was the ancient Etruscan kingdom in what is now Tuscany."
+     "surface": "A European waterway in a city of Piedmont, almost next to an Italian realm.",
+     "definitionFit": "Etruria was the ancient land of the Etruscans, and later a Napoleonic kingdom in Tuscany."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "river"
     }
    }
   },
@@ -560,42 +578,45 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "75 per cent",
-       "note": "keep three of the four letters of want"
+       "text": "unfortunately",
+       "at": 38,
+       "note": "unfortunate events throw things into disorder, so the letters are mixed"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "region",
+       "at": 9
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "unfortunately",
-         "note": "things going badly suggests the letters are mixed up"
+         "text": "75 per cent in",
+         "at": 17,
+         "note": "only three quarters of the four letters are kept, so the last one goes"
         }
        ],
        "parts": [
         {
-         "words": "region",
-         "note": "anagram fodder, 6 letters"
+         "words": "want",
+         "at": 32
         },
         {
-         "words": "75 per cent in want",
-         "gives": "WAN",
-         "note": "three quarters of WANT"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A report that three quarters of some European region is sadly poor.",
-     "walkthrough": "'European region' reads as one phrase; 'European' alone is the definition and 'region' is part of the fodder.",
-     "definitionFit": "A definition by category: a person from Norway is one kind of European."
+     "surface": "Three quarters of an area is in need, sadly.",
+     "definitionFit": "A Norwegian is a native of Norway, a European nation."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "region"
+     "misdirectedWord": "want"
     }
    }
   },
@@ -1027,41 +1048,38 @@
      "indicators": [
       {
        "text": "on",
-       "note": "in an across entry, the graduate comes after"
+       "at": 9,
+       "note": "in an across clue the graduate comes after, on, the other piece"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "EM",
        "indicators": [
         {
          "text": "cover of",
-         "note": "the cover is the outside, so take the outer letters"
+         "at": 12,
+         "note": "the cover of a word is its outside letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "cover of exam",
-         "gives": "EM",
-         "select": "outer",
-         "note": "outer letters of exam"
+         "words": "exam",
+         "at": 21
         }
        ]
       },
       {
        "words": "Graduate",
+       "at": 0,
        "gives": "MA",
-       "note": "MA = Master of Arts"
+       "note": "MA, Master of Arts, is a graduate"
       }
      ]
     },
     "explanation": {
-     "surface": "A graduate's name printed on the cover of an exam booklet.",
-     "walkthrough": "'Exam book' reads as one thing; 'book' is the definition, Jane Austen's novel.",
-     "definitionFit": "Emma is a novel by Jane Austen."
+     "surface": "A graduate sits on the cover of an exam booklet.",
+     "definitionFit": "Emma is Jane Austen's novel, so it is an example of a book."
     },
     "features": {
      "answerInScene": false,
@@ -1092,33 +1110,27 @@
     ],
     "wordplay": {
      "op": "first",
-     "unchecked": true,
-     "gives": "FIRM",
      "indicators": [
       {
-       "text": "kicking off",
-       "note": "starting, so take the first letter of each word"
+       "text": "all kicking off",
+       "at": 44,
+       "note": "each of the words gives the letter it kicks off with, its first"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "for international relations, maybe, all",
-       "gives": "FIRM",
-       "select": "first",
-       "note": "For International Relations Maybe"
+       "words": "for international relations, maybe",
+       "at": 8
       }
      ]
     },
     "explanation": {
-     "surface": "A worry about foreign affairs, with everyone starting to fight.",
-     "walkthrough": "'Concern' reads as a worry; it is a business, as in 'a going concern'. 'All' tells you every word gives a letter.",
-     "definitionFit": "Concern in its commercial sense, as in 'a going concern', is a plain synonym for a business."
+     "surface": "A worry about diplomacy as everything erupts.",
+     "definitionFit": "A firm is a business, and concern is another word for a business."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Concern"
     }
    }
@@ -1153,51 +1165,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in the end",
-       "note": "what comes in the end of redundant is its final letter"
+       "text": "introduced to",
+       "at": 40,
+       "note": "the pieces are put into the film word"
       }
      ],
      "parts": [
       {
        "words": "film",
+       "at": 54,
        "gives": "MIST",
-       "note": "a film of mist on glass"
+       "note": "a mist is a thin film or haze"
       },
       {
        "op": "charade",
        "indicators": [
         {
          "text": "after",
-         "note": "the listener and the end letter follow I'M"
+         "at": 30,
+         "note": "the listener comes after the first piece"
         }
        ],
        "parts": [
         {
          "words": "I'm",
-         "note": "as written, without the apostrophe"
+         "at": 36,
+         "gives": "IM"
         },
         {
          "words": "Listener",
+         "at": 0,
          "gives": "EAR",
-         "note": "the ear is what listens"
+         "note": "an ear is the organ that listens"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "T",
          "indicators": [
           {
-           "text": "introduced to",
-           "note": "the whole chunk is put inside the film"
+           "text": "in the end",
+           "at": 19,
+           "note": "only the last letter of the word is used"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "redundant in the end",
-           "gives": "T",
-           "select": "last",
-           "note": "last letter of redundant"
+           "words": "redundant",
+           "at": 9
           }
          ]
         }
@@ -1206,9 +1219,8 @@
      ]
     },
     "explanation": {
-     "surface": "A cinema story: a sound man is laid off once a silent star joins the picture.",
-     "walkthrough": "'Film' makes you think of movies; here it is a thin layer, MIST, which opens after M to take in IMEART.",
-     "definitionFit": "A mime artist performs without speaking, so is a star of silent movement."
+     "surface": "An ear made redundant as sound film arrives is a silent star.",
+     "definitionFit": "A mime artist acts without words, so in a pun sense is a silent star, like the actors of silent cinema."
     },
     "features": {
      "answerInScene": true,
