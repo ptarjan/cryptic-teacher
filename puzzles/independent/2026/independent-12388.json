@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -106,47 +107,54 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "DETACH",
-     "indicators": [
-      {
-       "text": "when cycling",
-       "note": "a cycle brings the same point round again, so one letter travels from the back to the front while the rest keep their order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 8,
+         "note": "the end of a word is its final letter, so only that letter of beard is used"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "the end of a word is its final letter, and that single letter is all that is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "beard",
-           "note": "the last letter of the word beard, taken on its own"
-          }
-         ]
-        },
+         "words": "beard",
+         "at": 15,
+         "note": "the word beard, of which only its last letter is used"
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "when cycling",
+         "at": 44,
+         "note": "cycling means going round, so the last letter of the word moves to the front"
+        }
+       ],
+       "parts": [
         {
          "words": "other facial hair",
-         "gives": "ETACH",
-         "note": "a tache is a moustache, with its final letter rolled round to the front"
+         "at": 26,
+         "gives": "TACHE",
+         "note": "a tache is informal British for a moustache, facial hair other than a beard"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cyclist trimming the end of his beard and his moustache too.",
-     "walkthrough": "'Tache is how a moustache is spoken of in Britain, apostrophe and all, and the pedalling in the surface hides an instruction about where a letter travels.",
-     "definitionFit": "To detach something is to cut it off — unfasten it from what it was joined to, as a locomotive is detached from its train."
+     "surface": "A barber trims the tip of a beard and the rest of the facial hair while out on a bike.",
+     "walkthrough": "'when cycling' reads like riding a bike, but it means rotating letters. Tache is British slang for a moustache; 'plus' is a link word.",
+     "definitionFit": "To detach is to separate or unfasten one thing from another, which is what cut off means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
     }
    }
   },
@@ -567,42 +575,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "hiding",
+       "at": 14,
+       "note": "one letter hiding another sits on top of it and replaces it, so the hospital letter takes the place of the large letter"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "TITHE",
-       "indicators": [
-        {
-         "text": "hiding",
-         "note": "hiding a thing puts it out of sight, so one letter disappears and the letter doing the hiding stands in its place"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Name",
-         "gives": "TITLE",
-         "note": "a title is the name a book or a person goes by"
-        },
-        {
-         "words": "hospital",
-         "gives": "H",
-         "note": "H is the hospital on a British road sign, and it is the letter moving in"
-        }
-       ]
+       "words": "Name",
+       "at": 0,
+       "gives": "TITLE",
+       "note": "a title is the name of a book or work"
       },
       {
-       "unchecked": true,
        "words": "large",
-       "note": "L is the size on a clothing label, and it is the letter being covered up"
+       "at": 21,
+       "gives": "L",
+       "note": "L is the standard clothing-size abbreviation for large"
+      },
+      {
+       "words": "hospital",
+       "at": 5,
+       "gives": "H",
+       "note": "H is the standard map abbreviation for hospital"
       }
      ]
     },
     "explanation": {
-     "surface": "A hospital keeping quiet about a big donation to the parish church.",
-     "walkthrough": "'Name' is the noun and not the verb, and 'hiding' does two jobs at once: the furtiveness of the surface and the swap in the wordplay.",
-     "definitionFit": "A tithe was the tenth of a household's produce owed to the parish church, so it is literally a sum paid to church."
+     "surface": "A named hospital is concealing a large sum of money given to the church.",
+     "walkthrough": "'hiding' means H covers up the L in TITLE, so H replaces it. The surface suggests a financial scandal.",
+     "definitionFit": "A tithe is the tenth of a person's income or produce traditionally given to support the church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hiding"
     }
    }
   },
