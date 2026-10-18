@@ -1181,39 +1181,20 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "first",
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initial",
-         "note": "initial characters are the first letters of each word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Any clue relying on solver taking",
-         "note": "the first letter of each of these six words"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
-        {
-         "words": "initial characters",
-         "note": "the first letters of these two words as well"
-        }
-       ]
+       "words": "Any clue relying on solver taking initial characters",
+       "at": 0,
+       "note": "the first letters of these eight words, read in order, spell the answer"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A description of a crossword clue that depends on first letters.",
-     "walkthrough": "The whole clue is both definition and wordplay: its own initial letters spell the answer, and initial does double duty as the signal.",
-     "definitionFit": "An acrostic is a text in which the first letters of lines or words spell out a word."
+     "surface": "A question about what to call a puzzle clue that depends on picking out first letters.",
+     "walkthrough": "The clue does what it describes: its own words tell the solver to take the initial characters, and those of the clue itself spell the answer.",
+     "definitionFit": "An acrostic is a text whose initial letters spell out a word, exactly the kind of clue described."
     },
     "features": {
      "answerInScene": true,
@@ -1295,21 +1276,19 @@
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "IB",
        "indicators": [
         {
          "text": "Stripped",
-         "note": "stripped means peeled of its outside, leaving only the inner letters"
+         "at": 0,
+         "note": "stripped means with the outer layer taken off, so the first and last letters go"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "bones",
-         "gives": "IB",
-         "select": "middle",
-         "note": "ribs are bones of the chest; only the two inner letters stay"
+         "at": 9,
+         "gives": "RIBS",
+         "note": "ribs are bones of the chest"
         }
        ]
       },
@@ -1318,21 +1297,24 @@
        "indicators": [
         {
          "text": "wings of",
-         "note": "wings are at the two sides, so only the outer letters are kept"
+         "at": 19,
+         "note": "the wings of a word are its outer letters, the first and last"
         }
        ],
        "parts": [
         {
          "words": "indigenous",
-         "note": "the first and last letters of the word"
+         "at": 28,
+         "note": "the outer letters of indigenous are I and S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A native bird reduced to bare bones and wings.",
-     "definitionFit": "The ibis is a long-legged wading bird with a downcurved bill."
+     "surface": "A native bird is reduced to bare bones, wings and all.",
+     "walkthrough": "'Bones' must first become RIBS before 'stripped' leaves IB.",
+     "definitionFit": "The ibis is a long-legged wading bird with a curved bill, sacred in ancient Egypt."
     },
     "features": {
      "answerInScene": true,

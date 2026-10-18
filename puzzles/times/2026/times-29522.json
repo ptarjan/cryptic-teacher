@@ -452,32 +452,32 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "TOTEM",
+     "op": "anagram",
      "indicators": [
       {
        "text": "swapping first and last parts",
-       "note": "to swap is to exchange places, so the first and last letters trade ends"
+       "at": 29,
+       "note": "swapping first and last parts says the opening and closing letters change places, leaving the middle alone"
       }
      ],
      "parts": [
       {
        "words": "anthem",
+       "at": 22,
        "gives": "MOTET",
-       "note": "a motet is a short choral anthem; its outer letters M and T change places"
+       "note": "a motet is a short sacred choral piece, the kind of anthem sung in church"
       }
      ]
     },
     "explanation": {
-     "surface": "A symbolic moment in an anthem where the opening and closing verses are sung the wrong way round.",
-     "walkthrough": "\"Parts\" suggests sections of music, but here each part is a single letter.",
-     "definitionFit": "A loose synonym: a totem is an emblem standing for a clan or group, something symbolic."
+     "surface": "A symbol buried in a national song, with its beginning and end exchanged.",
+     "walkthrough": "'Anthem' must first become MOTET; exchange its outer letters M and T and the middle OTE stays put.",
+     "definitionFit": "A totem is an emblem, often a carved animal, that stands for a clan or group."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "parts"
+     "misdirectedWord": "anthem"
     }
    }
   },
@@ -1336,48 +1336,61 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "Mostly",
-       "note": "most of the word but not all, so ESSAY loses its last letter"
+       "text": "from the east",
+       "at": 32,
+       "note": "in an across clue, read from the east means written from right to left"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "from the east",
-         "note": "an across clue is read west to east, so from the east means right to left"
-        }
-       ],
        "parts": [
         {
-         "words": "Mostly try",
-         "gives": "ESSA",
-         "note": "essay = try (an attempt), less its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Mostly",
+           "at": 0,
+           "note": "mostly means most of the word, its final letter dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "try",
+           "at": 7,
+           "gives": "ESSAY",
+           "note": "an essay is an attempt, a try"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
         },
         {
          "words": "measure",
+         "at": 15,
          "gives": "TIME",
-         "note": "to time = to measure with a clock"
+         "note": "time is a measure, as in musical time or a bar"
         },
         {
          "words": "diamonds",
+         "at": 23,
          "gives": "D",
-         "note": "D = diamonds, the card suit"
+         "note": "D is the card abbreviation for diamonds"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tries to weigh diamonds from the Orient in a cup.",
-     "walkthrough": "\"Try\" is essay in its old sense of an attempt, not test. The reversal covers all three pieces at once.",
-     "definitionFit": "A definition by class: this small coffee cup, French for half-cup, is a cup."
+     "surface": "An instruction to attempt measuring gemstones from the eastern side of a cup.",
+     "walkthrough": "'Mostly' trims ESSAY to ESSA; with TIME and D, the whole string reads backwards 'from the east'.",
+     "definitionFit": "A demitasse is a small coffee cup, from the French for half-cup."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "try"
+     "misdirectedWord": "measure"
     }
    }
   },
@@ -1740,42 +1753,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DITHERY",
      "indicators": [
       {
        "text": "replaced with",
-       "note": "to replace one thing with another is to take it out and put the other in its place"
+       "at": 32,
+       "note": "replaced with says one piece is taken out and the following one put in its place"
       }
      ],
      "parts": [
       {
        "words": "journal's",
+       "at": 22,
        "gives": "DIARY",
-       "note": "diary = journal; the 's is 'is'"
+       "note": "a diary is a daily journal"
       },
       {
        "words": "article",
+       "at": 11,
        "gives": "A",
-       "note": "the indefinite article, taken out"
+       "note": "a is the indefinite article"
       },
       {
        "words": "another",
+       "at": 46,
        "gives": "THE",
-       "note": "the definite article, put in where A was"
+       "note": "the is the other English article, the definite one"
       }
      ]
     },
     "explanation": {
-     "surface": "A wishy-washy piece in a magazine has been swapped for a different one.",
-     "walkthrough": "\"Article\" looks like a piece of writing, which suits \"journal\"; here it is the grammar word, a or the.",
-     "definitionFit": "A plain synonym: someone who dithers keeps wavering, unable to decide."
+     "surface": "A grammar note: an article in a diary was swapped for a different one.",
+     "walkthrough": "'Article' and 'another' are both articles: the indefinite A in DIARY gives way to the definite THE.",
+     "definitionFit": "Dithery describes someone who dithers, hesitating and unable to make up their mind."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "article"
+     "misdirectedWord": "another"
     }
    }
   }

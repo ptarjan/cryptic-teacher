@@ -111,49 +111,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "QUEENBEE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "changed",
-       "note": "something changed has been altered, so its letters are rearranged"
+       "text": "following",
+       "at": 33,
+       "note": "following puts the rearranged letters after the shortened word"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "QUEENBEE",
        "indicators": [
         {
          "text": "cut",
-         "note": "cutting a word short trims off its final letter"
+         "at": 51,
+         "note": "cut means the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "strange",
-           "gives": "QUEE",
-           "note": "queer means strange; cut short it loses its last letter"
-          },
-          {
-           "words": "been",
-           "note": "the word been, rearranged"
-          }
-         ]
+         "words": "strange",
+         "at": 43,
+         "gives": "QUEER",
+         "note": "queer in its old sense means strange or odd"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changed",
+         "at": 25,
+         "note": "changed means altered in arrangement, so the letters of been are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "been",
+         "at": 20,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A domineering woman has changed her ways after an odd snub.",
-     "walkthrough": "In a down clue 'following' puts the reworked part after the cut-down word for strange.",
-     "definitionFit": "A queen bee is the fertile female ruling a hive, and figuratively a woman who dominates her social circle."
+     "surface": "A domineering woman has been transformed after an odd haircut.",
+     "walkthrough": "'Strange' needs its old synonym queer; 'following' sets the rearranged second word after the shortened first.",
+     "definitionFit": "A queen bee is the one fertile female ruling a hive, and figuratively a woman who dominates a group."
     },
     "features": {
      "answerInScene": true,
@@ -583,35 +593,44 @@
      "indicators": [
       {
        "text": "around",
-       "note": "around means surrounding, so the reworked letters go outside the remaining word"
+       "at": 25,
+       "note": "around means the rearranged letters surround the other word"
       }
      ],
      "parts": [
-      {
-       "words": "I.e. place",
-       "gives": "PIECEAL",
-       "note": "the letters of i.e. and place, rearranged"
-      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "being rebuilt",
-         "note": "something rebuilt is put together again in a new form, so its letters are rearranged"
+         "at": 11,
+         "note": "being rebuilt means put back together differently, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "me",
+         "words": "I.e.",
+         "at": 0,
+         "note": "the abbreviation i.e. supplies its two letters"
+        },
+        {
+         "words": "place",
+         "at": 5,
          "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "me",
+       "at": 32,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Explaining that a building is being reconstructed around the speaker a little at a time.",
-     "definitionFit": "Piecemeal describes something done in stages or parts rather than all at once."
+     "surface": "Someone explains that a house is being reconstructed around them gradually.",
+     "walkthrough": "The dots in 'I.e.' are ignored: only its two letters join the anagram, and 'me' is the piece left whole in the middle.",
+     "definitionFit": "Piecemeal means done gradually, one piece at a time rather than all at once."
     },
     "features": {
      "answerInScene": true,
@@ -682,40 +701,42 @@
      "op": "charade",
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "RE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "final 20% of",
-         "note": "one fifth of a ten-letter word means keeping its closing two letters"
+         "at": 9,
+         "note": "a fifth of a ten-letter word is two letters, so all but the closing two are dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "conjecture",
-         "gives": "RE",
-         "select": "last",
-         "note": "the word has ten letters, so the last fifth is its final pair"
+         "at": 22,
+         "note": "without its first eight of ten letters, only R and E remain"
+        },
+        {
+         "gives": "CONJECTU"
         }
        ]
       },
       {
        "words": "however",
+       "at": 34,
        "gives": "BUT",
-       "note": "but and however are synonyms"
+       "note": "but and however are synonyms, both meaning nevertheless"
       }
      ]
     },
     "explanation": {
-     "surface": "Knocking down the tail end of a theory, even so.",
-     "definitionFit": "To rebut an argument is to refute it with evidence, the same as to disprove it."
+     "surface": "A demand to refute the end of a speculation, however that is done.",
+     "walkthrough": "Conjecture has ten letters, so 'final 20% of' it is RE.",
+     "definitionFit": "To rebut is to refute an argument or claim, showing it to be false."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "conjecture"
+     "misdirectedWord": "however"
     }
    }
   },
