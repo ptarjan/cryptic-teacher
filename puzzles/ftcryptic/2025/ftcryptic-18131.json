@@ -367,54 +367,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "container",
      "indicators": [
       {
-       "text": "curtailed",
-       "note": "curtailed means docked of its tail, so the last letter goes"
+       "text": "interrupting",
+       "at": 7,
+       "note": "the bishop breaks into the middle of the other letters, interrupting them"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "interrupting",
-         "note": "to interrupt is to cut in between two things, so this piece sits between the others"
-        }
-       ],
        "parts": [
         {
          "words": "house",
+         "at": 20,
          "gives": "SEMI",
-         "note": "a semi is a semi-detached house, the common British home sharing one wall"
+         "note": "a semi is a semi-detached house"
         },
         {
-         "words": "Bishop",
-         "gives": "B",
-         "note": "B is the chess abbreviation for bishop"
-        },
-        {
-         "words": "party",
-         "gives": "REVEL",
-         "note": "a revel is a lively party, before losing its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "curtailed",
+           "at": 32,
+           "note": "curtailed means having its tail, the last letter, cut off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "party",
+           "at": 26,
+           "gives": "REVEL",
+           "note": "a revel is a lively party"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         }
        ]
       },
       {
-       "gives": "L"
+       "words": "Bishop",
+       "at": 0,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
       }
      ]
     },
     "explanation": {
-     "surface": "A bishop breaks into a cut-short house party during a performance.",
-     "walkthrough": "'Piece of music' hints at a whole composition, but it is a single note.",
-     "definitionFit": "A semibreve is a whole note in musical notation, a small unit or piece of written music."
+     "surface": "A bishop gatecrashes a party at a house, and a musical piece is cut short.",
+     "walkthrough": "A semi is a British semi-detached house; 'curtailed' cuts only the party word, and the bishop breaks in between the two halves.",
+     "definitionFit": "A semibreve is a whole note in musical notation, loosely a short piece or element of music."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "piece"
+     "misdirectedWord": "Bishop"
     }
    }
   },
@@ -1692,56 +1702,56 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "BAN",
+       "op": "deletion",
        "indicators": [
         {
          "text": "taking more from",
-         "note": "taking from a name means keeping some of its opening letters, and more says a longer stretch here"
+         "at": 12,
+         "note": "the clue takes a longer opening chunk from the first composer's name than from the second"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Bantock",
-         "gives": "BAN",
-         "select": "first",
-         "note": "the first three letters of the composer's name"
+         "at": 29,
+         "note": "Granville Bantock was an English composer; its opening three letters are used"
+        },
+        {
+         "gives": "TOCK"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "JO",
+       "op": "deletion",
        "indicators": [
         {
          "text": "than",
-         "note": "than sets up the comparison, so a shorter opening stretch is kept from the second name"
+         "at": 37,
+         "note": "than Joubert carries the taking on to the second name, from which a smaller opening chunk is kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Joubert",
-         "gives": "JO",
-         "select": "first",
-         "note": "the first two letters of the composer's name, fewer than the three taken before"
+         "at": 42,
+         "note": "John Joubert was a composer; only its opening two letters are used"
+        },
+        {
+         "gives": "UBERT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A music-maker borrows more from one composer than another.",
-     "walkthrough": "Granville Bantock and John Joubert are both British composers, which feeds the musical surface.",
-     "definitionFit": "A banjo is a stringed instrument, and any instrument is something that makes music."
+     "surface": "Seems to compare how much one borrows from two composers, Bantock and Joubert.",
+     "walkthrough": "Take three letters, BAN, from Bantock and fewer, two letters JO, from Joubert.",
+     "definitionFit": "A banjo is a stringed instrument, something that makes music."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "more"
+     "misdirectedWord": "taking"
     }
    }
   },
@@ -1976,46 +1986,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SPECTRE",
      "indicators": [
       {
        "text": "changing places",
-       "note": "changing places means two items swap their positions within the word"
+       "at": 45,
+       "note": "two letters swap their positions within the staff word"
+      },
+      {
+       "text": "extremes of panic",
+       "at": 18,
+       "note": "the outside letters of the word panic are the pair that must trade positions"
       }
      ],
      "parts": [
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "extremes of",
-         "note": "the extremes of a word are its two ends, first and last letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "panic",
-         "note": "the first and last letters of panic"
-        }
-       ]
-      },
-      {
        "words": "staff",
+       "at": 39,
        "gives": "SCEPTRE",
        "note": "a sceptre is a ceremonial staff"
+      },
+      {
+       "gives": "CEP",
+       "note": "the stretch of the staff word holding the outer letters of panic, the wrong way round"
+      },
+      {
+       "gives": "PEC",
+       "note": "the same stretch once the outer letters of panic have traded positions"
       }
      ]
     },
     "explanation": {
-     "surface": "A frightening sight causes panic among the staff, who rush about switching positions.",
-     "walkthrough": "'Staff' suggests employees; it is the royal rod. Within that word the C and P, which are the two ends of panic, swap places.",
-     "definitionFit": "A spectre is a ghost or apparition, which is a ghastly vision in the literal ghostly sense."
+     "surface": "A frightening apparition of panic among the staff as people switch jobs.",
+     "walkthrough": "P and C, the ends of panic, are in SCEPTRE in the order C then P; making them change places turns SCEPTRE into the answer.",
+     "definitionFit": "A spectre is a ghost or apparition, a frightening vision."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "staff"
     }
    }

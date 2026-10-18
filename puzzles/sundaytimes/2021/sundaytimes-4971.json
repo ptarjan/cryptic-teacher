@@ -439,40 +439,44 @@
      "indicators": [
       {
        "text": "is visiting",
-       "note": "a visitor goes into someone else's place, so one piece sits inside another"
+       "at": 24,
+       "note": "a visitor goes into a place, so these letters go inside the people word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "people",
-         "gives": "NATION",
-         "note": "a people is a nation"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "people",
+       "at": 8,
+       "gives": "NATION",
+       "note": "a nation is a people"
       },
       {
-       "words": "bishop",
-       "gives": "RR",
-       "note": "Right Reverend, the title of a bishop"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 15,
+         "gives": "A"
+        },
+        {
+         "words": "bishop",
+         "at": 17,
+         "gives": "RR",
+         "note": "RR, Right Reverend, is the title of a bishop"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Informing the congregation that a bishop has come to call.",
-     "walkthrough": "'Telling people' reads as one phrase, but 'people' belongs to the wordplay; RR (Right Reverend) is the conventional bishop.",
-     "definitionFit": "Narration is the act of recounting a story, so it is a telling of events."
+     "surface": "A people receive a visit from a bishop.",
+     "walkthrough": "RR stands for Right Reverend, the style of a bishop; A RR goes in after NA of NATION.",
+     "definitionFit": "Narration is the act of telling a story or giving an account."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "people"
+     "misdirectedWord": "Telling"
     }
    }
   },
@@ -750,50 +754,53 @@
      "indicators": [
       {
        "text": "bottles",
-       "note": "to bottle something is to keep it shut inside, so one piece is held within the others"
+       "at": 20,
+       "note": "to bottle is to enclose, so the letter A is held within the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "words": "wine",
-         "gives": "RED",
-         "note": "red is the usual crossword wine"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "case of",
+           "at": 2,
+           "note": "the case of a word is its outside, its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rare",
+           "at": 10,
+           "note": "first and last letters of rare"
+          }
+         ]
         },
         {
-         "words": "A",
-         "note": "taken as written"
+         "words": "wine",
+         "at": 15,
+         "gives": "RED",
+         "note": "red is a type of wine"
         }
        ]
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "case of",
-         "note": "a case is the outside of something, so only the outermost letters are kept"
-        }
-       ],
-       "parts": [
-        {
-         "words": "rare",
-         "note": "first and last letters"
-        }
-       ]
+       "words": "A",
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "A crate of fine wine with its bottles carried up from the cellar.",
-     "walkthrough": "'Case' and 'bottles' look like wine packaging; together, the outside of 'rare' and the wine form the casing that holds A between them.",
-     "definitionFit": "To rear a child is to raise them, so reared means raised or nurtured from infancy."
+     "surface": "A crate of a rare vintage holds bottles of wine.",
+     "walkthrough": "The surface reads 'A case' as a crate of wine; the A is a lone letter, and 'bottles' is a verb meaning holds in.",
+     "definitionFit": "To rear a child is to bring them up, so reared means raised or brought up."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "bottles"
     }
    }

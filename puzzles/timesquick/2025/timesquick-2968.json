@@ -518,51 +518,51 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "start of",
-       "note": "the start of a word is its first letter"
+       "text": "After",
+       "at": 0,
+       "note": "the acquiring word comes after the letters already built, so it goes at the end"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "G",
        "indicators": [
         {
-         "text": "After",
-         "note": "the acquiring word follows what has come before"
+         "text": "start of",
+         "at": 6,
+         "note": "the start of a word is its opening letter, so only the first letter of great is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "start of great",
-         "gives": "G",
-         "select": "first",
+         "words": "great",
+         "at": 15,
          "note": "first letter of great"
         }
        ]
       },
       {
        "words": "advert",
+       "at": 21,
        "gives": "AD",
-       "note": "short for advertisement"
+       "note": "AD is the short form of advertisement"
       },
       {
        "words": "acquire",
+       "at": 29,
        "gives": "GET",
-       "note": "to obtain"
+       "note": "to acquire something is to get it"
       }
      ]
     },
     "explanation": {
-     "surface": "Seeing a great advert and buying the thing it sells.",
-     "walkthrough": "'After' tells you the acquire-word comes last, behind the other two pieces.",
-     "definitionFit": "A plain synonym: a small ingenious device or tool."
+     "surface": "Someone sees a great advert and decides to buy the gizmo it promotes.",
+     "definitionFit": "A gadget is a small mechanical contrivance or tool, a synonym for device."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "After"
     }
    }
   },
@@ -653,51 +653,50 @@
        "indicators": [
         {
          "text": "inside",
-         "note": "the writer is put within the boat"
+         "at": 7,
+         "note": "the writer is placed within the boat, so one word sits inside the other"
         }
        ],
        "parts": [
         {
          "words": "boat",
+         "at": 14,
          "gives": "CANOE",
-         "note": "a light paddled boat, opened before its last letter"
+         "note": "a canoe is a small boat"
         },
         {
          "words": "Writer",
+         "at": 0,
          "gives": "PEN",
-         "note": "the thing that writes"
+         "note": "a pen is a writing instrument"
         }
        ]
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
          "text": "at first",
-         "note": "at the start, so only the first letter of the next word"
+         "at": 19,
+         "note": "only the opening letter of requires is wanted here"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "at first",
-         "gives": "R",
-         "select": "first",
-         "note": "first letter of the next word, 'requires'"
+         "words": "requires",
+         "at": 28,
+         "note": "first letter of requires"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer on a boat trip needs something to open the tins.",
-     "walkthrough": "CANO(PEN)E then R. 'At first' belongs with 'requires', whose R is taken, while 'requires' also links to the definition.",
-     "definitionFit": "A kitchen utensil by example: the hand tool for opening tins, called a tin opener in Britain."
+     "surface": "A novelist sitting in a boat needs some cooking equipment.",
+     "definitionFit": "A tin opener is a gadget found in the kitchen drawer, used to open tins of food."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Writer"
     }
