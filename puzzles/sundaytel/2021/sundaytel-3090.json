@@ -811,51 +811,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "after rolling up",
-       "note": "in a down entry, rolling up means read from bottom to top, the opposite way"
+       "text": "to go in",
+       "at": 26,
+       "note": "to go in says the following letters are placed inside the reversed abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "to go in",
-         "note": "to go in means these letters are placed inside another piece"
+         "text": "after rolling up",
+         "at": 40,
+         "note": "in a down clue, after rolling up means the letters are read from the bottom, so backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "say",
-           "gives": "EG",
-           "note": "e.g. stands for 'for example', which say can mean"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I is the Roman numeral one"
-          }
-         ]
+         "words": "say",
+         "at": 35,
+         "gives": "EG",
+         "note": "e.g. (for example) is what say means"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 11,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
         },
         {
          "words": "millimetre",
-         "gives": "MM",
-         "note": "mm is the abbreviation for millimetre"
+         "at": 15,
+         "gives": "MM"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A golfer's ball stops a millimetre short of the hole, a putt that should be conceded.",
-     "walkthrough": "'say' stands for 'for example'; its abbreviation is turned upwards before the other pieces go inside it.",
-     "definitionFit": "In golf a gimme is a putt so short that opponents concede it, so an easy shot."
+     "surface": "A golfer's tap-in needs only a millimetre to roll into the hole.",
+     "walkthrough": "'say' looks like a speech verb, but it stands for 'for example'. A gimme is golf slang.",
+     "definitionFit": "In golf a gimme is a putt so short that opponents concede it without it being played."
     },
     "features": {
      "answerInScene": true,
@@ -1111,51 +1115,55 @@
      "indicators": [
       {
        "text": "packed in",
-       "note": "packed in means stowed inside, so these letters go within another piece"
+       "at": 50,
+       "note": "packed in says these letters are stuffed inside the word for flavour"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "flavour",
-         "gives": "TANG",
-         "note": "a tang is a sharp flavour"
-        },
-        {
-         "words": "street",
-         "gives": "ST",
-         "note": "St is the abbreviation for street"
-        }
-       ]
+       "words": "flavour",
+       "at": 60,
+       "gives": "TANG",
+       "note": "a tang is a sharp flavour"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "starter from",
-         "note": "a starter is what comes first, so only the opening letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Indonesia",
-         "note": "the first letter of Indonesia"
+         "words": "street",
+         "at": 19,
+         "gives": "ST",
+         "note": "St is the address abbreviation for street"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "starter from",
+           "at": 27,
+           "note": "the starter from a word is its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Indonesia",
+           "at": 40
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A food tour tries street dishes, starting with Indonesian ones full of flavour.",
-     "walkthrough": "Both the street abbreviation and the Indonesian initial go together inside the word for flavour.",
-     "definitionFit": "Tasting is trying food to judge it, the act of sampling dishes."
+     "surface": "Someone tries street food in Indonesia, the dishes full of flavour.",
+     "walkthrough": "The definition is two words, 'Sampling dishes'; the 'in' after it is only a link.",
+     "definitionFit": "A tasting is an event where various foods or wines are sampled in small portions."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Indonesia"
+     "misdirectedWord": "packed"
     }
    }
   },

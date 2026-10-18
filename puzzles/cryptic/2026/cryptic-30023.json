@@ -208,43 +208,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "perhaps",
-       "note": "'perhaps' warns that our sun is only an instance of the word wanted, not a synonym for it."
-      }
-     ],
      "parts": [
       {
-       "words": "our sun",
+       "words": "our sun, perhaps",
+       "at": 12,
        "gives": "STAR",
-       "note": "the sun is a star, one among billions"
+       "note": "the Sun is an example of a star"
       },
       {
        "words": "in",
-       "note": "the clue's own 'in' is written down as it stands"
+       "at": 30,
+       "gives": "IN"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "edge of",
-         "note": "an edge is where a thing stops, so this hands over the outermost letter of the word beside it and nothing else."
+         "at": 33,
+         "note": "edge of here means the first letter of galaxy"
         }
        ],
        "parts": [
         {
          "words": "galaxy",
-         "note": "the letter at the front edge of galaxy"
+         "at": 41
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An astronomer scanning the rim of the galaxy for a star like our own.",
-     "walkthrough": "Every word belongs to astronomy, which is what hides the join: 'our sun, perhaps' asks for the category the sun belongs to, not for the sun.",
-     "definitionFit": "Staring is looking, held still and too long — the -ing form matches, and both name an eye fixed on something."
+     "surface": "An astronomer searches for the Sun at the rim of the Milky Way.",
+     "walkthrough": "'Looking for' reads as one phrase, but 'for' is a link.",
+     "definitionFit": "Staring means gazing fixedly, a form of looking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
     }
    }
   },
@@ -416,49 +418,67 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "new",
-       "note": "made new is made over: the word in front of it is rebuilt from the same letters in a different order."
-      }
-     ],
      "parts": [
       {
        "words": "Jack",
+       "at": 0,
        "gives": "J",
-       "note": "J is the jack in a pack of cards"
+       "note": "J is the card abbreviation for jack"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "houses",
-         "note": "to house something is to give it a room inside you, so the rebuilt letters close around what follows."
+         "at": 15,
+         "note": "houses says the rearranged letters hold the others inside"
         }
        ],
        "parts": [
         {
          "op": "anagram",
+         "indicators": [
+          {
+           "text": "new",
+           "at": 11,
+           "note": "new signals the letters are made into a fresh arrangement"
+          }
+         ],
          "parts": [
           {
            "words": "built",
-           "note": "anagram fodder, five letters, and it splits open to take a guest"
+           "at": 5
           }
          ]
         },
         {
-         "words": "a number",
-         "gives": "AN",
-         "note": "the clue's 'a' plus n, the standard abbreviation for number"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 23,
+           "gives": "A"
+          },
+          {
+           "words": "number",
+           "at": 25,
+           "gives": "N"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Jack of the nursery rhyme puts up new houses, numbered, somewhere near the top of the world.",
-     "walkthrough": "'The house that Jack built' is the rhyme the surface is leaning on, and it costs you the parsing: 'houses' is a verb here, not a row of buildings.",
-     "definitionFit": "Someone on top of the world is elated, and jubilant names that same unmixed high spirits — an idiom matched by a single adjective."
+     "surface": "Jack is thrilled to build new houses, numbering among the elite.",
+     "walkthrough": "UBILT (built, made new) holds A and N: UBIL-AN-T, after J.",
+     "definitionFit": "Feeling on top of the world is an idiom for elation, so it means joyful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "houses"
     }
    }
   },
@@ -1010,39 +1030,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "hot",
-       "note": "heat is being applied to the word beside it: something hot runs and loses its shape, and these letters do not set in the order given."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "At home",
+       "at": 0,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "words": "special",
+       "at": 13,
+       "gives": "S"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "hot",
+         "at": 21,
+         "note": "hot means stirred up, so the letters of date are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "At home",
-         "gives": "IN",
-         "note": "being in is being at home — 'is she in?'"
-        },
-        {
-         "words": "special",
-         "gives": "S",
-         "note": "s = special, as in special constable"
-        },
-        {
          "words": "date",
-         "note": "the four letters of DATE, run together in another order"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An invitation: are you at home for something special, a hot date perhaps?",
-     "walkthrough": "The exclamation mark makes 'Rather!' read as enthusiastic agreement, which is the sense the definition does not want. It wants the quiet one: in place of something else.",
-     "definitionFit": "Rather and instead both mean 'in place of that' — she stayed home instead, she stayed home rather — the substitution sense of each."
+     "surface": "Someone stays in with a steamy date, and enthusiastically approves.",
+     "walkthrough": "'Rather!' looks like an exclamation of agreement, but it is the definition in the sense 'in preference'.",
+     "definitionFit": "Rather, as in 'tea rather than coffee', means in place of something else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rather"
     }
    }
   },
@@ -1262,26 +1290,28 @@
     "definitions": [
      {
       "text": "housing",
-      "at": 4,
-      "note": "'Housing' is a mass noun for accommodation while the answer is a countable plural; the setter is defining the buildings by what they collectively do."
+      "at": 4
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "HOTELS",
+     "op": "rebus",
+     "reading": "H and H, plural",
      "parts": [
       {
        "words": "H-h",
-       "gives": "HOTELS",
-       "note": "in the NATO alphabet H is spoken as HOTEL, and the setter has written the letter twice — a capital and a lower case — so more than one is being asked for"
+       "at": 0,
+       "note": "each H is spoken in the NATO phonetic alphabet as the word for a place where guests stay, so two Hs are two of them"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody stuttering over the word 'housing'.",
-     "walkthrough": "The stammer is a disguise for a doubled letter: NATO's alphabet gives H a word of its own, and having two of them is what makes the answer plural. The Grand Budapest Hotel is the film.",
-     "definitionFit": "Hotels put people up for the night, so 'housing' names them by the service they provide rather than by what they are."
+     "walkthrough": "The stutter looks like nervous speech, but the repeated letter H in the radio alphabet is spoken as a word for an inn, so many Hs are many places to stay.",
+     "definitionFit": "Places offering rooms to travellers give them lodging, a kind of temporary accommodation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
     }
    }
   },

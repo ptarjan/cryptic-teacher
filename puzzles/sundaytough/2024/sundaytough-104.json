@@ -833,53 +833,68 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "without",
-       "note": "here without means outside, so that element stands just beyond the following piece"
+       "at": 27,
+       "note": "without, in its old sense of outside, puts the adult and live letters around the others"
       }
      ],
      "parts": [
       {
-       "words": "Adult",
-       "gives": "A",
-       "note": "A is the abbreviation for adult, as in film certificates"
-      },
-      {
-       "op": "alternate",
-       "indicators": [
-        {
-         "text": "regularly",
-         "note": "regularly means at even intervals, so every other letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "bears",
-         "note": "the second and fourth letters"
+         "words": "Adult",
+         "at": 0,
+         "gives": "A",
+         "note": "A is the film-classification abbreviation for adult"
+        },
+        {
+         "words": "live",
+         "at": 22,
+         "gives": "BE",
+         "note": "to be is to live or exist"
         }
        ]
       },
       {
-       "words": "oxygen",
-       "gives": "O",
-       "note": "O is the chemical symbol for oxygen"
-      },
-      {
-       "words": "live",
-       "gives": "BE",
-       "note": "to be is to exist or live"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "regularly",
+           "at": 12,
+           "note": "regularly means every other letter of bears is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bears",
+           "at": 6
+          }
+         ]
+        },
+        {
+         "words": "oxygen",
+         "at": 35,
+         "gives": "O",
+         "note": "O is the chemical symbol for oxygen"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question asks whether grown bears can survive with no air, and answers that one type cannot.",
-     "walkthrough": "The definition leans back on the wordplay: 'live without oxygen' is what one of these cannot do. Read as wordplay, the same words supply the letters.",
-     "definitionFit": "An aerobe is an organism that requires atmospheric gas to survive, so it is exactly the kind of creature unable to manage without it."
+     "surface": "Adult bears hibernating seem to live without breathing much.",
+     "walkthrough": "The question 'live without oxygen?' completes the definition: an organism of this kind cannot live without oxygen.",
+     "definitionFit": "An aerobe is an organism needing air to survive, so it is one that cannot manage without it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "bears"
     }
@@ -1192,50 +1207,53 @@
     "definitions": [
      {
       "text": "Blooming",
-      "at": 0,
-      "note": "here read as a noun, the act of flowering"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "are round",
-       "note": "to be round something is to surround it, so the other letters go inside"
+       "text": "round it",
+       "at": 41,
+       "note": "round it says the phrase for where Tuscans live wraps around the small church letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "where Tuscans are",
+       "at": 23,
+       "gives": "INFLORENCE",
+       "note": "Florence is the capital of Tuscany, so Tuscans are in Florence"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "where Tuscans",
-         "gives": "INFLORENCE",
-         "note": "Florence is the capital of Tuscany, so Tuscans live there"
+         "words": "small",
+         "at": 9,
+         "gives": "S",
+         "note": "S is the clothing-size abbreviation for small"
         },
         {
          "words": "church",
+         "at": 15,
          "gives": "CE",
          "note": "CE is the Church of England"
         }
        ]
-      },
-      {
-       "words": "small",
-       "gives": "S",
-       "note": "S is the abbreviation for small"
       }
      ]
     },
     "explanation": {
-     "surface": "A little chapel is described as being surrounded by the people of Tuscany.",
-     "walkthrough": "'Blooming' looks like an adjective or a mild British oath, but it is the noun for flowering. The two-word phrase IN FLORENCE goes round S and CE.",
-     "definitionFit": "Inflorescence is the process of flowering, and also the term for a plant's whole cluster of flowers on a stem."
+     "surface": "A little church in Tuscany is surrounded by local people.",
+     "walkthrough": "SCE goes inside IN FLORENCE, after its FLORE.",
+     "definitionFit": "Inflorescence is the process of flowering, or the arrangement of flowers on a stem."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Blooming"
+     "misdirectedWord": "Tuscans"
     }
    }
   },
