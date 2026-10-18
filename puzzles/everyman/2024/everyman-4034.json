@@ -388,53 +388,53 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to receive"
+       "text": "to receive",
+       "at": 12,
+       "note": "to receive means to take something in, so the letter goes inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "finally = at the end, so only the last letter of visitor is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "is",
-         "note": "used as it stands"
+         "words": "Everyman",
+         "at": 0,
+         "gives": "I",
+         "note": "the setter Everyman refers to himself, which gives I"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "R",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "visitor, finally",
-           "gives": "R",
-           "select": "last",
-           "note": "last letter of visitor"
-          }
-         ]
+         "words": "is",
+         "at": 9
         }
        ]
       },
       {
-       "words": "Everyman",
-       "gives": "I",
-       "note": "the setter refers to himself, so Everyman = I"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 32,
+         "note": "finally picks the last letter of the word visitor"
+        }
+       ],
+       "parts": [
+        {
+         "words": "visitor",
+         "at": 23,
+         "note": "the word visitor, whose last letter is the one wanted"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The setter announcing that he is expecting a guest.",
-     "walkthrough": "I + IS receives R between its parts. Setters routinely call themselves I or ME by their pen name.",
-     "definitionFit": "Definition by description: the garden flag is known for tall stems of big, showy blooms."
+     "surface": "The crossword setter is expecting a guest who brings a big bunch of flowers.",
+     "walkthrough": "A setter naming himself in a clue usually means I. 'to receive' puts the R from 'visitor, finally' between I and IS.",
+     "definitionFit": "The iris is a garden plant known for its big, showy blooms, so it is one bearing large flowers."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "visitor"
     }
@@ -853,42 +853,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "INERTIA",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "back = in reverse, so IT turns round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "batting",
+       "at": 14,
+       "gives": "IN",
+       "note": "in cricket the side batting is said to be in"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to win",
+         "at": 28,
+         "note": "to win here is to capture, so the era takes the reversed letters inside it"
+        }
+       ],
        "parts": [
         {
-         "words": "batting",
-         "gives": "IN",
-         "note": "a batter in cricket is in"
+         "words": "time",
+         "at": 23,
+         "gives": "ERA",
+         "note": "an era is a period of time"
         },
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "to win",
-           "note": "to win something is to gain it, taking it in"
+           "text": "back",
+           "at": 38,
+           "note": "back means the word it is read from right to left"
           }
          ],
          "parts": [
           {
-           "words": "time",
-           "gives": "ERA",
-           "note": "era = a period of time, split ER…A"
-          },
-          {
-           "words": "it back",
-           "gives": "TI",
-           "note": "IT reversed"
+           "words": "it",
+           "at": 35
           }
          ]
         }
@@ -897,14 +898,14 @@
      ]
     },
     "explanation": {
-     "surface": "A sluggish batsman in cricket hoping to claw back the match.",
-     "walkthrough": "In cricket the batting side is 'in', and a batsman at the crease is in. ERA wins TI.",
-     "definitionFit": "Plain synonym: a physics term for resistance to motion, used generally for sluggishness."
+     "surface": "A slow batsman at the crease is told there is time to win the match back.",
+     "walkthrough": "In cricket the batting side is said to be 'in'. The surface's 'win it back' sounds like recovering a match, but 'back' only reverses the little word it, and 'to win' has the era capture it.",
+     "definitionFit": "Inertia is a tendency to stay inactive or resist change, which is the same idea as sluggishness."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "win"
+     "misdirectedWord": "batting"
     }
    }
   },
@@ -1031,43 +1032,49 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "will be found in",
+       "at": 2,
+       "note": "will be found in means the letter is placed inside the other word"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "will be found in",
-         "note": "to be found in something is to sit inside it"
-        },
-        {
-         "text": "to move",
-         "note": "to move is to change place, so the B shifts along the word"
+         "text": "bold to move",
+         "at": 33,
+         "note": "B is the abbreviation for bold type; that letter is moved forward in the word to sit right after the first letter"
         }
        ],
        "parts": [
         {
-         "words": "I",
-         "note": "used as it stands"
+         "words": "Balkan state",
+         "at": 19,
+         "gives": "SERBIA",
+         "note": "Serbia is a country in the Balkans"
         },
         {
-         "words": "Balkan state",
-         "gives": "SERBIA",
-         "note": "Serbia is in the Balkans"
+         "gives": "ERB"
+        },
+        {
+         "gives": "BER"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "bold to move",
-       "note": "B (bold, as in typefaces) moves from after R to after the new I"
+       "words": "I",
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "A Balkan traveller forced to move on in search of a hostile place.",
-     "walkthrough": "Put I into SERBIA after the S, then move the B (bold) to sit after that I: S-I-B-ERIA.",
-     "definitionFit": "Figurative use: the region stands for any remote, cold, unfriendly place, as in being sent to Siberia."
+     "surface": "A traveller notes a lone figure in a Balkan country who must be brave enough to set off for a harsh land.",
+     "walkthrough": "'bold to move' shifts the B of SERBIA (B for bold) up to second place, giving SBERIA; 'will be found in' then puts I after the S.",
+     "definitionFit": "Siberia is a vast, cold region of Russia, used figuratively for any bleak or hostile place of exile."
     },
     "features": {
      "answerInScene": false,

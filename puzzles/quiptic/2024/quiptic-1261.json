@@ -43,43 +43,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BOOKWORM",
+     "op": "container",
      "indicators": [
       {
-       "text": "out",
-       "note": "something worked out is sorted and rearranged, so the letters take a new order"
+       "text": "about",
+       "at": 31,
+       "note": "about means the outer word goes round the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "report",
+       "at": 24,
+       "gives": "BOOM",
+       "note": "a boom is a loud report, like a gun's"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "to go about something is to surround it, so one piece wraps round another"
+         "text": "out",
+         "at": 42,
+         "note": "out means put out of order, so the letters of work are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "report",
-         "gives": "BOOM",
-         "note": "a boom is a loud report, like a gunshot"
-        },
-        {
          "words": "work",
-         "gives": "KWOR",
-         "note": "the four letters of 'work' rearranged"
+         "at": 37
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone reading an entire report on a fitness regime.",
-     "walkthrough": "'Report' here is a noise, not a document: BOOM wraps round a jumbled WORK to give BOOKWORM.",
-     "definitionFit": "A bookworm is an avid reader who devours every book within reach, so the description is a playful paraphrase."
+     "surface": "A news report on a fitness workout routine.",
+     "walkthrough": "'report' here is the bang of a gun, not a news item, and the hyphen in 'work-out' hides an anagram signal: 'out' jumbles the word before it.",
+     "definitionFit": "A bookworm is a keen reader who devours anything printed, so the description fits by idiom."
     },
     "features": {
      "answerInScene": false,
@@ -920,42 +920,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STALLION",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "almost means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means the word falls one letter short, losing its last"
+        }
+       ],
        "parts": [
         {
          "words": "stop",
-         "gives": "STAL",
-         "note": "to stall is to stop, cut short by one letter"
+         "at": 7,
+         "gives": "STALL",
+         "note": "to stall is to stop, as an engine does"
         },
         {
-         "words": "hero",
-         "gives": "LION",
-         "note": "a lion is a brave hero, as in a lionised celebrity"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "hero",
+       "at": 12,
+       "gives": "LION",
+       "note": "a lion is a brave person, a hero (as in 'lionhearted')"
       }
      ]
     },
     "explanation": {
-     "surface": "A hero nearly halted on the way to becoming a womaniser.",
-     "walkthrough": "'Stud' reads as a ladies' man, but the definition is a breeding horse.",
-     "definitionFit": "A stud is a male horse kept for breeding, and an uncastrated male horse is exactly that animal."
+     "surface": "A brave hero nearly comes to a halt, turning into a ladies' man.",
+     "walkthrough": "'hero' gives the animal because a brave person is called a lion; 'becoming' only links the wordplay to the definition.",
+     "definitionFit": "A stallion is an uncastrated male horse kept for breeding, which is what a stud horse is."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "stud"
+     "misdirectedWord": "hero"
     }
    }
   },
