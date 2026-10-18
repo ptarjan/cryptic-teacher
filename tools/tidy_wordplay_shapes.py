@@ -64,6 +64,8 @@ FIELDS = {
     "wordplay.nestedContainer": lambda ann: V.nested_containers(ann.get("wordplay")),
     "wordplay.anagramSynonym": lambda ann: V.anagram_synonyms(ann.get("wordplay")),
     "wordplay.misplacedIndicator": lambda ann: V.misplaced_indicators(ann.get("wordplay")),
+    "wordplay.bareInitial": lambda ann: V.bare_initials(ann.get("wordplay")),
+    "wordplay.deletionScope": lambda ann: V.deletion_scope(ann.get("wordplay")),
 }
 
 

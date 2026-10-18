@@ -62,6 +62,7 @@ import ast
 import collections
 import difflib
 import functools
+import itertools
 import hashlib
 import json
 import multiprocessing
@@ -4059,6 +4060,127 @@ def misplaced_indicators(tree):
     return n
 
 
+#: Two ways a wrong clue passed every check (a resample of 100 passing clues found 4
+#: wrong, 10-18); each is a ratchet field. The evaluator takes a leaf's `gives` as filed
+#: and removes a deletion's letters from anywhere, so neither could be seen.
+#:   * BARE_INITIAL: a leaf giving the first letter of its word where no abbreviation
+#:     says so and no selection op sits above it (ZOCCO's `first` missing);
+#:   * DELETION_SCOPE: a deletion over a charade whose indicator names an end and whose
+#:     removed letters are not at that end (BORON, BORE+ON less E, "endlessly").
+#: Two more were measured over the 506k trees and dropped, under the 80% bar:
+#:   * a synonym nothing else attests (URTICARIA, [priest] ICA): 3-4 letter values that
+#:     are no lexicon word and no known pair were about 15% wrong-looking (names, rivers
+#:     and places are mostly right), with a corpus count of one about 35%: a fake synonym
+#:     needs a thesaurus, not a table;
+#:   * an indicator word filed as a leaf (MIMICS, [doubly]IM): "doubly" is not in the
+#:     indicator lexicon, and short values on lexicon indicators (without EX, around C)
+#:     were about 15% wrong; the narrow form, a repetition word valued like the leaf
+#:     before it (117 clues), reads right to a solver ([twice]IT after [sex]IT) and a
+#:     redo has no other way to write a repeat.
+BARE_INITIAL = "leaf gives the first letter of its words with no selection"
+DELETION_SCOPE = "deletion whose removed letters are not where its indicator says"
+
+
+@functools.lru_cache(maxsize=1)
+def _attested():
+    """(abbreviation pairs {(WORD, LETTERS)}, usage lexicon {WORD: {LETTERS: n}}): what
+    clue words are known to give. Empty when a table is missing, so a rule stands down."""
+    try:
+        import build_abbreviations as ba
+        pairs = {(ba.letters_of(w), k) for k, ws in ba.table().items() for w in ws}
+        usage = json.loads((ROOT / "tools" / "data" / "lexicons" / "blocks.json").read_text())
+    except (OSError, ValueError, ImportError):
+        return set(), {}
+    return pairs, {ba.letters_of(w): v for w, v in usage.items()}
+
+
+def _known_pair(words, gives):
+    """Whether (clue words, letters) is an abbreviation the table holds or a reading the
+    usage lexicon has seen 3+ times (blocks.json keeps no rarer ones)."""
+    pairs, usage = _attested()
+    key = re.sub(r"[^A-Z0-9]", "", str(words).upper())
+    return (key, gives) in pairs or usage.get(key, {}).get(gives, 0) > 0
+
+
+def _word_leaves(tree):
+    """(leaf, ancestors) for every leaf of clue words with a `gives`, each ancestor an op node."""
+    stack = [(tree, ())] if isinstance(tree, dict) else []
+    while stack:
+        node, anc = stack.pop()
+        stack += [(p, anc + (node,)) for p in node.get("parts") or [] if isinstance(p, dict)]
+        if "op" not in node and node.get("words") and node.get("gives"):
+            yield node, anc
+
+
+BARE_INITIAL_MIN_LETTERS = 6
+
+
+def bare_initials(tree):
+    """Leaves of one clue word of BARE_INITIAL_MIN_LETTERS+ letters that give its first
+    letter, where no selection op is above the leaf and the word has no one-letter
+    reading in the abbreviation table or the usage lexicon. The initial was picked by a
+    clue word elsewhere ("primarily") that no op carries, or by none (ZOCCO).
+    Measured 10-18 over 506k trees: with shorter words, or two letters, a third to a
+    half of the hits were abbreviations the tables lack (CO company, L little, E Earl's);
+    this form was 23 of 25 real."""
+    pairs, usage = _attested()
+    if not usage:
+        return 0  # no usage lexicon here: stand down
+    n = 0
+    for leaf, anc in _word_leaves(tree):
+        gives = wordplay.letters(leaf["gives"])
+        words = wordplay.letters(leaf["words"])
+        if len(gives) != 1 or len(leaf["words"].split()) != 1 or len(words) < BARE_INITIAL_MIN_LETTERS \
+                or not words.startswith(gives) or leaf.get("select"):
+            continue
+        if any(a.get("op") in wordplay.SELECT for a in anc):
+            continue
+        if not any(len(k) == 1 for k in usage.get(words, {})) and not _known_pair(leaf["words"], gives):
+            n += 1
+    return n
+
+
+_DEL_END = re.compile(
+    r"\b(endless(ly)?|unending|curtail\w*|docked|tailless|detailed|unfinished|incomplete|not finished|"
+    r"cut short|shortly|shortened|short|abridged|truncated|clipped|almost|nearly|not quite|"
+    r"(?:without|losing|dropping|missing|lacking|shedding|abandoning) (?:its |his |her |their |the |an? )?"
+    r"(?:end|tail|finish|ending|last))\b", re.I)
+_DEL_HEAD = re.compile(
+    r"\b(headless(ly)?|beheaded|topless|decapitated|unopened|leaderless|not starting|"
+    r"(?:without|losing|dropping|missing|lacking|shedding|abandoning) (?:its |his |her |their |the |an? )?"
+    r"(?:head|top|lead|start|opening|first|beginning))\b", re.I)
+
+
+def deletion_scope(tree, any_whole=False):
+    """Deletions over a charade (or, with `any_whole`, over anything) whose indicator
+    names one end and where no reading of the removed letters sits at that end of the
+    whole. The evaluator removes the letters from anywhere (BORE+ON less E spells BORON
+    though "endlessly" takes the N)."""
+    n = 0
+    for node in _walk(tree):
+        parts = node.get("parts") or []
+        if node.get("op") != "deletion" or len(parts) < 2 or not all(isinstance(p, dict) for p in parts):
+            continue
+        if not any_whole and parts[0].get("op") != "charade":
+            continue
+        text = " ".join(str(i.get("text") or "") for i in node.get("indicators") or [])
+        end, head = bool(_DEL_END.search(text)), bool(_DEL_HEAD.search(text))
+        if end == head:
+            continue
+        try:
+            wholes = wordplay.values(parts[0])
+            cuts = [sorted(wordplay.values(p)) for p in parts[1:]]
+        except Exception:
+            continue
+        ok = False
+        for f in wholes:
+            for rs in itertools.product(*cuts):
+                for r in {"".join(rs), "".join(reversed(rs))}:
+                    ok = ok or (f.endswith(r) if end else f.startswith(r))
+        n += not ok
+    return n
+
+
 def _clue_words(text):
     """Lower-case word set of clue text, markup and parentheticals removed."""
     return set(re.findall(r"[a-z]+", re.sub(r"<[^>]*>|\([^)]*\)", " ", (text or "").lower())))
@@ -4227,6 +4349,12 @@ def shape_warnings(tag, ann, clue=None):
     if k := misplaced_indicators(tree):
         out.append(f"{tag}: {k} {MISPLACED_INDICATOR}: file each indicator on the op it acts on "
                    f"(a reversal's on rev<...>, a selection's on first/last<...>), not on the charade")
+    if k := bare_initials(tree):
+        out.append(f"{tag}: {k} {BARE_INITIAL}: a first letter is picked by an op (first<...>(word)), "
+                   f"not given by a leaf")
+    if k := deletion_scope(tree):
+        out.append(f"{tag}: {k} {DELETION_SCOPE}: an end-cutting indicator acts on the one piece it "
+                   f"follows, del(piece, letters) inside the charade")
     return out
 
 
@@ -4792,6 +4920,8 @@ BACKLOG_MARKERS = {
     "wordplay.nestedContainer": (NESTED_CONTAINER,),
     "wordplay.anagramSynonym": (ANAGRAM_SYNONYM,),
     "wordplay.misplacedIndicator": (MISPLACED_INDICATOR,),
+    "wordplay.bareInitial": (BARE_INITIAL,),
+    "wordplay.deletionScope": (DELETION_SCOPE,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }

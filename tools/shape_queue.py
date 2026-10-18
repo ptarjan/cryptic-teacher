@@ -125,13 +125,17 @@ def findings(entry, ann=None):
     return found + [f"{k}: {WHY[k]}" for k in GATED if rules[k](wp, ann, clue)]
 
 
-GATED = ("anaSynonym", "nestedContainer", "misplacedIndicator")
+GATED = ("anaSynonym", "nestedContainer", "misplacedIndicator", "bareInitial", "deletionScope")
 WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's own words are "
                      "the fodder, the synonym joins the result in a charade",
        "nestedContainer": "a container holds another container as its holder: join the pieces "
                           "going into one holder as a charade, or nest the other way round",
        "misplacedIndicator": "an indicator is filed on the charade but signals another op: "
-                             "put it on that op"}
+                             "put it on that op",
+       "bareInitial": "a leaf gives the first letter of its word with no selection op: "
+                      "use first<indicator>(word)",
+       "deletionScope": "a deletion over a charade names an end but the removed letters are not at the "
+                        "charade's end: the indicator acts on one piece, so delete inside the charade"}
 
 
 def _validator_rules():
@@ -150,6 +154,8 @@ def _validator_rules():
             "nestedContainer": lambda t, a, c: V.nested_containers(t),
             "anaSynonym": lambda t, a, c: V.anagram_synonyms(t),
             "misplacedIndicator": lambda t, a, c: V.misplaced_indicators(t),
+            "bareInitial": lambda t, a, c: V.bare_initials(t),
+            "deletionScope": lambda t, a, c: V.deletion_scope(t),
             # A step taken as filed that tools/clear_unchecked.py could not verify:
             # fires while any node of the tree still carries the flag.
             "unchecked_step": lambda t, a, c: any(n.get("unchecked") for n in V._walk(t))}
