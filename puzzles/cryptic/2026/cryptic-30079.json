@@ -94,23 +94,20 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "On vacation"
-      }
-     ],
      "parts": [
       {
        "op": "outer",
        "indicators": [
         {
-         "text": "ultimately ignored"
+         "text": "On vacation",
+         "at": 0,
+         "note": "a vacated word has been emptied, leaving only its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "Bradley",
-         "note": "'on vacation' vacates the word, keeping only B(radle)Y"
+         "at": 12
         }
        ]
       },
@@ -118,22 +115,45 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "resort"
+         "text": "resort's",
+         "at": 45,
+         "note": "resort's reads as resort is, signalling the remaining letters are sorted anew"
         }
        ],
        "parts": [
         {
-         "words": "Walsh",
-         "gives": "WALS",
-         "note": "'ultimately ignored' drops the last letter; 'resort' then re-sorts WALS into LAWS"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "ultimately ignored",
+           "at": 26,
+           "note": "the ultimate letter of the word is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Walsh",
+           "at": 20
+          },
+          {
+           "gives": "H"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Bradley Walsh of The Chase is pure misdirection. 'On vacation' vacates a word — only the outside letters stay — and 'resort' quietly re-sorts what is left of Walsh.",
-     "definitionFit": "By-laws are the local rules a council or club sets for its own patch — exactly what a resort would post as in-house rules."
+     "surface": "A TV host away on holiday who flouts the hotel's rules.",
+     "walkthrough": "Bradley Walsh is a British TV presenter. 'resort' looks like a holiday hotel but signals the anagram of WALS.",
+     "definitionFit": "Bylaws are the regulations an organisation or local body makes for itself, hence internal rules."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "resort's"
     }
    }
   },

@@ -1124,51 +1124,63 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "wearing",
-       "note": "a thing worn is wrapped around the wearer, so the slip and over enclose the first word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "short",
-         "note": "short means cut off at the end, so the slip loses its last letter before joining"
+         "text": "wearing",
+         "at": 14,
+         "note": "the sad word is wearing the slip, so it sits inside it"
         }
        ],
        "parts": [
         {
-         "words": "slip",
-         "gives": "TRI",
-         "note": "trip, a slip or stumble, without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 22,
+           "note": "short means the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "slip",
+           "at": 28,
+           "gives": "TRIP",
+           "note": "a trip is a slip or stumble"
+          },
+          {
+           "gives": "P"
+          }
+         ]
         },
         {
-         "words": "over",
-         "gives": "ON",
-         "note": "on as in 'on top of', over"
+         "words": "Unfortunately",
+         "at": 0,
+         "gives": "ILL",
+         "note": "ill can mean unluckily, as in ill-fated"
         }
        ]
       },
       {
-       "words": "Unfortunately",
-       "gives": "ILL",
-       "note": "ill as an adverb, as in 'ill-starred': badly, unfortunately"
+       "words": "over",
+       "at": 33,
+       "gives": "ON",
+       "note": "on can mean over or upon"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone in a skimpy slip, sadly, looks like a huge figure.",
-     "walkthrough": "The shortened slip and the word for over join first, and the unlucky word then goes inside them. 'Enormous figure' suggests a giant person, but it is a number.",
-     "definitionFit": "A trillion, a million million, is an enormous number, and figure is a common word for a number."
+     "surface": "Someone sadly dressed in a skimpy slip, on top of a huge sum.",
+     "definitionFit": "A trillion is a million million, a vast number."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "figure"
+     "aptDefinition": false,
+     "misdirectedWord": "slip"
     }
    }
   },

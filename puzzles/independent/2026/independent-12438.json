@@ -582,39 +582,36 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "around",
-       "note": "Around is a wrapping word: the edging goes right the way round whatever comes next."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "spot of",
-         "note": "A spot of something is the smallest dab of it, and the smallest dab of a word is the letter it starts with."
+         "text": "around",
+         "at": 7,
+         "note": "around means the edging word goes round the letter picked from unrest"
         }
        ],
        "parts": [
         {
          "words": "Edging",
+         "at": 0,
          "gives": "TRIM",
-         "note": "trim is the edging sewn round a garment"
+         "note": "a trim is an edging or border"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "into",
-           "note": "Into burrows rather than joins, so what it governs is pushed inside the number instead of being tacked on the end."
+           "text": "spot of",
+           "at": 14,
+           "note": "a spot of something is a tiny bit of it, here its first letter"
           }
          ],
          "parts": [
           {
            "words": "unrest",
-           "note": "the spot taken off the front of UNREST"
+           "at": 22
           }
          ]
         }
@@ -622,24 +619,38 @@
       },
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "at": 35,
+         "note": "into means the letter for runs goes inside the Roman numeral"
+        }
+       ],
        "parts": [
         {
          "words": "seven",
+         "at": 40,
          "gives": "VII",
-         "note": "seven written as Roman numerals, which the surface quietly recommends"
+         "note": "VII is seven in Roman numerals"
         },
         {
          "words": "runs",
+         "at": 30,
          "gives": "R",
-         "note": "R is the cricket scoreboard's abbreviation for runs"
+         "note": "R is the cricket abbreviation for runs"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "There are two separate wrappings here and the second is disguised as a number. 'Roman' earns its keep twice over, pointing at the numerals as well as at the men in the definition.",
-     "definitionFit": "Roman rulers → TRIUMVIRI: the Latin plural of triumvir, one of the three men who between them held supreme power in Rome."
+     "surface": "Something about a border round a trouble spot as runs push into seven Roman leaders.",
+     "definitionFit": "Triumviri are the members of a triumvirate, the three men who shared power in ancient Rome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Edging"
     }
    }
   },
@@ -1567,55 +1578,76 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "keeping",
-       "note": "To keep something is to hang on to it, so the fool wraps himself round the pieces that follow instead of standing beside them."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Fat",
+       "at": 0,
+       "gives": "THICK",
+       "note": "thick can mean fat or broad"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "almost",
-         "note": "Almost means not quite all of it, so the last letter of the word next to it never arrives."
+         "text": "keeping",
+         "at": 9,
+         "note": "keeping means the fool holds the following letters inside"
         }
        ],
        "parts": [
         {
-         "words": "Fat",
-         "gives": "THICK",
-         "note": "thick is fat when you are describing a slice of bread"
-        },
-        {
          "words": "fool",
+         "at": 4,
          "gives": "ASS",
          "note": "an ass is a fool"
-        }
-       ]
-      },
-      {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "emaciated",
-         "gives": "THI",
-         "note": "thin, with its last letter never written"
         },
         {
-         "words": "First Lady",
-         "gives": "EVE",
-         "note": "Eve was the first lady of all, long before any president had one"
+         "op": "charade",
+         "parts": [
+          {
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "almost",
+             "at": 17,
+             "note": "almost means the word is not quite complete, losing its last letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "emaciated",
+             "at": 24,
+             "gives": "THIN",
+             "note": "emaciated means very thin"
+            },
+            {
+             "gives": "N"
+            }
+           ]
+          },
+          {
+           "words": "First Lady",
+           "at": 34,
+           "gives": "EVE",
+           "note": "Eve was the first woman in Genesis"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'First Lady' points at Washington on the surface and at Eden underneath. The phrase means close in the sense of confiding in each other, never close in distance.",
-     "definitionFit": "very close → THICK AS THIEVES: the idiom describes two people so intimate that they share secrets, which is closeness of friendship rather than of space."
+     "surface": "A stout idiot is holding on to a gaunt President's wife.",
+     "walkthrough": "'First Lady' suggests a President's wife, but it is EVE, the first woman.",
+     "definitionFit": "Thick as thieves is an idiom for two people who are intimate friends sharing secrets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "First"
     }
    }
   }

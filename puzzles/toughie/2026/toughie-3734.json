@@ -675,48 +675,66 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "novel",
-       "note": "novel means new, so the letters are made into something new"
+       "text": "includes",
+       "at": 26,
+       "note": "includes means the letter for male goes inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "includes"
+         "text": "novel",
+         "at": 20,
+         "note": "novel means new or fresh, so the letters are put into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Briefly, Harper",
-         "gives": "HARPE",
-         "note": "HARPER cut short"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Briefly",
+           "at": 0,
+           "note": "briefly means the word is cut short, losing its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Harper",
+           "at": 9
+          },
+          {
+           "gives": "R"
+          }
+         ]
         },
         {
          "words": "Lee",
-         "note": "taken as it stands"
-        },
-        {
-         "words": "male",
-         "gives": "M",
-         "note": "m = male"
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "male",
+       "at": 35,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "In brief, a novel by Harper Lee, author of To Kill a Mockingbird, features a man on the run.",
-     "walkthrough": "'Novel' looks like a noun to go with Harper Lee; here it is the adjective meaning new, the anagram signal. 'Fugitive' is the definition in its sense of fleeting, not a runaway.",
-     "definitionFit": "Fugitive can mean fleeting or short-lived, which is what ephemeral means."
+     "surface": "A quick summary: Harper Lee's novel features a man on the run.",
+     "walkthrough": "'Briefly' looks like a summary signal but cuts HARPER to HARPE; 'novel' is not To Kill a Mockingbird but the anagram signal, rearranging HARPELEE to EPHEERAL, into which M goes. 'Fugitive' is the adjective: fleeting.",
+     "definitionFit": "Fugitive in its literary sense means fleeting or passing quickly, just as something ephemeral lasts only a short time."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "novel"
     }
    }
@@ -1676,50 +1694,52 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Covetousness to acquire northern network, here?",
-      "at": 0
+      "text": "here",
+      "at": 42
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "to acquire"
+       "text": "to acquire",
+       "at": 13,
+       "note": "to acquire means the greedy word takes the other letters inside itself"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Covetousness",
-         "gives": "GREED",
-         "note": "greed = covetousness; it holds the rest after GREE"
-        },
-        {
-         "words": "northern",
-         "gives": "N",
-         "note": "n = northern"
-        }
-       ]
+       "words": "Covetousness",
+       "at": 0,
+       "gives": "GREED",
+       "note": "covetousness is greed"
       },
       {
-       "words": "network",
-       "gives": "LAN",
-       "note": "LAN is a local area network"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "northern",
+         "at": 24,
+         "gives": "N"
+        },
+        {
+         "words": "network",
+         "at": 33,
+         "gives": "LAN",
+         "note": "LAN is a local area network"
+        }
+       ]
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A wish to take over a northern territory with its communications network.",
-     "walkthrough": "The whole clue defines too: Greenland is the northern territory that US president Donald Trump has openly coveted, which the question mark nods to.",
-     "definitionFit": "The &lit reads straight: the Arctic island's strategic position and minerals have made it the target of open American designs."
+     "surface": "A wry dig at a powerful man's wish to grab an Arctic territory.",
+     "walkthrough": "The question mark marks 'here' as a definition by example: the place the greedy acquirer is after.",
+     "definitionFit": "Greenland is the Arctic island that a covetous world leader has openly wanted to buy, the place this clue points at."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "network"
     }
    }
