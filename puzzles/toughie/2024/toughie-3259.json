@@ -780,44 +780,52 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ADJUSTING",
-     "indicators": [
-      {
-       "text": "to replace",
-       "note": "to replace means one item is taken out and another set in its place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 9,
+       "gives": "A"
       },
       {
-       "words": "puppy",
-       "gives": "DOG",
-       "note": "a puppy is a young dog"
-      },
-      {
-       "words": "recently arrived",
-       "gives": "JUSTIN",
-       "note": "just in means recently arrived"
-      },
-      {
-       "words": "Oscar",
-       "gives": "O",
-       "note": "Oscar is O in the NATO phonetic alphabet"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "to replace",
+         "at": 34,
+         "note": "to replace means the new phrase takes the place of the letter for Oscar"
+        }
+       ],
+       "parts": [
+        {
+         "words": "puppy",
+         "at": 11,
+         "gives": "DOG",
+         "note": "a puppy is a young dog"
+        },
+        {
+         "words": "Oscar",
+         "at": 45,
+         "gives": "O",
+         "note": "O is Oscar in the NATO phonetic alphabet"
+        },
+        {
+         "words": "recently arrived",
+         "at": 17,
+         "gives": "JUSTIN",
+         "note": "just in means recently arrived"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A household settling down a new puppy that has just come home.",
-     "walkthrough": "The O of the young dog is swapped out for the phrase meaning recently arrived.",
-     "definitionFit": "Adjusting is the process of becoming accustomed to new circumstances, which is what settling in involves."
+     "surface": "A newly arrived puppy is settling in, taking over from Oscar the old pet.",
+     "walkthrough": "'Oscar' looks like the name of the old pet, but it is the radio alphabet code word for the letter O.",
+     "definitionFit": "Adjusting means adapting or getting used to something, as one does when settling down."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Oscar"
     }
@@ -923,71 +931,73 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "must go",
-       "note": "must go suggests the letters move about and are rearranged"
+       "text": "outside",
+       "at": 25,
+       "note": "outside means the reworked letters wrap around the queen"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "outside",
-         "note": "outside means the rearranged letters are placed around the monarch"
+         "text": "must go",
+         "at": 17,
+         "note": "must go means the letters are sent on their way in a new order"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "deletion",
-           "indicators": [
-            {
-             "text": "shed",
-             "note": "shed means cast off, so that letter is dropped from the word"
-            }
-           ],
-           "parts": [
-            {
-             "words": "tiles",
-             "note": "taken as written"
-            },
-            {
-             "words": "large",
-             "gives": "L",
-             "note": "L is the abbreviation for large"
-            }
-           ]
-          },
-          {
-           "words": "Anne",
-           "note": "taken as written"
-          }
-         ]
+         "words": "Anne",
+         "at": 6,
+         "note": "anagram fodder"
         },
         {
-         "words": "Queen",
-         "gives": "R",
-         "note": "R, for Regina, is the Latin for queen"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "shed",
+           "at": 39,
+           "note": "shed means cast off, so the letter for large drops out of tiles"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tiles",
+           "at": 11,
+           "note": "anagram fodder once one letter is shed"
+          },
+          {
+           "words": "large",
+           "at": 33,
+           "gives": "L",
+           "note": "L is the clothing-size abbreviation for large"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Queen",
+       "at": 0,
+       "gives": "R",
+       "note": "R is short for Regina, Latin for queen"
       }
      ]
     },
     "explanation": {
-     "surface": "Queen Anne style tiles must be removed from a big shed before planting.",
-     "walkthrough": "'Queen Anne' reads as the architectural style but splits into two pieces; 'shed' is a verb, not a garden building, and 'hide plants' means works where hides are processed.",
-     "definitionFit": "Tanneries are factories, or plants, where animal hides are turned into leather."
+     "surface": "Queen Anne tiles are to be taken from a large shed and the plants hidden.",
+     "walkthrough": "'Queen Anne' suggests the period style of the tiles, but Queen gives only R. 'plants' are factories, not flora.",
+     "definitionFit": "Tanneries are works where animal hides are cured into leather, so industrial plants for hides."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "shed"
+     "misdirectedWord": "plants"
     }
    }
   },
@@ -1245,46 +1255,49 @@
      "indicators": [
       {
        "text": "being overwhelmed by",
-       "note": "being overwhelmed by means swamped and engulfed, so these letters are put inside the next word"
+       "at": 47,
+       "note": "overwhelmed means engulfed, so the pieces sit inside the word for smears"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "smears",
+       "at": 68,
+       "gives": "COATS",
+       "note": "to smear is to coat, so smears means coats"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "smears",
-         "gives": "COATS",
-         "note": "smears as in coats of paint or grease"
+         "words": "with",
+         "at": 26,
+         "gives": "W"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "initially",
-           "note": "initially means at the start, so only the opening letter is used"
+           "at": 37,
+           "note": "initially means only the first letter of party is taken"
           }
          ],
          "parts": [
           {
            "words": "party",
-           "note": "the first letter of party"
+           "at": 31
           }
          ]
         }
        ]
-      },
-      {
-       "words": "with",
-       "gives": "W",
-       "note": "W is the abbreviation for with"
       }
      ]
     },
     "explanation": {
-     "surface": "A politician named Galloway's party problems are smeared in the press.",
-     "walkthrough": "Smears gives COATS, which wraps around the abbreviation for with and the party's first letter. Galloway is not the politician but a Scottish breed of cattle, and their issues are what they drop.",
-     "definitionFit": "Cowpats are what cattle such as the Galloway breed leave behind, so they are literally some of its issues, or output."
+     "surface": "George Galloway's political problems, with his party swamped by smear campaigns.",
+     "walkthrough": "'Galloway' suggests the politician, but Galloway is a Scottish breed of cattle, whose 'issues' are droppings.",
+     "definitionFit": "Cowpats are the flat droppings of cattle, what Galloway cows produce."
     },
     "features": {
      "answerInScene": false,
