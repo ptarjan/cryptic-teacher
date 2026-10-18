@@ -550,50 +550,58 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "AHAMOMENT",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means around, so the outer words wrap round another piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 45,
+         "note": "about means around, so the warning words go round the bad actor"
+        }
+       ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 30,
+           "gives": "A"
+          },
+          {
+           "words": "warning sign",
+           "at": 32,
+           "gives": "OMEN",
+           "note": "an omen is a sign warning of what is to come"
+          }
+         ]
         },
         {
          "words": "bad actor",
+         "at": 51,
          "gives": "HAM",
-         "note": "a ham is an overacting performer"
-        },
-        {
-         "words": "warning sign",
-         "gives": "OMEN",
-         "note": "an omen warns of what is to come"
-        },
-        {
-         "words": "Tesla",
-         "gives": "T",
-         "note": "T is the symbol for the tesla, the unit of magnetic flux density"
+         "note": "a ham is an actor who overacts badly"
         }
        ]
+      },
+      {
+       "words": "Tesla",
+       "at": 64,
+       "gives": "T",
+       "note": "T is the SI symbol for the tesla, the unit of magnetic flux density"
       }
      ]
     },
     "explanation": {
-     "surface": "A sudden realisation about a badly behaved figure at the electric car company.",
-     "walkthrough": "The bad actor seems to be a person at the carmaker, but Tesla is the scientific unit; 'a warning sign' splits apart so the overactor can sit between its two words.",
-     "definitionFit": "The phrase names an instant of sudden insight, the time at which understanding arrives."
+     "surface": "It reads like a jab at a notorious boss at the electric-car firm Tesla, with a warning sign about him.",
+     "walkthrough": "'about' puts HAM inside A OMEN; then comes T. 'Tesla' looks like the car company, but here it is the physics unit, whose symbol is T.",
+     "definitionFit": "An aha moment is the instant of sudden insight or realisation when something finally makes sense."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Tesla"
     }

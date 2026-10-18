@@ -168,32 +168,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PACKAGE",
-     "indicators": [
-      {
-       "text": "freed",
-       "note": "a thing freed has its boundaries removed, so the outer letters are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "several wolves",
+       "at": 10,
        "gives": "PACK",
-       "note": "wolves hunt in a pack"
+       "note": "a group of wolves is a pack"
       },
       {
-       "words": "held in captivity",
-       "gives": "CAGED",
-       "note": "an animal held captive is caged"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "freed",
+         "at": 43,
+         "note": "freed means released from its confines, so the outer letters of caged are taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "held in captivity",
+         "at": 25,
+         "gives": "CAGED",
+         "note": "caged means held in captivity"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A group of wolves kept in a cage are released.",
-     "walkthrough": "Being freed, the caged word loses the letters that enclose it.",
-     "definitionFit": "A package is a parcel, something wrapped up together as a bundle."
+     "surface": "A bundle of wolves that had been held captive is set free.",
+     "walkthrough": "'freed' strips the outer C and D from CAGED, leaving AGE to follow PACK.",
+     "definitionFit": "A package is a parcel, something wrapped up as a bundle for carrying or posting."
     },
     "features": {
      "answerInScene": false,
@@ -292,48 +298,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OBLIVION",
-     "indicators": [
-      {
-       "text": "Disrobed",
-       "note": "disrobed means stripped of clothes, so the two following words lose their outer letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "peer",
-       "gives": "NOBLE",
-       "note": "a peer is a noble"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Disrobed",
+         "at": 0,
+         "note": "disrobed means with its outer clothing taken off, so a word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "peer",
+         "at": 9,
+         "gives": "NOBLE",
+         "note": "a noble is a peer of the realm"
+        }
+       ]
       },
       {
        "words": "furious",
-       "gives": "LIVID",
-       "note": "livid means furious"
+       "at": 14,
+       "gives": "IVI",
+       "note": "livid means furious, and disrobed in the same way it loses its outer L and D"
       },
       {
        "words": "over",
+       "at": 22,
        "gives": "O",
-       "note": "O is the cricket scoring abbreviation for an over"
+       "note": "O is the cricket scoring abbreviation for over"
       },
       {
        "words": "new",
-       "gives": "N",
-       "note": "N is the abbreviation for new"
+       "at": 27,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A naked lord, raging about something new, loses his memory.",
-     "walkthrough": "Both peer and furious are stripped of their first and last letters.",
-     "definitionFit": "Oblivion is the state of being unaware or forgotten, total forgetfulness."
+     "surface": "A lord strips off his robes in fury and starts over afresh.",
+     "walkthrough": "'Disrobed' works on two words: NOBLE becomes OBL, and LIVID (furious) becomes IVI. Then come O and N.",
+     "definitionFit": "Oblivion is the state of having forgotten or of being forgotten entirely."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "over"
+     "misdirectedWord": "Disrobed"
     }
    }
   },

@@ -154,57 +154,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "INTERMITTENT",
      "indicators": [
       {
        "text": "in",
-       "note": "the glove is placed inside the other letters, so these words signal an insertion"
+       "at": 6,
+       "note": "in places the glove inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "INTERMITTENT",
-       "indicators": [
-        {
-         "text": "without top",
-         "note": "the season loses its uppermost letter, which in a down clue is its first"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "without top",
+           "at": 21,
+           "note": "without top means the first letter of the season is dropped, as this is a down clue"
+          }
+         ],
          "parts": [
           {
            "words": "cold season",
-           "gives": "INTER",
-           "note": "winter, losing its first letter"
+           "at": 9,
+           "gives": "WINTER",
+           "note": "winter is the cold season of the year"
           },
           {
-           "words": "Glove",
-           "gives": "MITTEN",
-           "note": "a mitten is a kind of glove"
-          },
-          {
-           "words": "temperature",
-           "gives": "T",
-           "note": "T is the abbreviation for temperature"
+           "gives": "W"
           }
          ]
+        },
+        {
+         "words": "temperature",
+         "at": 33,
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "Glove",
+       "at": 0,
+       "gives": "MITTEN",
+       "note": "a mitten is a glove without separate fingers"
       }
      ]
     },
     "explanation": {
-     "surface": "A grumble that the warmth of winter gloves comes and goes.",
-     "walkthrough": "The glove sits inside the beheaded season plus temperature, just before the final letter; 'top' means first letter because this is a down entry.",
-     "definitionFit": "Something intermittent happens at irregular intervals, stopping and starting rather than continuously."
+     "surface": "A glove is worn on and off through winter, depending on how cold it gets.",
+     "walkthrough": "'without top' drops the W of WINTER to leave INTER; T goes after it, and 'in' puts MITTEN between the two.",
+     "definitionFit": "Intermittent means stopping and starting at intervals rather than continuous."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "top"
     }

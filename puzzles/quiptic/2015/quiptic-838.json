@@ -297,47 +297,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REFORMS",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "a short version of a word has lost its final letter"
+       "text": "In",
+       "at": 0,
+       "note": "In tells us the class word sits inside the shortened break"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "In",
-         "note": "the next word sits in the middle of the shortened word for break"
+         "text": "short",
+         "at": 3,
+         "note": "short means the break word is cut down by losing its final letter"
         }
        ],
        "parts": [
         {
          "words": "break",
-         "gives": "RES",
-         "note": "REST, a break, with its last letter cut"
+         "at": 9,
+         "gives": "REST",
+         "note": "a rest is a break from activity"
         },
         {
-         "words": "class",
-         "gives": "FORM",
-         "note": "a form is a school class"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "class",
+       "at": 16,
+       "gives": "FORM",
+       "note": "a form is a school class"
       }
      ]
     },
     "explanation": {
-     "surface": "During a quick breather, a school class decides to behave better from now on.",
-     "walkthrough": "In British schools a year group is called a form; 'In' places it within the shortened break.",
-     "definitionFit": "Someone who reforms improves their conduct, and turning over a new leaf is the idiom for that fresh start."
+     "surface": "During a brief break, a school class resolves to behave better.",
+     "walkthrough": "'short' cuts REST to RES, and 'In' puts FORM inside it. A form is the British word for a school class or year group.",
+     "definitionFit": "To turn over a new leaf is an idiom for improving one's behaviour, which is what someone who reforms does."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "class"
     }
    }
