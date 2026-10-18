@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,42 +44,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "FIREARM",
-     "indicators": [
-      {
-       "text": "in retirement",
-       "note": "Somebody in retirement has withdrawn, gone back the way they came, and the word in front of the phrase is written out backwards to match."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "in retirement",
+         "at": 16,
+         "note": "retiring is drawing back, so the word for provided is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "provided in retirement",
-         "gives": "FI",
-         "note": "'provided' in the sense of 'if', turned round"
-        },
-        {
-         "words": "raise",
-         "gives": "REAR",
-         "note": "to rear a child is to raise one"
-        },
-        {
-         "words": "money",
-         "gives": "M",
-         "note": "M is the standard abbreviation for money"
+         "words": "provided",
+         "at": 7,
+         "gives": "IF",
+         "note": "if means provided, as in 'provided that'"
         }
        ]
+      },
+      {
+       "words": "raise",
+       "at": 33,
+       "gives": "REAR",
+       "note": "to rear is to raise, as children or animals"
+      },
+      {
+       "words": "money",
+       "at": 39,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "A pensioner handed a gun as a way of bringing in some extra cash.",
-     "walkthrough": "'Raise money' looks like one idea and is two separate pieces; 'provided' is the everyday 'if', as in 'provided that you come'.",
-     "definitionFit": "A firearm is any gun that fires a shot with an explosive charge, so the definition names the wider class the answer belongs to."
+     "surface": "Someone retires and takes up a scheme to raise funds.",
+     "walkthrough": "'to raise money' reads as one fundraising phrase, but it splits into two pieces, raise and money, after the reversed word for provided.",
+     "definitionFit": "A firearm is a gun, a portable weapon that fires bullets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
     }
    }
   },
@@ -260,37 +267,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MUSIC",
-     "indicators": [
-      {
-       "text": "revolutionary",
-       "note": "A revolution turns a thing full circle, so the word in front of this one is read from its far end back."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 6,
+         "note": "a revolution turns something round, so the word for total is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Total revolutionary",
-         "gives": "MUS",
-         "note": "a total is a sum, written out from the back"
-        },
-        {
-         "words": "in command of",
-         "gives": "IC",
-         "note": "i/c is the services' short form for the officer in charge"
+         "words": "Total",
+         "at": 0,
+         "gives": "SUM",
+         "note": "a sum is a total"
         }
        ]
+      },
+      {
+       "words": "in command of",
+       "at": 20,
+       "gives": "IC",
+       "note": "IC is the abbreviation for in charge or in command of, as in second-in-command (2IC)"
       }
      ]
     },
     "explanation": {
-     "surface": "A rebel leader running an entire country.",
-     "walkthrough": "'Country' wants to be a nation and is a genre, which is the one step the surface works hardest to hide.",
-     "definitionFit": "Country is one kind of music among many, so the definition works by example — which is what 'perhaps' and the question mark are admitting."
+     "surface": "A revolutionary leader takes total command of a country.",
+     "walkthrough": "'country perhaps' is a definition by example: country is a genre of popular song, not a nation, despite the political surface.",
+     "definitionFit": "Country and western is one genre of popular song, so it is an example of the art form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "country"
     }
    }
   },
@@ -649,48 +663,63 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "unprotected",
-       "note": "A word left unprotected loses the letters standing guard at each end, and only the middle survives."
-      }
-     ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "ART",
        "indicators": [
         {
-         "text": "releases",
-         "note": "To release something is to let it go, so the two letters named straight afterwards leave the word they were sitting in."
+         "text": "unprotected",
+         "at": 11,
+         "note": "without its protective outer layer, the word loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Earth unprotected",
-         "gives": "ART",
-         "select": "middle",
-         "note": "EARTH with the letters at each end stripped away"
+         "words": "Earth",
+         "at": 5,
+         "note": "taken as written, then stripped of its ends"
         }
        ]
       },
       {
        "words": "I",
-       "note": "the single letter is used just as it stands"
+       "at": 23
       },
       {
-       "words": "authorised releases of",
-       "gives": "FICIAL",
-       "note": "something authorised is official, and OF is what it lets go"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "releases",
+         "at": 36,
+         "note": "releasing lets go of something, so the little word of is let out of the longer word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "authorised",
+         "at": 25,
+         "gives": "OFFICIAL",
+         "note": "official means authorised, approved"
+        },
+        {
+         "words": "of",
+         "at": 45,
+         "gives": "OF",
+         "note": "the letters let go"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An official admitting they signed off plastic waste while the planet lay unprotected.",
-     "walkthrough": "'Releases of plastic' is an environmental phrase in the surface and an instruction in the wordplay, where 'of' is a thing to be thrown away rather than a joining word.",
-     "definitionFit": "Plastic used as an adjective means synthetic or insincere — a plastic smile — and that is the sense in which it matches the answer."
+     "surface": "An environmental warning: once the Earth is exposed, I approved the dumping of plastic.",
+     "walkthrough": "'With' is only a link. 'releases' looks like a noun for press releases but is a verb: the authorised word lets go of the small word of.",
+     "definitionFit": "Plastic as an adjective means fake or synthetic, not natural or genuine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plastic"
     }
    }
   },
@@ -757,37 +786,26 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MILLSTREAM",
-     "indicators": [
-      {
-       "text": "to form",
-       "note": "Forming something is making a new shape out of material you already have, so the letters named next are built into a different order."
-      }
-     ],
+     "op": "reverse",
+     "reading": "MILL + STREAM",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Instruction for cryptic solvers",
-         "gives": "MILL",
-         "note": "to mill is to move about in a confused mass, which is what setters use such words to ask you to do to letters"
-        },
-        {
-         "words": "master",
-         "gives": "STREAM",
-         "note": "the six letters of MASTER, rebuilt"
-        }
-       ]
+       "words": "Instruction for cryptic solvers to form master",
+       "at": 0,
+       "note": "to mill is to grind or churn, an anagram signal; told to churn the letters of a word for running water, the solver forms master"
       }
      ]
     },
     "explanation": {
-     "surface": "Crossword solvers being told to go away and breed a master race.",
-     "walkthrough": "The first three words define one of the setter's own instruction words, and 'race' at the end is a channel of water rather than people.",
-     "definitionFit": "A race is the fast channel of water that drives a mill wheel — the mill race — so the definition is the technical term for the thing itself."
+     "surface": "A setter tells solvers how to form the word master, with an ominous hint of a master race.",
+     "walkthrough": "Read the answer as an instruction: MILL (churn up) STREAM, whose letters rearranged give MASTER. 'race' is the definition, and 'master race' is pure misdirection.",
+     "definitionFit": "A mill race is the channel of water that drives a mill wheel, so a race is a millstream."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "race"
     }
    }
   },
@@ -860,43 +878,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IMMEDIATE",
+     "op": "container",
      "indicators": [
       {
-       "text": "off",
-       "note": "Milk that is off has gone bad, and a word that has gone off the same way no longer holds its letters in the right order."
+       "text": "is restricting",
+       "at": 17,
+       "note": "restricting means hemming in, so the jumbled letters enclose the press word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "restricting",
-         "note": "Restricting something is closing round it, so the letters just rebuilt shut around whatever the clue names next."
+         "text": "off",
+         "at": 13,
+         "note": "off in the sense of gone wrong or out of order, so the letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "time off",
-         "gives": "IMTE",
-         "note": "the four letters of TIME, put into a new order"
-        },
-        {
-         "words": "newspapers and magazines",
-         "gives": "MEDIA",
-         "note": "newspapers and magazines together are the media"
+         "words": "time",
+         "at": 8,
+         "note": "taken as written, then rearranged"
         }
        ]
+      },
+      {
+       "words": "newspapers and magazines",
+       "at": 32,
+       "gives": "MEDIA",
+       "note": "the media are newspapers, magazines and broadcasting together"
       }
      ]
     },
     "explanation": {
-     "surface": "A break from work being spoiled by the papers.",
-     "walkthrough": "'Time off' reads as a holiday and is an instruction with its material: 'off' is the spoiling word, used the way milk goes off.",
-     "definitionFit": "An immediate reply comes with no delay at all, which is what 'instant' means when it describes an action rather than a moment in time."
+     "surface": "Time off work is rationed so the staff can read the papers and magazines.",
+     "walkthrough": "'off' scrambles TIME into IMTE, which 'is restricting' MEDIA: IM + MEDIA + TE.",
+     "definitionFit": "Immediate and instant are synonyms for happening at once, with no delay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
     }
    }
   },
@@ -1219,41 +1243,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ADROITNESS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 21,
+       "note": "about means around, so the scrambled letters go round the daughter letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Confounded",
-         "note": "Something confounded has been thrown into confusion, and letters in confusion do not keep the order they came in."
-        },
-        {
-         "text": "about",
-         "note": "Putting one thing about another wraps it round, so the letter named next ends up inside the rebuilt letters."
+         "at": 0,
+         "note": "confounded means thrown into confusion, so the letters are mixed up"
         }
        ],
        "parts": [
         {
          "words": "assertion",
-         "gives": "AROITNESS",
-         "note": "the nine letters of ASSERTION, rebuilt"
-        },
-        {
-         "words": "daughter",
-         "gives": "D",
-         "note": "D is the standard abbreviation for daughter"
+         "at": 11,
+         "note": "taken as written, then rearranged"
         }
        ]
+      },
+      {
+       "words": "daughter",
+       "at": 27,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A disputed claim about how nimble somebody's daughter is.",
-     "walkthrough": "'Confounded' is an exclamation of annoyance in the surface — confounded nuisance — and an instruction in the wordplay, which is why it can sit at the front.",
-     "definitionFit": "Adroitness is skill with the hands or the wits — literally right-handedness, from the French a droit — which is what dexterity names."
+     "surface": "A father fumes at his daughter's insistence on her own skill.",
+     "walkthrough": "'Confounded' rearranges ASSERTION, and that goes 'about' D; the possessive 's is only a link.",
+     "definitionFit": "Adroitness is skill with the hands or mind, the same quality as dexterity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Confounded"
     }
    }
   },

@@ -121,50 +121,59 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "CO",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Leading couples in",
-         "note": "leading couples are the front pairs, so the first two letters of each word are kept"
+         "text": "Leading",
+         "at": 0,
+         "note": "leading couples means the front pairs of letters; here it keeps only the front of court"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "court",
-         "gives": "CO",
-         "select": "first",
-         "note": "the leading pair of letters of the word, an operation not an abbreviation"
+         "at": 19,
+         "note": "taken as written; only its leading pair is kept"
+        },
+        {
+         "gives": "URT",
+         "note": "the letters after the leading pair of court, removed"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "ME",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "couples",
+         "at": 8,
+         "note": "couples are pairs, saying two front letters are kept, here from meet as well"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
          "words": "meet",
-         "gives": "ME",
-         "select": "first",
-         "note": "the leading pair of letters of the word, an operation not an abbreviation"
+         "at": 25,
+         "note": "taken as written; only its leading pair is kept"
+        },
+        {
+         "gives": "ET",
+         "note": "the letters after the leading pair of meet, removed"
         }
        ]
       },
       {
        "words": "support",
+       "at": 34,
        "gives": "BACK",
        "note": "to back someone is to support them"
       }
      ]
     },
     "explanation": {
-     "surface": "Dancers or tennis pairs gather on court, backing a player returning to their old rank.",
-     "walkthrough": "The 'couples' are pairs of letters, not people: the first two of court and of meet, followed by a word for support.",
-     "definitionFit": "A comeback is a recovery of an earlier standing, as when a retired athlete or faded star wins back status."
+     "surface": "Two couples meet in court to support someone's return to a former post.",
+     "walkthrough": "'Leading couples' works on both words together: keep the first pair of letters of court and of meet. 'couples' looks like people, but it means pairs of letters.",
+     "definitionFit": "A comeback is a return to a former position of success, as a sportsperson or performer makes."
     },
     "features": {
      "answerInScene": true,
@@ -785,43 +794,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHARIOTEER",
+     "op": "container",
      "indicators": [
       {
-       "text": "half-forgotten",
-       "note": "forgetting half of something drops that share of its letters"
+       "text": "about",
+       "at": 14,
+       "note": "about means around, so the cautious word is wrapped around the shortened remote"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "More cautious",
+       "at": 0,
+       "gives": "CHARIER",
+       "note": "chary means cautious, so more cautious is charier"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so one word is wrapped round another"
+         "text": "half-forgotten",
+         "at": 28,
+         "note": "half of the word is forgotten, so its first half drops away"
         }
        ],
        "parts": [
         {
-         "words": "More cautious",
-         "gives": "CHARIER",
-         "note": "chary means cautious, so charier is more cautious"
+         "words": "remote",
+         "at": 20,
+         "note": "taken as written, then halved"
         },
         {
-         "words": "remote",
-         "gives": "OTE",
-         "note": "the second half of the six-letter word"
+         "gives": "REM",
+         "note": "the first half, forgotten"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wary viewer half forgets the TV remote, like some old-time driver.",
-     "walkthrough": "'Remote' suggests a TV controller, but it only supplies its back half.",
-     "definitionFit": "A charioteer drove a horse-drawn chariot in ancient races and battles, so he was a driver of former times."
+     "surface": "A wary person fiddles with a half-remembered remote control.",
+     "walkthrough": "'half-forgotten' leaves OTE from remote, and CHARIER goes 'about' it: CHARI + OTE + ER.",
+     "definitionFit": "A charioteer drove a chariot, as in Roman races, so he was a driver of the ancient world."
     },
     "features": {
      "answerInScene": false,
@@ -1616,32 +1630,31 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "CUB",
      "indicators": [
       {
        "text": "with edges trimmed",
-       "note": "trimming the edges cuts off both ends, keeping only the inner letters"
+       "at": 17,
+       "note": "trimming the edges cuts off the first and last letters"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Diving equipment",
-       "gives": "CUB",
-       "select": "middle",
-       "note": "scuba gear is used for diving; the inner three of its five letters"
+       "at": 0,
+       "gives": "SCUBA",
+       "note": "scuba is breathing apparatus for underwater diving"
       }
      ]
     },
     "explanation": {
-     "surface": "Diving gear with its edges trimmed is handed to a beginner.",
-     "walkthrough": "A cub reporter is a novice journalist, hence the sense of beginner.",
-     "definitionFit": "A cub is a raw beginner, as in a cub reporter, so it fits newcomer as a noun."
+     "surface": "A newcomer to diving has the edges of their gear trimmed.",
+     "walkthrough": "'with edges trimmed' takes S and A off SCUBA.",
+     "definitionFit": "A cub is a beginner or novice, as in a cub reporter."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "equipment"
     }
    }
   },

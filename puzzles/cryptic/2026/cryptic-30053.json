@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -201,41 +202,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "It points at the end of the word, so the letter that finishes it is the only one taken."
+       "text": "wrapped up by",
+       "at": 20,
+       "note": "wrapped up by means enclosed within, so the wizard word goes round the speech letter"
       }
      ],
      "parts": [
       {
        "words": "wizard",
+       "at": 34,
        "gives": "ACE",
-       "note": "an ace is a wizard at something — the expert, not the conjuror — and the word opens after its second letter"
+       "note": "an ace is an expert, a wizard at something"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "H",
        "indicators": [
         {
-         "text": "wrapped up by",
-         "note": "Anything wrapped up has a covering closed round it, so the piece named next goes outside."
+         "text": "finally",
+         "at": 12,
+         "note": "finally picks the last letter of speech"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "speech finally",
-         "gives": "H",
-         "select": "last",
-         "note": "the closing letter of speecH"
+         "words": "speech",
+         "at": 5,
+         "note": "its last letter is H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Long' opens the clue looking like an adjective sizing up the speech, and it is really the verb — to long for something.",
-     "definitionFit": "Long → ACHE: to ache for a thing is to yearn for it, and both verbs carry the sense of a want that hurts."
+     "surface": "A wizard delivers a long speech that is finally wrapped up.",
+     "walkthrough": "'Long' looks like an adjective for the speech, but it is the verb, the definition. 'finally' gives H from speech, which is 'wrapped up by' ACE.",
+     "definitionFit": "To ache for something is to yearn or long for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Long"
     }
    }
   },
@@ -1466,43 +1472,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SHORTANDCURLIES",
+     "spelt": "SHORTANDCURLIES",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner traded the opening sounds of two words, so his name alone is the instruction to swap them over."
+       "at": 38,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the two names trade places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Margaret",
+       "at": 48,
+       "gives": "COURT",
+       "note": "Margaret Court, the Australian tennis champion"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ANDSHIRLIES",
        "parts": [
         {
-         "unchecked": true,
-         "words": "Margaret",
-         "gives": "SHORT",
-         "soundsLike": "COURT",
-         "note": "Margaret Court won more grand slam titles than anyone; she hands her C over and takes SH in exchange"
-        },
-        {
-         "words": "and",
-         "note": "the joining word between the names stays exactly where it stands"
-        },
-        {
-         "unchecked": true,
          "words": "Temple and MacLaine",
-         "gives": "CURLIES",
-         "soundsLike": "SHIRLEYS",
-         "note": "Shirley Temple and Shirley MacLaine make a pair of Shirleys, and they collect the C the tennis player gave up"
+         "at": 58,
+         "gives": "ANDSHIRLEYS",
+         "note": "Shirley Temple and Shirley MacLaine, two film actresses sharing a first name: and Shirleys"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Say the plain version first — a tennis champion and two actresses — and Spooner does the rest. What comes out is an idiom with nothing to do with any of them.",
-     "definitionFit": "Having somebody by the short and curlies means having them at your mercy; the phrase names body hair whose grip leaves no room to argue."
+     "surface": "A cryptic roll call of famous women, with a hint at someone being cornered.",
+     "walkthrough": "'Spooner's' asks for swapped opening sounds: COURT AND SHIRLEYS, with the K of COURT and the SH of SHIRLEYS traded, says 'short and curlies'. To have someone by the short and curlies is a British idiom for having them in your power.",
+     "definitionFit": "The phrase names pubic hair; anyone gripped there has lost all control, the idiom's sense of being at another's mercy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Margaret"
     }
    }
   },

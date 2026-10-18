@@ -54,32 +54,50 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PORTOFCALL",
+     "spelt": "PORTOFCALL",
      "indicators": [
       {
        "text": "According to Spooner",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so his name tells you to swap initial sounds"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the two parts trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Apostolic Palace",
-       "gives": "PORTOFCALL",
-       "soundsLike": "COURT OF PAUL",
-       "note": "a palace is a royal court, and apostolic can mean belonging to Saint Paul the apostle; swap the C and P sounds"
+       "op": "homophone",
+       "spelt": "CORT",
+       "parts": [
+        {
+         "words": "Palace",
+         "at": 32,
+         "gives": "COURT",
+         "note": "a royal court is a palace, the sovereign's residence"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "OFPALL",
+       "parts": [
+        {
+         "words": "Apostolic",
+         "at": 22,
+         "gives": "OFPAUL",
+         "note": "apostolic means of an apostle, here of Paul"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tourist tip: the Pope's residence in Vatican City is worth a visit.",
-     "walkthrough": "COURT OF PAUL becomes PORT OF CALL when the initial C and P sounds trade places. 'Apostolic' points at Paul, one of the apostles, rather than the Pope.",
-     "definitionFit": "A port of call is literally a harbour where a ship stops, and figuratively any stop made during a trip."
+     "surface": "A tourist note that the Pope's Apostolic Palace in Rome is worth a visit.",
+     "walkthrough": "'According to Spooner' asks for swapped opening sounds: read 'Apostolic Palace' as COURT OF PAUL, trade the K and P sounds, and say 'port of call'.",
+     "definitionFit": "A port of call is a place where a ship stops on its voyage, or any place one visits along the way."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Apostolic"
     }
    }
@@ -1098,34 +1116,39 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MAYFAIR",
-     "indicators": [
-      {
-       "text": "rising",
-       "note": "in a down clue, rising reads from bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "MAYFAIR",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "cycling",
-         "note": "going round in a cycle moves the last letter to the front"
+         "text": "rising",
+         "at": 6,
+         "note": "in a down clue, rising means read upwards, so the morning abbreviation is turned round"
         }
        ],
        "parts": [
         {
          "words": "before noon",
+         "at": 13,
          "gives": "AM",
-         "note": "am, ante meridiem, means before noon"
-        },
+         "note": "AM, ante meridiem, means before noon"
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 41,
+         "note": "cycling moves a letter round from one end of the word to the other"
+        }
+       ],
+       "parts": [
         {
          "words": "fabulous being",
+         "at": 26,
          "gives": "FAIRY",
          "note": "a fairy is a creature of fable"
         }
@@ -1134,9 +1157,9 @@
      ]
     },
     "explanation": {
-     "surface": "A mythical creature gets up in the morning and rides a bike around a London district.",
-     "walkthrough": "'After' sets the order: the rising piece comes first. Mayfair is an expensive district of central London.",
-     "definitionFit": "Mayfair is a wealthy district of the West End, so it is one particular place in the capital."
+     "surface": "After getting up early, a fairy goes cycling round somewhere in London.",
+     "walkthrough": "'rising' turns AM up into MA; 'cycling' moves the Y of FAIRY from the end to the front, giving YFAIR. 'After' is only a link here.",
+     "definitionFit": "Mayfair is an affluent district of central London, in the West End."
     },
     "features": {
      "answerInScene": true,
@@ -1591,51 +1614,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COALESCENT",
+     "op": "composite",
      "indicators": [
       {
        "text": "troubled",
-       "note": "something troubled is disturbed and out of order"
+       "at": 8,
+       "note": "troubled means disturbed, so the letters of the fodder are stirred up"
+      },
+      {
+       "text": "leaving",
+       "at": 34,
+       "note": "leaving means taking away, so some letters are removed from the fodder"
       },
       {
        "text": "worked",
-       "note": "worked means shaped or kneaded, so the departing letters may come from anywhere in any order"
+       "at": 53,
+       "note": "worked means shaped or kneaded, a second signal that the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "COALESCENT",
+       "words": "council estates",
+       "at": 17,
+       "note": "the fodder, taken as written"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
-         "text": "leaving",
-         "note": "leaving means departing, so some letters go away"
+         "text": "with",
+         "at": 45,
+         "note": "with joins the two pairs of letters that leave the fodder together"
         }
        ],
        "parts": [
         {
-         "words": "council estates",
-         "note": "the letters to work with"
+         "words": "it",
+         "at": 42,
+         "note": "letters taken away"
         },
         {
-         "words": "it with us",
-         "gives": "ITUS",
-         "note": "the letters to remove, wherever they fall"
+         "words": "us",
+         "at": 50,
+         "note": "letters taken away"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A social project to bring together troubled housing estates, with us doing the work.",
-     "walkthrough": "Remove I, T, U and S from the fourteen letters and rearrange the ten left. A council estate is British public housing.",
-     "definitionFit": "Coalescent means coming together to form one whole, merging, which is what uniting things do."
+     "surface": "Troubled council estates come together once outsiders leave them alone to work things out.",
+     "walkthrough": "'troubled' and 'worked' both call for rearranging, and 'leaving' takes I, T, U and S away from COUNCIL ESTATES; the ten letters left are rearranged. A council estate is British public housing.",
+     "definitionFit": "Coalescent describes things coming together and merging into one, the act of uniting."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "worked"
     }
