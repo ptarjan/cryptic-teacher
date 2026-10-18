@@ -74,7 +74,9 @@ check("the list did not grow", len(json.loads(Q.PATH.read_text())) <= 2)
 # The detectors are the gate: a listed clue whose tree they still flag (a real
 # row of the live list) cannot be re-filed with that tree, prose changed or not.
 real = None
-for r in (json.loads(Q.REAL.read_text()) if Q.REAL.exists() else [])[:50]:
+for r in (json.loads(Q.REAL.read_text()) if Q.REAL.exists() else []):
+    if r.get("tried"):
+        continue  # a tried row is not pending: the view skips it by design
     pid, _, ck = r["id"].partition("#")
     src2 = next(Path("puzzles").glob(f"**/{pid}.json"), None)
     if src2 is None:
@@ -255,7 +257,7 @@ pz = {"id": "stale-1", "entries": [entry(1, bad), entry(2, fine), entry(3, fine)
 check("the flagged tree fires its detector", Q.settled(pz["entries"][0], "arity_ins: x") is False)
 check("a fixed tree is settled for its detector", Q.settled(pz["entries"][1], "arity_ins: x"))
 check("a reason the detectors cannot judge is never settled", not Q.settled(pz["entries"][2], "model-fixable: x"))
-check("one unknown name keeps the row", not Q.settled(pz["entries"][2], "arity_ins: x; walkthrough: y"))
+check("one unknown name keeps the row", not Q.settled(pz["entries"][2], "arity_ins: x; ddMissesWordplay: y"))
 check("a clue with no tree is never settled", not Q.settled({"annotation": None}, "arity_ins: x"))
 _leaf = {"words": "x", "gives": "AB", "unchecked": True}
 _unch = {"annotation": {"wordplay": {"op": "charade", "parts": [_leaf, {"words": "y", "gives": "C"}]}}}
