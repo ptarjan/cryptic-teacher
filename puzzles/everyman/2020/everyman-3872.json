@@ -1534,50 +1534,54 @@
      "indicators": [
       {
        "text": "drinking",
-       "note": "drink goes inside the drinker, so the outer piece takes the others in"
+       "at": 5,
+       "note": "the nuns' house takes the drink in, holding it inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Nuns",
-         "gives": "CONVENT",
-         "note": "a convent is a community of nuns"
-        },
-        {
-         "words": "beer",
-         "gives": "ALES",
-         "note": "ales are beers"
-        }
-       ]
+       "words": "Nuns",
+       "at": 0,
+       "gives": "CONVENT",
+       "note": "a convent is a community of nuns"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "drop of",
-         "note": "a drop is a tiny amount, so just one letter, the first, is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "cognac",
-         "note": "the opening letter"
+         "words": "beer",
+         "at": 14,
+         "gives": "ALES",
+         "note": "ales are beers"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "drop of",
+           "at": 24,
+           "note": "a drop is a tiny amount, the first letter of cognac"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cognac",
+           "at": 32
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nuns sip beer and a little brandy as a pick-me-up.",
-     "walkthrough": "'Nuns' stands for the place and community they make up; the beer and the brandy letter sit together inside it.",
-     "definitionFit": "A convalescent person is recovering health after illness, gradually regaining strength."
+     "surface": "Nuns taking beer and a drop of brandy as a pick-me-up.",
+     "definitionFit": "Someone convalescent is recovering health after illness, so getting back their strength."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "Nuns"
     }
    }

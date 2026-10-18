@@ -1375,40 +1375,43 @@
      "indicators": [
       {
        "text": "arresting",
-       "note": "police arresting someone take them into custody"
+       "at": 19,
+       "note": "the sergeant arrests, holding the pieces inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Detective Sergeant",
-         "gives": "DS",
-         "note": "DS = Detective Sergeant"
-        },
-        {
-         "words": "little",
-         "gives": "WEE",
-         "note": "wee = little, Scottish"
-        }
-       ]
+       "words": "Detective Sergeant",
+       "at": 0,
+       "gives": "DS",
+       "note": "DS is the police abbreviation for Detective Sergeant"
       },
       {
-       "words": "British",
-       "gives": "B",
-       "note": "B = British"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "little",
+         "at": 29,
+         "gives": "WEE",
+         "note": "wee is Scots for little"
+        },
+        {
+         "words": "British",
+         "at": 36,
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A detective sergeant rounds up some small-time British fools.",
-     "walkthrough": "D(WEE B)S: the detective's initials split around the captured pair.",
-     "definitionFit": "A plain synonym in slang: boring, socially inept people, an American import."
+     "surface": "A police officer arresting some small British fools.",
+     "definitionFit": "Dweebs is slang for boring, socially inept people, near enough fools."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "arresting"
     }
    }
   },
