@@ -151,47 +151,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ECOFREAK",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not starting",
-       "note": "a word that is not starting has lost its opening letter"
+       "text": "to turn",
+       "at": 25,
+       "note": "to turn here is to change form, so the remaining letters are reworked"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to turn",
-         "note": "turning the letters over and around rearranges them into a new order"
+         "text": "not starting",
+         "at": 12,
+         "note": "the word loses the letter it starts with"
         }
        ],
        "parts": [
         {
          "words": "Poker",
-         "gives": "OKER",
-         "note": "the card game word with its first letter dropped"
+         "at": 0
         },
         {
-         "words": "face",
-         "note": "taken as written"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "face",
+       "at": 6
       }
      ]
     },
     "explanation": {
-     "surface": "A card player's poker face slowly turns green with nausea or envy.",
-     "walkthrough": "'Poker face' looks like one idea, but the two words are anagram fodder once the P goes; 'green' is a noun for an environmentalist.",
-     "definitionFit": "A Green is an environmental campaigner, and an eco-freak is an informal, mocking term for such a person."
+     "surface": "A card player's blank expression, without the start, gives way to a change.",
+     "walkthrough": "'Poker face' reads as one phrase, a gambler's blank look, but it splits: 'not starting' leaves OKER, and 'to turn' reworks those letters with FACE.",
+     "definitionFit": "Green is used of environmentalists, and an eco-freak is an informal, mildly mocking term for a zealous one."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "green"
+     "misdirectedWord": "Poker"
     }
    }
   },
@@ -315,51 +317,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RARE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Mostly",
-       "note": "mostly means most but not all, so the final letter is dropped"
+       "text": "in the middle",
+       "at": 25,
+       "note": "the short pieces are placed in the centre of the shortened colour word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in the middle",
-         "note": "these pieces go in the middle of the shortened word, inside it"
+         "text": "Mostly",
+         "at": 0,
+         "note": "most of the word is kept, its last letter dropped"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "red",
-           "gives": "RE",
-           "note": "the colour with its last letter removed"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "red",
+         "at": 7,
+         "gives": "RED"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 12,
+         "gives": "A"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "little",
-           "note": "only a little of the word is used, just its opening letter"
+           "at": 14,
+           "note": "only a small part of the word, its first letter, is used"
           }
          ],
          "parts": [
           {
            "words": "raw",
-           "note": "the first letter of the word"
+           "at": 21,
+           "note": "the first letter of raw"
           }
          ]
         }
@@ -369,13 +377,13 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A steak described as mostly red and a bit raw at its centre.",
-     "walkthrough": "A and R sit inside RE; the whole clue then describes how such a steak looks.",
-     "definitionFit": "A steak cooked this way is seared outside but still red and barely cooked at its centre."
+     "surface": "A description of how a steak looks when cut open: red and slightly uncooked inside.",
+     "definitionFit": "A rare steak is lightly cooked, so it stays pink and bloody, slightly underdone at its centre."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "middle"
     }
    }
   },
@@ -823,38 +831,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANTHILL",
+     "op": "composite",
      "indicators": [
       {
-       "text": "not good",
-       "note": "not good means the abbreviation for good is taken away"
+       "text": "restless",
+       "at": 22,
+       "note": "restless letters will not stay still, so they are rearranged"
+      },
+      {
+       "text": "not",
+       "at": 43,
+       "note": "the letter for good is left out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "restless",
-         "note": "restless letters will not stay still, so they move into a new order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "all night",
-         "gives": "ALLNIHT",
-         "note": "the two words with G removed"
+         "words": "all",
+         "at": 31
+        },
+        {
+         "words": "night",
+         "at": 35
         }
        ]
+      },
+      {
+       "words": "good",
+       "at": 47,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A household with small children who are restless all night, which is no good.",
-     "walkthrough": "'Little ones' suggests children, but the residents are tiny insects.",
-     "definitionFit": "This mound is the nest housing a colony of tiny insects, the little ones of the clue."
+     "surface": "A house with small children who won't settle all night long.",
+     "walkthrough": "'little ones' seems to mean children, but it means the ants. 'not' takes G out of the letters of ALL NIGHT and 'restless' rearranges the rest.",
+     "definitionFit": "An anthill is the mound where a colony of tiny insects lives, so a home for small creatures."
     },
     "features": {
      "answerInScene": false,
@@ -1137,52 +1151,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THYMUS",
-     "indicators": [
-      {
-       "text": "reduction",
-       "note": "a reduction makes the word shorter, cutting its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduction",
+         "at": 15,
+         "note": "a reduction cuts something down, so the herb loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "herb",
-         "gives": "THYM",
-         "note": "the herb thyme with its last letter cut"
+         "at": 10,
+         "gives": "THYME",
+         "note": "thyme is a culinary herb"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "US",
-         "indicators": [
-          {
-           "text": "for starters",
-           "note": "the starters are the opening letters of each word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "unpleasantly served",
-           "gives": "US",
-           "select": "first",
-           "note": "first letters of the two words"
-          }
-         ]
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "for starters",
+         "at": 45,
+         "note": "only the starting letters of the next two words are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unpleasantly served",
+         "at": 25,
+         "note": "the first letters of unpleasantly and served"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gland and a herb reduction, unpleasantly served as starters at dinner.",
-     "walkthrough": "'Reduction' and 'starters' sound like cookery terms, but they signal shortening and first letters.",
-     "definitionFit": "The thymus is a lymphoid organ in the chest, classed as a gland of the immune system."
+     "surface": "A cooking note: a herb sauce reduced and dished up badly as a first course.",
+     "definitionFit": "The thymus is a lymphoid organ in the chest that produces T-cells, classed among glands."
     },
     "features": {
      "answerInScene": false,
