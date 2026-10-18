@@ -199,41 +199,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "INERTIA",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "in a down clue, up means the word is read from bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "in",
+       "at": 19
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "is holding",
+         "at": 27,
+         "note": "is holding means the period of time wraps around the upturned letters"
+        }
+       ],
        "parts": [
         {
-         "words": "in",
-         "note": "taken as written"
+         "words": "time",
+         "at": 22,
+         "gives": "ERA",
+         "note": "an era is a period of time"
         },
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "is holding",
-           "note": "holding means the time word wraps around the other piece"
+           "text": "up",
+           "at": 41,
+           "note": "up, in a down clue, means the word is written going upwards, so it reads backwards"
           }
          ],
          "parts": [
           {
-           "words": "time",
-           "gives": "ERA",
-           "note": "an era is a period of time"
-          },
-          {
            "words": "it",
-           "gives": "TI",
-           "note": "it, reading upwards"
+           "at": 38
           }
          ]
         }
@@ -242,13 +242,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone's unwillingness to get going is delaying things.",
-     "definitionFit": "Inertia is the tendency to stay at rest, a disinclination to act or change."
+     "surface": "Someone's unwillingness to act means everything is being delayed.",
+     "walkthrough": "'in time' reads as a phrase meaning punctually, but 'in' is a separate piece placed first; 'up' works because this is a down clue.",
+     "definitionFit": "Inertia is the tendency to stay at rest, so in people it is sluggishness or reluctance to act."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "up"
+     "misdirectedWord": "holding"
     }
    }
   },
@@ -424,37 +425,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOGJAM",
-     "indicators": [
-      {
-       "text": "shortly",
-       "note": "shortly asks for an abbreviated form of the rank word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Record",
+       "at": 0,
+       "gives": "LOG",
+       "note": "a log is a written record, as a ship's log"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned over",
+         "at": 23,
+         "note": "turned over means flipped round, so the shortened rank reads backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Record",
-         "gives": "LOG",
-         "note": "a log is a written record"
-        },
-        {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "turned over",
-           "note": "turned over means flipped so the letters run backwards"
+           "text": "shortly",
+           "at": 15,
+           "note": "shortly means briefly, so the rank is shortened to its abbreviation"
           }
          ],
          "parts": [
           {
            "words": "officer",
-           "gives": "MAJ",
-           "note": "a major, shortened to the military abbreviation"
+           "at": 7,
+           "gives": "MAJOR",
+           "note": "a major is an army officer"
+          },
+          {
+           "gives": "OR"
           }
          ]
         }
@@ -463,11 +469,12 @@
      ]
     },
     "explanation": {
-     "surface": "An officer's record was overturned, leaving a stalemate.",
-     "definitionFit": "A logjam is a blockage where nothing can move, figuratively a deadlock."
+     "surface": "A record of an officer flipping over has led to a stalemate.",
+     "walkthrough": "'shortly' cuts MAJOR to its abbreviation MAJ, and 'turned over' reverses it to JAM.",
+     "definitionFit": "A logjam is a blockage of floating timber, and figuratively a standstill where nothing moves."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Record"
     }
@@ -1266,41 +1273,50 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 29,
+       "note": "after means the home letters come second, following the shortened word"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "VIOL",
+       "op": "deletion",
        "indicators": [
         {
          "text": "first half of",
-         "note": "only the opening half of the word for the stated thing is kept"
+         "at": 35,
+         "note": "first half of means only the opening four of its eight letters are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "foul play",
-         "gives": "VIOL",
-         "select": "first",
-         "note": "foul play is violence; its first four of eight letters are kept"
+         "at": 49,
+         "gives": "VIOLENCE",
+         "note": "foul play is violence, as when police suspect a crime"
+        },
+        {
+         "gives": "ENCE"
         }
        ]
       },
       {
        "words": "at home",
+       "at": 21,
        "gives": "IN",
-       "note": "being at home is being in"
+       "note": "in means at home, as in staying in"
       }
      ]
     },
     "explanation": {
-     "surface": "A performer who takes a bow at home following some foul play.",
-     "walkthrough": "Taking a bow sounds like a performer's curtsy, but the instrument is played with a bow.",
-     "definitionFit": "An instrument can be called a player in an orchestra, and this one is sounded with a bow drawn across its strings."
+     "surface": "An actor bows at home after the first half of a play about a crime.",
+     "walkthrough": "'Player who takes bow' sounds like a performer bowing to applause; it is the instrument, played with a bow.",
+     "definitionFit": "A violin is a stringed instrument played with a bow, here personified as a player."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "bow"

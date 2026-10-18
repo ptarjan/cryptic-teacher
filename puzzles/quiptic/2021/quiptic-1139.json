@@ -724,51 +724,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NONEXISTENT",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not entirely",
-       "note": "not entirely means incomplete, so the final letter is cut off"
+       "text": "Unconventional",
+       "at": 0,
+       "note": "unconventional means arranged in an unusual way, so the letters that follow are reshuffled"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "text",
+       "at": 15
+      },
+      {
+       "words": "in",
+       "at": 20
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Unconventional",
-         "note": "unconventional means out of the usual order, so the letters are rearranged"
+         "text": "not entirely",
+         "at": 30,
+         "note": "not entirely means the word is incomplete, losing its last letter"
         }
        ],
        "parts": [
         {
-         "words": "text",
-         "note": "taken as written"
-        },
-        {
-         "words": "in",
-         "note": "taken as written"
-        },
-        {
          "words": "sonnet",
-         "gives": "SONNE",
-         "note": "the poem with its last letter docked"
+         "at": 23
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An oddly written passage in a sonnet that is partly imaginative.",
-     "walkthrough": "'in' looks like a container signal, but it is part of the fodder; 'Unconventional' at the front governs everything up to the clipped poem.",
-     "definitionFit": "Something fanciful is imagined rather than real, so it does not actually exist."
+     "surface": "A literary critic remarks that the wording in a sonnet is unconventional and not wholly realistic.",
+     "walkthrough": "'not entirely' trims sonnet to SONNE; those letters with TEXT and IN are rearranged.",
+     "definitionFit": "Something fanciful is imagined rather than real, so it has no actual existence in the world."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "in"
+     "misdirectedWord": "Unconventional"
     }
    }
   },
@@ -900,26 +902,26 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "ZERO",
      "indicators": [
       {
        "text": "holding",
-       "note": "words that hold something have it inside them, so the letters lie within"
+       "at": 11,
+       "note": "holding means the two words contain the answer within them, spanning the gap between them"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Laze round",
-       "note": "the letters run consecutively across the end of the first word and the start of the second"
+       "at": 0,
+       "gives": "ZERO",
+       "note": "the last two letters of Laze run on into the first two of round, spelling the answer"
       }
      ]
     },
     "explanation": {
-     "surface": "Lounging about and achieving nothing at all.",
-     "walkthrough": "The surface reads as idleness, which makes 'nothing' look like part of the picture rather than the definition.",
-     "definitionFit": "Zero is the number for nothing, a total absence of quantity, as in a score of nil."
+     "surface": "Someone idles about with nothing in their hands.",
+     "walkthrough": "The letters sit across the end of 'Laze' and the start of 'round'.",
+     "definitionFit": "Zero is the number for nothing at all, an amount of none."
     },
     "features": {
      "answerInScene": true,
