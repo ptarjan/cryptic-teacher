@@ -405,55 +405,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "sorted",
-       "note": "sorted = rearranged, so the letters are shuffled"
+       "text": "contains",
+       "at": 25,
+       "note": "the rearranged letters contain, hold inside them, the single letter from sheep"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "contains"
+         "text": "sorted",
+         "at": 18,
+         "note": "sorted signals the letters of recycling, I'd and not being rearranged"
         }
        ],
        "parts": [
         {
          "words": "Recycling I'd not",
-         "note": "anagram fodder, 14 letters"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "head",
-           "note": "the head of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "sheep's",
-           "note": "the first letter of sheep"
-          }
-         ]
+         "text": "head",
+         "at": 42,
+         "note": "head picks the first letter of the word sheep's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sheep's",
+         "at": 34,
+         "note": "the first letter of sheep's"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone alarmed that the recycling has not been sorted and a sheep's head has turned up in it.",
-     "walkthrough": "'Recycling' looks like the anagram signal but it is part of the fodder; 'sorted' is the instruction. The lone S goes into the mix too.",
-     "definitionFit": "A plain adverb synonym: news that unsettles you arrives alarmingly, or unnervingly."
+     "surface": "A worrying discovery: unsorted recycling with a sheep's head in it.",
+     "walkthrough": "'sorted' rearranges RECYCLING + ID + NOT (14 letters), which 'contains' S, the 'head' of sheep's.",
+     "definitionFit": "Something done disconcertingly unsettles and disturbs, the same effect as alarming."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "Recycling"
+     "misdirectedWord": "sorted"
     }
    }
   },
@@ -1176,39 +1181,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "wayward",
-       "note": "wayward letters stray out of order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Six",
+       "at": 0,
+       "gives": "VI",
+       "note": "VI is six in Roman numerals"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wayward",
+         "at": 9,
+         "note": "wayward means going astray, so the letters of shun are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Six",
-         "gives": "VI",
-         "note": "VI = six, the Roman numeral"
-        },
-        {
          "words": "shun",
-         "note": "anagram fodder, 4 letters"
+         "at": 4
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Half a dozen people turning away from an errant deity.",
-     "walkthrough": "The answer is one of the principal gods of Hinduism.",
-     "definitionFit": "A definition by example: the Hindu preserver, one of the great trinity with Brahma and Shiva."
+     "surface": "Six followers turn their backs on a capricious god.",
+     "walkthrough": "VI (Roman six) then 'wayward' rearranges SHUN.",
+     "definitionFit": "Vishnu is a principal deity of Hinduism, the preserver in the Trimurti."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "wayward"
+     "misdirectedWord": "Six"
     }
    }
   },

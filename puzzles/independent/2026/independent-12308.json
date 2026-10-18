@@ -220,49 +220,48 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one word wraps round the others"
+       "at": 22,
+       "note": "the understanding word goes about, around, the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "to understand",
+       "at": 8,
+       "gives": "GATHER",
+       "note": "to gather is to understand or infer"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "understand",
-           "gives": "GATHER",
-           "note": "to gather is to understand, as in 'I gather'"
-          },
-          {
-           "words": "rupees",
-           "gives": "R",
-           "note": "R is the abbreviation for rupees"
-          }
-         ]
+         "words": "rupees",
+         "at": 28,
+         "gives": "R"
         },
         {
          "words": "and",
-         "note": "taken as written"
+         "at": 35
+        },
+        {
+         "words": "francs",
+         "at": 39,
+         "gives": "F",
+         "note": "F is the abbreviation for francs"
         }
        ]
-      },
-      {
-       "words": "francs",
-       "gives": "F",
-       "note": "F is the abbreviation for francs"
       }
      ]
     },
     "explanation": {
-     "surface": "An elderly man tries to get his head round rupees and francs.",
-     "walkthrough": "RANDF sits inside GATHER, after its first letter.",
-     "definitionFit": "'Old man' is informal for a father, and by extension an elderly relative; a grandfather is an elderly male forebear."
+     "surface": "An elderly man tries to make sense of foreign currencies.",
+     "walkthrough": "GATHER goes 'about' R + AND + F: G + RANDF + ATHER.",
+     "definitionFit": "Old man is informal for a father or husband; a grandfather is an elderly male relative, fitting the phrase."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "understand"
     }
    }
   },
@@ -1131,41 +1130,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means sitting inside it, so one piece goes within another"
+       "at": 22,
+       "note": "in places the good and wine pieces inside the pub word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "pub",
-         "gives": "BAR",
-         "note": "a bar is a pub"
-        },
-        {
-         "words": "Good",
-         "gives": "G",
-         "note": "G is the abbreviation for good"
-        }
-       ]
+       "words": "pub",
+       "at": 25,
+       "gives": "BAR",
+       "note": "a bar is a pub"
       },
       {
-       "words": "quantity of wine",
-       "gives": "PIPE",
-       "note": "a pipe is a large wine cask, about 105 gallons"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Good",
+         "at": 0,
+         "gives": "G"
+        },
+        {
+         "words": "quantity of wine",
+         "at": 5,
+         "gives": "PIPE",
+         "note": "a pipe is a large cask, a measure of wine"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A generous serving of wine at the pub for the musician.",
-     "walkthrough": "'Good quantity' looks like one phrase meaning 'a lot'; it splits into G and a quantity of wine, a PIPE.",
-     "definitionFit": "A bagpiper blows air into a bag to sound the pipes, so is a musician on a wind instrument."
+     "surface": "A musician on a wind instrument gets a big measure of wine at the pub.",
+     "walkthrough": "G (good) + PIPE (a wine cask) go 'in' BAR: BA + GPIPE + R.",
+     "definitionFit": "A bagpiper plays the bagpipes, a wind instrument fed by a bag of air."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Good"
+     "misdirectedWord": "quantity"
     }
    }
   },

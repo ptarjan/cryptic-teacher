@@ -1109,55 +1109,60 @@
      "indicators": [
       {
        "text": "consumes",
-       "note": "consuming something takes it inside, so the outer word swallows the rest"
+       "at": 7,
+       "note": "the region consumes, so surrounds, the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Region",
-         "gives": "ZONE",
-         "note": "a zone is a region"
-        },
-        {
-         "words": "one",
-         "gives": "A",
-         "note": "a means one"
-        }
-       ]
+       "words": "Region",
+       "at": 0,
+       "gives": "ZONE",
+       "note": "a zone is a region"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "timeless",
-         "note": "without time means the abbreviation for time is dropped from the next word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "refreshment",
-         "gives": "BAIT",
-         "note": "bait is an old word for a refreshment or snack on a journey"
+         "words": "one",
+         "at": 16,
+         "gives": "A",
+         "note": "A means one, as in a single"
         },
         {
-         "gives": "T"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "timeless",
+           "at": 20,
+           "note": "timeless means the letter for time is dropped from the refreshment word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "refreshment",
+           "at": 29,
+           "gives": "BAIT",
+           "note": "bait is an old word for refreshment taken on a journey"
+          },
+          {
+           "gives": "T"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A district eats up a single refreshment that never ends: a fluffy pudding.",
-     "walkthrough": "Bait as a snack is old or dialect usage, from the meal given to travellers and their horses at an inn.",
-     "definitionFit": "Zabaione is the Italian dessert of egg yolks, sugar and Marsala whisked until frothy."
+     "surface": "A region polishes off a quick snack and then a foamy pudding.",
+     "walkthrough": "The refreshment is an old Chambers sense of bait, a snack taken on a journey; 'timeless' strips its T, and 'a' belongs to the definition, not the wordplay.",
+     "definitionFit": "Zabaione is the Italian custard of egg yolks, sugar and Marsala, whipped until light."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Region"
+     "misdirectedWord": "refreshment"
     }
    }
   },
@@ -1697,67 +1702,73 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the pair inside the shortened word"
+       "at": 44,
+       "note": "in places these letters inside the shortened celebrity word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "put out",
+         "at": 62,
+         "note": "put out means the book letter is ejected from the celebrity word"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "put out",
-           "note": "put out means ejected, so that letter is expelled from the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "celebrity",
-           "gives": "SLEB",
-           "note": "sleb is slang for a celebrity"
-          },
-          {
-           "words": "book",
-           "gives": "B",
-           "note": "B is the abbreviation for book"
-          }
-         ]
+         "words": "celebrity",
+         "at": 47,
+         "gives": "SLEB",
+         "note": "sleb is slang for a celebrity"
         },
+        {
+         "words": "book",
+         "at": 57,
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "op": "first",
          "indicators": [
           {
            "text": "foremost",
-           "note": "foremost means at the front, so only the leading letter is kept"
+           "at": 28,
+           "note": "foremost picks the first letter of Tom's"
           }
          ],
          "parts": [
           {
            "words": "Tom's",
-           "note": "the first letter of Tom"
+           "at": 22,
+           "note": "the first letter of Tom's"
           }
          ]
+        },
+        {
+         "words": "indeed",
+         "at": 37,
+         "gives": "I",
+         "note": "I is an obsolete spelling of ay, meaning yes or indeed"
         }
        ]
-      },
-      {
-       "words": "indeed",
-       "gives": "I",
-       "note": "I is an old spelling of ay or aye, meaning yes indeed"
       }
      ]
     },
     "explanation": {
-     "surface": "An old-world manner, chiefly Tom's, really shows in a celebrity book being published.",
-     "walkthrough": "SLEB without B leaves SLE, and T plus I go inside it.",
-     "definitionFit": "Stile is an archaic spelling of style, meaning a manner of doing things."
+     "surface": "A literary aside: Tom, it seems, appears in some celebrity's memoir.",
+     "walkthrough": "SLEB (celebrity) with B 'put out' gives SLE; T (Tom's 'foremost') and I ('indeed', an old form of ay) go 'in': S + TI + LE.",
+     "definitionFit": "Stile is an archaic spelling of style, meaning a way or fashion of doing things."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "put"
+     "misdirectedWord": "book"
     }
    }
   },

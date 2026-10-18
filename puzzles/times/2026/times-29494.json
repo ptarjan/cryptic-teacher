@@ -370,59 +370,54 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
        "text": "on",
-       "note": "in a down clue the journalist sits on top of what follows"
+       "at": 21,
+       "note": "in a down clue X on Y puts X above Y, so the journalist comes first"
       }
      ],
      "parts": [
+      {
+       "words": "journalist",
+       "at": 10,
+       "gives": "ED",
+       "note": "ED, editor, is the usual crossword journalist"
+      },
       {
        "op": "container",
        "indicators": [
         {
          "text": "having pinched",
-         "note": "the two charges have stolen the fuel and hold it between them"
+         "at": 42,
+         "note": "the pair of charges pinch, so hold between them, the fuel word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "journalist",
-           "gives": "ED",
-           "note": "ED = editor"
-          },
-          {
-           "words": "identical charges",
-           "gives": "WARD",
-           "note": "a ward is someone in another's charge"
-          }
-         ]
+         "words": "identical charges",
+         "at": 24,
+         "gives": "WARDWARD",
+         "note": "a ward is a person in someone's charge, so two identical ones are ward and ward"
         },
         {
          "words": "fuel",
+         "at": 57,
          "gives": "WOOD",
-         "note": "wood for the fire"
+         "note": "wood is a fuel"
         }
        ]
-      },
-      {
-       "words": "identical charges",
-       "gives": "WARD",
-       "note": "the second identical ward"
       }
      ]
     },
     "explanation": {
-     "surface": "A news story: an actor and a reporter face the same charges for stealing fuel.",
-     "walkthrough": "Edward Woodward was an English actor, star of The Equalizer and The Wicker Man. 'Charges' suggests criminal counts; here they are people in someone's care.",
-     "definitionFit": "Edward Woodward was a well-known English actor."
+     "surface": "An actor and a reporter face the same criminal charges after stealing fuel.",
+     "walkthrough": "'charges' looks like criminal counts, but means people in someone's care. The fuel is pinched between the two identical ones, and the journalist sits on top in this down answer.",
+     "definitionFit": "Edward Woodward was the English star of The Equalizer and The Wicker Man."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "charges"
     }
@@ -502,47 +497,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GNOCCHI",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "failed",
+       "at": 9,
+       "note": "failed signals the letters of coaching being messed up and rearranged"
+      },
+      {
+       "text": "to yield",
+       "at": 16,
+       "note": "to yield means to give up a letter, here the first-class one, before rearranging"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GNOCCHI",
-       "indicators": [
-        {
-         "text": "failed",
-         "note": "the coaching went wrong, so its letters are scrambled"
-        },
-        {
-         "text": "to yield",
-         "note": "to yield is to surrender something, so the first-class A is handed over and dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Coaching",
-         "note": "the anagram fodder before the loss"
-        },
-        {
-         "words": "first-class",
-         "gives": "A",
-         "note": "A = first-class, as in A1; this letter is removed"
-        }
-       ]
+       "words": "Coaching",
+       "at": 0
+      },
+      {
+       "words": "first-class",
+       "at": 25,
+       "gives": "A",
+       "note": "A means first-class, as in A1 or grade A"
       }
      ]
     },
     "explanation": {
-     "surface": "Bad cooking lessons meant nobody turned out top-quality dumplings.",
-     "walkthrough": "The surface reads as a cookery class that went wrong, and gnocchi is exactly what such a class might attempt.",
-     "definitionFit": "Definition by example: these Italian potato morsels are one kind of dumpling."
+     "surface": "Cooking lessons went wrong and produced only mediocre dumplings.",
+     "walkthrough": "COACHING 'to yield' A leaves COCHING, which 'failed' rearranges.",
+     "definitionFit": "Gnocchi are small Italian dumplings made from potato or semolina."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "yield"
+     "misdirectedWord": "Coaching"
     }
    }
   },
@@ -699,40 +688,38 @@
      "indicators": [
       {
        "text": "Criminal",
-       "note": "the lawyer's letters are crooked, so rearranged"
+       "at": 0,
+       "note": "criminal suggests the letters of lawyer plus the final letters being bent into a new order"
       }
      ],
      "parts": [
       {
        "words": "lawyer",
-       "note": "anagram fodder"
+       "at": 9
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "NNE",
        "indicators": [
         {
          "text": "at last",
-         "note": "take the final letter of each of the next words"
+         "at": 34,
+         "note": "at last picks the final letter of each of con, man and spoke"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "con man spoke at last",
-         "gives": "NNE",
-         "select": "last",
-         "note": "last letters of coN, maN, spokE"
+         "words": "con man spoke",
+         "at": 20,
+         "note": "the last letters of con, man and spoke"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crooked lawyer and a swindler are finally caught and talk in the police station.",
-     "walkthrough": "'Criminal lawyer' reads as one job title; 'criminal' is the anagram indicator. 'In good nick' is British for in good condition, while 'nick' also means a police station.",
-     "definitionFit": "Something nearly new has hardly been used, so it is in good condition."
+     "surface": "A crooked lawyer and a swindler finally talk while serving time.",
+     "walkthrough": "'at last' takes N, N, E from con, man, spoke; 'Criminal' rearranges LAWYER + NNE. 'Nick' looks like prison but the phrase means good condition.",
+     "definitionFit": "Nearly new describes second-hand goods barely used, in excellent condition."
     },
     "features": {
      "answerInScene": false,

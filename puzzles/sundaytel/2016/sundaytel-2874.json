@@ -96,34 +96,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "between",
-       "note": "'between' places the word for choice in the middle, flanked by the other two pieces"
+       "at": 7,
+       "note": "between places the choice word in the gap between the two other pieces"
       }
      ],
      "parts": [
       {
-       "words": "academic",
-       "gives": "PROF",
-       "note": "short for professor"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "academic",
+         "at": 15,
+         "gives": "PROF",
+         "note": "a prof, professor, is an academic"
+        },
+        {
+         "words": "graduate",
+         "at": 28,
+         "gives": "MA",
+         "note": "an MA, Master of Arts, is a graduate"
+        }
+       ]
       },
       {
        "words": "Choice",
+       "at": 0,
        "gives": "OR",
-       "note": "'or' is the word that offers a choice"
-      },
-      {
-       "words": "graduate",
-       "gives": "MA",
-       "note": "Master of Arts, a graduate degree"
+       "note": "or is the word that offers a choice"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone deciding between hiring an academic or a graduate, sticking to the rules.",
-     "definitionFit": "Pro forma is Latin for 'as a matter of form', describing something done according to standard routine."
+     "surface": "Someone must choose between a professor and a graduate when appointing staff.",
+     "walkthrough": "The surface suggests choosing a candidate; in the wordplay the little word of choice is literally placed between the two titles.",
+     "definitionFit": "Pro forma describes something done as a formality, according to a standard routine."
     },
     "features": {
      "answerInScene": false,

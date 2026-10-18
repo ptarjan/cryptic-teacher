@@ -324,41 +324,47 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "turned",
-       "note": "turned round, so WE runs backwards"
+       "text": "on",
+       "at": 21,
+       "note": "in an across clue, X on Y puts X after Y, so the turned word follows A and N"
       }
      ],
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 24,
+       "gives": "A"
       },
       {
        "words": "knight",
+       "at": 26,
        "gives": "N",
-       "note": "N = knight, the chess notation"
+       "note": "N is the chess notation for a knight"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "on",
-         "note": "in an across clue, placed after"
+         "text": "turned",
+         "at": 14,
+         "note": "turned means the word we is read backwards"
         }
        ],
        "parts": [
         {
          "words": "we",
-         "note": "taken as written, then turned round to EW"
+         "at": 11,
+         "gives": "WE",
+         "note": "the word we, taken as written before it is turned"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A second time, a group rounds on a knight and attacks him.",
-     "walkthrough": "N for knight comes from chess notation, where K is already taken by the king.",
-     "definitionFit": "A plain synonym: both mean again, afresh."
+     "surface": "Someone recounts how, yet again, a group rounded on a knight.",
+     "walkthrough": "'turned' flips WE to EW, which sits 'on' (after) A plus N, the chess symbol for a knight.",
+     "definitionFit": "To do something anew is to do it again, a fresh time, which is what once more means."
     },
     "features": {
      "answerInScene": false,
@@ -565,38 +571,42 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to cross"
+       "text": "to cross",
+       "at": 10,
+       "note": "the word for being first goes across, around, the other pieces, so it holds them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Was first",
-         "gives": "LED",
-         "note": "to be first is to lead, so was first = led"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Was first",
+       "at": 0,
+       "gives": "LED",
+       "note": "to lead is to be first, so was first gives led"
       },
       {
-       "words": "street",
-       "gives": "ST",
-       "note": "St = street"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 19,
+         "gives": "A"
+        },
+        {
+         "words": "street",
+         "at": 21,
+         "gives": "ST"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone rushed to be first over the road and lived to tell of it.",
-     "walkthrough": "The surface has a pedestrian dashing across the road; 'cross' is not the road but the container instruction.",
-     "definitionFit": "A plain synonym: to last is to hold out, to survive."
+     "surface": "Someone led the way across a road and lived to tell the tale.",
+     "walkthrough": "'Was first' gives LED, and 'to cross' has it straddle A plus ST (street): L + AST + ED.",
+     "definitionFit": "Something that lasted kept going and endured, so it survived."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cross"
     }
