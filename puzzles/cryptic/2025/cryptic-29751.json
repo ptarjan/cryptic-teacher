@@ -810,45 +810,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TWILIT",
+     "op": "container",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without an end means the final letter is dropped"
+       "text": "eating",
+       "at": 10,
+       "note": "eating says the bird takes the other letters inside itself"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "tit",
+       "at": 6
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "eating",
-         "note": "something eaten ends up inside the eater"
+         "text": "endlessly",
+         "at": 22,
+         "note": "endlessly means the word for nuts loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "tit",
-         "note": "taken as written: a small songbird"
+         "words": "nuts",
+         "at": 17,
+         "gives": "WILD",
+         "note": "nuts, as in crazy, means wild"
         },
         {
-         "words": "nuts",
-         "gives": "WIL",
-         "note": "nuts means wild, crazy, here cut short"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small dark-feathered tit nibbling nuts without stopping.",
-     "walkthrough": "'Nuts' looks like the bird's food, but it is an adjective meaning crazy.",
-     "definitionFit": "Dusky means dim or shadowy, the dim light at dusk, which is what a scene lit only by twilight looks like."
+     "surface": "A small bird pecks at nuts as dusk falls.",
+     "walkthrough": "'Nuts' looks like the tit's food, but it means crazy, WILD, which 'endlessly' trims before the bird 'eating' takes it in.",
+     "definitionFit": "Twilit describes the dim light of twilight, which is what dusky means."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "nuts"
     }

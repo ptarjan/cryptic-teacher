@@ -676,46 +676,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARABESQUE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not quite",
-       "note": "not quite means falling just short, so the last letter of the word is dropped"
+       "text": "moving",
+       "at": 44,
+       "note": "moving says the combined letters shift into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "square",
+       "at": 21
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "moving",
-         "note": "letters that are moving shift out of their places into a new order"
+         "text": "not quite",
+         "at": 34,
+         "note": "not quite means the word beam falls one letter short at its end"
         }
        ],
        "parts": [
         {
-         "words": "square",
-         "note": "taken as written"
+         "words": "beam",
+         "at": 28
         },
         {
-         "words": "beam",
-         "gives": "BEA",
-         "note": "beam minus its final letter"
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dancer holds a pose on a square balance beam, but not quite steadily.",
-     "definitionFit": "An arabesque is a classical ballet position balanced on one leg with the other extended straight behind."
+     "surface": "A dancer strikes a pose on a square beam, nearly moving.",
+     "walkthrough": "BEA (beam not quite complete) joins SQUARE, and those nine letters are rearranged.",
+     "definitionFit": "An arabesque is a classical ballet position balanced on one leg with the other extended behind."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "square"
+     "misdirectedWord": "beam"
     }
    }
   },
@@ -855,40 +858,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OVERHEAT",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "briefly means cut short, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "On",
+       "at": 0,
+       "gives": "OVER",
+       "note": "on and over both mean about or concerning, as in a row over money"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 17,
+         "note": "briefly means the moorland word is cut short by its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "On high",
-         "gives": "OVER",
-         "note": "over means above, on high"
+         "words": "high moorland",
+         "at": 3,
+         "gives": "HEATH",
+         "note": "a heath is open uncultivated upland"
         },
         {
-         "words": "moorland",
-         "gives": "HEAT",
-         "note": "heath (moorland) without its last letter"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Walking on the high moors, you can easily get too hot.",
-     "definitionFit": "To overheat is to get hotter than is safe or comfortable, said of engines and people."
+     "surface": "Up on the high moors, walkers soon get too hot.",
+     "walkthrough": "OVER (on) is followed by HEAT, which is HEATH shortened by 'briefly'.",
+     "definitionFit": "To overheat is to get hotter than is safe or comfortable, as an engine or a person might."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "On"
     }
    }
   },
@@ -1770,37 +1779,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "IOTA",
+     "op": "container",
      "indicators": [
       {
-       "text": "spent",
-       "note": "spent means used up and gone, so that letter leaves and another takes its place"
+       "text": "in",
+       "at": 21,
+       "note": "in says the time letter goes inside what is left of the state"
       }
      ],
      "parts": [
       {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "spent",
+         "at": 38,
+         "note": "spent means used up and gone, so the wife letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "US state",
+         "at": 24,
+         "gives": "IOWA",
+         "note": "Iowa is a state in the American Midwest"
+        },
+        {
+         "words": "wife",
+         "at": 33,
+         "gives": "W"
+        }
+       ]
+      },
+      {
        "words": "time",
-       "gives": "T",
-       "note": "T abbreviates time"
-      },
-      {
-       "words": "US state",
-       "gives": "IOWA",
-       "note": "the Midwestern state"
-      },
-      {
-       "words": "wife",
-       "gives": "W",
-       "note": "W abbreviates wife"
+       "at": 16,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A short stay in Iowa where a wife used up her money.",
-     "walkthrough": "T goes in where W was spent: IOWA becomes IOTA.",
-     "definitionFit": "Iota, the smallest Greek letter, is used to mean a tiny quantity, as in not an iota."
+     "surface": "A brief spell in Iowa that a wife spent there.",
+     "walkthrough": "Take W (wife) out of IOWA to get IOA, and put T (time) inside it.",
+     "definitionFit": "An iota, from the smallest Greek letter, is a very small quantity, as in not one iota."
     },
     "features": {
      "answerInScene": false,

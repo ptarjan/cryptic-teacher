@@ -673,51 +673,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AXIOM",
-     "indicators": [
-      {
-       "text": "uncovered",
-       "note": "uncovered means the outer wrapping is stripped away, losing the end letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 23,
+         "note": "uncovered means the word maxim is stripped of its outer letters"
+        }
+       ],
        "parts": [
         {
          "words": "maxim",
-         "gives": "AXI",
-         "note": "the word without its first and last letters"
-        },
+         "at": 17,
+         "note": "maxim with its covering first and last letters removed"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "OM",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially takes the first letter of each of the following words"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "over minutes",
-           "gives": "OM",
-           "select": "first",
-           "note": "first letters of these two words"
-          }
-         ]
+         "text": "initially",
+         "at": 33,
+         "note": "initially takes the first letter of each of the words over and minutes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "over minutes",
+         "at": 43,
+         "note": "the first letters of over and minutes"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A general truth emerges from a maxim, revealed early on over a few minutes.",
-     "definitionFit": "An axiom is a statement accepted as self-evidently true, a general truth or principle."
+     "surface": "A general truth emerges from a maxim, revealed at first over several minutes.",
+     "walkthrough": "AXI is maxim without its covers, followed by O and M, the initials of over minutes.",
+     "definitionFit": "An axiom is a statement accepted as self-evidently true, a principle held to apply generally."
     },
     "features": {
      "answerInScene": true,
@@ -940,39 +937,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SHIMMY",
-     "indicators": [
-      {
-       "text": "don't start with Jack",
-       "note": "not starting with jack means the opening J, the card abbreviation, is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "quietly",
+       "at": 6,
+       "gives": "SH",
+       "note": "sh is the call for quiet, so it stands for quietly"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "don't start with",
+         "at": 27,
+         "note": "don't start with means the name loses its opening letter"
+        }
+       ],
        "parts": [
         {
-         "words": "quietly",
-         "gives": "SH",
-         "note": "sh is a call for quiet"
+         "words": "Jimmy",
+         "at": 15
         },
         {
-         "words": "Jimmy",
-         "gives": "IMMY",
-         "note": "the name loses its first letter"
+         "words": "Jack",
+         "at": 44,
+         "gives": "J",
+         "note": "J is the card abbreviation for jack"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tells Jimmy to dance quietly and not begin with Jack.",
-     "definitionFit": "The shimmy is a jazz-age dance involving shaking the body."
+     "surface": "Someone tells Jimmy to dance quietly and not to begin with Jack.",
+     "walkthrough": "SH, then IMMY, which is Jimmy without its starting J (jack).",
+     "definitionFit": "The shimmy is a 1920s jazz dance in which the body shakes rapidly."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Jack"
     }

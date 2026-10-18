@@ -679,55 +679,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "HONEYMOONERS",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in places the money inside the abbreviation for house"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "HONEYMOONERS",
+       "op": "container",
        "indicators": [
         {
-         "text": "crestfallen",
-         "note": "in a down entry the crest, the top letter, falls to the bottom"
+         "text": "in",
+         "at": 23,
+         "note": "in tells us the reworked money word goes inside the abbreviation for house"
         }
        ],
        "parts": [
         {
-         "words": "brass",
-         "gives": "MONEY",
-         "note": "brass is slang for money"
-        },
-        {
          "words": "house",
-         "gives": "HO",
-         "note": "HO is the abbreviation for house"
+         "at": 26,
+         "gives": "HO"
         },
         {
-         "words": "lies",
-         "gives": "ONERS",
-         "note": "a oner, in Chambers, is a big lie or whopper"
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "crestfallen",
+           "at": 5,
+           "note": "in a down clue the crest is the top letter; crestfallen drops it from the top of the word to the bottom"
+          }
+         ],
+         "parts": [
+          {
+           "words": "brass",
+           "at": 17,
+           "gives": "MONEY",
+           "note": "brass is British slang for money"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "lies",
+       "at": 32,
+       "gives": "ONERS",
+       "note": "a oner is slang for a whopper, a big lie, so lies are ONERS"
       }
      ]
     },
     "explanation": {
-     "surface": "Dejected senior officers in the Commons are telling falsehoods, along with a recently formed pair.",
-     "walkthrough": "'Brass' suggests senior officers and 'house' Parliament; ONER as a whopper is a dictionary sense many solvers won't know.",
-     "definitionFit": "Honeymooners are a newly married pair on their first holiday together, so a new couple."
+     "surface": "A dejected pair, short of cash, lies about the house as a newly married couple.",
+     "walkthrough": "'Crestfallen' looks like an adjective of mood; here it moves the M of MONEY from the top to the bottom, giving ONEYM, which goes 'in' HO. Oners, as whoppers, supply the lies.",
+     "definitionFit": "Honeymooners are a pair who have just married and are on their wedding trip, hence a freshly joined couple."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "brass"
+     "misdirectedWord": "crestfallen"
     }
    }
   },

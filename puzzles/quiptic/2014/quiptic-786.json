@@ -231,47 +231,34 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPOILT",
+     "op": "composite",
      "indicators": [
       {
        "text": "without",
-       "note": "without means lacking, so the stated letter is removed"
+       "at": 8,
+       "note": "without says the letter a is taken out of the pool before it is rearranged"
+      },
+      {
+       "text": "at sea",
+       "at": 26,
+       "note": "at sea means confused and all over the place, so the letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "a",
-         "note": "the letter A to be removed"
-        },
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "at sea",
-           "note": "at sea means confused and all over the place, so the letters get jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "topsail",
-           "gives": "TOPSIL",
-           "note": "the sail word with its A taken out"
-          }
-         ]
-        }
-       ]
+       "words": "topsail",
+       "at": 18
+      },
+      {
+       "words": "a",
+       "at": 16
       }
      ]
     },
     "explanation": {
-     "surface": "A sailing ship is wrecked at sea, its topsail gone.",
-     "definitionFit": "Spoilt means ruined or damaged beyond use, a past-participle synonym of wrecked."
+     "surface": "A ship is wrecked, having lost its topsail out at sea.",
+     "walkthrough": "Take A out of TOPSAIL and rearrange the remaining six letters; 'at sea' sounds nautical, matching the topsail, but it is the anagram signal.",
+     "definitionFit": "Spoilt can mean ruined or damaged beyond use, the same as wrecked."
     },
     "features": {
      "answerInScene": false,
@@ -1428,60 +1415,72 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
-       "text": "to fill",
-       "note": "filling something puts it inside"
+       "text": "on",
+       "at": 36,
+       "note": "in an across clue, on means placed after the preceding letters"
       }
      ],
      "parts": [
       {
-       "words": "seat",
-       "gives": "STAE",
-       "note": "the word rearranged"
-      },
-      {
-       "op": "charade",
-       "parts": [
+       "op": "container",
+       "indicators": [
         {
-         "words": "politician",
-         "gives": "MP",
-         "note": "Member of Parliament"
-        },
+         "text": "to fill",
+         "at": 19,
+         "note": "to fill says the politician goes inside the rearranged seat"
+        }
+       ],
+       "parts": [
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "new",
-           "note": "new suggests a fresh version, so the letters are rearranged"
+           "at": 27,
+           "note": "new says the letters of seat appear in a fresh order"
           }
          ],
          "parts": [
           {
-           "op": "outer",
-           "indicators": [
-            {
-             "text": "outskirts of",
-             "note": "outskirts are the edges, so take the outer letters"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Dundee",
-             "note": "first and last letters of the Scottish city"
-            }
-           ]
+           "words": "seat",
+           "at": 31
           }
          ]
+        },
+        {
+         "words": "politician",
+         "at": 8,
+         "gives": "MP",
+         "note": "MP, member of parliament, is the usual crossword politician"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outskirts of",
+         "at": 39,
+         "note": "outskirts are the outer edges, so take the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dundee",
+         "at": 52,
+         "note": "the outskirts of Dundee, a city in Scotland, are its first and last letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A politician hurries to take a new seat on the edge of Dundee.",
-     "definitionFit": "A stampede is a headlong panicked charge, so to stampede is to rush."
+     "surface": "A politician rushes to take a new seat on the edge of Dundee, a Scottish city.",
+     "walkthrough": "'Rush' looks like a verb for the politician, but it is the noun defined; 'new' works on seat alone, and the MP goes inside before the Dundee letters are added.",
+     "definitionFit": "A stampede is a sudden mass rush, as of cattle or crowds."
     },
     "features": {
      "answerInScene": false,
@@ -1616,35 +1615,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HATRED",
-     "indicators": [
-      {
-       "text": "beheaded",
-       "note": "beheading removes the head, the first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "beheaded",
+         "at": 29,
+         "note": "beheaded means the word that loses its head, its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "that",
-         "gives": "HAT",
-         "note": "the word without its opening letter"
+         "at": 24
         },
         {
-         "words": "Commie",
-         "gives": "RED",
-         "note": "a red is a communist"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "Commie",
+       "at": 38,
+       "gives": "RED",
+       "note": "Red is an informal name for a Communist, as is Commie"
       }
      ]
     },
     "explanation": {
-     "surface": "There is strong animosity toward an executed communist.",
+     "surface": "Someone has strong feelings against a Communist who has been executed.",
+     "walkthrough": "'Beheaded' looks as if it goes with Commie, but it applies to 'that', which drops its T.",
      "definitionFit": "Hatred is intense dislike or hostility, a strong feeling directed against someone."
     },
     "features": {

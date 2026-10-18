@@ -159,34 +159,35 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "ASTER",
+     "op": "deletion",
      "indicators": [
       {
        "text": "not starting",
-       "note": "the festival loses its opening letter"
+       "at": 18,
+       "note": "not starting means the festival word is missing its first letter"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "festival's not starting",
-       "gives": "ASTER",
-       "select": "first",
-       "note": "EASTER without its first letter E"
+       "words": "festival's",
+       "at": 7,
+       "gives": "EASTER",
+       "note": "Easter is the spring Christian festival; the 's reads as 'is'"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A flower show that fails to get going.",
-     "walkthrough": "The festival is Easter; the 's is just 'is', telling us what the beheaded word becomes.",
-     "definitionFit": "The aster is a daisy-like garden flower."
+     "surface": "A flower festival is postponed and not starting.",
+     "walkthrough": "Take EASTER and drop its opening E.",
+     "definitionFit": "An aster is a daisy-like garden plant with star-shaped blooms."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Flower"
+     "misdirectedWord": "festival's"
     }
    }
   },
@@ -639,51 +640,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "keeping"
+       "text": "keeping",
+       "at": 13,
+       "note": "keeping says the wedding word holds the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "heart",
-         "note": "the centre letter of BRIDE"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Get married",
-         "gives": "WED",
-         "note": "to wed is to marry"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "I",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "bride's heart",
-           "gives": "I",
-           "select": "middle",
-           "note": "middle letter of BRIDE"
-          }
-         ]
-        }
-       ]
+       "words": "Get married",
+       "at": 0,
+       "gives": "WED",
+       "note": "to wed is to get married"
       },
       {
-       "words": "right",
-       "gives": "R",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "heart",
+           "at": 29,
+           "note": "the heart of a word is its middle letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bride's",
+           "at": 21,
+           "gives": "BRIDE",
+           "note": "the word bride, the 's showing that the heart belongs to it"
+          }
+         ]
+        },
+        {
+         "words": "right",
+         "at": 35,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wedding where the bride's heart is in the right place, though nerves run high.",
-     "walkthrough": "'Tense' looks like grammar, fitting a clue about getting married; it is the adjective, on edge.",
-     "definitionFit": "Wired, informally, means edgy and highly strung, which is tense."
+     "surface": "Getting married, with the bride's heart in the right place but nervous.",
+     "walkthrough": "I, the middle letter of bride, and R (right) go inside WED.",
+     "definitionFit": "Wired is informal for nervously excited or on edge, which is what tense means here."
     },
     "features": {
      "answerInScene": true,
@@ -1333,56 +1335,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IGLOO",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "Initially",
-         "note": "take the first letter of 'in'"
+         "at": 0,
+         "note": "initially means the first letter of the next word"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "I",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "drop the last letter of GLOOM"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Initially in",
-           "gives": "I",
-           "select": "first",
-           "note": "first letter of IN"
-          }
-         ]
+         "words": "in",
+         "at": 10,
+         "note": "the first letter of the word in"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 13,
+         "note": "mostly means the dark word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dark",
+         "at": 20,
+         "gives": "GLOOM",
+         "note": "gloom is darkness"
         },
         {
-         "words": "mostly dark",
-         "gives": "GLOO",
-         "note": "GLOOM missing its last letter"
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Living in near-darkness in the far north.",
-     "walkthrough": "Fitting: an Arctic winter is mostly dark, and the igloo is its home.",
-     "definitionFit": "An igloo is an Inuit snow house of the far north."
+     "surface": "Living in mostly dark conditions in a northern home.",
+     "walkthrough": "I, the first letter of in, then GLOO, which is GLOOM 'mostly'.",
+     "definitionFit": "An igloo is a dome-shaped snow house built by Inuit people of the Arctic north."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "dark"
     }
    }
   },

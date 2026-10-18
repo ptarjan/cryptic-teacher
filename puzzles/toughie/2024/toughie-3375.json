@@ -310,26 +310,38 @@
      }
     ],
     "wordplay": {
-     "op": "homophone",
-     "spelt": "CHOLERA",
-     "indicators": [
-      {
-       "text": "say",
-       "note": "say signals that the preceding words are to be heard rather than read"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Catch, say, a",
-       "gives": "COLLARA",
-       "note": "to collar is to catch or arrest; collar a, spoken, matches the disease"
+       "op": "homophone",
+       "spelt": "CHOLER",
+       "indicators": [
+        {
+         "text": "say",
+         "at": 7,
+         "note": "say signals that the catch word is heard rather than spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Catch",
+         "at": 0,
+         "gives": "COLLAR",
+         "note": "to collar someone is to catch or seize them; collar sounds like choler, meaning anger"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 12,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A warning that you might catch a nasty infection.",
-     "walkthrough": "'Catch' looks like part of the definition, as in catching a disease, but it is COLLAR in the sound-alike.",
-     "definitionFit": "Cholera is an acute and often fatal bacterial infection of the intestine."
+     "surface": "Catch, for example, a serious infection.",
+     "walkthrough": "COLLAR (catch, as police do) said aloud gives CHOLER, followed by A.",
+     "definitionFit": "Cholera is an acute bacterial disease of the intestine spread by contaminated water, often fatal."
     },
     "features": {
      "answerInScene": true,
@@ -1798,45 +1810,44 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ALLEGIANCE",
      "indicators": [
       {
        "text": "accepts",
-       "note": "accepts means takes in, so one word receives the other inside it"
+       "at": 6,
+       "note": "accepts says the union word takes the other letters inside it"
       }
      ],
      "parts": [
       {
+       "words": "Union",
+       "at": 0,
+       "gives": "ALLIANCE",
+       "note": "an alliance is a union of states or parties"
+      },
+      {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "ALLEGIANCE",
        "indicators": [
         {
          "text": "rejected",
-         "note": "something rejected is sent back, so its letters run the other way"
+         "at": 21,
+         "note": "rejected means sent back, so the letters read in reverse order"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "ALLEGIANCE",
+         "op": "outer",
          "indicators": [
           {
            "text": "empty",
-           "note": "empty means the inside is cleared out, leaving just the outer letters"
+           "at": 30,
+           "note": "empty means Greece is emptied of its inside, leaving its first and last letters"
           }
          ],
          "parts": [
           {
-           "words": "Union",
-           "gives": "ALLIANCE",
-           "note": "an alliance is a union"
-          },
-          {
            "words": "Greece",
-           "note": "taken as written"
+           "at": 14,
+           "note": "Greece emptied of its middle letters leaves its first and last"
           }
          ]
         }
@@ -1845,9 +1856,9 @@
      ]
     },
     "explanation": {
-     "surface": "The European Union takes in a Greece that has turned its back on a hollow obligation.",
-     "walkthrough": "Emptying a word keeps only its first and last letters.",
-     "definitionFit": "Allegiance is loyalty owed to a ruler or country, a duty of fidelity."
+     "surface": "The European Union takes in Greece, which rejects its hollow obligations.",
+     "walkthrough": "Empty Greece is GE; 'rejected' turns that to EG, which ALLIANCE (union) accepts.",
+     "definitionFit": "Allegiance is loyalty owed to a sovereign or state, the duty of a subject."
     },
     "features": {
      "answerInScene": false,
