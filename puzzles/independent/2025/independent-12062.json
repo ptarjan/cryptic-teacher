@@ -209,50 +209,54 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the first two items are placed inside the following word"
+       "at": 23,
+       "note": "the new letters and the mark go in the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 50,
+         "note": "mostly means drop the final letter of the word"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means not quite all, so the last letter is cut"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Glyndebourne speciality",
-           "gives": "OPERA",
-           "note": "Glyndebourne is an English country house famous for its summer opera festival"
-          },
-          {
-           "gives": "A"
-          }
-         ]
+         "words": "Glyndebourne speciality",
+         "at": 26,
+         "gives": "OPERA",
+         "note": "Glyndebourne is an English country-house opera festival, so its speciality is opera"
         },
         {
-         "words": "New",
-         "gives": "N",
-         "note": "N is the abbreviation for new"
+         "gives": "A"
         }
        ]
       },
       {
-       "words": "mark of excellence",
-       "gives": "AI",
-       "note": "A1 means first-class, with the 1 written as I"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "New",
+         "at": 0,
+         "gives": "N"
+        },
+        {
+         "words": "mark of excellence",
+         "at": 4,
+         "gives": "AI",
+         "note": "A1 means first-rate; written AI with the 1 as letter I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Glyndebourne's new top-rated show is largely staged outdoors.",
-     "walkthrough": "Glyndebourne is an opera house in the Sussex countryside; A1 is the old Lloyd's Register top rating, written AI in crosswords.",
-     "definitionFit": "Alfresco means in the fresh air, outdoors, which is what open-air means."
+     "surface": "Praise for something new staged at Glyndebourne, mostly performed outdoors.",
+     "walkthrough": "Glyndebourne picnics are famous, which makes the outdoors reading natural. Cutting the last letter of OPERA leaves OPER, into which N and AI go.",
+     "definitionFit": "Alfresco means taking place outdoors, in the fresh air, a straight synonym."
     },
     "features": {
      "answerInScene": true,
@@ -606,55 +610,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LITHESOME",
      "indicators": [
       {
        "text": "put in",
-       "note": "something put in another thing sits inside it, so one word is placed within another"
+       "at": 14,
+       "note": "the chap's piece is put in among the other letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "except for last letter",
-         "note": "the word for sign is taken with its final letter left off"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "illuminated",
-           "gives": "LIT",
-           "note": "lit means lighted up"
-          },
-          {
-           "words": "chap's",
-           "gives": "HES",
-           "note": "a chap is a he, and with the apostrophe s this reads as 'he's'"
-          },
-          {
-           "words": "sign",
-           "gives": "OMEN",
-           "note": "an omen is a sign of what is to come"
-          }
-         ]
+         "words": "illuminated",
+         "at": 21,
+         "gives": "LIT",
+         "note": "lit means illuminated"
         },
         {
-         "gives": "N"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "except for last letter",
+           "at": 39,
+           "note": "the sign is used without its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sign",
+           "at": 33,
+           "gives": "OMEN",
+           "note": "an omen is a sign"
+          },
+          {
+           "gives": "N"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "chap's",
+       "at": 7,
+       "gives": "HES",
+       "note": "a chap is he, so chap's gives he's"
       }
      ]
     },
     "explanation": {
-     "surface": "An agile man gets inserted into a glowing sign that is missing its final letter.",
-     "walkthrough": "The possessive 'chap’s' is read as the contraction 'he is', and 'except for last letter' applies only to the sign.",
-     "definitionFit": "Lithesome is a rarer form of lithe, meaning supple and moving easily, which is what nimble describes."
+     "surface": "An agile man has been placed inside a lit-up signboard, missing a letter.",
+     "definitionFit": "Lithe and lithesome both mean supple and agile in movement."
     },
     "features": {
      "answerInScene": false,

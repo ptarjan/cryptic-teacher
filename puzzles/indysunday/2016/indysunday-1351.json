@@ -324,36 +324,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LIEFALLOW",
-     "indicators": [
-      {
-       "text": "with a twist at the end",
-       "note": "a twist at the end turns round just the closing pair of letters of the biography word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Biography",
-       "gives": "LIFE",
-       "note": "a life is a biography, as in Boswell's Life of Johnson"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "with a twist at the end",
+         "at": 10,
+         "note": "the last two letters of the biography word are twisted round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Biography",
+         "at": 0,
+         "gives": "LIFE",
+         "note": "a life is a biography"
+        },
+        {
+         "gives": "FE"
+        },
+        {
+         "gives": "EF"
+        }
+       ]
       },
       {
        "words": "OK",
+       "at": 34,
        "gives": "ALLOW",
        "note": "to OK something is to allow it"
       }
      ]
     },
     "explanation": {
-     "surface": "A life story with a surprise ending is approved as a break from the presses.",
-     "definitionFit": "Farmland that lies fallow is left unsown for a season, resting so it can recover its fertility."
+     "surface": "A biography whose ending has a twist, approved as a break from production.",
+     "walkthrough": "Twisting the last pair of LIFE gives LIEF.",
+     "definitionFit": "Farmland left to lie fallow is rested, not cropped, for a season."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "production"
+     "misdirectedWord": "twist"
     }
    }
   },

@@ -442,40 +442,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "terribly",
-       "note": "terribly signals something done badly, so these letters come out jumbled"
+       "text": "after",
+       "at": 14,
+       "note": "the synonym for pull through comes after the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "after",
-         "note": "after places the first-named piece behind the words that follow it"
+         "text": "terribly",
+         "at": 30,
+         "note": "terribly suggests the letters are badly mangled"
         }
        ],
        "parts": [
         {
          "words": "he turned",
-         "note": "these two words supply the letters, rearranged"
-        },
-        {
-         "words": "Pull through",
-         "gives": "WEATHER",
-         "note": "to weather a crisis is to pull through it"
+         "at": 20
         }
        ]
+      },
+      {
+       "words": "Pull through",
+       "at": 0,
+       "gives": "WEATHER",
+       "note": "to weather a storm is to pull through it"
       }
      ]
     },
     "explanation": {
-     "surface": "A patient recovers after taking a bad turn.",
-     "walkthrough": "'turned' looks like the anagram signal, but it is part of the fodder; 'terribly' does the shuffling, and the jumbled part comes first because 'after' places WEATHER behind it.",
-     "definitionFit": "The idiom under the weather means feeling unwell, so it stands for sick."
+     "surface": "Someone recovers after he had taken a terrible turn for the worse.",
+     "walkthrough": "'turned' looks like the anagram signal, but it is part of the fodder HE TURNED; 'terribly' is the signal.",
+     "definitionFit": "Feeling under the weather is an idiom for being slightly unwell or ill."
     },
     "features": {
      "answerInScene": true,
@@ -1499,62 +1502,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LEAFLET",
+     "op": "container",
      "indicators": [
       {
-       "text": "Sad",
-       "note": "sad in the sense of sorry or wretched suggests a mess, so these letters are rearranged"
+       "text": "about",
+       "at": 9,
+       "note": "the rearranged tale goes about, around, the picked letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means surrounding, so one piece is placed around another"
+         "text": "Sad",
+         "at": 0,
+         "note": "sad suggests the letters are in a sorry state, rearranged"
         }
        ],
        "parts": [
         {
          "words": "tale",
-         "note": "the letters of this word, rearranged"
-        },
+         "at": 4
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "FLE",
-         "indicators": [
-          {
-           "text": "odds of",
-           "note": "the odd-numbered letters of a word are its first, third, fifth and so on"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "fallen",
-           "gives": "FLE",
-           "select": "alternate",
-           "note": "the first, third and fifth letters"
-          }
-         ]
+         "text": "odds of",
+         "at": 15,
+         "note": "the odd letters, first, third and fifth, of fallen"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fallen",
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sad story about a bird or aviator that has fallen.",
-     "walkthrough": "'flyer' looks like a bird or pilot in the surface; here it is a printed handout.",
-     "definitionFit": "A flyer is a printed sheet handed out for advertising, which is a leaflet."
+     "surface": "A melancholy story about the odds facing a fallen airman.",
+     "definitionFit": "A flyer is a printed handbill, a sheet handed out to advertise something."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "flyer"
     }
    }

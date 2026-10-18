@@ -634,42 +634,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "JARGON",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Pint",
+       "at": 0,
+       "gives": "JAR",
+       "note": "a jar is British slang for a pint of beer"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 5,
+         "note": "almost means the last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Pint",
-         "gives": "JAR",
-         "note": "a jar is British slang for a glass of beer"
+         "words": "finished",
+         "at": 12,
+         "gives": "GONE",
+         "note": "gone means finished"
         },
         {
-         "words": "finished",
-         "gives": "GON",
-         "note": "gone, meaning finished, without its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drinker's pint is nearly gone, so to speak.",
-     "walkthrough": "'In a manner of speaking' looks like a stock phrase meaning 'so to speak', but 'in' is only the link and the rest defines the answer.",
-     "definitionFit": "Jargon is the specialised vocabulary of a trade or group, a particular way of talking that outsiders struggle with."
+     "surface": "A pint is nearly drunk, or so the saying goes.",
+     "walkthrough": "'in a manner of speaking' looks like a set phrase, but 'in' is the link and the rest defines.",
+     "definitionFit": "Jargon is the specialised vocabulary of a trade or group, a particular way of talking."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "manner"
+     "misdirectedWord": "speaking"
     }
    }
   },
@@ -2288,46 +2292,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ELECTRICIAN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Dropping intro",
-       "note": "dropping the introduction removes the opening letter of the word"
+       "text": "playing",
+       "at": 32,
+       "note": "playing, as an instrument is played, reworks the letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "playing",
-         "note": "playing music means improvising, so the letters are performed in a new order"
+         "text": "Dropping intro in",
+         "at": 0,
+         "note": "the opening letter of nice is dropped"
         }
        ],
        "parts": [
         {
          "words": "nice",
-         "gives": "ICE",
-         "note": "the word without its first letter"
+         "at": 18
         },
         {
-         "words": "clarinet",
-         "note": "the letters to be rearranged"
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "clarinet",
+       "at": 23
       }
      ]
     },
     "explanation": {
-     "surface": "A clarinettist skipping the introduction makes the music crackle.",
-     "walkthrough": "'Sparks' looks like a verb for the result, but it is British slang for an electrician.",
-     "definitionFit": "Sparks is the British nickname for someone who installs and repairs wiring, from the sparks of the trade."
+     "surface": "Leaving out the introduction while playing a lovely clarinet creates a buzz.",
+     "walkthrough": "NICE minus its first letter gives ICE; ICE and CLARINET are rearranged together.",
+     "definitionFit": "Sparks is a nickname for an electrician, from the sparks of electrical work."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "sparks"
     }
    }

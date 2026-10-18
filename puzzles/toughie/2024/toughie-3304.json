@@ -771,57 +771,66 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "PICKNMIX",
-     "indicators": [
-      {
-       "text": "cycles",
-       "note": "a cycle goes round, so the word's first letter is moved round to its end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "originally",
-         "note": "originally points to the start of the word, so only its opening letter is kept"
+         "at": 10,
+         "note": "originally points to the opening letter of Pilferers"
         }
        ],
        "parts": [
         {
          "words": "Pilferers",
-         "note": "the first letter of pilferers"
+         "at": 0,
+         "note": "first letter of Pilferers"
         }
        ]
       },
       {
-       "words": "steal",
-       "gives": "NICK",
-       "note": "to nick is British slang for to steal"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycles",
+         "at": 27,
+         "note": "cycles tells us to rotate the word for steal, carrying its first letter round to the back"
+        }
+       ],
+       "parts": [
+        {
+         "words": "steal",
+         "at": 21,
+         "gives": "NICK",
+         "note": "to nick is to steal"
+        }
+       ]
       },
       {
        "words": "note",
+       "at": 35,
        "gives": "MI",
-       "note": "mi is the third note of the sol-fa scale"
+       "note": "mi is a note of the sol-fa scale"
       },
       {
        "words": "by",
+       "at": 41,
        "gives": "X",
-       "note": "x is the multiplication sign, read as 'by'"
+       "note": "by as in multiplied by, the times sign X"
       }
      ]
     },
     "spelling": "PICK 'N' MIX",
     "explanation": {
-     "surface": "Shoplifters begin by stealing bicycles, picking whatever they personally fancy.",
-     "walkthrough": "NICK cycles to ICKN. Pick 'n' mix is a British sweet-shop display where customers fill a bag with whatever sweets they like.",
-     "definitionFit": "Pick 'n' mix means selecting freely to suit yourself, from the self-service sweet counters of that name."
+     "surface": "Shoplifters begin by stealing bikes, choosing whatever takes their fancy.",
+     "walkthrough": "'cycles' reads like bicycles being stolen, but it is a verb telling us to rotate letters; 'by' is the multiplication sign, as in four by two.",
+     "definitionFit": "Pick 'n' mix is a sweet counter where customers select their own assortment, so it names any self-selected mixture."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "cycles"
     }
    }
