@@ -541,46 +541,60 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "BLENDIN",
-     "indicators": [
-      {
-       "text": "switched",
-       "note": "switched means the two words home and loan trade places before being written down"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "first",
-         "note": "first asks only for the opening letter of the word Bank"
+         "at": 7,
+         "note": "first means take only the opening letter of bank"
         }
        ],
        "parts": [
         {
          "words": "Bank's",
-         "note": "the opening letter"
+         "at": 0,
+         "note": "the first letter of bank"
         }
        ]
       },
       {
-       "words": "home",
-       "gives": "IN",
-       "note": "at home means in"
-      },
-      {
-       "words": "loan",
-       "gives": "LEND",
-       "note": "to lend is to make a loan; loan is also used as a verb"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "switched",
+         "at": 23,
+         "note": "switched means the two pieces after the first letter swap places"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "home",
+           "at": 13,
+           "gives": "IN",
+           "note": "in means at home"
+          },
+          {
+           "words": "loan",
+           "at": 18,
+           "gives": "LEND",
+           "note": "lend is to loan"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bank's first-time home loan was switched over to match competitors' terms.",
-     "definitionFit": "To blend in is to fit with one's surroundings so as not to stand out, matching those around you."
+     "surface": "A bank's first mortgage was converted so it would fit with the others.",
+     "walkthrough": "'switched' looks like a loan being transferred, but it tells you to swap the order of the home and loan words.",
+     "definitionFit": "To blend in is to fit with surroundings so as not to stand out, matching the people around you."
     },
     "features": {
      "answerInScene": false,

@@ -565,41 +565,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CARRYCOT",
+     "spelt": "CARRYCOT",
      "indicators": [
       {
        "text": "so Spooner says",
-       "note": "Spooner was famed for swapping the sounds of words, so the sounds here are exchanged"
+       "at": 49,
+       "note": "the Reverend Spooner muddled the sounds of words, so the sounds of the two words are swapped"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "moggy",
-       "gives": "COT",
-       "soundsLike": "CAT",
-       "note": "moggy is British slang for a cat"
+       "op": "homophone",
+       "spelt": "CORRIE",
+       "parts": [
+        {
+         "words": "Weatherfield",
+         "at": 35,
+         "gives": "KORRY",
+         "note": "Weatherfield is the fictional town of Coronation Street, the British TV soap nicknamed Corrie, said aloud as korry"
+        }
+       ]
       },
       {
-       "unchecked": true,
-       "words": "Weatherfield",
-       "gives": "CARRY",
-       "soundsLike": "CORRIE",
-       "note": "Corrie is the nickname of Coronation Street, the soap set in Weatherfield"
+       "words": "moggy",
+       "at": 22,
+       "gives": "CAT",
+       "note": "moggy is British slang for a cat"
       }
      ]
     },
     "explanation": {
-     "surface": "A soap-opera cat prowls around its fictional northern town.",
-     "walkthrough": "Corrie cat, with its vowel sounds swapped, comes out as carry cot. Coronation Street is Britain's longest-running TV soap.",
-     "definitionFit": "A carrycot is a portable bed with handles in which a baby is carried."
+     "surface": "A cat wanders about a soap opera town, according to a muddled clergyman.",
+     "walkthrough": "A Corrie cat is a moggy around Weatherfield; this Spooner swaps the vowel sounds, turning korry kat into carry cot.",
+     "definitionFit": "A carrycot is a portable bed with handles, used to carry an infant around."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Weatherfield"
+     "joke": "absurd",
+     "misdirectedWord": "transport"
     }
    }
   },
@@ -990,33 +994,33 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "WATERWINGS",
      "indicators": [
       {
        "text": "to close",
-       "note": "to close round something is to shut it inside"
+       "at": 18,
+       "note": "to close means to enclose, so the moves word shuts around the next piece"
       }
      ],
      "parts": [
       {
+       "words": "moves",
+       "at": 12,
+       "gives": "WAGS",
+       "note": "wags means moves to and fro, like a tail"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "WATERWINGS",
        "indicators": [
         {
          "text": "cycling",
-         "note": "cycling moves letters from the front round to the back, like a wheel turning"
+         "at": 27,
+         "note": "cycling means letters go round from one end to the other"
         }
        ],
        "parts": [
         {
-         "words": "moves",
-         "gives": "WAGS",
-         "note": "to wag is to move to and fro"
-        },
-        {
          "words": "season",
+         "at": 35,
          "gives": "WINTER",
          "note": "winter is a season"
         }
@@ -1025,12 +1029,12 @@
      ]
     },
     "explanation": {
-     "surface": "Swimming baths make changes ahead of shutting for the bike-riding season.",
-     "walkthrough": "'cycling season' suggests a time for bikes; cycling instead moves the first three letters of the season to its end.",
-     "definitionFit": "Water wings are inflatable armbands that help a child stay afloat while learning to swim."
+     "surface": "Swimming aids are packed away as the cycling season draws to a close.",
+     "walkthrough": "'moves' is wags, as a dog's tail moves, and 'to close' means to shut in, not to finish.",
+     "definitionFit": "Water wings are inflatable armbands that keep a child afloat while learning to swim, a buoyancy aid."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "cycling"
     }
@@ -1446,49 +1450,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SKIING",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "about",
-       "note": "turning about means facing the other way, so the little word runs backwards"
+       "text": "face",
+       "at": 34,
+       "note": "face means it is the front letter of the man that gets covered"
       }
      ],
      "parts": [
       {
+       "words": "man",
+       "at": 9,
+       "gives": "KING",
+       "note": "a king is a man in chess"
+      },
+      {
+       "gives": "K"
+      },
+      {
        "op": "container",
-       "unchecked": true,
-       "gives": "SKIING",
        "indicators": [
         {
          "text": "to mask",
-         "note": "a mask covers something, so those letters wrap around"
+         "at": 22,
+         "note": "to mask means to cover, so the turned word wraps round the man's letter"
         }
        ],
        "parts": [
         {
-         "words": "is",
-         "note": "taken as written"
-        },
-        {
-         "words": "man",
-         "gives": "KING",
-         "note": "a king is a chess man"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "K",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 16,
+           "note": "about means turned round, so the word is reads backwards"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "his face",
-           "gives": "K",
-           "select": "first",
-           "note": "the face of the chess piece is its first letter"
+           "words": "is",
+           "at": 13
           }
          ]
+        },
+        {
+         "words": "his",
+         "at": 30,
+         "gives": "K",
+         "note": "his refers to the king, whose letter in chess notation is K"
         }
        ]
       }
@@ -1496,9 +1506,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A sport in which a person covers up their face before setting off.",
-     "walkthrough": "Only the man's face, his first letter, is masked; the rest of him follows. The whole clue also describes the answer.",
-     "definitionFit": "Skiers wear goggles and face masks against cold and glare, so this sport is one where people cover their faces."
+     "surface": "A puzzle about a sport where you cover your face against the cold.",
+     "walkthrough": "SI, from 'is' turned 'about', wraps round K, the king's face, giving SKI + ING. Skiers wear goggles or masks over their faces.",
+     "definitionFit": "Skiing is a winter sport in which people wear goggles and face masks against snow and wind."
     },
     "features": {
      "answerInScene": true,
@@ -1691,33 +1701,33 @@
     "definitions": [
      {
       "text": "Issues",
-      "at": 0
+      "at": 0,
+      "note": "issues as a verb, comes out, matching the verb sense of the answer"
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "VENTS",
+     "op": "deletion",
      "indicators": [
       {
        "text": "at prime sites",
-       "note": "prime sites are the prime-numbered positions, second, third, fifth, seventh and eleventh"
+       "at": 21,
+       "note": "at prime sites means only the letters at prime-numbered positions (2, 3, 5, 7, 11) are kept"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "over naturism",
-       "gives": "VENTS",
-       "select": "prime",
-       "note": "letters 2, 3, 5, 7 and 11"
+       "at": 7
+      },
+      {
+       "gives": "ORAURIM"
       }
      ]
     },
     "explanation": {
-     "surface": "Concerns raised about nudists taking over the best locations.",
-     "walkthrough": "'prime sites' sounds like estate-agent talk for good locations; here it means prime-numbered letter positions.",
-     "definitionFit": "Vents are outlets, and issues as a noun can mean outflows or openings that let something out."
+     "surface": "Problems arise over nudity at top-quality locations.",
+     "walkthrough": "'prime sites' sounds like estate-agent talk, but means positions 2, 3, 5, 7 and 11 in OVER NATURISM, which hold V, E, N, T, S.",
+     "definitionFit": "Something that vents lets out or discharges air or feeling, which is what issues means as a verb."
     },
     "features": {
      "answerInScene": false,

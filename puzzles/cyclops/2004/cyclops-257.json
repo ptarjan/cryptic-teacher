@@ -1088,29 +1088,40 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "entering",
        "at": 30,
-       "note": "the word for admitting comes in straight after the end letter, entering the answer next"
+       "note": "entering means this word goes into the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "end of",
-         "at": 39,
-         "note": "the end of a word is its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Third",
-         "at": 46,
-         "note": "the word whose last letter is used"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 39,
+           "note": "end of means only the last letter is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Third",
+           "at": 46,
+           "note": "the last letter of third"
+          }
+         ]
+        },
+        {
+         "words": "Way",
+         "at": 52,
+         "gives": "STREET",
+         "note": "a street is a way or road"
         }
        ]
       },
@@ -1118,25 +1129,20 @@
        "words": "admitting",
        "at": 20,
        "gives": "OWNING",
-       "note": "owning (up) means confessing or admitting"
-      },
-      {
-       "words": "Way",
-       "at": 52,
-       "gives": "STREET",
-       "note": "a street is a road or way"
+       "note": "owning means admitting, as in owning up"
       }
      ]
     },
     "explanation": {
-     "surface": "Blair confesses to adopting the 'Third Way' politics he championed, and where to find him.",
-     "walkthrough": "The Third Way was Tony Blair's centrist political slogan; Downing Street is the Prime Minister's London address.",
-     "definitionFit": "Number 10 Downing Street is the official residence of the British Prime Minister, which Tony Blair then was."
+     "surface": "A Private Eye jab at Tony Blair conceding his politics ended up in the Third Way.",
+     "walkthrough": "'admitting' is owning, as in owning up. Number 10 Downing Street is the British prime minister's official home, and the Third Way was Blair's political slogan.",
+     "definitionFit": "Downing Street holds the prime minister's residence at Number 10, where Blair lived while in office."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Third"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Way"
     }
    }
   },

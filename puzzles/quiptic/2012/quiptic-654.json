@@ -507,50 +507,55 @@
      "indicators": [
       {
        "text": "during which",
-       "note": "during which means within that span, so the following pieces go inside"
+       "at": 4,
+       "note": "during which means the day holds the next pieces inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Day",
-         "gives": "SAT",
-         "note": "SAT is short for Saturday"
-        },
-        {
-         "words": "police officer",
-         "gives": "DI",
-         "note": "DI is a detective inspector"
-        }
-       ]
+       "words": "Day",
+       "at": 0,
+       "gives": "SAT",
+       "note": "SAT is short for Saturday"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "head of",
-         "note": "the head of a word is its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "surveillance",
-         "note": "the first letter of surveillance"
+         "words": "police officer",
+         "at": 17,
+         "gives": "DI",
+         "note": "DI is a detective inspector"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head of",
+           "at": 33,
+           "note": "head of means the first letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "surveillance",
+           "at": 41
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "On a day of surveillance, a detective uncovers a cruel person.",
-     "definitionFit": "A sadist takes pleasure in causing suffering to other people."
+     "surface": "A detective on surveillance duty spends a day finding a cruel person.",
+     "walkthrough": "DI is a Detective Inspector in a British police force.",
+     "definitionFit": "A sadist is a person who takes pleasure in causing pain or humiliation to others."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Day"
+     "misdirectedWord": "head"
     }
    }
   },

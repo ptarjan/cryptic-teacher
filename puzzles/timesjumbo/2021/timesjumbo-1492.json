@@ -1483,59 +1483,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ATHLETIC",
-     "indicators": [
-      {
-       "text": "new",
-       "note": "new suggests a fresh arrangement of the letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 9,
+         "note": "new means remade, so the letters of hat are put in a fresh order"
+        }
+       ],
        "parts": [
         {
          "words": "hat",
-         "note": "the letters rearranged"
-        },
+         "at": 13
+        }
+       ]
+      },
+      {
+       "words": "allowed",
+       "at": 18,
+       "gives": "LET",
+       "note": "let means allowed"
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "allowed",
-         "gives": "LET",
-         "note": "let means permitted"
-        },
+         "text": "at the outset",
+         "at": 37,
+         "note": "at the outset means only the opening letter of each word is taken"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "IC",
-         "indicators": [
-          {
-           "text": "at the outset",
-           "note": "the outset is the beginning, so only the opening letter of each word is kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "in college",
-           "gives": "IC",
-           "select": "first",
-           "note": "the first letters of the two words"
-          }
-         ]
+         "words": "in college",
+         "at": 26,
+         "note": "the first letters of in and college"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A student wears a fresh cap, permitted at the start of term.",
-     "walkthrough": "'Sporting' looks like a verb for wearing the hat; it is the adjective meaning fit and fond of sport.",
-     "definitionFit": "Muscular and good at games describes someone of sports, so the adjective matches."
+     "surface": "A student is allowed into college wearing a new sporty hat from the start.",
+     "walkthrough": "'Sporting new hat' reads as wearing a hat; 'Sporting' is the definition.",
+     "definitionFit": "Athletic means relating to sport and physical exercise, the same as sporting."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Sporting"
     }
@@ -1700,44 +1697,44 @@
      "indicators": [
       {
        "text": "taking in",
-       "note": "taking something in holds it inside"
+       "at": 7,
+       "note": "taking in means holding inside, so the watch word holds the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Watch",
-         "gives": "HUNTER",
-         "note": "a hunter is a pocket watch with a hinged cover"
-        },
-        {
-         "words": "the",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Watch",
+       "at": 0,
+       "gives": "HUNTER",
+       "note": "a hunter is a pocket watch with a hinged cover"
       },
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
+         "words": "the",
+         "at": 17
+        },
+        {
          "words": "fielder",
+         "at": 21,
          "gives": "SLIP",
-         "note": "a slip is a cricket fielder beside the wicketkeeper"
+         "note": "slip is a cricket fielding position close behind the batter"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "beginning to",
-           "note": "the beginning of a word is its first letter"
+           "text": "beginning",
+           "at": 29,
+           "note": "beginning means only the first letter is used"
           }
          ],
          "parts": [
           {
-           "words": "play",
-           "note": "the first letter of the word"
+           "words": "to play",
+           "at": 39,
+           "note": "the first letter of to play, read as the start of play"
           }
          ]
         }
@@ -1746,14 +1743,13 @@
      ]
     },
     "explanation": {
-     "surface": "Spectators keep their eye on the cricketer as the match starts.",
-     "walkthrough": "'Watch' looks like a verb but is a kind of pocket watch; slip is a fielding position in cricket.",
-     "definitionFit": "This old parlour pastime has players in a ring passing a shoe while one tries to find it."
+     "surface": "A spectator checks a watch while a fielder starts the game.",
+     "walkthrough": "A hunter is a pocket watch. Slip is a cricket fielder standing beside the wicketkeeper.",
+     "definitionFit": "Hunt the slipper is a children's party game where players pass a slipper round a circle while one tries to find it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Watch"
     }
    }
