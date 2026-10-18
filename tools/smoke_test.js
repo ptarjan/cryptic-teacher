@@ -3331,6 +3331,19 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   // tracked field rather than a sentence somebody might remember to write, so
   // drive every sound clue there is and check it reaches the page.
   {
+    const plainSpoonerism = (ann) => {
+      if ((ann.type || []).includes("homophone")) return false;
+      const found = [];
+      const nodes = [ann.wordplay];
+      while (nodes.length) {
+        const n = nodes.pop();
+        if (n && typeof n === "object") {
+          if (n.op === "spoonerism") found.push(n);
+          nodes.push(...(n.parts || []));
+        }
+      }
+      return found.length > 0 && !found.some((n) => "spelt" in n);
+    };
     const sound = [];
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
@@ -3341,6 +3354,10 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     assert(enough(sound.length, 20), "the corpus still has sound clues to check: " + sound.length);
     for (const s of sound) {
       const heard = (s.e.annotation.blocks || []).filter((b) => b.soundsLike);
+      // Mirrors plain_spoonerism in validate_annotations.py: a clue whose only
+      // sound is spoon(a, b) swaps the onsets of two spelt words, so there is no
+      // heard word to carry and the validator asks for no soundsLike.
+      if (!heard.length && plainSpoonerism(s.e.annotation)) continue;
       assert(heard.length,
         `${s.id} ${entryId(s.e)}: type ${s.e.annotation.type} but no block says what is said aloud`);
       openClue(s);
