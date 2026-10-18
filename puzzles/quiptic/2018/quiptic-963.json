@@ -377,30 +377,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INVERT",
+     "op": "composite",
      "indicators": [
       {
        "text": "out",
-       "note": "out means these letters are taken out of the longer word"
+       "at": 5,
+       "note": "out signals both that the letters of sort go out of the longer word and that what remains is the result"
       }
      ],
      "parts": [
       {
        "words": "introverts",
-       "note": "taken as written"
+       "at": 9,
+       "note": "the fodder, taken as written"
       },
       {
        "words": "Sort",
-       "note": "the four letters to remove, wherever they fall"
+       "at": 0,
+       "note": "the word sort, whose letters are taken away"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to deal with shy people and then retreat.",
-     "walkthrough": "'Sort out' reads as one phrasal verb, but it splits: remove S, O, R and T from INTROVERTS.",
-     "definitionFit": "To invert is to turn upside down or reverse the position or order of something."
+     "surface": "Someone is told to deal with shy people and then retreat.",
+     "walkthrough": "'Sort out' reads as one phrase meaning deal with, but it splits: 'Sort' names the letters to remove and 'out' removes them; the remaining letters happen to need no shuffling.",
+     "definitionFit": "To invert something is to turn it upside down or reverse its order, turning it back on itself."
     },
     "features": {
      "answerInScene": false,
@@ -1325,46 +1326,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BEASTLIER",
      "indicators": [
       {
        "text": "circulates",
-       "note": "the drink circulating means it goes round the other letters"
+       "at": 52,
+       "note": "the drink circulates, going round the rearranged letters"
       }
      ],
      "parts": [
+      {
+       "words": "drink",
+       "at": 46,
+       "gives": "BEER",
+       "note": "beer is the everyday drink"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "wagging",
-         "note": "a wagging tail moves to and fro, so these letters are shaken into a new order"
+         "at": 34,
+         "note": "tails wagging move to and fro, so the letters of tails are shuffled"
         }
        ],
        "parts": [
         {
-         "words": "drink",
-         "gives": "BE",
-         "note": "first part of beer, split around the other piece"
-        },
-        {
          "words": "tails",
-         "note": "used purely for its letters"
-        },
-        {
-         "words": "drink",
-         "gives": "ER",
-         "note": "the rest of beer, closing round the mixed letters"
+         "at": 28
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Things get nastier when the beer flows and tails start wagging.",
-     "walkthrough": "BEER is the drink, wrapped round a jumble of TAILS.",
-     "definitionFit": "Comparative of beastly, an informal British word for nasty or horrid."
+     "surface": "A dog's tails wag as the beer flows, making for a nastier scene.",
+     "walkthrough": "The surface hints at a happy dog, but 'tails' is just fodder; 'circulates' has the drink go right round the shuffled letters.",
+     "definitionFit": "Beastly means nasty or unkind, so its comparative describes something nastier or more disagreeable."
     },
     "features": {
      "answerInScene": false,

@@ -1462,50 +1462,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PENANCE",
-     "indicators": [
-      {
-       "text": "confused",
-       "note": "confused means muddled, so the remaining letters are mixed up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PENANCE",
+       "words": "writer",
+       "at": 12,
+       "gives": "PEN",
+       "note": "a pen is the classic crossword writer, the thing you write with"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "regularly lost",
-         "note": "regularly lost means letters at a steady spacing, every third one starting from the first, are dropped"
+         "text": "confused",
+         "at": 42,
+         "note": "confused means the letters that remain are muddled into a new order"
         }
        ],
        "parts": [
         {
-         "words": "writer",
-         "gives": "PEN",
-         "note": "a pen is a writing implement"
-        },
-        {
-         "words": "McEwan",
-         "note": "the novelist's surname, taken as written"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "regularly lost",
+           "at": 26,
+           "note": "regularly lost means letters at evenly spaced positions are dropped, here every third one starting from the first"
+          }
+         ],
+         "parts": [
+          {
+           "words": "McEwan",
+           "at": 19,
+           "note": "the surname, taken as written"
+          },
+          {
+           "gives": "MW"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ian McEwan, author of the novel Atonement, has gone astray and become muddled.",
-     "walkthrough": "Atonement is Ian McEwan's novel, so 'writer McEwan' looks like one unit; the quotation marks hide the definition. Dropping the first and fourth letters leaves CEAN.",
-     "definitionFit": "Penance is a self-imposed punishment performed to make amends for wrongdoing, which is what atoning for sins involves."
+     "surface": "Ian McEwan, author of the novel Atonement, seems to have lost his way.",
+     "walkthrough": "'Atonement' is McEwan's best-known novel, so it seems to go with 'writer'; it is the definition. From MCEWAN, 'regularly lost' drops every third letter (M and W), and 'confused' rearranges the CEAN left.",
+     "definitionFit": "Penance is an act of self-punishment done to make amends for wrongdoing, which is what atoning for a sin means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Atonement"
+     "misdirectedWord": "writer"
     }
    }
   },

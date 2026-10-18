@@ -820,47 +820,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RAVAGE",
-     "indicators": [
-      {
-       "text": "naked",
-       "note": "naked means stripped of covering, so the word loses its outside letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
          "text": "Rear of",
-         "note": "the rear of a word is its last letter, so only that one is kept"
+         "at": 0,
+         "note": "the rear of a word is its last letter"
         }
        ],
        "parts": [
         {
          "words": "cutter",
-         "note": "the final letter of cutter"
+         "at": 8,
+         "note": "the word cutter, whose last letter is used"
         }
        ]
       },
       {
-       "words": "barbarians",
-       "gives": "SAVAGES",
-       "note": "savages is a synonym for barbarians"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "naked",
+         "at": 15,
+         "note": "naked means stripped of its outer covering, so the word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "barbarians",
+         "at": 21,
+         "gives": "SAVAGES",
+         "note": "savages is an old word for uncivilised people, barbarians"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Unclothed barbarians raiding the back of a ship.",
-     "walkthrough": "'Cutter' looks like a ship in the scene, but only its last letter is used.",
-     "definitionFit": "To ravage is to devastate and lay waste, much as raiders plunder a place."
+     "surface": "Unclothed raiders loot a ship from the stern of their boat.",
+     "walkthrough": "'Naked' fits the barbarian picture but strips SAVAGES of its outer S at each end.",
+     "definitionFit": "To ravage is to lay waste or pillage a place, which is what plundering raiders do."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cutter"
+     "misdirectedWord": "naked"
     }
    }
   },

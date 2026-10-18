@@ -251,71 +251,84 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NEGLECTFUL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Half of",
-       "note": "only part of the word survives, and 'skipped' tells us the rest is dropped"
-      },
-      {
-       "text": "skipped",
-       "note": "skipping lectures means not attending, so the remaining part is missed out"
+       "text": "after",
+       "at": 25,
+       "note": "after places the shortened lectures following the abbreviation for negative"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "negative",
+       "at": 31,
+       "gives": "NEG"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Half of",
+         "at": 0,
+         "note": "half of points to the second half of the word as the part that goes"
+        },
+        {
+         "text": "skipped",
+         "at": 17,
+         "note": "skipped means that half is missed out, leaving the first four letters"
+        }
+       ],
        "parts": [
         {
-         "words": "negative",
-         "gives": "NEG",
-         "note": "the standard short form of negative"
-        },
-        {
          "words": "lectures",
-         "gives": "LECT",
-         "note": "the first half of the word, with the second half dropped"
+         "at": 8,
+         "note": "the word lectures, taken as written"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "beginning",
-           "note": "the start of a word is just its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "feedback",
-           "note": "its opening letter"
-          }
-         ]
-        },
-        {
-         "words": "university",
-         "gives": "U",
-         "note": "U is the abbreviation for university"
-        },
-        {
-         "words": "student",
-         "gives": "L",
-         "note": "L is a learner, as on a learner driver's plate"
+         "gives": "URES"
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "at": 51,
+         "note": "beginning picks out the first letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "feedback's",
+         "at": 40,
+         "note": "the word feedback, whose first letter is used"
+        }
+       ]
+      },
+      {
+       "words": "university",
+       "at": 62,
+       "gives": "U"
+      },
+      {
+       "words": "student",
+       "at": 73,
+       "gives": "L",
+       "note": "L is for learner, the crossword student, from the L-plate"
       }
      ]
     },
     "explanation": {
-     "surface": "A student who cut classes after critical feedback is told off for laxity.",
-     "walkthrough": "'After' puts the lectures piece after NEG. The final 's is 'is', joining the wordplay to the definition.",
-     "definitionFit": "Someone remiss fails to take proper care over duties, which is exactly what being neglectful means."
+     "surface": "A university student who skipped half the lectures gets criticism and is told they have been careless.",
+     "walkthrough": "The surface reads as a skiving student, but every piece is an abbreviation or a fragment. L for student comes from the learner's L-plate on British cars.",
+     "definitionFit": "Remiss means careless about one's duties, and neglectful describes someone who fails to give proper attention."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "skipped"
+     "misdirectedWord": "negative"
     }
    }
   },
