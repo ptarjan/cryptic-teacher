@@ -349,54 +349,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ARTDECO",
+     "op": "composite",
      "indicators": [
       {
        "text": "upset",
-       "note": "something upset is knocked over and disordered, so the letters are rearranged"
+       "at": 9,
+       "note": "upset means knocked over and thrown into disorder, so the letters are jumbled"
+      },
+      {
+       "text": "having taking out",
+       "at": 15,
+       "note": "taking something out removes it, so the named letter goes from the pool before the jumble"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ARTDECO",
+       "words": "Democrat",
+       "at": 0,
+       "note": "the word Democrat, used as anagram fodder"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "taking out",
-         "note": "taking out means removing, so a letter is dropped from the party member"
+         "text": "leader",
+         "at": 41,
+         "note": "a leader comes first, so only the first letter of the word is used"
         }
        ],
        "parts": [
         {
-         "words": "Democrat",
-         "note": "taken as written"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader",
-           "note": "a leader comes first, so only the opening letter counts"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Mafia's",
-           "note": "the opening letter"
-          }
-         ]
+         "words": "Mafia's",
+         "at": 33,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A US Democrat distressed at having a Mafia boss killed.",
-     "walkthrough": "'taking out' in the surface suggests a mob hit, but it just drops a letter.",
-     "definitionFit": "Art Deco is a decorative style of design and architecture popular in the 1920s and 1930s."
+     "surface": "A Democrat politician is rattled after the Mafia boss has been taken out, rubbed out in gangster style.",
+     "walkthrough": "'leader' gives M, the first letter of Mafia's; 'having taking out' removes it from DEMOCRAT, leaving DEOCRAT, and 'upset' rearranges those seven letters. 'Taking out' looks like a gangland killing.",
+     "definitionFit": "Art Deco is a decorative style of the 1920s and 1930s, known for bold geometric shapes, so it is one style among many."
     },
     "features": {
      "answerInScene": false,
@@ -928,12 +922,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "COALESCE",
      "indicators": [
       {
        "text": "Drinking",
-       "note": "what is drunk goes inside the drinker, so the beers sit within the other letters"
+       "at": 0,
+       "note": "something drinking takes liquid in, so the beers go inside the other letters"
       }
      ],
      "parts": [
@@ -942,32 +935,33 @@
        "parts": [
         {
          "words": "company",
-         "gives": "CO",
-         "note": "CO is the abbreviation for company"
-        },
-        {
-         "words": "beers",
-         "gives": "ALES",
-         "note": "ales are beers"
+         "at": 16,
+         "gives": "CO"
         },
         {
          "words": "church",
+         "at": 28,
          "gives": "CE",
-         "note": "CE is the Church of England"
+         "note": "CE stands for the Church of England"
         }
        ]
+      },
+      {
+       "words": "beers",
+       "at": 9,
+       "gives": "ALES",
+       "note": "ales are beers"
       }
      ]
     },
     "explanation": {
-     "surface": "Firm and parish gather for a drink.",
-     "walkthrough": "'and' sits inside the pair it joins, but the company and church are the outer letters with the beers between.",
-     "definitionFit": "To coalesce is to merge or unite into a single whole."
+     "surface": "A firm and a church congregation unite over a few pints.",
+     "definitionFit": "To coalesce is to merge or unite into one mass or group, which is what coming together means."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "company"
+     "misdirectedWord": "Drinking"
     }
    }
   },

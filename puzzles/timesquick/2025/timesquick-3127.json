@@ -521,8 +521,7 @@
     "definitions": [
      {
       "text": "verse",
-      "at": 38,
-      "note": "the answer is a metre of verse rather than verse itself"
+      "at": 38
      }
     ],
     "wordplay": {
@@ -530,44 +529,48 @@
      "parts": [
       {
        "words": "Write",
+       "at": 0,
        "gives": "PEN",
-       "note": "to pen is to write"
+       "note": "to pen something is to write it"
       },
       {
        "words": "feeble",
+       "at": 6,
        "gives": "TAME",
-       "note": "tame means dull or weak"
+       "note": "tame means feeble, lacking spirit, as in a tame ending"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "TER",
+       "op": "deletion",
        "indicators": [
         {
          "text": "second half of",
-         "note": "only the back half of the following word is kept, its first half discarded"
+         "at": 13,
+         "note": "only the back half of the word letter is wanted, so its first three letters are dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "letter",
-         "gives": "TER",
-         "select": "last",
-         "note": "the back three of its six letters"
+         "at": 28,
+         "note": "the word letter, of which only the second half survives"
+        },
+        {
+         "gives": "LET",
+         "note": "the first half of letter, which is removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions to compose the weak end of a letter as a poem.",
-     "definitionFit": "Pentameter is a line of five metrical feet, the standard measure of much English poetry such as Shakespeare's."
+     "surface": "A disparaging verdict on a poem whose letter tails off weakly in its second half.",
+     "walkthrough": "'second half of' keeps the last three of the word's six letters. 'In' is only a link: the definition is 'verse', a pentameter being a line of verse.",
+     "definitionFit": "Pentameter is a metre of five feet per line, the standard line of much English poetry."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "letter"
+     "misdirectedWord": "Write"
     }
    }
   },
@@ -1228,29 +1231,27 @@
      }
     ],
     "wordplay": {
-     "op": "last",
-     "unchecked": true,
-     "gives": "ANT",
+     "op": "hidden",
      "indicators": [
       {
        "text": "finishing",
-       "note": "the finishing part of a word is its tail, so only the closing letters are used"
+       "at": 23,
+       "note": "the wanted letters are the ones that finish the word lieutenant, sitting at its very end"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "lieutenant",
+       "at": 33,
        "gives": "ANT",
-       "select": "last",
-       "note": "its last three letters"
+       "note": "the word whose closing letters are taken"
       }
      ]
     },
     "explanation": {
-     "surface": "Possibly a soldier who ends up a lieutenant.",
-     "walkthrough": "'Army' suggests soldiers, but army ants march in huge colonies, so one insect is a member of an army.",
-     "definitionFit": "Army ants are a group of insects that forage in vast columns, so one such insect belongs to an army."
+     "surface": "A soldier, perhaps, rounding off his career as a lieutenant.",
+     "walkthrough": "The army here is not a military one: army ants travel in huge marching columns, so one ant is a member of an army. 'Perhaps' flags it as an example.",
+     "definitionFit": "Army ants are a group of species that forage in vast columns, so an individual insect is one member of such an army."
     },
     "features": {
      "answerInScene": false,
