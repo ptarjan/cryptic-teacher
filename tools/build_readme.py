@@ -801,6 +801,7 @@ LAYOUT = [
     ("annotating", "tools/test_repair_padding.py", "tests that repair_fetched takes link words out of the wordplay, and only those"),
     ("annotating", "tools/test_ci_cache_partial.js", "a cold result cache must be able to refill over several runs"),
     ("annotating", "tools/annotate_bag.py", "the files a bag session (tools/annotate_bag_prompt.md) works from and writes"),
+    ("annotating", "tools/queue_unchecked.py", "queue every clue that still carries an `unchecked` wordplay step for the burn's redo"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

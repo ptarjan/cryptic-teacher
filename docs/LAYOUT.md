@@ -2991,5 +2991,7 @@ tools/test_ci_cache_partial.js                 a cold result cache must be able 
 tools/annotate_bag.py                          the files a bag session
                                                (tools/annotate_bag_prompt.md) works from and
                                                writes
+tools/queue_unchecked.py                       queue every clue that still carries an
+                                               `unchecked` wordplay step for the burn's redo
 ```
 <!-- LAYOUT-END -->

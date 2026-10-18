@@ -131,7 +131,10 @@ def _validator_rules():
             "bareInCharade": lambda t, a, c: V.bare_in_charade(t, a),
             "inDefinition": lambda t, a, c: V.in_definition(a),
             "leafFold": lambda t, a, c: V.leaf_folds(t),
-            "anaCharade": lambda t, a, c: V.anagram_charades(t)}
+            "anaCharade": lambda t, a, c: V.anagram_charades(t),
+            # A step taken as filed that tools/clear_unchecked.py could not verify:
+            # fires while any node of the tree still carries the flag.
+            "unchecked_step": lambda t, a, c: any(n.get("unchecked") for n in V._walk(t))}
 
 
 def _answer(entry):
