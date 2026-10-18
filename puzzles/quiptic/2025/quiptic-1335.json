@@ -47,35 +47,38 @@
      "indicators": [
       {
        "text": "touring",
-       "note": "the brain goes on a tour round the other letters, enclosing them"
+       "at": 10,
+       "note": "going round, so the intellect word encloses the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Intellect",
-         "gives": "BRAIN",
-         "note": "intellect = brain"
-        },
-        {
-         "words": "a",
-         "note": "kept as is"
-        }
-       ]
+       "words": "Intellect",
+       "at": 0,
+       "gives": "BRAIN",
+       "note": "brain means intellect"
       },
       {
-       "words": "hot",
-       "gives": "H",
-       "note": "H = hot, as on a tap"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 18,
+         "gives": "A"
+        },
+        {
+         "words": "hot",
+         "at": 20,
+         "gives": "H",
+         "note": "H is the abbreviation for hot, as on a tap"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A brainy visitor tours a sweltering Gulf country.",
-     "walkthrough": "Bahrain is a small island kingdom in the Persian Gulf; 'hot' fits the surface's desert heat while quietly supplying a single letter.",
-     "definitionFit": "Bahrain is an island kingdom in the Persian Gulf, an Arab state."
+     "surface": "A clever person travels around a hot Middle Eastern country.",
+     "definitionFit": "Bahrain is an island kingdom in the Persian Gulf, a state of the Arab world."
     },
     "features": {
      "answerInScene": true,
@@ -755,41 +758,58 @@
      "indicators": [
       {
        "text": "covering",
-       "note": "the shortened jargon wraps round the rest"
+       "at": 26,
+       "note": "the shortened jargon word wraps around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 19,
+         "note": "the final letter of the jargon word is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "jargon almost",
-         "gives": "LING",
-         "note": "LINGO without its last letter"
+         "words": "jargon",
+         "at": 12,
+         "gives": "LINGO",
+         "note": "lingo is jargon or specialist language"
         },
         {
-         "words": "this person's",
-         "gives": "IM",
-         "note": "this person is = I am = I'M"
+         "gives": "O"
         }
        ]
       },
       {
-       "words": "relations",
-       "gives": "IT",
-       "note": "it = sex, as in sexual relations"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "this person's",
+         "at": 35,
+         "gives": "IM",
+         "note": "the writer saying 'I am' gives I'M"
+        },
+        {
+         "words": "relations",
+         "at": 49,
+         "gives": "IT",
+         "note": "IT is a crossword euphemism for sex, as in sexual relations"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone finds narrow jargon smothering their family ties.",
-     "walkthrough": "'This person's' is the contraction of 'this person is', which the setter means as I'M, not a possessive. IT for sex is a crossword standard.",
-     "definitionFit": "Plain synonym: both describe what sets bounds or constraints on something."
+     "surface": "Jargon is limiting when it barely covers how the writer relates to others.",
+     "definitionFit": "Something limiting restricts or confines, so it is restrictive."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "relations"
     }
    }
@@ -822,46 +842,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "supply",
-       "note": "read as the adverb of supple: the toffee bends into a new shape"
-      }
-     ],
      "parts": [
       {
        "words": "Firm",
+       "at": 0,
        "gives": "CO",
-       "note": "Co. = company, a firm"
+       "note": "CO is the abbreviation for company, a firm"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "around"
+         "text": "around",
+         "at": 24,
+         "note": "the rearranged letters go round the soft letter"
         }
        ],
        "parts": [
         {
-         "words": "toffee",
-         "note": "anagram fodder"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "supply",
+           "at": 17,
+           "note": "read as supple-ly, so the toffee letters are bent into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "toffee",
+           "at": 10
+          }
+         ]
         },
         {
          "words": "soft",
+         "at": 31,
          "gives": "P",
-         "note": "p = piano, soft in music"
+         "note": "P is piano, soft in music"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A confectionery company supplies toffee with its soft drinks.",
-     "walkthrough": "'Supply' is not the noun but the adverb from supple, pronounced SUP-lee, which lets TOFFEE bend round P. 'Soft drink' in the surface is split: soft is P, drink joins the definition.",
-     "definitionFit": "Definition by description: a jug for brewing and serving a hot morning drink."
+     "surface": "A business supplies toffee along with soft drinks.",
+     "walkthrough": "'supply' is the adverb from supple, the anagram signal; it is not the noun or verb.",
+     "definitionFit": "A coffeepot is a vessel for brewing and serving coffee, a container for a drink."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "supply"
@@ -1285,51 +1315,55 @@
      "indicators": [
       {
        "text": "about",
-       "note": "the dossier goes round the other letters"
+       "at": 18,
+       "note": "the dossier word goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "dossier",
-         "gives": "FILE",
-         "note": "a dossier is a file"
-        },
-        {
-         "words": "posh",
-         "gives": "U",
-         "note": "U = upper class, posh"
-        }
-       ]
+       "words": "dossier",
+       "at": 10,
+       "gives": "FILE",
+       "note": "a file is a dossier of papers"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "ultimately",
-         "note": "only the final letter of agent is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "agent",
-         "note": "last letter of agenT"
+         "words": "posh",
+         "at": 24,
+         "gives": "U",
+         "note": "U means upper-class, posh"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 36,
+           "note": "only the final letter of agent is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "agent",
+           "at": 29,
+           "gives": "T"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spy's dossier on an upper-class target turns out to be useless.",
-     "walkthrough": "U for upper-class (as opposed to non-U) comes from 1950s British social commentary and is a crossword standard for posh.",
-     "definitionFit": "Plain synonym: both describe an effort that can achieve nothing, from Latin futilis, leaky."
+     "surface": "A file on an upper-class spy turns out to be useless.",
+     "definitionFit": "Futile means having no useful result, so it is pointless."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "agent"
+     "misdirectedWord": "posh"
     }
    }
   },
