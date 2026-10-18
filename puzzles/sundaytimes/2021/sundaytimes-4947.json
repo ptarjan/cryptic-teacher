@@ -298,47 +298,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOTATED",
+     "op": "charade",
      "indicators": [
       {
-       "text": "with no top on",
-       "note": "something with no top on has lost its uppermost part, and in a down entry that is the first letter"
+       "text": "on",
+       "at": 44,
+       "note": "on, in a down clue, puts the single letter above the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at last",
+         "at": 7,
+         "note": "at last picks the closing letter of the word then"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "at last",
-           "note": "at the last means at the very end, so only the final letter is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "then",
-           "note": "the final letter of the word"
-          }
-         ]
-        },
+         "words": "then",
+         "at": 15,
+         "note": "the word then, whose last letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no top",
+         "at": 32,
+         "note": "with no top says the first letter of the word for went around is cut off"
+        }
+       ],
+       "parts": [
         {
          "words": "went around",
-         "gives": "OTATED",
-         "note": "rotated, losing its first letter"
+         "at": 20,
+         "gives": "ROTATED",
+         "note": "rotated means went around, turned on an axis"
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone finally scored, then ran round shirtless in celebration.",
-     "walkthrough": "'Scored' looks sporty, but it means written in musical notation; ROTATED loses its R.",
-     "definitionFit": "Music that has been scored has been set down in written notation."
+     "surface": "A footballer finally scored, then ran around celebrating with his shirt off.",
+     "walkthrough": "'Scored' looks like it belongs with 'at last', but it stands alone as the definition. 'at last' takes N from then; 'with no top' cuts R from ROTATED, leaving OTATED, which N sits 'on'.",
+     "definitionFit": "Music that has been written down in notation is scored, so the two past participles are synonyms."
     },
     "features": {
      "answerInScene": false,
@@ -1268,46 +1280,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HOARD",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the end is cut short"
+       "text": "surrounding",
+       "at": 13,
+       "note": "surrounding says the shortened word for crowd goes round the letter a"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "surrounding",
-         "note": "to surround is to enclose on every side"
+         "text": "almost",
+         "at": 6,
+         "note": "almost says the final letter is dropped from the word for crowd"
         }
        ],
        "parts": [
         {
          "words": "Crowd",
-         "gives": "HORD",
-         "note": "horde, missing its last letter"
+         "at": 0,
+         "gives": "HORDE",
+         "note": "a horde is a large crowd"
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "A mob nearly encircles a squirrel.",
-     "walkthrough": "'Squirrel' looks like the animal but is the verb meaning to stash away.",
-     "definitionFit": "To squirrel things away is to stockpile them secretly, as the animal stores nuts."
+     "surface": "A mob of people almost encircle a squirrel in the park.",
+     "walkthrough": "'squirrel' looks like the animal, but it is the verb, to stash away. 'almost' trims HORDE to HORD, and 'surrounding' puts it round A.",
+     "definitionFit": "To squirrel things away is to stockpile them secretly, just as the animal stores nuts for winter."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "squirrel"
     }
    }
@@ -1442,44 +1459,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NETTLESOME",
+     "op": "composite",
      "indicators": [
       {
        "text": "different",
-       "note": "different means changed, so the letters take a new order"
+       "at": 7,
+       "note": "different says the letters of elements out are made into another arrangement"
+      },
+      {
+       "text": "to eliminate",
+       "at": 30,
+       "note": "to eliminate says the uranium symbol is removed from that pool of letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NETTLESOME",
-       "indicators": [
-        {
-         "text": "to eliminate",
-         "note": "eliminating means getting rid of, so some letters are removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "elements out",
-         "note": "taken as written"
-        },
-        {
-         "words": "Uranium",
-         "gives": "U",
-         "note": "chemical symbol"
-        }
-       ]
+       "words": "elements out",
+       "at": 17
+      },
+      {
+       "words": "Uranium",
+       "at": 43,
+       "gives": "U",
+       "note": "U is the chemical symbol for uranium"
       }
      ]
     },
     "explanation": {
-     "surface": "A chemist is testing various elements to get rid of uranium.",
-     "walkthrough": "'Trying' looks like experimenting, but it is the adjective meaning annoying; U is removed before the shuffle.",
-     "definitionFit": "Nettlesome means irritating, as stinging as a nettle, so it is wearing on patience."
+     "surface": "A chemist experiments with other elements in an effort to get rid of uranium.",
+     "walkthrough": "'Trying' looks like attempting, but it means irritating. 'different' rearranges ELEMENTS OUT, and 'to eliminate' removes U (Uranium), so ELEMENTSOT is the pool to reorder.",
+     "definitionFit": "Something irritating or vexing tests your patience, which is the adjective sense of trying."
     },
     "features": {
      "answerInScene": false,

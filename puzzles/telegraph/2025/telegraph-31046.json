@@ -377,42 +377,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SULTANA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "cut",
-       "note": "cut means shortened, so the word loses its final letter"
+       "text": "Cook",
+       "at": 0,
+       "note": "to cook something is to work it into a new form, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Cook",
-         "note": "to cook something is to work it up or alter it, so the letters are rearranged"
+         "text": "cut",
+         "at": 10,
+         "note": "cut says the word also loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "also",
-         "gives": "ALS",
-         "note": "the word without its last letter"
+         "at": 5
         },
         {
-         "words": "tuna",
-         "note": "taken as written"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "tuna",
+       "at": 14
       }
      ]
     },
     "explanation": {
-     "surface": "A chef prepares sliced tuna along with some fruit.",
-     "walkthrough": "'Cook' looks like a person in the kitchen; it is the signal to rearrange.",
-     "definitionFit": "A sultana is a dried seedless grape, a type of dried fruit."
+     "surface": "A kitchen instruction: chef, also slice the tuna, then add some fruit.",
+     "walkthrough": "'Cook' looks like a noun, the chef, but it is the anagram signal. 'cut' trims ALSO to ALS, and those letters with TUNA are rearranged.",
+     "definitionFit": "A seedless dried white grape is a common type of dried fruit used in baking."
     },
     "features": {
      "answerInScene": true,
@@ -727,32 +729,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CARFERRY",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner famously swapped the opening sounds of words, so two initial sounds trade places"
+       "at": 12,
+       "note": "Spooner's signals that the opening sounds of the two words are swapped, as the Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "distant Irish county",
-       "gives": "CARFERRY",
-       "soundsLike": "FAR KERRY",
-       "note": "distant is far, and Kerry is a county in south-west Ireland; swapping their opening sounds gives the spoken answer"
+       "words": "distant",
+       "at": 22,
+       "gives": "FAR",
+       "note": "far means distant"
+      },
+      {
+       "op": "homophone",
+       "spelt": "CERRY",
+       "parts": [
+        {
+         "words": "Irish county",
+         "at": 30,
+         "gives": "KERRY",
+         "note": "Kerry is a county in the south-west of Ireland, whose K sound can be spelt with a C"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boat comes from a remote part of Ireland.",
-     "walkthrough": "Swapping the opening sounds of FAR KERRY gives CAR FERRY.",
-     "definitionFit": "A car ferry is a ship that carries vehicles, so it is a type of vessel."
+     "surface": "A boat coming from a remote corner of Ireland, as the tongue-tied clergyman would put it.",
+     "walkthrough": "Say FAR KERRY and swap the opening sounds: the K sound moves to the front of FAR, spelt C, and F moves to KERRY's place.",
+     "definitionFit": "A boat that carries motor vehicles across water is a type of ship, so it fits the general term."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "distant"
     }
    }

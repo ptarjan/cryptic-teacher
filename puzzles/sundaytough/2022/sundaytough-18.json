@@ -512,50 +512,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MEEKNESS",
+     "op": "composite",
      "indicators": [
       {
        "text": "drunk",
-       "note": "a drunk staggers about unsteadily, so the letters lurch into a new order"
+       "at": 36,
+       "note": "drunk says the letters of make sense are jumbled, as if reeling"
+      },
+      {
+       "text": "discarded by",
+       "at": 23,
+       "note": "discarded by says the article is thrown out of that jumbled pool of letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MEEKNESS",
-       "indicators": [
-        {
-         "text": "discarded",
-         "note": "something discarded is thrown away, so it leaves the phrase"
-        }
-       ],
-       "parts": [
-        {
-         "words": "make sense",
-         "note": "taken as written"
-        },
-        {
-         "words": "article",
-         "gives": "A",
-         "note": "the indefinite article"
-        }
-       ]
+       "words": "make sense",
+       "at": 42
+      },
+      {
+       "words": "article",
+       "at": 15,
+       "gives": "A",
+       "note": "a is the indefinite article"
       }
      ]
     },
     "explanation": {
-     "surface": "Giving in, and getting rid of a piece of writing, because a drunk is finally talking sense.",
-     "walkthrough": "'Drunk make sense' is a pleasing paradox; the article is A, taken out before the rest is rearranged.",
-     "definitionFit": "Meekness is a humble, yielding quality, the attitude of someone who submits without protest."
+     "surface": "A tipsy person struggles to make sense, and the grammar suffers as an article goes missing.",
+     "walkthrough": "'drunk' rearranges MAKE SENSE, and with A (article) 'discarded by' it, the letters MKESENSE give the answer.",
+     "definitionFit": "Humble submission to others' will is the quality of being mild and docile, so the two nouns match."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "article"
+     "misdirectedWord": "drunk"
     }
    }
   },
@@ -911,44 +902,47 @@
        "indicators": [
         {
          "text": "returning",
-         "note": "returning means going back the way it came, so the word reads backwards"
+         "at": 18,
+         "note": "returning says the word for discharge is read in the opposite direction"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "translatable",
-           "note": "something translatable can be turned into another form, so the letters are reworked"
-          }
-         ],
-         "parts": [
-          {
-           "words": "discharge",
-           "gives": "EMIT",
-           "note": "to emit is to give off or discharge"
-          },
-          {
-           "words": "roughly",
-           "gives": "CA",
-           "note": "ca. is circa, meaning roughly"
-          }
-         ]
+         "words": "discharge",
+         "at": 28,
+         "gives": "EMIT",
+         "note": "to emit is to discharge or give off"
         }
        ]
       },
       {
-       "words": "pulses",
-       "gives": "PSULES",
-       "note": "the letters of pulses rearranged"
+       "words": "roughly",
+       "at": 38,
+       "gives": "CA",
+       "note": "CA, short for circa, means roughly or about"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "translatable",
+         "at": 46,
+         "note": "translatable says the letters of pulses can be turned into another form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pulses",
+         "at": 59
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ancient signals arrive as emissions of decipherable pulses, like messages from space.",
-     "walkthrough": "'Pulses' suggests radio signals; here it is just raw letters to be rearranged. CA, for circa, is the dating abbreviation.",
-     "definitionFit": "Time capsules are sealed containers of items and letters buried for future generations to open, so they hold messages from the past."
+     "surface": "Signals from long ago that, sent back, give out vague pulses that might be decoded.",
+     "walkthrough": "'returning' turns EMIT round; CA (circa) follows, then 'translatable' reorders PULSES as PSULES. 'when' just links the parts.",
+     "definitionFit": "Sealed containers of items and letters buried for future readers carry communications from a past era."
     },
     "features": {
      "answerInScene": true,
@@ -1350,36 +1344,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RADAR",
      "indicators": [
       {
        "text": "involving",
-       "note": "involving means bringing something in, here swapped in where another letter stood"
+       "at": 24,
+       "note": "involving says the commercial is brought into the word for boom"
+      },
+      {
+       "text": "for",
+       "at": 45,
+       "note": "for says the commercial stands in place of the oxygen symbol"
       }
      ],
      "parts": [
       {
        "words": "boom",
+       "at": 19,
        "gives": "ROAR",
-       "note": "a boom is a deep loud roar"
-      },
-      {
-       "words": "commercial",
-       "gives": "AD",
-       "note": "an ad is a commercial"
+       "note": "a roar is a loud boom"
       },
       {
        "words": "oxygen",
+       "at": 49,
        "gives": "O",
        "note": "O is the chemical symbol for oxygen"
+      },
+      {
+       "words": "commercial",
+       "at": 34,
+       "gives": "AD",
+       "note": "an ad is a commercial, short for advertisement"
       }
      ]
     },
     "explanation": {
-     "surface": "An aircraft boom involving an oxygen advertisement, like a flight industry promotion.",
-     "walkthrough": "'For oxygen' says the AD replaces the O in ROAR.",
-     "definitionFit": "Radar is the radio-based detection system used by aircraft and air traffic control."
+     "surface": "A sonic boom triggered by an advert promoting oxygen for pilots.",
+     "walkthrough": "In ROAR (boom), 'for' swaps O (oxygen) out, and 'involving' brings AD (commercial) in.",
+     "definitionFit": "Radio-wave detection systems that track aircraft are standard kit at airports and in planes, a key piece of flying technology."
     },
     "features": {
      "answerInScene": true,

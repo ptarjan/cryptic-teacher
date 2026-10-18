@@ -438,54 +438,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CHIAROSCURO",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "dispersed",
+       "at": 16,
+       "note": "dispersed says the letters of the opening words are scattered into a new order"
+      },
+      {
+       "text": "with no",
+       "at": 27,
+       "note": "with no says the letter for large is left out of that pool"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "dispersed",
-         "note": "The letters are scattered and rearranged"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "CHIAROSCURO",
-         "indicators": [
-          {
-           "text": "with no large",
-           "note": "L (large) is taken out of the fodder"
-          }
-         ],
-         "parts": [
-          {
-           "words": "A rich colour's",
-           "gives": "ARICHCOURS",
-           "note": "anagram fodder once the L goes: A RICH COLOURS minus L"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "large",
-         "note": "L = large, removed"
-        }
-       ]
+       "words": "A rich colour's",
+       "at": 0
+      },
+      {
+       "words": "large",
+       "at": 35,
+       "gives": "L",
+       "note": "L is the standard abbreviation for large, as on clothing labels"
       }
      ]
     },
     "explanation": {
-     "surface": "A painter's rich colour has spread thin, leaving only an arrangement of shades.",
-     "walkthrough": "The surface is all painting, and so is the answer: the art-historical term lives in the same studio as the fodder.",
-     "definitionFit": "Chiaroscuro is the handling of light and shade in a painting."
+     "surface": "A painter watches a strong colour spread out, without any large shapes, into subtle shading.",
+     "walkthrough": "'dispersed' rearranges A RICH COLOURS, and 'with no' takes out L (large), leaving the eleven letters to reorder.",
+     "definitionFit": "The painting term describes the treatment of light and dark in a picture, a patterning of tones."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": false,
+     "misdirectedWord": "colour's"
     }
    }
   },
@@ -704,40 +691,44 @@
      "op": "charade",
      "parts": [
       {
+       "words": "A",
+       "at": 0
+      },
+      {
        "op": "deletion",
        "indicators": [
         {
          "text": "not to keep",
-         "note": "Not keeping something means letting it go, so one of the two Ds in A BIDDING is dropped"
+         "at": 10,
+         "note": "not to keep says the daughter's letter is dropped from the word for command"
         }
        ],
        "parts": [
         {
-         "words": "A command",
-         "gives": "ABIDDING",
-         "note": "a bidding is a command"
+         "words": "command",
+         "at": 2,
+         "gives": "BIDDING",
+         "note": "bidding is a command, as in doing someone's bidding"
         },
         {
-         "gives": "D"
+         "words": "daughter",
+         "at": 24,
+         "gives": "D",
+         "note": "D is the standard abbreviation for daughter, as in family trees"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "a daughter",
-       "note": "D = daughter, one D is removed"
       }
      ]
     },
     "explanation": {
-     "surface": "An order not to leave a daughter hanging about.",
-     "walkthrough": "A BIDDING has two Ds together, and dropping one of them leaves the answer.",
-     "definitionFit": "To abide is to wait or stay, as in abide with me."
+     "surface": "A parent's order that a daughter should not be kept hanging about.",
+     "walkthrough": "'waiting' looks like part of the instruction, but it is the definition. 'not to keep' drops one D from BIDDING, after A.",
+     "definitionFit": "To abide is an old verb for to stay or remain in expectation, so the participle means staying or tarrying."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "keep"
+     "misdirectedWord": "waiting"
     }
    }
   },
@@ -1076,7 +1067,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Trilogy that's written",
+      "text": "Trilogy that's written?",
       "at": 0
      }
     ],
@@ -1084,37 +1075,41 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "TRILOGY loses its last letter"
+       "text": "completely different",
+       "at": 53,
+       "note": "completely different says the letters are rearranged into an entirely new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Then do fresh",
+       "at": 24
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "completely different",
-         "note": "The letters are rearranged completely"
+         "text": "almost",
+         "at": 46,
+         "note": "almost says the final letter of trilogy is left off"
         }
        ],
        "parts": [
         {
-         "words": "Then do fresh",
-         "note": "anagram fodder"
+         "words": "trilogy",
+         "at": 38
         },
         {
-         "words": "trilogy almost",
-         "gives": "TRILOG",
-         "note": "TRILOGY minus its Y"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Having written one trilogy, an author is told to write a completely different one.",
-     "walkthrough": "The question mark asks for the written trilogy of all trilogies, Tolkien's.",
-     "definitionFit": "Tolkien's The Lord of the Rings is usually published as three volumes."
+     "surface": "An author plans to replace one trilogy with a fresh, entirely different one.",
+     "walkthrough": "'almost' trims TRILOGY to TRILOG, and 'completely different' rearranges those letters with THEN DO FRESH. Tolkien's work is often called a trilogy, though written as one novel.",
+     "definitionFit": "Tolkien's fantasy saga, published in three volumes, is the best-known example of a three-part book series."
     },
     "features": {
      "answerInScene": true,
@@ -2334,7 +2329,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "fortuitous event",
+      "text": "fortuitous event?",
       "at": 82
      }
     ],
@@ -2343,58 +2338,69 @@
      "indicators": [
       {
        "text": "given to",
-       "note": "Something given to another is added to it"
+       "at": 18,
+       "note": "given to says the money is handed over to the detectives, so it comes first and they follow"
       }
      ],
      "parts": [
       {
+       "words": "Quantity of money",
+       "at": 0,
+       "gives": "COIN",
+       "note": "coin is money in general, cash"
+      },
+      {
+       "words": "detectives",
+       "at": 27,
+       "gives": "CID",
+       "note": "CID is the Criminal Investigation Department, the detective branch of British police"
+      },
+      {
        "op": "deletion",
        "indicators": [
         {
-         "text": "missed"
+         "text": "missed",
+         "at": 73,
+         "note": "missed says the following letter is left out of the word for money"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Quantity of money",
-           "gives": "COIN",
-           "note": "coin = money in general"
-          },
-          {
-           "words": "detectives",
-           "gives": "CID",
-           "note": "CID is the Criminal Investigation Department, British police detectives"
-          },
-          {
-           "words": "quantity of money",
-           "gives": "PENCE",
-           "note": "pence = an amount of money"
-          }
-         ]
+         "words": "quantity of money",
+         "at": 39,
+         "gives": "PENCE",
+         "note": "pence are an amount of money, pennies"
         },
         {
-         "gives": "P"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "chief of",
+           "at": 57,
+           "note": "chief of picks the first letter of police"
+          }
+         ],
+         "parts": [
+          {
+           "words": "police",
+           "at": 66,
+           "note": "the word police, whose first letter is taken"
+          }
+         ]
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "chief of police",
-       "note": "P, the first letter of police, is missed from PENCE"
       }
      ]
     },
     "explanation": {
-     "surface": "Money paid to detectives and money the police chief lost go missing together, surely no accident.",
-     "walkthrough": "The repeated \"quantity of money\" gives two different words: COIN and PENCE.",
-     "definitionFit": "A plain synonym: a coincidence is events happening together by chance, not design."
+     "surface": "A tale of police corruption: money paid to detectives, and money their boss failed to get.",
+     "walkthrough": "CID is the detective branch of British police. 'chief of' gives P from police, which PENCE has 'missed', leaving ENCE after COIN and CID.",
+     "definitionFit": "A chance concurrence of events that seems planned is a fluke, a happening owed to luck."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chief"
     }
    }
   },
@@ -3127,42 +3133,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "releasing",
+       "at": 26,
+       "note": "releasing says the line letter is let go from the fish's name"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "releasing",
-         "note": "Releasing means letting go"
-        }
-       ],
-       "parts": [
-        {
-         "words": "fish",
-         "gives": "FLOUNDER",
-         "note": "the flounder is a flatfish"
-        },
-        {
-         "gives": "L"
-        }
-       ]
+       "words": "fish",
+       "at": 21,
+       "gives": "FLOUNDER",
+       "note": "a flounder is a flatfish"
       },
       {
-       "unchecked": true,
        "words": "line",
-       "note": "L = line, released"
+       "at": 36,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Fighting a fish at sea until it breaks the line.",
-     "walkthrough": "Fish, line, sea: the surface is angling. The removed L is line, a standard abbreviation.",
-     "definitionFit": "A ship that founders fills with water and sinks, a struggle at sea it loses."
+     "surface": "An angler battles a fish on a boat until the line snaps.",
+     "walkthrough": "'fish' and 'line' read as angling, but 'releasing' just drops L from FLOUNDER.",
+     "definitionFit": "A ship that fills with water and sinks or flounders in difficulty is in trouble on the waves, as the nautical verb says."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "line"
     }
    }
@@ -3377,50 +3377,46 @@
      "op": "charade",
      "parts": [
       {
+       "words": "Leave",
+       "at": 0,
+       "gives": "DESERT",
+       "note": "to desert is to leave or abandon"
+      },
+      {
+       "words": "possibly key",
+       "at": 6,
+       "gives": "ISLAND",
+       "note": "a key is a low island or reef, so key is an example of an island"
+      },
+      {
        "op": "deletion",
        "indicators": [
         {
          "text": "abandoning",
-         "note": "Abandoning means leaving behind"
+         "at": 39,
+         "note": "abandoning says the letter for university is dropped from the throwing implement"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Leave",
-           "gives": "DESERT",
-           "note": "to desert is to leave"
-          },
-          {
-           "words": "possibly key",
-           "gives": "ISLAND",
-           "note": "a key is a low island, like the Florida Keys"
-          },
-          {
-           "words": "athletic accessory",
-           "gives": "DISCUS",
-           "note": "the discus thrown in athletics"
-          }
-         ]
+         "words": "athletic accessory",
+         "at": 19,
+         "gives": "DISCUS",
+         "note": "a discus is thrown in athletics"
         },
         {
+         "words": "university",
+         "at": 50,
          "gives": "U"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "university",
-       "note": "U = university, dropped from DISCUS"
       }
      ]
     },
     "explanation": {
-     "surface": "A student drops out of university and abandons their sports kit.",
-     "walkthrough": "Desert Island Discs is a long-running BBC radio programme in which guests choose records to take to a desert island.",
-     "definitionFit": "A definition by example: the long-running BBC radio show is a programme."
+     "surface": "An athlete thinks of leaving their kit behind and quitting university studies.",
+     "walkthrough": "A key (or cay) is a small low island, as in the Florida Keys. 'abandoning' takes U from DISCUS. The answer is the long-running BBC radio show where guests pick records for a castaway life.",
+     "definitionFit": "The long-running BBC radio show in which guests choose records to take to a remote isle is a famous broadcast."
     },
     "features": {
      "answerInScene": false,
