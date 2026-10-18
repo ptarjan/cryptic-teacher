@@ -459,54 +459,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "end of",
-       "note": "take the final letter of 'Netflix'"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "nth",
+       "n": 3,
        "indicators": [
         {
-         "text": "broadcast",
-         "note": "broadcast seed is scattered, so the letters are scattered"
+         "text": "third",
+         "at": 18,
+         "note": "the third letter of the word Theory is taken, as the possessive says"
         }
        ],
        "parts": [
         {
-         "op": "nth",
-         "n": 3,
+         "words": "Theory's",
+         "at": 9,
+         "note": "the third letter of Theory"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broadcast",
+         "at": 50,
+         "note": "broadcast means scattered widely, so these letters are strewn into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on",
+         "at": 24,
+         "note": "taken as written"
+        },
+        {
+         "words": "spoil",
+         "at": 29,
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
          "indicators": [
           {
-           "text": "third",
-           "note": "take the third letter of 'Theory'"
+           "text": "end of",
+           "at": 35,
+           "note": "end of means the final letter of the next word is taken"
           }
          ],
          "parts": [
           {
-           "words": "Theory's third",
-           "gives": "THEORYS",
-           "note": "thE, third letter"
-          }
-         ]
-        },
-        {
-         "words": "on",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "spoil",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "end of Netflix",
-           "note": "netfliX"
+           "words": "Netflix",
+           "at": 42,
+           "note": "last letter of Netflix"
           }
          ]
         }
@@ -515,14 +521,14 @@
      ]
     },
     "explanation": {
-     "surface": "A complaint that a TV show's streaming run was spoiled.",
-     "walkthrough": "The italics make 'Big Bang Theory' look like the sitcom title, but the definition is only 'Big Bang' and 'Theory' supplies a single letter.",
-     "definitionFit": "A description rather than a synonym: the Big Bang is the name for the single vast blast thought to have begun the universe."
+     "surface": "A TV fan grumbles that the third series of The Big Bang Theory is on, spoiling the end of a Netflix show.",
+     "walkthrough": "The Big Bang Theory is a sitcom, which hides that Big Bang alone is the definition. The 'third' letter of Theory is E; ON, SPOIL and X (the 'end of' Netflix) are 'broadcast' to give XPLOSION.",
+     "definitionFit": "The Big Bang is the cosmic explosion that cosmologists say began the universe."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Theory"
+     "misdirectedWord": "Theory's"
     }
    }
   },
@@ -547,55 +553,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "OFFAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 38,
+       "note": "around means the reversed word sits on either side of the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "back",
-         "note": "to look back is to face the other way, so LO is written the other way round"
+         "at": 33,
+         "note": "back means the word is read from right to left"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "around"
-          }
-         ],
-         "parts": [
-          {
-           "words": "look",
-           "gives": "OL",
-           "note": "lo = look (as in 'lo and behold'), written back"
-          },
-          {
-           "words": "very noisily",
-           "gives": "FF",
-           "note": "ff = fortissimo, very loud in music"
-          }
-         ]
+         "words": "look",
+         "at": 28,
+         "gives": "LO",
+         "note": "lo is an old exclamation meaning look!"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "very noisily",
+         "at": 7,
+         "gives": "FF",
+         "note": "ff, fortissimo, is the musical marking for very loud"
         },
         {
          "words": "a",
-         "note": "A"
+         "at": 26,
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone refusing loudly, then glancing back over their shoulder.",
-     "walkthrough": "'Refuse' looks like the verb 'say no', matching 'noisily'; it is the noun, rubbish, pronounced REF-use.",
-     "definitionFit": "Offal can mean waste or refuse as well as animal innards."
+     "surface": "Someone loudly refuses something while glancing back over their shoulder.",
+     "walkthrough": "Refuse is a noun here (rubbish), not the verb the surface suggests. 'look back' gives OL, and 'around' puts it either side of FF with A.",
+     "definitionFit": "Offal is the waste parts of a butchered carcass, so it can mean rubbish or scraps in general."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Refuse"
     }
    }
@@ -672,21 +682,28 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Wrong",
-       "note": "the letters of BITS are put the wrong way, and WRONG is fodder too"
+       "text": "used to make",
+       "at": 11,
+       "note": "the letters are used as raw material to make something new, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Wrong bits",
-       "note": "anagram fodder; 'Wrong' is both fodder and signal"
+       "words": "Wrong",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "bits",
+       "at": 6,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Faulty components used to build a weapon.",
-     "walkthrough": "'Wrong' does double duty, signalling the anagram and supplying five of its letters.",
-     "definitionFit": "The bowstring is the cord of a bow that launches the arrow."
+     "surface": "Faulty components have been used in assembling a weapon.",
+     "walkthrough": "Wrong looks like the anagram signal, but it is part of the fodder: WRONG and BITS together are 'used to make' something new.",
+     "definitionFit": "The string of a bow is the cord that propels the arrow, so it is one component of an archer's weapon."
     },
     "features": {
      "answerInScene": true,
@@ -876,51 +893,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CUTTLEFISH",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 26,
+       "note": "in means the reversed word is put inside the other"
+      },
+      {
+       "text": "surroundings",
+       "at": 41,
+       "note": "surroundings names the word that wraps around the reversed one"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "quite sweet",
+       "at": 29,
+       "gives": "CUTISH",
+       "note": "cutish means rather cute, and cute means sweet"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "up",
-         "note": "in a down clue, 'up' writes FELT bottom to top"
-        },
-        {
-         "text": "in",
-         "note": "the reversed piece goes inside"
-        },
-        {
-         "text": "surroundings",
-         "note": "surroundings are what lies all round, so the sweet word is wrapped round the felt"
+         "at": 23,
+         "note": "in a down clue up means the word is read from bottom to top, so backwards"
         }
        ],
        "parts": [
         {
-         "words": "quite sweet",
-         "gives": "CUTISH",
-         "note": "cute-ish = quite sweet; the outer piece"
-        },
-        {
          "words": "felt",
-         "gives": "TLEF",
-         "note": "FELT reversed, placed inside"
+         "at": 18,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sleazy character groping someone amid a sugary setting.",
-     "walkthrough": "'Slippery customer' is a phrase for a shifty person, but here it is literal: a slimy sea creature.",
-     "definitionFit": "A cuttlefish is a slippery sea creature, jokingly a 'customer'."
+     "surface": "A seedy encounter: someone groped in a cosy, sugary setting.",
+     "walkthrough": "'felt up' reverses felt to give TLEF, which goes 'in' CUTISH, its 'surroundings'.",
+     "definitionFit": "The cuttlefish is a slimy sea creature, and slippery customer is a jokey idiom for anyone hard to pin down."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "customer"
+     "misdirectedWord": "felt"
     }
    }
   },
@@ -1100,52 +1121,70 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "heart",
-       "note": "the middle letter of 'chicken'"
-      },
-      {
-       "text": "with"
+       "text": "with",
+       "at": 22,
+       "note": "with here means the answer plus those letters, which together could be witches, so the letters are taken away"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "foot",
-         "note": "the last letter of 'rabbit', the bottom of a down word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "could be witches",
-         "gives": "OCCULTISTS",
-         "note": "witches are occultists"
-        },
-        {
-         "words": "chicken's heart",
-         "gives": "C",
-         "note": "chiCken, the middle letter; removed"
-        }
-       ]
+       "words": "could be witches",
+       "at": 61,
+       "gives": "OCCULTISTS",
+       "note": "witches are practitioners of the occult, occultists"
       },
       {
-       "words": "rabbit's foot",
-       "gives": "T",
-       "note": "rabbiT, the last letter; removed"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "heart",
+           "at": 37,
+           "note": "the heart of chicken is its central letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "chicken's",
+           "at": 27,
+           "gives": "CHICKEN",
+           "note": "chicken, whose heart is its middle letter"
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "foot",
+           "at": 56,
+           "note": "the foot of rabbit is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rabbit's",
+           "at": 47,
+           "gives": "RABBIT",
+           "note": "rabbit, whose foot is its last letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A folk cure for blindness with chicken parts and a lucky charm, spells fit for witches.",
-     "walkthrough": "The clue runs backwards: add C and T to the answer and you get OCCULTISTS. The spell ingredients are a neat nod to witchcraft.",
-     "definitionFit": "Oculists are eye doctors, who work to restore or correct sight."
+     "surface": "Charms like a chicken's heart and a rabbit's foot suggest these healers might be dabbling in witchcraft.",
+     "walkthrough": "Read it the other way round: the answer 'with' C (the 'heart' of chicken) and T (the 'foot' of rabbit) could be OCCULTISTS, so the answer is OCCULTISTS without them.",
+     "definitionFit": "Oculists are eye doctors, specialists who treat the eyes and so help restore failing vision."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "chicken"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "heart"
     }
    }
   },
@@ -1596,40 +1635,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LOCHNESS",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev. Spooner swapped the opening sounds of words"
+       "at": 0,
+       "note": "Spooner's version swaps the opening sounds of the two words, as the Reverend Spooner was said to do"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "NOCH",
        "parts": [
         {
-         "unchecked": true,
-         "words": "to drop some pounds",
-         "gives": "LOCH",
-         "soundsLike": "NOSH",
-         "note": "to lose weight is to nosh (eat) less; the first word gives up its N sound and takes the L"
-        },
-        {
-         "unchecked": true,
-         "words": "to drop some pounds",
-         "gives": "NESS",
-         "soundsLike": "LESS",
-         "note": "the second word of that phrase hands over its L and collects the N"
+         "words": "to drop some",
+         "at": 10,
+         "gives": "NOSH",
+         "note": "to drop weight you nosh (slang for eat) less: this part of the phrase gives nosh"
         }
        ]
+      },
+      {
+       "words": "pounds",
+       "at": 23,
+       "gives": "LESS",
+       "note": "the pounds you shed come from eating less: this part of the phrase gives less"
       }
      ]
     },
     "explanation": {
-     "surface": "Planning a diet trip to the Scottish Highlands.",
-     "walkthrough": "Nosh is British slang for food, so to nosh less is to eat less. Swapping the first sounds gives LOSH NESS, heard as LOCH NESS.",
-     "definitionFit": "Loch Ness is a lake in the Scottish Highlands."
+     "surface": "Someone talks of slimming in a Scottish location.",
+     "walkthrough": "To drop some pounds you nosh less (nosh is slang for eat); say nosh as NOCH. 'Spooner's' treatment swaps the N and L sounds, giving the lake.",
+     "definitionFit": "The famous loch near Inverness, home of the legendary monster, is a place in the Scottish Highlands."
     },
     "features": {
      "answerInScene": false,
@@ -1729,40 +1766,34 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "yogurt",
+       "at": 21,
        "gives": "Y",
+       "note": "the stem, or first letter, of yogurt"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "stems",
-         "note": "a stem is where something starts, so the first letter of 'yogurt'"
-        },
-        {
-         "text": "appetisers",
-         "note": "appetisers are starters, so the first letters of 'other delicious' and itself"
+         "text": "stems in",
+         "at": 12,
+         "note": "the stems of these words are their starting letters, as the stem is where a plant begins"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "stems in yogurt",
-         "gives": "Y",
-         "select": "first",
-         "note": "first letter of 'yogurt'"
+         "words": "other delicious appetisers",
+         "at": 33,
+         "note": "first letters of other, delicious and appetisers"
         }
        ]
-      },
-      {
-       "words": "other delicious appetisers",
-       "gives": "ODA",
-       "note": "Other Delicious Appetisers"
       }
      ]
     },
     "explanation": {
-     "surface": "A menu item with herb stalks in yogurt among other starters.",
-     "walkthrough": "'Green sage' pretends to be the herb in a dish; it is Yoda, the small green wise master from Star Wars.",
-     "definitionFit": "Yoda is a green-skinned, wise Jedi master: a green sage."
+     "surface": "A menu lists a green sage dish with yogurt among its tasty starters.",
+     "walkthrough": "Green sage sounds like a herb on a menu, but it is the definition. The 'stems in' yogurt and the other three words (and is skipped) are their first letters, Y then ODA.",
+     "definitionFit": "Yoda is the wise green Jedi master of the Star Wars films, small and famously sagacious."
     },
     "features": {
      "answerInScene": false,
@@ -1841,78 +1872,72 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRANSCEND",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "head",
-         "note": "the first letter of 'Tim'"
+         "at": 14,
+         "note": "the head of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "performance",
-           "note": "the letters are performed, acted out in a new order"
-          }
-         ],
+         "words": "Tim's",
+         "at": 8,
+         "note": "first letter of Tim"
+        }
+       ]
+      },
+      {
+       "op": "composite",
+       "indicators": [
+        {
+         "text": "performance",
+         "at": 30,
+         "note": "a performance of these words puts their letters through a new routine, rearranging them"
+        },
+        {
+         "text": "lacking",
+         "at": 42,
+         "note": "lacking means the letter for energy is missing from the rearranged letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
-           "indicators": [
-            {
-             "text": "lacking",
-             "note": "SCREEN goes without one E"
-            }
-           ],
-           "parts": [
-            {
-             "op": "first",
-             "parts": [
-              {
-               "words": "Tim's head",
-               "gives": "TIMHEAD",
-               "note": "first letter of 'Tim'"
-              }
-             ]
-            },
-            {
-             "words": "and",
-             "note": "anagram fodder"
-            },
-            {
-             "words": "screen",
-             "gives": "SCREN",
-             "note": "SCREEN lacking one E"
-            }
-           ]
+           "words": "and",
+           "at": 19
+          },
+          {
+           "words": "screen",
+           "at": 23
           }
          ]
         },
         {
-         "unchecked": true,
          "words": "energy",
-         "note": "E = energy, the letter removed"
+         "at": 50,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Going over Tim Brooke-Taylor's head, a lacklustre TV performance.",
-     "walkthrough": "Tim is Tim Brooke-Taylor, the third Goodie. 'Go over' reads as reviewing; it means rising above.",
-     "definitionFit": "To transcend is to go beyond or over the limits of something."
+     "surface": "Someone escalates a complaint above Tim, and also about a film performance short on energy.",
+     "walkthrough": "Tim is Tim Brooke-Taylor, one of the Goodies, the theme; his 'head' is T. AND and SCREEN, 'lacking' one E, are given a 'performance' (rearranged) to make RANSCEND.",
+     "definitionFit": "To transcend is to rise above or go beyond a limit, so it means to go over."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "screen"
+     "misdirectedWord": "performance"
     }
    }
   }

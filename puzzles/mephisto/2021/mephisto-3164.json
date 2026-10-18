@@ -61,39 +61,41 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "EGGAR",
      "indicators": [
       {
        "text": "around",
-       "note": "turned around, the trimmed word is read from its far end back"
+       "at": 34,
+       "note": "around means turned round, so the letters are read in reverse"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "EGGAR",
        "indicators": [
         {
          "text": "with wings clipped",
-         "note": "a bird with clipped wings has lost its extremities, so the word loses its outer letters"
+         "at": 7,
+         "note": "the wings of a word are its two outer letters, and clipping them removes both"
         }
        ],
        "parts": [
         {
          "words": "crawled",
+         "at": 26,
          "gives": "DRAGGED",
-         "note": "to drag oneself along is to crawl slowly"
+         "note": "to have dragged oneself along is to have crawled"
+        },
+        {
+         "gives": "DD"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bug with damaged wings could only creep about.",
-     "walkthrough": "DRAGGED loses both D's to leave RAGGE, which turned round gives EGGAR.",
-     "definitionFit": "The eggar is a large moth, so an insect; the name comes from its egg-shaped cocoon."
+     "surface": "An insect whose wings have been clipped crawls round in circles.",
+     "walkthrough": "With its 'wings clipped' DRAGGED leaves RAGGE, which turned 'around' gives the answer. Wings looks like part of the insect, but it is the deletion signal.",
+     "definitionFit": "The eggar is a large brown moth, named for its egg-shaped cocoon."
     },
     "features": {
      "answerInScene": true,
@@ -1781,31 +1783,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "HES",
      "indicators": [
       {
        "text": "out of bounds",
-       "note": "the bounds of a word are its edges, and these are put out of it"
+       "at": 18,
+       "note": "the bounds of a word are its first and last letters, and here they are put out"
       }
      ],
      "parts": [
       {
        "words": "board game",
+       "at": 7,
        "gives": "CHESS",
-       "note": "chess is played on a board"
+       "note": "chess is a board game"
+      },
+      {
+       "gives": "CS"
       }
      ]
     },
     "explanation": {
      "surface": "Pieces in a board game have strayed off the board.",
-     "walkthrough": "CHESS loses its first and last letters.",
-     "definitionFit": "A he is a male, so hes are men or males, the plural of the pronoun used as a noun."
+     "walkthrough": "Men also means the pieces in board games such as draughts, which the surface leans on; here CHESS goes 'out of bounds', losing C and S. The definition is the plural noun, males.",
+     "definitionFit": "A he is a male, so males, or men, are hes in Chambers' plural noun sense."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Men"
     }
    }
@@ -1878,42 +1882,45 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "UINTAITE",
      "indicators": [
       {
        "text": "processed",
-       "note": "processed means worked over, so the letters are rearranged"
+       "at": 8,
+       "note": "processed means worked over, so the remaining letters are put into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "UINTAITE",
        "indicators": [
         {
          "text": "without cover",
-         "note": "with its covers off, a word loses its outermost letters at each end"
+         "at": 32,
+         "note": "the cover of a word is its outer pair of letters, here taken away"
         }
        ],
        "parts": [
         {
          "words": "quantities",
-         "note": "taken as written"
+         "at": 21,
+         "note": "taken as written, minus its outer letters"
+        },
+        {
+         "gives": "QS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tarmac is treated in bulk loads without a top layer.",
-     "definitionFit": "Uintaite, or gilsonite, is a natural black asphalt found in Utah's Uinta basin."
+     "surface": "A road surface laid in bulk with no protective covering.",
+     "walkthrough": "Quantities 'without cover' gives UANTITIE, which is 'processed' into a mineral named after the Uinta Mountains of Utah.",
+     "definitionFit": "Uintaite, or gilsonite, is a natural black bitumen mined in Utah, a kind of asphalt."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cover"
+     "misdirectedWord": "processed"
     }
    }
   },

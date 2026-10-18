@@ -567,49 +567,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AROMATIC",
+     "op": "composite",
      "indicators": [
       {
        "text": "prepared",
-       "note": "food that is prepared has been worked over and rearranged into a dish"
+       "at": 11,
+       "note": "prepared as a dish is made up afresh, so the letters are put in a new order"
+      },
+      {
+       "text": "not",
+       "at": 21,
+       "note": "not says one letter is missing from the rearranged pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AROMATIC",
-       "indicators": [
-        {
-         "text": "not very",
-         "note": "not here means without, so the abbreviation for very is removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Caviar Tom",
-         "note": "taken as written as raw letters"
+         "words": "Caviar",
+         "at": 0,
+         "note": "taken as written"
         },
         {
-         "words": "very",
-         "gives": "V",
-         "note": "V is the abbreviation for very"
+         "words": "Tom",
+         "at": 7,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "very",
+       "at": 25,
+       "gives": "V"
       }
      ]
     },
     "explanation": {
-     "surface": "Tom made some caviar that does not smell very nice.",
-     "walkthrough": "'Not very' reads as mild criticism; it is an instruction to drop V before the rearranging.",
-     "definitionFit": "Aromatic means having a pleasant, distinctive fragrance."
+     "surface": "Tom has made a caviar dish that does not smell very nice.",
+     "walkthrough": "Caviar Tom 'prepared' looks like a cooking note; the pool is the letters of both words, 'not' V, giving CAIARTOM to rearrange. The hyphen ties sweet-smelling into one definition.",
+     "definitionFit": "Aromatic describes something with a pleasant, spicy fragrance, like herbs."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "very"
+     "misdirectedWord": "prepared"
     }
    }
   },
@@ -1359,45 +1361,48 @@
      "indicators": [
       {
        "text": "then",
-       "note": "then signals the next piece simply follows in sequence"
+       "at": 27,
+       "note": "then means next, so the ache word comes after the tube piece"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "BE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "bottom half of",
-         "note": "in a down clue, the bottom half is the latter half of the letters"
+         "at": 7,
+         "note": "taking only the bottom half of a four-letter word in a down clue drops its upper two letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "tube",
-         "gives": "BE",
-         "select": "last",
-         "note": "the lower two of its four letters in a down clue"
+         "at": 22,
+         "note": "taken as written, keeping only its lower half"
+        },
+        {
+         "gives": "TU"
         }
        ]
       },
       {
        "words": "ache",
+       "at": 32,
        "gives": "LONG",
-       "note": "to long for something is to ache for it"
+       "note": "to ache for something is to long for it"
       }
      ]
     },
     "explanation": {
-     "surface": "Fitting into the lower half of a tube is painful.",
-     "definitionFit": "To belong somewhere is to fit in there naturally."
+     "surface": "Something fits into the lower part of a tube and then hurts.",
+     "walkthrough": "'Fit in' is the definition, not a description of the tube. The 'bottom half of' tube is BE, and 'then' puts the ache word after it; ache is a verb here, to yearn.",
+     "definitionFit": "To belong somewhere is to fit in there, to be accepted as part of a group."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "tube"
+     "misdirectedWord": "ache"
     }
    }
   },
@@ -1588,31 +1593,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TAKES",
      "indicators": [
       {
        "text": "changed in the middle",
-       "note": "a change in the middle swaps the central letter for a different one"
+       "at": 22,
+       "note": "the central letter of the word is changed for another"
       }
      ],
      "parts": [
       {
        "words": "stories",
+       "at": 14,
        "gives": "TALES",
        "note": "tales are stories"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "gives": "K"
       }
      ]
     },
     "explanation": {
-     "surface": "Excerpts from stories were altered halfway through.",
-     "walkthrough": "Only the central letter of the five changes, L becoming K.",
-     "definitionFit": "To take something out is to extract it, so the verb forms match."
+     "surface": "Passages taken from stories have been altered halfway through.",
+     "walkthrough": "TALES is 'changed in the middle': its central L becomes K. The clue does not name the new letter; the definition picks it.",
+     "definitionFit": "Takes can be extracts or recorded sections, as film takes or a reporter's take on events; to take out is also to extract."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Extracts"
+     "misdirectedWord": "changed"
     }
    }
   },

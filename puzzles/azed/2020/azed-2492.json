@@ -215,36 +215,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUDD",
-     "indicators": [
-      {
-       "text": "You'll not see",
-       "note": "what you will not see is missing, so the word that follows is taken out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "River",
+       "at": 0,
        "gives": "R",
-       "note": "standard abbreviation for river"
+       "note": "R is the map abbreviation for river"
       },
       {
-       "words": "silted up",
-       "gives": "MUDDY",
-       "note": "water that has silted up is muddy"
-      },
-      {
-       "words": "my",
-       "note": "taken as written; it sits around the inner letters of the previous word"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "You'll not see",
+         "at": 17,
+         "note": "you will not see the named letters, so they are taken out of the word"
+        },
+        {
+         "text": "circling",
+         "at": 35,
+         "note": "circling says the removed letters sit around the rest, one at each end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "silted up",
+         "at": 6,
+         "gives": "MUDDY",
+         "note": "a river silted up is muddy"
+        },
+        {
+         "words": "my",
+         "at": 32,
+         "gives": "MY",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An angler complains the river is so silty there is no seeing the fish.",
-     "walkthrough": "'Circling' describes where the removed pair sits: wrapped round the middle of the silty word, so taking it out leaves only the core.",
-     "definitionFit": "The rudd is a European freshwater fish of the carp family with red fins."
+     "surface": "An angler laments that a river has silted up, so the fish can no longer be seen.",
+     "walkthrough": "The surface makes 'circling' sound like a fish swimming round; it says the two removed letters wrap the rest, one at each end of the silted word.",
+     "definitionFit": "The rudd is a European freshwater fish of the carp family, with red fins."
     },
     "features": {
      "answerInScene": true,
@@ -971,41 +984,32 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PROTEASE",
      "indicators": [
       {
        "text": "restricting",
-       "note": "restricting means holding in, so the word for decay sits within the legumes"
+       "at": 7,
+       "note": "restricting means confining, so the outer word holds the other inside it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "old legumes",
-         "gives": "P",
-         "note": "pease is the old form of peas; first letter"
-        },
-        {
-         "words": "decay",
-         "gives": "ROT",
-         "note": "rot is decay"
-        },
-        {
-         "words": "old legumes",
-         "gives": "EASE",
-         "note": "the rest of the same archaic plural"
-        }
-       ]
+       "words": "old legumes",
+       "at": 28,
+       "gives": "PEASE",
+       "note": "pease is the old word for peas"
+      },
+      {
+       "words": "decay",
+       "at": 19,
+       "gives": "ROT",
+       "note": "rot means decay"
       }
      ]
     },
     "explanation": {
-     "surface": "An enzyme that stops old beans going bad.",
-     "walkthrough": "ROT goes inside PEASE, an old word for peas, as in pease pudding.",
-     "definitionFit": "A protease is an enzyme that breaks down proteins into smaller peptides."
+     "surface": "An enzyme is said to hold back decay in old peas and beans.",
+     "walkthrough": "Pease is the archaic plural of pea, as in pease pudding.",
+     "definitionFit": "A protease is an enzyme that breaks down proteins, a catalyst in digestion."
     },
     "features": {
      "answerInScene": true,
@@ -1545,54 +1549,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "upsetting",
-       "note": "upsetting knocks things over and out of order, so the letters are rearranged"
+       "text": "when it involves",
+       "at": 20,
+       "note": "involves means takes in, so the anagram takes the other letter inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "involves",
-         "note": "to involve is to wrap in, so the rearranged word encloses the selected letter"
+         "text": "upsetting",
+         "at": 10,
+         "note": "upsetting means knocking over, so the letters are tumbled into a new order"
         }
        ],
        "parts": [
         {
          "words": "most",
-         "note": "the four letters rearranged"
-        },
+         "at": 5,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ending of",
-           "note": "the ending is the final letter of the following word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "affair",
-           "note": "the last letter of affair"
-          }
-         ]
+         "text": "ending of",
+         "at": 37,
+         "note": "the ending of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "affair",
+         "at": 47,
+         "note": "last letter of affair"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fury at its most upsetting when it comes at the end of a love affair.",
-     "definitionFit": "To storm is to rage, and a storm is a violent outburst of anger."
+     "surface": "Fury is at its most distressing when it arises from the end of a love affair.",
+     "walkthrough": "MOST 'upsetting' gives STOM, which 'involves' R, the 'ending of' affair, before its last letter.",
+     "definitionFit": "To storm is to rage, to shout and behave furiously, as in storming out of a room."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "affair"
+     "misdirectedWord": "upsetting"
     }
    }
   },
