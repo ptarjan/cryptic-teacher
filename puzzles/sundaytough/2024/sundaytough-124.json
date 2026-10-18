@@ -49,45 +49,33 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "REDFLAG",
+     "op": "homophone",
+     "spelt": "REDFLAG",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Dr Spooner famously swapped the opening sounds of neighbouring words, so his name tells you to do the same"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the phrase is said aloud the way he would garble it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "escaped",
-         "gives": "RED",
-         "soundsLike": "FLED",
-         "note": "escaped is fled; it takes the opening sound of the other word"
-        },
-        {
-         "unchecked": true,
-         "words": "scrap",
-         "gives": "FLAG",
-         "soundsLike": "RAG",
-         "note": "a scrap of cloth is a rag; it takes the opening sound of the other word"
-        }
-       ]
+       "words": "escaped scrap",
+       "at": 10,
+       "gives": "FLEDRAG",
+       "note": "escaped is fled and a scrap of cloth is a rag, giving the phrase fled rag"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone notices a fragment that got away and treats it as an alarm signal.",
-     "walkthrough": "FLED RAG with the F and R sounds swapped becomes RED FLAG.",
-     "definitionFit": "A crimson banner is flown as a signal of hazard, and the phrase is now used figuratively for any early sign of trouble."
+     "surface": "A tattered piece of cloth that got away and now warns of danger.",
+     "walkthrough": "Say 'fled rag' as Spooner would, trading its opening sounds: the FL moves to the second word and the R comes to the front, and the result is the answer.",
+     "definitionFit": "A red flag is a signal of danger, literally a flag flown on beaches or firing ranges and figuratively any warning sign."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "scrap"
     }
    }
@@ -119,42 +107,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ROUNDUP",
-     "indicators": [
-      {
-       "text": "topped",
-       "note": "to top something is to cut off its top, and in a down clue the top is the first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topped",
+         "at": 5,
+         "note": "topped means the top is cut off, and in a down entry the top is the first letter"
+        }
+       ],
        "parts": [
         {
          "words": "land",
-         "gives": "ROUND",
-         "note": "land is ground, which loses its first letter"
+         "at": 12,
+         "gives": "GROUND",
+         "note": "ground is land, the earth's surface"
         },
         {
-         "words": "ahead",
-         "gives": "UP",
-         "note": "a team that is ahead is up"
+         "gives": "G"
         }
        ]
+      },
+      {
+       "words": "ahead",
+       "at": 17,
+       "gives": "UP",
+       "note": "up can mean ahead, as a team that is two goals up"
       }
      ]
     },
     "explanation": {
-     "surface": "A herd breaks out and claims the land in front of it.",
-     "walkthrough": "'Herd' looks like a noun but is the verb. GROUND loses its G.",
-     "definitionFit": "To gather scattered cattle into one group is to drive them together, the cowboy's job on a ranch."
+     "surface": "A herd of cattle ahead on land whose crops have been topped.",
+     "walkthrough": "'Herd' is a verb here, not the noun the surface suggests, and 'topped' works on the top of the down entry, its first letter. UP means ahead as in a game.",
+     "definitionFit": "To round up animals is to gather them together, which is what herding them means."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Herd"
+     "misdirectedWord": "topped"
     }
    }
   },
@@ -287,43 +279,45 @@
        "indicators": [
         {
          "text": "about",
-         "note": "turned about means facing the other way, so the letters run backwards"
+         "at": 6,
+         "note": "about means turned around, so the word for taunt is read backwards"
         }
        ],
        "parts": [
         {
          "words": "Taunt",
+         "at": 0,
          "gives": "DIG",
-         "note": "a dig is a jibe or taunt"
+         "note": "a dig is a taunt, a cutting remark"
         }
        ]
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "DY",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half-cut",
-         "note": "cutting in half keeps only one half of the word"
+         "at": 12,
+         "note": "half-cut means half the word is cut away, leaving its second half"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "lady",
-         "gives": "DY",
-         "select": "last",
-         "note": "the second half of this four-letter word"
+         "at": 21,
+         "note": "the word lady, which loses its first half"
+        },
+        {
+         "gives": "LA"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone mocks a woman who is tipsy and staggering.",
-     "walkthrough": "'Half-cut' means drunk in British slang, fitting the unsteady lady, but here it slices LADY to DY.",
-     "definitionFit": "Dizzy and likely to fall, the adjective describes a person who cannot keep their balance."
+     "surface": "Mocking a tipsy woman for being wobbly on her feet.",
+     "walkthrough": "'half-cut' is British slang for drunk, which fits the surface, but here it means cutting the word in half and keeping the second half; 'about' turns the taunt round.",
+     "definitionFit": "Giddy means dizzy and liable to fall, the feeling of being unsteady on your feet."
     },
     "features": {
      "answerInScene": true,
@@ -424,48 +418,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "MODERNDAY",
      "indicators": [
       {
        "text": "after swimming",
-       "note": "something swimming is moving about loosely, so the letters drift into a new order"
+       "at": 13,
+       "note": "after swimming means once the letters have been churned about, as in water, so they are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "MODERNDAY",
        "indicators": [
         {
          "text": "leaving behind",
-         "note": "to leave something behind is to go without it, so a letter is dropped"
+         "at": 29,
+         "note": "leaving behind means the hard letter is dropped and left out"
         }
        ],
        "parts": [
         {
          "words": "Home and dry",
-         "note": "taken as written"
+         "at": 0
         },
         {
          "words": "hard",
+         "at": 44,
          "gives": "H",
-         "note": "H is the pencil abbreviation for hard"
+         "note": "H is the abbreviation for hard, as on pencils"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A swimmer gets out, dries off and heads home, leaving a strong current behind.",
-     "walkthrough": "'Current' looks like the river's flow in the swimming picture, but it is the definition. Drop H from HOMEANDDRY and rearrange.",
-     "definitionFit": "Belonging to the present time, contemporary, is what current means as an adjective."
+     "surface": "Safe and dry after a swim, leaving a strong current behind.",
+     "walkthrough": "'leaving behind hard' takes H from HOME AND DRY to leave OMEANDDRY, and 'after swimming' rearranges those letters. 'current' means present-day, not a flow of water.",
+     "definitionFit": "Modern-day describes the present time, so something current is modern-day."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "current"
     }
    }
@@ -492,31 +484,30 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "LUMPS",
      "indicators": [
       {
        "text": "cycling",
-       "note": "going round in a cycle moves the first letter to the back"
+       "at": 15,
+       "note": "cycling means the letters go round, the first moving to the end"
       }
      ],
      "parts": [
       {
        "words": "fall",
+       "at": 23,
        "gives": "SLUMP",
-       "note": "a slump is a fall, as in prices"
+       "note": "a slump is a sudden fall, as in prices"
       }
      ]
     },
     "explanation": {
-     "surface": "Bruises and bumps from tumbling off a bicycle.",
-     "walkthrough": "The S at the front of SLUMP rides round to the end.",
-     "definitionFit": "Bumps or raised areas on the body are protuberances, so the plural nouns match."
+     "surface": "Bruises and bumps from falling off a bike.",
+     "walkthrough": "'cycling' moves the S at the front of SLUMP to the back. The surface pictures a bicycle crash.",
+     "definitionFit": "Lumps are swollen bumps on the body, so they are swellings."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "cycling"
     }
    }
@@ -811,24 +802,19 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DITCH",
      "indicators": [
       {
        "text": "replaces",
-       "note": "to replace is to take another's place, so one letter is swapped for another"
+       "at": 22,
+       "note": "replaces means the letter for one takes the place of the other letter"
       }
      ],
      "parts": [
       {
        "words": "tongue",
+       "at": 5,
        "gives": "DUTCH",
-       "note": "a tongue is a language, here that of the Netherlands"
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral one"
+       "note": "Dutch is a tongue, a language"
       },
       {
        "op": "homophone",
@@ -836,23 +822,31 @@
        "indicators": [
         {
          "text": "reportedly",
-         "note": "something reported is passed on by word of mouth, so it is heard rather than seen"
+         "at": 35,
+         "note": "reportedly means as it sounds when spoken, so the word you is heard as a single letter"
         }
        ],
        "parts": [
         {
          "words": "you",
+         "at": 31,
          "gives": "YOU",
-         "note": "the letter U is pronounced like this word"
+         "note": "the word you sounds like the letter U"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 18,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone loses their voice after being replaced by another.",
-     "walkthrough": "In DUTCH, I takes the place of U.",
-     "definitionFit": "To ditch something is to get rid of or abandon it, so the verbs share the sense of discarding."
+     "surface": "Losing your language after someone takes your place.",
+     "walkthrough": "'you reportedly' is the letter U, and 'replaces' swaps it for I (one) in DUTCH. 'tongue' is a language, not the organ.",
+     "definitionFit": "To ditch something is to get rid of or abandon it, so to lose it."
     },
     "features": {
      "answerInScene": false,
@@ -987,47 +981,41 @@
    "annotation": {
     "definitions": [
      {
-      "text": "gang",
-      "at": 10
+      "text": "this gang",
+      "at": 5
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENTOURAGE",
+     "op": "composite",
      "indicators": [
       {
        "text": "struggling",
-       "note": "something struggling is twisting about, so the combined letters are jumbled"
+       "at": 15,
+       "note": "struggling means thrashing about, so the letters are mixed up"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ENTOURAGE",
-       "parts": [
-        {
-         "words": "Help",
-         "note": "taken as written"
-        },
-        {
-         "words": "rogue elephant",
-         "note": "taken as written; this is what the jumble must produce"
-        }
-       ]
+       "words": "rogue elephant",
+       "at": 33
+      },
+      {
+       "words": "Help",
+       "at": 0,
+       "note": "the word help, whose letters are added to the answer's"
       }
      ]
     },
     "explanation": {
-     "surface": "Keepers call for assistance as their team wrestles a dangerous elephant.",
-     "walkthrough": "A composite anagram: HELP plus the answer ('this') jumbled makes ROGUE ELEPHANT, so take HELP out of ROGUE ELEPHANT and rearrange the rest.",
-     "definitionFit": "A group of attendants or hangers-on around a celebrity is a retinue, which can loosely be called a gang."
+     "surface": "A plea for aid from a group fighting off a rampaging elephant.",
+     "walkthrough": "'struggling' says the answer and the letters of 'Help', jumbled together, spell ROGUE ELEPHANT; take away H, E, L and P and the answer's nine letters are left to rearrange.",
+     "definitionFit": "An entourage is the group of attendants who follow an important person around, a kind of gang."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "this"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Help"
     }
    }
   },
@@ -1263,53 +1251,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MISHAPS",
+     "op": "container",
      "indicators": [
       {
-       "text": "exposed",
-       "note": "to expose something is to strip its outer covering, so the outside letters go"
+       "text": "shown in",
+       "at": 39,
+       "note": "shown in means placed inside the word for charts"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "shown in",
-         "note": "something shown in another appears inside it"
-        }
-       ],
+       "words": "charts",
+       "at": 48,
+       "gives": "MAPS",
+       "note": "maps are charts"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "charts",
-         "gives": "MAPS",
-         "note": "maps are charts"
-        },
-        {
-         "op": "charade",
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "exposed",
+           "at": 19,
+           "note": "exposed means stripped of its outer layer, so the first and last letters go"
+          }
+         ],
          "parts": [
           {
            "words": "risk",
-           "gives": "IS",
-           "note": "this word with its outer letters stripped"
-          },
-          {
-           "words": "hospital",
-           "gives": "H",
-           "note": "H is the abbreviation for hospital, as on road signs"
+           "at": 14,
+           "note": "the word risk, which loses its outer letters"
           }
          ]
+        },
+        {
+         "words": "hospital",
+         "at": 30,
+         "gives": "H",
+         "note": "H is the abbreviation for hospital, as on road signs"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Injury figures and danger levels revealed by a hospital in its graphs.",
-     "walkthrough": "'Exposed' reads as being at risk, but it means stripping the outer letters off the word risk.",
-     "definitionFit": "Unlucky events or slips that cause harm are misfortunes, so the plural nouns are synonyms."
+     "surface": "Accidents and hazards in a hospital, recorded on its charts.",
+     "walkthrough": "'charts' looks like medical charts and 'exposed' like a hazard, but one gives the outer word and the other peels the outer letters off risk.",
+     "definitionFit": "A mishap is an unlucky accident, usually a minor one."
     },
     "features": {
      "answerInScene": true,
@@ -1413,22 +1403,22 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SAMOYED",
+     "op": "charade",
      "indicators": [
       {
-       "text": "holding",
-       "note": "to hold something is to keep it within"
+       "text": "after",
+       "at": 20,
+       "note": "after means the shortened word comes after the rest"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "container",
        "indicators": [
         {
-         "text": "after removing lead",
-         "note": "the lead is the front, so its first letter is taken off"
+         "text": "holding",
+         "at": 40,
+         "note": "holding means the first pieces wrap round the letter a"
         }
        ],
        "parts": [
@@ -1437,24 +1427,39 @@
          "parts": [
           {
            "words": "Small",
-           "gives": "S",
-           "note": "S is the abbreviation for small"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
+           "at": 0,
+           "gives": "S"
           },
           {
            "words": "tick",
+           "at": 6,
            "gives": "MO",
-           "note": "a tick and a mo are both a brief moment"
-          },
-          {
-           "words": "observed",
-           "gives": "EYED",
-           "note": "eyed means looked at, observed"
+           "note": "a mo, short for moment, is a tick, as in 'wait a tick'"
           }
          ]
+        },
+        {
+         "words": "a",
+         "at": 48,
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removing lead",
+         "at": 26,
+         "note": "removing lead means the first letter is taken off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "observed",
+         "at": 11,
+         "gives": "EYED",
+         "note": "eyed means observed, looked at"
         },
         {
          "gives": "E"
@@ -1464,14 +1469,13 @@
      ]
     },
     "explanation": {
-     "surface": "A vet spots a tiny parasite once a dog's leash is off.",
-     "walkthrough": "'Tick' and 'lead' look like a parasite and a leash in the dog picture; they are a moment and a first letter.",
-     "definitionFit": "A Samoyed is a fluffy white Siberian breed of spitz, so it is an example of the animal."
+     "surface": "Spotting a tiny tick on a dog after its lead is taken off.",
+     "walkthrough": "'tick' is a moment, not a parasite, and 'lead' is a first letter, not a dog's leash. 'holding a' applies to the first two pieces, SAMO.",
+     "definitionFit": "The Samoyed is a breed of white spitz dog from Siberia, bred for herding and pulling sledges."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "tick"
     }
    }
@@ -1805,52 +1809,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ACTUALITY",
+     "op": "composite",
      "indicators": [
       {
+       "text": "with such",
+       "at": 5,
+       "note": "with such means the game goes together with a thing of the kind the clue defines, so its letters join the answer's"
+      },
+      {
        "text": "recreated",
-       "note": "to recreate is to make again in a new form, so the letters are rebuilt"
+       "at": 23,
+       "note": "recreated means made again in a new form, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "ACTUALITY",
-         "parts": [
-          {
-           "words": "Game",
-           "note": "taken as written"
-          },
-          {
-           "words": "Guatemala City",
-           "note": "taken as written; this is what the jumble must produce"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "such",
-         "note": "stands in for the answer itself, the realism that joins the game in the mix"
-        }
-       ]
+       "words": "Guatemala City",
+       "at": 33
+      },
+      {
+       "words": "Game",
+       "at": 0,
+       "note": "the word game, whose letters join the answer's"
       }
      ]
     },
     "explanation": {
-     "surface": "A video game rebuilt the Central American capital in lifelike detail.",
-     "walkthrough": "A composite anagram: GAME plus the answer ('such realism') rearranged gives GUATEMALA CITY, so take GAME out of it and rearrange the rest.",
-     "definitionFit": "Being true to life is a matter of real existence, so faithfulness to fact is close to the noun."
+     "surface": "A video game so lifelike that it rebuilds Guatemala City in detail.",
+     "walkthrough": "'with such' points to the answer itself: GAME plus the answer, rearranged ('recreated'), spells GUATEMALA CITY. Remove G, A, M and E and rearrange the rest.",
+     "definitionFit": "Actuality means reality, the state of being real, and in art realism is faithfulness to it."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "such"
+     "misdirectedWord": "Game"
     }
    }
   },
