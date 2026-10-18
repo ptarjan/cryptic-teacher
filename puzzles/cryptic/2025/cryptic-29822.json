@@ -1016,7 +1016,8 @@
      "indicators": [
       {
        "text": "back",
-       "note": "going back means travelling in the opposite direction, so the whole string is read right to left"
+       "at": 62,
+       "note": "back means the whole result is read the other way round"
       }
      ],
      "parts": [
@@ -1025,37 +1026,41 @@
        "indicators": [
         {
          "text": "holding",
-         "note": "a piece holding others contains them within its letters"
+         "at": 26,
+         "note": "the word for nothing holds the other pieces inside"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "nothing",
-           "gives": "NIL",
-           "note": "nil is nothing, zero"
-          },
-          {
-           "words": "French and",
-           "gives": "ET",
-           "note": "et is French for and"
-          }
-         ]
+         "words": "nothing's",
+         "at": 16,
+         "gives": "NIL",
+         "note": "nil means nothing; the 's joins it"
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finale",
-           "note": "a finale is the closing part, so only the final letter is kept"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "Saunders'",
-           "note": "final letter of the name"
+           "words": "French and",
+           "at": 34,
+           "gives": "ET",
+           "note": "et is French for and"
+          },
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "finale",
+             "at": 55,
+             "note": "a finale is the last part, so the last letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Saunders'",
+             "at": 45
+            }
+           ]
           }
          ]
         }
@@ -1064,14 +1069,13 @@
      ]
     },
     "explanation": {
-     "surface": "A comedy fan is told to pay attention: nothing is holding up the end of a French and Saunders show.",
-     "walkthrough": "French and Saunders were a British comedy double act, so the pair read as one name; split them and 'French and' becomes a translation. The 's after 'nothing' stands for 'is'.",
-     "definitionFit": "To listen is to give heed with the ears, the same request as paying attention to someone."
+     "surface": "Listen up: nothing holds back the closing act of the comedy duo French and Saunders.",
+     "walkthrough": "French and Saunders are a British comedy double act; the surface splits them, so the French word for and is one piece and the last letter of Saunders another.",
+     "definitionFit": "To listen is to pay attention to sound or what is said."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "French"
     }
    }
