@@ -431,61 +431,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CRIMINAL",
      "indicators": [
       {
        "text": "taking",
-       "note": "taking something in means holding it inside, so one piece goes within the other"
+       "at": 6,
+       "note": "taking means holding, so the outer pieces take the rearranged car inside them"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "new",
-         "note": "making something new means remodelling it, so the car's name is rearranged"
-        }
-       ],
+       "op": "charade",
        "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "emptied out",
+           "at": 29,
+           "note": "emptied out means the inside letters are removed, leaving only the first and last"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Cooper",
+           "at": 22,
+           "note": "only its outer letters are used"
+          }
+         ]
+        },
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "nearly",
-           "note": "nearly means not quite all, so the final letter is dropped"
+           "at": 41,
+           "note": "nearly means not quite all, so the last letter is dropped"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "op": "outer",
-             "indicators": [
-              {
-               "text": "emptied out",
-               "note": "emptying a word out removes its contents, leaving only its two ends"
-              }
-             ],
-             "parts": [
-              {
-               "words": "Cooper",
-               "note": "the first and last letters of Cooper"
-              }
-             ]
-            },
-            {
-             "words": "Mini",
-             "note": "taken as written before rearranging"
-            },
-            {
-             "words": "everything",
-             "gives": "ALL",
-             "note": "all means everything"
-            }
-           ]
+           "words": "everything",
+           "at": 48,
+           "gives": "ALL",
+           "note": "all means everything"
           },
           {
            "gives": "L"
@@ -493,13 +481,29 @@
          ]
         }
        ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 13,
+         "note": "new suggests the letters of Mini are made over into a fresh order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mini",
+         "at": 17
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A car thief steals a new Mini Cooper and strips it of almost all it had.",
-     "walkthrough": "The rearranged car name sits inside the outer letters of Cooper followed by a shortened everything. The Mini Cooper is a classic British small car.",
-     "definitionFit": "A thief is a lawbreaker, and a lawbreaker is a criminal, used here as a noun."
+     "surface": "A car thief making off with a new Mini Cooper and cleaning out almost everything else.",
+     "walkthrough": "The car's name is split in two: 'new' works on Mini alone, while 'emptied out' strips Cooper to its shell; 'taking' then holds the shuffled Mini inside.",
+     "definitionFit": "A thief is someone who breaks the law, so is a criminal."
     },
     "features": {
      "answerInScene": true,

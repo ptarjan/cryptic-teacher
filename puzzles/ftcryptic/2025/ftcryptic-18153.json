@@ -272,45 +272,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PAPERCLIP",
      "indicators": [
       {
        "text": "stuck in",
-       "note": "stuck in says these letters are pushed inside another word"
+       "at": 19,
+       "note": "stuck in means pushed inside, so the jumble goes into the spot"
       }
      ],
      "parts": [
+      {
+       "words": "spot",
+       "at": 28,
+       "gives": "PIP",
+       "note": "a pip is a spot, as on a playing card or die"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "haphazardly",
-         "note": "done haphazardly means done in no fixed order, so the letters get jumbled"
+         "at": 7,
+         "note": "haphazardly means in a random order, so the letters of parcel are mixed up"
         }
        ],
        "parts": [
         {
          "words": "Parcel",
-         "note": "the letters of parcel rearranged"
-        },
-        {
-         "words": "spot",
-         "gives": "PIP",
-         "note": "a pip is a spot, as on dice or cards"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A parcel is shoved carelessly into a corner earmarked for office stationery.",
-     "definitionFit": "A paperclip is a bent-wire fastener that holds sheets together, a small binder used in offices."
+     "surface": "A package carelessly jammed into a corner, in an office.",
+     "walkthrough": "'spot' reads as a place where the parcel is put, but it is a dot or pip, as on dice; 'haphazardly' jumbles the parcel and 'stuck in' puts that jumble inside.",
+     "definitionFit": "A paper clip is a bent wire device that holds sheets together, a small fastener for documents."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "binder"
+     "misdirectedWord": "spot"
     }
    }
   },
@@ -1240,35 +1242,38 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SMARMY",
+     "op": "charade",
      "indicators": [
       {
        "text": "subordinate to",
-       "note": "subordinate to means under the authority of, so one piece sits enclosed by the other"
+       "at": 19,
+       "note": "in a down answer, being subordinate to means coming below, so the troops follow the abbreviation"
       }
      ],
      "parts": [
       {
-       "words": "troops",
-       "gives": "ARMY",
-       "note": "troops make up an army"
+       "words": "Sergeant Major",
+       "at": 34,
+       "gives": "SM",
+       "note": "SM is the military abbreviation for Sergeant Major"
       },
       {
-       "words": "Sergeant Major",
-       "gives": "SM",
-       "note": "SM is the abbreviation for Sergeant Major"
+       "words": "troops",
+       "at": 12,
+       "gives": "ARMY",
+       "note": "an army is a body of troops"
       }
      ]
     },
     "explanation": {
-     "surface": "Fawning soldiers defer to their Sergeant Major.",
-     "definitionFit": "Smarmy means ingratiating in an oily, insincere way, the manner of a flatterer."
+     "surface": "Soldiers fawning over the Sergeant Major who commands them.",
+     "walkthrough": "In a down clue, 'subordinate to' puts ARMY beneath SM.",
+     "definitionFit": "Smarmy describes oily, ingratiating flattery, the manner of a fawning sycophant."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "subordinate"
     }
    }
   },

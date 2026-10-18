@@ -669,45 +669,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ELECTIVES",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 19,
+       "note": "about means around, so the jumble goes round the cold letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "broadcast",
-         "note": "broadcast seed is scattered, so these letters are jumbled"
-        },
-        {
-         "text": "about",
-         "note": "the jumbled word goes around the next letter"
+         "at": 9,
+         "note": "broadcast as in scattered widely, so the letters of televise are strewn into a new order"
         }
        ],
        "parts": [
         {
          "words": "Televise",
-         "note": "TELEVISE rearranged"
-        },
-        {
-         "words": "cold",
-         "gives": "C",
-         "note": "C is the abbreviation for cold, as on a tap"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "cold",
+       "at": 25,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on taps"
       }
      ]
     },
     "explanation": {
-     "surface": "A TV channel airs a programme about cooking courses for fussy eaters.",
-     "walkthrough": "'Courses' suggests a meal; here they are classes a student may choose.",
-     "definitionFit": "Electives are optional courses of study, taken by students who choose them."
+     "surface": "A broadcaster airing something about the cold, offered as options to the discerning.",
+     "walkthrough": "'broadcast' sits naturally beside 'Televise', but it scrambles that word; 'courses for choosy types' are courses you choose.",
+     "definitionFit": "Electives are optional subjects students choose, so they suit people who like to pick."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "courses"
+     "joke": "pun",
+     "misdirectedWord": "broadcast"
     }
    }
   },
@@ -1594,39 +1598,48 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "ultimately doubled",
+       "at": 27,
+       "note": "ultimately doubled means the final letter is written twice"
+      }
+     ],
      "parts": [
       {
-       "words": "Part of Hollywood location",
-       "gives": "LOS",
-       "note": "the first word of Los Angeles, where Hollywood is"
-      },
-      {
-       "op": "last",
-       "unchecked": true,
-       "gives": "S",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "ultimately doubled",
-         "note": "the final letter is repeated"
+         "text": "Part of",
+         "at": 0,
+         "note": "part of means only some of the city's name is used, its first word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Hollywood location",
-         "gives": "S",
-         "select": "last",
-         "note": "the last letter of LOS, used again"
+         "at": 8,
+         "gives": "LOSANGELES",
+         "note": "Hollywood is a district of Los Angeles"
+        },
+        {
+         "gives": "ANGELES"
         }
        ]
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "SS"
       }
      ]
     },
     "explanation": {
-     "surface": "A section of a film set ends up with its debt doubled.",
-     "walkthrough": "Hollywood is a district of Los Angeles; only part of that name, LOS, is used.",
-     "definitionFit": "A loss is a deficit, spending more than comes in."
+     "surface": "A deficit is doubled at a Hollywood studio location.",
+     "walkthrough": "Take LOS from Los Angeles, then 'ultimately doubled' repeats its last letter.",
+     "definitionFit": "A loss is a shortfall in money, which is what a deficit is."
     },
     "features": {
      "answerInScene": true,
