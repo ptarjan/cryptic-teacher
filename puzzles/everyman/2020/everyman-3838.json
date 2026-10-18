@@ -1201,22 +1201,22 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "SEAS",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half of",
-         "note": "half of a word means only its first part is kept"
+         "at": 0,
+         "note": "only the first four of the eight letters of seasoner are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "seasoner",
-         "gives": "SEAS",
-         "select": "first",
-         "note": "the first four of its eight letters"
+         "at": 23,
+         "note": "the word seasoner gives its first half"
+        },
+        {
+         "gives": "ONER"
         }
        ]
       },
@@ -1225,13 +1225,14 @@
        "indicators": [
         {
          "text": "for starters",
-         "note": "starters are the opening letters of each of the words before"
+         "at": 52,
+         "note": "starters are the first letters of each of the three words"
         }
        ],
        "parts": [
         {
          "words": "adding little taste",
-         "note": "the initial letters of these three words"
+         "at": 32
         }
        ]
       }
@@ -1239,14 +1240,15 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A cook wonders whether a seasoning shaker's contents add just a hint of flavour to begin with.",
-     "walkthrough": "SEAS plus ALT gives SEA SALT; the whole clue also describes the answer.",
-     "definitionFit": "Sea salt, made by evaporating seawater, is a common condiment kept in salt cellars or grinders."
+     "surface": "A cook's teasing question about a pinch of seasoning added at the beginning.",
+     "walkthrough": "The first half of seasoner is SEAS, and the starters of adding little taste are ALT. The whole clue also describes the answer as a seasoner.",
+     "definitionFit": "Sea salt is a seasoning, salt obtained by evaporating seawater, often added for a little flavour."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Half"
+     "joke": "pun",
+     "misdirectedWord": "starters"
     }
    }
   },

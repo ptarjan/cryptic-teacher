@@ -1440,50 +1440,53 @@
      "indicators": [
       {
        "text": "Residing in",
-       "note": "a resident lives inside a place"
+       "at": 0,
+       "note": "the letters live inside the abbreviation for the city"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "turning",
-         "note": "turning round reverses direction"
-        }
-       ],
+       "words": "New York",
+       "at": 12,
+       "gives": "NY"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "New York",
-         "gives": "NY",
-         "note": "standard abbreviation"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turning",
+           "at": 37,
+           "note": "turning means re is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "concerned with",
+           "at": 22,
+           "gives": "RE",
+           "note": "re means concerning or about"
+          }
+         ]
         },
         {
          "words": "very",
-         "gives": "V",
-         "note": "V for very"
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "parts": [
-        {
-         "words": "concerned with",
-         "gives": "RE",
-         "note": "re = regarding, concerned with"
+         "at": 45,
+         "gives": "V"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A New York resident preoccupied with change is very jittery.",
-     "walkthrough": "Very looks like it intensifies anxious, but it is just the letter V.",
-     "definitionFit": "A British sense: nervy means jumpy or anxious, though in America it can mean cheeky."
+     "surface": "Living in New York makes a worried person very anxious.",
+     "walkthrough": "'very' looks like part of 'very anxious', but it gives V.",
+     "definitionFit": "Nervy in British use means jittery and easily alarmed, the same as being on edge."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "very"
     }

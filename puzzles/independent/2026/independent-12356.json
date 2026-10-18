@@ -544,47 +544,80 @@
      "indicators": [
       {
        "text": "bringing",
-       "note": "to bring is to carry along, so the kit carries the other pieces with it"
+       "at": 48,
+       "note": "bringing the kit round means wrapping it about the other letters"
+      },
+      {
+       "text": "round",
+       "at": 67,
+       "note": "the kit goes round the other letters, enclosing them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "round",
-         "note": "round means surrounding, so the kit wraps itself around the other pieces"
-        }
-       ],
-       "parts": [
-        {
-         "words": "equipment",
-         "gives": "KIT",
-         "note": "kit = gear"
-        },
-        {
-         "words": "spouse reduced",
-         "gives": "WIF",
-         "note": "WIFE without its last letter"
-        }
-       ]
+       "words": "equipment",
+       "at": 57,
+       "gives": "KIT",
+       "note": "kit is equipment"
       },
       {
-       "words": "a lot of damage",
-       "gives": "RUI",
-       "note": "most of RUIN"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "reduced",
+           "at": 24,
+           "note": "the wife is cut short by her last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "spouse",
+           "at": 17,
+           "gives": "WIFE",
+           "note": "a wife is a spouse"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "a lot of",
+           "at": 32,
+           "note": "most but not all of the word, losing its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "damage",
+           "at": 41,
+           "gives": "RUIN",
+           "note": "to ruin is to damage"
+          },
+          {
+           "gives": "N"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A domestic mishap where a partner's damage involves carting equipment about, with exotic produce thrown in.",
-     "walkthrough": "Two truncations in a row are the trap: both pieces lose a final letter before anything is assembled.",
-     "definitionFit": "A definition by example: the kiwi fruit, first exported from New Zealand, is one exotic fruit in a greengrocer's."
+     "surface": "A partner causes harm with kit brought in to some exotic farm produce.",
+     "walkthrough": "'reduced' and 'a lot of' each trim the final letter of their word; the equipment then wraps around both shortened words.",
+     "definitionFit": "Kiwi fruit, the furry green-fleshed fruit, came from China via New Zealand, so to Britons it is imported produce."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "equipment"
+     "misdirectedWord": "spouse"
     }
    }
   },
