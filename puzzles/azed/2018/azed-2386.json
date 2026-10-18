@@ -595,50 +595,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PORTIGUE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "half missing",
-       "note": "half missing means half of that word's letters are dropped, leaving its first two"
+       "text": "damaged",
+       "at": 40,
+       "note": "damaged means knocked out of shape, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "pure",
+       "at": 10,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "damaged",
-         "note": "something damaged is knocked out of shape, so the combined letters are rearranged"
+         "text": "half missing",
+         "at": 21,
+         "note": "half missing means the word loses half its letters, here its second pair"
         }
        ],
        "parts": [
         {
-         "words": "pure",
-         "note": "taken as written"
-        },
-        {
          "words": "gold",
-         "gives": "GO",
-         "note": "the first half of the word gold"
+         "at": 15,
+         "note": "taken as written, before its second half goes"
         },
         {
-         "words": "it",
-         "note": "taken as written"
+         "gives": "LD"
         }
        ]
+      },
+      {
+       "words": "it's",
+       "at": 35,
+       "gives": "IT",
+       "note": "the word it; the 's is 'is', linking to damaged"
       }
      ]
     },
     "explanation": {
-     "surface": "A collector lamenting a gold coin that has been badly clipped.",
-     "definitionFit": "The portigue was a Portuguese gold coin of the 16th century, so it is an obsolete piece of currency."
+     "surface": "A coin of pure gold has had half its metal clipped away and is damaged.",
+     "walkthrough": "'half missing' cuts GOLD to GO; 'damaged' then rearranges PURE, GO and IT. A portigue was an old Portuguese gold coin.",
+     "definitionFit": "The portigue was a gold coin of Portugal current in the sixteenth century, so it is an obsolete piece of money."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "gold"
+     "misdirectedWord": "damaged"
     }
    }
   },
@@ -765,49 +772,52 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LUAU",
      "indicators": [
       {
        "text": "replacing",
-       "note": "replacing tells us one letter is swapped out and another put in its place"
+       "at": 31,
+       "note": "replacing means taking the place of, so one letter goes in where another is removed"
       }
      ],
      "parts": [
       {
        "words": "a humdinger",
+       "at": 14,
        "gives": "LULU",
-       "note": "a lulu is a remarkable or outstanding thing, a humdinger"
-      },
-      {
-       "words": "one",
-       "gives": "A",
-       "note": "A can stand for one, as in 'a dozen'"
+       "note": "a lulu is something remarkable, a humdinger"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "start of",
-         "note": "the start of a word is its first letter alone"
+         "at": 41,
+         "note": "start of picks out the first letter of the word that follows"
         }
        ],
        "parts": [
         {
          "words": "Lent",
-         "note": "start of Lent is its first letter"
+         "at": 50,
+         "note": "its first letter is used"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 27,
+       "gives": "A",
+       "note": "a means one, as in 'a dozen'"
       }
      ]
     },
     "explanation": {
-     "surface": "A wild party to celebrate before Lent begins.",
-     "walkthrough": "The second L of LULU gives way to A.",
-     "definitionFit": "A luau is a Hawaiian feast, which counts as an exotic party to most of the world."
+     "surface": "A wild party is such a humdinger that it takes the place of the start of Lent.",
+     "walkthrough": "'start of' gives L from Lent, and 'replacing' puts A (one) in place of the second L of LULU. A luau is a Hawaiian feast.",
+     "definitionFit": "A luau is a Hawaiian feast with roast pig and dancing, a party from a faraway culture for most solvers."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Lent"
     }
@@ -1340,58 +1350,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UPGRADE",
+     "op": "composite",
      "indicators": [
       {
-       "text": "arranged with",
-       "note": "arranged together with the answer, these letters can be reordered to give the airport's name"
+       "text": "arranged",
+       "at": 40,
+       "note": "arranged means put in order, so the airport's letters are sorted into the answer plus the named letters"
+      },
+      {
+       "text": "with this in",
+       "at": 49,
+       "note": "with this in says the answer itself, together with the named letters, is contained in the airport's name"
       }
      ],
      "parts": [
       {
+       "words": "Paris De Gaulle",
+       "at": 62
+      },
+      {
        "op": "charade",
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "UPGRADE",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "the given letters plus the answer are all contained in the name, so taking the given letters away leaves the answer's letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Paris De Gaulle",
-           "note": "the airport name, taken letter for letter"
-          },
-          {
-           "words": "i.e. all's",
-           "note": "taken as written, the letters to remove"
-          }
-         ]
+         "words": "i.e.",
+         "at": 29,
+         "gives": "IE",
+         "note": "taken as written, its letters"
         },
         {
-         "unchecked": true,
-         "words": "this",
-         "note": "stands for the answer itself, the letters left over once the others are taken out"
+         "words": "all's",
+         "at": 34,
+         "gives": "ALLS",
+         "note": "taken as written, its letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller at Charles de Gaulle airport pleasantly surprised that everything has been arranged.",
-     "walkthrough": "A compound anagram: the letters of I.E. ALL'S together with the answer can be rearranged to spell PARIS DE GAULLE, so removing them leaves the answer's seven letters.",
-     "definitionFit": "An upgrade moves a passenger to a better class of seat at no cost, a welcome surprise on a flight."
+     "surface": "A traveller at Paris Charles de Gaulle airport is pleasantly surprised that everything is sorted.",
+     "walkthrough": "Paris De Gaulle holds the letters of I.E. ALL'S together with 'this', the answer; take IEALLS out and arrange the rest. 'Nice' hints at the French city but means pleasant.",
+     "definitionFit": "Being moved up to a better class of seat or room at no extra cost is a welcome bonus for any passenger."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "arranged"
+     "joke": "pun",
+     "misdirectedWord": "Nice"
     }
    }
   },
@@ -1750,12 +1755,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SONOGRAPH",
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the song wraps the letter for love"
+       "at": 43,
+       "note": "about means surrounding, so the mixed letters go around the letter for love"
       }
      ],
      "parts": [
@@ -1763,37 +1767,40 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "blended",
-         "note": "things blended are mixed together, so these letters are mixed into a new order"
+         "text": "blended with",
+         "at": 25,
+         "note": "blended means mixed together, so the letters of both words are stirred into a new order"
         }
        ],
        "parts": [
         {
-         "words": "song",
+         "words": "harp",
+         "at": 20,
          "note": "taken as written"
         },
         {
-         "words": "love",
-         "gives": "O",
-         "note": "love is nil in tennis, the letter O"
-        },
-        {
-         "words": "harp",
-         "note": "taken as written, to be rearranged"
+         "words": "song",
+         "at": 38,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "love",
+       "at": 49,
+       "gives": "O",
+       "note": "love is zero in tennis, and O looks like zero"
       }
      ]
     },
     "explanation": {
-     "surface": "Choosing between a recorder and a harp for a love song.",
-     "walkthrough": "'Recorder' tempts you to the instrument family, alongside harp; it is a recording device.",
-     "definitionFit": "A sonograph is a device that records sound, making a visual trace of its frequencies, so it is a kind of recorder."
+     "surface": "A recorder or harp joins in with a love song.",
+     "walkthrough": "'recorder' suggests the woodwind instrument beside the harp, but it is a device that records. HARP and SONG are mixed to SON GRAPH, which wraps round O.",
+     "definitionFit": "A sonograph is an instrument that records sound or ultrasound images, so it is one kind of recording device."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "recorder"
     }
    }

@@ -1515,39 +1515,54 @@
      "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "ANGER",
+       "op": "deletion",
        "indicators": [
         {
          "text": "sinking",
-         "note": "something sinking moves down, and in a down entry that means toward the bottom"
+         "at": 15,
+         "note": "in a down clue, sinking means the letter drops from the top, so it leaves its place at the head of the word"
         }
        ],
        "parts": [
         {
          "words": "stove",
+         "at": 8,
          "gives": "RANGE",
          "note": "a range is a large cooking stove"
+        },
+        {
+         "gives": "R"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "last of lobster",
-       "note": "the final letter of lobster names which letter moves; it adds nothing new"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "at": 23,
+         "note": "last of picks out the final letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lobster",
+         "at": 31,
+         "note": "its final letter is used"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Turn off the cooker while dropping in the end of the lobster.",
-     "walkthrough": "'Put out' suggests extinguishing the stove, but it means annoy; the R at the top of RANGE sinks to the bottom.",
-     "definitionFit": "To put someone out is to annoy or irritate them, which is to make them cross."
+     "surface": "A cook turns off the stove after dropping a lobster into the pot.",
+     "walkthrough": "The R of RANGE is the last letter of 'lobster', and 'sinking' sends it from the top of RANGE to the bottom of this down entry.",
+     "definitionFit": "To be put out is to be annoyed, and to anger someone is to annoy or upset them, so the verbs match."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "out"
+     "misdirectedWord": "Put"
     }
    }
   },
@@ -1626,12 +1641,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "LIAR",
      "indicators": [
       {
-       "text": "50% cut",
-       "note": "losing half means the second half of each word is removed"
+       "text": "Suffering 50% cut",
+       "at": 0,
+       "note": "suffering a 50% cut means losing half, so each word here is reduced to its first half"
       }
      ],
      "parts": [
@@ -1640,28 +1654,32 @@
        "parts": [
         {
          "words": "like",
-         "gives": "LI",
-         "note": "the word keeping only its first half"
+         "at": 19,
+         "note": "taken as written"
         },
         {
-         "words": "army",
-         "gives": "AR",
-         "note": "the word keeping only its first half"
+         "words": "army's",
+         "at": 24,
+         "gives": "ARMY",
+         "note": "army is the word, and the 's ('is') says it suffers the same cut"
         }
        ]
+      },
+      {
+       "gives": "KEMY"
       }
      ]
     },
     "explanation": {
-     "surface": "Like the army, a pie supplier has had its budget halved.",
-     "walkthrough": "'Like' and 'army' both suffer the cut, so each loses its back half. In Cockney rhyming slang a pork pie, or porky, is a lie.",
-     "definitionFit": "Since a pork pie is a fib in rhyming slang, someone who provides them is a teller of untruths."
+     "surface": "A sergeant grumbles that the army has had its budget halved, like everyone else.",
+     "walkthrough": "Both LIKE and ARMY lose their second halves, leaving LI and AR. Pork pie is Cockney rhyming slang for a lie, so its supplier tells lies.",
+     "definitionFit": "In rhyming slang a porky or pork pie is a falsehood, and the person who tells one is a fibber."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "like"
+     "misdirectedWord": "pork"
     }
    }
   },
@@ -1749,50 +1767,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "GRUEL",
      "indicators": [
       {
        "text": "knocking out",
-       "note": "to knock something out is to remove it and take its place"
+       "at": 20,
+       "note": "knocking out means displacing, so the new letter takes the place of the one knocked out"
       }
      ],
      "parts": [
+      {
+       "words": "Mean",
+       "at": 0,
+       "gives": "CRUEL",
+       "note": "cruel means mean, as in unkind"
+      },
+      {
+       "words": "cold",
+       "at": 33,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on a tap"
+      },
       {
        "op": "last",
        "indicators": [
         {
          "text": "finally",
-         "note": "finally means at the end, so only the last letter is used"
+         "at": 12,
+         "note": "finally picks out the last letter of the word before it"
         }
        ],
        "parts": [
         {
          "words": "ratbag",
-         "note": "the last letter of ratbag"
+         "at": 5,
+         "note": "its final letter is used"
         }
        ]
-      },
-      {
-       "words": "Mean",
-       "gives": "CRUEL",
-       "note": "mean means unkind"
-      },
-      {
-       "words": "cold",
-       "gives": "C",
-       "note": "C is the abbreviation for cold, and it is the letter replaced"
       }
      ]
     },
     "explanation": {
-     "surface": "A nasty scoundrel punches out someone, while eating a cold, unpleasant dinner.",
-     "walkthrough": "G replaces the C of CRUEL. 'Ratbag' is British slang for an unpleasant person.",
-     "definitionFit": "Gruel is thin porridge of oats boiled in water, famously served in workhouses as a bland, unappealing food."
+     "surface": "An unkind person punches out someone with a cold and serves them a nasty dinner.",
+     "walkthrough": "'Mean' looks like an adjective about the ratbag but gives CRUEL; 'finally' takes G from ratbag, which knocks out the C.",
+     "definitionFit": "Gruel is thin porridge of oats boiled in water, the proverbially bland food of workhouses."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Mean"
     }
    }

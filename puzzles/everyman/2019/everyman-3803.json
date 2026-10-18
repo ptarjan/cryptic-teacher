@@ -487,49 +487,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AERATED",
-     "indicators": [
-      {
-       "text": "poorly",
-       "note": "something done poorly is done badly and comes out in a muddled order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AERATED",
+       "words": "Amateur",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "without",
-         "note": "without means lacking, so a letter is taken away"
+         "text": "poorly",
+         "at": 16,
+         "note": "poorly means badly done, so the remaining letters are put together in a jumbled order"
         }
        ],
        "parts": [
         {
-         "words": "Amateur",
-         "gives": "A",
-         "note": "A is a standard abbreviation for amateur"
-        },
-        {
-         "words": "catered",
-         "note": "taken as written, to be reduced and rearranged"
-        },
-        {
-         "words": "cold",
-         "gives": "C",
-         "note": "C is the abbreviation for cold, as on taps"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "without",
+           "at": 24,
+           "note": "without means lacking, so this letter is taken out of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "catered",
+           "at": 8,
+           "note": "taken as written"
+          },
+          {
+           "words": "cold",
+           "at": 32,
+           "gives": "C",
+           "note": "C is the abbreviation for cold, as on a tap"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A non-professional caterer did a bad job, and nobody got a chilled drink.",
-     "walkthrough": "'Bubbly' suggests champagne, but here it is an adjective.",
-     "definitionFit": "Something aerated has had gas forced into it, so it is fizzy and full of bubbles."
+     "surface": "An amateur cook served a poor meal with nothing chilled to drink.",
+     "walkthrough": "'without' takes C out of CATERED to leave ATERED, which 'poorly' rearranges to ERATED, after A.",
+     "definitionFit": "Something aerated has had gas forced through it, so it is fizzy, which is what bubbly describes."
     },
     "features": {
      "answerInScene": true,
@@ -667,36 +672,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IBSEN",
-     "indicators": [
-      {
-       "text": "lacking cover",
-       "note": "with its cover gone, a word loses its outside edges at both ends"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "complaint",
+       "at": 15,
        "gives": "IBS",
-       "note": "IBS, irritable bowel syndrome, is a medical complaint"
+       "note": "IBS, irritable bowel syndrome, is a common medical complaint"
       },
       {
-       "words": "menu",
-       "note": "taken as written, before trimming"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "lacking cover",
+         "at": 31,
+         "note": "lacking cover means stripped of its outside, so the word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "menu",
+         "at": 26,
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Norwegian diner grumbles that the menu has no cover.",
-     "walkthrough": "'Complaint' sounds like grumbling but means an ailment.",
-     "definitionFit": "Henrik Ibsen, author of A Doll's House, was a playwright born in Norway."
+     "surface": "A diner with a stomach complaint finds the menu has lost its cover.",
+     "walkthrough": "'lacking cover' strips the M and U off MENU, leaving EN after IBS. The definition is a person: Henrik Ibsen was the Norwegian playwright of A Doll's House.",
+     "definitionFit": "Henrik Ibsen, author of Hedda Gabler and Peer Gynt, is the most famous dramatist from Norway."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "complaint"
+     "misdirectedWord": "Norwegian"
     }
    }
   },

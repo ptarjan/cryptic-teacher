@@ -96,42 +96,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ONDEMAND",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "something short is missing its end, so a letter comes off the tail"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 4,
+         "note": "short means not quite full length, so the word is cut by its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "One",
-         "gives": "ON",
-         "note": "the number word with its final letter removed"
+         "at": 0,
+         "gives": "ONE",
+         "note": "taken as written"
         },
         {
-         "words": "order",
-         "gives": "DEMAND",
-         "note": "to order is to demand"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "order",
+       "at": 10,
+       "gives": "DEMAND",
+       "note": "to order is to demand, as in ordering someone to leave"
       }
      ]
     },
     "explanation": {
-     "surface": "A diner places a quick order for a dish that is ready whenever asked for.",
-     "walkthrough": "'One short order' looks like a single brief request; split it as ONE cut short, then a word for order.",
-     "definitionFit": "Services offered on demand, such as streaming television, can be had at any moment the customer asks."
+     "surface": "A curt command, one word too few, barked at someone.",
+     "walkthrough": "'short' trims ONE to ON, and the noun-looking 'order' is the verb DEMAND.",
+     "definitionFit": "Something on demand, such as streamed television, is supplied whenever the customer asks for it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "short"
+     "misdirectedWord": "order"
     }
    }
   },
@@ -387,42 +391,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HEXAGON",
-     "indicators": [
-      {
-       "text": "with no end of",
-       "note": "having no end means the final letter is cut away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "spell",
+       "at": 20,
+       "gives": "HEX",
+       "note": "a hex is a magic spell, usually a curse"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no end of",
+         "at": 26,
+         "note": "with no end of means the phrase's word is left without its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "spell",
-         "gives": "HEX",
-         "note": "a hex is a witch's spell"
+         "words": "bad pain",
+         "at": 41,
+         "gives": "AGONY",
+         "note": "agony is severe, bad pain"
         },
         {
-         "words": "bad pain",
-         "gives": "AGON",
-         "note": "agony is bad pain, here without its last letter"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An aircraft passenger is struck by a spell and suffers terrible pain.",
-     "walkthrough": "'Figure in plane' sounds like someone aboard an aircraft; it is a shape in plane geometry.",
-     "definitionFit": "A hexagon is a six-sided polygon, a flat shape drawn in two dimensions in geometry."
+     "surface": "Someone on an aeroplane is cursed with relentless agony during the flight.",
+     "walkthrough": "'plane' suggests an aircraft, but here it is a flat surface in geometry. 'with no end of' cuts AGONY to AGON after HEX.",
+     "definitionFit": "A hexagon is a six-sided polygon, a flat shape drawn in a two-dimensional geometric plane."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "plane"
     }
    }
