@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -39,18 +40,16 @@
     "definitions": [
      {
       "text": "Ship's officers",
-      "at": 0,
-      "note": "The wardroom is the officers' mess in a warship, and the word stands for the officers who use it, as 'the bench' stands for judges."
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "WARDROOM",
      "indicators": [
       {
        "text": "to port",
-       "note": "Port is a ship's left-hand side, so each piece named is read back towards the left of the grid."
+       "at": 31,
+       "note": "port is the left side of a ship, so in an across clue the letters run leftwards, backwards"
       }
      ],
      "parts": [
@@ -58,23 +57,25 @@
        "op": "charade",
        "parts": [
         {
-         "words": "haul",
-         "gives": "WARD",
-         "note": "to haul something is to draw it, and DRAW read the other way is WARD"
+         "words": "make fast",
+         "at": 16,
+         "gives": "MOOR",
+         "note": "to moor a boat is to make it fast"
         },
         {
-         "words": "make fast",
-         "gives": "ROOM",
-         "note": "a ship is made fast by mooring it, and MOOR read the other way is ROOM"
+         "words": "haul",
+         "at": 26,
+         "gives": "DRAW",
+         "note": "to draw is to haul or pull"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An order on deck: tie her up and drag the load across to the left-hand side.",
-     "walkthrough": "One instruction serves both halves of the clue, which is why nothing is left over. Sailors moor a boat to make it fast, and the wardroom is where a warship's officers eat and sit.",
-     "definitionFit": "The wardroom is the officers' mess on a warship, and naval talk uses it for the officers themselves."
+     "surface": "Sailors secure the vessel and drag it towards the harbour.",
+     "walkthrough": "'to port' sends MOOR DRAW leftwards, reading it backwards. 'port' looks like a harbour in this nautical scene; it is the left side.",
+     "definitionFit": "The wardroom is the mess on a warship used by commissioned officers, so it stands for those officers collectively."
     },
     "features": {
      "answerInScene": true,
@@ -389,40 +390,50 @@
     "definitions": [
      {
       "text": "Things piled up in in-tray",
-      "at": 0,
-      "note": "A backlog is the heap itself, so the plural 'things piled up' describes the answer collectively rather than swapping word for word."
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BACKLOG",
+     "spelt": "BACKLOG",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "The Reverend Spooner was famous for swapping the opening sounds of two words, so the phrase named trades its beginnings."
+       "at": 47,
+       "note": "Spooner, the clergyman known for swapping the starts of words, signals that the opening sounds trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "have nowhere to go",
-       "gives": "BACKLOG",
-       "soundsLike": "LACK BOG",
-       "note": "someone who lacks a bog — British slang for a lavatory — has nowhere to go, and the two opening sounds swap over"
+       "op": "homophone",
+       "spelt": "LAK",
+       "parts": [
+        {
+         "words": "have nowhere",
+         "at": 27,
+         "gives": "LACK",
+         "note": "read as 'have no' plus 'where': to lack is to have none of something; the CK of lack is sounded as a K"
+        }
+       ]
+      },
+      {
+       "words": "to go",
+       "at": 40,
+       "gives": "BOG",
+       "note": "with 'where' before it, 'where to go' is a toilet, which is a bog in British slang"
       }
      ]
     },
     "explanation": {
-     "surface": "Paperwork heaped in the in-tray with nowhere left to put any of it.",
-     "walkthrough": "Spooner clues work in sound rather than spelling, so say the answer aloud and trade the two openings. The lavatory sense of 'go' is what makes the phrase work.",
-     "definitionFit": "A backlog is precisely the pile of work that has built up unattended in the tray."
+     "surface": "Office papers pile up with nowhere to put them.",
+     "walkthrough": "Read 'have nowhere to go' as 'have no where-to-go', LACK BOG, a bog being British slang for a toilet. 'according to Spooner' swaps the opening L and B sounds, giving BACK LOG.",
+     "definitionFit": "A backlog is an accumulation of work still waiting to be dealt with, like an overfull in-tray."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "go"
+     "misdirectedWord": "nowhere"
     }
    }
   },
