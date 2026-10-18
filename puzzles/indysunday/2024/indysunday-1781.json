@@ -324,26 +324,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ELATION",
      "indicators": [
       {
        "text": "Out-of-head",
-       "note": "the head, or first letter, is taken out"
+       "at": 0,
+       "note": "out-of-head is read as head out, so the word loses its first letter"
       }
      ],
      "parts": [
       {
-       "words": "Out-of-head member of your clan",
-       "gives": "ELATION",
-       "note": "RELATION, a member of your family, without its first letter R"
+       "words": "member of your clan",
+       "at": 12,
+       "gives": "RELATION",
+       "note": "a relation is a member of your family or clan"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A relative who is out of their head and very merry.",
-     "walkthrough": "\"Out-of-head\" suggests someone drunk or high; it is a beheading instruction.",
-     "definitionFit": "A plain synonym: great joy and excitement amount to high spirits."
+     "surface": "A relative off their head is in a very excited mood.",
+     "walkthrough": "'Out-of-head' suggests being drunk or high, but it beheads RELATION.",
+     "definitionFit": "Elation is a feeling of great happiness and exhilaration, which is being in high spirits."
     },
     "features": {
      "answerInScene": true,
@@ -767,41 +770,41 @@
      "indicators": [
       {
        "text": "found in",
-       "note": "to be found in a place is to be inside it"
+       "at": 7,
+       "note": "found in says the first name is put inside the other letters"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "AA",
        "indicators": [
         {
          "text": "outskirts of",
-         "note": "just the outer letters are used"
+         "at": 16,
+         "note": "the outskirts of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "outskirts of Armenia's",
-         "gives": "AA",
-         "select": "outer",
-         "note": "first and last letters of ArmeniA"
+         "words": "Armenia's",
+         "at": 29,
+         "gives": "ARMENIA",
+         "note": "Armenia, with the 's read as is, linking the wordplay to the definition"
         }
        ]
       },
       {
        "words": "Laurel",
+       "at": 0,
        "gives": "STAN",
-       "note": "Stan Laurel, of Laurel and Hardy; goes between the two As"
+       "note": "Stan Laurel was the thin half of the comedy duo Laurel and Hardy"
       }
      ]
     },
     "explanation": {
-     "surface": "A laurel tree growing on the edge of Yerevan.",
-     "walkthrough": "\"Armenia's capital\" suggests Yerevan, but the capital is Kazakhstan's; Armenia only supplies its outer letters.",
-     "definitionFit": "Definition by category: the seat of government of Kazakhstan is a capital city."
+     "surface": "A laurel bush has turned up on the edge of the Armenian capital.",
+     "walkthrough": "'Laurel' looks like a plant but is the comedian Stan Laurel; STAN goes between A and A, the 'outskirts of' Armenia.",
+     "definitionFit": "Astana is the capital city of Kazakhstan, a seat of national government."
     },
     "features": {
      "answerInScene": false,
@@ -999,55 +1002,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADDLE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 23,
+       "note": "without in its old sense of outside, so the shortened snake goes round the other letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "mostly",
-         "note": "most of a word, but not all, so the last letter is dropped"
-        },
-        {
-         "text": "ultimately",
-         "note": "ultimately means in the end, so the end letter of fail is taken"
+         "at": 16,
+         "note": "mostly says the word is used without its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Serpent mostly",
-         "gives": "ADDE",
-         "note": "ADDER, a snake, minus its last letter"
+         "words": "Serpent",
+         "at": 8,
+         "gives": "ADDER",
+         "note": "an adder is a snake, a serpent"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "L",
-         "indicators": [
-          {
-           "text": "without"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "fail ultimately",
-           "gives": "L",
-           "select": "last",
-           "note": "last letter of faiL, placed inside ADDE"
-          }
-         ]
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 36,
+         "note": "ultimately points to the last letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fail",
+         "at": 31,
+         "note": "the word whose last letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An infallible snake bewildering someone.",
-     "walkthrough": "\"Without fail\" reads as \"always\", but \"without\" here means outside.",
-     "definitionFit": "A plain synonym: to muddle someone's brain is to confuse them."
+     "surface": "A snake ends up failing to baffle its prey.",
+     "walkthrough": "'mostly' cuts ADDER to ADDE, which goes 'without' (outside) L, the last letter of fail.",
+     "definitionFit": "To addle is to muddle or befuddle the mind, so it means to confuse."
     },
     "features": {
      "answerInScene": false,
@@ -1366,50 +1373,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ENEMA",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 35,
+       "note": "in says the reversed soldiers go inside the other letters"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "eastern",
+         "at": 38,
+         "gives": "E"
+        },
+        {
+         "words": "area",
+         "at": 46,
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "up"
+         "text": "up",
+         "at": 32,
+         "note": "up says the word reads upward in this down clue, so it is reversed"
         }
        ],
        "parts": [
         {
-         "words": "eastern",
-         "gives": "E",
-         "note": "E = eastern"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "in"
-          }
-         ],
-         "parts": [
-          {
-           "words": "soldiers",
-           "gives": "MEN",
-           "note": "men = soldiers"
-          }
-         ]
-        },
-        {
-         "words": "area",
-         "gives": "A",
-         "note": "A = area"
+         "words": "soldiers",
+         "at": 23,
+         "gives": "MEN",
+         "note": "men are soldiers, the ranks"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A military evacuation of troops from an eastern region.",
-     "walkthrough": "The evacuation is of the bowels, not of troops.",
-     "definitionFit": "An enema helps empty the bowels."
+     "surface": "Someone helps to evacuate troops stationed in an eastern zone.",
+     "walkthrough": "The military evacuation is a misdirection: the answer empties the bowels. 'up' reverses MEN to NEM, placed 'in' E and A.",
+     "definitionFit": "An enema is liquid injected into the rectum to make the bowels empty, so it aids evacuation."
     },
     "features": {
      "answerInScene": false,
@@ -1591,35 +1601,33 @@
      "parts": [
       {
        "words": "work",
+       "at": 7,
        "gives": "GO",
-       "note": "to work, of a machine, is to go"
+       "note": "to go is to work or function"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "ES",
        "indicators": [
         {
          "text": "primarily",
-         "note": "only the first letters are used"
+         "at": 34,
+         "note": "primarily points to the first letters of each of the words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "eager singletons primarily",
-         "gives": "ES",
-         "select": "first",
-         "note": "first letters of Eager Singletons"
+         "words": "eager singletons",
+         "at": 17,
+         "note": "the words whose first letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dating-app job that keeps keen single people busy.",
-     "walkthrough": "Singletons are single people; only their first letter joins with that of eager.",
-     "definitionFit": "A plain synonym: time that elapses passes, or moves on."
+     "surface": "Someone gets through a job helped by keen single people.",
+     "walkthrough": "'primarily' takes the first letters of eager singletons, E and S, after GO.",
+     "definitionFit": "Goes and passes are both verbs for moving along or proceeding, as time goes or passes."
     },
     "features": {
      "answerInScene": false,

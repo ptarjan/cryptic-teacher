@@ -42,43 +42,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MONACO",
+     "op": "container",
      "indicators": [
       {
-       "text": "cut",
-       "note": "something cut has lost a piece, here its final letter"
+       "text": "in",
+       "at": 31,
+       "note": "in says the shortened card sits inside the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "one",
+       "at": 34,
+       "gives": "MONO",
+       "note": "mono means one, as in mono sound"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the shortened card inside the word for one"
+         "text": "cut",
+         "at": 27,
+         "note": "cut says the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "one",
-         "gives": "MONO",
-         "note": "mono- is the prefix meaning one, used as a word for single"
+         "words": "card",
+         "at": 22,
+         "gives": "ACE",
+         "note": "an ace is a playing card"
         },
         {
-         "words": "card",
-         "gives": "AC",
-         "note": "the card is an ACE, with its last letter cut"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gambler in a casino town has a card game interrupted by a cut of the deck.",
-     "walkthrough": "'cut' looks like cutting the deck before a deal, but it trims a letter from the card.",
-     "definitionFit": "The Mediterranean principality is famous for Monte Carlo and its gambling houses."
+     "surface": "A gambling scene: where the casinos are, a card is cut in a single deal.",
+     "walkthrough": "'cut' trims ACE to AC, which goes 'in' MONO.",
+     "definitionFit": "Monaco, the tiny Riviera principality, is famous for Monte Carlo and its many gambling houses."
     },
     "features": {
      "answerInScene": true,
@@ -380,35 +385,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ACHE",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "cut means the word loses its end, here the final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 6
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 13,
+         "note": "cut says the word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
+         "words": "cook",
+         "at": 8,
+         "gives": "CHEF",
+         "note": "a chef is a cook"
         },
         {
-         "words": "cook",
-         "gives": "CHE",
-         "note": "a cook is a CHEF, with its last letter cut"
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chef in the kitchen nicks a finger and is hurt.",
-     "definitionFit": "To hurt as a verb can mean to be sore or painful, the same sense as the word for a dull pain."
+     "surface": "A cook has cut a finger and is in pain.",
+     "walkthrough": "'cut' docks CHEF to CHE, after A.",
+     "definitionFit": "To ache is to suffer a dull, continuous pain, so it means to hurt."
     },
     "features": {
      "answerInScene": true,
@@ -1382,47 +1391,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ERASER",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
+       "text": "misplaced",
+       "at": 17,
+       "note": "misplaced suggests put in the wrong place, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Rare",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "misplaced",
-         "note": "misplaced letters are put in the wrong positions, so they are reordered"
+         "text": "almost",
+         "at": 10,
+         "note": "almost says the word is used without its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Rare",
-         "note": "taken as written"
+         "words": "set",
+         "at": 5
         },
         {
-         "words": "set",
-         "gives": "SE",
-         "note": "set with its last letter dropped"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A collector's rare set has been lost, though a schoolboy may have it.",
-     "walkthrough": "The definition is an example: a rubber is a typical thing in a pupil's pencil case, hence the question mark.",
-     "definitionFit": "An eraser, or rubber, is a standard item of school stationery that a pupil would carry."
+     "surface": "A collector's rare set has nearly been lost, perhaps by a careless schoolboy.",
+     "walkthrough": "'almost' cuts SET to SE, and 'misplaced' rearranges RARE plus SE.",
+     "definitionFit": "A rubber, the thing that erases pencil marks, is a standard item in a pupil's pencil case."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Rare"
+     "misdirectedWord": "set"
     }
    }
   },
@@ -1448,25 +1459,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SIC",
      "indicators": [
       {
        "text": "Endless",
-       "note": "endless means the final letter is cut off"
+       "at": 0,
+       "note": "endless says the word loses its last letter"
       }
      ],
      "parts": [
       {
        "words": "suffering",
-       "gives": "SIC",
-       "note": "suffering is SICK, minus its end"
+       "at": 8,
+       "gives": "SICK",
+       "note": "to be sick is to be ill, suffering"
+      },
+      {
+       "gives": "K"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone in pain insists they're correct even though it looks otherwise.",
-     "definitionFit": "Editors insert the Latin 'sic' to show a quoted error is reproduced exactly as in the original."
+     "surface": "Someone in endless pain is told their feeling is right even though it looks mistaken.",
+     "walkthrough": "'Endless' turns SICK into the answer, a Latin word meaning thus.",
+     "definitionFit": "Sic is printed after a quoted mistake to show it is reproduced exactly as in the original, error and all."
     },
     "features": {
      "answerInScene": false,

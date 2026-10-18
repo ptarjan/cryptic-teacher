@@ -1142,35 +1142,46 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ARTICULATE",
-     "indicators": [
-      {
-       "text": "changing sides",
-       "note": "the sides are right and left, so an R in the words is swapped for an L"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Drawings",
+       "at": 0,
        "gives": "ART",
-       "note": "drawings are works of art"
+       "note": "drawings are art"
       },
       {
        "words": "I",
-       "note": "taken as written"
+       "at": 9
       },
       {
-       "words": "curate",
-       "note": "taken as written, then its R becomes L"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "after changing sides",
+         "at": 18,
+         "note": "changing sides swaps right for left, so the R (right) in curate becomes L (left)"
+        }
+       ],
+       "parts": [
+        {
+         "words": "curate",
+         "at": 11
+        },
+        {
+         "gives": "R"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gallery curator describing how they hang drawings after switching which walls they use.",
-     "walkthrough": "R (right) and L (left) are the sides: CURATE becomes CULATE, giving ART + I + CULATE.",
-     "definitionFit": "To articulate is to express an idea clearly in speech or writing."
+     "surface": "A gallery curator's drawings get expressed in speech once they swap allegiance.",
+     "walkthrough": "'after changing sides' means CURATE once its R for right is swapped for L for left, giving CULATE.",
+     "definitionFit": "To articulate is to express an idea clearly in speech, so it means to put something into words."
     },
     "features": {
      "answerInScene": false,
