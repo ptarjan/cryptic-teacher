@@ -241,38 +241,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "Letters sent about go round rather than straight on, so the three in front of the word come out in another order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 4,
+         "note": "about means moved around, so the letters of sob are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "Sob",
-         "note": "three letters reset in a new order"
-        },
-        {
-         "words": "letter",
-         "gives": "ESS",
-         "note": "ESS is the letter S written out as it is spoken"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "letter",
+       "at": 10,
+       "gives": "ESS",
+       "note": "ess is the name of the letter S"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody weeps over a letter and then cannot get it out of their head.",
-     "walkthrough": "Letters of the alphabet spelt as they are said — ess, aitch, em, wye — are standard crossword material, and that spelling is the only way 'letter' hands over three letters. 'About' does the shuffling rather than pointing round anything.",
-     "definitionFit": "prey on one's mind → OBSESS: what obsesses you is what you cannot stop thinking about, which is the nagging the definition describes."
+     "surface": "A sobbing letter writer is haunted by a nagging thought.",
+     "walkthrough": "SOB rearranged gives OBS, then ESS, the spelt-out letter S.",
+     "definitionFit": "To obsess is to occupy someone's thoughts constantly, the verb sense of troubling the mind."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "letter"
     }
    }
@@ -446,39 +448,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "awful",
-       "note": "Something awful is in a bad state, and letters in a bad state no longer stand in the order they were handed over in."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Brother",
+       "at": 0,
+       "gives": "BRO"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awful",
+         "at": 12,
+         "note": "awful means in a terrible state, so the letters of colic are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "Brother",
-         "gives": "BRO",
-         "note": "bro is the everyday short form of brother"
-        },
-        {
          "words": "colic",
-         "note": "five letters put into another order"
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A brother has a bad bout of stomach cramp after eating a vegetable.",
-     "walkthrough": "Colic is the gripping stomach pain babies get, so 'awful colic' reads as sympathy and is really the instruction. The dash does the work of a colon, turning the sentence's cause into the clue's definition.",
-     "definitionFit": "vegetable → BROCCOLI: a definition by example, the green-headed brassica being one vegetable among many."
+     "surface": "A brother suffers stomach pains from eating greens.",
+     "definitionFit": "Broccoli is a green plant with edible flower heads, eaten as a vegetable."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "awful"
+     "misdirectedWord": "colic"
     }
    }
   },
@@ -553,35 +555,49 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "almost",
-       "note": "Almost a word is not quite all of it, so the last letter is left off."
-      },
-      {
        "text": "bordering on",
-       "note": "To border on a thing is to lie right up against it, and in an across entry the piece bordering on the A is written after it."
+       "at": 16,
+       "note": "bordering on means the letters sit next to a, here after it"
       }
      ],
      "parts": [
       {
        "words": "a",
-       "note": "the article is a letter of the answer here, not joinery"
+       "at": 29,
+       "gives": "A"
       },
       {
-       "words": "Thailand",
-       "gives": "SIA",
-       "note": "Thailand was Siam until 1939, and the old name comes up one letter short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 9,
+         "note": "almost means not quite the whole word, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Thailand",
+         "at": 0,
+         "gives": "SIAM",
+         "note": "Siam is the former name of Thailand"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Thailand all but touching a continent.",
-     "walkthrough": "Siam is a crossword staple, so a modern country can ask for a name dropped in 1939. The small 'a' is material rather than an article — leave it out and the count comes up short.",
-     "definitionFit": "continent → ASIA: a definition by example, naming the largest of the continents rather than the class itself."
+     "surface": "Thailand nearly borders on a whole continent.",
+     "walkthrough": "Siam was Thailand's name until 1939.",
+     "definitionFit": "Asia is the largest of the world's landmasses, the one that contains Thailand."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "bordering"
+     "misdirectedWord": "Thailand"
     }
    }
   },

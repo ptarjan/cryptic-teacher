@@ -47,35 +47,35 @@
      "indicators": [
       {
        "text": "follows",
-       "note": "to follow is to come after, so the artist is placed after the other pieces"
-      },
-      {
-       "text": "around",
-       "note": "around a date is circa, abbreviated ca, so here the word is itself a piece"
+       "at": 15,
+       "note": "follows puts the artist's letters after the others"
       }
      ],
      "parts": [
       {
        "words": "old ladies",
+       "at": 23,
        "gives": "MAS",
-       "note": "mas = mothers, old ladies"
+       "note": "ma is an informal word for mother, an old lady; mas is the plural"
       },
       {
        "words": "around",
+       "at": 34,
        "gives": "CA",
-       "note": "ca = circa, around (a date)"
+       "note": "CA, circa, means around a date"
       },
       {
        "words": "artist",
+       "at": 8,
        "gives": "RA",
-       "note": "RA = Royal Academician, an artist"
+       "note": "RA is a Royal Academician, an artist"
       }
      ]
     },
     "explanation": {
-     "surface": "A make-up artist trailing after a group of elderly women.",
-     "walkthrough": "'Make-up artist' reads as one phrase, but the definition stops at 'Make-up'; the artist is a separate piece.",
-     "definitionFit": "Plain category: mascara is one of the cosmetics that make-up covers, the one for eyelashes."
+     "surface": "A make-up artist trails after some elderly women.",
+     "walkthrough": "'Make-up artist' looks like one phrase, but the definition stops at 'Make-up'; 'around' is CA, not a container.",
+     "definitionFit": "Mascara is cosmetic applied to the eyelashes, one of the products in a make-up bag."
     },
     "features": {
      "answerInScene": true,
@@ -1730,41 +1730,44 @@
      "indicators": [
       {
        "text": "cases",
-       "note": "to case something is to enclose it, so arsenic's letters surround the rest"
+       "at": 25,
+       "note": "cases means encloses, so the arsenic letters hold the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "arsenic",
-         "gives": "AS",
-         "note": "As is the chemical symbol for arsenic"
-        },
-        {
-         "words": "Detectives",
-         "gives": "CID",
-         "note": "CID = Criminal Investigation Department"
-        }
-       ]
+       "words": "arsenic",
+       "at": 17,
+       "gives": "AS",
+       "note": "As is the chemical symbol for arsenic"
       },
       {
-       "words": "match",
-       "gives": "TEST",
-       "note": "a Test is an international cricket match"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Detectives",
+         "at": 0,
+         "gives": "CID",
+         "note": "CID is the Criminal Investigation Department, British police detectives"
+        },
+        {
+         "words": "match",
+         "at": 11,
+         "gives": "TEST",
+         "note": "a test is an international cricket match"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Police linking arsenic poisonings in decisive court trials.",
-     "walkthrough": "'Cases' reads as police cases, but it is a verb. A Test match is a top-level international cricket game.",
-     "definitionFit": "Idiom: an acid test, from testing gold with acid, is a conclusive proof of worth."
+     "surface": "Police detectives match arsenic samples in conclusive forensic trials.",
+     "walkthrough": "'cases' looks like a noun for evidence, but it is the containment signal around CIDTEST.",
+     "definitionFit": "An acid test is a decisive proof of worth, from testing gold with nitric acid."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "cases"
     }
    }

@@ -1351,56 +1351,57 @@
      "indicators": [
       {
        "text": "in",
-       "note": "these letters are placed inside the outer word"
+       "at": 25,
+       "note": "in places the turned letters inside the day's abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Sun's precursor",
-         "gives": "SAT",
-         "note": "Saturday comes just before Sunday"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "recalled",
-           "note": "to recall is to call back, so these letters run backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "one's",
-           "gives": "IM",
-           "note": "one is = I am, contracted to I'm"
-          }
-         ]
-        }
-       ]
+       "words": "Sun's precursor",
+       "at": 28,
+       "gives": "SAT",
+       "note": "the day before Sunday is Saturday, abbreviated Sat"
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "at": 16,
+         "note": "recalled means called back, so the letters are taken in reverse order"
+        }
+       ],
        "parts": [
         {
-         "words": "US hacker",
-         "gives": "ADZ",
-         "note": "an adz is a cutting tool, the American spelling of adze"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "US hacker",
+           "at": 0,
+           "gives": "ADZ",
+           "note": "adz is the American spelling of adze, a cutting tool that hacks"
+          },
+          {
+           "words": "one's",
+           "at": 10,
+           "gives": "IM",
+           "note": "one is, said by the speaker, is I'm"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An American computer hacker is remembered in a newspaper story as a forerunner of the underground press.",
-     "walkthrough": "'Hacker' suggests computers but means a chopping tool, and 'Sun' is Sunday, not the British tabloid. SAMIZDAT was the secret self-publishing of banned texts in the Soviet bloc.",
-     "definitionFit": "Samizdat was clandestine, hand-copied literature circulated against Soviet censorship, the classic underground press."
+     "surface": "An American computer hacker is remembered in a story about a newspaper's forerunner.",
+     "walkthrough": "'US hacker' is not a computer intruder but ADZ, the American spelling of the tool; ADZ + IM read backwards gives MIZDA.",
+     "definitionFit": "Samizdat was the clandestine self-publishing of banned texts in the Soviet bloc, an underground press."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "hacker"
     }
    }
@@ -1422,45 +1423,60 @@
     "definitions": [
      {
       "text": "having two kinds of bits",
-      "at": 45,
-      "note": "the answer is a noun, the condition, while the definition is a participle phrase describing the plant that has it"
+      "at": 45
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "including the fourth",
-       "note": "to include is to take in, and the ordinal points at which letter of the base word gets wrapped by the newcomers"
-      }
-     ],
+     "op": "substitution",
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Currency",
-         "gives": "MONEY",
-         "note": "currency is money; its fourth letter is the one surrounded"
-        },
-        {
-         "words": "old",
-         "gives": "O",
-         "note": "O is the abbreviation for old"
-        }
-       ]
+       "words": "Currency",
+       "at": 0,
+       "gives": "MONEY",
+       "note": "money is currency"
       },
       {
-       "words": "cents",
-       "gives": "C",
-       "note": "C is the abbreviation for cents"
+       "gives": "E"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "including",
+         "at": 24,
+         "note": "including means the old-cents pair wraps around that fourth letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "old",
+           "at": 14,
+           "gives": "O"
+          },
+          {
+           "words": "cents",
+           "at": 18,
+           "gives": "C"
+          }
+         ]
+        },
+        {
+         "words": "the fourth",
+         "at": 34,
+         "gives": "E",
+         "note": "the fourth letter of the currency word, which stays in place"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Money with some old cents adds up to a purse with two sorts of coins in it.",
-     "walkthrough": "The old and cents letters go either side of the fourth letter of the currency word, inside it. MONOECY is having male and female flowers on one plant.",
-     "definitionFit": "A monoecious plant bears both stamens and pistils, separate male and female reproductive organs, on the same individual."
+     "surface": "A cash note about money mixed with old cents, where the fourth one has two kinds of bits.",
+     "walkthrough": "O and C go either side of E, the fourth letter of MONEY, so OEC replaces that E: MON + OEC + Y.",
+     "definitionFit": "Monoecy is the botanical state of a plant bearing separate male and female flowers on one individual, so it has both kinds of reproductive parts."
     },
     "features": {
      "answerInScene": false,

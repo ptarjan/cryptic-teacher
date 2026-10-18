@@ -121,54 +121,59 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "around",
-         "note": "the word for directed goes around the water"
+         "text": "in",
+         "at": 15,
+         "note": "in puts the right letter inside the centre word"
         }
        ],
        "parts": [
         {
          "words": "centre",
+         "at": 18,
          "gives": "CORE",
          "note": "the core is the centre"
         },
         {
          "words": "right",
-         "gives": "R",
-         "note": "R = right"
+         "at": 9,
+         "gives": "R"
         }
        ]
       },
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 34,
+         "note": "around means the directed word encloses the water word"
+        }
+       ],
        "parts": [
         {
          "words": "directed",
+         "at": 25,
          "gives": "SENT",
-         "note": "sent = directed"
+         "note": "sent means directed"
         },
         {
          "words": "body of water",
+         "at": 41,
          "gives": "POND",
-         "note": "a pond is a small body of water"
+         "note": "a pond is a body of water"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone describing a journalist steering a boat round a lake.",
-     "walkthrough": "'Directed' reads as steering, but it means sent, as a letter is sent; the reporter here is one who files stories from abroad.",
-     "definitionFit": "A correspondent is a journalist reporting on a subject or from a place."
+     "surface": "A reporter is sent around a lake, right in the middle of things.",
+     "definitionFit": "A correspondent is a journalist who sends dispatches on a particular subject or place."
     },
     "features": {
      "answerInScene": true,
@@ -320,8 +325,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "climbing",
-       "note": "in a down clue, climbing means reading upwards, so reversed"
+       "text": "above",
+       "at": 27,
+       "note": "above puts these letters over what follows in a down clue"
       }
      ],
      "parts": [
@@ -329,8 +335,9 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "above",
-         "note": "in a down clue, this part sits on top of the next"
+         "text": "climbing",
+         "at": 18,
+         "note": "climbing in a down clue means the letters are read upwards, in reverse"
         }
        ],
        "parts": [
@@ -339,13 +346,15 @@
          "parts": [
           {
            "words": "shy",
+           "at": 7,
            "gives": "LOB",
-           "note": "to shy is to throw, to lob"
+           "note": "to shy is to throw, as is to lob"
           },
           {
            "words": "setter",
+           "at": 11,
            "gives": "ME",
-           "note": "the setter refers to themself as ME"
+           "note": "the setter is me"
           }
          ]
         }
@@ -353,20 +362,20 @@
       },
       {
        "words": "lair",
+       "at": 33,
        "gives": "DEN",
        "note": "a den is an animal's lair"
       }
      ]
     },
     "explanation": {
-     "surface": "Coaxing a timid crossword setter up out of hiding.",
-     "walkthrough": "'Shy' looks like an adjective for the setter, but it is the verb meaning throw. LOB ME climbs to EMBOL, then DEN goes underneath.",
-     "definitionFit": "Gee up is an informal British idiom for encouraging someone, making them bolder."
+     "surface": "Encourage a timid setter to climb up above a lair.",
+     "walkthrough": "'shy' seems to mean timid, but it is the verb to throw, LOB; LOB + ME going up gives EMBOL.",
+     "definitionFit": "To gee up is to encourage, and to embolden is to give someone courage."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "shy"
     }
    }
@@ -526,39 +535,43 @@
      "indicators": [
       {
        "text": "within",
-       "note": "the first part goes inside the word for rush"
+       "at": 26,
+       "note": "within means the first letters go inside the rush word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Rush",
+       "at": 33,
+       "gives": "HARE",
+       "note": "to hare is to rush"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Rush",
-         "gives": "HARE",
-         "note": "to hare is to rush"
+         "words": "Representative's",
+         "at": 0,
+         "gives": "MPS",
+         "note": "MP, member of parliament, is a representative; with 's it is MPS"
         },
         {
          "words": "greeting",
+         "at": 17,
          "gives": "HI",
-         "note": "hi = a greeting"
+         "note": "hi is a greeting"
         }
        ]
-      },
-      {
-       "words": "Representative's",
-       "gives": "MPS",
-       "note": "MP = Member of Parliament, a representative; 's adds S"
       }
      ]
     },
     "explanation": {
-     "surface": "A politician waving hello while dashing round a US county.",
-     "walkthrough": "'Rush County' looks like a place name, but Rush is a verb here. Hampshire is a county on England's south coast.",
-     "definitionFit": "Hampshire is an English county on the south coast."
+     "surface": "An MP says hello while rushing around a county.",
+     "walkthrough": "Hampshire is a county on the south coast of England.",
+     "definitionFit": "Hampshire is an English shire on the south coast, home of Southampton and Winchester."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Rush"
     }
@@ -1121,36 +1134,40 @@
      "indicators": [
       {
        "text": "compressed by",
-       "note": "squeezed inside the students"
+       "at": 18,
+       "note": "compressed by means squeezed between, so the student letters hold the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "students",
+       "at": 32,
+       "gives": "NUS",
+       "note": "NUS is the National Union of Students in Britain"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "students",
-         "gives": "NUS",
-         "note": "NUS = National Union of Students, the UK student body"
+         "words": "A single",
+         "at": 0,
+         "gives": "I",
+         "note": "I, the Roman numeral, is a single one"
         },
         {
          "words": "megabyte",
+         "at": 9,
          "gives": "MB",
-         "note": "MB = megabyte"
+         "note": "MB is the abbreviation for megabyte"
         }
        ]
-      },
-      {
-       "words": "A single",
-       "gives": "I",
-       "note": "I = one, a single"
       }
      ]
     },
     "explanation": {
-     "surface": "A computing note about compressing a megabyte file into cloud storage.",
-     "walkthrough": "The surface is all computing, so 'Cloud' looks like online storage; it is a weather cloud.",
-     "definitionFit": "A definition by example: the grey, rain-bearing kind of cloud has this Latin name."
+     "surface": "A single megabyte gets compressed by students working in the cloud.",
+     "walkthrough": "'Cloud' hints at computing storage, but it is the plain weather sense.",
+     "definitionFit": "A nimbus is a rain-bearing grey cloud, the meteorological term."
     },
     "features": {
      "answerInScene": false,
@@ -1777,36 +1794,40 @@
      "indicators": [
       {
        "text": "cutting",
-       "note": "the pieces cut into the word for overly"
+       "at": 27,
+       "note": "cutting means slicing into, so these letters go inside the overly word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "overly",
-         "gives": "TOO",
-         "note": "too = overly"
-        },
-        {
-         "words": "Old woman",
-         "gives": "MA",
-         "note": "ma = mother, old woman"
-        }
-       ]
+       "words": "overly",
+       "at": 35,
+       "gives": "TOO",
+       "note": "too means overly"
       },
       {
-       "words": "cash register",
-       "gives": "TILL",
-       "note": "a till is a cash register"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Old woman",
+         "at": 0,
+         "gives": "MA",
+         "note": "ma is an informal word for mother, one's old woman"
+        },
+        {
+         "words": "cash register",
+         "at": 13,
+         "gives": "TILL",
+         "note": "a till is a cash register"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old woman at the till cutting up fruit that is too small.",
-     "walkthrough": "'Overly small' looks like one phrase; 'overly' is TOO and 'small fruit' is the definition. A tomatillo is a Mexican husk tomato.",
-     "definitionFit": "The tomatillo is a small green fruit in a papery husk, used in salsas."
+     "surface": "A mother at the till slices up a tiny piece of fruit.",
+     "walkthrough": "'overly small' looks like one phrase, but 'overly' is TOO and 'small fruit' is the definition.",
+     "definitionFit": "A tomatillo is a small green husked fruit used in Mexican salsas."
     },
     "features": {
      "answerInScene": true,

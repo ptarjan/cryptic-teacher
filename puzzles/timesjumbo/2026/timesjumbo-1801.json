@@ -1824,41 +1824,59 @@
      "indicators": [
       {
        "text": "about",
-       "note": "the article goes about, around, the rest"
+       "at": 17,
+       "note": "about means the article goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "article",
-         "gives": "AN",
-         "note": "the indefinite article"
-        },
-        {
-         "words": "Republican",
-         "gives": "R",
-         "note": "r = Republican"
-        }
-       ]
+       "words": "article",
+       "at": 9,
+       "gives": "AN",
+       "note": "an is the indefinite article"
       },
       {
-       "words": "state cut",
-       "gives": "KANSA",
-       "note": "KANSAS shortened"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Republican",
+         "at": 23,
+         "gives": "R"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "cut",
+           "at": 40,
+           "note": "cut means the state's final letter is lopped off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "state",
+           "at": 34,
+           "gives": "KANSAS",
+           "note": "Kansas is a US state"
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A news article about Republican budget cuts at state level.",
-     "walkthrough": "'American' looks like it describes the article; it is the definition, a person.",
-     "definitionFit": "Definition by kind: a native of one US state is an American."
+     "surface": "An American news article about a Republican state is cut short.",
+     "walkthrough": "'American' is the definition, not the US abbreviation; the state loses its final S before going inside the article.",
+     "definitionFit": "An Arkansan is a native or resident of Arkansas, so the word names a kind of American."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "misdirectedWord": "article"
     }
    }
   },
