@@ -1257,51 +1257,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CITYOFLIGHT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "pliable",
-       "note": "something pliable can be bent into a new shape, so what remains is rearranged"
+       "text": "taking",
+       "at": 41,
+       "note": "the rearranged letters take the journey word on after them"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CITYOFLIGHT",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Following release of",
-         "note": "once something is released it is let go, so those letters leave the word"
+         "text": "pliable",
+         "at": 25,
+         "note": "something pliable bends into new shapes, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "PR",
-         "note": "taken as written"
-        },
-        {
-         "words": "Cypriot",
-         "note": "taken as written"
-        },
-        {
-         "words": "journey",
-         "gives": "FLIGHT",
-         "note": "a flight is a journey by air"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Following release of",
+           "at": 0,
+           "note": "after the letters PR are released, they are let go from the word Cypriot"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Cypriot",
+           "at": 33
+          },
+          {
+           "words": "PR",
+           "at": 21,
+           "note": "taken as written, the letters removed"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "journey",
+       "at": 48,
+       "gives": "FLIGHT",
+       "note": "a flight is a journey by air"
       }
      ]
     },
     "explanation": {
-     "surface": "After being let go by a public relations firm, an accommodating man from Cyprus flies to France.",
-     "walkthrough": "PR looks like public relations, but it is just two letters removed from CYPRIOT.",
-     "definitionFit": "The French capital's nickname, la Ville Lumière, refers to its early street lamps and Enlightenment role."
+     "surface": "A flexible man from Cyprus, freed by his publicist, flies to France.",
+     "walkthrough": "'Following release of PR' cuts CYPRIOT to CYIOT; 'pliable' rearranges that to CITYO, and 'taking' adds FLIGHT. PR also suggests public relations, which is a red herring.",
+     "definitionFit": "Paris is nicknamed the City of Light (la Ville Lumière), for its early street lighting and its role in the Enlightenment."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "release"
     }

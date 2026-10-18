@@ -170,60 +170,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ROTULA",
-     "indicators": [
-      {
-       "text": "cracking",
-       "note": "something cracking is breaking up, so the word before it is broken and reset"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cracking",
+         "at": 9,
+         "note": "a word cracking breaks apart, so its letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Take",
-         "gives": "R",
-         "note": "R stands for recipe, Latin for 'take', on prescriptions"
-        },
-        {
-         "words": "out",
-         "note": "the letters of out, cracked open"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "bit of",
-           "note": "a bit of a word here is just its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "lamb",
-           "note": "first letter of lamb"
-          }
-         ]
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
+         "words": "Take out",
+         "at": 0,
+         "gives": "ROUT",
+         "note": "to rout is to defeat utterly, to take out an enemy"
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "bit of",
+         "at": 18,
+         "note": "only a small bit of the word lamb is used, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lamb",
+         "at": 25,
+         "note": "the first letter of lamb gives L"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 35
       }
      ]
     },
     "explanation": {
-     "surface": "A cook removes a bone that has split a piece of lamb.",
-     "walkthrough": "'Take out' reads like one verb; it splits into R (the prescription 'take') and an anagram of OUT.",
-     "definitionFit": "The rotula is the kneecap, the patella, a small bone at the front of the knee."
+     "surface": "A butcher is told to remove a cracked piece of lamb that still has a bone in it.",
+     "walkthrough": "'cracking' rearranges ROUT (take out) to ROTU, then 'bit of' lamb gives L and A follows.",
+     "definitionFit": "The rotula is an anatomical name for the kneecap, the small bone at the front of the knee."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Take"
+     "misdirectedWord": "cracking"
     }
    }
   },

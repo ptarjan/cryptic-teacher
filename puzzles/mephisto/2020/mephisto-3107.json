@@ -987,43 +987,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "STATUA",
      "indicators": [
       {
        "text": "in",
-       "note": "'in' puts the flogging word inside the country's letters"
+       "at": 22,
+       "note": "the flogging word goes inside the altered country letters"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "STATUA",
        "indicators": [
         {
          "text": "after centre's moved to the front",
-         "note": "the middle letter of the country is shifted to the start, changing its position"
+         "at": 33,
+         "note": "the middle letter of the country's abbreviation is shifted to the start, swapping places with the first"
         }
        ],
        "parts": [
         {
-         "words": "to flog",
-         "gives": "TAT",
-         "note": "tat is a dialect verb meaning to whip or flog"
+         "words": "America",
+         "at": 25,
+         "gives": "USA",
+         "note": "USA, the United States of America"
         },
         {
-         "words": "America",
-         "gives": "USA",
-         "note": "the United States of America"
+         "gives": "US"
+        },
+        {
+         "gives": "SU"
         }
        ]
+      },
+      {
+       "words": "to flog",
+       "at": 14,
+       "gives": "TAT",
+       "note": "tat is a dialect verb meaning to whip or flog"
       }
      ]
     },
     "explanation": {
-     "surface": "Selling an old statue in the States once the middle has been rearranged.",
-     "walkthrough": "The centre letter of the country's abbreviation moves to its front before the flogging word goes inside. Tat is a dialect verb, to whip; STATUA is the old word for statue.",
+     "surface": "Someone tries to sell an old statue in the States once its middle has been shifted.",
+     "walkthrough": "'after centre's moved to the front' turns USA into SUA, and 'in' puts TAT after its S.",
      "definitionFit": "Statua is an archaic form of statue, used by Shakespeare, so an old sculpture."
     },
     "features": {
@@ -1382,32 +1388,35 @@
      "indicators": [
       {
        "text": "includes",
+       "at": 16,
        "note": "includes means takes inside, so the agreement word wraps around the other part"
       }
      ],
      "parts": [
       {
        "words": "agreement",
+       "at": 6,
        "gives": "CONSENT",
        "note": "consent is agreement"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "CI",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "half of means only one of the word's two halves is used"
+         "at": 25,
+         "note": "only the first half of the word city is used, its last two letters dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Bath",
-         "gives": "CI",
-         "select": "first",
-         "note": "Bath is a city; the first half of city"
+         "at": 33,
+         "gives": "CITY",
+         "note": "Bath is an English city; the question mark marks it as an example"
+        },
+        {
+         "gives": "TY"
         }
        ]
       }
@@ -1415,8 +1424,8 @@
     },
     "explanation": {
      "surface": "A conscious agreement covering half the spa town of Bath.",
-     "walkthrough": "The question mark warns that Bath is defined by example: it is a CITY, and half of that word is used.",
-     "definitionFit": "Conscient is an old word for conscious, so it means aware."
+     "walkthrough": "Bath stands for CITY by example; 'half of' it is CI, which CONSENT 'includes' after CONS.",
+     "definitionFit": "Conscient is an old word for conscious, so it means having knowledge or awareness."
     },
     "features": {
      "answerInScene": false,

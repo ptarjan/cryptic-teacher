@@ -1759,7 +1759,7 @@
       {
        "text": "covered at start of",
        "at": 30,
-       "note": "a letter at the start of the paper word is covered, hidden away, so it disappears"
+       "note": "the letter at the start of the paper word is covered over, so it vanishes from view"
       }
      ],
      "parts": [
@@ -1767,19 +1767,34 @@
        "words": "paper",
        "at": 50,
        "gives": "TISSUE",
-       "note": "tissue is a kind of thin paper"
+       "note": "tissue is a kind of thin, soft paper"
       },
       {
-       "words": "half of it's",
-       "at": 17,
-       "gives": "T",
-       "note": "T is one half of the word it; 's means is, a link"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 17,
+         "note": "only half of the word it is kept, its second letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it's",
+         "at": 25,
+         "gives": "IT",
+         "note": "it's read as 'it is': the word it, with the 's as a link"
+        },
+        {
+         "gives": "I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "An argument about something half concealed on a newspaper's front.",
-     "walkthrough": "Half of IT is T; 'covered at start of' hides that T at the start of TISSUE, leaving the disputed point.",
+     "walkthrough": "'half of' IT leaves T; 'covered at start of' hides that T at the front of TISSUE.",
      "definitionFit": "An issue is a matter in dispute, a point at stake in an argument."
     },
     "features": {
