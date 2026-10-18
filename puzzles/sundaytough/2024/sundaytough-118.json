@@ -50,44 +50,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CHEESEPLANT",
+     "spelt": "CHEESEPLANT",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of neighbouring words, so his version of a phrase trades its initial sounds"
+       "at": 0,
+       "note": "Spooner swapped the opening sounds of words, so the first sounds of the two words here change places"
       }
      ],
      "parts": [
       {
-       "words": "polite request",
-       "gives": "PLEASE",
-       "note": "the word that makes a request polite"
+       "op": "homophone",
+       "spelt": "PLEASE",
+       "parts": [
+        {
+         "words": "polite request",
+         "at": 10,
+         "gives": "PLEEZ",
+         "note": "please is the word of a polite request, said aloud as PLEEZ"
+        }
+       ]
       },
       {
        "words": "to sing",
+       "at": 25,
        "gives": "CHANT",
-       "note": "to chant is to sing in unison"
-      },
-      {
-       "unchecked": true,
-       "words": "polite request to sing",
-       "gives": "CHEESEPLANT",
-       "soundsLike": "PLEASE CHANT",
-       "note": "swapping the opening PL and CH sounds of the two words"
+       "note": "to chant is to sing in a steady rhythm"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone politely asks an islander from the rainforest to give them a song.",
-     "walkthrough": "'Native' suggests a person, but it is a plant: the Swiss cheese plant or Monstera, a familiar houseplant that grows wild in rainforest.",
-     "definitionFit": "The Swiss cheese plant, Monstera, grows wild in the rainforests of Central America before becoming a popular houseplant."
+     "surface": "A polite request for someone to sing, credited to the famously muddled Reverend Spooner.",
+     "walkthrough": "'Spooner's' swaps the PL and CH sounds of PLEASE CHANT; the result is spelt by sound, CHEESE PLANT. William Spooner was an Oxford don famed for such slips.",
+     "definitionFit": "The Swiss cheese plant, Monstera, is a climbing houseplant that grows wild in tropical rainforests of Central America."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "native"
+     "misdirectedWord": "sing"
     }
    }
   },
@@ -222,26 +223,50 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SATCHEL",
      "indicators": [
       {
-       "text": "Switching sides",
-       "note": "the sides of a word are its two end letters, and switching them puts each where the other was"
+       "text": "Switching",
+       "at": 0,
+       "note": "switching means exchanging one thing for another, here the letter at one edge for the letter at the other"
       }
      ],
      "parts": [
       {
-       "words": "fastens",
-       "gives": "LATCHES",
-       "note": "to latch is to fasten a door or gate"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "sides",
+         "at": 10,
+         "note": "the sides of a word are its two outermost letters, the ones that trade places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fastens",
+         "at": 17,
+         "gives": "LATCHES",
+         "note": "latches are fastenings, so to latch is to fasten"
+        },
+        {
+         "gives": "L"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "gives": "ES"
+      },
+      {
+       "gives": "EL"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone changes a bag strap over to the other shoulder and does up the clasp.",
-     "walkthrough": "Swap the first and last letters of LATCHES, L and S, and SATCHEL appears.",
-     "definitionFit": "A satchel is a shoulder bag with a flap, traditionally carried by schoolchildren for their books."
+     "surface": "Someone changes sides and buckles a bag shut.",
+     "walkthrough": "'Switching sides' swaps the end letters of LATCHES: the L becomes S (SATCHES) and the final S becomes L.",
+     "definitionFit": "A satchel is a shoulder bag, traditionally the leather case schoolchildren carry their books in."
     },
     "features": {
      "answerInScene": true,
@@ -339,44 +364,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ABSTAINER",
+     "op": "composite",
      "indicators": [
       {
        "text": "tricky",
-       "note": "something tricky is twisted or devious, so the letters get twisted into a new order"
+       "at": 14,
+       "note": "a tricky thing is hard to pin down, so these letters are reshuffled"
+      },
+      {
+       "text": "to ignore",
+       "at": 46,
+       "note": "says the hesitation letters are left out of the shuffle"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ABSTAINER",
-       "indicators": [
-        {
-         "text": "to ignore",
-         "note": "what is ignored is left out, so those letters are dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "brainteaser",
-         "note": "taken as written"
-        },
-        {
-         "words": "I'm hesitant",
-         "gives": "ER",
-         "note": "the sound a hesitant speaker makes"
-        }
-       ]
+       "words": "brainteaser",
+       "at": 21,
+       "note": "the letters BRAINTEASER taken as written"
+      },
+      {
+       "words": "I'm hesitant",
+       "at": 33,
+       "gives": "ER",
+       "note": "er is the sound a hesitant speaker makes"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzler hesitates over a hard brainteaser and turns it down.",
-     "walkthrough": "Remove ER, the hesitant noise, from BRAINTEASER, then rearrange the remaining nine letters.",
-     "definitionFit": "An abstainer refuses something offered, typically alcohol or a vote, so is someone who says no."
+     "surface": "Someone turns down a hard puzzle, unwilling even to try it.",
+     "walkthrough": "BRAINTEASER loses the E and R of 'er' ('to ignore'), and 'tricky' rearranges the remaining nine letters.",
+     "definitionFit": "An abstainer is someone who refuses, typically one who declines alcohol or declines to vote."
     },
     "features": {
      "answerInScene": true,
@@ -593,31 +611,32 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LUSTRES",
      "indicators": [
       {
-       "text": "brought forward",
-       "note": "bringing something forward moves it earlier in the line, so one letter jumps ahead of its neighbour"
+       "text": "when king's brought forward",
+       "at": 15,
+       "note": "R for rex, Latin for king, moves one place nearer the front of the word"
       }
      ],
      "parts": [
       {
        "words": "Those desirous",
+       "at": 0,
        "gives": "LUSTERS",
-       "note": "people who lust are those desirous"
+       "note": "lusters are people who lust, who desire something"
       },
       {
-       "words": "king",
-       "gives": "R",
-       "note": "R for rex, Latin for king"
+       "gives": "ERS"
+      },
+      {
+       "gives": "RES"
       }
      ]
     },
     "explanation": {
-     "surface": "Courtiers hungry for favour, as the king is ushered forward in all his splendour.",
-     "walkthrough": "In LUSTERS the R moves one place earlier, in front of the E, to give LUSTRES.",
-     "definitionFit": "Lustre means brilliance or glory, so lustres in the plural are splendours, radiant qualities."
+     "surface": "People full of longing bring a king forward amid splendid surroundings.",
+     "walkthrough": "In LUSTERS, R is the king (rex); bringing it forward past the E gives LUSTRES.",
+     "definitionFit": "Lustres are glories or brilliances, the sheen and radiance that make something magnificent."
     },
     "features": {
      "answerInScene": true,
@@ -881,53 +900,53 @@
    "annotation": {
     "definitions": [
      {
-      "text": "second-hand",
-      "at": 38
+      "text": "that's second-hand",
+      "at": 31
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "VICARIOUS",
      "indicators": [
       {
        "text": "to collect",
-       "note": "collecting something means gathering it in, so one piece goes inside"
+       "at": 5,
+       "note": "the mean word gathers the inner letters inside itself"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "VICARIOUS",
+       "words": "Mean",
+       "at": 0,
+       "gives": "VICIOUS",
+       "note": "vicious means mean or nasty"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "unwrapped",
-         "note": "unwrapping strips off the outer layer, so the outside letters go"
+         "at": 16,
+         "note": "with its wrapping removed, so the outside letters of the word part are stripped off"
         }
        ],
        "parts": [
         {
-         "words": "Mean",
-         "gives": "VICIOUS",
-         "note": "mean in the sense of nasty"
-        },
-        {
          "words": "part",
-         "note": "taken as written"
+         "at": 26,
+         "note": "the word part, whose inner letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A miser picking up a used bit for free.",
-     "walkthrough": "'Mean' looks like stingy or intend, but here it is VICIOUS, which takes in (P)AR(T).",
-     "definitionFit": "Vicarious experience is felt through another person rather than directly, so it comes second-hand."
+     "surface": "A miser collects a loose component that has already been used.",
+     "walkthrough": "'Mean' looks like the verb or a stingy person, but it is the adjective vicious; 'to collect' has that word take in the unwrapped part.",
+     "definitionFit": "Vicarious describes experience felt indirectly through another person, so it is second-hand."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Mean"
     }
    }
@@ -1118,47 +1137,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SOULFUL",
+     "op": "composite",
      "indicators": [
       {
        "text": "performing",
-       "note": "performing is acting out, so the letters put on a new show in a different order"
+       "at": 15,
+       "note": "letters that perform put on a show, moving into a new order"
+      },
+      {
+       "text": "withdrawing",
+       "at": 38,
+       "note": "says these letters are pulled out of the pool before it is reshuffled"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SOULFUL",
-       "indicators": [
-        {
-         "text": "withdrawing",
-         "note": "withdrawing means pulling out, so these letters are taken away"
-        }
-       ],
+       "words": "fabulously",
+       "at": 26,
+       "note": "the letters FABULOUSLY taken as written"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "fabulously",
-         "note": "taken as written"
-        },
-        {
          "words": "by",
-         "note": "taken as written"
+         "at": 50,
+         "note": "the letters BY taken as written"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "back of",
-           "note": "the back of a word is its final letter"
+           "at": 53,
+           "note": "takes the final letter of the theatre's name"
           }
          ],
          "parts": [
           {
            "words": "Astoria",
-           "note": "last letter of Astoria"
+           "at": 61,
+           "note": "the word Astoria, whose final letter is used"
           }
          ]
         }
@@ -1167,14 +1186,14 @@
      ]
     },
     "explanation": {
-     "surface": "A singer gives a moving, fabulous show before leaving the Astoria, a London music venue.",
-     "walkthrough": "From FABULOUSLY take B, Y and A, then rearrange FULOUSL.",
-     "definitionFit": "Soulful describes music or expression full of deep feeling, so it is a synonym for deeply emotive."
+     "surface": "A deeply moving performance played wonderfully, near the back of the Astoria theatre.",
+     "walkthrough": "FABULOUSLY, minus B, Y and A ('withdrawing'), leaves FULOUSL, which 'performing' rearranges. The Astoria was a London music venue.",
+     "definitionFit": "Soulful means full of deep feeling, expressing intense emotion."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "withdrawing"
+     "misdirectedWord": "performing"
     }
    }
   },
