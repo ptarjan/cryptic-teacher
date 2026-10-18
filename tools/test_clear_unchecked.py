@@ -58,8 +58,25 @@ fourth = {"op": "container", "indicators": [{"text": "Leader of", "note": "the l
                      "parts": [{"unchecked": True, "words": "Leader of union", "gives": "U", "select": "first",
                                 "note": "first letter of UNION"}]}]}
 ann = {"wordplay": fourth, "definitions": [{"text": "pro-government", "at": 0}]}
-check("it evaluates without the flag", "cleared", C.bucket(fourth, "FOURTHESTATE")[0])
+check("it evaluates without the flag", "surplus leaf words", C.bucket(fourth, "FOURTHESTATE")[1])
 check("but its shape warnings keep it flagged", "failing",
       C.bucket(fourth, "FOURTHESTATE", ann, "Pro-government framed by leader of union")[0])
-check("and say which", True, C.bucket(fourth, "FOURTHESTATE", ann, "x")[1].startswith("shape: "))
+check("and say which", True, C.bucket(fourth, "FOURTHESTATE", ann, "x")[1].startswith(("shape: ", "surplus ")))
+# A selection over a leaf holding words the pick does not need ('spilling guts' beside GASTRONOME) is not cleared.
+surplus = {"op": "outer", "indicators": [{"text": "after", "note": "n"}], "unchecked": True,
+           "parts": [{"words": "gastronome spilling guts", "gives": "GE", "unchecked": True, "select": "outer"}]}
+check("surplus leaf words keep a selection flagged", "surplus leaf words", C.bucket(surplus, "GE")[1])
+# A leaf giving a selection's result reads its words, a note's synonym stands for the longer word,
+# a one-leaf spoonerism is two leaves, and first + last over one word is outer.
+tidy = {"op": "middle", "unchecked": True, "gives": "OFFER", "indicators": [{"text": "Unlimited", "note": "n"}],
+        "parts": [{"unchecked": True, "words": "funds", "gives": "OFFER", "select": "middle", "note": "the inside of coffers"}]}
+check("a synonym named in the note is checked (COFFERS)", "cleared", C.bucket(tidy, "OFFER")[0])
+check("and the leaf now gives the longer word", "COFFERS", C.cleaned(tidy, "OFFER")["parts"][0]["gives"])
+check("and carries no select key", False, "select" in C.cleaned(tidy, "OFFER")["parts"][0])
+spoon = {"op": "spoonerism", "unchecked": True, "gives": "RATTLEBAG", "indicators": [{"text": "Spooner", "note": "n"}],
+         "parts": [{"unchecked": True, "words": "the military newspaper", "gives": "RATTLEBAG", "soundsLike": "BATTLE RAG"}]}
+check("a one-leaf spoonerism is two checked leaves", "cleared", C.bucket(spoon, "RATTLEBAG")[0])
+check("whose letters are the sound words", ["BATTLE", "RAG"], [p["gives"] for p in C.cleaned(spoon, "RATTLEBAG")["parts"]])
+badspoon = {**spoon, "parts": [{**spoon["parts"][0], "soundsLike": "BATTLE RAG"}]}
+check("a spoonerism whose letters do not swap stays failing", "failing", C.bucket(badspoon, "RATTLEBUG")[0])
 raise SystemExit(fails)
