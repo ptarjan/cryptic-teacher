@@ -228,47 +228,43 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "IRREGULAR",
      "indicators": [
       {
        "text": "shot",
-       "note": "something shot is wrecked, so the letters are broken up and rearranged"
+       "at": 42,
+       "note": "something shot is ruined or broken up, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "IRREGULAR",
        "indicators": [
         {
-         "text": "Changing",
-         "note": "changing sides means swapping left for right, so one letter standing for a side is exchanged"
-        },
-        {
-         "text": "on one occasion",
-         "note": "only once: just a single instance is swapped, not every one"
+         "text": "Changing sides on one occasion",
+         "at": 0,
+         "note": "left and right are the two sides; swapping one for the other once means a single left letter becomes a right letter"
         }
        ],
        "parts": [
         {
          "words": "guerrilla",
-         "note": "taken as written; it has two Ls, one of which is swapped"
+         "at": 32,
+         "note": "taken as written"
         },
         {
-         "words": "sides",
-         "gives": "R",
-         "note": "of the two sides, left L and right R, the right one is brought in"
+         "gives": "L"
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A guerrilla fighter switches allegiance once and shoots a soldier.",
-     "walkthrough": "Swap one L (left) for R (right) in GUERRILLA, then rearrange to IRREGULAR.",
-     "definitionFit": "An irregular is a fighter outside a regular army, such as a militia member or partisan."
+     "surface": "A rebel fighter switches allegiance once and is shot.",
+     "walkthrough": "'Changing sides on one occasion' turns one L (left) of GUERRILLA into R (right), giving GUERRIRLA; 'shot' then rearranges those letters.",
+     "definitionFit": "An irregular is a soldier who is not part of a regular army, such as a guerrilla or militia fighter."
     },
     "features": {
      "answerInScene": true,
@@ -700,27 +696,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OATH",
+     "op": "middle",
      "indicators": [
       {
        "text": "being out of bounds",
-       "note": "with its bounds out, the word loses the letters at both of its edges"
+       "at": 5,
+       "note": "the bounds of a word are its first and last letters, and these are taken off"
       }
      ],
      "parts": [
       {
        "words": "Hate",
+       "at": 0,
        "gives": "LOATHE",
        "note": "to loathe is to hate"
       }
      ]
     },
     "explanation": {
-     "surface": "Hatred is forbidden, a moral principle you ought not to break.",
-     "walkthrough": "LOATHE loses its first and last letters to give OATH; 'lie on it' puns on lying while under oath.",
-     "definitionFit": "Testimony given under a sworn promise must be truthful, so lying there is perjury."
+     "surface": "Someone resents being kept out of a restricted area, with a moral aside about honesty.",
+     "walkthrough": "LOATHE (hate) loses its bounds, the outer L and E, under 'being out of bounds'. The definition plays on lying: you should not tell lies when under oath.",
+     "definitionFit": "An oath is a solemn promise to tell the truth, so lying while bound by one is perjury, a play on lying on a bed."
     },
     "features": {
      "answerInScene": false,
@@ -758,28 +754,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TYPINGPOOL",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner swapped the opening sounds of words, so the initial consonants of two words trade places"
+       "at": 23,
+       "note": "Spooner's version swaps the opening sounds of the two words, after the Reverend Spooner"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Cake-decorating gadget",
-       "gives": "TYPINGPOOL",
-       "soundsLike": "PIPING TOOL",
-       "note": "a nozzle tool that pipes icing onto cakes; swapping the P and T sounds gives the answer"
+       "op": "homophone",
+       "spelt": "PYPING",
+       "parts": [
+        {
+         "words": "Cake-decorating",
+         "at": 0,
+         "gives": "PIPING",
+         "note": "piping is squeezing icing through a nozzle to decorate cakes"
+        }
+       ]
+      },
+      {
+       "words": "gadget",
+       "at": 16,
+       "gives": "TOOL",
+       "note": "a tool is a gadget or implement"
       }
      ]
     },
     "explanation": {
-     "surface": "A baker's icing gadget is handed over to essential staff.",
-     "walkthrough": "'Key workers' sounds like essential staff, but here they are people who press keys all day.",
-     "definitionFit": "A typing pool was an office team of typists, workers whose job was striking keyboard keys."
+     "surface": "A gadget for icing cakes has been handed to essential workers by Spooner.",
+     "walkthrough": "A cake-decorating gadget is a PIPING TOOL; Spooner swaps the opening P and T sounds. 'key workers' sounds like essential staff but means people at keyboards.",
+     "definitionFit": "A typing pool was an office department of typists, workers whose job was pressing keys on typewriters."
     },
     "features": {
      "answerInScene": false,
@@ -811,36 +817,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TAFT",
      "indicators": [
       {
-       "text": "cultivating a smaller",
-       "note": "growing a different, smaller one means the existing word for the backside is swapped for a shorter word"
+       "text": "cultivating",
+       "at": 20,
+       "note": "cultivating a thing means taking it up, here letting a different word for the backside take the place of the one in the name"
       }
      ],
      "parts": [
       {
        "words": "Trump",
-       "note": "taken as written; it ends in RUMP, a word for the behind"
+       "at": 14,
+       "note": "taken as written"
       },
       {
-       "words": "behind",
+       "gives": "RUMP"
+      },
+      {
+       "words": "a smaller behind",
+       "at": 32,
        "gives": "AFT",
-       "note": "aft means behind or at the back, and is shorter than RUMP"
+       "note": "aft means behind, at the back, and is a shorter word for it than rump"
       }
      ]
     },
     "explanation": {
-     "surface": "A jibe that Donald Trump is trying to slim down his backside.",
-     "walkthrough": "TRUMP is T + RUMP; replace that rump with the smaller word AFT.",
-     "definitionFit": "William Howard Taft was the 27th President of the United States, serving from 1909 to 1913."
+     "surface": "Donald Trump working on a slimmer backside.",
+     "walkthrough": "The surface jokes about Trump trimming his backside: the name already holds a word for a behind after its first letter, and 'cultivating' a smaller one means replacing it with a shorter synonym.",
+     "definitionFit": "William Howard Taft was the 27th President of the United States, in office from 1909 to 1913, so he is a former head of state."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "cultivating"
+     "misdirectedWord": "behind"
     }
    }
   },

@@ -409,51 +409,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AUTOMATA",
-     "indicators": [
-      {
-       "text": "half-",
-       "note": "only half of the word is wanted, so the rest is cut away"
-      },
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Car",
+       "at": 0,
+       "gives": "AUTO",
+       "note": "auto is short for automobile, a car"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 4,
+         "note": "only half of the word is kept, its second two letters dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Car",
-         "gives": "AUTO",
-         "note": "auto is short for automobile"
+         "words": "made",
+         "at": 9,
+         "note": "taken as written"
         },
         {
-         "words": "made",
-         "gives": "MA",
-         "note": "the first half of the word"
-        },
+         "gives": "DE"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 17,
+         "note": "most of the word is used, its last letter dropped"
+        }
+       ],
+       "parts": [
         {
          "words": "rubbish",
-         "gives": "TA",
-         "note": "tat is rubbish, without its last letter"
+         "at": 24,
+         "gives": "TAT",
+         "note": "tat is cheap, shoddy goods, rubbish"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A car only half built by robots that are mostly junk.",
-     "walkthrough": "TAT is British slang for cheap, shoddy goods. The surface pictures a factory line, but every word is a piece of the answer.",
-     "definitionFit": "Automata is the plural of automaton, a self-operating machine, which is what a robot is."
+     "surface": "A car built partly from junk, made by robots on a production line.",
+     "walkthrough": "AUTO (car), then MA ('half' of made) and TA (TAT, rubbish, 'mostly'). 'by' is a link word.",
+     "definitionFit": "Automata are machines that operate by themselves, such as mechanical figures or robots."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Car"
+     "misdirectedWord": "half-made"
     }
    }
   },
@@ -1469,29 +1484,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "AIL",
      "indicators": [
       {
        "text": "Unopened",
-       "note": "something unopened has not had its front broken into, so the first letter goes"
+       "at": 0,
+       "note": "a letter left unopened loses its front, so the first letter goes"
       }
      ],
      "parts": [
       {
        "words": "post",
-       "gives": "AIL",
-       "note": "mail, which is post, minus its first letter"
+       "at": 9,
+       "gives": "MAIL",
+       "note": "mail is post, letters delivered"
+      },
+      {
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "Leaving your letters unopened only causes problems.",
-     "walkthrough": "MAIL is the British word for post; dropping its opening letter leaves the answer.",
-     "definitionFit": "To ail is to afflict or bother, as in 'what ails you?', so to trouble someone."
+     "surface": "Letters left unopened lead to problems.",
+     "walkthrough": "MAIL (post) 'Unopened' drops its first letter M. 'creates' is a link word.",
+     "definitionFit": "To ail is to trouble or afflict someone, as in asking what ails you."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Unopened"
     }

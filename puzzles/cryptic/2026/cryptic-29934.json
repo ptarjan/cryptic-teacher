@@ -95,68 +95,66 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STEALTH",
+     "op": "charade",
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "STEALTH",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "First to",
+         "at": 0,
+         "note": "the opening letter of the following word is wanted"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
+         "words": "snatch",
+         "at": 9,
+         "note": "its first letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "amid",
+         "at": 20,
+         "note": "the key's letters sit in the middle of the mixed-up word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "amid",
-           "note": "amid means in the middle of, so the key goes into the middle of the other letters"
-          },
-          {
            "text": "rioting",
-           "note": "a rioting crowd is disorderly, so the letters of THE break out of order"
+           "at": 29,
+           "note": "a riot is wild disorder, so the letters of the little word are jumbled"
           }
          ],
          "parts": [
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "First to",
-             "note": "the first letter of the next word, 'snatch', is all that is taken"
-            }
-           ],
-           "parts": [
-            {
-             "words": "snatch",
-             "note": "its first letter"
-            }
-           ]
-          },
-          {
            "words": "the",
-           "gives": "TE",
-           "note": "THE mixed to TEH, split around the key"
-          },
-          {
-           "words": "key",
-           "gives": "ALT",
-           "note": "the Alt key on a computer keyboard"
-          },
-          {
-           "words": "the",
-           "gives": "H",
-           "note": "the last letter of the mixed TEH"
+           "at": 25,
+           "note": "taken as written"
           }
          ]
+        },
+        {
+         "words": "key",
+         "at": 16,
+         "gives": "ALT",
+         "note": "Alt is a key on a computer keyboard"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A looter grabbing something first in the chaos of a riot.",
-     "walkthrough": "'Key' is a computer key here, ALT, not a musical key or a door key.",
-     "definitionFit": "A plain synonym: stealth is the quality of acting secretly, which is sneakiness."
+     "surface": "A thief's first move is to grab a key while a riot is going on, showing stealth.",
+     "walkthrough": "'First to' gives S; 'rioting' turns the clue's own 'the' into TEH, and the key, Alt on a computer keyboard, goes 'amid' it after the E. 'shows' is a link word.",
+     "definitionFit": "Stealth is the quality of moving or acting secretly so as not to be noticed, which is sneakiness."
     },
     "features": {
      "answerInScene": true,
@@ -1731,56 +1729,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CYNIC",
+     "indicators": [
+      {
+       "text": "blocking",
+       "at": 39,
+       "note": "the reversed letters sit inside, block, the council's abbreviation"
+      }
+     ],
      "parts": [
       {
+       "words": "County Council",
+       "at": 48,
+       "gives": "CC",
+       "note": "CC is the abbreviation for County Council"
+      },
+      {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "CYNIC",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 28,
+         "note": "in a down clue, turning something up reads it from bottom to top, so it is reversed"
+        }
+       ],
        "parts": [
         {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally points to the end, so only the last letter of Surrey is used"
-          },
-          {
-           "text": "blocking",
-           "note": "a block stands in the middle of a path, so the letters sit between the two Cs"
-          }
-         ],
          "parts": [
           {
-           "words": "County Council",
-           "gives": "C",
-           "note": "CC = County Council"
+           "words": "in",
+           "at": 10,
+           "note": "taken as written"
           },
           {
            "op": "last",
            "indicators": [
             {
-             "text": "turned up",
-             "note": "turning something up flips it upward, and in a down entry that reads IN backwards"
+             "text": "finally",
+             "at": 20,
+             "note": "only the closing letter of the county is taken"
             }
            ],
            "parts": [
             {
              "words": "Surrey",
-             "note": "its last letter"
+             "at": 13,
+             "note": "its last letter is used"
             }
            ]
-          },
-          {
-           "words": "in",
-           "gives": "NI",
-           "note": "IN reversed"
-          },
-          {
-           "words": "County Council",
-           "gives": "C",
-           "note": "second C of CC"
           }
          ]
         }
@@ -1789,14 +1785,14 @@
      ]
     },
     "explanation": {
-     "surface": "A doom-monger turning up at a Surrey council meeting.",
-     "walkthrough": "The first 'in' is the link; the second is the word turned over. Surrey is a county south of London.",
-     "definitionFit": "A near synonym: a cynic expects the worst of people's motives, much as a pessimist expects the worst."
+     "surface": "A gloomy sort turns up in Surrey and gets in the way of the County Council.",
+     "walkthrough": "'finally' takes Y from Surrey; IN plus Y is 'turned up' to give YNI, which goes 'blocking' (inside) CC, the abbreviation for County Council. Surrey is a county south of London.",
+     "definitionFit": "A cynic doubts people's motives and expects the worst, which makes them a pessimist."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "blocking"
+     "misdirectedWord": "Surrey"
     }
    }
   },
