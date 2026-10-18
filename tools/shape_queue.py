@@ -177,7 +177,7 @@ def _validator_rules():
             "leafFold": lambda t, a, c: V.leaf_folds(t),
             "anaCharade": lambda t, a, c: V.anagram_charades(t),
             "nestedContainer": lambda t, a, c: V.nested_containers(t),
-            "anaSynonym": lambda t, a, c: V.anagram_synonyms(t),
+            "anaSynonym": lambda t, a, c: V.anagram_synonyms(t, a, c),
             "misplacedIndicator": lambda t, a, c: V.misplaced_indicators(t),
             "bareInitial": lambda t, a, c: V.bare_initials(t),
             "deletionScope": lambda t, a, c: V.deletion_scope(t),
