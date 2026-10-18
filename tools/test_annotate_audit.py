@@ -159,6 +159,18 @@ check(a.bag_ids(older), ["a-1", "b-2"], "the older bag wording reads the same")
 bagfile = ('{"azed-1": {\n"1-across": {"def": "x", "notes": {"1-across": "n"}},\n"2-down": {"def": "y"}},\n'
            '"times-2": {\n"1-across": {"def": "z"}}}')
 check(a.clues_written({"tools/_ann_bag_azed-1.json": bagfile}), 3, "clues written count entries across a bag file")
+out = ("azed-1: clean, index refreshed — done\n--- times-2\nERROR: 3D: x\nannotate_check times-2: 1 ERROR\n\n"
+       "--- ft-3\nannotate_check ft-3: STOPPED — the annotations were not applied\n\n1 to fix")
+check(sorted(pid for pid, _ in a.bag_reports(out)), ["azed-1", "ft-3", "times-2"],
+      "a bag check output is split into one report per puzzle")
+check(dict(a.bag_reports(out))["azed-1"], "", "a clean puzzle has an empty report")
+check(a.single_check_id("python3 tools/annotate_check.py --by x azed-1"), "azed-1", "the puzzle a check command names")
+check(a.stopped_names("apply_annotations: x.json: refused to write — fix these in the _ann file:\n"
+                      "  27-across: is on the shape re-annotation list (del_single: x) and this tree is still "
+                      "flagged: dropped_words: for were in the old wordplay\n"
+                      "  3-down: wordplay 'a(b': expected ')' at column 5 (…'b')\n\nannotate_check x: STOPPED"),
+      {"apply refused: redo gate: dropped_words", "apply refused: schema wordplay '…': expected '…' at column N (…'…')"},
+      "the new-wording refusal (an em dash) is read, and redo-gate refusals are classed by their finding")
 solo = lambda cost, turns, clues, puzzles=1: {"cost": cost, "turns": turns, "clues": clues, "puzzles": puzzles}
 rows = [solo(1.0, 10, 20), solo(2.0, 30, 10, puzzles=10)]
 check(round(a.pooled(rows, "cost", "puzzles"), 4), round(3.0 / 11, 4), "cost per puzzle is pooled over puzzles")

@@ -176,19 +176,37 @@ def rule_name(line, templates, retired=()):
 
 def stopped_names(text):
     """Why annotate_check refused to apply: each schema complaint, entry index dropped."""
-    found = {re.sub(r"\$\.entries\[\d+\]\.?", "", m).strip()
+    found = {"schema " + re.sub(r"\$\.entries\[\d+\]\.?", "", m).strip()
              for m in re.findall(r"SCHEMA (\$[^;\n]*)", text)}
-    # apply_annotations' refusal: one "  <entry id>[ field]: finding" per line.
-    listed = text.partition("refused to write, fix these in the _ann file:\n")[2]
-    for line in listed.split("\n\n")[0].splitlines():
-        m = re.match(r"\s+\d+-(?:across|down)\s*(.*?)(?: — .*)?$", line)
+    # apply_annotations' refusal: one "  <entry id>: finding" per line, after a header
+    # that reads "refused to write, fix these in" or "refused to write — fix these in".
+    listed = re.split(r"refused to write[^\n]*:\n", text, maxsplit=1)[1:]
+    for line in (listed[0].split("\n\n")[0].splitlines() if listed else []):
+        m = re.match(r"\s+\d+-(?:across|down)\s*(.*)$", line)
         if m:
-            found.add(re.sub(r"\[\d+\]", "[]", m.group(1)).lstrip(":").strip())
+            found.add(refusal_class(m.group(1)))
     if found:
-        return {f"apply refused: schema {f}" for f in found}
+        return {f"apply refused: {f}" for f in found}
     m = re.search(r"STOPPED — (.{0,200})", text)
     # The path ends the sentence the same way every time: one class, not one per series.
     return {"STOPPED: " + re.sub(r"puzzles/\S+", "<puzzle>", m.group(1))[:60] if m else "STOPPED: ?"}
+
+
+def refusal_class(rest):
+    """Name one apply_annotations refusal line (entry id already cut), with the clue's own
+    words, numbers and offsets taken out so every instance of a class is one name."""
+    rest = rest.lstrip(": ").strip()
+    if "re-annotation list" in rest:
+        why = re.search(r"still flagged: (\w+)", rest)
+        return "redo gate: " + (why.group(1) if why else re.sub(r"\(.*?\)", "", rest)[:40].strip())
+    if rest.startswith("this redo gives up"):
+        return "redo gate: gives up what the hint had"
+    rest = re.sub(r"\$\.entries\[\d+\]\.?", "", rest.partition(" — ")[0])
+    rest = re.sub(r"\[\d+\]", "[]", rest)
+    if "missing required key" not in rest:    # the key named is the class; other quotes are the clue's
+        rest = re.sub(r"'[^']*'|\"[^\"]*\"", "'…'", rest)
+    rest = re.sub(r"(?<![\w'])\d+", "N", rest)
+    return "schema " + " ".join(rest.split()[:9])
 
 
 def failed_command(command):
@@ -303,7 +321,7 @@ def read_session(path, templates, retired=()):
                         continue
                     text = _text(b.get("content"))
                     if b.get("tool_use_id") in check_ids:
-                        check_outs.append(text)
+                        check_outs.append((calls[b["tool_use_id"]][1], text))
                     if b.get("is_error"):
                         tool, cmd = calls.get(b.get("tool_use_id"), ("?", ""))
                         kind = tool_error_kind(tool, cmd, text)
@@ -329,7 +347,7 @@ def read_session(path, templates, retired=()):
                     if "validate_annotations.py" in cmd and "--explain" not in cmd and (
                             b.get("name") == "Read" or re.search(r"\b(grep|sed|cat|head|tail|awk)\b", cmd)):
                         s["validator_reads"] += 1
-                    if b.get("name") == "Bash" and "annotate_check" in cmd:
+                    if b.get("name") == "Bash" and ("annotate_check" in cmd or "annotate_bag.py check" in cmd):
                         check_ids.add(b.get("id"))
     if not first_user or not turns or not t0:
         return None
@@ -350,16 +368,51 @@ def read_session(path, templates, retired=()):
                      for u, _ in turns.values()),
         checks=len(check_outs), first_fail=None, first_rules=collections.Counter(),
         all_rule_lines=collections.Counter())
-    for i, out in enumerate(check_outs):
-        errs = [ln for ln in out.splitlines() if ln.lstrip().startswith("ERROR:")]
-        names = collections.Counter(rule_name(ln, templates, retired) for ln in errs)
-        if "STOPPED" in out:
-            names.update(stopped_names(out))
-        s["all_rule_lines"].update(names)
-        if i == 0:
-            s["first_fail"] = bool(names)
-            s["first_rules"] = names
+    s["first_units"] = s["first_failed"] = 0
+    seen_pids = set()
+    for cmd, out in check_outs:
+        # A unit is one puzzle's first check: a solo session has one; a bag has one per
+        # puzzle, whether it ran `annotate_bag.py check` or annotate_check on each.
+        if "annotate_bag.py check" in cmd:
+            reports = bag_reports(out)
+        else:
+            reports = [(single_check_id(cmd) if bag_ids(first_user) else "", out)]
+        units = [(pid, text) for pid, text in reports if pid not in seen_pids]
+        seen_pids.update(pid for pid, _ in units)
+        for _, text in units:
+            names = report_names(text, templates, retired)
+            s["all_rule_lines"].update(names)
+            s["first_units"] += 1
+            s["first_failed"] += bool(names)
+            s["first_rules"].update(names)
+            s["first_fail"] = bool(s["first_failed"])
     return s
+
+
+def single_check_id(cmd):
+    """The puzzle a `tools/annotate_check.py ID ...` command checks (the command itself if unclear)."""
+    m = re.search(r"annotate_check(?:\.py)?\b.*?\b([a-z][a-z0-9]*-\d+)\b", cmd)
+    return m.group(1) if m else cmd
+
+
+def report_names(text, templates, retired=()):
+    """The failing checks named in one annotate_check report."""
+    errs = [ln for ln in text.splitlines() if ln.lstrip().startswith("ERROR:")]
+    names = collections.Counter(rule_name(ln, templates, retired) for ln in errs)
+    if "STOPPED" in text:
+        names.update(stopped_names(text))
+    return names
+
+
+def bag_reports(out):
+    """[(puzzle id, report text)] from one `annotate_bag.py check` output: a failing puzzle
+    is a `--- <id>` section with its full report, a clean one a line `<id>: clean ...`."""
+    found = [(m.group(1), "") for m in re.finditer(r"^(\S+): (?:clean|advisory)", out, re.MULTILINE)]
+    parts = re.split(r"^--- (\S+)\n", out, flags=re.MULTILINE)
+    # parts = [preamble, id, body, id, body...]; a body runs to the next section
+    for pid, body in zip(parts[1::2], parts[2::2]):
+        found.append((pid, body))
+    return found
 
 
 def sessions(since, templates, retired=()):
@@ -404,7 +457,10 @@ def summarise(rows):
         "cost": med(r["cost"] for r in rows),
         "wall_min": med(r["wall_min"] for r in rows),
         "checks": med(r["checks"] for r in rows),
-        "first_fail": (sum(r["first_fail"] for r in checked) / len(checked)) if checked else None,
+        # per checked unit: a solo session is one, a bag session one per puzzle in it
+        "first_fail": (sum(r["first_failed"] for r in checked)
+                       / max(sum(r["first_units"] for r in checked), 1)) if checked else None,
+        "first_units": sum(r["first_units"] for r in checked),
         "first_errors": med(sum(r["first_rules"].values()) for r in checked),
         "after_check_share": (sum(r["cost_after_check"] for r in rows) / total) if total else None,
         "turns_after_check": med(r["turns_after_check"] for r in rows),
@@ -420,15 +476,19 @@ def findings(rows):
     out = []
     failed = [r for r in rows if r["first_fail"]]
     by_sessions, by_lines = collections.Counter(), collections.Counter()
+    after = collections.Counter()
     for r in rows:
         by_sessions.update(set(r["first_rules"]))
         by_lines.update(r["first_rules"])
+        for name in set(r["first_rules"]):
+            after[name] += r.get("cost_after_check") or 0
     for name, k in by_sessions.items():
         if name.startswith(SUPERSEDED):
             continue
         out.append({"key": f"rule:{name}", "title": f"first check fails on `{name}`", "share": k / n,
                         "detail": f"{k} of {n} sessions ({k / max(len(failed), 1):.0%} of first-check "
-                               f"failures), {by_lines[name]} error lines"})
+                               f"failures), {by_lines[name]} error lines, "
+                               f"${after[name]:.2f} spent after the check in those sessions"})
     kinds, calls = collections.Counter(), collections.Counter()
     for r in rows:
         kinds.update(set(r["tool_errors"]))
@@ -554,7 +614,8 @@ def report(cur, prev, ranked, trends, hours, n_prev_note):
              (f"  normalised: {delta('cost_per_puzzle', '${:.2f}')} a puzzle, "
               f"{delta('cost_per_clue', '${:.3f}')} a clue, {delta('turns_per_clue', '{:.2f}')} turns a clue")]
     if cur["first_fail"] is not None:
-        lines.append(f"  first check fails {delta('first_fail', '{:.0%}')} (median "
+        lines.append(f"  first check fails {delta('first_fail', '{:.0%}')} of {cur['first_units']} "
+                     f"checked puzzles (solo runs and each bag puzzle) (median "
                      f"{cur['first_errors'] or 0:.0f} error lines); after it: "
                      f"{cur['after_check_share'] or 0:.0%} of cost, "
                      f"{cur['turns_after_check'] or 0:.0f} turns; first-turn context "

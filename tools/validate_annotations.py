@@ -3929,6 +3929,24 @@ def _accounted_words(ann, leaves=True):
     return got
 
 
+def restore_dropped_connectives(old, new, clue):
+    """Put back, as link words, the connectives ("for", "to", "and") a redo of an annotated
+    clue left out of every leaf, indicator, definition and link word that the old tree
+    accounted for. dropped_words refused ~1,200 redo lines in 48h (576 sessions); a
+    connective that stands for an equals sign is the one loss with a mechanical fix.
+    Changes `new` in place; returns the words added."""
+    if not (old or {}).get("wordplay") or not (new or {}).get("wordplay"):
+        return []
+    lost = (_accounted_words(old) - _accounted_words(new)) & _clue_words(clue)
+    lost = (lost & CONNECTIVE_WORDS & link_vocabulary()) - (CONNECTIVE_WORDS - _accounted_words(old, leaves="real"))
+    ordered = [w for w in re.findall(r"[a-z]+", re.sub(r"<[^>]*>|\([^)]*\)", " ", (clue or "").lower()))
+               if w in lost]
+    added = list(dict.fromkeys(ordered))
+    if added:
+        new["linkWords"] = list(new.get("linkWords") or []) + added
+    return added
+
+
 def redo_regressions(old, new, clue):
     """Ways a redo `new` of an already-annotated clue gives up what the annotation
     `old` on file had, as "kind: what" strings; [] when it gives up nothing. The
@@ -3960,7 +3978,9 @@ def redo_regressions(old, new, clue):
         lost -= CONNECTIVE_WORDS - _accounted_words(old, leaves="real")
         if lost:
             out.append("dropped_words: " + ", ".join(sorted(lost)) + " were in the old wordplay "
-                       "(a leaf or an indicator) and are in no leaf, indicator, definition or link word now")
+                       "(a leaf or an indicator) and are in no leaf, indicator, definition or link word now. "
+                       "Add each to the same leaf's `words`/an indicator again if it did work there, "
+                       "or to \"linkWords\": [...] if it only joins wordplay to definition")
         old_wp = old["wordplay"]
         if wp and wp.get("op") == "cryptic" and old_wp.get("op") not in (None, "cryptic"):
             out.append("downgraded: the old wordplay was a real tree and the new one is a bare cryptic op")

@@ -59,6 +59,8 @@ import puzzle_integrity
 import shape_queue
 import groups  # linked answers
 from groups import entry_id
+import lesson_checks
+import validate_annotations
 from validate_annotations import committed_entries
 from fetch_puzzle import (corrected_clue, read_puzzle_file, reconstructed_clue, resolve_puzzle,
                           source_clue, write_puzzle_file)
@@ -337,6 +339,22 @@ def landed(ann, entry, entries, eid, errors):
     return None
 
 
+def keep_spelling(new, entry, was):
+    """Give `new` the `spelling` it left out when the value is not the model's to choose:
+    the one the committed annotation of the same answer carries (check_spelling_kept
+    refused 68 sessions' first checks in 48h) or the apostrophe/accent form the
+    spelling.unsaid warning prescribes (66 sessions). Changes `new` in place."""
+    if new.get("spelling"):
+        return
+    was_ann = (was or {}).get("annotation") or {}
+    same = (was or {}).get("solution", "").upper() == (entry.get("solution") or "").upper()
+    said = was_ann.get("spelling") if same else None
+    said = said or lesson_checks.spelling_unsaid(new, entry.get("solution") or "",
+                                                 (entry.get("clue") or {}).get("enumeration"))
+    if said:
+        new["spelling"] = said
+
+
 def apply_also(puzzle, annotations, errors=None):
     """Write each alsoLeads answer's annotation, keyed by its clue id
     ("22-across/2", groups.clue_id), in place: normalized as its light
@@ -493,9 +511,22 @@ def apply(path, annotations, by=None, only=None):
             entry.pop("annotation", None)
         else:
             new = landed(ann, entry, puzzle["entries"], entry_id(entry), errors)
+            if new is not None:
+                keep_spelling(new, entry, was)
             found = []
+            if new is not None and entry.get("annotation"):
+                back = validate_annotations.restore_dropped_connectives(
+                    entry["annotation"], new, entry["clue"].get("text", ""))
+                if back:
+                    print(f"apply_annotations: {entry_id(entry)}: the old hint's {', '.join(back)} "
+                          f"are in no leaf or indicator now; added to linkWords")
             if new is not None and entry_id(entry) in relisted:
-                found = shape_queue.findings(entry, new) + shape_queue.regressions(entry, new)
+                detected = shape_queue.findings(entry, new)
+                found = detected + shape_queue.regressions(entry, new)
+                if not detected and found:   # only what the redo lost: not the old fault
+                    errors.append(f"{entry_id(entry)}: this redo gives up what the annotation on file had: "
+                                  f"{'; '.join(found)}. Or give null to keep the old hint.")
+                    found, new = [], None
             elif new is not None and entry.get("annotation"):
                 # Every redo of an annotated clue, listed or not, may not give up
                 # what the old one had (timesjumbo-1784 6d: a redo dropped

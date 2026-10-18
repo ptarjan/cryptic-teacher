@@ -123,4 +123,16 @@ fixed3 = {"definitions": [{"text": "Moral tale", "at": 0}],
           "wordplay": {"op": "charade", "parts": [{"words": "part", "at": 15, "gives": "PART"}]}}
 check("a connective held by an old leaf with a real gives is still refused", ["dropped_words"],
       redo(fixed3, old=real_the, clue=CLUE3))
+# The mechanical part of dropped_words: a lost connective that can stand for an equals
+# sign goes back as a link word; a content word never does.
+for label, old_ann, new_ann, clue_text in (("indicator", as_ind, fixed, CLUE2), ("real leaf", real_the, fixed3, CLUE3)):
+    new_copy = copy.deepcopy(new_ann)
+    added = v.restore_dropped_connectives(old_ann, new_copy, clue_text)
+    word = clue_text.split()[2]
+    check(f"a connective lost from an old {label} comes back as a link word", [word], added)
+    check(f"and the redo then passes ({label})", [], v.redo_regressions(old_ann, new_copy, clue_text))
+content = copy.deepcopy(fixed)
+check("a lost content word is not restored", [], v.restore_dropped_connectives(
+    {**junk, "wordplay": {"op": "charade", "parts": [{"words": "tale", "at": 6, "gives": "TALE"}]}},
+    content, CLUE2))
 raise SystemExit(fails)

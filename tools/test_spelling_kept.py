@@ -52,6 +52,19 @@ v.check_clue_unchanged = v.check_theme_clue_unchanged = v.check_clue_rows_held =
 v.check_selectors_are_indicators = v.check_no_new_abbreviation_notes = lambda *a: None
 v.check_against_committed(puzzle(), Path("x"), errs)
 check("check_against_committed runs it", any("spells the answer" in e for e in errs), errs)
+# apply_annotations fills the spelling in itself instead of refusing the write and
+# making the run read the error: the committed one for the same answer.
+import apply_annotations as ap
+entry = {"solution": "APERCU", "clue": {"text": "x"}}
+new = {"definitions": []}
+ap.keep_spelling(new, entry, puzzle(spelling="APERÇU")["entries"][0])
+check("a dropped spelling is put back from the committed annotation", new.get("spelling") == "APERÇU", new)
+new = {"definitions": [], "spelling": "APERCU'"}
+ap.keep_spelling(new, entry, puzzle(spelling="APERÇU")["entries"][0])
+check("one the run wrote is left alone", new["spelling"] == "APERCU'", new)
+new = {"definitions": []}
+ap.keep_spelling(new, entry, puzzle("OTHER", spelling="OTHER'S")["entries"][0])
+check("another answer's spelling is not carried over", "spelling" not in new, new)
 if fails:
     raise SystemExit(fails)
 print("all spelling-kept checks passed")
