@@ -1030,59 +1030,45 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece wraps round the others"
+       "at": 23,
+       "note": "the conclusion wraps about the shortened words"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "conclusion",
-         "gives": "END",
-         "note": "an end is a conclusion"
-        },
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "unfinished",
-           "note": "something unfinished lacks its ending, so the final letter goes"
-          }
-         ],
-         "parts": [
-          {
-           "words": "job",
-           "note": "taken as written"
-          },
-          {
-           "gives": "B"
-          }
-         ]
-        }
-       ]
+       "words": "conclusion",
+       "at": 12,
+       "gives": "END",
+       "note": "an end is a conclusion"
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 37,
+         "note": "each of job and yet loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "yet",
-         "note": "taken as written"
+         "words": "job yet",
+         "at": 29
         },
         {
-         "gives": "T"
+         "gives": "BT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worker valued finishing a task that is still incomplete.",
-     "walkthrough": "'unfinished' applies to both 'job' and 'yet', clipping each by its last letter before they go inside the conclusion.",
-     "definitionFit": "To have appreciated something is to have taken pleasure in it, so the past tense of the verb fits."
+     "surface": "Pleased with the ending, though the work isn't done yet.",
+     "walkthrough": "JOB and YET, each without its last letter, give JO and YE, which go inside END.",
+     "definitionFit": "Enjoyed means took pleasure in, appreciated, both past tense verbs."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "conclusion"
     }
