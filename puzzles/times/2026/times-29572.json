@@ -290,57 +290,67 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IMPRESS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 21,
+       "note": "after places the pieces from 'Extremely suspicious' behind the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "leaves",
-         "note": "to leave is to depart, so the letter for uniform departs from the word"
+         "at": 43,
+         "note": "leaves means the uniform letter departs from the word for unclean"
         }
        ],
        "parts": [
         {
-         "words": "unclean uniform leaves",
-         "gives": "IMPRE",
-         "note": "IMPURE (unclean) minus U (uniform in the NATO alphabet)"
+         "words": "unclean",
+         "at": 27,
+         "gives": "IMPURE",
+         "note": "impure means unclean or contaminated"
         },
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "SS",
-         "indicators": [
-          {
-           "text": "Extremely",
-           "note": "the extremes of a word are its two ends, first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Extremely suspicious",
-           "gives": "SS",
-           "select": "outer",
-           "note": "the outside letters of SuspiciouS"
-          }
-         ]
+         "words": "uniform",
+         "at": 35,
+         "gives": "U",
+         "note": "U is uniform in the NATO phonetic alphabet"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Extremely",
+         "at": 0,
+         "note": "extremely means taking the extremes, the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suspicious",
+         "at": 10,
+         "note": "its outer letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dirty uniform leaves a stain, which looks very suspicious.",
-     "walkthrough": "'Leaves mark' reads as a stain; 'leaves' belongs to the wordplay, and 'mark' alone is the definition. 'After' sets the pair of letters last although they are clued first.",
-     "definitionFit": "A plain synonym: to impress is to mark by pressing, as a seal into wax."
+     "surface": "Something looks extremely suspicious once a dirty uniform has gone missing.",
+     "walkthrough": "'Extremely suspicious' reads as a judgement on the scene, but 'Extremely' just takes the end letters, and 'mark' is the definition, used as a verb.",
+     "definitionFit": "To impress is to stamp or imprint something, so it means to leave a mark."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "leaves"
+     "misdirectedWord": "uniform"
     }
    }
   },
@@ -438,46 +448,47 @@
      "indicators": [
       {
        "text": "drinking",
-       "note": "a drinker takes the drink inside, so the fellow holds the next part"
+       "at": 27,
+       "note": "drinking means the word for fellow takes the rest in, swallowing it"
       }
      ],
      "parts": [
       {
        "words": "fellow",
+       "at": 20,
        "gives": "PEER",
-       "note": "a peer is a fellow, an equal"
+       "note": "a peer is a fellow or equal"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "stops",
-         "note": "stops as in stoppers: the letter plugs a gap inside the word before it"
+         "at": 54,
+         "note": "stops means a letter plugs the word for sour, sitting inside it"
         }
        ],
        "parts": [
         {
          "words": "sour",
+         "at": 36,
          "gives": "ACID",
-         "note": "acid = sour"
+         "note": "acid means sour-tasting"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "R",
          "indicators": [
           {
            "text": "finally",
-           "note": "the final letter, the last one of beer"
+           "at": 46,
+           "note": "finally points to the final letter of the next word"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "beer finally",
-           "gives": "R",
-           "select": "last",
-           "note": "last letter of beeR"
+           "words": "beer",
+           "at": 41,
+           "note": "its last letter is used"
           }
          ]
         }
@@ -486,9 +497,9 @@
      ]
     },
     "explanation": {
-     "surface": "A man drinking sour beer eventually gives up.",
-     "walkthrough": "Two containers nest: the final letter of beer stops up the sour word, and the result goes inside the fellow. 'Stops' reads as quitting but means plugs.",
-     "definitionFit": "Definition by class: pear cider, made from fermented pears, is one alcoholic drink."
+     "surface": "A man drinking sour beer at last calls a halt to it.",
+     "walkthrough": "'Stops' looks like the verb ending the drinking, but it means plugging a gap: the last letter of beer goes inside the word for sour.",
+     "definitionFit": "Pear cider is an alcoholic drink, a fermented cousin of cider made from pears, also known as perry."
     },
     "features": {
      "answerInScene": true,
@@ -574,51 +585,56 @@
      "op": "container",
      "indicators": [
       {
-       "text": "exposed",
-       "note": "something exposed has its covering stripped off, so the word loses its outer letters"
-      },
-      {
-       "text": "regularly",
-       "note": "at regular intervals, so every other letter"
+       "text": "nets",
+       "at": 29,
+       "note": "nets means catches inside, so the first part encloses the second"
       }
      ],
      "parts": [
       {
-       "words": "exposed neural",
-       "gives": "EURA",
-       "note": "nEURAl without its outer letters"
-      },
-      {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "EK",
+       "op": "middle",
        "indicators": [
         {
-         "text": "nets",
-         "note": "to net is to catch, so the first part catches the next inside it"
+         "text": "exposed",
+         "at": 14,
+         "note": "exposed means stripped of its outer covering, so the first and last letters go"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "regularly leak",
-         "gives": "EK",
-         "select": "alternate",
-         "note": "the even letters of lEaK"
+         "words": "neural",
+         "at": 22,
+         "note": "its inner letters are kept"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 34,
+         "note": "regularly means taking letters at regular intervals, every other one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leak",
+         "at": 44,
+         "note": "its second and fourth letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cry of discovery: artificial neural networks, laid open, keep leaking data.",
-     "walkthrough": "'Neural nets' reads as a single AI term; 'nets' is split off as the verb doing the containing.",
-     "definitionFit": "A translation: eureka is Greek for 'I have found it', Archimedes' cry in the bath."
+     "surface": "A news-style line about exposed nerve networks that occasionally leak.",
+     "walkthrough": "'Exposed' strips the ends from 'neural' to leave EURA, and 'regularly' takes EK from 'leak'; EURA 'nets' EK.",
+     "definitionFit": "Eureka is the cry of discovery attributed to Archimedes, an exclamation meaning a solution has been found."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "nets"
     }
    }
@@ -1638,8 +1654,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "accepts",
-       "note": "to accept is to take in, so the pedagogue takes a letter inside"
+       "text": "after",
+       "at": 6,
+       "note": "after puts the years abbreviation at the end"
       }
      ],
      "parts": [
@@ -1647,33 +1664,32 @@
        "op": "container",
        "indicators": [
         {
-         "text": "ultimate",
-         "note": "ultimate means last, so the final letter"
+         "text": "accepts",
+         "at": 22,
+         "note": "accepts means the word for pedagogue takes in another piece"
         }
        ],
        "parts": [
         {
          "words": "pedagogue",
+         "at": 12,
          "gives": "TEACHER",
          "note": "a pedagogue is a teacher"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "R",
          "indicators": [
           {
-           "text": "after",
-           "note": "after means behind, so the years come at the end"
+           "text": "'s ultimate",
+           "at": 38,
+           "note": "a word's ultimate means its last, so the final letter of the next word"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "follower's ultimate",
-           "gives": "R",
-           "select": "last",
-           "note": "last letter of followeR"
+           "words": "follower",
+           "at": 30,
+           "note": "its last letter is used; the 's is the possessive linking it to ultimate"
           }
          ]
         }
@@ -1681,20 +1697,21 @@
       },
       {
        "words": "Years",
+       "at": 0,
        "gives": "Y",
-       "note": "Y = years"
+       "note": "Y is a standard abbreviation for year or years"
       }
      ]
     },
     "explanation": {
-     "surface": "Years later, a teacher finally admits a disciple's betrayal.",
-     "walkthrough": "The surface is a guru and a disciple; the letter goes in just after the first T, which is easy to miss.",
-     "definitionFit": "A plain synonym: treachery is betrayal of trust."
+     "surface": "After many years, a teacher accepts that a disciple has finally betrayed them.",
+     "walkthrough": "'Follower's ultimate' gives R, the last letter of 'follower'; TEACHER 'accepts' it to make TREACHER, and Y comes 'after'.",
+     "definitionFit": "Treachery is the betrayal of trust, the act of being disloyal to someone who relies on you."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "accepts"
+     "misdirectedWord": "follower's"
     }
    }
   },
