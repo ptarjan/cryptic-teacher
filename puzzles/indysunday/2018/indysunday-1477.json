@@ -117,49 +117,51 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BOGUS",
      "indicators": [
       {
        "text": "for",
-       "note": "one thing given for another is swapped in, so the good letter replaces the bank's initial"
+       "at": 18,
+       "note": "for means one letter is put in the place of another, the letter for good replacing the bank's first letter"
       }
      ],
      "parts": [
       {
        "words": "premium",
+       "at": 5,
        "gives": "BONUS",
        "note": "a premium is an extra payment, a bonus"
-      },
-      {
-       "words": "good",
-       "gives": "G",
-       "note": "G is the usual abbreviation for good"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "head of",
-         "note": "the head of a word is its top or start, so its first letter is meant"
+         "at": 22,
+         "note": "head of picks out just the first letter of NatWest"
         }
        ],
        "parts": [
         {
          "words": "NatWest",
-         "note": "the first letter of the bank name, the one swapped out"
+         "at": 30,
+         "note": "first letter of NatWest"
         }
        ]
+      },
+      {
+       "words": "good",
+       "at": 13,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that a bank's top boss earned a sham bonus.",
-     "walkthrough": "In BONUS the N is replaced by G, giving BOGUS. NatWest is a British high-street bank.",
-     "definitionFit": "Something bogus is counterfeit or not genuine, a direct synonym for fake as an adjective."
+     "surface": "A bank's bonus scheme is called a sham, with talk of a good one for the head of NatWest.",
+     "walkthrough": "'head of NatWest' is N; 'for' swaps G into that N's place in BONUS.",
+     "definitionFit": "Something bogus is counterfeit or not genuine, which is what fake means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "premium"
     }
@@ -1906,27 +1908,29 @@
      "op": "hidden",
      "indicators": [
       {
-       "text": "preserved",
-       "note": "preserved means kept within, so the answer is held inside the neighbouring words"
+       "text": "in",
+       "at": 12,
+       "note": "in tells you the answer lies within the run of letters normandy preserved"
       }
      ],
      "parts": [
       {
        "words": "Normandy preserved",
+       "at": 15,
        "gives": "YPRES",
-       "note": "the letters spanning the two words"
+       "note": "the answer's letters run across the end of normandy and the start of preserved"
       }
      ]
     },
     "explanation": {
-     "surface": "A battlefield in Normandy has been kept intact.",
-     "walkthrough": "Normandy points to the D-Day beaches, but the battlefield is in Belgium.",
-     "definitionFit": "Ypres in Belgium was the scene of several major First World War battles."
+     "surface": "A war site in northern France has been kept as it was.",
+     "walkthrough": "The letters run across the join of normandY PREServed. Normandy suggests a D-Day site, but Ypres is in Belgium, scene of First World War battles.",
+     "definitionFit": "Ypres in Flanders was the site of several major First World War battles, so it is a famous battlefield."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "preserved"
+     "misdirectedWord": "Normandy"
     }
    }
   },

@@ -1384,52 +1384,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VIOLET",
+     "op": "container",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without its end, the name loses its final letter"
+       "text": "admitted by",
+       "at": 24,
+       "note": "admitted by means the inner pieces are let into the shortened name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "admitted by",
-         "note": "being admitted means being let in, so these letters go inside the name"
+         "text": "endlessly",
+         "at": 41,
+         "note": "endlessly means the name loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Vita",
-           "gives": "VIT",
-           "note": "the name with its last letter dropped"
-          },
-          {
-           "words": "Love",
-           "gives": "O",
-           "note": "love is zero in tennis, shaped like O"
-          }
-         ]
+         "words": "Vita",
+         "at": 36,
+         "gives": "VITA"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Love",
+         "at": 0,
+         "gives": "O",
+         "note": "love is zero in tennis, so the letter O"
         },
         {
          "op": "outer",
          "indicators": [
           {
            "text": "extremes of",
-           "note": "extremes are the two ends, so only the outer letters are kept"
+           "at": 6,
+           "note": "extremes of picks out the first and last letters of love"
           }
          ],
          "parts": [
           {
            "words": "love",
-           "note": "first and last letters of the word"
+           "at": 18,
+           "note": "first and last letters of love"
           }
          ]
         }
@@ -1439,13 +1445,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Vita Sackville-West wonders who her true love, taken in without end, might be.",
-     "walkthrough": "The whole clue is spoken by Vita Sackville-West, the English writer, whose passionate affair was with Violet Trefusis.",
-     "definitionFit": "Violet Trefusis was the lover of Vita Sackville-West, so from Vita's viewpoint she is the love for me."
+     "surface": "Vita Sackville-West appears to be speaking of the love she took in, asking whether it was meant for her.",
+     "walkthrough": "'endlessly' cuts VITA to VIT, and O plus LE from 'extremes of love' are 'admitted by' it. As an &lit, the whole clue is Vita asking about her lover Violet Trefusis.",
+     "definitionFit": "Violet Trefusis was the writer Vita Sackville-West's lover, so the clue as Vita's own question names her."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "Love"
     }
    }
   },
@@ -1820,50 +1827,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HELEN",
+     "op": "composite",
      "indicators": [
       {
        "text": "excited",
-       "note": "excited means stirred up, so the listed words are stirred into the name of the chapel"
+       "at": 51,
+       "note": "excited means the letters of the chapel's name are stirred up and rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HELEN",
-       "indicators": [
-        {
-         "text": "?",
-         "note": "the question mark asks what the chapel's name minus the other listed words leaves, the letters standing for she"
-        }
-       ],
+       "words": "Sainte-Chapelle",
+       "at": 17
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Sainte-Chapelle",
-         "note": "the Gothic royal chapel in Paris, the result of the jumble"
-        },
-        {
          "words": "Place",
-         "note": "taken as written; part of the jumbled letters"
+         "at": 34
         },
         {
-         "words": "is at",
-         "note": "taken as written; part of the jumbled letters"
+         "words": "is",
+         "at": 44
+        },
+        {
+         "words": "at",
+         "at": 47
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tourist in Paris spots a romantic heroine visiting a famous chapel and gets excited.",
-     "walkthrough": "This is a composite anagram: Sainte-Chapelle is a jumble of PLACE, 'she', IS and AT, so 'she' is whatever letters remain once those three are taken away.",
-     "definitionFit": "In Greek legend Helen of Troy eloped with Paris, prince of Troy, so she was his lover."
+     "surface": "A tourist asks whether the famous Paris chapel is where she is to be found.",
+     "walkthrough": "Take the letters of SAINTE-CHAPELLE, remove those of PLACE, IS and AT, and rearrange what remains. 'Paris' suggests the French capital, but here he is the Trojan prince.",
+     "definitionFit": "In Greek myth Paris, prince of Troy, carried off Helen, Menelaus's wife, so she was his beloved."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Paris"

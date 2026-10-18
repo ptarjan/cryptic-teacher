@@ -1373,48 +1373,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OTITIS",
      "indicators": [
       {
        "text": "surrounded by",
-       "note": "a thing surrounded by another is enclosed inside it"
+       "at": 6,
+       "note": "surrounded by means the word for idiot sits inside the trimmed word for racket"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OTITIS",
+       "op": "middle",
        "indicators": [
         {
          "text": "boundless",
-         "note": "without bounds means with no edges, so both outer letters go"
+         "at": 20,
+         "note": "boundless means the word loses its bounds, its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "racket",
+         "at": 30,
          "gives": "NOISE",
          "note": "a racket is a loud noise"
-        },
-        {
-         "words": "Idiot",
-         "gives": "TIT",
-         "note": "tit is British slang for an idiot"
         }
        ]
+      },
+      {
+       "words": "Idiot",
+       "at": 0,
+       "gives": "TIT",
+       "note": "a tit is British slang for a fool"
       }
      ]
     },
     "explanation": {
-     "surface": "A fool caught in endless din is liable to get earache.",
-     "walkthrough": "Tit is everyday British slang for a fool; 'boundless' strips both edges off the racket.",
-     "definitionFit": "Otitis is medical inflammation of the ear, whose main symptom is earache, as in otitis media."
+     "surface": "A fool caught in an endless din could end up with an earache.",
+     "walkthrough": "'boundless' takes the outer letters off the word for racket, and that is 'surrounded by' the idiot. In British slang a tit is a fool.",
+     "definitionFit": "Otitis is inflammation of the ear, whose main symptom is earache; 'ear pain' stands for the condition."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "boundless"
     }
    }
   },

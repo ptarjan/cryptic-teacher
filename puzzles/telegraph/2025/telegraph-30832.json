@@ -974,44 +974,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SYMPATHY",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter of the word is lost"
+       "text": "Criminal",
+       "at": 0,
+       "note": "criminal means the letters are treated badly, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Criminal",
-         "note": "criminal suggests something wrong or crooked, so the letters are bent out of order"
+         "text": "almost",
+         "at": 14,
+         "note": "almost means the word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "type",
-         "gives": "TYP",
-         "note": "type without its last letter"
+         "at": 9,
+         "gives": "TYPE",
+         "note": "taken as written"
         },
         {
-         "words": "has my",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "has",
+       "at": 21
+      },
+      {
+       "words": "my",
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "Someone says a criminal sort almost has their pity.",
-     "definitionFit": "Sympathy is the feeling of pity or sorrow for another's misfortune."
+     "surface": "Someone feels sorry for a crook.",
+     "walkthrough": "'almost' cuts TYPE to TYP, and 'Criminal' rearranges TYP, HAS and MY together.",
+     "definitionFit": "Sympathy is the feeling of sorrow for someone else's trouble, which is what pity means."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Criminal"
     }
@@ -1626,47 +1635,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "ESSAY",
+     "spelt": "ESSAY",
      "indicators": [
       {
        "text": "it's said",
-       "note": "it's said means the letters are to be pronounced as spoken"
+       "at": 39,
+       "note": "it's said means the letters are spoken aloud, and the answer is how they sound"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "ESSAY",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points to the first letter of each of the two words"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "South Africa",
-         "gives": "ESSAY",
-         "select": "first",
-         "soundsLike": "S A",
-         "note": "the first letters of South and Africa, said as two letter names"
-        }
-       ]
+       "words": "South Africa initially",
+       "at": 15,
+       "gives": "SA",
+       "note": "SA is the initials of South Africa"
       }
      ]
     },
     "explanation": {
-     "surface": "A school essay about South Africa is being described.",
-     "walkthrough": "The initials S and A, spoken as their letter names, give the answer.",
-     "definitionFit": "An essay is a short written piece on a subject, which is a composition in school terms."
+     "surface": "A schoolchild's piece of writing about South Africa, as people put it.",
+     "walkthrough": "Say the letters S and A aloud, one after the other.",
+     "definitionFit": "An essay is a short piece of prose writing, a composition of the kind set in school."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Africa"
+     "joke": "pun",
+     "misdirectedWord": "Composition"
     }
    }
   }

@@ -147,67 +147,72 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REBUILD",
-     "indicators": [
-      {
-       "text": "ignoring initial",
-       "note": "ignoring the first letter means leaving the opening letter of the word out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 14,
+         "note": "about means the reversed abbreviation wraps around the letter for European"
+        }
+       ],
        "parts": [
         {
          "op": "reversal",
          "indicators": [
           {
            "text": "upset",
-           "note": "in a down clue, upsetting something turns it upside down, so the letters read bottom to top"
+           "at": 8,
+           "note": "upset in a down clue means the abbreviation is turned upside down, read backwards"
           }
          ],
          "parts": [
           {
-           "op": "container",
-           "indicators": [
-            {
-             "text": "about",
-             "note": "to be about something is to surround it, so one piece goes around another"
-            }
-           ],
-           "parts": [
-            {
-             "words": "British",
-             "gives": "BR",
-             "note": "BR is a standard abbreviation for British"
-            },
-            {
-             "words": "European",
-             "gives": "E",
-             "note": "E is the abbreviation for European"
-            }
-           ]
+           "words": "British",
+           "at": 0,
+           "gives": "BR"
           }
          ]
         },
         {
+         "words": "European",
+         "at": 20,
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring initial",
+         "at": 43,
+         "note": "ignoring initial means the word drops its first letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "artisan group",
-         "gives": "UILD",
-         "note": "a guild is a medieval association of craftsmen, here without its first letter"
+         "at": 29,
+         "gives": "GUILD",
+         "note": "a guild is an association of craftsmen or artisans"
+        },
+        {
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Britons are upset by a European craft association that skips the first stage of a building project.",
-     "walkthrough": "In a down clue 'upset' flips the wrapped pair so it reads bottom to top. A guild was a medieval association of craftsmen.",
-     "definitionFit": "A rebuild is the noun for a job of reconstructing something, used of engines, houses and teams alike."
+     "surface": "A British craft guild is upset by a European proposal to rebuild without its founder.",
+     "walkthrough": "'upset' turns BR to RB, which goes 'about' E to give REB; 'ignoring initial' takes G off GUILD to leave UILD.",
+     "definitionFit": "A rebuild, used as a noun, is a reconstruction of something that was damaged or worn out."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "upset"
     }
@@ -356,48 +361,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOGICAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "a lot of",
-       "note": "a lot of something is most but not all of it, so the final letter is dropped"
+       "text": "storing",
+       "at": 4,
+       "note": "storing means the pub word holds the shortened drink inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Pub",
+       "at": 0,
+       "gives": "LOCAL",
+       "note": "the local is a British name for your nearest regular pub"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "storing",
-         "note": "storing means holding inside, so one piece sits within the other"
+         "text": "a lot of",
+         "at": 12,
+         "note": "a lot of means most of the word, with its last letter dropped"
         }
        ],
        "parts": [
         {
-         "words": "Pub",
-         "gives": "LOCAL",
-         "note": "a local is the British name for one's neighbourhood pub"
+         "words": "booze",
+         "at": 21,
+         "gives": "GIN",
+         "note": "gin is an alcoholic drink, so booze"
         },
         {
-         "words": "booze",
-         "gives": "GI",
-         "note": "gin, a common spirit, without its final letter"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pub stocks plenty of drink, which seems perfectly sensible.",
-     "walkthrough": "A 'local' is the British term for one's regular neighbourhood pub; most of GIN goes inside it.",
-     "definitionFit": "Something logical follows reason and is coherent, so it is sensible or makes sense."
+     "surface": "A pub keeps plenty of drink in stock, which is only sensible.",
+     "walkthrough": "'a lot of' cuts GIN to GI, which LOCAL is 'storing'. In Britain your local is your regular pub.",
+     "definitionFit": "Something logical follows reason and so makes sense; both phrases describe a sound argument."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "lot"
+     "misdirectedWord": "storing"
     }
    }
   },
@@ -485,58 +495,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GREBE",
+     "op": "container",
      "indicators": [
       {
-       "text": "half",
-       "note": "taking half of a word discards the remaining letters"
+       "text": "seen amongst",
+       "at": 12,
+       "note": "seen amongst means the letter is placed among the letters of the cut-down word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "seen amongst",
-         "note": "something seen amongst other things sits in their midst"
+         "text": "half",
+         "at": 25,
+         "note": "half means only the first four of the word's eight letters are kept"
         }
        ],
        "parts": [
         {
          "words": "the bushes etc",
-         "gives": "GREE",
-         "note": "greenery covers bushes and other plants; only its first half is kept"
+         "at": 30,
+         "gives": "GREENERY",
+         "note": "greenery means foliage such as the bushes and shrubs"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "head",
-           "note": "the head of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Bird",
-           "note": "the opening letter of the word"
-          }
-         ]
+         "gives": "NERY"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "at": 7,
+         "note": "head picks out just the first letter of bird's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bird's",
+         "at": 0,
+         "note": "first letter of bird's"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A birdwatcher glimpses a head among the shrubs and identifies a diving species.",
-     "walkthrough": "'The bushes etc' stands for greenery; its first four letters take the B inside.",
-     "definitionFit": "Grebes are freshwater birds that dive underwater to catch fish, famous for elaborate courtship displays."
+     "surface": "A bird pokes its head out among the shrubbery, and the clue reveals it is a diver.",
+     "walkthrough": "'half' keeps GREE of GREENERY, and the B from 'Bird's head' is 'seen amongst' it.",
+     "definitionFit": "Grebes are waterbirds that dive underwater to hunt fish, so a grebe is a diving bird."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "head"
+     "misdirectedWord": "bushes"
     }
    }
   },
@@ -1592,55 +1608,64 @@
      "indicators": [
       {
        "text": "probing",
-       "note": "a probe pushes into something, so this goes inside"
+       "at": 37,
+       "note": "probing means the new letters push into the middle of the reading of K2"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "misguided",
-         "note": "misguided means led astray, so these letters go the wrong way"
-        }
-       ],
+       "words": "K2",
+       "at": 45,
+       "gives": "KII",
+       "note": "K2 read as K and II, the Roman numeral for two"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "K2",
-         "gives": "KII",
-         "note": "K with 2 written as Roman II"
-        },
         {
          "op": "last",
          "indicators": [
           {
            "text": "finally",
-           "note": "finally points to the last letter of the word"
+           "at": 12,
+           "note": "finally picks out the last letter of mountaineer"
           }
          ],
          "parts": [
           {
            "words": "Mountaineer",
-           "note": "the last letter of the word"
+           "at": 0,
+           "note": "last letter of mountaineer"
+          }
+         ]
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "misguided",
+           "at": 26,
+           "note": "misguided means the letters of a bit are put the wrong way round"
+          }
+         ],
+         "parts": [
+          {
+           "words": "a bit",
+           "at": 20
           }
          ]
         }
        ]
-      },
-      {
-       "words": "a bit",
-       "gives": "IBAT",
-       "note": "the four letters rearranged"
       }
      ]
     },
     "explanation": {
-     "surface": "A climber, slightly lost, explores K2 but finds himself in entirely the wrong nation.",
-     "walkthrough": "K2 becomes K plus Roman II; R and the rearranged letters go between the two Is. K2 is in the Himalayas, but this nation is low Pacific atolls.",
-     "definitionFit": "Kiribati is a Pacific island republic of flat coral atolls, about as far from a towering Himalayan peak as possible."
+     "surface": "A climber's slightly wayward expedition on K2 has ended up in entirely the wrong place.",
+     "walkthrough": "K2 is split as K and II. R (from 'Mountaineer finally') goes 'probing' between the two Is with IBAT ('a bit' that is 'misguided'). K2 is in the Himalayas, so a Pacific state is quite the wrong country for it.",
+     "definitionFit": "Kiribati is a Pacific island nation, a sovereign state far from the Himalayan mountain K2."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "absurd",
      "misdirectedWord": "K2"

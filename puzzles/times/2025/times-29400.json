@@ -459,44 +459,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BASIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 5,
+       "note": "in means the turned-round savings word sits inside the dating abbreviation"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "the old days",
+       "at": 8,
+       "gives": "BC",
+       "note": "BC, before Christ, marks dates in ancient times"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "Back",
-         "note": "the investment is written backwards"
-        },
-        {
-         "text": "in",
-         "note": "in places one thing within another"
+         "at": 0,
+         "note": "back means the word for the investment is read from right to left"
         }
        ],
        "parts": [
         {
-         "words": "the old days",
-         "gives": "BC",
-         "note": "BC, before Christ, stands for ancient times"
-        },
-        {
          "words": "investment",
-         "gives": "ASI",
-         "note": "ISA, an Individual Savings Account, reversed"
+         "at": 22,
+         "gives": "ISA",
+         "note": "an ISA, individual savings account, is a British tax-free investment"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone recalls that investing used to be simple back in the day.",
-     "walkthrough": "An ISA is a British tax-free savings account. 'Back in the old days' reads as one phrase, but splits into two instructions.",
-     "definitionFit": "A plain synonym: something reduced to its essentials, with no frills, is free of complication."
+     "surface": "Years ago, putting money away was a simple business.",
+     "walkthrough": "An ISA, individual savings account, is a British tax-free investment, and BC, before Christ, stands for the old days. 'Back' tells you to turn the investment round before it goes inside.",
+     "definitionFit": "Something basic is simple and elementary, the opposite of something intricate."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Back"
     }
@@ -652,41 +656,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AVOIDABLE",
-     "indicators": [
-      {
-       "text": "ousting leader",
-       "note": "the first letter of TABLE is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "useless",
+       "at": 2,
+       "gives": "VOID",
+       "note": "void means having no legal force, so useless"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ousting leader",
+         "at": 16,
+         "note": "ousting leader means the word loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "kept as is"
-        },
-        {
-         "words": "useless",
-         "gives": "VOID",
-         "note": "void = invalid, of no use"
-        },
-        {
          "words": "board",
-         "gives": "ABLE",
-         "note": "a table is a board; TABLE without its first letter"
+         "at": 10,
+         "gives": "TABLE",
+         "note": "a table is a board, as in board and lodging or a festive board"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A company's useless board of directors throws out its chairman to head off trouble.",
-     "walkthrough": "'Board' suggests directors and 'leader' a chairman; here the board is a table and the leader its first letter.",
-     "definitionFit": "A plain synonym: an accident that could have been headed off is one that need never have happened."
+     "surface": "An ineffective committee gets rid of its chairman, which could have been avoided.",
+     "walkthrough": "'ousting leader' takes the T off TABLE. 'Board' and 'leader' suggest a company, but board is a table.",
+     "definitionFit": "Something avoidable can be averted or stopped from happening, so it is possible to prevent."
     },
     "features": {
      "answerInScene": false,
@@ -1413,39 +1422,47 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gets",
+       "at": 14,
+       "note": "gets means the flatterer takes the daughter's letter back in, at a new place"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "gets",
-         "note": "the sycophant gets, i.e. has done to it, the move"
-        },
-        {
          "text": "up",
-         "note": "in a down clue, up means higher, so D moves above A"
+         "at": 28,
+         "note": "up in a down clue means the daughter's letter is lifted out of its spot to move higher in the word"
         }
        ],
        "parts": [
         {
          "words": "sycophant",
+         "at": 4,
          "gives": "TOADY",
-         "note": "a toady is a flatterer"
+         "note": "a toady is a fawning flatterer"
+        },
+        {
+         "gives": "D"
         }
        ]
       },
       {
-       "unchecked": true,
        "words": "daughter",
-       "note": "D = daughter; it adds no letters, it names the D already in TOADY that moves"
+       "at": 19,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A flatterer rouses a daughter out of bed this morning.",
-     "walkthrough": "Not a full shuffle: only the D moves, one place up the column, turning TOADY into TODAY.",
-     "definitionFit": "Today means at the present time, now."
+     "surface": "These days a flatterer gets his daughter out of bed.",
+     "walkthrough": "The daughter's letter already sits in the word for sycophant; 'up' lifts it out and 'gets' puts it back one place higher, in front of the A, which in a down entry is above it.",
+     "definitionFit": "Today, used as an adverb, means at the present time, just as now does."
     },
     "features": {
      "answerInScene": false,
@@ -1716,50 +1733,65 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ELDERLY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "receiving",
+       "at": 28,
+       "note": "receiving means the shortened word takes the reversed colour into its middle"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "not at first",
-         "note": "the first letter of TELLY is dropped"
-        },
-        {
-         "text": "receiving"
-        },
-        {
-         "text": "back",
-         "note": "the colour is written backwards"
+         "at": 15,
+         "note": "not at first means the word drops its opening letter"
         }
        ],
        "parts": [
         {
          "words": "TV",
-         "gives": "ELLY",
-         "note": "telly is British slang for TV; TELLY without its first letter"
+         "at": 11,
+         "gives": "TELLY",
+         "note": "telly is British informal for television"
         },
         {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 45,
+         "note": "back means the colour word is read from right to left"
+        }
+       ],
+       "parts": [
+        {
          "words": "colour",
-         "gives": "DER",
-         "note": "RED, reversed"
+         "at": 38,
+         "gives": "RED",
+         "note": "red is a colour"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone getting on TV for the first time is taking on colour again.",
-     "walkthrough": "'Getting on TV' reads as appearing on television; 'Getting on' alone is the definition, meaning ageing.",
-     "definitionFit": "An idiom: 'getting on' is short for getting on in years, a polite way to say old."
+     "surface": "Appearing on television late on in life, though not at first, and picking up some colour.",
+     "walkthrough": "Telly is British slang for TV. 'Getting on' looks like appearing on screen, but it is the definition, meaning growing old.",
+     "definitionFit": "Someone getting on is ageing, past middle age, which is what elderly describes."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "on"
+     "misdirectedWord": "Getting"
     }
    }
   }
