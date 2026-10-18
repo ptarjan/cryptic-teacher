@@ -156,37 +156,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALLOW",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all of it, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 4,
+         "note": "almost means not quite all of the word, so its final letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "everyone",
-         "gives": "AL",
-         "note": "everyone is ALL, cut short by one letter"
+         "at": 11,
+         "gives": "ALL",
+         "note": "everyone means all"
         },
         {
-         "words": "down",
-         "gives": "LOW",
-         "note": "feeling down is feeling low"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "down",
+       "at": 20,
+       "gives": "LOW",
+       "note": "down means low, as in low spirits"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone confesses to disappointing nearly every person they know.",
-     "walkthrough": "'Let down' reads as one phrase, but 'Let' is the definition and 'down' supplies its own piece: AL plus LOW gives ALLOW.",
-     "definitionFit": "To let someone do something is to permit them, which is exactly what this verb means."
+     "surface": "A confession of having disappointed everybody around you.",
+     "walkthrough": "The surface reads 'Let down' as one phrase meaning disappoint; 'Let' alone is the definition, and 'down' is the mood word, as in feeling low.",
+     "definitionFit": "To let someone do something is to permit it, a plain synonym."
     },
     "features": {
      "answerInScene": false,
@@ -365,21 +369,23 @@
      "indicators": [
       {
        "text": "going to and fro",
-       "note": "travelling to and fro covers the same ground in both directions, so the word reads the same either way"
+       "at": 27,
+       "note": "going to and fro says the word travels both ways, reading the same forwards and backwards"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Tale of the middle classes",
-       "note": "the definition read whole: a genre of novel about comfortable country families, whose letters run the same both ways"
+       "at": 0,
+       "gives": "AGASAGA",
+       "note": "the definition supplies the letters too, since the genre name is itself the palindrome"
       }
      ]
     },
     "explanation": {
-     "surface": "A story about suburban families who keep commuting back and forth.",
-     "walkthrough": "An Aga is a large cast-iron cooking range, a status symbol in British country kitchens; the seven letters read identically forwards and backwards.",
-     "definitionFit": "The phrase names a genre of popular British novel about comfortable middle-class domestic life, typically set in rural homes."
+     "surface": "A story about bourgeois life that keeps moving back and forth.",
+     "walkthrough": "An AGA SAGA is a British genre of novel set among the comfortable middle class, named after the Aga cooking range in their country kitchens; 'going to and fro' says the phrase reads the same both ways.",
+     "definitionFit": "The genre label is the publishing term for a cosy novel about well-off English families."
     },
     "features": {
      "answerInScene": true,
