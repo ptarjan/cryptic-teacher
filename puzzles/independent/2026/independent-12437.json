@@ -480,47 +480,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "charade",
      "indicators": [
       {
-       "text": "stripping",
-       "note": "Stripping takes off what covers a thing, so the word is left with nothing but its middle."
+       "text": "to",
+       "at": 23,
+       "note": "to joins the stripped letter on to what follows"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
        "indicators": [
         {
-         "text": "topless",
-         "note": "The top of a down entry is its first letter, and topless means that letter is missing."
+         "text": "stripping",
+         "at": 13,
+         "note": "stripping takes off the outer layers, leaving only the middle of gym"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "parts": [
-          {
-           "words": "gym",
-           "note": "GYM stripped of the G and the M keeps only its middle letter"
-          }
-         ]
-        },
-        {
-         "words": "to exercise",
-         "gives": "WIELD",
-         "note": "to wield power is to exercise it"
+         "words": "gym",
+         "at": 8,
+         "note": "its middle letter is Y"
         }
        ]
       },
       {
-       "gives": "W"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 35,
+         "note": "topless means losing the top, the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "exercise",
+         "at": 26,
+         "gives": "WIELD",
+         "note": "to wield power is to exercise it"
+        },
+        {
+         "gives": "W"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two shortenings in five letters, each cut a different way: one word loses both ends, the next loses only its head. Note 'exercise' as the verb wield, not a workout.",
-     "definitionFit": "Give up → YIELD: to yield is to surrender ground or stop resisting, the sense of giving up a position rather than abandoning a habit."
+     "surface": "Someone quitting the gym because they would have to work out shirtless.",
+     "walkthrough": "'Stripping' removes both ends of gym; 'topless' removes the first letter of WIELD.",
+     "definitionFit": "To yield is to surrender or concede, which is giving up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "topless"
     }
    }
   },
@@ -1688,55 +1706,61 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "Starters of",
-       "note": "A starter comes first, so each word in the list gives up nothing but the letter it begins with."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "around",
-         "note": "Around means wrapped about a thing, so one piece is split and laid on either side of another."
+         "text": "Starters of",
+         "at": 0,
+         "note": "starters are the first letters of the words that follow"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "striking the centre",
-           "note": "To strike something out is to delete it, and the centre of a word is the single letter at its middle."
-          }
-         ],
-         "parts": [
-          {
-           "words": "certain horizontal entries (seven)",
-           "note": "the first letters of certain, horizontal, entries and seven"
-          }
-         ]
-        },
-        {
-         "words": "help",
-         "gives": "SOS",
-         "note": "an SOS is the distress call, the international shout for help"
+         "words": "certain horizontal entries (seven",
+         "at": 12,
+         "note": "their first letters are C, H, E and S"
         }
        ]
       },
       {
-       "op": "deletion",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 52,
+         "note": "around means wrapping, so the call for help goes round the rest"
+        }
+       ],
        "parts": [
         {
-         "words": "enclosing",
-         "gives": "PENNING",
-         "note": "penning sheep is enclosing them, and the -ing forms match"
+         "words": "help",
+         "at": 47,
+         "gives": "SOS",
+         "note": "SOS is the distress call for help"
         },
         {
-         "gives": "N"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "striking the centre",
+           "at": 70,
+           "note": "striking out the centre removes the middle letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "enclosing",
+           "at": 59,
+           "gives": "PENNING",
+           "note": "penning means enclosing, as sheep in a pen"
+          },
+          {
+           "gives": "N"
+          }
+         ]
         }
        ]
       }
@@ -1744,8 +1768,14 @@
     },
     "andLit": true,
     "explanation": {
-     "walkthrough": "Seven across answers open with a chess word: MATE, ELO, PIN, BOARD, FILE, RANK and MEN. Read straight, the clue also describes what these do on a board.",
-     "definitionFit": "Every word does both jobs at once, and the straight reading is true of the grid: seven horizontal answers begin with a chess term."
+     "surface": "A puzzle note that seven across answers start with something, plus a cry for help around a fence.",
+     "walkthrough": "Seven across answers begin with chess terms (MATE, PIN, BOARD, RANK, FILE, ELO, MEN), the theme the clue points to; 'Starters' does double duty as openings.",
+     "definitionFit": "Chess openings are the first moves of a game, so they are its starters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "help"
     }
    }
   },

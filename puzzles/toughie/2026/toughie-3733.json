@@ -271,48 +271,52 @@
      "indicators": [
       {
        "text": "in",
-       "note": "placing things in something puts them inside it"
+       "at": 30,
+       "note": "'in' tells us the first pieces sit inside the word for failures"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "failures",
-         "gives": "MESSES",
-         "note": "messes are botched efforts, failures"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "failures",
+       "at": 33,
+       "gives": "MESSES",
+       "note": "messes are botched efforts, failures"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "leader",
-         "note": "the leader of a word is its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "government's",
-         "note": "the first letter of government"
+         "words": "a",
+         "at": 8,
+         "gives": "A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 23,
+           "note": "a leader is the one at the front, so take the first letter of government's"
+          }
+         ],
+         "parts": [
+          {
+           "words": "government's",
+           "at": 10,
+           "note": "its first letter is G"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "News stories about a premier caught up in a series of fiascos.",
-     "walkthrough": "A plus G sits inside MESSES.",
-     "definitionFit": "Reports in the sense of communicated pieces of information sent from one party to another."
+     "surface": "News reports describe a government's chief in the middle of fiascos.",
+     "definitionFit": "Messages are communications such as dispatches or bulletins, so they can be reports."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Reports"
     }
@@ -343,41 +347,44 @@
      "indicators": [
       {
        "text": "protecting",
-       "note": "to protect something is to surround and shield it, so one piece wraps another"
+       "at": 22,
+       "note": "something protecting another wraps round it, so the male deer surrounds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "male animal",
-         "gives": "HART",
-         "note": "a hart is a male deer"
-        },
-        {
-         "words": "animal",
-         "gives": "ASS",
-         "note": "a donkey"
-        }
-       ]
+       "words": "male animal",
+       "at": 10,
+       "gives": "HART",
+       "note": "a hart is a male deer"
       },
       {
-       "words": "males",
-       "gives": "MEN",
-       "note": "men are males"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "animal",
+         "at": 33,
+         "gives": "ASS",
+         "note": "an ass is a donkey"
+        },
+        {
+         "words": "males",
+         "at": 40,
+         "gives": "MEN",
+         "note": "men are males"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stag harrying while guarding a group of male beasts.",
-     "walkthrough": "'Badgering' tempts you to look for a badger in the animal theme, but it is the definition, used as a noun.",
-     "definitionFit": "Badgering used as a noun means persistent pestering, which is what harassment is: an exact synonym."
+     "surface": "An image of a stag guarding a donkey and some men, with badgering as the result.",
+     "walkthrough": "'Male animal' and 'animal' look like one creature twice, but the first is a stag (hart) and the second a donkey.",
+     "definitionFit": "Badgering is persistent pestering, which is what harassment means."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Badgering"
     }
    }
@@ -1234,50 +1241,55 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one thing in another sits inside it"
+       "at": 26,
+       "note": "'in' places the emptied loft and the word for before inside the outhouse"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "outhouse",
+       "at": 29,
+       "gives": "SHED",
+       "note": "a shed is an outbuilding"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "outhouse",
-         "gives": "SHED",
-         "note": "a shed is an outhouse"
-        },
         {
          "op": "outer",
          "indicators": [
           {
            "text": "empty",
-           "note": "emptied of its contents, only the outside letters remain"
+           "at": 8,
+           "note": "an empty word has lost its inside, leaving just the outer letters of loft"
           }
          ],
          "parts": [
           {
            "words": "loft",
-           "note": "the outer letters"
+           "at": 14,
+           "note": "its outer letters are L and T"
           }
          ]
+        },
+        {
+         "words": "before",
+         "at": 19,
+         "gives": "ERE",
+         "note": "ere is an old word for before"
         }
        ]
-      },
-      {
-       "words": "before",
-       "gives": "ERE",
-       "note": "ere is a poetic word for before"
       }
      ]
     },
     "explanation": {
-     "surface": "Something stored first in the attic and then in the garden shed, kept out of the rain.",
-     "walkthrough": "An outhouse is a small outbuilding, and ERE is poetic for before, common in crosswords.",
-     "definitionFit": "Covered in the sense of protected from weather or danger, which is what a sheltered spot is."
+     "surface": "Something was kept under cover in a bare attic and earlier in an outbuilding.",
+     "definitionFit": "Sheltered means protected or shielded from the weather, i.e. under cover."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
     }
    }
   },

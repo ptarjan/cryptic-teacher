@@ -50,54 +50,60 @@
      "indicators": [
       {
        "text": "restricted by",
-       "note": "something restricted by a gag is held inside it, so the gag word wraps round the rest"
+       "at": 25,
+       "note": "restricted by means enclosed by, so the joke surrounds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "gag",
-         "gives": "JAPE",
-         "note": "a jape is a joke or prank, a gag"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "gag",
+       "at": 39,
+       "gives": "JAPE",
+       "note": "a jape is a joke or gag"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "briefly",
-         "note": "briefly means cut short, so the word for a headland loses its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "head",
-         "gives": "NESS",
-         "note": "a ness is a headland, as in Loch Ness's neighbouring capes"
+         "words": "a",
+         "at": 10,
+         "gives": "A"
         },
         {
-         "gives": "S"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 17,
+           "note": "briefly means shortened, so the last letter is lost"
+          }
+         ],
+         "parts": [
+          {
+           "words": "head",
+           "at": 12,
+           "gives": "NESS",
+           "note": "a ness is a headland"
+          },
+          {
+           "gives": "S"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's tongue is briefly held back by a gag over their mouth.",
-     "walkthrough": "JAPE opens to take A plus NES, giving JAP-ANES-E. 'Tongue' looks like the body part but means a language.",
-     "definitionFit": "Tongue is an old word for a language, and Japanese is the language spoken in Japan."
+     "surface": "A boss's speech cut off by a gag, as if silenced.",
+     "walkthrough": "'Gag' looks like a muzzle, but it means a joke, JAPE. 'Briefly' cuts NESS to NES.",
+     "definitionFit": "Japanese is the language spoken in Japan, and tongue means language."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Tongue"
+     "joke": "pun",
+     "misdirectedWord": "gag"
     }
    }
   },
@@ -391,45 +397,40 @@
      "indicators": [
       {
        "text": "keeping",
-       "note": "a thing keeping others holds them inside, so the Texan's initials wrap round what follows"
+       "at": 10,
+       "note": "keeping means holding inside, so JR surrounds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "famously shot Texan",
-         "gives": "JR",
-         "note": "J.R. Ewing of the TV soap Dallas, whose shooting was a famous cliffhanger"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "famously shot Texan",
+       "at": 36,
+       "gives": "JR",
+       "note": "J.R. Ewing of the TV soap Dallas, whose shooting caused a famous 'Who shot J.R.?' cliffhanger"
       },
       {
        "op": "alternate",
        "indicators": [
         {
          "text": "oddly",
-         "note": "oddly here means in the odd manner, discarding the odd-numbered letters so the even ones stay"
+         "at": 28,
+         "note": "oddly means take the letters in odd positions"
         }
        ],
        "parts": [
         {
-         "words": "beagle",
-         "note": "the second, fourth and sixth letters of beagle"
+         "words": "a beagle",
+         "at": 18,
+         "note": "its odd letters are A, E, G and E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A huntsman with a beagle at his side fires on a Texan.",
-     "walkthrough": "J(A + EGE)R. 'Oddly' would usually keep the odd letters; here it takes the evens, the opposite of the obvious reading.",
-     "definitionFit": "Jaeger is German for hunter, used in English for a huntsman or rifleman, and also a predatory seabird."
+     "surface": "A hunter with a beagle who once shot a well-known Texan.",
+     "walkthrough": "'Oddly' runs over both words, 'a beagle', taking letters 1, 3, 5 and 7.",
+     "definitionFit": "Jäger is the German word for a hunter, used in English for a rifleman or huntsman."
     },
     "features": {
      "answerInScene": true,
@@ -1811,51 +1812,66 @@
      "indicators": [
       {
        "text": "to allow",
-       "note": "to allow in is to admit, so the Scots refusal takes the rest inside it"
+       "at": 15,
+       "note": "to allow in, letting the other pieces into the Scots word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Scot's refusal",
+       "at": 0,
+       "gives": "NAE",
+       "note": "nae is Scots for no"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Scot's refusal",
-           "gives": "NAE",
-           "note": "nae is Scots for no"
-          },
-          {
-           "words": "Frenchmen",
-           "gives": "MM",
-           "note": "MM is the abbreviation for Messieurs"
-          }
-         ]
+         "words": "Frenchmen",
+         "at": 24,
+         "gives": "MM",
+         "note": "MM is the abbreviation for messieurs, Frenchmen"
         },
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 34,
+         "gives": "A"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 36,
+           "note": "short means cut, losing the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "vacation",
+           "at": 42,
+           "gives": "HOLS",
+           "note": "hols is British informal for holidays"
+          },
+          {
+           "gives": "S"
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "short vacation",
-       "gives": "HOL",
-       "note": "hol is a short form of holiday"
       }
      ]
     },
     "explanation": {
-     "surface": "A Scot refuses some Frenchmen a quick spring break near Perth.",
-     "walkthrough": "NA(MM A HOL)E. 'Perth' with 'Scot' in the clue suggests Scotland, but this Perth is in Western Australia, and 'spring' is a water source, not the season.",
-     "definitionFit": "A gnamma or namma hole is a natural rock waterhole in the Western Australian desert, a source of water like a spring."
+     "surface": "A Scotsman refusing to let some French visitors have a brief springtime break near Perth.",
+     "walkthrough": "'Perth' looks Scottish but is the Australian city; 'spring' is a water source, not the season. Hols are holidays.",
+     "definitionFit": "A namma (gnamma) hole is a natural rock waterhole in Western Australia, an Aboriginal water source."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Perth"
+     "misdirectedWord": "spring"
     }
    }
   },
