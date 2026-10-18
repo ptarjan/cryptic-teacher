@@ -143,8 +143,12 @@ def annotate_dates():
     for line in out.splitlines():
         day, _, subject = line.partition("\t")
         words = subject.split()
+        # "Annotate <id>", or a batch's "Annotate N puzzles: <id> <id> ..."
         if len(words) == 2 and words[0] == "Annotate":
             first.setdefault(words[1], day)
+        elif len(words) > 3 and words[0] == "Annotate" and words[2] == "puzzles:":
+            for pid in words[3:]:
+                first.setdefault(pid, day)
     return first
 
 

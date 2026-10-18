@@ -637,7 +637,7 @@ pool_reap() {
   rm -f "/tmp/ct-prereset-$id.rc"
   POOL_DONE=$((POOL_DONE + 1))
   # Refill the freed slot BEFORE committing, not after. Committing a bagged run
-  # is one commit per puzzle in it (~15), serial in this shell, and takes minutes
+  # is one validation per puzzle in it (~15) and one batch commit, serial in this shell, and takes minutes
   # on a loaded box; the slot used to sit empty for all of it, and a re-plan
   # (pool_replan) waited out the same commits, so a pool planned at 6 averaged
   # 0.41 over 10-17 03:50-04:10 and the window turned over at 54% with the rest
@@ -1015,6 +1015,12 @@ sync_attempt() {
 # publish_commits <rev> [all]: push every commit of <rev> origin/master lacks,
 # oldest first. Stops at the first that will not publish, or with `all` tries
 # the rest and fails at the end.
+#
+# A batch commit ("Annotate N puzzles: ...") holds several puzzle files. It is
+# dropped as already on origin only when EVERY one of its puzzle files matches
+# origin's (git diff --quiet over all its paths); one that still differs keeps
+# the commit, and push_puzzle_commit.sh publishes the others of it regardless
+# of one conflicting (see partial_replay there), so nothing is lost.
 publish_commits() {
   local c paths failed=0
   for c in $(git cherry origin/master "$1" | sed -n 's/^+ //p'); do

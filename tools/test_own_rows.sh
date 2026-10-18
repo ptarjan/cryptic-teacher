@@ -161,5 +161,41 @@ check "a puzzle with no rows commits the tables as HEAD had them" "" \
 check "and the sibling's row stays in the tree" "1" \
   "$(git diff -U0 -- $D | grep -c "^+.*\"$B/")"
 
+# A batch commit stages several puzzles' rows in one call: the second id's
+# splice builds on the first's, so both rows land (and a third id's, filed but
+# not named, stays out).
+python3 - "$A" "$B" <<'PY'
+import json, sys
+sys.path.insert(0, "tools")
+from json_merge import dump_lines
+from pathlib import Path
+p = Path("tools/data/source_clue_wrong.json")
+rows = json.loads(p.read_text())
+for pid in sys.argv[1:] + ["times-1"]:
+    rows[f"{pid}/98-across"] = ["Served", "Printed", "simulated"]
+p.write_text(dump_lines(rows))
+PY
+python3 tools/own_rows.py stage "$A" "$B"
+check "a multi-id stage holds every named puzzle's row" "2" \
+  "$(git diff --cached -U0 -- $D | grep -c '^+.*98-across')"
+check "and no unnamed puzzle's" "0" "$(git diff --cached -U0 -- $D | grep -c '"times-1/98-across')"
+
+# The whole batch commit: one commit, one subject naming both puzzles.
+git reset -q
+printf '\n' >>"puzzles/times/1984/$A.json"
+printf '\n' >>"puzzles/times/1984/$B.json"
+eval "$(sed -n '/^stage_puzzles() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
+eval "$(sed -n '/^worker_commit_batch() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
+# shellcheck disable=SC2329  # called by the eval'd worker_commit_batch
+worker_settle() { echo "settle $1" >>"$ALERTS.settle"; }
+WORKER_BATCH_IDS=("$A" "$B")
+declare -A WORKER_BATCH_POST=([$A]="||" [$B]="||")
+worker_commit_batch Annotate >/dev/null
+check "a batch is one commit, named for all its puzzles" "Annotate 2 puzzles: $A $B" \
+  "$(git log -1 --format=%s)"
+check "holding both puzzle files" "2" "$(git show --name-only --format= HEAD -- puzzles | wc -l | tr -d ' ')"
+check "and both rows" "2" "$(git show -U0 HEAD -- $D | grep -c "^+.*\"\($A\|$B\)/98-across")"
+check "each puzzle is settled once" "2" "$(wc -l <"$ALERTS.settle" | tr -d ' ')"
+
 [ "$fails" = 0 ] && echo "own_rows: all checks passed" || echo "own_rows: $fails FAILED"
 exit $((fails > 0))

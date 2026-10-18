@@ -24,8 +24,11 @@
 # one per line, in <job dir>/<leader>.bag beside the leader's sid file. The
 # leader's id names the conversation, its sid file, its log and its note; every
 # per-puzzle step below (set aside, put back, failed, finish) runs once per
-# puzzle still listed there, each puzzle committed on its own, and a puzzle
-# that fails costs only itself. worker_bag_ids lists them.
+# puzzle still listed there, each puzzle validated on its own and all that
+# validated committed together as one "Annotate N puzzles: ..." commit
+# (worker_commit_batch; 10-17, Paul: origin was flooded with a commit per
+# puzzle), and a puzzle that fails costs only itself: it is left out of the
+# batch. worker_bag_ids lists them.
 #
 # What stays the caller's is only scheduling: which ids, when, how many at
 # once, the usage gates, and what to do with an id after each step's verdict.
@@ -34,6 +37,12 @@
 # for one that began with a cold solve, which has no web on any of its turns.
 # Every turn sends tools/annotate_prompt.md as its system prompt, so a resume's
 # cached prefix always matches.
+
+# The bag's batch: the ids _worker_finish queued instead of committing (while
+# WORKER_BATCH_ON is set), and what each needs settled once committed.
+WORKER_BATCH_ON=""
+WORKER_BATCH_IDS=()
+declare -gA WORKER_BATCH_POST=()
 
 worker_sid() { local sid _; [ -s "$1" ] && read -r sid _ <"$1" && printf '%s\n' "$sid"; }
 worker_kind() { local _ kind=""; [ -s "$1" ] && read -r _ kind _ <"$1"; printf '%s\n' "$kind"; }
@@ -533,6 +542,23 @@ stage_puzzle() {
   done
   return 1
 }
+# stage_puzzle for several puzzles at once (one commit): every one's pathspecs,
+# then their rows in one own_rows call, which chains them onto HEAD's file.
+stage_puzzles() {   # id...
+  local -a spec all=()
+  local id try
+  for id in "$@"; do
+    puzzle_specs "$id" spec
+    all+=("${spec[@]}")
+  done
+  for try in 1 2 3 4 5; do
+    git add -A -- "${all[@]}" && python3 tools/own_rows.py stage "$@" && return 0
+    # shellcheck disable=SC2046  # one path per line, none with a space
+    git reset -q -- "${all[@]}" $(python3 tools/own_rows.py paths)
+    [ "$try" -lt 5 ] && clear_stale_index_lock
+  done
+  return 1
+}
 
 # Commit what is staged as "$1" under the index lock and push it. $2.. are the
 # pathspecs to unstage if the commit is refused. 0 when committed.
@@ -813,19 +839,38 @@ worker_finish() {   # id what sidfile log
 # does not overwrite another's.
 worker_finish_bag() {   # leader what sidfile log
   local what="$2" sidfile="$3" log="$4" m rc
+  local -a seen=()
   WORKER_BAG_AGAIN=""
+  WORKER_BATCH_IDS=()
+  WORKER_BATCH_ON=1
   for m in $(worker_bag_ids "$sidfile"); do
     cp "$log" "$log.$m" 2>/dev/null || : >"$log.$m"
     _worker_finish "$m" "$what" "$sidfile" "$log.$m"
     rc=$?
     rm -f "$log.$m"
-    [ "$rc" -eq 3 ] && return 3
+    if [ "$rc" -eq 3 ]; then
+      # Cut off: what validated so far is committed now, the rest stays bagged.
+      WORKER_BATCH_ON=""
+      worker_commit_batch "$what"
+      worker_bag_drop_all "$sidfile" "${seen[@]}"
+      return 3
+    fi
     [ "$rc" -eq 2 ] && WORKER_BAG_AGAIN="${WORKER_BAG_AGAIN:+$WORKER_BAG_AGAIN }$m"
     worker_clean "$m"
-    worker_bag_drop "$sidfile" "$m"
+    seen+=("$m")
   done
+  WORKER_BATCH_ON=""
+  worker_commit_batch "$what"
+  worker_bag_drop_all "$sidfile" "${seen[@]}"
   worker_forget "$sidfile"
   return 0
+}
+# Take each id off the bag: dealt with, committed (or left in the tree for the
+# uncommitted-puzzle sweep) once the batch's one commit has been tried.
+worker_bag_drop_all() {   # sidfile id...
+  local sidfile="$1" m
+  shift
+  for m in "$@"; do worker_bag_drop "$sidfile" "$m"; done
 }
 
 # Delete the scratch a finished puzzle left in tools/: its payloads
@@ -1010,6 +1055,13 @@ _worker_finish() {
   # goes in as its deletion. Its rows of fetch_puzzle.py go with it, and only
   # its own: a corrected clue is valid only beside its SOURCE_CLUE_WRONG row,
   # and siblings still in flight file theirs into the same file.
+  # A bag's finish (WORKER_BATCH_ON set) only queues the puzzle: worker_finish_bag
+  # commits everything that validated in one commit (worker_commit_batch).
+  if [ -n "${WORKER_BATCH_ON:-}" ]; then
+    WORKER_BATCH_IDS+=("$id")
+    WORKER_BATCH_POST[$id]="${partial:+p}|$verdict|$pending"
+    return 0
+  fi
   index_lock
   local out
   local -a spec
@@ -1021,14 +1073,54 @@ _worker_finish() {
   fi
   # shellcheck disable=SC2046  # one path per line, none with a space
   worker_commit "$what $id" "${spec[@]}" $(python3 tools/own_rows.py paths) || return 1
-  if [ -n "$partial" ] && [ "$verdict" = retry ]; then
-    : # Left unparked: the dropped clues are due, and the next pick is their tail.
-  elif [ -n "$pending" ]; then
-    python3 tools/failed_inputs.py record annotate "$id" --judged --reason "$pending" || true
-  else
-    python3 tools/failed_inputs.py clear annotate "$id" >/dev/null
-    python3 tools/discard_alert.py clear "$id" --dir "$(worker_runs_root)/discards" || true
-  fi
+  worker_settle "$id" "${partial:+p}" "$verdict" "$pending"
   echo "committed $what $id"
+  return 0
+}
+
+# What a committed puzzle changes in the ledgers: parked on what is still
+# failing, or cleared. $2 is "p" when clues were dropped to ship it.
+worker_settle() {   # id partial verdict pending
+  if [ -n "$2" ] && [ "$3" = retry ]; then
+    : # Left unparked: the dropped clues are due, and the next pick is their tail.
+  elif [ -n "$4" ]; then
+    python3 tools/failed_inputs.py record annotate "$1" --judged --reason "$4" || true
+  else
+    python3 tools/failed_inputs.py clear annotate "$1" >/dev/null
+    python3 tools/discard_alert.py clear "$1" --dir "$(worker_runs_root)/discards" || true
+  fi
+}
+
+# One commit for every puzzle a bag finished and queued in WORKER_BATCH_IDS:
+# "Annotate 9 puzzles: id1 id2 ...", or the plain "Annotate id" for one. Their
+# files and their rows of the shared tables are staged together, under the
+# index lock, so the commit is the whole batch or nothing; push_puzzle_commit.sh
+# then publishes it as one (its conflict handling is per puzzle file). On a
+# failed stage or commit the puzzles stay in the tree, uncommitted, as a single
+# failed commit leaves one. Empties the queue either way.
+worker_commit_batch() {   # what
+  local what="$1" out id subject post
+  local -a ids=("${WORKER_BATCH_IDS[@]}") specs=() one
+  WORKER_BATCH_IDS=()
+  [ "${#ids[@]}" -gt 0 ] || return 0
+  index_lock
+  for id in "${ids[@]}"; do
+    puzzle_specs "$id" one
+    specs+=("${one[@]}")
+  done
+  if ! out=$(stage_puzzles "${ids[@]}" 2>&1); then
+    index_unlock
+    alert "$WORKER_JOB could not stage ${ids[*]}'s files or rows of tools/fetch_puzzle.py, so $what ${ids[*]} is not committed: $(printf '%s' "$out" | tail -5)"
+    return 1
+  fi
+  if [ "${#ids[@]}" -eq 1 ]; then subject="$what ${ids[0]}"
+  else subject="$what ${#ids[@]} puzzles: ${ids[*]}"; fi
+  # shellcheck disable=SC2046  # one path per line, none with a space
+  worker_commit "$subject" "${specs[@]}" $(python3 tools/own_rows.py paths) || return 1
+  for id in "${ids[@]}"; do
+    post="${WORKER_BATCH_POST[$id]}"
+    worker_settle "$id" "${post%%|*}" "$(cut -d'|' -f2 <<<"$post")" "${post#*|*|}"
+    echo "committed $what $id"
+  done
   return 0
 }

@@ -253,5 +253,50 @@ raise SystemExit(1 if bad else 0)
 EOF
 grep -q "kept origin's value" "$tmp/reapply.err" || { echo "FAIL: reapply did not report the field origin kept"; rc=1; }
 
+# A batch commit ("Annotate N puzzles: ..." from the burn's bags) holds several
+# puzzle files. Origin re-dated two of them: both are re-applied in the one
+# replay, the third merges cleanly, and origin gets ONE commit.
+mkdir -p puzzles/mm
+for n in 1 2 3; do ann_puzzle "puzzles/mm/mm-$n.json" 2011-07-01 "" ""; done
+g add puzzles/mm && g commit -qm "File mm" -- puzzles/mm && "$push" 2>/dev/null
+g -C "$tmp/other" pull -q --rebase origin master 2>/dev/null
+for n in 1 2; do ann_puzzle "$tmp/other/puzzles/mm/mm-$n.json" 2011-07-18 Setter ""; done
+g -C "$tmp/other" commit -qam "Re-date mm" && g -C "$tmp/other" push -q origin HEAD:master
+for n in 1 2 3; do ann_puzzle "puzzles/mm/mm-$n.json" 2011-07-02 "" "Fish$n"; done
+g commit -qm "Annotate 3 puzzles: mm-1 mm-2 mm-3" -- puzzles/mm
+git fetch -q origin master
+before=$(git rev-list --count origin/master)
+"$push" 2>"$tmp/batch.err" || { echo "FAIL: a 3-puzzle batch was refused:"; cat "$tmp/batch.err"; rc=1; }
+git fetch -q origin master
+[ "$(( $(git rev-list --count origin/master) - before ))" = 1 ] || { echo "FAIL: the batch did not reach origin as one commit"; rc=1; }
+python3 - <<EOF || rc=1
+import json, subprocess
+bad = []
+for n, date in ((1, "2011-07-18"), (2, "2011-07-18"), (3, "2011-07-02")):
+    p = json.loads(subprocess.check_output(["git", "show", f"origin/master:puzzles/mm/mm-{n}.json"]))
+    if p.get("date") != date: bad.append(f"mm-{n} date {p.get('date')}, want {date}")
+    if (p["entries"][0].get("annotation") or {}).get("definition") != f"Fish{n}": bad.append(f"mm-{n} annotation missing")
+for b in bad: print("FAIL: batch:", b)
+raise SystemExit(1 if bad else 0)
+EOF
+
+# A batch where one puzzle cannot be replayed (origin deleted mm-5): the commit
+# still exits CONFLICT, but the other puzzle's annotation is published, and
+# mm-5 is not resurrected.
+for n in 4 5; do ann_puzzle "puzzles/mm/mm-$n.json" 2011-07-01 "" ""; done
+g add puzzles/mm && g commit -qm "File mm 4 5" -- puzzles/mm && "$push" 2>/dev/null
+g -C "$tmp/other" pull -q --rebase origin master 2>/dev/null
+g -C "$tmp/other" rm -q puzzles/mm/mm-5.json
+g -C "$tmp/other" commit -qm "Delete mm-5" && g -C "$tmp/other" push -q origin HEAD:master
+for n in 4 5; do ann_puzzle "puzzles/mm/mm-$n.json" 2011-07-02 "" "Fish$n"; done
+g commit -qm "Annotate 2 puzzles: mm-4 mm-5" -- puzzles/mm
+"$push" 2>"$tmp/batch2.err"
+[ $? = 3 ] || { echo "FAIL: a batch with a conflicting puzzle did not exit CONFLICT"; cat "$tmp/batch2.err"; rc=1; }
+git fetch -q origin master
+git cat-file -p origin/master:puzzles/mm/mm-4.json | grep -q Fish4 ||
+  { echo "FAIL: the conflicting puzzle held back the batch's other puzzle"; cat "$tmp/batch2.err"; rc=1; }
+git cat-file -e origin/master:puzzles/mm/mm-5.json 2>/dev/null &&
+  { echo "FAIL: the deleted mm-5 was resurrected"; rc=1; }
+
 [ "$rc" = 0 ] && echo "PASS"
 exit "$rc"

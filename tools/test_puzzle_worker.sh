@@ -424,7 +424,7 @@ check "no hint at all: nothing to ship" "$(got rc)" "1"
 out=$(blanks $'x: 28/30 annotated — FAIL\n  ERROR: 22D: no annotation. Every clue' 1)
 check "the deploy's rules refuse it: parked" "$(got rc)" "1"
 check "worker_finish ships it, and records it so the hole is not bought again" \
-  "$(grep -c 'worker_only_blanks "\$id" "\$vlog"' tools/puzzle_worker.sh) $(grep -c 'record annotate "\$id" --judged --reason "\$pending"' tools/puzzle_worker.sh)" "2 1"
+  "$(grep -c 'worker_only_blanks "\$id" "\$vlog"' tools/puzzle_worker.sh) $(grep -c 'record annotate "\$1" --judged --reason "\$4"' tools/puzzle_worker.sh)" "2 1"
 check "worker_finish drops only the failing clues (drop_failed_clues.py), then validates what is left as blanks" \
   "$(grep -c 'python3 tools/drop_failed_clues.py "\$id"' tools/puzzle_worker.sh)" "1"
 
@@ -526,6 +526,35 @@ check "a stopped bag asks each puzzle what to keep" "$(got visited)" "pw-a pw-b 
 check "the ones that kept edits are kept (0), the others are not" "$(got rc)" "0"
 check "the withdrawn puzzle leaves the bag, the discarded one stays to be redone" "$(got bag)" "pw-a pw-b pw-d "
 check "one note for the one conversation, a section for each" "$(got note)" "3 This session holds several puz"
+
+echo "a bag's puzzles that validate go in one commit (10-17: one commit per puzzle flooded origin)"
+# shellcheck disable=SC2329  # its stubs are called by the sourced worker
+batchflow() (   # mode: finish | cutoff
+  # shellcheck disable=SC2034  # read by the sourced worker
+  WORKER_JOB=test
+  . tools/puzzle_worker.sh
+  runs=$(mktemp -d); trap 'rm -rf "$runs"' EXIT
+  sid="$runs/pw-a.sid"
+  echo "sid-9" >"$sid"; printf 'pw-a\npw-b\npw-c\npw-d\n' >"$runs/pw-a.bag"
+  : >"$runs/log"
+  worker_clean() { :; }
+  _worker_finish() {   # a, c and d validate (queued, not committed); b fails
+    case "$1" in pw-b) return 1 ;; pw-c) [ "$MODE" = cutoff ] && return 3 ;; esac
+    [ -n "$WORKER_BATCH_ON" ] && WORKER_BATCH_IDS+=("$1")
+    return 0
+  }
+  worker_commit_batch() { echo "commit $1 ${WORKER_BATCH_IDS[*]}"; WORKER_BATCH_IDS=(); }
+  MODE="$1"
+  worker_finish_bag pw-a Annotate "$sid" "$runs/log"; echo "rc=$?"
+  echo "left=$(cat "$runs/pw-a.bag" 2>/dev/null | tr '\n' ' ')"
+)
+out=$(batchflow finish)
+check "the puzzles that validated are committed once, together; the failed one is left out" \
+  "$(grep -c '^commit' <<<"$out") $(grep '^commit' <<<"$out")" "1 commit Annotate pw-a pw-c pw-d"
+check "and all leave the bag" "$(got left)" ""
+out=$(batchflow cutoff)
+check "a cut-off bag commits what validated so far, keeping the cut-off puzzle bagged" \
+  "$(grep '^commit' <<<"$out")|$(got rc)|$(got left)" "commit Annotate pw-a|3|pw-c pw-d "
 
 echo "the burn bags only in the Annotate pool, and a bag's ids stay held"
 check "pool_bag does nothing outside the Annotate pool or in a dry run" \
