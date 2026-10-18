@@ -50,45 +50,48 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "ALLTHERE",
      "indicators": [
       {
-       "text": "West End of",
-       "note": "the west end of a word written left to right is its first letter"
+       "text": "Cycling round",
+       "at": 0,
+       "note": "cycling round means letters move from one end of the string to the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "Cycling",
-         "note": "the letters of THE REAL go round like a bicycle chain, the last two coming to the front"
-        },
-        {
-         "text": "round"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "the real",
-         "gives": "ALTHERE",
-         "note": "THE REAL cycled: AL moves from the back to the front"
+         "at": 14,
+         "note": "taken as written"
         },
         {
-         "words": "West End of London",
-         "gives": "L",
-         "note": "the first letter of London, sitting between AL and THERE"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "West End of",
+           "at": 23,
+           "note": "in an across answer the west end of a word is its left end, its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "London",
+           "at": 35,
+           "gives": "L",
+           "note": "London begins with L"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cyclist doing laps of the real West End, then a pointed remark about Barking, a borough in east London.",
-     "walkthrough": "Barking is an east London district, so the surface pairs it with the West End; here it is slang for mad, and 'not barking' is the definition.",
-     "definitionFit": "An idiom: someone with all their wits about them is sane, the opposite of barking mad."
+     "surface": "Someone tours the genuine West End, pointedly avoiding the London suburb of Barking.",
+     "walkthrough": "THE REAL plus L gives THEREALL; 'Cycling round' brings its last three letters to the front. Barking is an east London district, but barking also means mad.",
+     "definitionFit": "Someone all there is mentally alert and sane, the opposite of barking, slang for crazy."
     },
     "features": {
      "answerInScene": false,
@@ -413,34 +416,34 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "SMUT",
+     "op": "deletion",
      "indicators": [
       {
        "text": "at prime locations",
-       "note": "prime means prime number, so take the letters in positions 2, 3, 5 and 7"
+       "at": 33,
+       "note": "only the letters standing at prime-numbered positions, the 2nd, 3rd, 5th and 7th, are kept"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "is mounted",
-       "gives": "SMUT",
-       "select": "prime",
-       "note": "count along ISMOUNTED and keep positions 2, 3, 5 and 7"
+       "at": 22,
+       "gives": "ISMOUNTED",
+       "note": "taken as written, as the string of letters to pick from"
+      },
+      {
+       "gives": "IONED"
       }
      ]
     },
     "explanation": {
-     "surface": "Pornography being put up in the best spots, like posters.",
-     "walkthrough": "Prime here means prime numbers, not the best places the surface suggests; it is a rare device, so counting is the only way in.",
-     "definitionFit": "A plain synonym: the word for indecent writing or pictures, with a sense of dirt from its original meaning of a sooty mark."
+     "surface": "Explicit pictures are displayed in the best spots.",
+     "walkthrough": "Number the letters of 'is mounted' from 1: those at the prime positions 2, 3, 5 and 7 are S, M, U and T; everything else goes.",
+     "definitionFit": "Smut is obscene or indecent writing and pictures, i.e. pornography."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "prime"
     }
    }
@@ -528,20 +531,32 @@
      "indicators": [
       {
        "text": "Mad",
-       "note": "mad means crazy, so the letters that follow go wild"
+       "at": 0,
+       "note": "mad means crazed and wild, so the letters are thrown into a new order"
       }
      ],
      "parts": [
       {
-       "words": "mad ruler, not",
-       "note": "anagram fodder, eleven letters"
+       "words": "mad",
+       "at": 5,
+       "note": "taken as written, as anagram fodder"
+      },
+      {
+       "words": "ruler",
+       "at": 9,
+       "note": "taken as written"
+      },
+      {
+       "words": "not",
+       "at": 16,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A deranged king who is anything but forward-thinking.",
-     "walkthrough": "Mad appears twice: the first is the instruction and the second is part of the fodder. Not very progressive reads as one phrase, but not belongs to the fodder.",
-     "definitionFit": "Ultra- means extremely, so the word is literally very modern, and modern stands for progressive."
+     "surface": "A crazed, crazy king who is not exactly forward-thinking.",
+     "walkthrough": "The first 'Mad' is the anagram signal; the second is part of the fodder, with RULER and NOT.",
+     "definitionFit": "Ultramodern means extremely up to date in ideas or style, which is very progressive."
     },
     "features": {
      "answerInScene": false,
@@ -937,39 +952,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ROUGHS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "collecting",
+       "at": 12,
+       "note": "the rearranged letters collect the good letter, taking it inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Spent",
-         "note": "spent means worn out, so the letters of HOURS are rearranged"
-        },
-        {
-         "text": "collecting"
+         "at": 0,
+         "note": "spent means used up and worn out, so the letters are knocked into a new order"
         }
        ],
        "parts": [
         {
          "words": "hours",
-         "note": "HOURS rearranged"
-        },
-        {
-         "words": "good",
-         "gives": "G",
-         "note": "g = good; it goes between ROU and HS"
+         "at": 6,
+         "note": "taken as written, as anagram fodder"
         }
        ]
+      },
+      {
+       "words": "good",
+       "at": 23,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "An artist who has spent hours getting some decent early drafts together.",
-     "walkthrough": "Spent hours reads as time passing, but spent is the instruction to rearrange HOURS.",
-     "definitionFit": "A design-studio term: rough versions of a drawing or layout made before the finished art."
+     "surface": "An artist used up hours gathering decent first drafts.",
+     "walkthrough": "'Spent' rearranges HOURS into ROUHS, which is 'collecting' G.",
+     "definitionFit": "Roughs are rough drafts or early sketches made before the finished artwork."
     },
     "features": {
      "answerInScene": true,
@@ -1184,31 +1203,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SMUDGE",
      "indicators": [
       {
        "text": "making",
-       "note": "making X into Y turns one thing into another, so the L of large becomes the M of mark"
+       "at": 31,
+       "note": "making means turning the large letter into the mark letter"
       }
      ],
      "parts": [
       {
        "words": "industrial waste",
+       "at": 13,
        "gives": "SLUDGE",
-       "note": "sludge is industrial waste"
+       "note": "sludge is the thick waste from industrial processes"
       },
       {
-       "words": "large mark",
-       "gives": "SMUDGE",
-       "note": "l = large is swapped for m = mark, the old German currency"
+       "words": "large",
+       "at": 38,
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
+      },
+      {
+       "words": "mark",
+       "at": 44,
+       "gives": "M",
+       "note": "M is short for mark, the old German currency"
       }
      ]
     },
     "explanation": {
-     "surface": "A stain left by factory effluent that spreads into a big blot.",
-     "walkthrough": "Mark appears twice: the first is the definition, the second is the currency.",
-     "definitionFit": "A plain synonym: a dirty, blurred mark, the sort sludge would leave."
+     "surface": "A stain left by factory sludge spreads into a big blotch.",
+     "walkthrough": "'Making large mark' turns the L of SLUDGE into M.",
+     "definitionFit": "A smudge is a smeared blot or dirty mark."
     },
     "features": {
      "answerInScene": true,
@@ -1540,62 +1566,51 @@
      "indicators": [
       {
        "text": "full of",
-       "note": "full of means holding inside, so A A is filled with the cacti"
+       "at": 20,
+       "note": "the two area letters are full of the shortened plants, holding them between them"
       }
      ],
      "parts": [
       {
        "words": "areas",
+       "at": 14,
        "gives": "AA",
-       "note": "a = area, twice"
+       "note": "A is the abbreviation for area, so two of them are AA"
       },
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropped",
+         "at": 63,
+         "note": "dropped means let go, so the temperature letter falls out of the word for prickly plants"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "prickly plants",
-           "gives": "CACTI",
-           "note": "cacti are prickly plants"
-          },
-          {
-           "gives": "CT"
-          }
-         ]
+         "words": "prickly plants",
+         "at": 28,
+         "gives": "CACTI",
+         "note": "cacti are spiny, prickly plants"
         },
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "temperature's dropped",
-           "gives": "CACI",
-           "note": "CACTI loses T, for temperature, and sits inside A…A"
-          },
-          {
-           "gives": "ACI"
-          }
-         ]
+         "words": "temperature",
+         "at": 49,
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tree that grows among cacti once the heat has gone out of the day.",
-     "walkthrough": "Areas is plural so it gives two As, which wrap round what is left of the cacti.",
-     "definitionFit": "A definition by example: the thorny wattle tree of dry lands."
+     "surface": "A tree grows in desert zones dense with cacti once it has cooled down.",
+     "walkthrough": "The two areas are the abbreviation A twice, and they are 'full of' the cacti once the temperature letter has gone.",
+     "definitionFit": "The acacia is a thorny tree or shrub of warm regions, such as the wattle."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "areas"
+     "misdirectedWord": "dropped"
     }
    }
   },

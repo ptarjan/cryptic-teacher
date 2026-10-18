@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,58 +44,75 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "VOCALISM",
-     "indicators": [
-      {
-       "text": "weird",
-       "note": "Weird means out of the ordinary shape, so the letters beside it will not stand in the ordinary order they arrive in."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "initially",
-         "note": "Initially points at the start of a word, so only the letter that opens it is taken."
+         "text": "briefly",
+         "at": 18,
+         "note": "briefly means in short form, so very is cut to its abbreviation, as in v good, dropping the rest"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "briefly",
-           "note": "Briefly asks for the short form of the word beside it, and the shortest form a word can have is its recognised single-letter abbreviation."
-          }
-         ],
-         "parts": [
-          {
-           "words": "very briefly",
-           "gives": "VERY",
-           "note": "V is the everyday shortening of very, as in a school report's 'v good'"
-          }
-         ]
+         "words": "very",
+         "at": 13,
+         "gives": "VERY",
+         "note": "taken as written, before being shortened"
         },
+        {
+         "gives": "ERY"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "weird",
+         "at": 29,
+         "note": "weird means strange and twisted, so the letters are put in a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "social",
-         "note": "six letters resettled into a new order"
-        },
+         "at": 35,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 49,
+         "note": "initially points to the first letter of media"
+        }
+       ],
+       "parts": [
         {
          "words": "media",
+         "at": 42,
          "gives": "M",
-         "note": "the opening letter of the word, taken on its own"
+         "note": "media starts with M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rumour going round briefly on some strange corner of social media.",
-     "walkthrough": "'Social media' is one modern phrase and the clue splits it in two, taking one word for its letters and the other for its initial.",
-     "definitionFit": "Vocalism is sound made with the voice, the exercise of the vocal organs, so the definition names a thing the voice produces."
+     "surface": "A shocked remark about something odd being said on social media.",
+     "walkthrough": "'Very briefly' gives V, its abbreviation; 'weird' rearranges SOCIAL into OCALIS; 'initially' takes M from media.",
+     "definitionFit": "A vocalism is a vocal sound or spoken utterance, so it is something uttered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "weird"
     }
    }
   },
@@ -840,37 +858,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KEYNES",
-     "indicators": [
-      {
-       "text": "inconclusively",
-       "note": "What is done inconclusively stops short of the end, so the word it applies to never reaches its final letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "crucial",
+       "at": 17,
+       "gives": "KEY",
+       "note": "something crucial is key"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "inconclusively",
+         "at": 31,
+         "note": "inconclusively means without its conclusion, so the final letter of the word for point goes"
+        }
+       ],
        "parts": [
         {
-         "words": "crucial",
-         "gives": "KEY",
-         "note": "the key point in an argument is the crucial one"
+         "words": "point",
+         "at": 25,
+         "gives": "NESS",
+         "note": "a ness is a headland or point, as in Dungeness on the Kent coast"
         },
         {
-         "words": "point",
-         "gives": "NES",
-         "note": "a ness is a headland, the point of land that runs out into the sea, as in Sheerness — and its last letter never arrives"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An economist making a vital point and not quite clinching it.",
-     "walkthrough": "'Point' in a crossword is usually a compass direction, N or S or E or W, and that expectation is what hides the coastal sense the clue actually wants.",
-     "definitionFit": "John Maynard Keynes is the economist who argued that governments should spend their way out of a slump, so the bare word names him by his trade."
+     "surface": "An economist makes a vital argument but fails to reach a conclusion.",
+     "walkthrough": "'Inconclusively' cuts NESS to NES. John Maynard Keynes was the British economist behind Keynesian theory.",
+     "definitionFit": "John Maynard Keynes is one of the most famous economists of the twentieth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
     }
    }
   },
@@ -982,37 +1009,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "INTERIOR",
-     "indicators": [
-      {
-       "text": "backed",
-       "note": "Something backed has been turned to face the other way, so an across piece is written from its last letter to its first."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "put in grave situation",
+       "at": 8,
+       "gives": "INTER",
+       "note": "to inter is to put a body in a grave"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed",
+         "at": 31,
+         "note": "backed means turned back to front, so the French king is read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "put in grave situation",
-         "gives": "INTER",
-         "note": "to inter is to put a body in a grave; 'situation' fills out the picture without adding a letter"
-        },
-        {
          "words": "foreign ruler",
-         "gives": "IOR",
-         "note": "roi is French for king, and his three letters are set down right to left"
+         "at": 38,
+         "gives": "ROI",
+         "note": "roi is French for king, a foreign ruler"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A private soldier in deep trouble who came out in support of a foreign king.",
-     "walkthrough": "'Private' is the rank the whole surface is built on, and a crossword usually turns that into PTE or GI. Here it is not wordplay at all — it is the definition.",
-     "definitionFit": "Interior means inner, and a person's interior life is their private one, so the adjective substitutes directly."
+     "surface": "A soldier is buried in a dire position, having supported an overseas monarch.",
+     "walkthrough": "'Private' looks like a soldier but is the definition; ROI, the French king, is 'backed' to IOR.",
+     "definitionFit": "The interior is the inner, inward part, so interior can mean private or personal, as in an interior life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Private"
     }
    }
   },
@@ -1184,49 +1217,63 @@
      "op": "container",
      "indicators": [
       {
-       "text": "reversed",
-       "note": "Reversed says the piece is turned end for end, so an across entry takes those letters from the last to the first."
+       "text": "in",
+       "at": 15,
+       "note": "in puts the reversed thing inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "words": "chart I",
-       "gives": "ARITHC",
-       "note": "six letters resettled into a new order, then parted to make room"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "revised",
+         "at": 26,
+         "note": "revised means altered, so chart and I are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chart",
+         "at": 18,
+         "note": "taken as written, as anagram fodder"
+        },
+        {
+         "words": "I",
+         "at": 24,
+         "note": "taken as written"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "In means inside, so the turned-round piece is planted among the shuffled letters rather than set beside them."
+         "text": "reversed",
+         "at": 6,
+         "note": "reversed means the word for thing is written backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "revised",
-           "note": "Revising something means going back over it and altering it, so these letters will not stay in the order they are given."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Thing",
-           "gives": "METI",
-           "note": "a thing is an item, and these are its four letters read the other way round"
-          }
-         ]
+         "words": "Thing",
+         "at": 0,
+         "gives": "ITEM",
+         "note": "an item is a thing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something turned the wrong way round in a chart that had to be revised.",
-     "walkthrough": "'Chart I revised' reads as the setter talking about his own diagram, and the 'I' is nothing of the kind: it is one more letter of the fodder.",
-     "definitionFit": "Arithmetic is the branch of mathematics that deals with numbers and the four operations, so it is one part of the wider subject."
+     "surface": "An object is flipped on a diagram that has been corrected, forming part of a maths lesson.",
+     "walkthrough": "'Reversed' turns ITEM into METI; 'revised' rearranges CHART and I into ARITHC, and METI goes 'in' it.",
+     "definitionFit": "Arithmetic is the branch of mathematics dealing with numbers and calculation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chart"
     }
    }
   },
