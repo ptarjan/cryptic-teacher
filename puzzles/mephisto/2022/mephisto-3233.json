@@ -61,43 +61,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ESTAFETTE",
+     "op": "container",
      "indicators": [
       {
-       "text": "a lot of",
-       "note": "a lot of something is most but not all of it, so the cheese word loses its tail"
+       "text": "is carrying",
+       "at": 12,
+       "note": "carrying means holding inside, so the car word goes round the cheese"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "car",
+       "at": 8,
+       "gives": "ESTATE",
+       "note": "an estate is an estate car, a station wagon"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "carrying",
-         "note": "a vehicle carrying a load holds it inside, so the car word wraps round the cheese"
+         "text": "a lot of",
+         "at": 24,
+         "note": "a lot of a word is most of it, so its last letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "car",
-         "gives": "ESTATE",
-         "note": "an estate is an estate car, a station wagon"
+         "words": "cheese",
+         "at": 33,
+         "gives": "FETA",
+         "note": "feta is a Greek cheese"
         },
         {
-         "words": "cheese",
-         "gives": "FET",
-         "note": "feta, the Greek cheese, without its last letter"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A delivery van is loaded with most of a consignment of cheese.",
-     "walkthrough": "Car alone suggests no particular model; an estate car is the British name for a station wagon.",
-     "definitionFit": "An estafette is a military messenger on horseback who carries dispatches, i.e. a courier."
+     "surface": "A car is carrying a big load of cheese, which is a courier's job.",
+     "walkthrough": "'A lot of' cuts FETA to FET, which ESTATE then holds after its first four letters.",
+     "definitionFit": "An estafette is an old word for a mounted courier or military messenger who carried dispatches."
     },
     "features": {
      "answerInScene": true,
@@ -337,47 +342,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRACHEA",
+     "op": "container",
      "indicators": [
       {
-       "text": "not half",
-       "note": "not half means one half of the word is dropped and the other kept"
+       "text": "taking",
+       "at": 22,
+       "note": "taking means holding inside, so the shortened word goes round the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "taking",
-         "note": "taking means taking in, so the shortened journey word holds the other inside"
+         "text": "not half",
+         "at": 13,
+         "note": "not half means only one half of the word survives, here its front half"
         }
        ],
        "parts": [
         {
          "words": "journey",
-         "gives": "TRA",
-         "note": "the first half of travel, a journey"
+         "at": 5,
+         "gives": "TRAVEL",
+         "note": "to journey is to travel"
         },
         {
-         "words": "long",
-         "gives": "ACHE",
-         "note": "to ache for something is to long for it"
+         "gives": "VEL"
         }
        ]
+      },
+      {
+       "words": "long",
+       "at": 29,
+       "gives": "ACHE",
+       "note": "to long for something is to ache for it"
       }
      ]
     },
     "explanation": {
-     "surface": "An Underground trip that is only half as long as expected.",
-     "walkthrough": "'Tube journey' reads as one trip on the London Underground, but Tube alone is the definition.",
-     "definitionFit": "The trachea is the windpipe, the air tube running from the larynx to the lungs."
+     "surface": "A trip on the Tube that, far from being half over, is taking ages.",
+     "walkthrough": "'Not half' leaves TRA from TRAVEL; 'taking' puts ACHE after its TR. The London Underground is called the Tube, which misleads from the windpipe sense.",
+     "definitionFit": "The trachea is the windpipe, the tube carrying air from the throat to the lungs."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Tube"
     }
    }
@@ -403,43 +414,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EALING",
+     "op": "container",
      "indicators": [
       {
-       "text": "Only one large",
-       "note": "keeping only one of a doubled large means the word sheds one of its two L's"
+       "text": "in",
+       "at": 29,
+       "note": "in puts the shortened word inside the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "say",
+       "at": 32,
+       "gives": "EG",
+       "note": "e.g. means for example, which is what say means here"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the shortened word inside the abbreviation for say"
+         "text": "Only one",
+         "at": 0,
+         "note": "only one says one of the doubled letters is kept and the other removed"
         }
        ],
        "parts": [
         {
-         "words": "say",
-         "gives": "EG",
-         "note": "e.g., for example, i.e. say"
+         "words": "comprehensive",
+         "at": 15,
+         "gives": "ALLIN",
+         "note": "all-in means comprehensive, everything included"
         },
         {
-         "words": "comprehensive",
-         "gives": "ALIN",
-         "note": "all-in means comprehensive; one of its two large-letter L's goes"
+         "words": "large",
+         "at": 9,
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A borough with a single big comprehensive school, for example.",
-     "walkthrough": "A comprehensive is a British state secondary school, but here the word means all-inclusive; L is the clothing-size abbreviation for large.",
-     "definitionFit": "Ealing is a borough of west London, famous for its film studios."
+     "surface": "A single large comprehensive school in, for example, a London borough.",
+     "walkthrough": "'Only one' of the two Ls in ALLIN stays, leaving ALIN, which goes 'in' EG. The comprehensive looks like a school but is the word all-in.",
+     "definitionFit": "Ealing is a borough in west London, famous for its film studios."
     },
     "features": {
      "answerInScene": true,
@@ -651,42 +670,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LURDANES",
+     "op": "composite",
      "indicators": [
       {
-       "text": "not independent",
-       "note": "the abbreviation for independent must be dropped from the word before it is rearranged"
+       "text": "working",
+       "at": 9,
+       "note": "working here means being worked into a new shape, so the letters are rearranged"
+      },
+      {
+       "text": "not",
+       "at": 30,
+       "note": "not says a letter named next is left out of the rearranged word"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "working",
-         "note": "working suggests letters being worked over into a new order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "laundries",
-         "gives": "LAUNDRES",
-         "note": "laundries with I, for independent, removed"
-        }
-       ]
+       "words": "laundries",
+       "at": 20
+      },
+      {
+       "words": "independent",
+       "at": 34,
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "Dim-witted staff are employed in launderettes that belong to a chain.",
-     "definitionFit": "Lurdane is an archaic word for a lazy, stupid person, so lurdanes are dullards or idlers."
+     "surface": "Dim people work in laundries, without anyone independent among them.",
+     "walkthrough": "Take the I for independent out of LAUNDRIES and rearrange the remaining eight letters.",
+     "definitionFit": "Lurdane is an archaic word for a lazy, stupid person, so lurdanes are dullards."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "independent"
+     "misdirectedWord": "working"
     }
    }
   },
@@ -708,31 +725,31 @@
      {
       "text": "Crazy",
       "at": 0,
-      "note": "An adjective defining a noun: fair in Mephisto because Chambers allows crazy as a noun for a craze, which is exactly what a rave is."
+      "note": "Chambers allows crazy as a noun meaning a craze, which a rave is"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RAVE",
+     "op": "middle",
      "indicators": [
       {
        "text": "missing out both wings",
+       "at": 11,
        "note": "the wings of a word are its two outer letters, and both are left off"
       }
      ],
      "parts": [
       {
        "words": "pass",
+       "at": 6,
        "gives": "TRAVEL",
        "note": "to pass along is to travel"
       }
      ]
     },
     "explanation": {
-     "surface": "A wild pass in football that misses both wingers.",
-     "walkthrough": "Wings suggests wide players on a pitch; here they are the first and last letters.",
-     "definitionFit": "A rave is a craze or passing enthusiasm, the sense of crazy as a noun for the latest fad."
+     "surface": "A wild pass in a football match that misses both wingers.",
+     "walkthrough": "Wings suggests wide players on a pitch; here they are the first and last letters. Crazy is the noun, a craze, as Chambers allows.",
+     "definitionFit": "A rave can mean a passing enthusiasm or fad, the same as a craze."
     },
     "features": {
      "answerInScene": false,
@@ -971,43 +988,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHINDIT",
+     "op": "container",
      "indicators": [
       {
-       "text": "not unknown",
-       "note": "an unknown in algebra is a letter like x or y, and this one is to be dropped"
+       "text": "in",
+       "at": 31,
+       "note": "in places the back word inside the shortened town word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the back word inside the shortened town word"
+         "text": "not",
+         "at": 45,
+         "note": "not says the following letter is dropped from the town word"
         }
        ],
        "parts": [
         {
          "words": "large town",
-         "gives": "CIT",
-         "note": "city without the Y"
+         "at": 34,
+         "gives": "CITY",
+         "note": "a city is a large town"
         },
         {
-         "words": "back",
-         "gives": "HIND",
-         "note": "hind means back or rear"
+         "words": "unknown",
+         "at": 49,
+         "gives": "Y",
+         "note": "y is one of the letters algebra uses for an unknown"
         }
        ]
+      },
+      {
+       "words": "back",
+       "at": 26,
+       "gives": "HIND",
+       "note": "hind means back or rear, as in hind legs"
       }
      ]
     },
     "explanation": {
      "surface": "A wartime commando returns to a big town where he is recognised.",
-     "walkthrough": "'Back in' looks like a reversal instruction, but back is a word for rear.",
-     "definitionFit": "The Chindits were British special forces who fought behind Japanese lines in Burma in 1943-44."
+     "walkthrough": "'Not unknown' drops the Y from CITY, leaving CIT, and 'in' places HIND after its C.",
+     "definitionFit": "The Chindits were the British special force fighting behind Japanese lines in Burma in the Second World War."
     },
     "features": {
      "answerInScene": true,
@@ -1037,37 +1062,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DIOCESAN",
+     "op": "composite",
      "indicators": [
       {
-       "text": "long forgotten",
-       "note": "forgotten means left out, so the abbreviation for long is dropped from the fodder"
+       "text": "blessed",
+       "at": 7,
+       "note": "blessed is used like blasted, a mild curse that implies the letters are messed up and rearranged"
+      },
+      {
+       "text": "forgotten",
+       "at": 32,
+       "note": "forgotten means left out, so the named letter is dropped from the pool"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "blessed",
-         "note": "blessed is a mild curse like blasted, implying the letters are messed up and rearranged"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "in old case",
-         "gives": "INODCASE",
-         "note": "the words without L, for long"
+         "words": "in",
+         "at": 15
+        },
+        {
+         "words": "old",
+         "at": 18
+        },
+        {
+         "words": "case",
+         "at": 22
         }
        ]
+      },
+      {
+       "words": "long",
+       "at": 27,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A bishop is consecrated inside an ancient chest that has long been forgotten.",
-     "definitionFit": "A diocesan is the bishop in charge of a diocese, as opposed to a suffragan or assistant."
+     "surface": "A bishop is blessed with an old case that was long forgotten.",
+     "walkthrough": "Remove L for long from IN OLD CASE and rearrange the eight letters left. Diocesan is a noun here, a bishop in charge of a diocese.",
+     "definitionFit": "As a noun a diocesan is the bishop who has charge of a diocese."
     },
     "features": {
      "answerInScene": true,
@@ -1374,37 +1410,34 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RANGOLI",
+     "op": "composite",
      "indicators": [
       {
-       "text": "I rejected",
-       "note": "rejected means thrown out, so one I is removed from the fodder"
+       "text": "fancy",
+       "at": 20,
+       "note": "fancy suggests something elaborate and reworked, so the letters are rearranged"
+      },
+      {
+       "text": "rejected",
+       "at": 2,
+       "note": "rejected means thrown out, so one I goes from the letters before they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "fancy",
-         "note": "fancy suggests something elaborate and reworked, so the letters are rearranged"
-        }
-       ],
-       "parts": [
-        {
-         "words": "original",
-         "gives": "ORGINAL",
-         "note": "original with one I removed"
-        }
-       ]
+       "words": "original",
+       "at": 11
+      },
+      {
+       "words": "I",
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "Turning down unusual, elaborate Hindu ornaments.",
-     "definitionFit": "Rangoli are colourful floor patterns of powder or rice made at Hindu festivals such as Diwali."
+     "surface": "Someone turns down original fancy decorations made for a Hindu festival.",
+     "walkthrough": "Drop one I from ORIGINAL and rearrange the seven letters left.",
+     "definitionFit": "Rangoli are coloured patterns drawn on floors and doorsteps in India, especially at Diwali."
     },
     "features": {
      "answerInScene": true,
@@ -1974,46 +2007,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCABLANDS",
+     "op": "container",
      "indicators": [
       {
-       "text": "right away",
-       "note": "away means sent off, so the abbreviation for right is removed"
+       "text": "covering",
+       "at": 17,
+       "note": "covering means wrapping round, so the shortened word encloses the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "covering",
-         "note": "covering means wrapping round, so the shortened word encloses the other"
+         "text": "away",
+         "at": 12,
+         "note": "away means sent off, so the abbreviation for right is removed"
         }
        ],
        "parts": [
         {
          "words": "Marks",
-         "gives": "SCAS",
-         "note": "scars, marks, losing R for right"
+         "at": 0,
+         "gives": "SCARS",
+         "note": "scars are marks left on the skin"
         },
         {
-         "words": "gentle",
-         "gives": "BLAND",
-         "note": "bland means mild or gentle"
+         "words": "right",
+         "at": 6,
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "gentle",
+       "at": 26,
+       "gives": "BLAND",
+       "note": "bland means mild or gentle"
       }
      ]
     },
     "explanation": {
-     "surface": "Scars disappear, giving way to soft American landscape.",
-     "walkthrough": "Gentle looks like a description of the terrain, but it is the inner piece.",
-     "definitionFit": "Scablands are bare eroded basalt plains, notably the Channeled Scablands of Washington State in the US."
+     "surface": "Scars, with the right one gone, cover gentle American country.",
+     "walkthrough": "'Right away' takes R from SCARS to leave SCAS, which then goes round BLAND after its A.",
+     "definitionFit": "Scablands are bare, eroded lava plains in the north-western United States, notably in Washington State."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "gentle"
     }

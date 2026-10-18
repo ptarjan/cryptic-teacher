@@ -554,37 +554,44 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "FUTTOCK",
-     "indicators": [
-      {
-       "text": "from",
-       "note": "one letter comes in place of another taken from the following word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Loud",
+       "at": 0,
        "gives": "F",
-       "note": "forte, the musical notation for loud"
+       "note": "F is forte, the musical direction for loud"
       },
       {
-       "words": "bravo",
-       "gives": "B",
-       "note": "B in the phonetic alphabet"
-      },
-      {
-       "words": "behind",
-       "gives": "BUTTOCK",
-       "note": "one's behind, the backside"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "from",
+         "at": 11,
+         "note": "from here means taken away from, so one letter leaves the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "behind",
+         "at": 16,
+         "gives": "BUTTOCK",
+         "note": "a behind is a buttock"
+        },
+        {
+         "words": "bravo",
+         "at": 5,
+         "gives": "B",
+         "note": "Bravo is B in the NATO phonetic alphabet"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A loud cheer comes from the back of the crowd.",
-     "walkthrough": "Read 'Loud bravo from behind' as F replacing B in a word for the backside.",
-     "definitionFit": "A futtock is one of the curved timbers that form the lower frame of a wooden ship's hull."
+     "surface": "A noisy cheer comes from someone's rear, beside a ship's timber.",
+     "walkthrough": "'Behind' looks like a direction but is the noun, a person's rear; 'from' takes bravo out of it.",
+     "definitionFit": "A futtock is one of the curved middle ribs in the frame of a wooden ship's hull."
     },
     "features": {
      "answerInScene": false,
@@ -1213,36 +1220,26 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "being outside means wrapping round the other item"
-      },
-      {
-       "text": "bottom half of",
-       "note": "in a down clue the bottom half is the latter half of the word"
+       "at": 32,
+       "note": "outside says the first piece goes round the other one"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
+       "words": "bottom half of banner",
+       "at": 10,
        "gives": "NER",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "banner",
-         "gives": "NER",
-         "select": "last",
-         "note": "its last three letters"
-        }
-       ]
+       "note": "the second half of the six letters of banner is NER"
       },
       {
        "words": "the",
-       "note": "taken as written"
+       "at": 6
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for hanging a banner lower down.",
+     "surface": "An instruction to lower the bottom half of a banner hanging outside.",
+     "walkthrough": "'The' sits whole inside NER, the bottom half of 'banner', with 'outside' wrapping it round.",
      "definitionFit": "Nether is an old adjective meaning lower or under, as in the nether regions."
     },
     "features": {
