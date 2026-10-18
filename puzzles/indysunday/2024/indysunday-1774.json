@@ -576,50 +576,53 @@
      "indicators": [
       {
        "text": "occupied by",
-       "note": "an occupied building has people living inside, so the centre word has letters inside it"
+       "at": 13,
+       "note": "a place occupied by something holds it inside, so these letters go within"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Centre",
-         "gives": "CORE",
-         "note": "the core is the centre"
-        },
-        {
-         "words": "a",
-         "note": "as written"
-        }
-       ]
+       "words": "Centre",
+       "at": 6,
+       "gives": "CORE",
+       "note": "the core is the centre"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "case",
-         "note": "a case is the outside of something, so only the first and last letters"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "criminal",
-         "note": "the outer letters of CriminaL"
+         "words": "a",
+         "at": 25,
+         "gives": "A"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "case",
+           "at": 36,
+           "note": "the case of a word is its outer shell, its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "criminal",
+           "at": 27
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A craft centre broken into by a criminal case.",
-     "walkthrough": "'Craft Centre' reads as a place for arts and crafts, but 'Craft' is a boat and 'Centre' starts the wordplay. The answer is a small round wicker boat of Wales and Ireland.",
-     "definitionFit": "A definition by example: a craft is any boat, and this is a small round one."
+     "surface": "A craft centre is taken over by a criminal case.",
+     "walkthrough": "'Craft Centre' reads as an arts venue, but 'Craft' is the definition, a boat. A coracle is a small round boat traditional in Wales.",
+     "definitionFit": "A coracle is a small round boat of wicker covered with hide, a type of watercraft."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Craft"
     }
    }
