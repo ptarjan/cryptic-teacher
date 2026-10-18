@@ -239,9 +239,24 @@ arch_clue = "Triumphal building, notion originally dismissed by right-winger, se
 check("an indicator between the pieces over letters inside one piece is counted", 1,
       v.deletion_inside_component(arch, arch_clue))
 check("the same without the clue text counts nothing", 0, v.deletion_inside_component(arch))
-check("an indicator after every piece is the whole's, not counted", 0, v.deletion_inside_component(
-    arch, clue="Triumphal building, notion, right-winger originally dismissed"))
-check("letters that are a whole piece are not", 0, v.deletion_inside_component(
+check("an indicator after every piece over letters in one piece is counted (everyman-3750 11a)", 1,
+      v.deletion_inside_component(arch, clue="Triumphal building, notion, right-winger originally dismissed"))
+check("an end indicator is deletion_scope's, not this rule's", 0, v.deletion_inside_component(
+    {**arch, "indicators": [{"text": "endlessly"}]}, clue="Triumphal building, notion, right-winger endlessly"))
+
+def del_one(ind, removed, *pieces):
+    return {"op": "deletion", "indicators": [{"text": ind}], "parts": [
+        {"op": "charade", "parts": [{"words": "w", "gives": g} for g in pieces]}, {"gives": removed}]}
+
+check("half-hearted over CON+SIDE+RABBLE taking B is counted (sundaytel-2922 3d)", 1,
+      v.deletion_inside_component(del_one("half-hearted", "B", "CON", "SIDE", "RABBLE"), "Tory party followed by half-hearted mob"))
+check("a heart word taking the whole's own centre is not", 0,
+      v.deletion_inside_component(del_one("heartless", "E", "AB", "CED"), "x heartless y"))
+check("half-cut over FAVE+LAGS taking GS, at the whole's end, is counted (sundaytimes-4834 21d)", 1,
+      v.deletion_inside_component(del_one("half-cut", "GS", "FAVE", "LAGS"), "best-loved by half-cut lags"))
+check("a non-half indicator taking the whole's end is not", 0,
+      v.deletion_inside_component(del_one("losing", "GS", "FAVE", "LAGS"), "best-loved losing lags"))
+check("letters that are a whole piece are counted: a piece added to be removed", 1, v.deletion_inside_component(
     {**arch, "parts": [arch["parts"][0], {"gives": "IDEA"}]}, clue=arch_clue))
 
 def role_tree(outer_ind, inner_ind=None):

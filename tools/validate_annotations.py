@@ -4342,7 +4342,7 @@ DELETION_SCOPE = "deletion whose removed letters are not where its indicator say
 #: the deletion rule. A third, a leaf giving a non-word (MORECAMBE CAMBE), was dropped:
 #: 138k leaves give a letter string the word list lacks, and 17 of 20 sampled were right.
 WRONG_ROLE = "indicator filed on an op of another type"
-DELETION_INSIDE = "deletion over a charade whose indicator sits among its pieces and takes letters from one piece"
+DELETION_INSIDE = "deletion over a charade that takes letters from one piece, or a whole piece the charade added"
 
 
 @functools.lru_cache(maxsize=1)
@@ -4427,23 +4427,29 @@ _DEL_MIDDLE = re.compile(r"\b(heart|centre|center|middle|core|inside|interior|gu
                          r"outsides?|regularly|alternate|odd|even)\w*", re.I)
 
 
-def _clue_start(node, low):
-    """Where the first of the clue words under `node` sits in the lower-cased clue `low`, or -1."""
-    at = [low.find(str(n["words"]).lower()) for n in _walk(node) if "op" not in n and n.get("words")]
-    return -1 if not at or min(at) < 0 else min(at)
+#: The middle indicators that name the heart of a word, which a deletion may take from
+#: one piece of a charade when the letters are not the whole's centre.
+_DEL_HEART = re.compile(r"\b(heart|centre|center|middle|core|disheartened|heartless|half-?hearted)\w*", re.I)
+_DEL_HALF = re.compile(r"\bhalf\b|\bhalf-", re.I)
 
 
 def deletion_inside_component(tree, clue=None):
-    """Deletions over a charade whose indicator names no end or middle, sits in the clue
-    BETWEEN the charade's pieces, and whose removed letters lie, in every reading, inside
-    ONE piece (neither a run of whole pieces nor an end of the whole). ARCH+IDEA+CON less I,
-    "originally dismissed" after "notion" (indysunday-1538 9d): an indicator among the
-    pieces acts on the piece before it, so the deletion is del(IDEA, I) inside the charade.
-    An indicator after every piece ("Al leaves", "mostly") is read as the whole's and left
-    alone. Needs the clue text to place the words; with none it counts nothing."""
+    """Deletions over a charade (indicator anywhere in the clue) that take letters from
+    ONE piece, or take whole pieces the charade added. ARCH+IDEA+CON less I,
+    "originally dismissed" after "notion" (indysunday-1538 9d): an indicator acts on the
+    piece it sits by, so the deletion is del(IDEA, I) inside the charade. Three forms,
+    each with every reading of the removed letters:
+      - letters strictly inside one piece, touching neither end of the whole, with an
+        indicator that names no end, head or middle (a heart word counts when the letters
+        are not the whole's own centre; "half" counts when they touch the whole's end);
+        CON+SIDE+RABBLE less B, "half-hearted" (sundaytel-2922 3d), DIAL+SECT less S,
+        "ignoring singular" (everyman-3750 11a), FAVE+LAGS less GS, "half-cut"
+        (sundaytimes-4834 21d), whether the indicator is among the pieces or after them;
+      - letters that are exactly whole pieces: a charade adds a piece for the deletion to
+        remove (NICE+ICE less NICE; Actor+more+English less EE, telegraph-30860 20a).
+    Needs the clue text; with none it counts nothing."""
     if not clue:
         return 0
-    low = str(clue).lower()
     n = 0
     for node in _walk(tree):
         parts = node.get("parts") or []
@@ -4451,15 +4457,8 @@ def deletion_inside_component(tree, clue=None):
                 or not all(isinstance(p, dict) for p in parts) or parts[0].get("op") != "charade":
             continue
         text = " ".join(str(i.get("text") or "") for i in node.get("indicators") or [])
-        if _DEL_END.search(text) or _DEL_HEAD.search(text) or _DEL_MIDDLE.search(text):
-            continue
         comps = parts[0].get("parts") or []
         if len(comps) < 2 or not all(isinstance(c, dict) for c in comps):
-            continue
-        starts = [_clue_start(c, low) for c in comps]  # clue order, not charade order (<chasing>)
-        first, last = (min(starts), max(starts)) if min(starts) >= 0 and len(set(starts)) > 1 else (-1, -1)
-        where = [low.find(str(i.get("text") or "").lower()) for i in node.get("indicators") or []]
-        if min(first, last) < 0 or not where or not all(first <= w < last for w in where):
             continue
         try:
             cvals = [sorted(wordplay.values(c)) for c in comps]
@@ -4468,22 +4467,29 @@ def deletion_inside_component(tree, clue=None):
             continue
         if any(not v for v in cvals) or any(not v for v in cuts):
             continue
-        ok = False
+        heart, half = bool(_DEL_HEART.search(text)), bool(_DEL_HALF.search(text))
+        named = bool(_DEL_END.search(text) or _DEL_HEAD.search(text) or (_DEL_MIDDLE.search(text) and not heart))
+        seen, in_piece, whole_pieces = 0, True, True
         for combo in itertools.product(*cvals):
             f = "".join(combo)
-            bounds, at = {0}, 0
+            bounds = [0]
             for c in combo:
-                at += len(c)
-                bounds.add(at)
+                bounds.append(bounds[-1] + len(c))
             for rs in itertools.product(*cuts):
                 for r in {"".join(rs), "".join(reversed(rs))}:
                     if not r:
                         continue
                     for m in re.finditer("(?=" + re.escape(r) + ")", f):
                         s, e = m.start(), m.start() + len(r)
-                        ok = ok or s == 0 or e == len(f) or (s in bounds and e in bounds) \
-                            or any(s < b < e for b in bounds)  # spans a join: not inside one piece
-        n += not ok
+                        seen += 1
+                        one = any(a <= s and e <= b for a, b in zip(bounds, bounds[1:]))
+                        is_piece = any(a == s and b == e for a, b in zip(bounds, bounds[1:]))
+                        edge = s == 0 or e == len(f)
+                        centred = abs(s - (len(f) - len(r)) / 2) <= 1
+                        whole_pieces = whole_pieces and s in bounds and e in bounds
+                        in_piece = in_piece and one and not is_piece and (not edge or half) \
+                            and not (heart and centred)
+        n += bool(seen) and ((not named and in_piece) or whole_pieces)
     return n
 
 
@@ -4695,8 +4701,8 @@ def shape_warnings(tag, ann, clue=None):
         out.append(f"{tag}: {k} {WRONG_ROLE}: put each indicator on the op it signals (a reversal "
                    f"word on rev<...>, a container word on ins<...>, an anagram word on ana<...>)")
     if k := deletion_inside_component(tree, clue):
-        out.append(f"{tag}: {k} {DELETION_INSIDE}: an indicator among the pieces of a charade acts on "
-                   f"the piece before it, del(piece, letters) inside the charade")
+        out.append(f"{tag}: {k} {DELETION_INSIDE}: the indicator acts on the one piece it sits by, "
+                   f"del(piece, letters) inside the charade; add no piece only to remove it")
     return out
 
 
