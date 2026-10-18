@@ -51,55 +51,54 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the shopping centre and 'is' sit in the outer letters"
+       "at": 34,
+       "note": "one thing in another sits inside it, so the shopping centre and is go between the outer letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
          "text": "outskirts of",
-         "note": "outskirts are the edges of a town, so take only the first and last letters"
+         "at": 37,
+         "note": "a town's outskirts are its edges, so only the first and last letters of the word are kept"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "SH",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "outskirts of Slough",
-           "gives": "SH",
-           "select": "outer",
-           "note": "first and last letters of SLOUGH"
-          }
-         ]
-        },
-        {
-         "words": "shopping centre",
-         "gives": "MALL",
-         "note": "a mall is a shopping centre"
+         "words": "Slough",
+         "at": 50,
+         "note": "Slough is a town west of London; only its two outer letters are used"
         }
        ]
       },
       {
-       "words": "is",
-       "note": "used as it stands"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "shopping centre",
+         "at": 15,
+         "gives": "MALL",
+         "note": "a mall is a shopping centre"
+        },
+        {
+         "words": "is",
+         "at": 31
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A modest shopping mall on the edge of Slough, a town west of London.",
-     "walkthrough": "The 'is' is not a link word here; it goes into the box alongside MALL.",
-     "definitionFit": "Smallish means fairly small, so not very great."
+     "surface": "A modest shopping centre stands on the edge of the town of Slough.",
+     "walkthrough": "'outskirts of' keeps only SH, the edges of Slough (a commuter town west of London), and the shopping centre plus 'is' sit 'in' between them.",
+     "definitionFit": "Smallish means fairly small, which is the same as not very great in size."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "is"
+     "misdirectedWord": "outskirts"
     }
    }
   },
@@ -124,44 +123,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SERPENT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "housing",
+       "at": 25,
+       "note": "housing something means holding it inside, so the jumbled letters wrap round the quiet letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "dilapidated",
-         "note": "a dilapidated building has fallen apart, so rearrange the letters"
-        },
-        {
-         "text": "housing"
+         "at": 13,
+         "note": "dilapidated means fallen into disrepair, so the letters of enters are knocked out of order"
         }
        ],
        "parts": [
         {
          "words": "enters",
-         "note": "ENTERS rearranged"
-        },
-        {
-         "words": "quietly",
-         "gives": "P",
-         "note": "p = piano, quietly in music"
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "quietly",
+       "at": 33,
+       "gives": "P",
+       "note": "P is the musical abbreviation for piano, meaning quietly"
       }
      ]
     },
     "explanation": {
-     "surface": "A snake slithers into a derelict house without a sound.",
-     "walkthrough": "'Enters' reads as the snake's verb, but it is the word to be rearranged, and 'quietly' is the musical p that goes inside.",
-     "definitionFit": "A plain synonym: serpent is the older, more literary word for a snake, as in the serpent in Eden."
+     "surface": "A snake slithers silently into a run-down house.",
+     "walkthrough": "'dilapidated' rearranges ENTERS to SERENT, and 'housing' puts P inside it.",
+     "definitionFit": "A serpent is a snake, especially a large one, in literary or biblical language."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "enters"
+     "misdirectedWord": "housing"
     }
    }
   },
@@ -189,46 +192,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "showed in"
+       "text": "showed in",
+       "at": 17,
+       "note": "a guest showed in is ushered inside, so the American letters go into the trimmed word"
       }
      ],
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "AME",
+       "op": "middle",
        "indicators": [
         {
          "text": "boundlessly",
-         "note": "without its bounds, GAMES loses its first and last letters"
+         "at": 33,
+         "note": "a word without its bounds loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "games boundlessly",
-         "gives": "AME",
-         "select": "outer",
-         "note": "GAMES without its first and last letters"
+         "words": "games",
+         "at": 27,
+         "note": "only the inner letters of the word games are kept"
         }
        ]
       },
       {
        "words": "American",
-       "gives": "US",
-       "note": "US = American"
+       "at": 8,
+       "gives": "US"
       }
      ]
     },
     "explanation": {
-     "surface": "An American delights in showing off at the games.",
-     "walkthrough": "'American' wants to be the single letter A; here it is the two-letter abbreviation, sitting inside the trimmed game word.",
-     "definitionFit": "A plain synonym: both verbs mean to give pleasure, as a good joke does its listener."
+     "surface": "An American put on a show at some games without restraint, to everyone's delight.",
+     "walkthrough": "'boundlessly' cuts GAMES to AME, and US is 'showed in' to it. 'boundlessly' looks like an adverb about the showing off.",
+     "definitionFit": "To amuse is to entertain or please someone, so it means to delight them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "showed"
+     "misdirectedWord": "boundlessly"
     }
    }
   },
@@ -328,40 +330,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SILVER",
      "indicators": [
       {
        "text": "must replace",
-       "note": "I takes the place of the A"
+       "at": 2,
+       "note": "I must replace area means the letter I takes the place of the area letter"
       }
      ],
      "parts": [
       {
        "words": "tray",
+       "at": 23,
        "gives": "SALVER",
-       "note": "a salver is a serving tray"
+       "note": "a salver is a flat serving tray for drinks or letters, often of precious metal"
       },
       {
        "words": "area",
-       "gives": "A",
-       "note": "a = area; this A comes out"
+       "at": 15,
+       "gives": "A"
       },
       {
        "words": "I",
-       "note": "goes in where the A was"
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to swap part of a metal tray.",
-     "walkthrough": "The definition is an adjective phrase, as in a silver spoon.",
-     "definitionFit": "An adjective sense: a silver cup or spoon is one made of that precious metal."
+     "surface": "Someone resolves to swap a section of a metal tray.",
+     "walkthrough": "In SALVER, 'must replace' puts I where A (area) was. A salver is itself often silver, which helps the surface.",
+     "definitionFit": "Silver used as an adjective describes something made of that precious metal, as in a silver spoon."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "area"
+     "misdirectedWord": "replace"
     }
    }
   },
@@ -888,53 +890,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "installed in"
-      }
-     ],
      "parts": [
       {
        "words": "Equipment",
+       "at": 0,
        "gives": "KIT",
-       "note": "kit is equipment"
+       "note": "kit is a set of equipment"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "empty",
-         "note": "emptied of its middle, COMMON keeps only C and N"
+         "text": "installed in",
+         "at": 19,
+         "note": "something installed in a space is fitted inside it, so the pronoun goes between the outer letters"
         }
        ],
        "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "CN",
+         "indicators": [
+          {
+           "text": "empty",
+           "at": 32,
+           "note": "a word emptied has its middle letters removed, leaving the first and last"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "empty common",
-           "gives": "CN",
-           "select": "outer",
-           "note": "COMMON without its middle letters"
+           "words": "common",
+           "at": 38,
+           "note": "only the outer letters of common are kept"
           }
          ]
         },
         {
          "words": "that man",
+         "at": 10,
          "gives": "HE",
-         "note": "he = that man"
+         "note": "he is the pronoun for that man"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man fits equipment in an unoccupied common room.",
-     "walkthrough": "'Common room' looks like one phrase and a definition, but only 'room' defines; 'common' is emptied to CN.",
-     "definitionFit": "Definition by example: the room of a house where food is cooked."
+     "surface": "A man fits some equipment in an empty shared room.",
+     "walkthrough": "'common' is not the shared room of the surface but fodder: emptied, it gives the frame CN for the pronoun, making CHEN.",
+     "definitionFit": "A kitchen is the room in a house where food is prepared and cooked."
     },
     "features": {
      "answerInScene": true,
@@ -1307,7 +1310,8 @@
      "indicators": [
       {
        "text": "Upset",
-       "note": "in a down clue, upset turns the letters upside down, so read them backwards"
+       "at": 0,
+       "note": "in a down clue, upset means turned upside down, so the whole is read from bottom to top"
       }
      ],
      "parts": [
@@ -1315,32 +1319,32 @@
        "op": "container",
        "indicators": [
         {
-         "text": "about"
+         "text": "about",
+         "at": 11,
+         "note": "about here means surrounding, so the word for cry goes around the two final letters"
         }
        ],
        "parts": [
         {
          "words": "cry",
+         "at": 7,
          "gives": "SOB",
          "note": "to sob is to cry"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "UG",
          "indicators": [
           {
            "text": "conclusions of",
-           "note": "the last letters of YOU and BEING"
+           "at": 17,
+           "note": "the conclusions of words are their last letters, one from each"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "conclusions of you being",
-           "gives": "UG",
-           "select": "last",
-           "note": "last letters of YOU and BEING"
+           "words": "you being",
+           "at": 32,
+           "note": "the words you and being, each giving only its last letter"
           }
          ]
         }
@@ -1349,12 +1353,12 @@
      ]
     },
     "explanation": {
-     "surface": "Someone upset and in tears about being called a fraud.",
-     "walkthrough": "S(UG)OB is built first and then the whole thing is turned over.",
-     "definitionFit": "A plain synonym: a bogus doctor or a bogus claim is a fake one."
+     "surface": "Someone upset sobs over the conclusion that you are a fraud.",
+     "walkthrough": "'conclusions of' gives UG, the last letters of you and being; 'about' wraps SOB round them to make SUGOB, which 'Upset' turns over. 'Upset' looks like distress, matching cry, but it is the reversal.",
+     "definitionFit": "Bogus means sham or counterfeit, so something bogus is fake."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Upset"
     }

@@ -1355,30 +1355,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALLIN",
+     "op": "middle",
      "indicators": [
       {
        "text": "out of bounds",
-       "note": "the bounds are the edges, so the word's outer letters are put out"
+       "at": 21,
+       "note": "the bounds of a word are its first and last letters, so the city is taken without them"
       }
      ],
      "parts": [
       {
        "words": "Tallinn's",
+       "at": 11,
        "gives": "TALLINN",
-       "note": "the Estonian capital, taken as written"
+       "note": "Tallinn, the capital of Estonia; the 's stands for 'is' and adds no letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A tired visitor finds the Estonian capital is a no-go area.",
-     "definitionFit": "All in is an informal phrase for completely worn out, so exhausted."
+     "surface": "A warning that the Estonian capital is a no-go area for visitors.",
+     "walkthrough": "'out of bounds' sounds like a closed zone, but it means dropping the outer letters T and N of TALLINN.",
+     "definitionFit": "All in is an informal British phrase for completely worn out, so it means tired to the point of exhaustion."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "bounds"
     }
    }
   },

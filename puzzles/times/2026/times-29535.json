@@ -871,50 +871,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CHARIVARI",
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CHARIVARI",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "confounded",
+         "at": 21,
+         "note": "confounded means thrown into confusion, so the shortened letters are jumbled"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
            "text": "cut down",
-           "note": "ARCH-RIVAL loses its last letter"
-          },
-          {
-           "text": "confounded",
-           "note": "the remaining letters are jumbled"
+           "at": 11,
+           "note": "a word cut down is shortened at its end, so the final letter of arch-rival is lopped off"
           }
          ],
          "parts": [
           {
-           "words": "Arch-rival cut down, confounded",
-           "gives": "CHARIVAR",
-           "note": "ARCHRIVA(L) shuffled"
+           "words": "Arch-rival",
+           "at": 0
           },
           {
-           "words": "I",
-           "note": "used as printed"
+           "gives": "L"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "I",
+       "at": 34
       }
      ]
     },
     "explanation": {
-     "surface": "Someone vowing to cause a scene about a humiliated arch-rival.",
-     "walkthrough": "A charivari is a noisy mock serenade, and by extension any din. 'Row' rhymes with cow here, not with go.",
-     "definitionFit": "A dictionary sense: originally a mock serenade of pots and pans for newlyweds, now any din or racket."
+     "surface": "Someone vows to make a fuss once their great enemy has been humbled and bewildered.",
+     "walkthrough": "'cut down' trims the tail of the rival, leaving ARCHRIVA for 'confounded' to jumble. 'row' is the noisy sense, rhyming with cow, not a line of things.",
+     "definitionFit": "A charivari is a mock serenade of banging pans and kettles, so a cacophony or din: a row in the sense of loud noise."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "row"
     }

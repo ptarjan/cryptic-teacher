@@ -265,27 +265,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOUT",
+     "op": "middle",
      "indicators": [
       {
        "text": "out-of-bounds",
-       "note": "the bounds of a word are its two ends, and putting them out leaves only the inside letters"
+       "at": 8,
+       "note": "a word's bounds are its first and last letters, and here they are put out of it"
       }
      ],
      "parts": [
       {
        "words": "Ignores",
+       "at": 0,
        "gives": "FLOUTS",
-       "note": "to flout a rule is to ignore it openly"
+       "note": "flouts means openly disregards or ignores a rule"
       }
      ]
     },
     "explanation": {
-     "surface": "A thug pays no attention to signs marking forbidden ground.",
-     "walkthrough": "FLOUTS loses its first and last letters to leave LOUT. 'Out-of-bounds' reads as a single adjective describing the yob, but it is the instruction to strip the edges.",
-     "definitionFit": "A yob is a British word for a rough, uncouth young man, and a lout is the same sort of boorish person."
+     "surface": "A thug disregards the signs and wanders into a forbidden area.",
+     "walkthrough": "'out-of-bounds' looks like a forbidden zone, but it trims the F and S off FLOUTS. A yob is British slang for a rowdy young man.",
+     "definitionFit": "A lout is a rough, aggressive and uncouth man, the same sort of person British slang calls a yob."
     },
     "features": {
      "answerInScene": true,
@@ -379,32 +379,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MEERKAT",
+     "op": "substitution",
      "indicators": [
       {
        "text": "suffering internal reflex",
-       "note": "a reflex bends back on itself, and an internal one turns round only the letters in the middle of the word"
+       "at": 11,
+       "note": "the pair of letters at the join, inside the combined word, suffers a reflex, that is a turning back on itself, so those two swap places"
       }
      ],
      "parts": [
       {
-       "words": "Shy",
-       "gives": "MEEK",
-       "note": "meek means timid or retiring"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Shy",
+         "at": 0,
+         "gives": "MEEK",
+         "note": "meek means quiet, timid and shy"
+        },
+        {
+         "words": "rodent",
+         "at": 4,
+         "gives": "RAT",
+         "note": "a rat is a rodent"
+        }
+       ]
       },
       {
-       "words": "rodent",
-       "gives": "RAT",
-       "note": "a rat is a rodent"
+       "gives": "KR"
+      },
+      {
+       "gives": "RK"
       }
      ]
     },
     "explanation": {
-     "surface": "A timid rodent with some inner nervous reaction, typically rearing up on its back legs.",
-     "walkthrough": "The 'internal reflex' turns round only the two letters where the words meet, leaving both ends in place; the definition is a description rather than a synonym.",
-     "definitionFit": "Meerkats famously stand upright on their back feet as sentries, watching for predators across the African scrub."
+     "surface": "A timid rodent has a nervous twitch while standing upright on its hind legs.",
+     "walkthrough": "MEEK + RAT gives MEEKRAT; 'suffering internal reflex' turns back the inner pair KR to RK. 'reflex' looks like a twitch, but it means bent back.",
+     "definitionFit": "The meerkat, a small southern African mongoose, is famous for sitting up on its hind legs on sentry duty."
     },
     "features": {
      "answerInScene": true,
@@ -653,42 +665,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ELOQUENCE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "leaving out middle part",
-       "note": "leaving out the middle part means the central letter of the word is dropped"
+       "text": "unfortunately",
+       "at": 68,
+       "note": "unfortunately suggests something gone wrong, so the letters are put out of order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Queen",
+       "at": 26
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "unfortunately",
-         "note": "things that turn out unfortunately go awry, so the letters end up out of order"
+         "text": "leaving out middle part",
+         "at": 44,
+         "note": "the middle part of cello is its third, central letter, and that is left out"
         }
        ],
        "parts": [
         {
-         "words": "Queen",
-         "note": "taken as written"
+         "words": "cello",
+         "at": 37
         },
         {
-         "words": "cello",
-         "gives": "CELO",
-         "note": "cello with its central letter dropped"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A review of a rock band's concert: Queen played with a cellist, but the middle section was sadly cut.",
-     "walkthrough": "Queen wants to be the rock band or ER, but it is taken whole as fodder. CELLO has five letters, so its middle one is the third, an L.",
-     "definitionFit": "Eloquence is fluent, persuasive and moving speech, which is a forceful, expressive use of language in performance."
+     "surface": "A review regrets that a band's cello-backed Queen tribute lost its middle section.",
+     "walkthrough": "'leaving out middle part' cuts CELLO to CELO; QUEEN and CELO are then mixed by 'unfortunately'. Queen here is just letters, not the band.",
+     "definitionFit": "Eloquence is fluent, persuasive and expressive speaking or writing, so it is an expressive kind of performance."
     },
     "features": {
      "answerInScene": false,
@@ -1459,37 +1473,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PROJECTILE",
-     "indicators": [
-      {
-       "text": "uncovered",
-       "note": "uncovering something strips off its outer layer, so the first and last letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "screen",
+       "at": 18,
+       "gives": "PROJECT",
+       "note": "to project a film is to screen it"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 28,
+         "note": "uncovered means stripped of covering, so the first and last letters of the word are taken away"
+        }
+       ],
        "parts": [
         {
-         "words": "screen",
-         "gives": "PROJECT",
-         "note": "to screen a film is to project it"
-        },
-        {
          "words": "tiles",
-         "gives": "ILE",
-         "note": "tiles without its outer letters"
+         "at": 38,
+         "note": "only the inner letters of tiles are kept"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "DIY instructions: for example, fix a screen to bare tiles with a bolt.",
-     "walkthrough": "'Bolt' looks like a fixing screw in the DIY surface, but it is the short arrow fired from a crossbow.",
-     "definitionFit": "A crossbow bolt is a missile shot through the air, so it is one example of a thing that is fired."
+     "surface": "An instruction to fix a screen to some exposed tiles with a bolt.",
+     "walkthrough": "'bolt' looks like hardware for the screen, but it is the crossbow bolt; 'uncovered' takes T and S off TILES to leave ILE.",
+     "definitionFit": "A crossbow bolt is a missile shot through the air, so it is one example of a projectile."
     },
     "features": {
      "answerInScene": false,
@@ -1567,31 +1581,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PERM",
-     "indicators": [
-      {
-       "text": "stripped twice",
-       "note": "stripping takes off the outer layer, and doing it twice removes two letters from each end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "A woman",
-       "gives": "SUPERMUM",
-       "note": "a supermum is a mother who copes brilliantly with everything"
+       "words": "A",
+       "at": 0,
+       "gives": "PER",
+       "note": "a can mean per, as in ten pounds a head"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 17,
+         "note": "twice says the stripping is done a second time, peeling another layer off each end"
+        }
+       ],
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "stripped",
+           "at": 8,
+           "note": "stripping a word removes its covering, its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "woman",
+           "at": 2,
+           "note": "only the central letter of woman survives two strippings"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman undresses twice before getting her hair done.",
-     "walkthrough": "SUPERMUM loses S and M, then U and U, to leave PERM.",
-     "definitionFit": "A perm, short for permanent wave, is a hairstyle in which curls are set chemically to last for months."
+     "surface": "A woman twice takes her clothes off in exchange for a new hairstyle.",
+     "walkthrough": "'A' gives PER, as in so much a day. 'stripped twice': WOMAN loses W and N to become OMA, then O and A to leave M.",
+     "definitionFit": "A perm, short for permanent wave, is a hairstyle of chemically set curls or waves."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "stripped"
     }
    }
@@ -1724,58 +1761,67 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PREMOLARS",
      "indicators": [
       {
        "text": "bad",
-       "note": "something gone bad is spoilt, so these letters are rearranged into another order"
+       "at": 43,
+       "note": "bad here means spoilt, so the letters that remain are scrambled"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "PREMOLARS",
        "indicators": [
         {
          "text": "left out",
-         "note": "letters that are left out are removed from the rest"
+         "at": 20,
+         "note": "the letters named are left out of the combined letters of are and rollmops"
         }
        ],
        "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "are",
+           "at": 30
+          },
+          {
+           "words": "rollmops",
+           "at": 34
+          }
+         ]
+        },
         {
          "op": "outer",
          "indicators": [
           {
            "text": "coating of",
-           "note": "a coating is the outside layer, so only the outer letters of the word are taken"
+           "at": 5,
+           "note": "the coating of a word is its outside, its first and last letters"
           }
          ],
          "parts": [
           {
            "words": "oil",
-           "note": "the first and last letters of oil"
+           "at": 16,
+           "note": "only its outer letters are used"
           }
          ]
-        },
-        {
-         "words": "are rollmops",
-         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Once the oil is drained off, are pickled herrings harmful to your teeth?",
-     "walkthrough": "Rollmops are rolled pickled herring fillets. Remove O and L from 'are rollmops' and rearrange the remaining nine letters.",
-     "definitionFit": "Premolars are the grinding teeth between the canines and molars, so they are one particular kind of tooth."
+     "surface": "A diner asks whether herring rolls are bad for the teeth once the oil is wiped off.",
+     "walkthrough": "'coating of' oil is OL; 'left out' removes those letters from ARE ROLLMOPS to leave ARERLMOPS, and 'bad' rearranges that. Rollmops are rolled pickled herring fillets.",
+     "definitionFit": "Premolars are the teeth between the canines and the molars, so they are particular kinds of teeth."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rollmops"
+     "misdirectedWord": "bad"
     }
    }
   },
