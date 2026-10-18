@@ -399,6 +399,38 @@ def strip_abbreviation_notes(tree):
     return n
 
 
+# ---------- selection and hidden-word block notes: derived from the op, never stored ----------
+# A block that keeps some letters of its words has said why by its op, and the
+# tree check has already proved the letters: the model need not write "first
+# letter of X". The words are the block's clueFragment, so the note names none.
+# A leaf's own note, when it has one, wins.
+SELECT_NOTE = {"first": "first {letter}", "last": "last {letter}",
+               "middle": "middle {letter}", "outer": "outer {letter} (first and last of each word)",
+               "alternate": "alternate {letter}", "regular": "{letter} at regular intervals"}
+HIDDEN_NOTE = "hidden inside these words"
+
+
+def select_note(op, n, gives):
+    """The note a one-leaf letter selection gets: what it keeps, from its op."""
+    letter = "letter" if len(letters_only(gives)) == 1 else "letters"
+    if op == "nth":
+        return f"letter number {n} of each word" if isinstance(n, int) else f"the nth {letter} of each word"
+    text = SELECT_NOTE.get(op)
+    return text.format(letter=letter) if text else None
+
+
+def article_gloss(leaf):
+    """The note for the indefinite article "a" / "an" giving A, or None."""
+    if "op" not in leaf and letters_only(leaf.get("words")).lower() in ("a", "an") \
+            and leaf.get("gives") == "A" and not leaf.get("unchecked"):
+        return "the indefinite article, A"
+    return None
+
+
+def letters_only(s):
+    return re.sub(r"[^A-Za-z]", "", s or "")
+
+
 def _blocks(node, got):
     """The app's blocks: one per run of clue words (or supplied letters), in
     tree order, `gives` the letters before any op joins them to others; a
@@ -413,7 +445,7 @@ def _blocks(node, got):
         # A leaf the abbreviation table explains stores no note; its gloss is derived.
         return [_block(clueFragment=node.get("words"), gives=gives,
                        select=node.get("select"), soundsLike=node.get("soundsLike"),
-                       note=node.get("note") or abbreviation_gloss(node))]
+                       note=node.get("note") or abbreviation_gloss(node) or article_gloss(node))]
     parts = _parts(node)
     if node.get("unchecked"):
         # An unchecked step taken as filed shows its parts' blocks as they were.
@@ -431,11 +463,13 @@ def _blocks(node, got):
     one = len(parts) == 1 and "op" not in parts[0] and "words" in parts[0]
     if OP_TYPE[op] == "letter_selection" and one:
         b = _blocks(parts[0], got)[0]
-        return [_block(**{**b, "gives": got.get(id(node)) or min(wordplay.values(node), default=None),
-                          "select": node["n"] if op == "nth" else op})]
+        gives = got.get(id(node)) or min(wordplay.values(node), default=None)
+        return [_block(**{**b, "gives": gives, "select": node["n"] if op == "nth" else op,
+                          "note": b.get("note") or select_note(op, node.get("n"), gives)})]
     if op == "hidden" and one:
         b = _blocks(parts[0], got)[0]
-        return [_block(**{**b, "gives": got.get(id(node)) or wordplay.leaf_letters(parts[0])})]
+        return [_block(**{**b, "gives": got.get(id(node)) or wordplay.leaf_letters(parts[0]),
+                          "note": b.get("note") or HIDDEN_NOTE})]
     if op == "homophone" and one:
         b = _blocks(parts[0], got)[0]
         return [_block(**{**b, "gives": node["spelt"], "soundsLike": b.get("gives")})]

@@ -127,5 +127,15 @@ check("strip_puzzle drops the restating note", [d[1:3] for d in dropped] == [("f
 check("a second strip finds nothing", S.strip_puzzle(q) == [])
 check("strip leaves other notes", folio(kept["entries"][i]["annotation"]).get("note") and not S.strip_puzzle(kept))
 
+# Derived block notes: a selection, a hidden word and the article A need no model note.
+def blk(tree):
+    return A._blocks(tree, {})[0]
+sel = lambda op, w="state": {"op": op, "parts": [{"words": w}]}
+check("a first-letter block derives its note", blk({**sel("first"), "parts": [{"words": "state", "gives": "STATE"}]}).get("note") == "first letter")
+check("a selection keeps a leaf's own note", blk({"op": "last", "parts": [{"words": "cricket", "gives": "CRICKET", "note": "mine"}]}).get("note") == "mine")
+check("a hidden block derives its note", blk({"op": "hidden", "parts": [{"words": "crab hors", "gives": "CRABHORS"}]}).get("note") == A.HIDDEN_NOTE)
+check("the article A derives its note", blk({"words": "An", "gives": "A"}).get("note") == "the indefinite article, A")
+check("a synonym leaf still needs a note", "note" not in blk({"words": "beneath", "gives": "UNDER"}))
+
 print("abbreviation notes:", "all checks passed" if not fails else f"FAILED {fails}")
 raise SystemExit(1 if fails else 0)
