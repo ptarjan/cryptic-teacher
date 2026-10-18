@@ -222,46 +222,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VENUSDEMILO",
-     "indicators": [
-      {
-       "text": "half",
-       "note": "keeping half of a word means losing the rest, so only the front part stays"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "world",
+       "at": 15,
+       "gives": "VENUS",
+       "note": "Venus is a planet, a world"
+      },
+      {
+       "words": "half",
+       "at": 21,
+       "gives": "DEMI",
+       "note": "demi- is a prefix meaning half"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half lost",
+         "at": 32,
+         "note": "with half of it lost, a word keeps only its first two of four letters"
+        }
+       ],
        "parts": [
         {
-         "words": "world",
-         "gives": "VENUS",
-         "note": "Venus is a planet, a world"
-        },
-        {
-         "words": "half",
-         "gives": "DEMI",
-         "note": "demi- is a prefix meaning half"
-        },
-        {
          "words": "lost",
-         "gives": "LO",
-         "note": "the first half of the word, its last two letters dropped"
+         "at": 26,
+         "gives": "LOST",
+         "note": "taken as written"
+        },
+        {
+         "gives": "ST"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A broken artefact from a planet that has lost half of itself.",
-     "walkthrough": "'Half' appears twice with different jobs: first it is DEMI, then it halves 'lost'. 'Lost' with nothing after it reads as a lament, but it is fodder.",
-     "definitionFit": "The Venus de Milo is a famous ancient Greek statue in the Louvre whose arms are missing, so a damaged sculpture."
+     "surface": "A broken artwork: the globe has gone missing in part, and what remains is going too.",
+     "walkthrough": "The repeated 'half lost' is the joke: the first 'lost' is the word itself, and the second 'half lost' cuts it to LO. The statue famously lost its arms.",
+     "definitionFit": "The Venus de Milo is the ancient Greek statue in the Louvre, celebrated despite missing both its arms."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "world"
     }
    }

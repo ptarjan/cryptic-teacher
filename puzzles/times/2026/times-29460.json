@@ -471,8 +471,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Translation of",
-       "note": "a translation puts the letters into a new order"
+       "text": "including",
+       "at": 43,
+       "note": "including means holding inside, so the unknown goes into the rearranged letters"
       }
      ],
      "parts": [
@@ -480,8 +481,9 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "omitting",
-         "note": "the O is left out of the word"
+         "text": "Translation of",
+         "at": 0,
+         "note": "translating a text renders it anew, so the remaining letters are rearranged"
         }
        ],
        "parts": [
@@ -489,26 +491,22 @@
          "op": "deletion",
          "indicators": [
           {
-           "text": "including"
+           "text": "omitting",
+           "at": 21,
+           "note": "to omit something is to leave it out, so a letter is dropped from the name"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Homer",
-             "note": "anagram fodder"
-            },
-            {
-             "words": "omitting nothing",
-             "gives": "HMER",
-             "note": "nothing = O, taken out"
-            }
-           ]
+           "words": "Homer",
+           "at": 15,
+           "note": "taken as written"
           },
           {
-           "gives": "HOMER"
+           "words": "nothing",
+           "at": 30,
+           "gives": "O",
+           "note": "O looks like zero, nothing"
           }
          ]
         }
@@ -516,20 +514,20 @@
       },
       {
        "words": "unknown",
+       "at": 53,
        "gives": "Y",
-       "note": "algebra uses x, y and z for unknowns"
+       "note": "Y is an algebraic unknown, like x and z"
       }
      ]
     },
     "explanation": {
-     "surface": "A complete translation of Homer that somehow contains a line nobody knew.",
-     "walkthrough": "'Omitting nothing' reads as a faithful, full translation; here it literally means leave out the O.",
-     "definitionFit": "Rhyme can mean verse in general, as in 'nursery rhyme' or 'in rhyme'."
+     "surface": "A literal-minded note on rendering Homer's epic faithfully, adding something mysterious to the verse.",
+     "walkthrough": "'omitting nothing' drops the O from HOMER, leaving HMER; 'Translation of' rearranges that to RHME, and 'including' puts Y inside it.",
+     "definitionFit": "Rhyme is used loosely for poetry or a poem, as in 'nursery rhyme', so it can stand for verse."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "nothing"
     }
    }
@@ -555,37 +553,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OBSESSED",
-     "indicators": [
-      {
-       "text": "dispersal of",
-       "note": "dispersed letters are scattered and rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Obsolete",
+       "at": 0,
+       "gives": "OBS",
+       "note": "OBS is the dictionary abbreviation for obsolete"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dispersal of",
+         "at": 9,
+         "note": "seeds scattered by dispersal land in a new order, so the word's letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Obsolete",
-         "gives": "OBS",
-         "note": "obs. = obsolete, the dictionary abbreviation"
-        },
-        {
-         "words": "dispersal of seeds",
-         "gives": "ESSED",
-         "note": "SEEDS rearranged"
+         "words": "seeds",
+         "at": 22,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A botanical note on an old way of scattering seed.",
-     "walkthrough": "The definition is descriptive: someone obsessed can think only of one thing. 'Perhaps' admits this is one way of putting it.",
-     "definitionFit": "An obsessed person's mind is fixed on one subject, leaving no room for anything new."
+     "surface": "A botanical note on an outdated theory about how seeds spread.",
+     "walkthrough": "'dispersal of' rearranges SEEDS to ESSED, which follows OBS.",
+     "definitionFit": "A person fixated on one thing has no room in their mind for fresh ideas; 'perhaps' marks this as one example of the condition."
     },
     "features": {
      "answerInScene": false,
@@ -929,42 +927,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PARALYTIC",
-     "indicators": [
-      {
-       "text": "impaired",
-       "note": "the word is damaged, so its letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "old man",
+       "at": 6,
+       "gives": "PA",
+       "note": "pa is an informal word for father, one's old man"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "impaired",
+         "at": 27,
+         "note": "something impaired is damaged and disordered, so the letters of the word are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "old man",
-         "gives": "PA",
-         "note": "pa = father, 'old man'"
-        },
-        {
-         "words": "clarity impaired",
-         "gives": "RALYTIC",
-         "note": "CLARITY rearranged"
+         "words": "clarity",
+         "at": 19,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old man so drunk he cannot think clearly.",
-     "walkthrough": "'Paralytic' is British slang for extremely drunk. 'With' just joins PA to the anagram.",
-     "definitionFit": "In British slang, paralytic means so drunk one can barely move."
+     "surface": "A father whose clear thinking has been dulled, perhaps by a few too many.",
+     "walkthrough": "'impaired' rearranges CLARITY to RALYTIC, after PA.",
+     "definitionFit": "Paralytic is British slang for extremely intoxicated, so helplessly inebriated one can barely move."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "man"
+     "aptDefinition": false
     }
    }
   },
@@ -1120,57 +1117,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WORMCAST",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "up",
-         "note": "in a down clue, 'up' turns the word upside down, i.e. back to front"
+         "text": "about",
+         "at": 23,
+         "note": "about means surrounding, so the reversed word goes round the chess piece"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "about"
+           "text": "up",
+           "at": 20,
+           "note": "in a down clue, up means the word is read from the bottom, backwards"
           }
          ],
          "parts": [
           {
            "words": "Cut",
-           "gives": "WOM",
-           "note": "to mow = to cut, turned up to WOM"
-          },
-          {
-           "words": "rook",
-           "gives": "R",
-           "note": "R = rook in chess"
+           "at": 16,
+           "gives": "MOW",
+           "note": "to mow grass is to cut it"
           }
          ]
         },
         {
-         "words": "company",
-         "gives": "CAST",
-         "note": "a cast = a theatrical company"
+         "words": "rook",
+         "at": 29,
+         "gives": "R",
+         "note": "R is the chess abbreviation for rook"
         }
        ]
+      },
+      {
+       "words": "company",
+       "at": 39,
+       "gives": "CAST",
+       "note": "a cast is the company of actors in a production"
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener mowing a lawn damaged by a rook and friends.",
-     "walkthrough": "'Rook' belongs on a lawn as a bird; here it is the chess piece R. 'Company' is a cast of actors, not guests.",
-     "definitionFit": "A wormcast is the coil of soil a worm leaves on the surface, spoiling a neat lawn."
+     "surface": "Gardening complaint: someone has cut up the turf, and a rook and others are to blame.",
+     "walkthrough": "MOW read 'up' gives WOM; 'about' puts it round R to make WORM, then CAST follows.",
+     "definitionFit": "A wormcast is the coiled soil left on the surface by an earthworm, a blemish on a neat lawn."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "rook"
+     "misdirectedWord": "Cut"
     }
    }
   },
@@ -1291,46 +1292,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "FREEBOOTER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to enter",
+       "at": 42,
+       "note": "to enter means going inside, so the turned drink goes into the other word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "message on page's bottom",
+       "at": 51,
+       "gives": "FOOTER",
+       "note": "a footer is the text printed at the foot of a page"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "coming round",
-         "note": "the word turns round, back to front"
-        },
-        {
-         "text": "to enter",
-         "note": "the reversed word goes inside the other"
+         "at": 29,
+         "note": "coming round means turning about, so the drink is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "message on page's bottom",
-         "gives": "FOOTER",
-         "note": "a footer is text printed at the foot of a page"
-        },
-        {
          "words": "drink",
-         "gives": "REEB",
-         "note": "BEER coming round"
+         "at": 23,
+         "gives": "BEER",
+         "note": "beer is a drink"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pirate after drink leaving a note at the bottom of a page.",
-     "walkthrough": "'One looking to plunder' sounds like a thirsty pirate after drink, which is exactly what the surface wants; only the first four words define.",
-     "definitionFit": "A freebooter is a pirate or adventurer who lives by plunder."
+     "surface": "A pirate fancies a pint and wants to leave a note at the bottom of the page.",
+     "walkthrough": "BEER 'coming round' gives REEB, which 'to enter' puts inside FOOTER after its F.",
+     "definitionFit": "A freebooter is a pirate or buccaneer, someone who roams in search of loot."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "bottom"
+     "misdirectedWord": "drink"
     }
    }
   },
@@ -1537,15 +1542,16 @@
     "definitions": [
      {
       "text": "Seek",
-      "at": 0,
-      "note": "verb: to quest is to seek"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "around"
+       "text": "around",
+       "at": 30,
+       "note": "around means surrounding, so the shortened word goes about the compass point"
       }
      ],
      "parts": [
@@ -1554,44 +1560,39 @@
        "indicators": [
         {
          "text": "abandoning",
-         "note": "to abandon something is to leave it behind, so the island's I is left out of the word"
+         "at": 12,
+         "note": "abandoning means leaving behind, so the island's letter is dropped"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "peace",
-           "gives": "QUIET",
-           "note": "quiet = peace"
-          },
-          {
-           "words": "abandoning island",
-           "gives": "QUET",
-           "note": "drop I (island)"
-          }
-         ]
+         "words": "peace",
+         "at": 5,
+         "gives": "QUIET",
+         "note": "peace and quiet are synonyms"
         },
         {
-         "gives": "QUIET"
+         "words": "island",
+         "at": 23,
+         "gives": "I",
+         "note": "I is the map abbreviation for island"
         }
        ]
       },
       {
        "words": "South",
-       "gives": "S",
-       "note": "S = south"
+       "at": 37,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Leaving an island to look for peace in the south.",
-     "walkthrough": "'Seek peace' reads as a single phrase; 'Seek' alone is the definition.",
-     "definitionFit": "A literary verb: knights quest for the Grail, meaning they go in search of it."
+     "surface": "An exhortation to look for tranquillity, leaving the island and heading south.",
+     "walkthrough": "QUIET 'abandoning' I leaves QUET, which goes 'around' S. Quest as a verb means to search.",
+     "definitionFit": "To quest is to go searching for something, so it is a verb synonym of look for."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "peace"
     }
