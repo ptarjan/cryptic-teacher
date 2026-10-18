@@ -132,8 +132,12 @@ check((state["items"]["rule:x"]["value"], [x["key"] for x in state["attempts"]])
 check("land a fix" in a.wake_text(ranked[0], "never targeted", dict(n=40, turns=5, cost=0.5,
                                                                       first_fail=0.5)),
       True, "the wake tells the room to land a fix")
-cur = dict(n=40, cost=1.30, turns=10); prev = dict(n=40, cost=1.00, turns=10)
-check([i["key"] for i in a.trend_items(cur, prev)], ["trend:cost"], "a cost regression is a finding")
+cur = dict(n=40, cost_per_clue=0.13, turns_per_clue=1.0, puzzles=40, clues=100)
+prev = dict(n=40, cost_per_clue=0.10, turns_per_clue=1.0, puzzles=40, clues=100)
+check([i["key"] for i in a.trend_items(cur, prev)], ["trend:cost_per_clue"],
+      "a cost-per-clue regression is a finding")
+check(a.trend_items(dict(cur, cost_per_clue=0.10), prev), [],
+      "a dearer session median alone is not (a bag's redo puzzles have few clues)")
 check(a.trend_items(dict(cur, n=5), prev), [], "not on too few sessions")
 import turn_cost
 check([turn_cost.is_annotate_session(x) for x in (
@@ -141,4 +145,22 @@ check([turn_cost.is_annotate_session(x) for x in (
     "Solve the cryptic crossword nation-1 cold first. It ends by handing you this task: Annotate the crossword nation-1",
     "Solve the cryptic crossword nation-1 cold first.")], [True, True, False],
       "a cold-solve run that hands over the annotate task is an annotate session")
+# A bag session is many puzzles; cost is compared per puzzle and per clue, pooled.
+bag = ("Annotate these crosswords in this one session: azed-1 times-2 ft-3. Read tools/_bag_azed-1.txt once. "
+       "Do not commit.")
+check(a.is_audited(bag), True, "a bag session is an audited annotate run")
+check(a.is_audited("Fix the validator"), False, "other runs are not")
+check(a.bag_ids(bag), ["azed-1", "times-2", "ft-3"], "a bag's ids are read from its first message")
+check(a.bag_ids("Annotate the crossword azed-1 in this repo."), [], "a solo run lists no bag ids")
+older = "Annotate these crosswords in this one session, one after another: a-1 b-2. Each puzzle holds"
+check(a.bag_ids(older), ["a-1", "b-2"], "the older bag wording reads the same")
+bagfile = ('{"azed-1": {\n"1-across": {"def": "x", "notes": {"1-across": "n"}},\n"2-down": {"def": "y"}},\n'
+           '"times-2": {\n"1-across": {"def": "z"}}}')
+check(a.clues_written({"tools/_ann_bag_azed-1.json": bagfile}), 3, "clues written count entries across a bag file")
+solo = lambda cost, turns, clues, puzzles=1: {"cost": cost, "turns": turns, "clues": clues, "puzzles": puzzles}
+rows = [solo(1.0, 10, 20), solo(2.0, 30, 10, puzzles=10)]
+check(round(a.pooled(rows, "cost", "puzzles"), 4), round(3.0 / 11, 4), "cost per puzzle is pooled over puzzles")
+check(round(a.pooled(rows, "cost", "clues"), 4), 0.1, "cost per clue is pooled over clues")
+check(a.pooled([solo(1.0, 10, 0)], "cost", "clues"), None, "a session with no clues counted is left out")
+
 sys.exit(1 if fails else 0)
