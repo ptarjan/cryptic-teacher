@@ -49,47 +49,57 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "cut",
-       "note": "a word that is cut loses its end"
-      },
-      {
-       "text": "third quarter of",
-       "note": "a four-letter word's third quarter is its third letter"
+       "text": "before",
+       "at": 25,
+       "note": "before places the shortened word ahead of the next piece"
       }
      ],
      "parts": [
       {
-       "words": "price estimate",
-       "gives": "QUOT",
-       "note": "a QUOTE (price estimate) with its last letter cut"
-      },
-      {
-       "op": "nth",
-       "unchecked": true,
-       "gives": "A",
-       "n": 3,
+       "op": "deletion",
        "indicators": [
         {
-         "text": "before",
-         "note": "the first piece comes ahead of the second"
+         "text": "cut",
+         "at": 21,
+         "note": "cut means the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "third quarter of year",
-         "gives": "A",
-         "select": 3,
-         "note": "YEAR has four letters, so its third quarter is its third letter, A"
+         "words": "price estimate",
+         "at": 6,
+         "gives": "QUOTE",
+         "note": "a quote is the price a tradesman estimates for a job"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 3,
+       "indicators": [
+        {
+         "text": "third quarter of",
+         "at": 32,
+         "note": "year has four letters, so its third quarter is its third letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "year",
+         "at": 49,
+         "note": "the word supplying the letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A financial note: a share-price forecast trimmed ahead of the year's third quarter.",
-     "walkthrough": "'Third quarter' sounds like a business reporting period, but here it cuts the four-letter YEAR into quarters and takes the third one.",
-     "definitionFit": "A quota is a person's allotted share of something."
+     "surface": "A financial report trimming its share price forecast ahead of the third quarter.",
+     "walkthrough": "'Third quarter' sounds like a financial period, but it means the third of the four letters of 'year'.",
+     "definitionFit": "A quota is an allotted portion, someone's fixed share of a total."
     },
     "features": {
      "answerInScene": false,
@@ -289,46 +299,52 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PEDESTAL",
      "indicators": [
       {
-       "text": "holding"
+       "text": "holding",
+       "at": 12,
+       "note": "holding means the first pieces wrap around the scrambled word"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Father",
+         "at": 0,
+         "gives": "PA",
+         "note": "pa is an informal word for father"
+        },
+        {
+         "words": "left",
+         "at": 7,
+         "gives": "L"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "unruly",
-         "note": "the letters of STEED behave badly and scatter"
+         "at": 20,
+         "note": "unruly means the letters of steed run wild into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Father",
-         "gives": "PA",
-         "note": "pa = father"
-        },
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "L = left"
-        },
-        {
-         "words": "unruly steed",
-         "gives": "EDEST",
-         "note": "STEED rearranged, placed between P and A"
+         "words": "steed",
+         "at": 27,
+         "note": "the anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A father on the left clings to an unruly horse he is trying to ride.",
-     "walkthrough": "The surface makes 'mount' a horse to ride, fitting the steed; the answer is a mount in the other sense, something a statue stands on.",
-     "definitionFit": "A pedestal is the base or mount on which a statue or column stands."
+     "surface": "Dad, unable to control a wild horse, still tries to get on it.",
+     "definitionFit": "A pedestal is a base or plinth on which a statue is mounted, so it serves as a mount."
     },
     "features": {
      "answerInScene": false,
@@ -1491,45 +1507,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "frantic",
-       "note": "the letters of DUSTER are thrown into disorder"
+       "text": "around",
+       "at": 27,
+       "note": "around means the scrambled letters surround the next word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "around means surrounding, so the rearranged letters go on either side of IT"
+         "text": "frantic",
+         "at": 19,
+         "note": "frantic means the letters of duster are thrown into disorder"
         }
        ],
        "parts": [
         {
-         "words": "it",
-         "note": "taken as written, placed inside"
-        },
-        {
-         "words": "duster frantic",
-         "gives": "DETRUS",
-         "note": "DUSTER rearranged"
+         "words": "duster",
+         "at": 12,
+         "note": "the anagram fodder"
         }
        ]
+      },
+      {
+       "words": "it",
+       "at": 34,
+       "gives": "IT",
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone flaps a duster wildly around the debris.",
-     "walkthrough": "The cleaning scene makes 'duster' look like a tool, but it is only letters to rearrange.",
-     "definitionFit": "A plain synonym: detritus is debris, the loose waste left over, which is rubbish."
+     "surface": "Someone cleaning furiously with a duster spreads the rubbish about.",
+     "definitionFit": "Detritus is debris or waste matter, the loose rubbish left behind."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "frantic"
+     "misdirectedWord": "duster"
     }
    }
   },

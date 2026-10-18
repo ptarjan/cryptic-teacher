@@ -835,37 +835,31 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "so taken",
-       "note": "treated the way this clue treats it, which is by rearranging the letters"
+       "text": "is so taken",
+       "at": 10,
+       "note": "being so taken suggests the letters have been scrambled into another form"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Grandmama",
+       "at": 0,
+       "note": "anagram fodder"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "take the last letter of 'niece'"
+         "at": 34,
+         "note": "ultimately means the last letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "Grandmama",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "E",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "niece, ultimately",
-           "gives": "E",
-           "select": "last",
-           "note": "last letter of niecE"
-          }
-         ]
+         "words": "niece",
+         "at": 27,
+         "note": "the word supplying its last letter"
         }
        ]
       }
@@ -873,12 +867,12 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Granny is delighted with her niece in the end.",
-     "walkthrough": "The whole clue describes itself. 'So taken' looks like fondness but means handled like this, and the exclamation mark flags the trick.",
-     "definitionFit": "An &lit: grandmama plus the E, jumbled, is exactly what the clue says has happened."
+     "surface": "Grandma, having added her niece's final letter, has been rearranged.",
+     "walkthrough": "The clue describes itself: the letters of GRANDMAMA with E really are rearranged to make the answer.",
+     "definitionFit": "Anagrammed means rearranged into another word, exactly what happens to the fodder here."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "taken"
@@ -909,62 +903,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "take the last letter of each of 'over the cracks'"
+       "text": "in",
+       "at": 33,
+       "note": "in means the final letters sit within the outer letters"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "PS",
        "indicators": [
         {
-         "text": "in",
-         "note": "the letters just made are put inside what follows, as goods go in a case"
+         "text": "case of",
+         "at": 36,
+         "note": "the case of a word is its outside, its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "case of protests",
-         "gives": "PS",
-         "select": "outer",
-         "note": "the outer letters of ProtestS; split around the other piece"
+         "words": "protests",
+         "at": 44,
+         "note": "the word supplying its outer letters"
         }
        ]
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "RES",
        "indicators": [
         {
-         "text": "case of",
-         "note": "a case is the outside of something, so take the outer letters of 'protests'"
+         "text": "finally",
+         "at": 24,
+         "note": "finally means the last letter of each of these words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "over the cracks, finally",
-         "gives": "RES",
-         "select": "last",
-         "note": "last letters of oveR thE crackS"
+         "words": "over the cracks",
+         "at": 7,
+         "note": "the words supplying their last letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Newspapers gloss over the divisions at the heart of the protests.",
-     "walkthrough": "'Papers over the cracks' is a familiar idiom, but the definition is only 'Papers', and 'finally' works on all three words before it.",
-     "definitionFit": "A collective name: newspapers and journalists together are known by this word."
+     "surface": "Newspapers cover up the cracks when the protests are reported.",
+     "walkthrough": "'Papers over the cracks' reads as an idiom, but 'Papers' alone is the definition.",
+     "definitionFit": "The press is the collective name for newspapers and journalists."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Papers"
+     "misdirectedWord": "over"
     }
    }
   },
@@ -1181,47 +1170,51 @@
      "indicators": [
       {
        "text": "for smuggling",
-       "note": "smuggled goods are hidden inside, so the conviction hides the other letters"
+       "at": 11,
+       "note": "smuggling means the conviction holds the other pieces hidden inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Conviction",
-         "gives": "BELIEF",
-         "note": "a conviction is a firmly held belief; split after its first letter"
-        },
-        {
-         "words": "when",
-         "gives": "AS",
-         "note": "as = when, as in 'as I left'"
-        }
-       ]
+       "words": "Conviction",
+       "at": 0,
+       "gives": "BELIEF",
+       "note": "a conviction is a firmly held belief"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "head of",
-         "note": "take the first letter of 'Rodin'"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "head of Rodin",
-         "gives": "RODIN",
-         "note": "first letter of Rodin"
+         "words": "when",
+         "at": 25,
+         "gives": "AS",
+         "note": "as can mean when, as in 'as I left'"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head of",
+           "at": 41,
+           "note": "head of means the first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Rodin",
+           "at": 49,
+           "note": "the word supplying its first letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A court conviction for smuggling a Rodin sculpture.",
-     "walkthrough": "'Conviction' looks like a court verdict next to 'smuggling', but it is a firm belief. 'Found with' simply adds R to AS before both go in.",
-     "definitionFit": "A definition by class: low relief, where carved figures stand out only slightly from a flat background."
+     "surface": "A criminal conviction for smuggling a Rodin sculpture.",
+     "walkthrough": "'Conviction' looks legal next to 'smuggling', but here it means a belief.",
+     "definitionFit": "Bas-relief is sculpture in which figures project only slightly from a flat background."
     },
     "features": {
      "answerInScene": true,
