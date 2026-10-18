@@ -922,56 +922,62 @@
      "indicators": [
       {
        "text": "to receive",
-       "note": "receiving something means taking it in, so the remaining letters hold the new piece"
+       "at": 30,
+       "note": "to receive means the reduced word takes the next letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "depleted",
+         "at": 7,
+         "note": "depleted means the oxygen symbol is taken out of the word"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "depleted",
-           "note": "depleted means used up or lacking, so the oxygen symbol goes missing from the users"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tobacco users",
-           "gives": "SMOKERS",
-           "note": "people who use tobacco"
-          },
-          {
-           "words": "Oxygen",
-           "gives": "O",
-           "note": "chemical symbol for oxygen"
-          }
-         ]
+         "words": "tobacco users",
+         "at": 16,
+         "gives": "SMOKERS",
+         "note": "smokers use tobacco"
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "words": "Oxygen",
+         "at": 0,
+         "gives": "O",
+         "note": "O is the chemical symbol for oxygen"
         }
        ]
       },
       {
-       "words": "hundred",
-       "gives": "C",
-       "note": "C is the Roman numeral for a hundred"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 41,
+         "gives": "A"
+        },
+        {
+         "words": "hundred",
+         "at": 43,
+         "gives": "C",
+         "note": "C is the Roman numeral for a hundred"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Breathless smokers will be paid a hundred quid, perhaps in compensation.",
-     "walkthrough": "SMOKERS loses its O, and A plus C go into the gap. Smackers is British slang for pounds sterling (or dollars).",
-     "definitionFit": "Smackers is an informal word for pounds of money, like quid."
+     "surface": "Breathless smokers are paid a hundred pounds, perhaps for a health study.",
+     "walkthrough": "SMOKERS loses its O to give SMKERS, which then takes A C inside: SM-AC-KERS.",
+     "definitionFit": "Smackers is British slang for pounds sterling, or dollars in America."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Oxygen-depleted"
+     "misdirectedWord": "pounds"
     }
    }
   },
@@ -1363,49 +1369,46 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the letters for the woman and the departing are placed in the word for drunk"
+       "at": 18,
+       "note": "in means these letters go inside the word for tipsy"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Tipsy",
+       "at": 0,
+       "gives": "TIGHT",
+       "note": "tight is slang for drunk or tipsy"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Tipsy",
-           "gives": "TIGHT",
-           "note": "tight is informal for drunk"
-          },
-          {
-           "words": "wife",
-           "gives": "W",
-           "note": "standard abbreviation for wife"
-          }
-         ]
+         "words": "wife",
+         "at": 6,
+         "gives": "W"
         },
         {
          "words": "I",
-         "note": "taken as written"
+         "at": 11
+        },
+        {
+         "words": "left",
+         "at": 13,
+         "gives": "L"
         }
        ]
-      },
-      {
-       "words": "left",
-       "gives": "L",
-       "note": "standard abbreviation for left"
       }
      ]
     },
     "explanation": {
-     "surface": "A tipsy wife walked out at dusk.",
-     "walkthrough": "W, I and L go together inside TIGHT, after its first letter.",
-     "definitionFit": "Gloaming is a Scots word for dusk, the dim light after sunset, which is twilight."
+     "surface": "A drunk husband says he left his tipsy wife somewhere at dusk.",
+     "walkthrough": "'Tipsy' reads as describing the wife, but it gives TIGHT. Gloaming is a Scottish word for dusk.",
+     "definitionFit": "The gloaming is the time of evening dusk, the half-light after sunset."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Tipsy"
     }
    }

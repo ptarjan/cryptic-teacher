@@ -96,52 +96,56 @@
      "op": "container",
      "indicators": [
       {
-       "text": "upfront",
-       "note": "only the front letter of 'loan' is used"
+       "text": "calling in",
+       "at": 5,
+       "note": "calling in means the following letters go inside the word for bank"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Bank",
+       "at": 0,
+       "gives": "RELY",
+       "note": "to bank on is to rely on"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Bank",
-         "gives": "RELY",
-         "note": "to bank on something is to rely on it"
+         "words": "a",
+         "at": 16,
+         "gives": "A"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "calling in",
-           "note": "the bank calls in, i.e. takes in, the other letters"
+           "text": "upfront",
+           "at": 23,
+           "note": "upfront means the front letter of the word only"
           }
          ],
          "parts": [
           {
-           "words": "a",
-           "note": "kept as is"
+           "words": "loan",
+           "at": 18,
+           "gives": "L",
+           "note": "the first letter of loan"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "loan",
-       "gives": "L",
-       "note": "first letter of loan"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is startled that their bank wants a loan repaid in advance.",
-     "walkthrough": "'Bank' looks like a noun, the lender; it is the verb, as in 'bank on', which gives RELY.",
-     "definitionFit": "'Really?' is an exclamation of surprise."
+     "surface": "A bank demands repayment of a loan in advance, to the borrower's shock.",
+     "walkthrough": "'Bank' is a verb here, as in bank on, giving RELY.",
+     "definitionFit": "'Really?' is an exclamation of surprise or disbelief."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Bank"
     }
    }
@@ -215,30 +219,44 @@
      "indicators": [
       {
        "text": "after",
-       "note": "the trim comes after the other piece"
-      },
-      {
-       "text": "short",
-       "note": "short = cut off at the end, so UNDO loses its O"
+       "at": 33,
+       "note": "after means the trim comes after the shortened word"
       }
      ],
      "parts": [
       {
-       "words": "reverse",
-       "gives": "UND",
-       "note": "to reverse a change is to undo it; UNDO without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 39,
+         "note": "short means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reverse",
+         "at": 45,
+         "gives": "UNDO",
+         "note": "to undo is to reverse"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       },
       {
        "words": "ceremonial trim",
+       "at": 17,
        "gives": "ERMINE",
        "note": "ermine fur trims ceremonial robes"
       }
      ]
     },
     "explanation": {
-     "surface": "An official's ceremonial outfit loses its impact after a botched backwards step.",
-     "walkthrough": "'Reverse' is a verb here, meaning to undo, not a backward movement.",
-     "definitionFit": "A plain synonym: literally digging beneath a wall to bring it down, and figuratively sapping the force of an argument or plan."
+     "surface": "Cutting back an official ceremony seems to weaken its impact.",
+     "walkthrough": "'reverse' is a verb meaning cancel, not a direction to turn letters round. Ermine is the white fur edging peers' and judges' robes.",
+     "definitionFit": "To undermine something is to weaken it gradually or covertly."
     },
     "features": {
      "answerInScene": false,
@@ -325,53 +343,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "nearly",
-       "note": "the last letter is dropped from TREBLE"
-      },
-      {
-       "text": "by",
-       "note": "by = next to, so the final A sits alongside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "American",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "rejected"
+         "text": "rejected by",
+         "at": 25,
+         "note": "rejected by means the shortened word is turned back to front"
         }
        ],
        "parts": [
         {
-         "words": "American",
-         "gives": "A",
-         "note": "A = American"
-        },
-        {
-         "words": "choirboy",
-         "gives": "TREBL",
-         "note": "a treble is a boy soprano; TREBLE without its last letter"
-        },
-        {
-         "words": "a",
-         "note": "kept as is"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "nearly",
+           "at": 18,
+           "note": "nearly means the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "choirboy",
+           "at": 9,
+           "gives": "TREBLE",
+           "note": "a treble is a boy singer with a high voice"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 37,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A US choirboy nearly gets turned away by a provincial choir.",
-     "walkthrough": "The trailing 'a' is wordplay, not part of the definition: 'a province' only reads like one.",
-     "definitionFit": "A definition by example: this western Canadian region, capital Edmonton, is one of the country's ten provinces."
+     "surface": "An American chorister is almost turned away by a Canadian region.",
+     "walkthrough": "A choirboy singing the top line is a treble; the two A pieces, American and the clue's own 'a', flank the turned word.",
+     "definitionFit": "Alberta is one of Canada's western provinces."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "choirboy"
+     "misdirectedWord": "rejected"
     }
    }
   },
@@ -1316,35 +1343,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 13,
+       "note": "about means the word for weep goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Show sadness",
-         "gives": "CRY",
-         "note": "to cry is to show sadness"
-        },
-        {
-         "words": "a",
-         "note": "kept as is"
-        }
-       ]
+       "words": "Show sadness",
+       "at": 0,
+       "gives": "CRY",
+       "note": "to cry is to show sadness"
       },
       {
-       "words": "good couple",
-       "gives": "GG",
-       "note": "G = good, twice"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 19,
+         "gives": "A"
+        },
+        {
+         "words": "good couple",
+         "at": 21,
+         "gives": "GG",
+         "note": "two Gs, G being the abbreviation for good"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone weeps over a lovely pair of men named Cliff and Ben.",
-     "walkthrough": "Cliff and Ben look like first names; lower-case, a cliff is a rock face and a ben a Scottish mountain, both rugged.",
-     "definitionFit": "Craggy means rugged and rocky, as a cliff or a mountain is."
+     "surface": "Someone mourns a nice pair, the singers Cliff Richard and Ben, perhaps.",
+     "walkthrough": "Cliff and Ben look like names; they are a rock face and a Scottish mountain, as in Ben Nevis.",
+     "definitionFit": "A cliff and a ben (a Scottish mountain) are both rugged rocky features, so craggy."
     },
     "features": {
      "answerInScene": false,

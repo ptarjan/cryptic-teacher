@@ -1144,50 +1144,56 @@
      "indicators": [
       {
        "text": "hoarding",
-       "note": "hoarding means storing something away inside, so one piece is held within the other"
+       "at": 17,
+       "note": "hoarding means the first part holds the following letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "corruption",
-         "gives": "VICE",
-         "note": "vice is depravity or corruption"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "the abbreviation for English"
-        }
-       ]
+       "words": "corruption",
+       "at": 5,
+       "gives": "VICE",
+       "note": "vice is moral corruption"
       },
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "centrally",
-         "note": "centrally points to the middle letter of the word before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "money",
-         "note": "the middle letter of this five-letter word"
+         "words": "English",
+         "at": 26,
+         "gives": "E"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "centrally",
+           "at": 40,
+           "note": "centrally means only the central letter of the next word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "money",
+           "at": 34,
+           "gives": "N",
+           "note": "the middle letter of money"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A headline about corrupt officials stashing away English cash.",
-     "definitionFit": "Venice is a city in north-east Italy built on a lagoon."
+     "surface": "A satirical swipe at a corrupt city whose officials sit on English cash.",
+     "walkthrough": "'hoarding' puts E (English) and N (the centre of 'money') inside VICE, giving V-EN-ICE.",
+     "definitionFit": "Venice is a famous Italian city built on a lagoon."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "money"
+     "misdirectedWord": "hoarding"
     }
    }
   },
