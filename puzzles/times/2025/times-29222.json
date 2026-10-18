@@ -256,45 +256,48 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "End of",
-       "note": "the end of a word is its final letter"
+       "text": "after",
+       "at": 12,
+       "note": "after places the final letter behind the lake and is in the answer"
       }
      ],
      "parts": [
       {
        "words": "lake",
+       "at": 18,
        "gives": "TARN",
        "note": "a tarn is a small mountain lake"
       },
       {
        "words": "is",
-       "note": "used as is"
+       "at": 23
       },
       {
        "op": "last",
        "indicators": [
         {
-         "text": "after",
-         "note": "one thing placed after another comes later in the line"
+         "text": "End of",
+         "at": 0,
+         "note": "end of means the last letter of fish is used"
         }
        ],
        "parts": [
         {
-         "words": "End of fish",
-         "note": "last letter of fisH"
+         "words": "fish",
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lake gone bad, starting at the tail of a fish.",
-     "walkthrough": "The clue leads with the fish, but 'after' sends its letter to the back of the answer.",
-     "definitionFit": "Used intransitively, tarnish means to lose lustre or purity, which is to become tainted."
+     "surface": "A fish taken from a lake goes off.",
+     "definitionFit": "To tarnish is to lose lustre or become discoloured, so to be spoiled or tainted."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "End"
     }
    }
   },
@@ -614,67 +617,68 @@
      "op": "container",
      "indicators": [
       {
-       "text": "opened up by"
+       "text": "opened up by",
+       "at": 4,
+       "note": "opened up by means the pub word is split with other letters put inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "centre",
-         "note": "the centre of a word is its middle, here the three letters flanked by R and N"
-        }
-       ],
+       "words": "Pub",
+       "at": 0,
+       "gives": "BAR",
+       "note": "a bar is a pub"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Pub",
-         "gives": "BAR",
-         "note": "a bar is a pub"
-        },
-        {
          "op": "middle",
-         "unchecked": true,
-         "gives": "IPO",
          "indicators": [
           {
-           "text": "initially",
-           "note": "initially means at the start, so take the first letter"
+           "text": "centre",
+           "at": 25,
+           "note": "centre means the middle letters of Ripon are used, dropping its ends"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Ripon's centre",
-           "gives": "IPO",
-           "select": "middle",
-           "note": "the middle three letters of Ripon"
+           "words": "Ripon's",
+           "at": 17,
+           "gives": "RIPON",
+           "note": "Ripon is a cathedral city in Yorkshire; the apostrophe s is the possessive"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
+        },
         {
-         "words": "lures initially",
-         "gives": "LURES",
-         "note": "first letter of Lures"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 38,
+           "note": "initially means the first letter of lures is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lures",
+           "at": 32
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pub in Ripon, a Yorkshire town, that draws people in like a magnet.",
-     "walkthrough": "The surface is a pub's pulling power; the magnet is the definition, not a metaphor.",
-     "definitionFit": "A magnet has two poles, north and south; having two poles is literally what bipolar means."
+     "surface": "A pub in the middle of Ripon draws customers in like a magnet.",
+     "walkthrough": "Ripon is a small cathedral city in North Yorkshire; its centre is its three middle letters.",
+     "definitionFit": "A magnet is bipolar, having two poles, north and south, at opposite ends."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "lures"
+     "aptDefinition": false,
+     "misdirectedWord": "magnet"
     }
    }
   },
@@ -699,40 +703,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "being ordered",
-       "note": "letters being ordered are being put into an order, which is a new arrangement"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "proper",
+       "at": 29,
+       "gives": "PRIM",
+       "note": "prim means stiffly proper"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "being ordered",
+         "at": 48,
+         "note": "being ordered means put into a fresh order, so routine and eg are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "proper",
-         "gives": "PRIM",
-         "note": "prim = proper, as in prim and proper"
+         "words": "routine",
+         "at": 36
         },
         {
-         "words": "routine, eg",
-         "note": "anagram of ROUTINEEG"
+         "words": "eg",
+         "at": 45
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A royal's recipe for success: the proper routine, done in order.",
-     "walkthrough": "'Succeed' means inherit the throne, not do well.",
-     "definitionFit": "Under primogeniture the firstborn inherits, so it is the rule a royal relies on to succeed to the crown."
+     "surface": "A royal heir needs a proper routine to take the throne.",
+     "walkthrough": "'being ordered' turns ROUTINEEG into OGENITURE.",
+     "definitionFit": "Primogeniture is the rule of inheritance by the firstborn, which decides who succeeds to a throne."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "succeed"
+     "misdirectedWord": "routine"
     }
    }
   },
@@ -986,41 +995,45 @@
      "indicators": [
       {
        "text": "introduced by",
-       "note": "a newcomer introduced by a host is brought in by it, so the gallery takes the other letters inside"
+       "at": 21,
+       "note": "introduced by means taken into, so the gallery holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "gallery",
+       "at": 35,
+       "gives": "TATE",
+       "note": "the Tate is a group of art galleries in Britain"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "gallery",
-         "gives": "TATE",
-         "note": "the Tate, London art galleries"
+         "words": "appeal",
+         "at": 8,
+         "gives": "IT",
+         "note": "it means sex appeal"
         },
         {
          "words": "badly",
+         "at": 15,
          "gives": "ILL",
-         "note": "ill = badly, as in ill-treated"
+         "note": "ill means badly, as in ill-treated"
         }
        ]
-      },
-      {
-       "words": "appeal",
-       "gives": "IT",
-       "note": "it = sex appeal"
       }
      ]
     },
     "explanation": {
-     "surface": "A gallery botching the launch of a public appeal.",
-     "walkthrough": "'Badly' looks like an anagram signal but gives ILL; 'it' for sex appeal is an old convention.",
-     "definitionFit": "To titillate is to excite, especially sexually, which is what turn on means as a phrasal verb."
+     "surface": "A gallery introducing a poorly made appeal to arouse interest.",
+     "walkthrough": "IT, for sex appeal, is a crossword convention. IT + ILL go inside TATE.",
+     "definitionFit": "To titillate is to excite or arouse someone, often sexually, which is to turn them on."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "badly"
+     "aptDefinition": true,
+     "misdirectedWord": "appeal"
     }
    }
   },

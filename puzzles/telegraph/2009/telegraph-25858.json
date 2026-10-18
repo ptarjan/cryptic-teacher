@@ -372,76 +372,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "One who revises",
+      "text": "One who revises stories removing first and last bits democratically initially within",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "EDITOR",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "within",
-       "note": "within places one letter inside the rearranged group"
+       "text": "revises",
+       "at": 8,
+       "note": "revises means reworks, so these letters are put into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "EDITOR",
+       "op": "middle",
        "indicators": [
         {
-         "text": "revises",
-         "note": "revising reworks something, so the letters are rearranged; the word also serves the definition"
+         "text": "removing first and last bits",
+         "at": 24,
+         "note": "taking away the first and last letters of stories"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "EDITOR",
-         "indicators": [
-          {
-           "text": "removing first and last bits",
-           "note": "says to drop the opening and closing letters of the word before it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "stories",
-           "note": "taken as written"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "initially",
-             "note": "initially keeps only the opening letter of the word before it"
-            }
-           ],
-           "parts": [
-            {
-             "words": "democratically",
-             "note": "first letter of democratically"
-            }
-           ]
-          }
-         ]
+         "words": "stories",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 68,
+         "note": "initially means the first letter of democratically is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "democratically",
+         "at": 53
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A newspaper sub trims the ends of articles in a democratic spirit.",
-     "walkthrough": "Drop the S at each end of stories, rearrange the five letters left, and put D inside. 'Revises' does double duty, as definition and anagram signal.",
-     "definitionFit": "An editor checks and corrects texts before publication, which is exactly revising them."
+     "surface": "An editor trims the stories and makes decisions by a vote.",
+     "walkthrough": "TORIE (stories without its ends) plus D, the D going within, is rearranged by 'revises'.",
+     "definitionFit": "An editor revises written material such as news stories, cutting and correcting it."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "democratically"
     }
    }

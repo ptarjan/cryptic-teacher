@@ -226,73 +226,71 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "retaining"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "words": "Used to be",
+       "at": 0,
+       "gives": "WAS",
+       "note": "was means used to be"
+      },
+      {
+       "words": "several",
+       "at": 11,
+       "gives": "TEN",
+       "note": "ten is taken as several, an indefinite number"
+      },
+      {
+       "words": "books",
+       "at": 19,
+       "gives": "OT",
+       "note": "OT is the Old Testament, a set of books of the Bible"
+      },
+      {
+       "words": "with",
+       "at": 26,
+       "gives": "W"
+      },
+      {
+       "words": "a",
+       "at": 31,
+       "gives": "A"
+      },
+      {
+       "words": "newer set",
+       "at": 33,
+       "gives": "NT",
+       "note": "NT is the New Testament, the newer set of Bible books"
+      },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "repeatedly"
+         "text": "retaining",
+         "at": 54,
+         "note": "retaining means holding inside, so the repeated set keeps the old letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Used to be",
-           "gives": "WAS",
-           "note": "past tense of is"
-          },
-          {
-           "words": "several",
-           "gives": "TEN",
-           "note": "ten is several"
-          },
-          {
-           "words": "books",
-           "gives": "OT",
-           "note": "Old Testament"
-          }
-         ]
+         "words": "repeatedly",
+         "at": 43,
+         "gives": "NT",
+         "note": "repeatedly means the newer set is given again"
         },
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "with",
-           "gives": "W",
-           "note": "W is short for with"
-          },
-          {
-           "words": "a",
-           "note": "as printed"
-          },
-          {
-           "words": "newer set",
-           "gives": "NT",
-           "note": "New Testament, the newer set of books"
-          }
-         ]
+         "words": "old",
+         "at": 64,
+         "gives": "O"
         }
        ]
-      },
-      {
-       "words": "repeatedly retaining old",
-       "gives": "NOT",
-       "note": "NT again, holding O for old"
       }
      ]
     },
     "explanation": {
-     "surface": "A tangle of old and new testaments, capped by a thrifty proverb.",
-     "walkthrough": "The Bible's two sets of books are the Old and New Testaments; 'repeatedly' asks for the newer set a second time, and 'several' as TEN is a stretch worth knowing.",
-     "definitionFit": "A proverb is an old piece of advice, and this one says thrift now saves want later: a tip on economy."
+     "surface": "A tangled sentence about books and an older version being kept for thrift.",
+     "walkthrough": "OT and NT are the Old and New Testaments. NT appears twice, the second time holding O.",
+     "definitionFit": "Waste not, want not is a proverb urging thrift: avoid waste and you will not lack anything."
     },
     "features": {
      "answerInScene": false,
@@ -479,42 +477,87 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "GOLDENRETRIEVER",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 42,
+       "note": "after puts the second part behind the first in the answer"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "to ring",
-         "note": "to ring something is to encircle it, so the retrier goes round the vet"
+         "text": "about",
+         "at": 53,
+         "note": "about means surrounding, so info goes round elderly"
         }
        ],
        "parts": [
         {
-         "words": "info about elderly",
-         "gives": "GOLDEN",
-         "note": "GEN (info) around OLD"
+         "words": "info",
+         "at": 48,
+         "gives": "GEN",
+         "note": "gen is British slang for information"
         },
         {
-         "words": "One again attempting to ring vet briefly",
-         "gives": "RETRIEVER",
-         "note": "RETRIER (one who tries again) around VE"
+         "words": "elderly",
+         "at": 59,
+         "gives": "OLD",
+         "note": "old means elderly"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to ring",
+         "at": 21,
+         "note": "to ring means to encircle, so the one trying again surrounds the shortened vet"
+        }
+       ],
+       "parts": [
+        {
+         "words": "One again attempting",
+         "at": 0,
+         "gives": "RETRIER",
+         "note": "a re-trier is one who tries again"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 33,
+           "note": "briefly means cut short, so the last letter of vet is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "vet",
+           "at": 29
+          },
+          {
+           "gives": "T"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A second attempt to phone the vet, after getting news about an old dog.",
-     "walkthrough": "GEN is British slang for information. The clue is written back to front: 'after' tells you the second half of the wordplay comes first in the answer.",
-     "definitionFit": "A definition by example: the answer names one particular breed of dog."
+     "surface": "An old dog keeps trying to phone the vet after getting some news.",
+     "walkthrough": "Gen is British slang for information. A golden retriever is a breed, so 'elderly dog' misleads: elderly only supplies a piece.",
+     "definitionFit": "A golden retriever is a popular breed of gun dog with a golden coat."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "vet"
+     "misdirectedWord": "ring"
     }
    }
   },
@@ -1055,42 +1098,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BEDSTEAD",
-     "indicators": [
-      {
-       "text": "sorted",
-       "note": "things sorted are put into a new order, so the letters of debts are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sorted",
+         "at": 6,
+         "note": "sorted means put in order, so the letters of debts are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Debts sorted",
-         "gives": "BEDST",
-         "note": "anagram of DEBTS"
-        },
-        {
-         "words": "each",
-         "gives": "EA",
-         "note": "abbreviation"
-        },
-        {
-         "words": "day",
-         "gives": "D",
-         "note": "abbreviation"
+         "words": "Debts",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "each",
+       "at": 13,
+       "gives": "EA"
+      },
+      {
+       "words": "day",
+       "at": 18,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Settling debts day by day as a financial plan for old age.",
-     "walkthrough": "Retirement here is going to bed, not leaving work.",
-     "definitionFit": "A bedstead is the frame of a bed, where one retires at night."
+     "surface": "Paying off debts daily as a plan for retiring.",
+     "walkthrough": "'retirement' looks like leaving work, but it means going to bed. 'sorted' turns DEBTS into BEDST.",
+     "definitionFit": "A bedstead is the frame of a bed, the structure you lie on when you retire for the night."
     },
     "features": {
      "answerInScene": false,
@@ -1216,40 +1257,38 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "finally",
-       "note": "only the last letter of addresses"
+       "text": "turning up",
+       "at": 29,
+       "note": "turning up in a down clue means reading the letters from bottom to top"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "turning up",
-         "note": "in a down clue the string reads upwards"
-        }
-       ],
        "parts": [
         {
          "words": "Network",
+         "at": 0,
          "gives": "LAN",
-         "note": "local area network"
+         "note": "LAN stands for local area network"
         },
         {
          "words": "IP",
-         "note": "as printed"
+         "at": 8
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "S",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 21,
+           "note": "finally means the last letter of addresses is used"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "addresses finally",
-           "gives": "S",
-           "select": "last",
-           "note": "last letter of addresses"
+           "words": "addresses",
+           "at": 11
           }
          ]
         }
@@ -1258,13 +1297,14 @@
      ]
     },
     "explanation": {
-     "surface": "A report on network IP addresses showing up in a newspaper column.",
-     "walkthrough": "The technical surface hides that 'column' is the backbone.",
-     "definitionFit": "An adjective that picks out one kind of column, the backbone, as in the phrase spinal column."
+     "surface": "Computer network addresses appearing in a newspaper column.",
+     "walkthrough": "'column' suggests a newspaper, but it is the spinal column.",
+     "definitionFit": "The spinal column, or backbone, is the column of vertebrae; spinal describes that sort."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "column"
     }
    }
