@@ -281,8 +281,8 @@ check("a solution read off a page that no longer links it is due; one off any pa
       [f.due_reason(moved, "h", [18579], "v", None, {18579: {"1991-04-20 leaf 0"}}),
        f.due_reason(moved, "h", [18579], "v", None, {18579: {"1991-04-20 leaf 0", "1991-04-03 leaf 0"}}),
        f.due_reason({**moved, "verdicts": [{"number": 18579}]}, "h", [18579], "v", None, {18579: {"1991-04-20 leaf 0"}})])
-check("a fix's re-read ranks before the whole-corpus ones (scan code, --reread)", [2, 2, 3, 3],
-      [f.rank_of_reason("refused not-a-grid before its fix"), f.rank_of_reason("solution moved"),
+check("a fix's re-read ranks before the whole-corpus ones (scan code, --reread)", [2, 2, 2, 3, 3],
+      [f.rank_of_reason("short Times page, its third clue column read since"), f.rank_of_reason("refused not-a-grid before its fix"), f.rank_of_reason("solution moved"),
        f.rank_of_reason("scan stale"), f.rank_of_reason("--reread")])
 check("every refusal cause's fix has its rank", True,
       all(f"refused {c} before its fix" in f.RANKS for c in f.REFUSALS))
