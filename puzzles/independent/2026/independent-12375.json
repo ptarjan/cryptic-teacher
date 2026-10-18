@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -716,32 +717,43 @@
      }
     ],
     "wordplay": {
-     "op": "hidden",
-     "unchecked": true,
-     "gives": "SHADINESS",
-     "indicators": [
-      {
-       "text": "acquired",
-       "note": "what a phrase has acquired it now holds inside it, so the letters wanted are sitting somewhere in the words named before"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "10 had, in essence",
-       "gives": "SHADINESS",
-       "note": "the run begins on the last letter of the answer at 10 across, takes the two short words whole and stops three letters into the last"
+       "words": "10",
+       "at": 0,
+       "gives": "S",
+       "note": "a cross-reference to the answer of 10 across, the title Duchess, whose closing letter starts the hidden run"
+      },
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "acquired",
+         "at": 20,
+         "note": "the run of words has taken the answer into itself, so the letters sit concealed inside that stretch of text"
+        }
+       ],
+       "parts": [
+        {
+         "words": "had, in essence",
+         "at": 3,
+         "gives": "HADINESS",
+         "note": "taken as written; the run continues from the cross-referenced word into these words"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Whoever is named at 10 across having, essentially, got themselves a name for dishonesty.",
-     "walkthrough": "A cross-reference usually hands over a whole word; this one contributes a single letter from the end of the other answer and lets the clue's own words carry the run on. 'In essence' reads as a qualifier and is over half the hiding place.",
-     "definitionFit": "Shadiness is the quality of looking as though one cannot be trusted, which is a reputation for dishonesty rather than proof of any."
+     "surface": "A titled lady, at heart, has gained a name for being crooked.",
+     "walkthrough": "Swap in DUCHESS for 10: 'acquired' says duchesS HAD IN ESSence holds the answer, the S closing DUCHESS then HADINESS. 'In essence' looks like 'basically', but its letters are part of the run.",
+     "definitionFit": "Shadiness is the quality of being dodgy or disreputable, which is how a reputation for crookedness is described informally."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "acquired"
+     "misdirectedWord": "essence"
     }
    }
   },
@@ -991,46 +1003,47 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CASANOVA",
+     "op": "container",
      "indicators": [
       {
-       "text": "turned",
-       "note": "what is turned faces the other way, so the two short words after it are read back to front"
+       "text": "goes round",
+       "at": 38,
+       "note": "the wine surrounds the other piece, its letters split either side of it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "sparkling wine",
+       "at": 23,
+       "gives": "CAVA",
+       "note": "cava is a Spanish sparkling wine"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "goes round",
-         "note": "what goes round a thing sits on both sides of it, so the word named before splits to take the rest inside"
+         "text": "turned",
+         "at": 10,
+         "note": "turned means the words on as are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "sparkling wine",
-         "gives": "CAVA",
-         "note": "cava is the Spanish fizz made by the champagne method"
-        },
-        {
          "words": "on as",
-         "gives": "SANO",
-         "note": "the two little words read backwards, as the instruction in front of them asks"
+         "at": 17,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boy turned on as the fizz goes round the room.",
-     "walkthrough": "'Turned on' reads as one phrase and breaks in the middle: the first word is the instruction and the second is the first thing it acts on. The wine's four letters then part in the centre to take the reversal inside.",
-     "definitionFit": "A Casanova is a man with a long list of conquests, named after the eighteenth-century Venetian memoirist, which is exactly the lover boy type."
+     "surface": "A romantic is aroused while bubbly is being passed about.",
+     "walkthrough": "'Turned on' reads as one phrase meaning aroused, but the words split: 'turned' works on the next two words, and 'on' is not part of the definition.",
+     "definitionFit": "Casanova was an eighteenth-century Venetian seducer whose name became a byword for a womaniser."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "turned"
     }
