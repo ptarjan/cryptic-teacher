@@ -606,48 +606,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "ruined",
-       "note": "something ruined is wrecked out of shape, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Bottom of",
+         "at": 0,
+         "note": "bottom of takes the final letter of grand"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "Bottom of",
-           "note": "the bottom of a word is its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "grand",
-           "note": "the final letter of grand"
-          }
-         ]
-        },
-        {
-         "words": "robe",
-         "note": "the four letters rearranged"
-        },
-        {
-         "words": "male",
-         "gives": "MAN",
-         "note": "a man is a male person"
+         "words": "grand",
+         "at": 10
         }
        ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ruined",
+         "at": 21,
+         "note": "ruined means the robe's letters are wrecked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "robe",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "male",
+       "at": 31,
+       "gives": "MAN",
+       "note": "a man is a male"
       }
      ]
     },
     "explanation": {
-     "surface": "A fine gown has been chewed at the hem by a male dog.",
-     "definitionFit": "The Dobermann, or Doberman pinscher, is a German breed of guard dog."
+     "surface": "The hem of a fine robe has been ruined by a male dog.",
+     "definitionFit": "The Dobermann is a breed of guard dog developed in Germany."
     },
     "features": {
      "answerInScene": true,
@@ -761,37 +764,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "off",
-       "note": "off means gone bad or awry, so these letters are scrambled"
+       "text": "following",
+       "at": 15,
+       "note": "following means the jumbled letters come after the word for good"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "good",
+       "at": 25,
+       "gives": "OK",
+       "note": "OK means acceptable, good"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 11,
+         "note": "off means the letters of fob and setter go wrong and are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "good",
-         "gives": "OK",
-         "note": "OK means acceptable or good"
+         "words": "Fob",
+         "at": 0
         },
         {
-         "words": "Fob setter",
-         "note": "the nine letters rearranged"
+         "words": "setter",
+         "at": 4
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tells the crossword setter to clear off after a drunken party.",
-     "walkthrough": "'Following' tells you the OK piece comes after the scrambled letters in the clue but first in the answer.",
-     "definitionFit": "Oktoberfest is the annual Munich beer festival, famous for its huge drinking tents."
+     "surface": "The setter is fobbed off after a decent drink-fuelled party.",
+     "definitionFit": "Oktoberfest is Munich's annual beer festival, famous for heavy drinking."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "Fob"
     }
