@@ -542,32 +542,28 @@
      "parts": [
       {
        "words": "March",
+       "at": 0,
        "gives": "DEMO",
        "note": "a demo is a protest march"
       },
       {
-       "words": "from",
+       "words": "in Paris, from",
+       "at": 6,
        "gives": "DE",
-       "note": "de is the French for from"
-      },
-      {
-       "unchecked": true,
-       "words": "in Paris,",
-       "note": "signals that the next word is to be put into French"
+       "note": "de is the French word for from"
       }
      ]
     },
     "spelling": "DÉMODÉ",
     "explanation": {
-     "surface": "A protest march in Paris, coming from outside the city.",
-     "walkthrough": "'out of Paris' looks like 'away from Paris' but means 'out' as Parisians say it: the word is French and English borrows it.",
-     "definitionFit": "Démodé is French for unfashionable, out of date, so it is how Paris says something is out."
+     "surface": "A tourist's note about a march in Paris and someone coming from out of town.",
+     "walkthrough": "DEMO is a protest march; DE is French for 'from'. 'Out of Paris' means the French word for out, as in out of fashion; the answer is a French borrowing.",
+     "definitionFit": "Démodé is French for outmoded, so it is the Parisian way to say a style is out."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "out"
+     "misdirectedWord": "March"
     }
    }
   },
@@ -1270,61 +1266,56 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 23,
+       "note": "in places the loud letters inside the word for head"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "placing one thing in another puts it inside, enclosed"
-        }
-       ],
-       "parts": [
-        {
-         "op": "container",
-         "parts": [
-          {
-           "words": "head",
-           "gives": "DEAN",
-           "note": "a dean is the head of a college or faculty"
-          },
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "ultimately",
-             "note": "ultimately means at the end, so only the final letter is kept"
-            }
-           ],
-           "parts": [
-            {
-             "words": "noise",
-             "note": "the last letter of the word"
-            }
-           ]
-          }
-         ]
-        },
-        {
-         "words": "Loud",
-         "gives": "F",
-         "note": "F is forte, the musical direction for loud"
-        }
-       ]
+       "words": "head",
+       "at": 26,
+       "gives": "DEAN",
+       "note": "a dean is the head of a college or cathedral chapter"
       },
       {
-       "unchecked": true,
-       "words": "may do so",
-       "note": "surface padding completing the whole-clue definition"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Loud",
+         "at": 0,
+         "gives": "F",
+         "note": "f, forte, is the musical marking for loud"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 12,
+           "note": "ultimately points to the last letter of noise"
+          }
+         ],
+         "parts": [
+          {
+           "words": "noise",
+           "at": 5,
+           "note": "the last letter of noise is taken"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A loud noise inside your head may well damage your hearing.",
-     "walkthrough": "The whole clue is the definition too: 'head' reads as the body part, but in the wordplay it is a college head.",
-     "definitionFit": "A very loud sound can cause temporary hearing loss, and the clue as a whole describes that effect."
+     "surface": "A warning that loud noise ringing in the head may have this effect.",
+     "walkthrough": "F and E, which 'ultimately' takes from the end of noise, go 'in' DEAN. Read as a whole, the clue also says what loud noise can do to you.",
+     "definitionFit": "To deafen is to make someone unable to hear, which a loud noise can do."
     },
     "features": {
      "answerInScene": true,

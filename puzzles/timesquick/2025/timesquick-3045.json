@@ -152,44 +152,20 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "rebus",
+     "reading": "C at one end, Y at the other",
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "C",
-       "indicators": [
-        {
-         "text": "Limitations of",
-         "note": "the limits of a word are its first and last letters"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Limitations of costly",
-         "gives": "C",
-         "select": "outer",
-         "note": "the first limit of COSTLY"
-        }
-       ]
-      },
-      {
-       "words": "of",
-       "gives": "AND",
-       "note": "a word is written in to join the two limits into a phrase"
-      },
-      {
-       "words": "costly",
-       "gives": "Y",
-       "note": "the last limit of COSTLY"
+       "words": "Limitations of costly",
+       "at": 0,
+       "note": "the limits of the word costly are its two outer letters, one at each end, and the picture is read out with a joining word between them"
       }
      ]
     },
     "explanation": {
-     "surface": "An observation that American sweets have their price limits.",
-     "walkthrough": "The trick is to read the two outer letters as a phrase, 'C and Y', which runs together into the answer.",
-     "definitionFit": "Candy is the American word for sweets or confectionery."
+     "surface": "A shopper laments the price of American sweets.",
+     "walkthrough": "The outer letters of costly are C and Y; read 'C and Y' as one word.",
+     "definitionFit": "Candy is the American word for sweets, so it means confectionery in the US."
     },
     "features": {
      "answerInScene": true,
@@ -220,52 +196,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ELKHOUND",
+     "op": "container",
      "indicators": [
       {
-       "text": "terribly",
-       "note": "LOUD KEN is rearranged, as if done terribly"
+       "text": "holding",
+       "at": 31,
+       "note": "holding means enclosing, so the rearranged letters wrap round the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "holding"
+         "text": "terribly",
+         "at": 12,
+         "note": "terribly suggests something done badly, so the letters of loud and Ken are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "loud, Ken",
-         "note": "anagram fodder, 7 letters"
+         "words": "loud",
+         "at": 21
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "lead in",
-           "note": "the lead of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "lead in hall",
-           "gives": "HALL",
-           "note": "first letter of HALL, held after the third letter of the jumble"
-          }
-         ]
+         "words": "Ken",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "lead in",
+         "at": 39,
+         "note": "the lead in a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hall",
+         "at": 47,
+         "note": "the first letter of hall"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Ken is being terribly loud while a hunting dog waits in the hall.",
-     "walkthrough": "The dog of the definition is literally in the surface, which helps; the H goes into the middle of the jumbled LOUD KEN.",
-     "definitionFit": "An elkhound is a Norwegian hunting dog, bred to track elk."
+     "surface": "Ken's hunting dog is barking terribly loudly in the hall.",
+     "walkthrough": "'terribly' rearranges LOUD and KEN, and 'holding' puts H ('lead in hall') inside: ELK-H-OUND.",
+     "definitionFit": "The elkhound is a Norwegian breed of spitz bred to track elk and other large game."
     },
     "features": {
      "answerInScene": true,
@@ -773,49 +755,47 @@
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "DE",
        "indicators": [
         {
          "text": "finally",
-         "note": "take the final letter of each of the next two words"
+         "at": 22,
+         "note": "finally takes the last letter of each of the two words that follow"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "finally sold single",
-         "gives": "DE",
-         "select": "last",
-         "note": "last letters of SOLD and SINGLE"
+         "words": "sold single",
+         "at": 30,
+         "note": "the last letters of sold and of single"
         }
        ]
       },
       {
        "words": "Born",
-       "gives": "B",
-       "note": "B = born"
+       "at": 42,
+       "gives": "B"
       },
       {
        "words": "to",
-       "note": "used as it stands"
+       "at": 47
       },
       {
        "words": "Run",
+       "at": 50,
        "gives": "R",
-       "note": "R = run, as in cricket scores"
+       "note": "R is the cricket abbreviation for run"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone in debt who finally sold their copy of the Springsteen single Born to Run.",
-     "walkthrough": "'Born to Run' looks like one title but splits into three pieces: B, TO, R. 'Finally' governs both 'sold' and 'single'.",
-     "definitionFit": "A debtor is a person who owes money."
+     "surface": "A man in debt finally flogs his copy of the Springsteen single Born to Run.",
+     "walkthrough": "'finally' takes D and E from the ends of sold and single, then B, TO and R follow. 'say' marks the definition as one example of the answer.",
+     "definitionFit": "A debtor is a person who owes money to someone else, the opposite of a creditor."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Born"
+     "misdirectedWord": "Run"
     }
    }
   },
@@ -1387,47 +1367,41 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "BEDSTEAD",
      "indicators": [
       {
        "text": "Absurd",
-       "note": "DEBATES are rearranged into an absurd order"
+       "at": 0,
+       "note": "absurd means ridiculous, so the letters are thrown into nonsense order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "debates",
+       "at": 7
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start to",
+         "at": 15,
+         "note": "the start of a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "debates",
-         "gives": "BEDSTEA",
-         "note": "anagram fodder, 7 letters"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "start to",
-           "note": "the start of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "start to demand",
-           "gives": "DEMAND",
-           "note": "first letter of DEMAND"
-          }
-         ]
+         "words": "demand",
+         "at": 24,
+         "note": "the first letter of demand"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Absurd debates begin with demands to support liars.",
-     "walkthrough": "'Lying people' look like liars, but they are people lying down, in bed.",
-     "definitionFit": "A bedstead is the frame of a bed, which supports people lying on it."
+     "surface": "Someone complains that ridiculous debates begin by demanding support for liars.",
+     "walkthrough": "'Absurd' rearranges DEBATES with D, the 'start to' demand. 'Lying' means lying down in bed, not telling lies.",
+     "definitionFit": "A bedstead is the framework of a bed, which holds up people lying down to sleep."
     },
     "features": {
      "answerInScene": false,

@@ -147,49 +147,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NORTHWIND",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endless",
-       "note": "without an end means the final letter of the word next to it is dropped"
+       "text": "suffering",
+       "at": 21,
+       "note": "words that are suffering are in a bad way, so their letters are knocked into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Drown",
+       "at": 0
+      },
+      {
+       "words": "in",
+       "at": 6
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "suffering",
-         "note": "suffering letters are in torment and twisted out of their usual shape"
+         "text": "endless",
+         "at": 13,
+         "note": "without its end, so the drops its final letter"
         }
        ],
        "parts": [
         {
-         "words": "Drown",
-         "note": "taken as written"
-        },
-        {
-         "words": "in",
-         "note": "taken as written"
-        },
-        {
          "words": "the",
-         "gives": "TH",
-         "note": "the word the without its last letter"
+         "at": 9
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is overwhelmed by misery as a harsh wind strikes.",
-     "definitionFit": "A wind from the north is cold, so a bitter blow is a strong chilly gust."
+     "surface": "Someone drowning in endless misery receives a cruel setback.",
+     "walkthrough": "'endless' trims the to TH; 'suffering' then rearranges DROWN, IN and TH together. 'Bitter blow' is a cold wind, not a disappointment.",
+     "definitionFit": "A north wind is a cold, biting gust, so it is literally a bitter blow of air."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "blow"
     }
    }
@@ -416,55 +420,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EMMA",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "lifted",
-       "note": "in a down entry, lifted means read upwards, so the word is turned around"
+       "text": "off",
+       "at": 16,
+       "note": "off says those letters are taken away from the word for problem"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "problem",
+       "at": 20,
+       "gives": "DILEMMA",
+       "note": "a dilemma is a problem with no good way out"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "off",
-         "note": "taking something off a word removes those letters from it"
+         "text": "lifted",
+         "at": 5,
+         "note": "in a down clue, lifted means written upwards, so lid is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "lid",
-           "note": "taken as written, then read upwards"
-          },
-          {
-           "words": "problem",
-           "gives": "DILEMMA",
-           "note": "a dilemma is a difficult problem"
-          }
-         ]
-        },
-        {
-         "gives": "LIDDIL"
+         "words": "lid",
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A girl solved a puzzle by prising the top off something.",
-     "walkthrough": "DILEMMA begins with LID written backwards; removing it leaves the girl's name.",
-     "definitionFit": "Emma is a common female first name, so it is an example of a girl."
+     "surface": "A girl raises the lid on some trouble.",
+     "walkthrough": "'lifted' turns lid into DIL, and 'off' removes DIL from the front of DILEMMA.",
+     "definitionFit": "Emma is a common female first name, as in Jane Austen's heroine, so it can stand for a girl."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "lid"
+     "misdirectedWord": "lifted"
     }
    }
   },
@@ -1031,7 +1028,8 @@
      "indicators": [
       {
        "text": "to describe",
-       "note": "to describe is literally to draw around, so one word goes round the other"
+       "at": 22,
+       "note": "to describe is to draw around, so one piece encloses the other"
       }
      ],
      "parts": [
@@ -1040,12 +1038,14 @@
        "indicators": [
         {
          "text": "doesn't begin",
-         "note": "a word that fails to begin has lost its opening letter"
+         "at": 8,
+         "note": "the word loses its first letter"
         }
        ],
        "parts": [
         {
          "words": "Disease",
+         "at": 0,
          "gives": "RABIES",
          "note": "rabies is a viral disease"
         },
@@ -1055,31 +1055,30 @@
        ]
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "LITI",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "core",
-         "note": "the core of a word is its middle, so only the central letters are kept"
+         "text": "the core of",
+         "at": 34,
+         "note": "only the central part of politics is kept, its outer pairs of letters dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "politics'",
-         "gives": "LITI",
-         "select": "middle",
-         "note": "the middle four letters of politics"
+         "at": 46
+        },
+        {
+         "gives": "POCS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A comment that calling politics diseased does not go nearly far enough.",
-     "walkthrough": "Doesn't begin to describe reads as an idiom for understatement, but each part is an instruction: lose the first letter, then wrap around.",
-     "definitionFit": "Abilities are capacities or talents, so powers in the sense of things one is able to do."
+     "surface": "A commentator says no illness could capture what lies at the heart of political power.",
+     "walkthrough": "RABIES without its start ('doesn't begin') is ABIES; 'the core of' politics is LITI; 'to describe' puts ABIES around LITI.",
+     "definitionFit": "Abilities are capacities or talents, the plural noun matching powers in the sense of faculties."
     },
     "features": {
      "answerInScene": false,
@@ -1776,60 +1775,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SATIRISED",
+     "op": "composite",
      "indicators": [
       {
        "text": "ruined",
-       "note": "something ruined is wrecked, so the letters are broken up and rebuilt"
+       "at": 9,
+       "note": "something ruined is wrecked, so the letters are thrown into a new arrangement"
+      },
+      {
+       "text": "without",
+       "at": 28,
+       "note": "without says a letter is left out of the pool before it is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SATIRISED",
-       "indicators": [
-        {
-         "text": "without",
-         "note": "without means lacking, so that letter is removed from the fodder"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Haiti dress",
-         "note": "the letters to be rearranged"
-        },
-        {
-         "op": "nth",
-         "n": 2,
-         "indicators": [
-          {
-           "text": "second",
-           "note": "the second of a word is the letter in position two"
-          }
-         ],
-         "parts": [
-          {
-           "words": "thought",
-           "note": "the second letter of thought"
-          }
-         ]
-        }
-       ]
+       "words": "Haiti dress",
+       "at": 16
+      },
+      {
+       "words": "second thought",
+       "at": 36,
+       "gives": "H",
+       "note": "the second letter of thought"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone mocked a spoiled Caribbean garment without a second thought.",
-     "walkthrough": "Without second thought reads as an idiom for doing something rashly, but it removes one letter from the fodder.",
-     "definitionFit": "To take someone off is to mimic or parody them, which is what satirising does."
+     "surface": "Someone thoughtlessly spoils a Haitian garment.",
+     "walkthrough": "'second thought' is the second letter of thought, H. Remove it ('without') from HAITI DRESS and 'ruined' rearranges the rest. 'Took off' means mimicked, not removed.",
+     "definitionFit": "To take off someone is to mimic or parody them, which is what satirising does."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "thought"
+     "aptDefinition": true,
+     "misdirectedWord": "off"
     }
    }
   }
