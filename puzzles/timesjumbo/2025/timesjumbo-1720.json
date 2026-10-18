@@ -521,37 +521,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BEDSTEAD",
-     "indicators": [
-      {
-       "text": "arranged",
-       "note": "the letters of DATE are put in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "County",
+       "at": 0,
+       "gives": "BEDS",
+       "note": "Beds is the short form of Bedfordshire, an English county"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "arranged",
+         "at": 7,
+         "note": "arranged means put in a new order, so the letters of date are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "County",
-         "gives": "BEDS",
-         "note": "Beds, short for Bedfordshire"
-        },
-        {
-         "words": "arranged date",
-         "gives": "TEAD",
-         "note": "DATE rearranged"
+         "words": "date",
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A county council fixes the date for a rail project involving sleepers.",
-     "walkthrough": "Bedfordshire is an English county, abbreviated Beds. Sleepers suggest railway timbers; here they are people asleep.",
-     "definitionFit": "A bedstead is the frame of a bed, the support for those sleeping in it."
+     "surface": "An English county has fixed a date, and some sort of sleeper support is involved.",
+     "walkthrough": "Bedfordshire is a county north of London, written Beds for short.",
+     "definitionFit": "A bedstead is the frame of a bed, which holds up the mattress and the people who sleep on it."
     },
     "features": {
      "answerInScene": false,
@@ -1528,39 +1527,34 @@
      "indicators": [
       {
        "text": "dislodges",
-       "note": "the B is knocked out of the word"
+       "at": 41,
+       "note": "dislodges means forces out, so the bishop letter is removed"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "horse's companion",
-         "gives": "STABLEMATE",
-         "note": "a stablemate shares a horse's stable"
-        },
-        {
-         "words": "dislodges bishop",
-         "gives": "STALEMATE",
-         "note": "B = bishop in chess notation, removed"
-        }
-       ]
+       "words": "horse's companion",
+       "at": 23,
+       "gives": "STABLEMATE",
+       "note": "a stablemate is a horse kept in the same stable as another"
       },
       {
-       "gives": "STABLEMATE"
+       "words": "bishop",
+       "at": 51,
+       "gives": "B",
+       "note": "B is the chess notation for bishop"
       }
      ]
     },
     "explanation": {
-     "surface": "Deadlock ensues when a racehorse's companion unseats a clergyman.",
-     "walkthrough": "Bishop is B in chess, apt because stalemate is itself a chess term.",
-     "definitionFit": "A stalemate is an impasse, a position where no progress is possible."
+     "surface": "A chess position where play stalls once a knight's partner pushes out a bishop.",
+     "walkthrough": "The horse and bishop suggest a chess knight, which fits the answer's chess meaning, but the horse is a real one in a stable.",
+     "definitionFit": "Stalemate, from chess, is a situation where no further progress can be made, a deadlock or impasse."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "bishop"
+     "misdirectedWord": "horse's"
     }
    }
   },
@@ -1863,39 +1857,34 @@
      "indicators": [
       {
        "text": "leaves",
-       "note": "UN goes away from the word"
+       "at": 41,
+       "note": "leaves means goes away, so the organisation's letters are removed"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Experienced",
-         "gives": "UNDERWENT",
-         "note": "underwent = experienced"
-        },
-        {
-         "words": "organisation promoting peace leaves",
-         "gives": "DERWENT",
-         "note": "the UN, United Nations, is removed from the front"
-        }
-       ]
+       "words": "Experienced",
+       "at": 0,
+       "gives": "UNDERWENT",
+       "note": "to undergo something is to experience it, so experienced means underwent"
       },
       {
-       "gives": "UNDERWENT"
+       "words": "organisation promoting peace",
+       "at": 12,
+       "gives": "UN",
+       "note": "the UN, the United Nations, exists to keep international peace"
       }
      ]
     },
     "explanation": {
      "surface": "A seasoned peace group departs from a river.",
-     "walkthrough": "The Derwent is a river name found in several English counties, including Derbyshire and Cumbria.",
-     "definitionFit": "A definition by example: the Derwent is one of several English rivers of that name."
+     "walkthrough": "The Derwent is the name of several English rivers, including ones in Derbyshire, Cumbria and Yorkshire.",
+     "definitionFit": "The Derwent is a river, one of several in England that share this name."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leaves"
+     "misdirectedWord": "Experienced"
     }
    }
   },
@@ -2975,52 +2964,55 @@
      "indicators": [
       {
        "text": "going into",
-       "note": "going into means entering"
+       "at": 13,
+       "note": "going into means entering, so the new pamphlet sits between the two end letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
          "text": "extremely",
-         "note": "take the extreme letters of 'effective'"
+         "at": 24,
+         "note": "extremely means at the extremes, so only the first and last letters are used"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "parts": [
-          {
-           "words": "extremely effective",
-           "note": "the outer letters of EffectivE, split E|E"
-          }
-         ]
-        },
-        {
-         "words": "New",
-         "gives": "N",
-         "note": "N = new"
+         "words": "effective",
+         "at": 34,
+         "note": "the outer letters of the word effective"
         }
        ]
       },
       {
-       "words": "pamphlet",
-       "gives": "TRACT",
-       "note": "a tract is a pamphlet"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "New",
+         "at": 0,
+         "gives": "N"
+        },
+        {
+         "words": "pamphlet",
+         "at": 4,
+         "gives": "TRACT",
+         "note": "a tract is a short pamphlet, often religious or political"
+        }
+       ]
       }
      ]
     },
     "spelling": "ENTR'ACTE",
     "explanation": {
-     "surface": "A fresh leaflet proves very effective during a concert interval.",
-     "walkthrough": "'Extremely' reads as 'very'; it means the two ends of the word.",
-     "definitionFit": "An entr'acte is music played between the acts of a play or opera."
+     "surface": "A fresh leaflet slipped into a very effective piece played in the interval.",
+     "definitionFit": "An entr'acte is a piece of music played between the acts of a stage performance."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "extremely"
+     "misdirectedWord": "effective"
     }
    }
   },
@@ -3291,50 +3283,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ARSENAL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "to make a comeback",
-       "note": "LANE comes back, reading backwards"
+       "text": "introduction of",
+       "at": 28,
+       "note": "the introduction of something comes at its start, so the a and the Royal Society letters go in front"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 44,
+       "gives": "A"
+      },
+      {
+       "words": "Royal Society",
+       "at": 46,
+       "gives": "RS",
+       "note": "RS is the abbreviation for the Royal Society, Britain's national science academy"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "introduction of"
+         "text": "to make a comeback",
+         "at": 4,
+         "note": "making a comeback means coming back, so the word for way is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "as written"
-        },
-        {
-         "words": "Royal Society",
-         "gives": "RS",
-         "note": "RS = Royal Society"
-        },
-        {
-         "words": "Way to make a comeback",
-         "gives": "ENAL",
-         "note": "a lane is a way, reversed"
+         "words": "Way",
+         "at": 0,
+         "gives": "LANE",
+         "note": "a lane is a narrow road or way"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scientific society's magazine plans a revival.",
-     "walkthrough": "'Magazine' reads as a periodical; it is a store for weapons and ammunition. A football fan also sees Arsenal making a comeback.",
-     "definitionFit": "A second sense of magazine: a store for weapons and ammunition, not a periodical."
+     "surface": "A road returns in a Royal Society publication.",
+     "walkthrough": "'magazine' suggests a periodical, which suits 'Royal Society', but it is the military store; 'to make a comeback' and 'introduction of' only order the pieces.",
+     "definitionFit": "A magazine in the military sense is a store for weapons and ammunition, which is what an arsenal is."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "magazine"
     }
    }
