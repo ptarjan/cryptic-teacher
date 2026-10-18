@@ -1261,51 +1261,53 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece wraps the other"
+       "at": 13,
+       "note": "about means the song goes round the next letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "song",
-         "gives": "ARIA",
-         "note": "an aria is a solo song in opera"
-        },
-        {
-         "words": "America",
-         "gives": "US",
-         "note": "US is the United States"
-        }
-       ]
+       "words": "song",
+       "at": 8,
+       "gives": "ARIA",
+       "note": "an aria is a song in opera"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "ultimately",
-         "note": "ultimately means in the end, so only the final letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "daft",
-         "note": "its final letter"
+         "words": "America",
+         "at": 19,
+         "gives": "US",
+         "note": "US is the United States"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 28,
+           "note": "ultimately means the last letter of daft"
+          }
+         ],
+         "parts": [
+          {
+           "words": "daft",
+           "at": 39
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A country-and-western song about the USA turns out to be rather silly.",
-     "walkthrough": "'Country song' suggests a genre of music, but 'Country' is the definition and 'song' a separate piece.",
-     "definitionFit": "Austria is a landlocked nation in central Europe, so it is a straightforward example of a country."
+     "surface": "A country-music song about America that ends up silly.",
+     "definitionFit": "Austria is a central European nation, a country."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Country"
     }
    }

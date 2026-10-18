@@ -1527,62 +1527,73 @@
      "indicators": [
       {
        "text": "holding",
-       "note": "to hold something is to grip it inside, so one piece sits within another"
+       "at": 26,
+       "note": "holding means the fraud wraps around the following letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Fraud",
+       "at": 16,
+       "gives": "CON",
+       "note": "a con is a fraud"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "by",
+         "at": 47,
+         "note": "by means beside, so the last letter of count sits right next to the reversed nothing"
+        }
+       ],
        "parts": [
         {
-         "words": "Fraud",
-         "gives": "CON",
-         "note": "a con is a swindle or fraud"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 34,
+           "note": "back means the word for nothing is reversed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nothing",
+           "at": 39,
+           "gives": "NIL",
+           "note": "nil means nothing"
+          }
+         ]
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "end of",
-           "note": "the end of a word is its final letter, which is the only one kept"
+           "at": 50,
+           "note": "the end of count is its final letter"
           }
          ],
          "parts": [
           {
            "words": "count",
-           "note": "the last letter of count"
+           "at": 57
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "back",
-         "note": "going back means running the other way, so the letters read in reverse"
-        }
-       ],
-       "parts": [
-        {
-         "words": "nothing",
-         "gives": "NIL",
-         "note": "nil means nothing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A former president cries fraud while refusing to concede at the end of a vote count.",
-     "walkthrough": "The surface evokes a recent ex-president disputing an election; the answer is a different one. The 's stands for 'is'.",
-     "definitionFit": "Bill Clinton served as the 42nd President of the United States in the 1990s, so he is a former holder of that office."
+     "surface": "A former US president cries fraud while a vote count is still unfinished.",
+     "definitionFit": "Bill Clinton was the 42nd President of the United States, so a former holder of the office."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Fraud"
+     "misdirectedWord": "count"
     }
    }
   }

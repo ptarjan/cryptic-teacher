@@ -261,38 +261,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "KOKUM",
+     "op": "composite",
      "indicators": [
       {
-       "text": "is cultivated",
-       "note": "cultivated ground is turned over, so the letters of the place name are worked into a new order"
+       "text": "this",
+       "at": 12,
+       "note": "this stands for the answer itself, whose letters join those of arar in the pool"
+      },
+      {
+       "text": "is cultivated in",
+       "at": 22,
+       "note": "cultivated suggests ground worked over, so the combined letters are reworked into the mountain name"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "KOKUM",
-       "parts": [
-        {
-         "words": "Karakorum",
-         "note": "a Central Asian mountain range, taken whole"
-        },
-        {
-         "words": "this arar",
-         "gives": "ARAR",
-         "note": "the arar is a North African tree; its letters are taken away"
-        }
-       ]
+       "words": "Karakorum",
+       "at": 39,
+       "note": "the mountain range whose letters are the anagram pool"
+      },
+      {
+       "words": "arar",
+       "at": 17,
+       "note": "the arar is a North African tree; its letters plus the answer's make the pool"
       }
      ]
     },
     "explanation": {
-     "surface": "A tree is grown in a remote Asian mountain region.",
-     "walkthrough": "A composite anagram: the answer plus ARAR rearranges to KARAKORUM, so remove ARAR's letters and KOKUM remains.",
-     "definitionFit": "Kokum is an Indian tree of the mangosteen family, whose fruit gives a souring agent and kokum butter."
+     "surface": "A botanical note: this arar tree is grown in the Karakorum mountains.",
+     "walkthrough": "A composite anagram: the answer plus ARAR, rearranged, give KARAKORUM; take ARAR out and shuffle the rest.",
+     "definitionFit": "The kokum is an Indian tree of the mangosteen family, whose fruit is used in cooking."
     },
     "features": {
      "answerInScene": true,
@@ -765,38 +763,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "twisted",
-       "note": "twisted means bent out of shape, so the word has gets rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "twisted",
+         "at": 21,
+         "note": "twisted means the word has is jumbled"
+        }
+       ],
        "parts": [
         {
          "words": "has",
-         "note": "the three letters rearranged"
-        },
-        {
-         "words": "end in ring, often",
-         "gives": "KO",
-         "note": "a knockout is how a boxing bout in the ring often finishes"
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "end in ring, often",
+       "at": 29,
+       "gives": "KO",
+       "note": "a knockout is often how a boxing bout in the ring ends, abbreviated KO"
       }
      ]
     },
     "explanation": {
-     "surface": "A plumed hat with a bent tip often ends up in the ring.",
-     "walkthrough": "KO is the standard abbreviation for a knockout.",
-     "definitionFit": "A shako is a tall cylindrical military hat with a peak and usually a plume or pompom."
+     "surface": "A plumed cap with its tip bent round into a ring.",
+     "definitionFit": "A shako is a tall stiff military hat, typically topped with a plume or pompom."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "ring"
     }
    }
@@ -1913,61 +1913,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SETNESS",
+     "op": "container",
      "indicators": [
       {
-       "text": "stirring",
-       "note": "stirring mixes things up, so the word senses is rearranged"
+       "text": "around",
+       "at": 30,
+       "note": "the jumbled letters go around the central letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "around means wrapping the other letter"
+         "text": "stirring",
+         "at": 21,
+         "note": "stirring means the letters of senses are mixed up"
         }
        ],
        "parts": [
         {
          "words": "senses",
-         "note": "the six letters rearranged and split around the insert"
-        },
+         "at": 14
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "T",
-         "indicators": [
-          {
-           "text": "core of",
-           "note": "the core of a word is its central letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "proletariat",
-           "gives": "T",
-           "select": "middle",
-           "note": "the sixth of eleven letters"
-          }
-         ]
+         "text": "core of",
+         "at": 37,
+         "note": "the core is the middle letter of proletariat"
+        }
+       ],
+       "parts": [
+        {
+         "words": "proletariat",
+         "at": 45
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Establishment senses unrest among the workers.",
-     "walkthrough": "'Establishment' looks like the ruling class, but it means the state of being settled.",
-     "definitionFit": "Setness is the quality of being fixed or settled, a state of being firmly established."
+     "surface": "The Establishment senses the workers are getting restless.",
+     "definitionFit": "Setness is the state of being fixed or settled, a sense of being established."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Establishment"
     }
    }

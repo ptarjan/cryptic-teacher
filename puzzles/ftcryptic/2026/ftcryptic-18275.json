@@ -637,28 +637,37 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "not quite",
-       "note": "the word falls just short: its last letter goes"
+       "text": "wrong",
+       "at": 36,
+       "note": "wrong signals the letters are put in the wrong order, an anagram"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Spy",
+       "at": 0
+      },
+      {
+       "words": "one",
+       "at": 4
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "wrong",
-         "note": "the letters are in the wrong order"
+         "text": "not quite",
+         "at": 26,
+         "note": "not quite means the last letter of Mudd is dropped"
         }
        ],
        "parts": [
         {
-         "words": "Spy one",
-         "note": "anagram fodder"
+         "words": "Mudd",
+         "at": 13,
+         "note": "the setter's own name, missing its final letter"
         },
         {
-         "words": "Mudd? That's not quite",
-         "gives": "MUD",
-         "note": "Mudd missing its final D"
+         "gives": "D"
         }
        ]
       }
@@ -666,9 +675,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "The setter teasingly accusing himself of being a spy, then half taking it back.",
-     "walkthrough": "Mudd is the setter's pen name, and a spy works under a false name too, so the whole clue, read straight, points at the answer while its words, one clipped, supply the letters.",
-     "definitionFit": "Read whole, the clue says a spy and the setter Mudd have one thing in common that is not quite wrong: each goes by an assumed name."
+     "surface": "The setter wonders whether a spy and he share something; not entirely wrong.",
+     "walkthrough": "The whole clue does both jobs: Mudd is the setter's pen name, and like a spy he works under an alias.",
+     "definitionFit": "A pen name or alias is the term for a false name used by writers, setters and spies alike."
     },
     "features": {
      "answerInScene": true,
@@ -1441,40 +1450,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TONOAVAIL",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 16,
+       "note": "the anagram comes after the mass"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "mass",
+       "at": 22,
+       "gives": "TON",
+       "note": "a ton is a unit of mass"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "playing",
-         "note": "a viola playing makes music, and the letters play into a new order"
-        },
-        {
-         "text": "after",
-         "note": "this piece comes after the other"
+         "at": 8,
+         "note": "playing suggests the letters are played about with, rearranged"
         }
        ],
        "parts": [
         {
-         "words": "mass",
-         "gives": "TON",
-         "note": "a ton is a unit of mass"
+         "words": "A",
+         "at": 0
         },
         {
-         "words": "A viola",
-         "note": "A VIOLA jumbled"
+         "words": "viola",
+         "at": 2
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A viola played after a church mass, but in vain.",
-     "walkthrough": "'Mass' sounds religious, with music afterwards; it is the physics sense, weight.",
-     "definitionFit": "To no avail means without success."
+     "surface": "A violist performs after Mass, without much success.",
+     "definitionFit": "'To no avail' is an idiom meaning without any result or effect."
     },
     "features": {
      "answerInScene": false,
