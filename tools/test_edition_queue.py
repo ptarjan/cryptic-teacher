@@ -20,6 +20,7 @@ import tempfile
 from pathlib import Path
 
 os.environ["DESKTOP_HOSTS_STATIC"] = "1"  # desktop_hosts.ranked: the json order, no network probe
+os.environ["CT_AUTO_RELOAD"] = "0"  # no dispatch here fetches the real repo (the reload cases turn it on)
 REPO = Path(__file__).resolve().parent.parent
 _tmp = tempfile.mkdtemp()
 _parent = os.getpid()
@@ -1892,6 +1893,106 @@ with open(lock_path, "a") as lk:
     blocked = waiting.poll() is None
     fcntl.flock(lk, fcntl.LOCK_UN)
 check("a start waits while the tree moves, then runs", (True, 0), (blocked, waiting.wait(timeout=120)))
+
+# ---- hot reload (tools/hot_reload.py): which pushes trigger it, and the drain
+import hot_reload as hr
+check("a tools/ change is code; puzzles, tests, docs are not",
+      ["tools/edition_queue.py", "tools/ocr_full_pass.sh"],
+      hr.code_changed(["puzzles/times/1.json", "tools/edition_queue.py", "tools/test_edition_queue.py", "README.md",
+                       "tools/NOTES.md", "tools/ocr_full_pass.sh", "puzzles/index.json"]))
+check("a puzzle-only push is not code", [], hr.code_changed(["puzzles/times/1.json", "puzzles/everyman/2.json", ""]))
+check("CT_AUTO_RELOAD=0 (or off) opts out; unset is on", (True, False, False, True),
+      (hr.enabled({}), hr.enabled({"CT_AUTO_RELOAD": "0"}), hr.enabled({"CT_AUTO_RELOAD": "off"}), hr.enabled({"CT_AUTO_RELOAD": "1"})))
+def sh(*argv, cwd):
+    subprocess.run(argv, cwd=cwd, check=True, capture_output=True,
+                   env={**os.environ, "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t", "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t"})
+def push_file(work, rel, text, msg):
+    (work / rel).parent.mkdir(parents=True, exist_ok=True)
+    (work / rel).write_text(text)
+    sh("git", "add", "-A", cwd=work)
+    sh("git", "commit", "-qm", msg, cwd=work)
+    sh("git", "push", "-q", "origin", "HEAD:master", cwd=work)
+origin_repo, seed, mine = (Path(_tmp) / n for n in ("origin.git", "seed", "mine"))
+sh("git", "init", "-q", "--bare", "-b", "master", str(origin_repo), cwd=_tmp)
+sh("git", "clone", "-q", str(origin_repo), str(seed), cwd=_tmp)
+push_file(seed, "tools/a.py", "1\n", "seed")
+sh("git", "clone", "-q", str(origin_repo), str(mine), cwd=_tmp)
+watch = hr.Watcher(mine)
+check("nothing pushed: no change", [], watch.check())
+push_file(seed, "puzzles/times/9.json", "{}\n", "Update times-9")
+check("a puzzle-only push on origin/master does not trigger a reload", ([], None), (watch.check(), watch.hit))
+push_file(seed, "tools/test_a.py", "t\n", "a test")
+check("nor does a test-only push", ([], None), (watch.check(), watch.hit))
+push_file(seed, "tools/a.py", "2\n", "fix a tool")
+check("a push changing tools/ code does", (["tools/a.py"], ["tools/a.py"]), (watch.check(), watch.hit))
+sh("git", "merge", "-q", "--ff-only", "origin/master", cwd=mine)
+check("a watcher started on the moved tree sees nothing new", [], hr.Watcher(mine).check())
+check("a watcher with no git repo gives up quietly", None, hr.Watcher(Path(_tmp) / "seed" / "nope").check())
+
+def reload_run(sig_after=1.5, grace=None, handoff=None, watcher=None, hold=30):
+    """Fork a dispatch of long units, send SIGHUP (or let `watcher` fire); (rc, seconds to end, handoff pids, pids of the units)."""
+    log.unlink(missing_ok=True)
+    fake(sleep={f"h{k}": hold for k in range(3)})
+    eq.plan = units([], [(f"h{k}", []) for k in range(3)])
+    if grace is not None:
+        os.environ["CT_RELOAD_GRACE"] = str(grace)
+    if watcher:
+        os.environ["CT_AUTO_RELOAD"] = "1"
+    started = time.monotonic()
+    child = os.fork()
+    if child == 0:
+        sys.stderr = open(os.devnull, "w")
+        sys.stdout = open(os.devnull, "w")
+        if watcher:
+            hr.Watcher = watcher
+        os._exit(eq.dispatch(["times"], cache, workers=3, replan=0.1, handoff=handoff))
+    os.environ["CT_AUTO_RELOAD"] = "0"
+    os.environ.pop("CT_RELOAD_GRACE", None)
+    time.sleep(sig_after)
+    if not watcher:
+        os.kill(child, signal.SIGHUP)
+    rc = os.waitstatus_to_exitcode(os.waitpid(child, 0)[1])
+    took = time.monotonic() - started
+    pids = []
+    if handoff and Path(handoff).exists():
+        pids = [r["pid"] for r in json.loads(Path(handoff).read_text())]
+    return rc, took, pids
+
+os.environ["CT_AUTO_RELOAD"] = "0"
+ho = Path(_tmp) / "reload-handoff.json"
+rc, took, pids = reload_run(handoff=ho)
+alive_after = [p for p in pids if eq.alive(p)]
+for p in pids:
+    try:
+        os.killpg(p, signal.SIGKILL)
+    except ProcessLookupError:
+        pass
+starts = [line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"]
+check("SIGHUP with a handoff: exits 75 at once, every unit running (the ceiling lets some start) is handed over alive",
+      (hr.RELOAD_RC, True, True), (rc, took < 10, len(pids) == len(alive_after) == len(starts) >= 1))
+rc, took, _ = reload_run(grace=1)
+ev = [line.split() for line in log.read_text().splitlines()]
+check("SIGHUP without a handoff: CT_RELOAD_GRACE passes, the units are TERMed (left deferred), exit 75, not 30s later",
+      (hr.RELOAD_RC, True, 0), (rc, 2.5 < took < 20, sum(1 for e in ev if e[1] == "end")))
+rc, took, _ = reload_run(grace=60, hold=6, sig_after=4)
+ev = [line.split() for line in log.read_text().splitlines()]
+check("units that end inside the grace are waited for, not stopped; exit 75 after them",
+      (hr.RELOAD_RC, True, True), (rc, sum(1 for e in ev if e[1] == "end") == sum(1 for e in ev if e[1] == "start") >= 1, 5 < took < 40))
+class FiresSoon:  # the watcher saw tools/ code change on origin/master
+    def __init__(self, *a, **k):
+        self.hit = None
+        threading.Timer(1.0, lambda: setattr(self, "hit", ["tools/edition_queue.py"])).start()
+    def start(self, *a, **k):
+        return self
+rc, took, pids = reload_run(handoff=Path(_tmp) / "auto-handoff.json", watcher=FiresSoon)
+for p in pids:
+    try:
+        os.killpg(p, signal.SIGKILL)
+    except ProcessLookupError:
+        pass
+check("the watcher seeing code change reloads the queue with no signal: exit 75, units handed over",
+      (hr.RELOAD_RC, True, True), (rc, took < 10, len(pids) >= 1))
+os.environ["CT_AUTO_RELOAD"] = "0"
 
 print("FAILS", fails)
 
