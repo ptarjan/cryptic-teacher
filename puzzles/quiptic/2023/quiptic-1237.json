@@ -318,37 +318,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRIAGE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Cut short",
-       "note": "cutting something short removes its tail end, so the final letter goes"
+       "text": "over",
+       "at": 18,
+       "note": "over in a down clue puts the first piece above the second"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cut short",
+         "at": 0,
+         "note": "cut short means the word loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "journey",
-         "gives": "TRI",
-         "note": "trip, a journey, without its last letter"
+         "at": 10,
+         "gives": "TRIP",
+         "note": "a trip is a journey"
         },
         {
-         "words": "time",
-         "gives": "AGE",
-         "note": "an age is a period of time"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "time",
+       "at": 23,
+       "gives": "AGE",
+       "note": "an age is a long period of time"
       }
      ]
     },
     "explanation": {
-     "surface": "An abbreviated trip because time was needed for a check-up.",
-     "walkthrough": "In a down clue 'over' puts the first piece above the second.",
-     "definitionFit": "Triage is the sorting of patients by urgency of their injuries, a type of medical evaluation."
+     "surface": "Someone cuts a trip short to come home in time for a medical check-up.",
+     "walkthrough": "'Cut short' trims TRIP to TRI, which sits 'over' AGE in this down entry.",
+     "definitionFit": "Triage is the sorting of patients by urgency, an initial assessment carried out in emergency medicine."
     },
     "features": {
      "answerInScene": true,
@@ -581,47 +592,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHARITABLE",
-     "indicators": [
-      {
-       "text": "largely",
-       "note": "largely means mostly but not wholly, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "companion",
+       "at": 7,
+       "gives": "CH",
+       "note": "CH stands for Companion of Honour, a British order"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "largely",
+         "at": 22,
+         "note": "largely means most of the word is kept, dropping its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "companion",
-         "gives": "CH",
-         "note": "CH is Companion of Honour, a British order"
-        },
-        {
          "words": "parched",
-         "gives": "ARI",
-         "note": "arid, minus its last letter"
+         "at": 30,
+         "gives": "ARID",
+         "note": "arid means parched or very dry"
         },
         {
-         "words": "set of diners",
-         "gives": "TABLE",
-         "note": "a table is a group seated to eat"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "set of diners",
+       "at": 38,
+       "gives": "TABLE",
+       "note": "a table can mean the group of people seated at it for a meal"
       }
      ]
     },
     "explanation": {
-     "surface": "A kind friend joins a dinner party that is mostly short of drink.",
-     "walkthrough": "CH, Companion of Honour, is a common crossword abbreviation for companion.",
-     "definitionFit": "Charitable describes being generous and lenient in judging others, the same sense as kindly."
+     "surface": "A friend joins a thirsty group sitting down to dinner.",
+     "walkthrough": "'Largely' cuts ARID to ARI. 'Kindly' is the adjective, as in a kindly soul.",
+     "definitionFit": "A charitable person is generous and well-disposed towards others, which is what kindly describes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "parched"
+     "misdirectedWord": "companion"
     }
    }
   },

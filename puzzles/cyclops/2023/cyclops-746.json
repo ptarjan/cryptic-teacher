@@ -483,55 +483,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CORRUPT",
-     "indicators": [
-      {
-       "text": "done for",
-       "note": "something done for is wrecked, so its letters are broken up and rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CORRUPT",
+       "words": "Blimey",
+       "at": 0,
+       "gives": "COR",
+       "note": "cor is a British exclamation of surprise, like blimey"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "millions lost",
-         "note": "when a sum is lost it goes missing, so the abbreviation for millions leaves the word"
+         "text": "done for",
+         "at": 16,
+         "note": "done for means wrecked or ruined, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Blimey",
-         "gives": "COR",
-         "note": "cor is a British exclamation of surprise, like blimey"
-        },
-        {
-         "words": "Trump's",
-         "gives": "TRUMP",
-         "note": "the surname taken letter for letter"
-        },
-        {
-         "words": "millions",
-         "gives": "M",
-         "note": "M is the abbreviation for millions"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "lost",
+           "at": 35,
+           "note": "lost means the letter for millions goes missing from the name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Trump's",
+           "at": 8,
+           "gives": "TRUMP",
+           "note": "the surname Trump, with 's read as is"
+          },
+          {
+           "words": "millions",
+           "at": 26,
+           "gives": "M"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gleeful headline: the former president is finished and his fortune gone because of shady dealings.",
-     "walkthrough": "'Done for' looks like a verdict on the man, but it signals that his name, once shorn of the M, is jumbled. Cor and blimey are both mild British exclamations of astonishment.",
-     "definitionFit": "A corrupt person is dishonest, acting for gain against moral or legal standards, which fits unethical."
+     "surface": "A gleeful satirical cry that Trump is finished and his fortune gone.",
+     "walkthrough": "'Millions lost' takes M from TRUMP, leaving TRUP, and 'done for' rearranges it. Cor and blimey are both British cries of surprise.",
+     "definitionFit": "Corrupt describes someone dishonest who abuses power for gain, which is behaving without ethics."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "done"
+     "misdirectedWord": "Blimey"
     }
    }
   },

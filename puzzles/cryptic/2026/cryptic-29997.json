@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -241,48 +242,61 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HEROISM",
+     "indicators": [
+      {
+       "text": "boring",
+       "at": 12,
+       "note": "boring means drilling into, so this word sits inside the others"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "boring",
-         "note": "To bore is to drill a hole into something, so these letters go inside the assembly rather than beside it."
-        },
-        {
-         "text": "primarily",
-         "note": "In the first place — take the opening letter of the word that follows and nothing more."
-        }
-       ],
        "parts": [
         {
          "words": "her",
-         "note": "the clue's own word, lifted whole"
+         "at": 19
         },
         {
          "words": "ordinary",
+         "at": 25,
          "gives": "O",
-         "note": "O is the standard abbreviation for ordinary"
+         "note": "O is the abbreviation for ordinary, as in O level"
         },
         {
-         "words": "is",
-         "note": "another word taken at face value, drilled into the middle"
-        },
-        {
-         "words": "primarily 'macho'",
-         "gives": "M",
-         "note": "the opening letter of the quoted word"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 38,
+           "note": "primarily means first of all, so only the opening letter of macho is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "macho",
+           "at": 49,
+           "note": "the first letter of macho"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "is",
+       "at": 9
       }
      ]
     },
     "explanation": {
-     "surface": "A woman bored by all this brave, ordinary macho posturing, the sentence carried over from 1 across.",
-     "walkthrough": "'Boring' is doing engineering work rather than social work, and the quotation marks round 'macho' are the setter's nudge that the word is being used, not meant.",
-     "definitionFit": "Valour is the quality a hero shows in danger, and the answer is that quality named as a noun — a straight synonym in a formal register."
+     "surface": "Following on from the witches, a woman finds plain macho bravery tedious.",
+     "walkthrough": "'Boring' is not tedious but drilling: IS bores into HER, O and M (the first letter of 'macho'), going between O and M.",
+     "definitionFit": "Heroism is great bravery, and valour is a literary word for courage in battle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boring"
     }
    }
   },
@@ -382,43 +396,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SOLDIER",
+     "op": "container",
      "indicators": [
       {
-       "text": "up",
-       "note": "Up as in stirred up, thrown into disarray — a loose signal for a shuffle, and the looseness is the setter's, not a failure of your solving."
+       "text": "capturing",
+       "at": 9,
+       "note": "capturing means holding prisoner, so the rearranged letters surround the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "capturing",
-         "note": "A captor holds its prisoner within, so the shuffled letters close around the piece named after them."
+         "text": "up",
+         "at": 5,
+         "note": "up as in something being up, out of order, so the letters of rise are stirred"
         }
        ],
        "parts": [
         {
-         "words": "Rise up",
-         "gives": "SIER",
-         "note": "the four letters of 'rise' rearranged, then split to make room"
-        },
-        {
-         "words": "aged",
-         "gives": "OLD",
-         "note": "a plain synonym, dropped into the gap"
+         "words": "Rise",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "aged",
+       "at": 19,
+       "gives": "OLD",
+       "note": "aged means old"
       }
      ]
     },
     "explanation": {
-     "surface": "A crowd rising in revolt and taking an old man prisoner.",
-     "walkthrough": "'Rise up' reads as one phrase about rebellion, and that is what stops you seeing 'rise' as four loose letters with 'up' as the instruction to jumble them.",
-     "definitionFit": "A soldier is a fighting man in an army, and 'warrior' is the older, grander word for the same trade."
+     "surface": "A call for a rebellion that seizes an elderly fighter.",
+     "walkthrough": "'Rise up' reads as a call to revolt, but 'up' stirs RISE into S and IER, which go around OLD.",
+     "definitionFit": "A soldier is a member of an army, a fighting man or warrior."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
     }
    }
   },
@@ -664,46 +683,52 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BEANSTALK",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "live",
+       "at": 21,
+       "gives": "BE",
+       "note": "to be is to exist or live"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "Round about — the pieces already assembled close around the letters named just before it."
-        },
-        {
          "text": "missing head",
-         "note": "A word's head is its front, so this one turns up without its first letter."
+         "at": 48,
+         "note": "missing head means the word loses its first letter"
         }
        ],
        "parts": [
         {
-         "words": "live",
-         "gives": "BE",
-         "note": "to be is to live — the verb of existing"
-        },
-        {
          "words": "man's",
-         "gives": "ANS",
-         "note": "this word with its leading letter gone, apostrophe and all"
+         "at": 42,
+         "gives": "MANS",
+         "note": "the word man with its possessive s"
         },
         {
-         "words": "chat",
-         "gives": "TALK",
-         "note": "a chat is a talk, and the two words swap in either as noun or verb"
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "chat about",
+       "at": 31,
+       "gives": "TALK",
+       "note": "to chat about something is to talk"
       }
      ]
     },
     "explanation": {
-     "surface": "A live chat about a man who has lost his head, and how to find a giant.",
-     "walkthrough": "Jack climbs one of these to reach the giant, so the definition names a route and not a plant. 'Missing head' belongs to the mechanism, not to the gruesome surface.",
-     "definitionFit": "In the pantomime, Jack climbs the beanstalk to reach the giant's castle in the clouds, so it literally is the way to find one."
+     "surface": "Advice on tracking down a giant: exist, and gossip about a beheaded man.",
+     "walkthrough": "In the fairy tale Jack and the Beanstalk, Jack climbs the beanstalk to reach the giant's castle. 'Missing head' takes the M off MAN'S.",
+     "definitionFit": "Jack climbs a magic beanstalk up to the land of the giant, so it is his route there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "live"
     }
    }
   },
@@ -854,40 +879,49 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "JUDGE",
      "indicators": [
       {
        "text": "ousts",
-       "note": "To oust is to throw out and step into the vacated place, which is exactly what one letter does to another here."
+       "at": 8,
+       "note": "ousts means drives out, so that letter is removed from the surname"
       },
       {
        "text": "takes",
-       "note": "Takes on, adopts — the empty slot is filled by whatever is named immediately after."
+       "at": 24,
+       "note": "takes means accepts another letter in its place"
       }
      ],
      "parts": [
       {
        "words": "Barnaby",
+       "at": 0,
        "gives": "RUDGE",
-       "note": "Barnaby Rudge is the title character of a Dickens novel, so the surname follows the first name."
+       "note": "Barnaby Rudge is the title character of a Dickens novel"
       },
       {
        "words": "Romeo",
+       "at": 14,
        "gives": "R",
-       "note": "R in the NATO phonetic alphabet"
+       "note": "Romeo is R in the NATO phonetic alphabet"
       },
       {
        "words": "Juliet",
+       "at": 30,
        "gives": "J",
-       "note": "J in the same alphabet, which is why the two names appear side by side"
+       "note": "Juliet is J in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A love triangle in which Barnaby elbows Romeo aside and takes up with Juliet.",
-     "walkthrough": "Two of the three names are radio spelling-alphabet letters and one is a Dickens title — Romeo and Juliet look like a couple and are only R and J.",
-     "definitionFit": "A judge tries cases in court, so 'a trier' is the agent noun from that legal sense of try, not someone who makes a plucky effort."
+     "surface": "A romantic triangle: Barnaby elbows aside Romeo, wins Juliet and is praised for effort.",
+     "walkthrough": "Romeo and Juliet are not the lovers but NATO letters R and J; Barnaby is Dickens's Barnaby Rudge. 'A trier' is not one who keeps trying but one who tries cases.",
+     "definitionFit": "A judge hears and decides cases in court, which is literally to try them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trier"
     }
    }
   },
@@ -1157,57 +1191,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "IMPEDE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "This setter's",
+       "at": 0,
+       "gives": "IM",
+       "note": "the setter refers to themself as I, and this setter's, with the 's read as is, gives I'M"
+      },
+      {
+       "op": "alternate",
        "indicators": [
         {
          "text": "regularly",
-         "note": "At a regular interval — every second letter of the word is taken and the rest left behind."
+         "at": 14,
+         "note": "regularly means taking every other letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "This setter's",
-         "gives": "IM",
-         "note": "The setter writing the clue calls himself I, so this is I'M with the apostrophe dropped."
-        },
+         "words": "upset",
+         "at": 24,
+         "note": "the second and fourth letters of upset"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "PE",
-         "indicators": [
-          {
-           "text": "contrary",
-           "note": "Contrary means running the opposite way, so these letters arrive back to front."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "upset",
-           "gives": "PE",
-           "select": "alternate",
-           "note": "the second and fourth letters of the word, taken at even steps"
-          }
-         ]
-        },
+         "text": "contrary",
+         "at": 35,
+         "note": "contrary means facing the opposite way, so the letters run backwards"
+        }
+       ],
+       "parts": [
         {
          "words": "editor's",
-         "gives": "DE",
-         "note": "an editor is ED on any masthead, and the pair is turned round"
+         "at": 44,
+         "gives": "ED",
+         "note": "ED is the usual abbreviation for editor"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The setter grumbling that an awkward editor is holding everything up.",
-     "walkthrough": "'Upset' looks like an anagram indicator and is fodder instead, handing over two of its own letters. Setters routinely appear in their clues as I.",
-     "definitionFit": "To impede something is to hold it up so that it takes longer, which is what a delay does to it — one verb for another."
+     "surface": "A setter is annoyed by a stubborn editor holding things up.",
+     "walkthrough": "'Upset' is not an anagram signal but the word taken 'regularly' for PE; 'contrary' turns ED into DE.",
+     "definitionFit": "To impede something is to hinder or obstruct it, which slows or delays its progress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
     }
    }
   },
@@ -1232,44 +1269,65 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "turning",
-       "note": "Turning something round reverses it, and in an across entry that means those letters are read right to left."
-      },
-      {
-       "text": "trimmed",
-       "note": "Trimming takes a bit off the end, so this word arrives one letter shorter than it started."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Barbarian",
+       "at": 0,
+       "gives": "HUN",
+       "note": "the Huns were barbarian invaders of the Roman Empire"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 11,
+         "note": "turning means the two letters are flipped round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "good guy",
+         "at": 19,
+         "gives": "ST",
+         "note": "ST, short for saint, is a good person"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "trimmed",
+         "at": 34,
+         "note": "trimmed means cut back, losing the final letter"
+        }
+       ],
        "parts": [
         {
          "words": "locks",
-         "gives": "NAM",
-         "note": "locks of hair are a mane, cut short by a letter"
+         "at": 42,
+         "gives": "MANE",
+         "note": "a mane is a long, thick head of hair"
         },
         {
-         "words": "good guy",
-         "gives": "ST",
-         "note": "a good guy is a saint, ST on any church noticeboard, and the pair is turned round"
-        },
-        {
-         "words": "Barbarian",
-         "gives": "NUH",
-         "note": "the Huns are the invaders whose name became a byword for barbarian"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A barbarian going straight, getting a haircut and setting off after an attractive woman.",
-     "walkthrough": "'Foxy type' is the joke — the surface means a good-looking person, the definition means an actual fox. A huntsman is the man who handles the hounds on a hunt.",
-     "definitionFit": "The huntsman is the rider in charge of the hounds at a fox hunt, so he is defined by the animal he spends the day chasing."
+     "surface": "A wild man transformed into a hero with a haircut goes after an alluring woman.",
+     "walkthrough": "'Foxy type' hints at a seductive person but means a fox itself. 'Turning' flips ST to TS, and 'trimmed' cuts MANE to MAN.",
+     "definitionFit": "A huntsman rides with hounds in a fox hunt, so he pursues a fox."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "foxy"
     }
    }
   },
