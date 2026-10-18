@@ -793,31 +793,39 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MOBSTERS",
      "indicators": [
       {
        "text": "multiply the head of",
-       "note": "the opening letter is read as a Roman numeral and swapped for the numeral worth that many times more"
+       "at": 8,
+       "note": "multiply the head of tells us to take the first letter and scale it up, read as a Roman numeral"
+      },
+      {
+       "text": "twentyfold",
+       "at": 50,
+       "note": "twentyfold gives the multiplier: the leading Roman numeral fifty times twenty is a thousand, so it becomes the numeral for a thousand"
       }
      ],
      "parts": [
       {
-       "words": "twentyfold",
-       "gives": "M",
-       "note": "L is the Roman 50, and twenty times 50 is 1000, the Roman M"
+       "words": "ten-legged creatures",
+       "at": 29,
+       "gives": "LOBSTERS",
+       "note": "lobsters are decapods, crustaceans with ten legs"
       },
       {
-       "words": "ten-legged creatures",
-       "gives": "LOBSTERS",
-       "note": "lobsters are decapods, with ten legs"
+       "gives": "L",
+       "note": "L is the Roman numeral for 50, the head of the creatures"
+      },
+      {
+       "gives": "M",
+       "note": "M is the Roman numeral for 1000, twenty times 50"
       }
      ]
     },
     "explanation": {
-     "surface": "Gangsters ordering a huge seafood feast, twenty times more than planned.",
-     "walkthrough": "The first letter of the crustaceans is a Roman numeral; raised twentyfold it becomes M.",
-     "definitionFit": "Mafiosi are members of the Mafia, organised criminals, so gangsters."
+     "surface": "A strange arithmetic instruction about crustaceans that seems to have strayed into a gangster story.",
+     "walkthrough": "Read the first letter of LOBSTERS as the Roman numeral L, fifty. 'multiply the head of' ... 'twentyfold' makes it 1,000, which is M, so LOBSTERS becomes MOBSTERS.",
+     "definitionFit": "Mafiosi are members of the Mafia, and members of any organised criminal gang are called mobsters."
     },
     "features": {
      "answerInScene": false,
@@ -1421,41 +1429,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CYAN",
-     "indicators": [
-      {
-       "text": "losing face",
-       "note": "a face is the front of something, so losing it means the word gives up its opening letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Young",
+       "at": 0,
+       "gives": "CY",
+       "note": "Cy Young was a famous American baseball pitcher, so Young leads to his first name, Cy"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing face",
+         "at": 11,
+         "note": "losing face means dropping the front letter, the face of the word man"
+        }
+       ],
        "parts": [
         {
-         "words": "Young",
-         "gives": "CY",
-         "note": "Cy Young was a celebrated baseball pitcher, so Young's first name stands for it"
+         "words": "man",
+         "at": 6,
+         "note": "taken as written, before its first letter goes"
         },
         {
-         "words": "man",
-         "gives": "AN",
-         "note": "the word man with its first letter dropped"
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sad youth whose looks have been lost is feeling down.",
-     "walkthrough": "'Young man' reads as one phrase meaning a youth, but it splits: Cy Young is the pitcher after whom baseball's annual pitching award is named, and 'man, losing face' is a separate piece.",
-     "definitionFit": "Cyan is a greenish-blue colour, one of the printing primaries, so it is a shade of blue."
+     "surface": "A young man is humiliated and feels sad as a result.",
+     "walkthrough": "'Young man' looks like one idea, a youth, but the comma-free pair splits in two: Young points to the baseball pitcher Cy Young, and 'losing face' acts on man alone.",
+     "definitionFit": "Cyan is a greenish shade of blue, one of the printing primaries, so it is an example of the colour."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Young"
     }
    }

@@ -240,38 +240,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "failing to open",
+       "at": 14,
+       "note": "failing to open means the word lacks its opening, so the first letter is dropped"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "failing to open",
-         "note": "the opening of a word is its first letter, and failing to have it means that letter goes"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Guard",
-         "gives": "SENTRY",
-         "note": "a soldier posted on guard; lose its first letter"
-        },
-        {
-         "gives": "S"
-        }
-       ]
+       "words": "Guard at gate",
+       "at": 0,
+       "gives": "SENTRY",
+       "note": "a sentry is a soldier posted to guard a gate or entrance"
       },
       {
-       "unchecked": true,
-       "words": "at gate",
-       "note": "surface padding: says where the guard stands"
+       "gives": "S",
+       "note": "the first letter of the guard word, removed"
       }
      ]
     },
     "explanation": {
-     "surface": "A gatekeeper cannot get the gate to open.",
-     "walkthrough": "'Failing to open' reads as a stuck gate, but it tells you to remove the S from SENTRY.",
-     "definitionFit": "A definition by example: a gate is one kind of way in, hence 'perhaps'."
+     "surface": "A guard posted at a gate cannot get it to open.",
+     "walkthrough": "'failing to open' drops the first letter of SENTRY. Gate appears twice: first as part of the guard's post, then in the definition, where 'perhaps' marks it as one example of the answer.",
+     "definitionFit": "An entry is a way in, and a gate is one example of an entrance, hence the 'perhaps'."
     },
     "features": {
      "answerInScene": true,
@@ -1317,56 +1310,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DREAR",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "days",
+       "at": 7,
+       "gives": "D"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "somehow",
-         "note": "somehow means in some unstated way, so ARE comes out in some other order"
+         "at": 16,
+         "note": "somehow says the word are is put into some other order"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "beginning to",
-           "note": "the beginning of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "days",
-           "note": "d = days"
-          }
-         ]
-        },
+         "words": "are",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "are somehow",
-         "gives": "REA",
-         "note": "ARE rearranged"
-        },
+         "text": "beginning to",
+         "at": 24,
+         "note": "beginning to asks for only the first letter of the following word"
+        }
+       ],
+       "parts": [
         {
-         "words": "beginning to recede",
-         "gives": "R",
-         "note": "first letter of Recede"
+         "words": "recede",
+         "at": 37,
+         "note": "its first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Grey days are starting to lift.",
-     "walkthrough": "'Days' is not part of the definition; it supplies only its abbreviation D.",
-     "definitionFit": "A literary use: a poetic, shortened form of dreary, meaning dismal."
+     "surface": "Gloomy days are somehow starting to lift.",
+     "walkthrough": "The surface reads 'days are' as subject and verb, but 'are' is the anagram fodder and days only supplies its abbreviation; 'beginning to recede' adds the closing letter.",
+     "definitionFit": "Drear is a poetic form of dreary, meaning dull, bleak and depressing, which is what gloomy means."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "recede"
     }
    }
   },
@@ -1442,47 +1436,51 @@
      "op": "container",
      "indicators": [
       {
-       "text": "primarily",
-       "note": "primarily means first of all, so only the first letter of the word is used"
+       "text": "protected by",
+       "at": 34,
+       "note": "protected by says the company letters are held inside the patent word, as if shielded by it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "protected by",
-         "note": "whatever is protected is kept inside, so the letters go within the patent word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "patent",
-         "gives": "OVERT",
-         "note": "patent = plain to see, overt"
-        },
-        {
-         "words": "company",
-         "gives": "CO",
-         "note": "co. = company"
-        }
-       ]
+       "words": "patent",
+       "at": 47,
+       "gives": "OVERT",
+       "note": "patent means obvious, open to view, which is what overt means"
       },
       {
-       "op": "first",
+       "op": "charade",
        "parts": [
         {
-         "words": "always primarily",
-         "note": "first letter of Always"
+         "words": "company",
+         "at": 9,
+         "gives": "CO"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 24,
+           "note": "primarily asks for the first letter of the word before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "always",
+           "at": 17,
+           "note": "its first letter is taken"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fashion firm whose designs are always covered by patents.",
-     "walkthrough": "'Patent' reads as a legal right; here it is the adjective meaning obvious.",
-     "definitionFit": "A definition by example: a heavy coat worn over other garments is one item of clothing."
+     "surface": "A clothing firm's designs are always protected by patents.",
+     "walkthrough": "'Patent' looks like the legal protection of an invention, but here it is the adjective meaning obvious. 'primarily' gives A from always, and 'protected by' puts COA inside OVERT.",
+     "definitionFit": "An overcoat is a heavy coat worn over other clothes, so it is an item of clothing; the definition is general."
     },
     "features": {
      "answerInScene": true,
