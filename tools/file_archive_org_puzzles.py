@@ -4902,7 +4902,7 @@ FRESH = 3600
 RANKS = {"just laid out": 0, "saved by hand": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          **{f"refused {c} before its fix": 2 for c in REFUSALS}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "scan stale": 3, "--reread": 3,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "scan stale": 3, "--reread": 3,
          "read by another VLM": 3}
 #: The reasons of a read whose scan is by older scan code: "answers missing"
 #: when a stored title is a puzzle read without answers that no page links a
