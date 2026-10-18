@@ -376,28 +376,32 @@
      "indicators": [
       {
        "text": "go astray",
-       "note": "things that go astray wander off course, so the letters scatter into a new order"
+       "at": 25,
+       "note": "to go astray is to wander off from where one belongs, so the letters of the two animals scatter into a new order"
       }
      ],
      "parts": [
       {
        "words": "sheep",
+       "at": 10,
        "note": "taken as written"
       },
       {
        "words": "lamb",
+       "at": 20,
        "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A shepherd swears as the flock wanders off.",
-     "definitionFit": "To blaspheme is to speak profanely or irreverently, swearing using sacred names."
+     "surface": "A farmer swears as the flock wanders off.",
+     "walkthrough": "The nine letters of SHEEP and LAMB together are rearranged; 'as' and 'and' only join the surface.",
+     "definitionFit": "To blaspheme is to speak profanely of sacred things, which is to swear or curse."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Curse"
+     "misdirectedWord": "astray"
     }
    }
   },
@@ -758,66 +762,49 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "half of",
+       "at": 10,
+       "note": "half of applies to each of the three words, keeping only the front half of its letters"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "STAT",
-       "indicators": [
-        {
-         "text": "half of",
-         "note": "half of asks for only the front part of each following word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
          "words": "stations",
-         "gives": "STAT",
-         "select": "first",
-         "note": "first four of eight letters"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "US",
-       "parts": [
+         "at": 18,
+         "note": "its first four letters are kept"
+        },
         {
-         "unchecked": true,
          "words": "used",
-         "gives": "US",
-         "select": "first",
-         "note": "first two of four letters"
+         "at": 27,
+         "note": "its first two letters are kept"
+        },
+        {
+         "words": "quotas",
+         "at": 32,
+         "note": "its first three letters are kept"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "QUO",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "quotas",
-         "gives": "QUO",
-         "select": "first",
-         "note": "first three of six letters"
-        }
-       ]
+       "gives": "IONSEDTAS"
       }
      ]
     },
     "explanation": {
-     "surface": "A report that half the stations are meeting their quotas as things stand.",
-     "definitionFit": "Status quo is Latin for the existing state of affairs, things left unchanged."
+     "surface": "A report that half the stations were working to their quotas.",
+     "walkthrough": "'Half of' governs all three words, dropping the back half of each: STAT from stations, US from used, QUO from quotas.",
+     "definitionFit": "Status quo is Latin for the existing state of affairs, the way things are now."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "half"
+     "misdirectedWord": "stations"
     }
    }
   },
@@ -1162,36 +1149,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SWINDLE",
      "indicators": [
       {
        "text": "swapping",
-       "note": "swapping one thing for another means one letter is put in place of a different one"
+       "at": 6,
+       "note": "swapping signals that one letter of the word is exchanged for another"
+      },
+      {
+       "text": "for",
+       "at": 22,
+       "note": "for says which way the exchange goes: spades in, diamonds out"
       }
      ],
      "parts": [
       {
-       "words": "spades",
-       "gives": "S",
-       "note": "S is the card-game abbreviation for spades"
+       "words": "contract",
+       "at": 38,
+       "gives": "DWINDLE",
+       "note": "to dwindle is to shrink or contract"
       },
       {
        "words": "diamonds",
+       "at": 26,
        "gives": "D",
-       "note": "D is the abbreviation for diamonds, which is replaced"
+       "note": "D is the card-suit abbreviation for diamonds"
       },
       {
-       "words": "contract",
-       "gives": "DWINDLE",
-       "note": "to contract is to shrink or dwindle"
+       "words": "spades",
+       "at": 15,
+       "gives": "S",
+       "note": "S is the card-suit abbreviation for spades"
       }
      ]
     },
     "explanation": {
-     "surface": "A bridge cheat switches suits in his contract.",
-     "walkthrough": "Contract looks like the bridge bid, but it is a verb meaning shrink; DWINDLE has its D replaced by S.",
-     "definitionFit": "To swindle is to defraud someone, obtaining money by deception."
+     "surface": "A bridge player cheats by switching suits in a contract.",
+     "walkthrough": "'Contract' looks like the bridge term in a card-game surface, but it is the verb, to shrink: DWINDLE, whose D becomes S.",
+     "definitionFit": "To swindle someone is to defraud them, which is to cheat; both are verbs."
     },
     "features": {
      "answerInScene": true,

@@ -204,41 +204,39 @@
      "op": "charade",
      "parts": [
       {
-       "words": "as Guantanamo",
+       "words": "as Guantanamo is",
+       "at": 6,
        "gives": "INCUBA",
-       "note": "Guantanamo Bay is in Cuba"
+       "note": "Guantanamo Bay is on the island of Cuba, so it is in Cuba"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "TE",
+       "op": "outer",
        "indicators": [
         {
          "text": "extremely",
-         "note": "take the extremes, the outer letters, of the next word"
+         "at": 23,
+         "note": "extremely points to the extremes, the first and last letters, of the next word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "extremely tense",
-         "gives": "TE",
-         "select": "last",
-         "note": "the first and last letters of tense"
+         "words": "tense",
+         "at": 33,
+         "note": "its two end letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone worries that conditions at Guantanamo are extremely tense.",
-     "walkthrough": "'Brood' looks like worrying, but it is the hen's sense: to sit on eggs. 'As Guantanamo' asks where it is, not what it is like.",
-     "definitionFit": "To brood is to sit on eggs to hatch them, which is to incubate."
+     "surface": "A comment that the atmosphere at Guantanamo is very tense, leaving inmates to brood.",
+     "walkthrough": "'Extremely tense' reads as one phrase, but 'extremely' only picks out the T and E of 'tense'.",
+     "definitionFit": "A bird broods its eggs by sitting on them to keep them warm until they hatch, which is to incubate them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Brood"
+     "misdirectedWord": "extremely"
     }
    }
   },
@@ -844,26 +842,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "READ",
      "indicators": [
       {
        "text": "not provided with starter",
-       "note": "a starter is what comes first, as in a meal, so the word is served without its opening letter"
+       "at": 21,
+       "note": "a word not provided with its starter lacks its first letter, so the opening letter goes"
       }
      ],
      "parts": [
       {
        "words": "sourdough",
-       "gives": "READ",
-       "note": "BREAD minus its first letter B"
+       "at": 11,
+       "gives": "BREAD",
+       "note": "sourdough is a type of bread"
+      },
+      {
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "Sourdough made without a starter culture, which a baker knows it needs.",
-     "walkthrough": "The pun: sourdough really does need a starter, the fermenting culture, but here the starter is just the letter B of BREAD.",
-     "definitionFit": "An idiomatic sense: radio operators say 'I read you' to mean they have understood the message."
+     "surface": "A baker explains that the sourdough was not made with a starter culture.",
+     "walkthrough": "In baking a sourdough starter is the fermented culture that raises the loaf; here 'starter' is just the first letter of BREAD.",
+     "definitionFit": "Read in the past tense can mean grasped or interpreted, as in 'I read you', so it is a synonym of understood."
     },
     "features": {
      "answerInScene": false,
@@ -1084,50 +1085,44 @@
      "indicators": [
       {
        "text": "Cook",
-       "note": "to cook letters is to rearrange them"
+       "at": 0,
+       "note": "to cook something up is to concoct it, so the letters are worked into a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "first to",
-         "note": "the first letter of the next word"
+         "at": 6,
+         "note": "first to points to the opening letter of the word that follows"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "O",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "first to offer",
-           "gives": "O",
-           "select": "first",
-           "note": "first letter of offer"
-          }
-         ]
-        },
-        {
-         "words": "to stir",
-         "note": "anagram fodder"
+         "words": "offer",
+         "at": 15,
+         "note": "only its first letter is used"
         }
        ]
+      },
+      {
+       "words": "to stir",
+       "at": 21,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Kitchen instructions: the cook must first offer to stir the dish.",
-     "walkthrough": "The whole clue reads as a recipe, and a risotto really does need constant stirring.",
-     "definitionFit": "A definition by category: this Italian rice preparation is one kind of dish."
+     "surface": "A recipe instruction: the cook should be first to offer to stir the dish.",
+     "walkthrough": "'Cook' looks like the person at the stove, but it is the anagram signal; 'to stir' is the fodder, not an instruction.",
+     "definitionFit": "Risotto is an Italian rice dish cooked slowly in stock, a specific example of a dish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Cook"
+     "misdirectedWord": "stir"
     }
    }
   },
@@ -1360,52 +1355,58 @@
     ],
     "wordplay": {
      "op": "container",
+     "indicators": [
+      {
+       "text": "receiving",
+       "at": 9,
+       "note": "receiving means the computer's name takes the other letters inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Computer",
+       "at": 0,
+       "gives": "MAC",
+       "note": "a Mac is an Apple computer"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Computer",
-         "gives": "MAC",
-         "note": "a Mac is an Apple computer"
+         "words": "new",
+         "at": 19,
+         "gives": "N"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "receiving",
-           "note": "the first piece receives the others inside it"
-          },
-          {
            "text": "initially",
-           "note": "at the start, so only the word's initial letter is used"
+           "at": 29,
+           "note": "initially picks out the first letter of the next word"
           }
          ],
          "parts": [
           {
-           "words": "new",
-           "note": "N = new"
+           "words": "input",
+           "at": 23,
+           "note": "only its first letter is used"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "input initially",
-       "gives": "I",
-       "note": "first letter of input"
       }
      ]
     },
     "explanation": {
-     "surface": "A computer being fed new data at first is working flat out.",
-     "walkthrough": "The computing surface makes 'input' look like data; only its first letter is used.",
-     "definitionFit": "Manic means frantically, feverishly active."
+     "surface": "A computer is frantically busy after receiving new input.",
+     "walkthrough": "N and I go inside MAC.",
+     "definitionFit": "Manic describes wild, frenzied activity, so it matches being in a frantic, hectic rush."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "input"
+     "misdirectedWord": "Computer"
     }
    }
   },
