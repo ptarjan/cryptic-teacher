@@ -934,61 +934,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BAGUETTE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter of the word that follows is dropped"
+       "text": "spread around",
+       "at": 19,
+       "note": "spread around suggests the letters scattered and rearranged"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "e.g.",
+       "at": 0,
+       "gives": "EG",
+       "note": "taken as its letters"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "around",
-         "note": "around means surrounding, so the rearranged letters enclose the single letter after it"
+         "text": "mostly",
+         "at": 5,
+         "note": "mostly means all but the last letter of the word"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "spread",
-           "note": "something spread is smeared out of shape, so the letters are put in a new arrangement"
-          }
-         ],
-         "parts": [
-          {
-           "words": "e.g.",
-           "note": "taken as written"
-          },
-          {
-           "words": "butter",
-           "gives": "BUTTE",
-           "note": "the word without its final letter"
-          }
-         ]
+         "words": "butter",
+         "at": 12,
+         "note": "taken as written"
         },
         {
-         "words": "a",
-         "note": "taken as written, placed inside"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 33
       }
      ]
     },
     "explanation": {
-     "surface": "Butter, for instance, is smeared over most of a crunchy loaf.",
-     "definitionFit": "A baguette is a long thin French loaf with a hard crust, so it is a crusty stick of bread."
+     "surface": "Butter, for instance, smeared over a crusty loaf.",
+     "walkthrough": "'Spread' looks like butter's verb, but with 'around' it signals rearranging EG, BUTTE and A.",
+     "definitionFit": "A baguette is a long thin French loaf with a hard crust, a stick of bread."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "butter"
+     "misdirectedWord": "spread"
     }
    }
   },
@@ -1177,41 +1172,35 @@
    "annotation": {
     "definitions": [
      {
-      "text": "near future",
-      "at": 30,
-      "note": "the answer is a noun used in the phrase 'in the offing'"
+      "text": "the near future",
+      "at": 26
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OFFING",
      "indicators": [
       {
        "text": "Don't begin",
-       "note": "not beginning means losing the opening letter of the word that follows"
+       "at": 0,
+       "note": "the word should not start, so its first letter is lost"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "OFFING",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "undressing",
-         "gives": "OFFING",
-         "select": "first",
-         "note": "doffing means taking off clothes; it loses its first letter"
-        }
-       ]
+       "words": "undressing",
+       "at": 12,
+       "gives": "DOFFING",
+       "note": "doffing is taking off clothes, undressing"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone advises against starting to strip any time soon.",
-     "definitionFit": "The offing is the stretch of sea visible offshore, and 'in the offing' means coming soon."
+     "surface": "Advice not to start stripping off any time soon.",
+     "walkthrough": "'In' is the link; 'in the offing' means coming soon.",
+     "definitionFit": "The offing is the stretch of sea visible from shore, and figuratively whatever is likely to happen soon."
     },
     "features": {
      "answerInScene": false,

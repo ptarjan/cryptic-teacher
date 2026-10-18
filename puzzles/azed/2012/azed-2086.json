@@ -262,45 +262,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "oddly",
-       "note": "oddly means in a strange fashion, so the letters are set out in an unexpected order"
+       "text": "in",
+       "at": 12,
+       "note": "in tells us the slope word goes inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the inclination word inside the reworked letters"
+         "text": "oddly",
+         "at": 23,
+         "note": "oddly means strangely, so the letters rearrange"
         }
        ],
        "parts": [
         {
-         "words": "a mural",
-         "note": "the letters of a mural rearranged"
+         "words": "a",
+         "at": 15
         },
         {
-         "words": "Inclination",
-         "gives": "CANT",
-         "note": "a cant is a slope or tilt"
+         "words": "mural",
+         "at": 17,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "Inclination",
+       "at": 0,
+       "gives": "CANT",
+       "note": "cant is a slope or tilt"
       }
      ]
     },
     "explanation": {
-     "surface": "A slope in a wall painting reveals how a star moves across the sky.",
-     "walkthrough": "'oddly' looks like a call for alternate letters, but it rearranges all of a mural.",
-     "definitionFit": "An almucantar is a circle of equal altitude on the celestial sphere, used to fix a star's position as it passes."
+     "surface": "A slant in a wall painting strangely charts a star's movement.",
+     "walkthrough": "ALMUAR, rearranged from A MURAL, holds CANT.",
+     "definitionFit": "An almucantar is a circle of equal altitude on the celestial sphere, used to time stars' transits."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "oddly"
+     "misdirectedWord": "mural"
     }
    }
   },
@@ -1234,36 +1242,44 @@
      "indicators": [
       {
        "text": "consuming",
-       "note": "consuming means swallowing up, so the rearranged letters hold the meal word"
+       "at": 30,
+       "note": "consuming means taking inside"
       }
      ],
      "parts": [
-      {
-       "words": "to us",
-       "gives": "OUTS",
-       "note": "the letters of to us rearranged"
-      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "worrying",
-         "note": "worrying means troubling or disturbing, so the letters are disturbed into a new order"
+         "at": 15,
+         "note": "worrying means shaking about, so the letters rearrange"
         }
        ],
        "parts": [
         {
-         "words": "meal",
-         "gives": "EAT",
-         "note": "eat can mean food or a meal"
+         "words": "to",
+         "at": 24,
+         "note": "taken as written"
+        },
+        {
+         "words": "us",
+         "at": 27,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "meal",
+       "at": 40,
+       "gives": "TEA",
+       "note": "tea is an afternoon or evening meal"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone beats us at dinner, an alarming sight as they devour the meal.",
-     "definitionFit": "To outeat is to eat more than others, beating them at the table."
+     "surface": "Someone who outdoes others at dinner, worrying us as they eat.",
+     "definitionFit": "To outeat someone is to beat them at eating, to top them at the dinner table."
     },
     "features": {
      "answerInScene": true,
@@ -1605,38 +1621,32 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OUNCES",
+     "op": "composite",
      "indicators": [
       {
        "text": "roaming wild",
-       "note": "roaming wild means wandering freely, so the letters wander out of order"
+       "at": 37,
+       "note": "roaming wild means moving freely, so the letters rearrange"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OUNCES",
-       "parts": [
-        {
-         "words": "countries",
-         "note": "taken as written; these letters are the whole fodder"
-        },
-        {
-         "words": "three",
-         "gives": "TRI",
-         "note": "tri- is the prefix for three; these letters are set aside"
-        }
-       ]
+       "words": "countries",
+       "at": 59,
+       "note": "taken as written, the letters to be reworked"
+      },
+      {
+       "words": "three",
+       "at": 17,
+       "gives": "TRI",
+       "note": "tri- is the prefix for three"
       }
      ]
     },
     "explanation": {
-     "surface": "In these lands you'll see three of these big cats roaming free.",
-     "walkthrough": "A composite anagram: the letters of COUNTRIES are TRI (three) plus the answer, mixed up.",
-     "definitionFit": "The ounce is another name for the snow leopard, one of the big cats."
+     "surface": "These lands are where three kinds of big cat roam free.",
+     "walkthrough": "Rearranging COUNTRIES gives the answer plus TRI, the prefix for three.",
+     "definitionFit": "The ounce is the snow leopard, a big cat of the Himalayas."
     },
     "features": {
      "answerInScene": true,
@@ -1973,34 +1983,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "drunk",
-       "note": "drunk means intoxicated and unsteady, so the letters stagger into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Man",
+       "at": 0,
+       "gives": "HE",
+       "note": "he stands for a man"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drunk",
+         "at": 11,
+         "note": "drunk means unsteady, so the letters rearrange"
+        }
+       ],
        "parts": [
         {
-         "words": "Man",
-         "gives": "HE",
-         "note": "he refers to a man"
-        },
-        {
          "words": "sated",
-         "note": "the letters of sated rearranged"
+         "at": 4,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A full, tipsy man pointing to his empty beer cans.",
-     "walkthrough": "'cans' suggests beer tins next to a drunk, but it is slang for headphones.",
-     "definitionFit": "Cans is informal for headphones, and a headset is a pair of headphones."
+     "surface": "A man, full and tipsy, gestures at the beer cans.",
+     "walkthrough": "'Cans' looks like drink tins but is slang for headphones.",
+     "definitionFit": "Cans is slang for headphones, worn over the ears to listen."
     },
     "features": {
      "answerInScene": false,

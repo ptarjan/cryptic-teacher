@@ -389,48 +389,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENVELOP",
-     "indicators": [
-      {
-       "text": "dancing",
-       "note": "dancing letters move about and land in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ENVELOP",
        "indicators": [
         {
          "text": "A lot of",
-         "note": "a lot of something is most but not all of it, so the final letter goes"
+         "at": 0,
+         "note": "a lot of means most, dropping the last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "bitterness",
-           "gives": "ENV",
-           "note": "envy, with its last letter dropped"
-          },
-          {
-           "words": "pole",
-           "note": "the word pole, rearranged"
-          }
-         ]
+         "words": "bitterness",
+         "at": 9,
+         "gives": "ENVY",
+         "note": "envy is a bitter resentment"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dancing",
+         "at": 33,
+         "note": "dancing means moving about, so the letters rearrange"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pole",
+         "at": 28,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A resentful onlooker set against a pole dancer and her skimpy costume.",
-     "definitionFit": "To envelop is to wrap up or surround, a verb synonym of cover."
+     "surface": "Much resentment towards pole dancing is concealed.",
+     "walkthrough": "'Against' just places the pieces side by side.",
+     "definitionFit": "To envelop is to wrap up or surround completely."
     },
     "features": {
      "answerInScene": false,
@@ -559,43 +563,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PUBLICDEMONSTRATION",
+     "op": "composite",
      "indicators": [
       {
        "text": "broken up",
-       "note": "something broken up is smashed into pieces that can be reassembled differently"
-      },
-      {
-       "text": "ultimately",
-       "note": "ultimately points at the final letter of the word before it, the one to drop"
+       "at": 13,
+       "note": "broken up means smashed, so the letters rearrange"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PUBLICDEMONSTRATION",
+       "op": "charade",
+       "parts": [
+        {
+         "words": "dominant",
+         "at": 26,
+         "note": "taken as written"
+        },
+        {
+         "words": "police",
+         "at": 35,
+         "note": "taken as written"
+        },
+        {
+         "words": "brutes",
+         "at": 42,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "lacking",
-         "note": "lacking means without, so the selected letter is taken away from the rest"
+         "text": "ultimately",
+         "at": 58,
+         "note": "ultimately means the last letter"
         }
        ],
        "parts": [
         {
-         "words": "dominant police brutes",
-         "note": "the fodder, twenty letters taken as written"
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "justice",
-           "note": "the final letter of justice, which is removed"
-          }
-         ]
+         "words": "justice",
+         "at": 50,
+         "note": "its last letter is taken"
         }
        ]
       }
@@ -603,14 +613,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A protest being violently broken up by heavy-handed officers, with no justice in sight.",
-     "walkthrough": "One E is removed from the three fodder words, then the remaining nineteen letters are rearranged; the whole clue also describes what happens to a protest at the hands of brutal police.",
-     "definitionFit": "A protest march or rally in the street is exactly what heavy-handed police are said to break up."
+     "surface": "A protest broken up by heavy-handed police, with no justice served.",
+     "walkthrough": "DOMINANT POLICE BRUTES, rearranged, give the answer with one E, the last letter of justice, left over.",
+     "definitionFit": "A public demonstration is a protest rally, the kind riot police are sent to break up."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "justice"
+     "misdirectedWord": "broken"
     }
    }
   },
@@ -1200,43 +1210,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "aggravation",
-       "note": "aggravation stirs things up, so the two letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Prison",
+       "at": 1,
+       "gives": "PEN",
+       "note": "pen is US slang for a penitentiary"
+      },
+      {
+       "words": "child's play",
+       "at": 8,
+       "gives": "TAG",
+       "note": "tag is a children's chasing game"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "aggravation",
+         "at": 29,
+         "note": "aggravation means stirring up, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Prison",
-         "gives": "PEN",
-         "note": "short for penitentiary"
-        },
-        {
-         "words": "child's play",
-         "gives": "TAG",
-         "note": "a playground chasing game"
-        },
-        {
          "words": "no",
-         "note": "the word no, jumbled"
+         "at": 26,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sneering quote that running the US military is easier than running a jail or a nursery.",
-     "definitionFit": "The Pentagon is the headquarters of the US Department of Defense, and by metonymy the department itself."
+     "surface": "A quoted slogan about prisons, credited to the US defence department.",
+     "definitionFit": "The Pentagon is the headquarters of the US Department of Defense, and its usual name."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "aggravation"
+     "misdirectedWord": "play"
     }
    }
   },
@@ -1261,43 +1275,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EDGY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "without a heart means the middle letter is cut out"
+       "text": "on",
+       "at": 16,
+       "note": "in a down clue, on means sitting above, so the name comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Balls, possibly",
+       "at": 0,
+       "gives": "ED",
+       "note": "Ed Balls is a British politician, so Ed is one person named Balls"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "on",
-         "note": "in a down entry, a piece placed on another sits above it"
+         "text": "heartless",
+         "at": 19,
+         "note": "heartless means losing the middle letter"
         }
        ],
        "parts": [
         {
-         "words": "Balls, possibly",
-         "gives": "ED",
-         "note": "Ed Balls, the British Labour politician, is one possible Ed"
+         "words": "homosexual",
+         "at": 29,
+         "gives": "GAY",
+         "note": "gay means homosexual"
         },
         {
-         "words": "homosexual",
-         "gives": "GY",
-         "note": "gay with its central letter removed"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grisly picture of genitals belonging to a gay man being hanged.",
-     "walkthrough": "'Strung up' suggests a lynching; it means tense. Balls is the surname of Ed Balls, a former Labour minister.",
-     "definitionFit": "Edgy means nervous and tense, as is someone strung up with anxiety."
+     "surface": "Testicles hanging over a gay man who is being strung up.",
+     "walkthrough": "Ed Balls is a former UK Labour cabinet minister; 'on' places ED above.",
+     "definitionFit": "Strung up here means tense and nervous, which is what edgy means."
     },
     "features": {
      "answerInScene": false,

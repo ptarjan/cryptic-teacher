@@ -2161,46 +2161,50 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means round the outside, so these words wrap the next pieces"
+       "at": 18,
+       "note": "about means surrounding, so the forecasts go round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "forecasts",
-         "gives": "PREDICTIONS",
-         "note": "predictions are forecasts"
-        },
-        {
-         "words": "Left",
-         "gives": "L",
-         "note": "L is the abbreviation for left"
-        }
-       ]
+       "words": "forecasts",
+       "at": 8,
+       "gives": "PREDICTIONS",
+       "note": "predictions are forecasts"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "beginning to",
-         "note": "the beginning of a word is its first letter alone"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "emerge",
-         "note": "first letter of the word"
+         "words": "Left",
+         "at": 24,
+         "gives": "L"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "at": 29,
+           "note": "beginning to means the first letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "emerge",
+           "at": 42,
+           "note": "its first letter is taken"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Liking forecasts of the political left starting to rise.",
-     "walkthrough": "'Fancies' looks like a verb, but it is the plural noun meaning likings.",
-     "definitionFit": "Predilections are preferences or partialities, which is what one's fancies are as a plural noun."
+     "surface": "Predictions of a left-wing revival begin to surface.",
+     "walkthrough": "LE goes inside PREDICTIONS.",
+     "definitionFit": "Predilections are preferences or likings, the things one fancies."
     },
     "features": {
      "answerInScene": false,
