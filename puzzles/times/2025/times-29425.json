@@ -56,55 +56,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Turbulent",
-       "note": "turbulent water is churned up, so the letters are stirred"
+       "text": "around",
+       "at": 24,
+       "note": "around means the jumbled letters surround the next one"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "the phrase's letters sit around the extra letter before the mixing"
+         "text": "Turbulent",
+         "at": 0,
+         "note": "turbulent means stormy and disordered, so the letters are jumbled"
         }
        ],
        "parts": [
         {
          "words": "ocean trip up",
-         "note": "taken letter for letter as fodder"
-        },
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "far side of",
-           "note": "the far side of a word is its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "far side of major",
-           "note": "the last letter of majoR"
-          }
-         ]
+         "text": "far side of",
+         "at": 31,
+         "note": "far side of picks the last letter of major"
+        }
+       ],
+       "parts": [
+        {
+         "words": "major",
+         "at": 43
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rough sea crossing trips up a traveller heading round to a big capital city.",
-     "walkthrough": "'Major' looks like an adjective for the capital, but it only donates its last letter; the capital itself is the definition.",
-     "definitionFit": "A definition by example: the city is the seat of government of Haiti, on the island of Hispaniola."
+     "surface": "A rough sea voyage around the far side of a major city.",
+     "definitionFit": "Port-au-Prince is the capital city of Haiti."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "major"
+     "misdirectedWord": "Turbulent"
     }
    }
   },
@@ -493,41 +495,39 @@
      "indicators": [
       {
        "text": "boxes",
-       "note": "to box something is to enclose it"
+       "at": 5,
+       "note": "to box is to enclose, so the other letters go inside"
       }
      ],
      "parts": [
       {
        "words": "Open",
+       "at": 0,
        "gives": "OVERT",
-       "note": "overt = open, not concealed"
+       "note": "overt means open, not hidden"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "AC",
        "indicators": [
         {
          "text": "at the front",
-         "note": "take only the front letter of each of the following words"
+         "at": 11,
+         "note": "at the front takes the first letter of each of all and contain"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "at the front all contain",
-         "gives": "AC",
-         "select": "first",
-         "note": "the first letters of All Contain"
+         "words": "all contain",
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An open box of meat has ham packed in every tin.",
-     "walkthrough": "'Ham' looks like the meat in the boxes; it is the verb for acting too broadly.",
-     "definitionFit": "To ham is to overact, playing a part with exaggeration."
+     "surface": "Opening boxes of ham all contain a front label.",
+     "walkthrough": "'ham' is a verb here: to ham is to overdo a performance.",
+     "definitionFit": "To ham it up is to perform in an exaggerated way, which is to overact."
     },
     "features": {
      "answerInScene": false,
