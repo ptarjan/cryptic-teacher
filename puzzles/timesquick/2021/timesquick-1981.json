@@ -454,42 +454,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HARANGUE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "cut short",
-       "note": "cutting something short trims its end, so the final letter goes"
+       "text": "new",
+       "at": 16,
+       "note": "new signals a fresh arrangement of the letters that follow"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "arena",
+       "at": 20
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "new",
-         "note": "something new has been made afresh, so the letters are put into a fresh order"
+         "text": "cut short",
+         "at": 33,
+         "note": "cut short means losing the final letter of 'huge'"
         }
        ],
        "parts": [
         {
-         "words": "arena",
-         "note": "taken as written, to be rearranged"
+         "words": "huge",
+         "at": 27
         },
         {
-         "words": "huge",
-         "gives": "HUG",
-         "note": "this word with its last letter removed"
+         "gives": "E",
+         "note": "the last letter of huge"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A furious address delivered in a vast new stadium, stopped before its end.",
-     "walkthrough": "Drop the E from 'huge', then rearrange HUG with ARENA to get HARANGUE.",
-     "definitionFit": "A harangue is a lengthy, aggressive lecture, a ranting tirade delivered in anger."
+     "surface": "A furious address is delivered in a newly built, enormous stadium.",
+     "walkthrough": "'cut short' trims HUGE to HUG; 'new' then rearranges ARENA plus HUG.",
+     "definitionFit": "A harangue is a loud, aggressive lecture or tirade."
     },
     "features": {
      "answerInScene": true,
@@ -688,46 +691,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MORTAR",
      "indicators": [
       {
-       "text": "swapping",
-       "note": "swapping exchanges one thing for another, so a letter is traded for a different one"
+       "text": "swapping tips on Luger",
+       "at": 7,
+       "note": "the two end letters of Luger are L and R, so one is exchanged for the other"
       }
      ],
      "parts": [
       {
        "words": "Being",
+       "at": 0,
        "gives": "MORTAL",
-       "note": "a mortal is a living being"
+       "note": "a mortal is a human being"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "tips",
-         "note": "the tips of a word are its two ends, so its first and last letters are used"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Luger",
-         "note": "the two end letters of this word"
-        }
-       ]
+       "gives": "L"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A living creature exchanges the ends of a pistol for a bigger gun.",
-     "walkthrough": "The tips of Luger are L and R; in MORTAL the L is swapped for the R. A Luger is a German pistol, which is why a weapon feels natural here.",
-     "definitionFit": "A mortar is a short artillery gun firing shells at high angles, a military weapon."
+     "surface": "A soldier swaps a Luger pistol for a heavier weapon.",
+     "walkthrough": "The tips of LUGER are L and R: change the L at the end of MORTAL to R. A Luger is a German pistol.",
+     "definitionFit": "A mortar is a short-barrelled artillery piece firing shells at high angles."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Being"
+     "misdirectedWord": "Luger"
     }
    }
   },

@@ -833,36 +833,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "LOCARNO",
-     "indicators": [
-      {
-       "text": "changing hands at last",
-       "note": "changing hands swaps left for right, and at last says it is the final letter that changes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Pub",
-       "gives": "LOCAL",
-       "note": "a local is one's neighbourhood pub"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "changing hands at last",
+         "at": 4,
+         "note": "the final letter, L for left, switches to the other hand, R for right"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pub",
+         "at": 0,
+         "gives": "LOCAL",
+         "note": "a local is the pub nearest one's home"
+        },
+        {
+         "gives": "L"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
        "words": "drama",
+       "at": 28,
        "gives": "NO",
-       "note": "No or Noh is classical Japanese masked drama"
+       "note": "No (or Noh) is classical Japanese drama"
       }
      ]
     },
     "explanation": {
-     "surface": "A pub changes owners and becomes a theatre in a Swiss resort.",
-     "walkthrough": "The final L (left) of LOCAL becomes R (right). Locarno sits on Lake Maggiore.",
-     "definitionFit": "Locarno is a resort in Ticino, southern Switzerland, on the shore of Lake Maggiore."
+     "surface": "A pub is sold, so the drinkers find a new venue in a Swiss town.",
+     "walkthrough": "The two hands are left and right, abbreviated L and R; 'at last' says only the final one in the pub word changes.",
+     "definitionFit": "Locarno is a resort town on Lake Maggiore in the Swiss canton of Ticino."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "hands"
     }
    }
@@ -1704,42 +1717,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in says one part sits inside another"
+       "at": 24,
+       "note": "in would put the arranged word inside the record and time, but the next phrase reverses that"
+      },
+      {
+       "text": "The opposite",
+       "at": 40,
+       "note": "the opposite tells us to swap the roles, so record and time go inside the word for arranged"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "The opposite",
-         "note": "the opposite tells the solver to swap which part contains which"
-        }
-       ],
-       "parts": [
-        {
-         "words": "arranged",
-         "gives": "SET",
-         "note": "set means arranged, as a table is set"
-        },
-        {
-         "words": "record",
-         "gives": "EP",
-         "note": "an EP is an extended-play record"
-        }
-       ]
+       "words": "arranged",
+       "at": 15,
+       "gives": "SET",
+       "note": "set means arranged, as in a table set for dinner"
       },
       {
-       "words": "time",
-       "gives": "T",
-       "note": "T is the abbreviation for time"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "record",
+         "at": 27,
+         "gives": "EP",
+         "note": "EP is an extended-play record"
+        },
+        {
+         "words": "time",
+         "at": 34,
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tune arranged at speed, with a teasing instruction tacked on.",
-     "walkthrough": "Read literally, the clue puts the arranged word inside the record and time; 'The opposite' tells you to nest them the other way round.",
-     "definitionFit": "A septet is a composition written for seven voices or instruments."
+     "surface": "A composer arranges a piece in record time, or perhaps the other way round.",
+     "walkthrough": "The question mark ends the first reading, and 'The opposite' tells you to swap which piece holds which.",
+     "definitionFit": "A septet is a composition written for seven performers."
     },
     "features": {
      "answerInScene": true,

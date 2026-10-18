@@ -478,46 +478,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DOGBERRY",
      "indicators": [
       {
-       "text": "in",
-       "note": "in places the jumbled letters inside the district name"
+       "text": "found in",
+       "at": 18,
+       "note": "found in means located within, so the jumbled letters sit inside the district's name"
       }
      ],
      "parts": [
+      {
+       "words": "NI district",
+       "at": 43,
+       "gives": "DERRY",
+       "note": "Derry is a city and district in Northern Ireland"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "dreadful",
-         "note": "dreadful means in an awful state, so the letters are thrown into disorder"
+         "at": 27,
+         "note": "dreadful signals that the letters of 'bog' are in a terrible mess"
         }
        ],
        "parts": [
         {
          "words": "bog",
-         "note": "these three letters rearranged"
-        },
-        {
-         "words": "NI district",
-         "gives": "DERRY",
-         "note": "Derry is a city and district in Northern Ireland"
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dim policeman is discovered stuck in an awful bog in Northern Ireland.",
-     "walkthrough": "NI is Northern Ireland; Derry, also called Londonderry, is its second city and a local district.",
-     "definitionFit": "Dogberry is the blundering constable in Shakespeare's Much Ado About Nothing."
+     "surface": "A bumbling policeman is discovered in a nasty swamp in Northern Ireland.",
+     "walkthrough": "NI is the standard abbreviation for Northern Ireland, which gives the district its home.",
+     "definitionFit": "Dogberry is the comically incompetent constable in Shakespeare's Much Ado About Nothing."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "dreadful"
+     "misdirectedWord": "bog"
     }
    }
   },
@@ -1391,39 +1392,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "treated",
-       "note": "treated means processed or worked on, so the letters are worked into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "treated",
+         "at": 4,
+         "note": "treated means processed or worked on, so the letters of 'has' are reworked"
+        }
+       ],
        "parts": [
         {
          "words": "Has",
-         "note": "these three letters rearranged"
-        },
-        {
-         "words": "unseasoned",
-         "gives": "GREEN",
-         "note": "green timber is unseasoned, not yet dried"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "unseasoned",
+       "at": 12,
+       "gives": "GREEN",
+       "note": "green wood or timber is unseasoned, not yet dried"
       }
      ]
     },
     "explanation": {
-     "surface": "A tanner has processed some raw leather.",
-     "walkthrough": "'Treated' and 'unseasoned' both sound like tanning terms, but one signals the rearrangement and the other gives GREEN.",
-     "definitionFit": "Shagreen is a rough untanned leather, often made from sharkskin or horse hide."
+     "surface": "Someone has cured some untreated hide.",
+     "walkthrough": "'treated' rearranges HAS to SHA, and unseasoned timber is GREEN.",
+     "definitionFit": "Shagreen is untanned hide, often from sharks or rays, with a rough granular surface."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "treated"
+     "misdirectedWord": "unseasoned"
     }
    }
   },
