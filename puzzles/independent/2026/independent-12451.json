@@ -380,43 +380,56 @@
    "annotation": {
     "definitions": [
      {
-      "text": "give too many treats",
+      "text": "give too many treats?",
       "at": 24
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MOLLYCODDLE",
      "indicators": [
       {
-       "text": "Spooner",
-       "note": "the Reverend Spooner was famous for swapping the opening sounds of two neighbouring words as he spoke"
+       "text": "for Spooner",
+       "at": 8,
+       "note": "the Reverend Spooner swapped the first sounds of words, so the opening sounds trade places"
       }
      ],
      "parts": [
       {
-       "words": "Dog",
-       "gives": "COLLIE",
-       "note": "a collie is a working dog"
+       "op": "homophone",
+       "spelt": "COLLY",
+       "parts": [
+        {
+         "words": "Dog",
+         "at": 0,
+         "gives": "COLLIE",
+         "note": "a collie is a breed of dog"
+        }
+       ]
       },
       {
-       "words": "sit for",
-       "gives": "MODEL",
-       "note": "to sit for a painter is to model"
-      },
-      {
-       "unchecked": true,
-       "words": "Spooner",
-       "gives": "MOLLYCODDLE",
-       "soundsLike": "COLLIE MODEL",
-       "note": "trade the opening sounds of those two words and say the result aloud"
+       "op": "homophone",
+       "spelt": "MODDLE",
+       "parts": [
+        {
+         "words": "sit",
+         "at": 4,
+         "gives": "MODEL",
+         "note": "to sit for an artist is to model"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A Spooner clue defines the answer straight and then describes it with the initial sounds swapped, so the work is done backwards: find the swapped phrase in the clue, then untangle it.",
-     "definitionFit": "To mollycoddle is to indulge someone with far more care and comfort than they need, which is what handing out endless treats amounts to."
+     "surface": "Looking after a dog, by way of a Spoonerism, and spoiling it with treats.",
+     "walkthrough": "COLLIE MODEL with the opening sounds swapped is spoken MOLLY CODDLE.",
+     "definitionFit": "To mollycoddle is to pamper or overindulge someone, such as plying them with too many sweets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sit"
     }
    }
   },
@@ -746,33 +759,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "edited",
-       "note": "editing a text means moving its parts about, so the letters come out in a different arrangement"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "edited",
+         "at": 7,
+         "note": "edited means rewritten, so the letters are reorganised"
+        }
+       ],
        "parts": [
         {
          "words": "E-mail",
-         "note": "five letters rearranged, the hyphen ignored"
-        },
-        {
-         "words": "speechify",
-         "gives": "ORATE",
-         "note": "to orate is to make a speech, usually a grand one"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "speechify",
+       "at": 17,
+       "gives": "ORATE",
+       "note": "to speechify is to orate, to make a speech"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "\"Better\" looks like a comparison sitting at the end of a sentence about e-mail; it is a verb, and verbs are what definitions of this answer have to be.",
-     "definitionFit": "To ameliorate is to make something better, and \"better\" is being used here as a verb — to improve — rather than as a comparison."
+     "surface": "An email rewritten so as to sound better when delivered as a speech.",
+     "walkthrough": "'better' looks like an adjective, but it is a verb meaning to improve.",
+     "definitionFit": "To ameliorate a situation is to improve it, so it means to make better."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "better"
     }
    }
   },
@@ -977,40 +998,39 @@
      "indicators": [
       {
        "text": "including",
-       "note": "to include something is to take it in, so the outer word closes around what comes next"
+       "at": 34,
+       "note": "the river surrounds the other pieces"
       }
      ],
      "parts": [
       {
        "words": "Chester river",
+       "at": 19,
        "gives": "DEE",
-       "note": "the Dee runs through Chester in north-west England"
+       "note": "the Dee is the river that runs through Chester in England"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "top of",
-         "note": "the top of a word is where it starts, which in a down entry is also its highest letter"
-        }
-       ],
        "parts": [
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "S",
+         "indicators": [
+          {
+           "text": "top of",
+           "at": 44,
+           "note": "in a down clue, the top of stony is its first letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "top of stony",
-           "gives": "S",
-           "select": "first",
-           "note": "the opening letter of that word"
+           "words": "stony",
+           "at": 51
           }
          ]
         },
         {
          "words": "bed",
+         "at": 57,
          "gives": "CRIB",
          "note": "a crib is a baby's bed"
         }
@@ -1019,8 +1039,13 @@
      ]
     },
     "explanation": {
-     "walkthrough": "\"River bed\" is sitting in the clue waiting to be read as one thing, and it never is: the river and the bed are two separate pieces with a letter wedged between them.",
-     "definitionFit": "To describe something is to set out in words what it is like, which is exactly what giving an account of it means."
+     "surface": "Describing the stony bed of the river at Chester.",
+     "definitionFit": "To describe something is to give a verbal account or report of what it is like."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
     }
    }
   },
@@ -1531,50 +1556,54 @@
      "indicators": [
       {
        "text": "traps",
-       "note": "to trap a thing is to hold it captive inside, which is what one piece does to the others here"
+       "at": 30,
+       "note": "to trap is to enclose, so the bog closes round the other letters"
       }
      ],
      "parts": [
       {
        "words": "marshland",
+       "at": 20,
        "gives": "BOG",
-       "note": "a bog is wet, spongy marshland"
+       "note": "a bog is marshland"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "leader of",
-         "note": "the leader heads the line, so this hands over just the first letter of the word it introduces"
-        }
-       ],
        "parts": [
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "E",
+         "indicators": [
+          {
+           "text": "leader of",
+           "at": 36,
+           "note": "the leader of expeditionary is its first letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "leader of expeditionary",
-           "gives": "E",
-           "select": "first",
-           "note": "the opening letter of that word"
+           "words": "expeditionary",
+           "at": 46
           }
          ]
         },
         {
          "words": "force",
+         "at": 60,
          "gives": "F",
-         "note": "F is the standard abbreviation for force"
+         "note": "F is the physics symbol for force"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The be- prefix turns a noun into a verb meaning cause to be covered in, the same shape as becalm and bedevil — worth knowing, because setters build words this way often.",
-     "definitionFit": "To befog something is to cover it in fog, and fog is precisely what lowers how far anybody can see."
+     "surface": "A swamp catching the commander of an expedition as fog comes down.",
+     "definitionFit": "To befog something is to obscure it as if with mist, reducing how clearly it can be seen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "traps"
     }
    }
   },

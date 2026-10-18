@@ -247,39 +247,36 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "perhaps",
-       "note": "'perhaps' marks a for-instance, so the word in front of it is only one example of what the wordplay really wants"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "centrally",
-         "note": "the centre of a word is the single letter with the same number of letters either side of it"
+         "text": "within",
+         "at": 29,
+         "note": "that letter goes inside the shops"
         }
        ],
        "parts": [
         {
-         "words": "mall",
+         "words": "mall perhaps",
+         "at": 36,
          "gives": "SHOPS",
-         "note": "a mall is one kind of place where shops are gathered together, and the word opens up after its first two letters"
+         "note": "a mall is an example of shops gathered together"
         },
         {
          "op": "middle",
          "indicators": [
           {
-           "text": "within",
-           "note": "one thing within another sits inside it, so the letter goes into the middle of what follows"
+           "text": "centrally",
+           "at": 19,
+           "note": "the central letter of the seven-letter address is taken"
           }
          ],
          "parts": [
           {
            "words": "address",
-           "note": "the middle letter of the seven"
+           "at": 11
           }
          ]
         }
@@ -287,15 +284,20 @@
       },
       {
        "words": "to let",
+       "at": 49,
        "gives": "HIRE",
-       "note": "a house to let is a house for hire"
+       "note": "to let out for payment is to hire"
       }
      ]
     },
     "explanation": {
-     "surface": "An estate agent's advert for a place with a central address in a mall, up for rent.",
-     "walkthrough": "British counties are stock crossword scenery, and this one hides behind property jargon. 'Perhaps' is the quiet signal that a mall is only an example of the word actually wanted.",
-     "definitionFit": "Shropshire is an English county on the Welsh border, so the definition names the class it belongs to."
+     "surface": "A county with a shopping-centre address that's up for rent.",
+     "definitionFit": "Shropshire is an English county on the Welsh border, with Shrewsbury as its county town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "address"
     }
    }
   },
@@ -1596,41 +1598,43 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "extremely",
-       "note": "the extremes of a word are its two end letters, so everything between them is left behind"
+       "text": "funny",
+       "at": 36,
+       "note": "funny means odd, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Ig Nobel",
+       "at": 9
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "funny",
-         "note": "a funny arrangement is an odd one, and letters put into an odd arrangement are no longer in the order they came"
+         "text": "extremely",
+         "at": 26,
+         "note": "the extreme letters, first and last, of award"
         }
        ],
        "parts": [
         {
-         "words": "Ig Nobel",
-         "note": "fodder as printed, seven letters"
-        },
-        {
-         "op": "outer",
-         "parts": [
-          {
-           "words": "award",
-           "note": "the two extreme letters of the word, its A and its D"
-          }
-         ]
+         "words": "award",
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spoof science prize that turned out to be hilarious.",
-     "walkthrough": "The Ig Nobels are real — annual spoof prizes for research that makes you laugh and then think — which is why 'extremely funny' reads as ordinary praise for one.",
-     "definitionFit": "Something trifling is no big deal: both say the matter is too small to be worth minding."
+     "surface": "The Ig Nobel prize, given for amusing research, dismissed as small beer.",
+     "walkthrough": "The Ig Nobel prizes are spoof awards for science that first makes people laugh, then think.",
+     "definitionFit": "Saying something is no big deal means it is unimportant, so the phrase is used as an adjective for trivial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "funny"
     }
    }
   }
