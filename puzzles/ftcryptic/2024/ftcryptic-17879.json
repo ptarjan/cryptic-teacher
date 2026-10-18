@@ -710,39 +710,42 @@
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 3,
+       "gives": "A"
       },
       {
        "words": "flash",
+       "at": 5,
        "gives": "MO",
-       "note": "a mo is a moment, an instant"
+       "note": "a flash is a moment, a mo"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "NGST",
        "indicators": [
         {
          "text": "heads for",
-         "note": "the heads of words are their opening letters, so only those are taken"
+         "at": 12,
+         "note": "heads means the first letters of each of the words that follow"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "North Glasgow Street",
-         "gives": "NGST",
-         "select": "first",
-         "note": "first letters of the three words"
+         "words": "North Glasgow",
+         "at": 22
         }
        ]
+      },
+      {
+       "words": "Street",
+       "at": 36,
+       "gives": "ST"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is travelling quickly towards a street in the north of Glasgow.",
-     "walkthrough": "'In a flash' reads as one phrase, but 'In' is the definition and 'a flash' gives A MO.",
-     "definitionFit": "Amongst is a preposition meaning among or within a group, which can stand in for in."
+     "surface": "Someone is on their way to a North Glasgow street, arriving almost instantly.",
+     "walkthrough": "'In' looks like part of 'In a flash' but stands alone as the definition.",
+     "definitionFit": "Amongst is a preposition meaning in the middle of or included in a group, as 'in' can."
     },
     "features": {
      "answerInScene": false,
@@ -1766,36 +1769,39 @@
      "indicators": [
       {
        "text": "broken into by",
-       "note": "being broken into means having something enter, so letters sit within the word"
+       "at": 8,
+       "note": "broken into says the other pieces are placed inside numbers"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Numbers",
-         "gives": "NOS",
-         "note": "the abbreviation for numbers"
-        },
-        {
-         "words": "Tyneside",
-         "gives": "NE",
-         "note": "Tyneside is in North East England"
-        }
-       ]
+       "words": "Numbers",
+       "at": 0,
+       "gives": "NOS"
       },
       {
-       "words": "tango",
-       "gives": "T",
-       "note": "T is tango in the radio alphabet"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Tyneside",
+         "at": 23,
+         "gives": "NE",
+         "note": "Tyneside is in the North East of England, NE"
+        },
+        {
+         "words": "tango",
+         "at": 32,
+         "gives": "T",
+         "note": "tango is T in the NATO phonetic alphabet"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Musical numbers are interrupted by tango dance troupes from Newcastle.",
-     "walkthrough": "Tyneside is the area around Newcastle in North East England, the source of the compass abbreviation.",
-     "definitionFit": "A nonet is a group of nine musicians, so nonets are such groups."
+     "surface": "Some dance tunes get interrupted by tango troupes from Newcastle.",
+     "walkthrough": "Tyneside is the area around Newcastle upon Tyne in north-east England.",
+     "definitionFit": "A nonet is a set of nine, especially nine musicians, so nonets are groups of performers."
     },
     "features": {
      "answerInScene": true,

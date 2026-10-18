@@ -1303,47 +1303,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SEPIA",
+     "op": "container",
      "indicators": [
       {
-       "text": "cut short",
-       "note": "Cut short means lose the final letter."
+       "text": "inside",
+       "at": 35,
+       "note": "inside means placed within"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "inside",
-         "note": "The one goes inside the shortened word."
+         "text": "cut short",
+         "at": 20,
+         "note": "cut short means the last letter is removed"
         }
        ],
        "parts": [
         {
          "words": "bit of flower",
-         "gives": "SEPA",
-         "note": "A sepal is part of a flower; cut short it is SEPA."
+         "at": 6,
+         "gives": "SEPAL",
+         "note": "a sepal is part of a flower's calyx"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral for one."
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 31,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener describes a wilted brown petal snipped from a bloom.",
-     "walkthrough": "SEPAL loses its L, then I goes inside.",
-     "definitionFit": "A plain synonym: sepia is a warm brown shade, named after the cuttlefish ink it was first made from."
+     "surface": "A brown part of a flower, cut back, with something tucked inside.",
+     "definitionFit": "Sepia is a reddish-brown pigment, originally from cuttlefish ink."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Brown"
     }
    }
   },

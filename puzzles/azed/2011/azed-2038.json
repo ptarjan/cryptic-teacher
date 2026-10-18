@@ -261,36 +261,39 @@
      "indicators": [
       {
        "text": "environs",
-       "note": "environs are the surroundings, so the verb surrounds the other pieces"
+       "at": 27,
+       "note": "environs as a verb means surrounds, so reached is placed around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "reached",
-         "gives": "CAME",
-         "note": "came to, arrived at"
-        },
-        {
-         "words": "in",
-         "gives": "I",
-         "note": "I as a short form of in"
-        }
-       ]
+       "words": "reached",
+       "at": 19,
+       "gives": "CAME",
+       "note": "came means reached, arrived at"
       },
       {
-       "words": "dark",
-       "gives": "SAD",
-       "note": "sad of a colour means dark or sombre"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in",
+         "at": 11,
+         "gives": "I",
+         "note": "I is an abbreviation of in"
+        },
+        {
+         "words": "dark",
+         "at": 14,
+         "gives": "SAD",
+         "note": "Chambers gives sad as dark or sombre, of a colour"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An attack by night, carried out under cover of darkness on the surrounding area.",
-     "walkthrough": "CAME surrounds I and SAD. Sad for a colour meaning dark is in Chambers.",
-     "definitionFit": "A camisade was a night attack, the raiders wearing shirts over their armour to recognise one another."
+     "surface": "A night attack in darkness reached the outskirts of a town.",
+     "definitionFit": "A camisade is an old military term for a surprise attack by night, from soldiers wearing shirts over armour."
     },
     "features": {
      "answerInScene": true,
@@ -377,51 +380,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "KNEECAPPING",
+     "op": "container",
      "indicators": [
       {
-       "text": "wretched",
-       "note": "wretched means in a sorry state, so the letters are knocked about"
+       "text": "accepts",
+       "at": 8,
+       "note": "accepts means takes in, so the scrambled letters go inside the monarch"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "KNEECAPPING",
+       "words": "Monarch",
+       "at": 0,
+       "gives": "KING",
+       "note": "a king is a monarch"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "accepts",
-         "note": "accepts means taking something in, so the monarch holds the rest"
+         "text": "wretched",
+         "at": 16,
+         "note": "wretched means sorry or miserable, so the remaining letters are put in a bad new order"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "KNEECAPPING",
          "indicators": [
           {
-           "text": "not new",
-           "note": "not new says the letter standing for new is dropped"
+           "text": "not",
+           "at": 36,
+           "note": "not says the letter for new is taken out"
           }
          ],
          "parts": [
           {
-           "words": "Monarch",
-           "gives": "KING",
-           "note": "a king is a monarch"
-          },
-          {
            "words": "p-penance",
-           "note": "the stuttered word taken as written"
+           "at": 25,
+           "gives": "PPENANCE",
+           "note": "the stuttered word, taken as written"
           },
           {
            "words": "new",
-           "gives": "N",
-           "note": "N is the abbreviation for new"
+           "at": 40,
+           "gives": "N"
           }
          ]
         }
@@ -430,14 +433,14 @@
      ]
     },
     "explanation": {
-     "surface": "A king stammers out his penance, a torment of its own.",
-     "walkthrough": "The stutter in p-penance is not just surface: the doubled P is needed. Only one of its two Ns goes.",
-     "definitionFit": "Kneecapping is the punishment of shooting someone in the knee, a form of torture used by paramilitaries."
+     "surface": "A king endures miserable stuttering penance, a kind of torture.",
+     "walkthrough": "The hyphenated p-penance is a stutter, so both Ps are fodder; only one of its two Ns goes.",
+     "definitionFit": "Kneecapping, shooting a victim in the knees, is a punishment and form of torture used by paramilitary groups."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Monarch"
+     "misdirectedWord": "penance"
     }
    }
   },
@@ -1050,25 +1053,32 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "CRUCIBLE",
      "indicators": [
       {
        "text": "grinding",
-       "note": "grinding breaks things up, so these letters are crushed into a new order"
+       "at": 15,
+       "note": "grinding crushes the letters of rice and club, so they come out in a new order"
+      },
+      {
+       "text": "with",
+       "at": 29,
+       "note": "with tells us club is ground up together with rice in one pool"
       }
      ],
      "parts": [
       {
-       "words": "rice with club",
-       "gives": "CRUCIBLE",
-       "note": "the letters of rice and club rearranged"
+       "words": "rice",
+       "at": 24
+      },
+      {
+       "words": "club",
+       "at": 34
       }
      ]
     },
     "explanation": {
-     "surface": "A miller at work, grinding rice with a club.",
-     "walkthrough": "The miller is the playwright Arthur Miller, not a grinder of grain.",
+     "surface": "A miller's job: grinding up rice with a club.",
+     "walkthrough": "The miller is Arthur Miller, not a grinder of corn.",
      "definitionFit": "The Crucible is Arthur Miller's 1953 play about the Salem witch trials."
     },
     "features": {
@@ -1317,44 +1327,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "disguised",
-       "note": "something disguised is changed in appearance, so its letters are rearranged"
+       "text": "place",
+       "at": 21,
+       "note": "place says to set something somewhere, here inside the word put"
+      },
+      {
+       "text": "in",
+       "at": 48,
+       "note": "in gives where the disguised letters are placed"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "put",
+       "at": 30
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "place",
-         "note": "place is the instruction to set one thing into another, completed by the in at the end"
+         "text": "disguised",
+         "at": 34,
+         "note": "disguised means the letters of gin are dressed up in a different order"
         }
        ],
        "parts": [
         {
-         "words": "put",
-         "note": "taken as written"
-        },
-        {
          "words": "gin",
-         "note": "gin rearranged"
+         "at": 44
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woodland plant, and a handy spot for hiding a bottle of gin.",
-     "walkthrough": "'Place to put' reads as a noun phrase, a hiding spot; in fact place ... in is an order to insert, with the final 'in' completing it.",
+     "surface": "An instruction for a woodland plant: hide some gin in it.",
      "definitionFit": "The pignut, or earthnut, is a woodland plant of the carrot family with an edible tuber."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "place"
     }
    }
@@ -1942,47 +1957,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "KILTER",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the remainder inside the vat"
+       "at": 27,
+       "note": "in places the remaining letters inside the vat"
       }
      ],
      "parts": [
       {
+       "words": "vat",
+       "at": 30,
+       "gives": "KIER",
+       "note": "Chambers gives kier as a vat for boiling or bleaching cloth"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "KILTER",
        "indicators": [
         {
          "text": "Regardless of",
-         "note": "regardless of means leaving aside, so those letters are dropped"
+         "at": 0,
+         "note": "regardless of means without, so these letters are disregarded"
         }
        ],
        "parts": [
         {
-         "words": "vat",
-         "gives": "KIER",
-         "note": "a kier is a large vat used for bleaching cloth"
-        },
-        {
          "words": "claret",
-         "note": "the red wine of Bordeaux, taken as written"
+         "at": 20
         },
         {
          "words": "care",
-         "note": "taken as written, the letters to drop"
+         "at": 14,
+         "note": "the letters of care are taken out of claret, in order"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ignore the worry: the wine in the vat is in fine shape.",
-     "walkthrough": "Each letter of care comes out of the wine, leaving just two letters. A kier is a dyer's or bleacher's vat.",
-     "definitionFit": "Kilter means proper working order, usually heard in the idiom out of kilter."
+     "surface": "Carelessly, claret in a vat is said to be keeping well.",
+     "walkthrough": "Removing C, A, R, E from CLARET leaves LT.",
+     "definitionFit": "Kilter means good order or proper working state, as in the phrase 'out of kilter'."
     },
     "features": {
      "answerInScene": false,
