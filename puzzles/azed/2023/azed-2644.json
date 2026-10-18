@@ -253,54 +253,59 @@
      "indicators": [
       {
        "text": "coming in",
-       "note": "things coming in enter another word and are wrapped by it"
+       "at": 17,
+       "note": "coming in places the on-plus-horse letters inside the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not last",
+         "at": 39,
+         "note": "but not last says the final letter of the behindhand word is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "but not last",
-           "note": "the final letter is dropped from the word just before this bracketed phrase"
-          }
-         ],
-         "parts": [
-          {
-           "words": "behindhand",
-           "gives": "LATE",
-           "note": "behindhand means running late"
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "behindhand",
+         "at": 27,
+         "gives": "LATE",
+         "note": "behindhand means late"
         },
         {
-         "words": "gee-gee",
-         "gives": "GG",
-         "note": "GG is the short form of gee-gee, a horse"
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "on",
-       "gives": "O",
-       "note": "o' is a dialect contraction of on, as in o' nights"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "on",
+         "at": 6,
+         "gives": "O",
+         "note": "O is a short form of on, as in o'clock (of the clock) and other contracted phrases"
+        },
+        {
+         "words": "gee-gee",
+         "at": 9,
+         "gives": "GG",
+         "note": "a gee-gee is a child's word for a horse, abbreviated GG"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A punter puts a stake on a horse that finishes behind the field, though not quite last.",
-     "walkthrough": "The ellipsis carries on into the next clue, whose 'One such' points back at the gee-gee. Loggats was an old game like skittles.",
-     "definitionFit": "A loggat is a stake or small log thrown at a fixed stake in the old game of loggats."
+     "surface": "A bet is placed on a horse that comes in late, though not last.",
+     "walkthrough": "LATE without its last letter is LAT; O + GG 'coming in' gives L-OGG-AT.",
+     "definitionFit": "A loggat is a small stake or piece of wood thrown in the old game of loggats, an ancestor of skittles."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Stake"
     }

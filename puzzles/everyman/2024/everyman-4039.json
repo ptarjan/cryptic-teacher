@@ -401,49 +401,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "rising",
-       "note": "in a down clue, a rising word is written upwards"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "about"
+         "text": "rising",
+         "at": 23,
+         "note": "rising, in a down clue, means the company letters read upwards"
         }
        ],
        "parts": [
         {
          "words": "company",
-         "gives": "CO",
-         "note": "Co. = company, written upwards"
+         "at": 14,
+         "gives": "CO"
         }
        ]
       },
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 40,
+         "note": "about means the cured word goes around the right letter"
+        }
+       ],
        "parts": [
         {
          "words": "better",
+         "at": 31,
          "gives": "CURED",
-         "note": "to cure is to make better"
+         "note": "to be better after illness is to be cured"
         },
         {
          "words": "right",
-         "gives": "R",
-         "note": "R = right, placed inside the previous piece"
+         "at": 46,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something happened in a business on the rise that was doing better, apparently properly.",
-     "walkthrough": "'Better' is a verb, to make well, not the adjective the surface uses; 'about right?' reads as a hesitant aside but places the R.",
-     "definitionFit": "A plain synonym: an event that happened has taken place."
+     "surface": "Something happened in the firm, on the way up and doing better, though was it right?",
+     "walkthrough": "CO 'rising' gives OC; CURED 'about' R gives CURRED.",
+     "definitionFit": "Occurred is a formal synonym of happened, the past of something taking place."
     },
     "features": {
      "answerInScene": false,
@@ -572,42 +576,44 @@
      "indicators": [
       {
        "text": "tucked in to",
-       "note": "the pieces are tucked inside the cheese"
+       "at": 12,
+       "note": "tucked in to means the round and child letters go inside the cheese word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "cheese",
+       "at": 25,
+       "gives": "BRIE",
+       "note": "Brie is a soft French cheese"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "cheese",
-         "gives": "BRIE",
-         "note": "brie is a soft French cheese; the other pieces go between BRI and E"
+         "words": "Round",
+         "at": 0,
+         "gives": "O",
+         "note": "O is round in shape"
         },
         {
          "words": "child",
-         "gives": "CH",
-         "note": "ch. = child, a standard abbreviation"
+         "at": 6,
+         "gives": "CH"
         }
        ]
-      },
-      {
-       "words": "Round",
-       "gives": "O",
-       "note": "O is round in shape"
       }
      ]
     },
     "explanation": {
-     "surface": "A child tucks into a round of cheese on a roll.",
-     "walkthrough": "'Tucked in to' reads as eating, but it means placed inside.",
-     "definitionFit": "A sweet, buttery French bread roll enriched with egg."
+     "surface": "A podgy child tucks into a cheese roll.",
+     "walkthrough": "O + CH 'tucked in to' BRIE: BRI-OCH-E.",
+     "definitionFit": "A brioche is a soft sweet French bread, often baked as a bun or roll."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "tucked"
+     "misdirectedWord": "Round"
     }
    }
   },

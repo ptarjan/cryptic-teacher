@@ -260,43 +260,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "To write about something is to go round it, so the single letter ends up enclosed by the word that follows."
-      }
-     ],
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
-         "text": "returning",
-         "note": "Whatever returns comes back the way it went, so those letters are read in the opposite order."
+         "text": "original",
+         "at": 44,
+         "note": "original takes the first letter of London"
         }
        ],
        "parts": [
         {
-         "words": "London's original",
-         "gives": "LONDONORIGINAL",
-         "note": "the opening letter of London"
+         "words": "London's",
+         "at": 35,
+         "note": "London's supplies its opening letter"
         }
        ]
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 22,
+         "note": "returning, in a down clue, means the cry-around-I result reads upwards"
+        }
+       ],
        "parts": [
         {
          "op": "container",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 16,
+           "note": "about means the cry word goes around I"
+          }
+         ],
          "parts": [
           {
            "words": "get emotional",
+           "at": 2,
            "gives": "CRY",
-           "note": "to get emotional is to cry"
+           "note": "to cry is to get emotional"
           },
           {
            "words": "I",
-           "note": "the pronoun taken at face value as a letter"
+           "at": 0
           }
          ]
         }
@@ -305,8 +315,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "The Lyric on Shaftesbury Avenue is a real playhouse, so the last word is the definition even though it looks like part of the scene it describes.",
-     "definitionFit": "Lyric is the name of a London playhouse, so 'theatre' defines the answer by example — the class the name belongs to, not a synonym for it."
+     "surface": "I get choked up going back to the first theatre in London.",
+     "walkthrough": "CRY 'about' I gives CIRY, 'returning' gives YRIC, after L. The Lyric is a West End theatre.",
+     "definitionFit": "The Lyric is a well-known London theatre on Shaftesbury Avenue, a name used by many playhouses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "emotional"
     }
    }
   },
@@ -991,28 +1007,30 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "What happens initially happens first, so the corps named beside it takes the front of the word rather than following on."
-      }
-     ],
      "parts": [
       {
-       "words": "service engineers",
+       "words": "service engineers initially",
+       "at": 5,
        "gives": "REME",
-       "note": "the Royal Electrical and Mechanical Engineers, known to the army as REME"
+       "note": "REME is the Royal Electrical and Mechanical Engineers, a British army service; initially means it comes first"
       },
       {
        "words": "Call",
+       "at": 0,
        "gives": "DIAL",
-       "note": "to call somebody is to dial them"
+       "note": "to dial is to call on the phone"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "REME turns up whenever a clue mentions service engineers, and is worth knowing alongside RE for the Royal Engineers. The surface is a helpdesk; the answer is a classroom.",
-     "definitionFit": "Remedial work is work done to put something right — remedial classes, remedial repairs — so the answer is the adjective for anything meant as a correction."
+     "surface": "Phone the service engineers first to get a fault corrected.",
+     "walkthrough": "REME is the British Army's Royal Electrical and Mechanical Engineers; 'initially' puts it ahead of DIAL.",
+     "definitionFit": "Remedial work is intended to put right a fault, so it is done for correction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
     }
    }
   },
@@ -1038,39 +1056,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Coming back",
-       "note": "Something coming back retraces its route, so those letters are read from the far end to the near one."
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "discontented",
-         "note": "A word robbed of its contents keeps only its outermost letters, which is what leaves it hollow."
+         "text": "Coming back",
+         "at": 0,
+         "note": "coming back means the two outer letters are read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "negotiates",
-         "gives": "NS",
-         "note": "NEGOTIATES emptied of everything between its ends leaves N and S"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "discontented",
+           "at": 12,
+           "note": "discontented strips out the contents, the middle of negotiates"
+          }
+         ],
+         "parts": [
+          {
+           "words": "negotiates",
+           "at": 26,
+           "note": "negotiates supplies its first and last letters"
+          }
+         ]
         }
        ]
       },
       {
        "words": "very low price",
+       "at": 37,
        "gives": "IP",
-       "note": "1p is about as low as a price gets: the Roman numeral I and p for penny"
+       "note": "1P, one penny, is a very low price, written IP"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a haggler at work, and the price in it is literal — one penny, written as a figure and a letter. Nothing is negotiated but the spelling.",
-     "definitionFit": "A snip is British slang for a bargain, something going far below what it is worth, so the noun sense is wanted and not the cut of scissors."
+     "surface": "Coming back unhappy, someone haggles a rock-bottom price, a real deal.",
+     "walkthrough": "NS (negotiates 'discontented') 'coming back' gives SN, then IP (1p, one penny).",
+     "definitionFit": "A snip is British slang for a bargain, something cheap at the price."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discontented"
     }
    }
   },
@@ -1559,45 +1591,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "recalled",
-       "note": "To recall something is to call it back, and letters called back arrive in the reverse order."
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "mentioning",
-         "note": "Mentioning a thing is saying it, so what follows is to be heard rather than spelt."
+         "text": "recalled",
+         "at": 16,
+         "note": "recalled means the partner word is called back, read in reverse"
         }
        ],
        "parts": [
         {
          "words": "Neither partner",
+         "at": 0,
          "gives": "NOR",
-         "note": "neither always travels with nor, so that is its partner"
+         "note": "nor is the partner of neither in neither ... nor"
         }
        ]
       },
       {
        "op": "homophone",
        "spelt": "DEAU",
+       "indicators": [
+        {
+         "text": "mentioning",
+         "at": 25,
+         "note": "mentioning signals that the money word is spoken, not written"
+        }
+       ],
        "parts": [
         {
          "words": "bread",
+         "at": 36,
          "gives": "DOUGH",
-         "note": "bread is dough, and the sound of dough is spelt out here in the French manner"
+         "note": "dough is slang for money, as is bread"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Bread and dough are slang for money either way round, but here it is only the sound that matters. 'Lines' is the crossword's usual way of saying verse.",
-     "definitionFit": "A rondeau is a short French poem turning on repeated lines, so 'lines' is the standing crossword shorthand for a piece of verse."
+     "surface": "Neither partner remembered talking about the bread for the rhymes.",
+     "walkthrough": "NOR 'recalled' gives RON; DEAU is said like DOUGH, slang for money, as is 'bread'.",
+     "definitionFit": "A rondeau is a short poem of set form with a refrain, so a set of verse lines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bread"
     }
    }
   },

@@ -1448,53 +1448,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "at first",
-       "note": "At first points to the opening letter of the word."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "almost",
-         "note": "Almost means not quite complete, so the last letter goes."
+         "text": "at first",
+         "at": 6,
+         "note": "at first takes only the first letter of Trump"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "Trump at first",
-           "note": "the first letter of Trump"
-          }
-         ]
-        },
-        {
-         "words": "without help",
-         "gives": "ALONE",
-         "note": "alone means unaided; its final E is dropped"
+         "words": "Trump",
+         "at": 0,
+         "note": "Trump supplies its opening letter"
         }
        ]
       },
       {
-       "gives": "E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 16,
+         "note": "almost drops the final letter of the word for without help"
+        }
+       ],
+       "parts": [
+        {
+         "words": "without help",
+         "at": 23,
+         "gives": "ALONE",
+         "note": "to do something alone is to do it without help"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Donald Trump, acting alone, gets the middle finger.",
-     "walkthrough": "The crooked finger suggests a gesture at Trump, but a talon is a bird's hooked claw.",
-     "definitionFit": "A talon is a hooked claw, a bird of prey's crooked finger."
+     "surface": "Trump, acting first and nearly on his own, ends up with a bent finger.",
+     "walkthrough": "T from 'Trump at first', then ALONE 'almost' becomes ALON.",
+     "definitionFit": "A talon is a hooked claw, likened to a crooked grasping finger, a familiar jibe in Private Eye."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "finger"
+     "misdirectedWord": "Trump"
     }
    }
   },

@@ -307,35 +307,37 @@
      "indicators": [
       {
        "text": "crossing",
-       "note": "the word for 'go' spans across the other letters, holding them inside"
+       "at": 12,
+       "note": "crossing means the attempt word spans the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "go",
-         "gives": "TRY",
-         "note": "have a go = have a try"
-        },
-        {
-         "words": "a",
-         "note": "as it stands"
-        }
-       ]
+       "words": "go",
+       "at": 8,
+       "gives": "TRY",
+       "note": "a go is an attempt, a try"
       },
       {
-       "words": "river",
-       "gives": "R",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 21
+        },
+        {
+         "words": "river",
+         "at": 23,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone deciding whether to stay put or cross a river.",
-     "walkthrough": "'Stay or go' reads as a dilemma, but 'go' is a noun here, as in 'have a go'.",
-     "definitionFit": "A plain, slightly old-fashioned synonym: to linger somewhere rather than leave is to stay on."
+     "surface": "Should you stay put or leave, given that a river must be crossed?",
+     "walkthrough": "TRY ('go') 'crossing' A + R: T-AR-RY. 'Stay or go' looks like a choice between two meanings.",
+     "definitionFit": "To tarry is to linger or remain somewhere longer, an old-fashioned synonym of stay."
     },
     "features": {
      "answerInScene": false,
@@ -1480,48 +1482,47 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the pieces go inside the letters for 'Times'"
+       "at": 32,
+       "note": "in means the chain of pieces sits inside the two Ts"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Times",
+       "at": 35,
+       "gives": "TT",
+       "note": "T is time, so two Ts are times"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Times",
-           "gives": "TT",
-           "note": "T is time, so two Ts for 'Times'"
-          },
-          {
-           "words": "corrupt",
-           "gives": "ROT",
-           "note": "to rot is to corrupt"
-          }
-         ]
+         "words": "corrupt",
+         "at": 9,
+         "gives": "ROT",
+         "note": "to rot is to corrupt or decay"
         },
         {
          "words": "broadcaster",
+         "at": 17,
          "gives": "SKY",
-         "note": "Sky, the British TV company"
+         "note": "Sky is a British satellite TV broadcaster"
+        },
+        {
+         "words": "is",
+         "at": 29
         }
        ]
-      },
-      {
-       "words": "is",
-       "note": "as it stands"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper story about a crooked broadcaster exposed in The Times.",
-     "walkthrough": "'Times' looks like the newspaper, but it is just two Ts. Sky is a British satellite TV broadcaster.",
-     "definitionFit": "A Trotskyist, a follower of Leon Trotsky, is a radical left-winger."
+     "surface": "A left-wing firebrand complains that a crooked TV channel features in the Times newspaper.",
+     "walkthrough": "ROT + SKY + IS go 'in' TT (two times); Sky is a British TV company. 'Times' looks like the newspaper.",
+     "definitionFit": "A Trotskyist follows the revolutionary Marxism of Leon Trotsky, a classic political radical."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Times"
     }

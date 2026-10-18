@@ -111,45 +111,51 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "food that is eaten goes inside, so the other parts are placed within"
+       "at": 20,
+       "note": "eating means the mistake word takes the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "mistake",
-         "gives": "GAFFE",
-         "note": "a gaffe is a social blunder"
-        },
-        {
-         "words": "the first",
-         "gives": "I",
-         "note": "Roman numeral one, as in a monarch's title"
-        }
-       ]
+       "words": "mistake",
+       "at": 11,
+       "gives": "GAFFE",
+       "note": "a gaffe is an embarrassing mistake"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "head",
-         "note": "a head is at the top, so the opening letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "rabbit's",
-         "note": "its opening letter"
+         "words": "the first",
+         "at": 27,
+         "gives": "I",
+         "note": "I is the Roman numeral for one, the first"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head",
+           "at": 46,
+           "note": "head takes the first letter of rabbit"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rabbit's",
+           "at": 37,
+           "note": "rabbit's supplies its opening letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cud-chewing animal blunders by nibbling a rabbit's head.",
-     "definitionFit": "A giraffe chews the cud, which makes it a ruminant like cattle and deer."
+     "surface": "A grazing animal's blunder is to eat the first rabbit's head it finds.",
+     "walkthrough": "GAFFE 'eating' I + R gives G-IR-AFFE; the 's is read as 'is'.",
+     "definitionFit": "Giraffes chew the cud, so they are ruminants like cattle and deer."
     },
     "features": {
      "answerInScene": true,
@@ -1520,50 +1526,56 @@
      "indicators": [
       {
        "text": "around",
-       "note": "around means surrounding, so one part wraps the others"
+       "at": 35,
+       "note": "around means the sled word goes about the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "equipment for winter fun",
+       "at": 10,
+       "gives": "SLED",
+       "note": "a sled is used for sliding on snow in winter"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "equipment for winter fun",
-         "gives": "SLED",
-         "note": "a sled is used for sliding on snow"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "front of",
-           "note": "the front of a word is its opening letter"
+           "at": 42,
+           "note": "front of takes the first letter of Philadelphia"
           }
          ],
          "parts": [
           {
            "words": "Philadelphia",
-           "note": "its opening letter"
+           "at": 51,
+           "note": "Philadelphia supplies its opening letter"
           }
          ]
+        },
+        {
+         "words": "hockey arena",
+         "at": 64,
+         "gives": "RINK",
+         "note": "ice hockey is played on a rink"
         }
        ]
-      },
-      {
-       "words": "hockey arena",
-       "gives": "RINK",
-       "note": "ice hockey is played on a rink"
       }
      ]
     },
     "explanation": {
-     "surface": "Winter sports gear left lying about a Philadelphia ice rink.",
-     "definitionFit": "Sprinkled means dotted about in small amounts, a synonym of scattered."
+     "surface": "Winter sports gear lies strewn about outside a Philadelphia ice rink.",
+     "walkthrough": "The surface suggests the Philadelphia Flyers' arena, but 'hockey arena' is simply any ice rink.",
+     "definitionFit": "Sprinkled means dotted or strewn about in small amounts, much like scattered."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Scattered"
+     "misdirectedWord": "equipment"
     }
    }
   },
