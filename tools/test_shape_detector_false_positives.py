@@ -54,5 +54,29 @@ star = {"op": "cryptic", "parts": [{"words": "*"}]}
 check("an unclued star is not a rebus", [], kinds("*", "ACTORS", star))
 check("a capitals rebus still is", ["rebus"], kinds("HIJKLMNO", "WATER", star))
 
+# 5. azed-2088#13d: sound leaves under spoonerism > charade
+def spoon_charade(sounds):
+    leaf = lambda w, g, s: {"unchecked": True, "words": w, "gives": g, **({"soundsLike": s} if sounds else {})}
+    return {"op": "spoonerism", "unchecked": True, "gives": "SECONDBEST", "indicators": [{"text": "Spooner's"}],
+            "parts": [{"op": "charade", "parts": [leaf("summoned", "SECOND", "BECKONED"), leaf("taxed", "BEST", "CESSED")]}]}
+check("sound leaves under spoonerism > charade are not flagged", [], kinds("Spooner's summoned, taxed", "SECONDBEST", spoon_charade(True)))
+check("the same leaves with no soundsLike still are", ["unchecked_leaf"], kinds("Spooner's summoned, taxed", "SECONDBEST", spoon_charade(False)))
+
+# 6. cryptic-29817#24d: a letterless leaf under a hidden whose gives is a run of its words
+def hid(gives):
+    return {"op": "hidden", "unchecked": True, "gives": gives, "indicators": [{"text": "includes"}],
+            "parts": [{"unchecked": True, "words": "Article which", "note": "the run of letters"}]}
+check("letterless hidden leaf is not flagged", [], kinds("Article which includes old part", "CLEW", hid("CLEW")))
+check("a hidden whose gives is not in its words still is", ["unchecked_leaf"], kinds("Article which includes old part", "XQZ", hid("XQZ")))
+
+# 7. toughie-1687#9a: a one-part substitution is a letter swap, not a redo
+sub = lambda parts: {"op": "substitution", "unchecked": True, "gives": "SONNET", "indicators": [{"text": "switching"}],
+                     "parts": parts}
+tonnes = {"words": "weight", "gives": "TONNES"}
+check("one-part substitution is not flagged", [], kinds("Poem given weight when switching", "SONNET", sub([tonnes])))
+check("two-part substitution is not flagged", [], kinds("Poem given weight when switching", "SONNET", sub([tonnes, {"words": "x", "gives": "T"}])))
+check("four-part substitution still is", ["arity_other"], kinds("Poem given weight when switching", "SONNET",
+      sub([tonnes, {"words": "a", "gives": "T"}, {"words": "b", "gives": "S"}, {"words": "c", "gives": "S"}])))
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
