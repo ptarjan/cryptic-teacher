@@ -1033,31 +1033,48 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TORMENT",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner famously swapped the opening sounds of words, so initial sounds trade places"
+       "at": 0,
+       "note": "Spooner's means the opening sounds of the two words swap places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "call for additional wine",
-       "gives": "TORMENT",
-       "soundsLike": "MORE TENT",
-       "note": "a request for extra tent, a dark red Spanish wine; with its first sounds swapped"
+       "op": "homophone",
+       "spelt": "MOR",
+       "indicators": [
+        {
+         "text": "call for",
+         "at": 10,
+         "note": "call for here means the word is taken as spoken, so only its sound counts in the swap"
+        }
+       ],
+       "parts": [
+        {
+         "words": "additional",
+         "at": 19,
+         "gives": "MORE",
+         "note": "more means additional"
+        }
+       ]
+      },
+      {
+       "words": "wine",
+       "at": 30,
+       "gives": "TENT",
+       "note": "tent is a deep red Spanish wine, used for communion"
       }
      ]
     },
     "explanation": {
-     "surface": "Asking for another glass leads to upset.",
-     "walkthrough": "Tent is a deep red wine from Spain, once used as communion wine.",
-     "definitionFit": "Torment and distress both mean severe mental or physical suffering, so the nouns are synonyms."
+     "surface": "Someone wretched because they cannot get another bottle of wine.",
+     "walkthrough": "Tent is a rare word for a dark red Spanish wine; the swap gives TORE and MENT.",
+     "definitionFit": "Torment is severe suffering or anguish, so it is a stronger synonym of distress."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "call"
     }

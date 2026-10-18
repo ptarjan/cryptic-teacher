@@ -282,39 +282,40 @@
      "indicators": [
       {
        "text": "new",
-       "note": "making something new from old material means its letters are put into a fresh order"
+       "at": 11,
+       "note": "new means the run of letters is made over in a fresh order"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "FDEPRECA",
+       "op": "deletion",
        "indicators": [
         {
          "text": "series in",
-         "note": "a series is an unbroken run, so a consecutive stretch of letters from inside the longer phrase is taken"
+         "at": 15,
+         "note": "only a series of letters within the long word is used, so its opening and closing letters are dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "self-deprecation",
-         "gives": "FDEPRECA",
-         "select": "middle",
-         "note": "the letters running from the end of self through the start of deprecation"
+         "at": 25,
+         "note": "the word whose inner run of letters is used"
+        },
+        {
+         "gives": "SELTION"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone opened a new set of talks or books with a modest, self-mocking remark.",
-     "walkthrough": "The hyphen hides the join: the letters straddle 'self' and 'deprecation' before being rearranged. 'New series' looks like a TV phrase.",
-     "definitionFit": "To preface something is to introduce it with opening remarks, so prefaced is a past-tense synonym."
+     "surface": "Launching a new set of shows with a modest, self-mocking manner.",
+     "walkthrough": "'series' is not a TV run here: it is a run of letters in 'self-deprecation', FDEPRECA, which 'new' then rearranges.",
+     "definitionFit": "To preface something is to open it with an introductory remark, so prefaced means introduced."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "series"
     }

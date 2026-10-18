@@ -568,54 +568,65 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "awfully",
-       "note": "awfully suggests something done badly, so these letters come out in a mangled order"
+       "text": "having earlier",
+       "at": 22,
+       "note": "having earlier puts the shuffled letters before the animal"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awfully",
+         "at": 42,
+         "note": "awfully suggests something badly done, so the letters of been are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "been",
-         "note": "the letters of been, rearranged"
-        },
+         "at": 37
+        }
+       ]
+      },
+      {
+       "words": "Animal",
+       "at": 0,
+       "gives": "VOLE",
+       "note": "a vole is a small rodent"
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "words": "Animal",
-         "gives": "VOLE",
-         "note": "a vole is a small rodent"
-        },
+         "text": "heartless",
+         "at": 11,
+         "note": "heartless removes the middle letter, leaving only the outer ones"
+        }
+       ],
+       "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "heartless",
-           "note": "without its heart a word keeps only its outer letters, its middle removed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "not",
-           "note": "the first and last letters of not"
-          }
-         ]
+         "words": "not",
+         "at": 7,
+         "gives": "NT",
+         "note": "not without its middle letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An animal that was once cruel but now has a heart.",
-     "walkthrough": "'Having earlier' tells you the jumbled been comes before the animal and the shortened not.",
-     "definitionFit": "Benevolent describes someone well-meaning and generous, wishing good to others."
+     "surface": "A creature that was once cruel but has turned into a gentle soul.",
+     "definitionFit": "Benevolent means well-meaning and charitable, which matches kind as an adjective."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "heartless"
+     "misdirectedWord": "Animal"
     }
    }
   },
@@ -1266,33 +1277,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "awkward",
-       "note": "awkward suggests something clumsy and out of place, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awkward",
+         "at": 5,
+         "note": "awkward suggests clumsiness, so the letters of felt are put in a new order"
+        }
+       ],
        "parts": [
         {
          "words": "Felt",
-         "note": "the letters of felt, rearranged"
-        },
-        {
-         "words": "financial outfit",
-         "gives": "BANK",
-         "note": "a bank is a financial institution"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "financial outfit",
+       "at": 21,
+       "gives": "BANK",
+       "note": "a bank is a financial institution"
       }
      ]
     },
     "explanation": {
-     "surface": "Feeling uncomfortable on joining a Paris bank.",
-     "definitionFit": "The Left Bank is the southern side of the Seine in Paris, famous for artists and cafés."
+     "surface": "A person feeling uneasy about joining a firm in Paris.",
+     "walkthrough": "The Left Bank is the southern side of the Seine in Paris, known for artists and students.",
+     "definitionFit": "The Left Bank is the district on the south side of the Seine in the French capital."
     },
     "features": {
      "answerInScene": true,
