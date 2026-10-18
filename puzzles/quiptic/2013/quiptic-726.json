@@ -600,51 +600,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TEMPLE",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "tip-off",
-       "note": "the tip, or first letter, of the word is taken off"
+       "text": "backfired",
+       "at": 44,
+       "note": "something that backfires goes the wrong way, so the combined letters are read backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "backfired",
-         "note": "something that backfires comes back the wrong way, so the joined letters run backwards"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "tip-off",
+           "at": 19,
+           "note": "with its tip taken off, the word loses its first letter"
+          }
+         ],
          "parts": [
           {
            "words": "help",
-           "gives": "ELP",
-           "note": "help without its first letter"
+           "at": 9
           },
           {
-           "words": "London police",
-           "gives": "MET",
-           "note": "the Met is London's Metropolitan Police"
+           "gives": "H"
           }
          ]
+        },
+        {
+         "words": "London police",
+         "at": 30,
+         "gives": "MET",
+         "note": "the Met is the Metropolitan Police of London"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A church's call for help, tipped off to the London police, went wrong.",
-     "walkthrough": "'Tip-off' sounds like an informant's lead to the police; it means removing the first letter.",
-     "definitionFit": "A temple is a building for worship, so it can stand for a church."
+     "surface": "A church's tip-off to Scotland Yard rebounded on it.",
+     "walkthrough": "'Tip-off' looks like a noun for a hint but works as 'tip off', removing H from HELP to leave ELP.",
+     "definitionFit": "A temple is a building for worship; Church here stands for any place of worship."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "tip-off"
@@ -877,52 +880,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CAULDRON",
-     "indicators": [
-      {
-       "text": "one cut out",
-       "note": "one is the letter I, which is cut out of the word it follows"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "about",
+       "at": 6,
+       "gives": "C",
+       "note": "C is the abbreviation of circa, about"
+      },
+      {
+       "words": "gold",
+       "at": 19,
+       "gives": "AU",
+       "note": "Au is the chemical symbol for gold"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut out",
+         "at": 33,
+         "note": "the letter for one is cut out of lid"
+        }
+       ],
        "parts": [
         {
-         "words": "about",
-         "gives": "C",
-         "note": "C is circa, about"
-        },
-        {
-         "words": "gold",
-         "gives": "AU",
-         "note": "AU is the chemical symbol for gold"
-        },
-        {
          "words": "lid",
-         "gives": "LD",
-         "note": "lid with its I removed"
+         "at": 24
         },
         {
-         "words": "Potter's mate",
-         "gives": "RON",
-         "note": "Ron Weasley is Harry Potter's best friend"
+         "words": "one",
+         "at": 29,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         }
        ]
+      },
+      {
+       "words": "Potter's mate",
+       "at": 44,
+       "gives": "RON",
+       "note": "Ron Weasley is Harry Potter's best friend"
       }
      ]
     },
     "explanation": {
-     "surface": "A pot is about to be given a golden lid made by a potter's friend.",
-     "walkthrough": "'Potter' looks like a maker of pots, which fits the surface; it is Harry Potter, whose friend is Ron.",
-     "definitionFit": "A cauldron is a large cooking pot, famously a witch's, which suits the Potter theme."
+     "surface": "A cooking pot gets a golden lid, but Harry Potter's friend has trimmed it.",
+     "definitionFit": "A cauldron is a large cooking pot, the kind witches stir in Harry Potter."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Potter's"
     }
    }

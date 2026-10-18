@@ -975,37 +975,47 @@
    "annotation": {
     "definitions": [
      {
-      "text": "get to play more golf",
+      "text": "get to play more golf?",
       "at": 43
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MAKETHECUT",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "the Reverend Spooner swapped the opening sounds of words, so do the same"
+       "at": 17,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the initial sounds are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Put coat on dog",
-       "gives": "MAKETHECUT",
-       "soundsLike": "CAKE THE MUTT",
-       "note": "to cake is to coat thickly; a mutt is a dog; swap the C and M sounds"
+       "words": "Put coat on",
+       "at": 0,
+       "gives": "CAKETHE",
+       "note": "to cake is to coat thickly, as in cake the mutt"
+      },
+      {
+       "op": "homophone",
+       "spelt": "MUT",
+       "parts": [
+        {
+         "words": "dog",
+         "at": 12,
+         "gives": "MUTT",
+         "note": "a mutt is a dog, its sound giving the swapped syllable"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A golfer dresses the dog for the weather and hopes for more rounds.",
-     "walkthrough": "In golf tournaments the field is cut after two rounds, and only those above the line play the rest.",
-     "definitionFit": "A golf idiom: players who make the cut stay in the tournament for the final rounds."
+     "surface": "Dressing the dog in a jacket earns you more time on the golf course.",
+     "walkthrough": "'Cake the mutt' becomes 'make the cut'. In golf, players who make the cut after two rounds play the remaining rounds.",
+     "definitionFit": "Making the cut in a golf tournament means scoring well enough to continue playing into later rounds."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "absurd",
      "misdirectedWord": "coat"
@@ -1174,56 +1184,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "STAGEFEVER",
+     "indicators": [
+      {
+       "text": "punching",
+       "at": 35,
+       "note": "the first letter punches its way in between the other two words"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "at first",
-         "note": "take what comes first in foolishly, its opening letter"
-        }
-       ],
        "parts": [
         {
          "words": "leg",
+         "at": 44,
          "gives": "STAGE",
          "note": "a leg of a journey is a stage"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "punching",
-           "note": "a punch breaks into something"
-          }
-         ],
-         "parts": [
-          {
-           "words": "foolishly",
-           "note": "first letter of foolishly"
-          }
-         ]
-        },
-        {
          "words": "continually",
+         "at": 48,
          "gives": "EVER",
-         "note": "ever = always, continually"
+         "note": "ever means always, continually"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 25,
+         "note": "at first takes the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "foolishly",
+         "at": 14,
+         "note": "supplies its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An urge to play the fool makes someone keep kicking.",
-     "walkthrough": "'Desire to act foolishly' reads as one phrase; the definition stops at 'act'.",
-     "definitionFit": "A dictionary phrase: stage fever is a longing to go on the stage as an actor."
+     "surface": "Someone longs to perform rashly, first of all repeatedly hitting a leg.",
+     "definitionFit": "Stage fever is an intense longing to perform as an actor."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "foolishly"
+     "misdirectedWord": "punching"
     }
    }
   },
@@ -1536,61 +1548,56 @@
      "indicators": [
       {
        "text": "on",
-       "note": "in an across clue, one piece on another comes after it"
+       "at": 59,
+       "note": "in an across clue, on means placed after, so the island letter comes first"
       }
      ],
      "parts": [
       {
        "words": "island",
-       "gives": "I",
-       "note": "I = island"
+       "at": 62,
+       "gives": "I"
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "abandoning",
-         "note": "to abandon is to leave behind, so the S for son is left out"
+         "at": 31,
+         "note": "abandoning the son means the letter for son is dropped"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Simpson",
-           "gives": "LISA",
-           "note": "Lisa, Homer Simpson's daughter"
-          },
-          {
-           "words": "abandoning son",
-           "gives": "LIA",
-           "note": "LISA drops its S"
-          },
-          {
-           "words": "daughter",
-           "gives": "D",
-           "note": "D = daughter"
-          }
-         ]
+         "words": "Simpson perhaps",
+         "at": 15,
+         "gives": "LISA",
+         "note": "Lisa is one of the Simpsons, so an example"
         },
         {
-         "gives": "LISA"
+         "words": "son",
+         "at": 42,
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "daughter",
+       "at": 50,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Homer Simpson walks out on his children to live on an island.",
-     "walkthrough": "'Homer Simpson' reads as one name; split it, and Homer is the Greek poet while Simpson points to Lisa.",
-     "definitionFit": "A title definition: this is the epic of the Trojan War credited to the Greek poet Homer."
+     "surface": "A tale of Homer Simpson walking out on his son and daughter for an island.",
+     "walkthrough": "'Homer Simpson' looks like one name, but 'Homer' belongs to the definition and 'Simpson' leads to Lisa.",
+     "definitionFit": "The Iliad is the epic poem attributed to the Greek poet Homer, about the Trojan War."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "Homer"
+     "joke": "pun",
+     "misdirectedWord": "Simpson"
     }
    }
   },
@@ -1714,48 +1721,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "wanting",
-       "note": "wanting means lacking, so the king goes without the U"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wanting",
+         "at": 24,
+         "note": "wanting means lacking, so the uniform letter is removed"
+        }
+       ],
        "parts": [
         {
          "words": "old king",
+         "at": 15,
          "gives": "ARTHUR",
-         "note": "the legendary King Arthur"
+         "note": "Arthur is the legendary old king of Britain"
         },
         {
-         "words": "wanting uniform",
-         "gives": "ARTHR",
-         "note": "Uniform is U in the radio alphabet; drop it"
-        },
-        {
-         "words": "Yes",
-         "gives": "ITIS",
-         "note": "'it is' = yes"
+         "words": "uniform",
+         "at": 32,
+         "gives": "U",
+         "note": "U is uniform in the NATO phonetic alphabet"
         }
        ]
       },
       {
-       "gives": "ARTHUR"
+       "words": "Yes",
+       "at": 41,
+       "gives": "ITIS",
+       "note": "it is serves as an affirmative reply, yes"
       }
      ]
     },
     "explanation": {
-     "surface": "An old king without his uniform grumbles, and a courtier agrees.",
-     "walkthrough": "'Complaint' sounds like a grievance; it is a medical complaint.",
-     "definitionFit": "A definition by category: a complaint is any ailment, and this painful inflammation of the joints is one."
+     "surface": "An ancient king, asked whether he lacks a uniform, says yes, which is his complaint.",
+     "definitionFit": "Arthritis is a medical complaint, an ailment causing painful, inflamed joints."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Complaint"
+     "misdirectedWord": "uniform"
     }
    }
   },

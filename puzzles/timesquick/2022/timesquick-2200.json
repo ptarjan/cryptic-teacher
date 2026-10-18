@@ -469,37 +469,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CUTPRICE",
-     "indicators": [
-      {
-       "text": "new",
-       "note": "the letters of PICTURE are made into something new"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Note",
+       "at": 0,
+       "gives": "C",
+       "note": "C is a musical note"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 5,
+         "note": "new means changed, so the letters of picture are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Note",
-         "gives": "C",
-         "note": "C is a musical note"
-        },
-        {
-         "words": "new picture",
-         "gives": "UTPRICE",
-         "note": "PICTURE rearranged"
+         "words": "picture",
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A memo says a new painting is going cheap.",
-     "walkthrough": "The anagram covers PICTURE only; the note C goes in front.",
-     "definitionFit": "Cut-price goods are sold at reduced prices, so less expensive."
+     "surface": "A note says a new painting costs less.",
+     "definitionFit": "Cut-price goods are sold at a reduced price, so they are cheaper."
     },
     "features": {
      "answerInScene": true,
@@ -1146,47 +1144,51 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "put inside"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "initially",
-         "note": "take the first letter of FEARFUL"
+         "text": "put inside",
+         "at": 23,
+         "note": "the letter I is placed inside the article"
         }
        ],
        "parts": [
         {
          "words": "article",
+         "at": 13,
          "gives": "THE",
-         "note": "the definite article"
+         "note": "the is the definite article"
         },
         {
          "words": "I",
-         "note": "used as it stands"
+         "at": 21
         }
        ]
       },
       {
        "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 43,
+         "note": "initially means the first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "fearful initially",
-         "note": "the start of Fearful"
+         "words": "fearful",
+         "at": 35,
+         "note": "supplies its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nervous burglar sneaks an item back indoors.",
-     "walkthrough": "The article is THE, the definite article; 'put inside' applies to I, which goes into it before the F is added.",
-     "definitionFit": "A definition by description: 'one stealing' describes the person rather than naming them, which is what a thief is."
+     "surface": "A burglar plants an item indoors, nervous at first.",
+     "definitionFit": "A thief is a person who steals."
     },
     "features": {
      "answerInScene": true,
@@ -1294,49 +1296,50 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a person who's inventive",
-      "at": 34
+      "text": "person who's inventive",
+      "at": 36
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CREATOR",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accommodating",
+       "at": 20,
+       "note": "the rearranged letters make room for the letter a inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "After review",
-         "note": "RECTOR is reworked into a new order"
-        },
-        {
-         "text": "accommodating",
-         "note": "the rearranged letters take the A in"
+         "at": 0,
+         "note": "after a review things are revised and reordered, so rector's letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "rector",
-         "note": "RECTOR rearranged"
-        },
-        {
-         "words": "a",
-         "note": "used as it stands"
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 34
       }
      ]
     },
     "explanation": {
-     "surface": "Following an inspection, a clergyman puts up an ingenious lodger.",
-     "walkthrough": "A rector is a parish priest; the church setting hints at the Creator, but here it just means an inventive person.",
-     "definitionFit": "A creator is someone who invents or makes things."
+     "surface": "Following an assessment, the vicar takes in someone with fresh ideas.",
+     "definitionFit": "A creator is someone who makes or devises new things, an inventive person."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "review"
+     "misdirectedWord": "rector"
     }
    }
   },
