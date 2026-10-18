@@ -361,53 +361,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MONOPLANES",
+     "op": "container",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "endlessly says the word loses its last letter"
+       "text": "round",
+       "at": 26,
+       "note": "round says the scrambled letters go around the design word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "round",
-         "note": "round says the jumbled letters go around another piece"
+         "text": "playing",
+         "at": 18,
+         "note": "playing, as in playing around with, signals that the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "playing",
-           "note": "playing suggests letters toying about and taking new positions"
+           "text": "endlessly",
+           "at": 8,
+           "note": "endlessly says the last letter of someone is dropped"
           }
          ],
          "parts": [
           {
            "words": "Someone",
-           "gives": "SOMEON",
-           "note": "the word without its final letter"
+           "at": 0
+          },
+          {
+           "gives": "E"
           }
          ]
-        },
-        {
-         "words": "design",
-         "gives": "PLAN",
-         "note": "a plan is a design or layout"
         }
        ]
+      },
+      {
+       "words": "design",
+       "at": 32,
+       "gives": "PLAN",
+       "note": "a design is a plan"
       }
      ]
     },
     "explanation": {
-     "surface": "A person keeps fiddling around with a blueprint for aeroplanes.",
-     "definitionFit": "Monoplanes are aeroplanes with one pair of wings, a kind of aircraft; both words are plural here."
+     "surface": "A person who fiddles constantly with a blueprint is designing an aeroplane.",
+     "walkthrough": "'Someone' reads as the subject of the sentence, but it is the anagram fodder; 'design' is not the definition but the word that goes inside.",
+     "definitionFit": "Monoplanes are fixed-wing aeroplanes with a single pair of wings, a kind of aircraft."
     },
     "features": {
      "answerInScene": true,
@@ -710,37 +715,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ROAM",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "Most",
-       "note": "most of a word means all but its final letter"
+       "text": "from the East",
+       "at": 23,
+       "note": "in an across answer, from the East means read right to left, backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "from the East",
-         "note": "in an across entry, reading from the east means right to left"
+         "text": "Most",
+         "at": 0,
+         "note": "most of a word means all but its final letter"
         }
        ],
        "parts": [
         {
          "words": "indigenous people",
-         "gives": "MAOR",
-         "note": "the Maori are the indigenous people of New Zealand; the word loses its last letter"
+         "at": 5,
+         "gives": "MAORI",
+         "note": "the Maori are the indigenous people of New Zealand"
+        },
+        {
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Many native people of the Orient go on journeys.",
-     "definitionFit": "To roam is to wander from place to place, a way to travel without a fixed route."
+     "surface": "Most of a native population migrate from the east.",
+     "walkthrough": "'Most' cuts MAORI to MAOR, and 'from the East' reads it backwards, right to left as the map's east lies to the right.",
+     "definitionFit": "To roam is to wander about, to travel without a fixed route."
     },
     "features": {
      "answerInScene": true,

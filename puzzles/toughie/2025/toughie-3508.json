@@ -1073,42 +1073,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PRECINCT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Short",
-       "note": "cut short, so the summary word loses its final letter"
+       "text": "on",
+       "at": 14,
+       "note": "on, in a down answer, places the shortened summary on top of what follows"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "short says the summary word is cut by its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "summary",
-         "gives": "PRECI",
-         "note": "a précis is a summary, cut short"
+         "at": 6,
+         "gives": "PRECIS",
+         "note": "a précis is a short summary of a text"
         },
         {
-         "words": "new",
-         "gives": "N",
-         "note": "n = new"
-        },
-        {
-         "words": "court",
-         "gives": "CT",
-         "note": "ct is the abbreviation for court"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "new",
+       "at": 17,
+       "gives": "N"
+      },
+      {
+       "words": "court",
+       "at": 21,
+       "gives": "CT"
       }
      ]
     },
     "explanation": {
-     "surface": "A brief report on the new courthouse the New York police use.",
-     "walkthrough": "The question mark flags a definition by example: in the US a precinct is a police district and its station house.",
-     "definitionFit": "The New York Police Department divides the city into numbered precincts, each run from its own station house."
+     "surface": "A brief outline of a new court case is drawn up for the New York police.",
+     "walkthrough": "'Short' trims PRECIS to PRECI, and 'on' sets it above N and CT. The question mark is there because a precinct is a district as much as the station house that serves it.",
+     "definitionFit": "In American cities a precinct is a police district, and by extension the police station serving it."
     },
     "features": {
      "answerInScene": true,
@@ -1717,30 +1727,31 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TILT",
      "indicators": [
       {
        "text": "split leaving",
-       "note": "the word for son is broken into two parts and those parts leave the cheese"
+       "at": 4,
+       "note": "split leaving says the son word comes away from the cheese in two parts, one from each end"
       }
      ],
      "parts": [
       {
        "words": "cheese",
+       "at": 18,
        "gives": "STILTON",
        "note": "Stilton is an English blue cheese"
       },
       {
        "words": "Son",
-       "note": "its S and ON sit at the two ends of the cheese and are removed"
+       "at": 0,
+       "gives": "SON"
       }
      ]
     },
     "explanation": {
-     "surface": "A son quitting a list that mentions cheese.",
-     "walkthrough": "'List' looks like a noun; it is the verb, to lean over, as a ship does.",
-     "definitionFit": "A ship that lists leans to one side, which is the same as tilting away from upright."
+     "surface": "A son has divided up a cheese and left a list behind.",
+     "walkthrough": "'Son split' reads as a young man parting, but the word is split around the middle of the cheese. 'list' is not a register but a verb for leaning, as a ship does.",
+     "definitionFit": "A ship that lists leans over to one side, which is to tilt."
     },
     "features": {
      "answerInScene": false,

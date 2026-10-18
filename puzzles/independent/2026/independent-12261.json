@@ -366,36 +366,43 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "UNLOCK",
      "indicators": [
       {
        "text": "no longer needed",
-       "note": "things no longer needed are discarded, so these letters are dropped from the rest"
+       "at": 27,
+       "note": "no longer needed says the fellows' letters are dropped from the words before"
       }
      ],
      "parts": [
       {
-       "words": "amusing",
-       "gives": "FUN",
-       "note": "something amusing is fun"
-      },
-      {
-       "words": "sheep",
-       "gives": "FLOCK",
-       "note": "a flock is a group of sheep"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "amusing",
+         "at": 5,
+         "gives": "FUN",
+         "note": "fun can be an adjective meaning amusing, as in a fun evening"
+        },
+        {
+         "words": "sheep",
+         "at": 13,
+         "gives": "FLOCK",
+         "note": "a flock is a group of sheep"
+        }
+       ]
       },
       {
        "words": "fellows",
+       "at": 19,
        "gives": "FF",
-       "note": "F is the abbreviation for fellow, doubled for the plural"
+       "note": "F is the abbreviation for fellow, so two of them, one for each word, stand for fellows"
       }
      ]
     },
     "explanation": {
-     "surface": "A shepherd lets the comic flock go now the farmhands are surplus.",
-     "walkthrough": "FUN plus FLOCK, with both F's taken out, one from each word.",
-     "definitionFit": "To set something loose by opening its lock is to release it, the verb sense of free."
+     "surface": "A comic set of sheep is released once the men in charge are no longer required.",
+     "walkthrough": "'no longer needed' takes an F out of each of FUN and FLOCK, the first letter of each, leaving UN and LOCK.",
+     "definitionFit": "To unlock a door or a cage is to open it, setting free what was held."
     },
     "features": {
      "answerInScene": false,
@@ -1113,63 +1120,69 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STEADIED",
+     "op": "container",
      "indicators": [
       {
-       "text": "heading away",
-       "note": "with the heading gone, a word loses its first letter"
+       "text": "to stop",
+       "at": 49,
+       "note": "to stop means to plug a gap, so the pieces go inside the horse word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "to stop",
-         "note": "to stop a gap is to plug it, so the pieces fill the middle of another"
-        }
-       ],
+       "words": "horse",
+       "at": 57,
+       "gives": "STEED",
+       "note": "a steed is a horse, especially a spirited riding one"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "heading away",
+           "at": 16,
+           "note": "heading away says the first letter, the head, of lad goes"
+          }
+         ],
          "parts": [
           {
-           "words": "horse",
-           "gives": "STEED",
-           "note": "a steed is a horse"
+           "words": "lad",
+           "at": 12,
+           "note": "taken as written"
           },
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "head in",
-             "note": "the head of a word is its first letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "immediately",
-             "note": "the first letter"
-            }
-           ]
+           "gives": "L"
           }
          ]
         },
         {
-         "words": "lad",
-         "gives": "AD",
-         "note": "LAD without its first letter"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head in",
+           "at": 29,
+           "note": "head in says take the head, the first letter, in the word immediately"
+          }
+         ],
+         "parts": [
+          {
+           "words": "immediately",
+           "at": 37,
+           "note": "the first letter of immediately is I"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stable lad hurries off to stop a runaway horse.",
-     "walkthrough": "'stable lad' looks like one phrase, but 'Made stable' is the definition, and the lad himself only lends two letters.",
-     "definitionFit": "To steady something is to make it firm and still, so the past tense means made stable."
+     "surface": "A stable lad, his head turned, steps in at once to halt a horse.",
+     "walkthrough": "'heading away' turns LAD into AD and 'head in immediately' gives I; 'to stop' puts AD and I into the middle of STEED. 'stable' in the definition is a pun on the lad's job.",
+     "definitionFit": "To steady something is to make it firm and still, so steadied means made stable."
     },
     "features": {
      "answerInScene": false,
@@ -1268,62 +1281,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CERULEAN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "cut",
-       "note": "something cut is shortened, so the last letter goes"
+       "text": "wild",
+       "at": 45,
+       "note": "wild, as in ran wild, says these letters go into a disorderly new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "wild",
-         "note": "running wild is out of control, so the letters are in disorder"
+         "text": "cut",
+         "at": 13,
+         "note": "cut says the last letter of clues is removed"
         }
        ],
        "parts": [
         {
          "words": "Clues",
-         "gives": "CLUE",
-         "note": "CLUES with its last letter removed"
+         "at": 7
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "beginning",
-           "note": "a word's beginning is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "episode's",
-           "note": "the first letter"
-          }
-         ]
-        },
-        {
-         "words": "ran",
-         "note": "taken as written, to be rearranged"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "at": 27,
+         "note": "beginning picks out the first letter of episode's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "episode's",
+         "at": 17,
+         "note": "the first letter of episode is E"
+        }
+       ]
+      },
+      {
+       "words": "ran",
+       "at": 41,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "An episode of the children's TV show Blue's Clues was cut and its opening ran out of control.",
-     "walkthrough": "The italic title is a famous programme, but 'Blue' alone is the definition, joined by 's (is). Everything else is mixed together.",
-     "definitionFit": "Cerulean is a deep sky-coloured shade, the clear colour of a summer sky, so it names one tone of the colour."
+     "surface": "An episode of the children's TV show Blue's Clues was cut short and the show ran riot.",
+     "walkthrough": "'cut' trims CLUES to CLUE, 'beginning' takes E from 'episode's', and 'wild' rearranges CLUE, E and RAN. Blue's Clues is an American children's programme, so 'Blue's' looks like part of a title.",
+     "definitionFit": "Cerulean is a deep sky blue, from the Latin word for the heavens."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Blue's"
     }
    }
@@ -1714,43 +1731,47 @@
     "definitions": [
      {
       "text": "walls? No problem for me!",
-      "at": 33,
-      "note": "a cryptic description of a creature that climbs walls with ease"
+      "at": 33
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GECKO",
-     "indicators": [
-      {
-       "text": "to scrap border",
-       "note": "scrapping the border throws away the edges, so the first and last letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Government",
-       "gives": "G",
-       "note": "G is the abbreviation for government"
+       "at": 0,
+       "gives": "G"
       },
       {
-       "words": "think",
-       "gives": "RECKON",
-       "note": "to reckon is to think"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "to scrap border",
+         "at": 17,
+         "note": "to scrap border says the edging, the first and last letters, of the think word is thrown away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "think",
+         "at": 11,
+         "gives": "RECKON",
+         "note": "to reckon is to think or suppose"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A government considers taking down its border walls, and someone declares it no trouble at all.",
-     "walkthrough": "The border-wall politics is a decoy: 'walls?' begins the definition, spoken by a lizard that walks up them.",
-     "definitionFit": "Geckos have sticky toe pads that let them run up vertical surfaces and across ceilings, so walls pose no difficulty."
+     "surface": "The government considers pulling down a frontier wall and sees no difficulty.",
+     "walkthrough": "'to scrap border' strips RECKON to ECKO. The definition is spoken by the creature itself: a gecko's padded toes let it run up walls with ease.",
+     "definitionFit": "The gecko is a lizard whose adhesive toe pads let it climb vertical walls and even cling to ceilings."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "walls"
+     "joke": "absurd",
+     "misdirectedWord": "border"
     }
    }
   },
