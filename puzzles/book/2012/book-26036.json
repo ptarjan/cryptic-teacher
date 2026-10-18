@@ -237,39 +237,47 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "between",
-       "note": "between places one letter in the middle of the other two parts, which simply sit either side"
+       "at": 21,
+       "note": "the hard letter goes between the Russian and the Old English"
       }
      ],
      "parts": [
       {
-       "words": "Russian",
-       "gives": "IVAN",
-       "note": "Ivan is the stereotypical Russian man's name"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Russian",
+         "at": 29,
+         "gives": "IVAN",
+         "note": "Ivan is a typical Russian name"
+        },
+        {
+         "words": "Old English",
+         "at": 41,
+         "gives": "OE"
+        }
+       ]
       },
       {
        "words": "hard",
+       "at": 14,
        "gives": "H",
-       "note": "H is the abbreviation for hard, as on pencils"
-      },
-      {
-       "words": "Old English",
-       "gives": "OE",
-       "note": "OE is the abbreviation for Old English"
+       "note": "H is the pencil abbreviation for hard"
       }
      ]
     },
     "explanation": {
-     "surface": "A literary passage is tough, sitting halfway between Russian and Anglo-Saxon.",
-     "definitionFit": "Ivanhoe is Walter Scott's 1819 historical novel, a classic literary work."
+     "surface": "A hard literary text sits between Russian and Old English on a reading list.",
+     "definitionFit": "Ivanhoe is Sir Walter Scott's historical novel, a classic work of fiction."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Russian"
+     "misdirectedWord": "hard"
     }
    }
   },
@@ -1008,39 +1016,42 @@
      "indicators": [
       {
        "text": "carries",
-       "note": "carrying something means holding it within, so these pieces go inside the other"
+       "at": 8,
+       "note": "the word for orderly carries the other pieces inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Orderly",
-         "gives": "NEAT",
-         "note": "neat means tidy and orderly"
-        },
-        {
-         "words": "very big",
-         "gives": "OS",
-         "note": "OS means outsize, a clothing label"
-        }
-       ]
+       "words": "Orderly",
+       "at": 0,
+       "gives": "NEAT",
+       "note": "neat means orderly"
       },
       {
-       "words": "women",
-       "gives": "W",
-       "note": "W is the abbreviation for women"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "very big",
+         "at": 16,
+         "gives": "OS",
+         "note": "OS stands for outsize, very big"
+        },
+        {
+         "words": "women",
+         "at": 25,
+         "gives": "W"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hospital orderly lifts heavy women without any effort.",
-     "walkthrough": "'Orderly' looks like a hospital worker but is an adjective for tidy.",
-     "definitionFit": "No sweat is an informal idiom for something done effortlessly, without trouble."
+     "surface": "A hospital orderly carries large women without effort.",
+     "walkthrough": "'Orderly' looks like a hospital attendant, but it is the adjective meaning tidy.",
+     "definitionFit": "No sweat is an informal phrase meaning without difficulty, easily done."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Orderly"
     }
@@ -1071,45 +1082,52 @@
      "indicators": [
       {
        "text": "contains",
-       "note": "containing means holding inside, so the other letters go within the oven word"
+       "at": 12,
+       "note": "the oven holds the other pieces inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "oven",
-         "gives": "OAST",
-         "note": "an oast is a kiln for drying hops"
-        },
-        {
-         "words": "uranium",
-         "gives": "U",
-         "note": "U is the chemical symbol for uranium"
-        }
-       ]
+       "words": "oven",
+       "at": 7,
+       "gives": "OAST",
+       "note": "an oast is a kiln for drying hops"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "extremely",
-         "note": "extremely points to the extremes, so only the first and last letters are kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "toxic",
-         "note": "first and last letters of toxic"
+         "words": "uranium",
+         "at": 21,
+         "gives": "U",
+         "note": "U is the chemical symbol for uranium"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "extremely",
+           "at": 30,
+           "note": "extremely picks the outer letters of the word, its extremes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "toxic",
+           "at": 40,
+           "gives": "TC",
+           "note": "first and last letters of toxic"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Throw out an oven that has radioactive uranium in it, which is extremely toxic.",
-     "definitionFit": "Reject as a noun is a person cast aside, which is what an outcast is."
+     "surface": "An oven is rejected for holding toxic uranium.",
+     "walkthrough": "An oast is a kiln used in Kent for drying hops for brewing, a kind of oven.",
+     "definitionFit": "An outcast is a person rejected by society, so a reject in the noun sense."
     },
     "features": {
      "answerInScene": false,
