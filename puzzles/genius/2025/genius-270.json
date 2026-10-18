@@ -1153,47 +1153,65 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about here means the story comes after the eccentric British part rather than before it"
-      }
-     ],
      "parts": [
       {
-       "words": "Good",
-       "gives": "G",
-       "note": "G is the abbreviation for good"
-      },
-      {
-       "words": "eccentric",
-       "gives": "RUM",
-       "note": "rum is old British slang for odd or eccentric"
-      },
-      {
-       "words": "British",
-       "gives": "B",
-       "note": "B is the abbreviation for British"
-      },
-      {
-       "words": "story",
-       "gives": "LIE",
-       "note": "a lie is a made-up story"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 11,
+         "note": "the word story, joined to the G for good, is wrapped about the next pair, so they sit inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Good",
+           "at": 0,
+           "gives": "G"
+          },
+          {
+           "words": "story",
+           "at": 5,
+           "gives": "LIE",
+           "note": "a story is a lie, a fib"
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "eccentric",
+           "at": 17,
+           "gives": "RUM",
+           "note": "rum is British slang for odd or eccentric"
+          },
+          {
+           "words": "British",
+           "at": 27,
+           "gives": "B"
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "Republican",
-       "gives": "R",
-       "note": "R is the abbreviation for Republican"
+       "at": 35,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A tale about an odd British Republican who moans more than most.",
-     "walkthrough": "The clue gives GRUMBLIER, rearranged into the German cheese LIMBURGER for the grid.",
-     "definitionFit": "Someone grumblier grumbles more, so is quicker to moan and complain."
+     "surface": "A tale about an odd British Republican who is forever moaning.",
+     "walkthrough": "Rum is British slang for strange. The clue's answer is then modified as the preamble says: its letters are rearranged into a cheese, Limburger, which goes in the grid.",
+     "definitionFit": "Grumbly describes someone given to moaning; the comparative form means more prone to grousing."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "story"
     }
