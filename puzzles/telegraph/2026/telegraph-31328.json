@@ -577,7 +577,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "excellent",
+      "text": "excellent!",
       "at": 36
      }
     ],
@@ -586,40 +586,57 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "the outer word takes the others inside it"
+       "at": 5,
+       "note": "eating means taking in, so the food goes inside the word for Tory"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Tory",
-         "gives": "CON",
-         "note": "Con = Conservative; the outside"
-        },
-        {
-         "words": "meat",
-         "gives": "HAM",
-         "note": "ham is a meat"
-        }
-       ]
+       "words": "Tory",
+       "at": 0,
+       "gives": "CON",
+       "note": "a con is short for a Conservative, a Tory"
       },
       {
-       "words": "pie without base",
-       "gives": "PI",
-       "note": "PIE losing its last letter"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "meat",
+         "at": 12,
+         "gives": "HAM",
+         "note": "ham is a meat"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "without base",
+           "at": 21,
+           "note": "in a down clue the base is the bottom letter, so pie loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pie",
+           "at": 17
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Conservative tucks into a pie with no pastry bottom and pronounces it splendid.",
-     "walkthrough": "A Tory is a member of Britain's Conservative party, abbreviated Con.",
-     "definitionFit": "A regional use: in dated northern English slang the word is an exclamation meaning splendid."
+     "surface": "A Conservative politician tucks into a meat pie with no bottom crust and declares it excellent.",
+     "walkthrough": "In a down clue the base is the bottom letter. As an exclamation the answer is northern English slang for splendid.",
+     "definitionFit": "Champion is an informal exclamation of approval, chiefly in northern England, meaning splendid."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "base"
     }
    }

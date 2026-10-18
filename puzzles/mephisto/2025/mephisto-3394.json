@@ -1916,46 +1916,50 @@
      "indicators": [
       {
        "text": "Squashed by",
-       "note": "something squashed by another is pressed inside it"
+       "at": 0,
+       "note": "squashed by suggests the following pieces are pressed inside the newspaper word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "newspaper",
-         "gives": "BLAT",
-         "note": "blat is slang for a newspaper"
-        },
-        {
-         "words": "sad",
-         "gives": "WO",
-         "note": "wo is an archaic spelling of woe, sorrow"
-        }
-       ]
+       "words": "newspaper",
+       "at": 12,
+       "gives": "BLAT",
+       "note": "blat (or blatt) is informal for a newspaper, from German Blatt"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "end for",
-         "note": "the end of a word is its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "poor",
-         "note": "last letter of poor"
+         "words": "sad",
+         "at": 23,
+         "gives": "WO",
+         "note": "wo is an old spelling of woe, used in the sense of sorrowful"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end for",
+           "at": 27,
+           "note": "end for points to the last letter of the word poor"
+          }
+         ],
+         "parts": [
+          {
+           "words": "poor",
+           "at": 35
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fly is swatted flat with a rolled-up paper, a sad end for the poor thing.",
-     "walkthrough": "Bluebottle looks like the fly; it is the cornflower, which also goes by that name.",
-     "definitionFit": "Blawort is an old Scottish name for the cornflower, which is also called the bluebottle for its blue flowers."
+     "surface": "A fly is swatted with a rolled newspaper, a sad end for the poor bluebottle.",
+     "walkthrough": "The surface's insect is a decoy: here bluebottle is the cornflower, a blue flower.",
+     "definitionFit": "Blawort is a Scots name for the cornflower, which is also called bluebottle."
     },
     "features": {
      "answerInScene": false,
