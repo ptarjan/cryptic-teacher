@@ -547,41 +547,50 @@
      "indicators": [
       {
        "text": "Send back",
-       "note": "sending something back returns it the way it came, so the whole string is read right to left"
+       "at": 0,
+       "note": "send back means the whole built word is read in reverse"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
          "text": "including",
-         "note": "including here simply means together with, so the pieces are set side by side"
+         "at": 15,
+         "note": "the list word includes the other two pieces inside it"
         }
        ],
        "parts": [
         {
          "words": "list",
+         "at": 10,
          "gives": "ROTA",
          "note": "a rota is a list of duties"
         },
         {
-         "words": "bit of fish",
-         "gives": "GILL",
-         "note": "the gill is the breathing organ of a fish"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 25
+          },
+          {
+           "words": "bit of fish",
+           "at": 27,
+           "gives": "GILL",
+           "note": "a gill is part of a fish"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner returns an order because the list included a portion of fish.",
-     "walkthrough": "The reversal covers the whole string; the 'a' sits after the fish part before it is turned round.",
-     "definitionFit": "An alligator is a big reptile with jaws that snap shut, hence a jocular large snapper."
+     "surface": "Returning a list that includes a fish part, perhaps from a restaurant.",
+     "walkthrough": "The question mark flags that the snapper is not a fish, despite the fish nearby, but a reptile with snapping jaws.",
+     "definitionFit": "An alligator is a large reptile with powerful jaws, which snap shut on prey."
     },
     "features": {
      "answerInScene": false,

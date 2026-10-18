@@ -571,52 +571,56 @@
      "indicators": [
       {
        "text": "sandwiches",
-       "note": "to sandwich is to put something between two outer layers"
+       "at": 10,
+       "note": "the cream piece holds the minister and the letter between its parts, like a sandwich filling"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "cream",
-         "gives": "ELITE",
-         "note": "the cream is the best, the elite"
-        },
-        {
-         "words": "minister",
-         "gives": "MIN",
-         "note": "MIN is short for minister"
-        }
-       ]
+       "words": "cream",
+       "at": 4,
+       "gives": "ELITE",
+       "note": "the cream of a group is its elite"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "at front",
-         "note": "only the leading letter of the word is wanted, the one at its front"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "ate",
-         "note": "first letter only"
+         "words": "minister",
+         "at": 21,
+         "gives": "MIN",
+         "note": "Min is an abbreviation for minister or ministry"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at front",
+           "at": 34,
+           "note": "the front of ate is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ate",
+           "at": 30
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A minister eats ice cream sandwiches at the head of the table.",
-     "walkthrough": "'Ice cream sandwiches' reads as a dessert, but the split is after 'Ice': ice is gangster slang for kill, and 'sandwiches' is a verb.",
-     "definitionFit": "In criminal slang, to ice someone is to murder them, to get rid of them permanently."
+     "surface": "A government minister eats an ice-cream sandwich.",
+     "walkthrough": "'Ice cream' reads as one dessert, but Ice is the definition and cream gives ELITE, holding MIN and A.",
+     "definitionFit": "To ice someone is gangster slang for killing them, and eliminate is used as a euphemism for kill."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "sandwiches"
+     "misdirectedWord": "Ice"
     }
    }
   },
