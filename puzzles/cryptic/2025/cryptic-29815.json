@@ -310,42 +310,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PARSNIP",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "to cut something is to shorten it, so a word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 18,
+         "note": "the second cut says the paring word is itself cut short, losing its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "to cut",
-         "gives": "PAR",
-         "note": "to pare is to cut, and here it is docked of its last letter"
+         "at": 10,
+         "gives": "PARE",
+         "note": "to pare is to cut, trimming the outside off"
         },
         {
-         "words": "cut",
-         "gives": "SNIP",
-         "note": "a snip is a cut"
+         "gives": "E",
+         "note": "the final letter cut from the paring word"
         }
        ]
+      },
+      {
+       "words": "cut",
+       "at": 26,
+       "gives": "SNIP",
+       "note": "a snip is a small cut, as with scissors"
       }
      ]
     },
     "explanation": {
-     "surface": "Kitchen instructions for chopping a vegetable: cut, cut and cut again.",
-     "walkthrough": "The three 'cut's do different jobs: the first is part of 'to cut' (PARE), the second trims it to PAR, the third is SNIP.",
-     "definitionFit": "A parsnip is a pale root vegetable related to the carrot, so it is an example of the category."
+     "surface": "A kitchen instruction for a root vegetable: chop, chop and chop again.",
+     "walkthrough": "The three 'cut's do three jobs: the first is part of 'to cut', PARE; the second trims that to PAR; the third is SNIP.",
+     "definitionFit": "A parsnip is a pale, sweet root vegetable, a close relative of the carrot."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "joke": "absurd"
     }
    }
   },
@@ -1290,47 +1295,50 @@
    "annotation": {
     "definitions": [
      {
-      "text": "ambush",
-      "at": 46
+      "text": "to ambush",
+      "at": 43
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIEINWAIT",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "lacking its leader",
-       "note": "lacking a leader means missing the front, so the first letter goes"
+       "text": "is deployed",
+       "at": 31,
+       "note": "troops deployed are spread out into new positions, so the pooled letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "New",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "is deployed",
-         "note": "troops deployed are spread out into fresh positions, so the letters are rearranged"
+         "text": "lacking its leader",
+         "at": 12,
+         "note": "the word militia goes without its first letter"
         }
        ],
        "parts": [
         {
-         "words": "New",
-         "note": "taken as written"
+         "words": "militia",
+         "at": 4
         },
         {
-         "words": "militia",
-         "gives": "ILITIA",
-         "note": "militia without its first letter"
+         "gives": "M",
+         "note": "the leading letter of militia, which is dropped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fresh, leaderless militia is sent out to set up an ambush.",
-     "walkthrough": "'New' reads as an adjective for the militia, but its letters are part of the mix.",
-     "definitionFit": "To lie in wait is an idiom for hiding ready to attack by surprise, exactly what ambushing someone involves."
+     "surface": "A newly formed, leaderless militia is sent out to set up an ambush.",
+     "walkthrough": "'New' looks like an adjective for the militia, but its letters join the pool: NEW plus ILITIA, which 'is deployed' rearranges.",
+     "definitionFit": "To lie in wait is to hide and wait to make a surprise attack, which is what ambushing someone means."
     },
     "features": {
      "answerInScene": true,

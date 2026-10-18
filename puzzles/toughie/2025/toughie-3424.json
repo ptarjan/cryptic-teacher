@@ -523,45 +523,38 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HAIRCUTS",
+     "op": "composite",
      "indicators": [
       {
        "text": "shown off",
-       "note": "off can mean wrong or awry, so the letters are set out in a disordered way"
+       "at": 12,
+       "note": "something shown off is paraded about, so the letters are displayed in a new arrangement"
+      },
+      {
+       "text": "out of",
+       "at": 22,
+       "note": "out of says a letter is taken away from the shuffled pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HAIRCUTS",
+       "words": "Such art is",
+       "at": 0
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "out of",
-         "note": "out of means removed from, so that single letter is taken away from the phrase"
+         "text": "door",
+         "at": 37,
+         "note": "the door of a word is its entrance, its first letter"
         }
        ],
        "parts": [
         {
-         "words": "Such art is",
-         "note": "taken as written"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "door",
-           "note": "a door is the way in, so it stands for the opening letter of the word before it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "salon's",
-           "note": "first letter of salon"
-          }
-         ]
+         "words": "salon's",
+         "at": 29,
+         "note": "the word salon, whose first letter is the one taken out"
         }
        ]
       }
@@ -569,9 +562,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Fresh styles are paraded by customers stepping out of a hairdresser's.",
-     "walkthrough": "Remove one S from SUCH ART IS and rearrange. The whole clue also describes the answer: newly cut hair is shown off as clients leave the salon.",
-     "definitionFit": "Hairdressing is a craft whose results clients display as they leave the salon, so the whole clue paints this answer."
+     "surface": "Clients leaving a hairdresser's flaunt the stylist's work as they walk out the door.",
+     "walkthrough": "The letters of SUCH ART IS, minus S (the first letter, 'door', of salon), rearrange to the answer; the whole clue also describes it, as fresh styles are shown off leaving the salon.",
+     "definitionFit": "Haircuts are the styles a salon produces, and clients display them as they step out into the street."
     },
     "features": {
      "answerInScene": true,
@@ -1044,52 +1037,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MOUTHWASH",
+     "op": "composite",
      "indicators": [
       {
        "text": "Order",
-       "note": "to order is to arrange, so the letters are arranged afresh"
+       "at": 0,
+       "note": "to order things is to arrange them, so the resulting letters are sorted into a new sequence"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "MOUTHWASH",
-       "indicators": [
-        {
-         "text": "it's",
-         "note": "read as 'it is', this says two letters of the song word are to be replaced by the next word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Wham!'s",
-         "note": "the pop duo's name with its S"
-        },
-        {
-         "words": "hit",
-         "note": "taken as written"
+         "words": "Wham!'s hit",
+         "at": 6
         },
         {
          "words": "out",
-         "note": "taken as written, replacing two letters of the previous word"
+         "at": 25,
+         "note": "the word out, added to the pool of letters"
         }
        ]
+      },
+      {
+       "words": "it's",
+       "at": 20,
+       "gives": "IT",
+       "note": "it's reads as it is out: the letters of it are the ones dropped from the pool"
       }
      ]
     },
     "explanation": {
-     "surface": "A dismissive verdict on a new single by the 1980s pop duo Wham!: it's released, and it's rubbish.",
-     "walkthrough": "Read 'hit – it's out' as HIT with its IT becoming OUT, giving HOUT; rearrange with WHAMS. Mouthwash is slang for nonsense.",
-     "definitionFit": "Mouthwash is informal British slang for nonsense or empty talk, the same meaning as tosh."
+     "surface": "Someone sends for a Wham! single, only to be told it is out of stock — what rubbish.",
+     "walkthrough": "Pool the letters of WHAM'S HIT and OUT, drop IT ('it's out'), and 'Order' rearranges the rest.",
+     "definitionFit": "Mouthwash is British slang for nonsense or empty talk, much like hogwash or tosh."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "hit"
+     "aptDefinition": false,
+     "misdirectedWord": "Order"
     }
    }
   },

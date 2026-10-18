@@ -357,48 +357,53 @@
    "annotation": {
     "definitions": [
      {
-      "text": "example",
-      "at": 41
+      "text": "for example",
+      "at": 37
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INSTANCE",
+     "op": "container",
      "indicators": [
       {
-       "text": "initially ignored",
-       "note": "ignoring the start of a word means dropping its opening letter"
+       "text": "in",
+       "at": 7,
+       "note": "in puts the letter for number inside the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "to be in something is to sit inside it, so one piece is placed within another"
+         "text": "initially ignored",
+         "at": 18,
+         "note": "the first letter of the distance word is left out"
         }
        ],
        "parts": [
         {
          "words": "mileage",
-         "gives": "ISTANCE",
-         "note": "mileage is distance travelled; its first letter is dropped"
+         "at": 10,
+         "gives": "DISTANCE",
+         "note": "mileage is distance travelled"
         },
         {
-         "words": "Number",
-         "gives": "N",
-         "note": "N is the abbreviation for number"
+         "gives": "D",
+         "note": "the first letter of the word for mileage, which is ignored"
         }
        ]
+      },
+      {
+       "words": "Number",
+       "at": 0,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A figure on the milometer that was overlooked at first, say.",
-     "walkthrough": "DISTANCE loses its D to leave ISTANCE, and N slips in after the I to make INSTANCE.",
-     "definitionFit": "An instance is a single case or illustration, the same thing as an example; 'for example' and 'for instance' are interchangeable phrases."
+     "surface": "A car's mileage figure is quietly overlooked, as a typical case.",
+     "walkthrough": "'initially ignored' turns DISTANCE into ISTANCE, and N goes 'in' after its first letter.",
+     "definitionFit": "For instance is the stock phrase meaning for example, so instance names a single example or case."
     },
     "features": {
      "answerInScene": false,
@@ -1479,37 +1484,38 @@
    "annotation": {
     "definitions": [
      {
-      "text": "examiner",
-      "at": 21
+      "text": "this examiner",
+      "at": 16
      }
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "TESTER",
      "indicators": [
       {
        "text": "half backed",
-       "note": "backing half means turning just one part round so it runs the other way"
+       "at": 4,
+       "note": "half backed says only the front half of the word is read in reverse"
       }
      ],
      "parts": [
       {
        "words": "Phi",
+       "at": 0,
        "gives": "SETTER",
-       "note": "Phi is the pseudonym of this puzzle's compiler"
+       "note": "Phi is the setter of this puzzle, so the word for a puzzle's compiler"
       }
      ]
     },
     "explanation": {
-     "surface": "The puzzle's compiler, half-heartedly supported, becomes an examiner.",
-     "walkthrough": "Setters often refer to themselves by pseudonym: Phi is the setter of this puzzle, and only the first half of that word is turned round.",
-     "definitionFit": "A tester checks or assesses something, which is the job of any examiner; a puzzle setter tests solvers too."
+     "surface": "The puzzle's own setter is half reversed, then cast as the one doing the examining.",
+     "walkthrough": "Phi is this crossword's compiler, a SETTER; reversing its first half, SET, gives TES before TER. 'this examiner' points back to the setter, who tests the solver.",
+     "definitionFit": "A setter tests solvers with each puzzle, so the setter of this crossword is a tester, an examiner."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "backed"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Phi"
     }
    }
   },
