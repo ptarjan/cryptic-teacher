@@ -190,7 +190,33 @@ check("the redo gate names the nested container", True, any(
     f.startswith("nestedContainer") for f in shape_queue.findings(
         {"clue": {"text": "x"}, "solution": "ABUSE"}, {"wordplay": abuse, "definitions": []})))
 
-for field in ("nestedContainer", "anagramSynonym", "misplacedIndicator", "scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
+def del_over(ind, removed, *pieces):
+    return {"op": "deletion", "indicators": [{"text": ind}], "parts": [
+        {"op": "charade", "parts": [{"words": "w", "gives": g} for g in pieces]}, {"words": "x", "gives": removed}]}
+
+check("endlessly over BORE+ON taking an E (not at the end) is counted", 1, v.deletion_scope(del_over("endlessly", "E", "BORE", "ON")))
+check("endlessly over a charade whose end is the letter taken is not", 0, v.deletion_scope(del_over("endlessly", "N", "BORE", "ON")))
+check("beheaded over CAD+FENCE taking F is counted", 1, v.deletion_scope(del_over("beheaded", "F", "CAD", "FENCE")))
+check("beheaded over a charade whose head is the letter taken is not", 0, v.deletion_scope(del_over("beheaded", "C", "CAD", "FENCE")))
+check("an indicator naming no end is not read", 0, v.deletion_scope(del_over("losing", "E", "BORE", "ON")))
+check("a deletion over a single leaf is not this rule's", 0, v.deletion_scope(
+    {"op": "deletion", "indicators": [{"text": "endlessly"}], "parts": [{"words": "bore", "gives": "BORE"}, {"words": "x", "gives": "B"}]}))
+check("a deletion naming an end each way is not read", 0, v.deletion_scope(del_over("endlessly beheaded", "E", "BORE", "ON")))
+
+sesame = {"op": "charade", "parts": [{"words": "Sesame", "gives": "S"}, {"words": "street", "gives": "TREET"}]}
+check("a first letter given by a leaf, with no selection above it, is counted", 1, v.bare_initials(sesame))
+check("under a first-letter selection it is not", 0, v.bare_initials({"op": "first", "parts": [sesame["parts"][0]]}))
+check("a flagged selection leaf is not", 0, v.bare_initials({"op": "charade", "parts": [{**sesame["parts"][0], "select": True}]}))
+check("a short word (above A) is not", 0, v.bare_initials({"op": "charade", "parts": [{"words": "above", "gives": "A"}]}))
+check("a word with a one-letter reading in the usage lexicon (canine C) is not", 0, v.bare_initials(
+    {"op": "charade", "parts": [{"words": "canine", "gives": "C"}]}))
+check("two clue words are not", 0, v.bare_initials({"op": "charade", "parts": [{"words": "Sesame street", "gives": "S"}]}))
+check("a leaf giving other letters is not", 0, v.bare_initials({"op": "charade", "parts": [{"words": "Sesame", "gives": "T"}]}))
+check("the redo gate names a deletion scope", True, any(
+    f.startswith("deletionScope") for f in shape_queue.findings(
+        {"clue": {"text": "x"}, "solution": "BORON"}, {"wordplay": del_over("endlessly", "E", "BORE", "ON"), "definitions": []})))
+
+for field in ("bareInitial", "deletionScope", "nestedContainer","anagramSynonym", "misplacedIndicator", "scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
               "leafFold", "repeatedSelection", "singleLeaf", "bareInCharade", "anagramOfContainer"):
     check(f"wordplay.{field} is a ratchet field", True, f"wordplay.{field}" in v.BACKLOG_MARKERS)
 warn = v.shape_warnings("1A", {"wordplay": cc, "definitions": []})
