@@ -1117,50 +1117,55 @@
      "indicators": [
       {
        "text": "catches",
-       "note": "catching something holds it, so one piece is inside another"
+       "at": 29,
+       "note": "catching something holds it, so the range takes the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "range",
-         "gives": "ALPS",
-         "note": "the Alps are a mountain range"
-        },
-        {
-         "words": "constable",
-         "gives": "COP",
-         "note": "a cop is a police officer"
-        }
-       ]
+       "words": "range",
+       "at": 23,
+       "gives": "ALPS",
+       "note": "the Alps are a mountain range"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "at first",
-         "note": "at first points to the opening letter of the word before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "out",
-         "note": "the first letter of out"
+         "words": "constable",
+         "at": 37,
+         "gives": "COP",
+         "note": "a cop is a police officer, such as a constable"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "at": 51,
+           "note": "at first points to the opening letter of the word before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "out",
+           "at": 47
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A police officer catches someone drinking what look like innocent pop.",
-     "walkthrough": "The definition is fair because these drinks look and taste like soft drinks yet contain alcohol, hence 'apparently'.",
-     "definitionFit": "Alcopops are sweet fizzy drinks resembling lemonade but spiked with spirits."
+     "surface": "A mountain range seizes a police constable who has been out on patrol.",
+     "walkthrough": "'Apparently' signals the joke: these sweet drinks taste soft but contain alcohol.",
+     "definitionFit": "Alcopops are sweet, fruity alcoholic drinks that look and taste like soft drinks, hence apparently."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "range"
     }
    }

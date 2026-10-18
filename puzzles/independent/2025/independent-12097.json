@@ -318,46 +318,52 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PUNDIT",
+     "indicators": [
+      {
+       "text": "cracks",
+       "at": 27,
+       "note": "cracks means breaks into, so the solver goes inside the other letters"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
        "indicators": [
         {
-         "text": "cracks"
-        },
-        {
-         "text": "ahead of"
+         "text": "ahead of",
+         "at": 43,
+         "note": "ahead of puts the wordplay first, in front of the time"
         }
        ],
        "parts": [
         {
          "words": "wordplay",
+         "at": 34,
          "gives": "PUN",
-         "note": "a pun is a play on words"
-        },
-        {
-         "words": "professional solver",
-         "gives": "DI",
-         "note": "Detective Inspector, whose job is solving crimes"
+         "note": "a pun is a piece of wordplay"
         },
         {
          "words": "time",
-         "gives": "T",
-         "note": "standard abbreviation"
+         "at": 52,
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "professional solver",
+       "at": 7,
+       "gives": "DI",
+       "note": "a DI, Detective Inspector, is a police officer whose job is solving crimes"
       }
      ]
     },
     "explanation": {
-     "surface": "A top crossword solver works out the wordplay before the clock runs down.",
-     "walkthrough": "The surface puts a crossword solver in view; the professional solver is a police detective, the DI who solves cases.",
-     "definitionFit": "A pundit is an expert, especially one giving opinions in the media."
+     "surface": "A crossword pro solves the punning clues before the clock runs out.",
+     "walkthrough": "'Professional solver' looks like a crossword expert, but it is a detective, DI, who 'cracks' into PUN placed 'ahead of' T.",
+     "definitionFit": "A pundit is an authority who gives opinions on a subject, especially in the media, so an expert."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "solver"
@@ -455,33 +461,23 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "indicators": [
-      {
-       "text": "perhaps",
-       "note": "Medici is split and each part replaced by an equivalent, not taken literally"
-      }
-     ],
+     "op": "reverse",
+     "reading": "DR + ONE",
      "parts": [
       {
-       "words": "Medici",
-       "gives": "DR",
-       "note": "read the name as MEDIC + I; a medic is a doctor"
-      },
-      {
-       "words": "Medici",
-       "gives": "ONE",
-       "note": "the I left over is the Roman numeral for one"
+       "words": "Medici, perhaps",
+       "at": 21,
+       "note": "the answer's pieces, a doctor and one, can be put back as medic and I, which run together as Medici; 'perhaps' flags the swap"
       }
      ]
     },
     "explanation": {
-     "surface": "A servant of a queen, or someone like the Medici family, who served rulers in Renaissance Florence.",
-     "walkthrough": "The Medici were a ruling Florentine family, but here the name splits as MEDIC + I, each translated.",
-     "definitionFit": "A drone is a male bee, whose role is to serve the queen bee by mating with her."
+     "surface": "A courtier attending a Renaissance queen, perhaps one of the Medici family.",
+     "walkthrough": "Medici suggests Catherine de' Medici, a queen of France, but split it as medic and I, a doctor and one; 'perhaps' warns the parts stand in for others.",
+     "definitionFit": "A drone is a male bee whose only role is to mate with the queen of the hive."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Medici"
@@ -923,45 +919,50 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "WORKSHY",
      "indicators": [
       {
-       "text": "Spooner say",
-       "note": "Reverend Spooner swapped the first sounds of words, so the opening sounds trade places"
+       "text": "might make Spooner say",
+       "at": 11,
+       "note": "the Reverend Spooner was known for swapping the opening sounds of words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "SHORK",
        "parts": [
         {
-         "unchecked": true,
          "words": "Bunk off",
-         "gives": "WORK",
-         "soundsLike": "SHIRK",
-         "note": "to bunk off is to shirk; it hands over its SH and takes a W"
-        },
+         "at": 35,
+         "gives": "SHIRK",
+         "note": "to bunk off is British slang for skiving, to shirk"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "WY",
+       "parts": [
         {
-         "unchecked": true,
          "words": "Whatever for",
-         "gives": "SHY",
-         "soundsLike": "WHY",
-         "note": "whatever for asks why; it gives up its W and takes the SH"
+         "at": 45,
+         "gives": "WHY",
+         "note": "whatever for asks why"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone lazy mutters a Spooner-style excuse for skipping work.",
-     "walkthrough": "The definition sits inside the setup: being workshy is exactly why you would want to bunk off, so the clue describes itself. Bunk off is British slang for skipping school or work.",
-     "definitionFit": "Being workshy means being unwilling to work."
+     "surface": "An idle person, lazily mangled by Spooner, asks why they should bother skiving.",
+     "walkthrough": "Spoken aloud, shirk why with the SH and W sounds traded becomes work-shy.",
+     "definitionFit": "Someone work-shy avoids labour, which is exactly what bunking off means, so the clue's spoken words describe the state."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd"
+     "joke": "pun",
+     "misdirectedWord": "Bunk"
     }
    }
   },
@@ -1209,13 +1210,15 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "at the end, so the last letters are kept"
+       "text": "following",
+       "at": 23,
+       "note": "following puts the last letters after the temperatures"
       }
      ],
      "parts": [
       {
        "words": "low temperatures",
+       "at": 33,
        "gives": "ICIC",
        "note": "1C twice: two readings of one degree Celsius, a low temperature"
       },
@@ -1223,13 +1226,15 @@
        "op": "last",
        "indicators": [
         {
-         "text": "following"
+         "text": "ultimately",
+         "at": 12,
+         "note": "ultimately means at the end, so the last letter of each word is taken"
         }
        ],
        "parts": [
         {
          "words": "Chill spike",
-         "note": "last letters of chill and spike"
+         "at": 0
         }
        ]
       }
@@ -1237,9 +1242,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A cold spike that forms after temperatures drop.",
-     "walkthrough": "The whole clue is both definition and wordplay: an icicle is a chilly spike that forms after freezing weather.",
-     "definitionFit": "An icicle is a hanging spike of ice that forms in low temperatures."
+     "surface": "A cold spike of ice forms when the weather turns cold.",
+     "walkthrough": "Read 1C as IC: two such low temperatures give ICIC, and 'ultimately' takes the L and E ending chill and spike.",
+     "definitionFit": "An icicle is a chilly spike of ice that forms after freezing temperatures, so the whole clue describes it."
     },
     "features": {
      "answerInScene": true,

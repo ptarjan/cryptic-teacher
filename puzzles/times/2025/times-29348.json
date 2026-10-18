@@ -46,41 +46,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DELICATESSENS",
+     "op": "charade",
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Awfully",
-         "note": "done awfully, the letters come out in a mess"
-        },
-        {
-         "text": "outside",
-         "note": "the anagrammed letters sit outside the city"
+         "at": 0,
+         "note": "awfully means badly done, so the letters of idle are put in a new order"
         }
        ],
        "parts": [
         {
-         "words": "idle pussies",
-         "gives": "DELICATS",
-         "note": "IDLE + CATS (pussies), rearranged"
+         "words": "idle",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 21,
+         "note": "outside says the cats go round the German city"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pussies",
+         "at": 13,
+         "gives": "CATS",
+         "note": "pussies are cats"
         },
         {
          "words": "German city",
+         "at": 29,
          "gives": "ESSEN",
-         "note": "Essen, in the Ruhr, sits between the last two letters of the anagram"
+         "note": "Essen is a city in the Ruhr region of Germany"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Lazy cats lounging about outside the shops of a German city.",
-     "walkthrough": "'Pussies' is just cats, and 'outside' is not a place in the scene: the anagram wraps round the city, leaving a single S at the end.",
-     "definitionFit": "A plural noun for plural 'shops': these are shops selling prepared meats, cheeses and fine foods."
+     "surface": "Lazy cats lounging outside the shops of a German city.",
+     "walkthrough": "'Awfully' rearranges IDLE to give DELI, and CATS go 'outside' ESSEN: CAT, then ESSEN, then S.",
+     "definitionFit": "Delicatessens are shops selling prepared foods such as cooked meats and cheeses."
     },
     "features": {
      "answerInScene": true,
@@ -379,55 +392,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENROLMENT",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "denied",
+       "at": 25,
+       "note": "denied means refused, so a letter is withheld from the shuffled letters"
+      },
+      {
+       "text": "sadly",
+       "at": 48,
+       "note": "sadly means in a sorry state, so the remaining letters are jumbled"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ENROLMENT",
+       "words": "for Lent, men",
+       "at": 11
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "denied",
-         "note": "the first word is refused a letter"
-        },
-        {
          "text": "minimum of",
-         "note": "the least of 'food' is its first letter"
-        },
-        {
-         "text": "sadly",
-         "note": "the letters end up in a sorry state"
+         "at": 32,
+         "note": "the minimum of a word is its least part, the first letter"
         }
        ],
        "parts": [
         {
-         "words": "for",
-         "note": "taken as written, before it loses a letter"
-        },
-        {
-         "words": "minimum of food",
-         "gives": "F",
-         "note": "first letter of Food, the letter denied to FOR, leaving OR"
-        },
-        {
-         "words": "Lent, men",
-         "note": "taken as written"
+         "words": "food",
+         "at": 43
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Men who give up food for Lent are unhappy about having signed up.",
-     "walkthrough": "'For' looks like a link word, but it is fodder: it loses the F of 'food' before the letters are mixed.",
-     "definitionFit": "A noun phrase matching a noun: the act of putting your name on a register."
+     "surface": "Men giving up food for Lent, and feeling miserable about it.",
+     "walkthrough": "Take the F (minimum of food) out of FOR LENT MEN and 'sadly' rearranges the rest.",
+     "definitionFit": "Enrolment is the act of registering or signing up for a course, club or service."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "for"
+     "misdirectedWord": "Lent"
     }
    }
   },
@@ -804,40 +813,45 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the pieces go in the muddle"
+       "at": 44,
+       "note": "in places the time and the right inside the muddle"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "muddle",
+       "at": 47,
+       "gives": "MESS",
+       "note": "a mess is a muddle"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "muddle",
-         "gives": "MESS",
-         "note": "a mess is a muddle; it wraps round the other pieces after its first letter"
+         "words": "a long time",
+         "at": 13,
+         "gives": "ANAGE",
+         "note": "an age is a long time"
         },
         {
          "words": "little right",
+         "at": 30,
          "gives": "R",
          "note": "R is the short form of right"
         }
        ]
-      },
-      {
-       "words": "a long time",
-       "gives": "ANAGE",
-       "note": "an age = a long time"
       }
      ]
     },
     "explanation": {
-     "surface": "A female boss who has been in a muddle for ages.",
-     "walkthrough": "'A long time' is AN AGE, not A plus a separate word for time.",
-     "definitionFit": "A plain synonym: a woman in charge of a shop, restaurant or office."
+     "surface": "A woman in charge has spent ages tidying up a mess with little right to do it.",
+     "walkthrough": "'A long time' gives AN AGE, which with R goes 'in' MESS, after its M.",
+     "definitionFit": "Manageress is a dated word for a woman who manages a shop, restaurant or other business."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "muddle"
     }
    }
   },
@@ -916,35 +930,50 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "not entirely",
-       "note": "SURE loses its last letter"
-      },
-      {
        "text": "at first",
-       "note": "the shortened word comes first"
+       "at": 36,
+       "note": "at first puts the shortened word before the horses"
       }
      ],
      "parts": [
       {
-       "words": "secure",
-       "gives": "SUR",
-       "note": "SURE (secure), not entirely"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not entirely",
+         "at": 16,
+         "note": "not entirely means a word lacks its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "secure",
+         "at": 29,
+         "gives": "SURE",
+         "note": "sure means secure, safe"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "horses",
+       "at": 8,
        "gives": "MOUNTS",
        "note": "mounts are horses for riding"
       }
      ]
     },
     "explanation": {
-     "surface": "A rider climbs onto horses, unsteady at first.",
-     "walkthrough": "'Gets on' is both the definition and part of the horse picture.",
-     "definitionFit": "A literal verb sense: to climb up onto or get on top of something."
+     "surface": "A rider climbs onto horses, still a little unsteady at first.",
+     "walkthrough": "'Gets on' looks like mounting a horse, but in the answer it means overcomes. 'Not entirely' cuts SURE to SUR.",
+     "definitionFit": "To surmount a difficulty is to get on top of it, overcoming it, and surmounts also means sits on top of."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "horses"
     }
    }
   },
@@ -1327,56 +1356,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KAPPA",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
        "indicators": [
         {
          "text": "ending in",
-         "note": "take the final letter of 'dark'"
+         "at": 18,
+         "note": "ending in points to the last letter of the word that follows"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "K",
-         "indicators": [
-          {
-           "text": "only half",
-           "note": "just the first half of the word is used"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "ending in dark",
-           "gives": "K",
-           "select": "last",
-           "note": "last letter of darK"
-          }
-         ]
-        },
+         "words": "dark",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "only half",
+         "at": 34,
+         "note": "only half means just the first half of the word is kept"
+        }
+       ],
+       "parts": [
         {
          "words": "manifest",
-         "gives": "APPA",
-         "note": "APPARENT (manifest), only its first half"
+         "at": 44,
+         "gives": "APPARENT",
+         "note": "apparent means manifest, plain to see"
+        },
+        {
+         "gives": "RENT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shadowy foreigner whose presence is only half visible.",
-     "walkthrough": "'Foreign character' means a letter of another alphabet, here Greek.",
-     "definitionFit": "A definition by genus: the tenth letter of the Greek alphabet."
+     "surface": "A mysterious figure from abroad, half revealed at the end of the dark.",
+     "walkthrough": "K ends dark, and 'only half' keeps APPA from APPARENT.",
+     "definitionFit": "Kappa is the tenth letter of the Greek alphabet, so a character from a foreign script."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "character"
     }
    }
@@ -1408,37 +1436,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "running",
-       "note": "the letters run about into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "running",
+         "at": 29,
+         "note": "running means moving about, so the letters of use hot are mixed up"
+        }
+       ],
        "parts": [
         {
          "words": "use hot",
-         "note": "USE HOT rearranged"
-        },
-        {
-         "words": "water",
-         "gives": "RAIN",
-         "note": "rain is water from the sky"
+         "at": 21
         }
        ]
+      },
+      {
+       "words": "water",
+       "at": 37,
+       "gives": "RAIN",
+       "note": "rain is water falling from the sky"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for directions and a hot shower.",
-     "walkthrough": "'Running water' is a natural phrase, but 'running' acts on 'use hot' and 'water' stands alone.",
-     "definitionFit": "A euphemism: teaching a pet where to relieve itself is showing it where to go."
+     "surface": "Instructions for a guest on how to find the bathroom and use the hot running water.",
+     "walkthrough": "'Running water' reads as one plumbing phrase, but 'running' is the anagram signal for USE HOT and water is RAIN. 'Where to go' means where to relieve itself.",
+     "definitionFit": "To house-train a pet is to teach it to urinate and defecate outside, showing it where to go to the toilet."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "running"

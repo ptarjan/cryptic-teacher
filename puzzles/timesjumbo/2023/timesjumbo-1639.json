@@ -862,12 +862,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "KILOMETRE",
      "indicators": [
       {
        "text": "all detailed",
-       "note": "de-tailed means with the tail cut off, and 'all' applies it to every word"
+       "at": 22,
+       "note": "de-tailed means with the tail cut off, and all applies it to every word"
       }
      ],
      "parts": [
@@ -876,33 +875,40 @@
        "indicators": [
         {
          "text": "by",
-         "note": "by means beside, so the pieces for finish, sign and trail sit side by side"
+         "at": 12,
+         "note": "by means beside, so the pieces sit side by side"
         }
        ],
        "parts": [
         {
          "words": "Finish",
-         "gives": "KIL",
-         "note": "kill = finish (off), minus its last letter"
+         "at": 0,
+         "gives": "KILL",
+         "note": "to kill is to finish off"
         },
         {
          "words": "sign",
-         "gives": "OME",
-         "note": "omen = sign, minus its last letter"
+         "at": 7,
+         "gives": "OMEN",
+         "note": "an omen is a sign of what is to come"
         },
         {
          "words": "trail",
-         "gives": "TRE",
-         "note": "trek = trail, minus its last letter"
+         "at": 15,
+         "gives": "TREK",
+         "note": "a trek is a long trail or journey"
         }
        ]
+      },
+      {
+       "gives": "LNK"
       }
      ]
     },
     "explanation": {
-     "surface": "A marker at the end of a hiking path, spelling out how far walkers have come.",
-     "walkthrough": "'Detailed' means de-tailed: each of the three words loses its final letter, and 'all' says that applies to every one.",
-     "definitionFit": "A kilometre is a metric unit of length, a thousand metres, used for measuring how far apart places are."
+     "surface": "A finishing post beside a trail, with everything spelt out to show how far you have run.",
+     "walkthrough": "'Detailed' is read as de-tailed: KILL, OMEN and TREK each lose their last letter, giving KIL, OME and TRE.",
+     "definitionFit": "A kilometre is a unit of length, a thousand metres, so it is used to show distance."
     },
     "features": {
      "answerInScene": true,
@@ -933,42 +939,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOISE",
-     "indicators": [
-      {
-       "text": "snapped in middle",
-       "note": "a seed snapped through the middle keeps only its front half"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "number",
+       "at": 10,
+       "gives": "NO"
+      },
+      {
+       "words": "one",
+       "at": 17,
+       "gives": "I",
+       "note": "I is one in Roman numerals"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "snapped in middle",
+         "at": 26,
+         "note": "a word snapped through the middle keeps only its front half"
+        }
+       ],
        "parts": [
         {
-         "words": "number",
-         "gives": "NO",
-         "note": "no. = number"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I = one in Roman numerals"
-        },
-        {
          "words": "seed",
-         "gives": "SE",
-         "note": "seed broken in half keeps its first two letters"
+         "at": 21
+        },
+        {
+         "gives": "ED"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tennis player's racket belonging to the top seed, broken in the middle.",
-     "walkthrough": "Tennis vocabulary throughout; 'number one seed' is not a unit, and 'racket' is the din.",
-     "definitionFit": "A racket is a loud, disturbing din, which is a synonym for unwanted sound."
+     "surface": "A tennis player's racket belonging to the top seed is broken in two.",
+     "walkthrough": "'Racket' and 'number one seed' suggest tennis, but racket is a din. Seed broken at the middle leaves SE.",
+     "definitionFit": "A racket is a loud, unpleasant noise, a common informal synonym."
     },
     "features": {
      "answerInScene": false,
@@ -1855,41 +1863,45 @@
      "indicators": [
       {
        "text": "to be put inside",
+       "at": 40,
        "note": "the one and the jerk are to be put inside the game's letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "game up",
-         "gives": "POLO",
-         "note": "polo is a game played with the riders up on horseback"
-        },
-        {
-         "words": "One",
-         "gives": "I",
-         "note": "I = one"
-        }
-       ]
+       "words": "game up",
+       "at": 22,
+       "gives": "POLO",
+       "note": "polo is a game played with the players up on horseback"
       },
       {
-       "words": "jerk",
-       "gives": "TIC",
-       "note": "a tic is an involuntary jerk"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "at": 31,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "jerk",
+         "at": 35,
+         "gives": "TIC",
+         "note": "a tic is an involuntary jerk or twitch"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An MP's sport is under way, and someone twitchy is to be jailed.",
-     "walkthrough": "Westminster is the seat of the UK Parliament. 'Up' is a riding term: a jockey is 'up' in the saddle, which is where polo is played.",
-     "definitionFit": "A politico is an informal word for a politician, and Westminster is where British lawmakers sit."
+     "surface": "An MP's game is up, and one twitchy fool is to be jailed.",
+     "walkthrough": "'Up' is not a reversal signal here; it is part of the game: riders are up on horses in polo.",
+     "definitionFit": "A politico is a politician, and Westminster is where Britain's Parliament sits, so its denizens are politicians."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "jerk"
+     "misdirectedWord": "up"
     }
    }
   },
@@ -1914,36 +1926,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INACTION",
-     "indicators": [
-      {
-       "text": "when leader vanishes",
-       "note": "the leader is the front letter of the group, and it disappears"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "in",
+       "at": 14,
+       "gives": "IN"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "when leader vanishes",
+         "at": 23,
+         "note": "the leader is the front letter of the group, and it disappears"
+        }
+       ],
        "parts": [
         {
-         "words": "in",
-         "note": "used as itself"
+         "words": "group",
+         "at": 17,
+         "gives": "FACTION",
+         "note": "a faction is a group within a larger body, such as a party"
         },
         {
-         "words": "group",
-         "gives": "ACTION",
-         "note": "a faction is a group, minus its first letter"
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political group idling once its chief has disappeared.",
-     "walkthrough": "The group is a faction, and losing its leader means losing its first letter.",
-     "definitionFit": "Inaction is a lack of action or activity, which is idleness, a noun matching the gerund."
+     "surface": "A political group drifts idle when its leader disappears.",
+     "walkthrough": "The group is FACTION, whose leader, F, vanishes.",
+     "definitionFit": "Inaction is a lack of action, the state of doing nothing."
     },
     "features": {
      "answerInScene": true,
@@ -2147,52 +2163,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLAUSIBLE",
-     "indicators": [
-      {
-       "text": "not the first",
-       "note": "the religious work loses its opening letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "retaining",
+         "at": 21,
+         "note": "retaining means holding on to, so the advantage keeps the a inside"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "retaining",
-           "note": "the advantage retains, holds inside, the letter 'a'"
-          }
-         ],
-         "parts": [
-          {
-           "words": "advantage",
-           "gives": "PLUS",
-           "note": "a plus is an advantage"
-          },
-          {
-           "words": "a",
-           "note": "used as itself"
-          }
-         ]
+         "words": "advantage",
+         "at": 11,
+         "gives": "PLUS",
+         "note": "a plus is an advantage"
         },
         {
+         "words": "a",
+         "at": 31,
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not the first",
+         "at": 49,
+         "note": "not the first means the word loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "religious work",
-         "gives": "IBLE",
-         "note": "the Bible, minus its first letter"
+         "at": 33,
+         "gives": "BIBLE",
+         "note": "the Bible is the religious work"
+        },
+        {
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fair edge kept by holding on to a sacred text, though not the Book of Genesis.",
-     "walkthrough": "'Not the first' seems to refer to the first book of scripture; it trims the opening letter.",
-     "definitionFit": "Plausible means credible or believable on the face of it, which is a sense of sensible or likely."
+     "surface": "A sensible benefit of keeping a sacred text, though not the original one.",
+     "walkthrough": "PLUS 'retaining' A gives PLAUS, and BIBLE without its first letter gives IBLE.",
+     "definitionFit": "Something plausible seems reasonable or likely to be true."
     },
     "features": {
      "answerInScene": false,
@@ -3424,42 +3446,46 @@
      "indicators": [
       {
        "text": "covering",
+       "at": 22,
        "note": "the middle covers, surrounds, the current and literature"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "middle",
-         "gives": "CENTRE",
-         "note": "the centre is the middle"
-        },
-        {
-         "words": "current",
-         "gives": "I",
-         "note": "I = electric current in physics"
-        }
-       ]
+       "words": "middle",
+       "at": 15,
+       "gives": "CENTRE",
+       "note": "the centre is the middle"
       },
       {
-       "words": "literature",
-       "gives": "LIT",
-       "note": "lit = literature, as in English lit"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "current",
+         "at": 31,
+         "gives": "I",
+         "note": "I is the symbol for electric current in physics"
+        },
+        {
+         "words": "literature",
+         "at": 39,
+         "gives": "LIT",
+         "note": "lit is short for literature, as in English lit"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A slim book whose central section deals with modern writing.",
-     "walkthrough": "'Small volume' reads as a short book; the volume is a quantity of liquid.",
-     "definitionFit": "A centilitre is a hundredth of a litre, a tiny metric measure of liquid capacity."
+     "surface": "A slim book, whose core deals with modern writing.",
+     "walkthrough": "'Small volume' suggests a short book, but it is a measure of liquid; 'current literature' reads as new books but splits into two pieces.",
+     "definitionFit": "A centilitre is one hundredth of a litre, a small measure of liquid volume."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "volume"
+     "misdirectedWord": "volume's"
     }
    }
   },
