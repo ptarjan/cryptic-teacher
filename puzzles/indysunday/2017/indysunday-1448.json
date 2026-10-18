@@ -99,38 +99,40 @@
      "parts": [
       {
        "words": "Dance",
+       "at": 0,
        "gives": "RUMBA",
-       "note": "the rumba is a Cuban ballroom dance"
+       "note": "the rumba is a Cuban dance"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "BA",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "half of a word keeps only one of its two parts, here the back end of the Latin dance named just before"
+         "at": 6,
+         "note": "half of means only one of the two halves of the word is kept, here its front half"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "dance",
-         "gives": "BA",
-         "select": "last",
-         "note": "the tail end of the same dance name, rumba, taken again"
+         "at": 14,
+         "gives": "BALL",
+         "note": "a ball is a formal dance, an evening of dancing"
+        },
+        {
+         "gives": "LL"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dancer pauses halfway through a dance to grab some pudding.",
-     "walkthrough": "The second 'dance' is the same rumba, of which only its final pair of letters is kept; 'half' is loose here.",
-     "definitionFit": "A rum baba is a small yeast sponge cake soaked in rum syrup, served as a dessert."
+     "surface": "An evening of dancing followed by dessert.",
+     "walkthrough": "The second 'dance' is a different kind of dance, a BALL, and 'half of' keeps only its first half, BA.",
+     "definitionFit": "A rum baba is a small sponge cake soaked in rum syrup, served as a dessert."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "half"
     }
@@ -213,45 +215,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RIPENED",
+     "op": "container",
      "indicators": [
       {
-       "text": "bumpy",
-       "note": "a bumpy journey jolts things about, so the letters of the ride are jumbled"
+       "text": "During",
+       "at": 0,
+       "note": "during means in the course of, so the swan word sits in the middle of the jumbled ride"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "During",
-         "note": "during places one thing inside the time span of another, so the bird goes within"
+         "text": "bumpy",
+         "at": 7,
+         "note": "a bumpy ride jolts things about, so the letters of ride are rearranged"
         }
        ],
        "parts": [
         {
          "words": "ride",
-         "note": "the letters of ride rearranged"
-        },
-        {
-         "words": "swan",
-         "gives": "PEN",
-         "note": "a pen is a female swan"
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "swan",
+       "at": 19,
+       "gives": "PEN",
+       "note": "a pen is a female swan"
       }
      ]
     },
     "explanation": {
-     "surface": "On a rough boat trip, a swan grew up.",
-     "walkthrough": "A pen is the female swan (the male is a cob), a convention worth learning.",
-     "definitionFit": "Fruit or ideas that have ripened have developed fully, reaching full growth or readiness."
+     "surface": "A swan growing up during a rough journey.",
+     "walkthrough": "'bumpy' rearranges RIDE as RIED, and 'During' puts PEN, a female swan, inside it.",
+     "definitionFit": "Fruit that has ripened has become fully developed and ready, so it has reached maturity."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "swan"
     }
@@ -278,58 +281,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AMOEBA",
+     "op": "container",
      "indicators": [
       {
-       "text": "upset",
-       "note": "upset means knocked over and disordered, so the president's name is rearranged"
+       "text": "about",
+       "at": 12,
+       "note": "about means surrounding, so the jumbled Obama goes round the picked letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means surrounding, so the jumbled name goes round the chosen letter"
+         "text": "upset",
+         "at": 6,
+         "note": "upset means overturned and disordered, so the letters of Obama are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Obama",
-         "note": "the former US president's name rearranged"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
         {
-         "op": "nth",
-         "n": 2,
-         "indicators": [
-          {
-           "text": "second",
-           "note": "second points to the letter in position two of the party word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Republican",
-           "note": "the letter in second place of the word"
-          }
-         ]
+         "text": "second",
+         "at": 31,
+         "note": "second picks out the letter in second place in Republican"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Republican's",
+         "at": 18,
+         "note": "second letter of Republican"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political jibe: a Republican is the lowest form of life, and Obama is upset about it.",
-     "walkthrough": "The 's is 'is', joining the wordplay to the definition.",
-     "definitionFit": "This single-celled protozoan is the stock example of the most primitive kind of organism."
+     "surface": "Barack Obama angry at a Republican he sees as next to the bottom of the evolutionary ladder.",
+     "walkthrough": "'second-lowest' reads as one insult, but 'second' takes E from 'Republican's' and 'lowest life form' is the definition. 'upset' rearranges OBAMA, and E sits inside it.",
+     "definitionFit": "An amoeba is a single-celled organism, traditionally cited as the most primitive form of life."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Republican"
+     "joke": "pun",
+     "misdirectedWord": "second"
     }
    }
   },
@@ -564,47 +570,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EDWINLANDSEER",
+     "op": "container",
      "indicators": [
       {
-       "text": "strange",
-       "note": "strange suggests something out of its usual form, so the following letters are reordered"
+       "text": "to protect",
+       "at": 32,
+       "note": "to protect means to shield on all sides, so the reworked letters wrap round the 22 word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to protect",
-         "note": "to protect something is to surround it, so the jumbled letters go round the cross-referenced word"
+         "text": "strange",
+         "at": 13,
+         "note": "strange means odd, out of the usual order, so the letters of new desire are rearranged"
         }
        ],
        "parts": [
         {
          "words": "new desire",
-         "note": "the letters of the two words rearranged"
-        },
-        {
-         "words": "22",
-         "gives": "LAND",
-         "note": "the answer to 22 across is estate, and an estate is land"
+         "at": 21
         }
        ]
+      },
+      {
+       "words": "22",
+       "at": 43,
+       "gives": "LAND",
+       "note": "22 points to the answer at 22-across, ESTATE, and an estate is land"
       }
      ]
     },
     "explanation": {
-     "surface": "An artist feels an odd new urge to look after a country estate.",
-     "walkthrough": "The 22 refers to 22 across, ESTATE, here a synonym for land.",
-     "definitionFit": "Sir Edwin Landseer was a Victorian artist famous for animal paintings and the Trafalgar Square lions."
+     "surface": "An artist with an odd urge to safeguard a country estate.",
+     "walkthrough": "'strange' rearranges NEW DESIRE into EDWIN SEER, and 'to protect' puts LAND (the estate of 22) between the halves. Landseer was a Victorian painter of animals, famed for The Monarch of the Glen.",
+     "definitionFit": "Sir Edwin Landseer was a celebrated English artist, so he is one example of a painter."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "desire"
+     "misdirectedWord": "protect"
     }
    }
   },

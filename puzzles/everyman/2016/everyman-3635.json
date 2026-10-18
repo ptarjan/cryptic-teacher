@@ -692,42 +692,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REMORSEFUL",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "endless means the final letter is cut off the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "about",
+       "at": 6,
+       "gives": "RE",
+       "note": "re means about or concerning, as in a letter heading"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inhibiting",
+         "at": 18,
+         "note": "inhibiting means holding in check, so the piece word holds the shortened fun inside it"
+        }
+       ],
        "parts": [
         {
-         "words": "about",
-         "gives": "RE",
-         "note": "re means about or concerning"
+         "words": "piece",
+         "at": 12,
+         "gives": "MORSEL",
+         "note": "a morsel is a small piece, especially of food"
         },
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "inhibiting",
-           "note": "to inhibit is to hold in or restrain, so one piece holds the other inside"
+           "text": "endless",
+           "at": 29,
+           "note": "endless means without its end, so fun loses its last letter"
           }
          ],
          "parts": [
           {
-           "words": "piece",
-           "gives": "MORSEL",
-           "note": "a morsel is a small piece"
+           "words": "fun",
+           "at": 37
           },
           {
-           "words": "fun",
-           "gives": "FU",
-           "note": "fun with its last letter removed"
+           "gives": "N"
           }
          ]
         }
@@ -736,14 +740,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone apologises about a comment that spoilt the fun.",
-     "walkthrough": "The trimmed fun is tucked inside the piece, with the word for 'about' placed in front.",
-     "definitionFit": "Remorseful means filled with regret and guilt, the adjective sense of sorry."
+     "surface": "An apology about a bite of something that spoiled the fun without end.",
+     "walkthrough": "'endless' cuts FUN to FU, and 'inhibiting' puts that inside MORSEL, after RE.",
+     "definitionFit": "Remorseful describes someone feeling regret or guilt, which is what being sorry for something means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "piece"
+     "misdirectedWord": "inhibiting"
     }
    }
   },
@@ -1487,46 +1491,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SPECULATE",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the jumbled piece inside the next word"
+       "at": 19,
+       "note": "in means placed within, so the jumbled letters go inside the rush word"
       }
      ],
      "parts": [
+      {
+       "words": "rush",
+       "at": 22,
+       "gives": "SPATE",
+       "note": "a spate is a sudden rush or flood, as in a spate of complaints"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "wrongly",
-         "note": "wrongly suggests the letters are set out incorrectly and need reordering"
+         "at": 11,
+         "note": "wrongly means put together incorrectly, so the letters of clue are shuffled"
         }
        ],
        "parts": [
         {
          "words": "clue",
-         "note": "the word clue rearranged"
-        },
-        {
-         "words": "rush",
-         "gives": "SPATE",
-         "note": "a spate is a sudden rush or flood"
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A solver hurriedly guesses an answer from a misread clue.",
-     "walkthrough": "SP(ECUL)ATE.",
-     "definitionFit": "To speculate is to form a theory without firm evidence, so a verb for guessing."
+     "surface": "A solver hurriedly guessing after misreading a crossword clue.",
+     "walkthrough": "The surface is self-referential, a solver misreading a clue in haste; 'wrongly' turns CLUE into ECUL, which goes inside SPATE.",
+     "definitionFit": "To speculate is to form a theory without firm evidence, which is to guess or conjecture."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rush"
+     "misdirectedWord": "clue"
     }
    }
   },
@@ -1620,41 +1625,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BREATHTAKING",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the jumbled piece inside the next word"
+       "at": 17,
+       "note": "in means placed within, so the reworked letters sit inside the cookery word"
       }
      ],
      "parts": [
+      {
+       "words": "cookery",
+       "at": 20,
+       "gives": "BAKING",
+       "note": "baking is a branch of cookery"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "involved",
-         "note": "involved means tangled or intricate, so the letters are mixed up"
+         "at": 8,
+         "note": "involved means intricate or tangled, so the letters of the art are mixed up"
         }
        ],
        "parts": [
         {
          "words": "The art",
-         "note": "these six letters rearranged"
-        },
-        {
-         "words": "cookery",
-         "gives": "BAKING",
-         "note": "baking is a kind of cookery"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The skill involved in cookery is impressive.",
-     "walkthrough": "'involved' does two jobs in the surface but here only signals the jumble; the plain 'in' sets the jumbled letters within the cookery word.",
-     "definitionFit": "Breathtaking describes something astonishing enough to make one gasp, a synonym for awe-inspiring."
+     "surface": "Praise for the artistry that goes into cooking, called awe-inspiring.",
+     "walkthrough": "'The art involved in cookery' reads as one phrase about skill in the kitchen, but 'involved' rearranges THE ART into REATHT, and 'in' sets it inside BAKING.",
+     "definitionFit": "Something breathtaking is so astonishing it seems to stop your breath, so it inspires awe."
     },
     "features": {
      "answerInScene": true,

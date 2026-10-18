@@ -744,22 +744,22 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "QUERULOUS",
+     "op": "container",
      "indicators": [
       {
-       "text": "Unfinished",
-       "note": "something unfinished lacks its end, so the final letter is cut off each word"
+       "text": "stops",
+       "at": 39,
+       "note": "stops means plugs a gap, as a stopper does, so the writer's last letter goes into the middle of the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "stops",
-         "note": "a stopper plugs a gap, so this piece is pushed into the other"
+         "text": "Unfinished",
+         "at": 0,
+         "note": "unfinished means lacking its ending, and it applies to both the line word and the awful word, each losing its last letter"
         }
        ],
        "parts": [
@@ -768,44 +768,51 @@
          "parts": [
           {
            "words": "line",
-           "gives": "QUEU",
-           "note": "a queue is a line of people, here missing its last letter"
+           "at": 11,
+           "gives": "QUEUE",
+           "note": "a queue is a line of people waiting"
           },
           {
            "words": "awful",
-           "gives": "LOUS",
-           "note": "lousy means awful, also missing its last letter"
+           "at": 16,
+           "gives": "LOUSY",
+           "note": "lousy means awful, very bad"
           }
          ]
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "'finally' asks for the last letter only"
-          }
-         ],
-         "parts": [
-          {
-           "words": "writer",
-           "note": "the last letter of the word"
-          }
-         ]
+         "gives": "EY"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 31,
+         "note": "finally picks the last letter of writer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "writer",
+         "at": 24,
+         "note": "last letter of writer"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer abandons a bad line at last and stops grumbling.",
-     "walkthrough": "'Unfinished' trims both QUEUE and LOUSY; then R is plugged between the E and the U of QUEU, giving QUERULOUS.",
-     "definitionFit": "Querulous describes someone who habitually whines and grumbles, an adjective matching the participle used adjectivally."
+     "surface": "A grumble that an incomplete line of verse is dreadful, until the poet finally gives up.",
+     "walkthrough": "'Unfinished' does double duty, cutting the end off both the line word and the awful word. 'stops' then puts R, from 'writer finally', in the gap between the two shortened words.",
+     "definitionFit": "Querulous means whining or peevish, given to grumbling, which is how a complaining person sounds."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "stops"
+     "misdirectedWord": "line"
     }
    }
   },

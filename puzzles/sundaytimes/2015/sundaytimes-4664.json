@@ -741,42 +741,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DESIDERATUM",
+     "op": "container",
      "indicators": [
       {
-       "text": "badly presented",
-       "note": "something badly presented is in a muddle, so the letters are jumbled"
+       "text": "about",
+       "at": 15,
+       "note": "about means surrounding, so the fact word wraps around the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "fact",
+       "at": 10,
+       "gives": "DATUM",
+       "note": "a datum is a single fact or piece of information"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so the fact wraps round the other letters"
+         "text": "badly presented",
+         "at": 29,
+         "note": "badly presented means set out in a muddled way, so the letters of deer is are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "fact",
-         "gives": "DATUM",
-         "note": "a datum is a single fact or piece of data"
-        },
-        {
          "words": "deer is",
-         "note": "the two words rearranged"
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A key fact about deer is poorly reported.",
-     "walkthrough": "'Essential' looks like an adjective, but it is a noun here: a necessity.",
-     "definitionFit": "A desideratum is something needed or wanted, so it is an essential in the noun sense."
+     "surface": "A complaint that some key piece of information about deer has been poorly laid out.",
+     "walkthrough": "'badly presented' turns DEER IS into ESIDER, and 'about' wraps DATUM around it, split as D...ATUM. 'Essential' is a noun here, something needed.",
+     "definitionFit": "A desideratum is something considered necessary or highly desirable, which is what a noun 'essential' names."
     },
     "features": {
      "answerInScene": false,

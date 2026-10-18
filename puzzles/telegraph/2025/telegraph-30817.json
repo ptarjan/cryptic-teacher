@@ -473,38 +473,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PRIMITIVE",
-     "indicators": [
-      {
-       "text": "rejecting outsiders",
-       "note": "rejecting outsiders means throwing out the outer letters, keeping only the middle"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "demure",
+       "at": 15,
        "gives": "PRIM",
-       "note": "prim means demure and proper"
+       "note": "prim means demure, primly proper"
       },
       {
        "words": "Italian",
-       "gives": "IT",
-       "note": "IT is the abbreviation for Italian"
+       "at": 22,
+       "gives": "IT"
       },
       {
-       "words": "wives",
-       "note": "taken as written"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "rejecting outsiders",
+         "at": 36,
+         "note": "rejecting outsiders means throwing away the outermost letters, the first and last of wives"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wives",
+         "at": 30,
+         "note": "the word wives with its first and last letters gone"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Traditional, modest Italian wives who keep strangers at arm's length.",
-     "definitionFit": "Primitive can mean crude or old-fashioned, belonging to an earlier stage of development."
+     "surface": "A description of prudish Italian women who snub strangers, called old-fashioned.",
+     "walkthrough": "'rejecting outsiders' drops the W and S from WIVES to leave IVE.",
+     "definitionFit": "Primitive can mean crude or belonging to an early stage, so outdated and old-fashioned."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "outsiders"
     }
@@ -900,54 +907,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PENGUINS",
-     "indicators": [
-      {
-       "text": "shivering",
-       "note": "shivering means trembling and shaking, so the letters are shaken into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PENGUINS",
+       "words": "Portugal",
+       "at": 11,
+       "gives": "P",
+       "note": "P is the international vehicle registration letter for Portugal"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "with temperature dropping",
-         "note": "dropping means letting fall away, so the temperature abbreviation is taken out"
+         "text": "shivering",
+         "at": 31,
+         "note": "shivering means shaking about, so the remaining letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "Portugal",
-         "gives": "P",
-         "note": "P is the international vehicle code for Portugal"
-        },
-        {
-         "words": "sing tune",
-         "note": "taken as written"
-        },
-        {
-         "words": "temperature",
-         "gives": "T",
-         "note": "T is the abbreviation for temperature"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "with",
+           "at": 41,
+           "note": "with ties the temperature letter to the dropping, the change made to the tune before it is shaken up"
+          },
+          {
+           "text": "dropping",
+           "at": 58,
+           "note": "dropping means letting fall, so the temperature letter is removed from the fodder"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sing tune",
+           "at": 20
+          },
+          {
+           "words": "temperature",
+           "at": 46,
+           "gives": "T"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Birds sing as they shiver in the cold, though they hardly belong in Portugal.",
-     "walkthrough": "Shivering in the cold suits the answer, which helps disguise that it is an anagram signal.",
-     "definitionFit": "Penguins are flightless seabirds of the southern hemisphere."
+     "surface": "Birds in Portugal singing a song while trembling as the weather turns cold.",
+     "walkthrough": "'dropping' takes T out of SING TUNE, leaving SINGUNE, and 'shivering' rearranges that into ENGUINS after P. The cold is a nice touch for these Antarctic birds.",
+     "definitionFit": "Penguins are flightless seabirds of the southern hemisphere, so they are a kind of bird."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "shivering"
+     "misdirectedWord": "dropping"
     }
    }
   },
@@ -1118,51 +1134,65 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SCARLET",
+     "op": "charade",
      "indicators": [
       {
-       "text": "for",
-       "note": "for here means in place of, so one letter swaps out another"
+       "text": "on",
+       "at": 9,
+       "note": "in a down clue, on means placed above, so the mark word comes first"
       }
      ],
      "parts": [
       {
        "words": "mark",
+       "at": 4,
        "gives": "SCAR",
        "note": "a scar is a mark left on the skin"
       },
       {
-       "words": "leg",
-       "note": "taken as written"
-      },
-      {
-       "op": "last",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "finally",
-         "note": "finally points to the very end of the word that follows"
+         "text": "for",
+         "at": 29,
+         "note": "for means in place of, so the last letter of went replaces the good letter"
         }
        ],
        "parts": [
         {
-         "words": "went",
-         "note": "the final letter of went"
+         "words": "leg",
+         "at": 12
+        },
+        {
+         "words": "good",
+         "at": 33,
+         "gives": "G"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 16,
+           "note": "finally picks the closing letter of went"
+          }
+         ],
+         "parts": [
+          {
+           "words": "went",
+           "at": 24,
+           "note": "last letter of went"
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "good",
-       "gives": "G",
-       "note": "G is the abbreviation for good"
       }
      ]
     },
     "explanation": {
-     "surface": "A red mark on someone's leg has finally gone for good.",
-     "walkthrough": "Read as an instruction, 'finally went for good' puts the last letter of went in place of the G in leg.",
-     "definitionFit": "Scarlet is a vivid shade of red."
+     "surface": "A red mark on someone's leg that has finally disappeared for good.",
+     "walkthrough": "'went for good' looks like 'vanished forever', but it means T, the last letter of 'went', replacing G (good) in LEG to make LET.",
+     "definitionFit": "Scarlet is a bright shade of red, so the answer is a kind of red."
     },
     "features": {
      "answerInScene": false,

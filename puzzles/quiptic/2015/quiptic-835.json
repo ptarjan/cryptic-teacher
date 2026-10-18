@@ -884,69 +884,75 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SERENENESS",
-     "indicators": [
-      {
-       "text": "Compose",
-       "note": "to compose is to put together, so these letters are assembled in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SERENENESS",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "not",
-         "note": "not means without, so the following letter is taken away"
+         "text": "Compose",
+         "at": 0,
+         "note": "to compose is to put together or arrange, so the letters that follow are arranged afresh"
         }
        ],
        "parts": [
         {
-         "words": "nerves",
-         "note": "taken as written"
-        },
-        {
-         "words": "very",
-         "gives": "V",
-         "note": "V is the abbreviation for very"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not",
+           "at": 16,
+           "note": "not tells us to leave out the very abbreviation from the word nerves"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nerves",
+           "at": 8
+          },
+          {
+           "words": "very",
+           "at": 20,
+           "gives": "V"
+          }
+         ]
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "initially",
-           "note": "initially means at the start, so only the opening letter is used"
+           "at": 30,
+           "note": "initially asks for only the opening letter of the word easy"
           }
          ],
          "parts": [
           {
            "words": "easy",
-           "note": "the opening letter of the word"
+           "at": 25,
+           "note": "first letter of easy"
           }
          ]
-        },
-        {
-         "words": "head",
-         "gives": "NESS",
-         "note": "a ness is a headland, as in Loch Ness or Dungeness"
         }
        ]
+      },
+      {
+       "words": "head",
+       "at": 45,
+       "gives": "NESS",
+       "note": "a ness is a headland, a promontory jutting into the sea, as in Orford Ness"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to calm jangled nerves and seek peace and quiet.",
-     "walkthrough": "'Head' is not a first-letter signal here; it means a headland, as in place names like Dungeness.",
-     "definitionFit": "Sereneness is the state of being calm and untroubled, the same as tranquillity."
+     "surface": "Advice to calm yourself down: settle your nerves, take it gently, and seek peace.",
+     "walkthrough": "'not very' takes V out of NERVES to leave NERES; add E (easy initially) and 'Compose' rearranges them into SERENE. Then NESS, a headland, follows.",
+     "definitionFit": "Being serene means being calm and untroubled, so the state of it is a synonym for peaceful calm."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Compose"
+     "misdirectedWord": "head"
     }
    }
   },

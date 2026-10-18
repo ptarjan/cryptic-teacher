@@ -248,34 +248,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EQUAL",
      "indicators": [
       {
        "text": "going out",
-       "note": "going out means leaving, so the named letters depart from the word"
+       "at": 12,
+       "note": "going out means leaving, so the letters of by are taken out of equably"
       }
      ],
      "parts": [
       {
        "words": "Equably",
-       "note": "taken as written"
+       "at": 0
       },
       {
        "words": "by",
-       "note": "the letters to remove"
+       "at": 9,
+       "gives": "BY"
       }
      ]
     },
     "explanation": {
-     "surface": "Calmly, as things go out, everything stays on an even keel.",
-     "walkthrough": "Strip the B and the Y from EQUABLY, leaving EQUAL.",
-     "definitionFit": "Equal and level both mean even, with neither side ahead, as in a level score."
+     "surface": "A calm, even-tempered person who stays steady as they head out.",
+     "walkthrough": "The B and the Y of 'by' are not side by side in EQUABLY: B comes after the A and Y is the final letter. Taking both out, in order, leaves EQUAL.",
+     "definitionFit": "Equal and level both describe things that are even or the same, as in scores that are level."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "by"
+     "misdirectedWord": "Equably"
     }
    }
   },
@@ -884,12 +884,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DIESEL",
      "indicators": [
       {
        "text": "inside",
-       "note": "inside places the first set of letters within the second"
+       "at": 11,
+       "note": "inside means placed within, so the rearranged see goes into the reversed lid"
       }
      ],
      "parts": [
@@ -898,36 +897,39 @@
        "indicators": [
         {
          "text": "lifted",
-         "note": "in a down clue, lifting means raising from bottom to top, so the word reads upwards"
+         "at": 22,
+         "note": "lifted means raised up, and in a down clue a word raised up reads from bottom to top, backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "Maybe",
-           "note": "maybe hints the word could appear in a different form, so its letters are reordered"
-          }
-         ],
-         "parts": [
-          {
-           "words": "see",
-           "note": "the letters of see rearranged"
-          },
-          {
-           "words": "lid",
-           "note": "taken as written before being turned upwards"
-          }
-         ]
+         "words": "lid",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Maybe",
+         "at": 0,
+         "note": "maybe suggests a possible version of the word, so the letters of see are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "see",
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Perhaps look inside the raised cap of a tank when refuelling.",
-     "definitionFit": "Diesel is a heavy oil burned in compression-ignition engines, a type of fuel."
+     "surface": "Someone peering under a raised lid to check, maybe, on the fuel.",
+     "walkthrough": "'lifted' turns LID upwards into DIL, and 'Maybe' rearranges SEE as ESE, which goes inside it after the DI.",
+     "definitionFit": "Diesel is a heavy oil burned in diesel engines, a common kind of fuel for vehicles."
     },
     "features": {
      "answerInScene": true,
