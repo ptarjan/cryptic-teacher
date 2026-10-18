@@ -869,40 +869,39 @@
      "parts": [
       {
        "words": "Performers",
+       "at": 0,
        "gives": "CAST",
-       "note": "the cast are the performers"
+       "note": "the cast is the set of performers in a show"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "IG",
        "indicators": [
         {
          "text": "principally",
-         "note": "in the first place, so first letters"
+         "at": 19,
+         "note": "principally means at the start, so only the first letter of each word is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "in Gigi principally",
-         "gives": "IG",
-         "select": "first",
-         "note": "first letters of In Gigi"
+         "words": "in Gigi",
+         "at": 11,
+         "note": "first letters of in and Gigi"
         }
        ]
       },
       {
        "words": "had",
+       "at": 31,
        "gives": "ATE",
-       "note": "to have a meal = to eat; had = ate"
+       "note": "had in the sense of ate, as in 'had lunch'"
       }
      ]
     },
     "explanation": {
-     "surface": "The actors in the musical Gigi were told to wear less formal costumes.",
-     "walkthrough": "'Dress down' looks like wearing casual clothes; here it is to scold. Gigi is the musical, but only its first letter is used.",
-     "definitionFit": "An idiom: to dress someone down is to scold them hard."
+     "surface": "The actors in the musical Gigi had to wear casual clothes.",
+     "walkthrough": "'dress down' looks like wearing casual clothes, but it means to scold.",
+     "definitionFit": "To dress someone down is to rebuke them severely, which is exactly what castigating means."
     },
     "features": {
      "answerInScene": false,
@@ -1219,52 +1218,55 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "in the end",
-       "note": "what lies in the end of each word is its final letter"
+       "text": "after",
+       "at": 32,
+       "note": "after puts the kids' end letters behind the rest"
       }
      ],
      "parts": [
       {
+       "words": "a",
+       "at": 38,
+       "gives": "A"
+      },
+      {
+       "words": "day",
+       "at": 40,
+       "gives": "D"
+      },
+      {
+       "words": "shift",
+       "at": 44,
+       "gives": "DRESS",
+       "note": "a shift is a simple loose dress"
+      },
+      {
        "op": "last",
        "indicators": [
         {
-         "text": "after",
-         "note": "those letters come after the rest"
+         "text": "in the end",
+         "at": 20,
+         "note": "in the end means the final letters of each word"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "kept as it is"
+         "words": "the kids",
+         "at": 11,
+         "note": "last letters of the and kids"
         }
        ]
-      },
-      {
-       "words": "day",
-       "gives": "D",
-       "note": "d = day"
-      },
-      {
-       "words": "shift?",
-       "gives": "DRESS",
-       "note": "a shift is a loose straight dress"
-      },
-      {
-       "words": "the kids",
-       "gives": "ES",
-       "note": "last letters of thE kidS"
       }
      ]
     },
     "explanation": {
-     "surface": "A parent handling the children at the end of a working shift.",
-     "walkthrough": "'Shift' reads as a spell of work; it is the dress. The question mark flags that sense.",
-     "definitionFit": "A plain synonym: to tackle a problem is to deal with it."
+     "surface": "A parent copes with the children at the end of a long working day.",
+     "walkthrough": "'day shift' reads as a work rota, but it is D and a shift dress.",
+     "definitionFit": "To address a problem is to deal with it, tackle it."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "shift"
     }
    }
@@ -1359,49 +1361,58 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "OATMILK",
+     "indicators": [
+      {
+       "text": "fancy",
+       "at": 21,
+       "note": "fancy means elaborate or fanciful, so the letters are rearranged"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "OATMILK",
        "indicators": [
         {
-         "text": "fancy",
-         "note": "elaborate, so the letters are rearranged"
-        },
-        {
          "text": "with no",
-         "note": "a mocktail with no cherry has had that letter taken out"
-        },
-        {
-         "text": "to start with",
-         "note": "the first letter of cherry"
+         "at": 36,
+         "note": "with no means without, so that letter is removed"
         }
        ],
        "parts": [
         {
          "words": "mocktail",
-         "note": "anagram fodder before the removal"
+         "at": 27
         },
         {
-         "words": "cherry to start with",
-         "gives": "C",
-         "note": "first letter of Cherry, removed"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "to start with",
+           "at": 51,
+           "note": "to start with means the first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cherry",
+           "at": 44,
+           "note": "first letter of cherry"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plant milk used in a fancy alcohol-free cocktail, served without its cherry.",
-     "walkthrough": "MOCKTAIL loses C and the rest rearranges; a mocktail is a non-alcoholic cocktail.",
-     "definitionFit": "A definition by example: a plant-based drink made from oats that replaces cow's milk."
+     "surface": "A non-alcoholic cocktail served without its cherry contains a dairy-free milk.",
+     "walkthrough": "'fancy' looks like it describes the mocktail, but it signals an anagram of MOKTAIL, the mocktail minus its C.",
+     "definitionFit": "Oat milk is a plant-based drink used in place of cow's milk."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
     }
    }
   },
@@ -2231,19 +2242,14 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "revolutionary",
-       "note": "revolving, so the pieces are turned round"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "lacking",
-         "note": "the current letter is taken out"
+         "text": "revolutionary",
+         "at": 7,
+         "note": "revolutionary means turning round, so the letters are read backwards"
         }
        ],
        "parts": [
@@ -2252,12 +2258,13 @@
          "parts": [
           {
            "words": "A",
-           "note": "kept as it is"
+           "at": 0,
+           "gives": "A"
           },
           {
            "words": "new",
-           "gives": "N",
-           "note": "n = new"
+           "at": 2,
+           "gives": "N"
           }
          ]
         }
@@ -2265,30 +2272,39 @@
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 32,
+         "note": "lacking means without, so the current letter is removed"
+        }
+       ],
        "parts": [
         {
          "words": "discipline",
+         "at": 21,
          "gives": "SCIENCE",
-         "note": "a science is a field of study, a discipline"
+         "note": "a science is a branch of study, a discipline"
         },
         {
          "words": "current",
+         "at": 40,
          "gives": "I",
-         "note": "I = electric current in physics, removed from SCIENCE"
+         "note": "I is the physics symbol for electric current"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fresh, radical field of study that isn't up to date.",
-     "walkthrough": "'Revolutionary' looks like praise for a radical new field; it only turns two letters round. I is the physics symbol for current.",
-     "definitionFit": "A rare formal word for coming into being, the first stage of development."
+     "surface": "A radical new academic subject without much momentum is emerging.",
+     "walkthrough": "'revolutionary' looks political, but it turns A N round to NA.",
+     "definitionFit": "Nascence is the process of coming into being, a birth or development."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "current"
+     "misdirectedWord": "revolutionary"
     }
    }
   },
@@ -2372,51 +2388,56 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CONFESSION",
+     "indicators": [
+      {
+       "text": "Replace start of",
+       "at": 0,
+       "note": "replace the start of means swap out the first letter for something else"
+      }
+     ],
      "parts": [
       {
+       "words": "session",
+       "at": 17,
+       "note": "taken as written"
+      },
+      {
+       "gives": "S",
+       "note": "the first letter of session"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CONFESSION",
        "indicators": [
         {
-         "text": "Replace",
-         "note": "swap one letter for other letters"
-        },
-        {
-         "text": "start of",
-         "note": "the first letter is the one swapped"
-        },
-        {
          "text": "short",
-         "note": "the forum word is cut short"
+         "at": 30,
+         "note": "short means abbreviated, so the word is cut down to its usual short form"
         }
        ],
        "parts": [
         {
-         "words": "session",
-         "gives": "ESSION",
-         "note": "SESSION with its first letter taken away"
+         "words": "online forum",
+         "at": 36,
+         "gives": "CONFERENCE",
+         "note": "a conference is a forum for discussion, and online ones are often run as conferences"
         },
         {
-         "words": "short online forum",
-         "gives": "CONF",
-         "note": "an online forum is a conference; shortened to CONF, it replaces the S"
+         "gives": "ERENCE",
+         "note": "the letters dropped to give the short form conf"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Swapping a meeting for a brief web chat and making a dramatic disclosure.",
-     "walkthrough": "The exclamation is the definition: a confession is a revelation.",
-     "definitionFit": "A definition by exclamation: an admission that reveals something hidden."
+     "surface": "Someone proposes swapping a meeting for a quick internet chat, and calls it an eye-opener.",
+     "walkthrough": "CONF is the familiar short form of conference; it takes the place of the S at the start of SESSION.",
+     "definitionFit": "A confession is a disclosure of something hidden, so it reveals a secret."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "session"
+     "misdirectedWord": "forum"
     }
    }
   },
@@ -2451,55 +2472,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "at regular intervals, so every other letter"
+       "text": "seen in",
+       "at": 16,
+       "note": "seen in means appearing inside, so these letters go within the others"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "fantastically",
-         "note": "wildly, so the letters are rearranged"
+         "at": 24,
+         "note": "fantastically means wildly or in a fanciful way, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "RC",
-         "indicators": [
-          {
-           "text": "seen in",
-           "note": "the regular letters go into the mix"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Grace regularly",
-           "gives": "RC",
-           "select": "alternate",
-           "note": "every other letter of gRaCe"
-          }
-         ]
-        },
-        {
          "words": "surefooted",
-         "note": "anagram fodder, 10 letters"
+         "at": 38
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 6,
+         "note": "regularly means at even intervals, so alternate letters are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Grace",
+         "at": 0,
+         "note": "the second and fourth letters of Grace"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A graceful dancer's sure-footed, brilliant shows.",
-     "walkthrough": "'Grace' looks like the dancer's quality, but only its even letters are used.",
-     "definitionFit": "A loan phrase from French for feats of strength, used of brilliant performances."
+     "surface": "Graceful, nimble moves are on show in some brilliant displays.",
+     "walkthrough": "'Grace' supplies only R and C; 'fantastically' scrambles SUREFOOTED around them.",
+     "definitionFit": "Tours de force are feats of exceptional skill, performances that stand out as masterly."
     },
     "features": {
      "answerInScene": true,
@@ -2995,36 +3015,37 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "FL",
+       "op": "deletion",
        "indicators": [
         {
          "text": "opening couplet of",
-         "note": "a couplet is a pair, and the opening pair of a word is its first two letters"
+         "at": 18,
+         "note": "a couplet is a pair, so only the opening two letters of the word are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "opening couplet of flamenco",
-         "gives": "FL",
-         "select": "first",
-         "note": "the first two letters of FLamenco"
+         "words": "flamenco",
+         "at": 37
+        },
+        {
+         "gives": "AMENCO",
+         "note": "the letters after the opening pair, which are dropped"
         }
        ]
       },
       {
        "words": "tune",
+       "at": 46,
        "gives": "AIR",
        "note": "an air is a tune"
       }
      ]
     },
     "explanation": {
-     "surface": "Skill showing in the first lines of a flamenco song.",
-     "walkthrough": "A couplet is two lines of verse; here it means two letters.",
-     "definitionFit": "A plain synonym: a natural gift or knack."
+     "surface": "Skill shows in the first two lines of a Spanish dance song.",
+     "walkthrough": "'couplet' suggests two lines of verse, but it means the first two letters, FL.",
+     "definitionFit": "Flair is a natural aptitude or talent for something."
     },
     "features": {
      "answerInScene": true,
@@ -3303,66 +3324,76 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ACCOMPANIMENT",
-     "indicators": [
-      {
-       "text": "to receive",
-       "note": "the aim takes the other pieces inside"
-      },
-      {
-       "text": "mostly",
-       "note": "most of the word, the last letter dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to receive",
+         "at": 27,
+         "note": "to receive means to take in, so the other letters go inside"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "words": "Intend",
+         "at": 0,
+         "gives": "AIM",
+         "note": "to aim is to intend"
+        },
+        {
+         "op": "charade",
          "parts": [
           {
-           "words": "Intend",
-           "gives": "AIM",
-           "note": "to aim is to intend; the outer piece"
+           "words": "constant",
+           "at": 38,
+           "gives": "C",
+           "note": "C is the symbol for a constant, such as the speed of light"
           },
           {
-           "op": "charade",
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "mostly",
+             "at": 48,
+             "note": "mostly means all but the last letter"
+            }
+           ],
            "parts": [
             {
-             "words": "constant",
-             "gives": "C",
-             "note": "c = constant, as the speed of light; inside"
+             "words": "firm",
+             "at": 55,
+             "gives": "COMPANY",
+             "note": "a company is a firm"
             },
             {
-             "words": "mostly firm",
-             "gives": "COMPAN",
-             "note": "a firm is a company, missing its last letter; inside"
+             "gives": "Y",
+             "note": "the last letter of the word for firm"
             }
            ]
           }
          ]
-        },
-        {
-         "words": "hospital department",
-         "gives": "ENT",
-         "note": "ENT = ear, nose and throat"
         }
        ]
+      },
+      {
+       "words": "hospital department",
+       "at": 7,
+       "gives": "ENT",
+       "note": "ENT is the ear, nose and throat department of a hospital"
       }
      ]
     },
     "explanation": {
-     "surface": "Planning for a hospital unit to be given steady, solid backing.",
-     "walkthrough": "The definition is musical: accompaniment is the support behind a soloist. A(C COMPAN)IM then ENT.",
-     "definitionFit": "A musical sense: the backing part that supports a singer or soloist."
+     "surface": "A hospital unit plans to take on reliable, mostly stable funding.",
+     "walkthrough": "'support' looks like what the hospital receives, but it is the definition, in the musical sense.",
+     "definitionFit": "An accompaniment is a backing part, such as piano supporting a singer or soloist."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "firm"
+     "misdirectedWord": "support"
     }
    }
   },
@@ -3536,47 +3567,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "initially",
-       "note": "at the start of each word, so their first letters"
+       "text": "infused with",
+       "at": 33,
+       "note": "infused with means filled through with, so the other letters go inside"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "TY",
        "indicators": [
         {
-         "text": "infused with",
-         "note": "the outer letters have the other word poured into them"
+         "text": "initially",
+         "at": 23,
+         "note": "initially means at the start, so only the first letters are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "that you initially",
-         "gives": "TY",
-         "select": "first",
-         "note": "first letters of That You; the outer piece"
+         "words": "that you",
+         "at": 14,
+         "note": "first letters of that and you"
         }
        ]
       },
       {
        "words": "rum",
+       "at": 46,
        "gives": "ODD",
-       "note": "rum = odd, strange; placed inside"
+       "note": "rum in the old sense of odd or peculiar"
       }
      ]
     },
     "explanation": {
-     "surface": "A hot drink laced with rum, just for you.",
-     "walkthrough": "'Rum' looks like the spirit in a toddy; it is the old British sense, odd.",
-     "definitionFit": "A definition by example: a hot drink of spirits, sugar and water."
+     "surface": "A hot drink that you first steep with some rum.",
+     "walkthrough": "'rum' is the drink you expect in a hot toddy, but here it is an adjective meaning strange.",
+     "definitionFit": "A toddy is a hot drink of spirits, sugar and water, often with spices or lemon."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "rum"
     }
    }

@@ -408,40 +408,32 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "wearing",
-       "note": "whatever is worn has its wearer inside it, signalling the word for 'in'"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Jolly",
-         "gives": "TAR",
-         "note": "a jolly is a Royal Marine, here loosely a seaman, which a tar is"
-        },
-        {
-         "words": "wearing",
-         "gives": "IN",
-         "note": "dressed in, so wearing gives IN"
-        }
-       ]
+       "words": "Jolly",
+       "at": 0,
+       "gives": "TAR",
+       "note": "a jolly is old naval slang for a Royal Marine, so a seafarer; tar is the classic word for a sailor"
       },
       {
        "words": "missionary",
+       "at": 6,
        "gives": "PAUL",
-       "note": "St Paul, the apostle famed for his missionary journeys"
+       "note": "St Paul, the great missionary of the early Church"
+      },
+      {
+       "words": "wearing",
+       "at": 17,
+       "gives": "IN",
+       "note": "in can mean wearing, as in 'in a hat'"
       }
      ]
     },
     "explanation": {
-     "surface": "A cheerful missionary has put on a sailor's cap.",
-     "walkthrough": "'Jolly' looks like an adjective for the missionary, but it is a noun: a Royal Marine, standing in for a sailor.",
-     "definitionFit": "A tarpaulin was a broad-brimmed waterproof hat of tarred cloth once worn by seamen."
+     "surface": "A cheerful evangelist has put on a seaman's cap.",
+     "walkthrough": "'Jolly' looks like an adjective for the missionary, but it is a noun here, the slang for a marine.",
+     "definitionFit": "A tarpaulin was a sailor's hat made of tarred or waterproofed cloth, and the word also came to mean a seaman."
     },
     "features": {
      "answerInScene": true,
@@ -1515,48 +1507,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TESLA",
-     "indicators": [
-      {
-       "text": "saving skin",
-       "note": "'saving' means except, so everything but the outer layer is kept"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 21,
+         "note": "in a down clue, up means the word is read from bottom to top"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "up",
-           "note": "in a down answer, going up means reading the letters from the bottom"
-          }
-         ],
-         "parts": [
-          {
-           "words": "put",
-           "gives": "SET",
-           "note": "to set something down is to put it"
-          }
-         ]
-        },
+         "words": "put",
+         "at": 17,
+         "gives": "SET",
+         "note": "to put something is to set it down"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "saving skin",
+         "at": 30,
+         "note": "saving means except, so the word is taken without its skin, its outer letters"
+        }
+       ],
+       "parts": [
         {
          "words": "plan",
-         "gives": "LA",
-         "note": "the word with its first and last letters stripped"
+         "at": 24,
+         "note": "the inside letters of plan"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A carmaker unveiled its plans while cutting costs.",
-     "walkthrough": "'Put up' reads as one phrase for proposing a plan; split it, so 'put' gives SET and 'up' turns it over.",
-     "definitionFit": "Tesla is the American electric-vehicle company founded in 2003, an example of a carmaker."
+     "surface": "An automaker has unveiled a scheme while protecting its outer shell.",
+     "walkthrough": "'put up plan' reads as one phrase, but 'put up' is SET reversed and the plan is stripped of its first and last letters.",
+     "definitionFit": "Tesla is the American electric vehicle maker founded in 2003 and named after the inventor Nikola Tesla."
     },
     "features": {
      "answerInScene": true,

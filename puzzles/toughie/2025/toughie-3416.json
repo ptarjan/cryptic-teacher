@@ -303,41 +303,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ANSAFONE",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "filters in",
-       "note": "something that filters in seeps inside, so one word works its way into the other"
-      },
-      {
        "text": "most of",
-       "note": "only the greater part of the second word gets inside; its tail is left trailing after"
+       "at": 33,
+       "note": "most of a word is all but its last letter, so the wrapping stops before the final letter"
       }
      ],
      "parts": [
       {
-       "words": "immediately",
-       "gives": "ANON",
-       "note": "an old word for at once"
+       "words": "sound",
+       "at": 41,
+       "gives": "SAFE",
+       "note": "sound as in safe and sound: unharmed, safe; the first three letters of that word are the part wrapped"
       },
       {
-       "words": "sound",
-       "gives": "SAFE",
-       "note": "sound as in safe and sound, undamaged"
+       "gives": "SAF",
+       "note": "most of the word for sound, all but its final letter"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "filters in",
+         "at": 22,
+         "note": "one word filters in when it works its way around part of another, here around the first three letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "immediately",
+         "at": 10,
+         "gives": "ANON",
+         "note": "anon is an old word for at once, immediately"
+        },
+        {
+         "words": "sound",
+         "at": 41,
+         "gives": "SAF",
+         "note": "most of the word for sound (safe), all but its final letter, is what the other word wraps"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A voicemail system sifts through sounds to pick out the urgent ones.",
-     "walkthrough": "Only most of the second word gets inside: three of its letters filter into the first word and its last letter is left trailing at the end.",
-     "definitionFit": "Ansafone is a trademark for a telephone answering machine, the device that records voicemail messages."
+     "surface": "Your voicemail service sifts through almost every noise straight away.",
+     "walkthrough": "The wrapping covers only 'most of' the word for sound, so its final letter is left outside, trailing at the end.",
+     "definitionFit": "An Ansafone is a trade name for a telephone answering machine, the device that records spoken messages."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sound"
+     "misdirectedWord": "filters"
     }
    }
   },
@@ -547,39 +566,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "to order",
-       "note": "to put something to order is to arrange it, so these letters are sorted into a new sequence"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Fine",
+       "at": 0,
+       "gives": "YES",
+       "note": "yes is a word of agreement, like 'fine!'"
+      },
+      {
+       "words": "time",
+       "at": 5,
+       "gives": "T"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to order",
+         "at": 10,
+         "note": "to order means arranged as required, so the letters of ready are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Fine",
-         "gives": "YES",
-         "note": "fine as in agreed, okay"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
-        },
-        {
          "words": "ready",
-         "note": "these letters rearranged"
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A customer agrees it is a good time to order, wanting the goods ready as soon as possible.",
-     "walkthrough": "The definition is jocular: someone who wants a job done urgently says they want it yesterday.",
-     "definitionFit": "The joking demand 'I want it yesterday' means as soon as possible, so the word stands in for asap."
+     "surface": "A customer agrees a deadline: have it made up for them, ready as soon as possible.",
+     "walkthrough": "'Fine' is not a penalty or 'very good' here but an answer of agreement. The definition is the joke of wanting a job done before it was even asked for.",
+     "definitionFit": "Saying you want something done yesterday is an idiom for wanting it as soon as possible, immediately."
     },
     "features": {
      "answerInScene": true,
@@ -740,32 +761,33 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CREWE",
+     "op": "middle",
      "indicators": [
       {
        "text": "between termini",
-       "note": "only what lies between the two end points of the word is kept, so its first and last letters go"
+       "at": 49,
+       "note": "only the letters between the two end letters (termini) are kept"
       }
      ],
      "parts": [
       {
        "words": "broken",
+       "at": 42,
        "gives": "SCREWED",
-       "note": "slang for broken, ruined beyond repair"
+       "note": "screwed in the slang sense of ruined or broken"
       }
      ]
     },
     "explanation": {
-     "surface": "An important stop for steam trains where journeys were broken between the end stations.",
-     "walkthrough": "CREWE, a town in Cheshire, is the great junction on the West Coast Main Line, where northbound trains were once split; this parse, keeping the inside of a slang word for broken, is the solvers' best guess.",
-     "definitionFit": "The Cheshire town grew up around its railway works and junction, a key interchange for steam trains on the main line."
+     "surface": "A major station on the railways was put out of action, cut off between its terminal points.",
+     "walkthrough": "'termini' sounds like railway stations, but here it means the end letters of SCREWED, which are dropped.",
+     "definitionFit": "Crewe in Cheshire grew up as a great railway junction and engineering town, a key stop on the old steam network."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "broken"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "termini"
     }
    }
   },
@@ -942,36 +964,55 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "HERALD",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "keeps",
-       "note": "something that keeps other things holds them within it"
-      },
-      {
        "text": "apart",
-       "note": "the two sides go in separately rather than side by side, with a letter between them"
+       "at": 29,
+       "note": "apart says the two side letters are kept separate, one either side of the leader's A"
       }
      ],
      "parts": [
       {
        "words": "leader",
+       "at": 10,
        "gives": "HEAD",
-       "note": "the head is the one in charge"
+       "note": "a head is a leader or chief"
       },
       {
-       "words": "sides",
-       "gives": "RL",
-       "note": "right and left, the two sides"
+       "gives": "A",
+       "note": "the third letter of the word for leader, which ends up between the two sides"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "keeps",
+         "at": 17,
+         "note": "keeps means holds within, so the sides go inside the leader"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sides",
+         "at": 23,
+         "gives": "RL",
+         "note": "R and L stand for right and left, the two sides"
+        },
+        {
+         "words": "leader",
+         "at": 10,
+         "gives": "A",
+         "note": "the A inside the word for leader (head), which stays between the two sides"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper's leading article keeps the opposing sides apart.",
-     "walkthrough": "The two sides go in separately, held apart by a letter of the leader word, as 'apart' says.",
-     "definitionFit": "A daily is a newspaper published every day, and the Herald is the title of many such papers."
+     "surface": "The newspaper's editor keeps opposing factions from each other.",
+     "walkthrough": "The leader keeps the two side letters, but 'apart': one goes in after its second letter and one after its third, with the leader's A between them. 24 Across with 14 Down is the Daily Telegraph, a newspaper.",
+     "definitionFit": "The Herald is the title of several newspapers, such as Glasgow's, so it can stand in for another paper's name."
     },
     "features": {
      "answerInScene": true,
@@ -1150,58 +1191,64 @@
      "op": "container",
      "indicators": [
       {
-       "text": "stocked by",
-       "note": "goods stocked by a shop are held inside it"
+       "text": "during",
+       "at": 39,
+       "note": "during means within the span of, so the supermarket letters sit inside the other word"
       }
      ],
      "parts": [
       {
+       "words": "slightly mad",
+       "at": 46,
+       "gives": "FEY",
+       "note": "fey can mean whimsical or slightly crazy"
+      },
+      {
        "op": "container",
        "indicators": [
         {
-         "text": "during",
-         "note": "something during a period falls within it"
+         "text": "stocked by",
+         "at": 16,
+         "note": "stocked by means held in a shop's stock, so the letter goes inside the supermarket"
         }
        ],
        "parts": [
-        {
-         "words": "slightly mad",
-         "gives": "FEY",
-         "note": "fey can mean whimsical or a little crazy"
-        },
         {
          "words": "supermarket",
+         "at": 27,
          "gives": "ASDA",
-         "note": "Asda, a British supermarket chain"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "indicators": [
+         "note": "Asda is a British supermarket chain"
+        },
         {
-         "text": "originally",
-         "note": "originally points to the origin, the start, so only the opening letter counts"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Toys",
-         "note": "first letter of the word"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 5,
+           "note": "originally means at the start, so only the first letter is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Toys",
+           "at": 0,
+           "note": "first letter of Toys"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A supermarket stocks toys during the slightly mad run-up to Christmas.",
-     "walkthrough": "ASDA is a big British supermarket chain. The question mark shows Christmas is one example of the answer.",
-     "definitionFit": "Christmas is a religious festival celebrated with a feast, so it is an example of a feast-day."
+     "surface": "Toys fill the supermarket shelves in the slightly crazy run-up to Christmas.",
+     "walkthrough": "Asda is a British supermarket; with T stocked inside it gives ASTDA, which then sits inside FEY. The question mark marks Christmas as one example of the definition.",
+     "definitionFit": "Christmas is a church festival, so it is one example of a feast day in the calendar."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "mad"
+     "misdirectedWord": "stocked"
     }
    }
   },
@@ -1621,44 +1668,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "complex",
-       "note": "something complex is intricate and tangled, so these letters are mixed up"
+       "text": "probing",
+       "at": 36,
+       "note": "something probing pushes into another thing, so this word goes inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "probing",
-         "note": "a probe pushes inside something, so this word goes into the other"
+         "text": "complex",
+         "at": 44,
+         "note": "complex means intricate or tangled, so the letters of the word are mixed up"
         }
        ],
        "parts": [
         {
          "words": "theorem",
-         "note": "these letters rearranged"
-        },
-        {
-         "words": "still",
-         "gives": "YET",
-         "note": "still as in even now"
+         "at": 52
         }
        ]
+      },
+      {
+       "words": "still",
+       "at": 30,
+       "gives": "YET",
+       "note": "yet as an adverb means still, as in 'not done yet'"
       }
      ]
     },
     "explanation": {
-     "surface": "Meteorologists still use the device to test a complicated theorem.",
-     "definitionFit": "A hyetometer is a rain gauge, from the Greek for rain, measuring rainfall for weather forecasters."
+     "surface": "A weather instrument is still being used to test a complicated mathematical result.",
+     "definitionFit": "A hyetometer is a rain gauge, an instrument for measuring rainfall used in weather forecasting."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "still"
+     "misdirectedWord": "complex"
     }
    }
   },
