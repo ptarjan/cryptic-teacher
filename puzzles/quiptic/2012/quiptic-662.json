@@ -244,40 +244,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "criminal",
-       "note": "something criminal is crooked, so these letters are bent into a new order"
+       "text": "coming over",
+       "at": 7,
+       "note": "the word for change comes over the other letters, enclosing them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Change",
+       "at": 0,
+       "gives": "PENCE",
+       "note": "pence are coins, loose change"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "coming over",
-         "note": "one thing coming over another covers it on both sides, so it surrounds it"
+         "text": "criminal",
+         "at": 24,
+         "note": "criminal means wrong or bad, so the letters of arch are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Change",
-         "gives": "PENCE",
-         "note": "pence are small coins, loose change"
-        },
-        {
          "words": "arch",
-         "note": "the word arch with its letters rearranged"
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Wondering whether an arch-criminal might have a change of heart.",
-     "walkthrough": "'Arch-criminal' reads as one villain, but the hyphen splits: arch is the fodder and criminal its anagram signal.",
-     "definitionFit": "Perchance is an old-fashioned word for maybe, so it means perhaps."
+     "surface": "A transformation comes over a master villain, maybe.",
+     "walkthrough": "'arch-criminal' reads as one word, but 'criminal' is the signal to rearrange arch, and 'Change' means coins.",
+     "definitionFit": "Perchance is an old-fashioned word for maybe or possibly."
     },
     "features": {
      "answerInScene": false,
@@ -646,49 +649,53 @@
      "indicators": [
       {
        "text": "bitten by",
-       "note": "what is bitten by something is held between its jaws, so it sits inside"
+       "at": 11,
+       "note": "the pieces are held in the bite of the other letters, inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 21,
+         "note": "oddly picks the odd letters, first and third, of mean"
+        }
+       ],
        "parts": [
         {
-         "op": "alternate",
-         "indicators": [
-          {
-           "text": "oddly",
-           "note": "oddly keeps the letters in the first, third and other odd positions"
-          }
-         ],
-         "parts": [
-          {
-           "words": "mean",
-           "note": "the first and third letters"
-          }
-         ]
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
+         "words": "mean",
+         "at": 27,
+         "note": "its odd letters are used"
         }
        ]
       },
       {
-       "words": "doctor",
-       "gives": "MB",
-       "note": "MB, Bachelor of Medicine, a doctor's qualification"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "doctor's",
+         "at": 2,
+         "gives": "MB",
+         "note": "MB, Bachelor of Medicine, is a doctor's degree"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor gets bitten by a particularly nasty snake.",
+     "surface": "A medic is bitten by a nasty serpent.",
      "definitionFit": "The mamba is a venomous African snake, the black mamba being the best known."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "mean"
+     "misdirectedWord": "oddly"
     }
    }
   },

@@ -1312,50 +1312,54 @@
      "indicators": [
       {
        "text": "grabbing",
-       "note": "grabbing means seizing and holding, so the first word encloses the rest"
+       "at": 8,
+       "note": "the cat grabs the other letters, holding them inside itself"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Big cat",
-         "gives": "LYNX",
-         "note": "a lynx is a wild cat"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Big cat",
+       "at": 0,
+       "gives": "LYNX",
+       "note": "a lynx is a wild cat"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "tail",
-         "note": "a tail is the hind end, so the last letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "deer's",
-         "gives": "DEER",
-         "note": "last letter"
+         "words": "a",
+         "at": 17
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "tail",
+           "at": 26,
+           "note": "the tail of deer is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "deer's",
+           "at": 19,
+           "gives": "DEER",
+           "note": "the deer whose tail is meant; the 's links it to tail"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wild cat seizes a deer by the rump and then the neck.",
-     "definitionFit": "The larynx is the voice box, the organ at the top of the windpipe in the throat."
+     "surface": "A lynx seizes a deer by its tail and by the throat.",
+     "walkthrough": "A and R (the tail of deer) go inside LYNX.",
+     "definitionFit": "The larynx is the voice box, the organ in the neck at the top of the windpipe."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "tail"
+     "aptDefinition": false
     }
    }
   },

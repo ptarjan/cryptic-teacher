@@ -509,43 +509,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "doctor",
-       "note": "to doctor something is to tamper with it, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "See",
+       "at": 0,
+       "gives": "C",
+       "note": "the letter C is pronounced 'see'"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "doctor",
+         "at": 4,
+         "note": "to doctor something is to tamper with it, so the letters of portray GP are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "See",
-         "gives": "C",
-         "note": "the letter's name is said 'see'"
+         "words": "portray",
+         "at": 11
         },
         {
-         "words": "portray GP",
-         "note": "these letters rearranged"
-        },
-        {
-         "words": "'I'm a little bit drunk'",
-         "gives": "HIC",
-         "note": "the sound of a tipsy hiccup"
+         "words": "GP",
+         "at": 19
         }
        ]
+      },
+      {
+       "words": "I'm a little bit drunk",
+       "at": 25,
+       "gives": "HIC",
+       "note": "hic is the hiccup sound of a tipsy person, so it says the speaker is slightly drunk"
       }
      ]
     },
     "explanation": {
-     "surface": "A patient visits the doctor to describe a GP who confesses, secretly, to being tipsy.",
-     "walkthrough": "'Doctor' and 'GP' both look medical; only 'doctor' is working, as the anagram signal.",
-     "definitionFit": "Something written in code is concealed from outsiders, so a coded message is effectively secret."
+     "surface": "A patient sees a doctor who depicts the family GP, admitting quietly to being tipsy.",
+     "walkthrough": "'doctor' looks like a noun after 'See', but it is a verb meaning tamper with; 'See' gives its letter by sound.",
+     "definitionFit": "Cryptographic writing is in code, its meaning concealed, so a cryptographic message is written in secret."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "doctor"
     }
    }
@@ -1319,40 +1327,46 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "FARMSHOP",
-     "indicators": [
-      {
-       "text": "cycling",
-       "note": "cycling moves letters round in a loop, the front one going to the back"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Fellow",
-       "gives": "F",
-       "note": "F is the abbreviation for fellow"
+       "at": 0,
+       "gives": "F"
       },
       {
-       "words": "hurts",
-       "gives": "HARMS",
-       "note": "harms means hurts"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "after cycling",
+         "at": 13,
+         "note": "after cycling, the first letter of the word for hurts moves round to the end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hurts",
+         "at": 7,
+         "gives": "HARMS",
+         "note": "harms means hurts"
+        }
+       ]
       },
       {
        "words": "work",
+       "at": 30,
        "gives": "OP",
-       "note": "op is short for opus, a work"
+       "note": "op is short for opus, a musical work"
       }
      ]
     },
     "explanation": {
-     "surface": "A man injures himself after riding his bike to his job in a shop.",
-     "walkthrough": "'Cycling' looks like riding a bike; it moves the H of the hurts word to the end.",
-     "definitionFit": "A farm shop sells produce direct from a farm, a kind of retail outlet."
+     "surface": "A man's pain flares up after a bike ride to his job in a shop.",
+     "walkthrough": "'cycling' suggests a bike ride, but it moves the first letter of the word for hurts round to the back.",
+     "definitionFit": "A farm shop sells produce on or from a farm, so it is a kind of store or retail outlet."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "cycling"
     }
@@ -1620,54 +1634,64 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "INQUIRY",
-     "indicators": [
-      {
-       "text": "to overcome",
-       "note": "to overcome is to beat and take the place of, so one letter displaces another"
-      },
-      {
-       "text": "finally",
-       "note": "finally points at the last letter of the injustice word, the one ousted"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "in",
-       "note": "taken as written"
+       "at": 8
       },
       {
-       "words": "question",
-       "gives": "QUERY",
-       "note": "a query is a question"
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral for one"
-      },
-      {
-       "op": "last",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "to overcome",
+         "at": 26,
+         "note": "one letter overcomes another, taking its place in the word for question"
+        }
+       ],
        "parts": [
         {
-         "words": "injustice",
-         "note": "the final letter of the word"
+         "words": "question",
+         "at": 11,
+         "gives": "QUERY",
+         "note": "a query is a question"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 48,
+           "note": "finally picks the last letter of injustice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "injustice",
+           "at": 38,
+           "note": "its last letter is the one replaced"
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "at": 22,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A public hearing is called into question as one effort to right an injustice.",
-     "walkthrough": "In the question word, I takes the place of E.",
-     "definitionFit": "An inquiry is an official investigation, and a hearing is the formal session in which it takes evidence."
+     "surface": "A legal hearing is called into doubt as someone sets out to defeat an unfairness.",
+     "walkthrough": "'one to overcome' means the letter for one takes the place of the final letter of injustice in the word for question.",
+     "definitionFit": "A hearing is a formal investigation such as a public inquiry, where evidence is heard."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Hearing"
+     "misdirectedWord": "overcome"
     }
    }
   }

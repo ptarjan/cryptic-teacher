@@ -174,39 +174,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "chopped",
-       "note": "chopped means cut up into pieces, so these letters are rearranged"
+       "text": "inside",
+       "at": 5,
+       "note": "the soft letter goes inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "inside",
-         "note": "inside places the letter within the rearranged letters"
+         "text": "chopped",
+         "at": 22,
+         "note": "chopped up, the letters of reheat a are reworked"
         }
        ],
        "parts": [
         {
-         "words": "reheat a",
-         "note": "the seven letters of the words, rearranged"
+         "words": "reheat",
+         "at": 13
         },
         {
-         "words": "Soft",
-         "gives": "P",
-         "note": "p is the musical marking for piano, soft"
+         "words": "a",
+         "at": 20
         }
        ]
+      },
+      {
+       "words": "Soft",
+       "at": 0,
+       "gives": "P",
+       "note": "P is the musical abbreviation for piano, soft"
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe note: reheat a chopped peanut until soft inside.",
-     "definitionFit": "The earth-pea is a pea-like plant whose pods ripen underground, a kind of groundnut."
+     "surface": "Warm up a chopped peanut so it is soft inside.",
+     "definitionFit": "The earth pea is a plant whose pods ripen underground, a type of groundnut like the peanut."
     },
     "features": {
      "answerInScene": true,
@@ -300,47 +307,48 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "POPESHIP",
      "indicators": [
       {
-       "text": "opening",
-       "note": "opening something lets another thing in, so the first word goes inside the second"
+       "text": "when opening",
+       "at": 33,
+       "note": "the rearranged letters go into an opening in the word for spleen"
       }
      ],
      "parts": [
+      {
+       "words": "spleen",
+       "at": 46,
+       "gives": "PIP",
+       "note": "pip is ill-humour or peevishness, as in 'giving someone the pip'"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "dashed",
-         "note": "hopes that are dashed are smashed to pieces, so the word is broken up and its letters rearranged"
+         "at": 26,
+         "note": "dashed hopes are broken, so their letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Hopes",
-         "note": "the five letters of the word, rearranged"
-        },
-        {
-         "words": "spleen",
-         "gives": "PIP",
-         "note": "'the pip' is a fit of bad temper or spleen"
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A father, his hopes dashed, finally vents his spleen.",
-     "walkthrough": "The Holy Father is the Pope, so 'Father's condition' is the office or state of being Pope; the question mark flags that capital-F reading.",
-     "definitionFit": "Popeship is the dignity or office held by the Pope, whom Catholics call the Holy Father."
+     "surface": "A father's medical state means his hopes were dashed during a spleen operation.",
+     "walkthrough": "Spleen here is bad temper, not the organ; the Father is the Pope, the Holy Father.",
+     "definitionFit": "Popeship is the office or dignity of a pope, the papacy, and the Pope is called Holy Father."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Father's"
+     "misdirectedWord": "spleen"
     }
    }
   },
@@ -1154,47 +1162,61 @@
      "indicators": [
       {
        "text": "consumed",
-       "note": "consumed means eaten up, so one piece is swallowed inside another"
+       "at": 59,
+       "note": "the reversed letters consume the others, taking them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "is raised",
+         "at": 34,
+         "note": "in a down clue raising means reading upwards, so the letters run backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "is raised",
-           "note": "in a down light, raised means the letters read from bottom to top"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "a great amount",
-           "gives": "ATON",
-           "note": "a ton is a great amount"
+           "words": "a",
+           "at": 19
+          },
+          {
+           "words": "great amount",
+           "at": 21,
+           "gives": "TON",
+           "note": "a ton is informally a great amount"
           }
          ]
-        },
-        {
-         "words": "quarter",
-         "gives": "QU",
-         "note": "qu. is the abbreviation for quarter"
         }
        ]
       },
       {
-       "words": "about",
-       "gives": "ON",
-       "note": "on means about, as in a talk on poetry"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "about",
+         "at": 45,
+         "gives": "ON",
+         "note": "on means about, as in a talk on a subject"
+        },
+        {
+         "words": "quarter",
+         "at": 51,
+         "gives": "QU",
+         "note": "QU is a standard abbreviation for quarter"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A huge harvest grown beyond the garden plot, with a quarter eaten.",
-     "walkthrough": "'Allotment' suggests a British vegetable plot, but here it is a quota, a set share.",
-     "definitionFit": "Non-quota describes goods or people not counted within a fixed quota, so outside the allotment."
+     "surface": "Outside the allotment a great heap is lifted, with a quarter of it eaten.",
+     "walkthrough": "'allotment' suggests a garden plot, but here it means a quota or share given out.",
+     "definitionFit": "Nonquota describes something not included in or subject to a quota or fixed allocation."
     },
     "features": {
      "answerInScene": false,
@@ -1326,55 +1348,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "going wrong",
-       "note": "going wrong means getting out of order, so the letters are scrambled"
+       "text": "in",
+       "at": 39,
+       "note": "the cut and the leg go in the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the first items inside the scrambled word"
+         "text": "going wrong",
+         "at": 47,
+         "note": "going wrong means the letters of case are put out of order"
         }
        ],
        "parts": [
         {
          "words": "case",
-         "note": "the four letters of the word, rearranged"
+         "at": 42
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Cut",
+         "at": 31,
+         "gives": "LOP",
+         "note": "lop means cut, as branches are lopped"
         },
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Cut",
-           "gives": "LOP",
-           "note": "to lop is to cut off"
-          },
-          {
-           "words": "leg",
-           "gives": "PIN",
-           "note": "pins is slang for legs"
-          }
-         ]
+         "words": "leg",
+         "at": 35,
+         "gives": "PIN",
+         "note": "pin is informal for a leg"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe note: a veal dish fails when the leg is cut up wrong.",
-     "walkthrough": "Blanquette de veau is a French veal stew; the question mark marks the answer as one example of a veal dish.",
-     "definitionFit": "Scaloppine are thin escalopes of veal, so like blanquette de veau it is a dish of veal."
+     "surface": "A veal stew recipe tells you to cut a leg while the case goes awry.",
+     "walkthrough": "Blanquette de veau is a French veal stew, so the '?' points to another veal dish.",
+     "definitionFit": "Scaloppine are thin escalopes of meat, usually veal, an Italian dish, like the French veal stew."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Cut"
+     "misdirectedWord": "leg"
     }
    }
   },

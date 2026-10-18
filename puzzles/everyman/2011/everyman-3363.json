@@ -510,50 +510,56 @@
      "indicators": [
       {
        "text": "seen round",
-       "note": "the girl is seen encircling what follows, so she wraps around the other pieces"
+       "at": 14,
+       "note": "the girl's name is seen wrapped round the other pieces, holding them inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "girl",
-         "gives": "ETHEL",
-         "note": "a girl's name"
-        },
-        {
-         "words": "about",
-         "gives": "RE",
-         "note": "re means about or concerning"
-        }
-       ]
+       "words": "girl",
+       "at": 9,
+       "gives": "ETHEL",
+       "note": "Ethel is a girl's name"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "heading for",
-         "note": "the heading of a word is its opening letter, so only that is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "arcade",
-         "note": "first letter of arcade"
+         "words": "about",
+         "at": 25,
+         "gives": "RE",
+         "note": "re is Latin-derived 'about', as in a memo heading"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "heading for",
+           "at": 32,
+           "note": "the heading of a word is its first letter, so only the start of arcade is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "arcade",
+           "at": 44,
+           "note": "its first letter supplies the piece"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lovely girl is spotted near an arcade.",
-     "definitionFit": "Ethereal describes something delicate and otherworldly, as if from the heavens."
+     "surface": "A girl is spotted wandering about on her way to an amusement arcade.",
+     "walkthrough": "'Heavenly girl' tempts as one phrase, an angel perhaps; 'Heavenly' alone is the definition and the girl is just a name.",
+     "definitionFit": "Something ethereal is delicate and otherworldly, as if from the sky or heaven, so it is a synonym of heavenly."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Heavenly"
+     "misdirectedWord": "heading"
     }
    }
   },

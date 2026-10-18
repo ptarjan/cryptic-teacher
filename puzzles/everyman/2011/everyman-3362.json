@@ -1449,39 +1449,40 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in puts the first pieces inside the word for staircase"
+       "at": 7,
+       "note": "the pieces are placed in the word for staircase"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "staircase",
-         "gives": "FLIGHT",
-         "note": "a flight is a set of stairs"
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "staircase",
+       "at": 10,
+       "gives": "FLIGHT",
+       "note": "a flight is a set of stairs"
       },
       {
-       "words": "name",
-       "gives": "N",
-       "note": "N is the abbreviation for name"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "name",
+         "at": 2,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's name is etched into a window on the stairs.",
-     "definitionFit": "A fanlight is a small semicircular window above a door, often fan-shaped."
+     "surface": "A name is written in a window on a stairway.",
+     "definitionFit": "A fanlight is a semicircular window above a door, often with radiating bars like a fan."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "staircase"
+     "aptDefinition": false
     }
    }
   },
