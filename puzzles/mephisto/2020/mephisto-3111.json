@@ -159,60 +159,63 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UNAFFECTED",
      "indicators": [
       {
        "text": "among",
-       "note": "something among others is placed in the middle of them"
+       "at": 12,
+       "note": "the vulgar word is placed among the letters of what follows, inside them"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "to drop first couple",
-         "note": "dropping the first couple means the opening two letters are discarded"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "upper-class",
-           "gives": "U",
-           "note": "U is the label for upper-class usage"
-          },
-          {
-           "words": "vulgar",
-           "gives": "NAFF",
-           "note": "naff is British slang for tacky or vulgar"
-          },
-          {
-           "words": "chose",
-           "gives": "ELECTED",
-           "note": "to elect is to choose"
-          }
-         ]
+         "words": "upper-class",
+         "at": 18,
+         "gives": "U",
+         "note": "U is the standard abbreviation for upper-class, as in U and non-U"
         },
         {
-         "gives": "EL"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "to drop first couple",
+           "at": 36,
+           "note": "the word must lose its first couple of letters, the opening pair"
+          }
+         ],
+         "parts": [
+          {
+           "words": "chose",
+           "at": 30,
+           "gives": "ELECTED",
+           "note": "to choose someone by vote is to have elected them"
+          },
+          {
+           "gives": "EL"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "vulgar",
+       "at": 5,
+       "gives": "NAFF",
+       "note": "naff is British slang for vulgar, tacky or in poor taste"
       }
      ]
     },
     "explanation": {
-     "surface": "Genuinely tasteless behaviour among the posh, choosing to give up the first couple of things.",
-     "walkthrough": "Naff is British slang for tacky; U means upper-class in the old U and non-U distinction.",
-     "definitionFit": "Unaffected means genuine, free of pretence, so real in manner."
+     "surface": "A snob noting someone genuine who mixed vulgar ways among the upper classes and chose to drop old friends.",
+     "walkthrough": "ELECTED, 'to drop first couple', loses EL to leave ECTED; NAFF goes 'among' U and ECTED. NAFF is British slang for tacky.",
+     "definitionFit": "Someone unaffected is natural and without pretence, so genuine or real in manner."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Real"
+     "misdirectedWord": "chose"
     }
    }
   },
