@@ -153,52 +153,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AGGRO",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "having no end means the final letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Deleted content of",
+         "at": 0,
+         "note": "with its content deleted, only the outside letters of appalling are left"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "Deleted content of",
-           "note": "with the contents deleted, only the shell of the word survives: its two outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "appalling",
-           "note": "first and last letters of the word"
-          }
-         ]
-        },
+         "words": "appalling",
+         "at": 19,
+         "note": "first and last letters of appalling"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 36,
+         "note": "endless means without an end, so Grok loses its final letter"
+        }
+       ],
+       "parts": [
         {
          "words": "Grok",
-         "gives": "GRO",
-         "note": "the name of the AI chatbot, minus its last letter"
+         "at": 29,
+         "note": "the AI chatbot's name, taken as written before it is shortened"
+        },
+        {
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Offensive output from the Grok chatbot gets deleted, causing no end of trouble.",
-     "walkthrough": "AG plus GRO makes AGGRO. Grok is Elon Musk's AI chatbot, whose posts have sometimes been removed.",
-     "definitionFit": "Aggro is British slang, short for aggravation, meaning hostile trouble, fighting or hassle."
+     "surface": "Someone's shocking chatbot output has been wiped, ending an endless saga.",
+     "walkthrough": "'Deleted content of' leaves AG from APPALLING, and 'endless' cuts GROK to GRO. Grok is the AI chatbot from Elon Musk's company xAI. Aggro is British slang for aggressive trouble.",
+     "definitionFit": "Aggro, short for aggravation, is British slang for aggressive behaviour or hassle, which is trouble."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Deleted"
+     "misdirectedWord": "Grok"
     }
    }
   },
@@ -423,32 +427,40 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "LATITUDE",
-     "indicators": [
-      {
-       "text": "raised",
-       "note": "in a down entry raising a letter moves it higher, swapping its place with the one above"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "height",
-       "gives": "ALTITUDE",
-       "note": "altitude is height above sea level"
+       "words": "length",
+       "at": 13,
+       "gives": "L"
       },
       {
-       "words": "length",
-       "gives": "L",
-       "note": "L is the abbreviation for length"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 20,
+         "note": "raised means lifted up, so the length letter is taken from its place in the height word and moved higher, to the top of this down answer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "height",
+         "at": 5,
+         "gives": "ALTITUDE",
+         "note": "altitude is height above sea level"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Describing a room: its height, and its length increased.",
-     "walkthrough": "ALTITUDE has its L moved up one place, above the A, to give LATITUDE. The clue reads like dimensions of a room, but 'Room' is the definition.",
-     "definitionFit": "Latitude means scope or freedom of action, which is room to manoeuvre."
+     "surface": "A room's dimensions are listed: its height, and its length has been increased.",
+     "walkthrough": "In ALTITUDE, 'raised' lifts the L from second place to first, which in a down entry is higher up the grid. 'Room' here means scope, not a chamber.",
+     "definitionFit": "Latitude is freedom of action or scope, the same sense as room in 'room for manoeuvre'."
     },
     "features": {
      "answerInScene": false,
@@ -619,26 +631,23 @@
      "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "two",
-       "note": "tells the solver to join two pieces; it supplies no letters itself"
-      },
-      {
-       "words": "hospital",
+       "words": "hospital departments",
+       "at": 12,
        "gives": "ENT",
-       "note": "ENT is the ear, nose and throat department, the first of the two"
+       "note": "ENT, the ear, nose and throat department, is one hospital department"
       },
       {
-       "words": "departments",
+       "words": "two",
+       "at": 8,
        "gives": "ER",
-       "note": "ER is the emergency room, the second of the two hospital departments"
+       "note": "ER, the emergency room, is the second of the two departments named"
       }
      ]
     },
     "explanation": {
-     "surface": "A patient is told to go into two different hospital departments.",
-     "walkthrough": "ENT treats ears, noses and throats; ER is the American emergency room.",
-     "definitionFit": "To enter a place is simply to go into it, a plain synonym for the verb."
+     "surface": "A patient is told to visit a couple of hospital departments.",
+     "walkthrough": "The two departments are ENT (ear, nose and throat) and ER (emergency room), one after the other.",
+     "definitionFit": "To enter a place is to go into it, a straightforward synonym."
     },
     "features": {
      "answerInScene": false,
@@ -1077,52 +1086,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DANGEROUS",
-     "indicators": [
-      {
-       "text": "peeling walls",
-       "note": "with its walls peeled off, a word loses its outside letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rickety",
+         "at": 8,
+         "note": "rickety means shaky and falling apart, so the letters of garden are knocked into a new order"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "rickety",
-           "note": "rickety means falling to pieces, so the letters are rebuilt in a new arrangement"
-          }
-         ],
-         "parts": [
-          {
-           "words": "garden",
-           "note": "taken as written"
-          }
-         ]
-        },
+         "words": "garden",
+         "at": 16,
+         "note": "the anagram fodder, taken as written"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "with peeling walls",
+         "at": 29,
+         "note": "with its walls peeled away, the house loses its first and last letters"
+        }
+       ],
+       "parts": [
         {
          "words": "house",
-         "gives": "OUS",
-         "note": "the word minus its first and last letters"
+         "at": 23,
+         "note": "the inner letters of house"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shaky summerhouse with flaking walls is a hazard.",
-     "walkthrough": "'garden house' looks like one building, but 'garden' is the shuffled part and 'house' loses its outer letters.",
-     "definitionFit": "Dangerous means likely to cause harm, the plain opposite of safe."
+     "surface": "A dilapidated garden and a house whose walls are peeling sound like a hazard.",
+     "walkthrough": "'Rickety' rearranges GARDEN into DANGER, and 'with peeling walls' strips HOUSE down to OUS.",
+     "definitionFit": "Something dangerous is likely to cause harm, so it is unsafe; the two adjectives are synonyms."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "garden"
+     "misdirectedWord": "walls"
     }
    }
   },
@@ -1246,42 +1256,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHOLERA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Truncated",
-       "note": "truncating cuts something short, so the end of the word is chopped off"
+       "text": "On top of this",
+       "at": 24,
+       "note": "in a down answer, on top of means placed above, so the caught letter comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "caught",
+       "at": 40,
+       "gives": "C",
+       "note": "C is the cricket scorecard abbreviation for caught"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Truncated",
+         "at": 0,
+         "note": "truncated means cut short, so holiday is reduced to its first three letters"
+        }
+       ],
        "parts": [
         {
-         "words": "caught",
-         "gives": "C",
-         "note": "C is the cricket scorecard abbreviation for caught"
-        },
-        {
          "words": "holiday",
-         "gives": "HOL",
-         "note": "the full word with its last four letters deleted"
+         "at": 10,
+         "note": "the word to be cut short, taken as written"
         },
         {
-         "words": "time",
-         "gives": "ERA",
-         "note": "an era is a period of time"
+         "gives": "IDAY"
         }
        ]
+      },
+      {
+       "words": "time",
+       "at": 18,
+       "gives": "ERA",
+       "note": "an era is a period of time"
       }
      ]
     },
     "explanation": {
-     "surface": "A holiday cut short, and on top of that someone caught a bug.",
-     "walkthrough": "In a down entry, whatever sits 'on top of' the rest is written first. 'caught' reads as catching an illness, but it is the cricket abbreviation.",
-     "definitionFit": "Cholera is an infectious bacterial disease of the intestines, spread through dirty water."
+     "surface": "A cut-short holiday, and on top of that someone caught something nasty.",
+     "walkthrough": "'Truncated' cuts HOLIDAY to HOL, with ERA (time) after it, and 'On top of this' puts C above them. 'Caught' reads as catching an illness, matching ailment, but it is the cricket letter.",
+     "definitionFit": "Cholera is a serious bacterial infection of the small intestine, an illness or ailment."
     },
     "features": {
      "answerInScene": true,
@@ -1695,32 +1716,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANKLE",
+     "op": "middle",
      "indicators": [
       {
        "text": "when uncovered",
-       "note": "uncovering strips away the outside, so the first and last letters go"
+       "at": 28,
+       "note": "uncovered means with its covering stripped, so the outside letters go"
       }
      ],
      "parts": [
       {
        "words": "continued to irritate",
+       "at": 6,
        "gives": "RANKLED",
-       "note": "to rankle is to keep causing resentment"
+       "note": "to rankle is to keep causing resentment, past tense rankled"
       }
      ]
     },
     "explanation": {
-     "surface": "A sore joint kept irritating its owner once it was bared.",
-     "walkthrough": "RANKLED loses its R and D to leave ANKLE.",
-     "definitionFit": "The ankle is the hinge joint connecting the foot to the leg."
+     "surface": "A sore joint kept bothering someone whenever it was exposed.",
+     "walkthrough": "'When uncovered' strips RANKLED of its first and last letters. 'Joint' tempts as a verb or a cannabis cigarette, but it is the body part.",
+     "definitionFit": "The ankle is the joint connecting the foot to the leg."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Joint"
+     "misdirectedWord": "irritate"
     }
    }
   },
@@ -1745,42 +1766,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DESPERADO",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
+       "text": "playing",
+       "at": 20,
+       "note": "playing suggests the letters at play, moving freely into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Adores",
+       "at": 0,
+       "note": "taken as written, part of the anagram fodder"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "playing",
-         "note": "playing a part means taking on a new form, so the letters are rearranged"
+         "text": "mostly",
+         "at": 13,
+         "note": "mostly means most but not all, so Depp loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Adores",
-         "note": "taken as written"
+         "words": "Depp",
+         "at": 7,
+         "note": "the actor's surname, taken as written before it is shortened"
         },
         {
-         "words": "Depp",
-         "gives": "DEP",
-         "note": "the actor's surname without its last letter"
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fan adores Johnny Depp, mostly when he plays an outlaw.",
-     "walkthrough": "'playing' looks like Depp acting a role, but it is the signal to rearrange.",
-     "definitionFit": "A desperado is a reckless bandit of the Wild West, a criminal on the run."
+     "surface": "A fan adores Johnny Depp, mostly when he is playing an outlaw.",
+     "walkthrough": "'Mostly' cuts DEPP to DEP, and 'playing' rearranges ADORES DEP. 'Playing' looks like acting a role, fitting Depp, but it is the anagram signal.",
+     "definitionFit": "A desperado is a reckless, dangerous criminal, especially one in the American Wild West, so an outlaw."
     },
     "features": {
      "answerInScene": true,

@@ -283,13 +283,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LASAGNA",
+     "op": "container",
      "indicators": [
       {
-       "text": "shortly",
-       "note": "shortly means cut short, so the word loses its last letter"
+       "text": "sandwiches",
+       "at": 24,
+       "note": "sandwiches means holds between two slices, so the reversed letters enclose the next pieces"
       }
      ],
      "parts": [
@@ -298,53 +297,60 @@
        "indicators": [
         {
          "text": "Served up",
-         "note": "in a down clue, served up means the letters are sent upwards, read bottom to top"
+         "at": 0,
+         "note": "served up in a down clue means brought upwards, so the letters read from bottom to top"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "sandwiches",
-           "note": "the fish word is the bread with the other letters as its filling"
+           "text": "shortly",
+           "at": 10,
+           "note": "shortly means cut short, so the fishing word loses its last letter"
           }
          ],
          "parts": [
           {
-           "op": "container",
-           "parts": [
-            {
-             "words": "fish",
-             "gives": "ANGL",
-             "note": "to fish is to ANGLE, cut short to ANGL"
-            },
-            {
-             "words": "like",
-             "gives": "AS",
-             "note": "like = as"
-            }
-           ]
+           "words": "fish",
+           "at": 19,
+           "gives": "ANGLE",
+           "note": "to fish with rod and line is to angle"
           },
           {
-           "words": "a",
-           "note": "used as it stands"
+           "gives": "E"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "like",
+         "at": 35,
+         "gives": "AS",
+         "note": "like means in the manner of, which is as"
+        },
+        {
+         "words": "a",
+         "at": 40
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A waiter hurries out a fish course that comes stacked like an Italian dish.",
-     "walkthrough": "'A' looks like part of the definition but belongs to the wordplay, paired with 'like'. 'Fish' is the verb, and the whole assembled string is then read from the bottom of the light upwards.",
-     "definitionFit": "Lasagna is the layered Italian pasta bake."
+     "surface": "Someone serves a short fish sandwich, rather like an Italian dish.",
+     "walkthrough": "'Shortly' cuts ANGLE to ANGL, and 'Served up' reverses it to LGNA, which 'sandwiches' AS A. 'Fish' reads as a noun in the surface but is the verb.",
+     "definitionFit": "Lasagna is the Italian baked dish of flat pasta sheets layered with sauce and cheese."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sandwiches"
+     "misdirectedWord": "fish"
     }
    }
   },
@@ -551,47 +557,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TROUSERCLIP",
      "indicators": [
       {
        "text": "during",
-       "note": "the scrambled word happens during the journey, so it sits inside it"
+       "at": 47,
+       "note": "during means in the course of, so the rearranged letters sit inside the journey word"
       }
      ],
      "parts": [
       {
+       "words": "journey",
+       "at": 54,
+       "gives": "TRIP",
+       "note": "a journey is a trip"
+      },
+      {
        "op": "anagram",
        "indicators": [
         {
-         "text": "crashing",
-         "note": "a crash scatters the word's letters"
+         "text": "after crashing",
+         "at": 32,
+         "note": "after crashing describes a wreck, so the letters of closure are knocked into a new order"
         }
        ],
        "parts": [
         {
          "words": "closure",
-         "gives": "OUSERCL",
-         "note": "CLOSURE rearranged"
-        },
-        {
-         "words": "journey",
-         "gives": "TRIP",
-         "note": "a journey = a trip"
+         "at": 24,
+         "note": "the anagram fodder, taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cyclist who has crashed on a ride might need some emotional closure.",
-     "walkthrough": "'Closure' suggests an emotional ending after an accident; here it is only letters, scrambled and put inside TRIP. The definition is a description, not a synonym.",
-     "definitionFit": "A trouser clip holds a trouser leg tight at the ankle so it does not catch in a bicycle chain, a closure a cyclist needs."
+     "surface": "A cyclist who has fallen off on the road might need some emotional closure.",
+     "walkthrough": "'After crashing' rearranges CLOSURE into OUSERCL, which goes inside TRIP ('during'). 'Closure' tempts as an emotional term, but is just the fodder.",
+     "definitionFit": "A cyclist wears a band round the trouser leg at the ankle to keep the cloth out of the bike chain."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "closure"
     }
    }

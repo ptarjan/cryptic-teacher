@@ -388,69 +388,78 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RIJSTTAFEL",
      "indicators": [
       {
        "text": "stuffed in",
-       "note": "stuffing puts filling inside something, so the jumble goes between the outer pieces"
+       "at": 32,
+       "note": "stuffed in means packed inside, so the reworked letters fill the space between the Indonesia letters and the Holland letter"
       }
      ],
      "parts": [
       {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "and",
+         "at": 53,
+         "note": "and simply joins the Indonesia letters to the Holland letter, one after the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Indonesia",
+         "at": 43,
+         "gives": "RI",
+         "note": "RI is the international vehicle code for Indonesia, the Republic of Indonesia"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "essentially",
+           "at": 65,
+           "note": "essentially means at its core, so only the central letter of Holland is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Holland",
+           "at": 57,
+           "note": "middle letter of Holland"
+          }
+         ]
+        }
+       ]
+      },
+      {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "RIJSTTAFEL",
        "indicators": [
         {
          "text": "Elaborate",
-         "note": "something elaborate is worked up intricately, so these letters are rearranged"
+         "at": 0,
+         "note": "elaborate as a verb means to work up in detail, so the remaining letters are worked into a new order"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "RIJSTTAFEL",
          "indicators": [
           {
            "text": "leaving",
-           "note": "the pronoun's letters depart from the fodder, so they are struck out"
+           "at": 21,
+           "note": "leaving means going away from, so the word us departs from feast just"
           }
          ],
          "parts": [
           {
-           "words": "Indonesia",
-           "gives": "RI",
-           "note": "RI, Republic of Indonesia, is its international code"
-          },
-          {
            "words": "feast just",
-           "note": "the letters to be reworked"
+           "at": 10,
+           "note": "taken as written, the letters to be reduced and rearranged"
           },
           {
            "words": "us",
-           "note": "taken as written; removed from the fodder"
-          },
-          {
-           "op": "middle",
-           "unchecked": true,
-           "gives": "L",
-           "indicators": [
-            {
-             "text": "essentially",
-             "note": "the essence of a word is its core, so only the central letter is kept"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "Holland",
-             "gives": "L",
-             "select": "middle",
-             "note": "the central letter of the seven-letter name"
-            }
-           ]
+           "at": 29,
+           "note": "taken as written, the letters removed"
           }
          ]
         }
@@ -460,13 +469,13 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A grand meal served in Indonesia and the Netherlands, enough to stuff anyone.",
-     "walkthrough": "The whole clue is the definition: a lavish spread of many dishes is exactly what this Indonesian meal is, and it is a Dutch favourite.",
-     "definitionFit": "Rijsttafel, Dutch for rice table, is an Indonesian banquet of rice with many side dishes, popular in the Netherlands."
+     "surface": "A lavish banquet goes ahead without us, crammed with food from Indonesia and the Netherlands.",
+     "walkthrough": "'Leaving' takes US out of FEAST JUST to give FEASTJT, which 'Elaborate' rearranges into JSTTAFE; that is 'stuffed in' RI and L, the 'essentially' of Holland. Read whole, the clue also describes the dish.",
+     "definitionFit": "A rijsttafel, Dutch for rice table, is an Indonesian banquet of many small side dishes, popularised in the Netherlands."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Elaborate"
     }
    }
@@ -1228,34 +1237,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "anagram",
+     "indicators": [
       {
-       "unchecked": true,
-       "words": "Ruffian",
-       "note": "surface padding: it colours the picture of a thug and supplies no letters"
+       "text": "Ruffian",
+       "at": 0,
+       "note": "ruffian as an adjective means rough and brutal, so the letters are roughed up"
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "rusty",
-         "note": "a rusty mechanism has decayed out of shape, so these letters fall into a new order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "lad bears",
-         "note": "the letters to be rearranged"
-        }
-       ]
+       "text": "rusty",
+       "at": 18,
+       "note": "rusty means out of practice and imperfect, so the letters are not in their proper order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lad bears",
+       "at": 8,
+       "note": "the anagram fodder, taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A thuggish young man carries an old rusty knife.",
-     "walkthrough": "The fodder is LAD BEARS with 'rusty' as the signal; 'Ruffian' only sets the scene.",
-     "definitionFit": "A baselard was a medieval short sword or dagger worn at the belt."
+     "surface": "A thuggish youth carries a corroded knife.",
+     "walkthrough": "The letters of LAD BEARS are rearranged; the clue's roughness ('Ruffian', 'rusty') is the instruction rather than a description of the boy or blade.",
+     "definitionFit": "A baselard is a medieval short sword or long knife, named after the Swiss city of Basel, so it is a kind of dagger."
     },
     "features": {
      "answerInScene": true,
@@ -2001,35 +2007,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TOUTAFAIT",
      "indicators": [
       {
        "text": "in",
-       "note": "the altered spirit goes inside the toilet word"
+       "at": 15,
+       "note": "in means placed inside, so the altered rum goes within the toilet word"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "TOUTAFAIT",
-       "indicators": [
-        {
-         "text": "I put back",
-         "note": "the letter is moved from its place to the rear of the rum word"
-        }
-       ],
+       "words": "dunny",
+       "at": 18,
+       "gives": "TOUT",
+       "note": "dunny is Australian slang for a toilet, and tout is French slang for one too"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "dunny",
-         "gives": "TOUT",
-         "note": "a dunny is Australian slang for a toilet, and tout is a slang word for one too"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "put back",
+           "at": 6,
+           "note": "put back means lifted from its place and set at the rear, so the rum's I comes out and the clue's I follows the rest"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Rum",
+           "at": 0,
+           "gives": "TAFIA",
+           "note": "tafia is a West Indian rum distilled from molasses"
+          },
+          {
+           "gives": "I"
+          }
+         ]
         },
         {
-         "words": "Rum",
-         "gives": "TAFIA",
-         "note": "tafia is a West Indian rum"
+         "words": "I",
+         "at": 4
         }
        ]
       }
@@ -2037,9 +2055,9 @@
     },
     "spelling": "TOUT À FAIT",
     "explanation": {
-     "surface": "Someone tips their rum back into an outback toilet.",
-     "walkthrough": "A dunny is an Australian outdoor toilet. 'Jean' stands for any Frenchman, so the definition asks for French.",
-     "definitionFit": "Tout à fait is French for entirely or quite, as a Frenchman such as Jean would say it."
+     "surface": "A drinker pours spirit back down the outside lavatory, in some Frenchman's story.",
+     "walkthrough": "TAFIA, a rum, has its I 'put back': lifted out (leaving TAFA) and set at the end to give TAFAI, which goes 'in' TOUT. 'For Jean' signals French: Jean stands for a typical Frenchman.",
+     "definitionFit": "Tout à fait is the French phrase meaning completely or quite so, which is the sense of entirely."
     },
     "features": {
      "answerInScene": false,
