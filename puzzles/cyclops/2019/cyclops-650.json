@@ -1438,52 +1438,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INVENTOR",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 20,
+         "note": "about here means all around the place, so the letters of Niven are scattered"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "about can mean around and in disorder, so the letters are scattered"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Niven",
-           "note": "taken as written"
-          }
-         ]
-        },
+         "words": "Niven",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 38,
+         "note": "almost means not quite complete, so the last letter goes"
+        }
+       ],
+       "parts": [
         {
          "words": "politician",
-         "gives": "TOR",
-         "note": "a politician is a Tory, cut short"
+         "at": 46,
+         "gives": "TORY",
+         "note": "a Tory is a member of the UK Conservative Party"
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fantasist spins yarns about David Niven and a would-be politician.",
-     "walkthrough": "The quotation marks around 'almost' make it look like a description of the politician, but it trims the party member's name.",
-     "definitionFit": "Someone who devises new things creates them from imagination, much as an inventor dreams up devices."
+     "surface": "A satirical swipe at someone who spins yarns about the actor David Niven, a would-be politician.",
+     "walkthrough": "NIVEN rearranged gives INVEN, and TORY without its last letter gives TOR. Tory is the everyday name for a British Conservative.",
+     "definitionFit": "An inventor devises new things; 'makes things up' plays on contriving rather than lying."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "almost"
+     "joke": "pun",
+     "misdirectedWord": "about"
     }
    }
   },

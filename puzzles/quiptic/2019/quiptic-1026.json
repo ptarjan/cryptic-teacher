@@ -44,47 +44,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SPEAKER",
      "indicators": [
       {
        "text": "badly",
-       "note": "letters arranged badly are out of their proper order and must be put right"
+       "at": 36,
+       "note": "badly suggests the letters are put together wrongly, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SPEAKER",
+       "words": "parks",
+       "at": 9
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "without bumpers",
-         "note": "a vehicle's bumpers sit at its front and back, so the word loses its two end letters"
+         "at": 20,
+         "note": "a vehicle's bumpers are at its front and back, so the outer letters of jeep are removed"
         }
        ],
        "parts": [
         {
-         "words": "parks",
-         "note": "taken as written"
-        },
-        {
          "words": "jeep",
-         "note": "taken as written, before it loses its ends"
+         "at": 15,
+         "note": "the letters of jeep left once its bumpers are gone"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A careless lecturer leaves a battered jeep with its bumpers missing in the car park.",
-     "walkthrough": "Strip the jeep to EE, add PARKS, and rearrange PARKSEE into SPEAKER.",
-     "definitionFit": "Someone who gives a talk or address to an audience is a public speaker."
+     "surface": "A lecturer leaves a battered jeep, stripped of its bumpers, sloppily parked.",
+     "walkthrough": "'without bumpers' strips the front and back of jeep, and 'badly' then shuffles what is left together with parks.",
+     "definitionFit": "A speaker is someone who gives a talk or address, just as a lecturer does."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "parks"
+     "misdirectedWord": "bumpers"
     }
    }
   },
@@ -993,69 +992,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LOBSTER",
      "indicators": [
       {
        "text": "in",
-       "note": "the cooked word goes in, placed inside the initials"
+       "at": 20,
+       "note": "in tells us the rearranged letters are placed inside the other piece"
       }
      ],
      "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "to begin with",
+         "at": 42,
+         "note": "to begin with takes the opening letter of each of liquid, or and roasted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "liquid, or roasted",
+         "at": 23,
+         "note": "the opening letters of these three words, taken together"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "cooked",
-         "note": "cooking changes something's form, so these letters are reworked"
+         "at": 13,
+         "note": "cooked suggests something altered or tampered with, so the letters of best are rearranged"
         }
        ],
        "parts": [
         {
          "words": "best",
-         "note": "taken as written, then rearranged"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "to begin with",
-           "note": "to begin with points to the opening letter of each of the preceding words"
-          }
-         ],
-         "parts": [
-          {
-           "words": "liquid",
-           "note": "the opening letter"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "or",
-           "note": "the opening letter"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "roasted",
-           "note": "the opening letter"
-          }
-         ]
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Seafood is best cooked in liquid, or else roasted, to start with.",
-     "walkthrough": "'In' works on the initials, not the word liquid: the cooked letters go between the second and third initial.",
-     "definitionFit": "A lobster is a large marine crustacean eaten as seafood."
+     "surface": "Cookery advice: the finest shellfish is either boiled in liquid or roasted.",
+     "walkthrough": "'to begin with' covers all three words before it; 'cooked' shuffles best, and 'in' puts that jumble between the second and third initials.",
+     "definitionFit": "Lobster is a large marine crustacean prized as food, a classic item of shellfish."
     },
     "features": {
      "answerInScene": true,

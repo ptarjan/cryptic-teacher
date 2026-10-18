@@ -900,26 +900,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ANON",
      "indicators": [
       {
        "text": "will go topless",
-       "note": "going topless means losing the top, the first letter of the word"
+       "at": 7,
+       "note": "topless means losing the top, so the first letter is removed"
       }
      ],
      "parts": [
       {
        "words": "Priest",
-       "gives": "ANON",
-       "note": "a canon is a cleric attached to a cathedral, here without its first letter"
+       "at": 0,
+       "gives": "CANON",
+       "note": "a canon is a priest on the staff of a cathedral"
+      },
+      {
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "A cleric is about to strip off: a slightly scandalous picture.",
-     "walkthrough": "CANON loses its C.",
-     "definitionFit": "Anon is an old-fashioned word for shortly or in a little while."
+     "surface": "A cleric announces a scandalous plan to bare all in the near future.",
+     "walkthrough": "'will go topless' removes the first letter of CANON.",
+     "definitionFit": "Anon is an old-fashioned word meaning shortly or in a little while."
     },
     "features": {
      "answerInScene": false,
@@ -1004,47 +1007,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TABERNACLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "moving",
-       "note": "moving letters shifts them out of their order into a new one"
+       "text": "broken by",
+       "at": 13,
+       "note": "broken by means split open by something inserted, so the other letters go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "altar",
+       "at": 7,
+       "gives": "TABLE",
+       "note": "the altar in a church is also called the communion table"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "broken by",
-         "note": "a thing broken by another has that other pushed into the middle of it"
+         "text": "moving",
+         "at": 23,
+         "note": "moving means shifting around, so the letters of crane are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "altar",
-         "gives": "TABLE",
-         "note": "the altar is the communion table"
-        },
-        {
          "words": "crane",
-         "note": "the letters of crane, rearranged"
+         "at": 30
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A building crane being moved has smashed the altar of a church.",
-     "walkthrough": "'Altar' is not fodder: it must first become its synonym, and only the crane is rearranged.",
-     "definitionFit": "Tabernacle is used for a place of worship, especially a nonconformist chapel or meeting house."
+     "surface": "A church's altar is smashed by a crane being manoeuvred.",
+     "walkthrough": "'moving' jumbles crane, and 'broken by' splits TABLE after its TAB to take the result.",
+     "definitionFit": "A tabernacle is a place of worship, especially a nonconformist chapel or meeting house."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "crane"
+     "misdirectedWord": "moving"
     }
    }
   },

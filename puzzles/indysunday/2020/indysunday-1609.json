@@ -168,45 +168,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHERUB",
-     "indicators": [
-      {
-       "text": "leader out",
-       "note": "when the leader is out, the front letter of the word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Church",
+       "at": 0,
+       "gives": "CH"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leader out",
+         "at": 7,
+         "note": "the leader of a word is its first letter, and out tells us to drop it from Peru"
+        }
+       ],
        "parts": [
         {
-         "words": "Church",
-         "gives": "CH",
-         "note": "CH is the standard abbreviation for church"
-        },
-        {
          "words": "Peru",
-         "gives": "ERU",
-         "note": "the country with its first letter removed"
+         "at": 21
         },
         {
-         "words": "Black",
-         "gives": "B",
-         "note": "B is the pencil-grade abbreviation for black"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "Black",
+       "at": 34,
+       "gives": "B",
+       "note": "B is the pencil-grading abbreviation for black"
       }
      ]
     },
     "explanation": {
-     "surface": "A church figure abroad in South America runs into a sinister character called the Black Angel.",
-     "walkthrough": "'Church leader' wants to be a bishop or similar, but 'Church' is its own abbreviation and 'leader out' acts on Peru.",
-     "definitionFit": "A cherub is one of the orders of angels in Christian tradition, so it is a specific kind of heavenly being."
+     "surface": "A senior cleric goes off to Peru and encounters a figure called Black Angel.",
+     "walkthrough": "'Church leader' tempts you to take only C, but church gives CH; the 'leader out' instruction applies to Peru instead.",
+     "definitionFit": "A cherub is a winged child-like heavenly being, one of the orders of angels."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "leader"
     }
@@ -234,62 +236,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ANTWERP",
      "indicators": [
       {
        "text": "inside",
-       "note": "going inside means being placed within the other letters"
+       "at": 11,
+       "note": "inside tells us the shuffled letters go within the other piece"
       }
      ],
      "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "to start with",
+         "at": 41,
+         "note": "to start with picks the opening letter of each of the words almost, respectable and pub"
+        }
+       ],
+       "parts": [
+        {
+         "words": "almost respectable pub",
+         "at": 18,
+         "note": "the opening letters of these three words, taken together"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "Drunk",
-         "note": "a drunk person staggers about, so the letters reel into a new order"
+         "at": 0,
+         "note": "drunk suggests something reeling and disordered, so the letters of went are rearranged"
         }
        ],
        "parts": [
         {
          "words": "went",
-         "note": "the word rearranged"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "ARP",
-         "indicators": [
-          {
-           "text": "to start with",
-           "note": "what comes to start with is the opening letter of each word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "almost respectable pub",
-           "gives": "ARP",
-           "select": "first",
-           "note": "first letters of these three words"
-          }
-         ]
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk wandered into a fairly decent bar and began with a glass of port.",
-     "walkthrough": "'Port' looks like the drink a tippler orders first, but it is the definition, a harbour city; 'to start with' takes the initials of three words, including 'almost'.",
-     "definitionFit": "Antwerp is a major Belgian seaport on the Scheldt, so it is an example of a harbour city."
+     "surface": "Someone tipsy heads into a fairly decent bar before setting off for a harbour town.",
+     "walkthrough": "'to start with' covers all three words before it, not just 'pub'; 'Drunk' shuffles went, and 'inside' sets that jumble between the A and the RP.",
+     "definitionFit": "Antwerp in Belgium is one of Europe's largest seaports, on the Scheldt estuary."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "port"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "almost"
     }
    }
   },
@@ -1522,28 +1520,26 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "OTTO",
      "indicators": [
       {
        "text": "after stripping",
-       "note": "stripping peels off the outside, leaving the inner letters"
+       "at": 24,
+       "note": "stripping removes the outer layer, so the first and last letters go and only the inside remains"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "bum",
-       "gives": "OTTO",
-       "select": "middle",
-       "note": "bum is bottom; with its outer letters removed"
+       "at": 20,
+       "gives": "BOTTOM",
+       "note": "bum is informal British for the bottom, the buttocks"
       }
      ]
     },
     "explanation": {
-     "surface": "A German man bares his backside once he has undressed.",
-     "walkthrough": "The source word is a synonym, BOTTOM, not 'bum' itself; stripping it of its ends leaves a common German first name.",
-     "definitionFit": "Otto is a traditional German masculine first name, so it identifies a man from Germany."
+     "surface": "A German man exposes his backside once he has undressed.",
+     "walkthrough": "Bum is the British slang for one's bottom; 'after stripping' peels off its outer letters.",
+     "definitionFit": "Otto is a common German man's given name, as of the first Holy Roman Emperor."
     },
     "features": {
      "answerInScene": true,
