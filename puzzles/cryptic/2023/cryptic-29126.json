@@ -174,63 +174,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "OARS",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "back",
-       "note": "back means the word for way is read in the opposite direction"
+       "text": "no",
+       "note": "no means the reversed string is removed from the team name"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "no",
-         "note": "no means the reversed string is removed from the team name"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "midway through",
+           "note": "midway through points to the central letter of the word"
+          }
+         ],
          "parts": [
           {
-           "op": "middle",
-           "unchecked": true,
-           "gives": "O",
-           "indicators": [
-            {
-             "text": "midway through",
-             "note": "midway through points to the central letter of the word"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "score",
-             "gives": "O",
-             "select": "middle",
-             "note": "the middle of the five letters"
-            }
-           ]
-          },
-          {
-           "words": "Arsenal",
-           "note": "the football club, taken as written"
-          },
-          {
-           "words": "way",
-           "gives": "LANE",
-           "note": "a lane is a way or road"
+           "words": "score",
+           "note": "the middle of the five letters"
           }
          ]
         },
         {
-         "gives": "ENALLANE"
+         "words": "Arsenal",
+         "note": "the football club, taken as written"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "note": "back means the word for way is read in the opposite direction"
+          }
+         ],
+         "parts": [
+          {
+           "words": "way",
+           "gives": "ENAL",
+           "note": "a lane is a way or road"
+          }
+         ]
         }
        ]
+      },
+      {
+       "gives": "ENALLANE"
       }
      ]
     },
