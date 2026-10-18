@@ -991,57 +991,60 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "must keep",
+       "at": 13,
+       "note": "to keep something is to hold it inside, so the outer letters wrap round the shortened word"
+      }
+     ],
      "parts": [
       {
-       "words": "A",
-       "note": "taken as written"
-      },
-      {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "must keep",
-         "note": "to keep is to hold, so one part goes inside another"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "covering",
-         "gives": "MAT",
-         "note": "a mat covers a floor"
+         "words": "A",
+         "at": 0
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "RET",
-         "indicators": [
-          {
-           "text": "half",
-           "note": "half a word is three of its six letters, here the back three"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "secret",
-           "gives": "RET",
-           "select": "last",
-           "note": "the back half of secret"
-          }
-         ]
+         "words": "covering",
+         "at": 2,
+         "gives": "MAT",
+         "note": "a mat is a covering for a floor or table"
+        },
+        {
+         "words": "I",
+         "at": 11
         }
        ]
       },
       {
-       "words": "I",
-       "note": "taken as written"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 23,
+         "note": "half means only one of the two equal parts is used, so the first three letters of secret go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "secret",
+         "at": 28,
+         "note": "taken as written before it is halved"
+        },
+        {
+         "gives": "SEC"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cover story I must half keep secret to get the biscuits.",
-     "definitionFit": "Amaretti are small Italian almond macaroons, a kind of crisp cookie."
+     "surface": "Someone is told to keep a cover half-hidden, with the biscuits as a sly aside.",
+     "walkthrough": "'Half' could take either end of the word; here it is the back half, which 'must keep' places inside the run of A, the covering and I.",
+     "definitionFit": "Amaretti are small Italian almond biscuits, often served with coffee."
     },
     "features": {
      "answerInScene": false,
@@ -1172,56 +1175,60 @@
      "indicators": [
       {
        "text": "after",
-       "note": "after places the piece before it later in the answer than the piece that follows"
+       "at": 26,
+       "note": "after means coming later, so the article follows the first two pieces"
       }
      ],
      "parts": [
       {
        "words": "thanks",
+       "at": 32,
        "gives": "TA",
-       "note": "ta is British slang for thanks"
+       "note": "ta is British informal for thanks"
       },
       {
        "words": "by",
+       "at": 39,
        "gives": "X",
-       "note": "X is the multiplication sign, read as by in 'three by four'"
+       "note": "X is the multiplication sign, read as by, as in three by four"
       },
       {
        "words": "article",
+       "at": 18,
        "gives": "A",
        "note": "a is the indefinite article"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "BLE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "foremost triumvirate in",
-         "note": "the foremost three of a word are its first three letters"
+         "at": 42,
+         "note": "the foremost triumvirate is the leading three, so only the first three letters of the place name are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Bletchley",
-         "gives": "BLE",
-         "select": "first",
-         "note": "the first three letters of Bletchley"
+         "at": 66,
+         "note": "taken as written before it is cut down"
+        },
+        {
+         "gives": "TCHLEY"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Wartime codebreakers at Bletchley expecting their work to be taxed after a thank-you.",
-     "walkthrough": "Bletchley Park was the British wartime codebreaking centre, GCHQ's predecessor.",
-     "definitionFit": "Taxable income or goods are liable to tax, so a duty is expected to be levied on them."
+     "surface": "A wartime codebreaking scene: a duty owed, with thanks to Bletchley's leading three.",
+     "walkthrough": "Bletchley Park was Britain's wartime codebreaking centre, matching the puzzle's spy theme. 'By' is X as in measurements, and 'after' puts the article next; 'foremost triumvirate' keeps BLE, the opening three letters.",
+     "definitionFit": "Something taxable is liable to tax, so it awaits a levy or duty being charged on it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "duty"
+     "misdirectedWord": "triumvirate"
     }
    }
   },

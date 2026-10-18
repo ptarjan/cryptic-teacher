@@ -1117,39 +1117,45 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SILVER",
      "indicators": [
       {
        "text": "exchange",
-       "note": "to exchange is to swap one thing for another in its place"
+       "at": 4,
+       "note": "exchange means swap one thing for another, so a letter in the word is replaced"
+      },
+      {
+       "text": "for",
+       "at": 17,
+       "note": "for marks what goes in place of the other, telling which letter replaces which"
       }
      ],
      "parts": [
       {
        "words": "You",
+       "at": 0,
        "gives": "SOLVER",
-       "note": "you, the person doing the crossword"
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "Roman numeral one"
+       "note": "you, the person reading this, are the solver of the crossword"
       },
       {
        "words": "old",
-       "gives": "O",
-       "note": "O is the abbreviation for old"
+       "at": 21,
+       "gives": "O"
+      },
+      {
+       "words": "one",
+       "at": 13,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "Trading in one coin for some old metal.",
-     "walkthrough": "You is the person reading, the SOLVER; swapping its O for an I gives SILVER.",
-     "definitionFit": "Silver is a precious metallic chemical element, symbol Ag."
+     "surface": "An invitation to trade in a single coin for some antique metal.",
+     "walkthrough": "'You' is the crossword solver addressed directly, so it stands for SOLVER; 'exchange' one 'for' old swaps its O for I. The surface makes 'one' look like a coin and 'old metal' a phrase, but 'old' is just O.",
+     "definitionFit": "Silver is a precious chemical element, one of the classic metals used for coins and jewellery."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "You"
     }
@@ -1183,33 +1189,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "ROADTEST",
+     "spelt": "ROADTEST",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "Reverend Spooner famously swapped the opening sounds of words"
+       "at": 15,
+       "note": "Spooner was the Oxford don famed for swapping the opening sounds of words, so the starts of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "awful driver break",
-       "gives": "ROADTEST",
-       "soundsLike": "TOAD REST",
-       "note": "Mr Toad of The Wind in the Willows is a notoriously reckless motorist, and a rest is a break; swap their opening sounds"
+       "op": "homophone",
+       "spelt": "TOWED",
+       "parts": [
+        {
+         "words": "awful driver",
+         "at": 44,
+         "gives": "TOAD",
+         "note": "Mr Toad of The Wind in the Willows is literature's famously reckless motorist; a Spoonerism works on sounds, and his name sounds like towed"
+        }
+       ]
+      },
+      {
+       "words": "break",
+       "at": 57,
+       "gives": "REST",
+       "note": "a rest is a break from work"
       }
      ]
     },
     "explanation": {
-     "surface": "A car is test-driven, and the hopeless driver gets a breather.",
-     "walkthrough": "Swapping the opening sounds of TOAD REST gives ROAD TEST. Mr Toad is the car-mad hero of a classic English children's book.",
-     "definitionFit": "A road test is a trial of a car's performance on public roads."
+     "surface": "A test drive described oddly, as a chance for a terrible driver to take a breather.",
+     "walkthrough": "'According to Spooner' swaps the opening sounds of TOAD and REST, giving sounds spelt ROWED TEST, which is said exactly like the answer. Mr Toad, in Kenneth Grahame's The Wind in the Willows, crashes car after car.",
+     "definitionFit": "A road test is a trial of a car or other vehicle driven on public roads to check its performance."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "driver"
     }
    }
