@@ -512,7 +512,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "list at back of book",
+      "text": "list at back of book?",
       "at": 20
      }
     ],
@@ -521,39 +521,41 @@
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means sitting inside it, so one piece goes within another"
+       "at": 7,
+       "note": "in tells us A and the king letter sit inside the word for brilliant"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "brilliant",
+       "at": 10,
+       "gives": "GLOSSY",
+       "note": "glossy means shining, brilliant"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "brilliant",
-         "gives": "GLOSSY",
-         "note": "glossy means shiny or brilliant"
+         "words": "A",
+         "at": 0
         },
         {
          "words": "king",
+         "at": 2,
          "gives": "R",
          "note": "R is short for rex, Latin for king"
         }
        ]
-      },
-      {
-       "words": "A",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A monarch appears in a dazzling roll of names printed at the end of a volume.",
-     "walkthrough": "A + R sits inside GLOSSY, before its last letter.",
-     "definitionFit": "A glossary is an alphabetical list of terms with explanations, usually printed as an appendix to a book."
+     "surface": "A monarch appears in a shiny catalogue at the end of a volume.",
+     "definitionFit": "A glossary is an alphabetical list of terms with explanations, usually printed as an appendix in a book."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "brilliant"
     }
    }

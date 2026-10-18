@@ -824,37 +824,42 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "turned up",
-       "note": "in a down clue, turned up means read upwards, so reversed"
-      }
-     ],
      "parts": [
       {
        "words": "Small",
+       "at": 0,
        "gives": "S",
-       "note": "S is the abbreviation for small"
+       "note": "S is the clothing-size abbreviation for small"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "the reversed word goes inside"
+         "at": 24,
+         "note": "in places the reversed rodents inside the enclosure"
         }
        ],
        "parts": [
         {
          "words": "coop",
+         "at": 27,
          "gives": "PEN",
-         "note": "a coop or pen is an enclosure for animals"
+         "note": "a pen is an enclosure, like a coop"
         },
         {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "turned up",
+           "at": 14,
+           "note": "in a down clue turned up means read from the bottom, so backwards"
+          }
+         ],
          "parts": [
           {
            "words": "rodents",
+           "at": 6,
            "gives": "MICE",
            "note": "mice are rodents"
           }
@@ -865,14 +870,13 @@
      ]
     },
     "explanation": {
-     "surface": "Little mice have appeared in a chicken coop.",
-     "walkthrough": "'For example' looks like it marks coop as an instance of something; here 'for' is the link and 'example' alone is the definition.",
-     "definitionFit": "A plain synonym: one item taken as typical of its kind."
+     "surface": "Little mice appear upside down inside a hen house, for instance.",
+     "definitionFit": "A specimen is an individual taken as an example of its kind, a sample."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "turned"
+     "misdirectedWord": "coop"
     }
    }
   },
@@ -1132,38 +1136,48 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "in"
-      },
-      {
-       "text": "with",
-       "note": "the pieces are placed together"
+       "text": "in",
+       "at": 25,
+       "note": "in tells us the temperature letter goes inside the dog and illness words"
       }
      ],
      "parts": [
       {
-       "words": "dog",
-       "gives": "CUR",
-       "note": "a cur is a mongrel dog"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "with",
+         "at": 32
+        }
+       ],
+       "parts": [
+        {
+         "words": "dog",
+         "at": 28,
+         "gives": "CUR",
+         "note": "a cur is a mongrel dog"
+        },
+        {
+         "words": "illness",
+         "at": 37,
+         "gives": "AILMENT",
+         "note": "an ailment is an illness"
+        }
+       ]
       },
       {
        "words": "temperature",
-       "gives": "T",
-       "note": "T is the abbreviation for temperature"
-      },
-      {
-       "words": "illness",
-       "gives": "AILMENT",
-       "note": "an ailment is an illness"
+       "at": 13,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A sick dog's fever is coming down.",
-     "walkthrough": "The surface reads as a vet's report on a feverish dog; 'in' only places the T between the two words, not inside either.",
-     "definitionFit": "A plain synonym: the act of cutting something short."
+     "surface": "A sick dog's fever goes down.",
+     "definitionFit": "Curtailment means cutting something short, a lessening or reduction in extent."
     },
     "features": {
      "answerInScene": false,
