@@ -221,37 +221,26 @@
      "indicators": [
       {
        "text": "to block",
-       "note": "the words sit in the way between the two edge letters"
+       "at": 29,
+       "note": "to block here is to sit in the middle of something, so these letters go inside the other part"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "out all but edges in",
+         "at": 38,
+         "note": "this says to remove everything except the first and last letters of the word that follows"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "E",
-         "indicators": [
-          {
-           "text": "all but edges",
-           "note": "keep only the outside letters of eclipse, discarding everything else"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "in eclipse",
-           "gives": "E",
-           "select": "outer",
-           "note": "first edge of eclipse"
-          }
-         ]
-        },
-        {
-         "words": "out",
-         "gives": "E",
-         "note": "last edge of eclipse"
+         "words": "eclipse",
+         "at": 59,
+         "gives": "EE",
+         "note": "only its outer letters survive"
         }
        ]
       },
@@ -260,22 +249,24 @@
        "parts": [
         {
          "words": "certainly",
+         "at": 6,
          "gives": "YES",
-         "note": "yes = certainly"
+         "note": "certainly means yes"
         },
         {
          "words": "was required",
+         "at": 16,
          "gives": "HAD",
-         "note": "as in 'I had to go'"
+         "note": "was required means had (to), as in 'I had to go'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice that a visor was essential for watching the eclipse.",
-     "walkthrough": "The whole surface is eye-safety advice for an eclipse, and the answer belongs in that picture.",
-     "definitionFit": "An eyeshade is a visor worn to shield the eyes from light."
+     "surface": "Advice that a sun visor was needed to shut out everything but the rim during an eclipse.",
+     "walkthrough": "Only the two edges of eclipse survive, and the certain reply plus the past form of having to are fitted between them.",
+     "definitionFit": "An eyeshade is a peaked shield worn on the forehead to keep glare from the eyes, much like a visor."
     },
     "features": {
      "answerInScene": true,
@@ -301,42 +292,45 @@
     "definitions": [
      {
       "text": "Reduce",
-      "at": 0,
-      "note": "dwindle is mostly intransitive (become smaller), and 'reduce' can be too"
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DWINDLE",
-     "indicators": [
-      {
-       "text": "with 25 per cent off",
-       "note": "WINDLESS has eight letters; a quarter of them, the last two, go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "diamonds",
+       "at": 7,
+       "gives": "D",
+       "note": "D is the card-suit abbreviation for diamonds"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with 25 per cent off",
+         "at": 22,
+         "note": "a quarter of an eight-letter word is two letters, so the final two are cut away"
+        }
+       ],
        "parts": [
         {
-         "words": "diamonds",
-         "gives": "D",
-         "note": "D is the card-suit abbreviation"
+         "words": "still",
+         "at": 16,
+         "gives": "WINDLESS",
+         "note": "still air is windless, without any breeze"
         },
         {
-         "words": "still",
-         "gives": "WINDLE",
-         "note": "still = WINDLESS, losing SS"
+         "gives": "SS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A jeweller marks down diamonds that are still for sale at a quarter off.",
-     "walkthrough": "'Still' reads as an adverb in a sale notice; it is the adjective for calm air.",
-     "definitionFit": "A plain synonym in the intransitive sense: numbers that reduce over time shrink away."
+     "surface": "A discount notice: diamonds that remain unsold, now marked down by a quarter.",
+     "walkthrough": "'Still' looks like an adverb but means calm; the eight-letter WINDLESS loses a quarter, its last two letters.",
+     "definitionFit": "To dwindle is to diminish or shrink steadily, so it fits the intransitive sense of becoming smaller."
     },
     "features": {
      "answerInScene": false,
@@ -636,45 +630,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DISINCENTIVE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cops",
+       "at": 17,
+       "note": "to cop is to catch or take, so the rearranged letters take in the other part"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Criminal",
-         "note": "a criminal version of the word is a corrupted one"
-        },
-        {
-         "text": "cops",
-         "note": "to cop is to catch, so the anagram catches the next word"
+         "at": 0,
+         "note": "criminal suggests something crooked or bent out of shape, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "invited",
-         "note": "anagram of INVITED"
-        },
-        {
-         "words": "as",
-         "gives": "SINCE",
-         "note": "as = since = because"
+         "at": 9,
+         "note": "taken as written and rearranged"
         }
        ]
+      },
+      {
+       "words": "as",
+       "at": 22,
+       "gives": "SINCE",
+       "note": "as can mean since, as in 'as it was raining'"
       }
      ]
     },
     "explanation": {
-     "surface": "A criminal who calls the police round, as a way of putting others off.",
-     "walkthrough": "'Cops' looks like the police and is the verb; 'as' is easy to pass over but supplies SINCE.",
-     "definitionFit": "A plain synonym: anything that puts people off doing something works as a deterrent."
+     "surface": "A crook asked the police round, apparently to put others off crime.",
+     "walkthrough": "Cops reads as police but is a verb meaning catches; as is used in its sense of because.",
+     "definitionFit": "A disincentive is something that discourages an action, so it serves as a deterrent."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "cops"
     }
    }
@@ -1190,47 +1187,47 @@
    "annotation": {
     "definitions": [
      {
-      "text": "the front rows",
-      "at": 26
+      "text": "in the front rows",
+      "at": 23
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RINGSIDE",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "out as in out of place or out of joint: the letters are no longer where they belong"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Sound clearly",
+       "at": 0,
+       "gives": "RING",
+       "note": "to ring is to sound clearly, as a bell does"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 19,
+         "note": "out signals the letters are put out of order and rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Sound clearly",
-         "gives": "RING",
-         "note": "a bell rings out clearly"
-        },
-        {
-         "words": "dies out",
-         "gives": "SIDE",
-         "note": "anagram of DIES"
+         "words": "dies",
+         "at": 14,
+         "note": "taken as written and rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A noise is heard clearly, then fades in the front rows of a theatre.",
-     "walkthrough": "'Dies out' reads as fading; 'out' is the rearranging word.",
-     "definitionFit": "Ringside seats are the front rows at a boxing match."
+     "surface": "At a concert, a clear note fades away as heard from the best seats.",
+     "walkthrough": "'Dies out' looks like one phrase meaning fades, but 'out' acts on 'dies' to give SIDE.",
+     "definitionFit": "Ringside seats are those closest to the boxing ring or arena, the premium front positions."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "dies"
+     "aptDefinition": true,
+     "misdirectedWord": "out"
     }
    }
   },
@@ -1474,44 +1471,49 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "AXES",
+     "indicators": [
+      {
+       "text": "reflected",
+       "at": 30,
+       "note": "reflected means read as in a mirror, so the whole is turned backwards"
+      }
+     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "in"
-        },
-        {
-         "text": "reflected",
-         "note": "a reflection in a mirror shows things back to front"
+         "text": "in",
+         "at": 18,
+         "note": "in places the rating inside the other word"
         }
        ],
        "parts": [
         {
          "words": "the main",
-         "gives": "AES",
-         "note": "the main = the sea, turned round"
+         "at": 21,
+         "gives": "SEA",
+         "note": "the main is an old poetic term for the sea"
         },
         {
          "words": "Cautionary rating",
+         "at": 0,
          "gives": "X",
-         "note": "X was the old British film certificate for adults only"
+         "note": "X was the old British film certificate for adult-only films"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Warnings in a nautical chart's references.",
-     "walkthrough": "The main is the poetic term for the sea. 'Graphic' means of graphs here: the axes are what you read values against.",
-     "definitionFit": "Axes are the reference lines on a graph."
+     "surface": "A warning classification seen at sea, mirrored back in some picture captions.",
+     "walkthrough": "X sits inside SEA to make SEXA, and that turned backwards gives the answer.",
+     "definitionFit": "The axes of a graph are its reference lines, against which plotted points are measured."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "graphic"
+     "misdirectedWord": "main"
     }
    }
   },
@@ -1604,46 +1606,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MUSKETRY",
-     "indicators": [
-      {
-       "text": "heading for",
-       "note": "the first letter of Maine"
-      },
-      {
-       "text": "wild",
-       "note": "the letters run wild, rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading for",
+         "at": 18,
+         "note": "the heading for a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "heading for Maine",
+         "words": "Maine",
+         "at": 30,
          "gives": "M",
-         "note": "first letter of Maine"
-        },
+         "note": "only its first letter is used"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "wild turkeys",
-         "gives": "USKETRY",
-         "note": "anagram of TURKEYS"
+         "text": "wild",
+         "at": 40,
+         "note": "wild suggests disorder, so the letters run riot into a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "turkeys",
+         "at": 45,
+         "note": "taken as written and rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Old men with guns head off to Maine to shoot wild turkeys.",
-     "walkthrough": "The surface is a hunting trip; the definition reads the musket-armed soldiers of old as a body of troops.",
-     "definitionFit": "Musketry can mean musketeers collectively, old soldiers with guns."
+     "surface": "Elderly hunters armed with guns pursuing wild turkeys in the state of Maine.",
+     "walkthrough": "'Wild turkeys' looks like a game bird; 'wild' acts on 'turkeys' to give USKETRY.",
+     "definitionFit": "Musketry once meant a body of musketeers, soldiers of former times armed with muskets."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "turkeys"
+     "aptDefinition": true,
+     "misdirectedWord": "wild"
     }
    }
   }

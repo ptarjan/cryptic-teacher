@@ -1049,41 +1049,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "mixed",
-       "note": "the pesto letters are stirred into a new order"
+       "text": "goes into",
+       "at": 26,
+       "note": "goes into means the rearranged letters are placed inside the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "marinade",
+       "at": 36,
+       "gives": "SOAK",
+       "note": "to marinade meat is to soak it"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "goes into",
-         "note": "the rearranged pesto is put inside the marinade word"
+         "text": "mixed",
+         "at": 14,
+         "note": "mixed means the letters are stirred up into a new order"
         }
        ],
        "parts": [
         {
-         "words": "mixed pesto",
-         "gives": "TOSPE",
-         "note": "PESTO rearranged"
-        },
-        {
-         "words": "marinade",
-         "gives": "SOAK",
-         "note": "to soak is to marinade"
+         "words": "pesto",
+         "at": 20,
+         "note": "taken as written and rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cooking tip: stir the pesto and add it to the marinade.",
-     "walkthrough": "The kitchen scene makes 'marinade' look like a noun, but it is the verb, to soak.",
-     "definitionFit": "'So to speak' flags a figurative phrase, much as 'you might say' does."
+     "surface": "Cooking instructions: stir the pesto and add it to the marinade.",
+     "walkthrough": "'Mixed pesto' reads as a cooking step, but 'mixed' is the instruction acting on 'pesto' alone.",
+     "definitionFit": "So to speak is a phrase flagging loose wording, equivalent to 'as it were' or 'as one might put it'."
     },
     "features": {
      "answerInScene": false,
@@ -1324,49 +1327,53 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "to receive"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "words": "American",
+       "at": 0,
+       "gives": "A"
+      },
+      {
        "op": "container",
-       "parts": [
+       "indicators": [
         {
-         "words": "fit",
-         "gives": "ABLE",
-         "note": "able = fit, capable"
-        },
+         "text": "to receive",
+         "at": 19,
+         "note": "to receive is to take in, so the Republican goes inside"
+        }
+       ],
+       "parts": [
         {
          "op": "charade",
          "parts": [
           {
            "words": "party",
+           "at": 9,
            "gives": "DO",
            "note": "a do is a party"
           },
           {
-           "words": "Republican",
-           "gives": "R",
-           "note": "R = Republican"
+           "words": "fit",
+           "at": 15,
+           "gives": "ABLE",
+           "note": "able means fit or capable"
           }
          ]
+        },
+        {
+         "words": "Republican",
+         "at": 30,
+         "gives": "R"
         }
        ]
-      },
-      {
-       "words": "American",
-       "gives": "A",
-       "note": "A = American"
       }
      ]
     },
     "explanation": {
-     "surface": "A US party ready to welcome a Republican favourite.",
-     "walkthrough": "With American and Republican in view, 'party' looks political, but it is a social party, a do. 'Fit' is capable, not healthy.",
-     "definitionFit": "Darling as an adjective means sweet and lovable, as does adorable."
+     "surface": "A US political party said to be fit to welcome a Republican sweetheart.",
+     "walkthrough": "The Republican is received by the party-and-fit pair together, landing between them.",
+     "definitionFit": "Darling as an adjective means charming or lovely, the same as adorable; the question mark admits the stretch."
     },
     "features": {
      "answerInScene": false,
@@ -1534,40 +1541,38 @@
      "parts": [
       {
        "words": "for one",
+       "at": 16,
        "gives": "EG",
-       "note": "e.g. = for example, for one"
+       "note": "EG stands for 'for example', which is what 'for one' means"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "GY",
        "indicators": [
         {
          "text": "on vacation",
-         "note": "the man is vacated, emptied of his middle letter"
+         "at": 28,
+         "note": "a place on vacation is emptied, so only the outer letters of the word stay"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "man on vacation",
-         "gives": "GY",
-         "select": "outer",
-         "note": "GUY emptied leaves G…Y"
+         "words": "man",
+         "at": 24,
+         "gives": "GUY",
+         "note": "a guy is a man"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asking whether a frittata suits a man on holiday.",
-     "walkthrough": "'For one' seems to attach to the frittata as a serving; it is e.g. The man is a GUY, and vacation empties him.",
-     "definitionFit": "A frittata is an Italian omelette, so eggy is exactly what it is."
+     "surface": "A question about whether a frittata suits a man on holiday.",
+     "walkthrough": "'On vacation' means empty, not away: GUY loses its middle to leave GY.",
+     "definitionFit": "A frittata is an Italian omelette, so it is full of beaten egg."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "vacation"
     }
    }
@@ -1713,7 +1718,8 @@
     "definitions": [
      {
       "text": "scornful insults",
-      "at": 36
+      "at": 36,
+      "note": "the definition is plural while the answer is a mass noun covering such insults"
      }
     ],
     "wordplay": {
@@ -1721,39 +1727,43 @@
      "indicators": [
       {
        "text": "amid",
-       "note": "the conservationists and united sit in the middle of pretty"
+       "at": 24,
+       "note": "amid means in the middle of, so the pieces go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "pretty",
-         "gives": "COMELY",
-         "note": "comely = pretty"
-        },
-        {
-         "words": "Conservationists",
-         "gives": "NT",
-         "note": "NT = the National Trust, Britain's conservation charity"
-        }
-       ]
+       "words": "pretty",
+       "at": 29,
+       "gives": "COMELY",
+       "note": "comely means pretty or attractive"
       },
       {
-       "words": "united",
-       "gives": "U",
-       "note": "U = united, as in football club names"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Conservationists",
+         "at": 0,
+         "gives": "NT",
+         "note": "NT is the National Trust, Britain's heritage conservation charity"
+        },
+        {
+         "words": "united",
+         "at": 17,
+         "gives": "U",
+         "note": "U is short for united, as in football club names"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Conservationists united against a barrage of pretty scornful insults.",
-     "walkthrough": "'Pretty scornful' reads as 'fairly scornful', but pretty is COMELY and houses the rest.",
-     "definitionFit": "Contumely is insolent, scornful language or treatment."
+     "surface": "Environmental campaigners, banded together among attractive people, face sneering abuse.",
+     "walkthrough": "NT, the National Trust, is a British heritage charity.",
+     "definitionFit": "Contumely is insolent, contemptuous language or treatment, the scornful abuse heaped on someone."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "pretty"
     }

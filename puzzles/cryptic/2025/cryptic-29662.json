@@ -1155,33 +1155,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CATNAPPED",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the next two words trade places"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the initial consonants trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "insect, unable to rise",
-       "gives": "CATNAPPED",
-       "soundsLike": "GNAT CAPPED",
-       "note": "a gnat is a small fly and something capped cannot go higher; Spooner swaps their opening sounds"
+       "op": "homophone",
+       "spelt": "NAT",
+       "parts": [
+        {
+         "words": "insect",
+         "at": 10,
+         "gives": "GNAT",
+         "note": "a gnat is a small flying insect, whose G is silent"
+        }
+       ]
+      },
+      {
+       "words": "unable to rise",
+       "at": 18,
+       "gives": "CAPPED",
+       "note": "something capped, like a price, cannot go up"
       }
      ]
     },
     "explanation": {
-     "surface": "A grounded insect, too weak to fly, dozes off.",
-     "walkthrough": "Gnat capped, with the first sounds swapped, says cat napped.",
-     "definitionFit": "To catnap is to take a short, light doze, so the past tense means rested briefly."
+     "surface": "A flightless bug, in Spooner's words, took a short rest.",
+     "walkthrough": "Say 'gnat capped' and swap the N and C sounds.",
+     "definitionFit": "To catnap is to doze briefly, so catnapped means dozed for a short time."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "rise"
     }
    }

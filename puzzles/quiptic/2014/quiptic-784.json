@@ -639,34 +639,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ELECT",
      "indicators": [
       {
        "text": "having changed sides",
-       "note": "the two sides are left and right, so one is swapped for the other in the word"
+       "at": 18,
+       "note": "sides are right and left, so the R for right is swapped for an L for left"
       }
      ],
      "parts": [
       {
        "words": "standing",
+       "at": 8,
        "gives": "ERECT",
-       "note": "upright"
+       "note": "standing upright is erect"
       },
       {
-       "words": "sides",
-       "gives": "L",
-       "note": "left replaces right (R)"
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone chooses to stand for election after switching parties.",
-     "walkthrough": "The R of right in the word for upright becomes the L of left.",
-     "definitionFit": "To elect is to choose, as voters select a candidate."
+     "surface": "A politician picks a position after switching parties.",
+     "walkthrough": "R and L are the usual abbreviations for right and left.",
+     "definitionFit": "To elect is to choose or decide on, as in electing to stay at home."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "standing"
     }
@@ -1501,33 +1502,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CHARLESDICKENS",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner was famous for swapping the opening sounds of neighbouring words"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the two initial consonants trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "poultry kept by Roald",
-       "gives": "CHARLESDICKENS",
-       "soundsLike": "CHARLZ DICKENZ",
-       "note": "Roald Dahl's chickens, with their initial sounds swapped"
+       "op": "homophone",
+       "spelt": "DARLES",
+       "parts": [
+        {
+         "words": "kept by Roald",
+         "at": 18,
+         "gives": "DAHLS",
+         "note": "things kept by Roald Dahl, the children's author, are Dahl's, spelt here as it sounds"
+        }
+       ]
+      },
+      {
+       "words": "poultry",
+       "at": 10,
+       "gives": "CHICKENS",
+       "note": "chickens are poultry"
       }
      ]
     },
     "explanation": {
-     "surface": "A children's author keeps hens that apparently belong to a famous novelist.",
-     "walkthrough": "Roald Dahl wrote Charlie and the Chocolate Factory; swap the D and CH of 'Dahl's chickens'.",
-     "definitionFit": "Charles Dickens, author of Oliver Twist and Great Expectations, is a towering classic Victorian novelist."
+     "surface": "A farmyard flock belonging to Roald Dahl, as described by Spooner.",
+     "walkthrough": "Say 'Dahl's chickens' and swap the D and CH sounds.",
+     "definitionFit": "Charles Dickens was the Victorian novelist who wrote Oliver Twist and Great Expectations."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "poultry"
     }
    }
