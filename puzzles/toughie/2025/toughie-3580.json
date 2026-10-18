@@ -365,36 +365,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PILFER",
      "indicators": [
       {
        "text": "replaces",
-       "note": "one thing replacing another means a letter swap in the word"
+       "at": 23,
+       "note": "replaces means takes the place of, so one letter swaps in where two stood"
       }
      ],
      "parts": [
       {
        "words": "lager",
+       "at": 5,
        "gives": "PILSNER",
-       "note": "pilsner is a pale lager"
-      },
-      {
-       "words": "female",
-       "gives": "F",
-       "note": "standard abbreviation for female"
+       "note": "Pilsner is a pale Czech-style lager"
       },
       {
        "words": "tin",
+       "at": 32,
        "gives": "SN",
-       "note": "Sn is the chemical symbol for tin"
+       "note": "Sn is the chemical symbol for tin, from Latin stannum"
+      },
+      {
+       "words": "female",
+       "at": 16,
+       "gives": "F"
       }
      ]
     },
     "explanation": {
-     "surface": "Grab a lager when a woman swaps the can for something else.",
-     "walkthrough": "'Take lager' reads as an order at the bar; 'Take' alone is the definition, and tin is its chemical symbol SN.",
-     "definitionFit": "To pilfer is to steal small things, and take can mean steal."
+     "surface": "A woman takes a drink of lager in place of a tinned one.",
+     "walkthrough": "'replaces' puts F (female) where SN (tin) stood in PILSNER. 'Take' here means steal.",
+     "definitionFit": "To pilfer is to steal small things, so take in its sense of making off with something."
     },
     "features": {
      "answerInScene": false,
@@ -601,34 +602,34 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SANDPAPER",
      "indicators": [
       {
        "text": "covered by",
-       "note": "a letter covered by another is hidden under it, so the second takes its place"
+       "at": 7,
+       "note": "covered by means hidden under, so the letter disappears beneath another that takes its place"
       }
      ],
      "parts": [
       {
        "words": "Knot",
+       "at": 0,
        "gives": "SANDPIPER",
        "note": "the knot is a wading bird of the sandpiper family"
       },
       {
        "words": "I",
-       "note": "taken as written"
+       "at": 5
       },
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 18
       }
      ]
     },
     "explanation": {
-     "surface": "A woodworker's helper covers a knot in the timber.",
-     "walkthrough": "'Knot' looks like a flaw in wood, matching the carpenter, but it is a wading bird; one I in its family name becomes A.",
-     "definitionFit": "Abrasive paper is a basic tool a joiner uses to smooth timber before finishing."
+     "surface": "A woodworker's knot is covered over with a carpenter's tool.",
+     "walkthrough": "'Knot' is the bird, not a tie or a flaw in the wood; 'covered by' has A sit over the I of SANDPIPER, replacing it.",
+     "definitionFit": "Sandpaper is abrasive paper a carpenter uses to smooth wood, a woodworking aid."
     },
     "features": {
      "answerInScene": true,
@@ -1147,32 +1148,33 @@
        "indicators": [
         {
          "text": "saving",
-         "note": "to save something is to keep it safe within, so one piece goes inside another"
+         "at": 11,
+         "note": "saving means keeping safe inside, so the letters are held within"
         }
        ],
        "parts": [
         {
          "words": "Agreements",
+         "at": 0,
          "gives": "DEALS",
-         "note": "deals are agreements"
+         "note": "deals are agreements, as in business"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "NT",
+         "op": "deletion",
          "indicators": [
           {
            "text": "half of",
-           "note": "taking half of a word keeps only one of its two equal parts"
+           "at": 18,
+           "note": "half of means only two of the four letters are used, the second half"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "rent",
-           "gives": "NT",
-           "select": "last",
-           "note": "the second half of the word rent"
+           "at": 26
+          },
+          {
+           "gives": "RE"
           }
          ]
         }
@@ -1180,15 +1182,16 @@
       },
       {
        "words": "encourage",
+       "at": 31,
        "gives": "URGEON",
        "note": "to urge on is to encourage"
       }
      ]
     },
     "explanation": {
-     "surface": "Contracts that hold back part of the rent persuade a professional to sign.",
-     "walkthrough": "The half of rent is its second half; 'encourage' supplies the two-word phrase URGE ON.",
-     "definitionFit": "A dentist is a qualified practitioner, so a professional is a broad but fair description of the answer."
+     "surface": "Contracts that hold down half the rent encourage professionals to sign.",
+     "walkthrough": "'half of' rent gives NT, which 'saving' places inside DEALS, followed by URGE ON for 'encourage'.",
+     "definitionFit": "A dental surgeon is a dentist, a qualified practitioner in a profession."
     },
     "features": {
      "answerInScene": false,
@@ -1519,7 +1522,8 @@
      "indicators": [
       {
        "text": "above",
-       "note": "in a down entry, above means coming earlier in the column"
+       "at": 11,
+       "note": "in a down clue, above means this piece comes first"
       }
      ],
      "parts": [
@@ -1528,12 +1532,14 @@
        "indicators": [
         {
          "text": "up",
-         "note": "in a down entry, going up means reading from bottom to top"
+         "at": 8,
+         "note": "in a down clue, up means written upwards, so the word is reversed"
         }
        ],
        "parts": [
         {
          "words": "Soldier",
+         "at": 0,
          "gives": "GI",
          "note": "a GI is an American soldier"
         }
@@ -1541,35 +1547,33 @@
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "LOO",
        "indicators": [
         {
          "text": "uncovered",
-         "note": "with its cover removed, the word loses its outside letters"
+         "at": 24,
+         "note": "uncovered means with its covering removed, the first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "deluge",
-         "gives": "LOO",
-         "select": "middle",
-         "note": "the inner letters of flood, a deluge"
+         "at": 17,
+         "gives": "FLOOD",
+         "note": "a deluge is a flood"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier climbs up above the flood waters to an open shelter.",
-     "walkthrough": "The deluge is a flood, which loses both ends.",
-     "definitionFit": "An igloo is a dome-shaped Inuit dwelling built from snow blocks, providing protection from the cold."
+     "surface": "A soldier climbs above the floodwater to reach exposed shelter.",
+     "walkthrough": "'up' reverses GI to IG, 'above' sets it on LOO: 'uncovered' strips FLOOD of its outer letters.",
+     "definitionFit": "An igloo is a dome-shaped Inuit dwelling of snow blocks, a type of refuge from the cold."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "uncovered"
+     "misdirectedWord": "deluge"
     }
    }
   },

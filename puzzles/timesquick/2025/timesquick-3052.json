@@ -51,38 +51,36 @@
      "parts": [
       {
        "words": "Ten years",
+       "at": 0,
        "gives": "DECADE",
-       "note": "a decade is ten years"
+       "note": "a decade is a period of ten years"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "NT",
        "indicators": [
         {
-         "text": "not extremely",
-         "note": "only the extremes, the first and last letters, of 'not' are taken"
+         "text": "extremely",
+         "at": 15,
+         "note": "extremely here means at the extremes, so only the outer letters of not are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "not extremely",
-         "gives": "NT",
-         "select": "outer",
-         "note": "the outside letters of NOT"
+         "words": "not",
+         "at": 11,
+         "note": "the first and last letters of not"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grumble that the last ten years have been only mildly depraved.",
-     "walkthrough": "'Not extremely' reads as a mild qualifier on 'degenerate', but it works on the word 'not' itself, keeping just its ends.",
-     "definitionFit": "Decadent means morally degenerate, given over to self-indulgence."
+     "surface": "A whole decade spent not quite in utter debauchery.",
+     "walkthrough": "'not extremely' looks like a qualifier meaning 'not very', but it asks for the extremes of NOT: its first and last letters.",
+     "definitionFit": "Decadent describes moral or cultural decline marked by self-indulgence, so it is a synonym for degenerate."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "extremely"
     }
@@ -273,44 +271,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SOUVENIR",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to accommodate",
+       "at": 40,
+       "note": "to accommodate means to make room for, so the rearranged letters hold another inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "adapted",
-         "note": "'version' is changed into a new arrangement"
-        },
-        {
-         "text": "to accommodate"
+         "at": 32,
+         "note": "adapted means altered to suit, so the letters of version are rearranged"
         }
        ],
        "parts": [
         {
          "words": "version",
-         "note": "letters of VERSION rearranged"
-        },
-        {
-         "words": "you",
-         "gives": "U",
-         "note": "U = you, as in texting"
+         "at": 24
         }
        ]
+      },
+      {
+       "words": "you",
+       "at": 55,
+       "gives": "U",
+       "note": "U is text-speak for you, sounding the same"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone making a memorable version of something, tailored to suit you.",
-     "walkthrough": "The definition is a whole phrase: a souvenir is kept to help you remember a trip.",
-     "definitionFit": "A souvenir is a keepsake whose job is to call a place or event to mind."
+     "surface": "A writer reworks a version of a memoir to suit the reader.",
+     "walkthrough": "'adapted' rearranges VERSION to SOVENIR, and 'to accommodate' takes U (you) inside it.",
+     "definitionFit": "A souvenir is a keepsake bought or kept as a reminder of a place or event."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "accommodate"
+     "misdirectedWord": "version"
     }
    }
   },
@@ -335,61 +337,63 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ATRIUM",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 10,
+       "note": "in a down clue, over means the first piece sits above the next"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "up",
-         "note": "in a down clue, 'up' turns the word for cheers upside down"
-        },
-        {
-         "text": "minimum of",
-         "note": "only the smallest part, the first letter, of 'ice' is taken"
+         "at": 7,
+         "note": "in a down clue, up means the word is written upwards, read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "Cheers up",
-         "gives": "AT",
-         "note": "TA is British slang for thanks, turned upward"
+         "words": "Cheers",
+         "at": 0,
+         "gives": "TA",
+         "note": "ta is a British informal word for thank you, like cheers"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "included",
+         "at": 42,
+         "note": "included means put inside, so the letter goes into the drink"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drink",
+         "at": 15,
+         "gives": "RUM",
+         "note": "rum is a spirit, a drink"
         },
         {
-         "op": "container",
+         "op": "first",
          "indicators": [
           {
-           "text": "over",
-           "note": "the first part is placed above, before, the drink"
+           "text": "minimum of",
+           "at": 27,
+           "note": "the minimum of a word is its smallest part, a single letter, its first"
           }
          ],
          "parts": [
           {
-           "words": "drink",
-           "gives": "RUM",
-           "note": "rum, a spirit"
-          },
-          {
-           "op": "first",
-           "unchecked": true,
-           "gives": "I",
-           "indicators": [
-            {
-             "text": "included",
-             "note": "the I goes inside the drink"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "minimum of ice",
-             "gives": "I",
-             "select": "first",
-             "note": "first letter of ICE, placed inside RUM"
-            }
-           ]
+           "words": "ice",
+           "at": 38,
+           "note": "first letter of ice"
           }
          ]
         }
@@ -398,9 +402,9 @@
      ]
     },
     "explanation": {
-     "surface": "Drinkers cheering up over a rum with a bit of ice somewhere in a grand building.",
-     "walkthrough": "'Cheers' here is TA, a British way of saying thank you, not a toast; 'up' flips it because this is a down clue.",
-     "definitionFit": "An atrium is the central hall or open court of a large building."
+     "surface": "A toast is raised over a rum, with just a little ice, in a grand building.",
+     "walkthrough": "'up' reverses TA to AT, set 'over' RIUM: 'minimum of' takes I from ice, and 'included' puts it into RUM. Ta and cheers both mean thanks in British slang.",
+     "definitionFit": "An atrium is a central hall, often glass-roofed and several storeys high, within a large building."
     },
     "features": {
      "answerInScene": true,
@@ -791,33 +795,30 @@
     ],
     "wordplay": {
      "op": "first",
-     "unchecked": true,
-     "gives": "MUD",
      "indicators": [
       {
        "text": "first of all",
-       "note": "the first letter of all three words is taken"
+       "at": 31,
+       "note": "first of all means the first letter of every one of the words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "most ugly, despicable, first of all",
-       "gives": "MUD",
-       "select": "first",
-       "note": "first letters of MOST, UGLY, DESPICABLE"
+       "words": "most ugly, despicable",
+       "at": 8,
+       "note": "the first letters of most, ugly and despicable"
       }
      ]
     },
     "explanation": {
-     "surface": "A verdict that slander is the ugliest, vilest thing of all.",
-     "walkthrough": "The three adjectives look like a description of slander but are only there for their first letters.",
-     "definitionFit": "Mud, as in 'mud-slinging', is damaging talk about someone."
+     "surface": "Smears are the ugliest and most contemptible thing of all.",
+     "walkthrough": "'first of all' looks like 'above all', but it takes the first letter of each of the three words before it.",
+     "definitionFit": "To throw mud is to sling damaging accusations, so mud is figurative slander or defamation."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "first"
+     "aptDefinition": false,
+     "misdirectedWord": "all"
     }
    }
   },
@@ -884,21 +885,23 @@
      "indicators": [
       {
        "text": "however you look at it",
-       "note": "the word is the same read either way"
+       "at": 8,
+       "note": "however you look at it means from either side, so the answer reads the same forwards and backwards"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Rebuke",
-       "note": "the definition end: a small clicking noise of disapproval"
+       "at": 0,
+       "gives": "TUT",
+       "note": "a click of the tongue in mild reproof"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone insisting a telling-off is a telling-off, whatever the angle.",
-     "walkthrough": "'However you look at it' sounds like a shrug but is the whole of the wordplay: nothing is turned into anything else.",
-     "definitionFit": "To tut is to make a small clicking sound of disapproval, a mild rebuke."
+     "surface": "A reprimand is a reprimand, whichever way you see it.",
+     "walkthrough": "'however you look at it' tells you the answer is the same read either way. Tut is the click of the tongue made in disapproval.",
+     "definitionFit": "To tut is to make a clicking sound of disapproval, a mild reproof or scolding."
     },
     "features": {
      "answerInScene": true,
@@ -931,35 +934,37 @@
      "parts": [
       {
        "words": "change",
+       "at": 10,
        "gives": "TURN",
-       "note": "to turn is to change, as milk turns"
+       "note": "to turn is to change, as milk turns or leaves turn"
+      },
+      {
+       "words": "I",
+       "at": 17
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "only the initial letter of 'propose' is taken"
+         "at": 27,
+         "note": "initially means at the start, so just the first letter of propose"
         }
        ],
        "parts": [
         {
-         "words": "I",
-         "note": "I, as written"
+         "words": "propose",
+         "at": 19,
+         "note": "first letter of propose"
         }
        ]
-      },
-      {
-       "words": "propose initially",
-       "gives": "P",
-       "note": "first letter of PROPOSE"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone suggesting a change of vegetable.",
-     "walkthrough": "'Change' is a verb here, TURN, as leaves turn in autumn.",
-     "definitionFit": "Definition by category: this is one particular root vegetable, round with white flesh."
+     "surface": "A cook suggests swapping in a different vegetable.",
+     "walkthrough": "'initially' takes P from propose, after TURN and I.",
+     "definitionFit": "The turnip is a root vegetable with white flesh, grown for its swollen root."
     },
     "features": {
      "answerInScene": true,
@@ -1343,38 +1348,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "GUILT",
      "indicators": [
       {
-       "text": "taking"
+       "text": "taking",
+       "at": 23,
+       "note": "taking means bringing in, so the word takes on a new letter"
       },
       {
-       "text": "to replace"
+       "text": "to replace",
+       "at": 35,
+       "note": "the new letter replaces the old one, a swap"
       }
      ],
      "parts": [
       {
        "words": "fellowship",
+       "at": 11,
        "gives": "GUILD",
-       "note": "a guild is an association, a fellowship"
-      },
-      {
-       "words": "time",
-       "gives": "T",
-       "note": "T = time"
+       "note": "a guild is an association or fellowship of tradespeople"
       },
       {
        "words": "diamonds",
+       "at": 46,
        "gives": "D",
-       "note": "D = diamonds, the card suit; this letter goes out"
+       "note": "D is the card abbreviation for the suit of diamonds"
+      },
+      {
+       "words": "time",
+       "at": 30,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A member of a fellowship regretting a lapse, ready to swap time for jewels.",
-     "walkthrough": "GUILD loses its D, the diamonds of card-playing, and T comes in instead.",
-     "definitionFit": "A plain synonym: the bad feeling after doing wrong, close enough to remorse to swap in."
+     "surface": "A jewellers' guild feels sorry once a watch is substituted for its diamonds.",
+     "walkthrough": "'taking' T (time) 'to replace' D (diamonds) turns GUILD into the answer.",
+     "definitionFit": "Guilt is the feeling of having done wrong, so it is a close synonym for regret or contrition."
     },
     "features": {
      "answerInScene": false,
