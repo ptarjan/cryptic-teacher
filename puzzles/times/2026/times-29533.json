@@ -711,34 +711,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "in a state",
-       "note": "being in a state means agitated, so the letters are stirred up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in a state",
+         "at": 4,
+         "note": "in a state means disordered or agitated, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "Lee",
-         "note": "LEE rearranged"
-        },
-        {
-         "words": "of mind",
-         "gives": "MENTAL",
-         "note": "mental = of the mind"
+         "at": 0,
+         "note": "taken as written before rearranging"
         }
        ]
+      },
+      {
+       "words": "of mind",
+       "at": 15,
+       "gives": "MENTAL",
+       "note": "mental means relating to the mind"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone called Lee is in a mood so basic it is almost primal.",
-     "walkthrough": "'A state of mind' reads as one phrase; split it after 'state': 'in a state' stirs LEE, and 'of mind' is MENTAL.",
-     "definitionFit": "Elemental means basic, primal, of the first elements of things."
+     "surface": "Someone named Lee is troubled in mind, apparently in a basic, raw way.",
+     "walkthrough": "'in a state' looks like a description of Lee's mood; it signals the anagram ELE.",
+     "definitionFit": "Elemental means basic or fundamental, like the raw forces of nature."
     },
     "features": {
      "answerInScene": false,
@@ -1035,38 +1038,42 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "turning up",
-       "note": "in a down clue, up means read backwards"
-      }
-     ],
      "parts": [
       {
        "words": "Republican",
-       "gives": "R",
-       "note": "R = Republican"
+       "at": 21,
+       "gives": "R"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "during",
-         "note": "the reversed senator sits during, inside, IT"
+         "at": 51,
+         "note": "during means placed within the other word"
         }
        ],
        "parts": [
         {
          "words": "it",
-         "note": "used as written, split around the senator"
+         "at": 58,
+         "note": "taken as written"
         },
         {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "turning up",
+           "at": 40,
+           "note": "turning up in a down clue means reading upwards, so backwards"
+          }
+         ],
          "parts": [
           {
            "words": "senator",
+           "at": 32,
            "gives": "CATO",
-           "note": "Cato, the Roman senator, reversed to OTAC"
+           "note": "Cato was a famous Roman senator"
           }
          ]
         }
@@ -1075,14 +1082,14 @@
      ]
     },
     "explanation": {
-     "surface": "A speech is read to a crowd while a Republican senator shows up in the middle of it.",
-     "walkthrough": "'Republican senator' looks like one American politician; split it: R, then CATO of the Roman Republic. The Riot Act was an old British law read aloud to order a crowd to disperse.",
-     "definitionFit": "The Riot Act was the proclamation read to an unruly crowd, ordering it to disperse."
+     "surface": "A proclamation is read to rioters as a Republican senator appears.",
+     "walkthrough": "The senator is the Roman statesman Cato, a crossword regular. The Riot Act was a British law read aloud to disperse crowds.",
+     "definitionFit": "The Riot Act was a formal proclamation an official read to a crowd ordering it to disperse."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Republican"
+     "aptDefinition": true,
+     "misdirectedWord": "senator"
     }
    }
   },
