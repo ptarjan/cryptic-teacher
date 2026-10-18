@@ -1118,35 +1118,47 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "PLUMPED",
-     "indicators": [
-      {
-       "text": "with a different filling",
-       "note": "a different filling means the middle letter is swapped for another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "fruit",
+       "at": 10,
        "gives": "PLUM",
-       "note": "a kind of fruit"
+       "note": "a plum is a fruit"
       },
       {
-       "words": "pud",
-       "note": "taken as written; British slang for pudding"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "with a different filling",
+         "at": 20,
+         "note": "the middle letter of the word pud is swapped for another vowel"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pud",
+         "at": 16
+        },
+        {
+         "gives": "U"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone chose a fruit pudding with a new filling.",
-     "walkthrough": "The middle U of PUD is replaced by E, giving PED.",
-     "definitionFit": "To plump for something is an idiom for choosing it decisively."
+     "surface": "Someone chose a plum pudding with an unusual stuffing.",
+     "walkthrough": "'fruit pud' suggests plum pud; changing the U, its filling, to E gives PED.",
+     "definitionFit": "To plump for something is an idiom meaning to choose it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "filling"
     }
    }

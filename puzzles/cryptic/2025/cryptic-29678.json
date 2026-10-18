@@ -1087,46 +1087,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STALLED",
+     "op": "container",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without ends means both the first and last letters are dropped"
+       "text": "touring",
+       "at": 8,
+       "note": "the vehicle goes round the inner letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Vehicle",
+       "at": 0,
+       "gives": "SLED",
+       "note": "a sled is a vehicle for snow"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "touring",
-         "note": "to tour a place is to go around it, so the vehicle surrounds the country"
+         "text": "endlessly",
+         "at": 22,
+         "note": "Italy loses both its end letters"
         }
        ],
        "parts": [
         {
-         "words": "Vehicle",
-         "gives": "SLED",
-         "note": "a sled is a vehicle on runners"
-        },
-        {
          "words": "Italy",
-         "gives": "TAL",
-         "note": "Italy without its outside letters"
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A car on a tour of Italy keeps breaking down.",
-     "definitionFit": "When an engine stalls or a process stalls it stops moving forward, which is to be stuck."
+     "surface": "A car on a trip around Italy keeps breaking down.",
+     "definitionFit": "Stalled means brought to a halt, unable to move on."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Vehicle"
     }
    }
   },
@@ -1344,48 +1345,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNCOOL",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "briefly means cut short, so the last letter of the word is dropped"
+       "text": "holding",
+       "at": 19,
+       "note": "the shortened relative wraps round the Bond number"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "holding",
-         "note": "holding means having inside, so the shortened word surrounds the code"
+         "text": "briefly",
+         "at": 11,
+         "note": "the relative is cut short, losing its last letter"
         }
        ],
        "parts": [
         {
          "words": "relative",
-         "gives": "UNCL",
-         "note": "uncle is a relative, cut short"
+         "at": 2,
+         "gives": "UNCLE",
+         "note": "an uncle is a relative"
         },
         {
-         "words": "licence to kill",
-         "gives": "OO",
-         "note": "James Bond's 00 code number marks a licence to kill"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "licence to kill",
+       "at": 27,
+       "gives": "OO",
+       "note": "James Bond's 00 status is his licence to kill, written as two O's"
       }
      ]
     },
     "explanation": {
-     "surface": "A relative briefly holds a licence to kill, like a secret agent.",
-     "walkthrough": "1 refers to the answer to 1 down, SQUARE, here meaning old-fashioned.",
-     "definitionFit": "Calling someone square means they are conventional and unfashionable, which is the same as uncool."
+     "surface": "A relative, in brief, carries a spy's licence to kill.",
+     "walkthrough": "The definition is the answer to 1, another word for unfashionable.",
+     "definitionFit": "Uncool means unfashionable or not stylish, which is what the cross-referenced answer means."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "relative"
+     "aptDefinition": false,
+     "misdirectedWord": "licence"
     }
    }
   },
@@ -1832,41 +1838,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LEICESTER",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Endless",
-       "note": "with no ends means both outside letters of the word are dropped"
+       "text": "condemned",
+       "at": 25,
+       "note": "condemned letters are wrecked, so they are reordered"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "middle",
        "indicators": [
         {
-         "text": "condemned",
-         "note": "condemned things are broken up, so the letters are reworked"
+         "text": "Endless",
+         "at": 0,
+         "note": "secrets loses its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "secrets",
-         "gives": "ECRET",
-         "note": "secrets without its first and last letters"
-        },
-        {
-         "words": "lies",
-         "note": "taken as written"
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "lies",
+       "at": 20
       }
      ]
     },
     "explanation": {
-     "surface": "A city is condemned for its endless secrets and lies.",
-     "definitionFit": "Leicester is a city in the English East Midlands, the county town of Leicestershire."
+     "surface": "Secrets and lies at a football club are denounced.",
+     "walkthrough": "'Endless' cuts SECRETS to ECRET, which joins LIES to be rearranged.",
+     "definitionFit": "Leicester is an English city in the East Midlands."
     },
     "features": {
      "answerInScene": false,

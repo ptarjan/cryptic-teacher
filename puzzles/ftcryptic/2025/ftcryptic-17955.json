@@ -920,12 +920,14 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the first piece goes inside the vehicle"
+       "at": 15,
+       "note": "the actor goes inside the taxi"
       }
      ],
      "parts": [
       {
        "words": "taxi",
+       "at": 18,
        "gives": "CAB",
        "note": "a cab is a taxi"
       },
@@ -934,40 +936,43 @@
        "indicators": [
         {
          "text": "circling",
-         "note": "circling means going round, so this piece surrounds what follows"
+         "at": 23,
+         "note": "the actor surrounds the other pieces"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Cruise perhaps",
-           "gives": "TOM",
-           "note": "Tom Cruise, the actor"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "Cruise perhaps",
+         "at": 0,
+         "gives": "TOM",
+         "note": "Tom Cruise, so Tom is an example"
         },
         {
-         "words": "cold",
-         "gives": "C",
-         "note": "C for cold, as on taps"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 32,
+           "gives": "A"
+          },
+          {
+           "words": "cold",
+           "at": 34,
+           "gives": "C"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tom Cruise riding in a taxi past a chilly cemetery.",
-     "walkthrough": "'Cruise perhaps' asks for the first name of someone called Cruise, the actor; two containers nest, one inside the other.",
-     "definitionFit": "A catacomb is an underground cemetery of tunnels with recesses for tombs."
+     "surface": "A film star rides in a cab around a chilly cemetery.",
+     "walkthrough": "Two containers nest here: the actor holds the article and the cold, and the taxi holds the actor.",
+     "definitionFit": "A catacomb is an underground cemetery with tunnels and recesses for tombs."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Cruise"
     }

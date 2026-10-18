@@ -100,44 +100,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "silly",
-       "note": "something silly is muddled and nonsensical, so the letters it describes are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Barnet",
+       "at": 18,
+       "gives": "AFRO",
+       "note": "Barnet is rhyming slang for hair (Barnet Fair), and an afro is a hairstyle"
+      },
+      {
+       "words": "area",
+       "at": 25,
+       "gives": "A"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "silly",
+         "at": 35,
+         "note": "silly suggests the letters of is a are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "Barnet",
-         "gives": "AFRO",
-         "note": "Barnet is Cockney rhyming slang for hair (Barnet Fair), and an afro is a hairstyle"
-        },
-        {
-         "words": "area",
-         "gives": "A",
-         "note": "A is the standard abbreviation for area"
-        },
-        {
          "words": "is a",
-         "note": "these two short words are rearranged"
-        },
-        {
-         "words": "jerk",
-         "gives": "TIC",
-         "note": "a tic is an involuntary jerk or twitch"
+         "at": 30
         }
        ]
+      },
+      {
+       "words": "jerk",
+       "at": 41,
+       "gives": "TIC",
+       "note": "a tic is a jerk or twitch"
       }
      ]
     },
     "explanation": {
-     "surface": "A North African visiting the London suburb of Barnet acting like a clumsy fool.",
-     "walkthrough": "Barnet is a north London district, but here it is rhyming slang: 'Barnet Fair' means hair. Berber is a language family member, hence 'Perhaps'.",
-     "definitionFit": "Berber languages belong to the large Afro-Asiatic family, so Berber is one example of that grouping."
+     "surface": "A Berber in the London suburb of Barnet is mocked as a fool.",
+     "walkthrough": "Barnet, a London suburb, is also slang for hair. 'silly' turns IS A into SIA.",
+     "definitionFit": "Berber belongs to the Afroasiatic language family of North Africa and the Middle East."
     },
     "features": {
      "answerInScene": false,
@@ -794,28 +797,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CARTHORSE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of pairs of words"
+       "at": 0,
+       "note": "Dr Spooner swapped the opening sounds of words, as is done here"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "deer track",
-       "gives": "CARTHORSE",
-       "soundsLike": "HART COURSE",
-       "note": "a hart is a male deer and a course is a track; swap the first sounds"
+       "words": "deer",
+       "at": 10,
+       "gives": "HART",
+       "note": "a hart is a male deer"
+      },
+      {
+       "op": "homophone",
+       "spelt": "CORSE",
+       "parts": [
+        {
+         "words": "track",
+         "at": 15,
+         "gives": "COURSE",
+         "note": "a course is a track, as a racecourse"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trail left by deer through a valley in Scotland.",
-     "walkthrough": "Clydesdale is a Scottish valley, but here it is the heavy horse breed named after it; the question mark flags it as an example.",
-     "definitionFit": "The Clydesdale is a powerful draught breed, a classic example of an animal used to pull heavy wagons."
+     "surface": "A deer's trail spotted in the Clyde valley.",
+     "walkthrough": "HART COURSE with the opening sounds swapped gives CART HORSE; course sounds like corse, so the swap gives horse.",
+     "definitionFit": "The Clydesdale is a Scottish breed of heavy draught horse, an example of a carthorse."
     },
     "features": {
      "answerInScene": false,
@@ -846,51 +859,53 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "STEGOSAURUS",
-     "indicators": [
-      {
-       "text": "into",
-       "note": "going into something means ending up inside it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half-cut",
+         "at": 16,
+         "note": "only half of the word is survives, its second letter"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "half-cut",
-           "note": "cutting a word in half keeps only one of its two halves"
-          }
-         ],
-         "parts": [
-          {
-           "words": "is",
-           "note": "the second half of this two-letter word"
-          }
-         ]
+         "words": "is",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "at": 45,
+         "note": "the jumbled letters go inside the bull's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the Bull",
+         "at": 50,
+         "gives": "TAURUS",
+         "note": "Taurus is the Bull of the zodiac"
         },
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "unsteadily",
-           "note": "something moving unsteadily wobbles out of its proper order"
+           "at": 34,
+           "note": "unsteadily shows the letters of goes are reeling about"
           }
          ],
          "parts": [
           {
            "words": "goes",
-           "note": "the four letters are rearranged"
-          },
-          {
-           "words": "the Bull",
-           "gives": "TAURUS",
-           "note": "Taurus is the zodiac sign of the Bull"
+           "at": 29
           }
          ]
         }
@@ -899,9 +914,9 @@
      ]
     },
     "explanation": {
-     "surface": "A drunk staggering into a pub called the Bull, described unkindly as an old creature.",
-     "walkthrough": "'Half-cut' is British slang for drunk, which suits the pub, but here it means take half of 'is'.",
-     "definitionFit": "The stegosaurus was a plated dinosaur of the Jurassic, an animal from millions of years ago."
+     "surface": "A drunk staggers into the pub called the Bull.",
+     "walkthrough": "'half-cut' looks like drunk and 'the Bull' like a pub, but the first keeps half of the word is and the second is the zodiac sign.",
+     "definitionFit": "The stegosaurus was a plated dinosaur, an extinct prehistoric animal."
     },
     "features": {
      "answerInScene": false,
@@ -1122,41 +1137,43 @@
      "indicators": [
       {
        "text": "to stop",
-       "note": "to stop a hole is to plug it, so one piece is pushed inside the other"
+       "at": 6,
+       "note": "the pieces stop up the word for crackpot by going inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "crackpot",
+       "at": 14,
+       "gives": "LOON",
+       "note": "a loon is a crazy person"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "crackpot",
-         "gives": "LOON",
-         "note": "a loon is a crazy person"
+         "words": "A",
+         "at": 0,
+         "gives": "A"
         },
         {
          "words": "way",
+         "at": 2,
          "gives": "RD",
-         "note": "RD is the abbreviation for road, a way"
+         "note": "RD is short for road, a way"
         }
        ]
-      },
-      {
-       "words": "A",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Calling someone a bit of a pig is one way to silence an eccentric.",
-     "walkthrough": "'A bit of a pig' sounds like an insult, but it is literal: a lardoon is a strip of pork fat.",
-     "definitionFit": "A lardoon, also spelt lardon, is a small strip of bacon or pork fat, literally a piece cut from a pig."
+     "surface": "A road built to halt an eccentric, plus a little piggishness.",
+     "definitionFit": "A lardoon, or lardon, is a strip of pork fat or bacon used in cooking."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "pig"
+     "misdirectedWord": "stop"
     }
    }
   },
