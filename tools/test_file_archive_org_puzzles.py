@@ -81,6 +81,16 @@ check("misread titles read: first word, a mark before Crossword, a split number,
       [n for t in ("Hie Times Crossword Puzzle No 14,564", "The Times 'Crossword Puzzle No 14,012",
                    "THE TIMES CROSSWORD PUZZLE NO 1 8,862", "THE TIMES CROSSWORD NO 21*065")
        for n, _ in f.headings([line(t)], f.TITLE)])
+# The Gale Times from 2000-03-13: "NO 21,362" on its own row under the title.
+check("a bare NO row joins the THE TIMES CROSSWORD row over it", [21362],
+      [n for n, _, _ in f.times_headings([line("THE TIMES CROSSWORD", 277, 3051), line("NO 21,362", 274, 3070)])[0]])
+check("the words after CROSSWORD on the title's row are left out of the join", [21362],
+      [n for n, _, _ in f.times_headings([line("THE TIMES Crossword wrong word to describe how", 274, 3046),
+                                          line("NO 21,362", 274, 3068)])[0]])
+check("a bare NO row far under the title does not join it", [],
+      f.times_headings([line("THE TIMES CROSSWORD", 277, 3051), line("NO 21,362", 274, 3300)])[0])
+check("a bare NO row under another line does not join it", [],
+      f.times_headings([line("Schumacher cedes them all", 277, 3051), line("NO 21,362", 274, 3070)])[0])
 # A scan cached by older heading code is made again, and a title it finds
 # that no verdict covers makes the edition due.
 import code_reach
@@ -577,6 +587,10 @@ check("clues right of a grid at the page's foot are found", (1675, 2531),
 check("a grid with room under it for clues has none right of it", None, f.right_columns(page, (196, 500, 916, 1218)))
 check("a blank strip right of the grid holds no clues", None,
       f.right_columns(Image.new("L", (3296, 2849), 255), (196, 1598, 916, 2316)))
+page2 = Image.new("L", (3296, 2849), 255)
+ImageDraw.Draw(page2).rectangle((1000, 2000, 1900, 2400), fill=0)  # clues out to 1.35 grids' widths
+check("the 2005 Times' clues run out further right of the grid than the 2014's", (1960, 2531),
+      f.right_columns(page2, (196, 1598, 916, 2316), f.RIGHT_SPAN_LEFT))
 rwords = [[(960, 1620, 1250, 1645, "Across")], [(1330, 1620, 1620, 1645, "build-up? (5,5)")],
           [(960, 1650, 1250, 1675, "25 Drag performer by bar getting big")],
           [(960, 2330, 1250, 2355, "Yesterday's solution 25,732")],
