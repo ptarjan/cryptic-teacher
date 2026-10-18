@@ -47,60 +47,63 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OLYMPIC",
      "indicators": [
       {
        "text": "including",
-       "note": "including means taking something inside, so one piece sits within the others"
+       "at": 40,
+       "note": "including means taking in, so the abbreviation for mass goes inside"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "commonly",
-         "note": "common speech drops the aitch at the front of a word, so the sacred word loses its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "commonly",
+           "at": 31,
+           "note": "commonly means in common or dialect speech, which drops the opening aitch"
+          }
+         ],
          "parts": [
           {
            "words": "sacred",
+           "at": 23,
            "gives": "HOLY",
-           "note": "sacred means holy"
+           "note": "holy means sacred"
           },
           {
-           "words": "Mass",
-           "gives": "M",
-           "note": "M is the physics symbol for mass"
-          },
-          {
-           "words": "image",
-           "gives": "PIC",
-           "note": "pic is short for picture"
+           "gives": "H"
           }
          ]
         },
         {
-         "gives": "H"
+         "words": "image",
+         "at": 10,
+         "gives": "PIC",
+         "note": "pic is short for picture, an image"
         }
        ]
+      },
+      {
+       "words": "Mass",
+       "at": 50,
+       "gives": "M",
+       "note": "M is the abbreviation for mass in physics"
       }
      ]
     },
     "explanation": {
-     "surface": "A description of an ancient Greek icon, holy and painted with the Mass inside.",
-     "walkthrough": "Dropping the aitch, as in 'oly for holy, is how 'commonly' signals casual speech.",
-     "definitionFit": "Olympic describes things from Olympia or Olympus in ancient Greece, so it serves as an adjective meaning old Greek."
+     "surface": "An ancient Greek painting of a holy subject, as ordinary people say, shows the Mass.",
+     "walkthrough": "'commonly' refers to dropping the aitch, as in Cockney speech; the phrase 'image that's sacred' is read as a sacred picture, and the Mass sits between its two words.",
+     "definitionFit": "Olympic can describe a native of Olympia in ancient Greece, or the ancient games held there."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "image"
+     "misdirectedWord": "commonly"
     }
    }
   },
@@ -3553,45 +3556,50 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the story goes round the next pieces"
+       "at": 6,
+       "note": "about means surrounding, so the word for story wraps around the reversed pair"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Story",
-         "gives": "YARN",
-         "note": "a yarn is a tale"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Story",
+       "at": 0,
+       "gives": "YARN",
+       "note": "a yarn is a long tale"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "turned",
-         "note": "turned means reversed, so the doctor is read backwards"
+         "at": 21,
+         "note": "turned means turned round, so a and the doctor's letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "doctor",
-         "gives": "MD",
-         "note": "MD is a doctor of medicine"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 12
+          },
+          {
+           "words": "doctor",
+           "at": 14,
+           "gives": "MD",
+           "note": "MD, Doctor of Medicine, is the abbreviation for a doctor"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tale about a medic who became a railwayman.",
-     "definitionFit": "A yardman works in a railway yard, shunting and marshalling trains."
+     "surface": "A tale of a doctor who changed jobs to work on the railways.",
+     "walkthrough": "'turned' looks like it describes the doctor changing career, but it reverses the letters; the story then wraps around them.",
+     "definitionFit": "A yardman works in a railway yard, shunting and marshalling wagons and coaches."
     },
     "features": {
      "answerInScene": true,

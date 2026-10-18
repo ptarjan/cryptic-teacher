@@ -542,48 +542,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OEDIPUS",
+     "op": "container",
      "indicators": [
       {
-       "text": "for the most part",
-       "note": "most but not all of the word is used, so its final letter is lost"
+       "text": "to block",
+       "at": 26,
+       "note": "to block means to sit inside and obstruct, so the shortened word goes within the word for work"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "work",
+       "at": 35,
+       "gives": "OPUS",
+       "note": "opus is Latin for a work, especially a musical composition"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to block",
-         "note": "something that blocks sits inside and fills the gap in another word"
+         "text": "for the most part",
+         "at": 8,
+         "note": "for the most part means nearly all of it, so the last letter of the word for correct is dropped"
         }
        ],
        "parts": [
         {
-         "words": "work",
-         "gives": "OPUS",
-         "note": "an opus is a work, especially of music"
+         "words": "Correct",
+         "at": 0,
+         "gives": "EDIT",
+         "note": "to correct a text is to edit it"
         },
         {
-         "words": "Correct",
-         "gives": "EDI",
-         "note": "to correct a text is to edit it; drop the last letter"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mostly-right advice on stopping a piece of work, oddly linked to a mythical riddler.",
-     "walkthrough": "'Correct' looks like an adjective but is the verb, meaning to amend a text.",
-     "definitionFit": "In Greek myth Oedipus answered the Sphinx's riddle about the creature walking on four, two and three legs."
+     "surface": "A proofreader mostly fixes a piece of writing by the famous solver of riddles.",
+     "walkthrough": "'Correct' reads as an adjective in the surface but is the verb meaning to revise a text; 'for the most part' then leaves off its final letter.",
+     "definitionFit": "In Greek legend Oedipus answered the Sphinx's riddle about the creature with four, two and three legs."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "block"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Correct"
     }
    }
   },
@@ -1523,44 +1528,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "to diversify",
-       "note": "to diversify is to vary, so the letters take on a varied order"
+       "text": "in",
+       "at": 18,
+       "note": "in means the rearranged letters sit inside the word for excellent"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "excellent",
+       "at": 21,
+       "gives": "ACE",
+       "note": "ace is informal for excellent"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "one set of letters is put inside the other word"
+         "text": "to diversify",
+         "at": 5,
+         "note": "to diversify is to make varied, so the letters of made are varied into a new order"
         }
        ],
        "parts": [
         {
-         "words": "excellent",
-         "gives": "ACE",
-         "note": "ace is slang for excellent"
-        },
-        {
          "words": "Made",
-         "note": "the four letters rearranged"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A first-rate institution was forced to broaden its range.",
-     "definitionFit": "Academe means the academic world, the environment of universities and scholarship."
+     "surface": "Someone was pushed to branch out at a fine university.",
+     "walkthrough": "'to diversify' rearranges MADE to ADEM, which goes 'in' ACE.",
+     "definitionFit": "Academe is the world of universities and scholarship, the academic environment where people study."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Made"
+     "misdirectedWord": "diversify"
     }
    }
   },
