@@ -431,39 +431,54 @@
      "op": "container",
      "indicators": [
       {
-       "text": "curtains"
+       "text": "curtains",
+       "at": 13,
+       "note": "curtains cover something, so PENCE closes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "coppers",
-         "gives": "PENCE",
-         "note": "coppers = pennies, pence"
-        },
-        {
-         "words": "connected with",
-         "gives": "RE",
-         "note": "re = concerning, connected with"
-        }
-       ]
+       "words": "coppers",
+       "at": 5,
+       "gives": "PENCE",
+       "note": "coppers are copper coins, pennies, so pence"
       },
       {
-       "words": "front of theatre",
-       "gives": "T",
-       "note": "first letter of Theatre"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "connected with",
+         "at": 22,
+         "gives": "RE",
+         "note": "re means concerning, connected with"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "front of",
+           "at": 37,
+           "note": "the front of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "theatre",
+           "at": 46
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Police officers draw the curtains at a theatre's front of house.",
-     "walkthrough": "'Coppers' pretends to be police; here they are copper coins. 'Curtains' is a verb, the coins hanging either side of the other letters.",
-     "definitionFit": "A show of feeling can be mere pretence, a false display."
+     "surface": "A show at the theatre: police and curtains linked to the front of house.",
+     "walkthrough": "'coppers' suggests police, but it means copper coins, pence. 'curtains' is a verb here, enclosing RE and T.",
+     "definitionFit": "A show can mean a pretence, as in a show of grief that is not felt."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "coppers"
     }
@@ -682,46 +697,57 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DINGDONGBELL",
      "indicators": [
       {
        "text": "but individual characters adapted",
-       "note": "each word has just one letter changed"
+       "at": 16,
+       "note": "but with single letters altered says each word keeps its shape except for one changed letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
        "parts": [
         {
-         "words": "Ring",
-         "gives": "DING",
-         "note": "RING with R changed to D"
+         "op": "substitution",
+         "parts": [
+          {
+           "words": "Ring done well",
+           "at": 0
+          },
+          {
+           "gives": "R"
+          },
+          {
+           "gives": "D"
+          }
+         ]
         },
         {
-         "words": "done",
-         "gives": "DONG",
-         "note": "DONE with E changed to G"
+         "gives": "E"
         },
         {
-         "words": "well",
-         "gives": "BELL",
-         "note": "WELL with W changed to B"
+         "gives": "G"
         }
        ]
+      },
+      {
+       "gives": "W"
+      },
+      {
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "A bell rung well, with the letters of a verse altered.",
-     "walkthrough": "Change one letter per word and 'Ring done well' becomes the nursery rhyme, the one where pussy's in the well, so the well survives in spirit.",
-     "definitionFit": "'Ding Dong Bell' is a traditional English nursery rhyme."
+     "surface": "A boxing bout well fought, though the individual fighters had to adapt.",
+     "walkthrough": "Change one letter in each word of 'Ring done well': R becomes D, E becomes G, W becomes B.",
+     "definitionFit": "Ding Dong Bell is a traditional English nursery rhyme about a cat in a well."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Ring"
+     "misdirectedWord": "characters"
     }
    }
   },
@@ -1069,36 +1095,50 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' places one thing within another"
+       "at": 47,
+       "note": "in means placed inside, so the other letters go into NOON"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "middle of day",
-         "gives": "NOON",
-         "note": "noon = the middle of the day"
-        },
-        {
-         "words": "religious",
-         "gives": "NUN",
-         "note": "a religious = a member of a religious order, such as a nun"
-        }
-       ]
+       "words": "middle of day",
+       "at": 50,
+       "gives": "NOON",
+       "note": "noon is midday"
       },
       {
-       "words": "individual's initiation",
-       "gives": "I",
-       "note": "first letter of Individual"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "religious",
+         "at": 13,
+         "gives": "NUN",
+         "note": "a religious is a member of a religious order, such as a nun"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initiation",
+           "at": 36,
+           "note": "the initiation of a word is its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "individual's",
+           "at": 23
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A freelance believer is initiated at midday.",
-     "walkthrough": "'Religious' is a noun here: a religious is a monk or nun.",
-     "definitionFit": "A nonunion worker is not affiliated to a trade union."
+     "surface": "A nun who belongs to no group is initiated into her order at midday.",
+     "walkthrough": "'religious' is a noun here, a member of an order: a nun.",
+     "definitionFit": "Non-union describes a worker or business not belonging to a trade union, unaffiliated to one."
     },
     "features": {
      "answerInScene": false,

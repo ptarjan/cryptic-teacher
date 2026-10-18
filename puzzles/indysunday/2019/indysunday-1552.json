@@ -1132,36 +1132,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "distorted",
-       "note": "distorted means twisted out of shape, so the letters are bent into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "mug",
+       "at": 10,
+       "gives": "FACE",
+       "note": "mug is slang for face"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "distorted",
+         "at": 19,
+         "note": "distorted means twisted out of shape, so the letters of pout are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "mug",
-         "gives": "FACE",
-         "note": "mug is slang for face"
-        },
-        {
          "words": "pout",
-         "note": "the letters of pout rearranged"
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone identifies a face pulling a twisted sulky expression.",
-     "definitionFit": "To face up to something is to acknowledge and accept an unpleasant truth rather than avoid it."
+     "surface": "Someone identifies a face because of its twisted pouting lips.",
+     "walkthrough": "'with' just joins FACE to UPTO, the rearranged letters of pout.",
+     "definitionFit": "To face up to something is to acknowledge or accept it, to recognise it as real."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "mug"
     }
@@ -1322,57 +1325,62 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in puts the reversed chunk inside the central letters"
+       "at": 30,
+       "note": "in places the turned-round piece inside the two central letters of site"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 33,
+         "note": "middle of takes the central letters of site, dropping its ends"
+        }
+       ],
        "parts": [
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "middle of",
-           "note": "the middle of a four-letter word is its two central letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "site",
-           "note": "the two central letters of site"
-          }
-         ]
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "to return",
-           "note": "returning means going back the way it came, so the combined letters are read backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "top",
-           "gives": "CAP",
-           "note": "a cap is a top or lid"
-          }
-         ]
+         "words": "site",
+         "at": 43
         }
        ]
       },
       {
-       "words": "Frenchman",
-       "gives": "M",
-       "note": "M is Monsieur, the French for Mr"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to return",
+         "at": 20,
+         "note": "to return means to go back, so the letters are read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "top",
+           "at": 6,
+           "gives": "CAP",
+           "note": "a cap is a top, as on a bottle"
+          },
+          {
+           "words": "Frenchman",
+           "at": 10,
+           "gives": "M",
+           "note": "M is the abbreviation for Monsieur, a Frenchman"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A leading Frenchman is forced to come back to the centre of a building site.",
-     "walkthrough": "'Top Frenchman' looks like a French leader, but top and Frenchman are two separate pieces, reversed together.",
-     "definitionFit": "Impact is the force of one body striking another, or a forceful effect."
+     "surface": "A Frenchman of high rank is forced back into the middle of some location.",
+     "walkthrough": "'top' is a noun here, a lid, not an adjective for the Frenchman; 'to return' turns both pieces together.",
+     "definitionFit": "Impact is the force of one thing striking another, or effect in general."
     },
     "features": {
      "answerInScene": false,

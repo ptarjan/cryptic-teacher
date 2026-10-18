@@ -189,31 +189,51 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the letters so far are placed inside the county's name"
+       "at": 70,
+       "note": "in means placed inside, so the other letters go into OXON"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "English county",
+       "at": 73,
+       "gives": "OXON",
+       "note": "Oxon is the abbreviation for Oxfordshire"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "English county",
-         "gives": "OXON",
-         "note": "Oxon is the standard abbreviation for Oxfordshire"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning in",
+           "at": 20,
+           "note": "the beginning in a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Yorkshire",
+           "at": 33
+          }
+         ]
         },
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "interminable",
-           "note": "without a termination, so the word loses its final letter"
+           "at": 57,
+           "note": "interminable means without end, so the last letter is dropped"
           }
          ],
          "parts": [
           {
            "words": "increasingly",
+           "at": 44,
            "gives": "MORE",
-           "note": "more and more, increasingly"
+           "note": "more means increasingly, as in more and more"
           },
           {
            "gives": "E"
@@ -221,33 +241,18 @@
          ]
         }
        ]
-      },
-      {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "beginning in",
-         "note": "the beginning of a word is its opening letter, so only that letter is used"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Yorkshire",
-         "note": "first letter of Yorkshire"
-        }
-       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A county quarrel that began in Yorkshire grows without end.",
-     "walkthrough": "Oxon is the short form of Oxfordshire, from its Latin name.",
-     "definitionFit": "An oxymoron joins contradictory terms, like 'deafening silence', so it is a self-disagreement that sounds absurd."
+     "surface": "An absurd row starts in Yorkshire and spreads endlessly across another county.",
+     "walkthrough": "The county is Oxfordshire, whose standard short form comes from its Latin name Oxonia.",
+     "definitionFit": "An oxymoron is a figure of speech joining contradictory terms, a self-contradiction that seems absurd."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "increasingly"
+     "misdirectedWord": "interminable"
     }
    }
   },

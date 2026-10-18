@@ -686,49 +686,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "poor",
-       "note": "the clue words are in poor order, so rearrange them"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Very",
+       "at": 0,
+       "gives": "V"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
+         "text": "poor",
+         "at": 5,
+         "note": "poor means badly made, so the letters are rearranged"
+        },
+        {
          "text": "about",
-         "note": "the rearranged letters go around the next piece"
+         "at": 22,
+         "note": "about here means in a jumbled way, every which way, adding to the signal to rearrange"
         }
        ],
        "parts": [
         {
-         "words": "Very",
-         "gives": "V",
-         "note": "standard abbreviation"
+         "words": "arcane clue",
+         "at": 10
         },
         {
-         "op": "container",
+         "op": "outer",
          "indicators": [
           {
            "text": "depleted",
-           "note": "uranium is emptied, leaving its outside letters"
+           "at": 28,
+           "note": "depleted uranium has lost its contents, leaving only its outer letters"
           }
          ],
          "parts": [
           {
-           "words": "arcane clue",
-           "note": "anagram fodder, rearranged"
-          },
-          {
-           "op": "outer",
-           "parts": [
-            {
-             "words": "uranium",
-             "note": "URANIUM depleted to its outer letters, placed inside"
-            }
-           ]
+           "words": "uranium",
+           "at": 37
           }
          ]
         }
@@ -737,9 +733,9 @@
      ]
     },
     "explanation": {
-     "surface": "A solver's verdict on an obscure clue: it is really bad.",
-     "walkthrough": "'It sucks' reads as slang for 'it's awful', matching the grumble about a poor clue, but it literally describes what the machine does.",
-     "definitionFit": "Definition by function: the machine cleans by suction, while 'it sucks' also reads as slang for 'it is awful'."
+     "surface": "A solver scorns a cryptic clue about depleted uranium as rubbish.",
+     "walkthrough": "'it sucks' is slang for being bad, a fair verdict on a poor clue, but it is meant literally.",
+     "definitionFit": "A vacuum cleaner works by suction, drawing dust and dirt up from floors."
     },
     "features": {
      "answerInScene": false,
@@ -1686,49 +1682,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "eating",
-       "note": "the rash takes the letters inside it"
-      }
-     ],
      "parts": [
       {
-       "op": "first",
+       "words": "Caught",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the cricket abbreviation for caught"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "starters of",
-         "note": "a starter is what comes first, so each word gives its first letter"
+         "text": "eating",
+         "at": 25,
+         "note": "eating means taking in, so RASH goes around the other letters"
         }
        ],
        "parts": [
         {
-         "words": "Caught",
-         "note": "c = caught, in cricket scoring"
-        }
-       ]
-      },
-      {
-       "op": "container",
-       "parts": [
-        {
          "words": "symptom of plague",
+         "at": 7,
          "gives": "RASH",
-         "note": "a rash is a symptom"
+         "note": "a rash is a symptom of many diseases, plague among them"
         },
         {
-         "words": "yesterday's frozen iffy",
-         "gives": "YFI",
-         "note": "first letters, placed inside RASH"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "starters of",
+           "at": 32,
+           "note": "starters of the words are their first letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "yesterday's frozen iffy",
+           "at": 44
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who fell ill from eating yesterday's dodgy frozen seafood.",
-     "walkthrough": "The food-poisoning surface fits the answer; 'caught' reads as catching the illness but is the cricket abbreviation.",
-     "definitionFit": "Definition by category: freshwater crustaceans eaten as shellfish."
+     "surface": "Someone catches plague-like symptoms from dodgy frozen seafood bought the day before.",
+     "walkthrough": "C for caught is the cricket scorecard abbreviation; 'eating' is the enclosure signal, not part of the food picture.",
+     "definitionFit": "Crayfish are freshwater crustaceans like small lobsters, eaten as shellfish."
     },
     "features": {
      "answerInScene": true,
