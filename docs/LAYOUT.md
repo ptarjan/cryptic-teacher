@@ -2959,5 +2959,7 @@ tools/test_unchecked_repairs.py                is each mechanical repair of an u
                                                answer, on clues from the corpus?
 tools/test_worker_commit.sh                    does worker_commit commit only its own paths,
                                                and say why when it cannot?
+tools/fix_scrambled_gives.py                   drop the made-up `gives` of a fodder leaf inside
+                                               an anagram (shape round 3, 10-17)
 ```
 <!-- LAYOUT-END -->

@@ -3760,9 +3760,11 @@ def scrambled_leaves(tree, min_len=4):
 
     A fodder leaf gives its own letters in order; only an anagram op scrambles, so
     a leaf that arrives scrambled hides a bad tree (CULTIVATE =
-    ana(ins([clever]CUTE, [vital]LTIVA)), [gaunt]GUTAN). Not flagged: a leaf
-    directly under an anagram, reversal or cycling op (the corpus writes the
-    op's input or result there), 3 or fewer letters, and any `gives` with other
+    ana(ins([clever]CUTE, [vital]LTIVA)), [gaunt]GUTAN). Under an anagram the
+    fodder is verbatim: [Lido]IDOL under ana is a made-up synonym (shape round 3,
+    10-17: 4,654 such clues repaired by tools/fix_scrambled_gives.py, the rule now
+    covers them). Not flagged: a leaf directly under a reversal or cycling op (the
+    corpus writes the op's input or result there), 3 or fewer letters, and any `gives` with other
     letters (a synonym or abbreviation). A same-first-letter sub-multiset out of
     order was measured too and is mostly a coincident synonym (summer clothes >
     SHORTS), so it is not a rule."""
@@ -3773,7 +3775,7 @@ def scrambled_leaves(tree, min_len=4):
         stack += [(p, node) for p in node.get("parts") or [] if isinstance(p, dict)]
         if "op" in node or not node.get("words") or not node.get("gives"):
             continue
-        if parent and parent.get("op") in ("anagram", "reversal", "cycling"):
+        if parent and parent.get("op") in ("reversal", "cycling"):
             continue
         w, g = wordplay.letters(node["words"]), wordplay.letters(node["gives"])
         n += len(g) >= min_len and g != w and collections.Counter(g) == collections.Counter(w)

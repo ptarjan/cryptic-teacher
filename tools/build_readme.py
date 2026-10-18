@@ -789,6 +789,7 @@ LAYOUT = [
     ("annotating", "tools/unchecked_repairs.py", "mechanical repairs for an unchecked wordplay tree (wordless leaves, unscrambled fodder), each kept only when the evaluator then finds the answer, so tools/clear_unchecked.py can clear more flags"),
     ("annotating", "tools/test_unchecked_repairs.py", "is each mechanical repair of an unchecked tree kept only when the evaluator then finds the answer, on clues from the corpus?"),
     ("annotating", "tools/test_worker_commit.sh", "does worker_commit commit only its own paths, and say why when it cannot?"),
+    ("annotating", "tools/fix_scrambled_gives.py", "drop the made-up `gives` of a fodder leaf inside an anagram (shape round 3, 10-17)"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

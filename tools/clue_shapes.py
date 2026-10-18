@@ -406,15 +406,12 @@ def ex_line(e, width=150):
 
 
 def rollup(c, v, pats, key):
-    """Fold the skeletons into the groups `key` names: clues, skeletons, clues judged not ok, commonest skeleton."""
+    """Fold the skeletons into the groups `key` names: clues, skeletons, commonest skeleton."""
     g = {}
     for sk, r in c.shapes.items():
-        e = g.setdefault(key(sk), {"n": 0, "skels": 0, "bad": 0, "top": (sk, r), "t2": set()})
+        e = g.setdefault(key(sk), {"n": 0, "skels": 0, "top": (sk, r), "t2": set()})
         e["n"] += r[0]
         e["skels"] += 1
-        row, _ = judge(sk, v, pats)
-        if row and row["verdict"] != "ok":
-            e["bad"] += r[0]
         if r[0] > e["top"][1][0]:
             e["top"] = (sk, r)
         e["t2"].add(tier2(sk))
@@ -461,15 +458,13 @@ def tier_sections(c, v, pats, w):
     w("")
     w("### Tier 1: mechanism sets")
     w("")
-    w("Not ok is the share of the group's clues whose skeleton is judged other than ok.")
-    w("")
-    w("| # | mechanisms | clues | share | cumulative | tier-2 groups | skeletons | not ok | example |")
-    w("|---:|---|---:|---:|---:|---:|---:|---:|---|")
+    w("| # | mechanisms | clues | share | cumulative | tier-2 groups | skeletons | example |")
+    w("|---:|---|---:|---:|---:|---:|---:|---|")
     cum = 0
     for i, (k, e) in enumerate(sorted(t1.items(), key=lambda kv: -kv[1]["n"])[:TOP1], 1):
         cum += e["n"]
         w(f"| {i} | {esc(k)} | {e['n']:,} | {pct(e['n'], n)} | {pct(cum, n)} | {len(e['t2']):,} | {e['skels']:,} | "
-          f"{pct(e['bad'], e['n'])} | {esc(ex_line(e['top'][1][1][0], 55))} |")
+          f"{esc(ex_line(e['top'][1][1][0], 55))} |")
     w("")
     if len(t1) > TOP1:
         w(f"{len(t1) - TOP1} smaller sets not shown.")
@@ -478,13 +473,13 @@ def tier_sections(c, v, pats, w):
     w("")
     w("`x` is any leaf. Skeletons is how many tier-3 skeletons fold into the tree.")
     w("")
-    w("| # | tree | clues | share | cumulative | skeletons | not ok | commonest skeleton | example |")
-    w("|---:|---|---:|---:|---:|---:|---:|---|---|")
+    w("| # | tree | clues | share | cumulative | skeletons | commonest skeleton | example |")
+    w("|---:|---|---:|---:|---:|---:|---|---|")
     cum = 0
     for i, (k, e) in enumerate(sorted(t2.items(), key=lambda kv: -kv[1]["n"])[:TOP2], 1):
         cum += e["n"]
         w(f"| {i} | `{esc(k)}` | {e['n']:,} | {pct(e['n'], n)} | {pct(cum, n)} | {e['skels']:,} | "
-          f"{pct(e['bad'], e['n'])} | `{esc(e['top'][0])}` | {esc(ex_line(e['top'][1][1][0], 45))} |")
+          f"`{esc(e['top'][0])}` | {esc(ex_line(e['top'][1][1][0], 45))} |")
     w("")
 
 
@@ -540,13 +535,18 @@ def build_doc(c, v):
         g["skels"] += 1
         if g["top"] is None:
             g["top"] = (sk, r)
-    w("## Shapes that do not make sense")
+    w("## Still being fixed")
     w("")
     bad = sorted(groups.items(), key=lambda kv: -kv[1]["n"])
     tot = sum(g["n"] for _, g in bad)
-    w(f"{tot:,} clues ({pct(tot, n)}) have a skeleton judged other than ok, in {len(bad)} groups, "
-      "ranked by clues. `right` is the shape the clue should have.")
-    w("")
+    if not bad:
+        w("None: every skeleton is judged ok.")
+        w("")
+    else:
+        w(f"{tot:,} clues ({pct(tot, n)}) have a skeleton judged other than ok, in {len(bad)} groups, "
+          "ranked by clues. These are errors in the repair queue (`tools/data/shape_reannotate.json`), not a "
+          "standing statistic; the list shrinks to None as the queue drains. `right` is the shape the clue should have.")
+        w("")
     for i, (name, g) in enumerate(bad, 1):
         row, (sk, r) = g["row"], g["top"]
         w(f"### {i}. {name}: {g['n']:,} clues ({pct(g['n'], n)}), {row['verdict']}")
