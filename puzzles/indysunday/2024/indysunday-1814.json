@@ -686,40 +686,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "Most of a word is all but its last letter."
-      }
-     ],
      "parts": [
       {
        "words": "Brown",
+       "at": 0,
        "gives": "TAN",
-       "note": "tan is a light brown"
+       "note": "tan is a brown colour"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "turning",
-         "note": "Turning a word round makes it read backwards."
+         "at": 20,
+         "note": "turning means turned round, so that shortened duck reads backwards"
         }
        ],
        "parts": [
         {
-         "words": "duck",
-         "gives": "DRAK",
-         "note": "DRAKE, a male duck, without its last letter, then turned round to KARD"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 6,
+           "note": "most of means all but the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "duck",
+           "at": 14,
+           "gives": "DRAKE",
+           "note": "a drake is a male duck"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Browning most of a duck and turning it over in a cooking pot.",
-     "walkthrough": "'That' refers back to the shortened duck; the pot at the end is a drinking pot, not a cooking one.",
-     "definitionFit": "A tankard is a pot, a large mug for beer."
+     "surface": "Browning a bit of duck by turning it in a cooking pot.",
+     "walkthrough": "A pot is British slang for a beer mug; 'that in' merely links.",
+     "definitionFit": "A tankard is a large drinking mug, often called a pot of beer."
     },
     "features": {
      "answerInScene": false,

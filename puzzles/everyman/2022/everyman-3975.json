@@ -355,7 +355,8 @@
      "indicators": [
       {
        "text": "rejected",
-       "note": "a rejected thing is sent back, so the letters run backwards"
+       "at": 52,
+       "note": "rejected means sent back, so the whole word is read backwards"
       }
      ],
      "parts": [
@@ -364,43 +365,70 @@
        "indicators": [
         {
          "text": "tucked into",
-         "note": "something tucked into another is placed inside it"
+         "at": 26,
+         "note": "tucked into means placed inside, so the three letters go within the fizz group"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
            "words": "fizz",
+           "at": 38,
            "gives": "SODA",
-           "note": "soda water is fizzy"
+           "note": "soda is fizzy water"
           },
           {
-           "words": "Charlie, Oscar and Victor",
-           "gives": "COV",
-           "note": "C, O and V in the NATO phonetic alphabet"
+           "words": "American",
+           "at": 43,
+           "gives": "A"
           }
          ]
         },
         {
-         "words": "American",
-         "gives": "A",
-         "note": "A is a standard abbreviation for American"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "and",
+           "at": 15,
+           "note": "and simply joins the Victor letter onto the others in the list"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Charlie",
+           "at": 0,
+           "gives": "C",
+           "note": "C is Charlie in the NATO alphabet"
+          },
+          {
+           "words": "Oscar",
+           "at": 9,
+           "gives": "O",
+           "note": "O is Oscar in the NATO alphabet"
+          },
+          {
+           "words": "Victor",
+           "at": 19,
+           "gives": "V",
+           "note": "V is Victor in the NATO alphabet"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Three men slip into a drink that an American turns down, as they want salad.",
-     "walkthrough": "Charlie, Oscar and Victor look like three people but are radio code words for letters; they sit inside the drink plus A before the whole lot is turned round.",
-     "definitionFit": "The creamy green fruits are commonly sliced or diced raw into green salads and guacamole."
+     "surface": "Three men eat fizzy drinks sent back by an American who wants salad.",
+     "walkthrough": "COV goes inside SODA A to give SODACOVA, which is then read backwards. 'wanting' joins the definition.",
+     "definitionFit": "Avocados are fruits often sliced into salads, a common ingredient."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Victor"
+     "misdirectedWord": "rejected"
     }
    }
   },
