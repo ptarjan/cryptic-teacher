@@ -376,57 +376,58 @@
      "op": "container",
      "indicators": [
       {
-       "text": "holding",
-       "note": "something holding another keeps it inside, so the outer word wraps the inner pieces"
+       "text": "that's holding",
+       "at": 4,
+       "note": "the bet word holds the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Bet",
-         "gives": "WAGER",
-         "note": "a bet is a wager"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "back",
-           "note": "held back here means turned to face the other way, so the inner letters run in reverse"
-          }
-         ],
-         "parts": [
-          {
-           "words": "negative",
-           "gives": "NO",
-           "note": "a negative answer"
-          }
-         ]
-        }
-       ]
+       "words": "Bet",
+       "at": 0,
+       "gives": "WAGER",
+       "note": "a wager is a bet"
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 19,
+         "note": "the letters are taken back, written in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "Mr",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "negative",
+           "at": 24,
+           "gives": "NO",
+           "note": "no is a negative"
+          },
+          {
+           "words": "Mr",
+           "at": 33,
+           "gives": "MR",
+           "note": "Mr is the written abbreviation for mister"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gamble on someone restraining a gloomy former Prime Minister.",
-     "walkthrough": "The question mark marks Blair as an example: Private Eye's view of him after the Iraq war.",
-     "definitionFit": "A warmonger is someone who stirs up war, Private Eye's satirical label for the leader who backed the Iraq invasion."
+     "surface": "A gamble that keeps Mr Blair in reserve.",
+     "walkthrough": "Private Eye's view of Blair rests on the Iraq war.",
+     "definitionFit": "A warmonger is someone who stirs up war, as Blair's critics called him over the 2003 Iraq invasion."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "negative"
+     "misdirectedWord": "back"
     }
    }
   },

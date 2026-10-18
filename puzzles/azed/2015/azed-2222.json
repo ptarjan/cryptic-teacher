@@ -771,24 +771,26 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "end of",
-       "note": "end of picks out the final letter of the following word to add on"
-      }
-     ],
      "parts": [
       {
        "words": "his hollow",
+       "at": 26,
        "gives": "HOW",
-       "note": "how is the Scots word for a hollow, the Scot's own"
+       "note": "in Scots a howe or how is a hollow; 'his' refers back to the Scot"
       },
       {
        "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 42,
+         "note": "the end of a word is its final letter, here the last letter of pick"
+        }
+       ],
        "parts": [
         {
          "words": "pick",
-         "note": "the final letter of pick"
+         "at": 49
         }
        ]
       }
@@ -796,13 +798,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A Scot scooping out a hole with the point of a pickaxe.",
-     "walkthrough": "The whole clue is the definition and also the wordplay: a Scot's hollow plus the last letter of pick.",
-     "definitionFit": "Howk is Scots for dig or scoop out, which is what someone does making a hollow with a pick."
+     "surface": "A Scot digs a hollow, finishing with a pick.",
+     "walkthrough": "HOW is Scots for a hollow; K is the end of 'pick'. The whole clue also describes digging out a hollow.",
+     "definitionFit": "Howk is a Scottish verb meaning to dig or dig out, the activity a Scot would be doing."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "hollow"
     }
    }
   },
@@ -1376,39 +1379,41 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the earlier letters inside the following word"
+       "at": 40,
+       "note": "the Liberal and the one are placed in the word for general, inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "general",
-         "gives": "MAIN",
-         "note": "main means general, as in the main body"
-        },
-        {
-         "words": "Liberal",
-         "gives": "L",
-         "note": "L is the abbreviation for Liberal"
-        }
-       ]
+       "words": "general",
+       "at": 43,
+       "gives": "MAIN",
+       "note": "main means chief or general, as in the main body"
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Liberal",
+         "at": 28,
+         "gives": "L"
+        },
+        {
+         "words": "one",
+         "at": 36,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Liberal general sending out a questionnaire.",
-     "walkthrough": "'general' looks like an army officer but is an adjective meaning main.",
-     "definitionFit": "A mail-in is a survey or ballot distributed and returned by post, so circulating a survey is an example."
+     "surface": "A survey is circulated to a Liberal who is one among the general public.",
+     "definitionFit": "A mail-in is a questionnaire or ballot sent out and returned by post, a postal circulation."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "general"
     }

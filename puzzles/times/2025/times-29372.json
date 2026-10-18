@@ -408,51 +408,52 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "seconds of",
-       "note": "take the second letter of each word"
+       "text": "after",
+       "at": 32,
+       "note": "is tense comes after the other pieces, so those two go at the end"
       }
      ],
      "parts": [
       {
        "op": "nth",
-       "unchecked": true,
-       "gives": "AN",
        "n": 2,
        "indicators": [
         {
-         "text": "after"
+         "text": "seconds of",
+         "at": 38,
+         "note": "the second letter of each of the two words fairly and unpleasant"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "seconds of fairly unpleasant",
-         "gives": "AN",
-         "select": 2,
-         "note": "second letters of FAIRLY and UNPLEASANT"
+         "words": "fairly unpleasant",
+         "at": 49
         }
        ]
       },
       {
        "words": "teasing",
+       "at": 67,
        "gives": "ARCH",
-       "note": "arch means playfully teasing"
+       "note": "arch means playfully teasing, as an arch smile"
       },
       {
        "words": "is",
-       "note": "used as it stands"
+       "at": 23,
+       "gives": "IS"
       },
       {
        "words": "tense",
+       "at": 26,
        "gives": "T",
        "note": "T is the grammar abbreviation for tense"
       }
      ]
     },
     "explanation": {
-     "surface": "A rebel grows tense after a round of mildly nasty mockery.",
-     "walkthrough": "'Teasing' is not part of the letter selection; it gives ARCH as a whole word.",
-     "definitionFit": "Anarchy means rule by no one, so its supporter is against any government at all."
+     "surface": "A rebel is tense after rather nasty mockery.",
+     "walkthrough": "A and N (second letters of 'fairly unpleasant'), ARCH, IS, T.",
+     "definitionFit": "An anarchist rejects all government and wants society organised without a ruling state."
     },
     "features": {
      "answerInScene": true,
@@ -1198,38 +1199,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "to turn about is to face the other way, so the two letters swap round"
-      }
-     ],
      "parts": [
       {
        "words": "at home",
+       "at": 23,
        "gives": "IN",
-       "note": "to be in is to be at home"
+       "note": "in means at home"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "dividing",
-         "note": "the reversed pair splits the word for time into two parts"
+         "at": 43,
+         "note": "the reversed letters divide the time word, sitting in its middle"
         }
        ],
        "parts": [
         {
          "words": "time",
+         "at": 52,
          "gives": "ERA",
          "note": "an era is a period of time"
         },
         {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 37,
+           "note": "turned about, so the letters run backwards"
+          }
+         ],
          "parts": [
           {
-           "words": "it",
-           "note": "used as it stands; the ’s that follows means 'is'"
+           "words": "it's",
+           "at": 32,
+           "gives": "IT",
+           "note": "it, with the 's (is) as a link"
           }
          ]
         }
@@ -1238,13 +1245,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone stays put at home, as time is split by it.",
-     "walkthrough": "The ’s is 'is', joining the pieces: 'it is about, dividing time'.",
-     "definitionFit": "Borrowed from physics, where a body at rest resists being moved; in people it is sluggish unwillingness to act."
+     "surface": "Someone reluctant to leave the house, with time split.",
+     "walkthrough": "The 's of it's is just is, linking the pieces.",
+     "definitionFit": "Inertia is the tendency to remain at rest, physical or mental sluggishness."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dividing"
     }
    }
   },
