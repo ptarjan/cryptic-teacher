@@ -106,54 +106,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "astray",
-       "note": "something led astray wanders off its proper course, so the letters wander out of order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 9,
+         "note": "initially means only the first letter of the word is used"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially points to only the opening letter of the word before it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Tourist",
-           "note": "opening letter of the word"
-          }
-         ]
-        },
+         "words": "Tourist",
+         "at": 0,
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "words": "bundle",
+       "at": 24,
+       "gives": "WAD",
+       "note": "a wad is a bundle, as of banknotes"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "bundle",
-         "gives": "WAD",
-         "note": "a wad is a bundle, as of banknotes"
-        },
+         "text": "astray",
+         "at": 36,
+         "note": "led astray means the letters of led wander into a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "led",
-         "note": "the three letters rearranged"
+         "at": 32
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tourist carrying a bundle was misled, and someone dismisses the tale as rubbish.",
-     "walkthrough": "'with' just joins T to WAD; 'led' is both fodder and part of the surface phrase 'led astray'.",
-     "definitionFit": "Twaddle is silly, trivial talk or writing, a direct synonym for rubbish of that kind."
+     "surface": "A tourist with a bulky parcel gets misdirected, and the whole tale sounds like rubbish.",
+     "definitionFit": "Twaddle is silly, empty talk or writing, a colloquial word for rubbish."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "led"
+     "misdirectedWord": "astray"
     }
    }
   },
@@ -537,12 +540,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SODIUMCHLORIDE",
      "indicators": [
       {
        "text": "going into",
-       "note": "the single letter goes into the middle of the jumbled letters"
+       "at": 4,
+       "note": "going into means the single letter is placed inside the rearranged letters"
       }
      ],
      "parts": [
@@ -551,31 +553,41 @@
        "indicators": [
         {
          "text": "swirling",
-         "note": "swirling means churning round, so the letters are churned into new order"
+         "at": 15,
+         "note": "swirling means the letters of the three words are stirred into a new order"
         }
        ],
        "parts": [
         {
-         "words": "One",
-         "gives": "I",
-         "note": "Roman numeral one"
+         "words": "mud's",
+         "at": 24
         },
         {
-         "words": "mud's heroic old",
-         "note": "the thirteen letters rearranged"
+         "words": "heroic",
+         "at": 30
+        },
+        {
+         "words": "old",
+         "at": 37
         }
        ]
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A veteran sailor wading through churning mud.",
-     "walkthrough": "'old salt' looks like the sailor, but 'old' is fodder and only 'salt' defines.",
-     "definitionFit": "Common table salt is chemically this compound, so the chemical name names the salt itself."
+     "surface": "A brave old sailor, an old salt, wading into churning mud.",
+     "walkthrough": "'old salt' looks like one phrase for a sailor, but 'old' is anagram fodder and 'salt' alone is the definition.",
+     "definitionFit": "Sodium chloride is the chemical name for common table salt, NaCl."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "salt"
     }
@@ -1338,30 +1350,36 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LURID",
-     "indicators": [
-      {
-       "text": "without boundaries",
-       "note": "boundaries are the outer edges, so the word loses its first and last letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "club",
-       "note": "taken as written"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "without boundaries",
+         "at": 17,
+         "note": "without its boundaries the word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "club",
+         "at": 12,
+         "note": "the word club itself supplies the letters, its middle two kept"
+        }
+       ]
       },
       {
        "words": "free",
+       "at": 37,
        "gives": "RID",
-       "note": "to rid is to free"
+       "note": "to rid is to free, as in rid the house of mice"
       }
      ]
     },
     "explanation": {
-     "surface": "A wild nightclub with no limits and free entry.",
-     "definitionFit": "Lurid means shocking or vividly graphic, the way a tabloid story is sensational."
+     "surface": "A notorious nightclub with no limits on behaviour, letting customers loose.",
+     "definitionFit": "Lurid means shocking and vividly sensational, as in a lurid newspaper headline."
     },
     "features": {
      "answerInScene": true,

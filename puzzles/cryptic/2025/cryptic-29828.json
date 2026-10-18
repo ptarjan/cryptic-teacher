@@ -406,57 +406,58 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "JESTER",
      "indicators": [
       {
        "text": "oddly",
-       "note": "oddly suggests something out of its normal order, so the letters are rearranged"
+       "at": 36,
+       "note": "oddly signals that the remaining letters are arranged in a strange new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "JESTER",
        "indicators": [
         {
          "text": "bar",
-         "note": "bar as a preposition means except, so a letter is excluded"
+         "at": 15,
+         "note": "bar means except, so the named letter is excluded from the word"
         }
        ],
        "parts": [
+        {
+         "words": "rejects",
+         "at": 42
+        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "at first",
-           "note": "at first points to the opening letter alone"
+           "at": 27,
+           "note": "at first means only the opening letter of the word is taken"
           }
          ],
          "parts": [
           {
            "words": "counsel",
-           "note": "opening letter of counsel"
+           "at": 19,
+           "note": "its first letter"
           }
          ]
-        },
-        {
-         "words": "rejects",
-         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A legal worker at court whose advice is strangely rejected by the bar.",
-     "walkthrough": "'bar' and 'counsel' suggest barristers, but bar means except. 14 is THE COURT, so the employee is the court jester, the theme of the Danny Kaye film.",
-     "definitionFit": "A jester was a professional fool kept in a royal household to entertain the monarch and courtiers."
+     "surface": "A legal case: a barrister is refused, and the court reacts strangely to the rejection.",
+     "walkthrough": "14 is THE COURT, so the definition is a court employee. 'bar' removes C (the first letter of counsel) from REJECTS, and 'oddly' rearranges REJETS.",
+     "definitionFit": "A jester was a professional fool kept by a king or noble to entertain the royal household."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "bar"
     }
    }
@@ -951,42 +952,45 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "COMPARED",
-     "indicators": [
-      {
-       "text": "to the far south",
-       "note": "in a down entry the far south is the bottom, so a letter is moved to the very end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to the far south",
+         "at": 37,
+         "note": "in a down answer the far south is the very bottom, so the letter leaves its place and goes to the end"
+        }
+       ],
        "parts": [
         {
          "words": "friend",
-         "gives": "COMPARE",
-         "note": "a compadre is a friend or companion; its D is the letter that travels"
+         "at": 22,
+         "gives": "COMPADRE",
+         "note": "compadre is an American Spanish word for a close friend or buddy"
         },
         {
-         "words": "departs",
-         "gives": "D",
-         "note": "D is the timetable abbreviation for departs"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "departs",
+       "at": 29,
+       "gives": "D",
+       "note": "d. is the timetable abbreviation for departs"
       }
      ]
     },
     "explanation": {
-     "surface": "Having received letters, a friend leaves for the far south.",
-     "walkthrough": "'correspondence' suggests letters, but here it means likeness: things are compared after one checks how they correspond.",
-     "definitionFit": "Two items that have been compared have been set side by side to judge how closely they match each other."
+     "surface": "Once letters have been exchanged, a pal heads off to the deep south.",
+     "walkthrough": "D, for departs, leaves its place in COMPADRE and travels to the bottom of this down answer.",
+     "definitionFit": "Things compared have been checked for how they correspond, so compared describes the state after a likeness has been examined."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "correspondence"
     }
    }
