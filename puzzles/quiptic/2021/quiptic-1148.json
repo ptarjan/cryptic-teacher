@@ -543,49 +543,52 @@
      "indicators": [
       {
        "text": "hosts",
-       "note": "a host takes guests in, so one piece holds the others"
+       "at": 4,
+       "note": "the pub holds the fellow and the letter, as a host takes in guests"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Pub",
-         "gives": "INN",
-         "note": "an inn is a pub"
-        },
-        {
-         "words": "fellow",
-         "gives": "F",
-         "note": "F is the abbreviation for fellow"
-        }
-       ]
+       "words": "Pub",
+       "at": 0,
+       "gives": "INN",
+       "note": "an inn is a pub"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points to the opening letter of the word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "ukulele",
-         "note": "first letter of ukulele"
+         "words": "fellow",
+         "at": 10,
+         "gives": "F"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 31,
+           "note": "the first letter of the word ukulele"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ukulele",
+           "at": 22
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pub puts on a man with a ukulele, perhaps not entirely seriously.",
-     "walkthrough": "The F and U go between the two Ns of INN.",
-     "definitionFit": "Saying something in fun means saying it playfully rather than seriously, which is jokingly."
+     "surface": "A pub puts on a man with a ukulele, just for a laugh.",
+     "walkthrough": "'initially' gives U from ukulele; 'hosts' puts F and U inside INN.",
+     "definitionFit": "Said in fun means said playfully, without serious intent."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "hosts"
     }

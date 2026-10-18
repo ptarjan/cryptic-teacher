@@ -669,44 +669,62 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "leader",
-       "note": "a leader comes first, so only the opening letter is wanted"
-      }
-     ],
      "parts": [
       {
-       "words": "House",
-       "gives": "H",
-       "note": "first letter"
-      },
-      {
-       "op": "anagram",
+       "op": "first",
        "indicators": [
         {
-         "text": "buckled",
-         "note": "something buckled is bent out of shape, so these letters are distorted"
+         "text": "leader",
+         "at": 6,
+         "note": "the leader of the word House is the letter at its front"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "House",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "before",
+         "at": 27,
+         "note": "before means the anagram comes ahead of the Democrat letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "chief",
-           "note": "the chief is at the head, so only the opening letter is used"
+           "text": "buckled",
+           "at": 13,
+           "note": "something buckled is bent out of shape, so under is rearranged"
           }
          ],
          "parts": [
           {
            "words": "under",
-           "note": "taken as written"
-          },
+           "at": 21
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "chief",
+           "at": 45,
+           "note": "the chief of the word Democrat's is its opening letter"
+          }
+         ],
+         "parts": [
           {
            "words": "Democrat's",
-           "gives": "D",
-           "note": "first letter"
+           "at": 34
           }
          ]
         }
@@ -715,13 +733,13 @@
      ]
     },
     "explanation": {
-     "surface": "The Speaker caved in to the Democrats' leader, creating a historic split in Congress.",
-     "walkthrough": "'Division' suggests a split or a parliamentary vote, but it is an old administrative area.",
-     "definitionFit": "In medieval England a hundred was a subdivision of a county with its own court."
+     "surface": "A parliamentary leader caves in to the Democrats and splits the party.",
+     "walkthrough": "Division looks political here, but it is an old administrative area; the hundred was a subdivision of an English shire.",
+     "definitionFit": "A hundred was an old subdivision of an English county, with its own court."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "division"
     }
    }
@@ -820,50 +838,55 @@
      "indicators": [
       {
        "text": "takes",
-       "note": "to take something is to take it in, so one piece holds the others"
+       "at": 14,
+       "note": "the scar takes in the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Mark",
-         "gives": "SCAR",
-         "note": "a scar is a mark on the skin"
-        },
-        {
-         "words": "hard",
-         "gives": "H",
-         "note": "H is the pencil-grade abbreviation for hard"
-        }
-       ]
+       "words": "Mark",
+       "at": 9,
+       "gives": "SCAR",
+       "note": "a scar is a mark on the skin"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "back",
-         "note": "going back runs the other way, so the letters are read right to left"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "look",
-         "gives": "LO",
-         "note": "'lo' is an old word meaning look"
+         "words": "hard",
+         "at": 20,
+         "gives": "H",
+         "note": "H is the pencil abbreviation for hard"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 30,
+           "note": "back means the word is read the other way"
+          }
+         ],
+         "parts": [
+          {
+           "words": "look",
+           "at": 25,
+           "gives": "LO",
+           "note": "lo is an old word meaning look"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A university lecturer called Mark gives something a hard second look.",
-     "walkthrough": "'Mark' reads as a man's name, but it is a blemish.",
-     "definitionFit": "An academic is a learned person who studies and researches, which is what this word describes."
+     "surface": "Someone called Mark gives a stern backward glance.",
+     "walkthrough": "Lo is an archaic interjection meaning look, and H is the hard grade on pencils.",
+     "definitionFit": "A scholar is a learned person devoted to study, an academic."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Mark"
     }
