@@ -119,6 +119,7 @@ from pathlib import Path
 import enumeration
 import fetch_puzzle as fetcher  # the rules being applied live there
 import groups
+import lesson_checks
 import punctuation
 from groups import entry_id
 import series as series_meta
@@ -204,6 +205,14 @@ def restore_word_breaks(puzzle):
         e = by_id[eid]
         was = e["clue"]["enumeration"]
         e["clue"] = {**e["clue"], "enumeration": now}
+        # The restored break can make a known apostrophe answer ("WHAT'S THE BIG
+        # IDEA", 5,3,3,4) count as said-but-unspelt on an annotated clue, which the
+        # validator refuses (spelling.unsaid): write the spelling with the break.
+        ann = e.get("annotation")
+        if isinstance(ann, dict) and e.get("solution"):
+            said = lesson_checks.spelling_unsaid(ann, e["solution"], now)
+            if said:
+                ann["spelling"] = said
         restored.append((eid, was, e["clue"]["enumeration"]))
         done.append(e)
     fetcher.enumeration_separators(done)
