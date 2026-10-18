@@ -66,7 +66,7 @@ from fetch_puzzle import (corrected_clue, read_puzzle_file, reconstructed_clue, 
 TOOLS = Path(__file__).resolve().parent
 
 # The commands whose Bash call is the one running this file right now.
-LANDING_COMMANDS = ("apply_annotations", "annotate_check")
+LANDING_COMMANDS = ("apply_annotations", "annotate_check", "annotate_bag")
 
 
 #: The _ann file's key for the puzzle's `messages` (tools/hidden_messages.py).
@@ -165,7 +165,7 @@ def session_model(session_id, pid):
             continue
         for line in reversed(lines):
             if '"tool_use"' not in line or not (
-                    ann_name in line or any(c in line for c in LANDING_COMMANDS)):
+                    ann_name in line or "_ann_bag_" in line or any(c in line for c in LANDING_COMMANDS)):
                 continue
             try:
                 rec = json.loads(line)
@@ -176,7 +176,10 @@ def session_model(session_id, pid):
                 if not (isinstance(block, dict) and block.get("type") == "tool_use"):
                     continue
                 command = json.dumps(block.get("input"))
-                wrote = ann_name in command
+                # A bag session (tools/annotate_bag.py) writes one _ann_bag_<first>.json
+                # holding every puzzle's part, keyed by id: that Write is the
+                # evidence for each id it names.
+                wrote = ann_name in command or ("_ann_bag_" in command and pid in command)
                 if not (wrote or any(c in command for c in LANDING_COMMANDS)):
                     continue
                 if not provenance.MODEL_ID.fullmatch(msg.get("model") or ""):
