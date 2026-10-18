@@ -174,56 +174,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TEACADDY",
-     "indicators": [
-      {
-       "text": "stop",
-       "note": "to stop something is to cut it off before it is complete"
-      },
-      {
-       "text": "early",
-       "note": "stopping early means ending short, so the final letter never arrives"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "stop",
+         "at": 11,
+         "note": "stop, with early, says the word is cut off before its end"
+        },
+        {
+         "text": "early",
+         "at": 22,
+         "note": "early, with stop, means the last letter goes, so the word finishes ahead of time"
+        }
+       ],
        "parts": [
         {
          "words": "train",
-         "gives": "TEAC",
-         "note": "train means teach; stopped early it loses its last letter"
+         "at": 16,
+         "gives": "TEACH",
+         "note": "to train someone is to teach them"
         },
         {
-         "words": "total",
-         "gives": "ADD",
-         "note": "to total figures is to add them up"
-        },
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "words": "total",
+       "at": 33,
+       "gives": "ADD",
+       "note": "to total figures is to add them up"
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "closure to",
-           "note": "a closure is an ending, so only the very last letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "railway",
-           "note": "the closing letter of the word"
-          }
-         ]
+         "text": "closure to",
+         "at": 39,
+         "note": "the closure of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "railway",
+         "at": 50,
+         "note": "its last letter is Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Autumn leaves on the line halt a train early and shut the railway altogether.",
-     "walkthrough": "'Leaves' looks like the autumn kind that stop British trains; read with 'can' it is tea leaves and a tin to hold them. 'early' tells you to stop TEACH before its end.",
-     "definitionFit": "A caddy is a small tin or box for storing loose tea, so it is a container for tea leaves."
+     "surface": "A rail strike notice: services are halted ahead of schedule and the whole line shut.",
+     "walkthrough": "'Leaves' are tea leaves, not departures. 'Stop early' cuts the last letter from TEACH to give TEAC; 'closure to railway' is its final letter.",
+     "definitionFit": "A tea caddy is the small tin or box in which loose tea is stored."
     },
     "features": {
      "answerInScene": false,
@@ -814,54 +821,60 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "unchecked": true,
-     "gives": "REDHERRING",
+     "op": "container",
      "indicators": [
       {
        "text": "overwhelms",
-       "note": "to overwhelm is to come down hard upon, so one piece lands right up against the other"
+       "at": 39,
+       "note": "overwhelms pictures the outer pieces swamping the one inside"
       }
      ],
      "parts": [
       {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "on",
+         "at": 21,
+         "gives": "RE",
+         "note": "RE means on, concerning, as in a letter heading"
+        },
+        {
+         "words": "circular route",
+         "at": 24,
+         "gives": "RING",
+         "note": "a ring road goes round a town, so a ring is a circular route"
+        }
+       ]
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "REDHERRING",
        "indicators": [
         {
          "text": "cycling",
-         "note": "a cycle goes round, so the last letter wheels round to the front"
+         "at": 50,
+         "note": "cycling means the letters of the word go round, one moving from the back to the front"
         }
        ],
        "parts": [
         {
-         "words": "on",
-         "gives": "RE",
-         "note": "re means on or about, as in a letter heading"
-        },
-        {
          "words": "crowd",
+         "at": 58,
          "gives": "HERD",
-         "note": "a herd is a crowd of people or animals"
-        },
-        {
-         "words": "circular route",
-         "gives": "RING",
-         "note": "a ring road runs in a loop around a town"
+         "note": "a herd is a crowd of animals or people"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A confusing detour on a ring road swamps a pack of cyclists.",
-     "walkthrough": "Moving the last letter of HERD to the front gives DHER. 'cycling crowd' pretends to be a bike race, and 'diversion' a road detour.",
-     "definitionFit": "A red herring is a clue or topic that draws attention away from the real issue, a distraction meant to mislead."
+     "surface": "A traffic report: a ring road diversion swamped by a mass of cyclists.",
+     "walkthrough": "'Cycling' moves the last letter of HERD to the front to give DHER, which RE and RING then surround.",
+     "definitionFit": "A red herring is a false clue laid to lead someone off the true trail."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "cycling"
     }
    }
@@ -893,46 +906,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HOMOSAPIENS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mainly",
-       "note": "mainly means most but not all, so the final letter is dropped"
+       "text": "Fighting",
+       "at": 0,
+       "note": "fighting suggests a scuffle that throws the letters into disorder"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "has",
+       "at": 9
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Fighting",
-         "note": "fighting things tumble about in a melee, so the letters are thrown into disorder"
+         "text": "mainly",
+         "at": 13,
+         "note": "mainly means most of the word, so its last letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "has",
-         "note": "taken as written"
-        },
-        {
          "words": "imposed",
-         "gives": "IMPOSE",
-         "note": "the word with its last letter removed"
+         "at": 20
         },
         {
-         "words": "on",
-         "note": "taken as written"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "on",
+       "at": 28
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that warfare has largely been forced upon America.",
-     "walkthrough": "Capitalised US looks like the United States, but it is 'us', all of humankind, with the question mark admitting the trick.",
-     "definitionFit": "Homo sapiens is the scientific name of the human species, which is all of us."
+     "surface": "Struggle and imposition: the clue hints that the warlike human race inflicts itself on the world.",
+     "walkthrough": "US here is the pronoun 'us', not the United States: we humans are the species.",
+     "definitionFit": "Homo sapiens is the scientific name for the human species, which is all of us."
     },
     "features": {
      "answerInScene": false,
@@ -1459,38 +1474,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MESS",
-     "indicators": [
-      {
-       "text": "finish off",
-       "note": "to finish something off is to take away its end, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finish off",
+         "at": 9,
+         "note": "finish off means the word's last letter is removed"
+        }
+       ],
        "parts": [
         {
          "words": "Soldiers",
-         "gives": "ME",
-         "note": "men are soldiers; with the end removed, only two letters remain"
+         "at": 0,
+         "gives": "MEN",
+         "note": "men is the usual crossword word for soldiers, as in officers and men"
         },
         {
-         "words": "seconds",
-         "gives": "SS",
-         "note": "s is the abbreviation for second, doubled for the plural"
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "seconds",
+       "at": 20,
+       "gives": "SS",
+       "note": "S is the abbreviation for second, so two of them make seconds"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Troops polishing off second helpings in their dining room.",
-     "walkthrough": "MEN finished off is ME; then S plus S for seconds. Read whole, the clue describes where troops go back for more food.",
-     "definitionFit": "A mess is the room where members of the armed forces eat together, where second helpings get eaten."
+     "surface": "Troops in the canteen polishing off second helpings.",
+     "walkthrough": "The whole clue is the definition too: a mess is where soldiers eat, and 'seconds' are also extra helpings.",
+     "definitionFit": "A mess is the dining hall where members of the armed forces take their meals."
     },
     "features": {
      "answerInScene": true,
@@ -1570,42 +1589,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AUDIO",
-     "indicators": [
-      {
-       "text": "drops first",
-       "note": "dropping the first means losing the opening letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "drops first",
+         "at": 25,
+         "note": "drops first means the opening letter of the word is lost"
+        }
+       ],
        "parts": [
         {
          "words": "Middle Eastern character",
-         "gives": "AUDI",
-         "note": "a Saudi is a person from Saudi Arabia; without its first letter it is a car brand"
+         "at": 0,
+         "gives": "SAUDI",
+         "note": "a Saudi is a person from Saudi Arabia"
         },
         {
-         "words": "Oscar",
-         "gives": "O",
-         "note": "Oscar is the radio code word for O"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "Oscar",
+       "at": 37,
+       "gives": "O",
+       "note": "Oscar is O in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "An Arab film figure loses out on the top Academy Award to a soundtrack.",
-     "walkthrough": "'Oscar' sits in a film-awards picture, but it is just the radio alphabet's O. 'character' means a person here, not a letter.",
-     "definitionFit": "Audio is the sound part of a recording or broadcast, as opposed to the video."
+     "surface": "An Arab film-maker loses out on his first Academy Award for a soundtrack.",
+     "walkthrough": "'Character' looks like a letter of an alphabet; it is a person, a Saudi.",
+     "definitionFit": "Audio refers to recorded or transmitted sound, as opposed to pictures."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Oscar"
+     "misdirectedWord": "character"
     }
    }
   },

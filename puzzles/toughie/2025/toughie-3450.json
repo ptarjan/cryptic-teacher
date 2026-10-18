@@ -1204,12 +1204,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BONEIDLE",
      "indicators": [
       {
        "text": "around collecting",
-       "note": "going around and collecting means holding other letters inside"
+       "at": 30,
+       "note": "around collecting says the moved letters wrap round the next pieces"
       }
      ],
      "parts": [
@@ -1218,51 +1217,56 @@
        "indicators": [
         {
          "text": "cycles",
-         "note": "cycling moves the front letters round to the back while keeping their order"
+         "at": 23,
+         "note": "cycles means the letters go round, the front pair moving to the back"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "Yasmin",
+         "at": 16,
+         "gives": "LEBON",
+         "note": "Yasmin Le Bon is a British fashion model"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first of",
+           "at": 48,
+           "note": "first of picks out the opening letter"
+          }
+         ],
          "parts": [
           {
-           "words": "Yasmin",
-           "gives": "LEBON",
-           "note": "the model Yasmin Le Bon, wife of Duran Duran's singer"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "first of",
-             "note": "only the opening letter of the next word is wanted"
-            }
-           ],
-           "parts": [
-            {
-             "words": "evening",
-             "note": "opening letter"
-            }
-           ]
-          },
-          {
-           "words": "papers",
-           "gives": "ID",
-           "note": "ID papers prove who you are"
+           "words": "evening",
+           "at": 57,
+           "note": "its first letter is E"
           }
          ]
+        },
+        {
+         "words": "papers",
+         "at": 65,
+         "gives": "ID",
+         "note": "ID stands for identity papers"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lazy Yasmin rides her bike about, picking up the evening paper.",
-     "walkthrough": "Yasmin Le Bon is a British model; cycling moves her surname's first two letters to the back, and papers as ID is a crossword staple.",
-     "definitionFit": "Bone-idle means lazy to the bone, extremely and almost pitiably slothful."
+     "surface": "A model rides her bike about town picking up the evening newspapers.",
+     "walkthrough": "'Cycles' suggests riding a bike, but it rotates the model's surname; 'around collecting' then wraps it round the 'first of' evening and the papers. 'Pitifully' intensifies 'lazy'.",
+     "definitionFit": "Bone idle is a British idiom for being extremely, hopelessly lazy."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "cycles"
     }
@@ -1634,42 +1638,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EDDA",
+     "op": "homophone",
+     "spelt": "EDDA",
      "indicators": [
       {
-       "text": "commonly",
-       "note": "common speech drops the h at the start of words"
+       "text": "commonly narrated",
+       "at": 28,
+       "note": "commonly narrated means spoken in a common, h-dropping accent, so the word is taken by its sound"
       }
      ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "EDDA",
-       "indicators": [
-        {
-         "text": "narrated",
-         "note": "narrated means spoken, so the answer is judged by its sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "One of Haaland's strengths",
-         "gives": "EADER",
-         "note": "a header, said without its h; Erling Haaland is a Norwegian footballer"
-        }
-       ]
+       "words": "One of Haaland's strengths",
+       "at": 0,
+       "gives": "EADER",
+       "note": "Erling Haaland, the Norwegian striker, is strong in the air, so a header is one of his strengths; dropped-H common speech says it as 'eader"
       }
      ]
     },
     "explanation": {
-     "surface": "A list of a striker's strengths is read out in a Scandinavian accent.",
-     "walkthrough": "Haaland, the Manchester City striker, scores with his head; a header said in Cockney style is 'eader.",
-     "definitionFit": "The Edda is a pair of medieval Icelandic collections of Norse myth and poetry."
+     "surface": "A tribute to the footballing qualities of Norway's star striker Erling Haaland.",
+     "walkthrough": "'Commonly narrated' means said in a broad London accent, where 'header' loses its H and final R; the Norse link to Norwegian Haaland makes the surface apt.",
+     "definitionFit": "The Eddas are two medieval Icelandic collections of Old Norse poetry and myth."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "strengths"

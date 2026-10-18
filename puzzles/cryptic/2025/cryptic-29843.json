@@ -351,53 +351,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MOWGLI",
-     "indicators": [
-      {
-       "text": "foreign",
-       "note": "something foreign is strange or alien, so the letters appear in an unfamiliar order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MOWGLI",
+       "words": "Trim",
+       "at": 0,
+       "gives": "MOW",
+       "note": "to trim grass is to mow it"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "not",
-         "note": "'not' says something is absent, so a letter is taken out"
+         "text": "foreign",
+         "at": 5,
+         "note": "foreign suggests something made strange or unfamiliar, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Trim",
-         "gives": "MOW",
-         "note": "to mow grass is to trim it"
-        },
-        {
-         "words": "girl",
-         "note": "taken as written"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not",
+           "at": 19,
+           "note": "not tells us to leave out the letter for right from the word girl"
+          }
+         ],
+         "parts": [
+          {
+           "words": "girl",
+           "at": 13
+          },
+          {
+           "words": "right",
+           "at": 23,
+           "gives": "R"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to tidy up a foreign girl, unsuitable for a wild boy.",
-     "walkthrough": "'Foreign' looks like it describes the girl, but it scrambles what is left of her once the right letter goes.",
-     "definitionFit": "Mowgli is the feral child raised by wolves in Kipling's The Jungle Book, the most famous wild boy in fiction."
+     "surface": "An instruction to tidy up an overseas young woman, supposedly to produce a feral lad.",
+     "walkthrough": "'Not right' drops R from girl, and 'foreign' scrambles what is left (GIL). Mowgli is the boy raised by wolves in Kipling's The Jungle Book.",
+     "definitionFit": "Kipling's jungle hero was raised by wolves in the forest, the archetypal feral child."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Trim"
     }
    }
