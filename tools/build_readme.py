@@ -759,6 +759,7 @@ LAYOUT = [
     ("annotating", "tools/fix_shape_suspects.py", "repair the shape suspects whose right tree follows from the clue, answer and tree alone (dry run by default; --apply writes puzzles, one sweep commit), and list the rest per clue in tools/data/shape_reannotate.json"),
     ("annotating", "tools/tidy_cdef_repeat.py", "rewrite cryptic definitions stored as several leaves, corpus-wide (wordplay.cdefRepeat)"),
     ("annotating", "tools/shape_queue.py", "the clues whose wordplay tree tools/shape_suspects.py flags and"),
+    ("annotating", "tools/test_fix_shape_suspects.py", "the ins_split repair of fix_shape_suspects.py: a container over a flat 3-part charade becomes part 2 inside parts 1+3 when the letters say so and no other nesting spells the answer"),
     ("annotating", "tools/test_shape_queue.py", "the shape re-annotation list (tools/shape_queue.py): a listed clue is written by a run on its hinted puzzle, the old hint is never lost, and a filed clue leaves the list. The queue tier's ordering is in prereset_plan.py --self-test"),
     ("annotating", "tools/test_annotate_note_skeleton.py", "annotate_check prints every missing block note as one --patch file, so the commonest first-check failure is one Write and one command"),
     ("annotating", "tools/hintless_overdue.py", "a newly filed puzzle that is still hintless long after it should have been annotated"),
