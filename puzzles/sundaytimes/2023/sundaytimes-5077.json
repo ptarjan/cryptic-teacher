@@ -314,52 +314,56 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ACQUIT",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 26,
+       "note": "in places the picked letter within the other pieces"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader for",
-           "note": "the leader of a word is the letter at its front, so only its first letter is used"
-          },
-          {
-           "text": "in",
-           "note": "in places one thing inside another, so the letter goes inside the phrase that follows"
-          }
-         ],
-         "parts": [
-          {
-           "words": "a",
-           "note": "as printed"
-          }
-         ]
-        },
-        {
-         "words": "leader for campaign",
-         "gives": "C",
-         "note": "first letter of campaign"
+         "words": "a",
+         "at": 29,
+         "gives": "A"
         },
         {
          "words": "desert",
+         "at": 31,
          "gives": "QUIT",
-         "note": "to desert = to quit"
+         "note": "to quit is to desert or abandon"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader for",
+         "at": 6,
+         "note": "leader for picks the first letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "campaign",
+         "at": 17,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A campaign's leader is cleared of deserting.",
-     "walkthrough": "'Desert' is the verb to quit, not sand; and 'Clear' is a legal verdict.",
-     "definitionFit": "A court that finds a defendant not guilty clears them of the charge."
+     "surface": "A commander clears the way for a military campaign in the desert.",
+     "walkthrough": "C, the 'leader for' campaign, goes 'in' between A and QUIT.",
+     "definitionFit": "To acquit is to clear someone of a criminal charge by a verdict of not guilty."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "desert"
     }
@@ -530,46 +534,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SINNFEIN",
-     "indicators": [
-      {
-       "text": "arranged",
-       "note": "arranged means put into a new order, so the letters of the next word are reordered"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Small",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the abbreviation for small, as on clothing labels"
+      },
+      {
+       "words": "pub",
+       "at": 6,
+       "gives": "INN",
+       "note": "an inn is a pub"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "arranged",
+         "at": 10,
+         "note": "arranged means the letters of fine are set out in a different order"
+        }
+       ],
        "parts": [
         {
-         "words": "Small",
-         "gives": "S",
-         "note": "s = small, as on clothing labels"
-        },
-        {
-         "words": "pub",
-         "gives": "INN",
-         "note": "an inn is a pub"
-        },
-        {
          "words": "fine",
-         "gives": "FEIN",
-         "note": "FINE rearranged"
+         "at": 19,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
+    "spelling": "SINN FÉIN",
     "explanation": {
-     "surface": "A little pub put on a fine party.",
-     "walkthrough": "'Party' reads as a celebration but is a political party, the Irish republican one.",
-     "definitionFit": "It is the Irish republican political party, active in both Ireland and Northern Ireland."
+     "surface": "A modest bar has organised a nice get-together.",
+     "walkthrough": "Sinn Féin is an Irish republican political party; the accent on its É is ignored in the grid.",
+     "definitionFit": "Sinn Féin is a political party active in Ireland and Northern Ireland."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "party"
     }
    }
@@ -861,50 +868,52 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DIDGERIDOO",
-     "indicators": [
-      {
-       "text": "spinning",
-       "note": "a spinning thing turns round, so the word for awful is turned round too"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "made",
+       "at": 15,
+       "gives": "DID",
+       "note": "did is the past tense of do, meaning made or performed"
+      },
+      {
+       "words": "good",
+       "at": 20,
+       "gives": "G"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "spinning",
+         "at": 25,
+         "note": "spinning means the word for awful is turned round to read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "made",
-         "gives": "DID",
-         "note": "'made a cake' = did some baking"
-        },
-        {
-         "words": "good",
-         "gives": "G",
-         "note": "g = good"
-        },
-        {
          "words": "awful",
-         "gives": "ERID",
-         "note": "DIRE, turned round"
-        },
-        {
-         "words": "discs",
-         "gives": "OO",
-         "note": "O is disc-shaped, so two discs are OO"
+         "at": 34,
+         "gives": "DIRE",
+         "note": "dire means awful"
         }
        ]
+      },
+      {
+       "words": "discs",
+       "at": 40,
+       "gives": "OO",
+       "note": "the letter O looks like a disc, so two discs give OO"
       }
      ]
     },
     "explanation": {
-     "surface": "A record producer succeeded by spinning terrible records.",
-     "walkthrough": "'Made good' reads as one phrase meaning succeeded; it splits in two. The producer is an instrument, not a person.",
-     "definitionFit": "It is the long Aboriginal Australian wooden wind instrument, so it produces music."
+     "surface": "A record producer made good by playing terrible records.",
+     "walkthrough": "'spinning' reverses DIRE to ERID; discs are round like the letter O.",
+     "definitionFit": "The didgeridoo is an Aboriginal Australian wind instrument, so it is something that produces music."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "producer"
     }
@@ -1341,37 +1350,41 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "first",
-       "note": "first picks out the opening letter of the boxer's name only"
+       "text": "round",
+       "at": 30,
+       "note": "round means the assembled letters are turned around to read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "round",
-         "note": "to turn round is to face the other way, so the whole assembled string is read backwards"
-        }
-       ],
        "parts": [
         {
          "words": "hit",
+         "at": 7,
          "gives": "LAM",
-         "note": "to lam = to hit hard"
+         "note": "to lam is to beat or hit hard"
         },
         {
          "words": "during",
+         "at": 11,
          "gives": "IN",
-         "note": "in = during"
+         "note": "in means during, as in 'in the night'"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "first",
+           "at": 24,
+           "note": "first picks the opening letter of Ali's"
+          }
+         ],
          "parts": [
           {
-           "words": "Ali's first",
-           "gives": "ALIFIRST",
-           "note": "first letter of Ali"
+           "words": "Ali's",
+           "at": 18,
+           "note": "the word whose first letter is taken"
           }
          ]
         }
@@ -1380,9 +1393,9 @@
      ]
     },
     "explanation": {
-     "surface": "A brutal punch lands during Muhammad Ali's first round.",
-     "walkthrough": "'During' looks like a container instruction but is a plain word, and 'round' is a reversal, not a boxing round.",
-     "definitionFit": "A savage is a brutish, uncivilised person, the same sense as calling someone a beast."
+     "surface": "A boxing report: a brutal punch landed in Muhammad Ali's opening round.",
+     "walkthrough": "LAM, IN and the 'first' of Ali's make LAMINA, which 'round' turns backwards. 'round' looks like the boxing round but signals reversal.",
+     "definitionFit": "Animal used as a noun describes a brutish, uncivilised person, the same sense as a savage."
     },
     "features": {
      "answerInScene": false,
@@ -1418,34 +1431,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "whisks",
-       "note": "whisking stirs ingredients vigorously, so the letters beside it are mixed up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "say",
+       "at": 20,
+       "gives": "EG",
+       "note": "eg, short for exempli gratia, means for example, as does say"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "whisks",
+         "at": 33,
+         "note": "whisks suggests the letters are beaten up into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "say",
-         "gives": "EG",
-         "note": "eg = for example, as 'say' does"
-        },
-        {
          "words": "eg with",
-         "note": "EGWITH whisked"
+         "at": 25,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some things get beaten, for example with whisks.",
-     "walkthrough": "The whole clue sounds like a kitchen note, and it describes the answer too: this is exactly what a cook whisks.",
-     "definitionFit": "Cooks beat the clear part of eggs into stiff peaks for meringue and souffles."
+     "surface": "A cook notes that some things are beaten, for instance with whisks.",
+     "walkthrough": "'say' gives EG; 'whisks' rearranges EGWITH to GWHITE.",
+     "definitionFit": "Egg whites are whipped with a whisk into stiff peaks for meringues and soufflés, so they are often beaten."
     },
     "features": {
      "answerInScene": true,
