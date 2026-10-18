@@ -185,50 +185,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DONTBEASTRANGER",
      "indicators": [
       {
        "text": "has",
-       "note": "the string of pieces holds something within it"
+       "at": 20,
+       "note": "has means holds, so the three words hold the shortened word"
       }
      ],
      "parts": [
       {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Fellow",
+         "at": 0,
+         "gives": "DON",
+         "note": "a don is a fellow of a university college"
+        },
+        {
+         "words": "Animal",
+         "at": 7,
+         "gives": "BEAST",
+         "note": "a beast is an animal"
+        },
+        {
+         "words": "Guide",
+         "at": 14,
+         "gives": "RANGER",
+         "note": "a ranger guides visitors around a park"
+        }
+       ]
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "DONTBEASTRANGER",
        "indicators": [
         {
          "text": "brief",
-         "note": "made brief means cut short, losing its tail"
+         "at": 24,
+         "note": "brief means the word is cut short, losing its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Fellow",
-           "gives": "DON",
-           "note": "a don is a college fellow"
-          },
-          {
-           "words": "to",
-           "gives": "T",
-           "note": "to cut short"
-          },
-          {
-           "words": "Animal",
-           "gives": "BEAST",
-           "note": "a beast is an animal"
-          },
-          {
-           "words": "Guide",
-           "gives": "RANGER",
-           "note": "Rangers are the senior branch of the Girl Guides"
-          }
-         ]
+         "words": "to",
+         "at": 30
+        },
+        {
+         "gives": "O"
         }
        ]
       }
@@ -236,14 +239,14 @@
     },
     "spelling": "DON'T BE A STRANGER",
     "explanation": {
-     "surface": "A Girl Guide leader with an animal companion is sent off with a farewell.",
-     "walkthrough": "Brief here shortens the word to, and has places that short piece inside the run of the other three, right after the fellow.",
-     "definitionFit": "The farewell phrase invites a visitor to keep in touch and return."
+     "surface": "A college fellow with an animal guide has a brief to return soon.",
+     "walkthrough": "'To' cut short leaves its first letter, which goes in just after the fellow.",
+     "definitionFit": "The phrase is a friendly parting request that someone visit again before long."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Guide"
+     "aptDefinition": true,
+     "misdirectedWord": "brief"
     }
    }
   },
@@ -484,43 +487,36 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DOITYOURSELFERS",
+     "op": "composite",
      "indicators": [
       {
+       "text": "Fashion",
+       "at": 0,
+       "note": "to fashion is to shape, so the letters are reshaped into a new order"
+      },
+      {
        "text": "bar",
-       "note": "bar means except, so the named letters are excluded"
+       "at": 8,
+       "note": "bar means except, so the letters of in are left out"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "Fashion",
-         "note": "to fashion is to shape something new from material"
-        }
-       ],
-       "parts": [
-        {
-         "words": "our style for",
-         "note": "taken as written"
-        },
-        {
-         "words": "inside",
-         "gives": "SIDE",
-         "note": "the word inside without the word in"
-        }
-       ]
+       "words": "our style for inside",
+       "at": 15
+      },
+      {
+       "words": "in",
+       "at": 12,
+       "note": "taken as written"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Home builders make a drinks bar to their own taste for indoors.",
-     "walkthrough": "The whole clue also describes the answer: amateurs building a bar indoors to their own design.",
-     "definitionFit": "Do-it-yourselfers are home handymen who make and fix things without hiring tradespeople."
+     "surface": "A designer wants a bar fitted in their own style inside the house.",
+     "walkthrough": "Take IN out of the letters of 'our style for inside' and rearrange what is left. Read as a whole, the clue describes amateurs who fashion their own home interiors.",
+     "definitionFit": "DIY enthusiasts make and fit things for their homes themselves rather than hiring tradespeople."
     },
     "features": {
      "answerInScene": true,

@@ -123,46 +123,49 @@
      "indicators": [
       {
        "text": "to keep",
-       "note": "to keep something is to hold it within, so the other letters go inside"
+       "at": 10,
+       "note": "to keep is to hold, so the tally holds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Reckoning",
-         "gives": "TALLY",
-         "note": "a tally is a reckoning or count"
-        },
-        {
-         "words": "Court",
-         "gives": "CT",
-         "note": "CT is the standard abbreviation for court"
-        }
-       ]
+       "words": "Reckoning",
+       "at": 0,
+       "gives": "TALLY",
+       "note": "a tally is a reckoning or count"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points at the beginnings of the words just before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "fellows unsettled",
-         "note": "the first letters of fellows and unsettled"
+         "words": "Court",
+         "at": 18,
+         "gives": "CT"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 42,
+           "note": "initially means the first letters of the two words are used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fellows unsettled",
+           "at": 24
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Settling the bill so that some uneasy members of a royal court stay on side, handled with diplomacy.",
-     "walkthrough": "The court is its standard two-letter abbreviation, and 'initially' reaches back over two words, fellows and unsettled, not just one.",
-     "definitionFit": "Acting tactfully means handling people with sensitivity and discretion, which is how a diplomat behaves."
+     "surface": "A reckoning that keeps unsettled members of a court calm, done diplomatically.",
+     "walkthrough": "'Initially' covers both 'fellows unsettled', taking the first letter of each.",
+     "definitionFit": "Acting tactfully means acting with sensitivity and discretion, the manner of a good diplomat."
     },
     "features": {
      "answerInScene": true,
@@ -2385,13 +2388,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HEADTEACHER",
+     "op": "container",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "without a heart, the middle letter is removed"
+       "text": "probed by",
+       "at": 34,
+       "note": "being probed means having something pushed inside, so these letters go in"
       }
      ],
      "parts": [
@@ -2399,44 +2401,49 @@
        "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "probed by",
-           "note": "a probe goes into something, so one piece is pushed inside another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Problem",
-           "gives": "HEADACHE",
-           "note": "a headache is a nagging problem"
-          },
-          {
-           "words": "the",
-           "gives": "TE",
-           "note": "the with its middle letter gone"
-          }
-         ]
+         "words": "Problem",
+         "at": 0,
+         "gives": "HEADACHE",
+         "note": "a headache is a problem or nuisance"
         },
         {
          "words": "element of education",
+         "at": 13,
          "gives": "R",
-         "note": "the three Rs, reading, writing and arithmetic, are the basics of education"
+         "note": "R is one of the three Rs, reading, writing and arithmetic"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 48,
+         "note": "heartless means the middle letter of the word is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 44
+        },
+        {
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A school worker finds trouble with some part of the curriculum.",
-     "walkthrough": "The three Rs are reading, 'riting and 'rithmetic, so an R is one element of education. The shortened 'the' goes inside the word for problem.",
-     "definitionFit": "A head teacher is the senior teacher in charge of a British school, so is employed by it; Americans say principal."
+     "surface": "A heartless school employee faces a problem with part of education.",
+     "walkthrough": "'The heartless' is 'the' without its middle letter. The three Rs are the basics of education: reading, writing and arithmetic.",
+     "definitionFit": "A head teacher is the person in charge of running a school, employed as its principal."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "element"
+     "misdirectedWord": "heartless"
     }
    }
   },
@@ -2676,42 +2683,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AGINCOURT",
-     "indicators": [
-      {
-       "text": "losing heart",
-       "note": "to lose one's heart here is to drop the middle letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing heart",
+         "at": 10,
+         "note": "losing heart means the word drops its middle letter"
+        }
+       ],
        "parts": [
         {
          "words": "Once more",
-         "gives": "AGIN",
-         "note": "again with its middle letter dropped"
+         "at": 0,
+         "gives": "AGAIN",
+         "note": "again means once more"
         },
         {
-         "words": "Try",
-         "gives": "COURT",
-         "note": "to court is to try to win someone's affection"
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "Try to win",
+       "at": 24,
+       "gives": "COURT",
+       "note": "to court someone is to try to win their affection"
       }
      ]
     },
     "explanation": {
-     "surface": "Discouraged again, someone makes one more attempt at victory.",
-     "walkthrough": "'Try to win' looks like a single phrase, but 'try' gives the wooing word and 'to win' only links it to the definition.",
-     "definitionFit": "Agincourt was the 1415 battle in northern France where Henry V's English army defeated the French."
+     "surface": "Losing heart once more, someone vows to try again to win.",
+     "walkthrough": "AGAIN without its central letter is AGIN, an old dialect word in its own right.",
+     "definitionFit": "Agincourt was the 1415 battle in which Henry V of England defeated the French."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Try"
+     "misdirectedWord": "heart"
     }
    }
   },
@@ -3662,39 +3673,43 @@
      "indicators": [
       {
        "text": "taken in by",
-       "note": "something taken in is absorbed inside, so one piece sits within another"
+       "at": 7,
+       "note": "being taken in means being held inside, so the letters go into the word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "cunning",
-         "gives": "SLY",
-         "note": "sly means cunning"
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "cunning",
+       "at": 19,
+       "gives": "SLY",
+       "note": "sly means cunning"
       },
       {
-       "words": "duke",
-       "gives": "D",
-       "note": "D is the abbreviation for duke"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "duke",
+         "at": 2,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nobleman fooled by a crafty trick: what a shame.",
-     "walkthrough": "'Taken in' looks like fooled, but it means the letters are placed inside.",
-     "definitionFit": "Sadly and alas both express regret, as in 'sadly, it rained', used as sentence adverbs."
+     "surface": "Sadly, a duke has been fooled by a cunning trick.",
+     "walkthrough": "'Taken in' suggests being deceived, but it means put inside.",
+     "definitionFit": "Sadly used as a sentence adverb expresses regret, the same as the exclamation alas."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "taken"
     }
    }
