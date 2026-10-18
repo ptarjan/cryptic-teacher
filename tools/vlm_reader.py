@@ -365,6 +365,13 @@ _CAUSE = [""]
 #: the asking processes live, and flock frees them when those die, so /tmp suffices.
 SLOTS_FALLBACK = 1
 _SLOTS = [None]
+#: Extra asks kept in flight beyond slots() (env CT_VLM_PIPELINE, default 1): the
+#: server queues them behind the running one (it still answers one per slot at a
+#: time, nothing batched), so the GPU never idles while the next ask polls the
+#: lock, encodes and uploads. Their clock includes the wait for the one ahead,
+#: so REQUEST_TIMEOUT grows by one request's worth per extra ask.
+PIPELINE = int(os.environ.get("CT_VLM_PIPELINE", "1"))
+REQUEST_TIMEOUT = 600
 
 
 def cause():
@@ -403,7 +410,7 @@ def slot():
     """Hold one of slots() host-wide lock files for one request. Waiting here is
     queueing, not the server being down: it never marks anything missed."""
     import fcntl  # POSIX only: the desktop (Windows) imports this module without using the lock
-    n = slots()
+    n = slots() + max(0, PIPELINE)
     while True:
         for i in range(n):
             with open(Path(tempfile.gettempdir()) / f"vlm_reader.slot.{i}.lock", "w") as f:
@@ -444,7 +451,7 @@ def ask_png(data, prompt, max_tokens=1500):
         for tried in range(QUEUE_FULL_TRIES):
             try:
                 with slot():
-                    reply = json.load(urllib.request.urlopen(req, timeout=600))
+                    reply = json.load(urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT * (1 + max(0, PIPELINE))))
                 break
             except urllib.error.HTTPError as e:
                 _CAUSE[0] = cause_of(e)

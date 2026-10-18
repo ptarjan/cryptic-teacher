@@ -365,14 +365,17 @@ vlm.reachable, vlm.URL, vlm._MISSED[0] = saved
 # Host-wide cap: no more than slots() asks in flight at once across threads,
 # waiting for a slot is not "down" (nothing missed), and the cause is logged.
 import threading
+import tempfile as _tempfile
+_tempfile.tempdir = str(T)  # own lock files: a live queue on this host may hold the real ones
 vlm._SLOTS[0] = 2
+vlm.PIPELINE = 0
 vlm._MISSED[0] = False
-live, peak, lk = [0], [0], threading.Lock()
+live, peak, lk, DELAY = [0], [0], threading.Lock(), [0.05]
 def fake_slow(req, timeout=None):
     with lk:
         live[0] += 1
         peak[0] = max(peak[0], live[0])
-    time.sleep(0.05)
+    real_sleep(DELAY[0])
     with lk:
         live[0] -= 1
     return io.BytesIO(json.dumps({"choices": [{"message": {"content": "OKc"}}]}).encode())
@@ -385,6 +388,27 @@ ths = [threading.Thread(target=vlm.ask, args=(Image.new("L", (400, 300), 20 + i)
 [t.join() for t in ths]
 check("8 concurrent asks on 2 slots: never more than 2 in flight, nothing missed", (True, False),
       (1 <= peak[0] <= 2, vlm.missed()))
+# Pipelining: slots()+PIPELINE in flight (the extra one queues on the server), and
+# the request timeout covers the wait behind it.
+vlm.PIPELINE = 0
+vlm._SLOTS[0] = 1
+seen_timeouts = []
+def fake_slow_t(req, timeout=None):
+    seen_timeouts.append(timeout)
+    return fake_slow(req, timeout)
+urllib.request.urlopen = fake_slow_t
+peak[0] = 0
+DELAY[0] = 0.4
+vlm.PIPELINE = 1
+ths = [threading.Thread(target=vlm.ask, args=(Image.new("L", (400, 300), 120 + i), "qpipe")) for i in range(6)]
+[t.start() for t in ths]
+[t.join() for t in ths]
+check("pipeline 1 on 1 slot: two in flight, nothing missed", (2, False), (peak[0], vlm.missed()))
+check("a queued ask's timeout is one request's worth longer", True,
+      all(t >= 2 * vlm.REQUEST_TIMEOUT for t in seen_timeouts))
+vlm.PIPELINE = 0
+DELAY[0] = 0.05
+vlm._SLOTS[0] = 2
 def fake_500(req, timeout=None):
     raise urllib.error.HTTPError(req.full_url, 500, "x", {}, None)
 urllib.request.urlopen = fake_500
