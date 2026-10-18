@@ -48,42 +48,43 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ALMANAC",
      "indicators": [
       {
        "text": "in",
-       "note": "the servant sits inside the stripped palace, so one piece goes within the other"
+       "at": 8,
+       "note": "the servant sits in the stripped palace, between its letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ALMANAC",
+       "op": "middle",
        "indicators": [
         {
          "text": "unwrapped",
-         "note": "unwrapping takes off the outer covering, so the word palace loses its first and last letters"
+         "at": 18,
+         "note": "unwrapped means with its outer layer taken off, so palace loses its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "palace",
-         "note": "taken as written before being stripped"
-        },
-        {
-         "words": "Servant",
-         "gives": "MAN",
-         "note": "a manservant, or man, is a male servant"
+         "at": 11,
+         "note": "palace without its wrapping, the first and last letters, leaves its four middle letters"
         }
        ]
+      },
+      {
+       "words": "Servant",
+       "at": 0,
+       "gives": "MAN",
+       "note": "a man is a manservant"
       }
      ]
     },
     "explanation": {
-     "surface": "A palace servant opens up an annual record of court events.",
-     "definitionFit": "An almanac is an annual publication of calendars, tides and facts, so it is a yearbook."
+     "surface": "A palace footman opens a gift-wrapped annual.",
+     "walkthrough": "'unwrapped' suggests opening a present, but it peels the outer letters off palace; the servant then goes 'in' the middle of what is left.",
+     "definitionFit": "An almanac is an annual publication of calendars, dates and statistics, the kind of book issued once a year."
     },
     "features": {
      "answerInScene": false,
@@ -236,41 +237,46 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NATAL",
      "indicators": [
       {
-       "text": "taking day off for time",
-       "note": "one letter is taken off and another put in its place, a swap"
+       "text": "taking",
+       "at": 13,
+       "note": "taking one letter off and another on swaps them, and taking here starts that instruction"
+      },
+      {
+       "text": "off for",
+       "at": 24,
+       "note": "the day letter goes off and the time letter comes in for it, a straight exchange in the tennis star's name"
       }
      ],
      "parts": [
       {
        "words": "Sporting pro",
+       "at": 0,
        "gives": "NADAL",
-       "note": "Rafael Nadal, the Spanish tennis professional"
+       "note": "Rafael Nadal is a professional tennis player"
       },
       {
        "words": "day",
-       "gives": "D",
-       "note": "standard abbreviation"
+       "at": 20,
+       "gives": "D"
       },
       {
        "words": "time",
-       "gives": "T",
-       "note": "standard abbreviation"
+       "at": 32,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A sports professional takes a day off around their birthday.",
-     "walkthrough": "The tennis star Rafael Nadal is the sporting pro; his D becomes a T.",
-     "definitionFit": "Natal is the adjective relating to birth, as in antenatal or natal day."
+     "surface": "A sporting professional takes a day off around the time a baby is born.",
+     "walkthrough": "'taking' and 'off for' together mean D goes off and T comes in for it, in NADAL. 'time of birth' looks like the definition, but 'time' is the T.",
+     "definitionFit": "Natal is an adjective meaning relating to birth, as in prenatal or natal day."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pro"
+     "misdirectedWord": "time"
     }
    }
   },

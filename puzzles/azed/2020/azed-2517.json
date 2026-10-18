@@ -439,43 +439,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "TUFTER",
      "indicators": [
       {
        "text": "unkempt",
+       "at": 39,
        "note": "unkempt means untidy and dishevelled, so these letters are tousled out of order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "TUFTER",
        "indicators": [
         {
          "text": "Not",
-         "note": "not having something means it is subtracted from the rest of the letters"
+         "at": 11,
+         "note": "not having something means going without it, so the letters for crazy are taken away from matted"
         }
        ],
        "parts": [
         {
-         "words": "matted fur",
-         "note": "taken as written"
+         "words": "matted",
+         "at": 27
         },
         {
          "words": "crazy",
+         "at": 15,
          "gives": "MAD",
-         "note": "crazy is mad"
+         "note": "crazy means mad"
         }
        ]
+      },
+      {
+       "words": "fur",
+       "at": 34
       }
      ]
     },
     "explanation": {
      "surface": "A dog lover is not worried about a hound's tangled, scruffy coat.",
-     "walkthrough": "A subtractive anagram: the letters of MAD come out of 'matted fur' and the remaining six are rearranged.",
-     "definitionFit": "A tufter is a hound used in stag hunting to drive the deer out of cover, hence a deerhound in a punning sense."
+     "walkthrough": "'Not' takes the scattered letters of MAD out of MATTED, leaving TTE; 'unkempt' then shuffles TTE with FUR. 'crazy about' looks like one phrase, but 'about' is only a link.",
+     "definitionFit": "A tufter is a hound used in stag hunting to drive the deer out of cover, hence a deerhound in a loose sense."
     },
     "features": {
      "answerInScene": true,
@@ -644,32 +647,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "USURPATURE",
-     "indicators": [
-      {
-       "text": "switching internal couple",
-       "note": "switching a pair swaps their places, here two letters inside the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "usually",
-       "gives": "USU",
-       "note": "usu. is the dictionary abbreviation for usually"
+       "at": 23,
+       "gives": "USU"
       },
       {
-       "words": "ecstasy",
-       "gives": "RAPTURE",
-       "note": "rapture is ecstatic delight"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "switching internal couple",
+         "at": 44,
+         "note": "switching a pair swaps their places, here two adjacent letters inside the ecstasy word rather than at either end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ecstasy",
+         "at": 36,
+         "gives": "RAPTURE",
+         "note": "rapture is ecstatic delight"
+        },
+        {
+         "gives": "AP"
+        },
+        {
+         "gives": "PA"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "A poet usually writes in ecstasy, swapping a couple of lovers round.",
-     "walkthrough": "Only the second and third letters of the ecstasy word change places.",
-     "definitionFit": "Usurpature is a poetic word for usurpation, the wrongful seizing or encroaching on another's rights."
+     "walkthrough": "'switching internal couple' makes the second and third letters of RAPTURE, A and P, trade places. 'for poet' marks the answer as a poetic word.",
+     "definitionFit": "Usurpature is a poetic word for usurpation, the wrongful seizing of or encroaching on another's rights."
     },
     "features": {
      "answerInScene": false,
@@ -700,17 +714,17 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "CUBITS",
      "indicators": [
       {
        "text": "knocked back his last two",
-       "note": "knocking back the final pair turns those two letters round"
+       "at": 26,
+       "note": "knocking back the final pair of the artist's letters turns just those two round"
       }
      ],
      "parts": [
       {
        "words": "artist",
+       "at": 15,
        "gives": "CUBIST",
        "note": "a Cubist is an artist such as Picasso or Braque"
       }
@@ -718,7 +732,7 @@
     },
     "explanation": {
      "surface": "An artist sizes things up the old way after downing his last two drinks.",
-     "walkthrough": "'Knocked back' suggests drinking, but it turns round the final two letters of the artist.",
+     "walkthrough": "'knocked back his last two' suggests drinking, but it turns round only the final two letters of CUBIST, its S and T.",
      "definitionFit": "A cubit is an ancient unit of length based on the forearm, so cubits are measures used in former times."
     },
     "features": {
@@ -750,32 +764,54 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "FLOTE",
+     "op": "substitution",
      "indicators": [
       {
        "text": "interrupting",
-       "note": "something interrupting another breaks into it and sits in the middle"
+       "at": 16,
+       "note": "something interrupting another breaks into it, so the officer's two letters break in on either side of the enemy's middle letter"
       }
      ],
      "parts": [
       {
        "words": "enemy",
+       "at": 29,
        "gives": "FOE",
        "note": "a foe is an enemy"
       },
       {
-       "words": "Officer briefly",
-       "gives": "LT",
-       "note": "Lt is the short form of lieutenant"
+       "gives": "O"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 8,
+         "note": "a brief form of the officer's title, Lt, keeps only its first and last letters, here with the enemy's middle letter between them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Officer",
+         "at": 0,
+         "gives": "LIEUTENANT",
+         "note": "a lieutenant is a commissioned officer"
+        },
+        {
+         "gives": "IEUTENAN"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "An officer breaks into the enemy's advancing wave.",
-     "walkthrough": "The two officer letters interrupt the enemy separately, one breaking in after its first letter and one after its second.",
-     "definitionFit": "Flote is an obsolete word for a wave, hence the clue's marker that it belongs to old usage."
+     "walkthrough": "'briefly' shortens LIEUTENANT to LT, and its two letters are 'interrupting' FOE separately, one either side of its O, so the middle of the enemy becomes LOT.",
+     "definitionFit": "Flote is an obsolete word for a wave or the sea, hence the clue's marker that it belongs to old usage."
     },
     "features": {
      "answerInScene": true,
