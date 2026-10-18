@@ -950,45 +950,51 @@
      "indicators": [
       {
        "text": "included in",
-       "note": "something included in another is put inside it, so pieces go within the last word"
+       "at": 28,
+       "note": "the and-plus-letter group is placed inside the word for concoction"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "concoction",
-         "gives": "BREW",
-         "note": "a brew is a concoction"
-        },
-        {
-         "words": "and",
-         "note": "taken as written"
-        }
-       ]
+       "words": "concoction",
+       "at": 40,
+       "gives": "BREW",
+       "note": "a brew is a concoction, especially a drink"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "finally points to the last letter of the word just before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "cinnamon",
-         "note": "last letter of the spice"
+         "words": "and",
+         "at": 5,
+         "gives": "AND",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 19,
+           "note": "finally points to the closing letter of cinnamon, which is N"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cinnamon",
+           "at": 9,
+           "note": "its last letter gives N"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe in which mint and cinnamon go into a drink.",
-     "walkthrough": "'Mint' looks like the herb in a spiced drink, but it means in perfect new condition, as in mint condition.",
-     "definitionFit": "Mint as an adjective means unused and pristine, like a freshly struck coin, which is brand-new."
+     "surface": "A recipe note: mint and a hint of cinnamon go into a drink.",
+     "walkthrough": "'Mint' looks like the herb partnering cinnamon in a recipe; it is the definition, in the sense of fresh and unused.",
+     "definitionFit": "In mint condition means pristine and unused, the same as something just made."
     },
     "features": {
      "answerInScene": false,
@@ -1224,40 +1230,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one thing in another sits inside it, so pieces go within the vehicle"
+       "at": 29,
+       "note": "the pair for about and fellow sits inside the word for taxi"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "taxi",
-         "gives": "CAB",
-         "note": "a cab is a taxi"
-        },
-        {
-         "words": "about",
-         "gives": "ON",
-         "note": "on means about, as in a talk on art"
-        }
-       ]
+       "words": "taxi",
+       "at": 32,
+       "gives": "CAB",
+       "note": "a cab is a taxi"
       },
       {
-       "words": "fellow",
-       "gives": "F",
-       "note": "F is the abbreviation for fellow"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "about",
+         "at": 16,
+         "gives": "ON",
+         "note": "on means about, concerning"
+        },
+        {
+         "words": "fellow",
+         "at": 22,
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Chatting casually about a man riding in a taxi.",
-     "definitionFit": "To confab is to chat, from confabulate, an informal word for having a conversation."
+     "surface": "A passenger chats casually about a man riding in the taxi.",
+     "walkthrough": "'about' is not a container signal here but a synonym, in the sense of 'a talk on birds'.",
+     "definitionFit": "A confab, short for confabulation, is a casual chat or conversation."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "fellow"
+     "misdirectedWord": "about"
     }
    }
   },

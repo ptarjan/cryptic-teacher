@@ -272,55 +272,67 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "on"
-      },
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the word stops one letter short of its end"
+       "text": "on",
+       "at": 6,
+       "note": "in an across clue, A on B puts A after B, so the mince word comes after the skewer letter"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
          "text": "side of",
-         "note": "the side of a word is its edge, here the first letter"
+         "at": 9,
+         "note": "side of points to the edge letter of skewers, its first letter S"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "side of skewers",
-         "gives": "S",
-         "select": "first",
-         "note": "first letter of skewers"
+         "words": "skewers",
+         "at": 17,
+         "note": "its first letter gives S"
         }
        ]
       },
       {
        "words": "Mince",
+       "at": 0,
        "gives": "HASH",
-       "note": "hash is chopped meat"
+       "note": "hash is minced or chopped food"
       },
       {
-       "words": "resembling",
-       "gives": "LIK",
-       "note": "LIKE without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 25,
+         "note": "almost means the word is cut short by its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "resembling",
+         "at": 32,
+         "gives": "LIKE",
+         "note": "like means resembling"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Minced meat pushed onto skewers until it looks like a kebab.",
-     "walkthrough": "The whole clue sits in the kitchen, so kebab reads as part of the recipe rather than the definition.",
-     "definitionFit": "Shashlik is a kebab of meat grilled on a skewer."
+     "surface": "Minced meat on skewers that is almost like a kebab.",
+     "walkthrough": "S (side of skewers), then HASH, then LIK (like with its last letter dropped, from 'almost').",
+     "definitionFit": "Shashlik is a Caucasian and Central Asian dish of grilled meat chunks on a skewer, a type of kebab."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "side"
+     "misdirectedWord": "Mince"
     }
    }
   },
@@ -1218,41 +1230,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "upset",
-       "note": "in a down clue, set upside down: read upwards"
+       "text": "bears",
+       "at": 29,
+       "note": "in a down clue, X bears Y means X sits below holding Y up, so the when word goes on top"
       }
      ],
      "parts": [
       {
        "words": "when",
+       "at": 35,
        "gives": "AS",
-       "note": "as = when"
+       "note": "as means when, as in 'as I left'"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "bears"
+         "text": "upset",
+         "at": 23,
+         "note": "upset in a down clue means the word is turned upside down, read bottom to top"
         }
        ],
        "parts": [
         {
          "words": "Discarded bit of fruit",
+         "at": 0,
          "gives": "PEEL",
-         "note": "the peel is the part thrown away"
+         "note": "peel is the skin of fruit, usually thrown away"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bears in winter, dozing among the fruit scraps they have knocked over.",
-     "walkthrough": "'Bears' is a verb, not animals, though the surface uses the animals to make hibernating fit.",
-     "definitionFit": "Hibernation is a long winter sleep, so the adjective fits as a near synonym."
+     "surface": "Bears raid a heap of fruit peelings before their winter sleep.",
+     "walkthrough": "'bears' looks like the animals that hibernate; in a down clue it means the first part sits on top of the second.",
+     "definitionFit": "A hibernating animal spends the winter in a deep, sleep-like dormant state."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "bears"
     }
@@ -1577,39 +1594,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "played",
-       "note": "the letters are played about with"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "played",
+         "at": 18,
+         "note": "played suggests the letters of bingo are run through in a new arrangement"
+        }
+       ],
        "parts": [
         {
          "words": "bingo",
-         "note": "anagram fodder, 5 letters"
-        },
-        {
-         "words": "in case",
-         "gives": "LEST",
-         "note": "lest = in case"
+         "at": 25
         }
        ]
+      },
+      {
+       "words": "in case",
+       "at": 31,
+       "gives": "LEST",
+       "note": "lest means in case, for fear that"
       }
      ]
     },
     "explanation": {
-     "surface": "The poorest people in society played bingo, just in case.",
-     "walkthrough": "'In case' looks like a container instruction, but it is simply LEST.",
-     "definitionFit": "Ignoblest means lowest in rank, humblest."
+     "surface": "Society's lowest classes played bingo, just in case they won.",
+     "walkthrough": "'in' looks like a containment signal, but 'in case' is one phrase meaning for fear that; the rearranged bingo simply comes first.",
+     "definitionFit": "Ignoble originally meant of low birth or rank, so the superlative describes the humblest social class."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "case"
+     "misdirectedWord": "in"
     }
    }
   },

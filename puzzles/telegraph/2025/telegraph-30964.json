@@ -909,35 +909,47 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BEANCURD",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so the start of the two words trade places"
-      },
-      {
-       "text": "perhaps",
-       "note": "perhaps flags that the hobby is only one example of a wider class, so it must be replaced by its category"
+       "at": 0,
+       "note": "Spooner's tells us to swap the opening sounds of the two words, as the Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "enthusiastic hobby",
-       "gives": "BEANCURD",
-       "soundsLike": "KEEN BIRD",
-       "note": "keen means enthusiastic, and a hobby is a small falcon, so a bird; swap the opening sounds"
+       "op": "homophone",
+       "spelt": "CEAN",
+       "parts": [
+        {
+         "words": "enthusiastic",
+         "at": 10,
+         "gives": "KEEN",
+         "note": "keen means enthusiastic"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "BURD",
+       "parts": [
+        {
+         "words": "hobby perhaps",
+         "at": 23,
+         "gives": "BIRD",
+         "note": "the hobby is a small falcon, so an example of a bird"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's passionate pastime turns out to be making tofu.",
-     "walkthrough": "'hobby' reads as a pastime, but here it is the falcon. Swap the opening sounds of the two words and you get the soy product.",
-     "definitionFit": "Tofu is made by curdling soya milk, and bean curd is its standard English name."
+     "surface": "A keen pastime, it seems, ends up producing soybean curd.",
+     "walkthrough": "KEEN BIRD with its opening sounds swapped is said 'bean curd'. 'hobby' looks like a pastime, but it is the falcon.",
+     "definitionFit": "Tofu is soybean curd, made by coagulating soy milk and pressing it into blocks."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "hobby"

@@ -1828,35 +1828,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DETECTOR",
      "indicators": [
       {
-       "text": "changing sides in",
-       "note": "one side letter of fight swaps for the other"
+       "text": "changing sides in fight",
+       "at": 29,
+       "note": "the sides of the word fight are its outer letters, and one is changed for the other"
       }
      ],
      "parts": [
       {
        "words": "renegade",
+       "at": 20,
        "gives": "DEFECTOR",
-       "note": "a defector is a renegade"
+       "note": "a defector is a renegade who changes sides"
       },
       {
-       "words": "fight",
-       "gives": "T",
-       "note": "the sides of FighT are F and T; F becomes T"
+       "gives": "F"
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Hunting a traitor who switched allegiance during a battle.",
-     "walkthrough": "The surface's changing sides means betrayal; here it is the two outside letters of fight, F out and T in.",
-     "definitionFit": "A detector is a device that tracks down things, such as metal."
+     "surface": "A traitor switches allegiance during a battle and must be hunted down.",
+     "walkthrough": "The 'sides' of fight are F and T; changing F to T turns DEFECTOR into the answer.",
+     "definitionFit": "A detector is a device that senses and locates things, such as metal or smoke."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "sides"
     }
    }
@@ -2395,35 +2397,33 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "RO",
        "indicators": [
         {
          "text": "starts on",
-         "note": "take the starting letters of the words that follow"
+         "at": 7,
+         "note": "starts on means the opening letters of the next two words are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "starts on representation of",
-         "gives": "RO",
-         "select": "first",
-         "note": "first letters of Representation Of"
+         "words": "representation of",
+         "at": 17,
+         "note": "the first letters of these two words give RO"
         }
        ]
       },
       {
        "words": "rocky hill",
+       "at": 35,
        "gives": "TOR",
-       "note": "a tor is a rocky hilltop, as on Dartmoor"
+       "note": "a tor is a rocky hill, especially on Dartmoor"
       }
      ]
     },
     "explanation": {
-     "surface": "J M W Turner begins a painting of a craggy hill.",
-     "walkthrough": "Turner looks like the painter; it is anything that turns.",
-     "definitionFit": "A rotor is the turning part of a machine."
+     "surface": "J.M.W. Turner begins a painting of a craggy hill.",
+     "walkthrough": "'Turner' suggests the painter, which the surface supports; it means a thing that turns. A tor is a rocky outcrop on an English moor.",
+     "definitionFit": "A rotor is the rotating part of a machine, such as a helicopter's blades."
     },
     "features": {
      "answerInScene": false,
@@ -2515,36 +2515,40 @@
      "indicators": [
       {
        "text": "holding",
-       "note": "the currency holds the other letters inside"
+       "at": 20,
+       "note": "the currency word holds the record and edge words inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "SA currency",
-         "gives": "RAND",
-         "note": "the rand is South Africa's currency"
-        },
-        {
-         "words": "record",
-         "gives": "EP",
-         "note": "an EP is an extended-play record"
-        }
-       ]
+       "words": "SA currency",
+       "at": 8,
+       "gives": "RAND",
+       "note": "the rand is the currency of South Africa"
       },
       {
-       "words": "edge",
-       "gives": "RIM",
-       "note": "a rim is an edge"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "record",
+         "at": 28,
+         "gives": "EP",
+         "note": "an EP is an extended-play record"
+        },
+        {
+         "words": "edge",
+         "at": 35,
+         "gives": "RIM",
+         "note": "a rim is an edge"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question about the exchange rate of the South African rand.",
-     "walkthrough": "'Rate of SA currency' reads as an exchange rate; rate is an old verb meaning to scold.",
-     "definitionFit": "To rate someone, in older English, is to berate or reprimand them."
+     "surface": "A query about South African exchange rates, holding at a record level.",
+     "walkthrough": "'Rate' looks like an exchange rate beside the currency; it is the old verb meaning to scold. South Africa's currency is the rand.",
+     "definitionFit": "To rate someone, in an older sense, is to scold them angrily, just as a reprimand does."
     },
     "features": {
      "answerInScene": false,
