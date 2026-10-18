@@ -265,41 +265,41 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "DOWNTIME",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner was the clergyman famous for swapping the opening sounds of neighbouring words"
+       "at": 0,
+       "note": "Spooner's tells us to swap the opening sounds of the two words that follow, as Reverend Spooner did"
       }
      ],
      "parts": [
       {
        "words": "settlement",
+       "at": 10,
        "gives": "TOWN",
        "note": "a town is a settlement"
       },
       {
-       "words": "ten cents",
-       "gives": "DIME",
-       "note": "a dime is the US ten-cent coin"
-      },
-      {
-       "unchecked": true,
-       "words": "Spooner's settlement, ten cents",
-       "gives": "DOWNTIME",
-       "soundsLike": "TOWN DIME",
-       "note": "swap the opening sounds of the two words just found"
+       "op": "homophone",
+       "spelt": "DIME",
+       "parts": [
+        {
+         "words": "ten cents",
+         "at": 22,
+         "gives": "DYME",
+         "note": "a dime is a US coin worth ten cents; Spooner swaps sounds, so it is the word as spoken, a D sound then a long I, that matters"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone trades a settlement for ten cents in exchange for a break from work.",
-     "walkthrough": "A dime is American money, which helps flag it as ten cents rather than anything British.",
-     "definitionFit": "Downtime is a period when one is not working, a rest or pause in activity."
+     "surface": "A worker takes a break, perhaps paid off with a settlement and a few cents.",
+     "walkthrough": "'Spooner's' swaps the first sounds of TOWN and DIME, giving DOWN and TIME. A dime is the American ten-cent coin.",
+     "definitionFit": "Downtime is the period when a person is not working, a rest or pause from their job."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "settlement"
     }
@@ -326,45 +326,47 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "UNITE",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "set up",
-       "note": "in a down clue, set up means raised so the word reads from bottom to top"
+       "text": "naked",
+       "at": 17,
+       "note": "naked means stripped of its covering, so the outer letters at each end are removed"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UNITE",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "naked",
-         "note": "naked means stripped of its covering, so the outside letters are removed"
+         "text": "set up",
+         "at": 10,
+         "note": "in a down clue set up means the word is written upwards, so read backwards"
         }
        ],
        "parts": [
         {
          "words": "Followers",
+         "at": 0,
          "gives": "RETINUE",
-         "note": "a retinue is a group of attendants or followers"
+         "note": "a retinue is a band of followers or attendants"
         }
        ]
+      },
+      {
+       "gives": "ER"
       }
      ]
     },
     "explanation": {
-     "surface": "Fans arrange for a naked couple to appear.",
-     "walkthrough": "Dropping the outer letters of RETINUE leaves ETINU, which is then turned upwards.",
-     "definitionFit": "To couple things is to join them together, which is what unite means as a verb."
+     "surface": "Fans put a nude pair on display.",
+     "walkthrough": "'set up' turns RETINUE into EUNITER; 'naked' strips its outer letters E and R.",
+     "definitionFit": "To couple two things is to join or link them together, a verb synonym."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "naked"
+     "misdirectedWord": "couple"
     }
    }
   },

@@ -587,33 +587,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HISTORIC",
-     "indicators": [
-      {
-       "text": "quirky",
-       "note": "quirky means odd or unconventional, so the preceding word's letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HISTORIC",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "barely",
-         "note": "barely means stripped bare, so the jester's name loses its outer letters"
+         "text": "quirky",
+         "at": 5,
+         "note": "quirky means odd or twisted, so the letters of this are put in an odd order"
         }
        ],
        "parts": [
         {
          "words": "This",
-         "note": "taken as written"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "barely",
+         "at": 33,
+         "note": "barely means stripped bare, with the outer letters at each end removed"
+        }
+       ],
+       "parts": [
         {
          "words": "Shakespearean jester",
+         "at": 12,
          "gives": "YORICK",
          "note": "Yorick is the dead jester whose skull Hamlet holds"
         }
@@ -622,8 +626,9 @@
      ]
     },
     "explanation": {
-     "surface": "An odd Shakespearean clown was barely known in his day.",
-     "definitionFit": "Something historic is notable in history, important enough to be remembered from earlier times."
+     "surface": "A literary note on an eccentric Shakespearean fool who was only just celebrated in his day.",
+     "walkthrough": "'quirky' turns THIS into HIST; 'barely' strips YORICK to ORIC. Yorick's skull prompts Hamlet's 'Alas, poor Yorick'.",
+     "definitionFit": "Historic means notable or renowned in history, so celebrated in times gone by."
     },
     "features": {
      "answerInScene": false,
@@ -967,48 +972,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LOGGERHEAD",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the cycled word inside the word for first place"
+       "at": 36,
+       "note": "in places the cycled letters inside the word for first place"
       }
      ],
      "parts": [
       {
+       "words": "first place",
+       "at": 39,
+       "gives": "LEAD",
+       "note": "to be in the lead is to be in first place"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "LOGGERHEAD",
        "indicators": [
         {
          "text": "cycling",
-         "note": "cycling moves letters round in a loop, so the front letter goes to the back"
+         "at": 28,
+         "note": "cycling means the first letter travels round to the end of the word"
         }
        ],
        "parts": [
         {
          "words": "selfish type",
+         "at": 15,
          "gives": "HOGGER",
-         "note": "a hogger is one who hogs things"
-        },
-        {
-         "words": "first place",
-         "gives": "LEAD",
-         "note": "being in the lead is first place"
+         "note": "a hogger is one who hogs things, a selfish type"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A selfish cyclist hogging first place in a race is an idiot.",
-     "walkthrough": "'Cycling' fits a bike race in the surface, but it moves the first letter to the end.",
-     "definitionFit": "Loggerhead is an archaic word for a blockhead or dolt, surviving in the idiom 'at loggerheads'."
+     "surface": "A dim, self-centred cyclist leads the race.",
+     "walkthrough": "The cycling surface tempts a bike-race reading, but 'cycling' is the instruction; a hogger is less common than hog, one who keeps things to themselves.",
+     "definitionFit": "A loggerhead is an old word for a blockhead or dolt, a person of little intelligence."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "cycling"
     }
    }

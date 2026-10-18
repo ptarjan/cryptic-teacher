@@ -109,35 +109,67 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a medal",
-      "at": 65
+      "text": "medal",
+      "at": 67
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SILVER",
+     "op": "container",
      "indicators": [
       {
-       "text": "Labour leader moving a bit to the right",
-       "note": "shifting one letter a single step rightwards swaps it with its neighbour, turning that pair around"
+       "text": "a bit to the right",
+       "at": 33,
+       "note": "a bit to the right sets that same letter back in one place further along"
       }
      ],
      "parts": [
       {
-       "words": "Scrap",
-       "gives": "SLIVER",
-       "note": "a sliver is a small scrap or splinter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "moving",
+         "at": 26,
+         "note": "moving lifts the letter for the Labour leader out of its place in the word for scrap"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scrap",
+         "at": 0,
+         "gives": "SLIVER",
+         "note": "a sliver is a scrap, a thin fragment"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 19,
+         "note": "the leader of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Labour",
+         "at": 12,
+         "note": "first letter of Labour"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone praises a fight, or a Labour leader edging rightwards politically, as worthy of an award.",
-     "walkthrough": "The Labour leader is the first letter L of SLIVER; moving it one place right past the I gives SILVER. The surface sneers at a party leader drifting to the political right.",
-     "definitionFit": "Second place in a competition earns the silver award, so the precious metal names that particular prize."
+     "surface": "A satirical jab: a Labour leader who shifts slightly rightwards deserves a gong.",
+     "walkthrough": "The L of SLIVER is Labour's leader; moving it one place to the right, past the I, gives the answer. The surface teases Labour's drift to the political right.",
+     "definitionFit": "Silver is the second-place medal, awarded at the Olympics and other contests."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "right"

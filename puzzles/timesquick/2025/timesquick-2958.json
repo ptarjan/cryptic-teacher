@@ -708,47 +708,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CONCEALMENT",
-     "indicators": [
-      {
-       "text": "avoided",
-       "note": "something avoided is kept away from, so that letter is left out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "cold",
+       "at": 7,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on a tap"
+      },
+      {
+       "words": "at one time",
+       "at": 12,
+       "gives": "ONCE",
+       "note": "once means at one time, formerly"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "avoided",
+         "at": 35,
+         "note": "avoided says the I is kept out of the word for illness, leaving it out entirely"
+        }
+       ],
        "parts": [
         {
-         "words": "cold",
-         "gives": "C",
-         "note": "C is the abbreviation for cold, as on a tap"
+         "words": "illness",
+         "at": 25,
+         "gives": "AILMENT",
+         "note": "an ailment is an illness"
         },
         {
-         "words": "at one time",
-         "gives": "ONCE",
-         "note": "once means formerly, at one time"
-        },
-        {
-         "words": "illness I",
-         "gives": "ALMENT",
-         "note": "an ailment is an illness; the I is removed"
+         "words": "I",
+         "at": 33,
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone once kept a cold quiet, and so escaped being ill.",
-     "walkthrough": "The 'I avoided' applies only to the illness word, AILMENT, which drops its I before joining the end of the answer.",
-     "definitionFit": "Concealment is the act of hiding something, the noun matching hiding used as a noun."
+     "surface": "Someone once concealed a cold, keeping quiet about being ill.",
+     "walkthrough": "'I avoided' removes the I from AILMENT, leaving ALMENT.",
+     "definitionFit": "Concealment is the act of keeping something out of sight, a noun synonym for the act of hiding."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Hiding"
+     "misdirectedWord": "cold"
     }
    }
   },

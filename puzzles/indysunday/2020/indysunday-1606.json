@@ -1489,41 +1489,60 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LENIN",
      "indicators": [
       {
-       "text": "switched around",
-       "note": "switching things means swapping their places, so one letter trades for another"
+       "text": "around",
+       "at": 33,
+       "note": "around completes the exchange the other way, so the earlier letter goes where the other stood"
       }
      ],
      "parts": [
       {
-       "words": "sheets",
-       "gives": "LINEN",
-       "note": "bed linen is sheets"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "switched",
+         "at": 24,
+         "note": "switched means the letter for one is exchanged for the letter for earl in the word for sheets"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sheets",
+         "at": 8,
+         "gives": "LINEN",
+         "note": "linen is bed sheets, collectively"
+        },
+        {
+         "words": "one",
+         "at": 15,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "earl",
+         "at": 19,
+         "gives": "E"
+        }
+       ]
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral for one"
+       "gives": "E"
       },
       {
-       "words": "earl",
-       "gives": "E",
-       "note": "E is the abbreviation for earl"
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "Faded red bedsheets that an aristocrat turned over.",
-     "walkthrough": "Swap the I in the sheets for an E and the result is the Soviet founder.",
-     "definitionFit": "Lenin, leader of the Russian Revolution, was a communist, and red is a common label for communists."
+     "surface": "Bedding is moved about by an aristocrat, perhaps to hide a Soviet relic.",
+     "walkthrough": "'switched around' makes the I (one) and E (earl) in LINEN trade places: first the I becomes E, giving LENEN, then the second E becomes I. 'Red' is a common term for a communist.",
+     "definitionFit": "Lenin led the Bolshevik revolution of 1917, a long-dead communist, so an old Red."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "red"
+     "misdirectedWord": "sheets"
     }
    }
   },
