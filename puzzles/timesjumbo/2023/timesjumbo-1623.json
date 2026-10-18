@@ -1144,37 +1144,59 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SHILLYSHALLY",
-     "indicators": [
-      {
-       "text": "accepting",
-       "note": "to accept something is to take it in, so a piece goes inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "daft",
-       "gives": "SILLY",
-       "note": "daft means silly"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepting",
+         "at": 31,
+         "note": "accepting means the word for daft takes the hearts letter inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "daft",
+         "at": 15,
+         "gives": "SILLY",
+         "note": "daft means silly"
+        },
+        {
+         "words": "hearts",
+         "at": 41,
+         "gives": "H",
+         "note": "H is the card-suit abbreviation for hearts"
+        }
+       ]
       },
       {
-       "words": "girl",
-       "gives": "SALLY",
-       "note": "a girl's name"
-      },
-      {
-       "words": "hearts",
-       "gives": "HH",
-       "note": "H is the card abbreviation for hearts, and 'twice' gives two of them"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 25,
+         "note": "twice means the same taking-in of the hearts letter happens again, this time inside the girl"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl",
+         "at": 20,
+         "gives": "SALLY",
+         "note": "Sally is a girl's name"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dithering, foolish girl falls in love twice over.",
-     "walkthrough": "'Twice' covers both the two-word phrase and the two hearts, one H slipped in after the S of each word.",
-     "definitionFit": "To shilly-shally is to dither and hesitate, so as an adjective it describes someone unable to make up their mind."
+     "surface": "A dithering, silly girl keeps taking on hearts, perhaps in a card game.",
+     "walkthrough": "'Twice accepting hearts' applies to both words, so each takes its own H.",
+     "definitionFit": "To shilly-shally is to dither, so as an adjective it describes someone wavering and unable to decide."
     },
     "features": {
      "answerInScene": true,
@@ -1491,50 +1513,48 @@
      "indicators": [
       {
        "text": "breaks",
-       "note": "something that breaks into a line splits it open and sits in the gap"
+       "at": 8,
+       "note": "breaks means the problem word bursts into the middle of the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "revolutionary",
-           "gives": "CHE",
-           "note": "Che Guevara was the archetypal revolutionary"
-          },
-          {
-           "words": "northern",
-           "gives": "N",
-           "note": "N is the abbreviation for northern"
-          }
-         ]
+         "words": "revolutionary",
+         "at": 15,
+         "gives": "CHE",
+         "note": "Che Guevara, the Argentine-born revolutionary"
         },
         {
-         "words": "Problem",
-         "gives": "ILL",
-         "note": "an ill is a trouble or problem"
+         "words": "northern",
+         "at": 29,
+         "gives": "N"
+        },
+        {
+         "words": "English",
+         "at": 38,
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "English",
-       "gives": "E",
-       "note": "E is the abbreviation for English"
+       "words": "Problem",
+       "at": 0,
+       "gives": "ILL",
+       "note": "ill means a problem or misfortune, as in 'the ills of society'"
       }
      ]
     },
     "explanation": {
-     "surface": "Trouble disrupts a rebel northern English story.",
-     "walkthrough": "'Yarn' suggests a tale, but it is thread; 'revolutionary' gives Che rather than signalling a reversal.",
-     "definitionFit": "Chenille is a tufted, velvety thread used for embroidery and soft fabrics."
+     "surface": "A difficulty interrupts a radical from the north of England who is spinning wool.",
+     "walkthrough": "'Yarn' could mean a story, but here it is thread.",
+     "definitionFit": "Chenille is a tufted, velvety thread used in embroidery and fabrics, a kind of yarn."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "yarn"
     }
@@ -1621,31 +1641,41 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ADDITION",
      "indicators": [
       {
-       "text": "for the second",
-       "note": "standing in for the second means replacing whatever occupies that position in the word"
+       "text": "taking",
+       "at": 8,
+       "note": "taking means the try-out word receives a new letter"
+      },
+      {
+       "text": "for",
+       "at": 20,
+       "note": "for means the days letter stands in place of the second letter"
       }
      ],
      "parts": [
       {
        "words": "Try-out",
+       "at": 0,
        "gives": "AUDITION",
-       "note": "an audition is a try-out for a performer"
+       "note": "an audition is a try-out for a part"
+      },
+      {
+       "words": "the second",
+       "at": 24,
+       "gives": "U",
+       "note": "the second letter of the try-out word"
       },
       {
        "words": "days",
-       "gives": "D",
-       "note": "D is the abbreviation for days"
+       "at": 15,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A band's audition stretches over days before a new member joins.",
-     "walkthrough": "'The second' means the second letter of the try-out word, U, which D replaces.",
-     "definitionFit": "A new recruit to a team is often called a welcome addition, someone added to the existing lineup."
+     "surface": "An audition takes days before a new band member is picked.",
+     "definitionFit": "An addition is something or someone added, such as a newcomer to a team or band."
     },
     "features": {
      "answerInScene": true,
