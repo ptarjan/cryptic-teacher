@@ -50,42 +50,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHOOCHOO",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "Endlessly means with no ends at all, so the word gives up the letter at each end before anything else happens."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 14,
+         "note": "endlessly means both ends of the word are cut off, its first and last letters"
+        }
+       ],
        "parts": [
         {
          "words": "train",
-         "gives": "CHOO",
-         "note": "to school someone is to train them, and SCHOOL stripped of its outer S and L leaves these four letters"
+         "at": 8,
+         "gives": "SCHOOL",
+         "note": "to train someone is to school them"
         },
         {
+         "gives": "SL"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 31,
+         "note": "endlessly again means the word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
          "words": "train",
-         "gives": "CHOO",
-         "note": "the same instruction is given a second time, for the same four letters again"
+         "at": 25,
+         "gives": "SCHOOL",
+         "note": "again, to train is to school"
+        },
+        {
+         "gives": "SL"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Relentless drilling: the order to train given over and over with no end in sight.",
-     "walkthrough": "Only the first 'train' is the definition; the other two are the verb, to school. 'Endlessly' taking both ends off a word rather than just the last letter is the step solvers miss.",
-     "definitionFit": "A choo-choo is a train in nursery language, the word copied from the noise a steam engine makes."
+     "surface": "A clue that seems to do nothing but stutter the same word over and over, like a child's train noise.",
+     "walkthrough": "Each 'train endlessly' is SCHOOL without its end letters S and L, giving CHOO twice; the first 'Train' is the definition.",
+     "definitionFit": "Choo-choo is a child's word for a railway locomotive, imitating the sound of a steam engine."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
      "misdirectedWord": "train"
     }
    }
@@ -971,41 +990,46 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "B",
+       "indicators": [
+        {
+         "text": "Initially",
+         "at": 0,
+         "note": "initially means only the first letter of the following word is used"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Initially beat",
-         "gives": "B",
-         "select": "first",
-         "note": "the initial letter of BEAT"
+         "words": "beat",
+         "at": 10,
+         "note": "the word beat, giving B"
         }
        ]
       },
       {
        "words": "a",
-       "note": "the article as it stands"
+       "at": 15
       },
       {
        "words": "retreat",
+       "at": 17,
        "gives": "DEN",
-       "note": "a den is the room you retreat into"
+       "note": "a den is a private retreat or hideaway"
       },
       {
        "words": "then once more",
+       "at": 26,
        "gives": "BADEN",
-       "note": "the instruction to do it again repeats the five letters just built"
+       "note": "then once more means the five letters just built are given a second time"
       }
      ]
     },
     "explanation": {
-     "surface": "Beating a retreat, then beating it again, all the way to Germany.",
-     "walkthrough": "'Beat a retreat' is one phrase on the surface and three separate pieces underneath. The spa town's name is doubled to tell it apart from the other towns of its old German state.",
-     "definitionFit": "Baden-Baden is the spa town in the Black Forest, so 'German town' names it by category."
+     "surface": "An instruction to hit something, withdraw, and repeat the move in a German town.",
+     "walkthrough": "B from 'Initially beat', then A and DEN make BADEN, and 'once more' repeats it.",
+     "definitionFit": "Baden-Baden is a spa town in south-west Germany, in the Black Forest region."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "retreat"
     }
@@ -1039,47 +1063,44 @@
        "indicators": [
         {
          "text": "losing head",
-         "note": "Losing its head means giving up the letter at the front, so the word starts one letter later than it did."
+         "at": 36,
+         "note": "losing head means the word drops its first letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "making one sad",
-           "gives": "TEARFUL",
-           "note": "somebody in tears is tearful"
-          },
-          {
-           "words": "or scared",
-           "gives": "FEARFUL",
-           "note": "somebody afraid is fearful, and the two words differ only in that first letter"
-          }
-         ]
+         "words": "making one sad or scared",
+         "at": 10,
+         "gives": "FEARFUL",
+         "note": "fearful means scared; tearful, meaning sad, would serve just as well, as both lose their first letter to leave the same word"
         },
         {
-         "gives": "TEARFULF"
+         "gives": "F"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "it's even worse in stereo?",
-       "note": "the doubling joke — one in each ear at once — which contributes no letters"
+       "op": "cryptic",
+       "parts": [
+        {
+         "words": "it's even worse in stereo?",
+         "at": 50,
+         "note": "a playful extra hint: the word sounds like a full ear, and with stereo both ears get filled"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A telling-off that leaves you miserable and frightened, and worse still through both speakers.",
-     "walkthrough": "Sad and scared give two different words, and each loses its first letter to leave the same six. 'Head' invites the panicking sense and means nothing more than the front of a word.",
-     "definitionFit": "An earful is a loud telling-off — 'she gave him an earful' — which is a reprimand in the same noun form."
+     "surface": "A telling-off that leaves someone upset or frightened, and twice as bad when heard through two speakers.",
+     "walkthrough": "Either TEARFUL (sad) or FEARFUL (scared) loses its head to give the answer. The closing question is a joke: an earful through both ears at once, in stereo, is even worse.",
+     "definitionFit": "An earful is a long angry telling-off, so it is a reprimand in informal speech."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "head"
+     "misdirectedWord": "stereo"
     }
    }
   },
@@ -1320,54 +1341,39 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SAUNAS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 20,
+       "note": "about means the continent letters go around the others"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "SAUNAS",
-       "parts": [
-        {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "About means round the outside, so the continent's letters end up on either side of what they enclose."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Continent",
-           "gives": "SA",
-           "note": "SA = South America"
-          },
-          {
-           "words": "multinational group",
-           "gives": "UN",
-           "note": "the United Nations, the body nearly every country belongs to"
-          },
-          {
-           "words": "reflected",
-           "gives": "AS",
-           "note": "the same two letters mirrored, closing the far side"
-          }
-         ]
-        }
-       ]
+       "words": "Continent reflected",
+       "at": 0,
+       "gives": "SAAS",
+       "note": "SA is the abbreviation for South America, followed by its mirror image AS"
+      },
+      {
+       "words": "multinational group",
+       "at": 26,
+       "gives": "UN",
+       "note": "UN is the United Nations, a multinational organisation"
       }
      ]
     },
     "explanation": {
-     "surface": "A continent and its reflection surrounding an international gathering somewhere warm.",
-     "walkthrough": "'Hot spots' wants to be trouble abroad, and it is the wooden rooms you sit and sweat in. South America shortens to SA, and its mirror image is the puzzle's doubling in two letters.",
-     "definitionFit": "A sauna is a hot room you sit in to sweat, so 'hot spots' is a literal plural description of them rather than the trouble-abroad sense."
+     "surface": "A continent's diplomats meet a global body in some warm locations.",
+     "walkthrough": "'reflected' here means SA appears with its mirror image beside it, so SA and AS flank UN.",
+     "definitionFit": "Saunas are hot rooms for sweating, so they are literally hot spots."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "spots"
+     "joke": "pun",
+     "misdirectedWord": "reflected"
     }
    }
   },

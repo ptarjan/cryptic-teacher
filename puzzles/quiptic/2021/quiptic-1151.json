@@ -699,40 +699,50 @@
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "SYNTHE",
        "indicators": [
         {
          "text": "Extremely",
-         "note": "the extremes of a word are its two ends, so only the outer letters of each word count"
+         "at": 1,
+         "note": "extremely means each of the three words gives only its extremes, its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "stormy night here",
-         "gives": "SYNTHE",
-         "select": "outer",
-         "note": "the first and last letters of each of these three words"
+         "words": "stormy",
+         "at": 11,
+         "note": "the word stormy, giving its outer letters"
         }
        ]
       },
       {
-       "words": "movement",
+       "words": "night",
+       "at": 18,
+       "gives": "NT",
+       "note": "the word night, giving its outer letters"
+      },
+      {
+       "words": "here",
+       "at": 24,
+       "gives": "HE",
+       "note": "the word here, giving its outer letters"
+      },
+      {
+       "words": "movement's",
+       "at": 30,
        "gives": "TIC",
-       "note": "a tic is an involuntary twitch of the muscles"
+       "note": "a tic is an involuntary twitching movement; the 's is read as 'is'"
       }
      ]
     },
     "explanation": {
-     "surface": "On a wild, stormy night, someone notices an eerie, unnatural motion.",
-     "walkthrough": "'Extremely' looks like it intensifies 'stormy', but it takes the two ends of each word. The 's stands for 'is'.",
-     "definitionFit": "Synthetic things are man-made or artificial, made by chemical process rather than occurring in nature."
+     "surface": "A weather report about a wild night that ends by remarking a twitch is unnatural.",
+     "walkthrough": "'Extremely' works on each of the next three words in turn, not just on stormy, so night and here also give only their first and last letters.",
+     "definitionFit": "Synthetic means man-made or artificial, the opposite of something occurring in nature."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Extremely"
+     "misdirectedWord": "movement's"
     }
    }
   },
@@ -1095,48 +1105,50 @@
     "definitions": [
      {
       "text": "many a country",
-      "at": 29,
-      "note": "the phrase is singular in form but means several countries, matching the plural"
+      "at": 29
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NATIONS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without an end means the final letter is dropped"
+       "text": "played",
+       "at": 9,
+       "note": "played, as a piece is played, means the letters are performed in a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "played",
-         "note": "played suggests letters being performed freely in a different arrangement"
+         "text": "endlessly",
+         "at": 16,
+         "note": "endlessly means the word loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "Sonatina",
-         "gives": "SONATIN",
-         "note": "the short sonata without its final letter"
+         "at": 0,
+         "note": "the word Sonatina, which loses its final A"
+        },
+        {
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A short piano piece is performed on and on all around the world.",
-     "walkthrough": "A sonatina is a short, simple sonata. 'endlessly' looks like 'without stopping' but trims the last letter.",
-     "definitionFit": "Nations are sovereign states, and 'many a country' is a roundabout way of saying lots of them."
+     "surface": "A short piano sonata is performed in many countries across the world.",
+     "walkthrough": "'endlessly' cuts Sonatina to SONATIN, and 'played' rearranges those seven letters.",
+     "definitionFit": "Nations are countries, so the plural answer stands for many a country taken together."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "endlessly"
+     "misdirectedWord": "played"
     }
    }
   },
@@ -1342,42 +1354,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PHILOSOPHY",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without an end means the final letter is dropped"
+       "text": "fiddling",
+       "at": 15,
+       "note": "fiddling means tinkering with something, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "fiddling",
-         "note": "fiddling with something means tinkering with it, so the letters are rearranged"
+         "text": "endlessly",
+         "at": 5,
+         "note": "endlessly means the word Pope loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "Pope",
-         "gives": "POP",
-         "note": "the papal title without its last letter"
+         "at": 0,
+         "note": "the word Pope, cut to POP"
         },
         {
-         "words": "his holy",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "his holy",
+       "at": 29,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "The Pope keeps tinkering with his sacred doctrines.",
-     "walkthrough": "The Pope and holy principles make a religious picture, but 'endlessly' and 'fiddling' are working on the letters.",
-     "definitionFit": "A philosophy can mean a set of guiding beliefs or principles by which someone lives."
+     "surface": "A pontiff is accused of tinkering with sacred principles.",
+     "walkthrough": "'endlessly' leaves POP; 'fiddling' then rearranges POP with HIS HOLY.",
+     "definitionFit": "A philosophy is a set of guiding beliefs, so a person's philosophy is their principles."
     },
     "features": {
      "answerInScene": true,

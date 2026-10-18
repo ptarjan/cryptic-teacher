@@ -449,52 +449,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ORIENTED",
-     "indicators": [
-      {
-       "text": "Half of",
-       "note": "taking half of a two-word name drops one of its words entirely"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Half of",
+         "at": 0,
+         "note": "half of means only one of the two words in the team's name is kept, the second"
+        }
+       ],
        "parts": [
         {
          "words": "football team",
-         "gives": "ORIENT",
-         "note": "Leyton Orient is a London football club; the second half of its name is kept"
+         "at": 8,
+         "gives": "LEYTONORIENT",
+         "note": "Leyton Orient is a London football club"
         },
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "extremely",
-           "note": "the extremes of a word are its two ends, so only the outer letters stay"
-          }
-         ],
-         "parts": [
-          {
-           "words": "engaged",
-           "note": "first and last letters"
-          }
-         ]
+         "gives": "LEYTON"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 23,
+         "note": "extremely means only the extremes, the first and last letters, are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "engaged",
+         "at": 33,
+         "note": "the word engaged, giving its outer letters E and D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Half a football side is fully committed and lined up together.",
-     "walkthrough": "Leyton Orient is a football club in east London, often reduced to its second word in crosswords.",
-     "definitionFit": "Oriented means positioned or directed a particular way, so something lined up in one direction."
+     "surface": "A sports report on part of a side that is fully committed and lined up together.",
+     "walkthrough": "Leyton Orient is an English football club in east London; dropping LEYTON leaves ORIENT, and 'extremely' takes E and D from the ends of engaged.",
+     "definitionFit": "Oriented means positioned or lined up in a particular direction, which is what aligned means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "engaged"
+     "misdirectedWord": "Half"
     }
    }
   },
@@ -837,35 +842,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TENCH",
      "indicators": [
       {
        "text": "having change of heart",
-       "note": "a change of heart swaps the central letter for a different one"
+       "at": 20,
+       "note": "change of heart means the central letter of the word is swapped for another letter"
       }
      ],
      "parts": [
       {
        "words": "school",
+       "at": 13,
        "gives": "TEACH",
        "note": "to school someone is to teach them"
       },
       {
-       "words": "change",
-       "gives": "N",
-       "note": "the replacement centre letter"
+       "gives": "A"
+      },
+      {
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A swimmer leaving school has a change of mind.",
-     "walkthrough": "'School' looks like a noun, a building or a shoal of fish; it is the verb 'to teach', whose middle A becomes N.",
-     "definitionFit": "A tench is a freshwater fish of the carp family, and crosswords often call any fish a swimmer."
+     "surface": "A pupil leaves a school after reconsidering, or a fish leaves a shoal.",
+     "walkthrough": "TEACH has A at its heart; swapping that A for N gives the fish. 'school' looks like a fish shoal but is the verb to teach.",
+     "definitionFit": "The tench is a freshwater fish of the carp family, and a fish is a swimmer in crossword terms."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "school"
     }
    }
@@ -1952,36 +1959,56 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PELLMELL",
      "indicators": [
       {
        "text": "replacing",
-       "note": "replacing means putting one thing in another's place, so letters are swapped"
+       "at": 39,
+       "note": "replacing means the Europeans take the place of the Americans in the word"
       }
      ],
      "parts": [
       {
-       "words": "game once",
-       "gives": "PALLMALL",
-       "note": "pall-mall was an old mallet-and-ball game, giving London's Pall Mall its name"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "having",
+         "at": 22,
+         "note": "having signals the game name takes on the Europeans in place of what it had"
+        }
+       ],
+       "parts": [
+        {
+         "words": "game once",
+         "at": 12,
+         "gives": "PALLMALL",
+         "note": "pall-mall was an old game, a forerunner of croquet, which gave London's Pall Mall its name"
+        },
+        {
+         "words": "Americans",
+         "at": 49,
+         "gives": "A",
+         "note": "A is a standard abbreviation for American; here both As go"
+        },
+        {
+         "words": "Europeans",
+         "at": 29,
+         "gives": "E",
+         "note": "E is a standard abbreviation for European; two of them come in"
+        }
+       ]
       },
       {
-       "words": "Europeans",
-       "gives": "EE",
-       "note": "E is the abbreviation for European, one per swap"
+       "gives": "A"
       },
       {
-       "words": "Americans",
-       "gives": "AA",
-       "note": "A is the abbreviation for American, the letters swapped out"
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A muddled account of an old sport that swapped its American players for European ones.",
-     "walkthrough": "Pall-mall was a seventeenth-century game, like croquet, played down an alley; each A becomes an E.",
-     "definitionFit": "Pell-mell means in a disorderly rush, headlong and in confusion."
+     "surface": "A historical game is described with one group of players swapped for another.",
+     "walkthrough": "In PALL MALL, an old mallet-and-ball game, each A is replaced by an E.",
+     "definitionFit": "Pell-mell means in a disorderly rush or jumble, so it is an adverb meaning confusedly."
     },
     "features": {
      "answerInScene": false,

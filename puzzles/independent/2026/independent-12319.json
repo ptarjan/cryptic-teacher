@@ -43,39 +43,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EMOTICON",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inscribed with",
+       "at": 15,
+       "note": "inscribed with means the jumbled letters have the other piece written into them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Garbled",
-         "note": "garbled words are jumbled, so the letters of NOTICE get rearranged"
-        },
-        {
-         "text": "inscribed with"
+         "at": 0,
+         "note": "garbled means mixed up and confused, so the letters of notice are jumbled"
         }
        ],
        "parts": [
         {
          "words": "notice",
-         "note": "NOTICE rearranged"
-        },
-        {
-         "words": "second",
-         "gives": "MO",
-         "note": "a mo = a moment, a second"
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "second",
+       "at": 30,
+       "gives": "MO",
+       "note": "a mo is a moment, a second, as in 'just a mo'"
       }
      ]
     },
     "explanation": {
-     "surface": "A smudged notice with some computer symbol written on it.",
-     "walkthrough": "'Second' looks like an ordinal (second digital symbol), but it is a noun: a brief moment.",
-     "definitionFit": "A smiley face typed into a text message is the classic example of a small digital symbol conveying mood."
+     "surface": "A scrambled sign has an extra character written on it, perhaps a second line of text.",
+     "walkthrough": "'Garbled' turns notice into ETICON, and 'inscribed with' puts MO inside it after the E.",
+     "definitionFit": "An emoticon is a little face made from keyboard characters, a symbol used in texts and emails."
     },
     "features": {
      "answerInScene": true,
@@ -158,41 +162,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WATERHOUSE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "unsettled",
+       "at": 21,
+       "note": "unsettled means disturbed from its place, so the letters of whereabouts are rearranged"
+      },
+      {
+       "text": "release",
+       "at": 43,
+       "note": "release means one letter is let go from the rearranged pool"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "WATERHOUSE",
-       "indicators": [
-        {
-         "text": "unsettled",
-         "note": "unsettled things are stirred up, so the letters are jumbled"
-        },
-        {
-         "text": "release"
-        }
-       ],
-       "parts": [
-        {
-         "words": "whereabouts",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "book",
-         "gives": "B",
-         "note": "B = book, removed from the fodder"
-        }
-       ]
+       "words": "whereabouts",
+       "at": 9
+      },
+      {
+       "words": "book's",
+       "at": 36,
+       "gives": "B",
+       "note": "B is the standard abbreviation for book"
       }
      ]
     },
     "explanation": {
-     "surface": "A writer's location unknown as their book comes out.",
-     "walkthrough": "'Book's release' reads as a publication date, but it means letting the B go.",
-     "definitionFit": "Definition by example: Keith of that surname was an English novelist and columnist, author of Billy Liar."
+     "surface": "An author's location is unknown at the time of their new book's publication.",
+     "walkthrough": "Take B out of WHEREABOUTS and rearrange the remaining ten letters. Keith Waterhouse was an English novelist and columnist, author of Billy Liar.",
+     "definitionFit": "Keith Waterhouse was an English novelist, playwright and newspaper columnist, so he is a writer."
     },
     "features": {
      "answerInScene": true,
