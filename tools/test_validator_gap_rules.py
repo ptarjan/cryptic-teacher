@@ -114,4 +114,13 @@ as_ind = {"definitions": [{"text": "Moral tale", "at": 0}],
           "wordplay": {"op": "charade", "indicators": [{"text": "with", "at": 11}],
                        "parts": [{"words": "part", "at": 16, "gives": "PART"}]}}
 check("a connective that was an indicator is still refused", ["dropped_words"], redo(fixed, old=as_ind, clue=CLUE2))
+# Near miss: the same connective held by an old leaf with a real `gives` stays.
+CLUE3 = "Moral tale the part (4)"
+real_the = {"definitions": [{"text": "Moral tale", "at": 0}],
+            "wordplay": {"op": "charade", "parts": [
+                {"words": "the", "at": 11, "gives": "T"}, {"words": "part", "at": 15, "gives": "PART"}]}}
+fixed3 = {"definitions": [{"text": "Moral tale", "at": 0}],
+          "wordplay": {"op": "charade", "parts": [{"words": "part", "at": 15, "gives": "PART"}]}}
+check("a connective held by an old leaf with a real gives is still refused", ["dropped_words"],
+      redo(fixed3, old=real_the, clue=CLUE3))
 raise SystemExit(fails)
