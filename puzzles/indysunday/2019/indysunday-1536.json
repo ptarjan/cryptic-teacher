@@ -219,48 +219,51 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ADDENDA",
      "indicators": [
       {
        "text": "replacing",
-       "note": "the clergyman takes the place of the group's leader in the schedule"
+       "at": 45,
+       "note": "the clergyman's letters take the place of the group's first letter"
       }
      ],
      "parts": [
       {
-       "words": "clergyman",
-       "gives": "DD",
-       "note": "Doctor of Divinity, a clergyman's degree"
+       "words": "schedule",
+       "at": 74,
+       "gives": "AGENDA",
+       "note": "an agenda is a schedule of business"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "G",
+       "indicators": [
+        {
+         "text": "leader of",
+         "at": 55,
+         "note": "the first letter of group"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "leader of group",
-         "gives": "G",
-         "select": "first",
-         "note": "first letter of 'group'"
+         "words": "group",
+         "at": 65
         }
        ]
       },
       {
-       "words": "schedule",
-       "gives": "AGENDA",
-       "note": "a meeting's schedule of business"
+       "words": "clergyman",
+       "at": 35,
+       "gives": "DD",
+       "note": "DD is Doctor of Divinity, a title held by a cleric"
       }
      ]
     },
     "explanation": {
-     "surface": "A vicar's extra notes get slipped into the meeting schedule.",
-     "walkthrough": "Swap the G of AGENDA for DD. DD (Doctor of Divinity) is the usual crossword clergyman.",
-     "definitionFit": "Addenda, plural of addendum, are extra sections appended to a book or document to supply further information."
+     "surface": "A cleric's extra notes take the place of a group leader's item on the programme.",
+     "walkthrough": "In AGENDA the G (leader of group) gives way to DD.",
+     "definitionFit": "Addenda are additions placed at the end of a book or document, extra matter."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "clergyman"
     }
@@ -1114,34 +1117,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "off",
-       "note": "food gone off is spoiled, so 'set' is in a spoiled order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 10,
+         "note": "set off means disturbed, so the letters of set are jumbled"
+        }
+       ],
        "parts": [
         {
          "words": "set",
-         "note": "the three letters of 'set' rearranged"
-        },
-        {
-         "words": "part of hospital",
-         "gives": "WARD",
-         "note": "a ward is a room or section of a hospital"
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "part of hospital",
+       "at": 17,
+       "gives": "WARD",
+       "note": "a ward is a room or section of a hospital"
       }
      ]
     },
     "explanation": {
-     "surface": "An usher heads off towards a hospital department.",
-     "walkthrough": "'set off' reads as 'departed', but 'set' is the fodder and 'off' the signal.",
-     "definitionFit": "A steward guides people to their places at an event, just as an usher shows people to their seats."
+     "surface": "A doorman heads off to one of the hospital's wards.",
+     "walkthrough": "'set off' reads as departing, but 'off' shuffles SET into STE.",
+     "definitionFit": "A steward guides people to their places at an event, just as an usher does."
     },
     "features": {
      "answerInScene": false,

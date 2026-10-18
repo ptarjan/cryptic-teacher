@@ -784,69 +784,59 @@
      "indicators": [
       {
        "text": "parts",
-       "note": "something that parts is split open, so a word is separated to let other letters in"
+       "at": 52,
+       "note": "to part something is to split it, so these letters are pushed in between"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "of Latvia",
+       "at": 58,
+       "gives": "BALTIC",
+       "note": "Latvia is a Baltic state, so belonging to Latvia is Baltic"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "words": "line",
+         "at": 19,
+         "gives": "L"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 24,
+           "note": "only the opening letter of includes is taken"
+          }
+         ],
          "parts": [
           {
-           "words": "of Latvia?",
-           "gives": "BALTIC",
-           "note": "Latvia is one of the Baltic states, so Baltic means of Latvia (among others, hence the question mark)"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "initially",
-             "note": "initially asks for the opening letter of each of the three words in front of it"
-            }
-           ],
-           "parts": [
-            {
-             "words": "line",
-             "note": "the first letter of line"
-            }
-           ]
+           "words": "includes",
+           "at": 34
           }
          ]
         },
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "includes",
-           "note": "the first letter of includes"
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
-        {
          "words": "southern",
-         "note": "the first letter of southern"
+         "at": 43,
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A route-planner describes a flight path running over the south of Latvia.",
-     "walkthrough": "'includes' looks like the insertion signal, but it is only one of the three words whose first letters go in; 'parts' is the word that splits the country's adjective.",
-     "definitionFit": "Ballistic describes the motion of a projectile in free flight, so the word fits a projected flight's path."
+     "surface": "Asks whether a flight path in Latvia first takes in its southern regions.",
+     "walkthrough": "'parts' is a verb, not a noun, splitting the adjective for Latvia.",
+     "definitionFit": "Ballistics is the science of projectiles in flight, so the adjective describes a thrown or fired object's trajectory."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "includes"
+     "misdirectedWord": "parts"
     }
    }
   },
@@ -1113,28 +1103,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HAYWIRE",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "the Reverend Spooner famously swapped the opening sounds of a pair of words"
+       "at": 24,
+       "note": "Reverend Spooner swapped the opening sounds of words, so W and H change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "much further up",
-       "gives": "HAYWIRE",
-       "soundsLike": "WAY HIGHER",
-       "note": "way higher means much further up; swap the initial sounds of the two words"
+       "words": "much",
+       "at": 7,
+       "gives": "WAY",
+       "note": "way is an intensifier meaning much, as in 'way better'"
+      },
+      {
+       "op": "homophone",
+       "spelt": "HIRE",
+       "parts": [
+        {
+         "words": "further up",
+         "at": 12,
+         "gives": "HIGHER",
+         "note": "higher means further up, and it is said like 'hire'"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something that ties things together sits a lot higher up, the eccentric clergyman says.",
-     "walkthrough": "Swapping the W and H sounds of WAY HIGHER gives HAY WIRE.",
-     "definitionFit": "Haywire is literally the wire used to bind bales of hay, so it is a binder."
+     "surface": "Someone describes a thing as much further up the slope.",
+     "walkthrough": "'Way higher' with first sounds swapped gives the binding wire for bales.",
+     "definitionFit": "Haywire is the wire used to tie bales of hay, so it binds them."
     },
     "features": {
      "answerInScene": false,

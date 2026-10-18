@@ -1389,49 +1389,52 @@
      "indicators": [
       {
        "text": "breached by",
-       "note": "a breach is a break through a wall, so something gets inside the structure"
+       "at": 11,
+       "note": "the fort's walls are broken into by the following letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Stronghold",
-         "gives": "FORT",
-         "note": "a fort is a stronghold"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
-        }
-       ]
+       "words": "Stronghold",
+       "at": 0,
+       "gives": "FORT",
+       "note": "a fort is a stronghold"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "close to",
-         "note": "the close of a word is its end, so its final letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "enormous",
-         "note": "last letter of the word"
+         "words": "English",
+         "at": 23,
+         "gives": "E"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "close to",
+           "at": 31,
+           "note": "the last letter of enormous"
+          }
+         ],
+         "parts": [
+          {
+           "words": "enormous",
+           "at": 40
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An English force storms a fortress near a vast estate.",
-     "walkthrough": "'Plantation' suggests a colonial estate, but it means an area planted with trees.",
-     "definitionFit": "A plantation can be a planted stand of trees grown for timber, which is a forest."
+     "surface": "A castle overrun by the English near an enormous estate.",
+     "walkthrough": "E and S go between FOR and T.",
+     "definitionFit": "A forest can be a planted tract of trees, a woodland grown for timber."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "plantation"
     }
@@ -1829,56 +1832,60 @@
      "indicators": [
       {
        "text": "hosts",
-       "note": "a host takes guests in, so other pieces go inside"
+       "at": 28,
+       "note": "the county hosts, or holds inside it, the following letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Irish county",
+       "at": 15,
+       "gives": "DERRY",
+       "note": "Derry, or Londonderry, is a county of Northern Ireland"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "Irish county",
-         "gives": "DERRY",
-         "note": "Derry, also Londonderry, is a county in Northern Ireland"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "foremost",
-           "note": "foremost means at the very front, so the opening letter is taken"
+           "at": 42,
+           "note": "the first letter of Italy's"
           }
          ],
          "parts": [
           {
            "words": "Italy's",
-           "note": "opening letter of the country's name"
+           "at": 34
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "outer",
-       "indicators": [
+        },
         {
-         "text": "on vacation",
-         "note": "vacating empties a place, so the inside is cleared and only the two ends remain"
-        }
-       ],
-       "parts": [
-        {
-         "words": "soprano",
-         "note": "first and last letters of the word"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "on vacation",
+           "at": 59,
+           "note": "soprano is vacated, emptied of all but its outer letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "soprano",
+           "at": 51
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tiny Irish county welcomes Italy's leading soprano on her holiday.",
-     "walkthrough": "'On vacation' looks like the singer's holiday but means emptied of all middle letters.",
-     "definitionFit": "A derisory sum is so small it is laughable or insulting, like a derisory pay offer."
+     "surface": "An Irish county welcomes Italy's leading soprano on holiday.",
+     "walkthrough": "'on vacation' looks like 'on holiday' but means emptying soprano of its insides.",
+     "definitionFit": "A derisory sum is so tiny it invites ridicule, laughably inadequate."
     },
     "features": {
      "answerInScene": false,
