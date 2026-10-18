@@ -138,6 +138,23 @@ check("corrects refuses a reading with a fault", False, fa.corrects("Frontier ca
 check("relay_doubt names a new fault", "a punctuation fault the laid clue lacks",
       oc.relay_doubt("Sweden, say", "Sweden;, say", "Sweden;, say", {"sweden": 3, "say": 3}))
 
+# Specks a reader made that the 16-18 Oct 2026 "Update times-" rereads cut:
+# a middle dot, a stop alone between words, the stop after a lone "a", and
+# ".." at a clue's end or start (dashes.py leaves ".." mid-clue alone).
+for what, text, want in (
+        ("a middle dot between words", "Broadcasts most of · Aida in specified amounts", "Broadcasts most of Aida in specified amounts"),
+        ("a middle dot closing up a word", "Clerical establishment where young· servant goes around firing",
+         "Clerical establishment where young servant goes around firing"),
+        ("a middle dot before a mark", "Sacked for a kiss to the editor·?", "Sacked for a kiss to the editor?"),
+        ("a stop alone between words", "Fodder for the right variety of grey . donkey", "Fodder for the right variety of grey donkey"),
+        ("the stop after a lone a", "Fighter thrown in jail for a. short stretch", "Fighter thrown in jail for a short stretch"),
+        ("initials keep their stops", "Mutant battles L.A. in The Gastropod Killer", "Mutant battles L.A. in The Gastropod Killer"),
+        ("a trailer's two stops", "Eccentric applies rum to testicle, ..", "Eccentric applies rum to testicle, …"),
+        ("a leader's two stops", ".. through Cornish town reportedly instead", "… through Cornish town reportedly instead"),
+        ("two stops mid-clue stand", "Verse delivered in church office .. ahead of time", "Verse delivered in church office .. ahead of time"),
+        ("three stops are dashes.py's", "Dead soon ... heading for tomb", "Dead soon ... heading for tomb")):
+    check(f"mended: {what}", want, p.mended(text))
+
 # The write path mends an OCR clue before the gate; a publisher's stands.
 import fetch_puzzle
 BOOK = REPO / "puzzles/book/1984/book-32002.json"

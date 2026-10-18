@@ -55,6 +55,14 @@ GLUED_STOP = re.compile(r"(?<![\w.'@/])([A-Za-z]{2,})\.([A-Za-z][a-z]*)\b(?![.@/
 TWO_APOSTROPHES = re.compile(r"''")
 TWO_MARKS = re.compile(r"[,;:][,;:]|[,;:]\.(?!\.)|(?<![\w.])([A-Za-z]{2,})\.(?=[,;:])")
 SPACED_COMMA = re.compile(r"(?<=[A-Za-z]) ,(?=[ A-Za-z]|$)")
+#: Marks a reader made of a speck: a middle dot (never print), a stop standing
+#: alone between two words ("grey . donkey"), two stops at a clue's start or
+#: end (a leader or trailer: ".. and 5", "dive ..": dashes.py leaves ".." in
+#: the middle alone), and the stop after a lone "a" ("for a. child"; not "M.A. or").
+MIDDLE_DOT = re.compile(r" ?· ?")
+LONE_STOP = re.compile(r"(?<=\S) \.(?= \S)")
+DOUBLE_STOP = re.compile(r"^\.\.(?![.…])|(?<![.…])\.\.$")
+ARTICLE_STOP = re.compile(r"(?<![\w.])[Aa]\.(?= [a-z])")
 
 
 def _glued(m):
@@ -201,6 +209,15 @@ def _edits(text):
             out.append((m.start() + 1, m.end(), " " if glued else ""))
         elif s[1] == ".":
             out.append((m.start() + 1, m.end(), " " if glued else ""))
+    for m in MIDDLE_DOT.finditer(text):
+        lone = m.start() == 0 or m.end() == len(text) or text[m.end()] in "?!,.;:)"
+        out.append((m.start(), m.end(), "" if lone else " "))
+    for m in LONE_STOP.finditer(text):
+        out.append((m.start(), m.end(), ""))
+    for m in DOUBLE_STOP.finditer(text):
+        out.append((m.start(), m.end(), "…"))
+    for m in ARTICLE_STOP.finditer(text):
+        out.append((m.end() - 1, m.end(), ""))
     out.sort()
     kept = []
     for e in out:
