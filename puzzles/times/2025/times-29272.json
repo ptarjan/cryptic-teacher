@@ -491,26 +491,28 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "PER",
      "indicators": [
       {
        "text": "half-hearted",
-       "note": "PEER has a double-letter heart, EE, and only half of it survives"
+       "at": 2,
+       "note": "half-hearted means one of the two letters at the heart of the word is lost"
       }
      ],
      "parts": [
       {
-       "words": "half-hearted lord",
-       "gives": "PER",
-       "note": "PEER, a lord, loses one of its two central Es"
+       "words": "lord",
+       "at": 15,
+       "gives": "PEER",
+       "note": "a peer is a lord, a member of the nobility"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A lord who can't quite commit to anything.",
-     "walkthrough": "'A' is the definition, as in 'five pounds a head'. It reads like an article, not a word to define.",
-     "definitionFit": "'Per' and 'a' both mean 'for each', as in 'ten miles an hour'."
+     "walkthrough": "PEER has EE at its heart; 'half-hearted' drops one E. 'A' as the definition is the sense in 'ten pounds a head'.",
+     "definitionFit": "Per is used for 'each' or 'for every', as in miles per hour, the same job as a in 'twice a day'."
     },
     "features": {
      "answerInScene": false,
@@ -536,23 +538,34 @@
     "definitions": [
      {
       "text": "Harmonises",
-      "at": 0,
-      "meaning": "a verb: makes things work together"
-     },
-     {
-      "text": "different decorations",
-      "at": 11,
-      "meaning": "a noun: separate items of clothing or décor designed to match"
+      "at": 0
      }
     ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "different",
+       "at": 11,
+       "note": "different suggests the letters made into something else, so decorations is rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "decorations",
+       "at": 21,
+       "note": "taken as written, as the letters to be rearranged"
+      }
+     ]
+    },
     "explanation": {
-     "surface": "An interior designer blends assorted ornaments into one scheme.",
-     "walkthrough": "The second sense is the noun: coordinates are distinct pieces, of an outfit or a room, made to go together.",
-     "definitionFit": "The verb means to make things harmonise; the noun names matching separate pieces."
+     "surface": "Someone matches up assorted decorations so they go together.",
+     "definitionFit": "To coordinate colours or clothes is to make them go well together, to make them harmonious."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "different"
     }
    }
   },
@@ -1366,45 +1379,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "only the final letter of mediator is used"
+       "text": "intervening between",
+       "at": 26,
+       "note": "intervening between means coming in the middle of the two parties"
       }
      ],
      "parts": [
       {
        "words": "two parties",
+       "at": 46,
        "gives": "DISCODANCE",
        "note": "a disco and a dance are both parties"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
-         "text": "intervening between"
+         "text": "finally",
+         "at": 18,
+         "note": "finally picks out the last letter of mediator"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "mediator finally",
-         "gives": "R",
-         "select": "last",
-         "note": "last letter of mediator"
+         "words": "mediator",
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A peacemaker finally steps in between two political parties in dispute.",
-     "walkthrough": "'Parties' suggests politics, but these are social ones, with the mediator's last letter wedged between them.",
-     "definitionFit": "A plain synonym: discordance is a state of disagreement or clash."
+     "surface": "A mediator steps in at last between two political parties in dispute.",
+     "walkthrough": "'two parties' looks political, as if a mediator were brokering a deal, but it means two social gatherings with music.",
+     "definitionFit": "Discordance is a lack of agreement or harmony, which is a state of conflict between people or things."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "parties"
     }
    }
@@ -1482,35 +1495,39 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 18,
+       "note": "about means going round, so the word for shy goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Reluctant to talk",
-         "gives": "SHY",
-         "note": "shy people hold back from talking"
-        },
-        {
-         "words": "a",
-         "note": "taken as it is"
-        }
-       ]
+       "words": "Reluctant to talk",
+       "at": 0,
+       "gives": "SHY",
+       "note": "someone shy is reluctant to talk"
       },
       {
-       "words": "couple of bishops",
-       "gives": "BB",
-       "note": "B for bishop, as in chess notation, twice"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 24,
+         "gives": "A"
+        },
+        {
+         "words": "couple of bishops",
+         "at": 26,
+         "gives": "BB",
+         "note": "B is the chess abbreviation for bishop, so two of them give BB"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps quiet about two bishops behaving badly.",
-     "walkthrough": "The scandal surface makes 'reluctant to talk' look like a cover-up, but it is just a word for timid.",
-     "definitionFit": "A figurative sense: beyond worn-out clothes, shabby describes mean, discreditable conduct."
+     "surface": "Two bishops clam up about something, which seems dishonourable of them.",
+     "definitionFit": "Shabby treatment is mean and unfair, behaviour that is ignoble or discreditable."
     },
     "features": {
      "answerInScene": true,

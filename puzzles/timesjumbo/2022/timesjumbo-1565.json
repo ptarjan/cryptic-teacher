@@ -266,46 +266,44 @@
      "indicators": [
       {
        "text": "involved in",
-       "note": "something involved in a thing is caught up inside it"
+       "at": 15,
+       "note": "involved in means put inside, so the letters go into the word for subterfuge"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "subterfuge",
+       "at": 27,
+       "gives": "RUSE",
+       "note": "a ruse is a trick or subterfuge"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "subterfuge",
-           "gives": "RUSE",
-           "note": "a ruse is a trick or subterfuge"
-          },
-          {
-           "words": "Second",
-           "gives": "S",
-           "note": "S is the abbreviation for second"
-          }
-         ]
+         "words": "Second",
+         "at": 0,
+         "gives": "S"
         },
         {
          "words": "old",
-         "gives": "O",
-         "note": "O is the abbreviation for old"
+         "at": 7,
+         "gives": "O"
+        },
+        {
+         "words": "man",
+         "at": 11,
+         "gives": "PHIL",
+         "note": "Phil is a man's name"
         }
        ]
-      },
-      {
-       "words": "man",
-       "gives": "PHIL",
-       "note": "any man's name will do; Phil is one"
       }
      ]
     },
     "explanation": {
-     "surface": "An old man is caught up in some trickery while professing love for his homeland.",
-     "walkthrough": "'A country lover' sounds like someone who likes the countryside; the country is a specific one, Russia.",
-     "definitionFit": "A Russophile admires Russia and its culture, so is a devotee of one particular nation."
+     "surface": "A second old man gets mixed up in a trick, being a lover of the countryside.",
+     "walkthrough": "'country lover' looks like someone fond of rural life; it means a lover of one country.",
+     "definitionFit": "A Russophile admires Russia and its culture, so is fond of one particular nation."
     },
     "features": {
      "answerInScene": false,
@@ -544,50 +542,55 @@
      "indicators": [
       {
        "text": "touring",
-       "note": "to tour a place is to go all round it, so one piece surrounds the rest"
+       "at": 27,
+       "note": "touring means going round, so the supporter word goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "supporter",
-         "gives": "BRA",
-         "note": "a bra supports the bust"
-        },
-        {
-         "words": "Italy",
-         "gives": "IT",
-         "note": "IT is the international code for Italy"
-        }
-       ]
+       "words": "supporter",
+       "at": 17,
+       "gives": "BRA",
+       "note": "a bra is a supporting undergarment"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "briefly",
-         "note": "made brief, the answer to the referenced clue loses its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "8",
-         "gives": "ANNIE",
-         "note": "the answer to 8 Down"
+         "words": "Italy",
+         "at": 35,
+         "gives": "IT",
+         "note": "IT is the international code for Italy"
         },
         {
-         "gives": "E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 49,
+           "note": "briefly means cut short, so the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "8",
+           "at": 46,
+           "gives": "ANNIE",
+           "note": "the answer to clue 8"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman soldier's supporter tours Italy with a companion, briefly.",
-     "walkthrough": "The cross-reference means the answer to 8 Down, ANNIE, which is clipped to four letters.",
-     "definitionFit": "Britannia, Britain's personification, is shown armed with helmet, shield and trident, a warrior figure."
+     "surface": "A woman fighter's backer travels around Italy with a companion for a short while.",
+     "walkthrough": "The 's after warrior stands for 'has', linking the definition to the wordplay; 'supporter' is the undergarment, not a fan.",
+     "definitionFit": "Britannia, the personification of Britain, is shown as a helmeted woman with a shield and trident."
     },
     "features": {
      "answerInScene": false,
@@ -1743,47 +1746,30 @@
    "annotation": {
     "definitions": [
      {
-      "text": "it's a way to get out",
-      "at": 31
+      "text": "a way to get out",
+      "at": 36
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "LEGBEFOREWICKET",
-     "indicators": [
-      {
-       "text": "Initially",
-       "note": "initially takes the opening letter of each of the following words"
-      }
-     ],
+     "op": "reverse",
+     "reading": "LEG BEFORE WICKET",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LBW",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "limited by weakness",
-         "gives": "LBW",
-         "select": "first",
-         "note": "the first letters of the three words form a familiar cricket abbreviation"
-        }
-       ]
+       "words": "Initially limited by weakness, it's",
+       "at": 0,
+       "note": "the answer is known by its initials L, B, W, which are also the first letters of limited, by and weakness"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone hampered by frailty finds a way of escaping.",
-     "walkthrough": "The initials spell LBW, which is written out in full as the answer. In cricket a batsman is out LBW when the ball would have hit the stumps but strikes the leg instead.",
-     "definitionFit": "Being given out leg before wicket is one of the standard modes of dismissal for a batsman in cricket."
+     "surface": "A clue about a weakness that holds someone back at first.",
+     "walkthrough": "The first letters of 'limited by weakness' give LBW, the usual abbreviation for the answer. In cricket, a batsman is out leg before wicket when the ball would have hit the stumps but strikes the leg.",
+     "definitionFit": "In cricket, leg before wicket is one of the ways a batsman can be dismissed."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "out"
+     "aptDefinition": false,
+     "misdirectedWord": "weakness"
     }
    }
   },
@@ -1875,35 +1861,38 @@
      "indicators": [
       {
        "text": "used in",
-       "note": "something used in a thing is put inside it"
+       "at": 16,
+       "note": "used in means put inside, so the letters go into the word for departure"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "hasty departure",
-         "gives": "FLIGHT",
-         "note": "flight is fleeing"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "hasty departure",
+       "at": 24,
+       "gives": "FLIGHT",
+       "note": "flight is a hurried escape"
       },
       {
-       "words": "knight",
-       "gives": "N",
-       "note": "N is the chess notation for knight"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 7,
+         "gives": "A"
+        },
+        {
+         "words": "knight",
+         "at": 9,
+         "gives": "N",
+         "note": "N is the chess notation for knight"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "A knight escapes in a hurry through a window.",
-     "walkthrough": "N stands for knight in chess notation, since K is already taken by the king.",
-     "definitionFit": "A fanlight is a small semicircular window above a door, often with radiating glazing bars like a fan."
+     "definitionFit": "A fanlight is a small semicircular window over a door, often fan-shaped."
     },
     "features": {
      "answerInScene": true,
@@ -2610,35 +2599,39 @@
      "indicators": [
       {
        "text": "protects",
-       "note": "a protector shields what it guards by surrounding it"
+       "at": 19,
+       "note": "protects means wraps around, so the Italian word holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "in Rome that",
-         "gives": "CHE",
-         "note": "che is Italian for that"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "in Rome that",
+       "at": 6,
+       "gives": "CHE",
+       "note": "che is Italian for that"
       },
       {
-       "words": "South American dictator",
-       "gives": "PERON",
-       "note": "Juan Perón was the Argentine president and strongman"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 28,
+         "gives": "A"
+        },
+        {
+         "words": "South American dictator",
+         "at": 30,
+         "gives": "PERON",
+         "note": "Juan Peron was the authoritarian leader of Argentina"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bodyguard in Rome protects a South American strongman.",
-     "walkthrough": "'In Rome that' asks for the Italian word for that, rather than locating the guard in Rome.",
-     "definitionFit": "A chaperone guards a young person's propriety, accompanying and protecting them in public."
+     "surface": "A bodyguard in Rome protects a Latin American strongman.",
+     "walkthrough": "'South American' tempts you toward Che Guevara, but the Che here is the Italian word for 'that', hence 'in Rome'.",
+     "definitionFit": "A chaperone accompanies and watches over a young person, acting as a protector or escort."
     },
     "features": {
      "answerInScene": true,
@@ -3393,46 +3386,49 @@
      "indicators": [
       {
        "text": "involved in",
-       "note": "something involved in a thing is caught up inside it"
+       "at": 29,
+       "note": "involved in means put inside, so the letters go into the word for racket"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "racket",
-         "gives": "NOISE",
-         "note": "a racket is a din"
-        },
-        {
-         "words": "old",
-         "gives": "O",
-         "note": "O is the abbreviation for old"
-        }
-       ]
+       "words": "racket",
+       "at": 41,
+       "gives": "NOISE",
+       "note": "a racket is a loud noise"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "originally",
-         "note": "originally means at the start, so only the opening letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "man",
-         "note": "the first letter of the word"
+         "words": "old",
+         "at": 10,
+         "gives": "O"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 18,
+           "note": "originally picks the first letter of man"
+          }
+         ],
+         "parts": [
+          {
+           "words": "man",
+           "at": 14
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A disgusting old man was the first to be mixed up in a criminal racket.",
-     "walkthrough": "'Racket' suggests a swindle; it is a loud noise. Noisome has nothing to do with noise.",
-     "definitionFit": "Noisome means offensive or disgusting, especially of a smell, from an old word for harm."
+     "surface": "A nasty old man was at first mixed up in a racket.",
+     "walkthrough": "'racket' suggests a crooked business; here it is a din. The answer looks as if it comes from noise, but it is related to annoy.",
+     "definitionFit": "Noisome means offensive or disgusting, especially of a smell, nothing to do with noise."
     },
     "features": {
      "answerInScene": true,

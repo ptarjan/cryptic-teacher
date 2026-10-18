@@ -184,38 +184,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "conceals"
-      }
-     ],
      "parts": [
       {
        "words": "Fiery",
+       "at": 0,
        "gives": "HOT",
-       "note": "hot = fiery"
+       "note": "something fiery is hot"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "first",
-         "note": "take only the opening letter of archbishop"
+         "text": "conceals",
+         "at": 14,
+         "note": "conceals means hides inside, so the primate's name holds the letter"
         }
        ],
        "parts": [
         {
          "words": "primate",
+         "at": 6,
          "gives": "POTTO",
          "note": "a potto is a small African primate"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "first",
+           "at": 36,
+           "note": "first picks out the opening letter of archbishop's"
+          }
+         ],
          "parts": [
           {
-           "words": "archbishop's first",
-           "gives": "ARCHBISHOPFIRST",
-           "note": "first letter of archbishop, placed inside POTTO"
+           "words": "archbishop's",
+           "at": 23,
+           "note": "the word whose first letter is taken"
           }
          ]
         }
@@ -224,9 +229,9 @@
      ]
     },
     "explanation": {
-     "surface": "A hot-tempered churchman hides the archbishop's first awkward problem.",
-     "walkthrough": "'Primate' wants to be a senior bishop, which suits archbishop; it is the animal, a potto.",
-     "definitionFit": "An idiom: something too awkward to handle, passed quickly from person to person like a scalding vegetable."
+     "surface": "A hot-tempered churchman hides the archbishop's first problem.",
+     "walkthrough": "'primate' looks like a senior bishop, which suits the archbishop beside it; here it is the animal, a small African primate.",
+     "definitionFit": "A hot potato is a controversial matter that everyone is wary of handling."
     },
     "features": {
      "answerInScene": false,
@@ -264,60 +269,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SAFETYBELT",
+     "indicators": [
+      {
+       "text": "cops",
+       "at": 10,
+       "note": "cops means catches or gets, so the two words take the letters in between them"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "cops"
-        }
-       ],
        "parts": [
         {
          "words": "Peter",
+         "at": 0,
          "gives": "SAFE",
          "note": "peter is old criminal slang for a safe"
         },
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "TY",
-         "indicators": [
-          {
-           "text": "extremely",
-           "note": "take the two extreme letters of tentatively"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "extremely tentatively",
-           "gives": "TY",
-           "select": "outer",
-           "note": "outer letters of tentatively"
-          }
-         ]
-        },
-        {
          "words": "hit",
+         "at": 6,
          "gives": "BELT",
-         "note": "belt = hit"
+         "note": "to belt is to hit hard"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 15,
+         "note": "extremely picks the outermost letters, the first and last of tentatively"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tentatively",
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Peter lashes out at police, though only half-heartedly, while wearing riot gear.",
-     "walkthrough": "Peter looks like a man's name; in crosswords and old underworld slang it is a safe, hence a safecracker is a peterman.",
-     "definitionFit": "A strap worn in cars and aircraft to restrain passengers during a crash counts as equipment that protects."
+     "surface": "Peter hits the police, very tentatively, while wearing protective kit.",
+     "walkthrough": "'cops' looks like the police, but it is the verb, to catch or take in. Peter is underworld slang for a safe.",
+     "definitionFit": "A seat belt in a car is a safety belt, worn to protect the wearer in a crash."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Peter"
+     "joke": "pun",
+     "misdirectedWord": "cops"
     }
    }
   },
@@ -345,47 +349,43 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "at regular intervals, so take every other letter of fail"
+       "text": "following",
+       "at": 20,
+       "note": "following means these letters come after the word for split"
       }
      ],
      "parts": [
       {
        "words": "split",
+       "at": 30,
        "gives": "SEVER",
-       "note": "sever = split"
+       "note": "to sever is to split or cut apart"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "AL",
        "indicators": [
         {
-         "text": "following",
-         "note": "following means coming after, so these letters are placed after the split"
+         "text": "regularly",
+         "at": 10,
+         "note": "regularly takes every other letter of fail, the second and fourth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "fail regularly",
-         "gives": "AL",
-         "select": "alternate",
-         "note": "the even letters of fAiL"
+         "words": "fail",
+         "at": 5
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some people keep failing after a break-up.",
-     "walkthrough": "'Some' looks like the start of the surface sentence, but it is the whole definition.",
-     "definitionFit": "A plain synonym: both words stand before a plural noun for an unspecified handful, more than two but not many."
+     "surface": "A few fail at regular intervals after the break.",
+     "definitionFit": "Several means more than two but not many, a quantity of the sort some describes."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "fail"
+     "aptDefinition": false
     }
    }
   },
@@ -416,30 +416,23 @@
      }
     ],
     "wordplay": {
-     "op": "cryptic",
-     "unchecked": true,
-     "gives": "FORBIDDENGROUND",
+     "op": "reverse",
+     "reading": "FORBIDDEN + GROUND",
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "FORBIDDENGROUND",
-       "parts": [
-        {
-         "words": "in Bedford",
-         "note": "IN BEDFORD rearranged, that is ground up"
-        }
-       ]
+       "words": "in Bedford",
+       "at": 29,
+       "note": "these two words are what you get by reading the answer as an anagram instruction: its first word is the fodder and its second the signal to mix"
       }
      ]
     },
     "explanation": {
-     "surface": "A local warning that some subject is taboo in the town of Bedford.",
-     "walkthrough": "The anagram indicator is the answer's own second word: FORBIDDEN is IN BEDFORD ground, crushed and remixed, so the answer describes its own wordplay.",
-     "definitionFit": "An idiom: territory you may not enter, extended to a subject that conversation must steer around."
+     "surface": "A warning that some subject is best not raised in the town of Bedford.",
+     "walkthrough": "Read the answer as wordplay: FORBIDDEN 'ground' (crushed, so rearranged) gives IN BEDFORD, letter for letter. Bedford is an English county town.",
+     "definitionFit": "Forbidden ground is an idiom for a subject that is off limits, one people must steer clear of."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Bedford"
@@ -934,67 +927,70 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LEDERHOSEN",
+     "indicators": [
+      {
+       "text": "constraining",
+       "at": 24,
+       "note": "constraining means holding in, so the light source and the rearranged letters hold the others"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "LEDERHOSEN",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "Light source",
+         "at": 0,
+         "gives": "LED",
+         "note": "an LED is a light-emitting diode"
+        },
+        {
+         "op": "anagram",
          "indicators": [
           {
            "text": "out",
-           "note": "out means wrong or disordered, so SHONE is rearranged"
+           "at": 19,
+           "note": "out signals the letters of shone are put out of order"
           }
          ],
          "parts": [
           {
-           "words": "Light source",
-           "gives": "LED",
-           "note": "an LED, a light-emitting diode"
-          },
-          {
-           "op": "middle",
-           "indicators": [
-            {
-             "text": "constraining"
-            },
-            {
-             "text": "exposed",
-             "note": "exposed means stripped of covering, so very loses its outer letters"
-            }
-           ],
-           "parts": [
-            {
-             "words": "very exposed",
-             "gives": "VERY",
-             "note": "vERy with its skin removed"
-            }
-           ]
-          },
-          {
            "words": "shone",
-           "note": "SHONE rearranged"
+           "at": 13,
+           "note": "taken as written, as the letters to be rearranged"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "exposed",
+         "at": 42,
+         "note": "exposed means stripped of its outer layer, so very loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "very",
+         "at": 37
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spotlight picks out the most revealing part of an Alpine band's costume.",
-     "walkthrough": "Ensemble reads as a band of musicians; it is an outfit, and the question mark flags a definition by example.",
-     "definitionFit": "Leather shorts with braces are one garment of traditional Alpine dress, so they are one piece of the outfit."
+     "surface": "A lamp shone outside, holding up a very revealing part of an Alpine outfit.",
+     "walkthrough": "'very exposed' hints at skimpy shorts, but 'exposed' strips the outer letters from very. The question mark admits the leather shorts are only part of the costume.",
+     "definitionFit": "Lederhosen are leather shorts worn as Alpine traditional dress, so they belong to a Tyrolean costume."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "ensemble"
+     "misdirectedWord": "exposed"
     }
    }
   },

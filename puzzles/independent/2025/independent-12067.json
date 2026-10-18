@@ -1103,61 +1103,66 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "rising",
-       "note": "in a down clue, rising means reading the letters from bottom to top"
+       "text": "involved in",
+       "at": 24,
+       "note": "involved in means put inside, so these letters go into the reversed fuels"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "involved in",
-         "note": "being involved in something puts it inside, so the first two letters go within the rest"
+         "text": "rising",
+         "at": 36,
+         "note": "rising in a down clue means the letters read upwards, so the fuels word is turned round"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "fuels",
-           "gives": "OILGAS",
-           "note": "two fuels, oil and gas"
-          },
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "at last",
-             "note": "at last points to the final letter of the word before it"
-            }
-           ],
-           "parts": [
-            {
-             "words": "provider",
-             "note": "final letter of the word"
-            }
-           ]
-          }
-         ]
-        },
+         "words": "fuels",
+         "at": 43,
+         "gives": "OILGAS",
+         "note": "oil and gas are both fuels"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "words": "Energy",
+         "at": 0,
          "gives": "E",
-         "note": "E is the symbol for energy"
+         "note": "E is the physics symbol for energy"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "at last",
+           "at": 16,
+           "note": "at last picks the final letter of provider"
+          }
+         ],
+         "parts": [
+          {
+           "words": "provider",
+           "at": 7
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A power company's rising fuel bills help pay for an Ottoman palace.",
-     "walkthrough": "'Energy provider' looks like a utility company, but it splits into E and the last letter of 'provider'. OIL and GAS read upwards give SAGLIO, with ER inserted.",
-     "definitionFit": "The seraglio was the sultan's palace in Istanbul, especially its harem quarters, so it is a Turkish palace."
+     "surface": "An energy supplier ends up caught up in rising fuel prices.",
+     "walkthrough": "OIL and GAS, read upwards in the down clue, give SAGLIO; E and R (the end of provider) go inside after S.",
+     "definitionFit": "A seraglio was the harem quarters, or the whole palace, of the Ottoman sultan in Turkey."
     },
     "features": {
      "answerInScene": false,
@@ -1618,52 +1623,56 @@
      "indicators": [
       {
        "text": "treasuring",
-       "note": "treasuring something means holding it close, so the royal family wraps the next pieces"
+       "at": 13,
+       "note": "treasuring means holding something dear, so the family name holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "over",
-           "note": "turned over means the preceding letters are put in reverse order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Royal family",
-           "gives": "TRAUTS",
-           "note": "the Stuarts were the royal house of Scotland and England"
-          }
-         ]
-        },
-        {
-         "words": "good",
-         "gives": "G",
-         "note": "G is the abbreviation for good"
-        }
-       ]
+       "words": "Royal family",
+       "at": 0,
+       "gives": "STUART",
+       "note": "the Stuarts were a royal house of Scotland and England"
       },
       {
-       "words": "times",
-       "gives": "TT",
-       "note": "T for time, twice, as in the plural"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 35,
+         "note": "over means turned over, so the letters for good times are reversed"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "good",
+           "at": 24,
+           "gives": "G"
+          },
+          {
+           "words": "times",
+           "at": 29,
+           "gives": "TT",
+           "note": "T is an abbreviation for time; in maths a times sign, so two give TT"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A royal dynasty cherishes the happy days now behind them.",
-     "walkthrough": "The Stuarts ruled Scotland and later England; 'times' gives two Ts, and 'over' turns the good-times pair round before it goes inside.",
-     "definitionFit": "Stuttgart is a major city in south-west Germany, capital of Baden-Württemberg."
+     "surface": "A royal family looks back fondly on good times in a European city.",
+     "walkthrough": "'good times over' reads as nostalgia, but 'over' tells you to reverse the letters. The Stuarts ruled Scotland, and later England too, in the 1600s.",
+     "definitionFit": "Stuttgart is a large German city, the capital of Baden-Wurttemberg."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "over"
+     "misdirectedWord": "treasuring"
     }
    }
   },
@@ -1701,42 +1710,48 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "DESPERADO",
-     "indicators": [
-      {
-       "text": "changed into",
-       "note": "something changed into another thing is swapped for it, so the books letters give way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "director",
-       "gives": "D",
-       "note": "D is the abbreviation for director"
+       "at": 9,
+       "gives": "D"
       },
       {
-       "words": "invented language",
-       "gives": "ESPERANTO",
-       "note": "Esperanto is the constructed international language"
-      },
-      {
-       "words": "books",
-       "gives": "NT",
-       "note": "NT is the New Testament, a set of books"
-      },
-      {
-       "words": "Dutch",
-       "gives": "D",
-       "note": "D is the abbreviation for Dutch"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "changed into",
+         "at": 42,
+         "note": "changed into means the books letters are swapped for the letter for Dutch"
+        }
+       ],
+       "parts": [
+        {
+         "words": "invented language",
+         "at": 18,
+         "gives": "ESPERANTO",
+         "note": "Esperanto is an artificial language created in the 1880s"
+        },
+        {
+         "words": "books",
+         "at": 36,
+         "gives": "NT",
+         "note": "NT is the New Testament, a set of books of the Bible"
+        },
+        {
+         "words": "Dutch",
+         "at": 55,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crook of a film director creates a language whose books were translated into Dutch.",
-     "walkthrough": "'Books' is the New Testament abbreviation, a common crossword convention; 'changed into Dutch' swaps it for the Dutch abbreviation inside the invented language.",
-     "definitionFit": "A desperado is a reckless outlaw, especially of the American Wild West, so a criminal."
+     "surface": "A film director has his Esperanto books translated into Dutch.",
+     "walkthrough": "'books' is a crossword staple for the New Testament, not a director's library; those two letters give way to the abbreviation for Dutch.",
+     "definitionFit": "A desperado is a reckless outlaw, a lawbreaker of the Wild West kind."
     },
     "features": {
      "answerInScene": false,

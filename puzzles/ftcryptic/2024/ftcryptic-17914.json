@@ -1402,59 +1402,68 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "REDUNDANCY",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in means placed inside, so the remaining letter sits within the city name"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "REDUNDANCY",
+       "words": "communist",
+       "at": 13,
+       "gives": "RED",
+       "note": "red is a common term for a communist"
+      },
+      {
+       "words": "united",
+       "at": 23,
+       "gives": "U",
+       "note": "U is an abbreviation for united, as in football club names"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "careless",
-         "note": "read as care-less: the word that follows loses the letters of care"
+         "text": "in",
+         "at": 45,
+         "note": "in means the letter goes inside the city's name"
         }
        ],
        "parts": [
         {
-         "words": "communist",
-         "gives": "RED",
-         "note": "red is the colour of communism"
-        },
-        {
-         "words": "united",
-         "gives": "U",
-         "note": "U abbreviates united, as in football club names"
-        },
-        {
-         "words": "cadre",
-         "note": "taken as written"
-        },
-        {
          "words": "French city",
+         "at": 48,
          "gives": "NANCY",
-         "note": "Nancy is a city in Lorraine"
+         "note": "Nancy is a city in north-eastern France"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "careless",
+           "at": 30,
+           "note": "careless read as care-less means the letters of care are taken out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cadre",
+           "at": 39,
+           "note": "taken as written; removing c, a, r and e leaves one letter"
+          },
+          {
+           "gives": "CARE"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The sacking of a Communist from a sloppy party unit in a French town.",
-     "walkthrough": "'Careless' reads as sloppy but literally means remove care, leaving only D.",
-     "definitionFit": "Being let go because the job no longer exists is redundancy, a common British term for being laid off."
+     "surface": "A communist is dismissed after a careless party cadre in a French city.",
+     "walkthrough": "'careless' is CARE-less: take C, A, R, E from cadre and D is left, which goes inside NANCY after N.",
+     "definitionFit": "Redundancy is being laid off because a job is no longer needed, which is a form of being sacked."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "careless"
     }
    }
