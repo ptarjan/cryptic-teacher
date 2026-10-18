@@ -2,9 +2,12 @@
 """Repair the shape suspects whose right tree follows mechanically; list the rest for re-annotation.
 
     python3 tools/fix_shape_suspects.py                 # dry run: counts, 15 before/after examples,
-                                                        # writes tools/data/shape_reannotate.json
+                                                        # writes nothing
     python3 tools/fix_shape_suspects.py --examples 30   # more examples (--seed N to reshuffle)
-    python3 tools/fix_shape_suspects.py --apply         # write the repaired puzzles (see below)
+    python3 tools/fix_shape_suspects.py --apply         # write the repaired puzzles (see below);
+                                                        # also updates tools/data/shape_reannotate.json:
+                                                        # drops only the rows it fixed, adds its new
+                                                        # detector rows, keeps every other row and mark
 
 Reads tools/data/shape_suspects.json (tools/shape_suspects.py --rank) and, for each
 suspect clue, the tree as filed NOW (the list may be older than the corpus: each
@@ -610,8 +613,8 @@ def do_puzzle(pid):
     """One puzzle's results: (stat, det_hit, det_cleared, rep_used, examples, left)."""
     by_pid, paths, allowed, apply = _JOB
     stat, det_hit, det_cleared, rep_used = (collections.Counter() for _ in range(4))
-    examples, left = [], []
-    out = (stat, det_hit, det_cleared, rep_used, examples, left)
+    examples, left, fixed = [], [], []
+    out = (stat, det_hit, det_cleared, rep_used, examples, left, fixed)
     path = paths.get(pid)
     if path is None:
         for s in by_pid[pid].values():
@@ -664,11 +667,11 @@ def do_puzzle(pid):
                 if ok(kept + [f]):
                     kept.append(f)
         stat["rejected_by_validator"] += len(fixes) - len(kept)
-    fixed = {f[2]["id"]: f for f in kept}
+    kept_by_id = {f[2]["id"]: f for f in kept}
     for s, old in rows.values():
         if not old:
             continue
-        f = fixed.get(s["id"])
+        f = kept_by_id.get(s["id"])
         remaining = f[2]["new"] if f else old
         for d in set(old) - set(remaining):
             det_cleared[d] += 1
@@ -681,6 +684,8 @@ def do_puzzle(pid):
             left.append({"id": s["id"], "reason": "; ".join(f"{d}: {w}" for d, w in remaining.items())})
         else:
             stat["clues_clean"] += 1
+            if f:
+                fixed.append(s["id"])
     if kept:
         stat["puzzles_repaired"] += 1
         if apply:
@@ -691,6 +696,20 @@ def do_puzzle(pid):
             os.replace(part, path)
             stat["puzzles_written"] += 1
     return out
+
+
+def merge_rows(left, fixed_ids, path=None):
+    """Update the re-annotation list in place on --apply: drop only the rows of clues this
+    run fixed outright, add the still-flagged clues it has no row for, and leave every
+    other row (other sources', "tried" marks) exactly as filed."""
+    path = Path(path or OUT)
+    have = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+    keep = [r for r in have if r["id"] not in fixed_ids]
+    seen = {r["id"] for r in have}
+    keep += [r for r in left if r["id"] not in seen]
+    part = path.with_name(f".{path.name}.part")
+    part.write_text("[\n" + ",\n".join(json.dumps(r, ensure_ascii=False) for r in keep) + "\n]\n", encoding="utf-8")
+    os.replace(part, path)
 
 
 def load_ledger(ledger, key):
@@ -705,7 +724,7 @@ def load_ledger(ledger, key):
                 continue  # torn last line from a kill
             if d.get("key") == key:
                 r = d["r"]
-                done[d["pid"]] = tuple(collections.Counter(x) for x in r[:4]) + (r[4], r[5])
+                done[d["pid"]] = tuple(collections.Counter(x) for x in r[:4]) + (r[4], r[5], r[6] if len(r) > 6 else [])
     return done
 
 
@@ -722,7 +741,7 @@ def run(apply, n_examples, seed, limit=None, jobs=4, ledger=None):
     paths = puzzle_paths.find_many(sorted(by_pid))
     _JOB = (by_pid, paths, V.load_backlog(), apply)
     stat, det_hit, det_cleared, rep_used = (collections.Counter() for _ in range(4))
-    examples, left = [], []
+    examples, left, fixed_ids = [], [], set()
     pids = sorted(by_pid)
     key = f"{hashlib.sha1(SUSPECTS.read_bytes()).hexdigest()}:{apply}:{limit}:{seed}"
     done = load_ledger(ledger, key)
@@ -754,8 +773,10 @@ def run(apply, n_examples, seed, limit=None, jobs=4, ledger=None):
             a.update(b)
         examples += r[4]
         left += r[5]
+        fixed_ids.update(r[6])
     left.sort(key=lambda r: r["id"])
-    OUT.write_text("[\n" + ",\n".join(json.dumps(r, ensure_ascii=False) for r in left) + "\n]\n")
+    if apply:
+        merge_rows(left, fixed_ids)
     print(f"suspects {len(suspects)} in {len(by_pid)} puzzles; " + ", ".join(f"{k} {v}" for k, v in sorted(stat.items())))
     print("detector       hits_now  cleared")
     for d in ss.DETECTORS:
@@ -776,7 +797,7 @@ def main():
     ap.add_argument("--apply", action="store_true", help="write the repaired puzzles (see How to apply)")
     ap.add_argument("--examples", type=int, default=15)
     ap.add_argument("--seed", type=int, default=1)
-    ap.add_argument("--limit", type=int, help="a random sample of this many suspects (testing; still writes the json)")
+    ap.add_argument("--limit", type=int, help="a random sample of this many suspects (testing)")
     ap.add_argument("--jobs", type=int, default=4, help="worker processes (default 4)")
     ap.add_argument("--ledger", help="jsonl of finished puzzles: a re-run with the same suspects file resumes after them")
     a = ap.parse_args()

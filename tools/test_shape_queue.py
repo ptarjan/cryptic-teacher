@@ -181,5 +181,21 @@ check("and reused while the rows are unchanged", Q.pending() is Q.pending())
 Q.PATH.write_text(json.dumps([{"id": "m-1#1a", "reason": "x", "tried": True}, {"id": "m-2#2d", "reason": "yy"}]))
 check("a changed file rebuilds it", Q.pending() == {"m-2": {"2d": "yy"}})
 
+# fix_shape_suspects: a dry run writes nothing; --apply touches only the rows it fixed.
+import fix_shape_suspects as FX
+rows = [{"id": "w-1#1a", "reason": "walkthrough: x", "tried": True},
+        {"id": "f-1#2d", "reason": "del_removed: fixed"},
+        {"id": "s-1#3a", "reason": "scrambledLeaf: y"}]
+FX.SUSPECTS = tmp / "suspects.json"
+FX.SUSPECTS.write_text(json.dumps({"suspects": []}))
+FX.OUT = tmp / "fx_out.json"
+FX.OUT.write_text(Q.dump(rows))
+before = FX.OUT.read_text()
+FX.run(False, 0, 1, jobs=1)
+check("a dry run leaves the list byte for byte", FX.OUT.read_text() == before)
+FX.merge_rows([{"id": "n-1#4a", "reason": "ins_split: new"}, {"id": "s-1#3a", "reason": "other"}], {"f-1#2d"})
+check("apply drops only the fixed row, keeps the rest and their marks, adds the new one",
+      json.loads(FX.OUT.read_text()) == [rows[0], rows[2], {"id": "n-1#4a", "reason": "ins_split: new"}])
+
 print("FAILED" if fails else "shape queue: all pass")
 raise SystemExit(1 if fails else 0)
