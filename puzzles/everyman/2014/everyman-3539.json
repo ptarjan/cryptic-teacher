@@ -269,45 +269,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ITEMISE",
+     "op": "container",
      "indicators": [
       {
-       "text": "incorrect",
-       "note": "incorrect means wrong, so the word that follows is put into a wrong order"
+       "text": "full of",
+       "at": 13,
+       "note": "full of means filled with, so the abbreviation holds the rearranged word inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "that is",
+       "at": 5,
+       "gives": "IE",
+       "note": "i.e. is the abbreviation of Latin id est, meaning that is"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "full of",
-         "note": "a thing full of something holds it inside, so the first piece wraps the second"
+         "text": "incorrect",
+         "at": 21,
+         "note": "incorrect signals that the letters are wrongly ordered and must be put right"
         }
        ],
        "parts": [
         {
-         "words": "that is",
-         "gives": "IE",
-         "note": "i.e. is the abbreviation of id est, that is"
-        },
-        {
          "words": "times",
-         "note": "the letters of times rearranged"
+         "at": 31,
+         "note": "taken as written for rearranging"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A timetable riddled with wrong times.",
-     "walkthrough": "'That is' is the standard crossword cue for the abbreviation i.e.; 'List' looks like a noun but is the verb.",
-     "definitionFit": "To itemise is to set things out item by item, which is what making a list means."
+     "surface": "Someone complains that a timetable is riddled with wrong times.",
+     "walkthrough": "'List' looks like a noun, but it is the verb, to set out item by item.",
+     "definitionFit": "To itemise something is to set it out as a series of separate entries, which is what listing does."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "List"
     }

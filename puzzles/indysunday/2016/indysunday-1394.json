@@ -297,65 +297,72 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SENATOR",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "up",
-       "note": "in a down entry, going up means the letters are written from bottom to top"
+       "text": "not",
+       "at": 21,
+       "note": "not marks the tense letter as excluded from the reversed word"
+      },
+      {
+       "text": "but",
+       "at": 31,
+       "note": "but introduces what comes in instead of the letter that is dropped"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "SENATOR",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "not",
-         "note": "not this but that swaps one letter out and puts another in its place"
+         "text": "up",
+         "at": 17,
+         "note": "in a down entry, up means the word is written from the bottom upwards, so read backwards"
         }
        ],
        "parts": [
         {
          "words": "turns",
+         "at": 11,
          "gives": "ROTATES",
-         "note": "something that turns rotates"
-        },
+         "note": "rotates means turns"
+        }
+       ]
+      },
+      {
+       "words": "tense",
+       "at": 25,
+       "gives": "T",
+       "note": "T is the grammar abbreviation for tense"
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "tense",
-         "gives": "T",
-         "note": "T is the grammar abbreviation for tense"
-        },
+         "text": "a little",
+         "at": 35,
+         "note": "a little of the next word is just its first letter"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "a little",
-           "note": "a little of the word nervous is just its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "nervous",
-           "note": "opening letter of nervous"
-          }
-         ]
+         "words": "nervous",
+         "at": 44,
+         "note": "its first letter is N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lawmaker shows up, not tense, just slightly jittery.",
-     "walkthrough": "The second T of ROTATES becomes N, giving ROTANES, which reads upwards as the answer.",
-     "definitionFit": "A senator is a member of a senate, an upper chamber that makes laws."
+     "surface": "A politician gets up to speak, calm rather than tense, though a touch jittery.",
+     "walkthrough": "ROTATES ('turns') goes 'up' to read SETATOR; 'not tense' drops its first T and 'but a little nervous' puts N in that place.",
+     "definitionFit": "A senator is a member of a senate, an upper chamber of lawmakers, so a legislator."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "tense"
+     "misdirectedWord": "turns"
     }
    }
   },

@@ -437,35 +437,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALLEGORY",
-     "indicators": [
-      {
-       "text": "exposed",
-       "note": "exposed means stripped of its covering, so the outer letters come off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Dance performance",
-       "gives": "BALLET",
-       "note": "a ballet is a dance performance"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "exposed",
+         "at": 18,
+         "note": "exposed means stripped of its covering, so the outer letters of the word are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dance performance",
+         "at": 0,
+         "gives": "BALLET",
+         "note": "a ballet is a dance performance"
+        }
+       ]
       },
       {
        "words": "bloody",
+       "at": 31,
        "gives": "GORY",
-       "note": "gory means covered in blood"
+       "note": "gory means bloody, full of bloodshed"
       }
      ]
     },
     "explanation": {
-     "surface": "A review of a violent, revealing dance show that tells a story with deeper meaning.",
-     "walkthrough": "'Exposed' means its skin is stripped: the first and last letters go.",
-     "definitionFit": "An allegory is a story whose characters and events stand for hidden moral or political meanings."
+     "surface": "A dance show is criticised as revealing and violent.",
+     "walkthrough": "'exposed' strips BALLET of its first and last letters to leave ALLE, and 'with' is a link.",
+     "definitionFit": "An allegory is a story whose characters and events stand for deeper moral or political meanings."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "exposed"
     }
@@ -1718,42 +1724,70 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "AILMENTS",
-     "indicators": [
-      {
-       "text": "having left one doubled over",
-       "note": "doubled over means folded back on itself, so the pair of letters for left and one swap round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Food",
-       "gives": "ALIMENT",
-       "note": "aliment is nourishment, food"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "having",
+         "at": 5,
+         "note": "having here means the food has its own pair of letters replaced, treated as described next"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Food",
+         "at": 0,
+         "gives": "ALIMENT",
+         "note": "aliment is a formal word for food or nourishment"
+        },
+        {
+         "gives": "LI"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "doubled over",
+           "at": 21,
+           "note": "something doubled over is folded back on itself, so the pair of letters is read the other way round"
+          }
+         ],
+         "parts": [
+          {
+           "words": "left one",
+           "at": 12,
+           "gives": "LI",
+           "note": "L is the abbreviation for left and I is the Roman numeral one"
+          }
+         ]
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "hint of",
-         "note": "hint of means just a touch, the first letter of the next word"
+         "at": 39,
+         "note": "a hint is just a trace, so only the first letter of the next word is used"
         }
        ],
        "parts": [
         {
          "words": "stomach",
-         "note": "the opening letter of stomach"
+         "at": 47,
+         "note": "its first letter is S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone bent double after eating, with a twinge in the stomach.",
-     "walkthrough": "In ALIMENT the L and I swap round, then S is added.",
-     "definitionFit": "Ailments are illnesses or disorders, which cause pains and are often called pains loosely."
+     "surface": "Someone eats, then is bent double, with stomach cramps.",
+     "walkthrough": "ALIMENT means food; the L and I it contains are 'left one', and 'doubled over' turns them round to IL inside the word. Add S from 'hint of stomach'.",
+     "definitionFit": "Ailments are illnesses or disorders, and pains are among their symptoms; the plural noun matches the plural answer."
     },
     "features": {
      "answerInScene": true,

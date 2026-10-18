@@ -1290,74 +1290,70 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 41,
+       "note": "about means around, so the word for upset goes around everything before it, which the clue calls 'it'"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "upset",
+       "at": 35,
+       "gives": "ATE",
+       "note": "ate can mean troubled or upset, as in 'what's eating you?'"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "about",
-         "note": "'about' says one word goes around the other"
+         "text": "up",
+         "at": 31,
+         "note": "in a down entry, up means the letters are written from the bottom upwards, so read backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
-           "words": "upset",
-           "gives": "ATE",
-           "note": "ate means upset, as in 'what ate him?'"
+           "words": "potato",
+           "at": 7,
+           "gives": "ALU",
+           "note": "alu, also spelt aloo, is the Hindi word for potato, familiar from Indian menus"
           },
           {
-           "op": "reversal",
+           "op": "first",
            "indicators": [
             {
-             "text": "up",
-             "note": "in a down clue, up means the letters read from bottom to top"
+             "text": "beginning to",
+             "at": 14,
+             "note": "the beginning of a word is its first letter"
             }
            ],
            "parts": [
             {
-             "words": "potato",
-             "gives": "ALU",
-             "note": "alu (or aloo) is the Indian word for potato"
+             "words": "dry",
+             "at": 27,
+             "note": "its first letter is D"
             }
            ]
           }
          ]
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "beginning to",
-           "note": "the beginning of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "dry",
-           "note": "the first letter"
-          }
-         ]
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "it",
-       "note": "refers back to the reversed potato-and-letter chunk"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for buttering a potato that has started to dry out.",
-     "walkthrough": "'Butter' is the verb, to flatter. 'upset' gives ATE, as in 'what's eating you?', and 'it' is the reversed chunk the ATE goes round.",
-     "definitionFit": "To butter someone up is to flatter them, and to adulate is to flatter or praise excessively."
+     "surface": "Kitchen instructions: butter a potato that has started to dry out, after it got knocked over.",
+     "walkthrough": "'it' is the pronoun for the reversed chunk built from potato and dry, which ATE goes round. 'Butter' is the verb, to flatter, as in butter up.",
+     "definitionFit": "To butter someone up is to flatter them, and to adulate is to praise or flatter excessively."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Butter"
