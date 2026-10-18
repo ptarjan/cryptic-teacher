@@ -611,50 +611,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPAGHETTI",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endless",
-       "note": "endless means without an end, so the last letter of the final word goes"
+       "text": "processed",
+       "at": 21,
+       "note": "processed means the pooled letters are worked over into a new order, as food is processed"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "The",
+       "at": 0
+      },
+      {
+       "words": "pigs",
+       "at": 4
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "processed",
-         "note": "processed food is mixed and reshaped, so the letters are rearranged"
+         "text": "endless",
+         "at": 13,
+         "note": "endless means the word ate loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "The pigs",
-         "note": "taken as written"
+         "words": "ate",
+         "at": 9
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "AT",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "ate",
-           "gives": "AT",
-           "select": "first",
-           "note": "ate without its last letter"
-          }
-         ]
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Pigs gobbled up endless amounts of processed food.",
-     "definitionFit": "Spaghetti is long thin pasta, an example of a food."
+     "surface": "The pigs devoured lots of processed food.",
+     "walkthrough": "THE + PIGS + AT (ate endless) are rearranged together.",
+     "definitionFit": "Spaghetti is a kind of pasta, a staple Italian foodstuff made into long thin strands."
     },
     "features": {
      "answerInScene": true,
@@ -805,53 +803,44 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ALWAYS",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "in",
-       "note": "in places the boat inside the continent's abbreviation"
+       "text": "returns",
+       "at": 30,
+       "note": "returns means the whole combination is read backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "returns",
-         "note": "returning means coming back, so the whole is read from right to left"
+         "text": "in",
+         "at": 13,
+         "note": "in means the boat word goes inside the South America letters"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "South",
-           "gives": "S",
-           "note": "S is the abbreviation for South"
-          },
-          {
-           "words": "Fishing-boat",
-           "gives": "YAWL",
-           "note": "a yawl is a small sailing boat"
-          },
-          {
-           "words": "America",
-           "gives": "A",
-           "note": "A is the abbreviation for America"
-          }
-         ]
+         "words": "South America",
+         "at": 16,
+         "gives": "SA"
+        },
+        {
+         "words": "Fishing-boat",
+         "at": 0,
+         "gives": "YAWL",
+         "note": "a yawl is a type of sailing boat, used for fishing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fishing boat comes back to South America on every voyage.",
-     "walkthrough": "S(YAWL)A read backwards gives ALWAYS.",
-     "definitionFit": "Always means on every occasion without exception, so it means every time."
+     "surface": "A fishing boat in South America keeps coming back every time.",
+     "walkthrough": "A yawl is a two-masted sailing boat; the whole container is read backwards, not just the boat.",
+     "definitionFit": "Always means at all times, on every occasion without exception."
     },
     "features": {
      "answerInScene": false,
@@ -953,37 +942,64 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LANGUAGE",
-     "indicators": [
-      {
-       "text": "having rejected gold",
-       "note": "rejected means turned back, so the gold chemical symbol sitting inside the standard is read the other way round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "network",
+       "at": 14,
        "gives": "LAN",
-       "note": "a LAN is a local area network"
+       "note": "LAN is a local area network"
       },
       {
-       "words": "standard",
-       "gives": "GAUGE",
-       "note": "a gauge is a standard of measurement, with Au, the symbol for gold, in its middle"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "having",
+         "at": 22,
+         "note": "having means the standard word has the reversed gold in place of its own gold letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "standard",
+         "at": 43,
+         "gives": "GAUGE",
+         "note": "a gauge is a standard of measurement"
+        },
+        {
+         "gives": "AU"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "rejected",
+           "at": 29,
+           "note": "rejected means the gold symbol is turned back to front"
+          }
+         ],
+         "parts": [
+          {
+           "words": "gold",
+           "at": 38,
+           "gives": "AU",
+           "note": "Au is the chemical symbol for gold"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A communications network abandons the gold standard.",
-     "walkthrough": "'Gold standard' reads as one phrase, but gold is only the symbol already inside the standard, turned round.",
-     "definitionFit": "Language is the system of words people use to communicate, so it is communication itself."
+     "surface": "A communications network that has abandoned the gold standard in finance.",
+     "walkthrough": "The gold standard was a monetary system; here gold is just its chemical symbol, which flips within the measuring word.",
+     "definitionFit": "Language is the system of words and grammar humans use to communicate with one another."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "standard"
+     "misdirectedWord": "gold"
     }
    }
   },

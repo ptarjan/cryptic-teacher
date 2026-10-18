@@ -459,42 +459,40 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "initially",
-       "note": "take the first letters of 'Members of Balliol'"
+       "text": "supporting",
+       "at": 29,
+       "note": "in a down clue supporting means the first letters go underneath"
       }
      ],
      "parts": [
       {
        "words": "gaudy",
+       "at": 40,
        "gives": "FLASH",
-       "note": "flash = showy, gaudy"
+       "note": "flash means showy or gaudy"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "MOB",
        "indicators": [
         {
-         "text": "supporting",
-         "note": "in a down clue, the supporter sits beneath"
+         "text": "initially",
+         "at": 19,
+         "note": "initially means taking the first letter of each word: Members, of, Balliol"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Members of Balliol initially",
-         "gives": "MOB",
-         "select": "first",
-         "note": "the first letters of Members, Of, Balliol"
+         "words": "Members of Balliol",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Oxford college men backing their college gaudy, a feast held for old members.",
-     "walkthrough": "A gaudy is a reunion dinner at an Oxford college, so 'gaudy' looks like a noun; here it is the adjective, showy. Balliol is an Oxford college.",
-     "definitionFit": "A flash mob is a crowd that gathers suddenly in a public place to perform something, then disperses."
+     "surface": "Oxford college members at a gaudy, a college reunion feast, which is a gathering with a purpose.",
+     "walkthrough": "A gaudy is an Oxford college reunion dinner, so the surface reads as a college event; here gaudy is just FLASH.",
+     "definitionFit": "A flash mob is a crowd that assembles suddenly in a public place to perform an act, then disperses."
     },
     "features": {
      "answerInScene": false,
@@ -588,42 +586,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENCAMP",
-     "indicators": [
-      {
-       "text": "going east",
-       "note": "in an across clue east is rightward: the M moves one place right through MAP"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "enclosed",
+       "at": 28,
+       "gives": "ENC",
+       "note": "enc. is the standard abbreviation for enclosed, used on letters"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "with motorway going east",
+         "at": 43,
+         "note": "in an across clue east is rightwards, so the motorway letter at the front of map moves one place to the right"
+        }
+       ],
        "parts": [
         {
-         "words": "enclosed",
-         "gives": "ENC",
-         "note": "enc. = enclosed, the abbreviation at the foot of a letter"
+         "words": "chart",
+         "at": 37,
+         "gives": "MAP",
+         "note": "a map is a chart"
         },
         {
-         "words": "chart with motorway going east",
-         "gives": "AMP",
-         "note": "a chart is a MAP; its M (motorway) moves eastward past the A"
+         "gives": "MA"
+        },
+        {
+         "gives": "AM"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A driver breaking a journey, following the map included with the directions along the motorway.",
-     "walkthrough": "'Motorway going east' reads as a road direction; it tells you to shift the M of MAP rightward.",
-     "definitionFit": "To encamp is to set up camp, stopping somewhere for a while."
+     "surface": "A traveller stops off, using a map enclosed in a letter and heading east on the motorway.",
+     "walkthrough": "In an across clue east is to the right, so the motorway letter slides one place rightwards rather than going to the far end.",
+     "definitionFit": "To encamp is to set up camp, settling somewhere for a short time, typically in tents."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "east"
+     "misdirectedWord": "enclosed"
     }
    }
   },
@@ -1081,54 +1086,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "keeping",
-       "note": "to keep is to hold, so the soldier holds the men inside him"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "back",
-         "note": "back means in reverse, so 'all' is written from its end to its start"
+         "text": "keeping",
+         "at": 25,
+         "note": "keeping means the soldier letters hold the men letters inside them"
         }
        ],
        "parts": [
         {
          "words": "soldier",
+         "at": 17,
          "gives": "GI",
-         "note": "GI = an American soldier"
+         "note": "GI is an American soldier"
         },
         {
          "words": "men",
+         "at": 33,
          "gives": "OR",
-         "note": "OR = other ranks, ordinary soldiers; inside GI: G(OR)I"
+         "note": "OR stands for other ranks, soldiers who are not officers"
         }
        ]
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 41,
+         "note": "back means all is read from the end"
+        }
+       ],
        "parts": [
         {
          "words": "all",
-         "note": "turned back to LLA"
+         "at": 37
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A burly squaddie holding his whole unit in reserve.",
-     "walkthrough": "'Men all back' sounds like a retreat; 'men' is the container's contents and only 'all' is reversed.",
-     "definitionFit": "Gorilla is slang for a big, heavily built man, often a bodyguard or thug."
+     "surface": "A burly soldier holding back all his men.",
+     "walkthrough": "GI keeping OR makes GORI, and ALL back is LLA.",
+     "definitionFit": "Gorilla is informal for a big, heavily built and often brutish man, like a bouncer or thug."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "back"
+     "answerInScene": false,
+     "aptDefinition": true
     }
    }
   },

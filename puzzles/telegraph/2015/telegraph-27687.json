@@ -222,42 +222,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TERSE",
-     "indicators": [
-      {
-       "text": "half of",
-       "note": "only half of bitter is wanted, so its first three letters are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 6,
+         "note": "half of means only one half of bitter is kept, its back three letters"
+        }
+       ],
        "parts": [
         {
          "words": "bitter",
-         "gives": "TER",
-         "note": "the second half of BITTER"
+         "at": 14
         },
         {
-         "words": "two quarters",
-         "gives": "SE",
-         "note": "south and east, two quarters of the compass"
+         "gives": "BIT"
         }
        ]
+      },
+      {
+       "words": "two quarters",
+       "at": 27,
+       "gives": "SE",
+       "note": "S and E are two compass quarters, south and east"
       }
      ]
     },
     "explanation": {
-     "surface": "A pub order: a short, a half of bitter, then two quarter measures.",
-     "walkthrough": "Bitter is a British beer ordered by the pint or half-pint; the quarters are compass points, not measures.",
-     "definitionFit": "Plain synonym: short in the sense of curt, brief in speech and using very few words."
+     "surface": "An order at the bar: a half of bitter, then a couple of quarters.",
+     "walkthrough": "'half of bitter' looks like a beer order; it gives TER. Two compass quarters give SE.",
+     "definitionFit": "Terse means brief and abrupt in speech, so a terse reply is a short one."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "quarters"
+     "misdirectedWord": "half"
     }
    }
   },
@@ -282,57 +284,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FIFTEEN",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "'even briefly' is the shortened poetic form e'en, with the V dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "that'll keep",
+         "at": 22,
+         "note": "that'll keep means fit holds the abbreviation inside it"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "that'll keep",
-           "note": "fit is said to keep following, holding its abbreviation inside itself"
-          }
-         ],
-         "parts": [
-          {
-           "words": "fit",
-           "note": "the word itself, which takes F inside"
-          },
-          {
-           "words": "following",
-           "gives": "F",
-           "note": "f. = following, the abbreviation used in page references"
-          }
-         ]
+         "words": "fit",
+         "at": 17
         },
         {
+         "words": "following",
+         "at": 35,
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 51,
+         "note": "briefly means even is shortened, as in the poetic contraction e'en"
+        }
+       ],
+       "parts": [
+        {
          "words": "even",
-         "gives": "EEN",
-         "note": "e'en is the old poetic contraction of even"
+         "at": 46
+        },
+        {
+         "gives": "V"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Carrying on from 1 across, a number gets fit and keeps up with the pack, if only for a short while.",
-     "walkthrough": "The leading ellipsis continues 1 across: twenty, then fifteen. E'en (for even) is common in older poetry and hymns.",
-     "definitionFit": "Definition by category: the answer is one particular whole number, three fives, joined to 1 across by the linking ellipsis."
+     "surface": "A continuation of the previous clue about getting into shape and keeping going.",
+     "walkthrough": "FIT keeps F to give FIFT, then EVEN briefly is EEN, like the poetic e'en.",
+     "definitionFit": "Fifteen is a cardinal number, one more than fourteen; it is also a rugby team."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "following"
+     "misdirectedWord": "fit"
     }
    }
   },
@@ -962,59 +966,77 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RESIDENCE",
+     "op": "container",
      "indicators": [
       {
-       "text": "without",
-       "note": "centre goes without the team's first letter"
+       "text": "inside",
+       "at": 10,
+       "note": "inside means the word for team goes within the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "inside",
-         "note": "the team goes inside the rearranged letters"
+         "text": "playing",
+         "at": 24,
+         "note": "playing means the remaining letters are played into a new order"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "playing",
-           "note": "letters that are playing move about"
+           "text": "without",
+           "at": 32,
+           "note": "without means that letter is taken out of centre"
           }
          ],
          "parts": [
           {
-           "words": "centre playing without team leader",
-           "gives": "CENRE",
-           "note": "CENTRE without T, the leader of team"
+           "words": "centre",
+           "at": 17
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "leader",
+             "at": 45,
+             "note": "the leader of team is its first letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "team",
+             "at": 40,
+             "note": "the second team supplies its leader, its first letter"
+            }
+           ]
           }
          ]
-        },
-        {
-         "words": "team",
-         "gives": "SIDE",
-         "note": "a side is a team"
         }
        ]
+      },
+      {
+       "words": "team",
+       "at": 5,
+       "gives": "SIDE",
+       "note": "side is another word for a team, as in a football side"
       }
      ]
     },
     "explanation": {
-     "surface": "The home side plays without its captain in the centre position.",
-     "walkthrough": "'Home team' reads as one phrase; 'Home' is the definition and 'team' gives SIDE.",
-     "definitionFit": "Plain synonym: the place where someone lives, usually a formal word for a house."
+     "surface": "A home team playing in the centre of the field but without its captain.",
+     "walkthrough": "Team appears twice: the first is the word for a side, the second only supplies its leading letter to be removed.",
+     "definitionFit": "A residence is the place where someone lives, their dwelling or house."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Home"
+     "misdirectedWord": "playing"
     }
    }
   },
@@ -1424,49 +1446,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REFUSAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "endless",
-       "note": "the word for stir loses its last letter"
+       "text": "imprisoned by",
+       "at": 18,
+       "note": "imprisoned by means the shortened word sits locked inside the word for concrete"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "concrete",
+       "at": 32,
+       "gives": "REAL",
+       "note": "concrete means real, actual"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "imprisoned by",
-         "note": "a prisoner is held inside, so these letters go inside concrete's word"
+         "text": "endless",
+         "at": 10,
+         "note": "endless means the word for stir loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "concrete",
-         "gives": "REAL",
-         "note": "concrete = real, tangible"
+         "words": "stir's",
+         "at": 3,
+         "gives": "FUSS",
+         "note": "stir means a fuss, a commotion; the 's stands for is"
         },
         {
-         "words": "stir",
-         "gives": "FUS",
-         "note": "a stir is a fuss; FUSS without its end"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "No stretch in prison lasts forever when you are locked behind concrete walls.",
-     "walkthrough": "'Stir' is slang for prison, which fits 'imprisoned' in the surface, but here it means a commotion.",
-     "definitionFit": "Plain synonym: saying no to a request is declining it, the act of turning something down."
+     "surface": "A prisoner insists there is no endless trouble in stir, prison slang, behind concrete walls.",
+     "walkthrough": "Stir is also slang for prison, which suits 'imprisoned'; here it means a commotion, and the definition 'No' is a refusal.",
+     "definitionFit": "Saying no is a refusal, a turning down of a request or offer."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "stir"
+     "misdirectedWord": "stir's"
     }
    }
   },
