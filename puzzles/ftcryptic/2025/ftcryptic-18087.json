@@ -797,47 +797,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NECTARINE",
      "indicators": [
       {
        "text": "within",
-       "note": "one piece is placed inside the other"
+       "at": 25,
+       "note": "within puts the trimmed area inside the square number"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NECTARINE",
+       "words": "square",
+       "at": 32,
+       "gives": "NINE",
+       "note": "nine is a square number, three times three"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "lacking cover",
-         "note": "without a cover the word loses its outside, its first and last letters"
+         "at": 11,
+         "note": "a word lacking its cover has lost its outside, its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "area",
+         "at": 6,
          "gives": "HECTARE",
-         "note": "a hectare is a unit of area"
-        },
-        {
-         "words": "square",
-         "gives": "NINE",
-         "note": "nine is a square number, three times three"
+         "note": "a hectare is a metric unit of area"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fruit is grown in an uncovered plot within a town square.",
-     "walkthrough": "The unit of area must lose both ends before going inside the square number.",
-     "definitionFit": "A nectarine is a smooth-skinned variety of peach."
+     "surface": "A fruit farmer's plot is uncovered and sits within a square field.",
+     "walkthrough": "'square' wants to be a shape or a town square; it is a square number, and 'area' is a unit of land rather than a region.",
+     "definitionFit": "A nectarine is a smooth-skinned variety of peach, a stone fruit."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "square"
     }
