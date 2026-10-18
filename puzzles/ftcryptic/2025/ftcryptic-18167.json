@@ -47,38 +47,18 @@
      }
     ],
     "wordplay": {
-     "op": "homophone",
-     "unchecked": true,
-     "gives": "SETTING",
-     "indicators": [
-      {
-       "text": "broadcast",
-       "note": "something broadcast is heard rather than read, so a word is taken by its sound"
-      }
-     ],
+     "op": "cryptic",
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "SUN",
-       "parts": [
-        {
-         "words": "son",
-         "gives": "SON",
-         "note": "son and the star in our sky are pronounced the same"
-        }
-       ]
-      },
-      {
-       "words": "Action of",
-       "gives": "SETTING",
-       "note": "what the sun does each evening is go down below the horizon"
+       "words": "Action of son broadcast",
+       "at": 0,
+       "note": "son said aloud is sun, and the sun's daily action at dusk is to go down below the horizon"
       }
      ]
     },
     "explanation": {
-     "surface": "A parent describes something their boy did, broadcast on air and placed in context.",
-     "walkthrough": "Hear 'son' as 'sun': the sun's action at day's end is SETTING. 'Action of son' looks like a description of behaviour; only the sound matters.",
-     "definitionFit": "A setting is the surrounding situation or background, which is what context means."
+     "walkthrough": "'broadcast' asks you to hear son as sun; the sun's evening action is its SETTING, and the same word means a background or context.",
+     "definitionFit": "A setting is the background or circumstances in which events take place, much like their context."
     },
     "features": {
      "answerInScene": false,
@@ -452,28 +432,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LAWNMOWER",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner famously swapped the opening sounds of words, so the starts of two words trade places"
+       "at": 0,
+       "note": "Spooner's means the opening sounds of the two words are swapped, after the Reverend Spooner"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "to grieve for cow",
-       "gives": "LAWNMOWER",
-       "soundsLike": "LORN MOWER",
-       "note": "to grieve is to mourn and a cow is a lower, one that lows; swapping the opening sounds of mourn lower gives the spoken phrase"
+       "op": "homophone",
+       "spelt": "MAWN",
+       "parts": [
+        {
+         "words": "to grieve for",
+         "at": 10,
+         "gives": "MOURN",
+         "note": "to grieve for someone is to mourn them"
+        }
+       ]
+      },
+      {
+       "words": "cow",
+       "at": 24,
+       "gives": "LOWER",
+       "note": "a cow lows, so it is a lower, one that moos"
       }
      ]
     },
     "explanation": {
-     "surface": "The old Oxford don mourns a dead cow that used to keep the meadow grazed short.",
-     "walkthrough": "A 'lower' here is something that lows, as cattle do. Swap the opening m and l sounds of MOURN LOWER to say LAWN MOWER.",
-     "definitionFit": "A lawnmower is a machine that cuts grass to an even height, keeping a lawn neat and tidy."
+     "surface": "Odd instructions about grieving and a cow that could keep a lawn neat.",
+     "walkthrough": "'cow' is a noun here meaning one who lows, a LOWER. Swap the starts of MOURN and LOWER as Spooner would, and the sounds become the garden machine.",
+     "definitionFit": "A lawnmower is the machine that cuts lawns, keeping the turf trimmed and tidy."
     },
     "features": {
      "answerInScene": true,
@@ -815,52 +805,57 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "EPHEMERAL",
      "indicators": [
       {
        "text": "exotic",
-       "note": "exotic means foreign and unusual, so the letters take an unfamiliar arrangement"
+       "at": 12,
+       "note": "exotic means strange or foreign, so the letters are made unfamiliar by rearranging"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EPHEMERAL",
+       "words": "maple",
+       "at": 19,
+       "note": "taken as written"
+      },
+      {
+       "op": "substitution",
        "indicators": [
         {
          "text": "lacking",
-         "note": "lacking means going without, so a letter is dropped"
+         "at": 30,
+         "note": "lacking says the letter for time is removed from tree"
+        },
+        {
+         "text": "to pick up",
+         "at": 43,
+         "note": "to pick up says the letter for height is gained in its place"
         }
        ],
        "parts": [
         {
-         "words": "maple",
-         "note": "taken as written"
-        },
-        {
          "words": "tree",
+         "at": 25,
          "note": "taken as written"
         },
         {
          "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
+         "at": 38,
+         "gives": "T"
         },
         {
          "words": "height",
-         "gives": "H",
-         "note": "H is the abbreviation for height"
+         "at": 54,
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A foreign maple that dies young, failing to grow tall over time.",
-     "walkthrough": "Remove T from TREE, add H, then rearrange those letters with MAPLE.",
-     "definitionFit": "Ephemeral describes something lasting only a very brief time, like a mayfly, hence short-lived."
+     "surface": "A rare imported maple tree lacks the time to grow tall.",
+     "walkthrough": "'lacking time to pick up height' swaps T (time) in TREE for H (height), giving HREE; 'exotic' rearranges MAPLE with HREE.",
+     "definitionFit": "Ephemeral describes something that lasts only a very brief time, like a mayfly."
     },
     "features": {
      "answerInScene": false,
@@ -1658,38 +1653,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EXOPLANET",
+     "op": "composite",
      "indicators": [
       {
        "text": "could be",
-       "note": "could be suggests a possible other form, so the letters may become something else"
+       "at": 14,
+       "note": "could be says the word that follows can turn into something else by rearrangement"
+      },
+      {
+       "text": "lacking",
+       "at": 36,
+       "note": "lacking says the chemical letters that follow are taken out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EXOPLANET",
-       "indicators": [
-        {
-         "text": "lacking",
-         "note": "lacking means without, so these letters are taken out"
-        }
-       ],
+       "words": "exceptional",
+       "at": 23,
+       "note": "the word whose letters, minus two, are rearranged"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "exceptional",
-         "note": "taken as written"
-        },
-        {
          "words": "carbon",
+         "at": 44,
          "gives": "C",
          "note": "C is the chemical symbol for carbon"
         },
         {
          "words": "iodine",
+         "at": 55,
          "gives": "I",
          "note": "I is the chemical symbol for iodine"
         }
@@ -1698,9 +1692,9 @@
      ]
     },
     "explanation": {
-     "surface": "A remote world might be remarkable even without carbon or iodine for life.",
-     "walkthrough": "Remove C and I from EXCEPTIONAL, then rearrange.",
-     "definitionFit": "An exoplanet is a planet orbiting a star other than the Sun, so a very distant world."
+     "surface": "A faraway planet might be remarkable even without carbon and iodine, the stuff of life.",
+     "walkthrough": "Remove C (carbon) and I (iodine) from EXCEPTIONAL as 'lacking' says, and 'could be' rearranges the remaining letters.",
+     "definitionFit": "An exoplanet is a planet orbiting a star other than our Sun, so a far-off world."
     },
     "features": {
      "answerInScene": true,

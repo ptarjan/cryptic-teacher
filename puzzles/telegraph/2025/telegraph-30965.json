@@ -60,49 +60,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OLDMANOFTHESEA",
+     "op": "composite",
      "indicators": [
       {
        "text": "somehow",
-       "note": "somehow says the letters come together by some unstated method, so their order is not fixed"
+       "at": 42,
+       "note": "somehow means in some way or other, so the remaining letters are rearranged"
+      },
+      {
+       "text": "escapes",
+       "at": 34,
+       "note": "escapes means the letter for one gets out of the pool before rearranging"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OLDMANOFTHESEA",
-       "indicators": [
-        {
-         "text": "escapes",
-         "note": "something that escapes gets away, so that item leaves the phrase before it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "a loathsome fiend",
-         "note": "taken as written"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        }
-       ]
+       "words": "a loathsome fiend",
+       "at": 12,
+       "note": "the letters of these three words, less one, are rearranged"
+      },
+      {
+       "words": "one",
+       "at": 30,
+       "gives": "I",
+       "note": "one is I, the Roman numeral"
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor's load is a hideous demon that keeps getting away.",
-     "walkthrough": "Take I out of A LOATHSOME FIEND and rearrange the rest to get OLD MAN OF THE SEA. 10 is SINBAD THE SAILOR, so 10's burden points to the creature who rode on Sinbad's shoulders.",
-     "definitionFit": "In the Arabian Nights, the Old Man of the Sea clung to Sinbad's back and would not let go, a burden he had to carry."
+     "surface": "Sinbad's load is a hateful demon from which someone manages to break free.",
+     "walkthrough": "10 is Sinbad (10 and 12 Across, Sinbad the Sailor). Remove I (one) from A LOATHSOME FIEND, as 'escapes' says, and the anagram indicator rearranges the fourteen letters left.",
+     "definitionFit": "In the Arabian Nights tale, the Old Man of the Sea rides on Sinbad's shoulders and will not get off, a burden he cannot shake."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "one"
+     "misdirectedWord": "escapes"
     }
    }
   },
@@ -1106,43 +1099,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MOSELLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "curtailed",
-       "note": "curtailed means cut short, losing its tail end"
+       "text": "in",
+       "at": 11,
+       "note": "in means the word for trade goes inside the shortened champagne name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one word inside the other"
+         "text": "curtailed",
+         "at": 19,
+         "note": "curtailed means cut short, so the last letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "Moët",
-         "gives": "MOE",
-         "note": "the champagne name with its last letter cut"
+         "at": 14,
+         "gives": "MOET",
+         "note": "Moët is the champagne house, written here without its accent"
         },
         {
-         "words": "trade",
-         "gives": "SELL",
-         "note": "to sell is to trade"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "trade",
+       "at": 5,
+       "gives": "SELL",
+       "note": "to trade goods is to sell them"
       }
      ]
     },
     "explanation": {
-     "surface": "A wine merchant dealing in champagne finds business cut short.",
-     "walkthrough": "Moët is a well-known champagne house; only its name is used here, not its wine.",
-     "definitionFit": "Moselle is a white wine from the valley of the river Moselle in Germany and France."
+     "surface": "Dealing in champagne has been cut back.",
+     "walkthrough": "'curtailed' cuts MOET to MOE, and SELL goes 'in' it after MO.",
+     "definitionFit": "Moselle is a white wine from the valley of the Moselle river in Germany and France."
     },
     "features": {
      "answerInScene": true,

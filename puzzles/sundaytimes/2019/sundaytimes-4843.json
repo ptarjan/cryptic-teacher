@@ -973,41 +973,55 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "FINGERBOWL",
-     "indicators": [
-      {
-       "text": "Heads will roll!",
-       "note": "the heads of the words roll over to swap places, exchanging their opening sounds"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "Heads will roll",
+         "at": 39,
+         "note": "the heads of the two words, their first letters, roll over into each other's place, so each word takes the other's opening letter"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
          "words": "overeater",
-         "gives": "FINGER",
-         "soundsLike": "BINGER",
-         "note": "a binger eats far too much; its opening sound is swapped with the next word's"
+         "at": 20,
+         "gives": "BINGER",
+         "note": "a binger is someone who overeats in bouts"
         },
         {
-         "unchecked": true,
-         "words": "chicken?",
-         "gives": "BOWL",
-         "soundsLike": "FOWL",
-         "note": "a chicken is a domestic fowl; its opening sound is swapped with the previous word's"
+         "gives": "B"
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "op": "substitution",
+       "parts": [
+        {
+         "words": "chicken",
+         "at": 30,
+         "gives": "FOWL",
+         "note": "a chicken is a fowl"
+        },
+        {
+         "gives": "F"
+        },
+        {
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner offering a glutton's chicken dish faces dire consequences.",
-     "walkthrough": "Swapping the starts of BINGER FOWL gives FINGER BOWL; 'Heads will roll!' sounds like a threat of punishment.",
-     "definitionFit": "A finger bowl of water is provided at table in a restaurant for diners to rinse their fingers."
+     "surface": "A restaurant serves a glutton chicken, and the threat of sackings follows.",
+     "walkthrough": "'Heads will roll' sounds like a threat, but it means BINGER and FOWL trade first letters, B and F, as in a Spoonerism.",
+     "definitionFit": "A finger bowl is a small bowl of water offered to diners for rinsing their fingers at the table."
     },
     "features": {
      "answerInScene": true,
@@ -1266,52 +1280,47 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "THORN",
      "indicators": [
       {
        "text": "supports",
-       "note": "in a down entry, what supports sits beneath, so this letter comes last"
+       "at": 23,
+       "note": "in a down clue the supporting letter sits underneath, so it comes after"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "THORN",
+       "words": "God",
+       "at": 32,
+       "gives": "THOR",
+       "note": "Thor is the Norse god of thunder"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
          "text": "finally",
-         "note": "finally points to the very last letter of the word before it"
+         "at": 15,
+         "note": "finally means only the last letter of Milligan is used"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "parts": [
-          {
-           "words": "Milligan",
-           "note": "the last letter of the surname"
-          }
-         ]
-        },
-        {
-         "words": "God",
-         "gives": "THOR",
-         "note": "Thor is the Norse god of thunder"
+         "words": "Milligan",
+         "at": 6,
+         "note": "its last letter is N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The comedian Spike Milligan at last backs a deity.",
-     "walkthrough": "'Spike Milligan' is the comic Goon, but 'Spike' is the definition; the block order is the answer's order, with THOR placed above the supporting N.",
-     "definitionFit": "A thorn is a sharp prickle on a plant stem, a natural spike."
+     "surface": "The comedian Spike Milligan at last propping up God.",
+     "walkthrough": "'Spike Milligan' reads as the comedian's name, but Spike is the definition; Milligan's last letter 'supports' THOR, sitting below it in this down answer.",
+     "definitionFit": "A thorn is a sharp spike on the stem of a plant such as a rose."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Spike"
     }
    }
