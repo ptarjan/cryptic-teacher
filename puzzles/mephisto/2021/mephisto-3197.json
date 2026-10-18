@@ -62,36 +62,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SCATHING",
      "indicators": [
       {
        "text": "written for",
-       "note": "one thing written in place of another means a letter is swapped out for new letters"
+       "at": 31,
+       "note": "written for means put down in place of, so the article takes the money letter's place"
       }
      ],
      "parts": [
       {
        "words": "fraud",
+       "at": 17,
        "gives": "SCAM",
-       "note": "a scam is a fraud"
-      },
-      {
-       "words": "article",
-       "gives": "THING",
-       "note": "an article is a thing, an object"
+       "note": "a scam is a fraud or swindle"
       },
       {
        "words": "money",
-       "gives": "M",
-       "note": "M is the abbreviation for money"
+       "at": 43,
+       "gives": "M"
+      },
+      {
+       "words": "article",
+       "at": 23,
+       "gives": "THING",
+       "note": "a thing is an article or object"
       }
      ]
     },
     "explanation": {
-     "surface": "A sharp critic attacks a fraudulent piece written purely for cash.",
-     "walkthrough": "SCATHING is SCAM with its M swapped for THING. 'Article' looks like a newspaper piece or a grammatical 'a', but here it is just an object.",
-     "definitionFit": "Scathing criticism is severe and withering, a direct synonym for sharply critical."
+     "surface": "A con trick has a newspaper piece composed for cash, which earns a scornful review.",
+     "walkthrough": "'article' looks like A or THE, the grammar sense; here it is an object, a THING, 'written for' the M of SCAM.",
+     "definitionFit": "Scathing remarks are bitterly severe, which is what sharply critical comments are."
     },
     "features": {
      "answerInScene": true,
@@ -121,42 +122,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCUL",
+     "op": "container",
      "indicators": [
       {
-       "text": "unfenced",
-       "note": "with its fence taken away, the word loses the letters that enclose it at each end"
+       "text": "in",
+       "at": 20,
+       "note": "in places the caught letter inside the other letters"
       }
      ],
      "parts": [
       {
-       "words": "southern",
-       "gives": "S",
-       "note": "S is the abbreviation for southern"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "southern",
+         "at": 23,
+         "gives": "S"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "unfenced",
+           "at": 41,
+           "note": "with its fence taken away, a word loses its outer letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "headland",
+           "at": 32,
+           "gives": "MULL",
+           "note": "a mull is a Scottish headland, as in the Mull of Kintyre"
+          },
+          {
+           "gives": "ML"
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "caught",
+       "at": 13,
        "gives": "C",
-       "note": "C is the cricket scorecard abbreviation for caught"
-      },
-      {
-       "words": "headland",
-       "gives": "MULL",
-       "note": "a mull is a Scottish headland, as in the Mull of Kintyre"
+       "note": "C is the cricket abbreviation for caught"
       }
      ]
     },
     "explanation": {
-     "surface": "A shoal of fish is netted off an open southern headland.",
-     "walkthrough": "MULL loses its outer letters to leave UL, giving SCUL. Scul is an old variant of school or shoal, a group of fish.",
-     "definitionFit": "A scul is a shoal, an old word for a large group of fish swimming together."
+     "surface": "A shoal of fish is netted off a promontory in the south that has no fences.",
+     "walkthrough": "'Lots of fish caught' reads as one phrase about a catch, but 'caught' belongs to the wordplay; the definition is only 'Lots of fish'.",
+     "definitionFit": "Scul is a Chambers variant of school, in the sense of a large shoal of fish swimming together."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "unfenced"
+     "misdirectedWord": "headland"
     }
    }
   },
@@ -346,55 +368,69 @@
     "definitions": [
      {
       "text": "it's yellow",
-      "at": 47
+      "at": 47,
+      "note": "the answer is an adjective, yellow in colour; 'it's' only frames it"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ICTERITIOUS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "In short",
-       "note": "cut short, the little word loses its final letter"
-      },
-      {
-       "text": "no marks",
-       "note": "no marks says the currency abbreviation is taken out of what follows"
+       "text": "gone off",
+       "at": 36,
+       "note": "food that has gone off is spoiled, so the letters are spoiled into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "gone off",
-         "note": "fruit gone off has turned bad, so the letters go wrong and fall into a new order"
+         "text": "short",
+         "at": 3,
+         "note": "a word cut short loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "In",
-         "gives": "I",
-         "note": "in without its last letter"
-        },
-        {
-         "words": "citrous",
+         "at": 0,
          "note": "taken as written"
         },
         {
-         "words": "item",
-         "gives": "ITE",
-         "note": "item with the M for marks taken away"
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no",
+         "at": 10,
+         "note": "no means without, so the letter for marks is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "citrous item",
+         "at": 23,
+         "note": "taken as written"
+        },
+        {
+         "words": "marks",
+         "at": 13,
+         "gives": "M",
+         "note": "M stands for mark, as in the old German currency"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A citrus fruit gone mouldy turns yellow and scores nothing.",
-     "walkthrough": "M stands for marks, the old German currency, removed from item. The surface makes 'yellow' describe the fruit; it is the definition.",
-     "definitionFit": "Icteritious means jaundiced, of the yellow colour seen in jaundice (icterus)."
+     "surface": "No points awarded: a lemon or similar fruit has turned bad and gone yellow.",
+     "walkthrough": "'short' cuts IN to I, 'no marks' takes the M out of CITROUS ITEM, and 'gone off' rearranges the eleven letters.",
+     "definitionFit": "Icteritious means jaundiced, from icterus, the medical name for jaundice, which turns skin a sallow colour."
     },
     "features": {
      "answerInScene": true,
@@ -1197,46 +1233,55 @@
     "definitions": [
      {
       "text": "Showing pretty duff",
-      "at": 0
+      "at": 0,
+      "note": "duff is slang for the backside, so this describes someone with a shapely bottom"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CALLIPYGEAN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Not entirely",
-       "note": "not entirely means the last word is used without its final letter"
+       "text": "reform",
+       "at": 20,
+       "note": "to reform is to form again in a new shape, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "legacy",
+       "at": 27,
+       "note": "taken as written"
+      },
+      {
+       "words": "in",
+       "at": 34
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "reform",
-         "note": "to reform something is to reshape it, so the letters are made into a new arrangement"
+         "text": "Not entirely",
+         "at": 43,
+         "note": "not entirely means not quite all of it, so the last letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "legacy in",
+         "words": "plan",
+         "at": 37,
          "note": "taken as written"
         },
         {
-         "words": "plan",
-         "gives": "PLA",
-         "note": "plan without its final letter"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bad overhaul of a bequest in a plan is on show.",
-     "walkthrough": "'Duff' looks like an adjective meaning useless, but it is British slang for the backside, so 'pretty duff' is a shapely bottom.",
-     "definitionFit": "Callipygean means having beautifully shaped buttocks, from the Greek for beautiful and rump."
+     "surface": "A bungled attempt to rewrite a will, the plan only half finished, makes a poor show.",
+     "walkthrough": "'duff' reads as a British adjective for useless, but it is US slang for the buttocks. 'Not entirely' drops the N of PLAN; 'reform' rearranges LEGACY + IN + PLA.",
+     "definitionFit": "Callipygean, from Greek for beautiful buttocks, describes someone with a shapely rear, so a nice-looking behind."
     },
     "features": {
      "answerInScene": false,

@@ -829,37 +829,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OPEPE",
-     "indicators": [
-      {
-       "text": "in being cut twice",
-       "note": "the little word in is cut away, and the cut tree is used twice over"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "none",
+       "at": 28,
        "gives": "O",
-       "note": "nought, zero"
+       "note": "nothing, or zero, looks like the letter O"
       },
       {
-       "words": "timber tree",
-       "gives": "PINE",
-       "note": "the pine is a tree grown for its timber"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 61,
+         "note": "twice says the same cut is made a second time, on the other copy of the tree"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "being cut",
+           "at": 51,
+           "note": "being cut means having a piece removed, so the named letters come out of the tree"
+          }
+         ],
+         "parts": [
+          {
+           "words": "timber tree",
+           "at": 36,
+           "gives": "PINEPINE",
+           "note": "a pine is a tree grown for its timber; it is taken twice because the clue's cut is made twice"
+          },
+          {
+           "words": "in",
+           "at": 48,
+           "gives": "IN",
+           "note": "taken as written: these are the letters cut out"
+          }
+         ]
+        },
+        {
+         "gives": "IN"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A forester talks of a timber tree that has been felled twice and has nothing left on it.",
-     "walkthrough": "Take the two letters IN out of the tree, leaving two letters, and write them twice after nought.",
-     "definitionFit": "Opepe is a West African tree whose yellow timber is a durable hardwood used for piling and flooring."
+     "surface": "A puzzle about timber: nothing left on a felled tree that has been sawn through twice.",
+     "walkthrough": "Take PINE twice: 'being cut' takes IN out of one (PEPINE) and 'twice' repeats it, leaving PEPE. 'There's' and 'on' only link: the O comes first. 'in' looks like a link word, but it names the letters removed.",
+     "definitionFit": "Opepe is a West African tree prized for its tough yellowish timber, so it is a source of hardwood."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "being"
+     "misdirectedWord": "in"
     }
    }
   },
@@ -885,42 +912,44 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LAMPUKI",
      "indicators": [
       {
        "text": "coated in",
-       "note": "being coated means wrapped in an outer layer"
+       "at": 12,
+       "note": "something coated in a covering has that covering wrapped around it, so these letters go on the outside"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "batter",
+         "at": 22,
+         "gives": "LAM",
+         "note": "to lam is to beat or thrash, so to batter"
+        },
+        {
+         "words": "I",
+         "at": 29
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "almost",
-         "note": "almost the whole word means stopping one letter short"
+         "at": 31,
+         "note": "almost means not quite all, so the last letter is dropped"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "batter",
-           "gives": "LAM",
-           "note": "to lam is to beat or thrash"
-          },
-          {
-           "words": "vomit",
-           "gives": "PUKE",
-           "note": "puke means vomit"
-          },
-          {
-           "words": "I",
-           "note": "taken as written"
-          }
-         ]
+         "words": "vomit",
+         "at": 38,
+         "gives": "PUKE",
+         "note": "to puke is to vomit"
         },
         {
          "gives": "E"
@@ -930,9 +959,9 @@
      ]
     },
     "explanation": {
-     "surface": "A diner whose fish in batter is so greasy they nearly throw up.",
-     "walkthrough": "'Batter' looks like the fish coating but is the verb meaning to beat.",
-     "definitionFit": "Lampuki is the Maltese name for the dolphinfish or dorado, a popular food fish there."
+     "surface": "A diner's fried fish in batter is so revolting they nearly throw up.",
+     "walkthrough": "'almost' drops the last letter of PUKE to give PUK, which is 'coated in' LAM and I. 'batter' suggests the coating on fried fish but is a verb meaning to beat.",
+     "definitionFit": "Lampuki is the Maltese name for the dorado or dolphinfish, a Mediterranean fish caught and eaten in autumn."
     },
     "features": {
      "answerInScene": true,

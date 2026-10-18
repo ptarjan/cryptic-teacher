@@ -93,57 +93,59 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Head of",
-       "note": "the head of a word is its top, which in a down clue is its first letter"
-      }
-     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "I",
        "indicators": [
         {
-         "text": "rejected",
-         "note": "sent back, so the following pieces are written backwards"
+         "text": "Head of",
+         "at": 0,
+         "note": "the head of a word is its opening letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Head of ITV",
-         "gives": "I",
-         "select": "first",
-         "note": "first letter of ITV"
+         "words": "ITV",
+         "at": 8,
+         "note": "taken as written; ITV is a British commercial television channel"
         }
        ]
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 12,
+         "note": "something rejected is thrown back, so this group of letters is read backwards"
+        }
+       ],
        "parts": [
         {
          "op": "charade",
          "parts": [
           {
            "words": "a",
-           "note": "as written"
+           "at": 21,
+           "gives": "A"
           },
           {
            "words": "pitch",
+           "at": 23,
            "gives": "TAR",
-           "note": "pitch is black tar"
+           "note": "tar is black pitch"
           },
           {
            "words": "Love",
+           "at": 31,
            "gives": "O",
-           "note": "love = nil = O"
+           "note": "love is zero in tennis, which looks like the letter O"
           },
           {
            "words": "Island",
+           "at": 36,
            "gives": "MAN",
-           "note": "the Isle of Man"
+           "note": "the Isle of Man is an island in the Irish Sea"
           }
          ]
         }
@@ -152,14 +154,14 @@
      ]
     },
     "explanation": {
-     "surface": "The boss of ITV turns down a pitch for a spin-off of the dating show Love Island.",
-     "walkthrough": "Love Island is an ITV reality dating show; here the words split into O and MAN, and pitch is tar, not a sales pitch.",
-     "definitionFit": "An Italian loanword: inamorata means a woman with whom one is in love, a sweetheart."
+     "surface": "A TV executive turns down a pitch for a dating show, Love Island being a British reality series.",
+     "walkthrough": "The quoted show title is not one unit: Love and Island split into separate pieces, and the whole of 'a pitch: Love Island' is what gets turned round.",
+     "definitionFit": "An inamorata is a woman with whom someone is in love, so a female lover or sweetheart."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pitch"
+     "misdirectedWord": "Island"
     }
    }
   },
@@ -184,42 +186,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TRIKE",
-     "indicators": [
-      {
-       "text": "reformed",
-       "note": "formed again, so the letters of KEIR are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Time",
+       "at": 0,
+       "gives": "T"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "reformed",
+         "at": 10,
+         "note": "reformed means made over in a new shape, so these letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Time",
-         "gives": "T",
-         "note": "standard abbreviation"
-        },
-        {
-         "words": "Keir reformed",
-         "gives": "RIKE",
-         "note": "KEIR rearranged"
+         "words": "Keir",
+         "at": 5,
+         "note": "taken as written, as in Keir Starmer"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Prime Minister Keir Starmer's time to reform public transport for disabled people.",
-     "walkthrough": "Keir suggests Keir Starmer, the UK prime minister; here it is just four letters to rearrange.",
-     "definitionFit": "A trike, a three-wheeler, is stable and easy to ride, so it is a mobility option."
+     "surface": "A political note: it is time Keir Starmer overhauled transport so everyone can use it.",
+     "walkthrough": "'reformed' rearranges KEIR into RIKE; the political sense of reformed is the false trail.",
+     "definitionFit": "A trike is a tricycle, a three-wheeler that is stable and easy to ride for people with limited balance."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "Keir"
+     "aptDefinition": false,
+     "misdirectedWord": "reformed"
     }
    }
   },
@@ -346,48 +347,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HARDTOP",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "short of",
+       "at": 11,
+       "note": "short of means lacking, so these letters are taken away from the longer word"
+      },
+      {
+       "text": "for a spin",
+       "at": 43,
+       "note": "a spin sends things whirling about, so the remaining letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HARDTOP",
+       "words": "Petrolhead",
+       "at": 0,
+       "note": "taken as written; a petrolhead is a car enthusiast"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "short of",
-         "note": "lacking, so letters are taken away"
-        },
-        {
-         "text": "for a spin",
-         "note": "spun round into a new order"
+         "text": "finally",
+         "at": 35,
+         "note": "finally picks the last letter of each of the three words"
         }
        ],
        "parts": [
         {
-         "words": "Petrolhead",
-         "note": "the word itself"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "LEE",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "the last letters of fuel, drove and one"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "fuel drove one finally",
-           "gives": "LEE",
-           "select": "last",
-           "note": "last letters of fuel, drove and one, taken out of PETROLHEAD"
-          }
-         ]
+         "words": "fuel drove one",
+         "at": 20,
+         "note": "the last letters of these words"
         }
        ]
       }
@@ -395,14 +387,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A car enthusiast, out of petrol, took one car out for a drive.",
-     "walkthrough": "Read whole, the clue describes a hardtop: a car a petrolhead would take for a spin.",
-     "definitionFit": "A hardtop is a car with a rigid roof, just the thing a petrolhead drives for a spin."
+     "surface": "A car fanatic, nearly out of petrol, still took the car out for a quick drive.",
+     "walkthrough": "'short of' takes from PETROLHEAD the letters LEE, the endings picked out by 'finally', and 'for a spin' rearranges what is left. Read whole, the clue pictures a car enthusiast taking such a car out.",
+     "definitionFit": "A hardtop is a car with a rigid roof, just the kind of motor an enthusiast takes for a drive."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "fuel"
+     "misdirectedWord": "spin"
     }
    }
   },
@@ -434,41 +426,43 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "REDCARPET",
+     "indicators": [
+      {
+       "text": "for a change",
+       "at": 43,
+       "note": "for a change says the letters are given a different arrangement"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "REDCARPET",
        "indicators": [
         {
          "text": "wanting",
-         "note": "to be wanting something is to lack it"
-        },
-        {
-         "text": "for a change",
-         "note": "the remaining letters are changed round"
+         "at": 30,
+         "note": "wanting means lacking, so the letter for love is taken away"
         }
        ],
        "parts": [
         {
          "words": "procreated",
-         "note": "the word itself"
+         "at": 18,
+         "note": "taken as written"
         },
         {
          "words": "love",
+         "at": 38,
          "gives": "O",
-         "note": "love = nil = O, removed"
+         "note": "love is zero in tennis, which looks like the letter O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone settled down and had children, but the romance has gone.",
-     "walkthrough": "One laid down sounds like a person lying down; it is a carpet unrolled for VIPs.",
-     "definitionFit": "A cryptic sense: a red carpet is a rug that gets rolled out and laid down for VIPs to walk on."
+     "surface": "Someone lay down and had children, but without any affection, just for variety.",
+     "walkthrough": "'wanting love' takes the O out of PROCREATED to leave PRCREATED, and 'for a change' rearranges it.",
+     "definitionFit": "A red carpet is literally unrolled on the ground for honoured guests to walk on."
     },
     "features": {
      "answerInScene": false,
@@ -968,44 +962,37 @@
      "parts": [
       {
        "words": "Successor to Oscar",
+       "at": 0,
        "gives": "PAPA",
-       "note": "O is Oscar and P is Papa in the NATO phonetic alphabet"
+       "note": "in the NATO phonetic alphabet Oscar stands for O and is followed by Papa for P"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "WS",
        "indicators": [
         {
-         "text": "Successor to",
-         "note": "the word that comes after Oscar in the NATO alphabet"
-        },
-        {
          "text": "primarily",
-         "note": "first, so the first letters of Wilde and staging"
+         "at": 33,
+         "note": "primarily means at first, so each word gives its opening letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Wilde staging primarily",
-         "gives": "WS",
-         "select": "first",
-         "note": "first letters of Wilde and staging"
+         "words": "Wilde staging",
+         "at": 19,
+         "note": "the first letters of these two words"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dramatist who follows Oscar Wilde stages racy, juicy material.",
-     "walkthrough": "Oscar Wilde suggests a playwright; the solver only needs the NATO alphabet, where Papa follows Oscar.",
-     "definitionFit": "Papaws, or papayas, are juicy tropical fruit."
+     "surface": "Talk of the playwright's heir and a fresh production of Oscar Wilde, chiefly racy gossip.",
+     "walkthrough": "'Oscar Wilde' looks like the playwright, but Oscar is a code word in the phonetic alphabet and Papa comes next.",
+     "definitionFit": "Papaws, or pawpaws, are soft tropical fruits full of sweet, wet flesh."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Oscar"
     }
    }
@@ -1367,50 +1354,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "VENOM",
+     "indicators": [
+      {
+       "text": "to feed",
+       "at": 15,
+       "note": "feeding puts food into something, so these letters go inside the others"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "five",
+         "at": 23,
+         "gives": "V",
+         "note": "V is the Roman numeral for five"
+        },
+        {
+         "words": "thousand",
+         "at": 28,
+         "gives": "M",
+         "note": "M is the Roman numeral for a thousand"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "about",
-         "note": "to turn about is to face the other way, so ONE is read backwards"
+         "at": 9,
+         "note": "about signals turning round, so the word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "five",
-         "gives": "V",
-         "note": "Roman numeral"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "to feed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "one",
-           "note": "reversed to ENO"
-          }
-         ]
-        },
-        {
-         "words": "thousand",
-         "gives": "M",
-         "note": "Roman numeral"
+         "words": "one",
+         "at": 5,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Resentment at being the one sent to feed the five thousand.",
-     "walkthrough": "Feeding the five thousand is the Gospel miracle; here five thousand is V and M, not 5000.",
-     "definitionFit": "Venom is bitter hatred or spite."
+     "surface": "A hint of the feeding of the five thousand, with one person resentful about the miracle.",
+     "walkthrough": "The biblical feeding of the five thousand is the false picture: 'five thousand' is two Roman numerals, and the reversed 'one' sits between them.",
+     "definitionFit": "Venom is bitter spite or malice, a strong feeling close to hatred."
     },
     "features": {
      "answerInScene": false,
@@ -1503,33 +1494,78 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BORED",
      "indicators": [
       {
        "text": "shifting to the right on computer",
-       "note": "each letter moves one key to the right on a QWERTY keyboard"
+       "at": 18,
+       "note": "on a computer keyboard each letter of the word is moved one key to the right, so every letter is replaced by its right-hand neighbour"
       }
      ],
      "parts": [
       {
-       "words": "views",
-       "note": "the word itself"
+       "op": "substitution",
+       "parts": [
+        {
+         "op": "substitution",
+         "parts": [
+          {
+           "op": "substitution",
+           "parts": [
+            {
+             "op": "substitution",
+             "parts": [
+              {
+               "words": "views",
+               "at": 12,
+               "note": "taken as written; these are the letters typed"
+              },
+              {
+               "gives": "V"
+              },
+              {
+               "gives": "B"
+              }
+             ]
+            },
+            {
+             "gives": "I"
+            },
+            {
+             "gives": "O"
+            }
+           ]
+          },
+          {
+           "gives": "E"
+          },
+          {
+           "gives": "R"
+          }
+         ]
+        },
+        {
+         "gives": "W"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
-       "words": "shifting to the right on computer",
-       "gives": "BORED",
-       "note": "V to B, I to O, E to R, W to E, S to D on the keyboard"
+       "gives": "S"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Tired of changing opinions leaning rightwards on the internet.",
-     "walkthrough": "Shifting to the right sounds political; on a keyboard, each letter of VIEWS sits just left of a letter of BORED.",
-     "definitionFit": "A plain synonym: someone fed up with something has had enough of it, which is to be bored with it."
+     "surface": "Someone is tired of their opinions drifting rightwards politically while they are online.",
+     "walkthrough": "Type VIEWS with each finger one key to the right on a standard QWERTY keyboard: V becomes B, I becomes O, E becomes R, W becomes E, S becomes D. 'shifting to the right' looks political but is literal.",
+     "definitionFit": "Being bored means being weary and impatient with something, as when someone is fed up with it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "right"
@@ -1744,41 +1780,43 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "TRADERS",
+     "indicators": [
+      {
+       "text": "in order",
+       "at": 17,
+       "note": "put in order means arranged differently, so the letters are rearranged"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "TRADERS",
        "indicators": [
         {
-         "text": "in order",
-         "note": "the letters are put in order, that is, arranged afresh"
-        },
-        {
          "text": "to get rid of",
-         "note": "to get rid of something is to throw it out"
+         "at": 26,
+         "note": "getting rid of something removes it, so the drug's letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "arrested",
-         "note": "the word itself"
+         "at": 8,
+         "note": "taken as written"
         },
         {
          "words": "ecstasy",
+         "at": 40,
          "gives": "E",
-         "note": "E is slang for the drug ecstasy; one E is taken out"
+         "note": "E is the slang abbreviation for the drug ecstasy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Drug dealers are arrested in order to get ecstasy off the streets.",
-     "walkthrough": "Dealers suggests drug dealers; they are just traders.",
-     "definitionFit": "Dealers and traders both buy and sell."
+     "surface": "Drug dealers are arrested in a bid to clear ecstasy from the streets.",
+     "walkthrough": "'to get rid of ecstasy' drops an E from ARRESTED to give ARRESTD, and 'in order' rearranges those letters.",
+     "definitionFit": "Traders buy and sell goods for a living, which is what dealers do."
     },
     "features": {
      "answerInScene": true,
