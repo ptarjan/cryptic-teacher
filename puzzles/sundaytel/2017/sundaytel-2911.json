@@ -42,25 +42,30 @@
      }
     ],
     "wordplay": {
-     "op": "hidden",
+     "op": "deletion",
      "indicators": [
       {
        "text": "in",
-       "note": "'in' tells you the answer sits inside the following word, already spelt out in its letters"
+       "at": 10,
+       "note": "the answer placed in test gives tastiest, so taking the letters of test back out of tastiest leaves the answer"
       }
      ],
      "parts": [
       {
        "words": "tastiest",
-       "gives": "ASTI",
-       "note": "the four letters after the opening T of this word"
+       "at": 21,
+       "note": "the letters left sit together inside it, a coincidence of where the test letters fall, not a hidden word"
+      },
+      {
+       "words": "test",
+       "at": 13
       }
      ]
     },
     "explanation": {
-     "surface": "A wine-tasting verdict: the bottle that came top in the test was the most delicious.",
-     "walkthrough": "ASTI sits inside tASTIest.",
-     "definitionFit": "Asti is a sparkling white wine from Piedmont in northern Italy, named after its town."
+     "surface": "A tasting verdict: this wine came out best in the trial.",
+     "walkthrough": "Read the clue as a recipe: the answer put in TEST is TASTIEST, T-ASTI-EST. So remove T, E, S, T from tastiest and four letters are left. Asti is a sparkling wine from Piedmont in Italy.",
+     "definitionFit": "Asti is an Italian sparkling white wine, named after the town where it is made."
     },
     "features": {
      "answerInScene": true,
@@ -197,37 +202,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SPIRIT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "going up",
-       "note": "in a down clue, going up means the word is read from the bottom of the column, back to front"
+       "text": "needed after",
+       "at": 15,
+       "note": "needed after places the it word after the reversed rents word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going up",
+         "at": 34,
+         "note": "in a down clue going up means the letters are read from the bottom, so in reverse"
+        }
+       ],
        "parts": [
         {
          "words": "rents",
-         "gives": "SPIR",
-         "note": "rents are tears, RIPS, which read upwards becomes this"
-        },
-        {
-         "words": "it's",
-         "gives": "IT",
-         "note": "the word it, with the 's as part of the link 'it is needed'"
+         "at": 28,
+         "gives": "RIPS",
+         "note": "rents are tears or rips"
         }
        ]
+      },
+      {
+       "words": "it's",
+       "at": 10,
+       "gives": "IT",
+       "note": "it's is it is, and only the it is used"
       }
      ]
     },
     "explanation": {
-     "surface": "A tenant is told it takes nerve to face rising rents.",
-     "walkthrough": "Rents here are tears in fabric, not payments to a landlord. 'Needed after' places IT after the reversed tears.",
-     "definitionFit": "Spirit as in pluck or mettle: bravery and resolve in the face of difficulty."
+     "surface": "It takes courage to cope when rents keep rising.",
+     "walkthrough": "Rents here are tears in cloth, not payments: RIPS 'going up' reads SPIR in this down clue, and 'needed after' adds IT.",
+     "definitionFit": "Spirit means mettle or bravery, the courage to face difficulty."
     },
     "features": {
      "answerInScene": false,
@@ -1328,44 +1341,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CAGY",
+     "op": "homophone",
+     "spelt": "CAGY",
      "indicators": [
       {
-       "text": "Most of",
-       "note": "most of means not quite all, so the final letter is dropped"
+       "text": "reportedly",
+       "at": 13,
+       "note": "reportedly means as said aloud, so the letters spoken give the answer by sound"
       }
      ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "CAGY",
-       "indicators": [
-        {
-         "text": "reportedly",
-         "note": "reportedly means as it is said, so the letter names are heard rather than read"
-        }
-       ],
-       "parts": [
-        {
-         "words": "KGB",
-         "gives": "KAYGEE",
-         "note": "the initials less their last letter, spoken as letter names"
-        }
-       ]
+       "words": "Most of KGB",
+       "at": 0,
+       "gives": "KAYGEE",
+       "note": "most of KGB is KG, said aloud as kay-gee; the KGB was the Soviet security and spy agency"
       }
      ]
     },
     "explanation": {
-     "surface": "Most of the Soviet spy agency is said to be tight-lipped.",
-     "walkthrough": "The KGB was the Soviet secret police, which fits 'secretive' perfectly in the surface.",
-     "definitionFit": "Cagy (or cagey) means reluctant to give information, guarded and evasive."
+     "surface": "Most of the Soviet spy service is said to be secretive.",
+     "walkthrough": "'Most of' drops the last letter of KGB to leave KG; said aloud, 'reportedly', KAY-GEE sounds like the answer.",
+     "definitionFit": "Cagy, also spelt cagey, means guarded and reluctant to give information away."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "pun"
+     "aptDefinition": false
     }
    }
   },
