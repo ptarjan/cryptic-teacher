@@ -1561,38 +1561,40 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "End of",
-       "note": "the end of a word is its last letter"
-      }
-     ],
      "parts": [
       {
        "words": "West",
-       "gives": "W",
-       "note": "W is the standard abbreviation for west"
+       "at": 11,
+       "gives": "W"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "breaching",
-         "note": "to breach a wall is to break into it, so the letter goes inside"
+         "at": 35,
+         "note": "breaching means breaking into, so the letter goes inside"
         }
        ],
        "parts": [
         {
          "words": "intellectual property",
-         "gives": "IP",
-         "note": "IP is the usual abbreviation for intellectual property"
+         "at": 45,
+         "gives": "IP"
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "End of",
+           "at": 16,
+           "note": "End of picks the last letter of metropolis"
+          }
+         ],
          "parts": [
           {
            "words": "metropolis",
-           "note": "the last letter of metropoliS"
+           "at": 23
           }
          ]
         }
@@ -1601,15 +1603,14 @@
      ]
     },
     "explanation": {
-     "surface": "The Strand, in London's West End, is the scene of an intellectual property breach.",
-     "walkthrough": "The Strand is a street in London's West End, so 'Strand', 'West End' and 'metropolis' all read as geography. 'West' and 'End of' belong to separate pieces.",
-     "definitionFit": "Both name a single fine thread of something, such as hair or smoke, so the two are plain synonyms."
+     "surface": "London's West End is caught up in a copyright dispute.",
+     "walkthrough": "'West End' looks like the London district, but West and End do separate jobs.",
+     "definitionFit": "A wisp is a thin strand or tuft, as of hair or smoke."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Strand"
+     "misdirectedWord": "End"
     }
    }
   },
@@ -1683,44 +1684,50 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the word loses its last letter"
-      }
-     ],
      "parts": [
       {
-       "words": "mortal",
-       "gives": "LETHA",
-       "note": "mortal means lethal, and LETHAL loses its last letter"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "RGIC",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to begin with",
-         "note": "what comes to begin with is at the front, so each word gives its first letter"
+         "text": "mostly",
+         "at": 16,
+         "note": "mostly means dropping the final letter of lethal"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
+         "words": "mortal",
+         "at": 9,
+         "gives": "LETHAL",
+         "note": "mortal means deadly, lethal"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "to begin with",
+         "at": 57,
+         "note": "to begin with takes the first letter of each of the four words"
+        }
+       ],
+       "parts": [
+        {
          "words": "regrets getting into Christianity",
-         "gives": "RGIC",
-         "select": "first",
-         "note": "the first letters of Regrets Getting Into Christianity"
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lazy mortal who regrets coming late to religion.",
-     "walkthrough": "Sloth is one of the seven deadly sins, which is why the surface drifts towards Christianity. 'Mortal' is the adjective, as in a mortal wound.",
-     "definitionFit": "Lethargic means sluggish and lacking energy, a straight synonym of slothful."
+     "surface": "A lazy sinner's remorse leads them to embrace Christianity.",
+     "walkthrough": "'mortal' looks like a person, but it is an adjective meaning deadly, cut to LETHA.",
+     "definitionFit": "Lethargic means sluggish and lacking energy, like a sloth."
     },
     "features": {
      "answerInScene": true,
