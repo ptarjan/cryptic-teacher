@@ -138,9 +138,9 @@ cases = [
   ("22257 8d: an unchecked leaf deleted", "Quite good translation of 100",
    ann({"op": "charade", "parts": [leaf("translation", unchecked=True), leaf("of", "DE"), leaf("100", "CENT")]}, ("Quite good",)),
    ann({"op": "charade", "parts": [leaf("of", "DE"), leaf("100", "CENT")]}, ("Quite good",)), "translation"),
-  ("22425 10a: 'the' dropped", "Moral tale has the bloody lot on ecstasy",
+  ("22425 10a: 'bloody' dropped", "Moral tale has the bloody lot on ecstasy",
    ann({"op": "charade", "parts": [leaf("the", unchecked=True), leaf("lot", "ALL"), leaf("ecstasy", "E"), leaf("bloody", "GORY")]}, ("Moral tale",)),
-   ann({"op": "charade", "indicators": [{"text": "on"}], "parts": [leaf("lot", "ALL"), leaf("ecstasy", "E"), leaf("bloody", "GORY")]}, ("Moral tale",)), "the"),
+   ann({"op": "charade", "indicators": [{"text": "on"}], "parts": [leaf("lot", "ALL"), leaf("ecstasy", "E")]}, ("Moral tale",)), "bloody"),
   ("22139 20a: wordplay nulled", "Fast runner doesn't sound honest",
    ann({"op": "homophone", "spelt": "CHEETAH", "indicators": [{"text": "sound"}], "parts": [leaf("doesn't sound honest", "CHEATER")]}, ("Fast runner",)),
    {"definitions": [{"text": "Fast runner"}]}, "no_tree"),
@@ -158,6 +158,9 @@ for name, clue, old, new, word in cases:
     got = Q.regressions(ent(clue, old), new)
     check(f"refused: {name}", bool(got) and word in got[0])
 good = ann({"op": "charade", "parts": [leaf("lot", "ALL"), leaf("the", "T")]}, ("Moral tale",))
+check("a connective only an old junk leaf held may be dropped (b9e711fd94e)",
+      not Q.regressions(ent(cases[1][1], cases[1][2]),
+                        ann({"op": "charade", "indicators": [{"text": "on"}], "parts": [leaf("lot", "ALL"), leaf("ecstasy", "E"), leaf("bloody", "GORY")]}, ("Moral tale",))))
 check("kept words, relabelled, pass", not Q.regressions(ent("Moral tale the lot", good), json.loads(json.dumps(good))))
 check("a word moved into the definition passes",
       not Q.regressions(ent("Quite good translation of 100", cases[0][2]),
