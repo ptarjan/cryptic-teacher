@@ -20,4 +20,7 @@ $sets = @(Get-Counter '\GPU Engine(*engtype_3D)\Utilization Percentage' -SampleI
 $others = $sets.CounterSamples | Where-Object { $i = $_.InstanceName; -not ($ours | Where-Object { $i.StartsWith($_) }) }
 $gpu = ($others | Measure-Object -Property CookedValue -Sum).Sum / [math]::Max(1, $sets.Count)
 $freeMB = [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024)
-@{games = $games; gpu3d = [math]::Round($gpu, 1); serving = $serving; freeMB = $freeMB; video = $video} | ConvertTo-Json -Compress
+# The game-guard's flag: written when a game starts, before it drains and stops llama-server (up to 60s),
+# removed once the game has ended and llama-swap is back.
+$pending = [bool](Test-Path 'D:\llm\game-pending')
+@{pending = $pending; games = $games; gpu3d = [math]::Round($gpu, 1); serving = $serving; freeMB = $freeMB; video = $video} | ConvertTo-Json -Compress

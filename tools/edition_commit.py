@@ -19,6 +19,7 @@ file_archive_org_puzzles imports the parts both paths share from here.
 """
 import json
 import os
+import signal
 import sys
 import time
 from pathlib import Path
@@ -66,7 +67,10 @@ def writer(source, series, puzzles):
     def commit(where, puzzle, verdict):
         if where is None:
             Path(source).mkdir(parents=True, exist_ok=True)
-            (Path(source) / f"{puzzle['id']}.json").write_text(json.dumps(puzzle, indent=1))
+            raw = Path(source) / f"{puzzle['id']}.json"
+            part = raw.with_name(f"{raw.name}.{os.getpid()}.part")
+            part.write_text(json.dumps(puzzle, indent=1))
+            part.replace(raw)
             # cross_validate.ArchiveOrg.ids reads this, not a listing of the media disk.
             media_manifest.record_file("archiveorg-source", Path(source) / f"{puzzle['id']}.json")
             return True
@@ -256,12 +260,19 @@ def main(spec):
             whole_unit(spec, "a title there looked up a file it was not sent, so its filing is decided here",
                        {"CT_EDITION_ANSWER": str(answer)})
         found, series = ctx["found"], ctx["series"]
-        verdicts = commit_decided(got["decided"], writer(ctx["source"], series, ctx["puzzles"]))
-        # Keyed by the inputs after this read's writes: a stray clue it
-        # mended no longer makes the edition due.
-        key = inputs(ctx["filesHash"], ctx["reprints"], series, [p["number"] for p in found["puzzles"]])
-        seen_by = ctx["vlmVersion"] if vlm_up and got["vlm"] else None
-        scan_queue.append(ledger, [row(rel, key, found, ctx["filesHash"], ctx["scanKey"], ctx["solutionsSeen"],
-                                       verdicts, seen_by, ctx.get("solutionKey"))])
+        # The writes and the ledger row are a few local file writes: a TERM (the queue stopping its
+        # units for a game, or a stop) waits until they are all made, so none is left half done
+        # (a puzzle filed with no ledger row). It then takes effect, the read being done.
+        signal.pthread_sigmask(signal.SIG_BLOCK, {signal.SIGTERM})
+        try:
+            verdicts = commit_decided(got["decided"], writer(ctx["source"], series, ctx["puzzles"]))
+            # Keyed by the inputs after this read's writes: a stray clue it
+            # mended no longer makes the edition due.
+            key = inputs(ctx["filesHash"], ctx["reprints"], series, [p["number"] for p in found["puzzles"]])
+            seen_by = ctx["vlmVersion"] if vlm_up and got["vlm"] else None
+            scan_queue.append(ledger, [row(rel, key, found, ctx["filesHash"], ctx["scanKey"], ctx["solutionsSeen"],
+                                           verdicts, seen_by, ctx.get("solutionKey"))])
+        finally:
+            signal.pthread_sigmask(signal.SIG_UNBLOCK, {signal.SIGTERM})
         progress(read_line(rel, verdicts))
     return EXITS["read"]

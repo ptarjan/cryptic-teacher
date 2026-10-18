@@ -42,6 +42,8 @@ try:
 
     check("an idle desktop is not busy", None, db.verdict(reading(gpu3d=3.0)))
     check("a desktop that does not answer is not busy", None, db.verdict(None))
+    check("the game-guard's pending flag makes it busy", "game: starting (D:\\llm\\game-pending)",
+          db.verdict({**reading(), "pending": True}))
     check("a game running makes it busy", True, bool(db.verdict(reading(games=["Wow"]))))
     check("a game's reason says game", "game: playing Wow", db.verdict(reading(games=["Wow"])))
     check("VLC with a video open makes it busy, the reason says vlc", "vlc: playing a.mkv", db.verdict(reading(video=["a.mkv"])))

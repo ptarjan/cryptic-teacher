@@ -44,7 +44,9 @@ NOT_GAME_DIRS = ("D:\\llm\\", "D:\\Guilds-of-WoW-Addon\\")
 GPU_3D = 20
 #: The VLM's processes (tools/vlm_reader.py), whose 3D load is our own work.
 VLM_SERVERS = ("llama-server", "llama-swap")
-PROBE_EVERY = 60
+#: One probe is a single ssh + powershell call at low priority (~3-5 s), so every 20 s: the VLM
+#: goes down ~24 s after a game starts, and a 60 s probe left units mid-read to lose it.
+PROBE_EVERY = 20
 STATE = Path(tempfile.gettempdir())
 #: Every DESKTOPS address is the one desktop, its host key known by its
 #: tailnet address (this host's known_hosts is read-only).
@@ -77,7 +79,7 @@ def probe(host):
     if not isinstance(got, dict):
         return None
     return {"games": [str(g) for g in _list(got.get("games"))], "gpu3d": float(got.get("gpu3d") or 0),
-            "video": [str(v) for v in _list(got.get("video"))],
+            "video": [str(v) for v in _list(got.get("video"))], "pending": bool(got.get("pending")),
             "serving": [int(p) for p in _list(got.get("serving"))],
             "freeMB": None if got.get("freeMB") is None else int(got["freeMB"])}
 
@@ -86,6 +88,8 @@ def verdict(reading):
     """Why a desktop that read `reading` is busy, or None."""
     if reading is None:
         return None
+    if reading.get("pending"):  # D:\llm\game-pending: a game is starting or running, the VLM about to stop
+        return "game: starting (D:\\llm\\game-pending)"
     if reading["games"]:
         return "game: playing " + ", ".join(sorted(set(reading["games"])))
     if reading.get("video"):
