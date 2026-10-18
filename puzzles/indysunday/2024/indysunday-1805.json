@@ -359,39 +359,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "half of",
-       "note": "take half the letters of the next word, here its first two"
-      }
-     ],
      "parts": [
       {
-       "words": "half of your",
-       "gives": "YO",
-       "note": "the first two letters of YOUR"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 15,
+         "note": "only half of the word is kept, its first two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "your",
+         "at": 23,
+         "gives": "YOUR",
+         "note": "the word that loses its second half"
+        },
+        {
+         "gives": "UR"
+        }
+       ]
       },
       {
        "words": "King",
+       "at": 28,
        "gives": "K",
-       "note": "K = king in chess"
+       "note": "K is the chess abbreviation for king"
       },
       {
        "words": "Edward",
+       "at": 33,
        "gives": "ED",
-       "note": "Ed, short for Edward"
+       "note": "Ed is a short form of Edward"
       }
      ]
     },
     "explanation": {
-     "surface": "A subject pledges loyal service to King Edward.",
-     "walkthrough": "King Edward reads as a monarch but splits into two pieces; it is also a potato variety, part of the puzzle's theme.",
-     "definitionFit": "Oxen yoked together are harnessed to the work of pulling, bound to serve."
+     "surface": "Your King Edward, half of it, set to be served, like a potato.",
+     "walkthrough": "King Edward is also a variety of potato, which makes 'serve' look culinary.",
+     "definitionFit": "Yoked means harnessed together for work, like oxen made to labour."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Edward"
+     "joke": "pun",
+     "misdirectedWord": "serve"
     }
    }
   },
@@ -628,40 +641,44 @@
      "indicators": [
       {
        "text": "keeps",
-       "note": "to keep something is to hold it, so the first word holds the next pieces inside"
+       "at": 11,
+       "note": "the word for chum holds the other pieces inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Chum, say",
-         "gives": "BAIT",
-         "note": "chum is fish scraps thrown in as bait"
-        },
-        {
-         "words": "near",
-         "gives": "BY",
-         "note": "by = near"
-        }
-       ]
+       "words": "Chum, say",
+       "at": 0,
+       "gives": "BAIT",
+       "note": "chum is fish bait, an example of bait"
       },
       {
-       "words": "sons",
-       "gives": "S",
-       "note": "s = son; one S serves for the plural"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "near",
+         "at": 17,
+         "gives": "BY",
+         "note": "by means near, as in 'stand by me'"
+        },
+        {
+         "words": "sons",
+         "at": 22,
+         "gives": "S",
+         "note": "S is the abbreviation for son, as in genealogies"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A friend stays close to the boys to keep an eye on them.",
-     "walkthrough": "Chum looks like a friend, but 'say' flags an example: chum is anglers' bait, chopped fish thrown into the water.",
-     "definitionFit": "To babysit is to mind someone's children, and 'them' stands for the sons of the surface."
+     "surface": "A friend stays near the boys to keep an eye on them.",
+     "walkthrough": "'Chum' looks like a friend; here it is bait thrown to attract fish.",
+     "definitionFit": "To babysit is to look after children while their parents are away."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Chum"
     }
    }
@@ -1844,36 +1861,39 @@
      "indicators": [
       {
        "text": "probes",
-       "note": "a probe pokes inside something, so the first pieces go into the last"
+       "at": 20,
+       "note": "the pieces probe into the word for lately formed, sitting inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "lately formed",
-         "gives": "RECENT",
-         "note": "recent = lately formed"
-        },
-        {
-         "words": "Washington",
-         "gives": "DC",
-         "note": "Washington, DC"
-        }
-       ]
+       "words": "lately formed",
+       "at": 27,
+       "gives": "RECENT",
+       "note": "something lately formed is recent"
       },
       {
-       "words": "research",
-       "gives": "RES",
-       "note": "res. = research"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Washington",
+         "at": 0,
+         "gives": "DC",
+         "note": "DC, the District of Columbia, is Washington"
+        },
+        {
+         "words": "research",
+         "at": 11,
+         "gives": "RES",
+         "note": "res is an abbreviation for research"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Washington study looks into a newly founded aid organisation.",
-     "walkthrough": "The surface reads as one think-tank investigating another; 'probes' is literal, pushing letters inside.",
-     "definitionFit": "The Red Crescent is the Red Cross movement's counterpart in Muslim countries."
+     "surface": "Research from Washington examines a newly founded aid organisation.",
+     "definitionFit": "The Red Crescent is the relief organisation that serves as the Red Cross in Muslim countries."
     },
     "features": {
      "answerInScene": true,

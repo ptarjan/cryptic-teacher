@@ -1591,50 +1591,55 @@
      "indicators": [
       {
        "text": "cuts",
-       "note": "cutting into something splits it open, so the other letters get wedged inside"
+       "at": 27,
+       "note": "the pieces cut into the word for mate, splitting it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "mate",
-         "gives": "PAL",
-         "note": "a mate is a pal"
-        },
-        {
-         "words": "One wandering",
-         "gives": "ROVER",
-         "note": "a rover is one who roams"
-        }
-       ]
+       "words": "mate",
+       "at": 32,
+       "gives": "PAL",
+       "note": "pal is an informal word for a mate or friend"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "almost",
-         "note": "almost means not quite all, so the word stops short of its last letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "giant",
-         "gives": "BIG",
-         "note": "giant means big"
+         "words": "One wandering",
+         "at": 0,
+         "gives": "ROVER",
+         "note": "a rover is someone who wanders"
         },
         {
-         "gives": "G"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 20,
+           "note": "almost means the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "giant",
+           "at": 14,
+           "gives": "BIG",
+           "note": "big means giant"
+          },
+          {
+           "gives": "G"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wandering giant cuts through his companion as if with a saw.",
-     "walkthrough": "'Saw' looks like a cutting tool, fitting 'cuts', but it means an old saying.",
-     "definitionFit": "A saw is an old saying or proverb, so being like one is being proverbial."
+     "surface": "A wandering giant attacks his friend with a carpenter's tool.",
+     "walkthrough": "'almost' trims BIG to BI; ROVER and BI cut into PAL. 'saw' is a saying, not the tool.",
+     "definitionFit": "A saw is an old saying or maxim, so proverbial describes something like a proverb."
     },
     "features": {
      "answerInScene": false,

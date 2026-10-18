@@ -817,50 +817,59 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Head of",
-       "note": "the head of a word is its first letter, which leads off the answer"
-      }
-     ],
      "parts": [
       {
-       "words": "church",
-       "gives": "C",
-       "note": "the first letter of the word"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Head of",
+         "at": 0,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "church",
+         "at": 8,
+         "note": "the word whose first letter is taken"
+        }
+       ]
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "to accept",
-         "note": "accepting something means taking it in, so one piece goes inside the other"
+         "at": 24,
+         "note": "the word for inclined takes the saint letter into itself"
         }
        ],
        "parts": [
         {
          "words": "inclined",
+         "at": 15,
          "gives": "LEANING",
-         "note": "leaning means sloping or inclined"
+         "note": "leaning means inclined or tilted"
         },
         {
-         "words": "saint",
+         "words": "saint's",
+         "at": 34,
          "gives": "S",
-         "note": "S is the abbreviation for saint"
+         "note": "S is the abbreviation for saint; the 's is just the possessive of the surface"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A church leader is disposed to accept a holy man's ritual purification.",
-     "walkthrough": "The church's first letter starts the answer; then the saint's S goes inside LEANING.",
-     "definitionFit": "Cleansing and purification both name the act of making something clean, physically or spiritually."
+     "surface": "A senior cleric is willing to take on a saint's cleansing.",
+     "walkthrough": "'Head of' gives C; 'to accept' puts S inside LEANING to give LEANSING.",
+     "definitionFit": "Cleansing is the act of making clean, physically or spiritually, which is purification."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "inclined"
+     "misdirectedWord": "Head"
     }
    }
   },
@@ -1429,53 +1438,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "revolutionary",
-       "note": "a revolution turns things right round, so the letters are read the other way"
+       "text": "welcoming",
+       "at": 7,
+       "note": "the number takes the reversed pair into its middle"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Figure",
+       "at": 0,
+       "gives": "TEN",
+       "note": "ten is a number, a figure"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "welcoming",
-         "note": "to welcome someone is to let them in, so one piece goes inside another"
+         "text": "revolutionary",
+         "at": 25,
+         "note": "revolutionary means turned round, so a followed by the vote mark is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
-           "words": "Figure",
-           "gives": "NET",
-           "note": "a net figure is the amount left after deductions"
+           "words": "a",
+           "at": 17,
+           "gives": "A"
           },
           {
-           "words": "a",
-           "note": "taken as written"
+           "words": "vote",
+           "at": 19,
+           "gives": "X",
+           "note": "X is the mark made on a ballot paper"
           }
          ]
-        },
-        {
-         "words": "vote",
-         "gives": "X",
-         "note": "a cross, X, marks a vote on a ballot paper"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A figure welcoming the ballot of a radical American politician.",
-     "walkthrough": "'Statesperson' looks like a politician, but it means a person from a US state; NET takes in A and X, then turns round.",
-     "definitionFit": "A Texan is a native or resident of Texas, so quite literally a person from one American state."
+     "surface": "A revolutionary American politician depicted as a figure that welcomes a vote.",
+     "walkthrough": "'revolutionary' turns AX into XA, and 'welcoming' puts it inside TEN.",
+     "definitionFit": "A Texan is a person from Texas, a US state, hence a 'statesperson' in the punning sense."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "statesperson"
