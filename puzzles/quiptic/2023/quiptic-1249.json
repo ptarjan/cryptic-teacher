@@ -1413,41 +1413,43 @@
      "indicators": [
       {
        "text": "has",
-       "note": "to have something is to hold it, so one piece holds the others"
+       "at": 10,
+       "note": "the miser has the other letters, holding them inside himself"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Skinflint",
-         "gives": "MISER",
-         "note": "a miser is a stingy hoarder"
-        },
-        {
-         "words": "no",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Skinflint",
+       "at": 0,
+       "gives": "MISER",
+       "note": "a skinflint is a miser"
       },
       {
-       "words": "money",
-       "gives": "M",
-       "note": "M is an abbreviation for money"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "no",
+         "at": 14
+        },
+        {
+         "words": "money",
+         "at": 17,
+         "gives": "M",
+         "note": "M is the abbreviation for money, as in £5m"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Calling a tightwad penniless would be inaccurate, since misers are usually rich.",
-     "walkthrough": "The surface is nicely self-referential: a miser claiming poverty is exactly a false label.",
-     "definitionFit": "A misnomer is an inaccurate or misleading name applied to something."
+     "surface": "Calling a skinflint penniless would be quite the wrong description of him.",
+     "definitionFit": "A misnomer is an inaccurate or unsuitable name, a label that does not fit its subject."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "has"
+     "misdirectedWord": "money"
     }
    }
   },

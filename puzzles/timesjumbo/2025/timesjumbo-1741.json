@@ -1540,47 +1540,51 @@
      "op": "container",
      "indicators": [
       {
-       "text": "welcoming"
+       "text": "welcoming",
+       "at": 15,
+       "note": "a counter welcoming guests takes them in, so the other letters go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "counter",
-         "gives": "BAR",
-         "note": "a bar is a counter"
-        },
-        {
-         "words": "extreme characters",
-         "gives": "AZ",
-         "note": "A and Z are the extreme letters of the alphabet"
-        }
-       ]
+       "words": "counter",
+       "at": 7,
+       "gives": "BAR",
+       "note": "a bar is the counter at which drinks are served"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "at first",
-         "note": "take the first letter of alienated"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "at first alienated",
-         "gives": "ALIENATED",
-         "note": "first letter of alienated"
+         "words": "extreme characters",
+         "at": 25,
+         "gives": "AZ",
+         "note": "A and Z are the letters at the two ends of the alphabet"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "at": 44,
+           "note": "at first asks for only the opening letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "alienated",
+           "at": 53,
+           "note": "its first letter is A"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A market trader welcomes some extreme characters who at first feel out of place.",
-     "walkthrough": "\"Extreme characters\" suggests odd people; it means the letters at the two ends of the alphabet.",
-     "definitionFit": "A bazaar is a market, especially one in the Middle East."
+     "surface": "A shop counter that somehow welcomes even the most estranged and extreme people.",
+     "definitionFit": "A bazaar is an oriental marketplace or a fundraising sale, so it is a kind of market."
     },
     "features": {
      "answerInScene": true,

@@ -65,7 +65,8 @@
      "indicators": [
       {
        "text": "reverse of",
-       "note": "the reverse of something is that thing read from the far end back to the start"
+       "at": 18,
+       "note": "the whole built-up string is read backwards"
       }
      ],
      "parts": [
@@ -74,42 +75,44 @@
        "indicators": [
         {
          "text": "inly",
-         "note": "inly is an old word for inwardly, so the pair named just before it goes inside the other word"
+         "at": 46,
+         "note": "inly is an old word for inwardly, so the letters are placed inside"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "artless",
-           "gives": "NAIF",
-           "note": "naif means naive, without guile"
-          },
-          {
-           "words": "I",
-           "note": "taken as written"
-          }
-         ]
+         "words": "artless",
+         "at": 29,
+         "gives": "NAIF",
+         "note": "naif means artless or naive"
         },
         {
-         "words": "judge",
-         "gives": "J",
-         "note": "J is the abbreviation for judge"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "I",
+           "at": 38
+          },
+          {
+           "words": "judge",
+           "at": 40,
+           "gives": "J"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A judge from the Pacific, honest and simple, reflects inwardly on the islanders before him.",
-     "walkthrough": "I and J go into the middle of NAIF to make NAIJIF, and the whole is then read backwards to give FIJIAN.",
-     "definitionFit": "A Fijian is a native of Fiji, an island nation in the South Pacific Ocean."
+     "surface": "A Pacific islander who is the opposite of naive, in my inward judgement.",
+     "walkthrough": "IJ goes inside NAIF to make NAIJIF, which read backwards gives the answer; 'reverse of' looks like 'opposite of', but it is a reversal.",
+     "definitionFit": "A Fijian is a native of Fiji, an island nation in the South Pacific."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "artless"
+     "misdirectedWord": "reverse"
     }
    }
   },
@@ -549,39 +552,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "splashed",
-       "note": "splashed paint lands all over the place, so its letters are scattered"
+       "text": "over",
+       "at": 50,
+       "note": "in a down clue the first part sits over, above, the second"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "splashed",
+         "at": 35,
+         "note": "paint that is splashed lands in a jumble, so its letters are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "paint",
-         "note": "these five letters rearranged"
-        },
-        {
-         "words": "item",
-         "gives": "ARTICLE",
-         "note": "an article is an item"
+         "at": 44
         }
        ]
+      },
+      {
+       "words": "item",
+       "at": 55,
+       "gives": "ARTICLE",
+       "note": "an article is an item, a single thing"
       }
      ]
     },
     "explanation": {
-     "surface": "One of two people who wreck each other spills paint over a thing.",
-     "walkthrough": "In a down clue 'over' sets the first part above the second.",
-     "definitionFit": "A particle and its antiparticle annihilate each other on meeting, so each is one half of a self-destroying pair."
+     "surface": "Someone splashed paint over an object, ruining it.",
+     "walkthrough": "PAINT rearranged gives ANTIP, placed above ARTICLE.",
+     "definitionFit": "A particle and its antiparticle annihilate each other when they meet, so each is one of a mutually destroying pair."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "destructive"
+     "misdirectedWord": "paint"
     }
    }
   },
@@ -1258,33 +1270,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "transported",
-       "note": "transported means carried off somewhere else, so these letters are moved into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "fellow",
+       "at": 12,
+       "gives": "MAN",
+       "note": "a fellow is a man"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "transported",
+         "at": 28,
+         "note": "transported means carried off, so the letters are moved into a new arrangement"
+        }
+       ],
        "parts": [
         {
-         "words": "fellow",
-         "gives": "MAN",
-         "note": "a fellow is a man"
-        },
-        {
          "words": "sang to",
-         "note": "these six letters rearranged"
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man sings to a tree in the tropics, carried away by its beauty.",
-     "definitionFit": "Mangostan is a variant of mangosteen, an East Indian tree bearing a prized tropical fruit."
+     "surface": "A man sang to an exotic tree and was carried away by rapture.",
+     "walkthrough": "SANG TO rearranged gives GOSTAN; 'transported' reads as enraptured but signals the rearrangement.",
+     "definitionFit": "Mangostan is a variant spelling of mangosteen, a tropical East Indian fruit tree."
     },
     "features": {
      "answerInScene": true,

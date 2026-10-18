@@ -1052,73 +1052,65 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the tale wraps around the words that follow"
+       "at": 11,
+       "note": "the story goes about the other letters, surrounding them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "story",
+       "at": 5,
+       "gives": "FABLE",
+       "note": "a fable is a story"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "container",
-           "parts": [
-            {
-             "words": "story",
-             "gives": "FABLE",
-             "note": "a fable is a short moral tale"
-            },
-            {
-             "words": "a",
-             "note": "taken as written"
-            }
-           ]
-          },
-          {
-           "words": "very",
-           "gives": "V",
-           "note": "V is the standard abbreviation for very"
-          }
-         ]
+         "words": "a",
+         "at": 17
+        },
+        {
+         "words": "very",
+         "at": 19,
+         "gives": "V"
         },
         {
          "words": "old",
-         "gives": "O",
-         "note": "O is the abbreviation for old"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "abridged",
-         "note": "an abridged text is cut short, so the last letter of the preceding word goes"
-        }
-       ],
-       "parts": [
-        {
-         "words": "urn",
-         "note": "taken as written before it is shortened"
+         "at": 24,
+         "gives": "O"
         },
         {
-         "gives": "N"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "abridged",
+           "at": 33,
+           "note": "abridged means shortened, so the last letter is cut off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "urn",
+           "at": 28
+          },
+          {
+           "gives": "N"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shortened account of an ancient urn is pleasingly told.",
-     "walkthrough": "The story opens after its first letter to take in the other pieces: F, then A, V, O and the clipped urn, then ABLE.",
-     "definitionFit": "A favourable report or result is a good one, so the two adjectives are synonyms."
+     "surface": "A good tale about an ancient urn, told in a shortened form.",
+     "definitionFit": "Favourable means positive or advantageous, the same as good in a 'good report' sense."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Good"
+     "misdirectedWord": "abridged"
     }
    }
   },

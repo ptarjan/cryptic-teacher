@@ -393,43 +393,50 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "around",
-       "note": "the evening wraps around what follows"
-      }
-     ],
      "parts": [
       {
        "words": "One",
+       "at": 0,
        "gives": "I",
-       "note": "the Roman numeral"
+       "note": "I is the Roman numeral for one"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "having cancelled"
+         "text": "around",
+         "at": 13,
+         "note": "the evening word goes around the remaining letter"
         }
        ],
        "parts": [
         {
          "words": "evening",
+         "at": 4,
          "gives": "NIGHT",
-         "note": "evening and night overlap"
+         "note": "night is the evening"
         },
         {
          "op": "deletion",
+         "indicators": [
+          {
+           "text": "having cancelled",
+           "at": 24,
+           "note": "cancelled means struck out, so those letters are removed"
+          }
+         ],
          "parts": [
           {
            "words": "6",
+           "at": 20,
            "gives": "SIX",
-           "note": "the number written out"
+           "note": "the number six, spelt out"
           },
           {
            "words": "9",
+           "at": 41,
            "gives": "IX",
-           "note": "nine in Roman numerals, cancelled from SIX"
+           "note": "IX is nine in Roman numerals"
           }
          ]
         }
@@ -438,9 +445,9 @@
      ]
     },
     "explanation": {
-     "surface": "A cryptic scheduling note that seems to point to other answers in the grid.",
-     "walkthrough": "6 and 9 look like cross-references to other clues; they are just numbers, one written as a word and one as a Roman numeral, so the subtraction leaves a single letter.",
-     "definitionFit": "Plain synonym: both mean a sudden clear understanding of something."
+     "surface": "Around six one evening, after calling off another plan, someone finds enlightenment.",
+     "walkthrough": "'6' and '9' look like cross-references to other clues, but they are plain numbers: one spelt out, the other in Roman numerals.",
+     "definitionFit": "Insight is a deep understanding of something, a form of enlightenment."
     },
     "features": {
      "answerInScene": false,
@@ -474,41 +481,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the northern jerk goes in the principle"
+       "at": 15,
+       "note": "the letters go in the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "principle",
-         "gives": "IDEAL",
-         "note": "a standard to live by"
-        },
-        {
-         "words": "Northern",
-         "gives": "N",
-         "note": "the usual abbreviation"
-        }
-       ]
+       "words": "principle",
+       "at": 18,
+       "gives": "IDEAL",
+       "note": "an ideal is a principle"
       },
       {
-       "words": "jerk",
-       "gives": "TIC",
-       "note": "an involuntary twitch"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Northern",
+         "at": 0,
+         "gives": "N"
+        },
+        {
+         "words": "jerk",
+         "at": 9,
+         "gives": "TIC",
+         "note": "a tic is an involuntary jerk"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Calling a northerner an idiot on principle, all the same.",
-     "walkthrough": "'Jerk' tempts as an insult; it is a twitch, and the northern jerk goes in as one unit.",
-     "definitionFit": "Plain synonym: exactly alike in every respect."
+     "surface": "A northern idiot is, in theory, exactly like everyone else.",
+     "walkthrough": "'in principle' reads as a phrase meaning theoretically; split it and 'in' places NTIC inside IDEAL.",
+     "definitionFit": "Identical means exactly alike, the same in every respect."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "jerk"
+     "misdirectedWord": "principle"
     }
    }
   },
@@ -729,8 +739,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "raised",
-       "note": "in a down clue, raised means read upwards"
+       "text": "over",
+       "at": 13,
+       "note": "in a down clue the first part sits over, above, the next"
       }
      ],
      "parts": [
@@ -738,34 +749,37 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "over",
-         "note": "in a down clue, over means placed above"
+         "text": "raised",
+         "at": 6,
+         "note": "in a down clue, raised means written upwards, so the letters run backwards"
         }
        ],
        "parts": [
         {
          "words": "Pulse",
+         "at": 0,
          "gives": "GRAM",
-         "note": "gram is a pulse, as in chickpeas"
+         "note": "gram is a pulse, the chickpea"
         }
        ]
       },
       {
        "words": "American",
-       "gives": "A",
-       "note": "the usual abbreviation"
+       "at": 18,
+       "gives": "A"
       },
       {
        "words": "Hayworth, perhaps",
+       "at": 29,
        "gives": "RITA",
-       "note": "the Hollywood star's first name"
+       "note": "Rita Hayworth was a Hollywood film star; she is one example of a Rita"
       }
      ]
     },
     "explanation": {
-     "surface": "A heartbeat quickening over a Hollywood star as she orders a drink.",
-     "walkthrough": "'Pulse' looks like a heartbeat but is the edible seed.",
-     "definitionFit": "Definition by example: a tequila, lime and orange-liqueur drink served in a salt-rimmed glass."
+     "surface": "Film star Rita Hayworth's pulse quickened as she drank a cocktail with an American.",
+     "walkthrough": "'Pulse' suggests a heartbeat, but here it is the legume.",
+     "definitionFit": "A margarita is a mixed drink of tequila, orange liqueur and lime juice."
     },
     "features": {
      "answerInScene": true,
@@ -1620,39 +1634,41 @@
      "indicators": [
       {
        "text": "welcoming",
-       "note": "the verb welcomes the letters inside"
+       "at": 9,
+       "note": "the verb welcomes the letters, taking them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Foretell",
-         "gives": "PREDICT",
-         "note": "plain synonym"
-        },
-        {
-         "words": "a",
-         "note": "used as it stands"
-        }
-       ]
+       "words": "Foretell",
+       "at": 0,
+       "gives": "PREDICT",
+       "note": "to foretell is to predict"
       },
       {
-       "words": "new",
-       "gives": "N",
-       "note": "the usual abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 19
+        },
+        {
+         "words": "new",
+         "at": 21,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prophet who warns that a new preacher is coming.",
-     "walkthrough": "The answer is a rare word from the Latin for preaching, used of Dutch Reformed ministers.",
-     "definitionFit": "Rare synonym: a preaching minister or friar."
+     "surface": "Someone foretells the welcome of a new preacher.",
+     "definitionFit": "Predicant is an old word for a preaching friar or any preaching clergyman."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Foretell"
     }
    }
   },
@@ -2159,8 +2175,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "stopping",
-       "note": "the home stops up the gap inside the host"
+       "text": "having",
+       "at": 49,
+       "note": "having means also possessing, so the argument word is attached after the rest"
       }
      ],
      "parts": [
@@ -2168,8 +2185,9 @@
        "op": "container",
        "indicators": [
         {
-         "text": "volatile",
-         "note": "volatile = unstable, so the letters are rearranged"
+         "text": "stopping",
+         "at": 26,
+         "note": "the home word stops, plugs, a gap inside the other letters"
         }
        ],
        "parts": [
@@ -2177,38 +2195,41 @@
          "op": "anagram",
          "indicators": [
           {
-           "text": "having"
+           "text": "volatile",
+           "at": 35,
+           "note": "volatile means unstable and changeable, so the letters are rearranged"
           }
          ],
          "parts": [
           {
            "words": "host",
-           "note": "anagram fodder"
+           "at": 44
           }
          ]
         },
         {
          "words": "home",
+         "at": 20,
          "gives": "NEST",
-         "note": "a bird's home"
+         "note": "a nest is a home"
         }
        ]
       },
       {
        "words": "argument",
+       "at": 56,
        "gives": "ROW",
-       "note": "a quarrel, rhyming with cow"
+       "note": "a row is an argument"
       }
      ]
     },
-    "spelling": "STONE'S THROW",
+    "spelling": "STONE'S-THROW",
     "explanation": {
-     "surface": "A short-tempered host within walking distance, arguing.",
-     "walkthrough": "'Short distance from home' reads as one phrase; the definition stops at 'distance' and 'from' links.",
-     "definitionFit": "Idiom: as far as a stone can be thrown, so very near."
+     "surface": "Not far from home, a temperamental host is having a row.",
+     "definitionFit": "A stone's throw is a short distance, roughly how far one could throw a stone."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "home"
     }
@@ -2450,36 +2471,44 @@
      "indicators": [
       {
        "text": "model",
-       "note": "to model is to shape, so the letters are reshaped"
+       "at": 9,
+       "note": "to model is to shape or mould, so the letters are formed into a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "I'll be",
+       "at": 17
+      },
+      {
+       "words": "in",
+       "at": 25
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "scratching head",
-         "note": "scratching off its head, the first letter goes"
+         "at": 33,
+         "note": "scratching out the head removes the first letter"
         }
        ],
        "parts": [
         {
-         "words": "I'll be in",
-         "note": "anagram fodder"
+         "words": "bed",
+         "at": 28
         },
         {
-         "words": "bed",
-         "gives": "ED",
-         "note": "BED without its first letter, also fodder"
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A model's lazy promise to stay in bed, scratching her head.",
-     "walkthrough": "'Model' looks like a person speaking; it is the command to reshape the letters that follow.",
-     "definitionFit": "Near synonym: impossible to remove, so lasting."
+     "surface": "A model announces she will be in bed, scratching her head.",
+     "walkthrough": "'bed' loses its head to give ED, and I'LL BE, IN and ED are rearranged; 'model' looks like a noun but is the verb.",
+     "definitionFit": "Indelible means impossible to remove or forget, permanent and lasting."
     },
     "features": {
      "answerInScene": false,
