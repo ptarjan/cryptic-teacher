@@ -1068,35 +1068,62 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 50,
+       "note": "in means the island and lifeboat pieces are placed inside the back of the boat"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "back of boat",
-         "gives": "AFT",
-         "note": "aft = the back of a boat"
-        },
-        {
-         "words": "lifeboat team wanting number",
-         "gives": "RLI",
-         "note": "the RNLI 'wanting' (lacking) N for number"
-        }
-       ]
+       "words": "back of boat",
+       "at": 53,
+       "gives": "AFT",
+       "note": "aft is the rear part of a boat"
       },
       {
-       "words": "island",
-       "gives": "I",
-       "note": "I = island"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "island",
+         "at": 12,
+         "gives": "I"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "wanting",
+           "at": 35,
+           "note": "wanting means lacking, so the number letter is taken out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lifeboat team",
+           "at": 21,
+           "gives": "RNLI",
+           "note": "the RNLI is the Royal National Lifeboat Institution, Britain's lifeboat charity"
+          },
+          {
+           "words": "number",
+           "at": 43,
+           "gives": "N"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A maritime surface hiding an answer that happens by air. The RNLI is the sort of British initialism worth having ready — setters reach for it whenever a clue goes near the sea.",
-     "definitionFit": "An evacuation by aircraft, typically of people stranded by disaster or injury, is one kind of saving: a definition by example."
+     "surface": "A helicopter plucks someone off an island while the lifeboat crew is short of a hand.",
+     "walkthrough": "The lifeboat team is Britain's Royal National Lifeboat Institution, known by its initials.",
+     "definitionFit": "An airlift is an evacuation or rescue by aircraft, transporting people or supplies by helicopter or plane."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
     }
    }
   },

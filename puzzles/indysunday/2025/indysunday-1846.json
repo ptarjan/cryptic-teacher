@@ -295,43 +295,47 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "turned up",
-       "note": "Turning something up in a down entry means writing it from the bottom towards the top, so the name is read backwards."
+       "text": "after",
+       "at": 32,
+       "note": "the Welshman follows the king in the answer, so after orders the charade"
       }
      ],
      "parts": [
       {
        "words": "king",
+       "at": 38,
        "gives": "K",
-       "note": "k is the letter on the king in both chess and cards"
+       "note": "K is the chess and card abbreviation for king"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "after",
-         "note": "What comes after the king is written below him in a down entry, so his letter heads the answer."
+         "text": "turned up",
+         "at": 22,
+         "note": "in a down clue turned up means the name is read upwards, from bottom to top"
         }
        ],
        "parts": [
         {
          "words": "Welshman",
+         "at": 13,
          "gives": "EVAN",
-         "note": "Evan is the Welsh form of John and the standard crossword Welshman"
+         "note": "Evan is a typical Welsh first name, standing for any Welshman"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Welshman showing up only once the king has arrived.",
-     "walkthrough": "'Turned up' reads as arrived and instructs you to write the name the other way round. Knave is the older name for the card now usually called the jack.",
-     "definitionFit": "The knave is the court card ranking between the ten and the queen, one of the three picture cards in each suit."
+     "surface": "A Welshman appeared after the king, like a court card in a pack.",
+     "walkthrough": "EVAN read upwards is NAVE.",
+     "definitionFit": "The knave is the jack in a deck of cards, one of the three court cards bearing a picture."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "turned"
+     "misdirectedWord": "Welshman"
     }
    }
   },
@@ -749,35 +753,50 @@
      "indicators": [
       {
        "text": "during",
-       "note": "What happens during something happens inside it, so these letters are dropped into the middle of the word named after."
+       "at": 19,
+       "note": "during means the following letters come within the diplomatic mission, so it signals a container"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "diplomatic mission",
-         "gives": "LEGATION",
-         "note": "a legation is a diplomatic mission ranking below an embassy"
-        },
-        {
-         "words": "is",
-         "note": "the word is taken as it stands"
-        }
-       ]
+       "words": "diplomatic mission",
+       "at": 26,
+       "gives": "LEGATION",
+       "note": "a legation is a diplomatic mission ranking below an embassy"
       },
       {
-       "words": "fool's last",
-       "gives": "L",
-       "note": "the last letter of FOOL"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "is",
+         "at": 4
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last",
+           "at": 14,
+           "note": "last means only the final letter of the fool is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fool's",
+           "at": 7,
+           "gives": "FOOL",
+           "note": "the fool's last is the last letter of the word fool"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fool's final turn during a diplomatic visit.",
-     "walkthrough": "'Act' is the parliamentary kind, not the performance the fool is putting on. A legation is the smaller sort of embassy, headed by a minister rather than an ambassador.",
-     "definitionFit": "Legislation is law as parliament makes it, and a single Act of Parliament is one piece of it."
+     "surface": "A jester's final act happens while on an embassy posting.",
+     "walkthrough": "'fool's last' means the final letter of the word fool; the possessive only links it.",
+     "definitionFit": "An Act of Parliament is a piece of law, and legislation is the collective term for such laws."
     },
     "features": {
      "answerInScene": false,

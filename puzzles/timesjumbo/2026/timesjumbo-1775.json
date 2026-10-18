@@ -763,48 +763,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "empty",
-         "note": "an emptied word has lost its contents, leaving only its outer letters W and D"
+         "text": "in",
+         "at": 11,
+         "note": "the scary cry is placed in the hollowed-out wasteland, so in signals one piece going inside another"
         }
        ],
        "parts": [
         {
          "op": "outer",
+         "indicators": [
+          {
+           "text": "empty",
+           "at": 14,
+           "note": "an empty word has lost its contents, leaving only its first and last letters"
+          }
+         ],
          "parts": [
           {
            "words": "wasteland",
-           "note": "outer letters of wasteland"
+           "at": 20,
+           "note": "taken as written, then emptied to its outer letters"
           }
          ]
         },
         {
          "words": "It's scary",
+         "at": 0,
          "gives": "EEK",
-         "note": "'eek!' is the cry of someone frightened"
+         "note": "EEK is the cry someone gives at something scary"
         }
        ]
       },
       {
        "words": "it's sad",
+       "at": 31,
        "gives": "AY",
-       "note": "'ay' is an old cry of sorrow, as in 'ay me'"
+       "note": "AY is an old exclamation of sorrow, as in 'ay me'"
       }
      ]
     },
     "explanation": {
-     "surface": "A gloomy aside about an eerie waste ground and the Monday-morning commute.",
-     "walkthrough": "Both 'it's' phrases stand for exclamations: EEK is what you say when scared, AY what you sigh when sad.",
-     "definitionFit": "A definition by description: a weekday is a working day, Monday to Friday."
+     "surface": "A bleak landscape is frightening, and Monday morning commuting is depressing.",
+     "walkthrough": "The 'it's sad' cry is an archaic exclamation of grief, much like alas.",
+     "definitionFit": "A weekday is a working day, Monday to Friday, the time when most people are employed at their jobs."
     },
     "features": {
      "answerInScene": true,
@@ -1026,41 +1032,59 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "with no"
+       "text": "after",
+       "at": 38,
+       "note": "the sailor is written first although the clue mentions him after, so after orders the charade"
       }
      ],
      "parts": [
       {
        "words": "sailor",
+       "at": 44,
        "gives": "AB",
-       "note": "AB is an able-bodied seaman"
+       "note": "AB, able-bodied seaman, is the usual crossword sailor"
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "after"
+         "text": "with no",
+         "at": 16,
+         "note": "with no means the following letter is taken away from the helping"
         }
        ],
        "parts": [
         {
          "words": "Another helping",
+         "at": 0,
          "gives": "SECONDS",
          "note": "seconds are a second helping of food"
         },
         {
-         "words": "end of advice",
-         "gives": "E",
-         "note": "last letter of advice, removed from SECONDS"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 24,
+           "note": "end of means only the final letter of the word advice is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "advice",
+           "at": 31,
+           "note": "taken as written, its last letter used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor takes a second plate and then, ignoring advice, deserts.",
-     "walkthrough": "Awol means absent without leave, military slang for deserting.",
-     "definitionFit": "To go Awol is to leave without permission, which is to abscond."
+     "surface": "A sailor who has eaten a second plate, minus a word of advice, deserts his post.",
+     "walkthrough": "Awol is military shorthand for absent without leave.",
+     "definitionFit": "To abscond is to run away secretly, just as a soldier or sailor absent without leave has deserted."
     },
     "features": {
      "answerInScene": true,
@@ -2067,41 +2091,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 12,
+       "note": "the reading word goes about the other pieces, surrounding them, so about signals a container"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Enjoy books",
-         "gives": "READ",
-         "note": "to enjoy books is to read"
-        },
-        {
-         "words": "the old",
-         "gives": "YE",
-         "note": "ye is the old spelling of 'the', as in Ye Olde Shoppe"
-        }
-       ]
+       "words": "Enjoy books",
+       "at": 0,
+       "gives": "READ",
+       "note": "to enjoy books is to read"
       },
       {
-       "words": "British",
-       "gives": "BR",
-       "note": "Br. = British"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the old",
+         "at": 18,
+         "gives": "YE",
+         "note": "YE is the old form of the word the"
+        },
+        {
+         "words": "British",
+         "at": 26,
+         "gives": "BR"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old Briton who likes reading and baking.",
-     "walkthrough": "'The old' is a crossword staple for YE, from signs like Ye Olde Tea Shoppe.",
-     "definitionFit": "Rye bread is baked as loaves, so a loaf defines it by type."
+     "surface": "An invitation to enjoy books about an old-fashioned British loaf.",
+     "definitionFit": "Rye bread is a type of bread baked with rye flour, often shaped and sold as a loaf."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Enjoy"
+     "misdirectedWord": "about"
     }
    }
   },
