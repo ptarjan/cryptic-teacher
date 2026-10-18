@@ -468,60 +468,66 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AFATLOTOFGOOD",
+     "op": "composite",
      "indicators": [
       {
        "text": "cooked",
-       "note": "cooking transforms ingredients, so these letters are mixed into a new order"
+       "at": 19,
+       "note": "food that is cooked has been worked over, so these letters are mixed into a new order"
+      },
+      {
+       "text": "with no",
+       "at": 26,
+       "note": "with no tells us a letter is to be left out of the mixed letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AFATLOTOFGOOD",
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Fast",
+         "at": 0
+        },
+        {
+         "words": "food",
+         "at": 5
+        },
+        {
+         "words": "galoot's",
+         "at": 10,
+         "gives": "GALOOT",
+         "note": "read as 'galoot is', so the word galoot goes into the mix and the 's is a link"
+        }
+       ]
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "with no",
-         "note": "having none of something means it is taken away from what remains"
+         "text": "end of",
+         "at": 34,
+         "note": "end of picks out the final letter of the word fries"
         }
        ],
        "parts": [
         {
-         "words": "Fast food galoot's",
-         "gives": "FASTFOODGALOOT",
-         "note": "taken as written, apostrophe and s aside"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "the end of a word is its final letter, so only that one is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "fries",
-           "note": "the last letter of fries"
-          }
-         ]
+         "words": "fries",
+         "at": 41,
+         "note": "its last letter is S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clumsy oaf makes fast food but forgets the chips, which is no help to anyone.",
-     "walkthrough": "Remove one S from the fodder before shuffling. A galoot is a clumsy oaf.",
-     "definitionFit": "The phrase is sarcastic idiom for something useless, so saying it amounts to declaring something unhelpful."
+     "surface": "A clumsy oaf's junk-food meal is spoiled, minus the chips, and is no help to anyone.",
+     "walkthrough": "FASTFOODGALOOT less the S that ends 'fries' leaves thirteen letters that 'cooked' rearranges into the phrase; the 's of galoot's is only 'is'.",
+     "definitionFit": "Saying something does a fat lot of good is sarcastic British idiom meaning it is useless and gives no help at all."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd",
      "misdirectedWord": "cooked"
     }
    }
@@ -1025,31 +1031,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PIRATES",
      "indicators": [
       {
        "text": "swapping hands",
-       "note": "exchanging one hand for the other means trading the letter for left with the letter for right"
+       "at": 32,
+       "note": "the hands are left and right, abbreviated L and R, so one is exchanged for the other"
       }
      ],
      "parts": [
       {
        "words": "exercise",
+       "at": 22,
        "gives": "PILATES",
-       "note": "Pilates is a form of exercise; its L becomes R"
+       "note": "Pilates is a popular form of exercise"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Villainous seamen are doing a workout and passing something from one hand to the other.",
-     "walkthrough": "The hands are left and right, L and R in crossword shorthand: replace the one with the other.",
-     "definitionFit": "Buccaneers who rob ships at sea are criminal seafarers, so lawless mariners describes them well."
+     "surface": "Seafarers with evil intent take a workout class, changing hands on the rope.",
+     "walkthrough": "L and R are the usual abbreviations for left and right, the two hands; trade the L in PILATES for an R.",
+     "definitionFit": "Pirates are sea robbers, the classic villainous seafarers who plunder ships."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "hands"
     }
    }

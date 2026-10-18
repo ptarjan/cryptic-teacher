@@ -50,32 +50,50 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TOASTRACK",
+     "spelt": "TOASTRACK",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner swapped the opening sounds of words, so his version of a phrase trades its initial consonants"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the two words are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "cooked food",
-       "gives": "TOASTRACK",
-       "soundsLike": "ROAST TACK",
-       "note": "roast means cooked and tack is food, as in the sailor's hardtack; swap the R and T sounds"
+       "op": "homophone",
+       "spelt": "TOAST",
+       "parts": [
+        {
+         "words": "cooked",
+         "at": 10,
+         "gives": "ROAST",
+         "note": "cooked in the oven: roast, which takes the other word's opening sound"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "RACK",
+       "parts": [
+        {
+         "words": "food",
+         "at": 17,
+         "gives": "TACK",
+         "note": "tack is old slang for food, as in hardtack; it takes the other word's opening sound"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone describes a cooked dish waiting on the breakfast table.",
-     "walkthrough": "Tack is an old word for food, best known from hardtack, the ship's biscuit. Swapping the opening sounds of ROAST TACK gives TOAST RACK.",
-     "definitionFit": "A toast rack is the slotted holder that keeps slices of toast upright beside the butter and marmalade at breakfast."
+     "surface": "Someone describes a cooked meal served at breakfast.",
+     "walkthrough": "'Spooner's' asks for the opening sounds of ROAST TACK to be swapped; tack meaning food survives in hardtack, a ship's biscuit.",
+     "definitionFit": "A toast rack is a small stand holding slices of toast upright, a fixture of the traditional British breakfast table."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "cooked"
     }
    }
@@ -726,47 +744,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BLENHEIM",
+     "op": "charade",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "doing something briefly cuts it short, so the word loses its final letter"
+       "text": "in front of",
+       "at": 37,
+       "note": "in front of places the ambassador before the following piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 7,
+         "note": "briefly means cut short, so the last letter comes off"
+        }
+       ],
        "parts": [
         {
          "words": "Mingle",
-         "gives": "BLEN",
-         "note": "blend, meaning mingle, without its last letter"
+         "at": 0,
+         "gives": "BLEND",
+         "note": "to mingle is to blend"
         },
         {
-         "words": "ambassador",
-         "gives": "HE",
-         "note": "His Excellency, an ambassador's title"
-        },
-        {
-         "words": "one's",
-         "gives": "IM",
-         "note": "one is I, and 'one's' is read as I'M"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "ambassador",
+       "at": 26,
+       "gives": "HE",
+       "note": "HE, His Excellency, is the title of an ambassador"
+      },
+      {
+       "words": "one's",
+       "at": 20,
+       "gives": "IM",
+       "note": "read as 'one is', which in the first person is I'M"
       }
      ]
     },
     "explanation": {
-     "surface": "Briefly socialising with your country's ambassador outside a royal residence.",
-     "walkthrough": "'One's' is the contraction 'one is', so with one as I it becomes I'M. HE (His Excellency) is the form of address for an ambassador.",
-     "definitionFit": "Blenheim Palace in Oxfordshire is the stately home where Winston Churchill was born, so it names a particular palace."
+     "surface": "An instruction to mix with a diplomat outside the palace gates.",
+     "walkthrough": "'briefly' cuts the end off blend; HE stands for His Excellency, the formal title of an ambassador, and one's is read as 'one is'.",
+     "definitionFit": "Blenheim Palace in Oxfordshire is the stately home of the Dukes of Marlborough and Churchill's birthplace."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Mingle"
+     "misdirectedWord": "one's"
     }
    }
   },
@@ -880,45 +910,53 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "HEADACHES",
-     "indicators": [
-      {
-       "text": "Cycling",
-       "note": "cycling sends something round in a loop, so the front letter moves to the back"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HEADACHES",
+       "op": "cycling",
        "indicators": [
         {
-         "text": "ultimately dissipated",
-         "note": "the final part has evaporated, so the word loses its last letter"
+         "text": "Cycling",
+         "at": 0,
+         "note": "cycling sends a letter round from the front of the word to its back"
         }
        ],
        "parts": [
         {
          "words": "onwards",
+         "at": 8,
          "gives": "AHEAD",
          "note": "going onwards is going ahead"
-        },
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ultimately dissipated",
+         "at": 16,
+         "note": "the final letter has vanished, so the last letter goes"
+        }
+       ],
+       "parts": [
         {
          "words": "upper body",
-         "gives": "CHES",
-         "note": "the chest, minus its last letter"
+         "at": 38,
+         "gives": "CHEST",
+         "note": "the chest is the upper part of the body"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cyclist pushes on and the upper-body aches fade away.",
-     "walkthrough": "'Upper body pains' looks like the definition, but 'upper body' is the chest and 'pains' alone defines. Move the A of AHEAD to the end.",
-     "definitionFit": "Headaches are specific aches in the head, so they are a kind of pain; the plural fits too."
+     "surface": "A cyclist pushes on until finally spent, with aches across the upper body.",
+     "walkthrough": "Move the first A of AHEAD to the end for HEADA, then add CHEST losing its last letter, CHES. 'upper body pains' looks like the definition, but only 'pains' is.",
+     "definitionFit": "Figuratively, headaches are nuisances or problems, just as a person or job can be a pain."
     },
     "features": {
      "answerInScene": true,
@@ -996,52 +1034,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARGONAUT",
-     "indicators": [
-      {
-       "text": "Unopened",
-       "note": "if something is not opened, its front stays shut away, so the first letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Unopened",
+         "at": 0,
+         "note": "unopened means its first letter is taken away"
+        }
+       ],
        "parts": [
         {
          "words": "load",
-         "gives": "ARGO",
-         "note": "cargo, a load, without its first letter"
+         "at": 9,
+         "gives": "CARGO",
+         "note": "a ship's load is its cargo"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "mixed",
-           "note": "mixing stirs things up, so the letters come out in a new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tuna",
-           "note": "taken as written"
-          }
-         ]
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mixed",
+         "at": 16,
+         "note": "mixed tells us the letters of tuna are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tuna",
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fishmonger's delivery arrives sealed: a jumble of tuna and octopus.",
-     "walkthrough": "The argonaut, or paper nautilus, is a lesser-known octopus; its name also recalls Jason's crew.",
-     "definitionFit": "The argonaut is a small ocean-going cephalopod whose female grows a papery shell, a genuine member of the octopus order."
+     "surface": "A seafood platter: a load of mixed tuna with octopus.",
+     "walkthrough": "CARGO without its opening C gives ARGO, followed by NAUT, a jumble of TUNA.",
+     "definitionFit": "The argonaut, or paper nautilus, is a pelagic octopus whose female builds a thin papery shell."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "load"
+     "misdirectedWord": "octopus"
     }
    }
   },
@@ -1296,50 +1338,76 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "BOTSWANA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "first a transfer to Far East",
-       "note": "in an across entry the east is the right-hand end, so the earliest A in the word moves to the far end"
+       "text": "to Far East",
+       "at": 49,
+       "note": "to the far east of an across answer is to its very end, where the moved letter goes"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "BOTSWANA",
        "indicators": [
         {
          "text": "leaving",
-         "note": "whatever is leaving goes away, so those letters are taken out"
+         "at": 7,
+         "note": "leaving says these letters depart from the seaman"
         }
        ],
        "parts": [
         {
-         "words": "Seaman",
-         "gives": "BOATSWAIN",
-         "note": "a boatswain is a ship's officer in charge of equipment"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "having first",
+           "at": 25,
+           "note": "having first points to the first of the seaman's two A's as the letter that moves"
+          },
+          {
+           "text": "transfer",
+           "at": 40,
+           "note": "a transfer moves a letter away from its place in the seaman, to be put back elsewhere"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Seaman",
+           "at": 0,
+           "gives": "BOATSWAIN",
+           "note": "a boatswain is a ship's officer in charge of the deck crew"
+          },
+          {
+           "gives": "A"
+          }
+         ]
         },
         {
          "words": "India",
+         "at": 15,
          "gives": "I",
-         "note": "India is I in the NATO alphabet"
+         "note": "I is India in the NATO phonetic alphabet"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 38,
+       "gives": "A",
+       "note": "the letter A, here the boatswain's first A in its new place"
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor quits India and is posted to the Far East.",
-     "walkthrough": "'Far East' suggests Asia, but it means the far right of the word. Remove the I, then move the first A to the end.",
-     "definitionFit": "Botswana is a landlocked nation in southern Africa, so it is a country, despite the Asian hint in the surface."
+     "surface": "A sailor quits India and, after a transfer, is posted to a country further east.",
+     "walkthrough": "BOATSWAIN 'leaving' its I gives BOATSWAN; its first A takes a 'transfer to Far East', the right-hand end of the word. 'Far East country' wants to be the definition; it is only 'country'.",
+     "definitionFit": "Botswana is a landlocked nation in southern Africa, a sovereign state like any other."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "East"
+     "misdirectedWord": "transfer"
     }
    }
   },
@@ -1463,41 +1531,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOUSE",
-     "indicators": [
-      {
-       "text": "decapitated",
-       "note": "losing the head means losing the first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "large",
+       "at": 28,
+       "gives": "L",
+       "note": "L is the abbreviation for large, as on clothing labels"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "decapitated",
+         "at": 13,
+         "note": "decapitated loses its head, the first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "large",
-         "gives": "L",
-         "note": "L is the abbreviation for large"
+         "words": "Small animal",
+         "at": 0,
+         "gives": "MOUSE",
+         "note": "a mouse is a small animal"
         },
         {
-         "words": "Small animal",
-         "gives": "OUSE",
-         "note": "a mouse without its first letter"
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mouse is beheaded by a big rat.",
-     "walkthrough": "'Rat' looks like the killer in the scene, but it is the definition: a contemptible person. 'By' places L beside the beheaded mouse.",
-     "definitionFit": "Both words are insults for a despicable, untrustworthy person, so calling someone a rat or a louse means the same."
+     "surface": "A little creature beheaded by a big rodent.",
+     "walkthrough": "'Small animal' wants to be the definition, but it is the mouse that loses its head; the definition is 'rat', a contemptible person.",
+     "definitionFit": "Both are insults for a despicable person: a louse and a rat are each a scoundrel."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "rat"
     }
    }
@@ -1746,46 +1818,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SETONFIRE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "finally going",
-       "note": "when the end goes, the word loses its final letter"
+       "text": "travelling",
+       "at": 29,
+       "note": "travelling means these letters move about into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "It's",
+       "at": 0,
+       "gives": "ITS",
+       "note": "taken as its letters, the apostrophe ignored"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "travelling",
-         "note": "things travelling move about, so the letters end up rearranged"
+         "text": "finally going",
+         "at": 9,
+         "note": "the final letter goes, so the last letter of one is lost"
         }
        ],
        "parts": [
         {
-         "words": "It's",
-         "note": "taken as written, apostrophe dropped"
-        },
-        {
          "words": "one",
-         "gives": "ON",
-         "note": "the word without its last letter"
+         "at": 5
         },
         {
-         "words": "free",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "free",
+       "at": 23
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is finally released and travels with little luggage.",
-     "walkthrough": "'Travelling light' is a ready-made phrase, but 'light' is the definition, a verb meaning to kindle.",
-     "definitionFit": "To light a fire or candle is to make it burn, which is exactly what setting something ablaze does."
+     "surface": "Someone finally gets away free and travels light.",
+     "walkthrough": "ITS, ON (one with its last letter gone) and FREE are rearranged together; 'light' is a verb here, not the adjective of travelling light.",
+     "definitionFit": "To light something is to ignite it, to make it burn."
     },
     "features": {
      "answerInScene": false,

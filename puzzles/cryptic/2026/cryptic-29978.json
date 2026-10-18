@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -50,35 +51,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "retiring",
-       "note": "A retiring person backs out of the room, and the word in front of this one backs out of the clue the same way, letter by letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Ladies' organisation",
+       "at": 0,
+       "gives": "WI",
+       "note": "the WI, Women's Institute, is a British women's community organisation"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retiring",
+         "at": 27,
+         "note": "retiring means drawing back, so the word names is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "names retiring",
-         "gives": "NAMES",
-         "note": "NAMES written out from the back"
-        },
-        {
-         "words": "Ladies' organisation",
-         "gives": "IW",
-         "note": "the WI is the Women's Institute, the British countrywomen's organisation of jam and Jerusalem"
+         "words": "names",
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A women's group announcing the name of a bashful stage conjuror.",
-     "walkthrough": "Reid Wiseman commands Artemis II, and three more of that crew are hiding elsewhere in this grid at 19, 20 and 21. 'Retiring' is shyness in the surface and an instruction in the wordplay.",
-     "definitionFit": "A wise man is a magus, and the magi of the nativity were astrologers and conjurors; folk tales still use the phrase for the village sorcerer."
+     "surface": "A women's group releases the names of members who are stepping down, including a conjuror.",
+     "walkthrough": "The Women's Institute is a long-running British women's organisation famous for jam-making; 'retiring' here means going backwards, not leaving office.",
+     "definitionFit": "A wise man is a sage or wizard, and the Magi of the Nativity were magicians, the three wise men."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retiring"
     }
    }
   },
@@ -103,61 +110,70 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WHOOSH",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at the outset",
+       "at": 63,
+       "note": "at the outset puts that letter at the very start of the answer"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "mostly",
-         "note": "Most of a word is all of it bar the final letter, so that last letter is left behind."
-        },
-        {
-         "text": "at the outset",
-         "note": "This says where the letter belongs rather than which letter it is: right at the front of the assembly."
+         "text": "first of",
+         "at": 45,
+         "note": "first of picks out the opening letter of whistles"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "W",
-         "indicators": [
-          {
-           "text": "first of",
-           "note": "Only the first item out of a set is wanted, which for a word means its opening letter and nothing else."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "first of whistles at the outset",
-           "gives": "W",
-           "select": "first",
-           "note": "the opening letter of 'whistles', posted to the very start"
-          }
-         ]
-        },
-        {
-         "words": "covering mostly",
-         "gives": "HOO",
-         "note": "a hood is a covering, and most of it is everything except the final letter"
-        },
-        {
-         "words": "quiet",
-         "gives": "SH",
-         "note": "sh is the noise you make when you are asking for quiet"
+         "words": "whistles",
+         "at": 54,
+         "note": "its first letter is W"
         }
        ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 32,
+         "note": "mostly means all but the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "covering",
+         "at": 23,
+         "gives": "HOOD",
+         "note": "a hood is a covering for the head"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "quiet",
+       "at": 39,
+       "gives": "SH",
+       "note": "sh is the call for quiet"
       }
      ]
     },
     "explanation": {
-     "surface": "A train's noise blanketing a quiet platform where the whistles are only just starting.",
-     "walkthrough": "'Covering' looks like a container instruction telling you to wrap one piece around another. It is a noun here — the hood on a coat — and it hands over letters of its own.",
-     "definitionFit": "A whoosh is the rushing noise made by something tearing past, and an express through a station is where most people hear it."
+     "surface": "The noise of a fast train, muffled by hush, with whistles sounding at departure.",
+     "walkthrough": "'High-speed train' looks like the thing described, but the whole phrase 'High-speed train sound' is the definition.",
+     "definitionFit": "A whoosh is the rushing noise of something passing at speed, like an express flashing by."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
     }
    }
   },
@@ -182,41 +198,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SKIERS",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "Something upset has been tipped over, and the pair of letters it applies to come out in the opposite order."
-      },
-      {
-       "text": "on board",
-       "note": "Anything carried on board sits inside the ship, so what the clue names next goes between the two letters the ship supplies."
-      }
-     ],
+     "op": "container",
      "parts": [
       {
-       "op": "container",
+       "words": "on board",
+       "at": 20,
+       "gives": "SS",
+       "note": "on board means in a steamship, SS, so the other letters go between its two S's"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "tummy upset",
+         "at": 8,
+         "note": "the tummy is the middle of a word, and upset turns those middle letters over"
+        }
+       ],
        "parts": [
         {
-         "words": "on board",
-         "gives": "SS",
-         "note": "SS is the prefix on a steamship's name, and being on board puts everything else between the two letters"
+         "words": "PM",
+         "at": 0,
+         "gives": "KEIR",
+         "note": "Keir Starmer became UK Prime Minister in 2024"
         },
         {
-         "words": "PM with tummy upset",
-         "gives": "KIER",
-         "note": "Keir Starmer is the British prime minister, and the tummy of his name is the middle pair of letters, tipped over"
+         "gives": "EI"
+        },
+        {
+         "gives": "IE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A seasick prime minister on a ship, being handed a pair of slippers.",
-     "walkthrough": "'Slippers' wants to be footwear and means people who slip instead. 'Tummy' is a playful name for the middle of a word, and only that middle pair gets turned round.",
-     "definitionFit": "Skiers slip downhill on purpose, so the definition is the word read literally — people who slip — rather than the things you put on indoors."
+     "surface": "The Prime Minister feels queasy aboard a ship and ends up with house shoes.",
+     "walkthrough": "Keir Starmer became UK Prime Minister in 2024; 'tummy upset' flips just the middle two letters of his name, and 'on board' is the crossword convention for going inside a steamship. 'slippers' are not footwear but people who slip.",
+     "definitionFit": "Skiers glide or slide over snow, so cryptically they are people who slip along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "slippers"
     }
    }
   },
@@ -391,48 +416,54 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "APPORTION",
-     "indicators": [
-      {
-       "text": "saving",
-       "note": "Saving something means keeping it safe inside, which is where the letter named here ends up."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "words": "program",
+       "at": 6,
+       "gives": "APP",
+       "note": "an app is a computer program"
+      },
+      {
+       "words": "or",
+       "at": 14
+      },
+      {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "APPORTION",
        "indicators": [
         {
          "text": "backs",
-         "note": "To back out is to go the other way, so the letters it applies to are written from the end to the start."
+         "at": 24,
+         "note": "backs means goes backwards, so these pieces are read in reverse"
         }
        ],
        "parts": [
         {
          "op": "charade",
+         "indicators": [
+          {
+           "text": "saving",
+           "at": 30,
+           "note": "saving here means keeping time as well, tacked onto the end before the turn"
+          }
+         ],
          "parts": [
           {
-           "words": "program",
-           "gives": "APP",
-           "note": "an app is the program on your phone"
+           "words": "no",
+           "at": 17,
+           "gives": "NO",
+           "note": "taken as written"
           },
           {
-           "words": "or",
-           "note": "the word is used as it stands"
+           "words": "one",
+           "at": 20,
+           "gives": "I",
+           "note": "one is the Roman numeral I"
           },
           {
            "words": "time",
-           "gives": "T",
-           "note": "t is the standard abbreviation for time"
-          },
-          {
-           "words": "no one backs",
-           "gives": "ION",
-           "note": "NO plus I for one, then written out backwards"
+           "at": 37,
+           "gives": "T"
           }
          ]
         }
@@ -441,9 +472,14 @@
      ]
     },
     "explanation": {
-     "surface": "Nobody is backing the time-saving software, so it may as well be split up.",
-     "walkthrough": "'Backs' reads as support in the surface and as a turnaround instruction in the wordplay, and 'one' is the Roman numeral I — a convention the clue never signals.",
-     "definitionFit": "To apportion is to divide something into shares and hand them out, so the definition matches as a verb: you apportion blame, you share it out."
+     "surface": "An app, or nobody, holds on to time so it can be divided up.",
+     "walkthrough": "'saving' just means with time added on, and 'backs' turns the whole of no, one and time round together, so time ends up first.",
+     "definitionFit": "To apportion is to divide something up and allot each party a share of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "program"
     }
    }
   },
@@ -644,27 +680,51 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "Said briefly, a word gives up its last letter, and the shortened form is what the wordplay uses."
-      },
-      {
        "text": "unstable",
-       "note": "Something unstable will not hold the shape it was handed, so these letters do not stay in the order the clue lists them."
+       "at": 27,
+       "note": "unstable letters are not fixed in place, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "A sun proven briefly",
-       "gives": "ASUNPROVE",
-       "note": "nine letters of fodder once 'proven' has been cut short"
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "sun",
+       "at": 2
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 13,
+         "note": "briefly means cut short, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "proven",
+         "at": 6
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A star shown, for a moment, to be anything but steady.",
-     "walkthrough": "'Briefly' has to be spotted or the count comes out wrong — nine letters of fodder, not ten. Read straight, the same word says the instability did not last long.",
-     "definitionFit": "A star that turns catastrophically unstable and blows itself apart is what the whole sentence describes, which is why every word can be read straight."
+     "surface": "A star shown, for a short while, to be on the point of exploding.",
+     "walkthrough": "A, SUN and PROVE (proven cut short) are rearranged; read whole, the clue describes the thing itself.",
+     "definitionFit": "A supernova is the explosion of a star, typically a sun that has grown unstable at the end of its life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "proven"
     }
    }
   },
@@ -690,50 +750,54 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "STRAGGLERS",
      "indicators": [
       {
-       "text": "maybe",
-       "note": "Flags a loose fit: wrestlers are one kind of the people the wordplay word covers, not the whole of them."
-      },
-      {
-       "text": "at first",
-       "note": "Only the front letter of the word beside it is taken, the rest of that word doing nothing."
+       "text": "being",
+       "at": 34,
+       "note": "being here means becoming, so one letter turns into another"
       }
      ],
      "parts": [
       {
        "words": "wrestlers maybe",
+       "at": 11,
        "gives": "STRUGGLERS",
-       "note": "wrestlers grapple, and anyone grappling with something is a struggler"
+       "note": "wrestlers struggle with each other, so they are an example of strugglers"
+      },
+      {
+       "words": "united",
+       "at": 27,
+       "gives": "U",
+       "note": "U is the abbreviation for united, as in football team names"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "being",
-         "note": "Marks an exchange — one letter stops being itself and the letter named next takes over its place."
+         "text": "at first",
+         "at": 53,
+         "note": "at first picks out the opening letter of acknowledged"
         }
        ],
        "parts": [
         {
-         "words": "united",
-         "note": "u is the standard abbreviation for united, as in the football clubs"
+         "words": "acknowledged",
+         "at": 40,
+         "note": "its first letter is A"
         }
        ]
-      },
-      {
-       "words": "acknowledged at first",
-       "gives": "A",
-       "note": "the opening letter of 'acknowledged', which moves into the place vacated"
       }
      ]
     },
     "explanation": {
-     "surface": "The last few wrestlers, brought together and finally getting some recognition.",
-     "walkthrough": "'Those last' looks like the start of a longer definition about wrestlers, and it is the whole of it. Wordplay word and answer differ by a single letter, U giving way to A.",
-     "definitionFit": "Stragglers are the ones trailing at the back of a march or a race, so the definition names them by where they end up in the line."
+     "surface": "Wrestlers, perhaps, finally recognised as a united group.",
+     "walkthrough": "In STRUGGLERS the U of 'united' is 'being' replaced by the A that starts acknowledged, picked out by 'at first'.",
+     "definitionFit": "Stragglers trail behind the rest, the ones who finish or arrive last."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wrestlers"
     }
    }
   },
@@ -1384,47 +1448,54 @@
     "definitions": [
      {
       "text": "It's fine, so they say now",
-      "at": 0,
-      "note": "The definition is a whole sentence rather than a straight noun: the answer is only ever met inside one set phrase, and the clue points at the phrase instead of the word."
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TOOTHCOMB",
-     "indicators": [
-      {
-       "text": "evenly-divided",
-       "note": "Cut into two equal halves, and it is the front half of the four-letter word that is kept."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "very",
+       "at": 28,
+       "gives": "TOO",
+       "note": "too means very, as in not too bad"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "evenly-divided",
+         "at": 39,
+         "note": "divide the word evenly in two and keep only the first half"
+        }
+       ],
        "parts": [
         {
-         "words": "very",
-         "gives": "TOO",
-         "note": "too hot means very hot"
-        },
-        {
          "words": "thin",
-         "gives": "TH",
-         "note": "the four-letter word split down the middle, front half kept"
+         "at": 33
         },
         {
-         "words": "dress",
-         "gives": "COMB",
-         "note": "to dress hair is to comb it, the sense a hairdresser uses"
+         "gives": "IN"
         }
        ]
+      },
+      {
+       "words": "dress",
+       "at": 54,
+       "gives": "COMB",
+       "note": "to dress hair is to comb it"
       }
      ]
     },
     "explanation": {
-     "surface": "A dress so thin and so neatly halved that someone insists it is perfectly fine.",
-     "walkthrough": "'Dress' is hairdressing, not clothing: to dress hair is to comb it. The definition runs all the way to 'now', which is the setter's nod to how people say the phrase these days.",
-     "definitionFit": "It is the close-toothed comb you search hair with, and 'so they say now' owns up to the modern habit of writing the tool's name as one word."
+     "surface": "Someone calls a very thin, neatly split garment fine nowadays.",
+     "walkthrough": "The proper phrase is fine-tooth comb, but people say fine toothcomb, hence 'so they say'. Thin halved gives TH.",
+     "definitionFit": "A toothcomb is a comb with fine closely-set teeth, which people commonly call a fine toothcomb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "dress"
     }
    }
   },
