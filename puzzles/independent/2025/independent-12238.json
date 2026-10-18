@@ -121,31 +121,47 @@
      "indicators": [
       {
        "text": "cancelling",
-       "note": "to cancel something is to strike it out, so letters are removed from the longer word"
+       "at": 9,
+       "note": "the half-word is cancelled, struck out of the word for suggests"
       }
      ],
      "parts": [
       {
        "words": "Suggests",
+       "at": 0,
        "gives": "INTIMATES",
-       "note": "to intimate is to hint or suggest"
+       "note": "to intimate something is to suggest or hint at it"
       },
       {
-       "words": "half of time",
-       "gives": "TI",
-       "note": "the first two of the four letters of 'time'"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 20,
+         "note": "half of the four-letter word time is its first two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time",
+         "at": 28
+        },
+        {
+         "gives": "ME"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A proposal to halve the time served by prisoners.",
-     "walkthrough": "Take TI out of INTIMATES and INMATES remains.",
-     "definitionFit": "Inmates are people confined in an institution, most commonly those held in a jail."
+     "surface": "Someone proposes reducing a sentence, halving the time the prisoners serve.",
+     "walkthrough": "'half of' time gives TI, and 'cancelling' strikes those two letters out of INTIMATES. The surface makes 'time' a prison sentence, but it is only the source of the letters.",
+     "definitionFit": "Inmates are the people confined in a prison or other institution."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Suggests"
+     "misdirectedWord": "time"
     }
    }
   },
@@ -170,42 +186,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CONSUMERS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Filleted",
-       "note": "filleting removes the bones from the middle, so the inner letters of the word are taken out"
+       "text": "cooked",
+       "at": 22,
+       "note": "cooked means prepared or doctored, so the letters are worked into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "cooked",
-         "note": "cooking transforms raw ingredients, so the letters are mixed into a new order"
+         "text": "Filleted",
+         "at": 0,
+         "note": "a filleted fish has its insides removed, so main loses its two middle letters"
         }
        ],
        "parts": [
         {
          "words": "main",
-         "gives": "MN",
-         "note": "the word with its middle letters A and I removed"
+         "at": 9
         },
         {
-         "words": "courses",
-         "note": "taken as written"
+         "gives": "AI"
         }
        ]
+      },
+      {
+       "words": "courses",
+       "at": 14
       }
      ]
     },
     "explanation": {
-     "surface": "A restaurant serves boned main courses prepared for its customers.",
-     "walkthrough": "'Main courses' reads as one dish, but only 'main' is filleted; its remains, MN, join COURSES as the letters to rearrange.",
-     "definitionFit": "Patrons are customers of a business, and consumers are the people who buy and use goods or services."
+     "surface": "A restaurant serves its customers boned fish as the main course.",
+     "walkthrough": "'Filleted' guts MAIN to MN, and 'cooked' rearranges MN with COURSES. The dining scene suggests 'patrons' are diners, which fits the definition neatly.",
+     "definitionFit": "Patrons are a business's customers, the people who buy and consume what it sells."
     },
     "features": {
      "answerInScene": true,
@@ -235,66 +253,70 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PARANORMAL",
-     "indicators": [
-      {
-       "text": "topless",
-       "note": "without a top means the first letter is lost from the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "father",
+       "at": 6,
+       "gives": "PA",
+       "note": "pa is an informal word for father"
+      },
+      {
+       "words": "organised",
+       "at": 13,
+       "gives": "RAN",
+       "note": "to run an event is to organise it, so organised is ran"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 23,
+         "note": "a topless word has lost its top, the first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "father",
-         "gives": "PA",
-         "note": "PA is an informal word for father"
-        },
-        {
-         "words": "organised",
-         "gives": "RAN",
-         "note": "to run an event is to organise it"
-        },
-        {
          "words": "model",
-         "gives": "ORM",
-         "note": "NORM, a standard or model, without its first letter"
+         "at": 31,
+         "gives": "NORM",
+         "note": "a norm is a model or standard to follow"
         },
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "AL",
-         "indicators": [
-          {
-           "text": "every now and then",
-           "note": "something done now and then happens at intervals, so only alternate letters are kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "ball",
-           "gives": "AL",
-           "select": "alternate",
-           "note": "the second and fourth letters of the word"
-          }
-         ]
+         "gives": "N",
+         "note": "the first letter of norm, the top that a topless word loses"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "every now and then",
+         "at": 52,
+         "note": "every now and then means taking only every other letter of ball"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ball",
+         "at": 47,
+         "note": "its second and fourth letters are A and L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A strange tale of a dad who arranged for a topless model to go to a dance.",
-     "walkthrough": "'Topless model' looks like a person in the scene, but the model is NORM, a standard, which loses its N.",
-     "definitionFit": "Paranormal describes events beyond scientific explanation, such as ghosts, which are commonly called weird or uncanny."
+     "surface": "An odd father arranges for a topless model to come to a dance now and again.",
+     "walkthrough": "'topless' cuts NORM to ORM, and 'every now and then' keeps A and L, the second and fourth letters of ball. 'model' tempts as a person; it is a norm.",
+     "definitionFit": "Paranormal things lie beyond scientific explanation, so they are uncanny or strange."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "model"
     }
    }
@@ -533,31 +555,31 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "CLASP",
      "indicators": [
       {
        "text": "pair at the bottom exchanging places",
-       "note": "two items at the foot that exchange places swap their order, so the final two letters are turned round"
+       "at": 14,
+       "note": "the last two letters of the word swap round, the bottom pair in a down answer"
       }
      ],
      "parts": [
       {
        "words": "applauds",
+       "at": 5,
        "gives": "CLAPS",
-       "note": "to applaud is to clap"
+       "note": "to clap is to applaud, so applauds is claps"
       }
      ]
     },
     "explanation": {
-     "surface": "A boxing hook, applause, and two people at the bottom of the table swapping positions.",
-     "walkthrough": "The 'pair at the bottom' is the last two letters of CLAPS, P and S, which swap to give CLASP.",
-     "definitionFit": "A clasp is a fastening device, such as a hook and eye, that holds two parts of something together."
+     "surface": "An audience claps a duo who swap positions at the foot of the stage.",
+     "walkthrough": "Only the 'pair at the bottom exchanging places' of CLAPS moves: its P and S swap round, and the rest stays put.",
+     "definitionFit": "A clasp is a fastening, such as a hook that catches on a loop or eye."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Hook"
+     "misdirectedWord": "applauds"
     }
    }
   },
@@ -1864,36 +1886,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "WORKS",
      "indicators": [
       {
        "text": "replaced by",
-       "note": "one thing replaced by another is swapped out, so a letter changes"
+       "at": 4,
+       "note": "the 500 letter is replaced by, swapped out for, the 1,000 letter"
       }
      ],
      "parts": [
       {
+       "words": "accounts",
+       "at": 25,
+       "gives": "WORDS",
+       "note": "someone's word is their account of events, so accounts can be words"
+      },
+      {
        "words": "500",
+       "at": 0,
        "gives": "D",
        "note": "D is the Roman numeral for 500"
       },
       {
        "words": "1,000",
+       "at": 16,
        "gives": "K",
-       "note": "K stands for a thousand, as in 10K"
-      },
-      {
-       "words": "accounts",
-       "gives": "WORDS",
-       "note": "an account is a spoken report, and to have words is to give one's account"
+       "note": "K, for kilo, stands for a thousand"
       }
      ]
     },
     "explanation": {
-     "surface": "In a company's books, the figure 500 has been changed to 1,000.",
-     "walkthrough": "'Accounts' suggests bookkeeping, but it means WORDS, as in spoken accounts; its D swaps for K.",
-     "definitionFit": "Works as a verb means operates or does its job properly, which is what something that functions does."
+     "surface": "An accounting entry of 500 has been altered to 1,000 in the books.",
+     "walkthrough": "'replaced by' swaps the D in WORDS for K. 'accounts' looks like bookkeeping, as do the figures; here accounts are what people say.",
+     "definitionFit": "The works of a machine are its working parts, so they are the functions or mechanism."
     },
     "features": {
      "answerInScene": false,

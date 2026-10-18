@@ -158,37 +158,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TIDDLER",
-     "indicators": [
-      {
-       "text": "cut tail off",
-       "note": "cutting off a tail removes the final letter of a word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 4,
+         "note": "the cat's name is cut short, losing its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "Cat",
-         "gives": "TIDDLE",
-         "note": "Tiddles, a stock pet name for a cat in Britain, losing its end"
+         "at": 0,
+         "gives": "TIDDLES",
+         "note": "Tiddles is a stock British pet name for a cat"
         },
         {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "tail off",
+         "at": 8,
+         "note": "the tail of a word is its last letter, here taken off the end of freshwater"
+        }
+       ],
+       "parts": [
+        {
          "words": "freshwater",
-         "gives": "R",
-         "note": "R for river, the home of fresh water"
+         "at": 17,
+         "note": "its last letter is R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's cat bit the tail off a little freshwater crustacean.",
-     "walkthrough": "'Freshwater shrimp' reads as a single creature, but the definition is just 'shrimp', a small person or thing. Tiddles is a traditional British cat's name, like Fido for a dog.",
-     "definitionFit": "A shrimp is slang for a small person, and a tiddler is a tiny fish or a small child, so both mean a little one."
+     "surface": "Someone's cat has bitten the tail off a small freshwater shrimp.",
+     "walkthrough": "'cut' docks TIDDLES to TIDDLE, and 'tail off' takes the R from freshwater. 'freshwater shrimp' looks like the definition, but only 'shrimp' is.",
+     "definitionFit": "A shrimp, informally, is a very small person or creature, and a tiddler is a little fish or child."
     },
     "features": {
      "answerInScene": true,
@@ -1244,42 +1259,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PRISON",
+     "op": "container",
      "indicators": [
       {
-       "text": "not closed",
-       "note": "a word not closed has no ending, so its final letter is dropped"
+       "text": "in",
+       "at": 7,
+       "note": "the word is goes in the shortened word for flat"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "something in another thing is placed within it"
+         "text": "not closed",
+         "at": 16,
+         "note": "a word not closed is left without its closing, final letter"
         }
        ],
        "parts": [
         {
          "words": "flat",
-         "gives": "PRON",
-         "note": "prone means lying flat, here without its last letter"
+         "at": 10,
+         "gives": "PRONE",
+         "note": "lying flat is lying prone"
         },
         {
-         "words": "is",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "is",
+       "at": 4
       }
      ]
     },
     "explanation": {
-     "surface": "A tin is inside an apartment, with the door left open.",
-     "walkthrough": "'Can' looks like a verb or a tin, but it is slang for jail; PRONE loses its E and IS goes inside.",
-     "definitionFit": "The can is American slang for jail, so it names the place where convicts are locked up."
+     "surface": "A tin can is sitting in an apartment whose door is open.",
+     "walkthrough": "'flat' reads as an apartment but means lying face down, and 'Can' is the slang word for a jail, not a tin.",
+     "definitionFit": "Can is American slang for jail, the place where offenders are locked up."
     },
     "features": {
      "answerInScene": false,

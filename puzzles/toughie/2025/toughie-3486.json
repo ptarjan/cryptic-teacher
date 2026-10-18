@@ -426,42 +426,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WHITEFLAG",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "being reduced by 25 per cent",
-       "note": "cutting a quarter off a four-letter word removes one letter, here its tail"
+       "text": "extraordinary",
+       "at": 25,
+       "note": "extraordinary means out of the ordinary, so the letters leave their ordinary order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "wealth",
+       "at": 39
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "extraordinary",
-         "note": "extraordinary means out of the usual order, so the letters are rearranged"
+         "text": "being reduced by 25 per cent",
+         "at": 52,
+         "note": "gift has four letters, so reducing it by a quarter drops one, its last"
         }
        ],
        "parts": [
         {
-         "words": "wealth",
-         "note": "taken as written"
+         "words": "gift",
+         "at": 47
         },
         {
-         "words": "gift",
-         "gives": "GIF",
-         "note": "the word for a present loses its last quarter, one of four letters"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone surrenders a great fortune, a donation trimmed by a quarter.",
-     "walkthrough": "'Yielding' looks like it describes generous wealth, but it means surrendering.",
-     "definitionFit": "Waving a pale banner is the traditional signal of surrender in war, so you would show it when giving in."
+     "surface": "A deal on offer: a yielding party hands over great wealth, though the gift shrinks by a quarter.",
+     "walkthrough": "'being reduced by 25 per cent' cuts GIFT to GIF, and 'extraordinary' rearranges WEALTH with GIF. 'yielding' belongs to the definition, meaning surrendering.",
+     "definitionFit": "Troops surrendering wave a white flag, the recognised signal of truce or capitulation."
     },
     "features": {
      "answerInScene": false,
@@ -688,12 +690,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ELITIST",
      "indicators": [
       {
        "text": "taken in by",
-       "note": "being taken in means being held inside, so the first piece sits within the second"
+       "at": 6,
+       "note": "the two letters are taken in by, held inside, the rearranged title"
       }
      ],
      "parts": [
@@ -702,33 +703,36 @@
        "indicators": [
         {
          "text": "fancy",
-         "note": "fancy means elaborate or made up, signalling the letters are rearranged"
+         "at": 18,
+         "note": "fancy as an adjective means elaborate, so the letters of title are dressed up in a new order"
         }
        ],
        "parts": [
         {
-         "words": "One's",
-         "gives": "IS",
-         "note": "one is I, and 's is is"
-        },
-        {
          "words": "title",
-         "note": "the word title rearranged"
+         "at": 24
         }
        ]
+      },
+      {
+       "words": "One's",
+       "at": 0,
+       "gives": "IS",
+       "note": "one is I and the 's is is, so one's reads as I'S"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Someone is fooled by a grand-sounding title.",
-     "walkthrough": "The whole clue is both wordplay and definition: a snob is exactly the sort impressed by a fancy title.",
-     "definitionFit": "Someone who looks up to a select class and is dazzled by rank fits the word for a snobbish person."
+     "surface": "A wry question: is someone being swayed by an impressive-sounding title?",
+     "walkthrough": "Read as a whole the clue also describes the answer: a snob impressed by a grand title. 'fancy' doubles as the verb, to fancy titles.",
+     "definitionFit": "An elitist favours a privileged few and so is impressed by rank and grand titles."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "taken"
+     "joke": "pun",
+     "misdirectedWord": "fancy"
     }
    }
   },
@@ -1139,48 +1143,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OBLIVIOUS",
+     "op": "container",
      "indicators": [
       {
-       "text": "half-",
-       "note": "half means only part of the following word is kept, its front portion"
+       "text": "breaching",
+       "at": 21,
+       "note": "the shortened word is breaching, breaking into, the word for patent"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "patent",
+       "at": 31,
+       "gives": "OBVIOUS",
+       "note": "patent means plain to see, obvious"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "breaching",
-         "note": "breaching means breaking into, so one piece enters the other"
+         "text": "half",
+         "at": 11,
+         "note": "half of the four-letter word life keeps its first two letters"
         }
        ],
        "parts": [
         {
-         "words": "patent",
-         "gives": "OBVIOUS",
-         "note": "patent means plain or evident"
+         "words": "life",
+         "at": 16
         },
         {
-         "words": "life",
-         "gives": "LI",
-         "note": "the front two letters of the word life"
+         "gives": "FE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone ignorant of the half-life of a substance breaching a patent.",
-     "walkthrough": "'Half-life' reads as the physics term, but it means half of the word life.",
-     "definitionFit": "Being oblivious means having no awareness of something, which is to be unaware."
+     "surface": "Someone is ignorant of radioactive decay rates breaking a patent.",
+     "walkthrough": "'half-life' reads as the physics term; split it, so 'half' keeps LI of life. Patent is used in its adjective sense, plainly evident, not the inventor's licence.",
+     "definitionFit": "Someone oblivious of a thing has no awareness of it, being completely unconscious of it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "half-life"
+     "misdirectedWord": "patent"
     }
    }
   },

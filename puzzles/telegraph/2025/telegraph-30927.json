@@ -1520,24 +1520,32 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "ahead of",
+       "at": 30,
+       "note": "the shortened word comes ahead of, before, the reversed city"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LOC",
+       "op": "deletion",
        "indicators": [
         {
          "text": "75 per cent",
-         "note": "three quarters of a four-letter word is its first three letters"
+         "at": 11,
+         "note": "three quarters of a four-letter word keeps its first three letters and loses the last"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "secure",
-         "gives": "LOC",
-         "select": "first",
-         "note": "to secure a door is to lock it; three of its four letters"
+         "at": 23,
+         "gives": "LOCK",
+         "note": "to secure a door is to lock it"
+        },
+        {
+         "gives": "K"
         }
        ]
       },
@@ -1546,23 +1554,25 @@
        "indicators": [
         {
          "text": "uprising",
-         "note": "in a down clue something rising reads from the bottom up, so 'city' goes backwards"
+         "at": 44,
+         "note": "in a down clue an uprising reads the city's letters from bottom to top"
         }
        ],
        "parts": [
         {
          "words": "city",
+         "at": 39,
          "gives": "LA",
-         "note": "LA = Los Angeles"
+         "note": "LA, Los Angeles, is the usual crossword city"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A neighbourhood pub is three-quarters secured before a city riot.",
-     "walkthrough": "'Uprising' suggests a revolt but in a down clue means written upwards. 'Ahead of' puts LOC above the reversed city.",
-     "definitionFit": "In Britain your local is the pub closest to home that you visit regularly."
+     "surface": "A neighbourhood pub is three-quarters secure ahead of a riot in the city.",
+     "walkthrough": "'75 per cent' keeps LOC of LOCK, and 'uprising' turns LA into AL. A local is the British name for the pub nearest one's home.",
+     "definitionFit": "In Britain your local is the public house closest to where you live and the one you drink in regularly."
     },
     "features": {
      "answerInScene": true,
