@@ -674,39 +674,48 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "in",
-       "note": "in company is read as joining the company word, which leads with the thousands following it"
+       "at": 13,
+       "note": "the two thousand are placed in the middle of company and stop"
       }
      ],
      "parts": [
       {
-       "words": "company",
-       "gives": "CO",
-       "note": "CO is the abbreviation for company"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "company",
+         "at": 16,
+         "gives": "CO"
+        },
+        {
+         "words": "stop",
+         "at": 24,
+         "gives": "END",
+         "note": "to end something is to stop it"
+        }
+       ]
       },
       {
        "words": "Two thousand",
+       "at": 0,
        "gives": "MM",
-       "note": "M is the Roman numeral for a thousand, twice"
-      },
-      {
-       "words": "stop",
-       "gives": "END",
-       "note": "to end is to stop"
+       "note": "M is the Roman numeral for a thousand, so two of them is MM"
       }
      ]
     },
     "explanation": {
-     "surface": "A firm of two thousand staff halts work to pay tribute.",
-     "definitionFit": "To salute someone is to praise or honour them publicly, as when you commend their work."
+     "surface": "A firm of two thousand halts work to pay tribute.",
+     "walkthrough": "'Company stop' reads as a firm halting, but the thousands sit between its two pieces.",
+     "definitionFit": "To commend is to praise formally, as one might salute someone's courage."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "stop"
+     "misdirectedWord": "salute"
     }
    }
   },

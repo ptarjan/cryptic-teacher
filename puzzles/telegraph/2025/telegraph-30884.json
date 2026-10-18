@@ -49,31 +49,47 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HORSECOLLARS",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner famously swapped the opening sounds of words, so the starts of two words are exchanged"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "crude shouts",
-       "gives": "HORSECOLLARS",
-       "soundsLike": "COARSE HOLLERS",
-       "note": "crude means coarse and shouts are hollers; swap the opening sounds of the two words"
+       "op": "homophone",
+       "spelt": "CORSE",
+       "parts": [
+        {
+         "words": "crude",
+         "at": 10,
+         "gives": "COARSE",
+         "note": "coarse means crude, said like 'corse'"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "HOLLARS",
+       "parts": [
+        {
+         "words": "shouts",
+         "at": 16,
+         "gives": "HOLLERS",
+         "note": "hollers are shouts, said like 'hollars'"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone shouting rudely at a stable over the tack for horses.",
-     "walkthrough": "Swap the opening sounds of COARSE HOLLERS and you get HORSE COLLARS.",
-     "definitionFit": "Horse collars are padded harness pieces worn by draught animals, so they are gear for horses."
+     "surface": "Vulgar yells, turned by Spooner into horse tack.",
+     "walkthrough": "'Coarse hollers' with the opening sounds swapped becomes 'horse collars'.",
+     "definitionFit": "Horse collars are padded rings round a draught horse's neck, part of its harness."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "crude"

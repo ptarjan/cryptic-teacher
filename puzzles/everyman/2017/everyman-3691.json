@@ -729,59 +729,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LIVERWORTS",
-     "indicators": [
-      {
-       "text": "bad",
-       "note": "a bad arrangement is a wrong one, so the next word's letters are reordered"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "survive",
+       "at": 7,
+       "gives": "LIVE",
+       "note": "to survive is to live"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginnings of",
+         "at": 15,
+         "note": "beginnings means the first letters of rough and weather"
+        }
+       ],
        "parts": [
         {
-         "words": "survive",
-         "gives": "LIVE",
-         "note": "to survive is to live on"
-        },
+         "words": "rough weather",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "RW",
-         "indicators": [
-          {
-           "text": "beginnings of",
-           "note": "beginnings asks for only the opening letter of each following word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "rough weather",
-           "gives": "RW",
-           "select": "first",
-           "note": "first letters of the two words"
-          }
-         ]
-        },
+         "text": "bad",
+         "at": 44,
+         "note": "bad means faulty, so the letters of sort are put in a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "sort",
-         "note": "the fodder for the rearrangement"
+         "at": 48
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some hardy greenery holds out against a storm, though it is a poor kind.",
-     "definitionFit": "Liverworts are small flowerless green plants related to mosses, growing in damp places."
+     "surface": "Plants getting through a spell of storms, a rough lot.",
+     "definitionFit": "Liverworts are small flowerless green plants related to mosses."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "bad"
     }
    }
   },

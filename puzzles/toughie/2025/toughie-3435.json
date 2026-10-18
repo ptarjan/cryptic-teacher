@@ -985,32 +985,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HANDCART",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner swapped the opening sounds of words, so the initial sounds are exchanged"
+       "at": 17,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the two words are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "tinned venison",
-       "gives": "HANDCART",
-       "soundsLike": "CANNED HART",
-       "note": "tinned is canned and a hart is a male deer, whose meat is venison"
+       "op": "homophone",
+       "spelt": "CAND",
+       "parts": [
+        {
+         "words": "tinned",
+         "at": 27,
+         "gives": "CANNED",
+         "note": "tinned food is canned, which is said like 'cand'"
+        }
+       ]
+      },
+      {
+       "words": "venison",
+       "at": 34,
+       "gives": "HART",
+       "note": "a hart is a male deer, the source of venison"
       }
      ]
     },
     "explanation": {
-     "surface": "A little cart carrying the Reverend's tins of deer meat.",
-     "definitionFit": "A handcart is a small cart pushed or pulled by hand, a small wagon."
+     "surface": "A little cart, joked to be carrying deer meat in a tin.",
+     "walkthrough": "'Canned hart' with its opening sounds swapped becomes 'hand cart'.",
+     "definitionFit": "A handcart is a small cart pushed or pulled by hand, a little wagon."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "venison"
     }
    }
@@ -1678,45 +1689,50 @@
      "indicators": [
       {
        "text": "housing",
-       "note": "housing something means holding it inside"
+       "at": 4,
+       "note": "the key holds the following letters inside it like a house"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Key",
+       "at": 0,
+       "gives": "ALT",
+       "note": "Alt is a key on a computer keyboard"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "Key",
-         "gives": "ALT",
-         "note": "the Alt key on a computer keyboard"
-        },
         {
          "op": "last",
          "indicators": [
           {
            "text": "close to",
-           "note": "the close of a word is its end, so only the final letter is taken"
+           "at": 12,
+           "note": "close to here means the end of, so the last letter is taken"
           }
          ],
          "parts": [
           {
            "words": "Saint-Malo",
-           "note": "final letter"
+           "at": 21
           }
          ]
+        },
+        {
+         "words": "France",
+         "at": 33,
+         "gives": "F",
+         "note": "F is the international vehicle code for France"
         }
        ]
-      },
-      {
-       "words": "France",
-       "gives": "F",
-       "note": "the international vehicle code for France"
       }
      ]
     },
     "explanation": {
-     "surface": "A harbour near the French port of Saint-Malo, seen from above.",
-     "definitionFit": "Aloft means up in the air or overhead, high up."
+     "surface": "A key held near a Breton port, perched somewhere lofty.",
+     "walkthrough": "Saint-Malo is a port in Brittany, but only its closing letter is used.",
+     "definitionFit": "Aloft is an adverb meaning overhead or in the air, synonymous with high up."
     },
     "features": {
      "answerInScene": false,

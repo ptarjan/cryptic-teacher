@@ -1193,8 +1193,7 @@
     "definitions": [
      {
       "text": "Illicit whiskey",
-      "at": 0,
-      "note": "the answer is the plural noun"
+      "at": 0
      }
     ],
     "wordplay": {
@@ -1202,49 +1201,32 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the pieces sit inside the word for chambers"
+       "at": 34,
+       "note": "the word for even is placed in the chambers, inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Chambers",
-         "gives": "POS",
-         "note": "pos are chamber pots, plural of po"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "term for",
-           "note": "a term is an end point, so only the final letter of the next word is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "it",
-           "note": "the end of the word"
-          }
-         ]
-        }
-       ]
+       "words": "Chambers",
+       "at": 37,
+       "gives": "POTS",
+       "note": "chambers are chamber pots, pots"
       },
       {
-       "words": "even",
+       "words": "term for it even",
+       "at": 17,
        "gives": "EEN",
-       "note": "e'en is the poetic contraction of even"
+       "note": "e'en is the poetic term for even"
       }
      ]
     },
     "explanation": {
-     "surface": "A note that the term for illicit whiskey is listed even in the Chambers dictionary.",
-     "walkthrough": "Chambers looks like the dictionary every Mephisto solver uses, but it means chamber pots. A po is a chamber pot.",
-     "definitionFit": "Poteen is Irish whiskey distilled privately without a licence, hence illicit."
+     "surface": "A dictionary entry for moonshine, listed even in Chambers.",
+     "walkthrough": "Chambers looks like the dictionary, but here it means chamber pots.",
+     "definitionFit": "Poteen is Irish moonshine, spirit distilled privately without a licence."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Chambers"
@@ -1272,39 +1254,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "fancy",
-       "note": "fancy as a verb means to imagine freely, so the letters are freely rearranged"
+       "text": "before",
+       "at": 9,
+       "note": "before puts the tea word ahead of the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "tea",
+       "at": 5,
+       "gives": "CHA",
+       "note": "cha is a slang word for tea"
+      },
+      {
+       "words": "noon",
+       "at": 16,
+       "gives": "N"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fancy",
+         "at": 29,
+         "note": "fancy as an adjective means elaborate, so the letters of you are worked into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "tea",
-         "gives": "CHA",
-         "note": "cha is slang for tea"
-        },
-        {
-         "words": "noon",
-         "gives": "N",
-         "note": "N is an abbreviation for noon"
-        },
-        {
          "words": "you",
-         "note": "the three letters rearranged"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An invitation to a tea party before midday that you might enjoy.",
-     "walkthrough": "'It' in the definition points back to tea: the answer is a ceremony involving tea.",
-     "definitionFit": "Chanoyu is the Japanese tea ceremony, a ritual preparation and serving of green tea."
+     "surface": "An invitation to drink tea before midday in an elaborate ritual.",
+     "walkthrough": "The 'it' of the definition is the tea.",
+     "definitionFit": "Cha-no-yu is the Japanese tea ceremony, a formal ritual of preparing and serving tea."
     },
     "features": {
      "answerInScene": true,
@@ -1389,39 +1380,41 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the earlier pieces are placed inside the state abbreviation"
+       "at": 11,
+       "note": "the adult and view are placed in the state abbreviation, inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Pennsylvania",
-         "gives": "PA",
-         "note": "standard US state abbreviation"
-        },
-        {
-         "words": "Adult",
-         "gives": "A",
-         "note": "A is the film certificate for adult"
-        }
-       ]
+       "words": "Pennsylvania",
+       "at": 14,
+       "gives": "PA"
       },
       {
-       "words": "view",
-       "gives": "LOOK",
-       "note": "to view is to look"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Adult",
+         "at": 0,
+         "gives": "A",
+         "note": "A is the film certificate for adult"
+        },
+        {
+         "words": "view",
+         "at": 6,
+         "gives": "LOOK",
+         "note": "a look is a view"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An adult film viewed in Pennsylvania reveals someone awkward.",
-     "walkthrough": "A is the old British film certificate for adult viewing.",
-     "definitionFit": "Palooka is American slang for a stupid or clumsy person, originally a poor boxer."
+     "surface": "A grown-up's opinion in an American state reveals an oaf.",
+     "definitionFit": "Palooka is American slang for a stupid, awkward person, especially an inept boxer."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "view"
     }
