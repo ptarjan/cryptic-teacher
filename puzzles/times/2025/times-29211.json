@@ -161,39 +161,39 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "LIONHEARTED",
+     "indicators": [
+      {
+       "text": "dancing",
+       "at": 4,
+       "note": "dancing letters move about into a new order"
+      },
+      {
+       "text": "encapsulates",
+       "at": 23,
+       "note": "the leotard takes in the dancing man, so all the letters move together in one pool"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "dancing",
-         "note": "letters that dance move about into a new order"
-        },
-        {
-         "text": "encapsulates",
-         "note": "to encapsulate is to enclose"
-        }
-       ],
-       "parts": [
-        {
-         "words": "in leotard",
-         "note": "IN LEOTARD rearranged"
-        },
-        {
-         "words": "Man",
-         "gives": "HE",
-         "note": "he = a man"
-        }
-       ]
+       "words": "Man",
+       "at": 0,
+       "gives": "HE",
+       "note": "he stands for a man"
+      },
+      {
+       "words": "in",
+       "at": 12
+      },
+      {
+       "words": "leotard",
+       "at": 15
       }
      ]
     },
     "explanation": {
-     "surface": "A male dancer in a leotard shows a lot of nerve.",
-     "walkthrough": "'Man dancing' looks like one phrase to jumble; in fact 'Man' is just HE and 'dancing' works on the next two words.",
-     "definitionFit": "Daring is courage, and the lion is the proverbial emblem of a brave heart, as in Richard the Lionheart."
+     "surface": "A dancer in a leotard showing plenty of nerve.",
+     "walkthrough": "HE (man) and IN join the letters of LEOTARD, all rearranged together.",
+     "definitionFit": "Lionhearted means brave like a lion, which is courageous and bold."
     },
     "features": {
      "answerInScene": false,
@@ -704,51 +704,44 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "originally",
-       "note": "the original letter of a word is its first"
+       "text": "in adaptation of",
+       "at": 26,
+       "note": "an adaptation reworks the material, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "in"
+         "text": "originally",
+         "at": 15,
+         "note": "originally points to the opening letter of used"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "adaptation of",
-           "note": "an adaptation reworks the material into a new form"
-          }
-         ],
-         "parts": [
-          {
-           "words": "used originally",
-           "note": "first letter of used"
-          }
-         ]
-        },
-        {
-         "words": "Cinderella",
-         "note": "anagram fodder with U, 11 letters"
+         "words": "used",
+         "at": 10,
+         "note": "first letter"
         }
        ]
+      },
+      {
+       "words": "Cinderella",
+       "at": 43
       }
      ]
     },
     "explanation": {
-     "surface": "A composer's piece was used in a stage version of the fairy tale.",
-     "walkthrough": "'2' points to the answer at 2 down, DEBUSSY; his best-known piano piece is Clair de Lune.",
-     "definitionFit": "Clair de Lune is the third movement of Debussy's Suite bergamasque."
+     "surface": "A composer's piece used in an adapted Cinderella ballet.",
+     "walkthrough": "2 is the composer at clue 2, Debussy; U joins CINDERELLA and everything is rearranged.",
+     "definitionFit": "Clair de Lune is Debussy's famous piano movement from the Suite bergamasque."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "adaptation"
+     "misdirectedWord": "Cinderella"
     }
    }
   },
@@ -1150,47 +1143,65 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "nearly",
-       "note": "nearly all of the word: drop its last letter"
-      },
-      {
-       "text": "upset",
-       "note": "in a down clue, upset turns the letters upside down, reading them upwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 22,
+         "note": "in a down clue, upset turns the letters upside down, reading them backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "an",
-         "gives": "NA",
-         "note": "an is used as is"
-        },
-        {
-         "words": "ego",
-         "gives": "I",
-         "note": "I = ego, the self"
-        },
-        {
-         "words": "Trump nearly upset",
-         "gives": "POTU",
-         "note": "Trump was POTUS, President of the United States; nearly gives POTU, upset UTOP"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "ego",
+           "at": 5,
+           "gives": "I",
+           "note": "I is the self, the ego"
+          },
+          {
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "nearly",
+             "at": 15,
+             "note": "nearly drops the last letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Trump",
+             "at": 9,
+             "gives": "POTUS",
+             "note": "Trump was POTUS, President of the United States"
+            },
+            {
+             "gives": "S"
+            }
+           ]
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "an",
+       "at": 28
       }
      ]
     },
     "explanation": {
-     "surface": "An egotistical president almost upsets a dreamer.",
-     "walkthrough": "The surface reads Trump as the man himself; the wordplay wants his title, POTUS.",
-     "definitionFit": "A utopian is a visionary who believes in an ideal society."
+     "surface": "A political jibe about Trump's ego upsetting an idealist.",
+     "walkthrough": "I plus POTU (POTUS nearly) reversed gives UTOPI, then AN.",
+     "definitionFit": "A utopian is a visionary who believes in a perfect society, a dreamer."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Trump"
     }
@@ -1388,39 +1399,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ALPHACENTAURI",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captured by",
+       "at": 36,
+       "note": "the rearranged letters are held inside the abbreviation"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "artificial intelligence",
+       "at": 48,
+       "gives": "AI"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "unstable",
-         "note": "unstable letters won't stay put and fall into a new order"
-        },
-        {
-         "text": "captured by"
+         "at": 14,
+         "note": "unstable letters do not keep their order"
         }
        ],
        "parts": [
         {
-         "words": "artificial intelligence",
-         "gives": "AI",
-         "note": "AI = artificial intelligence"
+         "words": "nuclear",
+         "at": 23
         },
         {
-         "words": "nuclear path",
-         "note": "NUCLEAR PATH rearranged"
+         "words": "path",
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A robot seizes control of a runaway reactor's route through the stars.",
-     "walkthrough": "The science-fiction surface fits the answer, which is the nearest star system to the Sun.",
-     "definitionFit": "Alpha Centauri is a triple star system, our nearest stellar neighbour."
+     "surface": "A sci-fi warning that an AI has seized control of a dangerous nuclear path.",
+     "definitionFit": "Alpha Centauri is the nearest stellar system to the Sun, a triple star."
     },
     "features": {
      "answerInScene": true,
@@ -1571,44 +1588,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SERGEANT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "when ingesting",
+       "at": 20,
+       "note": "the rearranged letters take the drug inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "awfully",
-         "note": "done awfully, badly, the letters come out jumbled"
-        },
-        {
-         "text": "ingesting"
+         "at": 4,
+         "note": "awfully suggests the letters are badly jumbled"
         }
        ],
        "parts": [
         {
          "words": "strange",
-         "note": "STRANGE rearranged"
-        },
-        {
-         "words": "Ecstasy",
-         "gives": "E",
-         "note": "E = the drug ecstasy"
+         "at": 12
         }
        ]
+      },
+      {
+       "words": "Ecstasy",
+       "at": 35,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
       }
      ]
     },
     "explanation": {
-     "surface": "A corporal behaves very oddly after taking a pill.",
-     "walkthrough": "NCO is a non-commissioned officer, such as a corporal or sergeant.",
-     "definitionFit": "A sergeant is a non-commissioned officer."
+     "surface": "A non-commissioned officer behaving oddly after taking drugs.",
+     "definitionFit": "A sergeant is a non-commissioned officer rank in the army."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Ecstasy"
+     "misdirectedWord": "strange"
     }
    }
   }

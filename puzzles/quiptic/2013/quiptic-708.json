@@ -907,51 +907,53 @@
      "op": "charade",
      "parts": [
       {
-       "words": "three",
-       "gives": "THERE",
-       "note": "the letters of three rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "moved",
+         "at": 20,
+         "note": "letters moved around take a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "three",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "aloft",
+       "at": 26,
+       "gives": "UP",
+       "note": "aloft means up"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "going back",
-         "note": "going back means travelling in the opposite direction, so the word is read backwards"
+         "at": 41,
+         "note": "going back reads the word no backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "moved",
-           "note": "things moved are shifted around, so the letters change places"
-          }
-         ],
-         "parts": [
-          {
-           "words": "aloft",
-           "gives": "UP",
-           "note": "aloft means up high"
-          },
-          {
-           "words": "no",
-           "note": "the word no, turned round"
-          }
-         ]
+         "words": "no",
+         "at": 38
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Three people were carried upstairs and could not get back down.",
-     "definitionFit": "Thereupon means immediately after that, at that moment in a sequence of events."
+     "surface": "Three people lifted upwards with no way of retreating.",
+     "definitionFit": "Thereupon is a formal adverb meaning immediately after that, at that moment."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "no"
+     "misdirectedWord": "aloft"
     }
    }
   },
@@ -1316,50 +1318,53 @@
      "indicators": [
       {
        "text": "receiving",
-       "note": "receiving means taking something in, so one piece goes inside the other"
+       "at": 27,
+       "note": "the miser takes in the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Scrooge",
-         "gives": "MISER",
-         "note": "Scrooge, from Dickens's A Christmas Carol, is the archetypal miser"
-        },
-        {
-         "words": "no",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Scrooge",
+       "at": 19,
+       "gives": "MISER",
+       "note": "Scrooge, Dickens's tightwad, is a miser"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "originally",
-         "note": "originally points to the beginning, so only a word's first letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "money",
-         "note": "the first letter of money"
+         "words": "no",
+         "at": 37
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 47,
+           "note": "originally picks the first letter of money"
+          }
+         ],
+         "parts": [
+          {
+           "words": "money",
+           "at": 40,
+           "note": "first letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Calling Scrooge penniless would be the wrong word for him.",
-     "walkthrough": "Scrooge, the skinflint of Dickens's A Christmas Carol, is the standard crossword miser; the container wraps both short pieces at once.",
-     "definitionFit": "A misnomer is a wrong or inaccurate name or label."
+     "surface": "Calling Scrooge stingy is a wrong label if he got no money at first.",
+     "definitionFit": "A misnomer is a wrong or inaccurate name for something."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "originally"
+     "misdirectedWord": "Scrooge"
     }
    }
   },
