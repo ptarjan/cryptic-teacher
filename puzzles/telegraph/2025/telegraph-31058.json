@@ -847,59 +847,73 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ADJACENT",
-     "indicators": [
-      {
-       "text": "flustered",
-       "note": "flustered means agitated and confused, so the remaining letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ADJACENT",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "leaving",
-         "note": "leaving means departing, so that letter goes out of the name"
+         "text": "flustered",
+         "at": 32,
+         "note": "a flustered person is thrown into confusion, so the remaining letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "American",
-         "gives": "A",
-         "note": "A is the abbreviation for American"
-        },
-        {
-         "words": "J D Vance",
-         "note": "the US politician's name as written"
-        },
-        {
-         "words": "very",
-         "gives": "V",
-         "note": "V is the abbreviation for very"
-        },
-        {
-         "words": "temperature",
-         "gives": "T",
-         "note": "T is the abbreviation for temperature"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "leaving",
+           "at": 19,
+           "note": "the abbreviation for very departs from the letters of the name, so it is taken away"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "American",
+             "at": 0,
+             "gives": "A"
+            },
+            {
+             "words": "J D",
+             "at": 9
+            },
+            {
+             "words": "Vance",
+             "at": 13
+            }
+           ]
+          },
+          {
+           "words": "very",
+           "at": 27,
+           "gives": "V",
+           "note": "V is the usual abbreviation for very, as in music and dictionaries"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "temperature",
+       "at": 43,
+       "gives": "T",
+       "note": "T is the scientific symbol for temperature"
       }
      ]
     },
     "explanation": {
-     "surface": "A news snippet: the US politician walks out very agitated, as tempers run near boiling.",
-     "walkthrough": "Take the V out of A plus J D Vance, mix the rest, and add T.",
-     "definitionFit": "Adjacent means next to or nearby, so it is a synonym of close as an adjective."
+     "surface": "A political sketch: the US vice-president storming out in a fluster while the heat in the room rises.",
+     "walkthrough": "'leaving very' removes V from A + JD + VANCE, leaving AJDANCE; 'flustered' rearranges those letters into ADJACEN, and T for temperature finishes it.",
+     "definitionFit": "Adjacent and close both mean near or neighbouring, lying next to something; they are synonyms as adjectives."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "temperature"
+     "misdirectedWord": "close"
     }
    }
   },

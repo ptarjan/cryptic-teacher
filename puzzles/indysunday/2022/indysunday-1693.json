@@ -548,42 +548,59 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "COTTAGEPIE",
      "indicators": [
       {
        "text": "for cooking",
-       "note": "cooking transforms ingredients, so the letters are mixed up into a new form"
+       "at": 41,
+       "note": "cooking suggests ingredients being worked over, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "COTTAGEPIE",
        "indicators": [
         {
          "text": "with no",
-         "note": "having no part of something means it is left out"
+         "at": 15,
+         "note": "the named letter is left out of the words before it"
         }
        ],
        "parts": [
         {
-         "words": "Get a nice pot",
-         "note": "eleven letters taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Get",
+           "at": 0
+          },
+          {
+           "words": "a",
+           "at": 4
+          },
+          {
+           "words": "nice",
+           "at": 6
+          },
+          {
+           "words": "pot",
+           "at": 11
+          }
+         ]
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "end of",
+           "at": 23,
            "note": "the end of a word is its final letter"
           }
          ],
          "parts": [
           {
            "words": "decoration",
-           "note": "final letter"
+           "at": 30,
+           "note": "the word decoration supplies its final letter, N"
           }
          ]
         }
@@ -592,14 +609,14 @@
      ]
     },
     "explanation": {
-     "surface": "Buy a pretty plain pan to bake a meat dish in.",
-     "walkthrough": "Remove the N from the eleven letters, then rearrange the remaining ten. Cottage pie is a British dish of minced beef topped with mashed potato.",
-     "definitionFit": "Cottage pie is minced beef under a potato crust, so it is an example of a meat dish."
+     "surface": "Kitchen advice: buy a pretty pot, but skip the fancy decoration if it is just for cooking.",
+     "walkthrough": "'end of decoration' is N; 'with no' takes it out of GET A NICE POT, leaving GETAICEPOT, and 'for cooking' rearranges those ten letters.",
+     "definitionFit": "Cottage pie is a British dish of minced beef topped with mashed potato and baked, so a meat dish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pot"
+     "misdirectedWord": "cooking"
     }
    }
   },
@@ -1569,29 +1586,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NERVE",
      "indicators": [
       {
        "text": "switching initial directions",
-       "note": "switching one compass point for another at the start replaces the opening letter"
+       "at": 20,
+       "note": "the first letter is a compass point, south, and it is exchanged for the opposite point, north"
       }
      ],
      "parts": [
       {
        "words": "Be in the military",
+       "at": 0,
        "gives": "SERVE",
        "note": "to serve is to be a member of the armed forces"
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Joining the army, changing your career path, takes courage.",
-     "walkthrough": "The S (south) at the front of SERVE becomes N (north).",
-     "definitionFit": "Nerve means courage or daring, as in 'losing your nerve', so it is a synonym for bravery."
+     "surface": "A soldier changing course in the field to prove their courage.",
+     "walkthrough": "'switching initial directions' swaps the opening S (south) of SERVE for N (north).",
+     "definitionFit": "Nerve means courage or daring, as in losing your nerve, so it is a synonym for bravery."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "directions"
     }
@@ -1787,62 +1810,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "COHABIT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "in Cuba",
-       "note": "being in somewhere means being placed inside it"
+       "text": "in",
+       "at": 43,
+       "note": "the over and the start of holiday are set in Cuba, placed straight after its single letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Cuba",
+       "at": 46,
+       "gives": "C",
+       "note": "C is the international vehicle registration code for Cuba"
+      },
+      {
+       "words": "over",
+       "at": 21,
+       "gives": "O",
+       "note": "O is the cricket scorer's abbreviation for an over"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start of",
+         "at": 26,
+         "note": "the start of a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Cuba",
-         "gives": "C",
-         "note": "C is Cuba's international vehicle registration code"
-        },
-        {
-         "words": "over",
-         "gives": "O",
-         "note": "O is the cricket scorecard abbreviation for an over"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "start of",
-           "note": "the start of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "holiday",
-           "note": "first letter"
-          }
-         ]
-        },
-        {
-         "words": "Not a huge amount",
-         "gives": "ABIT",
-         "note": "a bit is a small amount"
+         "words": "holiday",
+         "at": 35,
+         "note": "the word holiday supplies its first letter, H"
         }
        ]
+      },
+      {
+       "words": "Not a huge amount",
+       "at": 52,
+       "gives": "ABIT",
+       "note": "a bit is a small amount"
       }
      ]
     },
     "explanation": {
-     "surface": "Couples argue over whether to holiday in Cuba, but not much.",
-     "walkthrough": "O and H go inside C, then A BIT follows. In cricket an over is six balls, abbreviated O.",
-     "definitionFit": "To cohabit is to live together without being married, which many unmarried couples choose to do."
+     "surface": "Couples taking a short holiday in Cuba on a modest budget.",
+     "definitionFit": "To cohabit is to live together without being married, which is what many couples choose to do."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "over"
+     "aptDefinition": true,
+     "misdirectedWord": "Cuba"
     }
    }
   },

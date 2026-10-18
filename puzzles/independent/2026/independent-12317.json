@@ -202,12 +202,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "JUDICIAL",
      "indicators": [
       {
        "text": "not half",
-       "note": "each word keeps only half of its letters"
+       "at": 30,
+       "note": "each of the four words loses half its letters, keeping only its first two"
       }
      ],
      "parts": [
@@ -216,38 +215,36 @@
        "parts": [
         {
          "words": "June",
-         "gives": "JU",
-         "note": "first half of JUNE"
+         "at": 5
         },
         {
          "words": "dice",
-         "gives": "DI",
-         "note": "first half of DICE"
+         "at": 11
         },
         {
          "words": "cigs",
-         "gives": "CI",
-         "note": "first half of CIGS"
+         "at": 17
         },
         {
          "words": "ales",
-         "gives": "AL",
-         "note": "first half of ALES"
+         "at": 23
         }
        ]
+      },
+      {
+       "gives": "NECEGSES"
       }
      ]
     },
     "explanation": {
-     "surface": "A list of vices from a summer fair: gambling, smoking and beer, with an emphatic British 'not half!'",
-     "walkthrough": "'Fair' pretends to be a funfair in June; it is the adjective. 'Not half!' is British slang for 'very much so', here taken literally.",
-     "definitionFit": "Judicial can mean fair and impartial, as a judge should be."
+     "surface": "A summer list of vices: dice, cigarettes and beer, cheerfully dismissed with the slangy 'not half!'.",
+     "walkthrough": "'not half' keeps the front half of each word: JU, DI, CI and AL. 'Not half!' is British slang for 'very much so', which disguises the instruction.",
+     "definitionFit": "Judicial can mean impartial or judge-like in weighing matters, a sense close to fair; the adjectives match."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Fair"
+     "aptDefinition": false,
+     "misdirectedWord": "half"
     }
    }
   },
@@ -437,39 +434,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COUNTRY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 15,
+       "note": "the rearranged letters go about, that is around, the abbreviation for new"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Excited",
-         "note": "the letters of OUTCRY are stirred up"
-        },
-        {
-         "text": "about"
+         "at": 0,
+         "note": "excited suggests agitation, so the letters of outcry are rearranged"
         }
        ],
        "parts": [
         {
          "words": "outcry",
-         "note": "OUTCRY rearranged"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "N = new"
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "new",
+       "at": 21,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Fans cry out in excitement at a new song from a star.",
-     "walkthrough": "2/7D is JOHNNY CASH, from 2 and 7 down; country is the music he sang.",
-     "definitionFit": "Johnny Cash was a country music singer."
+     "surface": "Fans cheering wildly at fresh songs from a famous singer.",
+     "walkthrough": "'Excited' rearranges OUTCRY into COUTRY, and 'about' wraps it round N. The cross-reference points to JOHNNY CASH, the solutions at 2 and 7 down.",
+     "definitionFit": "Johnny Cash was a leading figure of country music, the American genre rooted in folk and western song."
     },
     "features": {
      "answerInScene": true,
@@ -1061,51 +1061,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STONED",
+     "op": "charade",
      "indicators": [
       {
-       "text": "beginning of",
-       "note": "the beginning of a word is its first letter"
+       "text": "over",
+       "at": 18,
+       "note": "in a down clue, one piece sitting over another comes before it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "wobbly",
-         "note": "the letters of NOTES are shaken up"
-        },
-        {
-         "text": "over"
+         "at": 11,
+         "note": "something wobbly is unsteady, so the letters of notes are rearranged"
         }
        ],
        "parts": [
         {
          "words": "notes",
-         "gives": "STONE",
-         "note": "NOTES rearranged"
-        },
+         "at": 5
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "beginning of duet",
-         "gives": "D",
-         "note": "first letter of duet"
+         "text": "beginning of",
+         "at": 23,
+         "note": "the beginning of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "duet",
+         "at": 36,
+         "note": "the word duet supplies its first letter, D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A singer's high notes waver at the start of a duet.",
-     "walkthrough": "'High' reads as pitch; it is the slang for intoxicated.",
-     "definitionFit": "A slang sense: both describe someone intoxicated, usually on cannabis."
+     "surface": "A singer hitting shaky top notes at the start of a duet.",
+     "walkthrough": "'High' looks like a musical pitch next to 'notes', but it means intoxicated.",
+     "definitionFit": "Stoned is slang for intoxicated by drugs, which is also what high means in that slang sense."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "High"
     }
    }
@@ -1131,45 +1138,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PRISON",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "then",
+       "at": 19,
+       "note": "then means next in order, so the second piece comes after the jumbled letters"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "fighting",
-         "note": "letters that are fighting get knocked about out of their order"
-        },
-        {
-         "text": "then",
-         "note": "then means next in sequence"
+         "at": 5,
+         "note": "fighting suggests a scuffle, so the three letters are thrown into disorder"
         }
        ],
        "parts": [
         {
          "words": "RIP",
-         "note": "RIP rearranged"
-        },
-        {
-         "words": "junior",
-         "gives": "SON",
-         "note": "a son may be a junior, sharing his father's name"
+         "at": 15
         }
        ]
+      },
+      {
+       "words": "junior",
+       "at": 24,
+       "gives": "SON",
+       "note": "a son is a junior, as in Smith Junior"
       }
      ]
     },
     "explanation": {
-     "surface": "A cage fighter's death is announced, and then his son steps in.",
-     "walkthrough": "'Cage fighting' looks like one phrase; 'Cage' is the definition and 'fighting' the anagram instruction. Johnny Cash famously played prison concerts.",
-     "definitionFit": "A plain synonym used loosely: to cage someone is to lock them up, and a cage is a place of confinement."
+     "surface": "A cage fighter's bout ending in a death, mourned by the family's next generation.",
+     "walkthrough": "'Cage fighting?' reads as the combat sport, but the definition stops at 'Cage'; RIP is anagram fodder, not an epitaph.",
+     "definitionFit": "A prison confines people as a cage confines animals; a cage is a figurative term for a jail."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "fighting"
+     "misdirectedWord": "Cage"
     }
    }
   },
@@ -1294,41 +1304,40 @@
      "indicators": [
       {
        "text": "following",
-       "note": "to follow is to come after"
+       "at": 14,
+       "note": "the second piece comes after the first in the answer"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "UP",
        "indicators": [
         {
          "text": "to begin with",
-         "note": "each word is used only for what it begins with, its first letter"
+         "at": 39,
+         "note": "to begin with means taking the opening letter of each of the two words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Uruguayan peso to begin with",
-         "gives": "UP",
-         "select": "first",
-         "note": "first letters of Uruguayan and peso"
+         "words": "Uruguayan peso",
+         "at": 24,
+         "note": "the two words supply their first letters, U and P"
         }
        ]
       },
       {
        "words": "pound",
+       "at": 8,
        "gives": "BEAT",
-       "note": "to pound is to beat"
+       "note": "to pound is to beat, strike repeatedly"
       }
      ]
     },
     "explanation": {
-     "surface": "A market report: sterling rides high against the Uruguayan currency.",
-     "walkthrough": "'Pound' looks like sterling in this currency surface; it is the verb.",
-     "definitionFit": "A plain synonym: both describe a cheerful, optimistic mood."
+     "surface": "Markets are cheerful as sterling climbs after an early move by the Uruguayan currency.",
+     "walkthrough": "'pound' looks like the British currency beside 'peso', but here it is the verb to beat.",
+     "definitionFit": "Upbeat means cheerful and optimistic, so it matches buoyant in the sense of being in good spirits."
     },
     "features": {
      "answerInScene": false,
