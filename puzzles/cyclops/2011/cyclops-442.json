@@ -585,22 +585,21 @@
      "op": "charade",
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "TRE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Right of",
-         "note": "the right-hand portion of a word means its back half"
+         "at": 0,
+         "note": "only the right-hand part of the word centre is kept, its left half going"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "centre",
-         "gives": "TRE",
-         "select": "last",
-         "note": "the right half, the last three letters, of centre"
+         "at": 9
+        },
+        {
+         "gives": "CEN"
         }
        ]
       },
@@ -609,23 +608,25 @@
        "indicators": [
         {
          "text": "final",
-         "note": "final points to the last letter of the name before it"
+         "at": 24,
+         "note": "the last letter of Nick's is taken"
         }
        ],
        "parts": [
         {
          "words": "Nick's",
+         "at": 17,
          "gives": "NICK",
-         "note": "the final letter of Nick"
+         "note": "Nick is the name whose letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nick Clegg, a Lib Dem drifting right of centre, makes his last journey.",
-     "walkthrough": "Nick Clegg was the Lib Dem leader whose coalition with the Conservatives was seen as a move rightwards.",
-     "definitionFit": "A trek is a long, arduous journey, usually on foot."
+     "surface": "A political commentator describes Nick's last trip as leaning slightly to the right.",
+     "walkthrough": "'Right of' takes TRE, the right-hand half of CENTRE, and 'final' adds K, the last letter of Nick.",
+     "definitionFit": "A trek is a long, arduous journey, especially on foot."
     },
     "features": {
      "answerInScene": true,

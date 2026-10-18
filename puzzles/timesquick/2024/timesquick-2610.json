@@ -616,71 +616,67 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "RHETORIC",
-     "indicators": [
-      {
-       "text": "recalled",
-       "note": "to recall is to call back, so the next word is read in the other direction"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 18,
+         "note": "the extremes, first and last letters, of rich"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "extremely",
-           "note": "extremely points to the extremes of the following word, its first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "rich",
-           "note": "the outside letters of the word"
-          }
-         ]
-        },
+         "words": "rich",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "at": 34,
+         "note": "called back, so rote is read backwards"
+        }
+       ],
+       "parts": [
         {
          "words": "rote",
-         "gives": "ETOR",
-         "note": "the word read backwards"
-        },
+         "at": 43
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "IC",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially points to the opening letters of the words that follow it"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "is cringeworthy",
-           "gives": "IC",
-           "select": "first",
-           "note": "the first letter of each of the two words"
-          }
-         ]
+         "text": "initially",
+         "at": 48,
+         "note": "the opening letters of is and cringeworthy"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is cringeworthy",
+         "at": 58
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wealthy speaker's pompous oration, repeated by rote, makes the audience cringe.",
-     "definitionFit": "Rhetoric, in its disparaging sense, is language designed to impress but lacking sincerity: grandiloquent oratory."
+     "surface": "A pompous speech by a very wealthy person, learnt by heart, is embarrassing.",
+     "walkthrough": "'extremely' gives RH, 'recalled' turns ROTE into ETOR, and 'initially' gives IC.",
+     "definitionFit": "Rhetoric is language designed to persuade, often grandiose or insincere."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rich"
+     "misdirectedWord": "recalled"
     }
    }
   },

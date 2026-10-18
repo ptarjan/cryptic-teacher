@@ -1046,31 +1046,42 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "DELINQUENT",
-     "indicators": [
-      {
-       "text": "changes its final direction",
-       "note": "the compass point at the end of the word is swapped for its opposite point"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "State",
+       "at": 0,
        "gives": "DEL",
        "note": "Del. is the abbreviation for Delaware, a US state"
       },
       {
-       "words": "inquest",
-       "note": "taken as written"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "changes its final direction",
+         "at": 14,
+         "note": "the last compass-point letter in inquest, south, is switched to north"
+        }
+       ],
+       "parts": [
+        {
+         "words": "inquest",
+         "at": 6
+        },
+        {
+         "gives": "S"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A government inquest alters its ultimate course in dealing with a criminal.",
-     "walkthrough": "'Direction' means a compass point: the final S (south) of the inquest word swaps to N (north). Delaware is a US state.",
-     "definitionFit": "A delinquent is a wrongdoer, typically a young person guilty of minor crimes."
+     "surface": "An official inquiry turns around to find a culprit.",
+     "walkthrough": "Inquest contains three compass letters; only the last of them, south, flips to north.",
+     "definitionFit": "A delinquent is a wrongdoer, especially a young person who breaks the law."
     },
     "features": {
      "answerInScene": true,

@@ -94,40 +94,42 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the outburst wraps around the other letters"
+       "at": 29,
+       "note": "the rant goes around the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "bombastic outburst",
-         "gives": "RANT",
-         "note": "a rant is a loud, overblown tirade"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "standard abbreviation for English"
-        }
-       ]
+       "words": "bombastic outburst",
+       "at": 10,
+       "gives": "RANT",
+       "note": "a rant is a loud, overblown tirade"
       },
       {
-       "words": "Conservative",
-       "gives": "C",
-       "note": "standard abbreviation for Conservative"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "at": 35,
+         "gives": "E"
+        },
+        {
+         "words": "Conservative",
+         "at": 43,
+         "gives": "C"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A politician has to withdraw an overblown tirade about an English Tory.",
-     "definitionFit": "To recant is to withdraw a statement or belief formally, the same as taking it back."
+     "surface": "A politician withdraws an angry tirade about an English Tory.",
+     "walkthrough": "'about' puts RANT around E and C, giving R-EC-ANT.",
+     "definitionFit": "To recant is to withdraw a statement or belief formally."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "about"
+     "aptDefinition": false
     }
    }
   },
@@ -510,35 +512,39 @@
      "indicators": [
       {
        "text": "cover for",
-       "note": "to be a cover for something is to wrap around it, so the shiny word encloses what follows"
+       "at": 6,
+       "note": "the shiny word covers or encloses the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Shiny",
-         "gives": "GLOSSY",
-         "note": "glossy means having a shine"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Shiny",
+       "at": 0,
+       "gives": "GLOSSY",
+       "note": "glossy means shiny"
       },
       {
-       "words": "queen",
-       "gives": "R",
-       "note": "R stands for Regina, Latin for queen"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 16,
+         "gives": "A"
+        },
+        {
+         "words": "queen",
+         "at": 18,
+         "gives": "R",
+         "note": "R is the abbreviation for regina, queen"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A queen's dictionary is given a glossy binding.",
-     "walkthrough": "'Shiny cover' looks like one noun phrase, but shiny is the outer word and cover for tells you it goes around A R.",
-     "definitionFit": "A glossary is a list of specialist terms with explanations, a book or section of words and their meanings."
+     "surface": "A queen's dictionary has been given a shiny dust jacket.",
+     "walkthrough": "'cover for' puts GLOSSY around A and R.",
+     "definitionFit": "A glossary is a list of terms with their meanings, often at the back of a book."
     },
     "features": {
      "answerInScene": true,

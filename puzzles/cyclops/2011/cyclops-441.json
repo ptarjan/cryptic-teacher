@@ -303,40 +303,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "about here means turned around or moved about, so the letters change order"
+       "text": "installed",
+       "at": 32,
+       "note": "the contraceptive is installed within the reordered letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "installed",
-         "note": "something installed is placed inside, so one piece goes within the other"
+         "text": "about",
+         "at": 4,
+         "note": "the letters of see are turned about into a new order"
         }
        ],
        "parts": [
         {
          "words": "See",
-         "note": "the word see with its letters rearranged"
-        },
-        {
-         "words": "contraceptive",
-         "gives": "CAP",
-         "note": "a cap, or Dutch cap, is a contraceptive diaphragm"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "contraceptive",
+       "at": 18,
+       "gives": "CAP",
+       "note": "a cap is a contraceptive diaphragm"
       }
      ]
     },
     "explanation": {
-     "surface": "Arranging to be fitted with a contraceptive device.",
-     "walkthrough": "The bracketed bolt looks like a fitting to install, matching the surface, but it is the definition, in its sense of fleeing.",
-     "definitionFit": "To bolt is to run away suddenly, which is to escape."
+     "surface": "Someone sees about having a contraceptive device fitted.",
+     "definitionFit": "To bolt is to run away, to make an escape."
     },
     "features": {
      "answerInScene": false,
@@ -466,44 +468,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "wretchedly",
-       "note": "something done wretchedly is done badly and messily, so the letters are disordered"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "words": "Lay",
+       "at": 0,
+       "gives": "PUT",
+       "note": "to lay something is to put it down"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wretchedly",
+         "at": 10,
+         "note": "Anne's letters are wretchedly mangled into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Anne",
+         "at": 4
+        }
+       ]
+      },
       {
        "op": "container",
        "indicators": [
         {
          "text": "in middle of",
-         "note": "placing one thing in the middle of another means putting it inside"
+         "at": 27,
+         "note": "the tense letter goes into the middle of the act word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Lay",
-           "gives": "PUT",
-           "note": "to lay something down is to put it"
-          },
-          {
-           "words": "Anne",
-           "note": "the name with its letters rearranged"
-          },
-          {
-           "words": "act",
-           "gives": "DO",
-           "note": "to act is to do"
-          }
-         ]
+         "words": "act",
+         "at": 40,
+         "gives": "DO",
+         "note": "to do is to act"
         },
         {
          "words": "tense",
+         "at": 21,
          "gives": "T",
          "note": "T is the grammatical abbreviation for tense"
         }
@@ -512,13 +519,13 @@
      ]
     },
     "explanation": {
-     "surface": "A tense, miserable sexual encounter with a woman named Anne, brought to its conclusion.",
-     "walkthrough": "Lay looks like the sexual verb with Anne as its object, but it is just put, and act is do.",
-     "definitionFit": "To finish something off is to bring it to a close, which is to put an end to it."
+     "surface": "A crude account of a tense sexual encounter with Anne that is brought to a close.",
+     "definitionFit": "To put an end to something is to stop it for good."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Lay"
     }
    }
@@ -881,52 +888,43 @@
    "annotation": {
     "definitions": [
      {
-      "text": "not what you want to hear",
-      "at": 44
+      "text": "is not what you want to hear",
+      "at": 41
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BADNEWS",
+     "op": "composite",
      "indicators": [
       {
        "text": "Bonkers",
-       "note": "bonkers means crazy, so the letters go wild and are rearranged"
+       "at": 11,
+       "note": "crazy, so the letters of bawdiness go wild into a new order"
+      },
+      {
+       "text": "to go",
+       "at": 33,
+       "note": "says the letters of is must go from the jumble"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "BADNEWS",
-       "indicators": [
-        {
-         "text": "to go",
-         "note": "a word that is to go must be removed from the rest"
-        }
-       ],
-       "parts": [
-        {
-         "words": "bawdiness",
-         "note": "taken as written"
-        },
-        {
-         "words": "is",
-         "note": "taken as written, the letters to be removed"
-        }
-       ]
+       "words": "bawdiness",
+       "at": 20
+      },
+      {
+       "words": "is",
+       "at": 30
       }
      ]
     },
     "explanation": {
-     "surface": "A prudish ban on smut, shouted as a command, is unwelcome to the listener.",
-     "walkthrough": "Bonkers also hints at sex in the surface, as British slang. Remove I and S from bawdiness, wherever they fall, then rearrange.",
-     "definitionFit": "Bad news is unwelcome information, the kind of report nobody hopes to receive."
+     "surface": "A shocked cry that crude humour is being banned, which nobody wants to be told.",
+     "walkthrough": "Take I and S out of BAWDINESS and rearrange the rest, BAWDNES.",
+     "definitionFit": "Bad news is unwelcome information, the kind people dread receiving."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Bonkers"
     }
    }
@@ -1650,41 +1648,41 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SWASTIKA",
      "indicators": [
       {
        "text": "seen in",
-       "note": "seen in places one piece within the other"
+       "at": 13,
+       "note": "the jumbled letters are seen inside the music word"
       }
      ],
      "parts": [
+      {
+       "words": "reggae style music",
+       "at": 21,
+       "gives": "SKA",
+       "note": "ska is a Jamaican music style, forerunner of reggae"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "oddly",
-         "note": "oddly means in a strange way, so the letters are arranged strangely"
+         "at": 7,
+         "note": "the letters of it was are arranged oddly, in a new order"
         }
        ],
        "parts": [
         {
          "words": "It was",
-         "note": "these two words with their letters rearranged"
-        },
-        {
-         "words": "reggae style music",
-         "gives": "SKA",
-         "note": "ska is a Jamaican music style, a forerunner of reggae"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An offensive emblem spotted in a reggae-style music scene.",
-     "walkthrough": "Oddly looks like it wants the odd letters of something, but here it means strangely and signals a rearrangement.",
-     "definitionFit": "The swastika, a hooked cross, was adopted by the Nazis and remains the best-known emblem of fascism."
+     "surface": "A strange thing appeared in a reggae music video: a fascist emblem.",
+     "definitionFit": "The swastika, a hooked cross, was adopted as the emblem of the Nazi party."
     },
     "features": {
      "answerInScene": false,
