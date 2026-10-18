@@ -144,37 +144,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MURRAIN",
-     "indicators": [
-      {
-       "text": "rising",
-       "note": "in a down answer, rising means the word reads from bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 8,
+         "note": "in a down clue, rising means the word is read from the bottom up, so backwards"
+        }
+       ],
        "parts": [
         {
          "words": "Suspect",
-         "gives": "MUR",
-         "note": "rum means odd or suspect; turned upward it gives MUR"
-        },
-        {
-         "words": "precipitation",
-         "gives": "RAIN",
-         "note": "rain is precipitation"
+         "at": 0,
+         "gives": "RUM",
+         "note": "rum is an old British word for odd or suspect"
         }
        ]
+      },
+      {
+       "words": "precipitation",
+       "at": 15,
+       "gives": "RAIN",
+       "note": "rain is precipitation"
       }
      ]
     },
     "explanation": {
-     "surface": "Suspicious weather suspected of spreading illness.",
-     "walkthrough": "\"Suspect\" looks like a verb, but it is the adjective: RUM is British slang for odd or dubious.",
-     "definitionFit": "Murrain is an old word for an infectious disease of cattle, or a plague."
+     "surface": "Questionable rainfall is blamed for spreading illness.",
+     "walkthrough": "'Suspect' looks like a verb or noun, but it is the adjective, an old British sense of rum; 'rising' reads it upwards in this down entry.",
+     "definitionFit": "Murrain is an old name for infectious disease of cattle, and once for plague generally."
     },
     "features": {
      "answerInScene": false,
@@ -676,38 +677,54 @@
      "parts": [
       {
        "words": "Island",
+       "at": 0,
        "gives": "MAN",
-       "note": "the Isle of Man"
+       "note": "the Isle of Man is an island in the Irish Sea"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "AGUA",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "centre of",
-         "note": "take the middle four letters of Paraguayan"
+         "text": "centre",
+         "at": 7,
+         "note": "only the heart of the word survives, so three letters are trimmed from its far end"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "centre of Paraguayan",
-         "gives": "AGUA",
-         "select": "middle",
-         "note": "the middle of pAR(AGUA)YAN"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "of",
+           "at": 14,
+           "note": "part of the phrase centre of: taking the centre of the word also trims three letters from its front end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Paraguayan",
+           "at": 17,
+           "note": "taken as written, before its ends are trimmed"
+          },
+          {
+           "gives": "PAR"
+          }
+         ]
+        },
+        {
+         "gives": "YAN"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question about the heart of Paraguay's capital city.",
-     "walkthrough": "The surface points to Asunción, Paraguay's capital; the answer is the capital of Nicaragua instead. The Isle of Man is a British Crown dependency in the Irish Sea.",
-     "definitionFit": "A definition by example: the city is Nicaragua's seat of government, not Paraguay's."
+     "surface": "An island sits at the heart of Paraguay's capital.",
+     "walkthrough": "'Paraguayan capital' reads as one phrase pointing to Asunción; it splits, and the capital is Nicaragua's. 'Centre of' cuts PAR to leave AGUAYAN, then YAN, keeping AGUA, the middle four letters of Paraguayan.",
+     "definitionFit": "Managua is the capital city of Nicaragua, in Central America."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Paraguayan"
     }
