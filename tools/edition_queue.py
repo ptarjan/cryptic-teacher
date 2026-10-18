@@ -63,6 +63,15 @@ disk (tools/durable.sh's DURABLE_RESYNC moves the tree to origin/master while
 it runs), it hands its running units to its own new image (--resume, or
 --handoff when it has one) and re-execs itself, same pid, same --seconds
 end, so no run outlives the code it started on by more than a REPLAN.
+
+With CT_YIELD_HOSTS set (space-separated ssh hosts, e.g. "micro@192.168.1.198";
+unset by default) the queue yields to those hosts too, even with OCR_REMOTE
+empty (scans and reads OCR here, on a machine Paul also games on): while
+desktop_busy.busy says one is busy, nothing but fetches starts, exactly as
+with a busy OCR_REMOTE desktop; units already running are left alone, as there.
+CT_SCAN_WORKERS (default 1, SCAN_WORKERS) raises the most scans at once; with
+it above 1 each scan pins to a core no other scan holds (spread_cpu),
+unless OCR_SCAN_CPU names one.
 Each process loads all its code as it starts (code_reach.modules: lazy
 imports too), under a shared lock on the tree's code (snapshot) that
 tools/durable.sh's tree move takes whole, so none pairs modules of two
@@ -212,13 +221,57 @@ def unit_module(paper):
     return importlib.import_module(UNIT_MODULES.get(paper, UNIT_MODULES[None]))
 
 
+#: Scans at once: exactly one. A scan is CPU-bound OCR (on this host when the
+#: desktop is off, and Gale pages always), and OCR runs as ONE process pinned
+#: to one core at nice 19 (env OCR_SCAN_CPU, pin_scan); ten at once held this host's
+#: load at 30+ on 6 cores. dispatch() caps any --scan-workers at this, or at
+#: env CT_SCAN_WORKERS (scan_cap) when that is higher. (Above pin_scan: a unit
+#: process runs it before the rest of this module is defined.)
+SCAN_WORKERS = 1
+
+
+def scan_cap():
+    """The most scans at once: SCAN_WORKERS, or env CT_SCAN_WORKERS when it is a
+    whole number above that (anything else is ignored)."""
+    try:
+        return max(SCAN_WORKERS, int(os.environ.get("CT_SCAN_WORKERS", "")))
+    except ValueError:
+        return SCAN_WORKERS
+
+
+SCAN_CPU_LOCKS = []  # open lock files of the cores this process holds (kept for its life)
+
+
+def spread_cpu(cpus):
+    """The core for a scan when CT_SCAN_WORKERS allows several at once: the
+    last one no other scan holds (an flock on a file per core in the temp
+    dir, held while this process lives), else one by pid."""
+    import fcntl
+    import tempfile
+    for cpu in reversed(cpus):
+        fd = os.open(os.path.join(tempfile.gettempdir(), f"ct_scan_cpu_{cpu}.lock"), os.O_CREAT | os.O_RDWR, 0o666)
+        try:
+            fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except OSError:
+            os.close(fd)
+            continue
+        SCAN_CPU_LOCKS.append(fd)
+        return cpu
+    return cpus[os.getpid() % len(cpus)]
+
+
 def pin_scan():
     """The standing OCR rule in the scan's own process: one core (SCAN_CPU,
-    the last by default), nice 19, one thread (OMP_NUM_THREADS, OCR_THREADS)."""
+    the last by default; with CT_SCAN_WORKERS above 1 and no OCR_SCAN_CPU, a
+    core of its own, spread_cpu), nice 19, one thread (OMP_NUM_THREADS, OCR_THREADS)."""
     os.environ["OMP_NUM_THREADS"] = os.environ["OCR_THREADS"] = "1"
     try:
         cpus = sorted(os.sched_getaffinity(0))
-        os.sched_setaffinity(0, {cpus[int(os.environ.get("OCR_SCAN_CPU", "-1"))]})
+        if scan_cap() > 1 and "OCR_SCAN_CPU" not in os.environ:
+            cpu = spread_cpu(cpus)
+        else:
+            cpu = cpus[int(os.environ.get("OCR_SCAN_CPU", "-1"))]
+        os.sched_setaffinity(0, {cpu})
         os.nice(19)
     except (AttributeError, IndexError, OSError):
         pass  # no affinity here (macOS): nice and one thread still hold
@@ -350,11 +403,6 @@ WORKERS = 25
 TROVE_WORKERS = 6
 LISTENER_WORKERS = 1
 LISTENER_SECONDS = 1800
-#: Scans at once: exactly one. A scan is CPU-bound OCR (on this host when the
-#: desktop is off, and Gale pages always), and OCR runs as ONE process pinned
-#: to one core at nice 19 (env OCR_SCAN_CPU, pin_scan); ten at once held this host's
-#: load at 30+ on 6 cores. dispatch() caps any --scan-workers at this.
-SCAN_WORKERS = 1
 #: The core a scan unit pins itself to (-1: the host's last), OCR's one core.
 SCAN_CPU = "OCR_SCAN_CPU"
 #: A unit still running this long is killed and left for the next run.
@@ -952,14 +1000,21 @@ def local_cpu(unit):
     return slot_of(unit) in LOCAL_POOLS or (unit["kind"] != "fetch" and not ocr_remote.hosts())
 
 
+def yield_hosts():
+    """The ssh hosts whose busyness the queue yields to: OCR_REMOTE's, then
+    any more in CT_YIELD_HOSTS (space-separated; unset or empty adds none)."""
+    import ocr_remote
+    hosts = ocr_remote.hosts()
+    return hosts + [h for h in os.environ.get("CT_YIELD_HOSTS", "").split() if h not in hosts]
+
+
 def desktop_yielding():
     """Why the desktop OCR hosts are yielding to Paul, or None (also None
     when no desktop is set: then every read is made here anyway)."""
     if desktop_gate_reader is not None:
         return desktop_gate_reader()
     import desktop_busy
-    import ocr_remote
-    hosts = ocr_remote.hosts()
+    hosts = yield_hosts()
     return desktop_busy.busy(hosts) if hosts else None
 
 
@@ -1075,7 +1130,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 log(f"the plan is {time.time() - plan_at:.0f}s old: kept, not made again now")
     queue = []  # the units of the last pass, started or not
     idle_seen = [None, True]  # when idle cores were last read (monotonic), and whether one was idle
-    scan_workers = min(scan_workers, SCAN_WORKERS)
+    scan_workers = min(scan_workers, scan_cap())
     pool_width = scan_workers + workers
 
     def replan_after():
@@ -1823,7 +1878,7 @@ def main(argv=None):
     r.add_argument("--out", type=Path, help="where a puzzle with a blank clue goes (file_archive_org_puzzles --out)")
     r.add_argument("--seconds", type=float, help="start no unit after this many seconds")
     r.add_argument("--workers", type=int, default=WORKERS, help="reads at once")
-    r.add_argument("--scan-workers", type=int, default=SCAN_WORKERS)
+    r.add_argument("--scan-workers", type=int, default=scan_cap())
     r.add_argument("--handoff", type=Path, metavar="FILE",
                    help="take on the units a run handed over in FILE; after --seconds, hand those still "
                         "running over there and end at once")
