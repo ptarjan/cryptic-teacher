@@ -925,55 +925,54 @@
     "definitions": [
      {
       "text": "Skin",
-      "at": 0,
-      "note": "'Skin' is used attributively, as in 'skin cells', matching the adjective"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "the back of a word is its last letter"
+       "text": "in",
+       "at": 20,
+       "note": "in tells us the single letter is placed inside the word for plague"
       }
      ],
      "parts": [
       {
        "words": "plague",
+       "at": 23,
        "gives": "EPIDEMIC",
-       "note": "a plague is an epidemic"
+       "note": "an epidemic is a widespread outbreak of disease, a plague"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
-         "text": "in",
-         "note": "in = inside, so the letter is placed within the plague word"
+         "text": "back",
+         "at": 15,
+         "note": "the back of a word is its last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "blister's back",
-         "gives": "R",
-         "select": "last",
-         "note": "last letter of blisteR"
+         "words": "blister's",
+         "at": 5,
+         "gives": "BLISTER",
+         "note": "the word blister, whose back is wanted"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A skin blister as a symptom of plague.",
-     "walkthrough": "The surface is medical throughout, so 'Skin blister' reads as one symptom; the definition is only 'Skin'.",
-     "definitionFit": "Epidermic means of the epidermis, the outer layer of skin."
+     "surface": "A doctor's note on a skin problem: the back of a blister showing signs of an outbreak.",
+     "walkthrough": "'Back' takes the last letter of blister, R (not S: the apostrophe only makes the possessive), and 'in' puts it inside EPIDEMIC. 'Skin' is the definition, used as an adjective.",
+     "definitionFit": "Epidermic means relating to the epidermis, the outer layer of the skin, so it describes something of the skin."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "blister"
+     "misdirectedWord": "back"
     }
    }
   },
@@ -998,50 +997,56 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "finally = at the very end, so the word's last letter is taken"
+       "text": "in",
+       "at": 48,
+       "note": "in tells us the single letter goes inside the combined words for nearby and city"
       }
      ],
      "parts": [
       {
-       "words": "nearby",
-       "gives": "NIGH",
-       "note": "nigh = near"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "nearby",
+         "at": 51,
+         "gives": "NIGH",
+         "note": "nigh is an old word for near or nearby"
+        },
+        {
+         "words": "city",
+         "at": 58,
+         "gives": "TOWN",
+         "note": "a town is a large settlement, here standing for city"
+        }
+       ]
       },
       {
-       "op": "container",
+       "op": "last",
        "indicators": [
         {
-         "text": "in",
-         "note": "in = inside, so the letter is placed within the city word"
+         "text": "finally",
+         "at": 32,
+         "note": "finally picks the last letter of the word that follows"
         }
        ],
        "parts": [
         {
-         "words": "city",
-         "gives": "TOWN",
-         "note": "a city loosely = a town"
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "finally opening",
-           "note": "last letter of openinG"
-          }
-         ]
+         "words": "opening",
+         "at": 40,
+         "gives": "G",
+         "note": "the last letter of opening"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Pensioners attending the opening of something in a nearby city.",
-     "walkthrough": "'Retired' suggests pensioners; it means gone to bed, which is when a nightgown is put on.",
-     "definitionFit": "People who have retired for the night put on nightwear such as a nightgown."
+     "surface": "Pensioners trying on something as a new shop finally opens in a town close by.",
+     "walkthrough": "'Retired' means gone to bed, not stopped working: that is the misdirection. 'Nearby city' is two separate pieces, an old word for near and a word for a city, with the last letter of opening slipped between them.",
+     "definitionFit": "A nightgown is a loose garment worn to bed, so it is what people who have gone to bed wear."
     },
     "features": {
      "answerInScene": false,
@@ -1072,42 +1077,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNTANGLE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 17,
+       "note": "in a down answer one piece written on another sits above it"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "tight",
-         "note": "tight = drunk, so the letters reel about"
-        },
-        {
-         "text": "on"
+         "at": 7,
+         "note": "tight is slang for drunk, and drunken letters reel into a new order"
         }
        ],
        "parts": [
         {
          "words": "nut",
-         "note": "NUT rearranged"
-        },
-        {
-         "words": "corner",
-         "gives": "ANGLE",
-         "note": "a corner is an angle"
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "corner",
+       "at": 20,
+       "gives": "ANGLE",
+       "note": "an angle is a corner, where two lines meet"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for easing a tight nut stuck on a corner bracket.",
-     "walkthrough": "'Tight' fits a stuck nut, but it means drunk, the anagram signal.",
-     "definitionFit": "A plain synonym: freeing knots or snarls in rope or hair loosens them."
+     "surface": "A mechanic's instruction about loosening a nut screwed tight at the corner of a frame.",
+     "walkthrough": "'Tight' reads as describing the nut, but it is the anagram signal: tight here means drunk, so NUT is jumbled to UNT, and 'on' places it above ANGLE in this down light.",
+     "definitionFit": "To untangle is to free something from knots or a muddle, which is a way to loosen it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "tight"
     }
@@ -1714,43 +1723,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RESONANCE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupted by",
+       "at": 15,
+       "note": "the letters of the anagram are broken into by a single letter set among them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "cast",
-         "note": "cast = thrown, so the letters land in a new order"
-        },
-        {
-         "text": "interrupted by",
-         "note": "A breaks into the rearranged letters"
+         "at": 10,
+         "note": "cast in the sense of thrown about, so the letters of on-screen are scattered into a new order"
         }
        ],
        "parts": [
         {
          "words": "On-screen",
-         "note": "ONSCREEN rearranged"
-        },
-        {
-         "words": "a",
-         "note": "as printed, inserted"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 30
       }
      ]
     },
     "explanation": {
-     "surface": "A film cast featuring a likeable character.",
-     "walkthrough": "'Cast' and 'character' both belong to film, so 'sympathetic character' reads as a role; resonance is a sympathetic vibration.",
-     "definitionFit": "Resonance is sympathetic vibration, the character of a sound that sets others ringing in sympathy."
+     "surface": "A film cast's performance halted by a character the audience feels for.",
+     "walkthrough": "'Cast' looks like the actors, but it is the anagram signal: ONSCREEN is rearranged as RESONNCE, and 'interrupted by' puts A inside it.",
+     "definitionFit": "Resonance is a quality of evoking feelings or memories in others, an emotional echo that strikes a chord with people."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "cast"
     }
    }
