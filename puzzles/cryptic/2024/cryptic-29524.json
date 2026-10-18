@@ -333,67 +333,72 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EISENHOWER",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter of wishes is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "would get thrashed",
-         "note": "something thrashed is beaten about, so the letters are knocked into a new order"
+         "at": 31,
+         "note": "thrashed means beaten about, so the letters are mixed up"
         }
        ],
        "parts": [
         {
          "words": "one",
+         "at": 13,
          "note": "taken as written"
         },
         {
-         "words": "wishes",
-         "gives": "WISHE",
-         "note": "wishes without its last letter"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "ER",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "primaries",
-           "note": "primaries here means first letters, so only the initials of early Republican count"
+           "text": "almost",
+           "at": 17,
+           "note": "almost means the last letter of wishes is left off"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "early Republican",
-           "gives": "ER",
-           "select": "first",
-           "note": "the initial letters of early and Republican"
+           "words": "wishes",
+           "at": 24,
+           "note": "minus its final S"
+          },
+          {
+           "gives": "S"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primaries",
+         "at": 70,
+         "note": "primaries means the first letters of the words early and Republican"
+        }
+       ],
+       "parts": [
+        {
+         "words": "early Republican",
+         "at": 53,
+         "note": "their first letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A former US president whom someone hopes will be beaten early in the Republican nomination contests.",
-     "walkthrough": "Primaries suggests US election contests, which suits the surface, but in the wordplay it means first letters.",
-     "definitionFit": "Dwight Eisenhower was the 34th President of the United States, a Republican who served from 1953 to 1961."
+     "surface": "A former president hopes to win early in the Republican primary elections.",
+     "walkthrough": "ONE plus WISHE (almost wishes) is rearranged to EISENHOW, and the primaries of 'early Republican' give ER. 'Primaries' looks like US elections but asks for first letters.",
+     "definitionFit": "Dwight Eisenhower was the 34th US president, serving 1953-61, so he is a former president."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "primaries"
     }
    }
@@ -746,34 +751,37 @@
      "indicators": [
       {
        "text": "imprisons",
-       "note": "to imprison is to shut something inside, so one part holds the others"
+       "at": 17,
+       "note": "imprisons means the country holds the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "African republic",
-         "gives": "MALI",
-         "note": "Mali is a republic in West Africa"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "African republic",
+       "at": 0,
+       "gives": "MALI",
+       "note": "Mali is a republic in West Africa"
       },
       {
-       "words": "church",
-       "gives": "CH",
-       "note": "CH is the standard abbreviation for church"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 27,
+         "gives": "A"
+        },
+        {
+         "words": "church",
+         "at": 29,
+         "gives": "CH"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An African state jails a preacher who claims to foretell the future.",
-     "definitionFit": "Malachi is the Hebrew prophet whose book is the last in the Old Testament."
+     "surface": "An African state jails a churchman with prophetic pretensions.",
+     "definitionFit": "Malachi is the Old Testament prophet whose book closes the Hebrew prophets in Christian Bibles."
     },
     "features": {
      "answerInScene": true,

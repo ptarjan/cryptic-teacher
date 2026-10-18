@@ -154,45 +154,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNGENEROUS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "wings clipped",
-       "note": "a bird with clipped wings loses its outer feathers, so the word loses both end letters"
+       "text": "Injured",
+       "at": 0,
+       "note": "injured means hurt or damaged, so the letters are put out of shape and rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "unsung",
+       "at": 8,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Injured",
-         "note": "something injured is knocked out of shape, so the letters get rearranged"
+         "text": "wings clipped",
+         "at": 23,
+         "note": "wings are the outer letters, so clipping them removes the first and last letters of heroes"
         }
        ],
        "parts": [
         {
-         "words": "unsung",
-         "note": "taken as written"
+         "words": "heroes",
+         "at": 15,
+         "note": "minus its outer letters"
         },
         {
-         "words": "heroes",
-         "gives": "EROE",
-         "note": "heroes without its first and last letters"
+         "gives": "HS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Wounded war heroes who go unrecognised get little in return.",
-     "definitionFit": "A mean, stingy person hands over very little, which is what this adjective describes."
+     "surface": "Wounded war heroes who went unrecognised have been brought low.",
+     "walkthrough": "Heroes with its wings clipped is EROE; that and UNSUNG are rearranged together.",
+     "definitionFit": "Ungenerous means mean or stingy, describing someone reluctant to share."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "wings"
     }
    }
@@ -2109,46 +2114,53 @@
      "indicators": [
       {
        "text": "in",
-       "note": "these go in the waters, placed inside"
+       "at": 27,
+       "note": "in means the old men go inside the strait"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "IoW waters",
-         "gives": "SOLENT",
-         "note": "the Solent is the strait between the Isle of Wight and mainland England"
-        },
-        {
-         "words": "old",
-         "gives": "O",
-         "note": "O is a common abbreviation for old"
-        }
-       ]
+       "words": "IoW waters",
+       "at": 30,
+       "gives": "SOLENT",
+       "note": "the Solent is the strait between the Isle of Wight and mainland England"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "disheartened",
-         "note": "losing its heart means the middle goes, keeping just the outer letters"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "men",
-         "note": "the outside letters of men"
+         "words": "old",
+         "at": 6,
+         "gives": "O"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "disheartened",
+           "at": 14,
+           "note": "disheartened means the middle letter of men is taken out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "men",
+           "at": 10,
+           "note": "minus its centre"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sleepy, gloomy old sailors drift off the Isle of Wight.",
-     "walkthrough": "'Dopey' looks like one of the Seven Dwarfs, but it is simply drowsy.",
-     "definitionFit": "Somnolent describes someone drowsy and half asleep, which is the dazed state of being dopey."
+     "surface": "Drowsy old men are out of sorts in the sea off the Isle of Wight.",
+     "walkthrough": "IoW is the Isle of Wight, an island off England's south coast.",
+     "definitionFit": "Somnolent means sleepy or drowsy, the state of being half asleep."
     },
     "features": {
      "answerInScene": true,
@@ -2494,12 +2506,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GANEF",
      "indicators": [
       {
        "text": "engraved with",
-       "note": "metal engraved with a name has it cut into it, so one letter sits between the others"
+       "at": 33,
+       "note": "engraved with means the name letter is cut into the reversed metals"
       }
      ],
      "parts": [
@@ -2508,7 +2519,8 @@
        "indicators": [
         {
          "text": "returns",
-         "note": "something that returns goes back the way it came, so it is read backwards"
+         "at": 9,
+         "note": "returns means the metal symbols are read backwards"
         }
        ],
        "parts": [
@@ -2517,33 +2529,36 @@
          "parts": [
           {
            "words": "iron",
+           "at": 17,
            "gives": "FE",
            "note": "Fe is the chemical symbol for iron"
           },
           {
-           "words": "name",
-           "gives": "N",
-           "note": "N is the abbreviation for name"
-          },
-          {
            "words": "silver",
+           "at": 26,
            "gives": "AG",
            "note": "Ag is the chemical symbol for silver"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "name",
+       "at": 47,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "An American swindler hands back metal goods, including engraved silverware.",
-     "definitionFit": "Ganef is American slang, from Yiddish, for a thief or scoundrel."
+     "surface": "An American swindler sends back metal objects engraved with a name.",
+     "walkthrough": "The metals in reverse give GAEF, and N goes into its middle.",
+     "definitionFit": "Ganef is American slang from Yiddish for a thief or rascal."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "engraved"
+     "misdirectedWord": "returns"
     }
    }
   },
