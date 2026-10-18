@@ -1055,64 +1055,69 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "traps",
-       "note": "A trap holds on to whatever walks into it, so the letter named next is caught inside the word before it."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "river",
+       "at": 2,
+       "gives": "R"
+      },
+      {
+       "words": "bank",
+       "at": 8,
+       "gives": "ROW",
+       "note": "a bank is a row, as in a bank of switches or oars"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "traps",
+         "at": 17,
+         "note": "traps means holds something caught inside, so one word goes within the other"
+        }
+       ],
        "parts": [
+        {
+         "words": "had",
+         "at": 13,
+         "gives": "HAD",
+         "note": "taken as written"
+        },
         {
          "op": "last",
          "indicators": [
           {
            "text": "close to",
-           "note": "The close of a word is where it finishes, so take the letter it ends on."
+           "at": 23,
+           "note": "close to here means the final letter, the one at the close of the word"
           }
          ],
          "parts": [
           {
-           "words": "A",
-           "note": "the word itself, dropped in whole"
+           "words": "shore",
+           "at": 32,
+           "note": "its last letter is used"
           }
          ]
-        },
-        {
-         "words": "river",
-         "gives": "R",
-         "note": "R is river on a map"
-        },
-        {
-         "words": "bank",
-         "gives": "ROW",
-         "note": "a bank of seats or of lights is a row of them"
-        },
-        {
-         "words": "had",
-         "note": "the word itself, opened up to take a letter"
         }
        ]
-      },
-      {
-       "words": "close to shore",
-       "gives": "E",
-       "note": "the last letter of SHORE"
       }
      ]
     },
     "explanation": {
-     "surface": "A riverbank that had traps laid near the water, picturing what a hunter is getting at.",
-     "walkthrough": "'A river bank' reads as one stretch of the water's edge and is three separate pieces. The question mark flags the pun: the hunter's point is the flint on his arrow, not the case he is arguing.",
-     "definitionFit": "An arrowhead is the sharpened point fitted to a hunting arrow, so the definition is literal once you stop hearing 'point' as an argument."
+     "surface": "A riverbank scene where traps have been laid near the water's edge.",
+     "walkthrough": "'close to shore' gives E, which HAD 'traps' to make HEAD. The question mark flags that the definition is figurative: the point of a hunter's weapon.",
+     "definitionFit": "The tip fitted to an arrow is its arrowhead, the sharp part a hunting archer relies on."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "bank"
     }
    }

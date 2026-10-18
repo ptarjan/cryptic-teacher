@@ -219,19 +219,14 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "sent up",
-       "note": "Sending something up a down entry pushes it back towards the top, so those letters are read the other way about."
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "ending in",
-         "note": "It points at the finish of the word that follows and asks for the single letter sitting there."
+         "text": "sent up",
+         "at": 17,
+         "note": "in a down clue, sent up means the letters climb the column, so they read backwards"
         }
        ],
        "parts": [
@@ -239,38 +234,54 @@
          "op": "charade",
          "parts": [
           {
-           "op": "last",
-           "parts": [
-            {
-             "words": "a",
-             "note": "taken as it stands"
-            }
-           ]
+           "words": "a",
+           "at": 8,
+           "gives": "A"
           },
           {
            "words": "girl",
+           "at": 10,
            "gives": "GAL",
-           "note": "gal is the informal spelling of a girl"
+           "note": "gal is an informal word for a girl"
           },
           {
            "words": "I",
+           "at": 15,
            "gives": "ONE",
-           "note": "the Roman numeral I is one, written out as a word here"
+           "note": "the Roman numeral I is one"
           }
          ]
         }
        ]
       },
       {
-       "words": "ending in atrocity",
-       "gives": "Y",
-       "note": "the last letter of atrocitY"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending in",
+         "at": 25,
+         "note": "ending in points to the final letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "atrocity",
+         "at": 35,
+         "note": "its last letter is used"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a man teasing a girl, and 'atrocity' is the one word that does not fit it — the giveaway that something much darker is being named.",
-     "definitionFit": "Bomber → ENOLA GAY: the B-29 that dropped the atomic bomb on Hiroshima, named by its pilot after his mother, so one particular bomber stands for the class."
+     "surface": "A confession that the speaker mocked a young woman, ending in something terrible.",
+     "walkthrough": "'Sent up' looks like teasing, but in a down light it sends the letters upwards, so they read in reverse; 'I' is read as the number one.",
+     "definitionFit": "The Enola Gay was the American B-29 aircraft that dropped the atomic bomb on Hiroshima in 1945."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sent"
     }
    }
   },

@@ -744,43 +744,44 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "BIKINI",
      "indicators": [
       {
        "text": "Cycling",
-       "note": "cycling means the letters go round in a loop, moving from the front to the back"
+       "at": 0,
+       "note": "cycling sends letters round from one end of the word to the other, like a wheel turning"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "BIKINI",
        "indicators": [
         {
          "text": "removing outer layer",
-         "note": "removing the outer layer strips off the letters at each end of the word"
+         "at": 18,
+         "note": "stripping the outer layer takes off the first and last letters of the word"
         }
        ],
        "parts": [
         {
          "words": "minibike",
-         "note": "taken as written"
+         "at": 8,
+         "note": "taken as written, then stripped of its end letters"
+        },
+        {
+         "gives": "ME"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cyclist sheds layers on a little bike, ending up in beachwear.",
-     "walkthrough": "Drop the M and E to leave INIBIK, then move INI from the front to the back.",
-     "definitionFit": "A bikini is a two-piece women's bathing costume worn on beaches."
+     "surface": "Someone on a small motorbike sheds a layer of clothing to show the swimwear underneath.",
+     "walkthrough": "'Removing outer layer' leaves INIBIK from minibike; 'Cycling' moves its last three letters round to the front.",
+     "definitionFit": "A bikini is a two-piece garment worn for bathing, so it is a kind of swimsuit."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "Cycling"
     }
    }
@@ -987,54 +988,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ASISEEIT",
+     "op": "composite",
      "indicators": [
       {
+       "text": "left",
+       "at": 12,
+       "note": "left means these letters have departed, so they are taken out of the pool"
+      },
+      {
        "text": "improved",
-       "note": "improved means changed for the better, so what remains is rearranged"
+       "at": 30,
+       "note": "improved means the remaining letters are reworked into a better order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ASISEEIT",
-       "indicators": [
-        {
-         "text": "left",
-         "note": "left means departed, so the note and Dutch letters go missing from the islands"
-        }
-       ],
+       "words": "East Indies",
+       "at": 17,
+       "note": "the letters of these two words form the pool"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "East Indies",
-         "note": "taken as written"
-        },
-        {
          "words": "Note",
+         "at": 0,
          "gives": "N",
-         "note": "n is a dictionary abbreviation for note"
+         "note": "n is the dictionary abbreviation for note, as in a footnote"
         },
         {
          "words": "Dutch",
-         "gives": "D",
-         "note": "D is the abbreviation for Dutch"
+         "at": 6,
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A historian's remark that the East Indies got better once the Dutch colonists left.",
-     "walkthrough": "Remove N and D from EAST INDIES and rearrange the eight letters left over.",
-     "definitionFit": "As I see it is a phrase meaning in my opinion, introducing a personal judgement."
+     "surface": "A memo observing that the Dutch quit the East Indies, which the writer thinks was for the better.",
+     "walkthrough": "N (note) and D (Dutch) have 'left' the letters of EAST INDIES, and the eight that remain are 'improved' into a new order.",
+     "definitionFit": "The phrase is an idiom introducing a personal opinion, the same as saying in one's own judgement."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Note"
+     "misdirectedWord": "improved"
     }
    }
   },
