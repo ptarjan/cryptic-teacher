@@ -3900,6 +3900,75 @@ def padding_leaves(tree):
     return n
 
 
+#: Why checked trees that cannot be what the setter wrote still evaluate to the answer
+#: (times-29420 24a ABUSE, timesjumbo-1707 48d BISCAY, azed-2333 24d SLIMY): the letter
+#: evaluator lets an inserted piece land at ANY gap, including inside a container's own
+#: result, so ins(ins(ABE, U), S) spells ABUSE (really AB(U+S)E) and nothing objects.
+#: A container nested as the HOLDER of another is almost always the wrong nesting: what
+#: goes in two pieces together is a charade of them (ins(ABE, U+S)), and a piece in a
+#: piece in a third is ins(third, ins(second, first)). measured 20/20 real (10-18).
+NESTED_CONTAINER = "container whose holder is itself a container"
+#: An indicator is filed on the op it acts on. One the indicator lexicon knows only for
+#: another op (times-29420 16d: "End of", a letter selection's, on the charade) is on
+#: the wrong op. Needs a 50-use lexicon entry for the other op and none for this one.
+MISPLACED_INDICATOR = "indicator filed on an op it does not signal"
+MISPLACED_MIN_USES = 200
+
+
+def nested_containers(tree):
+    """How many checked containers hold, as their first part, another checked container."""
+    return sum(1 for n in _walk(tree) if n.get("op") == "container" and not n.get("unchecked")
+               for p in (n.get("parts") or [])[:1]
+               if isinstance(p, dict) and p.get("op") == "container" and not p.get("unchecked"))
+
+
+#: An anagram scrambles the clue's own letters. A leaf in its fodder that gives a
+#: synonym (toughie-3430 3d WISCONSIN: ana<Wild>(cows in + [wrong]SIN); the answer is
+#: ana(cows in) + SIN) has a stand-in word scrambled, which the clue cannot mean.
+#: One-letter gives are abbreviations (S for southern), which clues do scramble.
+ANAGRAM_SYNONYM = "synonym scrambled inside an anagram"
+
+
+def anagram_synonyms(tree):
+    """How many leaves of 2+ letters, giving other letters than their own words, sit in a
+    charade directly under an anagram beside a leaf that gives its own words (the mix
+    of fodder and stand-in). A lone synonym scrambled is not counted."""
+    n = 0
+    for node in _walk(tree):
+        if node.get("op") != "anagram":
+            continue  # unchecked steps count: toughie-3430 3d files its stand-in unchecked
+        for p in node.get("parts") or []:
+            if not (isinstance(p, dict) and p.get("op") == "charade"):
+                continue  # a lone synonym scrambled is an indirect anagram, which setters do write
+            pool = [q for q in p.get("parts") or [] if isinstance(q, dict) and "op" not in q
+                    and q.get("words")]
+            same = [q for q in pool if not q.get("gives") or wordplay.letters(q["gives"]) == wordplay.letters(q["words"])]
+            n += bool(same) and sum(1 for q in pool if len(wordplay.letters(q.get("gives"))) >= 2
+                                    and wordplay.letters(q["gives"]) != wordplay.letters(q["words"])
+                                    and not q.get("select"))
+    return n
+
+
+def misplaced_indicators(tree):
+    """How many indicators on a checked op that the lexicon files only under another op."""
+    lex = _indicator_lexicon()
+    if not lex:
+        return 0
+    n = 0
+    for node in _walk(tree):
+        op = node.get("op")
+        if op != "charade" or node.get("unchecked"):
+            continue  # the other ops share their words too widely for the lexicon to say
+        own = "charade"
+        for i in node.get("indicators") or []:
+            key = " ".join(w for w in (wordplay.letters(x) for x in str(i.get("text") or "").split()) if w)
+            if not key or lex.get(own, {}).get(key, 0):
+                continue
+            n += any(c >= MISPLACED_MIN_USES for t, d in lex.items() if t != own
+                     for c in [d.get(key, 0)])
+    return n
+
+
 def _clue_words(text):
     """Lower-case word set of clue text, markup and parentheticals removed."""
     return set(re.findall(r"[a-z]+", re.sub(r"<[^>]*>|\([^)]*\)", " ", (text or "").lower())))
@@ -4058,6 +4127,16 @@ def shape_warnings(tag, ann, clue=None):
     if k := padding_leaves(tree):
         out.append(f"{tag}: {k} {PADDING_LEAF}: say what the words give, or take them out of the "
                    f"wordplay")
+    if k := nested_containers(tree):
+        out.append(f"{tag}: {k} {NESTED_CONTAINER}: pieces that go in the same holder together are a "
+                   f"charade (ins(AB E, U + S)); a piece in a piece in a third is "
+                   f"ins(third, ins(second, first))")
+    if k := anagram_synonyms(tree):
+        out.append(f"{tag}: {k} {ANAGRAM_SYNONYM}: only the clue's own words are scrambled; "
+                   f"the synonym joins the anagram's result in a charade")
+    if k := misplaced_indicators(tree):
+        out.append(f"{tag}: {k} {MISPLACED_INDICATOR}: file each indicator on the op it acts on "
+                   f"(a reversal's on rev<...>, a selection's on first/last<...>), not on the charade")
     return out
 
 
@@ -4612,6 +4691,9 @@ BACKLOG_MARKERS = {
     "wordplay.indFolded": (IND_FOLDED,),
     "wordplay.fakeParts": (FAKE_PARTS,),
     "wordplay.paddingLeaf": (PADDING_LEAF,),
+    "wordplay.nestedContainer": (NESTED_CONTAINER,),
+    "wordplay.anagramSynonym": (ANAGRAM_SYNONYM,),
+    "wordplay.misplacedIndicator": (MISPLACED_INDICATOR,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }

@@ -142,7 +142,32 @@ check("a leaf giving its own letters is not", 0, sl("tent", "TENT"))
 check("a selection in order is not", 0, sl("garden", "GARD"))
 check("a one-letter or short leaf is not", 0, sl("to", "OT"))
 
-for field in ("scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
+abuse = {"op": "container", "parts": [
+    {"op": "container", "parts": [{"words": "Lincoln", "gives": "ABE"}, {"words": "United", "gives": "U"}]},
+    {"words": "struggle", "gives": "S"}]}
+check("ABUSE as ins(ins(ABE, U), S) evaluates to the answer: the evaluator is not what refuses it", True,
+      bool(v.wordplay.match(abuse, "ABUSE")))
+check("a container holding a container as its holder is counted", 1, v.nested_containers(abuse))
+check("the other nesting, ins(third, ins(second, first)), is not", 0, v.nested_containers(
+    {"op": "container", "parts": [{"words": "x", "gives": "AE"}, abuse["parts"][0]]}))
+check("an unchecked container is not", 0, v.nested_containers({**abuse, "unchecked": True}))
+wis = {"op": "anagram", "parts": [{"op": "charade", "parts": [
+    {"words": "cows in"}, {"words": "wrong", "gives": "SIN"}]}]}
+check("a synonym beside literal fodder under an anagram is counted", 1, v.anagram_synonyms(wis))
+check("a lone synonym scrambled (indirect anagram) is not", 0, v.anagram_synonyms(
+    {"op": "anagram", "parts": [{"words": "arbitrator", "gives": "UMPIRE"}]}))
+check("a one-letter abbreviation beside fodder is not", 0, v.anagram_synonyms(
+    {"op": "anagram", "parts": [{"op": "charade", "parts": [{"words": "lido"}, {"words": "southern", "gives": "S"}]}]}))
+check("a reversal indicator on a charade is misplaced", 1, v.misplaced_indicators(
+    {"op": "charade", "indicators": [{"text": "returned"}], "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]}))
+check("a charade indicator on a charade is not", 0, v.misplaced_indicators(
+    {"op": "charade", "indicators": [{"text": "after"}], "parts": [{"words": "a", "gives": "A"}, {"words": "b", "gives": "B"}]}))
+import shape_queue
+check("the redo gate names the nested container", True, any(
+    f.startswith("nestedContainer") for f in shape_queue.findings(
+        {"clue": {"text": "x"}, "solution": "ABUSE"}, {"wordplay": abuse, "definitions": []})))
+
+for field in ("nestedContainer", "anagramSynonym", "misplacedIndicator", "scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
               "leafFold", "repeatedSelection", "singleLeaf", "bareInCharade", "anagramOfContainer"):
     check(f"wordplay.{field} is a ratchet field", True, f"wordplay.{field}" in v.BACKLOG_MARKERS)
 warn = v.shape_warnings("1A", {"wordplay": cc, "definitions": []})
