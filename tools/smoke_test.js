@@ -7329,8 +7329,36 @@ global.realSetTimeout(() => {
     "ct:cryptic-30066": finished(A, noon(2)),
     "ct:quiptic-1397": finished(B, noon(1), (e) => (e === b1 ? 2 : 0), { revealsUsed: { [entryId(b2)]: 1 } }),
   };
+  // By clue type: each solved clue under every type its annotation names, the
+  // clean share and hints per clue recounted here from the same saves.
+  const typeOf = (e) => ((e.annotation || e.blog || {}).type || []);
+  const leaders = (puz) => puz.entries.filter((e) => !puz.entries.some((l) =>
+    l !== e && (l.group || []).slice(1).includes(entryId(e))));
+  const byType = {};
+  [[A, () => 0], [B, (e) => (e === b1 ? 2 : e === b2 ? 1 : 0)], [D, () => 3]].forEach(([puz, cost]) =>
+    leaders(puz).forEach((e) => typeOf(e).forEach((t) => {
+      const r = byType[t] = byType[t] || { n: 0, clean: 0, cost: 0 };
+      r.n++; r.cost += cost(e); if (!cost(e)) r.clean++;
+    })));
+  const ranked = Object.entries(byType).filter(([, r]) => r.n >= 5)
+    .sort(([, a], [, b]) => b.clean / b.n - a.clean / a.n || a.cost / a.n - b.cost / b.n);
+  const weakest = ranked[ranked.length - 1][0];
   const d = require("./fake_dom.js").boot({ query: "?p=quiptic-1396", storage: planted });
   const reg = d.registry;
+  // The practise link needs an unsolved clue of the weakest type in a puzzle the
+  // app has loaded, and a fresh boot loads only the open puzzle, the saved ones
+  // and the newest: which of them holds a clue of that type is a fact about
+  // whatever was published and annotated last, not about the stats. So the
+  // newest annotated puzzle that holds one is loaded here, the way a visitor
+  // who had browsed to it would have.
+  const planter = global.CRYPTIC_INDEX.puzzles.find((p) => p.annotated && !(p.tags || []).includes("jigsaw")
+    && !(p.tags || []).includes("numbered-jigsaw") && !(p.id in planted) && !("ct:" + p.id in planted)
+    && p.id !== "quiptic-1396" && (() => {
+      const puz = shim(p.id);
+      return puz && puz.entries.some((e) => e.solution && !e.offGrid && typeOf(e).includes(weakest));
+    })());
+  assert(planter, "some annotated puzzle holds a clue of the weakest type, " + weakest + ", to practise");
+  if (planter) d.window.CRYPTIC_PUZZLES[planter.id] = shim(planter.id);
   reg["btn-stats"].onclick();
   const html = reg["stats-body"].innerHTML;
   const stat = (label) => (new RegExp(`<strong>([^<]*)</strong><span>${label}</span>`).exec(html) || [])[1];
@@ -7355,17 +7383,7 @@ global.realSetTimeout(() => {
     "the last three milestones reached are listed with their day, then the next two: " + shown);
   assert(!/\b(seconds?|minutes?|hours?|time|speed|fast)\b/i.test(html.replace(/<[^>]*>/g, " ")),
     "the stats never mention time or speed: the score counts hints");
-  // By clue type: each solved clue under every type its annotation names, the
-  // clean share and hints per clue recounted here from the same saves.
-  const typeOf = (e) => ((e.annotation || e.blog || {}).type || []);
-  const leaders = (puz) => puz.entries.filter((e) => !puz.entries.some((l) =>
-    l !== e && (l.group || []).slice(1).includes(entryId(e))));
-  const byType = {};
-  [[A, () => 0], [B, (e) => (e === b1 ? 2 : e === b2 ? 1 : 0)], [D, () => 3]].forEach(([puz, cost]) =>
-    leaders(puz).forEach((e) => typeOf(e).forEach((t) => {
-      const r = byType[t] = byType[t] || { n: 0, clean: 0, cost: 0 };
-      r.n++; r.cost += cost(e); if (!cost(e)) r.clean++;
-    })));
+  // The rows the page shows, against the counts made above.
   const typeRows = [...html.matchAll(/<div class="type-row([^"]*)"><span class="type-label">([^<]*)<\/span>.*?<span class="type-num">([^<]*)<\/span>/g)]
     .map((m) => ({ cls: m[1], label: m[2], num: m[3] }));
   const labelOf = Object.fromEntries(global.CRYPTIC_INDEX.clueTypes.types.map((t) => [t.name, t.label]));
@@ -7376,9 +7394,6 @@ global.realSetTimeout(() => {
     assert(row && row.num === want, `${t}: ${want}, fewer than 5 clues unranked: ` + JSON.stringify(row));
     assert(row.cls.includes("few") === (r.n < 5), `${t} is marked few exactly when under 5 clues`);
   });
-  const ranked = Object.entries(byType).filter(([, r]) => r.n >= 5)
-    .sort(([, a], [, b]) => b.clean / b.n - a.clean / a.n || a.cost / a.n - b.cost / b.n);
-  const weakest = ranked[ranked.length - 1][0];
   assert(typeRows.find((x) => x.cls.includes("weakest")).label === labelOf[weakest],
     "the weakest is the ranked type with the lowest clean share: " + weakest);
   const practise = /<a class="practise" href="[^"]*\?p=([^&"]+)&c=(\d+[AD])">Practise your weakest/.exec(html);
