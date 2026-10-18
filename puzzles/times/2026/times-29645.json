@@ -150,44 +150,47 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "REPRESENTATION",
      "indicators": [
       {
-       "text": "taken from"
+       "text": "taken from",
+       "at": 6,
+       "note": "says the pound's letter is removed from the account word"
       },
       {
        "text": "replaced by",
-       "note": "its place is filled by the word for current"
+       "at": 25,
+       "note": "says the gap left by the pound is filled with the word for current"
       }
      ],
      "parts": [
       {
        "words": "account",
+       "at": 17,
        "gives": "RELATION",
-       "note": "a relation = an account or narrative, as in the relation of events"
+       "note": "a relation is an account or narrative, as in the relation of events"
       },
       {
        "words": "Pound",
+       "at": 0,
        "gives": "L",
-       "note": "L = pound sterling, as in the £ sign"
+       "note": "L is the abbreviation for a pound sterling, from Latin libra"
       },
       {
        "words": "current",
+       "at": 37,
        "gives": "PRESENT",
-       "note": "current = present, happening now"
+       "note": "current means present, as in the present situation"
       }
      ]
     },
     "explanation": {
-     "surface": "A bank statement shows a pound debited and a current account credited.",
-     "walkthrough": "The surface is pure banking, with 'account' and 'current' as a bank account, but current here means present-day. Swap the L in RELATION for PRESENT and RE-PRESENT-ATION appears.",
-     "definitionFit": "A representation is a formal statement of a case, as in making representations to a council."
+     "surface": "A bookkeeper's report on a pound removed from an account, with a statement of current money in its place.",
+     "walkthrough": "'Pound taken from' removes L from RELATION, and 'replaced by current' puts PRESENT where it was: RE-PRESENT-ATION.",
+     "definitionFit": "A representation is a formal statement of facts or claims, as in making representations to a council."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "current"
     }
    }
@@ -498,56 +501,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "fills"
+       "text": "fills",
+       "at": 25,
+       "note": "the quiet and old man letters go into the middle of the emptied word, filling it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
          "text": "when empty",
-         "note": "an emptied word keeps only its outside letters"
+         "at": 37,
+         "note": "an emptied word keeps only its outside letters, the middle being cleared out"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "AN",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "again when empty",
-           "gives": "AN",
-           "select": "outer",
-           "note": "AGAIN with its middle removed leaves A…N"
-          }
-         ]
-        },
-        {
-         "words": "quiet",
-         "gives": "SH",
-         "note": "sh! = be quiet"
+         "words": "again",
+         "at": 31,
+         "note": "the outside letters of again"
         }
        ]
       },
       {
-       "words": "old man",
-       "gives": "PA",
-       "note": "pa = father, old man"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "quiet",
+         "at": 11,
+         "gives": "SH",
+         "note": "SH is the instruction to be quiet"
+        },
+        {
+         "words": "old man",
+         "at": 17,
+         "gives": "PA",
+         "note": "pa is an informal word for father, one's old man"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old man silently refills a dusty tray whenever it runs out.",
-     "walkthrough": "'Again when empty' reads as refilling the tray, but it strips a word to its outside letters. An ash pan is the tray under a fire grate that catches the ash.",
-     "definitionFit": "An ash pan is the tray beneath a grate that collects the ash, so it is dusty by design."
+     "surface": "A tired chore: the old man silently refills the tray whenever it is empty.",
+     "walkthrough": "'when empty' leaves AN from 'again'; SH plus PA 'fills' it, giving A-SHPA-N.",
+     "definitionFit": "An ash pan sits under a grate to catch the ash, so it is a tray that gets dusty."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "empty"
+     "misdirectedWord": "fills"
     }
    }
   },
@@ -760,37 +764,41 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "head",
-       "note": "the head of 'to' is its first letter"
+       "text": "twisted",
+       "at": 42,
+       "note": "turned right round, so the whole string of letters is read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "twisted",
-         "note": "the whole string is turned round"
-        }
-       ],
        "parts": [
         {
          "words": "I should have said",
+         "at": 7,
          "gives": "PS",
-         "note": "a PS (postscript) adds what the writer should have said"
+         "note": "a PS, or postscript, adds what the writer should have said in the letter"
         },
         {
          "words": "sorry",
+         "at": 26,
          "gives": "EH",
-         "note": "'eh?' = 'sorry?', asking someone to repeat"
+         "note": "eh? is what you say when you mean sorry, I didn't catch that"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "head",
+           "at": 37,
+           "note": "the head of a word is its first letter"
+          }
+         ],
          "parts": [
           {
-           "words": "to's head",
-           "gives": "TOHEAD",
-           "note": "first letter of to"
+           "words": "to's",
+           "at": 32,
+           "note": "the first letter of to"
           }
          ]
         }
@@ -799,12 +807,12 @@
      ]
     },
     "explanation": {
-     "surface": "A remorseful note about an actor whom the writer failed to apologise to.",
-     "walkthrough": "The clue reads as a guilty confession, but it is three pieces: a postscript, a puzzled 'sorry?' and a T, read backwards.",
-     "definitionFit": "A thesp, short for thespian, is an actor, a player on the stage."
+     "surface": "An apology for a cricket or sports player whose head was twisted round in some accident.",
+     "walkthrough": "PS, EH and T ('to's head', its first letter) are collected in clue order, then 'twisted' reverses the lot to T-HE-SP.",
+     "definitionFit": "Thesp is a jokey short form of thespian, an actor, and an actor plays a part, so is a player."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "sorry"
     }
@@ -889,46 +897,46 @@
    "annotation": {
     "definitions": [
      {
-      "text": "in this?",
-      "at": 24
+      "text": "Spooner's broken racket in this?",
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "DUSTBIN",
+     "spelt": "DUSTBIN",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev. Spooner swapped the opening sounds of words"
+       "at": 0,
+       "note": "Reverend Spooner swapped the opening sounds of words, so the first sounds of the two words are exchanged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "DUST",
        "parts": [
         {
-         "unchecked": true,
          "words": "broken",
-         "gives": "DUST",
-         "soundsLike": "BUST",
-         "note": "bust = broken; it takes the D sound from the next word"
-        },
-        {
-         "unchecked": true,
-         "words": "racket",
-         "gives": "BIN",
-         "soundsLike": "DIN",
-         "note": "din = racket, a loud noise; it takes the B sound from the word before"
+         "at": 10,
+         "gives": "BUST",
+         "note": "bust is a casual word for broken"
         }
        ]
+      },
+      {
+       "words": "racket",
+       "at": 17,
+       "gives": "DIN",
+       "note": "a din is a loud racket or noise"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A smashed tennis racket belongs in the rubbish.",
-     "walkthrough": "'Racket' tempts as a tennis racket that has broken, which is where the bin comes in, but it is a din, a noise. A dustbin is British for a rubbish bin.",
-     "definitionFit": "A broken racket would be thrown in the dustbin."
+     "surface": "A tennis racket that has broken: where does it end up?",
+     "walkthrough": "BUST DIN, with the opening sounds swapped as \"Spooner's\" signals, becomes DUST BIN; the whole clue doubles as the definition, since a broken racket is thrown in one.",
+     "definitionFit": "A dustbin is a household rubbish bin, where a broken tennis racket would be thrown away."
     },
     "features": {
      "answerInScene": true,
@@ -1235,8 +1243,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "initially",
-       "note": "the first letter of the word"
+       "text": "after",
+       "at": 19,
+       "note": "the timber part is placed after the sinking letter"
       }
      ],
      "parts": [
@@ -1244,14 +1253,16 @@
        "op": "first",
        "indicators": [
         {
-         "text": "Odd bits of",
-         "note": "the odd-numbered letters: 1st, 3rd and 5th"
+         "text": "initially",
+         "at": 33,
+         "note": "initially means take only the first letter of the word before it"
         }
        ],
        "parts": [
         {
-         "words": "sinking initially",
-         "note": "first letter of sinking"
+         "words": "sinking",
+         "at": 25,
+         "note": "the first letter of sinking"
         }
        ]
       },
@@ -1260,22 +1271,32 @@
        "indicators": [
         {
          "text": "keep",
-         "note": "the timber letters hold ONE inside"
+         "at": 43,
+         "note": "the odd letters of timber hold one inside them, keeping it"
         }
        ],
        "parts": [
         {
          "op": "alternate",
+         "indicators": [
+          {
+           "text": "Odd bits of",
+           "at": 0,
+           "note": "the first, third and fifth letters of the next word, its odd bits"
+          }
+         ],
          "parts": [
           {
-           "words": "Odd bits of timber",
-           "gives": "TIMBER",
-           "note": "the odd letters of TiMbEr"
+           "words": "timber",
+           "at": 12,
+           "note": "the odd-numbered letters of timber"
           }
          ]
         },
         {
          "words": "one",
+         "at": 48,
+         "gives": "ONE",
          "note": "taken as written"
         }
        ]
@@ -1283,14 +1304,13 @@
      ]
     },
     "explanation": {
-     "surface": "Floating bits of wood keep a man alive after his ship goes down.",
-     "walkthrough": "The survival story is a decoy: 'man alive' is not a rescue but an exclamation of surprise, and 'keep' puts the survivor inside the timber letters.",
-     "definitionFit": "'Stone me!' and 'man alive!' are both British exclamations of surprise."
+     "surface": "Clinging to scraps of wood after a ship goes down, a sailor keeps one man alive.",
+     "walkthrough": "'Odd bits of timber' gives TME, which 'keep' wraps round ONE to make TONEME; this goes 'after' S from 'sinking initially'.",
+     "definitionFit": "Both are dated British exclamations of surprise, used in the same way as 'Well I never!'"
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "alive"
     }
    }
@@ -1490,48 +1510,47 @@
        "indicators": [
         {
          "text": "sounded",
-         "note": "spoken, so the word's sound is used"
+         "at": 9,
+         "note": "said aloud, grosser sounds like grocer"
         }
        ],
        "parts": [
         {
          "words": "more revolting",
+         "at": 17,
          "gives": "GROSSER",
-         "note": "grosser = more revolting; GROCER is said the same way"
+         "note": "grosser means more disgusting"
         }
        ]
       },
       {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "IES",
+       "op": "regular",
        "indicators": [
         {
-         "text": "every second",
-         "note": "take the 2nd, 4th and 6th letters"
+         "text": "every second for",
+         "at": 32,
+         "note": "every second letter of the hikers word is what the shopping needs for its ending"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "for hikers",
-         "gives": "IES",
-         "select": "alternate",
-         "note": "every second letter of hIkErS; 'for' is the link"
+         "words": "hikers",
+         "at": 49,
+         "note": "the second, fourth and sixth letters of hikers"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hikers find the supplies they carried grow more disgusting by the second.",
-     "walkthrough": "'Every second' suggests a time scale, but it picks out alternate letters of 'hikers'.",
-     "definitionFit": "Groceries are the shopping you bring home from the supermarket."
+     "surface": "Walkers find something even more disgusting every second of their trek.",
+     "walkthrough": "'sounded' turns GROSSER into its sound-alike GROCER, and 'every second for hikers' takes IES from hikers.",
+     "definitionFit": "Groceries are the food and household goods you bring home after doing the shopping."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "second"
+     "misdirectedWord": "hikers"
     }
    }
   },
