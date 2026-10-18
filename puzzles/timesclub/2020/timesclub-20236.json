@@ -1186,7 +1186,8 @@
      "indicators": [
       {
        "text": "written about",
-       "note": "written about suggests written round the other way, so the result is read backwards"
+       "at": 20,
+       "note": "written about means the whole lot is written the other way round"
       }
      ],
      "parts": [
@@ -1195,43 +1196,46 @@
        "indicators": [
         {
          "text": "in",
-         "note": "in places the evil and the yankee inside the play word"
+         "at": 12,
+         "note": "in puts the first pieces inside the word for play"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "play",
+         "at": 15,
+         "gives": "DRAMA",
+         "note": "a drama is a play"
+        },
+        {
+         "op": "charade",
          "parts": [
           {
-           "words": "play",
-           "gives": "DRAMA",
-           "note": "a play is a drama"
+           "words": "Evil",
+           "at": 0,
+           "gives": "ILL",
+           "note": "ill can mean evil, as in ill will"
           },
           {
            "words": "Yankee",
+           "at": 5,
            "gives": "Y",
            "note": "Y is Yankee in the NATO phonetic alphabet"
           }
          ]
-        },
-        {
-         "words": "Evil",
-         "gives": "ILL",
-         "note": "ill can mean evil, as in ill deeds"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wicked American appears in a play that was written about a spring flower.",
-     "walkthrough": "The pair go in just after the play's first letter, before the whole thing is turned round.",
-     "definitionFit": "The jonquil, a narcissus, belongs to the amaryllis family, so it is one example of an amaryllid; the question mark marks the example."
+     "surface": "A wicked American character appears in a play about a flower.",
+     "definitionFit": "An amaryllid is any plant of the amaryllis family, of which the jonquil, a narcissus, is one example."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "play"
+     "misdirectedWord": "Jonquil"
     }
    }
   },
@@ -1852,60 +1856,61 @@
      "indicators": [
       {
        "text": "to embrace",
-       "note": "embracing means holding in the arms, so one piece surrounds the rest"
+       "at": 29,
+       "note": "to embrace means the shortened word for hurry wraps round the pieces that follow"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 15,
+         "note": "endless means the final letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "deletion",
-           "indicators": [
-            {
-             "text": "endless",
-             "note": "endless means without an end, so the final letter is dropped"
-            }
-           ],
-           "parts": [
-            {
-             "words": "hurry",
-             "gives": "RUSH",
-             "note": "to rush is to hurry"
-            },
-            {
-             "gives": "H"
-            }
-           ]
-          },
-          {
-           "words": "round",
-           "gives": "O",
-           "note": "O is round in shape"
-          }
-         ]
+         "words": "hurry",
+         "at": 23,
+         "gives": "RUSH",
+         "note": "to rush is to hurry"
         },
         {
-         "words": "Scene",
-         "gives": "SC",
-         "note": "sc is the script abbreviation for scene"
+         "gives": "H"
         }
        ]
       },
       {
-       "words": "One",
-       "gives": "I",
-       "note": "I is one in Roman numerals"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "round",
+         "at": 40,
+         "gives": "O",
+         "note": "a round shape is the letter O"
+        },
+        {
+         "words": "Scene",
+         "at": 46,
+         "gives": "SC",
+         "note": "SC is the abbreviation for scene in a script"
+        },
+        {
+         "words": "One",
+         "at": 52,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A great actor in an endless rush hugs his co-star at the start of the play.",
-     "walkthrough": "'Scene One' reads as a stage direction, but it is two separate pieces.",
-     "definitionFit": "Roscius was the most celebrated comic actor of ancient Rome, and his name became a byword for a great actor."
+     "surface": "A star actor rushes, without end, to hug the opening scene.",
+     "walkthrough": "Roscius was the most celebrated comic actor of ancient Rome.",
+     "definitionFit": "Quintus Roscius was the great Roman actor, and his name became a byword for any outstanding performer."
     },
     "features": {
      "answerInScene": true,

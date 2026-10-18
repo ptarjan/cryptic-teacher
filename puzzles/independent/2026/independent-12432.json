@@ -516,31 +516,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "around"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "back of"
+         "text": "around",
+         "at": 28,
+         "note": "around means the word for still goes around the next letter"
         }
        ],
        "parts": [
         {
          "words": "still",
+         "at": 6,
          "gives": "INERT",
-         "note": "still = inert, going nowhere"
+         "note": "still in the sense of motionless is inert"
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "back of",
+           "at": 35,
+           "note": "back of means the last letter of restaurant"
+          }
+         ],
          "parts": [
           {
-           "words": "back of restaurant",
-           "note": "the last letter of restauranT, which goes inside"
+           "words": "restaurant",
+           "at": 43,
+           "note": "last letter T"
           }
          ]
         }
@@ -548,14 +554,21 @@
       },
       {
        "words": "Champagne, say",
+       "at": 12,
        "gives": "WINE",
-       "note": "champagne is a wine — 'say' marks it as one example"
+       "note": "Champagne is an example of a wine"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Say' is the standard flag for a definition by example. The surface is a barman's recipe, which is what lets 'still' pass as a word about the drink.",
-     "definitionFit": "Threads that intertwine are wound in and out of one another, and 'blend' is that idea loosened — two things merged past separating."
+     "surface": "A wine list note: mix still Champagne around the back of the restaurant.",
+     "walkthrough": "'Still Champagne' reads as a non-sparkling wine, but still is INERT and Champagne just an example of WINE.",
+     "definitionFit": "To intertwine things is to twist them together, a synonym for blending them into one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
     }
    }
   },

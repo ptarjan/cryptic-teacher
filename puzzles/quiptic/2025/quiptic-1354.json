@@ -831,51 +831,75 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "shortly",
-       "note": "Shortly means cut short, so the season gives up its last letter before anything else is done with it."
+       "text": "in",
+       "at": 11,
+       "note": "in puts the first pieces inside the mixed word for autumn"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "prepared",
-         "note": "Something prepared has been worked into shape rather than left as it was found, and these letters are worked into a new order."
+         "at": 29,
+         "note": "prepared means made ready, so the letters are rearranged"
         }
        ],
        "parts": [
         {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "shortly",
+           "at": 21,
+           "note": "shortly means the word is cut short by its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "autumn",
+           "at": 14,
+           "note": "AUTUMN without its last letter is AUTUM"
+          },
+          {
+           "gives": "N"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "Large",
+         "at": 0,
          "gives": "L",
-         "note": "L is the size on a clothing label"
+         "note": "L is the clothing-size abbreviation for large"
         },
         {
          "words": "chap",
+         "at": 6,
          "gives": "TIM",
-         "note": "Tim is an everyday man's name standing in for any chap"
-        },
-        {
-         "words": "autumn",
-         "gives": "AUTUM",
-         "note": "the season with its final letter cut off"
+         "note": "Tim is a man's name, a chap"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A big fellow drawing up a last demand as autumn closes in.",
-     "walkthrough": "A first name doing duty for 'chap' is standard setter's shorthand; the letters left over once the size and the season are counted out decide which name. Note the order — the season is docked first, and only then is everything shuffled.",
-     "definitionFit": "An ultimatum is the last demand made before the talking stops and something worse follows, whether it comes from a government or a gas board."
+     "surface": "A big fellow, ready in the autumn, issues a last warning.",
+     "walkthrough": "AUTUM is rearranged to UATUM, and L and TIM go inside after its U.",
+     "definitionFit": "An ultimatum is a final set of terms, refusal of which brings consequences, a last demand."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "shortly"
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
     }
    }
   },
