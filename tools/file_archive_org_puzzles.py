@@ -2790,7 +2790,7 @@ if _NO_GALE_ROW:
 #: Each run's ledger in the cache, filed.jsonl unless named here.
 LEDGER_NAMES = {GALE.key: downloads.GALE_LEDGER.name}
 #: The runs whose never-read editions are read latest laid out first (pages
-#: saved by hand, whose saver waits to see them filed), not a year at a time.
+#: downloaded by the Gale fetcher, whose watcher waits to see them filed), not a year at a time.
 NEWEST_FIRST = {GALE.key}
 
 
@@ -4997,7 +4997,7 @@ FRESH = 3600
 # ------------------------------------------------------------ the per-edition queue
 
 #: How urgent each reason to read an edition is (tools/edition_queue.py
-#: takes the lowest first): 0 pages Paul saved by hand, and any edition
+#: takes the lowest first): 0 pages the Gale fetcher downloaded (never read), and any edition
 #: just laid out (edition_queue.fresh, started ahead of the rank's planned
 #: units); 1 any other
 #: never-read edition and annotation's asks; 2 a re-read that can change
@@ -5009,7 +5009,7 @@ FRESH = 3600
 #: does a read by another VLM version (a model or prompt change).
 #: Within a rank, the reads likely() predicts to file the most puzzles
 #: whole go first. Every reason due_reason or plan gives is named here.
-RANKS = {"just laid out": 0, "saved by hand": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
+RANKS = {"just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          **{f"refused {c} before its fix": 2 for c in REFUSALS}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "scan stale": 3, "--reread": 3,
@@ -5261,7 +5261,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
         if not why and rel in asked:
             why = "annotation asked"
         if why == "never read" and paper.key in NEWEST_FIRST:
-            why = "saved by hand"
+            why = "never read (Gale fetch)"
         if why:
             reads[d] = why
     # Which stale scans each read waits on: its own and the SOLUTION_DAYS after it.
@@ -5296,6 +5296,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
     queue = sorted(sorted(reads, key=newest, reverse=True), key=lambda d: (rank_of_reason(reads[d]), -gain[d]))
     read_units = [{"kind": "read", "paper": paper.key, "rel": rels[d], "reason": reads[d], "rank": rank_of_reason(reads[d]),
                    "date": day_of(d), "needs": needs(d), "force": reads[d] == "annotation asked",
+                   **({"detail": refusal_detail(known.get(rels[d]) or {}, reads[d])} if reads[d].startswith("refused ") else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]
     rank_of, gain_of = {}, {}
     for u in read_units:
@@ -5308,6 +5309,14 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                   for d in sorted(sorted(stale, key=newest, reverse=True),
                                   key=lambda d: (rank_of.get(rels[d], RANKS["scan stale"]), -gain_of.get(rels[d], 0)))]
     return scan_units, read_units
+
+
+def refusal_detail(row, reason):
+    """Which puzzle of ledger `row` a "refused <cause> before its fix" read is
+    for and what the refusal said (truncated), for the queue's log line."""
+    cause = reason[len("refused "):-len(" before its fix")]
+    return "; ".join(f"puzzle {v.get('number') or v.get('id') or '?'}: {str(v.get('refused'))[:100]}"
+                     for v in row.get("verdicts", ()) if v.get("cause") == cause)[:300]
 
 
 def likely_gain(unit):
