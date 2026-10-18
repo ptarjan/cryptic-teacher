@@ -381,46 +381,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LUDDITE",
      "indicators": [
       {
        "text": "breaking into",
-       "note": "breaking into something means getting inside it, so the letters go within the instrument"
+       "at": 36,
+       "note": "breaking into means the shuffled letters force their way inside the next word"
       }
      ],
      "parts": [
+      {
+       "words": "instrument",
+       "at": 50,
+       "gives": "LUTE",
+       "note": "a lute is a stringed musical instrument"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "wrong",
-         "note": "done wrong means done incorrectly, so the letters come out in the wrong order"
+         "at": 30,
+         "note": "wrong means the letters of did are set out in a wrong order"
         }
        ],
        "parts": [
         {
          "words": "did",
-         "note": "the letters of did, rearranged"
-        },
-        {
-         "words": "instrument",
-         "gives": "LUTE",
-         "note": "a lute is a stringed instrument"
+         "at": 26
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A reactionary smashes his way into a musical instrument.",
-     "walkthrough": "The Luddites were early 19th-century English workers who smashed new textile machinery.",
-     "definitionFit": "A Luddite is anyone hostile to new technology, named after those machine-wrecking workers."
+     "surface": "A technophobe misbehaves by breaking into a musical instrument.",
+     "definitionFit": "The Luddites were workers who smashed new machinery, so a Luddite now means anyone resisting new technology."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "breaking"
+     "misdirectedWord": "instrument"
     }
    }
   },
@@ -1122,47 +1122,37 @@
      "op": "deletion",
      "indicators": [
       {
+       "text": "Last of",
+       "at": 0,
+       "note": "last of points at the final letter of the camp word"
+      },
+      {
        "text": "blown away",
-       "note": "something blown away is gone, so that letter is dropped"
+       "at": 20,
+       "note": "blown away means that letter is removed"
       }
      ],
      "parts": [
       {
        "words": "tents etc.",
+       "at": 8,
        "gives": "CAMP",
-       "note": "a camp is a set of tents and the like"
+       "note": "a camp is a group of tents and the like"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "P",
-       "indicators": [
-        {
-         "text": "Last of",
-         "note": "the last of something is its final letter, which is the one picked out here"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "tents etc.",
-         "gives": "P",
-         "select": "last",
-         "note": "the final letter of the camp"
-        }
-       ]
+       "gives": "P"
       }
      ]
     },
     "explanation": {
-     "surface": "Campers' gear ends up in the river after a gale.",
-     "walkthrough": "The Cam is the river that flows through Cambridge.",
-     "definitionFit": "The Cam is a river in eastern England, best known for punting at Cambridge."
+     "surface": "The last tents and other gear are blown into a river.",
+     "walkthrough": "'Last of tents' tempts you to take S, the end of tents; the last letter to go is the end of CAMP.",
+     "definitionFit": "The Cam is the river flowing through Cambridge, England."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "blown"
+     "misdirectedWord": "tents"
     }
    }
   },

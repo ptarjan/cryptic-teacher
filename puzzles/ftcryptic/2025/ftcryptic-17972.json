@@ -48,64 +48,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EFFACE",
      "indicators": [
       {
        "text": "charging",
-       "note": "charging means loading or filling, so one piece is packed inside the other"
+       "at": 34,
+       "note": "charging in the sense of loading, so the uncapped fee is filled with the next part"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "EFFACE",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "retrospectively",
-         "note": "looking back in time suggests reading the eatery's name from its end to its start"
+         "text": "uncapped",
+         "at": 43,
+         "note": "uncapped means the word loses its top, its first letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "uncapped",
-             "note": "without a cap means the top letter is lost, leaving the rest of the word"
-            }
-           ],
-           "parts": [
-            {
-             "words": "fee",
-             "note": "fee with its first letter knocked off, first part of the shell"
-            }
-           ]
-          },
-          {
-           "words": "restaurant",
-           "gives": "FFAC",
-           "note": "a caff is a cheap café, here read backwards"
-          },
-          {
-           "words": "fee",
-           "gives": "E",
-           "note": "the remaining letter of the beheaded fee closes the shell"
-          }
-         ]
+         "words": "fee",
+         "at": 52,
+         "gives": "FEE",
+         "note": "taken as written"
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retrospectively",
+         "at": 18,
+         "note": "retrospectively means looking back, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "restaurant",
+         "at": 7,
+         "gives": "CAFF",
+         "note": "a caff is British slang for a cheap cafe or restaurant"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner complains about a restaurant that sneakily added a fee to the bill after the fact and wants it removed.",
-     "walkthrough": "A CAFF is British slang for a cheap café. Reversed, it goes inside EE, which is FEE without its first letter: E(FFAC)E.",
-     "definitionFit": "To efface something is to rub it out or erase it, a close synonym of remove."
+     "surface": "A diner returns to a restaurant that charged a fee without the usual cap.",
+     "walkthrough": "The restaurant is a caff, British slang for a cheap cafe; 'charging' means loading, not billing.",
+     "definitionFit": "To efface is to wipe out or erase, which is to remove a mark or memory."
     },
     "features": {
      "answerInScene": false,
@@ -135,41 +130,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FOLIO",
-     "indicators": [
-      {
-       "text": "hiding tail",
-       "note": "hiding its tail means the big cat's last letter is kept out of sight"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Fine",
+       "at": 0,
+       "gives": "F",
+       "note": "F is the pencil-grade abbreviation for fine"
+      },
+      {
+       "words": "old",
+       "at": 5,
+       "gives": "O"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "hiding tail",
+         "at": 13,
+         "note": "hiding tail means the word's last letter is hidden away"
+        }
+       ],
        "parts": [
         {
-         "words": "Fine",
-         "gives": "F",
-         "note": "F is the pencil-grade abbreviation for fine"
-        },
-        {
-         "words": "old",
-         "gives": "O",
-         "note": "O is the standard abbreviation for old"
-        },
-        {
          "words": "cat",
-         "gives": "LIO",
-         "note": "a lion is a big cat; its last letter goes"
+         "at": 9,
+         "gives": "LION",
+         "note": "a lion is a big cat"
+        },
+        {
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cat curls up inside a folded newspaper with its tail tucked out of sight.",
-     "definitionFit": "A folio is a sheet of paper folded once to make two leaves, or a book made of such sheets."
+     "surface": "A fine old cat hides its tail in a folded sheet of paper.",
+     "definitionFit": "A folio is a sheet of paper folded once to make two leaves of a book."
     },
     "features": {
      "answerInScene": true,
@@ -373,41 +372,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PEREGRINEFALCON",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means most but not all of the word, so its last letter is dropped"
+       "text": "Jockey",
+       "at": 0,
+       "note": "to jockey is to jostle for position, so the letters jostle into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Jockey",
-         "note": "to jockey is to manoeuvre or jostle for position, so the letters are moved around"
+         "text": "mostly",
+         "at": 7,
+         "note": "mostly means the word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "prefers",
-         "gives": "PREFER",
-         "note": "prefers without its last letter"
+         "at": 14
         },
         {
-         "words": "congenial",
-         "note": "taken as written"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "congenial",
+       "at": 22
       }
      ]
     },
     "explanation": {
-     "surface": "A jockey who mostly likes a friendly, quick horse.",
-     "definitionFit": "The peregrine falcon is famed as the fastest animal on earth when diving, so it is a fast mover."
+     "surface": "A rider mostly likes a friendly racehorse.",
+     "walkthrough": "'Jockey' looks like the subject of the sentence; it is the anagram signal, a verb meaning to jostle.",
+     "definitionFit": "The peregrine falcon is the fastest animal on earth, diving at over 300 km/h."
     },
     "features": {
      "answerInScene": false,
@@ -437,37 +439,48 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "LIKEABLE",
-     "indicators": [
-      {
-       "text": "elevating the finale",
-       "note": "in a down entry, raising the final letter moves it one place up, swapping it with its neighbour"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "characteristic of",
+       "at": 11,
        "gives": "LIKE",
-       "note": "characteristic of someone is like them"
+       "note": "like means typical or characteristic of, as in just like him"
       },
       {
-       "words": "The Third Man",
-       "gives": "ABEL",
-       "note": "after Adam and Cain, Abel was the third man in Genesis"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "elevating the finale",
+         "at": 43,
+         "note": "in a down answer, elevating the finale lifts the last letter above the one before it, swapping the final pair"
+        }
+       ],
+       "parts": [
+        {
+         "words": "The Third Man",
+         "at": 29,
+         "gives": "ABEL",
+         "note": "Abel was the third man in Genesis, after Adam and Cain"
+        },
+        {
+         "gives": "EL"
+        },
+        {
+         "gives": "LE"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A film buff praises the charm of The Third Man and its famous closing scene.",
-     "walkthrough": "The Third Man looks like the 1949 film, but here it is the third human in Genesis, after Adam and Cain. In a down entry, elevating the last letter lifts it one place.",
-     "definitionFit": "Likeable means pleasant and easy to like, so a likeable person is attractive in manner."
+     "surface": "A film buff admires a trait of The Third Man, its famous ending.",
+     "walkthrough": "The Third Man is a 1949 film, but here it is the third man in the Bible, after Adam and Cain.",
+     "definitionFit": "Likeable means pleasant and easy to warm to, so attractive in personality."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Third"
     }
    }
@@ -663,42 +676,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "REKINDLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "retired",
-       "note": "retiring means drawing back, so the word for senior is read backwards"
+       "text": "haunting",
+       "at": 7,
+       "note": "haunting means the family word lingers inside the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "haunting",
-         "note": "a ghost haunting a place dwells within it, so one piece sits inside the other"
+         "text": "retired",
+         "at": 16,
+         "note": "retired means drawn back, so the word is read in reverse"
         }
        ],
        "parts": [
         {
          "words": "senior",
-         "gives": "REDLE",
-         "note": "an elder is a senior; read backwards"
-        },
-        {
-         "words": "Family",
-         "gives": "KIN",
-         "note": "kin are family"
+         "at": 24,
+         "gives": "ELDER",
+         "note": "an elder is a senior person"
         }
        ]
+      },
+      {
+       "words": "Family",
+       "at": 0,
+       "gives": "KIN",
+       "note": "kin are family"
       }
      ]
     },
     "explanation": {
-     "surface": "Relatives who keep pestering a retired old person and stir up trouble.",
-     "definitionFit": "To rekindle a quarrel or feeling is to stir it up again, provoking it anew."
+     "surface": "Relatives keep haunting a retired old man and cause more trouble.",
+     "walkthrough": "'retired' does double duty in the surface as pensioned off; in the wordplay it means drawn back, so read backwards.",
+     "definitionFit": "To rekindle a quarrel is to stir it up again, provoking anger once more."
     },
     "features": {
      "answerInScene": false,
@@ -728,43 +744,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FOOTLING",
+     "op": "container",
      "indicators": [
       {
-       "text": "away from the front",
-       "note": "with its front gone, the footwear loses its first letter"
+       "text": "keeping",
+       "at": 15,
+       "note": "keeping means the affair word holds the next piece within it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "affair",
+       "at": 8,
+       "gives": "FLING",
+       "note": "a fling is a short love affair"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "keeping",
-         "note": "keeping something means holding it within, so one word goes inside the other"
+         "text": "away from the front",
+         "at": 34,
+         "note": "away from the front means the first letter is lost"
         }
        ],
        "parts": [
         {
-         "words": "affair",
-         "gives": "FLING",
-         "note": "a fling is a brief affair"
+         "words": "Wellington",
+         "at": 23,
+         "gives": "BOOT",
+         "note": "a wellington is a rubber boot"
         },
         {
-         "words": "Wellington",
-         "gives": "OOT",
-         "note": "a wellington is a rubber boot; it loses its first letter"
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A minor affair kept the Duke of Wellington from going to the battlefront.",
-     "walkthrough": "Wellington suggests the duke, but a wellington is also a rubber boot.",
-     "definitionFit": "Footling means trifling or unimportant, a mainly British word for trivial."
+     "surface": "A light romance keeps the Duke of Wellington from the front line.",
+     "walkthrough": "Wellington looks like the general; it is a wellington boot, which loses its B.",
+     "definitionFit": "Footling means petty and unimportant, a dismissive word for something trifling."
     },
     "features": {
      "answerInScene": false,
@@ -796,66 +817,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AMOEBA",
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the degrees go round the selected letters"
+       "at": 29,
+       "note": "about means the graduates go around the next piece"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "AMOEBA",
+       "words": "Graduates going head to head",
+       "at": 0,
+       "gives": "AMBA",
+       "note": "MA and BA are both degrees for graduates; the MA is turned to face the BA, so the two front letters meet"
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "going head to head",
-         "note": "for the two degrees to meet head to head, the first must be turned round to face the second"
+         "text": "shell of",
+         "at": 35,
+         "note": "the shell of a word is its outside letters"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Graduates",
-           "gives": "AM",
-           "note": "MA, Master of Arts, turned round"
-          },
-          {
-           "op": "outer",
-           "indicators": [
-            {
-             "text": "shell of",
-             "note": "the shell of a word is its outside, its first and last letters"
-            }
-           ],
-           "parts": [
-            {
-             "words": "obscure",
-             "note": "the outside letters"
-            }
-           ]
-          },
-          {
-           "words": "Graduates",
-           "gives": "BA",
-           "note": "BA, Bachelor of Arts"
-          }
-         ]
+         "words": "obscure",
+         "at": 44,
+         "note": "its first and last letters give OE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two graduates square up over a dull subject's outer layer.",
-     "definitionFit": "An amoeba is a single-celled creature, a microscopic living organism."
+     "surface": "Two graduates argue face to face about the shell of some obscure creature.",
+     "walkthrough": "The graduates are the master's and bachelor's degrees; 'head to head' turns the first round so the two front letters meet.",
+     "definitionFit": "An amoeba is a single-celled organism, a microscopic creature that changes shape as it moves."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Graduates"
     }
@@ -1103,54 +1104,51 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "OVERSTEP",
-     "indicators": [
-      {
-       "text": "rampant",
-       "note": "a rampant beast rears up on its hind legs, so in a down entry the word reads upward"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Naked",
+         "at": 0,
+         "note": "naked means stripped of its outer letters, leaving the middle"
+        }
+       ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "OVER",
-         "indicators": [
-          {
-           "text": "Naked",
-           "note": "stripped naked, the word loses its outer covering, the first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "lovers'",
-           "gives": "OVER",
-           "select": "middle",
-           "note": "lovers with its outside letters removed"
-          }
-         ]
-        },
+         "words": "lovers",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rampant",
+         "at": 14,
+         "note": "rampant means rearing up, so in this down answer the word is read upwards"
+        }
+       ],
+       "parts": [
         {
          "words": "favourites",
-         "gives": "STEP",
-         "note": "pets are favourites; read upward"
+         "at": 22,
+         "gives": "PETS",
+         "note": "pets are favourites"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Unclothed lovers' wild favourite games take things too far.",
-     "definitionFit": "To overstep a limit is to go beyond what is allowed or proper."
+     "surface": "Naked lovers run wild with their favourites and go too far.",
+     "walkthrough": "'rampant' looks like wild behaviour, but in heraldry it means rearing up, which in a down answer turns the word upwards.",
+     "definitionFit": "To overstep is to cross a limit, behaving beyond what is acceptable."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "rampant"
     }

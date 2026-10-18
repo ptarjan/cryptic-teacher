@@ -864,36 +864,36 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "TRI",
+       "op": "deletion",
        "indicators": [
         {
          "text": "50% of",
-         "note": "half of a word means keeping exactly half of its letters, here the front half"
+         "at": 13,
+         "note": "50% of means half the word, its first three letters, is kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "tribes",
-         "gives": "TRI",
-         "select": "first",
-         "note": "the first half of the word: three of its six letters"
+         "at": 20
+        },
+        {
+         "gives": "BES"
         }
        ]
       },
       {
        "words": "of which one came to Britain after the Romans",
+       "at": 27,
        "gives": "ANGLES",
-       "note": "the Angles were a Germanic tribe who settled in Britain after Roman rule ended"
+       "note": "the Angles were Germanic tribes, one of the peoples who settled Britain after the Romans left"
       }
      ]
     },
     "explanation": {
-     "surface": "A history-class fact about the peoples who arrived in Britain once Rome withdrew.",
-     "walkthrough": "The Angles, who gave England its name, are one of the tribes the clue points to; the half-word comes from the same 'tribes'.",
-     "definitionFit": "Triangles are three-sided geometric shapes, and figures is the general geometry term for shapes."
+     "surface": "Historians take figures from half the tribes, one of which reached Britain after Rome.",
+     "walkthrough": "'tribes' does double duty: half of it gives TRI, and it is also what the Angles were, the people who gave England its name.",
+     "definitionFit": "Triangles are three-sided shapes, among the basic figures of geometry."
     },
     "features": {
      "answerInScene": false,
@@ -1100,51 +1100,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ESTEEM",
+     "op": "composite",
      "indicators": [
       {
+       "text": "not",
+       "at": 11,
+       "note": "not means the letters named next are left out of the pool"
+      },
+      {
        "text": "poor",
-       "note": "something poor is in bad shape, so the letters are knocked into a different order"
+       "at": 18,
+       "note": "poor means the remaining letters are in a sorry state, jumbled into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ESTEEM",
-       "indicators": [
-        {
-         "text": "not as",
-         "note": "read as 'not A's', it means every copy of that letter is left out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "See",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "mate",
-         "note": "taken as written"
-        }
-       ]
+       "words": "See a mate",
+       "at": 0
+      },
+      {
+       "words": "as",
+       "at": 15,
+       "gives": "AA",
+       "note": "read as the plural of the letter A, so two As are taken out"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice not to regard a friend as cheap company.",
-     "walkthrough": "'As' looks like a comparison word but is the plural of the letter A: both A's go before the rest is rearranged.",
-     "definitionFit": "To esteem someone is to regard them highly, so it works as a verb meaning to value or prize."
+     "surface": "Someone advises seeing a friend not as a poor investment.",
+     "walkthrough": "'as' is not the ordinary word: read it as As, the plural of the letter, so both As go from SEE A MATE before the rest is rearranged.",
+     "definitionFit": "To esteem something is to prize or rate it highly, which is to value it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "as"
     }
    }
