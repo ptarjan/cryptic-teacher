@@ -47,36 +47,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MALADY",
-     "indicators": [
-      {
-       "text": "contracted",
-       "note": "something contracted has been made shorter, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "contracted",
+         "at": 4,
+         "note": "contracted means shortened, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "Man",
-         "gives": "MA",
-         "note": "man with its last letter cut off"
+         "at": 0,
+         "gives": "MAN"
         },
         {
-         "words": "female",
-         "gives": "LADY",
-         "note": "a lady is a woman"
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "female",
+       "at": 15,
+       "gives": "LADY",
+       "note": "a lady is a woman, a female"
       }
      ]
     },
     "explanation": {
-     "surface": "A man has caught an illness usually associated with women.",
-     "definitionFit": "A malady is an illness or ailment, a medical condition in the sense of a disorder."
+     "surface": "A man caught an illness affecting women, a little medical mystery.",
+     "walkthrough": "'contracted' looks like catching an illness, which suits the surface, but it means shortened: MAN loses its N.",
+     "definitionFit": "A malady is an illness or ailment, a medical condition someone suffers from."
     },
     "features": {
      "answerInScene": true,
@@ -855,48 +859,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EAGLET",
+     "op": "container",
      "indicators": [
       {
-       "text": "Endless",
-       "note": "endless means without a final letter, so the word is cut short"
+       "text": "in",
+       "at": 12,
+       "note": "in says the shortened word goes inside the word for swallow"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "swallow",
+       "at": 15,
+       "gives": "EAT",
+       "note": "to eat is to swallow food"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the shortened word inside the verb for eating"
+         "text": "Endless",
+         "at": 0,
+         "note": "endless means the last letter is removed"
         }
        ],
        "parts": [
         {
-         "words": "swallow",
-         "gives": "EAT",
-         "note": "to swallow food is to eat"
+         "words": "joy",
+         "at": 8,
+         "gives": "GLEE",
+         "note": "glee is joy or delight"
         },
         {
-         "words": "joy",
-         "gives": "GLE",
-         "note": "glee, a word for joy, without its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Endless delight at a swallow, a bird made to take wing.",
-     "walkthrough": "'Swallow' looks like the bird, which suits the surface, but it is the verb.",
-     "definitionFit": "An eaglet is a young eagle, a chick hatched to become a powerful bird of prey in flight."
+     "surface": "Unbounded joy at the sight of a swallow, a bird made for flight.",
+     "walkthrough": "'swallow' looks like the bird, which fits 'born to fly', but it is the verb: GLEE without its last E goes inside EAT.",
+     "definitionFit": "An eaglet is a young eagle, a chick hatched to become a soaring bird of prey."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "swallow"
     }
    }

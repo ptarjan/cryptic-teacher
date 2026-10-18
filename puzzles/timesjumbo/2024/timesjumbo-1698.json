@@ -104,49 +104,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "don't start",
-       "note": "both words lose their first letter"
-      },
-      {
-       "text": "ascendant",
-       "note": "in a down clue, going up means reading from the bottom"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "don't start",
+         "at": 7,
+         "note": "don't start means each of the two words loses its opening letter"
+        }
+       ],
        "parts": [
         {
-         "words": "an ascendant",
-         "gives": "AN",
-         "note": "AN written upwards"
+         "words": "Why we",
+         "at": 0
         },
         {
-         "words": "we",
-         "gives": "E",
-         "note": "WE without its start"
-        },
+         "gives": "WW"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "Why",
-         "gives": "YH",
-         "note": "WHY without its start"
+         "text": "ascendant",
+         "at": 27,
+         "note": "ascendant means rising, which in a down clue reads the letters upwards, so they are reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "an",
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzled question about why some creature refuses to begin alongside a social climber.",
-     "walkthrough": "'Don't start' applies to both words before it, so WHY and WE are each beheaded. Only AN goes upward.",
-     "definitionFit": "Definition by broad category: the hyena is a doglike African scavenger, and 'animal' is the widest net that catches it."
+     "surface": "A puzzled question: why not open with a rising animal?",
+     "walkthrough": "'Why we' looks like part of a question, but the two words are fodder: without their W's they give HY and E, and AN rising gives NA.",
+     "definitionFit": "The hyena is a carnivorous African and Asian mammal, a doglike scavenger known for its laughing call."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ascendant"
+     "misdirectedWord": "Why"
     }
    }
   },
@@ -171,42 +176,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DICOTYLEDON",
-     "indicators": [
-      {
-       "text": "never succeeded",
-       "note": "S is the abbreviation for succeeded, and 'never' says it must not appear"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "never",
+         "at": 16,
+         "note": "never with the letter for succeeded says that letter is absent from both words"
+        }
+       ],
        "parts": [
         {
-         "words": "Dance",
-         "gives": "DICO",
-         "note": "DISCO with its S removed"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Dance",
+           "at": 0,
+           "gives": "DISCO",
+           "note": "disco is a style of dance"
+          },
+          {
+           "words": "technique",
+           "at": 6,
+           "gives": "STYLE",
+           "note": "style is a manner or technique"
+          }
+         ]
         },
         {
-         "words": "technique",
-         "gives": "TYLE",
-         "note": "STYLE with its S removed"
-        },
-        {
-         "words": "fellow",
-         "gives": "DON",
-         "note": "a don is a fellow of a university college"
+         "words": "succeeded",
+         "at": 22,
+         "gives": "SS",
+         "note": "S is the abbreviation for succeeded in genealogies, and each word loses it"
         }
        ]
+      },
+      {
+       "words": "fellow",
+       "at": 37,
+       "gives": "DON",
+       "note": "a don is a university fellow"
       }
      ]
     },
     "explanation": {
-     "surface": "A ballroom dancer's footwork has never won, and they are paired with a partner among the pot plants.",
-     "walkthrough": "'Never succeeded' strips every S from DISCO STYLE, not just one. A dicotyledon is a flowering plant whose seed has two first leaves.",
-     "definitionFit": "A dicotyledon is a plant, one of the two big groups of flowering plants."
+     "surface": "A dancer's technique never succeeded, even with a partner, at the plant.",
+     "walkthrough": "Both DISCO and STYLE lose their S, giving DICO and TYLE; a don is a fellow of an Oxford or Cambridge college.",
+     "definitionFit": "A dicotyledon is a flowering plant whose seed has two embryonic leaves, such as an oak or a rose."
     },
     "features": {
      "answerInScene": false,
@@ -240,7 +258,8 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the cat goes inside the rearranged letters"
+       "at": 12,
+       "note": "in places the cat inside the jumbled letters"
       }
      ],
      "parts": [
@@ -249,33 +268,29 @@
        "indicators": [
         {
          "text": "agitated",
-         "note": "the letters of Ascot are stirred up"
+         "at": 21,
+         "note": "agitated means stirred up, so the letters of Ascot are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Ascot agitated",
-         "gives": "STACO",
-         "note": "ASCOT rearranged"
+         "words": "Ascot",
+         "at": 15
         }
        ]
       },
       {
-       "op": "anagram",
-       "parts": [
-        {
-         "words": "Tom perhaps",
-         "gives": "CAT",
-         "note": "a tom is a male cat"
-        }
-       ]
+       "words": "Tom perhaps",
+       "at": 0,
+       "gives": "CAT",
+       "note": "a tom is a male cat, so it is an example of a cat"
       }
      ]
     },
     "explanation": {
-     "surface": "A cat loose at the Ascot races, and some clipped behaviour in the bars afterwards.",
-     "walkthrough": "The bars are musical bars, not pubs: staccato notes are played short and detached. Ascot is the royal racecourse west of London.",
-     "definitionFit": "Staccato playing cuts each note short, so the music in those bars sounds somewhat abrupt."
+     "surface": "Someone called Tom, flustered at Ascot races, is a bit curt in the bars there.",
+     "walkthrough": "'bars' suggests drinking at Ascot races, but it means musical bars. Agitated turns ASCOT into STACO, with CAT inside.",
+     "definitionFit": "Staccato in music means notes played short and detached, giving a clipped, abrupt effect within the bars."
     },
     "features": {
      "answerInScene": false,
@@ -370,48 +385,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ROGUE",
+     "op": "container",
      "indicators": [
       {
-       "text": "up",
-       "note": "in a down clue, the word is read from the bottom"
+       "text": "is entertaining",
+       "at": 39,
+       "note": "entertaining means hosting, so the street word holds the reversed piece inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Parisian street",
+       "at": 23,
+       "gives": "RUE",
+       "note": "rue is French for street"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "is entertaining",
-         "note": "the street holds the journey, as a host entertains a guest"
+         "text": "up",
+         "at": 20,
+         "note": "up in a down clue means read upwards, so the letters are reversed"
         }
        ],
        "parts": [
         {
-         "words": "Parisian street",
-         "gives": "RUE",
-         "note": "French for street, split round OG"
-        },
-        {
-         "words": "journey up",
-         "gives": "OG",
-         "note": "GO, a journey, written upwards"
+         "words": "journey",
+         "at": 12,
+         "gives": "GO",
+         "note": "a go is a turn or trip, used here for journey"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone on a cheeky trip along a Paris street finds it great fun.",
-     "walkthrough": "Rogue is used here as an adjective, as in a rogue smile.",
-     "definitionFit": "Used as an adjective, rogue means playfully naughty, a close synonym for mischievous."
+     "surface": "A cheeky trip up a Paris street proves entertaining.",
+     "walkthrough": "GO turned up gives OG, held inside the French word RUE.",
+     "definitionFit": "Used as an adjective, rogue describes behaviour that is wayward, mischievous and out of control."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "entertaining"
+     "misdirectedWord": "journey"
     }
    }
   },
@@ -1491,37 +1508,37 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SPUD",
-     "indicators": [
-      {
-       "text": "reflective",
-       "note": "a reflection shows a thing backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "south",
+       "at": 12,
+       "gives": "S"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reflective",
+         "at": 26,
+         "note": "reflective suggests a mirror image, so the letters are reversed"
+        }
+       ],
        "parts": [
         {
-         "words": "south",
-         "gives": "S",
-         "note": "S = south"
-        },
-        {
-         "words": "reflective Unionists",
-         "gives": "PUD",
-         "note": "the DUP, Northern Ireland's Democratic Unionist Party, reversed"
+         "words": "Unionists",
+         "at": 37,
+         "gives": "DUP",
+         "note": "the DUP is the Democratic Unionist Party of Northern Ireland"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Murphy from the south meets some thoughtful Ulster Unionists.",
-     "walkthrough": "Murphy looks like an Irish surname, but it is slang for a potato, as is spud.",
-     "definitionFit": "Murphy is old slang for a potato, from the Irish link, and spud is the everyday slang for one."
+     "surface": "Someone named Murphy from the south meets thoughtful Northern Irish unionists.",
+     "walkthrough": "'Murphy' looks like a surname, but it is slang for a potato, from the Irish association.",
+     "definitionFit": "Both murphy and spud are informal words for a potato."
     },
     "features": {
      "answerInScene": false,
@@ -1606,47 +1623,39 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "heartless",
-       "note": "the middle letter is taken out"
-      }
-     ],
      "parts": [
       {
        "words": "right",
+       "at": 20,
        "gives": "TITLE",
-       "note": "a title is a right or legal claim, as in title to land"
+       "note": "a title is a legal right or claim to something, as in title to land"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "crushed",
-         "note": "what is left is squashed into a new order"
+         "at": 44,
+         "note": "crushed means smashed up, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
          "op": "deletion",
+         "indicators": [
+          {
+           "text": "heartless",
+           "at": 28,
+           "note": "heartless means the middle letter of loser is taken out"
+          }
+         ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "heartless loser",
-             "gives": "LOER",
-             "note": "LOSER minus its middle S"
-            },
-            {
-             "words": "crushed",
-             "gives": "ROLE",
-             "note": "LOER rearranged"
-            }
-           ]
+           "words": "loser",
+           "at": 38
           },
           {
-           "gives": "ROLE"
+           "gives": "S"
           }
          ]
         }
@@ -1655,12 +1664,12 @@
      ]
     },
     "explanation": {
-     "surface": "Othello was right: a heartless loser, crushed at the end.",
-     "walkthrough": "'Right' looks like R, but it is TITLE, a right to something. Othello is the part the play is named after.",
-     "definitionFit": "The title role is the part that names the play, and Othello is the title role of Shakespeare's Othello."
+     "surface": "A verdict on Othello: he was right, and the loser, heartless, was crushed.",
+     "walkthrough": "Heartless loser leaves LOER, which crushed rearranges to ROLE.",
+     "definitionFit": "Othello is the character named in the play's title, so playing him is taking the part the play is named after."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "right"
     }
@@ -1783,41 +1792,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SHIPMATE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to tuck in",
+       "at": 36,
+       "note": "to tuck in means to slip a letter inside, so the abbreviation for time goes into the jumbled letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "prepared",
-         "note": "the letters are made up into a new dish"
-        },
-        {
-         "text": "to tuck in",
-         "note": "to tuck something in is to push it inside a fold"
+         "at": 20,
+         "note": "prepared means made ready, so the letters of pie and mash are reworked"
         }
        ],
        "parts": [
         {
          "words": "pie and mash",
-         "gives": "SHIPMAE",
-         "note": "PIE and MASH rearranged, split round T"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T = time"
+         "at": 7,
+         "gives": "PIEMASH",
+         "note": "the letters of the two dishes, pie and mash, pooled together; the joining word adds none"
         }
        ]
+      },
+      {
+       "words": "time",
+       "at": 31,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A filling plate of pie and mash is ready, so time to dig in.",
-     "walkthrough": "'Hearty' reads as a filling meal, but here it is a noun: 'me hearties' is how a sailor addresses his crewmates. Pie and mash is a traditional London working-class meal.",
-     "definitionFit": "A hearty is old slang for a sailor, especially a fellow crew member, so it is a synonym for shipmate."
+     "surface": "A hearty plate of pie and mash is ready: time to tuck in.",
+     "walkthrough": "'Hearty' looks like an adjective for the meal, but it is a noun: sailors called each other my hearties. PIE MASH rearranged gives SHIPMAE, with T inside.",
+     "definitionFit": "A hearty is an old nautical term for a sailor, a fellow seaman or crewmate."
     },
     "features": {
      "answerInScene": false,
@@ -1923,42 +1935,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EXPRESSION",
-     "indicators": [
-      {
-       "text": "going back",
-       "note": "something going back travels the way it came, so NO is read right to left"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "fast",
+       "at": 14,
+       "gives": "EXPRESS",
+       "note": "an express is fast, like an express train"
+      },
+      {
+       "words": "current",
+       "at": 19,
+       "gives": "I",
+       "note": "I is the symbol for electric current"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going back",
+         "at": 32,
+         "note": "going back means the word is written in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "fast",
-         "gives": "EXPRESS",
-         "note": "express as in an express train"
-        },
-        {
-         "words": "current",
-         "gives": "I",
-         "note": "I is the symbol for electric current"
-        },
-        {
-         "words": "no going back",
-         "gives": "ON",
-         "note": "NO written backwards"
+         "words": "no",
+         "at": 29,
+         "gives": "NO"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A quick glimpse of a swift stream, with no way to turn round.",
-     "walkthrough": "Appearance is meant as the look on someone's face.",
-     "definitionFit": "An expression is the look on a face, which is one sense of appearance."
+     "surface": "A fast current appears, with no way back.",
+     "walkthrough": "I is the physics symbol for current; NO going back gives ON.",
+     "definitionFit": "An expression is the look on a person's face, the appearance it shows of their feelings."
     },
     "features": {
      "answerInScene": false,
@@ -2892,46 +2905,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EDISON",
+     "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "the instinct is turned round"
+       "text": "protecting",
+       "at": 35,
+       "note": "protecting means guarding by surrounding, so the reversed word wraps round the girl"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "protecting",
-         "note": "a protector surrounds what it shields"
+         "text": "about",
+         "at": 29,
+         "note": "about here means turned about, so the letters are reversed"
         }
        ],
        "parts": [
         {
-         "words": "instinct about",
-         "gives": "ESON",
-         "note": "a nose is an instinct, as in a nose for news; turned round, split round DI"
-        },
-        {
-         "words": "little girl",
-         "gives": "DI",
-         "note": "Di, short for Diana"
+         "words": "instinct",
+         "at": 20,
+         "gives": "NOSE",
+         "note": "a nose for something is an instinct for it"
         }
        ]
+      },
+      {
+       "words": "little girl",
+       "at": 46,
+       "gives": "DI",
+       "note": "Di is a short form of the girl's name Diana"
       }
      ]
     },
     "explanation": {
-     "surface": "A US inventor's gut feeling makes him look after a small girl.",
-     "walkthrough": "The 's stands for 'is'. Thomas Edison invented the phonograph and a practical light bulb.",
-     "definitionFit": "Thomas Edison was the American inventor of the phonograph and electric light."
+     "surface": "A famous inventor's protective instinct towards his young daughter.",
+     "walkthrough": "The 's means 'is', joining definition and wordplay. NOSE turned about gives ESON, which wraps round DI.",
+     "definitionFit": "Thomas Edison was the American who developed the phonograph and a practical electric light bulb."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "instinct"
     }
@@ -3509,56 +3524,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "central",
-       "note": "the middle letters of Greece"
+       "text": "throttling",
+       "at": 35,
+       "note": "throttling means gripping round the throat, so the middle letters enclose the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
-         "text": "throttling",
-         "note": "they grip the rest by the throat"
+         "text": "central",
+         "at": 20,
+         "note": "central means the middle two letters of the word are taken"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
+         "words": "Greece",
+         "at": 28,
          "gives": "EE",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "central Greece",
-           "gives": "EE",
-           "select": "middle",
-           "note": "the middle two letters of grEEce, split round U GEN"
-          }
-         ]
-        },
-        {
-         "words": "upper-class",
-         "gives": "U",
-         "note": "U = upper-class, as in U and non-U"
+         "note": "the middle pair of letters of Greece"
         }
        ]
       },
       {
-       "words": "dope",
-       "gives": "GEN",
-       "note": "gen is British slang for information, as is dope"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "upper-class",
+         "at": 46,
+         "gives": "U",
+         "note": "U is the standard label for upper-class usage"
+        },
+        {
+         "words": "dope",
+         "at": 58,
+         "gives": "GEN",
+         "note": "dope and gen are both slang for information"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Russian hero in the middle of Greece strangling a posh drug dealer.",
-     "walkthrough": "Dope is not a drug but information, the same as gen. Eugene Onegin is Pushkin's verse-novel hero.",
-     "definitionFit": "Onegin's first name is Eugene, so he is an example of a Eugene."
+     "surface": "Onegin, in the heart of Greece, strangling an upper-class idiot.",
+     "walkthrough": "'dope' suggests a fool or a drug, but it is slang for information, GEN; Onegin's first name is in Pushkin's title Eugene Onegin.",
+     "definitionFit": "Eugene Onegin is the hero of Pushkin's verse novel, so Onegin is one man with that first name."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "dope"
     }
    }
