@@ -683,51 +683,50 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "IMPORT",
      "indicators": [
       {
        "text": "floundering",
-       "note": "floundering means struggling in confusion, so the letters are thrown into disorder"
+       "at": 44,
+       "note": "floundering means struggling clumsily, so the letters are thrown into a new order"
       }
      ],
      "parts": [
       {
+       "words": "PM",
+       "at": 15,
+       "note": "PM, the Prime Minister, taken as written"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "IMPORT",
        "indicators": [
         {
-         "text": "-less",
-         "note": "less means without, so the compass point is removed from the party name"
+         "text": "direction-less",
+         "at": 22,
+         "note": "less means without, and E and S are both compass directions, so they are taken out of Tories"
         }
        ],
        "parts": [
         {
-         "words": "PM",
-         "note": "taken as written"
-        },
-        {
          "words": "Tories",
-         "note": "taken as written"
+         "at": 37
         },
         {
-         "words": "direction",
-         "gives": "SE",
-         "note": "south-east, a compass direction, written SE"
+         "gives": "ES"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Prime Minister and an aimless Conservative party struggle, with consequences.",
-     "definitionFit": "Import in the sense of significance or meaning is a formal synonym for consequence, as in 'of great import'."
+     "surface": "A satirical jab at the Prime Minister and a Conservative party that has lost its way.",
+     "walkthrough": "'direction-less' takes the compass points E and S out of TORIES, leaving TORI; 'floundering' then rearranges PM and TORI.",
+     "definitionFit": "Import can mean significance or weight, as in a matter of great import, i.e. consequence."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "direction"
+     "joke": "pun",
+     "misdirectedWord": "direction-less"
     }
    }
   },
@@ -864,13 +863,12 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ESCORT",
+     "op": "composite",
      "indicators": [
       {
-       "text": "phwoar",
-       "note": "an excited leer suggests the letters are getting worked up and jumbled"
+       "text": "bloke's \"phwoar",
+       "at": 7,
+       "note": "phwoar is a man's excited leer, so the letters get worked up into a new order"
       }
      ],
      "parts": [
@@ -878,52 +876,45 @@
        "op": "charade",
        "parts": [
         {
-         "op": "substitution",
-         "unchecked": true,
-         "gives": "ESCORT",
-         "parts": [
-          {
-           "words": "Coarse",
-           "note": "taken as written"
-          },
-          {
-           "words": "a",
-           "note": "the letter removed from the first word"
-          },
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "finally",
-             "note": "finally points to the last letter of the following word"
-            }
-           ],
-           "parts": [
-            {
-             "words": "got",
-             "note": "its closing letter goes in where the A was"
-            }
-           ]
-          }
-         ]
+         "words": "Coarse",
+         "at": 0
         },
         {
-         "unchecked": true,
-         "words": "bloke's",
-         "note": "surface padding: sets up the leering speaker and gives no letters"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 24,
+           "note": "finally means the last letter of got"
+          }
+         ],
+         "parts": [
+          {
+           "words": "got",
+           "at": 32,
+           "note": "the word whose closing letter is used"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 36,
+       "gives": "A",
+       "note": "the letter A, which the rearranged letters must lose"
       }
      ]
     },
     "explanation": {
-     "surface": "A crude man boasts lecherously about hiring a prostitute.",
-     "walkthrough": "Swap the A of COARSE for the T at the end of 'got', then rearrange. The letters of COARSE are almost the answer already.",
-     "definitionFit": "An escort is a euphemism for a paid companion, often a prostitute."
+     "surface": "A crude man leers with delight at having secured a prostitute.",
+     "walkthrough": "Pool COARSE with T ('finally got'), take out the 'a', and the bloke's 'phwoar' rearranges what is left.",
+     "definitionFit": "An escort is a euphemism for a paid companion, often meaning a prostitute."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "phwoar"
     }
    }
@@ -1148,46 +1139,54 @@
    "annotation": {
     "definitions": [
      {
-      "text": "it's a cool thing!",
-      "at": 38
+      "text": "it's a cool thing",
+      "at": 38,
+      "note": "the whole phrase describes the noun: the answer is a cool thing, coolness of manner"
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "APLOMB",
-     "indicators": [
-      {
-       "text": "interlinked with",
-       "note": "two things interlinked are woven together, so one piece sits inside the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "One",
+       "at": 0,
        "gives": "A",
-       "note": "a means one"
+       "note": "A is the indefinite article, meaning one"
       },
       {
-       "words": "Cameron",
-       "gives": "PM",
-       "note": "David Cameron was then Prime Minister"
-      },
-      {
-       "words": "bung",
-       "gives": "LOB",
-       "note": "to bung is to throw or toss, as does a lob"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "interlinked with",
+         "at": 13,
+         "note": "interlinked means the letters of the two words are interleaved, P and M around LO with B after"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cameron",
+         "at": 4,
+         "gives": "PM",
+         "note": "David Cameron was PM, the Prime Minister"
+        },
+        {
+         "words": "bung",
+         "at": 30,
+         "gives": "LOB",
+         "note": "to bung something is to throw or lob it"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Cameron backer linked to a bribe insists the arrangement is perfectly fine.",
-     "walkthrough": "A bung is British slang for a bribe, which the surface uses; here it means to toss. 'Interlinked' is loose: the Prime Minister's two letters straddle part of the throw.",
-     "definitionFit": "Aplomb is self-assured composure, a coolness under pressure."
+     "surface": "A Prime Minister is tangled up with a bribe and tries to play it cool.",
+     "walkthrough": "'bung' is British slang for a bribe as well as a verb meaning throw, and LOB is the throw. 'interlinked with' interleaves PM with LOB: P, LO, M, B.",
+     "definitionFit": "Aplomb is self-assured composure, the sort of coolness someone shows under pressure."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "bung"
     }

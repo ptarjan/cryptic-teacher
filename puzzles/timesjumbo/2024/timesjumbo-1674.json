@@ -350,34 +350,59 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "lacking",
-       "note": "TRAINS goes without the letter named next"
-      },
-      {
-       "text": "at heart",
-       "note": "the middle letter of FAITH, which is I"
-      },
-      {
-       "text": "support"
+       "text": "can support",
+       "at": 19,
+       "note": "in a down answer the supporting word sits underneath, so the word for mum or dad comes after the rest"
       }
      ],
      "parts": [
       {
-       "words": "tutors lacking faith",
-       "gives": "TRANS",
-       "note": "TRAINS (tutors, as a verb) minus I, the centre of FAITH"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 38,
+         "note": "lacking means going without, so the heart of faith is removed from the word for tutors"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tutors",
+         "at": 31,
+         "gives": "TRAINS",
+         "note": "to tutor someone is to train them, so tutors gives trains"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "at heart",
+           "at": 52,
+           "note": "at heart means the middle letter of faith"
+          }
+         ],
+         "parts": [
+          {
+           "words": "faith",
+           "at": 46,
+           "note": "the word whose central letter is taken"
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "mum or dad",
+       "at": 8,
        "gives": "PARENT",
-       "note": "either is a parent"
+       "note": "either mum or dad is a parent"
       }
      ]
     },
     "explanation": {
-     "surface": "A parent backing teachers who have lost their core beliefs.",
-     "walkthrough": "'Tutors' is a verb here: to tutor is to train.",
-     "definitionFit": "Something transparent is easily seen through, hence obvious."
+     "surface": "A parent props up teachers who have lost their deep conviction.",
+     "walkthrough": "'at heart' takes I, the middle of FAITH, and 'lacking' removes it from TRAINS to leave TRANS; PARENT 'can support' it from below in this down answer.",
+     "definitionFit": "Transparent can mean easily seen through or detected, as in a transparent excuse, i.e. plain and evident."
     },
     "features": {
      "answerInScene": false,
@@ -1372,50 +1397,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CITRON",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "in puts the last letter of stir inside the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in"
-        },
-        {
          "text": "fizzy",
-         "note": "the letters of TONIC bubble into a new order"
+         "at": 17,
+         "note": "fizzy means bubbling and agitated, so the letters of tonic are rearranged"
         }
        ],
        "parts": [
         {
          "words": "tonic",
-         "gives": "CITON",
-         "note": "anagram of TONIC"
-        },
+         "at": 23
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "Finally"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Finally, stir",
-           "gives": "STIR",
-           "note": "last letter of stiR"
-          }
-         ]
+         "text": "Finally",
+         "at": 0,
+         "note": "finally means the last letter of stir"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stir",
+         "at": 9,
+         "note": "the word whose closing letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drinks recipe: stir it in the end, adding fizzy tonic and a lemon twist.",
-     "walkthrough": "'Stir' and 'tonic' read as bartending; 'fizzy' is the anagram signal.",
-     "definitionFit": "Citron is a citrus fruit like a lemon, used for flavouring, and French for lemon."
+     "surface": "A recipe step: at the end, mix into sparkling tonic water with some lemon flavouring.",
+     "walkthrough": "'fizzy' rearranges TONIC as CITON, and 'in' places the R from 'Finally, stir' inside it, after CIT.",
+     "definitionFit": "Citron is a French word for lemon and, in English, a citrus fruit whose peel flavours food and drinks."
     },
     "features": {
      "answerInScene": true,
@@ -2542,49 +2571,55 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "debut"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "incorporating"
+         "text": "incorporating",
+         "at": 24,
+         "note": "incorporating means taking in, so the word for gifted holds the word for extravagant"
         }
        ],
        "parts": [
         {
          "words": "Gifted",
+         "at": 0,
          "gives": "GAVE",
-         "note": "gifted = gave"
+         "note": "gave means gifted, handed over as a present"
         },
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "show-off's debut",
-           "gives": "SHOWOFFDEBUT",
-           "note": "first letter of Show-off"
-          }
-         ]
+         "words": "extravagant",
+         "at": 38,
+         "gives": "OTT",
+         "note": "OTT, over the top, means extravagant or excessive"
         }
        ]
       },
       {
-       "words": "extravagant",
-       "gives": "OTT",
-       "note": "OTT = over the top"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "debut",
+         "at": 18,
+         "note": "debut means the first letter of show-off's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "show-off's",
+         "at": 7,
+         "note": "the word whose opening letter is taken"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A talented show-off's first performance featuring flamboyant dances.",
-     "walkthrough": "'Gifted' looks like an adjective, talented; it is the verb, gave.",
-     "definitionFit": "The gavotte is an old French dance."
+     "surface": "A talented exhibitionist's first performance includes some flamboyant dancing.",
+     "walkthrough": "'incorporating' puts OTT, British slang for over the top, inside GAVE, and the S from 'show-off's debut' ends it. 'Gifted' looks like talented, but it is the past tense of give.",
+     "definitionFit": "The gavotte is a French folk dance taken up at court in the 17th century, so gavottes are dances."
     },
     "features": {
      "answerInScene": true,
@@ -2689,44 +2724,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Extremely",
-       "note": "only the extreme letters of DRY"
+       "text": "sandwiches",
+       "at": 14,
+       "note": "sandwiches means holds between two layers, so the end letters enclose the informal contraction"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "DY",
        "indicators": [
         {
-         "text": "sandwiches"
+         "text": "Extremely",
+         "at": 0,
+         "note": "extremely means the two end letters of dry"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Extremely dry",
-         "gives": "DY",
-         "select": "outer",
-         "note": "D-r-Y outer letters"
+         "words": "dry",
+         "at": 10,
+         "note": "the word whose outer letters are taken"
         }
        ]
       },
       {
        "words": "are not",
+       "at": 25,
        "gives": "AINT",
-       "note": "ain't = are not, colloquially"
+       "note": "ain't is informal speech for are not"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that very dry sandwiches aren't nice to eat.",
-     "walkthrough": "'Sandwiches' looks like food, fitting the surface; it is a verb for enclosing.",
-     "definitionFit": "Dainty food is delicate and good to eat, as in dainties."
+     "surface": "Very dry sandwiches are not nice to eat.",
+     "walkthrough": "'Extremely' gives the D and Y of DRY, and they 'sandwich' AINT, the slangy contraction of are not. The surface reads as a complaint about food; 'sandwiches' is the containment.",
+     "definitionFit": "Dainty, as an adjective, can describe food that is delicate and delicious, such as a dainty morsel."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "sandwiches"
@@ -2813,62 +2848,63 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GIANTPANDA",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "about",
-         "note": "to turn about is to face the other way, so PIG reverses"
+         "text": "to eat",
+         "at": 11,
+         "note": "to eat means to take in, so the turned-round word swallows the insect"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "to eat",
-           "note": "what you eat ends up inside you"
+           "text": "about",
+           "at": 5,
+           "note": "about means turned round, so the word for boar is read backwards"
           }
          ],
          "parts": [
           {
            "words": "Boar",
-           "gives": "GIP",
-           "note": "PIG, a boar, reversed"
-          },
-          {
-           "words": "insect",
-           "gives": "ANT",
-           "note": "the crossword's standard insect"
+           "at": 0,
+           "gives": "PIG",
+           "note": "a boar is a male pig"
           }
          ]
         },
         {
-         "words": "and",
-         "note": "used as it stands"
-        },
-        {
-         "words": "a",
-         "note": "used as it stands"
+         "words": "insect",
+         "at": 18,
+         "gives": "ANT",
+         "note": "an ant is an insect"
         }
        ]
+      },
+      {
+       "words": "and",
+       "at": 25
+      },
+      {
+       "words": "a",
+       "at": 29
       }
      ]
     },
     "explanation": {
-     "surface": "A wild pig about to devour a bug, and a big bear.",
-     "walkthrough": "'And a' looks like a link into the definition but supplies the final letters.",
-     "definitionFit": "The giant panda is a large black-and-white bear of China."
+     "surface": "A wild boar is about to swallow a bug, along with a big bear.",
+     "walkthrough": "'about' turns PIG into GIP, and 'to eat' puts ANT inside it after GI; AND and A follow. 'about to' reads as 'on the point of', but 'about' and 'to eat' are separate instructions.",
+     "definitionFit": "The giant panda is a large black-and-white bear native to the bamboo forests of China."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "and"
+     "misdirectedWord": "about"
     }
    }
   },
@@ -2896,7 +2932,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "principally"
+       "text": "alongside",
+       "at": 26,
+       "note": "alongside places the first letter of sited next to the name of the river"
       }
      ],
      "parts": [
@@ -2904,31 +2942,36 @@
        "op": "first",
        "indicators": [
         {
-         "text": "alongside"
+         "text": "principally",
+         "at": 14,
+         "note": "principally means the first letter of sited"
         }
        ],
        "parts": [
         {
-         "words": "sited principally",
-         "note": "first letter of Sited"
+         "words": "sited",
+         "at": 8,
+         "note": "the word whose opening letter is taken"
         }
        ]
       },
       {
        "words": "river",
+       "at": 36,
        "gives": "TAFF",
-       "note": "the Taff, a Welsh river through Cardiff"
+       "note": "the Taff is a river in South Wales that flows through Cardiff"
       }
      ]
     },
     "explanation": {
-     "surface": "Employees based mainly by the riverside.",
-     "walkthrough": "The Taff is the river that runs through Cardiff in Wales.",
-     "definitionFit": "A collective synonym: the staff of a firm are the people who work there."
+     "surface": "Employees were placed mainly by the riverside.",
+     "walkthrough": "'principally' gives S, set 'alongside' TAFF; the Taff is the river that runs through Cardiff.",
+     "definitionFit": "Staff is the collective noun for the employees of an organisation, its workforce."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sited"
     }
    }
   },

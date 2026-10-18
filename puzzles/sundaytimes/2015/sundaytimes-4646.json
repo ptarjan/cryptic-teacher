@@ -57,56 +57,64 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CLASSADRUG",
-     "indicators": [
-      {
-       "text": "hidden in",
-       "note": "something hidden in another thing sits inside it, so one piece goes within the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "pupils",
+       "at": 20,
+       "gives": "CLASS",
+       "note": "a class is a group of pupils taught together"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "hidden in",
+         "at": 48,
+         "note": "hidden in means tucked inside, so the letter goes within the words for a carpet"
+        }
+       ],
        "parts": [
         {
-         "words": "pupils",
-         "gives": "CLASS",
-         "note": "a class is a group of pupils taught together"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 58
+          },
+          {
+           "words": "carpet",
+           "at": 60,
+           "gives": "RUG",
+           "note": "a rug is a small carpet"
+          }
+         ]
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "initially",
-           "note": "initially points to the opening letter of the word just before it"
+           "at": 38,
+           "note": "initially means the first letter of detected"
           }
          ],
          "parts": [
           {
            "words": "detected",
-           "note": "first letter of detected"
+           "at": 27,
+           "note": "the word whose opening letter is taken"
           }
          ]
-        },
-        {
-         "words": "carpet",
-         "gives": "RUG",
-         "note": "a rug is a small carpet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sniffer work at school: a dangerous drug found stashed inside a rolled-up carpet.",
-     "walkthrough": "'Pupils' looks like the eyes' pupils, but means a class; the drug-detecting picture hides a UK legal category.",
-     "definitionFit": "In UK law Class A is the most harmful category of controlled drugs, such as heroin and cocaine."
+     "surface": "Schoolchildren find narcotics stashed under the classroom rug.",
+     "walkthrough": "'initially' gives D, and 'hidden in' tucks it inside A RUG to make ADRUG, after CLASS. In the UK, class A drugs are the most harmful category under drug law.",
+     "definitionFit": "Class A drugs, such as heroin and cocaine, are the most dangerous category under UK law."
     },
     "features": {
      "answerInScene": true,
@@ -620,48 +628,58 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "AUTOBAHNS",
-     "indicators": [
-      {
-       "text": "for",
-       "note": "for here means in place of, so one piece swaps in where another stood"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "A",
-       "note": "taken as written"
+       "at": 0,
+       "gives": "A"
       },
       {
        "words": "united",
+       "at": 2,
        "gives": "U",
-       "note": "U is the abbreviation for united, as in football team names"
+       "note": "U is the usual abbreviation for united, as in football club names"
       },
       {
-       "words": "town's",
-       "note": "the word itself with its S"
-      },
-      {
-       "words": "showing contempt",
-       "gives": "BAH",
-       "note": "bah is an exclamation of scorn"
-      },
-      {
-       "words": "wide",
-       "gives": "W",
-       "note": "W is the cricket scoring abbreviation for a wide"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 33,
+         "note": "for means in place of, so the exclamation stands where the letter for wide was"
+        }
+       ],
+       "parts": [
+        {
+         "words": "town's",
+         "at": 9,
+         "gives": "TOWNS",
+         "note": "town's read as towns, the word whose letter is replaced"
+        },
+        {
+         "words": "wide",
+         "at": 37,
+         "gives": "W",
+         "note": "W is the cricket abbreviation for a wide"
+        },
+        {
+         "words": "showing contempt",
+         "at": 16,
+         "gives": "BAH",
+         "note": "bah is an exclamation showing contempt"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A united town looking down on broad motorways.",
-     "walkthrough": "'Wide' looks like a description of the roads but is the letter being swapped out; W for a wide comes from cricket scoring, where a wide is a ball out of the batter's reach.",
-     "definitionFit": "An autobahn is a German motorway, a high-speed divided highway."
+     "surface": "A merged community sneers at broad motorways.",
+     "walkthrough": "In TOWNS, the W (wide, from cricket scoring) is replaced 'for' BAH, giving TOBAHNS after A and U.",
+     "definitionFit": "Autobahns are German motorways, multi-lane high-speed roads."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "wide"
     }

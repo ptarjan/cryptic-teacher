@@ -302,48 +302,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SIMPLICITY",
+     "op": "container",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "without a heart means the middle letter is removed from the word that follows"
+       "text": "holding captive",
+       "at": 26,
+       "note": "holding captive means keeping something shut inside, so the two outer letters enclose the word for without question"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "holding",
-         "note": "holding means gripping on both sides, so what is left wraps around the next word"
+         "text": "heartless",
+         "at": 12,
+         "note": "heartless means the middle letter of spy is removed"
         }
        ],
        "parts": [
         {
          "words": "spy",
-         "gives": "SY",
-         "note": "spy with its middle letter removed"
+         "at": 22
         },
         {
-         "words": "without question",
-         "gives": "IMPLICIT",
-         "note": "implicit trust is trust without question"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "without question",
+       "at": 42,
+       "gives": "IMPLICIT",
+       "note": "implicit means absolute, without question, as in implicit trust"
       }
      ]
     },
     "explanation": {
-     "surface": "How easily a cruel spy keeps a prisoner without interrogation.",
-     "walkthrough": "Captive reads as the prisoner but only joins the parts; implicit trust is trust given without question.",
-     "definitionFit": "Simplicity is the quality of being easy to do or understand, which is easiness."
+     "surface": "A spy with no heart is keeping a prisoner without asking anything.",
+     "walkthrough": "'heartless' cuts SPY to SY, and 'holding captive' puts IMPLICIT between its S and Y.",
+     "definitionFit": "Simplicity is the quality of being uncomplicated, i.e. easy to do or understand."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "question"
+     "misdirectedWord": "captive"
     }
    }
   },
@@ -951,57 +954,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CLERIHEW",
+     "op": "charade",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without an end means the last letter of that word is cut off"
+       "text": "after",
+       "at": 31,
+       "note": "after puts the rearranged letters behind the first letter of Cowley's"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "after",
-         "note": "after means following, so the mixed letters come after the initial"
+         "text": "earliest",
+         "at": 46,
+         "note": "earliest means the first letter of Cowley's"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "earliest",
-           "note": "earliest means first, so only the opening letter of the name is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Cowley's",
-           "note": "the first letter of Cowley"
-          }
-         ]
+         "words": "Cowley's",
+         "at": 37,
+         "note": "the word whose opening letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "intriguing",
+         "at": 20,
+         "note": "intriguing means scheming or plotting, so the letters are worked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Her",
+         "at": 0
         },
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "intriguing",
-           "note": "intriguing as plotting or scheming suggests the letters are worked into a new order"
+           "text": "endlessly",
+           "at": 10,
+           "note": "endlessly means the last letter of wiles is lost"
           }
          ],
          "parts": [
           {
-           "words": "Her",
-           "note": "taken as written"
+           "words": "wiles",
+           "at": 4
           },
           {
-           "words": "wiles",
-           "gives": "WILE",
-           "note": "wiles with its last letter removed"
+           "gives": "S"
           }
          ]
         }
@@ -1010,12 +1018,12 @@
      ]
     },
     "explanation": {
-     "surface": "A woman's tricks are fascinating, following a satirical poem by someone named Cowley.",
-     "walkthrough": "A clerihew is a four-line comic biographical verse, named after its inventor Edmund Clerihew Bentley.",
-     "definitionFit": "The clerihew is a humorous, often mocking, quatrain about a famous person, so it is a kind of satirical verse."
+     "surface": "A woman's endless scheming charms follow the poet Abraham Cowley.",
+     "walkthrough": "'endlessly' cuts WILES to WILE; 'intriguing' rearranges HER and WILE into LERIHEW, which goes 'after' the C.",
+     "definitionFit": "A clerihew is a comic four-line biographical poem, a form invented by Edmund Clerihew Bentley, gently mocking its subject."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "intriguing"
     }

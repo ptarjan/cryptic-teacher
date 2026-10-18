@@ -387,39 +387,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IMPRESARIO",
+     "op": "container",
      "indicators": [
       {
-       "text": "excited",
-       "note": "excited things are stirred up, so the city names are agitated into a new order"
+       "text": "in",
+       "at": 4,
+       "note": "in tells us the letter for one goes inside the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "excited",
+         "at": 22,
+         "note": "excited letters are stirred up, so the two city names are rearranged together"
+        }
+       ],
        "parts": [
         {
-         "words": "One",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
-        },
-        {
          "words": "Paris and Rome",
-         "gives": "MPRESARIO",
-         "note": "the letters of the two cities rearranged"
+         "at": 7,
+         "gives": "PARISROME",
+         "note": "the two city names together, PARIS plus ROME, with and only joining them"
         }
        ]
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
       }
      ]
     },
     "explanation": {
-     "surface": "A thrilled showbiz promoter is at work in two European capitals.",
-     "definitionFit": "An impresario organises and promotes concerts, operas or theatrical shows."
+     "surface": "A tourist visiting two European capitals gets worked up about a promoter.",
+     "walkthrough": "'excited' rearranges PARIS and ROME into IMPRESARO, and 'in' puts I (one) inside it, near the end.",
+     "definitionFit": "An impresario is a theatrical or musical manager who stages and promotes shows."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "excited"
     }
@@ -636,45 +645,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REELECTED",
+     "op": "container",
      "indicators": [
       {
-       "text": "drunk",
-       "note": "a drunk person's movements are jumbled, so these three letters come out scrambled"
+       "text": "about",
+       "at": 7,
+       "note": "about means surrounding, so the word for danced goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Danced",
+       "at": 0,
+       "gives": "REELED",
+       "note": "reeled means danced a reel, a lively Scottish dance"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means the dancing word goes around the scrambled letters"
+         "text": "drunk",
+         "at": 22,
+         "note": "drunk letters stagger out of order, so etc is rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Danced",
-         "gives": "REELED",
-         "note": "to reel is to dance a reel, a lively Scottish dance"
-        },
-        {
          "words": "etc",
-         "note": "the letters of etc rearranged"
+         "at": 13
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A politician danced and so on while tipsy after winning the vote again.",
-     "walkthrough": "The scrambled letters sit between REEL and ED.",
-     "definitionFit": "Someone re-elected is voted back into the post they already held."
+     "surface": "Someone danced around and did other things while intoxicated.",
+     "walkthrough": "'drunk' turns ETC into ECT, and 'about' wraps REELED round it: REEL-ECT-ED.",
+     "definitionFit": "A politician who is re-elected has been voted back into the same post by the electorate."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "drunk"
     }
