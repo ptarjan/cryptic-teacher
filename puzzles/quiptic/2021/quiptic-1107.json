@@ -1494,33 +1494,42 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "ENVY",
-     "indicators": [
-      {
-       "text": "heads of",
-       "note": "the head of a word is its front, so each of the following words gives its opening letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "exiting nations vacillations year-on-year",
-       "gives": "ENVY",
-       "select": "first",
-       "note": "the opening letter of each of the four words"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heads of",
+         "at": 7,
+         "note": "the heads of words are their opening letters, taken from each of the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "exiting nations vacillations",
+         "at": 16,
+         "note": "taken as written; their opening letters are picked out"
+        }
+       ]
+      },
+      {
+       "words": "year-on-year",
+       "at": 45,
+       "gives": "Y",
+       "note": "Y is the standard abbreviation for year; the head of this hyphenated word too"
       }
      ]
     },
     "explanation": {
-     "surface": "Bitterness at countries leaving and wavering every year.",
-     "definitionFit": "To envy someone is to begrudge them what they have, feeling the same grudge as resentment."
+     "surface": "A commentator resents the way departing countries keep wavering, year after year.",
+     "walkthrough": "'heads of' takes the first letter of each of the next four words; the political surface, with its nations exiting, hides that plain instruction.",
+     "definitionFit": "To envy someone is to resent them for having what you lack, so the verbs are synonyms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Resent"
+     "misdirectedWord": "heads"
     }
    }
   },

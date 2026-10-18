@@ -163,43 +163,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNDERWEAR",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "For the most part",
-       "note": "most but not all of the following word is used, so its final letter is dropped"
+       "text": "cracked",
+       "at": 30,
+       "note": "cracked means broken, so the remaining letters are smashed into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "cracked",
-         "note": "something cracked is broken apart, so its letters fall into a fresh order"
+         "text": "For the most part",
+         "at": 0,
+         "note": "for the most part means all but the last letter of the word is used"
         }
        ],
        "parts": [
         {
          "words": "unrewarded",
-         "gives": "UNREWARDE",
-         "note": "the word without its last letter"
+         "at": 18,
+         "note": "taken as written before trimming"
+        },
+        {
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Code-crackers go mostly unpaid for breaking safe combinations.",
-     "walkthrough": "'Combinations' suggests safe codes, but it is an old name for a one-piece undergarment covering body and legs.",
-     "definitionFit": "Combinations were a one-piece garment of vest and long drawers, worn beneath clothes, so they are a kind of underclothing."
+     "surface": "Code-breakers spend ages on combinations, mostly without reward, before one is cracked.",
+     "walkthrough": "'For the most part' drops the final D of UNREWARDED, and 'cracked' rearranges what is left. Combinations are an old-fashioned one-piece undergarment, so the definition is not about safes or locks.",
+     "definitionFit": "Combinations, or combs, are a one-piece garment covering body and legs, an item of underwear."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "combinations"
     }
    }
@@ -693,31 +695,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "QUICKEN",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "without its ends, so the first and last letters are removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "question",
-       "gives": "QU",
-       "note": "QU is a standard abbreviation for question"
+       "at": 9,
+       "gives": "QU"
       },
       {
-       "words": "writer",
-       "gives": "DICKENS",
-       "note": "Charles Dickens, the Victorian novelist"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 25,
+         "note": "endlessly means without either end, so the first and last letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "writer",
+         "at": 18,
+         "gives": "DICKENS",
+         "note": "Charles Dickens, the Victorian novelist"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rush to put endless questions to an author.",
-     "definitionFit": "To quicken is to make faster or speed up, which is what it means to hurry something along."
+     "surface": "Someone is urged to hurry and interrogate a writer who goes on and on.",
+     "walkthrough": "'writer' is Charles Dickens; 'endlessly' removes both his D and his S. Hurry is a verb, matching the answer.",
+     "definitionFit": "To quicken is to speed up or make faster, so it means to hurry."
     },
     "features": {
      "answerInScene": false,
@@ -1005,67 +1013,76 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SCRAPINGBY",
-     "indicators": [
-      {
-       "text": "eating",
-       "note": "what is eaten goes inside the eater, so one piece is placed within another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "eating",
+         "at": 31,
+         "note": "eating means taking something inside, so the letters for rubbish go within"
+        }
+       ],
        "parts": [
         {
-         "words": "son",
-         "gives": "S",
-         "note": "S is the abbreviation for son"
-        },
-        {
-         "words": "rubbish",
-         "gives": "CRAP",
-         "note": "crap is slang for rubbish"
-        },
-        {
-         "words": "at home",
-         "gives": "IN",
-         "note": "at home means in"
-        },
-        {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "Disheartened",
-           "note": "losing the heart means the middle goes, leaving only the two outside letters"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "grub",
-           "note": "the outside letters of grub"
+           "words": "son",
+           "at": 19,
+           "gives": "S",
+           "note": "S is the genealogical abbreviation for son"
+          },
+          {
+           "words": "at home",
+           "at": 23,
+           "gives": "IN",
+           "note": "in means at home, as in staying in"
           }
          ]
         },
         {
-         "words": "Yes",
-         "gives": "Y",
-         "note": "Y stands for yes, as on a Y/N form"
+         "words": "rubbish",
+         "at": 38,
+         "gives": "CRAP",
+         "note": "crap is slang for rubbish"
         }
        ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Disheartened",
+         "at": 52,
+         "note": "disheartened means losing its heart, so only the first and last letters of grub remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grub",
+         "at": 46,
+         "note": "the word whose outer letters are kept"
+        }
+       ]
+      },
+      {
+       "words": "Yes",
+       "at": 66,
+       "gives": "Y"
       }
      ]
     },
     "explanation": {
-     "surface": "A family barely coping, with the son at home eating junk food and feeling low.",
-     "walkthrough": "'Disheartened' looks like the son's mood, but it works on the word grub, cutting out its middle.",
-     "definitionFit": "Scraping by is an idiom for surviving with barely enough money, which is just about managing."
+     "surface": "A student at home, broke, living on junk food and feeling low, admits it.",
+     "walkthrough": "The full stop and question mark make 'Disheartened? Yes' look like a reply about mood, but 'Disheartened' acts on 'grub', taking out its middle, and 'Yes' is a separate piece. 'eating' has son and home wrapped around the rubbish.",
+     "definitionFit": "Scraping by means getting along with barely enough money to live on."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Disheartened"
+     "misdirectedWord": "grub"
     }
    }
   },
@@ -1100,40 +1117,43 @@
      "indicators": [
       {
        "text": "going round",
-       "note": "going round something encircles it, so one piece wraps the other"
+       "at": 38,
+       "note": "going round means the first piece surrounds the second"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "GOVER",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "half of a word means only its first half of letters is kept"
+         "at": 19,
+         "note": "half of the ten-letter word is kept, its first five letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "government",
-         "gives": "GOVER",
-         "select": "first",
-         "note": "the first five of the ten letters"
+         "at": 27,
+         "note": "taken as written before halving"
+        },
+        {
+         "gives": "NMENT"
         }
        ]
       },
       {
        "words": "idle",
+       "at": 50,
        "gives": "LAZE",
-       "note": "to idle is to laze"
+       "note": "to laze is to idle"
       }
      ]
     },
     "explanation": {
-     "surface": "Voters switch off as half the government drifts around doing nothing.",
-     "definitionFit": "When eyes glaze over they go blank and unfocused, the look of someone who has become bored."
+     "surface": "A voter loses interest as half the cabinet idles about.",
+     "walkthrough": "'half of' keeps GOVER from 'government', and 'going round' wraps it around LAZE.",
+     "definitionFit": "When someone's eyes glaze over they show boredom and stop paying attention."
     },
     "features": {
      "answerInScene": true,
