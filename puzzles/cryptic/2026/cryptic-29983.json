@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -103,37 +104,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "OPENER",
-     "indicators": [
-      {
-       "text": "over",
-       "note": "Turning a thing over shows you its other side, and a name turned over is written from its far end back."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "work",
+       "at": 8,
+       "gives": "OP",
+       "note": "OP is short for opus, a work"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 23,
+         "note": "in a down clue, over means the name is turned upside down, read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "work",
-         "gives": "OP",
-         "note": "op is a work, as in a composer's opus number"
-        },
-        {
-         "words": "Frenchman over",
-         "gives": "ENER",
-         "note": "the French name RENE, written back to front"
+         "words": "Frenchman",
+         "at": 13,
+         "gives": "RENE",
+         "note": "Rene is a typical French man's name"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An order to a heavy: batter the Frenchman, then work him over.",
-     "walkthrough": "The whole sentence sounds like a beating, and the comma after the first word is the only sign that the beating is not the definition. Cricket is nowhere in the surface.",
-     "definitionFit": "An opener in cricket is one of the two batters who go in first, so 'batter' names the answer by the job it does at the crease."
+     "surface": "An instruction to beat up a Frenchman, with 'batter' read as a verb.",
+     "walkthrough": "'Batter' looks like a verb but is a cricket noun: an opener is a batsman who goes in first.",
+     "definitionFit": "In cricket an opener is one of the two batsmen who start the innings, so a batter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Batter"
     }
    }
   },
@@ -164,45 +172,66 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DRAMAQUEEN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seized by",
+       "at": 16,
+       "note": "the shortened tent is held inside the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Run out of",
-         "note": "R is the scorer's letter for a run, and 'out of' takes it away from the word that follows."
-        },
-        {
-         "text": "seized by",
-         "note": "What seizes something grabs it and holds it, so the tent ends up gripped inside the other letters."
-        },
-        {
          "text": "crazy",
-         "note": "Something crazy will not keep to the order it was given in, and neither will these four letters."
+         "at": 31,
+         "note": "crazy suggests the letters of darn go wild and are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "darn crazy",
-         "gives": "DRAN",
-         "note": "the four letters of 'darn' reordered, and they open up round the middle piece"
+         "words": "darn",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out of",
+         "at": 4,
+         "note": "Run is taken out of the tent word, so its letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tent",
+         "at": 11,
+         "gives": "MARQUEE",
+         "note": "a marquee is a large tent"
         },
         {
-         "words": "Run out of tent",
-         "gives": "MAQUEE",
-         "note": "the tent is a MARQUEE, and the R of run comes out of it"
+         "words": "Run",
+         "at": 0,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for run"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A camper left with no tent, because some maddened hysteric has grabbed it.",
-     "walkthrough": "R for run comes off a cricket scorecard, and 'run out of' is doing an instruction's work while sounding like ordinary English about a shortage.",
-     "definitionFit": "A drama queen makes a crisis out of nothing, which is what 'hysteric' means as a noun for a person rather than as a medical term."
+     "surface": "Someone who runs out of a tent and is grabbed by a frantic person.",
+     "walkthrough": "'Run' looks like a verb in the surface, but it is the cricket R; the jumbled darn wraps round what is left of the tent, its first three letters before and N after.",
+     "definitionFit": "A drama queen is an informal term for a person given to overly emotional, theatrical reactions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
     }
    }
   },
@@ -231,40 +260,45 @@
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "ANNE",
        "indicators": [
         {
          "text": "unveiled",
-         "note": "A veil is a covering, so the flag unveiled loses the letters covering it at either end."
+         "at": 18,
+         "note": "with its covering stripped off, the word loses its outer letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Military standard unveiled",
-         "gives": "ANNE",
-         "select": "middle",
-         "note": "a military standard is a BANNER, here with the outer letters taken off it"
+         "words": "Military standard",
+         "at": 0,
+         "gives": "BANNER",
+         "note": "a banner is a military standard or flag"
         }
        ]
       },
       {
        "words": "by",
+       "at": 27,
        "gives": "X",
-       "note": "by is the multiplication sign, as in a plank two by four"
+       "note": "X is the multiplication sign, read as 'by' (three by four)"
       },
       {
        "words": "East",
+       "at": 30,
        "gives": "E",
-       "note": "the compass abbreviation"
+       "note": "E is the compass abbreviation for East"
       }
      ]
     },
     "explanation": {
-     "surface": "A flag being unveiled at a ceremony run by the East Wing.",
-     "walkthrough": "'By' looks like the joinery that holds a charade together and is a letter in its own right: two by four is 2 x 4. Miss that and the wordplay will not add up.",
-     "definitionFit": "A wing of a house is a section built out from the side of it, which is exactly what an annexe is."
+     "surface": "A regimental flag revealed in the east wing of a building.",
+     "walkthrough": "'unveiled' strips the outer letters from BANNER to leave ANNE; 'by' is X as in measurements like 3 by 4.",
+     "definitionFit": "An annexe is an extension built on to a main building, which is what a wing is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "by"
     }
    }
   },
@@ -343,36 +377,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ANEW",
-     "indicators": [
-      {
-       "text": "rises",
-       "note": "What rises goes up, and in a down entry that means the letters are read from the bottom towards the top."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rises",
+         "at": 17,
+         "note": "in a down clue, rising means the word is read from bottom to top, backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as it stands"
-        },
-        {
-         "words": "congested city rises",
-         "gives": "NEW",
-         "note": "a WEN is an overgrown city, and it goes up the grid rather than down it"
+         "words": "congested city",
+         "at": 2,
+         "gives": "WEN",
+         "note": "the Great Wen was a nickname for overcrowded London, so a wen is a congested city"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A city choked with traffic picking itself up and starting over.",
-     "walkthrough": "WEN is worth owning: William Cobbett called London the Great Wen, a wen being a swelling on the skin, and setters have used it for an overgrown city ever since.",
-     "definitionFit": "Anew means over again, from the start, and it is the adverb that drops straight into 'begin again' without changing the sense."
+     "surface": "A crowded city springing up once more.",
+     "walkthrough": "A wen is literally a swelling; William Cobbett called London 'the Great Wen'.",
+     "definitionFit": "Anew and again both mean once more, starting a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "congested"
     }
    }
   },
@@ -400,53 +439,56 @@
      "op": "container",
      "indicators": [
       {
-       "text": "exhausted",
-       "note": "Something exhausted has had everything drained out of it, so the name keeps only the letters at its two ends."
+       "text": "carried by",
+       "at": 16,
+       "note": "the emptied name is held inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "words": "terribly skinny",
-       "gives": "NINSKY",
-       "note": "the six letters of 'skinny' rearranged, leaving a gap two letters in"
-      },
-      {
        "op": "anagram",
        "indicators": [
         {
-         "text": "carried by",
-         "note": "What is carried travels inside its carrier, so this pair of letters sits within the shuffled ones."
+         "text": "terribly",
+         "at": 27,
+         "note": "terribly signals that the letters of skinny are badly jumbled"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "JI",
-         "indicators": [
-          {
-           "text": "terribly",
-           "note": "Done terribly, and letters handled that badly do not end up in the order they were given."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Judi exhausted",
-           "gives": "JI",
-           "select": "outer",
-           "note": "the first and last letters of the name, with everything between them gone"
-          }
-         ]
+         "words": "skinny",
+         "at": 36
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "exhausted",
+         "at": 5,
+         "note": "an exhausted thing is emptied out, so Judi keeps only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Judi",
+         "at": 0,
+         "note": "the name is the source of the letters here"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An exhausted Judi being carried along by a very thin man in tights.",
-     "walkthrough": "Nijinsky leapt for Diaghilev's Ballets Russes, and the clue dresses him down to a costume; the surface hands you Dame Judi so that 'Judi' reads as a person rather than four letters.",
-     "definitionFit": "Vaslav Nijinsky was the Ballets Russes star, so 'chap in tights' is a male ballet dancer described by his costume rather than his art."
+     "surface": "An exhausted Judi being carried by a thin man in tights.",
+     "walkthrough": "Vaslav Nijinsky was a famous Russian ballet star; 'chap in tights' points to a male dancer, and Judi's two outer letters sit after the first two of the jumbled skinny.",
+     "definitionFit": "Nijinsky was the celebrated Russian ballet dancer, and male dancers perform in tights."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "exhausted"
     }
    }
   },
@@ -706,41 +748,45 @@
      "indicators": [
       {
        "text": "loaded with",
-       "note": "A vessel loaded with cargo has it stowed inside, so the letter goes within the other word."
+       "at": 28,
+       "note": "the ship has the letter put inside it, like freight in a hold"
       }
      ],
      "parts": [
       {
        "words": "vessel",
+       "at": 21,
        "gives": "BARQUE",
-       "note": "a barque is a sailing ship of three or more masts"
+       "note": "a barque is a sailing ship"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "O",
        "indicators": [
         {
          "text": "at the back",
-         "note": "The back of a word is its final letter, which is the one taken here."
+         "at": 46,
+         "note": "at the back points to the final letter of cargo"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "cargo at the back",
-         "gives": "O",
-         "select": "last",
-         "note": "the last letter of the word 'cargo'"
+         "words": "cargo",
+         "at": 40,
+         "note": "supplies its final letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ship being loaded up, with the cargo stowed towards the stern.",
-     "walkthrough": "'Vessel' is a ship here rather than the jar or the blood vessel setters also use, and the dockside surface keeps you well away from any gilded chapel.",
-     "definitionFit": "Baroque names the heavily decorated seventeenth-century style, and by extension anything piled with more ornament than it needs."
+     "surface": "A richly decorated ship with goods stowed at its stern.",
+     "walkthrough": "'at the back' gives O, the last letter of cargo, and 'loaded with' puts it inside BARQUE.",
+     "definitionFit": "Baroque describes the highly elaborate, decorative style of seventeenth-century art and architecture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loaded"
     }
    }
   },
@@ -834,67 +880,65 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "without",
-       "note": "'Without' means lacking rather than outside, so what it names is taken out of the word before it."
-      }
-     ],
      "parts": [
       {
        "words": "Popular",
+       "at": 0,
        "gives": "IN",
-       "note": "in = popular, fashionable"
+       "note": "in means fashionable or popular"
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "beginning to",
-         "note": "The beginning of a word is its opening letter, and that is all this takes."
+         "text": "without",
+         "at": 16,
+         "note": "the hesitation is taken away from the sibling word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "sibling",
-           "gives": "SISTER",
-           "note": "a sibling can be a sister"
-          },
-          {
-           "words": "without hesitation",
-           "gives": "SIST",
-           "note": "ER is the written form of a hesitant noise, and it drops out of the sister"
-          },
-          {
-           "op": "first",
-           "unchecked": true,
-           "gives": "S",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "beginning to suggest",
-             "gives": "S",
-             "select": "first",
-             "note": "the opening letter of 'suggest'"
-            }
-           ]
-          }
-         ]
+         "words": "sibling",
+         "at": 8,
+         "gives": "SISTER",
+         "note": "a sister is a sibling"
         },
         {
-         "gives": "SISTER"
+         "words": "hesitation",
+         "at": 24,
+         "gives": "ER",
+         "note": "er is the sound of hesitating"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 35,
+         "note": "the beginning of suggest means its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suggest",
+         "at": 48,
+         "note": "supplies its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A well-liked brother or sister starting, without any hesitation, to make demands.",
-     "walkthrough": "ER is the crossword's spelling of a hesitation, and nothing here announces a deletion — 'without hesitation' is exactly how you would describe someone speaking up.",
-     "definitionFit": "To insist on something is to demand it, and both verbs sit in the same third-person form here, so the swap is exact."
+     "surface": "A well-liked sibling who, without pausing, starts to make suggestions and demands.",
+     "walkthrough": "'without' removes ER from SISTER to leave SIST; 'beginning to' gives S from suggest.",
+     "definitionFit": "To insist is to demand firmly, so insists works as a verb meaning demands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Popular"
     }
    }
   },
@@ -1023,55 +1067,60 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
      "indicators": [
       {
        "text": "lacking",
-       "note": "What is lacking is missing, so the letter named next never makes it into the assembly."
+       "at": 18,
+       "note": "the phrase is missing that letter"
       }
      ],
      "parts": [
       {
-       "words": "Hat is",
-       "gives": "IM",
-       "note": "Hat is the setter of this puzzle, so 'Hat is' can be read as I'm"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Hat is",
+         "at": 0,
+         "gives": "IM",
+         "note": "Hat is the setter, so 'Hat is' is I'M"
+        },
+        {
+         "words": "miserable",
+         "at": 7,
+         "gives": "BLUE",
+         "note": "blue means sad or miserable"
+        }
+       ]
       },
       {
-       "op": "deletion",
+       "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "'Ultimately' points at the very end of the word before it, meaning its final letter."
+         "at": 31,
+         "note": "ultimately points to the final letter of will"
         }
        ],
        "parts": [
         {
-         "words": "miserable",
-         "gives": "BLUE",
-         "note": "blue = miserable, down in the mouth"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "L",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "will ultimately",
-           "gives": "L",
-           "select": "last",
-           "note": "the last letter of 'will', and this is the letter that goes missing"
-          }
-         ]
+         "words": "will",
+         "at": 26,
+         "note": "supplies its last letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The setter feeling low and short of willpower.",
-     "walkthrough": "Setters sign their grids and then walk into their own clues: Hat is the byline over this puzzle, so 'Hat is' is the setter saying I'm.",
-     "definitionFit": "To imbue a person with an idea is to fill them with it, which is what inspiring someone does, and both are transitive verbs."
+     "surface": "The setter confesses to being unhappy and short of the will to inspire others.",
+     "walkthrough": "The setter's pseudonym is Hat, so 'Hat is' gives I'M; I'M BLUE 'lacking' L (last of 'will') leaves IMBUE.",
+     "definitionFit": "To imbue is to fill someone with a feeling or quality, much as to inspire them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hat"
     }
    }
   },
@@ -1096,37 +1145,69 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BORDELLO",
-     "indicators": [
-      {
-       "text": "topless",
-       "note": "The top of a down entry is where it starts, so a topless word has lost its first letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rolled over",
+         "at": 5,
+         "note": "rolled over means turned backwards, so the word reads in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "Nick rolled over",
-         "gives": "BOR",
-         "note": "to nick is to ROB, and here it lands the other way up"
-        },
+         "words": "Nick",
+         "at": 0,
+         "gives": "ROB",
+         "note": "to nick is to steal or rob"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "rolled over topless",
-         "gives": "DELLO",
-         "note": "the word 'rolled' loses the letter at its top and then turns over"
+         "text": "over",
+         "at": 25,
+         "note": "over turns what remains upside down in this down clue"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "topless",
+           "at": 30,
+           "note": "topless removes the word's first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rolled",
+           "at": 18,
+           "note": "the second 'rolled' is the fodder"
+          },
+          {
+           "gives": "R"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nick turning over in bed, topless, in a brothel.",
-     "walkthrough": "The same two words appear twice a comma apart and mean different things: the first pair is an instruction, the second is a word to be operated on with its own instruction attached.",
-     "definitionFit": "A bordello is a brothel, the borrowed Italian word for the same house, which is why the definition can be the blunt English one."
+     "surface": "A thief in a brothel who rolled over and over without a top on.",
+     "walkthrough": "'rolled over' turns ROB into BOR; the second 'rolled', 'topless', loses R to give OLLED, which 'over' turns into DELLO.",
+     "definitionFit": "Bordello is an Italian-derived synonym for a house of prostitution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nick"
     }
    }
   },

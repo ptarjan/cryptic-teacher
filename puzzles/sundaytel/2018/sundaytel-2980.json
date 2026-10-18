@@ -379,48 +379,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOSTALGIA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not half",
-       "note": "not half means half of the word before it is removed"
+       "text": "excited",
+       "at": 33,
+       "note": "excited letters are stirred up, so the pool is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "to sing",
+       "at": 8,
+       "note": "taken as written, part of the letter pool"
+      },
+      {
+       "words": "a",
+       "at": 17
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "excited",
-         "note": "excited letters are stirred up and rearranged"
+         "text": "not half",
+         "at": 24,
+         "note": "not half means half of the word is missing, so lass loses its last two letters"
         }
        ],
        "parts": [
         {
-         "words": "to sing",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
          "words": "lass",
-         "gives": "LA",
-         "note": "half of lass, the first two letters"
+         "at": 19,
+         "note": "the word supplies only its front half"
+        },
+        {
+         "gives": "SS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An excited girl longs to sing.",
-     "definitionFit": "Nostalgia is a wistful yearning for the past, a kind of longing."
+     "surface": "A girl's wistful wish to sing, only half thrilled about it.",
+     "walkthrough": "'not half' cuts lass to LA, and 'excited' rearranges TO SING + A + LA. 'Not half' is also British slang for 'very much', which makes the surface read oddly.",
+     "definitionFit": "Nostalgia is a wistful yearning for the past, so a longing."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "excited"
     }
@@ -1069,47 +1074,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RINGSUP",
+     "op": "composite",
      "indicators": [
       {
        "text": "careers",
-       "note": "to career is to rush about wildly, so the letters veer out of order"
+       "at": 18,
+       "note": "to career is to rush about wildly, so the letters hurtle into a new order"
+      },
+      {
+       "text": "having left",
+       "at": 26,
+       "note": "the university letter has left the pool, so it is not in the answer"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "RINGSUP",
-       "indicators": [
-        {
-         "text": "having left",
-         "note": "having left means that item has gone from the letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "pursuing",
-         "note": "taken as written"
-        },
-        {
-         "words": "university",
-         "gives": "U",
-         "note": "U is the standard abbreviation for university"
-        }
-       ]
+       "words": "pursuing",
+       "at": 9,
+       "note": "the letters of this word are the pool"
+      },
+      {
+       "words": "university",
+       "at": 38,
+       "gives": "U"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone contacts people about pursuing careers after leaving university.",
-     "walkthrough": "'Careers' looks like a noun for jobs; it is the verb for hurtling about. One U is taken from pursuing, then the rest is rearranged.",
-     "definitionFit": "To ring someone up is British for telephoning them, a way of contacting them."
+     "surface": "Networking contacts who chase jobs after graduating.",
+     "walkthrough": "'careers' looks like a noun about jobs but is a verb meaning hurtles. PURSUING 'having left' U leaves P, R, S, U, I, N, G, which 'careers' rearranges.",
+     "definitionFit": "To ring someone up is British for telephoning them, so rings up means gets in touch with."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "careers"
     }
