@@ -1373,12 +1373,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EQUITY",
      "indicators": [
       {
        "text": "In",
-       "note": "in places one piece inside the letters around it"
+       "at": 0,
+       "note": "the clue puts the next word in among the letters that follow, so it goes inside them"
       }
      ],
      "parts": [
@@ -1387,40 +1386,45 @@
        "parts": [
         {
          "words": "East",
+         "at": 3,
          "gives": "E",
-         "note": "E is the abbreviation for east"
-        },
-        {
-         "words": "abandoned",
-         "gives": "QUIT",
-         "note": "to quit is to leave or give up"
+         "note": "E is the compass abbreviation for East"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "finally",
-           "note": "finally points to the last letter of the preceding word"
+           "at": 17,
+           "note": "finally points to the last letter of the word before it"
           }
          ],
          "parts": [
           {
            "words": "Germany",
+           "at": 8,
+           "gives": "Y",
            "note": "last letter of Germany"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "abandoned",
+       "at": 25,
+       "gives": "QUIT",
+       "note": "to quit is to abandon or leave, and quit is also its past participle"
       }
      ]
     },
     "explanation": {
-     "surface": "In the former East Germany, justice was at last given up.",
-     "walkthrough": "'East Germany' reads as the old GDR, but the two words are used separately.",
-     "definitionFit": "Equity is fairness or even-handed justice, and also the legal system built on it."
+     "surface": "Fair dealing was at last given up in the old East Germany.",
+     "walkthrough": "'East Germany' looks like the old state; it is E plus the last letter of Germany, with QUIT placed inside.",
+     "definitionFit": "Equity is justice and even-handedness, treating people fairly and impartially."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "East"
     }

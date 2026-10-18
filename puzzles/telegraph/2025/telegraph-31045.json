@@ -42,40 +42,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLUMP",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "something short is cut down, so the word before loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 8,
+         "note": "cut short, the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "and",
-         "gives": "PLU",
-         "note": "'and' is PLUS, cut short"
+         "at": 4,
+         "gives": "PLUS",
+         "note": "plus means and, as in two plus two"
         },
         {
-         "words": "politician",
-         "gives": "MP",
-         "note": "a Member of Parliament"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "politician",
+       "at": 14,
+       "gives": "MP",
+       "note": "MP is a Member of Parliament"
       }
      ]
     },
     "explanation": {
-     "surface": "A description of a stocky, rotund politician.",
-     "walkthrough": "'Short politician' looks like one unit, but 'short' trims the 'and' (PLUS), and the politician stands alone.",
-     "definitionFit": "Plump is a mild adjective for someone carrying extra weight, a gentler synonym."
+     "surface": "A tubby, stumpy member of parliament.",
+     "walkthrough": "'And' is not a link word here: it gives PLUS, which 'short' trims to PLU.",
+     "definitionFit": "Plump describes someone rounded and well padded, a gentler word for fat or chubby."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "and"
     }
@@ -758,47 +762,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SPONSOR",
      "indicators": [
       {
        "text": "tangled",
-       "note": "tangled things are twisted out of their order"
+       "at": 11,
+       "note": "tangled means twisted up, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SPONSOR",
        "indicators": [
         {
          "text": "scratched",
-         "note": "something scratched from a list is struck out and removed"
+         "at": 27,
+         "note": "scratched means struck out or withdrawn, so the letter is removed"
         }
        ],
        "parts": [
         {
          "words": "Apron's so",
-         "note": "the letters to work with"
+         "at": 0
         },
         {
-         "words": "adult",
+         "words": "adult's",
+         "at": 19,
          "gives": "A",
-         "note": "A is the film-rating abbreviation for adult"
+         "note": "A is the film-classification abbreviation for adult"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A twisted apron strap has left an adult with a scratch on the back.",
-     "walkthrough": "'Back' looks like the body part that got scratched; it is the verb meaning to support financially.",
-     "definitionFit": "To sponsor someone is to back them with money or support."
+     "surface": "An apron gets in such a knot that someone's back is scraped.",
+     "walkthrough": "'Scratched' removes the A of APRONSSO, leaving PRONSSO, and 'tangled' rearranges it. 'Back' is a verb here: to support.",
+     "definitionFit": "To back a person or event is to support it, often with money, which is what a sponsor does; both are verbs."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "back"
     }
    }
@@ -1505,35 +1508,37 @@
      "op": "charade",
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "AT",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "half of a word means keeping only two of its four letters"
+         "at": 5,
+         "note": "half of a four-letter word is two letters, here its second half"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "that",
-         "gives": "AT",
-         "select": "last",
-         "note": "the back half"
+         "at": 13
+        },
+        {
+         "gives": "TH",
+         "note": "the first half, dropped"
         }
        ]
       },
       {
        "words": "belt",
+       "at": 18,
        "gives": "TRACT",
-       "note": "a belt of land is a tract"
+       "note": "a belt is a stretch of land, a tract, as in the corn belt"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to tug on part of a belt.",
-     "definitionFit": "To attract is to pull or draw towards, as a magnet does."
+     "surface": "An instruction to tug on just one part of a belt.",
+     "walkthrough": "'Half of that' keeps AT, the second half of THAT.",
+     "definitionFit": "To attract is to draw something towards you, as a magnet does, which is a pull."
     },
     "features": {
      "answerInScene": false,

@@ -125,47 +125,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 13,
+       "note": "in puts the time word inside the other letters"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "CY",
        "indicators": [
         {
          "text": "needing filling",
-         "note": "carvery wants its filling, so only its outer letters C and Y remain"
+         "at": 25,
+         "note": "a word that needs filling has nothing in its middle, so only its outer letters are used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "carvery, needing filling",
-         "gives": "CY",
-         "select": "outer",
-         "note": "outer letters of carvery"
+         "words": "carvery",
+         "at": 16,
+         "note": "first and last letters of carvery"
         }
        ]
       },
       {
        "words": "day",
+       "at": 9,
        "gives": "AGE",
-       "note": "day as in 'in my day', an era or age"
+       "note": "a day can mean an age or era, as in 'in my day'"
       }
      ]
     },
     "explanation": {
-     "surface": "A table is reserved for the day at a carvery, where people come to fill up.",
-     "walkthrough": "\"Needing filling\" sounds like a hungry diner but instructs you to empty the word. \"Day\" for AGE is the sense of 'in Victoria's day'.",
-     "definitionFit": "Someone cagey is reserved and unwilling to give information away."
+     "surface": "A quiet diner at a carvery waits for the stuffing.",
+     "walkthrough": "'Needing filling' describes the carvery's word with its middle gone, and the time span goes into the gap; 'day' as an era, like 'in his day', is the sense wanted.",
+     "definitionFit": "Cagey describes someone guarded and unwilling to give much away, so reserved fits as a synonym."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Reserved"
+     "misdirectedWord": "filling"
     }
    }
   },
@@ -339,53 +338,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LOUISIANA",
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "LOUISIANA",
+       "indicators": [
+        {
+         "text": "Largely",
+         "at": 0,
+         "note": "largely means for the most part, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "Largely",
-           "note": "most of LOUD, with its last letter dropped"
-          },
-          {
-           "text": "spoiled",
-           "note": "ASIAN is spoiled, its letters jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Largely garish",
-           "gives": "LOU",
-           "note": "garish = LOUD, largely = without its last letter"
-          },
-          {
-           "words": "island",
-           "gives": "I",
-           "note": "I is the abbreviation of island"
-          },
-          {
-           "words": "spoiled Asian",
-           "gives": "SIANA",
-           "note": "anagram of ASIAN"
-          }
-         ]
+         "words": "garish",
+         "at": 8,
+         "gives": "LOUD",
+         "note": "loud colours are garish, too bright"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "island",
+       "at": 15,
+       "gives": "I",
+       "note": "I is the map abbreviation for island"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spoiled",
+         "at": 22,
+         "note": "spoiled means messed up, so these letters are put in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Asian",
+         "at": 30
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A loud, tacky island has ruined some Asian country.",
-     "walkthrough": "\"Asian state\" looks like the definition; the state is American, and \"Asian\" is anagram fodder.",
-     "definitionFit": "Definition by class: one of the fifty US states, on the Gulf of Mexico."
+     "surface": "A gaudy island resort has been ruined for Asian visitors.",
+     "walkthrough": "'Largely' trims LOUD to LOU, and 'spoiled' turns ASIAN into SIANA.",
+     "definitionFit": "Louisiana is a US state on the Gulf of Mexico, with New Orleans its largest city."
     },
     "features": {
      "answerInScene": false,
@@ -1038,51 +1041,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EGYPTOLOGIST",
-     "indicators": [
-      {
-       "text": "Byzantine",
-       "note": "Byzantine means intricately tangled, so PLOY TO is mixed up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Eg",
+       "at": 0,
+       "gives": "EG"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to import"
+         "text": "Byzantine",
+         "at": 3,
+         "note": "Byzantine means intricate and devious, so these letters are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "Eg",
-         "note": "the letters as printed"
-        },
-        {
-         "words": "Byzantine ploy to",
-         "gives": "YPTOLO",
-         "note": "anagram of PLOY TO"
-        },
-        {
-         "words": "import",
-         "gives": "GIST",
-         "note": "import = meaning = gist"
+         "words": "ploy to",
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "import",
+       "at": 21,
+       "gives": "GIST",
+       "note": "the import of something is its meaning, its gist"
       }
      ]
     },
     "explanation": {
-     "surface": "An example of a devious Byzantine scheme to bring in a historian.",
-     "walkthrough": "\"Import\" is a noun meaning significance, not a verb about bringing things in.",
-     "definitionFit": "Definition by class: a scholar of ancient Egypt is one kind of historian."
+     "surface": "A tortuous scheme from Byzantium is brought in, for instance, by a scholar of the past.",
+     "walkthrough": "'Eg' stays as EG, and 'Byzantine' scrambles PLOYTO into YPTOLO.",
+     "definitionFit": "An Egyptologist studies the history and antiquities of ancient Egypt, a specialist kind of historian."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "import"
+     "misdirectedWord": "Byzantine"
     }
    }
   },
@@ -1278,51 +1276,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PIPEORGAN",
+     "op": "charade",
      "indicators": [
       {
-       "text": "shattered",
-       "note": "GROAN is broken into pieces and rearranged"
+       "text": "after",
+       "at": 28,
+       "note": "after places the jumbled word behind the letters that come before it in the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "constant",
+       "at": 34,
+       "gives": "PI",
+       "note": "pi is the mathematical constant, about 3.14"
+      },
+      {
+       "words": "training",
+       "at": 43,
+       "gives": "PE",
+       "note": "PE is physical education, training at school"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "after"
+         "text": "shattered",
+         "at": 18,
+         "note": "shattered means broken in pieces, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "constant",
-         "gives": "PI",
-         "note": "pi is the mathematical constant"
-        },
-        {
-         "words": "training",
-         "gives": "PE",
-         "note": "PE is physical education"
-        },
-        {
-         "words": "groan, shattered",
-         "gives": "ORGAN",
-         "note": "anagram of GROAN"
+         "words": "groan",
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Soldiers in the ranks groan, worn out by endless drills.",
-     "walkthrough": "\"Ranks\" suggests soldiers, but a pipe organ's pipes are arranged in ranks, so it is where ranks are found.",
-     "definitionFit": "A pipe organ houses its pipes in rows called ranks."
+     "surface": "Soldiers in the ranks moan, worn out after endless drill.",
+     "walkthrough": "'Ranks' suggests soldiers, but the definition is a place where ranks are found: an organ's pipes stand in ranks, one per stop.",
+     "definitionFit": "A pipe organ's pipes are arranged in rows called ranks, one rank for each stop, so ranks are found there."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Ranks"
     }
    }
@@ -1978,44 +1979,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "keeps",
-       "note": "to keep is to hold on to, so the setter holds the puzzle's letter inside itself"
-      }
-     ],
      "parts": [
       {
        "words": "Popular",
+       "at": 0,
        "gives": "IN",
-       "note": "in = popular, fashionable"
+       "note": "in means fashionable or popular"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "fifth of",
-         "note": "the fifth letter of puzzle"
+         "text": "keeps",
+         "at": 15,
+         "note": "keeps means holds within, so the letter goes inside the substance"
         }
        ],
        "parts": [
         {
          "words": "setter",
+         "at": 8,
          "gives": "CEMENT",
-         "note": "cement is something that sets"
+         "note": "cement is something that sets hard"
         },
         {
          "op": "nth",
-         "unchecked": true,
-         "gives": "L",
          "n": 5,
+         "indicators": [
+          {
+           "text": "fifth of",
+           "at": 21,
+           "note": "the fifth letter of the word that follows is taken"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "fifth of puzzle",
-           "gives": "L",
-           "select": 5,
-           "note": "puzzLe"
+           "words": "puzzle",
+           "at": 30,
+           "note": "its fifth letter is L"
           }
          ]
         }
@@ -2024,9 +2025,9 @@
      ]
     },
     "explanation": {
-     "surface": "A well-liked crossword setter keeps one part of the puzzle tough.",
-     "walkthrough": "\"Setter\" wants to be the crossword compiler; it is something that sets hard.",
-     "definitionFit": "Inclement means harsh, usually of weather."
+     "surface": "A well-liked crossword compiler hangs on to a fiendish fifth of the puzzle.",
+     "walkthrough": "'Setter' looks like the compiler; it is CEMENT, which hardens. 'Fifth of puzzle' is L, and 'keeps' puts it inside to give CLEMENT.",
+     "definitionFit": "Inclement weather is stormy and rough, so the word means harsh or severe."
     },
     "features": {
      "answerInScene": false,
@@ -2111,43 +2112,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "turned",
-       "note": "something turned faces the other way, so the sauce's letters read backwards"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "mostly",
-         "note": "PLUMP without its last letter"
+         "text": "turned",
+         "at": 8,
+         "note": "turned means turned round, so the letters are read backwards"
         }
        ],
        "parts": [
         {
          "words": "Sauce's",
+         "at": 0,
          "gives": "RAGUS",
-         "note": "ragu's: ragu is an Italian meat sauce"
+         "note": "ragu is an Italian meat sauce, so sauce's is ragu's"
         }
        ]
       },
       {
-       "words": "mostly full",
-       "gives": "PLUM",
-       "note": "full = plump, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 15,
+         "note": "mostly means not quite all, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "full",
+         "at": 22,
+         "gives": "PLUMP",
+         "note": "plump means full and rounded"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sauce has gone off, almost rich and sweet.",
-     "walkthrough": "\"Full\" is plump as in a full figure, not full of food.",
-     "definitionFit": "Definition by class: a sugared candy, one kind of sweet (British for a piece of confectionery)."
+     "surface": "A sauce has gone off, mostly full, and sweet.",
+     "walkthrough": "'Turned' reads RAGUS backwards, and 'mostly' trims PLUMP to PLUM.",
+     "definitionFit": "A sugarplum is a small round sweet of boiled sugar, the kind in the Nutcracker's dance."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "turned"
     }
@@ -2183,62 +2196,65 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "capsized",
-       "note": "WAS is turned over, reading upwards"
+       "text": "under",
+       "at": 20,
+       "note": "in a down clue, under means placed below the letters before"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "SC",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "under",
-         "note": "in a down clue, under means the cutter's word goes beneath the rest"
+         "text": "first couple of",
+         "at": 26,
+         "note": "the first couple of letters are the first two, so the rest are dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "first couple of scones",
-         "gives": "SC",
-         "select": "first",
-         "note": "first two letters of scones"
+         "words": "scones",
+         "at": 42
+        },
+        {
+         "gives": "ONES",
+         "note": "the letters of scones after the first two, dropped"
         }
        ]
       },
       {
        "words": "bun",
+       "at": 53,
        "gives": "ROLL",
-       "note": "a bun or bread roll"
+       "note": "a roll is a small bread bun"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "first couple of",
-         "note": "the first two letters of scones"
+         "text": "capsized",
+         "at": 11,
+         "note": "a capsized boat is upside down, so in this down entry the word is written bottom to top"
         }
        ],
        "parts": [
         {
          "words": "was",
-         "note": "the word as printed, then turned over"
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A baker's knife was knocked over beneath a plate of scones and buns.",
-     "walkthrough": "A scone is a small British baked cake, served with jam and cream.",
-     "definitionFit": "A scroll saw is a fine saw for cutting curves."
+     "surface": "Something that cut a boat loose was overturned beneath a pile of baking.",
+     "walkthrough": "'First couple of scones' keeps SC; 'capsized' turns WAS into SAW, set under ROLL in this down entry.",
+     "definitionFit": "A scroll saw is a fine-bladed saw for cutting intricate curved shapes in wood, a type of cutter."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "capsized"
+     "misdirectedWord": "Cutter"
     }
    }
   },
@@ -3193,40 +3209,39 @@
      "parts": [
       {
        "words": "big",
+       "at": 16,
        "gives": "FAT",
-       "note": "big = fat"
+       "note": "fat means big or large"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "ES",
        "indicators": [
         {
          "text": "closers for",
-         "note": "the closing letters of the and Proms"
+         "at": 20,
+         "note": "closers are the last letters of each of the words that follow"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "closers for the Proms",
-         "gives": "ES",
-         "select": "last",
-         "note": "thE, PromS"
+         "words": "the Proms",
+         "at": 32,
+         "note": "last letters of the and Proms; the Proms is the BBC's summer season of concerts in London"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A classical music trio plays grand finales at the Proms.",
-     "walkthrough": "The Proms are London's summer season of classical concerts; \"Classical\" here means ancient Greek myth, not music.",
-     "definitionFit": "The Fates were the three goddesses of destiny in classical myth."
+     "surface": "A trio of classical pieces close out the Proms season in grand style.",
+     "walkthrough": "'Classical trio' reads like music; it means three figures of classical myth. The Proms are a London summer concert season.",
+     "definitionFit": "In Greek myth the Fates were three goddesses who spun, measured and cut the thread of every life."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Classical"
+     "joke": "pun",
+     "misdirectedWord": "trio"
     }
    }
   },

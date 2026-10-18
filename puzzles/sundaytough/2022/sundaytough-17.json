@@ -1149,50 +1149,57 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "LECTURETHEATRE",
-     "indicators": [
-      {
-       "text": "to be detained by",
-       "note": "someone detained is kept inside, so these letters go within another word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "words": "Learner",
+       "at": 0,
+       "gives": "L",
+       "note": "L is the learner, as on an L-plate"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "wrecked",
-         "note": "something wrecked is smashed up, so all the letters are rearranged"
+         "text": "to be detained by",
+         "at": 14,
+         "note": "someone detained is held in, so this letter is kept inside the jumbled letters"
         }
        ],
        "parts": [
         {
-         "words": "Learner",
-         "gives": "L",
-         "note": "L-plates mark a learner driver"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "wrecked",
+           "at": 47,
+           "note": "wrecked means smashed up, so these letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "teacher",
+           "at": 32
+          },
+          {
+           "words": "tutee",
+           "at": 41
+          }
+         ]
         },
         {
          "words": "right",
-         "gives": "R",
-         "note": "standard abbreviation"
-        },
-        {
-         "words": "teacher",
-         "note": "taken as written"
-        },
-        {
-         "words": "tutee",
-         "note": "taken as written"
+         "at": 8,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A student kept behind by a teacher, while a pupil trashes a classroom.",
-     "definitionFit": "A lecture theatre is a large tiered hall at a university where lectures are given."
+     "surface": "A pupil is kept in after school by a teacher, and the student has trashed the place.",
+     "walkthrough": "The surface pictures a pupil kept in after school, but 'Learner' is just L, and 'to be detained by' puts R inside ECTUETHEATRE, the jumbled pair, making ECTURETHEATRE.",
+     "definitionFit": "A lecture theatre is a tiered hall in a university or college where lectures are given."
     },
     "features": {
      "answerInScene": true,
@@ -1593,55 +1600,53 @@
    "annotation": {
     "definitions": [
      {
-      "text": "blush",
-      "at": 51,
-      "note": "a noun here, the redness of a blush"
+      "text": "making you blush",
+      "at": 40
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ROSINESS",
      "indicators": [
       {
        "text": "Odd",
-       "note": "odd means strange or irregular, so the letters are scrambled"
+       "at": 0,
+       "note": "odd means strange or out of order, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ROSINESS",
        "indicators": [
         {
          "text": "stripped",
-         "note": "stripped means taken off, so those letters are removed"
+         "at": 31,
+         "note": "stripped means taken off, so the rascal's letters are removed from the word"
         }
        ],
        "parts": [
         {
          "words": "impressions",
-         "note": "taken as written"
+         "at": 4
         },
         {
          "words": "rascal's",
+         "at": 22,
          "gives": "IMP",
-         "note": "an imp is a mischievous child"
+         "note": "an imp is a mischievous child, a little rascal"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Strange impressions of a stripped rascal are embarrassing.",
-     "walkthrough": "'Odd' suggests taking alternate letters, but it signals a rearrangement.",
-     "definitionFit": "Rosiness is a pink or reddish colour in the cheeks, as when someone flushes with embarrassment."
+     "surface": "Someone goes red after a rogue strips off and leaves a strange impression.",
+     "walkthrough": "'Stripped' takes IMP from the front of IMPRESSIONS, leaving RESSIONS, and 'Odd' rearranges those letters.",
+     "definitionFit": "Rosiness is a pink or red tint, and a person blushing turns rosy in the face; the definition is a phrase standing for the noun."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Odd"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stripped"
     }
    }
   }

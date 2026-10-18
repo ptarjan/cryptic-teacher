@@ -590,45 +590,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "returned",
-       "note": "sent back, so read right to left"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Papers",
+       "at": 0,
+       "gives": "ID",
+       "note": "ID means identity papers"
+      },
+      {
+       "words": "I",
+       "at": 7
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "at": 9,
+         "note": "returned means sent back, so the little word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "returned to",
-         "gives": "TO",
-         "note": "TO written backwards"
-        },
-        {
-         "words": "I",
-         "gives": "I",
-         "note": "taken as it stands"
-        },
-        {
-         "words": "Papers",
-         "gives": "DI",
-         "note": "ID = identity papers"
+         "words": "to",
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sent the documents back to a clown.",
-     "walkthrough": "'Returned to' reads as sending papers back to someone; it is TO that comes back.",
-     "definitionFit": "A plain synonym: both nouns name a stupid person, and both work as insults."
+     "surface": "Someone handed their documents back to a fool.",
+     "definitionFit": "An idiot is a stupid person, and fool is a plain synonym."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "to"
+     "misdirectedWord": "Papers"
     }
    }
   },
@@ -761,41 +760,40 @@
      "indicators": [
       {
        "text": "surrounds",
-       "note": "one word goes round the other"
+       "at": 5,
+       "note": "surrounds means goes all round, so the other letters sit inside this word"
       }
      ],
      "parts": [
       {
        "words": "Calm",
+       "at": 0,
        "gives": "COOL",
-       "note": "cool = calm"
+       "note": "cool means calm and unflustered"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "NTR",
        "indicators": [
         {
          "text": "every other part of",
-         "note": "every other means one in two, so only alternate letters of the next word are kept, here the second, fourth and sixth"
+         "at": 15,
+         "note": "every other part means alternate letters, here the second, fourth and sixth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "every other part of unitary",
-         "gives": "NTR",
-         "select": "alternate",
-         "note": "the even letters of uNiTaRy"
+         "words": "unitary",
+         "at": 35,
+         "note": "its alternate letters are N, T and R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Peace settles across a local council area.",
-     "walkthrough": "'Unitary authority' looks like a single term, a type of English local council; split it, and 'authority' alone is the definition.",
-     "definitionFit": "A plain synonym: having authority over people means having the power to direct them."
+     "surface": "A tranquil mood pervades the offices of a unitary council.",
+     "walkthrough": "'Unitary authority', a kind of English local council, reads as one phrase, but 'authority' alone is the definition. 'Every other part of unitary' gives NTR, which COOL surrounds.",
+     "definitionFit": "Control is power to direct or command, which is what authority means."
     },
     "features": {
      "answerInScene": false,
@@ -862,43 +860,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "RAPIER",
+     "op": "container",
      "indicators": [
       {
-       "text": "raised",
-       "note": "in a down clue, lifted up means read bottom to top"
+       "text": "stops",
+       "at": 16,
+       "note": "stops means plugs or fills a gap, so this letter pair goes inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "stops",
-         "note": "plugs a gap, so it sits inside"
+         "text": "raised",
+         "at": 29,
+         "note": "raised means lifted up, so in a down entry the word is written upwards, back to front"
         }
        ],
        "parts": [
         {
-         "words": "behind raised",
-         "gives": "RAER",
-         "note": "REAR = behind, written upwards"
-        },
-        {
-         "words": "Greek character",
-         "gives": "PI",
-         "note": "pi, the Greek letter"
+         "words": "behind",
+         "at": 22,
+         "gives": "REAR",
+         "note": "rear means behind, the back part"
         }
        ]
+      },
+      {
+       "words": "Greek character",
+       "at": 0,
+       "gives": "PI",
+       "note": "pi is a letter of the Greek alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A Greek hero halts after lifting his sword.",
-     "walkthrough": "'Character' suggests a figure from Greek myth; it is a letter of the alphabet. 'Stops' is the verb for plugging a hole, as with a stopper.",
-     "definitionFit": "A rapier is a slender thrusting sword."
+     "surface": "A Greek man halts with a raised sword behind him.",
+     "walkthrough": "'Greek character' sounds like a person from Greece; it is a letter of the Greek alphabet.",
+     "definitionFit": "A rapier is a slender, sharp-pointed sword used for thrusting, a classic duelling weapon."
     },
     "features": {
      "answerInScene": true,
@@ -1251,47 +1251,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ROMANCE",
      "indicators": [
       {
        "text": "in",
-       "note": "placed in the next word, so it sits between that word's letters"
+       "at": 27,
+       "note": "in places the jumbled letters inside the city's name"
       }
      ],
      "parts": [
+      {
+       "words": "capital city",
+       "at": 30,
+       "gives": "ROME",
+       "note": "Rome is the capital of Italy"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "spread",
-         "note": "the letters are spread out and rearranged"
+         "at": 20,
+         "note": "spread means scattered about, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "can spread",
-         "gives": "ANC",
-         "note": "CAN rearranged"
-        },
-        {
-         "words": "capital city",
-         "gives": "ROME",
-         "note": "Rome, capital of Italy"
+         "words": "can",
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tall tale that a tin can was smeared around the capital.",
-     "walkthrough": "'Can' looks like a verb, as in 'the story can spread'; it is the noun, a tin, supplying three letters to mix.",
-     "definitionFit": "A romance is a fanciful tale of adventure, originally a medieval tale of chivalry."
+     "surface": "A tall tale can be spread round a capital city.",
+     "definitionFit": "A romance in the old sense is a tale of chivalry and marvels, a fanciful story far from real life."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "can"
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
     }
    }
   }

@@ -373,59 +373,62 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CRESCENDO",
-     "indicators": [
-      {
-       "text": "rewriting",
-       "note": "rewriting a word sets its letters down again in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CRESCENDO",
        "indicators": [
         {
          "text": "deleting",
-         "note": "to delete is to strike out, so the one is struck out of CRIES"
+         "at": 7,
+         "note": "deleting means striking out, so the named letter comes out of the word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Cries, deleting one",
-           "gives": "CRES",
-           "note": "CRIES without I (one)"
-          },
-          {
-           "words": "chapter",
-           "gives": "C",
-           "note": "c = chapter"
-          },
-          {
-           "words": "done",
-           "note": "DONE rearranged"
-          }
-         ]
+         "words": "Cries",
+         "at": 0
+        },
+        {
+         "words": "one",
+         "at": 16,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      },
+      {
+       "words": "chapter",
+       "at": 20,
+       "gives": "C"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rewriting",
+         "at": 39,
+         "note": "rewriting a word means putting its letters down in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "done",
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An author cuts a tearful chapter and, having finished a rewrite, reaches the climax.",
-     "walkthrough": "'Deleting one chapter' looks like one instruction, but only the one is deleted; chapter then adds its own letter.",
-     "definitionFit": "A loose musical sense: strictly a crescendo is the build-up, but it is widely used for the peak itself."
+     "surface": "An editor cuts some shouting and a chapter, finishing with a rewrite of the big finale.",
+     "walkthrough": "'Deleting one' drops I from CRIES to give CRES; 'rewriting' turns DONE into ENDO.",
+     "definitionFit": "A crescendo is properly a gradual rise in volume, and in common use the loud peak or high point it builds to."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "chapter"
+     "misdirectedWord": "Cries"
     }
    }
   },
@@ -1086,57 +1089,48 @@
      "op": "charade",
      "parts": [
       {
-       "op": "nth",
-       "unchecked": true,
+       "words": "record",
+       "at": 6,
        "gives": "DISC",
-       "n": 5,
+       "note": "a disc is a gramophone record"
+      },
+      {
+       "words": "previously",
+       "at": 13,
+       "gives": "ONCE",
+       "note": "once means formerly, at some time before"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "at fourth and fifth positions only",
-         "note": "positions are places in the word, so only the letters in places four and five are kept"
+         "at": 32,
+         "note": "only the letters standing fourth and fifth in the word are kept, and the rest dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "record",
-         "gives": "DISC",
-         "select": 5,
-         "note": "a disc is a record"
-        }
-       ]
-      },
-      {
-       "words": "previously",
-       "gives": "ONCE",
-       "note": "once = previously"
-      },
-      {
-       "op": "nth",
-       "unchecked": true,
-       "gives": "RT",
-       "n": 4,
-       "parts": [
-        {
-         "unchecked": true,
          "words": "charted",
-         "gives": "RT",
-         "select": 4,
-         "note": "chaRTed: letters four and five"
+         "at": 24
+        },
+        {
+         "gives": "CHAED",
+         "note": "every letter of charted except the fourth and fifth, all dropped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A record that once charted, only reaching number four or five, causing an upset.",
-     "walkthrough": "The chart-positions surface makes you think of the Top 40, but the positions are letter positions in 'charted'.",
-     "definitionFit": "A plain synonym: to upset someone and to disconcert them both mean to fluster."
+     "surface": "A record that once topped the chart has slipped to fourth and fifth places, which is upsetting.",
+     "walkthrough": "The surface reads like chart news; 'at fourth and fifth positions only' keeps RT, the fourth and fifth letters of CHARTED.",
+     "definitionFit": "To disconcert someone is to unsettle or fluster them, so the verb matches upset."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "positions"
+     "misdirectedWord": "charted"
     }
    }
   },
@@ -1366,7 +1360,8 @@
     "definitions": [
      {
       "text": "waders",
-      "at": 32
+      "at": 32,
+      "note": "snipe is its own plural, so it fits the plural definition"
      }
     ],
     "wordplay": {
@@ -1374,41 +1369,40 @@
      "indicators": [
       {
        "text": "into",
-       "note": "to go into a place is to enter it, so the dash enters the store"
+       "at": 5,
+       "note": "into puts the short word inside the other letters"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "SE",
        "indicators": [
         {
          "text": "on vacation",
-         "note": "a place on vacation is vacated, emptied, leaving only its outer letters"
+         "at": 16,
+         "note": "a word on vacation is emptied of its contents, leaving its outer letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "store on vacation",
-         "gives": "SE",
-         "select": "outer",
-         "note": "StorE emptied"
+         "words": "store",
+         "at": 10,
+         "note": "first and last letters of store"
         }
        ]
       },
       {
        "words": "Dash",
+       "at": 0,
        "gives": "NIP",
-       "note": "to nip is to dash quickly"
+       "note": "to dash or nip is to go somewhere quickly"
       }
      ]
     },
     "explanation": {
-     "surface": "Running into a shop on holiday to buy fishing boots.",
-     "walkthrough": "Waders sound like boots for anglers, but they are wading birds; the answer is its own plural.",
-     "definitionFit": "Definition by category: snipe are long-billed marsh birds, among the waders."
+     "surface": "A shopper hurries into a shop for rubber boots before going on holiday.",
+     "walkthrough": "'Waders' looks like fishing boots; it means wading birds. 'On vacation' empties STORE to SE.",
+     "definitionFit": "Snipe are long-billed wading birds of marshes and wet meadows."
     },
     "features": {
      "answerInScene": false,

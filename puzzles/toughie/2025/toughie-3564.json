@@ -161,29 +161,29 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "NYLON",
+     "op": "deletion",
      "indicators": [
       {
        "text": "prime characters in",
-       "note": "prime characters are the letters standing at prime-numbered positions: second, third, fifth, seventh, eleventh"
+       "at": 15,
+       "note": "the prime characters are the letters standing at prime-numbered places, second, third, fifth, seventh and eleventh, and only those are kept"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "any bloodline",
-       "gives": "NYLON",
-       "select": "prime",
-       "note": "counting letters across both words, positions 2, 3, 5, 7 and 11"
+       "at": 35
+      },
+      {
+       "gives": "ABODLIE",
+       "note": "the letters at the first, fourth, sixth, eighth, ninth, tenth and twelfth places, dropped"
       }
      ]
     },
     "explanation": {
-     "surface": "Breeding talk: a fine strand of character runs through any good pedigree.",
-     "walkthrough": "'Prime' sounds like top quality, but it means prime-numbered positions in the letter string.",
-     "definitionFit": "Nylon is a synthetic material spun into threads for textiles."
+     "surface": "A thread turns up among the best people of some noble lineage.",
+     "walkthrough": "'Prime characters' sounds like leading figures; it means the letters at prime-numbered positions 2, 3, 5, 7 and 11 of ANYBLOODLINE.",
+     "definitionFit": "Nylon is a synthetic polymer spun into a strong man-made fibre for stockings, rope and fabric."
     },
     "features": {
      "answerInScene": false,
@@ -1687,46 +1687,53 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "NOTORIOUS",
-     "indicators": [
-      {
-       "text": "ousts",
-       "note": "ousts means one letter takes another's place in the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "curt remark",
+       "at": 10,
        "gives": "NOT",
-       "note": "a terse one-word put-down"
+       "note": "'Not!' is a curt retort, a flat refusal or contradiction"
       },
       {
-       "words": "hateful",
-       "gives": "ODIOUS",
-       "note": "odious means hateful"
-      },
-      {
-       "words": "Republican",
-       "gives": "R",
-       "note": "R is the abbreviation for Republican"
-      },
-      {
-       "words": "Democrat",
-       "gives": "D",
-       "note": "D is the abbreviation for Democrat"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "ousts",
+         "at": 46,
+         "note": "ousts means pushes out and takes the place of, so one letter replaces the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hateful",
+         "at": 22,
+         "gives": "ODIOUS",
+         "note": "odious means hateful, detestable"
+        },
+        {
+         "words": "Democrat",
+         "at": 52,
+         "gives": "D"
+        },
+        {
+         "words": "Republican",
+         "at": 35,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "American politics: a hostile one-liner as a Republican unseats a Democrat.",
-     "definitionFit": "Notorious means widely known for something bad, having a poor reputation."
+     "surface": "A curt, nasty remark about an election where a Republican unseats a Democrat.",
+     "walkthrough": "'When Republican ousts Democrat' tells you that in ODIOUS the D gives way to R, making ORIOUS.",
+     "definitionFit": "Notorious means famous for something bad, widely and unfavourably known."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "remark"
+     "misdirectedWord": "ousts"
     }
    }
   },

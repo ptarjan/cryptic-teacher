@@ -753,54 +753,55 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "at": 28,
+       "note": "covering means wrapped round, so the other letters go inside"
+      }
+     ],
      "parts": [
       {
-       "words": "a",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 10
+        },
+        {
+         "words": "discoloration's",
+         "at": 12,
+         "gives": "STAINS",
+         "note": "a stain is a discoloration, so discoloration's is stain's"
+        }
+       ]
       },
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "covering",
-         "note": "a cover wraps around what it covers, so one piece goes round another"
+         "text": "half of",
+         "at": 37,
+         "note": "half of a six-letter word is three letters, here the second half"
         }
        ],
        "parts": [
         {
-         "words": "discoloration's",
-         "gives": "STAINS",
-         "note": "a stain is a discoloration; the 's stands for is, read as STAINS"
+         "words": "saucer",
+         "at": 45
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "CER",
-         "indicators": [
-          {
-           "text": "half of",
-           "note": "taking half of a six-letter word leaves just three of its letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "saucer",
-           "gives": "CER",
-           "select": "last",
-           "note": "the second half of the word"
-          }
-         ]
+         "gives": "SAU",
+         "note": "the first half of saucer, dropped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone finds a stain spreading across part of a saucer.",
-     "walkthrough": "The 's after discoloration is read as part of the plural, not as a possessive or 'is'; 'covering' means the stains wrap round the saucer fragment.",
-     "definitionFit": "To ascertain is to find out something for certain, a more formal synonym for finding out."
+     "surface": "A stain spreads over half a saucer from a spilt cup.",
+     "definitionFit": "To ascertain a fact is to find it out for certain, so ascertains matches discovers as a verb."
     },
     "features": {
      "answerInScene": false,
