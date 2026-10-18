@@ -259,43 +259,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WEIMAR",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "centre lost",
-       "note": "the centre is lost, so the middle letter of the word goes"
+       "text": "bombing",
+       "at": 35,
+       "note": "bombing blows the remaining letters apart into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "bombing",
-         "note": "bombing blows things apart, so the remaining letters are scattered into a new order"
+         "text": "centre lost in",
+         "at": 12,
+         "note": "the middle letter of the seven-letter word is dropped"
         }
        ],
        "parts": [
         {
          "words": "wartime",
-         "gives": "WARIME",
-         "note": "wartime without its middle letter"
+         "at": 27,
+         "note": "the word whose letters are reworked"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A German city centre was destroyed in air raids during the war.",
-     "walkthrough": "Wartime has seven letters, so its centre is the T.",
-     "definitionFit": "Weimar is a city in Thuringia, Germany, so it is an example of a German city."
+     "surface": "A German city loses its heart to air raids during the war.",
+     "walkthrough": "The middle of WARTIME is its fourth letter, T; removing it leaves WARIME, which 'bombing' rearranges.",
+     "definitionFit": "Weimar is a city in Thuringia, home of Goethe and namesake of the 1919–33 republic."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "centre"
+     "misdirectedWord": "bombing"
     }
    }
   },
@@ -894,45 +897,48 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AGGRIEVE",
      "indicators": [
       {
        "text": "seen in",
-       "note": "seen in places the shuffled letters inside another word"
+       "at": 20,
+       "note": "seen in places the rearranged letters within the word for maturity"
       }
      ],
      "parts": [
+      {
+       "words": "maturity",
+       "at": 28,
+       "gives": "AGE",
+       "note": "age means maturity, as in coming of age"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "sadly",
-         "note": "something done sadly is done badly, so these letters come out wrong and need rearranging"
+         "at": 14,
+         "note": "sadly says these letters are in a sorry, disordered state"
         }
        ],
        "parts": [
         {
          "words": "giver",
-         "note": "the letters of giver rearranged"
-        },
-        {
-         "words": "maturity",
-         "gives": "AGE",
-         "note": "maturity is age"
+         "at": 8,
+         "note": "the letters to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A troublemaker, regretting their ways, is seen to grow up at last.",
-     "definitionFit": "To aggrieve someone is to distress or wrong them, a synonym for the verb trouble."
+     "surface": "A generous person grows sad and troubled in later life.",
+     "walkthrough": "'Trouble' reads like a noun in the surface but works as a verb; the shuffled giver is 'seen in' the word for maturity, splitting it after its second letter.",
+     "definitionFit": "To aggrieve is to distress or wrong someone, so it is a verb synonym for trouble."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "giver"
+     "misdirectedWord": "maturity"
     }
    }
   },

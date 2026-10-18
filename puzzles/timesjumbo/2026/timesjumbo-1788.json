@@ -442,47 +442,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "at regular intervals, so every other letter is kept"
+       "text": "eating",
+       "at": 16,
+       "note": "eating has the picked letters take the German inside them, as a mouth takes food"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "DAK",
        "indicators": [
         {
-         "text": "eating",
-         "note": "whatever is eaten ends up inside, so the German goes into the kept letters"
+         "text": "regularly",
+         "at": 6,
+         "note": "regularly means taking every other letter of drank, starting with the first"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Drank regularly",
-         "gives": "DAK",
-         "select": "alternate",
-         "note": "the 1st, 3rd and 5th letters of drank"
+         "words": "Drank",
+         "at": 0,
+         "note": "the word whose odd letters are kept"
         }
        ]
       },
       {
        "words": "German",
+       "at": 23,
        "gives": "HANS",
-       "note": "Hans, a typical German man's name"
+       "note": "Hans is a typical German man's name"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone drank steadily while tucking into a spicy German dish.",
-     "walkthrough": "'German spicy dish' reads as one phrase; the German is only a name, and the dish is Indian.",
-     "definitionFit": "A definition by class: this Parsi curry of meat and lentils, usually hot and sour, is one kind of spicy dish."
+     "surface": "Someone drank steadily while a German tucked into a hot curry.",
+     "walkthrough": "'regularly' picks D, A, K from DRANK; 'eating' puts HANS between the D and the AK.",
+     "definitionFit": "Dhansak is a Parsi curry of meat cooked with lentils, a hot dish found on Indian restaurant menus."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "German"
+     "misdirectedWord": "Drank"
     }
    }
   },
@@ -563,43 +562,55 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "curtailed",
-       "note": "to curtail is literally to cut the tail, so the last letter goes"
+       "text": "on returning",
+       "at": 78,
+       "note": "on returning says the whole string is read back the other way, upwards in this down answer"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "on returning",
-         "note": "what returns comes back, and in a down answer the letters read back up the grid"
-        }
-       ],
        "parts": [
         {
          "words": "for example",
+         "at": 37,
          "gives": "EG",
-         "note": "e.g. = for example"
+         "note": "e.g. is the abbreviation of exempli gratia, for example"
         },
         {
-         "words": "Caribbean capital curtailed",
-         "gives": "NASSA",
-         "note": "Nassau, capital of the Bahamas, without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "curtailed",
+           "at": 68,
+           "note": "curtailed means cut short, so the capital loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Caribbean capital",
+           "at": 50,
+           "gives": "NASSAU",
+           "note": "Nassau is the capital of the Bahamas"
+          },
+          {
+           "gives": "U"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The founder of a notorious website turns up in some Caribbean capital.",
-     "walkthrough": "EG and the shortened capital are written in clue order, EGNASSA, and the whole string is then read backwards.",
-     "definitionFit": "A definition by description: Julian Assange founded WikiLeaks, the site that published leaked secret documents."
+     "surface": "A tale of a website founder turning up in a Caribbean capital, cut short on his return.",
+     "walkthrough": "'curtailed' cuts NASSAU to NASSA; put EG before it and 'on returning' reverses EGNASSA.",
+     "definitionFit": "Julian Assange set up WikiLeaks, the site that published leaked classified documents and caused worldwide controversy."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "curtailed"
+     "aptDefinition": true,
+     "misdirectedWord": "returning"
     }
    }
   },
@@ -799,43 +810,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CHOLERA",
+     "op": "container",
      "indicators": [
       {
-       "text": "upward",
-       "note": "in a down answer, going upward means reading from the bottom, so the curve is reversed"
+       "text": "in",
+       "at": 9,
+       "note": "in puts the slum inside the turned curve"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "the slum is put in the curve, its letters inside"
+         "text": "upward",
+         "at": 20,
+         "note": "upward means the word is read from the bottom up in this down answer"
         }
        ],
        "parts": [
         {
-         "words": "upward curve",
-         "gives": "CRA",
-         "note": "a curve is an arc, here read upwards"
-        },
-        {
-         "words": "slum",
-         "gives": "HOLE",
-         "note": "a hole is a squalid place to live"
+         "words": "curve",
+         "at": 27,
+         "gives": "ARC",
+         "note": "an arc is a curve"
         }
        ]
+      },
+      {
+       "words": "slum",
+       "at": 12,
+       "gives": "HOLE",
+       "note": "a hole is a squalid, wretched dwelling, a slum"
       }
      ]
     },
     "explanation": {
-     "surface": "Disease spreads through a slum on a rising curve of infection.",
-     "walkthrough": "The word 'in' does two jobs: the first joins definition to wordplay, the second places the slum inside the curve.",
-     "definitionFit": "A definition by class: this waterborne infection is one kind of sickness, and slums are where it spreads."
+     "surface": "Disease spreads through a slum as an upward curve on a graph.",
+     "walkthrough": "'upward' turns ARC to CRA; 'in' places HOLE inside, after the C.",
+     "definitionFit": "Cholera is an infectious bacterial disease of the intestine, typically spread by dirty water."
     },
     "features": {
      "answerInScene": true,
@@ -1733,47 +1746,59 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "PARIS",
+     "op": "container",
      "indicators": [
       {
-       "text": "primarily",
-       "note": "primarily means in the first place, so only the first letter"
+       "text": "with",
+       "at": 24,
+       "note": "with says the couples word is joined again by that letter, now set a place higher in this down answer"
       }
      ],
      "parts": [
       {
-       "words": "couples",
-       "gives": "PAIRS",
-       "note": "pairs are couples"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "R",
+       "op": "deletion",
        "indicators": [
         {
          "text": "promoted",
-         "note": "someone promoted moves up a rank"
+         "at": 47,
+         "note": "promoted means lifted from its place, so the romance letter comes out of the couples word to move higher"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "romance primarily",
-         "gives": "R",
-         "select": "first",
-         "note": "the first letter of romance; it moves up past the I"
+         "words": "couples",
+         "at": 15,
+         "gives": "PAIRS",
+         "note": "pairs are couples"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 37,
+         "note": "primarily means first, so just the initial letter of romance"
+        }
+       ],
+       "parts": [
+        {
+         "words": "romance",
+         "at": 29,
+         "note": "the word whose opening letter is wanted"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Couples, romance to the fore, head for a destination.",
-     "walkthrough": "The destination is apt: this capital is the classic romantic trip for couples, which the question mark acknowledges.",
-     "definitionFit": "A definition by example: the French capital is a destination, and famously one for couples."
+     "surface": "Where do couples go when romance comes first?",
+     "walkthrough": "In PAIRS the R, which 'romance primarily' gives, is 'promoted': lifted out to leave PAIS and put back one place higher, above the I. The question mark admits the destination is a city famed for romance.",
+     "definitionFit": "Paris is a classic holiday destination for lovers, known as the city of romance."
     },
     "features": {
      "answerInScene": true,
@@ -2058,66 +2083,81 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRYOUT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crossing",
+       "at": 39,
+       "note": "crossing means straddling, so the other letters go either side of the river"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
        "indicators": [
         {
-         "text": "briefly",
-         "note": "said briefly, the word is cut short by its last letter"
-        },
-        {
-         "text": "bottom of",
-         "note": "in a down clue, the bottom of a word is its last letter"
+         "text": "under",
+         "at": 18,
+         "note": "under places the shortened youngster below the boat's letter in this down answer"
         }
        ],
        "parts": [
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "T",
          "indicators": [
           {
-           "text": "under",
-           "note": "in a down answer, what is under comes below, so the youngster goes last"
+           "text": "bottom of",
+           "at": 24,
+           "note": "bottom of a down light is its last letter, so the end of boat"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "bottom of boat",
-           "gives": "T",
-           "select": "last",
-           "note": "the last letter of boat"
+           "words": "boat",
+           "at": 34,
+           "note": "the word whose final letter is wanted"
           }
          ]
         },
         {
-         "words": "River",
-         "gives": "R",
-         "note": "R = river"
-        },
-        {
-         "words": "Youngster briefly",
-         "gives": "YOUT",
-         "note": "YOUTH without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 10,
+           "note": "briefly means cut short, losing the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Youngster",
+           "at": 0,
+           "gives": "YOUTH",
+           "note": "a youth is a youngster"
+          },
+          {
+           "gives": "H"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "River",
+       "at": 48,
+       "gives": "R",
+       "note": "R is the map abbreviation for river"
       }
      ]
     },
     "explanation": {
-     "surface": "A youngster sits in the bottom of a boat crossing the River Test.",
-     "walkthrough": "'River Test' reads as the Hampshire trout river; the river gives only R and Test is the definition.",
-     "definitionFit": "A plain synonym for a noun: a trial run to see whether something or someone works."
+     "surface": "A youngster sits below the bottom of a boat crossing a river.",
+     "walkthrough": "'briefly' trims YOUTH to YOUT, which goes 'under' T, the 'bottom of boat'; that pair is 'crossing' R, which goes between them.",
+     "definitionFit": "A tryout is a trial run or audition, so it means a test of ability."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Test"
     }
    }
@@ -2144,46 +2184,48 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "OCCIDENT",
      "indicators": [
       {
-       "text": "principally",
-       "note": "principally means first of all, so only the first letter"
+       "text": "converted into",
+       "at": 8,
+       "note": "converted into says one letter is changed into the other"
       }
      ],
      "parts": [
       {
        "words": "tragedy",
+       "at": 50,
        "gives": "ACCIDENT",
-       "note": "an accident is a tragedy"
+       "note": "an accident is a misfortune, a tragedy"
+      },
+      {
+       "words": "America",
+       "at": 0,
+       "gives": "A"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "converted into",
-         "note": "one thing converted into another becomes it"
+         "text": "principally",
+         "at": 34,
+         "note": "principally means first and foremost, so the initial letter"
         }
        ],
        "parts": [
         {
-         "words": "America",
-         "note": "A = America; this A is swapped out"
+         "words": "oligarchy",
+         "at": 23,
+         "note": "the word whose opening letter is wanted"
         }
        ]
-      },
-      {
-       "words": "oligarchy, principally",
-       "gives": "O",
-       "note": "the first letter of oligarchy; it replaces the A"
       }
      ]
     },
     "explanation": {
-     "surface": "America's slide into rule by a few rich men is a tragedy for the West.",
-     "walkthrough": "The surface reads as political commentary; America is just the A of ACCIDENT, and oligarchy gives only its O.",
-     "definitionFit": "A plain synonym: the western world, as opposed to the Orient."
+     "surface": "A political essay about America sliding into rule by a wealthy few, a tragedy for the West.",
+     "walkthrough": "In ACCIDENT, the A for America is 'converted into' O, the first letter of oligarchy.",
+     "definitionFit": "The Occident is the Western world, the counterpart of the Orient."
     },
     "features": {
      "answerInScene": true,
@@ -2273,41 +2315,42 @@
     "definitions": [
      {
       "text": "via Hooters?",
-      "at": 22
+      "at": 22,
+      "note": "hooter is slang for the nose, so through the hooters means through the nose; adverb as the answer"
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NASALLY",
-     "indicators": [
-      {
-       "text": "Recalled",
-       "note": "called back, so the word is read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Recalled",
+         "at": 0,
+         "note": "recalled means called back, so the little word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Recalled an",
-         "gives": "NA",
-         "note": "an, read backwards"
-        },
-        {
-         "words": "excursion",
-         "gives": "SALLY",
-         "note": "a sally is a trip out"
+         "words": "an",
+         "at": 9,
+         "note": "the word turned back"
         }
        ]
+      },
+      {
+       "words": "excursion",
+       "at": 12,
+       "gives": "SALLY",
+       "note": "a sally is a jaunt or trip out"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone remembers a trip to Hooters, the American restaurant chain.",
-     "walkthrough": "Hooter is British slang for nose, so 'via hooters' means through the nose.",
-     "definitionFit": "A slang sense: sound produced through the nose, and hooters are noses."
+     "surface": "Someone remembers a trip to a well-known American restaurant chain.",
+     "walkthrough": "'Hooters' looks like the US restaurant chain but is British slang for noses. 'Recalled' reverses AN to NA, then SALLY follows.",
+     "definitionFit": "Speaking nasally is producing sounds through the nose, which slang calls the hooter."
     },
     "features": {
      "answerInScene": false,
@@ -3441,44 +3484,63 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "having run away"
-      }
-     ],
      "parts": [
-      {
-       "words": "mostly kind",
-       "gives": "TYP",
-       "note": "TYPE, a kind, without its last letter"
-      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "mostly",
-         "note": "mostly means all but a little, so the last letter goes"
+         "at": 31,
+         "note": "mostly means most but not all of the word, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kind",
+         "at": 38,
+         "gives": "TYPE",
+         "note": "a type is a kind or sort"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having",
+         "at": 51,
+         "note": "having, paired with away, says the country has the run removed"
+        },
+        {
+         "text": "away",
+         "at": 62,
+         "note": "away means gone, so the run letter disappears from the country"
         }
        ],
        "parts": [
         {
          "words": "country",
+         "at": 43,
          "gives": "ROMANIA",
-         "note": "the European country"
+         "note": "Romania is a country in south-eastern Europe"
         },
         {
          "words": "run",
+         "at": 58,
          "gives": "R",
-         "note": "R = run, as in cricket scoring; it leaves the country"
+         "note": "R is the cricket abbreviation for run"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A compulsive writer craves to publish in a kinder country, after fleeing.",
-     "walkthrough": "'Run away' reads as fleeing; it tells you R has gone from ROMANIA.",
-     "definitionFit": "A formed word: -mania is a craze, and typo- means type, so a craze for seeing oneself in print."
+     "surface": "A writer driven to see print in a kind country after fleeing.",
+     "walkthrough": "'mostly' trims TYPE to TYP; ROMANIA 'having run away' loses its R, giving OMANIA.",
+     "definitionFit": "Typomania is a rare term for a mania for getting into print, a craving to see one's work published."
     },
     "features": {
      "answerInScene": false,
@@ -3728,42 +3790,42 @@
      {
       "text": "I rate Chas",
       "at": 0,
-      "note": "the definition is what this taster might say of the job: cha is slang for tea"
+      "note": "cha is a word for tea, so chas are teas; a person saying I rate teas is one who judges them"
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "finally",
-       "note": "finally means at the end, so the last letter"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "breaking"
+         "text": "breaking",
+         "at": 27,
+         "note": "breaking means bursting into the rubbish, splitting it"
         }
        ],
        "parts": [
         {
          "words": "rubbish",
+         "at": 36,
          "gives": "TAT",
-         "note": "tat is junk"
+         "note": "tat is cheap, worthless stuff"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "E",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 19,
+           "note": "finally means the last letter of Dave"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Dave finally",
-           "gives": "E",
-           "select": "last",
-           "note": "the last letter of Dave; it breaks into the rubbish"
+           "words": "Dave",
+           "at": 14,
+           "note": "the word whose final letter is wanted"
           }
          ]
         }
@@ -3771,15 +3833,16 @@
       },
       {
        "words": "flower",
+       "at": 44,
        "gives": "ASTER",
        "note": "an aster is a daisy-like flower"
       }
      ]
     },
     "explanation": {
-     "surface": "A fan rates the Cockney duo Chas & Dave, while calling their flowers rubbish.",
-     "walkthrough": "Chas & Dave were a Cockney pop duo; 'Chas' here is the plural of cha, slang for tea, so the whole of 'I rate Chas' is what a tea taster says.",
-     "definitionFit": "A cryptic description: someone paid to grade teas could say 'I rate chas'."
+     "surface": "A fan rates the Cockney duo Chas & Dave, while their rival grumbles about a rubbish flower.",
+     "walkthrough": "Chas & Dave were a London pub-rock duo, but 'Chas' is the plural of cha, tea. 'finally' gives E, 'breaking' TAT to make TEAT, then ASTER follows.",
+     "definitionFit": "A tea taster grades and evaluates teas professionally, so would say they rate chas."
     },
     "features": {
      "answerInScene": false,

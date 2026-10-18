@@ -168,48 +168,61 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "say"
-      }
-     ],
      "parts": [
       {
        "words": "Quiet",
+       "at": 0,
        "gives": "SH",
-       "note": "sh! = be quiet"
+       "note": "sh is the call for quiet"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "accepting"
+         "text": "accepting",
+         "at": 25,
+         "note": "accepting means taking in, so the older word holds the sounded letter"
         }
        ],
        "parts": [
         {
-         "words": "more mature, say",
+         "words": "more mature",
+         "at": 7,
          "gives": "OLDER",
-         "note": "older = more mature"
+         "note": "older means more mature"
         },
         {
-         "words": "you",
-         "gives": "U",
-         "note": "U = you, as in text speak"
+         "op": "homophone",
+         "spelt": "U",
+         "indicators": [
+          {
+           "text": "say",
+           "at": 20,
+           "note": "say signals that the word is spoken, so we write the letter it sounds like"
+          }
+         ],
+         "parts": [
+          {
+           "words": "you",
+           "at": 35,
+           "gives": "YOU",
+           "note": "the word said aloud, which sounds like the letter U"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to someone quiet and growing up: time to take charge.",
-     "walkthrough": "U sits inside OLDER after the O, giving O-U-LDER.",
-     "definitionFit": "An idiom: carrying a load on your shoulders pictures taking on a duty."
+     "surface": "A quiet word to someone more grown-up, saying it's time they took charge.",
+     "walkthrough": "YOU spoken aloud sounds like the letter U; 'accepting' puts that U inside OLDER, after the O, with SH in front.",
+     "definitionFit": "To shoulder a burden is to take it on, an idiom for accepting a duty."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Quiet"
+     "misdirectedWord": "say"
     }
    }
   },
@@ -539,47 +552,46 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "maybe"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "carrying",
-         "note": "one who carries something holds it within"
+         "at": 27,
+         "note": "carrying means the Scot holds the duck inside him"
         }
        ],
        "parts": [
         {
          "words": "Glaswegian maybe",
+         "at": 10,
          "gives": "SCOT",
-         "note": "a Glaswegian is a Scot"
+         "note": "someone from Glasgow is a Scot; 'maybe' marks a Glaswegian as one example of the wider group"
         },
         {
          "words": "duck",
+         "at": 36,
          "gives": "O",
-         "note": "a duck is a score of nought in cricket, shaped like O"
+         "note": "a duck is a score of nought in cricket, the letter O"
         }
        ]
       },
       {
-       "words": "I'm not sure!",
+       "words": "I'm not sure",
+       "at": 43,
        "gives": "ER",
-       "note": "er, the hesitant noise"
+       "note": "er is the sound of hesitation or doubt"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone from Glasgow hauling a duck around and unsure what to make of it.",
-     "walkthrough": "Duck for O comes from cricket, where a batsman out for nothing scores a duck.",
-     "definitionFit": "A definition by example: the two-wheeled vehicle, motorised or kicked along, is one form of transport."
+     "surface": "A Glaswegian on some vehicle has a duck aboard and is hesitant.",
+     "walkthrough": "'maybe' says a Glaswegian is just one kind of SCOT. In cricket a duck is a batsman's score of zero, shaped like the letter O.",
+     "definitionFit": "A scooter is a light motorcycle or kick vehicle, a means of getting about."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "duck"
@@ -1047,8 +1059,7 @@
     "definitions": [
      {
       "text": "Seven years",
-      "at": 0,
-      "note": "TEENAGE is an adjective or collective name for the seven teen years"
+      "at": 0
      }
     ],
     "wordplay": {
@@ -1056,56 +1067,55 @@
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "TEE",
        "indicators": [
         {
          "text": "finally",
-         "note": "takes the final letter of each of 'at the coalface'"
+         "at": 30,
+         "note": "finally takes the last letter of each of the three preceding words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "at the coalface — finally",
-         "gives": "TEE",
-         "select": "last",
-         "note": "last letters of at, the, coalface"
+         "words": "at the coalface",
+         "at": 12,
+         "note": "the three words whose final letters are wanted"
         }
        ]
       },
       {
        "words": "moan constantly",
+       "at": 38,
        "gives": "NAG",
-       "note": "to nag is to moan constantly"
+       "note": "to nag is to complain or moan persistently"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "at first",
-         "note": "takes the first letter of 'effective'"
+         "at": 65,
+         "note": "at first means only the initial letter of effective"
         }
        ],
        "parts": [
         {
-         "words": "effective at first",
-         "gives": "EFFECTIVE",
-         "note": "first letter of effective"
+         "words": "effective",
+         "at": 55,
+         "note": "the word whose opening letter is wanted"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A miner complaining endlessly after seven years underground.",
-     "walkthrough": "The teenage years run from thirteen to nineteen, seven in all; the mining surface hides that.",
-     "definitionFit": "The teenage years, thirteen to nineteen, are seven years of life."
+     "surface": "A miner grumbles non-stop about seven years at the coalface.",
+     "walkthrough": "'finally' acts on each of 'at the coalface', giving T, E, E. 'Seven years' is fair because the teens run from thirteen to nineteen, seven years in all.",
+     "definitionFit": "The teenage years are the span from thirteen to nineteen, which totals seven years of a life."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "coalface"
+     "misdirectedWord": "Seven"
     }
    }
   },
