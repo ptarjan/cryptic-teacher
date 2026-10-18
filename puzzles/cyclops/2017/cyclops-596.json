@@ -786,60 +786,54 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ICEBERG",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in places the jumbled beer inside the two regimental initials"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 16,
+         "note": "the mangled beer goes in between the two starting letters"
+        }
+       ],
        "parts": [
         {
-         "words": "One",
-         "gives": "I",
-         "note": "the Roman numeral for one"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "starts",
+           "at": 37,
+           "note": "the starts of the two words are their first letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Coldstream Guards",
+           "at": 19,
+           "note": "the first letters of Coldstream and Guards"
+          }
+         ]
         },
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "crappy",
-           "note": "something crappy is badly made, so the word beer is mangled into a new order"
+           "at": 4,
+           "note": "crappy means badly made, so the letters are knocked into a new order"
           }
          ],
          "parts": [
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "starts",
-             "note": "starts are beginnings, so the first letter of each of Coldstream and Guards is taken"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Coldstream",
-             "note": "first letter of Coldstream"
-            }
-           ]
-          },
-          {
            "words": "beer",
-           "note": "taken as written, to be rearranged"
-          },
-          {
-           "op": "first",
-           "parts": [
-            {
-             "words": "Guards",
-             "note": "first letter of Guards"
-            }
-           ]
+           "at": 11
           }
          ]
         }
@@ -848,14 +842,14 @@
      ]
     },
     "explanation": {
-     "surface": "A soldier's bad pint in the Coldstream Guards (a British Army regiment) becomes a problem.",
-     "walkthrough": "The Coldstream Guards are a foot regiment of the British Army; 'cold' in the name nods at the answer.",
-     "definitionFit": "A huge floating mass of ice is a hazard to ships, the archetypal thing that blocks a vessel's path."
+     "surface": "A soldier in the Coldstream Guards has one bad beer and it gets in the way.",
+     "walkthrough": "'starts' takes C and G from 'Coldstream Guards'; 'crappy' jumbles BEER into EBER, which goes 'in' between them, after the I.",
+     "definitionFit": "An iceberg is a classic hazard to shipping, and figuratively any looming obstruction."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Coldstream"
+     "misdirectedWord": "crappy"
     }
    }
   },
@@ -880,45 +874,57 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "CONSPIRER",
-     "indicators": [
-      {
-       "text": "to be replaced, by",
-       "note": "replacing one thing by another swaps them, so one letter of the spokesman's name is exchanged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "against",
+       "at": 11,
        "gives": "CON",
        "note": "con means against, as in pros and cons"
       },
       {
-       "words": "Trump's spokesman",
-       "gives": "SPICER",
-       "note": "Sean Spicer was Trump's first White House press secretary"
-      },
-      {
-       "words": "about",
-       "gives": "C",
-       "note": "c (circa) means about"
-      },
-      {
-       "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "to be replaced",
+         "at": 44,
+         "note": "the letter for about has to go, with something put in its place"
+        },
+        {
+         "text": "by",
+         "at": 60,
+         "note": "by introduces the letter that takes the place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Trump's spokesman",
+         "at": 19,
+         "gives": "SPICER",
+         "note": "Sean Spicer was Donald Trump's first White House press secretary"
+        },
+        {
+         "words": "about",
+         "at": 38,
+         "gives": "C",
+         "note": "C is short for circa, Latin for about"
+        },
+        {
+         "words": "right",
+         "at": 63,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone scheming against Trump's press secretary, who is soon to be replaced by a right-winger.",
-     "walkthrough": "Spicer resigned after six months, so 'about to be replaced' was topical before it is mechanical.",
-     "definitionFit": "A person who joins a secret scheme to do harm is a plotter, so the noun fits one who would plot."
+     "surface": "Private Eye mocks Trump's spokesman as a plotter about to be sacked and swapped for a right-winger.",
+     "walkthrough": "Sean Spicer was Trump's press secretary in 2017; swap the C of SPICER for R and put CON in front.",
+     "definitionFit": "A conspirer is someone who plots in secret with others, so who would hatch a plot."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "about"
     }

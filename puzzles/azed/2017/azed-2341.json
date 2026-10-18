@@ -562,30 +562,31 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "COUP",
      "indicators": [
       {
        "text": "off",
-       "note": "something taken off is removed, so the named word comes out of the longer one"
+       "at": 33,
+       "note": "the letters of the word Let are taken off the pair"
       }
      ],
      "parts": [
       {
-       "words": "Let",
-       "note": "taken as written, the part to remove"
+       "words": "pair",
+       "at": 37,
+       "gives": "COUPLET",
+       "note": "a couplet is a pair, especially two rhyming lines of verse"
       },
       {
-       "words": "pair",
-       "gives": "COUPLE",
-       "note": "a pair is a couple"
+       "words": "Let",
+       "at": 29,
+       "gives": "LET"
       }
      ]
     },
     "explanation": {
-     "surface": "A riddle about something explosive, then an instruction to fire off two at once.",
-     "walkthrough": "COUPLE without LET leaves COUP. 'Let off' looks like setting off fireworks, but 'Let' is the letters dropped.",
-     "definitionFit": "A coup is a sudden seizure of power, an event that typically erupts dramatically, hence the question mark."
+     "surface": "A firework riddle followed by an instruction to let off a pair of them.",
+     "walkthrough": "'Let off' reads as setting off fireworks, but it means remove LET from COUPLET. The definition is cryptic: a coup is a sudden stroke that lands with dramatic effect.",
+     "definitionFit": "A coup, like a coup d'état, is a sudden decisive stroke, an event that famously happens with a bang."
     },
     "features": {
      "answerInScene": false,
@@ -741,12 +742,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "AUROUS",
      "indicators": [
       {
        "text": "Most",
-       "note": "most of a word is all but its final letter"
+       "at": 0,
+       "note": "only most of the result is used, its last letter dropped"
       }
      ],
      "parts": [
@@ -755,46 +755,48 @@
        "indicators": [
         {
          "text": "about",
-         "note": "to be about something is to surround it"
+         "at": 17,
+         "note": "the excitement wraps about the middle letter, holding it inside"
         }
        ],
        "parts": [
         {
          "words": "get excited",
-         "gives": "AROUS",
-         "note": "AROUSE, to stir up, minus its last letter"
+         "at": 5,
+         "gives": "AROUSE",
+         "note": "to arouse is to excite, or in Chambers to become excited"
         },
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "U",
          "indicators": [
           {
            "text": "centre of",
+           "at": 23,
            "note": "the centre of a five-letter word is its third letter"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "heuch",
-           "gives": "U",
-           "select": "middle",
-           "note": "middle letter of the Scots word heuch, a crag or ravine"
+           "at": 33,
+           "note": "heuch is a Scots word for a crag or steep bank"
           }
          ]
         }
        ]
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "Most people grow excited about the heart of a Scottish ravine that holds gold.",
-     "walkthrough": "AROUS(E) wraps around U, the centre letter of heuch, a Scots word for a steep bank or glen.",
-     "definitionFit": "Aurous is the chemistry term for compounds of gold in its lower (univalent) oxidation state, one particular kind of gold content."
+     "surface": "Most people get excited by a crag that holds some kind of gold.",
+     "walkthrough": "AROUSE goes 'about' U, the centre of HEUCH, making AUROUSE; 'Most' then drops the last E. Gold 'of a kind' because aurous means containing gold in its lower valency, as against auric.",
+     "definitionFit": "In chemistry, aurous describes compounds of monovalent gold, so it means holding gold in one particular form."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Most"
     }
@@ -822,61 +824,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OUTGUN",
      "indicators": [
       {
        "text": "in",
-       "note": "one part goes inside the other"
+       "at": 43,
+       "note": "the splattered letters go in the core of the wound"
       }
      ],
      "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "core of",
+         "at": 46,
+         "note": "the core is the word with its outer letters removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wound",
+         "at": 54,
+         "note": "the word wound with its first and last letters stripped away"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "splattered",
-         "note": "splattered things are scattered messily, so the letters of the word land in a new order"
+         "at": 32,
+         "note": "splattered guts are scattered, so the letters are mixed up"
         }
        ],
        "parts": [
         {
          "words": "gut",
-         "note": "the word gut rearranged"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "OUN",
-         "indicators": [
-          {
-           "text": "core of",
-           "note": "the core of a word is what remains after its outer letters are stripped"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "wound",
-           "gives": "OUN",
-           "select": "middle",
-           "note": "wound without its first and last letters"
-          }
-         ]
+         "at": 28
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gunfight in a cowboy film, with someone shot in the stomach.",
-     "walkthrough": "The jumbled GUT sits inside OUN, the middle of wound. The question mark flags that the whole clue also describes beating someone in a shootout.",
-     "definitionFit": "To outgun is to beat with superior firepower, which is precisely how a western's shootout is won."
+     "surface": "A cowboy shot in a gunfight, guts spilling out of the heart of the wound.",
+     "walkthrough": "'core of wound' gives OUN; 'splattered' jumbles GUT into UTG, which goes 'in' after the O.",
+     "definitionFit": "To outgun someone is to beat them by having more or better firepower, as in a western duel."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "wound"
+     "misdirectedWord": "splattered"
     }
    }
   },
@@ -1358,12 +1357,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LEGATEE",
      "indicators": [
       {
-       "text": "on both sides",
-       "note": "something on both sides flanks the middle piece, enclosing it"
+       "text": "both sides",
+       "at": 38,
+       "note": "the A has a piece on both sides of it, one before and one after"
       }
      ],
      "parts": [
@@ -1371,41 +1369,45 @@
        "op": "charade",
        "parts": [
         {
-         "words": "support",
+         "words": "on",
+         "at": 35,
          "gives": "LEG",
-         "note": "a leg supports a table"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first",
-           "note": "the first of a word is its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "apparent's",
-           "note": "first letter of apparent"
-          }
-         ]
+         "note": "in cricket the on side is also called the leg side, so on gives LEG"
         },
         {
          "words": "support",
+         "at": 27,
          "gives": "TEE",
-         "note": "a tee supports a golf ball"
+         "note": "a tee supports a golf ball before the drive"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 16,
+         "note": "only the first letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "apparent's",
+         "at": 5,
+         "note": "taken from the start of the word apparent"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A royal heir first in line, propped up by supporters either side.",
-     "walkthrough": "'Heir apparent' reads as one phrase, but 'apparent's first' is the letter. The one word 'support' is used twice, once on each side.",
-     "definitionFit": "A legatee is someone who inherits a legacy under a will, so an heir to that bequest."
+     "surface": "An heir apparent first in line, with backing from both factions.",
+     "walkthrough": "'on' is the cricket term: the on side is the leg side, giving LEG. LEG and TEE (a golf support) go on 'both sides' of A, the first letter of 'apparent's'.",
+     "definitionFit": "A legatee inherits a legacy under a will, so is an heir to that bequest."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "apparent's"
     }

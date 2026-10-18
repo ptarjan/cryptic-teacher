@@ -872,47 +872,54 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "GERMANIUM",
-     "indicators": [
-      {
-       "text": "to block",
-       "note": "a blockage sits in the middle of a passage, so this letter is lodged within the following pair"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "European",
+       "at": 0,
+       "gives": "GERMAN",
+       "note": "a German is a European"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to block",
+         "at": 15,
+         "note": "the union letter is set in the way between the other two, blocking them"
+        }
+       ],
        "parts": [
         {
-         "words": "European",
-         "gives": "GERMAN",
-         "note": "a German is a European"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral for one"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one",
+           "at": 24,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          },
+          {
+           "words": "masculine",
+           "at": 28,
+           "gives": "M",
+           "note": "M is the grammatical abbreviation for masculine"
+          }
+         ]
         },
         {
          "words": "Union",
-         "gives": "U",
-         "note": "U is a standard abbreviation for union"
-        },
-        {
-         "words": "masculine",
-         "gives": "M",
-         "note": "M is the grammatical abbreviation for masculine"
+         "at": 9,
+         "gives": "U"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The European Union acting to stop a single man.",
-     "walkthrough": "'European Union' reads as the EU, but it splits: European is GERMAN and Union is U, which goes between I and M.",
-     "definitionFit": "Germanium is a chemical element, a grey metalloid used in semiconductors."
+     "surface": "A European Union move to block one masculine element, as in a political row.",
+     "walkthrough": "'European Union' reads as the EU, but the words split: GERMAN for 'European', and U for 'Union', which goes 'to block' I and M.",
+     "definitionFit": "Germanium is chemical element 32, a grey metalloid used in semiconductors."
     },
     "features": {
      "answerInScene": false,
@@ -1615,49 +1622,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EARN",
+     "op": "container",
      "indicators": [
       {
-       "text": "topless",
-       "note": "having lost its top means the first letter is taken off"
+       "text": "surrounded by",
+       "at": 20,
+       "note": "the trimmed bar sits inside the trimmed men, which surround it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "surrounded by",
-         "note": "one piece is enclosed within the other"
+         "text": "topless",
+         "at": 34,
+         "note": "the men also lose their top, the first letter"
         }
        ],
        "parts": [
         {
          "words": "men",
-         "gives": "EN",
-         "note": "the word men with its first letter removed"
+         "at": 42,
+         "gives": "MEN"
         },
         {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 8,
+         "note": "the bar loses its top, which across the grid is the first letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "bar",
-         "gives": "AR",
-         "note": "the word bar with its first letter removed"
+         "at": 16,
+         "gives": "BAR"
+        },
+        {
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A topless bar where the clientele are bare-chested men too.",
-     "walkthrough": "'Topless' is used twice, once on each word, and the surface pretends it describes a strip club.",
-     "definitionFit": "To pull in money is informal for to earn it, as in pulling in a good salary."
+     "surface": "A topless bar full of topless men pulling in customers.",
+     "walkthrough": "Each 'topless' removes a first letter: AR from BAR goes inside EN from MEN.",
+     "definitionFit": "To pull in money, as in pulling in a big salary, is to earn it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "topless"
+     "misdirectedWord": "Pull"
     }
    }
   },
