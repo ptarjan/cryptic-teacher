@@ -307,53 +307,52 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "got up",
-       "note": "in a down clue, getting up means rising from the bottom, so the word reads upwards"
+       "text": "around",
+       "at": 10,
+       "note": "the reversed word goes round the next letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "around",
-         "note": "around means surrounding, so the pronoun wraps the selected letters"
+         "text": "got up",
+         "at": 3,
+         "note": "in a down clue, getting up means reading upwards, so the word is reversed"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "We",
-           "note": "taken as written"
-          },
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "finally",
-             "note": "finally points to the last letter of each word it governs"
-            }
-           ],
-           "parts": [
-            {
-             "words": "noon",
-             "note": "last letter of noon"
-            }
-           ]
-          }
-         ]
+         "words": "We",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "noon",
+         "at": 17,
+         "gives": "N"
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 23,
+           "note": "finally picks the last letter of time"
+          }
+         ],
          "parts": [
           {
            "words": "time",
-           "note": "last letter of time"
+           "at": 31
           }
          ]
         }
@@ -362,12 +361,12 @@
      ]
     },
     "explanation": {
-     "surface": "We rose at midday, and at last it was time for a swim.",
-     "walkthrough": "WE reversed is EW, wrapping the last letters of noon and time.",
-     "definitionFit": "Enew is a Spenserian falconry word for driving a bird to plunge into water, hence diving in."
+     "surface": "We rose around midday, at last time for a swim?",
+     "walkthrough": "WE read upwards gives EW, which goes around N and E (the final letter of time).",
+     "definitionFit": "Enew is a Spenserian word for plunging into water, so to dive in, hence the question mark."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "noon"
     }

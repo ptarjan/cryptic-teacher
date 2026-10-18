@@ -1049,47 +1049,52 @@
      "indicators": [
       {
        "text": "admitting",
-       "note": "to admit is to let in, so the next words go inside"
+       "at": 5,
+       "note": "admitting something lets it in, so these letters go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Stop",
-         "gives": "HALT",
-         "note": "to halt is to stop"
-        },
-        {
-         "words": "I",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Stop",
+       "at": 0,
+       "gives": "HALT",
+       "note": "to halt is to stop"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "tailless",
-         "note": "without a tail, the word loses its last letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "buy",
-         "note": "taken as written, before its tail is cut"
+         "words": "I",
+         "at": 15,
+         "gives": "I"
         },
         {
-         "gives": "Y"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "tailless",
+           "at": 21,
+           "note": "without its tail, the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "buy",
+           "at": 17
+          },
+          {
+           "gives": "Y"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shopper is told to stop and admit buying a fish without its tail.",
-     "definitionFit": "The halibut is a large flatfish, so it is an example of a fish."
+     "surface": "Someone stopping a fish purchase because it has no tail.",
+     "walkthrough": "'tailless' seems to describe the fish, but it trims the word before it.",
+     "definitionFit": "The halibut is a large flatfish of northern seas, a well-known food fish."
     },
     "features": {
      "answerInScene": true,
