@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -263,42 +264,30 @@
    "annotation": {
     "definitions": [
      {
-      "text": "number",
-      "at": 35
+      "text": "What to do to a whole (reportedly) number!?",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "homophone",
-     "unchecked": true,
-     "gives": "DIGIT",
-     "indicators": [
-      {
-       "text": "reportedly",
-       "note": "Reported speech is what somebody was heard to say, so the word beside it counts for its sound and not its spelling."
-      }
-     ],
+     "op": "cryptic",
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "HOLE",
-       "parts": [
-        {
-         "words": "a whole (reportedly)",
-         "gives": "WHOLE",
-         "note": "the word for something entire is said exactly like the word for a pit in the ground, and only the second spelling is any use here"
-        }
-       ]
-      },
-      {
-       "words": "What to do to",
-       "gives": "DIGIT",
-       "note": "the instruction for dealing with a pit in the ground — a verb and the pronoun after it, pushed together into one five-letter word"
+       "words": "What to do to a whole (reportedly) number!?",
+       "at": 0,
+       "note": "hear 'whole' as the gap in the ground it sounds like, and the clue asks what you do with a spade there; that instruction, run together, is also a numeral"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Say 'whole' aloud and you have the kind you dig. What you then do to it is two words that close up into one, and the exclamation mark is Everyman enjoying himself.",
-     "definitionFit": "number → DIGIT: definition by category, since a digit is a single numeral from 0 to 9 rather than any quantity you could count to."
+     "surface": "A puzzled question about what to do with a whole number, as if it were a maths riddle.",
+     "walkthrough": "'Reportedly' tells you to hear 'whole' as 'hole'; what you do to a hole is DIG IT, which run together spells a word for a numeral.",
+     "definitionFit": "A digit is any one of the ten numerals used to write numbers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "whole"
     }
    }
   },
@@ -408,41 +397,48 @@
    "annotation": {
     "definitions": [
      {
-      "text": "can be seen in library",
-      "at": 38
+      "text": "as can be seen in library",
+      "at": 35
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "READINGROOM",
-     "indicators": [
-      {
-       "text": "rolling",
-       "note": "Something rolling turns over as it goes, and a word turned over is read from its far end back to its first letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Location of Gaol",
+       "at": 0,
+       "gives": "READING",
+       "note": "Reading Gaol, made famous by Oscar Wilde's ballad, is in the English town of Reading"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rolling",
+         "at": 20,
+         "note": "rolling over turns the word for the heath back to front"
+        }
+       ],
        "parts": [
         {
-         "words": "Location of Gaol",
-         "gives": "READING",
-         "note": "Oscar Wilde's ballad names its gaol by the Berkshire town it stood in, west of London"
-        },
-        {
-         "words": "rolling heath",
-         "gives": "ROOM",
-         "note": "a heath is open moorland, and MOOR turned end for end gives these four letters"
+         "words": "heath",
+         "at": 28,
+         "gives": "MOOR",
+         "note": "a moor is open heathland"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Gaol' is the older British spelling of jail, and the prison is famous because Wilde was locked up there and wrote a ballad about it. The town's name does double duty.",
-     "definitionFit": "The quiet room set aside in a library for people to sit and read, so the definition names it by where you would find one."
+     "surface": "A tourist note on where Reading Gaol stands on a rolling heath, spotted in a library book.",
+     "walkthrough": "Reading is a town west of London, home of the Reading Gaol of Wilde's poem; 'rolling' turns MOOR over into ROOM.",
+     "definitionFit": "A reading room is a quiet room set aside for study, typically found within a library."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rolling"
     }
    }
   },
@@ -624,42 +620,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "OFFBEAT",
+     "op": "container",
      "indicators": [
       {
-       "text": "flipping",
-       "note": "To flip a thing is to turn it over, and a word turned over is read starting from its last letter."
+       "text": "getting into",
+       "at": 22,
+       "note": "getting into means the loud letters go inside the exercise word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "getting into",
-         "note": "To get into something is to end up inside it, so what stands before these words is planted within what comes after."
+         "text": "flipping",
+         "at": 35,
+         "note": "flipping turns the exercise name round so it reads backwards"
         }
        ],
        "parts": [
         {
-         "words": "flipping Korean exercise",
-         "gives": "OBEAT",
-         "note": "Tae Bo, the fitness workout built on Korean taekwondo, supplies five letters; turned round they read the other way"
-        },
-        {
-         "words": "very loudly",
-         "gives": "FF",
-         "note": "ff is fortissimo in a musical score, the marking that tells a player to be very loud"
+         "words": "Korean exercise",
+         "at": 44,
+         "gives": "TAEBO",
+         "note": "Tae Bo is a fitness workout built on the Korean martial art taekwondo"
         }
        ]
+      },
+      {
+       "words": "very loudly",
+       "at": 10,
+       "gives": "FF",
+       "note": "FF, fortissimo, is the musical marking for very loud"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a gym timetable, a long way from the definition. Keep ff: it is one of the most reliable pairs of letters in cryptics, and it is always music.",
-     "definitionFit": "Eccentric → OFFBEAT: away from the regular rhythm and so out of the ordinary, the sense used of humour, films and clothes rather than of people."
+     "surface": "Someone shouting while doing a Korean workout routine, flipping about.",
+     "walkthrough": "'Flipping' turns TAEBO into OBEAT and 'getting into' slips FF inside it. Tae Bo is really an American workout, but it borrows from Korean taekwondo, hence 'Korean exercise'.",
+     "definitionFit": "Offbeat means unconventional or quirky, so it is a synonym of eccentric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
     }
    }
   },
@@ -694,39 +698,43 @@
      "indicators": [
       {
        "text": "Recast",
-       "note": "To recast a drama is to fill its parts with different people, so the letters beside it are put into new positions."
+       "at": 0,
+       "note": "recast means the letters are cast again in a new order, as a drama gets new actors"
       }
      ],
      "parts": [
       {
        "words": "Peaky",
-       "note": "five of the seven letters, taken from the first word of the title"
+       "at": 8
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "SS",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "Ultimately means at the very end, so it points at the final letter of each word it follows."
+         "at": 30,
+         "note": "ultimately picks the final letter of each of the two words Blinders and actors"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Blinders actors ultimately",
-         "gives": "SS",
-         "select": "last",
-         "note": "the closing letter of each of those two words, an S apiece"
+         "words": "Blinders actors",
+         "at": 14,
+         "note": "last letters S and S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Peaky Blinders is the British drama about a Birmingham gang, and the italics mark it as a title. Only its first word is fodder; the second is there for its final letter alone.",
-     "definitionFit": "A passkey opens every lock in a building rather than one, so the definition names what it gives you rather than the object itself."
+     "surface": "Casting news about the TV gangster drama Peaky Blinders getting new actors.",
+     "walkthrough": "'Ultimately' takes S from Blinders and S from actors; 'Recast' rearranges PEAKY plus SS. Peaky Blinders is a British TV drama, so 'Recast' reads as casting news.",
+     "definitionFit": "A passkey is a master key that opens several different doors or locks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Recast"
     }
    }
   },
@@ -752,53 +760,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "POLEMICAL",
      "indicators": [
       {
        "text": "cops",
-       "note": "To cop something is to catch or take it, so the outer pieces take the short one in between them."
+       "at": 49,
+       "note": "cops means catches, so the European and the state hold the writer's letters between them"
       }
      ],
      "parts": [
       {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "European",
+         "at": 34,
+         "gives": "POLE",
+         "note": "a Pole is a person from Poland"
+        },
+        {
+         "words": "state",
+         "at": 43,
+         "gives": "CAL",
+         "note": "Cal is an abbreviation for California"
+        }
+       ]
+      },
+      {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "POLEMICAL",
        "indicators": [
         {
          "text": "sent up",
-         "note": "Sending a thing up lifts it, and in a down clue a lifted word is read from the bottom of the grid upwards."
+         "at": 26,
+         "note": "sent up in a down clue reads the letters from the bottom upward"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "European",
-           "gives": "POLE",
-           "note": "a Pole is a native of Poland, one European among many"
-          },
-          {
-           "words": "the writer's sent up",
-           "gives": "MI",
-           "note": "the writer of the puzzle is I, so 'the writer's' is I'M, and lifting it puts the two letters the other way about"
-          },
-          {
-           "words": "state",
-           "gives": "CAL",
-           "note": "Cal is the standard short form of California, a state of the USA"
-          }
-         ]
+         "words": "the writer's",
+         "at": 13,
+         "gives": "IM",
+         "note": "the writer's is I'M, the setter speaking of himself"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface pretends to be a news headline about European police. 'The writer' is the setter talking about himself, which is a convention worth knowing: it also comes as I, ME or the setter's own name.",
-     "definitionFit": "Belligerent → POLEMICAL: given to attacking argument, the adjective for writing or speech that sets out to fight rather than to persuade."
+     "surface": "A writer complaining that a European state has sent its police after him.",
+     "walkthrough": "'Sent up' turns I'M into MI, which suits a down clue read upwards; 'cops' is a verb here, meaning catches or holds, not police.",
+     "definitionFit": "Polemical describes aggressive, combative argument, so it fits an argumentative, hostile manner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cops"
     }
    }
   },
@@ -1282,40 +1297,52 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "MERSEY",
+     "indicators": [
+      {
+       "text": "swimming",
+       "at": 24,
+       "note": "swimming means the letters move about freely into a new order"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "MERSEY",
        "indicators": [
         {
          "text": "leaving",
-         "note": "What leaves is gone, so the letter named just before this word comes out of the mixture before anything else happens."
-        },
-        {
-         "text": "swimming",
-         "note": "Something swimming is adrift and moving about, and letters adrift like that settle into a new order."
+         "at": 5,
+         "note": "leaving means the duck's letter goes out of the city's name"
         }
        ],
        "parts": [
         {
-         "words": "Rome? Yes",
-         "note": "seven letters to start from, before anything is taken away"
+         "words": "Rome",
+         "at": 13,
+         "gives": "ROME"
         },
         {
          "words": "Duck",
+         "at": 0,
          "gives": "O",
-         "note": "a batter out for no runs in cricket has made a duck, written as a nought, and that is the letter that goes"
+         "note": "a duck is a score of nothing in cricket, the letter O"
         }
        ]
+      },
+      {
+       "words": "Yes",
+       "at": 19
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The duck is the piece of cricket the crossword borrowed: nought, and so the letter O. On the surface it is a bird flying out of Italy, which is why nobody counts the letters.",
-     "definitionFit": "river → MERSEY: definition by example, since the Mersey is the river running past Liverpool into the Irish Sea and only one instance of the class."
+     "surface": "A duck flying out of Rome and happily paddling in a river.",
+     "walkthrough": "'Leaving' removes O from ROME to give RME; 'swimming' rearranges RME plus YES (RMEYES) into the river.",
+     "definitionFit": "The Mersey is the river that flows past Liverpool in north-west England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Duck"
     }
    }
   },
@@ -1340,42 +1367,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LEERED",
+     "op": "charade",
      "indicators": [
       {
-       "text": "return of",
-       "note": "Something that returns comes back the way it went, so the word beside it is read from its far end."
+       "text": "following",
+       "at": 28,
+       "note": "following places the flushed colour after the reversed creature"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "following",
-         "note": "Following means coming after, so the piece it belongs to takes its place behind the one the rest of the clue supplies."
+         "text": "return of",
+         "at": 38,
+         "note": "return of means the slippery creature's name comes back, read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "return of slippery character",
-         "gives": "LEE",
-         "note": "the slippery character is an eel, and it comes back the other way round"
-        },
-        {
-         "words": "flushed",
-         "gives": "RED",
-         "note": "a flushed face has gone red, so the colour is what the word is for"
+         "words": "slippery character",
+         "at": 48,
+         "gives": "EEL",
+         "note": "an eel is the proverbially slippery fish"
         }
        ]
+      },
+      {
+       "words": "flushed",
+       "at": 20,
+       "gives": "RED",
+       "note": "flushed means red in the face"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Slippery character' for an eel is the joke, and 'flushed' looks like embarrassment when all the clue wants from it is a colour.",
-     "definitionFit": "Looked unpleasantly → LEERED: a leer is a sideways look full of malice or lust, so the adverb is naming which kind of look is meant."
+     "surface": "Someone red in the face watching an untrustworthy person come back.",
+     "walkthrough": "'Return of' turns EEL into LEE, and 'following' puts the colour after it. 'Slippery character' looks like a shifty person but is the fish.",
+     "definitionFit": "To leer is to give a lustful or sly, nasty look at someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "slippery"
     }
    }
   }
