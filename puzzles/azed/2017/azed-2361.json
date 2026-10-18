@@ -386,66 +386,56 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "STEERS",
      "indicators": [
       {
        "text": "in",
-       "note": "in places one piece inside the other"
+       "at": 21,
+       "note": "the shuffled letters go inside the pair of opening letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "STEERS",
+       "op": "first",
        "indicators": [
         {
-         "text": "playing",
-         "note": "playing about with letters moves them into a different order"
+         "text": "opening of",
+         "at": 24,
+         "note": "the opening of each of the two words stage and section is its first letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "opening of",
-             "note": "the opening of a word is its first letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "stage",
-             "note": "the opening letter of stage"
-            }
-           ]
-          },
-          {
-           "words": "Tree",
-           "note": "the letters of tree, rearranged"
-          },
-          {
-           "words": "section",
-           "gives": "S",
-           "note": "S is the abbreviation for section"
-          }
-         ]
+         "words": "stage section",
+         "at": 35,
+         "note": "first letters of stage and section"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "at": 13,
+         "note": "the name Tree is played about with, its letters put in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tree",
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A director guides the actor Tree as he performs in the first part of the stage section.",
-     "walkthrough": "Tree with a capital looks like a name (Herbert Beerbohm Tree, the actor-manager), but it is just letters to rearrange.",
-     "definitionFit": "To steer something is to guide or direct its course."
+     "surface": "A theatre note: the actor Tree is performing in the opening scene of one part of the stage.",
+     "walkthrough": "Tree reads as the actor-manager Herbert Beerbohm Tree. 'Opening of' takes the first letters of stage and section, SS; 'playing' shuffles TREE to TEER, which goes 'in' that pair.",
+     "definitionFit": "To steer is to guide or control a course, so steers is a verb synonym of directs."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Tree"
     }
@@ -636,42 +626,44 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the rearranged letters surround the other piece"
+       "at": 20,
+       "note": "the rearranged letters go about, that is around, the word for ascent"
       }
      ],
      "parts": [
-      {
-       "words": "Line me up",
-       "gives": "PELENIUM",
-       "note": "the letters of these three words, rearranged"
-      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "excited",
-         "note": "excited letters are stirred up into a new order"
+         "at": 12,
+         "note": "excited letters are stirred up, so the words line me up are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "ascent",
-         "gives": "RISE",
-         "note": "a rise is an ascent"
+         "words": "Line me up",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "ascent",
+       "at": 26,
+       "gives": "RISE",
+       "note": "a rise is an upward climb or ascent"
       }
      ]
     },
     "explanation": {
-     "surface": "An excited rocket crew queues up for the ascent to a satellite.",
-     "walkthrough": "'up' looks like a direction for the ascent but is part of the anagram fodder. The satellite is the Moon.",
-     "definitionFit": "Periselenium is the point in a lunar orbit nearest the Moon, the Earth's natural satellite (Greek selene, moon)."
+     "surface": "An instruction to a nervous recruit: get in line, excitedly, before going up.",
+     "walkthrough": "'Excited' turns LINE ME UP into PELENIUM, split PE and LENIUM so that it goes 'about' RISE.",
+     "definitionFit": "Periselenium is the astronomical term for the point in a lunar orbit nearest the moon, our natural satellite."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "up"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "excited"
     }
    }
   },
@@ -1140,30 +1132,30 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Talent",
+      "text": "Talent?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOUS",
+     "op": "reverse",
+     "reading": "NO + US",
      "parts": [
       {
        "words": "Genus has this for info",
-       "gives": "NOUS",
-       "note": "info is GEN, which is the word genus with its last two letters taken away; the clue asks what genus lacks to become info"
+       "at": 8,
+       "note": "the answer, split into two short words, is an instruction: applied to genus it removes the last two letters, leaving GEN, slang for info"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzling remark about how a biological genus relates to information.",
-     "walkthrough": "Remove US from GENUS and you get GEN (info): genus has 'no US' for info, and NO US is the answer. It is easy to misread genus as genius.",
-     "definitionFit": "Nous is common sense or practical intelligence, a natural gift or talent for getting things right."
+     "surface": "A puzzled query about whether a biological genus can be called talented, as if a fact sheet were being written.",
+     "walkthrough": "Easy to misread Genus as genius. Split the answer as NO US: apply that to GENUS and you are left with GEN, British slang for information.",
+     "definitionFit": "Nous is practical intelligence or common sense, a kind of natural aptitude or talent."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Genus"
     }
    }
@@ -1413,49 +1405,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MAUNDS",
-     "indicators": [
-      {
-       "text": "cooked",
-       "note": "cooked letters are transformed from their raw order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MAUNDS",
+       "words": "Mum",
+       "at": 0,
+       "gives": "MA",
+       "note": "ma is an informal word for mother, mum"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "but not always",
-         "note": "but not means minus, and always is an old word with a two-letter equivalent that is taken away"
+         "text": "cooked",
+         "at": 31,
+         "note": "cooked means the remaining letters are messed about with, rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Mum",
-         "gives": "MA",
-         "note": "ma is a familiar word for mother"
-        },
-        {
-         "words": "Sunday",
-         "note": "taken as written"
-        },
-        {
-         "words": "always",
-         "gives": "AY",
-         "note": "ay (or aye) is an old word for always; these letters are removed"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not",
+           "at": 19,
+           "note": "but not tells us to leave out the word for always"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Sunday",
+           "at": 7
+          },
+          {
+           "words": "always",
+           "at": 23,
+           "gives": "AY",
+           "note": "ay is an old and poetic word for always"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mum makes chips on Sunday, though not every week.",
-     "walkthrough": "'chips' looks like fried potatoes, but a chip is also a woven basket, and maund is an old word for a basket, used by Shakespeare.",
-     "definitionFit": "A maund is an old hand basket, and a chip is a basket of thin woven wood, so old-style chips."
+     "surface": "Mother makes chips on Sundays, though not every Sunday, in the traditional way.",
+     "walkthrough": "Removing AY from SUNDAY leaves SUND, which 'cooked' rearranges to UNDS after MA. The chips are not fried potatoes but chip baskets.",
+     "definitionFit": "A maund is a Shakespearean word for a basket, and a chip is a basket made of thin wood strips."
     },
     "features": {
      "answerInScene": false,
@@ -1774,47 +1771,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DUCTING",
+     "op": "container",
      "indicators": [
       {
-       "text": "all over the place",
-       "note": "scattered all over the place, the letters end up in any order"
+       "text": "lagging",
+       "at": 40,
+       "note": "lagging wraps round pipes, so the word for sound is wrapped round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "sound",
+       "at": 34,
+       "gives": "DING",
+       "note": "a ding is a ringing sound"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "lagging",
-         "note": "lagging is insulating wrap around pipes, so one piece is wrapped round the other"
+         "text": "all over the place",
+         "at": 10,
+         "note": "letters all over the place are scattered, so cut is rearranged"
         }
        ],
        "parts": [
         {
-         "words": "sound",
-         "gives": "DING",
-         "note": "a ding is a ringing sound"
-        },
-        {
          "words": "cut",
-         "note": "the letters of cut, rearranged"
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Pipes cut haphazardly and then lagged to stop noise.",
-     "walkthrough": "'lagging' is plumbing vocabulary, perfect for the surface, but here it means wrapping round.",
-     "definitionFit": "Ducting is a system of ducts, the pipes or channels that carry air or cables."
+     "surface": "Plumbing chaos: pipes have been cut everywhere, and the lagging still makes a noise.",
+     "walkthrough": "'All over the place' turns CUT into UCT; lagging looks like part of the plumbing scene but signals DING wrapped round it.",
+     "definitionFit": "Ducting is a system of ducts, the tubes or channels that carry air or cables, so collectively pipes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "lagging"
     }
    }

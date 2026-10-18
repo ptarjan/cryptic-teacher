@@ -333,42 +333,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STRONGARM",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not half",
-       "note": "not half means half of the long word is thrown away, keeping only its first nine letters"
+       "text": "Terrible",
+       "at": 0,
+       "note": "terrible letters are in a dreadful state, so the remaining half is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Terrible",
-         "note": "something terrible is in a dreadful mess, so the kept letters are jumbled"
+         "text": "not half",
+         "at": 29,
+         "note": "not half means the second half of the long word is dropped, keeping only its first nine letters"
         }
        ],
        "parts": [
         {
          "words": "transmogrification",
-         "gives": "TRANSMOGR",
-         "note": "the first half of this eighteen-letter word"
+         "at": 9
+        },
+        {
+         "gives": "IFICATION"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dreadful transformation, only partially violent.",
-     "definitionFit": "Strong-arm describes tactics using force or threats, coercive and violent methods of persuasion."
+     "surface": "A horror-story transformation that is, as the British slang goes, not half violent.",
+     "walkthrough": "'Not half' is slang for very, but here it trims TRANSMOGRIFICATION to TRANSMOGR, which 'terrible' rearranges.",
+     "definitionFit": "Strong-arm tactics use force or threats, so as an adjective the word means coercive or violent."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Terrible"
+     "joke": "pun",
+     "misdirectedWord": "half"
     }
    }
   },
@@ -1488,31 +1492,33 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "TREAD",
+     "op": "charade",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the letter for tango inside the word for studied"
+       "at": 5,
+       "note": "in here joins the two pieces as one word, the tango letter standing in front of the word for studied"
       }
      ],
      "parts": [
       {
-       "words": "studied",
-       "gives": "READ",
-       "note": "to read a subject is to study it at university"
+       "words": "tango",
+       "at": 8,
+       "gives": "T",
+       "note": "Tango is the NATO phonetic alphabet word for the letter T"
       },
       {
-       "words": "tango",
-       "gives": "T",
-       "note": "Tango is T in the NATO phonetic alphabet"
+       "words": "studied",
+       "at": 14,
+       "gives": "READ",
+       "note": "to have read a subject, as in read law, is to have studied it"
       }
      ]
     },
     "explanation": {
-     "surface": "A dancer carefully studying a step in the tango.",
-     "definitionFit": "A tread is a single step or footfall, and also the flat part of a stair you step on."
+     "surface": "A dancer's careful study of each step in the tango.",
+     "walkthrough": "To read a subject is a British idiom for studying it at university.",
+     "definitionFit": "A tread is a footstep, or the flat part of a stair you put your foot on."
     },
     "features": {
      "answerInScene": true,

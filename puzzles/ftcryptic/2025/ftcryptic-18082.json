@@ -501,35 +501,39 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "DE",
        "indicators": [
         {
          "text": "Primarily",
-         "note": "primarily means first of all, so only the opening letters of 'Ducati' and 'E-bikes' count"
+         "at": 16,
+         "note": "primarily asks for the opening letter of the bike maker's name"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Ducati E-bikes? Primarily",
-         "gives": "DE",
-         "select": "first",
-         "note": "the first letters of Ducati and E-bikes"
+         "words": "Ducati",
+         "at": 0,
+         "note": "first letter of Ducati"
         }
        ]
       },
       {
+       "words": "E-bikes",
+       "at": 7,
+       "gives": "E",
+       "note": "the E of e-bikes is the abbreviation for electric, and also the word's first letter"
+      },
+      {
        "words": "not heavy",
+       "at": 26,
        "gives": "LIGHT",
-       "note": "the opposite of heavy"
+       "note": "something not heavy is light"
       }
      ]
     },
     "explanation": {
-     "surface": "An advert insists electric motorbikes from Ducati are nimble machines, not heavy vehicles.",
-     "walkthrough": "'Transport' sits among bikes and vehicles, but it is a verb meaning to fill with rapture. Ducati is an Italian motorcycle maker.",
-     "definitionFit": "To transport someone is to carry them away with joy, so both verbs mean enrapture."
+     "surface": "A sales pitch for electric Ducati bikes as nimble rather than heavy-duty vehicles.",
+     "walkthrough": "Transport looks like the vehicle theme's definition of bikes, but it is the verb or noun of rapture.",
+     "definitionFit": "To transport someone is to carry them away with joy, the same emotional sense as to delight them."
     },
     "features": {
      "answerInScene": false,
@@ -959,49 +963,52 @@
      "parts": [
       {
        "words": "a",
-       "note": "used as printed"
+       "at": 11,
+       "gives": "A"
       },
       {
        "words": "right",
-       "gives": "R",
-       "note": "R is the standard abbreviation for right"
+       "at": 13,
+       "gives": "R"
+      },
+      {
+       "op": "last",
+       "parts": [
+        {
+         "words": "faff",
+         "at": 19,
+         "note": "last letter of faff"
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "ultimately means in the end, so take the final letters of 'faff' and 'clean-ups'"
+         "at": 35,
+         "note": "ultimately points to the final letter, here of faff and of clean-ups"
         }
        ],
        "parts": [
         {
-         "words": "faff",
-         "note": "the final letter of faff"
-        }
-       ]
-      },
-      {
-       "op": "last",
-       "parts": [
-        {
-         "words": "clean-ups ultimately",
+         "words": "clean-ups",
+         "at": 25,
          "gives": "CLEANUPS",
-         "note": "the final letter of clean-ups"
+         "note": "last letter of clean-ups"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dog owner moans that the barking means a big hassle, all those messes to tidy.",
-     "walkthrough": "'Faff' is British slang for fuss or a time-wasting hassle; 'ultimately' reaches back to it as well as to 'clean-ups'.",
-     "definitionFit": "Arf is the comic-strip rendering of a bark, so its plural means noises a canine makes."
+     "surface": "Barking dogs make a right faff, and someone has to clean up after them.",
+     "definitionFit": "Arf is a cartoon-style imitation of a dog's bark, so arfs are barks or woofs."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "right"
+     "misdirectedWord": "faff"
     }
    }
   },

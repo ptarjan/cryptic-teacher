@@ -389,42 +389,44 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AOUDADS",
      "indicators": [
       {
        "text": "holding",
-       "note": "holding means gripping inside, so the other pieces go around the shortened word"
+       "at": 18,
+       "note": "the American and the fathers hold, contain, the shortened word"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "fathers'",
+         "at": 9,
+         "gives": "DADS",
+         "note": "dads are fathers"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "mostly",
-         "note": "mostly means most but not all of it, so the word drops its last letter"
+         "at": 30,
+         "note": "mostly means the word out loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "American",
-           "gives": "A",
-           "note": "A is the abbreviation for American"
-          },
-          {
-           "words": "out",
-           "note": "taken as written"
-          },
-          {
-           "words": "fathers'",
-           "gives": "DADS",
-           "note": "dads are fathers"
-          }
-         ]
+         "words": "out",
+         "at": 26,
+         "note": "the word out, cut short"
         },
         {
          "gives": "T"
@@ -434,12 +436,12 @@
      ]
     },
     "explanation": {
-     "surface": "American dads keep out most wild sheep.",
-     "walkthrough": "The apostrophe on 'fathers'' is just surface; 'mostly' drops the last letter of 'out' before it goes inside.",
-     "definitionFit": "These are Barbary sheep, wild animals of North Africa with long fringes of hair."
+     "surface": "American dads are holding out, almost, for a hunt after wild sheep.",
+     "walkthrough": "'Out mostly' gives OU, which A and DADS are 'holding'.",
+     "definitionFit": "The aoudad is the Barbary sheep, a wild sheep of North Africa, so aoudads are animals of that kind."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "holding"
     }
@@ -514,9 +516,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "as is this",
-      "at": 31,
-      "note": "this answer is itself a tense, so the clue's last words define it"
+      "text": "In Paris love oddly is tense — as is this",
+      "at": 0
      }
     ],
     "wordplay": {
@@ -524,43 +525,44 @@
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "AOR",
        "indicators": [
         {
          "text": "oddly",
-         "note": "oddly means taking only the odd-numbered letters, first, third and fifth"
+         "at": 14,
+         "note": "oddly takes the odd-numbered letters, first, third and fifth, of the French word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "In Paris love",
-         "gives": "AOR",
-         "select": "alternate",
+         "at": 0,
+         "gives": "AMOUR",
          "note": "the French word for love is amour"
         }
        ]
       },
       {
        "words": "is",
-       "note": "taken as written"
+       "at": 20
       },
       {
        "words": "tense",
+       "at": 23,
        "gives": "T",
-       "note": "T is an abbreviation for tense in grammar"
+       "note": "T is the grammatical abbreviation for tense"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "In Paris, love is strangely strained, a nervous city romance.",
-     "walkthrough": "AMOUR, the French for love, gives its odd letters. The closing 'as is this' notes that the answer, like T, stands for a tense.",
-     "definitionFit": "This is a Greek verb tense expressing simple past action, so it too is a tense."
+     "surface": "A grammarian's quip that the French language of love is oddly tense, just like this answer.",
+     "walkthrough": "'In Paris' asks for French, so love is AMOUR, whose odd letters are AOR. The whole clue also defines: the answer is itself a tense.",
+     "definitionFit": "The aorist is a past tense in Greek grammar, so the clue's claim that it is a tense holds."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "tense"
     }
    }
