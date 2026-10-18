@@ -834,72 +834,38 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BURQAS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "threaded",
-       "note": "threaded through means woven in alternately among the letters of the underwear"
+       "text": "threaded back through",
+       "at": 12,
+       "note": "like a needle going in, then back out and in again, the two letters are worked through the underwear word one at a time rather than as a block"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "BURQAS",
-       "indicators": [
-        {
-         "text": "back",
-         "note": "back tells us the kept part runs the other way"
-        }
-       ],
-       "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "op": "deletion",
-           "unchecked": true,
-           "gives": "BURQAS",
-           "indicators": [
-            {
-             "text": "Half",
-             "note": "half means only the first part of the word for square is kept"
-            }
-           ],
-           "parts": [
-            {
-             "words": "square",
-             "note": "taken as written; its first half is SQU"
-            },
-            {
-             "words": "underwear",
-             "gives": "BRA",
-             "note": "a bra is an item of underwear"
-            }
-           ]
-          },
-          {
-           "unchecked": true,
-           "words": "woman",
-           "note": "surface padding: the woman whose underwear it is adds no letters"
-          }
-         ]
-        }
-       ]
+       "words": "Half-square",
+       "at": 0,
+       "gives": "QU",
+       "note": "a square or quadrangle is a quad, and half of quad is its first two letters"
+      },
+      {
+       "words": "woman's underwear",
+       "at": 34,
+       "gives": "BRAS",
+       "note": "bras are a woman's underwear"
       }
      ]
     },
     "explanation": {
-     "surface": "A half-square of fabric is sewn back into lingerie and some loose garments.",
-     "walkthrough": "The reversed half-square is not dropped in as one chunk: its letters alternate with those of the underwear, one after each, like a thread weaving in and out.",
-     "definitionFit": "Burqas are loose garments that cover a woman's whole body, worn over other clothes in some Muslim traditions."
+     "surface": "A sewing image: a square of fabric half-threaded through some lingerie, all hidden under a loose robe.",
+     "walkthrough": "QU is threaded through BRAS like a stitch: Q goes in after BR, then the needle comes 'back' to put U in after B, giving B-U-R-Q-A-S. The grammar can only show this as a rearrangement.",
+     "definitionFit": "Burqas are loose, all-enveloping garments some Muslim women wear over their other clothes in public."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "square"
+     "misdirectedWord": "threaded"
     }
    }
   },
@@ -1148,37 +1114,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "VERATRUM",
+     "op": "substitution",
      "indicators": [
       {
        "text": "with a central inversion",
-       "note": "a central inversion turns round the two middle letters of the joined words"
+       "at": 30,
+       "note": "the two letters in the very middle of the combined word are turned round, inverted"
       }
      ],
      "parts": [
       {
-       "words": "green",
-       "gives": "VERT",
-       "note": "vert is heraldic green"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "green",
+         "at": 19,
+         "gives": "VERT",
+         "note": "vert is green in heraldry"
+        },
+        {
+         "words": "lily",
+         "at": 25,
+         "gives": "ARUM",
+         "note": "the arum is a lily"
+        }
+       ]
       },
       {
-       "words": "lily",
-       "gives": "ARUM",
-       "note": "the arum lily"
+       "gives": "TA"
+      },
+      {
+       "gives": "AT"
       }
      ]
     },
     "explanation": {
-     "surface": "Choosing between a pale hellebore and a green lily with an odd twist in the middle.",
-     "walkthrough": "VERT + ARUM gives VERTARUM, and swapping its central TA gives the answer. 'Or' looks like an alternative but merely links.",
-     "definitionFit": "Veratrum is the genus of poisonous plants including white hellebore, Veratrum album."
+     "surface": "A botanist's note that a white hellebore is a kind of green lily with some odd central feature.",
+     "walkthrough": "VERT plus ARUM gives VERTARUM; 'with a central inversion' flips its middle pair TA to AT. 'or' is a link word.",
+     "definitionFit": "Veratrum is the botanical genus of the plant called white hellebore, a poisonous member of the lily family."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "green"
+     "misdirectedWord": "inversion"
     }
    }
   },
