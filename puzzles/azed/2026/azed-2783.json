@@ -65,39 +65,41 @@
      "indicators": [
       {
        "text": "holding",
-       "note": "a speaker holding something keeps it inside, so the next words go within the word for speaker"
+       "at": 8,
+       "note": "the speaker is holding the other pieces, so they sit inside that word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Speaker",
+       "at": 0,
+       "gives": "ORATOR",
+       "note": "an orator is a public speaker"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Speaker",
-         "gives": "ORATOR",
-         "note": "a speaker is one who makes speeches"
+         "words": "box",
+         "at": 22,
+         "gives": "CHEST",
+         "note": "a chest is a box"
         },
         {
          "words": "right",
-         "gives": "R",
-         "note": "R is the usual abbreviation for right"
+         "at": 16,
+         "gives": "R"
         }
        ]
-      },
-      {
-       "words": "box",
-       "gives": "CHEST",
-       "note": "a chest is a large box"
       }
      ]
     },
     "explanation": {
-     "surface": "A public speaker clutches a box meant for some composer.",
-     "walkthrough": "The insertion goes after the speaker's opening letter, not in its middle, so the split point is the thing to find.",
-     "definitionFit": "Someone who scores music for an orchestra arranges or writes it, so the word can stand for a composer."
+     "surface": "A talker clutching a correct box on behalf of a composer, as if handing over a musician's case.",
+     "definitionFit": "An orchestrator arranges music for orchestra, close kin to a composer and often the same person."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "box"
     }
@@ -1945,35 +1947,39 @@
      "indicators": [
       {
        "text": "swallows",
-       "note": "something that swallows takes things inside it, so the next words go within"
+       "at": 28,
+       "note": "the two letters for one take the other pieces inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "one twice",
-         "gives": "AA",
-         "note": "a, meaning one, written twice"
-        },
-        {
-         "words": "reliable",
-         "gives": "SAFE",
-         "note": "safe means dependable"
-        }
-       ]
+       "words": "one twice",
+       "at": 18,
+       "gives": "AA",
+       "note": "one is A, given twice"
       },
       {
-       "words": "three times daily",
-       "gives": "TID",
-       "note": "t.i.d. is the prescription abbreviation for ter in die"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "reliable",
+         "at": 39,
+         "gives": "SAFE",
+         "note": "safe means reliable"
+        },
+        {
+         "words": "three times daily",
+         "at": 48,
+         "gives": "TID",
+         "note": "TID is the prescription abbreviation of Latin ter in die, three times a day"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor's prescription: take a resinous medicine, a reliable one, three times a day.",
-     "definitionFit": "Asafetida is a strong-smelling gum resin from giant fennel, once used medicinally as an antispasmodic."
+     "surface": "A prescription note: a resin medicine to be swallowed reliably three times a day.",
+     "definitionFit": "Asafetida is a strong-smelling gum resin from giant fennel, once used medicinally against spasms."
     },
     "features": {
      "answerInScene": true,

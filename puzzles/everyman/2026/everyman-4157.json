@@ -45,32 +45,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "Endlessly asks for a word with its final character lopped off, and here each of the two short words that follow is docked the same way."
-      },
-      {
-       "text": "repeatedly",
-       "note": "What has just been assembled is wanted again straight after it, so one small chunk does the work of two."
-      }
-     ],
      "parts": [
       {
-       "words": "to sea",
-       "gives": "TSE",
-       "note": "TO docked of its last character leaves T, and SEA docked of its last leaves SE"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 9,
+         "note": "each of the two words loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to sea",
+         "at": 31,
+         "gives": "TOSEA"
+        },
+        {
+         "gives": "OA"
+        }
+       ]
       },
       {
-       "words": "to sea",
+       "words": "repeatedly",
+       "at": 20,
        "gives": "TSE",
-       "note": "the same trimmed pair a second time, since one copy is only half the length wanted"
+       "note": "repeatedly says the three letters just made come again"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a grumble about a long voyage, and the trap is reading 'or' as the start of the wordplay: it is only the word joining the definition to it.",
-     "definitionFit": "'Fly' names the insect by its family: the tsetse is the biting African insect that carries sleeping sickness, so the general word covers the particular one."
+     "surface": "A fly heading out to sea, or endlessly doing so.",
+     "definitionFit": "The tsetse is an African fly that spreads sleeping sickness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
     }
    }
   },
@@ -1241,51 +1252,64 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "At first",
-       "note": "At first means at the beginning, so only the opening letter of the name that follows is taken."
+       "text": "to animate",
+       "at": 44,
+       "note": "to animate is to stir into motion, so the letters move about"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "without No 1",
-         "note": "The club's second word is counted letter by letter and the one standing first in it is dropped."
+         "text": "At first",
+         "at": 0,
+         "note": "the first letter of Aston is taken"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "to animate",
-           "note": "To animate something is to set it moving, and letters set moving are not found where they started."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Aston",
-           "note": "the opening letter of the first half of the club's name"
-          }
-         ]
-        },
-        {
-         "words": "Villa (without No 1)",
-         "gives": "ILLA",
-         "note": "the second half gives up the letter standing first in it, leaving four for the mix"
-        },
-        {
-         "words": "hoping",
-         "note": "six more letters of fodder, taken as they stand"
+         "words": "Aston",
+         "at": 10,
+         "gives": "A"
         }
        ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without No 1",
+         "at": 23,
+         "note": "No 1 is the first letter, which is dropped from Villa"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Villa",
+         "at": 16,
+         "gives": "VILLA"
+        },
+        {
+         "gives": "V"
+        }
+       ]
+      },
+      {
+       "words": "hoping",
+       "at": 37
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Aston Villa are a Birmingham football club, so the surface is a supporter's daydream; England fans are a different crowd, and that switch of allegiance is where the definition hides.",
-     "definitionFit": "Anglophilia is a fondness for England and English things, the feeling that makes somebody follow the national side, so the definition names it by its holders."
+     "surface": "Football fandom: Aston Villa, minus their top man, hoping to stir English feeling.",
+     "walkthrough": "A, ILLA and HOPING are rearranged together.",
+     "definitionFit": "Anglophilia is a love of England and Englishness, the feeling shared by admirers of the country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Villa"
     }
    }
   },

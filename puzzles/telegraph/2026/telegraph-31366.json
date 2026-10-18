@@ -1551,51 +1551,55 @@
      "indicators": [
       {
        "text": "carrying",
-       "note": "carrying means holding within, so the first word wraps round what follows"
+       "at": 7,
+       "note": "the emerge word carries the others inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Emerge",
-         "gives": "ARISE",
-         "note": "to emerge is to arise"
-        },
-        {
-         "words": "child",
-         "gives": "TOT",
-         "note": "a tot is a small child"
-        }
-       ]
+       "words": "Emerge",
+       "at": 0,
+       "gives": "ARISE",
+       "note": "arise means emerge"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "close to",
-         "note": "close is the end, so only the final letter of the next word is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "natural",
-         "note": "the final letter of natural"
+         "words": "child",
+         "at": 16,
+         "gives": "TOT",
+         "note": "a tot is a small child"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "close to",
+           "at": 22,
+           "note": "close to means the last letter of natural"
+          }
+         ],
+         "parts": [
+          {
+           "words": "natural",
+           "at": 31,
+           "gives": "L"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone surfaces holding a baby beside a natural scientist.",
-     "walkthrough": "'Natural philosopher' looks like one phrase, but 'natural' only supplies its last letter.",
-     "definitionFit": "Aristotle was the Greek thinker of the fourth century BC, a pupil of Plato."
+     "surface": "Coming out holding a child, near a thinker of nature.",
+     "definitionFit": "Aristotle is the ancient Greek thinker who taught Alexander the Great and founded logic as a discipline."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "natural"
+     "misdirectedWord": "close"
     }
    }
   },

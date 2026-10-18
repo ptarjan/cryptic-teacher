@@ -958,39 +958,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "in trouble",
-       "note": "something in trouble has been thrown into disarray, and letters in disarray no longer sit in their proper order"
+       "at": 18,
+       "note": "in trouble means disordered, so the letters are mixed up"
+      },
+      {
+       "text": "without",
+       "at": 29,
+       "note": "without says the letters of her are left out of the mixed-up pool"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "without her",
-         "note": "without means lacking, so the three letters that spell her are taken out of the word beside it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "men up",
-         "note": "five letters of fodder, taken as they stand"
-        },
-        {
-         "words": "there",
-         "gives": "TE",
-         "note": "HER comes out of THERE and two letters survive"
-        }
-       ]
+       "words": "men up there",
+       "at": 5
+      },
+      {
+       "words": "her",
+       "at": 37
       }
      ]
     },
     "explanation": {
-     "walkthrough": "This entry runs down the grid, so 'up' looks like an instruction to reverse something. It lifts nothing here; it is just two more letters to shuffle.",
-     "definitionFit": "It is the joke number for an indefinitely large amount, meaning many with nobody prepared to count them."
+     "surface": "Lots of men stuck up somewhere in difficulty, without a woman.",
+     "walkthrough": "Take H, E and R out of MEN UP THERE and rearrange the remaining letters.",
+     "definitionFit": "Umpteen is an informal word for a large indefinite number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "her"
     }
    }
   },
@@ -1315,38 +1315,48 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "between",
-       "note": "between puts the letter in the gap, with one of the wet spells on either side of it"
-      }
-     ],
      "parts": [
       {
        "words": "black",
+       "at": 25,
        "gives": "B",
-       "note": "B is black on a pencil and in chess"
+       "note": "B is the abbreviation for black, as on pencils"
       },
       {
-       "words": "spells of bad weather",
-       "gives": "RAIN",
-       "note": "a spell of bad weather is a spell of rain"
-      },
-      {
-       "words": "day",
-       "gives": "D",
-       "note": "d is the standard short form of day in a date"
-      },
-      {
-       "words": "spells of bad weather",
-       "gives": "RAIN",
-       "note": "the plural says there are two such spells, one on each side"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "between",
+         "at": 35,
+         "note": "the day letter goes between the two spells"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spells of bad weather",
+         "at": 43,
+         "gives": "RAINRAIN",
+         "note": "rain twice, two spells of wet weather"
+        },
+        {
+         "words": "day",
+         "at": 31,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a weather forecast and the answer is about emigration. 'Spells' is the word doing the quiet work, since it has to be read as two of them.",
-     "definitionFit": "A brain drain is a country losing its cleverest people to better jobs abroad, its brightness draining away."
+     "surface": "A gloomy weather report: dimness, a black day between bouts of rain.",
+     "walkthrough": "'brightness' means clever people, not light.",
+     "definitionFit": "The brain drain is the emigration of highly educated people, a country losing its brightest minds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brightness"
     }
    }
   },

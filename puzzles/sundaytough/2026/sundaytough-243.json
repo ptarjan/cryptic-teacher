@@ -886,53 +886,56 @@
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means sitting inside it, so these pieces go within another"
+       "at": 32,
+       "note": "the pieces go in the word for sack"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "sack",
-         "gives": "BED",
-         "note": "the sack is slang for bed, as in 'hit the sack'"
-        },
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "L is the abbreviation for left"
-        }
-       ]
+       "words": "sack",
+       "at": 35,
+       "gives": "BED",
+       "note": "the sack is slang for bed"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "almost",
-         "note": "almost means not quite all, so the final letter goes"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "finished",
-         "gives": "OVER",
-         "note": "over means ended or finished"
+         "words": "left",
+         "at": 11,
+         "gives": "L"
         },
         {
-         "gives": "R"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 16,
+           "note": "almost means the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "finished",
+           "at": 23,
+           "gives": "OVER",
+           "note": "over means finished"
+          },
+          {
+           "gives": "R"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lover is abandoned, nearly done for, after being fired from a job.",
-     "walkthrough": "'Sack' suggests dismissal, but here it is slang for bed, as in 'hit the sack'. 'Almost' trims only the word for finished.",
-     "definitionFit": "A beloved is the person someone loves dearly, a noun sense matching darling or lover."
+     "surface": "A lover abandoned, the affair nearly over, in bed.",
+     "definitionFit": "A beloved is a dearly loved person, a sweetheart."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "sack"
     }
