@@ -769,48 +769,52 @@
      "indicators": [
       {
        "text": "visits",
-       "note": "a visitor goes inside someone's home, so one piece is placed within another"
+       "at": 31,
+       "note": "the word pair goes in to visit, so it sits inside the region word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "region",
-         "gives": "AREA",
-         "note": "an area is a region"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "region",
+       "at": 5,
+       "gives": "AREA",
+       "note": "an area is a region"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "on vacation",
-         "note": "vacating a place empties it, so the inner letters go and only the outer ones stay"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "lass",
-         "note": "'lass' with its middle letters removed"
+         "words": "a",
+         "at": 12,
+         "gives": "A"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "on vacation",
+           "at": 19,
+           "note": "vacated, the word lass is emptied of its middle and keeps only its two ends"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lass",
+           "at": 14,
+           "note": "the outer letters of lass"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A young woman on holiday tours the Lake District.",
-     "walkthrough": "'Lake region' suggests England's Lake District, but 'Lake' alone is the definition; despite its name, this sea is a lake.",
-     "definitionFit": "Despite its name this body of water in Central Asia is a landlocked saline lake, now greatly shrunk by irrigation."
+     "surface": "A girl on holiday drops in on some part of the country.",
+     "definitionFit": "The Aral Sea is a large salt lake in Central Asia, shrunk badly by irrigation."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "vacation"
     }

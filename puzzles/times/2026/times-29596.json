@@ -260,41 +260,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to eat"
+       "text": "to eat",
+       "at": 5,
+       "note": "the time word takes the other letters in as if eating them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Time",
-         "gives": "AGE",
-         "note": "an age is a period of time"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Time",
+       "at": 0,
+       "gives": "AGE",
+       "note": "an age is a period of time"
       },
       {
-       "words": "very",
-       "gives": "V",
-       "note": "v = very, standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 12,
+         "gives": "A"
+        },
+        {
+         "words": "very",
+         "at": 14,
+         "gives": "V"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "It is time to tuck into something very juicy.",
-     "walkthrough": "'Succulent' looks like praise for a meal; it is the botanical sense, a fleshy desert plant.",
-     "definitionFit": "The agave is a spiky succulent plant, the source of tequila."
+     "surface": "It is time for a feast on a juicy plant.",
+     "walkthrough": "A and V go inside AGE.",
+     "definitionFit": "The agave is a spiky desert plant whose thick fleshy leaves make it a succulent."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "succulent"
+     "misdirectedWord": "eat"
     }
    }
   },
@@ -1300,44 +1303,47 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "the word is written backwards"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "for resolution",
-         "note": "AIM ONLY is resolved into a new order"
+         "text": "back",
+         "at": 30,
+         "note": "back means the cut word is read in reverse"
         }
        ],
        "parts": [
         {
          "words": "cut",
+         "at": 26,
          "gives": "LOP",
-         "note": "to lop is to cut; written back, POL"
+         "note": "to lop is to cut"
         }
        ]
       },
       {
        "op": "anagram",
+       "indicators": [
+        {
+         "text": "for resolution",
+         "at": 45,
+         "note": "resolution here means working the letters of aim only out into a new order"
+        }
+       ],
        "parts": [
         {
          "words": "aim only",
-         "note": "anagram fodder, 7 letters, giving YNOMIAL"
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A forceful speech is edited down to a single purpose.",
-     "walkthrough": "'Powerful' is mathematical: a polynomial is an expression built from powers of a variable.",
-     "definitionFit": "A polynomial is an algebraic expression made of terms raised to powers."
+     "surface": "A forceful statement gets trimmed, aiming only to settle things.",
+     "walkthrough": "LOP backwards is POL; AIM ONLY rearranged gives YNOMIAL.",
+     "definitionFit": "A polynomial is an algebraic expression built from sums of variables raised to powers, hence powerful."
     },
     "features": {
      "answerInScene": false,

@@ -923,34 +923,40 @@
      "indicators": [
       {
        "text": "sitting next to",
-       "note": "It says the pieces simply stand side by side, none of them tucked inside another."
-      },
-      {
-       "text": "short",
-       "note": "Cut short — what is wanted is the clipped everyday form of a longer word."
+       "at": 29,
+       "note": "sitting next to means the invalid word is placed right beside what follows"
       }
      ],
      "parts": [
       {
        "words": "invalid",
+       "at": 21,
        "gives": "NULL",
-       "note": "a null contract is one that is not valid, void in law"
+       "note": "null as in null and void means invalid"
       },
       {
        "words": "one",
+       "at": 45,
        "gives": "I",
-       "note": "one in Roman numerals"
+       "note": "I is the Roman numeral one"
       },
       {
-       "words": "diver",
+       "words": "short diver",
+       "at": 49,
        "gives": "PARA",
-       "note": "para is the clipped form of parachutist, who dives out of an aeroplane"
+       "note": "para is short for paratrooper, one who dives from aircraft"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is a medical term dressed as ordinary English: 'no issue' means no children, not no problem. Reading it the other way costs you the first four words of the clue.",
-     "definitionFit": "One with no issue → NULLIPARA: 'issue' is the legal word for offspring, and the medical term names a woman who has never borne a child."
+     "surface": "A sick person sits by a stunted swimmer and has nothing to say.",
+     "walkthrough": "'Invalid' reads as a sick person but means null; 'issue' means offspring.",
+     "definitionFit": "Nullipara is the medical term for a woman who has never given birth, so she has no offspring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "invalid"
     }
    }
   },
@@ -1266,33 +1272,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "crazy",
-       "note": "Crazy is out of one's right mind, and letters in that state keep to no order at all."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crazy",
+         "at": 8,
+         "note": "crazy suggests the word duel is wildly jumbled"
+        }
+       ],
        "parts": [
         {
          "words": "duel",
-         "note": "four letters of fodder"
-        },
-        {
-         "words": "journalist",
-         "gives": "ED",
-         "note": "ED is the editor, the journalist crosswords always reach for"
+         "at": 14
         }
        ]
+      },
+      {
+       "words": "journalist",
+       "at": 24,
+       "gives": "ED",
+       "note": "ED is the usual abbreviation for an editor, a journalist"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A four-letter anagram is easy to miss because there is so little to shuffle. The giveaway is that 'crazy' has nothing else in the clue it could be working on.",
-     "definitionFit": "Avoided → ELUDED: to elude a pursuer is to slip out of their reach, the same act as avoiding them, and both words are past tense."
+     "surface": "Someone dodged a mad fight with a reporter.",
+     "walkthrough": "DUEL rearranged gives ELUD, then ED.",
+     "definitionFit": "To elude someone is to escape or dodge them, so eluded means avoided."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duel"
     }
    }
   },
@@ -1320,31 +1334,35 @@
      "op": "container",
      "indicators": [
       {
-       "text": "last of",
-       "note": "It keeps only the final letter of the word it points at and throws the rest away."
+       "text": "including",
+       "at": 31,
+       "note": "including means the colon-plus-letter string holds the next abbreviation inside"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "including",
-         "note": "What includes a thing has it inside its own boundaries, so the piece named next goes within."
-        }
-       ],
        "parts": [
         {
          "words": ":",
+         "at": 11,
          "gives": "COLON",
-         "note": "the punctuation mark printed in the clue is itself a piece of the wordplay — name it"
+         "note": "the punctuation mark printed after Possessions is a colon"
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "at": 13,
+           "note": "last of means only the final letter of batteries"
+          }
+         ],
          "parts": [
           {
            "words": "batteries",
-           "note": "the final letter of the word"
+           "at": 21,
+           "note": "last letter of batteries"
           }
          ]
         }
@@ -1352,14 +1370,20 @@
       },
       {
        "words": "that is",
-       "gives": "IE",
-       "note": "i.e. is Latin id est, which is what 'that is' translates"
+       "at": 41,
+       "gives": "IE"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The colon after the first word looks like ordinary punctuation introducing a list. It is a piece of the wordplay, and you are meant to name the mark itself.",
-     "definitionFit": "Possessions → COLONIES: an empire's colonies are the overseas territories it owns and governs, which is what possession means in that political sense."
+     "surface": "A list of belongings trails off, mentioning the end of the batteries.",
+     "walkthrough": "The clue's own colon gives COLON; with S added it holds IE.",
+     "definitionFit": "Colonies are territories ruled by another state, its overseas possessions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Possessions"
     }
    }
   },

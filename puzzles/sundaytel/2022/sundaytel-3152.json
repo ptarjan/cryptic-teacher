@@ -921,63 +921,69 @@
      "indicators": [
       {
        "text": "claiming",
-       "note": "claiming means taking hold of, so the outer letters wrap around what follows"
+       "at": 11,
+       "note": "the outer pair of letters lays claim to, and so encloses, the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "alternate",
-         "indicators": [
-          {
-           "text": "oddly",
-           "note": "oddly means keep only the letters in odd-numbered positions"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Chap",
-           "note": "the first and third letters of chap"
-          }
-         ]
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
+       "op": "alternate",
        "indicators": [
         {
-         "text": "cut",
-         "note": "cut means trimmed, so the word loses its last letter"
+         "text": "oddly",
+         "at": 5,
+         "note": "oddly means take the odd-numbered letters of the word Chap"
         }
        ],
        "parts": [
         {
-         "words": "foul",
-         "gives": "NASTY",
-         "note": "foul means nasty"
+         "words": "Chap",
+         "at": 0,
+         "note": "odd letters of Chap"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 20,
+         "gives": "A"
         },
         {
-         "gives": "Y"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "after cut",
+           "at": 27,
+           "note": "once cut, the synonym for foul loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "foul",
+           "at": 22,
+           "gives": "NASTY",
+           "note": "foul means nasty"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man oddly accusing someone of foul play after the cut in a game of cards.",
-     "definitionFit": "Canasta is a rummy-style card game for two or more players, using two packs of cards."
+     "surface": "A man at the card table, his game cut short, accuses an opponent of foul play.",
+     "definitionFit": "Canasta is a rummy-type card game, popular in the mid-twentieth century, played with two packs."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "misdirectedWord": "foul"
     }
    }
   },
