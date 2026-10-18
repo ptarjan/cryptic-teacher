@@ -168,62 +168,71 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "KIDGLOVES",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means surrounding, so the earlier words wrap round this letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 17,
+         "note": "the tease and sweetheart words sit either side, around the letter for grand"
+        }
+       ],
        "parts": [
         {
-         "words": "Tease",
-         "gives": "KID",
-         "note": "to kid is to tease"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Tease",
+           "at": 0,
+           "gives": "KID",
+           "note": "to kid is to tease"
+          },
+          {
+           "words": "sweetheart",
+           "at": 6,
+           "gives": "LOVE",
+           "note": "love is a term of endearment for a sweetheart"
+          }
+         ]
         },
         {
          "words": "grand",
+         "at": 23,
          "gives": "G",
-         "note": "G is short for a grand, a thousand pounds"
-        },
+         "note": "G is slang shorthand for a grand, a thousand pounds"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "sweetheart",
-         "gives": "LOVE",
-         "note": "love as a term of endearment"
-        },
+         "text": "originally",
+         "at": 35,
+         "note": "originally points to the start, the original letter of the word"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "originally",
-           "note": "originally points to the first letter of the word, where it begins"
-          }
-         ],
-         "parts": [
-          {
-           "words": "spent",
-           "note": "the opening letter of spent"
-          }
-         ]
+         "words": "spent",
+         "at": 29,
+         "note": "spent supplies its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Teasing a sweetheart over a thousand pounds splashed out on leather goods.",
-     "walkthrough": "'About' wraps the tease and sweetheart words round the grand, so the G lands between them. A grand is slang for a thousand pounds.",
-     "definitionFit": "Kid gloves are made of soft leather from young goatskin, so they are leather items."
+     "surface": "Teasing a lover over a thousand pounds blown on fancy goods.",
+     "walkthrough": "'about' means the two synonyms go around the grand together, as a sandwich, rather than one of them alone. Kid is soft young-goat leather, hence the idiom for gentle handling.",
+     "definitionFit": "Kid gloves are fine gloves of young goat leather, a pair of leather accessories."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "grand"
+     "misdirectedWord": "Tease"
     }
    }
   },
@@ -1689,28 +1698,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "WHITELINE",
+     "spelt": "WHITELINE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner swapped the opening sounds of words, so initial sounds are exchanged"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the two words trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "healthy booze",
-       "gives": "WHITELINE",
-       "soundsLike": "LITE WINE",
-       "note": "light wine, low in calories, is the healthy drink; swap the opening sounds"
+       "op": "homophone",
+       "spelt": "WHITE",
+       "parts": [
+        {
+         "words": "healthy",
+         "at": 10,
+         "gives": "LIGHT",
+         "note": "light food or drink is low in fat or alcohol, hence healthy"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "LINE",
+       "parts": [
+        {
+         "words": "booze",
+         "at": 18,
+         "gives": "WINE",
+         "note": "wine is a type of booze"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drinker offers a healthy tipple just before serving.",
-     "walkthrough": "'Serves' looks like pouring drinks, but it is a tennis serve, taken from behind the baseline.",
-     "definitionFit": "In tennis the server stands just behind the white baseline marking the court's end."
+     "surface": "A spoken plea for a lighter drink served before something.",
+     "walkthrough": "'Spooner's' swaps the openings of LIGHT WINE, giving WHITE LINE. In tennis the server stands just behind the white baseline, so 'serves' is the sporting sense, not serving drinks.",
+     "definitionFit": "A tennis player must serve from behind the baseline, a painted stripe on the court."
     },
     "features": {
      "answerInScene": false,
