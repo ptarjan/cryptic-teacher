@@ -104,56 +104,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "POWYS",
-     "indicators": [
-      {
-       "text": "not English",
-       "note": "not means without, so the abbreviation for English is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 21,
+         "note": "initially means taking the first letter of each of the words part, of and Wales"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "POW",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially points to the first letter of each word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "part of Wales",
-           "gives": "POW",
-           "select": "first",
-           "note": "first letters of part, of and Wales"
-          }
-         ]
-        },
+         "words": "part of Wales",
+         "at": 7,
+         "note": "the first letters of part, of and Wales are P, O and W"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 37,
+         "note": "not English means the abbreviation for English is left out of yes"
+        }
+       ],
+       "parts": [
         {
          "words": "Yes",
-         "gives": "YS",
-         "note": "yes without its E"
+         "at": 32
+        },
+        {
+         "words": "English",
+         "at": 41,
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A query whether a county is part of Wales, answered yes, it isn't English.",
-     "walkthrough": "The surface is literally true: Powys is a large county in mid-Wales.",
-     "definitionFit": "Powys is one of the principal areas of Wales, a county in the middle of the country."
+     "surface": "A quiz question asks whether a county is in Wales, and the answer is yes but not England.",
+     "walkthrough": "'Initially' takes the first letters of part of Wales, giving POW, and yes with its E dropped ('not English') gives YS. The county is in fact part of Wales, which the surface teases.",
+     "definitionFit": "Powys is a large rural county in mid Wales, bordering England."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Yes"
     }
    }
   },
@@ -1429,43 +1430,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "unchecked": true,
-     "gives": "HEARHEAR",
+     "op": "homophone",
+     "spelt": "HEARHEAR",
      "indicators": [
       {
+       "text": "to speak",
+       "at": 22,
+       "note": "to speak means the words are said aloud, giving a word that sounds the same but is spelt differently"
+      },
+      {
        "text": "repeatedly",
-       "note": "repeatedly means the same piece is used again, placed side by side twice"
+       "at": 31,
+       "note": "repeatedly means the word for at this point is said twice over, one after the other"
       }
      ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "HEARHEAR",
-       "indicators": [
-        {
-         "text": "to speak",
-         "note": "speaking means saying words out loud, so the sound counts, not the spelling"
-        }
-       ],
-       "parts": [
-        {
-         "words": "at this point",
-         "gives": "HEREHERE",
-         "note": "here means at this point, said twice"
-        }
-       ]
+       "words": "at this point",
+       "at": 8,
+       "gives": "HEREHERE",
+       "note": "at this point means here, and the clue's repeatedly asks for it twice: here here"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone agrees, saying it is their turn to speak, and then repeats themselves.",
-     "walkthrough": "The cry is used in Parliament and meetings to back a speaker.",
-     "definitionFit": "The exclamation is a traditional British way of showing approval of what a speaker has just said."
+     "surface": "Someone signals agreement and says they will now speak again and again.",
+     "walkthrough": "'At this point' gives HERE, 'repeatedly' doubles it, and 'to speak' turns HERE HERE into its sound-alike, the cry of approval heard in Parliament.",
+     "definitionFit": "Hear hear is the traditional exclamation of approval in debates, used to say one agrees with the speaker."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "point"
     }
    }

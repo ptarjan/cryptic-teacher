@@ -1005,28 +1005,39 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "REDFLAG",
+     "spelt": "REDFLAG",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner famously swapped the opening sounds of words, so the initial sounds trade places"
+       "at": 0,
+       "note": "Spooner was the Oxford don famous for swapping the opening sounds of words, so the starts are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "hurriedly left disreputable paper",
-       "gives": "REDFLAG",
-       "soundsLike": "FLED RAG",
-       "note": "to flee is to leave in haste, and a rag is a low-quality newspaper; swap their opening sounds"
+       "op": "homophone",
+       "spelt": "FLED",
+       "parts": [
+        {
+         "words": "hurriedly left",
+         "at": 10,
+         "gives": "FLEHD",
+         "note": "to have fled is to have left in a hurry; it is written FLEHD here only to show the sound being swapped, since a Spoonerism trades spoken sounds"
+        }
+       ]
+      },
+      {
+       "words": "disreputable paper",
+       "at": 25,
+       "gives": "RAG",
+       "note": "a rag is a newspaper of low repute"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone ran from a scandal sheet after spotting a warning.",
-     "walkthrough": "Swap the starting sounds of FLED RAG to get the answer.",
-     "definitionFit": "A scarlet banner was hoisted as a warning, so the phrase is used for any signal of danger or trouble."
+     "surface": "Someone quit in a hurry from a sleazy newspaper on spotting trouble.",
+     "walkthrough": "'Spooner's' asks for the opening sounds of FLED RAG to be swapped, FL for R, which here happens to spell RED FLAG exactly. Rag is British slang for a trashy tabloid newspaper.",
+     "definitionFit": "A red flag is a warning signal, literally flown on beaches or ranges to mark danger."
     },
     "features": {
      "answerInScene": true,
@@ -1382,43 +1393,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MARCONI",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "without end",
-       "note": "lacking its end means the final letter is cut off"
+       "text": "unsettled",
+       "at": 21,
+       "note": "unsettled means disturbed, so the remaining letters are shaken into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "unsettled",
-         "note": "unsettled things are disturbed from their place, so the letters are reordered"
+         "text": "without end",
+         "at": 9,
+         "note": "without end means the final letter of acrimony is dropped"
         }
        ],
        "parts": [
         {
          "words": "Acrimony",
-         "gives": "ACRIMON",
-         "note": "the word without its last letter"
+         "at": 0
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bitterness without let-up disturbed an inventor.",
-     "walkthrough": "'Without end' looks like 'endless', but it trims the final Y.",
-     "definitionFit": "Guglielmo Marconi was the Italian pioneer of radio, famous for devising wireless telegraphy."
+     "surface": "Bitterness that never ends leaves everyone uneasy.",
+     "walkthrough": "'Without end' drops the Y of acrimony to leave ACRIMON, and 'unsettled' rearranges those seven letters.",
+     "definitionFit": "Guglielmo Marconi was the Italian engineer credited with inventing long-distance radio transmission."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "unsettled"
+     "misdirectedWord": "end"
     }
    }
   },

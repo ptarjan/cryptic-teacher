@@ -615,42 +615,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BOROUGH",
-     "indicators": [
-      {
-       "text": "finally abandoned",
-       "note": "the final letter is abandoned, meaning dropped from the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finally abandoned",
+         "at": 4,
+         "note": "the final letter of the word for lad is dropped, abandoned like a lost cause"
+        }
+       ],
        "parts": [
         {
          "words": "Lad",
-         "gives": "BO",
-         "note": "a boy, with its last letter dropped"
+         "at": 0,
+         "gives": "BOY",
+         "note": "a lad is a boy"
         },
         {
-         "words": "dodgy",
-         "gives": "ROUGH",
-         "note": "a rough area is a dodgy, unsafe one"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "words": "dodgy",
+       "at": 22,
+       "gives": "ROUGH",
+       "note": "dodgy, as in a dodgy neighbourhood, means rough"
       }
      ]
     },
     "explanation": {
-     "surface": "A young man has been left alone in a sketchy part of town.",
-     "walkthrough": "'Lad' gives BOY, which loses its last letter; dodgy is British for suspect or unsafe.",
-     "definitionFit": "A borough is an administrative district, as with the boroughs of London or New York, so an urban area."
+     "surface": "A young man has walked out on a seedy part of town.",
+     "walkthrough": "'Finally abandoned' means the lad word loses its last letter, leaving BO, and a dodgy area is a rough one.",
+     "definitionFit": "A borough is a town or district with its own local government, often a division of a large city such as London."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "abandoned"
+     "misdirectedWord": "dodgy"
     }
    }
   },
@@ -759,75 +763,89 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHURCHGOER",
-     "indicators": [
-      {
-       "text": "Briefly",
-       "note": "something said briefly is cut short, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 19,
+         "note": "the copy abbreviation goes around the shortened throw, as if wrapped about it"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "words": "copy",
+         "at": 14,
+         "gives": "CC",
+         "note": "CC is carbon copy, the copy line on a letter or email"
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "about",
-           "note": "about means around, so one piece goes around another"
-          },
-          {
-           "text": "protecting",
-           "note": "to protect something is to shield it by surrounding it"
+           "text": "Briefly",
+           "at": 0,
+           "note": "briefly means cut short, so the word for pitch loses its last letter"
           }
          ],
          "parts": [
           {
-           "words": "copy",
-           "gives": "CC",
-           "note": "cc stands for carbon copy"
+           "words": "pitch",
+           "at": 8,
+           "gives": "HURL",
+           "note": "to pitch a ball is to hurl it"
           },
           {
-           "words": "pitch",
-           "gives": "HUR",
-           "note": "to pitch is to hurl, cut short"
+           "gives": "L"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "protecting",
+         "at": 41,
+         "note": "the rearranged hero letters stand guard either side of the letter for good"
+        }
+       ],
+       "parts": [
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "mysterious",
-           "note": "a mysterious thing is obscure and puzzling, so the letters are disguised"
+           "at": 25,
+           "note": "something mysterious is puzzling and unclear, so the letters of hero are jumbled"
           }
          ],
          "parts": [
           {
            "words": "hero",
-           "note": "taken as written"
-          },
-          {
-           "words": "good",
-           "gives": "G",
-           "note": "G is the abbreviation for good"
+           "at": 36
           }
          ]
+        },
+        {
+         "words": "good",
+         "at": 52,
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sales pitch for a mystery novel about a hero who protects a good churchgoer.",
-     "walkthrough": "'Pitch copy' sounds like publishing jargon; CC goes around a curtailed HURL to give CHURC, then the shuffled hero holds G.",
-     "definitionFit": "A parishioner is a member of a parish congregation, typically someone who attends services regularly."
+     "surface": "An instruction to cut a pitch document about some enigmatic hero who looks after a good person.",
+     "walkthrough": "The surface reads pitch as a sales pitch and copy as text, but pitch is a throw. 'Briefly' cuts it, 'about' wraps the copy abbreviation round it, and the jumbled hero is 'protecting' G.",
+     "definitionFit": "A parishioner is a member of a parish congregation, someone who regularly attends services."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "pitch"
     }
@@ -917,40 +935,27 @@
      "parts": [
       {
        "words": "Helium",
+       "at": 0,
        "gives": "HE",
-       "note": "He is the chemical symbol for helium"
+       "note": "HE is the chemical symbol for helium"
       },
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "balloon centrepiece",
+       "at": 7,
        "gives": "LLO",
-       "indicators": [
-        {
-         "text": "centrepiece",
-         "note": "the centrepiece of something is its middle, so only central letters are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "balloon",
-         "gives": "LLO",
-         "select": "middle",
-         "note": "the three central letters of balloon"
-        }
-       ]
+       "note": "the centrepiece of the seven-letter balloon is its middle three letters, LLO"
       }
      ]
     },
     "explanation": {
-     "surface": "A helium balloon forms the main decoration at a cheerful celebration.",
-     "walkthrough": "'Centrepiece of good day' looks like a party description; 'good day' is a greeting standing on its own.",
-     "definitionFit": "Good day is a formal greeting, the same kind of salutation as the everyday word of welcome."
+     "surface": "A helium balloon is the highlight of a lovely day out.",
+     "walkthrough": "'Centrepiece' takes the central part of balloon, the three letters either side of its middle, rather than one single letter.",
+     "definitionFit": "Good day is an old-fashioned greeting, and hello is the everyday word used to greet someone."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "centrepiece"
+     "aptDefinition": false,
+     "misdirectedWord": "good"
     }
    }
   },
@@ -1634,43 +1639,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "QUERIED",
+     "op": "composite",
      "indicators": [
       {
        "text": "Doctor",
-       "note": "to doctor something is to tamper with it, so the letters are altered"
+       "at": 0,
+       "note": "to doctor something is to tamper with it, so the letters are rearranged"
+      },
+      {
+       "text": "junking",
+       "at": 19,
+       "note": "junking means throwing out, so the letters of PPE are removed from the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "QUERIED",
-       "indicators": [
-        {
-         "text": "junking",
-         "note": "to junk something is to throw it out, so those letters are removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "re-equipped",
-         "note": "taken as written"
-        },
-        {
-         "words": "PPE",
-         "note": "personal protective equipment, the letters removed"
-        }
-       ]
+       "words": "re-equipped",
+       "at": 7,
+       "note": "the anagram fodder, taken as written"
+      },
+      {
+       "words": "PPE",
+       "at": 27,
+       "note": "the letters to be removed, taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A medic restocked with supplies but threw out the contested protective equipment.",
-     "walkthrough": "'Doctor' looks like a medic in a pandemic scene but is the anagram signal; PPE is personal protective equipment.",
-     "definitionFit": "To query a claim is to question it, so something queried has been challenged or disputed."
+     "surface": "Someone has been re-kitted after binning their protective gear, which is controversial.",
+     "walkthrough": "From the letters of RE-EQUIPPED, 'junking' throws out P, P and E, leaving REEQUID, which 'Doctor' rearranges into the answer.",
+     "definitionFit": "To query a claim is to question or challenge it, so a queried point is one that has been disputed."
     },
     "features": {
      "answerInScene": false,
@@ -1754,43 +1752,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HIDDEN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Stripped",
-       "note": "stripped means peeled of its outer layer, so the end letters come off"
+       "text": "disguise",
+       "at": 19,
+       "note": "to disguise letters is to change their look, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "middle",
        "indicators": [
         {
-         "text": "disguise",
-         "note": "a disguise changes how something looks, so the letters are rearranged"
+         "text": "Stripped",
+         "at": 0,
+         "note": "stripped means its outer layer removed, so the first and last letters of shedding go"
         }
        ],
        "parts": [
         {
          "words": "shedding",
-         "gives": "HEDDIN",
-         "note": "the word with its first and last letters removed"
+         "at": 10,
+         "note": "shedding with its first and last letters stripped off leaves HEDDIN"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone undressed, throwing off their costume so nobody would spot them.",
-     "walkthrough": "'Shedding disguise' reads as removing a costume; 'shedding' is the fodder, losing its ends and then rearranged.",
-     "definitionFit": "Something hidden is concealed from view, which makes it a direct synonym of unseen."
+     "surface": "Someone undresses, takes off a costume, and goes unnoticed.",
+     "walkthrough": "'Stripped' takes the ends off shedding to leave HEDDIN, and 'disguise' rearranges those six letters.",
+     "definitionFit": "Something hidden is concealed from view, so it goes unseen."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "shedding"
+     "misdirectedWord": "Stripped"
     }
    }
   },

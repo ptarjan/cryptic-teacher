@@ -555,53 +555,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IDIOTIC",
-     "indicators": [
-      {
-       "text": "mixed",
-       "note": "the letters of I DO IT are stirred together"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mixed",
+         "at": 8,
+         "note": "mixed means the letters of I do it are stirred into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "I do it mixed",
-         "gives": "IDIOT",
-         "note": "anagram of I DO IT"
+         "words": "I",
+         "at": 0
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "dash of",
-           "note": "a dash is just a little: the first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "dash of icing",
-           "gives": "ICING",
-           "note": "first letter of icing"
-          }
-         ]
+         "words": "do",
+         "at": 2
         },
         {
-         "words": "cold",
-         "gives": "C",
-         "note": "C = cold, as on a tap"
+         "words": "it",
+         "at": 5
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "dash of",
+         "at": 19,
+         "note": "a dash of something is a tiny amount, here just its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "icing",
+         "at": 27,
+         "note": "the first letter of icing is I"
+        }
+       ]
+      },
+      {
+       "words": "cold",
+       "at": 34,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on a tap"
       }
      ]
     },
     "explanation": {
-     "surface": "A baker explains a recipe: mix it with a little icing, keep it cold, bake it partly.",
-     "walkthrough": "The cake words make 'half-baked' look like a cooking instruction; it is the definition, meaning foolish.",
-     "definitionFit": "A figurative sense: a half-baked scheme is one not properly thought through, which is to say foolish."
+     "surface": "A baker admits to stirring things up with a touch of icing, chilled and underdone.",
+     "walkthrough": "The baking words (mixed, dash, icing, half-baked) suggest a recipe; 'mixed' works only on I DO IT to make IDIOT, then 'dash of' icing gives I and cold gives C.",
+     "definitionFit": "Half-baked is an informal word for foolish or poorly thought out, which is what an idiotic plan is."
     },
     "features": {
      "answerInScene": false,
@@ -1035,41 +1043,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OTHELLO",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "new",
-         "note": "new = remade: the letters of HOTEL are rearranged"
-        },
-        {
-         "text": "foundationless",
-         "note": "in a down clue the foundation is the last letter, which goes"
+         "at": 22,
+         "note": "new means the letters of hotel are made over in a fresh arrangement"
         }
        ],
        "parts": [
         {
-         "words": "new hotel",
-         "gives": "OTHEL",
-         "note": "anagram of HOTEL"
+         "words": "hotel",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "foundationless",
+         "at": 35,
+         "note": "in a down answer the foundation is the bottom letter, so lot loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lot",
+         "at": 50
         },
         {
-         "words": "foundationless lot",
-         "gives": "LO",
-         "note": "LOT without its bottom letter"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A developer's plan: build a new hotel on a plot with no foundations.",
-     "walkthrough": "'Set up' looks like building the hotel; it belongs to the definition, since Othello is framed by Iago in Shakespeare's tragedy.",
-     "definitionFit": "Othello is the tragic hero whom Iago sets up to believe his wife unfaithful."
+     "surface": "A sad tale of a new hotel built on a plot with no foundations.",
+     "walkthrough": "'New' rearranges hotel into OTHEL, and lot without its foundation (its bottom letter in a down clue) gives LO. Othello is the Moor whom Iago tricks in Shakespeare's tragedy.",
+     "definitionFit": "In Shakespeare's tragedy Othello is framed by Iago into believing his wife unfaithful, so he is the one set up."
     },
     "features": {
      "answerInScene": false,
@@ -1263,41 +1279,40 @@
      "indicators": [
       {
        "text": "after",
-       "note": "after means coming later, so the girl's letters follow the tip rather than lead"
+       "at": 12,
+       "note": "after means the girl's word comes behind the first letter of air"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "A",
        "indicators": [
         {
          "text": "top tip for",
-         "note": "the top tip is the first letter"
+         "at": 18,
+         "note": "the top tip of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "top tip for air",
-         "gives": "A",
-         "select": "first",
-         "note": "first letter of air"
+         "words": "air",
+         "at": 30,
+         "note": "the first letter of air is A"
         }
        ]
       },
       {
        "words": "This girl's",
+       "at": 0,
        "gives": "SHES",
-       "note": "this girl is = she is = SHE'S"
+       "note": "this girl's is she's, written without the apostrophe"
       }
      ]
     },
     "explanation": {
-     "surface": "An astrologer notes that a girl favours air and fire signs.",
-     "walkthrough": "Air and fire are elements of the zodiac, which is the trap; the signs of a fire are its ashes.",
-     "definitionFit": "A definition by example: the grey residue left in the grate is the evidence, or sign, of a fire."
+     "surface": "A girl turns up following an astrology tip about air and fire signs.",
+     "walkthrough": "'Top tip for' air gives A, and the girl's word comes 'after' it. The surface suggests the zodiac, where air and fire are kinds of star sign, but 'fire signs' is the definition: what a fire leaves behind.",
+     "definitionFit": "Ashes are the powdery remains left after burning, so they are evidence that a fire has been."
     },
     "features": {
      "answerInScene": false,
