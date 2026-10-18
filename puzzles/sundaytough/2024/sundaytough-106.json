@@ -878,58 +878,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SEDENTARY",
-     "indicators": [
-      {
-       "text": "heading off",
-       "note": "with its head taken off, the word loses its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 20,
+         "note": "around says the word for position goes round the word for study"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "around",
-           "note": "going around something means enclosing it on both sides"
-          }
-         ],
-         "parts": [
-          {
-           "words": "position",
-           "gives": "SET",
-           "note": "to set is to put in position"
-          },
-          {
-           "words": "study",
-           "gives": "DEN",
-           "note": "a den is a private room for work or study"
-          }
-         ]
+         "words": "position",
+         "at": 11,
+         "gives": "SET",
+         "note": "set can mean position or placing, as in the set of a sail or of someone's jaw"
         },
         {
+         "words": "study",
+         "at": 27,
+         "gives": "DEN",
+         "note": "a den is a small private room for study or work"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 34,
+         "note": "heading off says the first letter, the head of the word, is taken away"
+        }
+       ],
+       "parts": [
+        {
          "words": "change",
-         "gives": "ARY",
-         "note": "to vary is to change; drop its first letter"
+         "at": 46,
+         "gives": "VARY",
+         "note": "to change something is to vary it"
+        },
+        {
+         "gives": "V"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A seated person in some post, ringing round the office to stop a change.",
-     "walkthrough": "'Sitting in position' reads as a single phrase, but only 'Sitting' is the definition and 'in' is a link. 'Change' must become VARY before it loses its head.",
-     "definitionFit": "The adjective describes a lifestyle or job spent mostly seated, involving little physical movement."
+     "surface": "Advice on adjusting one's study habits while staying put in the same spot.",
+     "walkthrough": "'around' wraps SET (position) round DEN (study) to make SEDENT; 'heading off' drops the V from VARY (change), leaving ARY.",
+     "definitionFit": "Sedentary describes a life or job spent largely seated, with little physical activity."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "heading"
+     "misdirectedWord": "study"
     }
    }
   },

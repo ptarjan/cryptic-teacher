@@ -62,12 +62,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ASTERIA",
      "indicators": [
       {
        "text": "in",
-       "note": "the jumbled word is placed in the middle of the following pieces"
+       "at": 14,
+       "note": "set in says one piece is placed inside the other"
       }
      ],
      "parts": [
@@ -76,27 +75,31 @@
        "parts": [
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 17,
+         "gives": "A"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "tight",
-           "note": "tight means drunk, and a drunken word staggers out of its proper order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "set",
-           "note": "taken as written, then jumbled"
-          },
-          {
-           "words": "hollow",
-           "gives": "RIA",
-           "note": "a ria is a long narrow inlet formed by a drowned river valley"
-          }
-         ]
+         "words": "hollow",
+         "at": 19,
+         "gives": "RIA",
+         "note": "a ria is a long narrow inlet, a drowned river valley, so a hollow in the coast"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "tight",
+         "at": 8,
+         "note": "tight means drunk, and a drunken word staggers out of its proper order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "set",
+         "at": 4,
+         "note": "taken as written, then rearranged"
         }
        ]
       }
@@ -104,8 +107,8 @@
     },
     "explanation": {
      "surface": "A jeweller fixes a stone firmly into a recess cut for it.",
-     "walkthrough": "'Set tight' reads as a jeweller's instruction, but tight (drunk) is what scrambles 'set'. A + RIA hold the result: A-STE-RIA.",
-     "definitionFit": "Asteria is an old name for a star stone, a gem showing a star-shaped gleam when cut, such as star sapphire."
+     "walkthrough": "'Set tight' reads as a jeweller's instruction, but 'tight' (drunk) is what scrambles 'set' into STE, and 'in' puts that inside A + RIA (hollow).",
+     "definitionFit": "Asteria is an old name for a star stone, a gem cut to show a star-shaped gleam, such as star sapphire."
     },
     "features": {
      "answerInScene": true,
@@ -907,58 +910,64 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "LYDDITE",
      "indicators": [
       {
        "text": "after",
-       "note": "after says the barbecue piece is placed second, behind the piece for drunk"
+       "at": 26,
+       "note": "after puts the barbecue letter behind the piece for drunk"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "LYDDITE",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "returns",
-         "note": "returns means comes back, so the word is read from its end"
+         "text": "having left earlier",
+         "at": 46,
+         "note": "the abbreviation for left is moved one place earlier, swapping with the letter in front of it"
         }
        ],
        "parts": [
         {
-         "op": "cycling",
-         "unchecked": true,
-         "gives": "LYDDITE",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "having left earlier",
-           "note": "the abbreviation for left is brought forward one place to come earlier in the word"
+           "text": "returns",
+           "at": 38,
+           "note": "returns means comes back, so the word is read from its end"
           }
          ],
          "parts": [
           {
            "words": "drunk",
+           "at": 32,
            "gives": "TIDDLY",
            "note": "tiddly is British slang for slightly drunk"
-          },
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "end to",
-             "note": "the end of a word is its final letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "barbecue",
-             "note": "the final letter of barbecue"
-            }
-           ]
           }
          ]
+        },
+        {
+         "gives": "YL"
+        },
+        {
+         "gives": "LY"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end to",
+         "at": 10,
+         "note": "the end of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "barbecue",
+         "at": 17,
+         "note": "its final letter"
         }
        ]
       }
@@ -966,7 +975,7 @@
     },
     "explanation": {
      "surface": "The drunk came back and left early, and the barbecue ended explosively.",
-     "walkthrough": "Tiddly is mild British slang for tipsy. 'Left' looks like a verb for the drunk departing, but it is the abbreviation L, moved to the front.",
+     "walkthrough": "Tiddly is British slang for tipsy. 'returns' gives YLDDIT; 'having left earlier' moves L (left) ahead of the Y, giving LYDDIT; then E, the 'end to barbecue', comes 'after'.",
      "definitionFit": "Lyddite is a high explosive made from picric acid, named after Lydd in Kent where it was tested."
     },
     "features": {
@@ -1530,17 +1539,17 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "AVES",
      "indicators": [
       {
        "text": "section moved to back of",
-       "note": "s. abbreviates section, and that letter is shifted from the front round to the far end"
+       "at": 6,
+       "note": "s. abbreviates section, and that letter is shifted from the front round to the far end of the word"
       }
      ],
      "parts": [
       {
        "words": "store",
+       "at": 31,
        "gives": "SAVE",
        "note": "to store something is to save it"
       }
@@ -1548,8 +1557,8 @@
     },
     "explanation": {
      "surface": "The bird department of a shop has been relocated to the back.",
-     "walkthrough": "'Section' and 'store' look like a shop's layout; section only names the letter that moves, by its abbreviation s.",
-     "definitionFit": "Aves is the scientific name of the class of birds in zoology."
+     "walkthrough": "'section moved to back of' says the S (the abbreviation for section) at the front of SAVE (store) goes to the end, giving AVES.",
+     "definitionFit": "Aves is the scientific name of the zoological class containing all birds."
     },
     "features": {
      "answerInScene": true,

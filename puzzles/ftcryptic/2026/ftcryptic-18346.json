@@ -250,40 +250,24 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "RIDINGS",
+     "op": "reverse",
+     "reading": "RID IN GS",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "grids",
-         "gives": "RID",
-         "note": "the three inner letters of the clue word"
-        },
-        {
-         "words": "?",
-         "gives": "IN",
-         "note": "the question mark flags a reverse clue: the answer is an instruction, and this short word in it says where the inner letters go"
-        },
-        {
-         "words": "grids",
-         "gives": "GS",
-         "note": "the two outer letters of the clue word, which wrap around the inner three"
-        }
-       ]
+       "words": "grids",
+       "at": 23,
+       "note": "read the answer as wordplay: RID placed IN GS spells G-RID-S, the clue word grids"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about the grid lines that carve up a map of Yorkshire.",
-     "walkthrough": "This works backwards: split the answer into three words and follow it as an instruction, and it builds the clue's last word. Yorkshire, a large county in northern England, was historically split into three Ridings (North, East and West).",
-     "definitionFit": "The historic administrative areas of Yorkshire were called ridings, from an old Norse word for a third part."
+     "surface": "A question whether Yorkshire is carved up like a set of grids.",
+     "walkthrough": "This is a reverse clue: split the answer into RID IN GS, and following that instruction puts RID inside GS to spell GRIDS.",
+     "definitionFit": "Yorkshire was historically split into three Ridings (North, East and West), the word coming from a Norse term for a third part."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "grids"
     }
@@ -353,37 +337,40 @@
    "annotation": {
     "definitions": [
      {
-      "text": "play a leading role",
-      "at": 21
+      "text": "to play a leading role",
+      "at": 18
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "STAR",
      "indicators": [
       {
        "text": "briefly",
-       "note": "making a word brief means cutting it short, so its final letter goes"
+       "at": 10,
+       "note": "said briefly, the word is cut short by losing its final letter"
       }
      ],
      "parts": [
       {
        "words": "Beginning",
-       "gives": "STAR",
-       "note": "start, a synonym, with its last letter cut"
+       "at": 0,
+       "gives": "START",
+       "note": "the beginning of something is its start"
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Briefly at the start, an actor gets to take the lead part.",
-     "walkthrough": "'Beginning briefly' reads as 'at first for a short while', but it is a noun to be swapped and then shortened.",
-     "definitionFit": "As a verb, to star means to be the principal performer in a film or play."
+     "surface": "Advice that a short opening scene is enough to land the leading part.",
+     "walkthrough": "'briefly' docks the last letter from START (beginning).",
+     "definitionFit": "To star in a film or play is to take its principal part, the top billing."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Beginning"
+     "misdirectedWord": "briefly"
     }
    }
   },
@@ -1312,55 +1299,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNHAPPY",
-     "indicators": [
-      {
-       "text": "not",
-       "note": "'not' tells the solver to leave something out of what follows"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "homophone",
        "spelt": "U",
        "indicators": [
         {
-         "text": "You say",
-         "note": "saying a word aloud lets a single letter stand for its sound"
+         "text": "say",
+         "at": 4,
+         "note": "say asks us to hear the word, so it gives the letter that sounds like it"
         }
        ],
        "parts": [
         {
          "words": "You",
+         "at": 0,
          "gives": "YOU",
-         "note": "the letter U is pronounced like the pronoun"
+         "note": "the word you sounds like the letter U"
         }
        ]
       },
       {
-       "words": "Henry",
-       "gives": "H",
-       "note": "the henry is the unit of inductance, symbol H"
-      },
-      {
-       "words": "potty trained",
-       "gives": "APPY",
-       "note": "a child not yet potty trained is in a nappy; dropping the leading letter leaves the rest"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "trained",
+         "at": 26,
+         "note": "Henry is trained, put into the nappy, so his letter goes inside that word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not potty",
+         "at": 16,
+         "gives": "NAPPY",
+         "note": "a child who uses not a potty but a nappy (British for diaper)"
+        },
+        {
+         "words": "Henry's",
+         "at": 8,
+         "gives": "H",
+         "note": "H is the abbreviation for henry, the unit of inductance; Henry is in the nappy"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone remarks that toddler Henry still isn't toilet trained, and finds it a shame.",
-     "walkthrough": "Read 'not potty trained' as IN NAPPY, a nappy being a diaper: N comes from the deleted IN and APPY, with H sitting between; the parse is loose, as the setter intended a playful sound-alike.",
-     "definitionFit": "Feeling sorrow or dissatisfaction is being sad, the simplest synonym for this adjective."
+     "surface": "A parent laments that young Henry still isn't using the potty.",
+     "walkthrough": "A nappy is the British word for a diaper. 'Henry's not potty trained' reads as Henry being in a nappy: H goes inside NAPPY, after U from 'You say'.",
+     "definitionFit": "Unhappy is a direct synonym of sad, both describing low spirits or sorrow."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "Henry"
+     "misdirectedWord": "trained"
     }
    }
   },
@@ -1453,36 +1448,25 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STRUNGOUT",
+     "op": "reverse",
+     "reading": "STRUNG OUT",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Grunts",
-         "gives": "STRUNG",
-         "note": "the first word of the answer is a rearrangement of this clue word"
-        },
-        {
-         "words": "clue is",
-         "gives": "OUT",
-         "note": "the second word of the answer is the instruction that rearranges the first, so the answer read as a clue leads back to the clue word"
-        }
-       ]
+       "words": "Grunts clue is",
+       "at": 0,
+       "note": "the clue to grunts is the answer:read the answer as wordplay, STRUNG with OUT as an anagram signal rearranges to give grunts"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that a crossword clue about grunting has been dragged out too long.",
-     "walkthrough": "This works backwards: the answer itself is a clue, with OUT telling you to rearrange STRUNG, and that produces GRUNTS. 'Clue is' says the answer is the clue to the first word.",
-     "definitionFit": "Something extended or prolonged beyond a reasonable length has been stretched or spread out excessively."
+     "surface": "A complaint that a clue built on grunts goes on far too long.",
+     "walkthrough": "A reverse clue: the answer, read as STRUNG plus OUT signalling a rearrangement, yields GRUNTS, the word the clue gives.",
+     "definitionFit": "Something strung out is prolonged or stretched over a longer time than it should be."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "clue"
+     "misdirectedWord": "Grunts"
     }
    }
   },
@@ -1507,40 +1491,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXTOL",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "cutting a word trims its end, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "previous",
+       "at": 8,
+       "gives": "EX",
+       "note": "ex means former or previous, as in an ex-partner"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 21,
+         "note": "cut means the word is shortened by losing its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "previous",
-         "gives": "EX",
-         "note": "ex means former"
+         "words": "tax",
+         "at": 17,
+         "gives": "TOLL",
+         "note": "a toll is a charge or tax, such as for using a road or bridge"
         },
         {
-         "words": "tax",
-         "gives": "TOL",
-         "note": "a toll is a charge or tax, here with its last letter cut"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Praising the government for an earlier reduction in tax.",
-     "walkthrough": "'Tax cut' reads as a policy, but 'cut' is the signal to trim the tax word.",
-     "definitionFit": "To praise someone or something enthusiastically is to commend it highly; the verbs are close synonyms."
+     "surface": "Someone praises an earlier tax reduction.",
+     "walkthrough": "The blog takes 'tax' as TAX, but cutting that cannot give the needed letters; the tax here is a road or bridge toll.",
+     "definitionFit": "To extol is to praise highly, which is what commending someone means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "cut"
     }
