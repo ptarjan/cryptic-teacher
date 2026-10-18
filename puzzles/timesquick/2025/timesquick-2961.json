@@ -1235,42 +1235,39 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "POLITICO",
-     "indicators": [
-      {
-       "text": "welcomed by",
-       "note": "being welcomed means being taken in, so one piece goes inside another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "most of",
-         "note": "most means nearly all, so the last letter is dropped"
+         "at": 37,
+         "note": "'most of' says the respectful word loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "container",
+         "indicators": [
+          {
+           "text": "welcomed by",
+           "at": 25,
+           "note": "'welcomed by' says the one is taken in by the respectful word, placed inside it"
+          }
+         ],
          "parts": [
           {
            "words": "respectful",
+           "at": 45,
            "gives": "POLITE",
-           "note": "polite means respectful"
+           "note": "polite means respectful, courteous"
           },
           {
            "words": "one",
+           "at": 21,
            "gives": "I",
-           "note": "I is the Roman numeral one"
-          },
-          {
-           "words": "company",
-           "gives": "CO",
-           "note": "Co is the abbreviation for company"
+           "note": "I is the Roman numeral for one"
           }
          ]
         },
@@ -1278,18 +1275,23 @@
          "gives": "E"
         }
        ]
+      },
+      {
+       "words": "company",
+       "at": 56,
+       "gives": "CO"
       }
      ]
     },
     "explanation": {
-     "surface": "A party activist being greeted by a mostly courteous group of people.",
-     "walkthrough": "'Party' suggests a celebration, but it is political. 'Most of' trims only the adjective, and the one sits between it and the company.",
-     "definitionFit": "A politico is an informal word for a politician or someone busily engaged in political activity."
+     "surface": "A description of a keen activist who is warmly received by a courteous firm.",
+     "walkthrough": "'welcomed by' puts the one inside the respectful word before 'most of' trims its last letter, so the one ends up just before the company abbreviation.",
+     "definitionFit": "A politico is an informal word for a politician or political activist, someone busily engaged in party politics."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "party"
+     "misdirectedWord": "company"
     }
    }
   },

@@ -756,53 +756,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HOMOSAPIENS",
+     "op": "composite",
      "indicators": [
       {
+       "text": "Not",
+       "at": 0,
+       "note": "'not' says the named letters are to be left out of the shuffled pool, so they must be struck from it"
+      },
+      {
        "text": "different",
-       "note": "a different arrangement means the remaining letters are reordered"
+       "at": 26,
+       "note": "'different' asks for the letters to be made into a new arrangement, a rearrangement signal here"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HOMOSAPIENS",
-       "indicators": [
-        {
-         "text": "Not",
-         "note": "not means without, so the title's letters are removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Homer Simpson",
-         "note": "taken as written"
-        },
-        {
-         "words": "Mr.",
-         "note": "the title, without its full stop"
+         "at": 8
         },
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 24
         }
        ]
+      },
+      {
+       "words": "Mr",
+       "at": 4,
+       "note": "the title Mr, taken as its own two letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A cartoon dad is declared to be a different kind of man altogether.",
-     "walkthrough": "Remove M and R from HOMER SIMPSON, add A, and rearrange the eleven letters.",
-     "definitionFit": "Homo sapiens is the scientific name for the human species, mankind."
+     "surface": "A jokey reminder that the cartoon dad is not a real person but a different sort of man altogether.",
+     "walkthrough": "Take the letters of HOMER SIMPSON plus A, strike out M and R ('Not Mr'), and rearrange what is left ('different') to get HOMO SAPIENS.",
+     "definitionFit": "Homo sapiens is the scientific name of the human species, so it is a fair description of man in the general sense."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "Mr."
+     "misdirectedWord": "Homer"
     }
    }
   },

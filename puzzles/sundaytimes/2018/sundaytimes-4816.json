@@ -166,42 +166,40 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "deletion",
+     "indicators": [
       {
-       "unchecked": true,
-       "words": "After a break",
-       "note": "an instruction about the clue itself: split the last word in two before reading it"
+       "text": "After a break",
+       "at": 0,
+       "note": "'After a break' tells the solver to split the last word in two, so its first half is the wordplay and its second half the definition"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "remove bottom of",
-         "note": "in a down clue the bottom is the last letter, and removing it cuts that letter off"
-        }
-       ],
-       "parts": [
-        {
-         "words": "book",
-         "gives": "LEDGER",
-         "note": "a ledger is an account book"
-        },
-        {
-         "gives": "R"
-        }
-       ]
+       "text": "remove bottom of",
+       "at": 15,
+       "note": "'remove bottom of' says the down entry loses its lowest letter, the last one in a down light"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bookshelf",
+       "at": 32,
+       "gives": "LEDGER",
+       "note": "the BOOK half of the broken word: a ledger is an account book"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Fixing a bookshelf by taking away its bottom after it broke.",
-     "walkthrough": "'After a break' tells you to break the last word in two, book and shelf; the book loses its final R and the shelf is the definition.",
-     "definitionFit": "A ledge is a narrow horizontal shelf projecting from a wall or surface."
+     "surface": "Instructions for a DIY job: after a pause, take the bottom board out of the bookshelf.",
+     "walkthrough": "'After a break' tells you to split BOOKSHELF into BOOK and SHELF: LEDGER (book) with 'remove bottom of' taking off its last letter R gives LEDGE, and SHELF is the definition.",
+     "definitionFit": "A ledge is a narrow flat projection from a wall, which is just what a shelf is."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "break"
     }
    }
