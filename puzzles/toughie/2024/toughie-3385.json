@@ -166,36 +166,41 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SHERRY",
      "indicators": [
       {
-       "text": "changes direction",
-       "note": "the first letter is a compass point, and changing direction swaps it for another compass point"
+       "text": "initially changes",
+       "at": 5,
+       "note": "initially changes means the first letter, itself a compass point, swaps for another"
       }
      ],
      "parts": [
       {
        "words": "Boat",
+       "at": 0,
        "gives": "WHERRY",
        "note": "a wherry is a light rowing boat or barge"
       },
       {
-       "words": "initially",
+       "gives": "W"
+      },
+      {
+       "words": "direction",
+       "at": 23,
        "gives": "S",
-       "note": "the opening W (west) is replaced by S (south)"
+       "note": "S, south, is a compass direction"
       }
      ]
     },
     "explanation": {
-     "surface": "A boat starts to steer a new course towards the Spanish port.",
-     "walkthrough": "WHERRY starts with W for west; switch it to S for south and you have SHERRY.",
-     "definitionFit": "Sherry is the fortified wine from Jerez, and its English name comes from the town's name, so Jerez stands for it by example."
+     "surface": "A boat alters course, heading for the Spanish town of Jerez.",
+     "walkthrough": "The first letter of WHERRY is W, west; it becomes S, south, which is why 'changes direction' is fair.",
+     "definitionFit": "Sherry is the fortified wine of Jerez in Andalusia, and its English name comes from that town's old spelling."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Jerez"
+     "joke": "pun",
+     "misdirectedWord": "direction"
     }
    }
   },

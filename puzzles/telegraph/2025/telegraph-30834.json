@@ -701,7 +701,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Ziggy Stardust?",
+      "text": "Ziggy Stardust",
       "at": 32
      }
     ],
@@ -710,41 +710,46 @@
      "indicators": [
       {
        "text": "covering",
-       "note": "to cover something is to wrap around it, so the other pieces sit inside"
+       "at": 7,
+       "note": "covering means the singer's voice part wraps around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Singer",
-         "gives": "ALTO",
-         "note": "an alto is a singer with a low female or high male voice"
-        },
-        {
-         "words": "Queen",
-         "gives": "ER",
-         "note": "Elizabeth Regina"
-        }
-       ]
+       "words": "Singer",
+       "at": 0,
+       "gives": "ALTO",
+       "note": "an alto is a singer with a low female or high male voice"
       },
       {
-       "words": "say",
-       "gives": "EG",
-       "note": "e.g., for example"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Queen",
+         "at": 16,
+         "gives": "ER",
+         "note": "ER is Elizabeth Regina, the Queen"
+        },
+        {
+         "words": "say",
+         "at": 23,
+         "gives": "EG",
+         "note": "say means for example, abbreviated EG"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vocalist does a cover of a Queen song, or perhaps a Bowie one.",
-     "walkthrough": "The surface suggests rock covers; Queen is ER, and the question mark marks Ziggy Stardust as an example.",
-     "definitionFit": "Ziggy Stardust was the stage persona David Bowie adopted, a second self, which is what an alter ego is."
+     "surface": "Is a singer covering a Queen song, or is it really Bowie's Ziggy Stardust?",
+     "walkthrough": "'Covering Queen' reads like a cover version of the band Queen; the Queen here is just ER.",
+     "definitionFit": "Ziggy Stardust was David Bowie's stage persona, a second self or other identity he performed as."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Queen"
+     "joke": "pun",
+     "misdirectedWord": "covering"
     }
    }
   },
@@ -1685,47 +1690,39 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece goes around the others"
+       "at": 13,
+       "note": "about means the musical work goes around the two letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Musical work",
+       "at": 0,
+       "gives": "SONG",
+       "note": "a song is a short musical work"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Musical work",
-         "gives": "SONG",
-         "note": "a song is a piece of music"
+         "words": "girl's final",
+         "at": 28,
+         "gives": "L",
+         "note": "the last letter of girl"
         },
         {
          "words": "love",
+         "at": 19,
          "gives": "O",
-         "note": "love is zero in tennis, the letter O"
-        }
-       ]
-      },
-      {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "final",
-         "note": "final points to the closing letter of the word before it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "girl's",
-         "gives": "GIRL",
-         "note": "the last letter of girl"
+         "note": "love is zero in tennis, which looks like O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A love song as a girl's last goodbye.",
-     "walkthrough": "O and L go inside SONG.",
-     "definitionFit": "So long is an informal way of saying goodbye."
+     "surface": "A love song about a girl ends with a final goodbye.",
+     "definitionFit": "So long is an informal way of saying goodbye when parting."
     },
     "features": {
      "answerInScene": true,

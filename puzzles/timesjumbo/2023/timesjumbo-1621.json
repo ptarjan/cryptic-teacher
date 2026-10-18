@@ -1616,41 +1616,33 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "PERIPHRASTIC",
+     "op": "anagram",
      "indicators": [
       {
        "text": "In",
-       "note": "in places one thing inside another before the mixing"
+       "at": 0,
+       "note": "In, with badly, says the letters are put into a jumbled form"
+      },
+      {
+       "text": "badly",
+       "at": 18,
+       "note": "badly means the letters of the two words are put together in a poor, jumbled order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "badly",
-         "note": "badly means done wrong, so the letters are jumbled"
-        }
-       ],
-       "parts": [
-        {
-         "words": "spirit",
-         "note": "taken as written"
-        },
-        {
-         "words": "preach",
-         "note": "taken as written"
-        }
-       ]
+       "words": "spirit",
+       "at": 3
+      },
+      {
+       "words": "preach",
+       "at": 11
       }
      ]
     },
     "explanation": {
-     "surface": "A fervent preacher delivers a sermon poorly, using long-winded language.",
-     "walkthrough": "Combine the two words and jumble all twelve letters.",
-     "definitionFit": "Periphrasis is roundabout expression, using several words where one would do, so periphrastic speech is long-winded."
+     "surface": "A preacher's sermon delivered with spirit but poorly, full of long-winded phrasing.",
+     "definitionFit": "Periphrastic describes speech that goes round the houses, using circumlocution instead of saying things directly."
     },
     "features": {
      "answerInScene": true,
@@ -2258,46 +2250,49 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in puts one piece inside another"
+       "at": 39,
+       "note": "in places the leader and the one inside the attendance word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "attendance",
+       "at": 42,
+       "gives": "PRESENCE",
+       "note": "presence means being in attendance"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "attendance",
-         "gives": "PRESENCE",
-         "note": "presence is being in attendance"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "leader",
-           "note": "the leader of a word is its opening letter"
+           "at": 27,
+           "note": "the leader of a word is its first letter, here of courtiers'"
           }
          ],
          "parts": [
           {
            "words": "courtiers'",
-           "note": "its first letter"
+           "at": 16
           }
          ]
+        },
+        {
+         "words": "one",
+         "at": 35,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
         }
        ]
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A royal attendant glimpses the future while waiting on the monarch.",
-     "walkthrough": "The courtiers' initial and the numeral go together inside the attendance word.",
-     "definitionFit": "Second sight is the supposed ability to see future events, which is knowledge of things before they happen."
+     "surface": "A court official foresees things while attending on royalty.",
+     "definitionFit": "Prescience is foreknowledge of events, which is what clairvoyant second sight claims to give."
     },
     "features": {
      "answerInScene": false,
