@@ -43,41 +43,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ATTEMPT",
-     "indicators": [
-      {
-       "text": "Discard half of",
-       "note": "throwing away half a word leaves only its other half, here the back two letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Discard half of",
+         "at": 0,
+         "note": "throwing away half of the four-letter word that leaves only its back two letters"
+        }
+       ],
        "parts": [
         {
          "words": "that",
-         "gives": "AT",
-         "note": "the front half TH is thrown away, leaving the back half"
+         "at": 16
         },
         {
-         "words": "egg on",
-         "gives": "TEMPT",
-         "note": "to egg someone on is to urge or entice them"
+         "gives": "TH"
         }
        ]
+      },
+      {
+       "words": "egg on",
+       "at": 21,
+       "gives": "TEMPT",
+       "note": "to egg someone on is to tempt or urge them"
       }
      ]
     },
     "explanation": {
-     "surface": "A cook gives up on a half-used egg once it turns out to be cracked.",
-     "walkthrough": "'Crack' looks like part of the egg story, but it is the definition, in the sense of 'have a crack at'. 'Egg on' is a phrasal verb, not breakfast.",
-     "definitionFit": "To have a crack at something is to make a try at it, so the noun crack is a colloquial synonym."
+     "surface": "A cook throws away half an egg on seeing that the shell is cracked.",
+     "walkthrough": "'Discard half of that' drops TH, leaving AT; 'egg on' is a phrasal verb, not a breakfast ingredient. 'Crack' is the noun, as in 'have a crack at it'.",
+     "definitionFit": "A crack at something is an informal word for a try or go at it."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "egg"
     }
    }
@@ -103,62 +105,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ASTUTE",
+     "op": "composite",
      "indicators": [
       {
-       "text": "freely",
-       "note": "letters moving freely are not tied to their places, so what remains is rearranged"
+       "text": "dropping",
+       "at": 18,
+       "note": "dropping says the letters of the word or are lost from the fish's letters"
+      },
+      {
+       "text": "rising freely",
+       "at": 30,
+       "note": "rising freely suggests the remaining letters float up loose and settle in a new order"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "ASTUTE",
-       "indicators": [
-        {
-         "text": "rising",
-         "note": "in a down entry something rising reads from the bottom upwards, so the short word turns round"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "ASTUTE",
-         "indicators": [
-          {
-           "text": "dropping",
-           "note": "to drop something is to let it fall away, so these letters leave the fish"
-          }
-         ],
-         "parts": [
-          {
-           "words": "sea trout",
-           "note": "taken as written, the name of the fish"
-          },
-          {
-           "words": "or",
-           "gives": "RO",
-           "note": "taken as written and then turned round; this pair sits in the middle of the fish"
-          }
-         ]
-        }
-       ]
+       "words": "sea trout",
+       "at": 7
+      },
+      {
+       "words": "or",
+       "at": 27
       }
      ]
     },
     "explanation": {
-     "surface": "An angler admires a cunning sea trout that keeps diving and surfacing at will.",
-     "walkthrough": "Removing RO from SEATROUT leaves SEATUT, which rearranges to ASTUTE. 'Dropping or rising' reads like a fish's movement in the water.",
-     "definitionFit": "Someone crafty is shrewd and cunning in getting their way, which is what astute describes as an adjective."
+     "surface": "A wily sea trout escapes the angler, now diving, now rising freely.",
+     "walkthrough": "'Dropping' takes O and R out of SEATROUT to leave SEATUT, and 'rising freely' rearranges those six letters.",
+     "definitionFit": "Astute and crafty are both synonyms for shrewd and clever at getting an advantage."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "rising"
+     "misdirectedWord": "or"
     }
    }
   },
@@ -619,24 +598,28 @@
      "indicators": [
       {
        "text": "Tucked into",
-       "note": "something tucked into a phrase is wrapped up inside it, so the letters run continuously within the words"
+       "at": 0,
+       "note": "tucked into means the answer sits enclosed within the run of letters of these words"
       }
      ],
      "parts": [
       {
        "words": "cornflakes, I'd eaten",
-       "note": "the letters run straight on from the end of the cereal through the next two words"
+       "at": 12,
+       "gives": "LAKESIDE",
+       "note": "the letters run on through cornflakes and I'd into eaten"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone describes having had breakfast cereal with water at hand.",
-     "walkthrough": "'Tucked into' reads as eating, which suits the breakfast picture, but it means the answer is buried in the words. Crossing the comma and apostrophe is allowed.",
-     "definitionFit": "A lakeside place lies on the shore of a lake, so there is water close by."
+     "surface": "Someone describes tucking into a bowl of cornflakes, having eaten with a glass of water nearby.",
+     "walkthrough": "'Tucked into' reads as eating breakfast, but it signals letters concealed in 'cornflakes, I'd eaten'.",
+     "definitionFit": "A lakeside spot is beside a lake, so water is right there next to it."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Tucked"
     }
    }
@@ -1434,60 +1417,64 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EXPENDABLE",
      "indicators": [
       {
        "text": "in",
-       "note": "one piece is placed in the middle of the others"
+       "at": 13,
+       "note": "in puts the writing item inside the string made by the rest of the clue"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "half-heartedly",
-         "note": "with half its heart gone, one of the two middle letters is removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Echo",
-           "gives": "E",
-           "note": "Echo is E in the NATO phonetic alphabet"
-          },
-          {
-           "words": "Times",
-           "gives": "X",
-           "note": "X is the multiplication sign, read as 'times'"
-          },
-          {
-           "words": "Writing item",
-           "gives": "PEN",
-           "note": "a pen is something to write with"
-          },
-          {
-           "words": "tinker",
-           "gives": "DABBLE",
-           "note": "to tinker is to dabble, dropping one B of the doubled pair"
-          }
-         ]
+         "words": "Echo",
+         "at": 16,
+         "gives": "E",
+         "note": "Echo is E in the NATO phonetic alphabet"
         },
         {
-         "gives": "B"
+         "words": "Times",
+         "at": 23,
+         "gives": "X",
+         "note": "the times sign is X"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half-heartedly",
+           "at": 37,
+           "note": "half-heartedly removes one of the two identical central letters, halving the heart of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tinker",
+           "at": 30,
+           "gives": "DABBLE",
+           "note": "to tinker or dabble is to potter about at something"
+          },
+          {
+           "gives": "B"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Writing item",
+       "at": 0,
+       "gives": "PEN",
+       "note": "a pen is an item for writing with"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone dismisses a feature in local papers, the Echo and Times, as half-hearted tinkering fit only for the bin.",
-     "walkthrough": "The italic Echo and Times look like newspapers, but they are letters: E from the phonetic alphabet, X as the multiplication sign. The pen sits between them and DABLE.",
-     "definitionFit": "Something throwaway can be discarded without loss, which is what an expendable item is."
+     "surface": "A writer at the Times tinkers half-heartedly with a disposable piece.",
+     "walkthrough": "'Times' is the multiplication sign X, not the newspaper. 'Half-heartedly' says DABBLE loses one of the BB at its heart, leaving DABLE; 'in' puts PEN between EX and DABLE.",
+     "definitionFit": "Something expendable can be thrown away or sacrificed without real loss."
     },
     "features": {
      "answerInScene": false,

@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -282,44 +283,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Manx",
-       "note": "The Manx is the tailless breed of cat from the Isle of Man, so a Manx one here is a cat's name with its tail — the last letter — gone."
-      }
-     ],
      "parts": [
       {
-       "words": "cat",
-       "gives": "PUM",
-       "note": "a puma is a big cat, and this one has lost its tail — the final A comes off"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "ICE",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "principally",
-         "note": "A principal letter is the one a word leads with, so the initials of the words that follow are all that is taken."
+         "text": "Manx",
+         "at": 0,
+         "note": "a Manx cat has no tail, so the cat word loses its last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
+         "words": "cat",
+         "at": 5,
+         "gives": "PUMA",
+         "note": "a puma is a big cat"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "principally",
+         "at": 9,
+         "note": "principally takes the first, principal, letter of each of the following words"
+        }
+       ],
+       "parts": [
+        {
          "words": "is clearly even",
-         "gives": "ICE",
-         "select": "first",
-         "note": "the opening letters of those three words, read in the order they come"
+         "at": 21,
+         "note": "the first letters of is, clearly and even"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "One cat plainly being even smoother than the rest.",
-     "walkthrough": "'Even smoother' spends the whole clue persuading you that the last word is a comparative adjective, when it is a noun: a thing used to smooth something down.",
-     "definitionFit": "A smoother is something that smooths, and a block of pumice — light volcanic rock — is exactly what you rub a rough surface down with."
+     "surface": "A tailless cat from the Isle of Man is plainly sleeker than others.",
+     "walkthrough": "'Manx' turns the cat into a tailless PUMA, PUM. 'Smoother' is a noun: pumice is a stone used to smooth skin or polish surfaces.",
+     "definitionFit": "Pumice is a light volcanic stone rubbed on hard skin or wood to make it smooth, so it is a smoothing tool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Manx"
     }
    }
   },
@@ -944,37 +957,42 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SILENT",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "This is an across entry, so a piece sent back is written from right to left and its two letters change places."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 7,
+         "note": "back means the little word is read the other way round"
+        }
+       ],
        "parts": [
         {
-         "words": "is back",
-         "gives": "SI",
-         "note": "the clue's own second word, turned round"
-        },
-        {
-         "words": "fast",
-         "gives": "LENT",
-         "note": "Lent is the church's forty-day fast before Easter"
+         "words": "is",
+         "at": 4
         }
        ]
+      },
+      {
+       "words": "fast",
+       "at": 12,
+       "gives": "LENT",
+       "note": "Lent is the Christian period of fasting before Easter"
       }
      ]
     },
     "explanation": {
-     "surface": "Mum getting home again in no time at all.",
-     "walkthrough": "Both content words swap meaning at once: 'Mum' is the keeping-quiet sense of mum's the word rather than anybody's mother, and 'fast' is the going-without sense rather than the speed one.",
-     "definitionFit": "To keep mum is to say nothing at all, so 'Mum' and the answer are the same adjective — not speaking."
+     "surface": "Mum has returned home and is now fasting.",
+     "walkthrough": "'Mum' looks like a mother, but it is the adjective, as in 'keep mum', meaning saying nothing. Lent is the forty days of fasting before Easter.",
+     "definitionFit": "To be mum is to stay quiet and say nothing at all, which is what silent means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mum"
     }
    }
   },
@@ -1048,53 +1066,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PHOBIA",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 13,
+       "note": "upset says the letters of these words are knocked over and put in a new order"
+      },
+      {
+       "text": "wasting",
+       "at": 31,
+       "note": "wasting means some letters are squandered and lost from the mix"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "upset",
-         "note": "Something upset has been knocked over and its contents spilled out of their arrangement, which is what happens to these letters."
-        }
-       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "wasting",
-           "note": "What is wasted is used up and gone, so whatever is named after it disappears from the letters rather than joining them."
-          }
-         ],
-         "parts": [
-          {
-           "words": "boss",
-           "gives": "BO",
-           "note": "both of the word's s's drop out, leaving only the two letters it opens with as fodder"
-          },
-          {
-           "words": "his PA",
-           "gives": "HIPA",
-           "note": "the personal assistant read as two letters, and the s in 'his' goes the same way"
-          }
-         ]
+         "words": "boss",
+         "at": 5
         },
         {
-         "unchecked": true,
-         "words": "seconds",
-         "note": "s = second, and the plural asks for every s in those nine letters — there are three"
+         "words": "his PA",
+         "at": 24
         }
        ]
+      },
+      {
+       "words": "seconds",
+       "at": 39,
+       "gives": "SSS",
+       "note": "S is the abbreviation for second, so seconds is several of them, here three"
       }
      ]
     },
     "explanation": {
-     "surface": "A boss annoyed that his assistant is frittering time away.",
-     "walkthrough": "'Wasting seconds' reads as time thrown away and is really an instruction to bin three letters, with the plural doing the counting. 'Fear' alone is the definition, though it reads as part of the office mood.",
-     "definitionFit": "A phobia is fear pushed past reason and fixed on one thing, so 'Fear' names the family the answer belongs to rather than matching it exactly."
+     "surface": "A boss is upset that his personal assistant keeps wasting time.",
+     "walkthrough": "'Upset' rearranges BOSS with HIS PA once 'wasting' throws away all three S letters, leaving BOHIPA to shuffle; 'is' is a link.",
+     "definitionFit": "A phobia is an intense, irrational dread of something, a kind of fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seconds"
     }
    }
   },

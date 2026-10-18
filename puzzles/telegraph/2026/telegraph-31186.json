@@ -1116,54 +1116,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ODYSSEUS",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "making a word brief means cutting it short, so it loses its last letter"
+       "text": "in possession of",
+       "at": 36,
+       "note": "in possession of says the jumbled letters hold the ship's letters inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in possession of",
-         "note": "to possess something is to hold it, so one piece holds the other"
+         "text": "at sea",
+         "at": 29,
+         "note": "at sea means confused and all over the place, so the letters are scrambled"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "at sea",
-           "note": "being at sea means being confused or adrift, so the letters are jumbled"
+           "text": "briefly",
+           "at": 21,
+           "note": "briefly cuts the phrase short by its final letter"
           }
          ],
          "parts": [
           {
            "words": "you'd see",
-           "gives": "YOUDSE",
-           "note": "the contraction's letters and the word shortened by one"
+           "at": 11
+          },
+          {
+           "gives": "E"
           }
          ]
-        },
-        {
-         "words": "ship",
-         "gives": "SS",
-         "note": "SS stands for steamship"
         }
        ]
+      },
+      {
+       "words": "ship",
+       "at": 53,
+       "gives": "SS",
+       "note": "SS is the abbreviation for steamship"
       }
      ]
     },
     "explanation": {
-     "surface": "A seafaring hero you would glimpse out on the ocean aboard his vessel.",
-     "walkthrough": "'At sea' fits the seafaring surface perfectly, which hides its role as the mixing signal.",
-     "definitionFit": "Odysseus is the Homeric hero whose ten-year voyage home from Troy makes him literature's archetypal wanderer."
+     "surface": "A sailor tells a wandering hero that he will see him shortly on the ocean, aboard a ship.",
+     "walkthrough": "'Briefly' drops the last E of 'you'd see' and 'at sea' scrambles the rest; 'ship' is SS (steamship), held in the middle. Odysseus is the wandering hero of Homer's Odyssey.",
+     "definitionFit": "Odysseus spent ten years voyaging home from Troy, the archetypal adventurer of Greek myth."
     },
     "features": {
      "answerInScene": true,
@@ -1357,41 +1361,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AVARICIOUS",
-     "indicators": [
-      {
-       "text": "skinned",
-       "note": "skinning strips off the outer layer, so the first and last letters are lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "eating",
+         "at": 9,
+         "note": "eating means the savage word takes the other letters inside it, as if swallowing them"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
+         "words": "savage",
+         "at": 2,
+         "gives": "VICIOUS",
+         "note": "savage and vicious are synonyms for fierce and cruel"
         },
         {
-         "op": "container",
+         "op": "middle",
          "indicators": [
           {
-           "text": "eating",
-           "note": "what is eaten goes inside, so one piece is taken within the other"
+           "text": "skinned",
+           "at": 16,
+           "note": "skinned strips the outer letters off the word hare, leaving its middle"
           }
          ],
          "parts": [
           {
-           "words": "savage",
-           "gives": "VICIOUS",
-           "note": "savage and vicious both mean fiercely violent"
-          },
-          {
            "words": "hare",
-           "gives": "AR",
-           "note": "the word without its outer letters"
+           "at": 24,
+           "note": "the inner two letters of hare, once its first and last are stripped"
           }
          ]
         }
@@ -1400,12 +1405,12 @@
      ]
     },
     "explanation": {
-     "surface": "A wild beast devours a skinned hare out of sheer greed.",
-     "walkthrough": "The skinned hare keeps only its middle two letters, which go inside the word for savage, after the opening A.",
-     "definitionFit": "Avarice is an extreme desire for wealth, so avaricious is a direct synonym of greedy."
+     "surface": "A wild animal devours a hare after skinning it, showing its greed.",
+     "walkthrough": "'Savage' looks like the definition of a beast, but it is VICIOUS; 'skinned' strips the hare, and 'eating' puts what is left after the V.",
+     "definitionFit": "Avaricious describes an insatiable desire for wealth, a form of greed."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "skinned"
     }

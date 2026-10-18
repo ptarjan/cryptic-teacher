@@ -217,44 +217,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PEARSHAPED",
+     "op": "composite",
      "indicators": [
       {
+       "text": "After taking",
+       "at": 0,
+       "note": "after taking means once a letter has been taken away from the phrase"
+      },
+      {
        "text": "strangely",
-       "note": "something done strangely is done oddly, so the letters come out in an odd new order"
+       "at": 34,
+       "note": "strangely says the remaining letters are arranged in an odd new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PEARSHAPED",
-       "indicators": [
-        {
-         "text": "After taking",
-         "note": "after something has been taken away it is no longer present, so a letter is removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "ecstasy",
-         "gives": "E",
-         "note": "E is the street abbreviation for the drug ecstasy"
-        },
-        {
-         "words": "she appeared",
-         "note": "taken as written"
-        }
-       ]
+       "words": "she appeared",
+       "at": 21
+      },
+      {
+       "words": "ecstasy",
+       "at": 13,
+       "gives": "E",
+       "note": "E is the standard abbreviation for the drug ecstasy"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman who took ecstasy looked oddly heavy around the hips afterwards.",
-     "walkthrough": "'After taking ecstasy' sounds like drug use, but it means after removing one E from the phrase that follows; the remaining ten letters are then rearranged.",
-     "definitionFit": "A pear-shaped figure is wider at the hips and base than at the top, just like the fruit."
+     "surface": "After taking the drug ecstasy, a woman looked oddly weighed down at the bottom.",
+     "walkthrough": "'After taking' removes one E from SHEAPPEARED, and 'strangely' rearranges the remaining SHAPPEARD into the answer.",
+     "definitionFit": "A pear-shaped figure is broader at the hips than the shoulders, like the fruit, so its weight sits low."
     },
     "features": {
      "answerInScene": true,
@@ -520,52 +512,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TREASURE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means nearly but not quite, so the final letter is dropped"
+       "text": "after",
+       "at": 43,
+       "note": "after says the rest of the answer follows the time letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "time",
+       "at": 49,
+       "gives": "T"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "after",
-         "note": "after means following, so the later material comes behind what precedes it"
+         "text": "almost completely",
+         "at": 8,
+         "note": "almost completely leaves off the final letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
+         "words": "true",
+         "at": 26,
+         "gives": "REAL",
+         "note": "real and true are synonyms"
         },
         {
-         "words": "completely true",
-         "gives": "REA",
-         "note": "real means completely true, cut short by one letter"
-        },
-        {
-         "words": "certain",
-         "gives": "SURE",
-         "note": "sure means certain"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "certain",
+       "at": 35,
+       "gives": "SURE",
+       "note": "sure and certain are synonyms"
       }
      ]
     },
     "explanation": {
-     "surface": "A sentimental claim that love is nearly always true and sure, given time.",
-     "walkthrough": "The trimmed word plus the certainty word come after the time letter.",
-     "definitionFit": "Treasure is a term of endearment for a dearly loved person, as in 'my treasure', like 'my love'."
+     "surface": "A romantic insists their love is nearly completely true and certain over time.",
+     "walkthrough": "'Almost completely' trims REAL to REA. 'Love' is a verb here: to treasure someone is to cherish them.",
+     "definitionFit": "To treasure something is to hold it dear and cherish it, which is a way of loving it."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Love"
     }
    }
@@ -995,42 +992,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LAUGHTER",
-     "indicators": [
-      {
-       "text": "losing head",
-       "note": "losing its head means a word drops its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "liberal",
+       "at": 9,
+       "gives": "L"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing head",
+         "at": 27,
+         "note": "losing head takes away the first letter of the word"
+        }
+       ],
        "parts": [
         {
-         "words": "liberal",
-         "gives": "L",
-         "note": "L is the abbreviation for Liberal"
+         "words": "offspring",
+         "at": 17,
+         "gives": "DAUGHTER",
+         "note": "a daughter is a female offspring"
         },
         {
-         "words": "offspring",
-         "gives": "AUGHTER",
-         "note": "daughter, a female child, without its first letter"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A liberal's child gets so amused they lose their head.",
-     "walkthrough": "'Offspring' must be narrowed to a specific child word before it is beheaded.",
-     "definitionFit": "Mirth is merriment and amusement expressed by laughing, so the two words are close synonyms."
+     "surface": "A free-thinking parent's child loses their head with merriment.",
+     "walkthrough": "'Losing head' cuts DAUGHTER to AUGHTER, which follows L.",
+     "definitionFit": "Mirth is amusement shown in laughing, so the two words are close synonyms."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "head"
+     "misdirectedWord": "liberal"
     }
    }
   },

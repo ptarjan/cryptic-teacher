@@ -1244,52 +1244,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VENUE",
-     "indicators": [
-      {
-       "text": "shortened",
-       "note": "shortened means cut down, so the last letter is lopped off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortened",
+         "at": 8,
+         "note": "shortened cuts the goddess's name down by its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "Goddess",
-         "gives": "VENU",
-         "note": "Venus, Roman goddess of love, minus her final letter"
+         "at": 0,
+         "gives": "VENUS",
+         "note": "Venus is the Roman goddess of love"
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "the end of a word is its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "programme",
-           "note": "final letter of the word"
-          }
-         ]
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 18,
+         "note": "end of picks out the last letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "programme",
+         "at": 25,
+         "note": "the last letter of programme"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A star cut her show short in an arena.",
-     "walkthrough": "'maybe' marks the definition as an example: a stadium is one kind of event location.",
-     "definitionFit": "A place where an event such as a match or concert is held, and a stadium is one example."
+     "surface": "A goddess's role is cut short at the end of a programme screened in a sports stadium.",
+     "walkthrough": "'Shortened' trims VENUS to VENU, and 'end of programme' adds E. 'Maybe' marks the stadium as one example of the answer.",
+     "definitionFit": "A stadium is one kind of venue, a place where events such as matches or concerts are held."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Goddess"
+     "misdirectedWord": "programme"
     }
    }
   }
