@@ -298,47 +298,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RAILHUB",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not entirely, so the final letter is dropped"
+       "text": "sporting",
+       "at": 19,
+       "note": "sporting a new style, the letters of the hairdo are worn in a different arrangement"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "sporting",
-         "note": "sporting suggests playful frolicking, so the letters jump about into a new order"
+         "text": "mostly",
+         "at": 28,
+         "note": "mostly means most but not all, so the word blue loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "blue",
-         "gives": "BLU",
-         "note": "the colour word without its last letter"
+         "at": 35,
+         "note": "taken as written, before its last letter goes"
         },
         {
-         "words": "hair",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "hair",
+       "at": 40,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman called Victoria shows off her dyed blue hairdo.",
-     "walkthrough": "Victoria looks like a woman's name, but here it is Victoria station, a major London railway terminus; 'sporting' reads as 'wearing' rather than as a signal.",
-     "definitionFit": "Victoria station is a busy central London terminus where many lines meet, an example of a major railway interchange."
+     "surface": "Someone named Victoria shows off hair dyed mostly blue.",
+     "walkthrough": "'Victoria' looks like a woman with dyed hair; it is London Victoria station. 'mostly' trims BLUE to BLU, and 'sporting' rearranges BLU with HAIR.",
+     "definitionFit": "London Victoria is a major railway terminus where many lines meet, an example of a rail hub, hence 'Perhaps'."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Victoria's"
+     "misdirectedWord": "Victoria"
     }
    }
   },
@@ -619,27 +623,28 @@
      "op": "palindrome",
      "indicators": [
       {
-       "text": "looking back and forth?",
-       "note": "a word that reads the same both backwards and forwards is a palindrome"
+       "text": "looking back and forth",
+       "at": 11,
+       "note": "a name that looks the same whether read backwards or forwards is a palindrome"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "German lad",
-       "note": "a common German boy's name, spelt the same in both directions"
+       "at": 0,
+       "gives": "OTTO",
+       "note": "a common German boy's name of four letters, here also the material read both ways"
       }
      ]
     },
     "explanation": {
-     "surface": "A German boy glances nervously this way and that.",
-     "walkthrough": "The question mark flags that 'looking back and forth' describes the name's spelling, not the boy's gaze.",
-     "definitionFit": "Otto is a traditional masculine given name in Germany, borne by Bismarck and several emperors."
+     "surface": "A German boy glances behind him and then ahead.",
+     "walkthrough": "'looking back and forth' is only the hint that the name reads the same either way, so OTTO is the four-letter German boy's name that does.",
+     "definitionFit": "Otto is a common German male given name, so a German lad might well be called it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "looking"
     }
    }
@@ -1159,32 +1164,50 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "OILRICH",
+     "spelt": "OILRICH",
      "indicators": [
       {
-       "text": "Spooner's expressed",
-       "note": "Spooner famously swapped the opening sounds of words, so the initial sounds trade places"
+       "text": "Spooner's",
+       "at": 0,
+       "note": "Spooner swapped the opening sounds of words, so the spoken phrase has its starts exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "imperial desire",
-       "gives": "OILRICH",
-       "soundsLike": "ROYAL ITCH",
-       "note": "imperial means royal and a desire is an itch; swap the opening sounds"
+       "op": "homophone",
+       "spelt": "ROIL",
+       "indicators": [
+        {
+         "text": "expressed",
+         "at": 10,
+         "note": "expressed means spoken aloud, so it is the sound of the words that is swapped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "imperial",
+         "at": 20,
+         "gives": "ROYAL",
+         "note": "imperial means royal, befitting an emperor"
+        }
+       ]
+      },
+      {
+       "words": "desire",
+       "at": 29,
+       "gives": "ITCH",
+       "note": "an itch is a restless desire"
       }
      ]
     },
     "explanation": {
-     "surface": "A king longs to be as wealthy as the Gulf kingdom.",
-     "walkthrough": "Royal itch, with its first sounds exchanged, becomes 'oil rich'; 'expressed' tells you to work by sound.",
-     "definitionFit": "Saudi Arabia has huge petroleum reserves and wealth from them, so it is the classic example of a crude-wealthy nation."
+     "surface": "Spooner speaks of an emperor's longing to resemble the Saudi kingdom.",
+     "walkthrough": "ROYAL 'expressed' aloud is ROIL, and 'Spooner's' swap of the opening sounds of ROIL ITCH gives 'oil rich'. The Reverend Spooner was an Oxford don famous for transposing word beginnings.",
+     "definitionFit": "Saudi Arabia's wealth comes from huge petroleum reserves, so the country is the model of a nation made wealthy by crude."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "imperial"
     }

@@ -108,45 +108,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MADNESS",
+     "op": "container",
      "indicators": [
       {
-       "text": "on reflection",
-       "note": "a reflection shows a word back to front"
+       "text": "about",
+       "at": 15,
+       "note": "about means going around, so the service's letters wrap round the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Church service",
+       "at": 0,
+       "gives": "MASS",
+       "note": "Mass is the Catholic church service"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "about"
+         "text": "on reflection",
+         "at": 28,
+         "note": "a reflection shows a thing backwards, so the word for death is read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "Church service",
-         "gives": "MASS",
-         "note": "the Mass is a church service"
-        },
-        {
-         "words": "death, on reflection",
-         "gives": "DNE",
-         "note": "END, death, written backwards; it sits inside MA…SS"
+         "words": "death",
+         "at": 21,
+         "gives": "END",
+         "note": "death is the end of life"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone declares that holding a service about death is sheer lunacy.",
-     "walkthrough": "\"Death\" wants to be D, but D alone leaves the answer short; it is END, turned round and packed into MASS.",
-     "definitionFit": "Madness and insanity are the same loss of reason."
+     "surface": "A funeral mass, looked back on, is called madness by someone.",
+     "walkthrough": "'on reflection' reads like 'thinking it over', but it turns END round to DNE; 'about' then has the church service wrapped round it, MA-DNE-SS.",
+     "definitionFit": "Madness and insanity are synonyms for mental derangement."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "reflection"
     }
