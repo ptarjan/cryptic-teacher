@@ -922,52 +922,68 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ONGOING",
      "indicators": [
       {
        "text": "cuts",
-       "note": "something that cuts into another splits it and sits in the gap"
+       "at": 4,
+       "note": "cuts means slices into the middle of the other letters"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ONGOING",
        "indicators": [
         {
          "text": "to go",
-         "note": "things that are to go are being removed, so they are taken out"
+         "at": 23,
+         "note": "to go means to leave, so the other second also departs from the doubled word"
         }
        ],
        "parts": [
         {
-         "words": "two songs",
-         "gives": "SONGSONG",
-         "note": "song twice over"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "with",
+           "at": 10,
+           "note": "with ... to go reads as one instruction: the doubled word carries on with its seconds gone, so the first one leaves"
+          }
+         ],
+         "parts": [
+          {
+           "words": "two songs",
+           "at": 30,
+           "gives": "SONGSONG",
+           "note": "two songs written out twice: the word song, then song again"
+          },
+          {
+           "gives": "S"
+          }
+         ]
         },
         {
          "words": "seconds",
-         "gives": "SS",
-         "note": "s is short for second, and both of them are removed"
-        },
-        {
-         "words": "One",
-         "gives": "I",
-         "note": "the Roman numeral for one"
+         "at": 15,
+         "gives": "S",
+         "note": "S is the abbreviation for second, and the plural asks for two of them"
         }
        ]
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A DJ trims the setlist with seconds remaining, two songs still playing.",
-     "walkthrough": "Remove both S's from SONG SONG to leave ONGONG; then I splits it after the fourth letter.",
-     "definitionFit": "Ongoing describes something still continuing and not yet finished, the same idea as in progress."
+     "surface": "A DJ trimming a two-song medley, cutting seconds as the set goes on.",
+     "walkthrough": "'two songs' is SONG SONG; 'with seconds to go' removes each S (ONGSONG after the first) to leave ONGONG, and I (one) 'cuts' it after ONGO.",
+     "definitionFit": "Something ongoing is still continuing, which is what being in progress means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "seconds"
     }
@@ -1552,47 +1568,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "OVEREAT",
-     "indicators": [
-      {
-       "text": "after",
-       "note": "coming after means being placed behind in the line"
-      }
-     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "on",
+       "at": 6,
+       "gives": "OVER",
+       "note": "over can mean on, as a cloth laid over or on a table"
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "after cycling",
+         "at": 37,
+         "note": "after cycling means once its letters have gone round, the first moving to the back"
+        }
+       ],
        "parts": [
         {
-         "words": "on",
-         "gives": "OVER",
-         "note": "over can mean on top of, as on does"
-        },
-        {
-         "op": "cycling",
-         "indicators": [
-          {
-           "text": "cycling",
-           "note": "cycling sends letters round, the front one moving to the back"
-          }
-         ],
-         "parts": [
-          {
-           "words": "food served late in the day",
-           "gives": "TEA",
-           "note": "tea is a light afternoon meal in Britain"
-          }
-         ]
+         "words": "food served late in the day",
+         "at": 9,
+         "gives": "TEA",
+         "note": "tea is a meal eaten in the late afternoon or early evening, in Britain"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Stuffing yourself with an evening meal after a long bike ride.",
-     "walkthrough": "'Gorge on' wants to be the definition, but 'on' gives OVER; TEA, an afternoon or evening meal in Britain, has its T moved to the end.",
-     "definitionFit": "To gorge is to stuff yourself greedily, which is to eat too much."
+     "surface": "Stuffing yourself with a late meal after a long bike ride.",
+     "walkthrough": "In Britain tea can be an evening meal, not only the drink; 'after cycling' turns it into EAT. 'Gorge on' looks like one phrase, but 'on' is wordplay, the first piece.",
+     "definitionFit": "To gorge is to eat greedily and far too much, the same as to overeat."
     },
     "features": {
      "answerInScene": true,
@@ -1676,47 +1682,45 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "STOMACH",
      "indicators": [
       {
        "text": "kinky",
-       "note": "kinky means twisted, so the letters are bent into a new shape"
+       "at": 10,
+       "note": "kinky means twisted, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "STOMACH",
        "indicators": [
         {
          "text": "suppressed",
-         "note": "something suppressed is held down and kept out of sight"
+         "at": 29,
+         "note": "suppressed means held down and removed, so the letters of is drop out of masochist"
         }
        ],
        "parts": [
         {
          "words": "masochist",
-         "note": "taken as written"
+         "at": 16
         },
         {
          "words": "is",
-         "note": "taken as written; these letters are removed"
+         "at": 26
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A deviant masochist's longing is kept hidden.",
-     "walkthrough": "Remove I and S from masochist and twist the seven remaining letters.",
-     "definitionFit": "Stomach as a noun means appetite or inclination, as in having no stomach for a fight."
+     "surface": "A tabloid line about what a kinky masochist secretly wants.",
+     "walkthrough": "'is suppressed' takes IS out of MASOCHIST to leave MASOCHT, and 'kinky' rearranges those letters.",
+     "definitionFit": "To have no stomach for something is to lack the appetite or inclination for it, so stomach can mean desire."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "kinky"
+     "misdirectedWord": "Desire"
     }
    }
   },
