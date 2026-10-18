@@ -600,40 +600,44 @@
      "indicators": [
       {
        "text": "hiding",
-       "note": "something that hides another keeps it inside, out of sight"
+       "at": 19,
+       "note": "the agent is hiding the other pieces, keeping them tucked inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "agent",
-         "gives": "SPY",
-         "note": "a spy is a secret agent"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral for one"
-        }
-       ]
+       "words": "agent",
+       "at": 8,
+       "gives": "SPY",
+       "note": "a spy is a secret agent"
       },
       {
-       "words": "two females",
-       "gives": "FF",
-       "note": "F is the abbreviation for female, doubled"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 15,
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        },
+        {
+         "words": "two females",
+         "at": 31,
+         "gives": "FF",
+         "note": "F is the abbreviation for female, so two of them"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A smart secret agent hides out with a couple of women.",
-     "definitionFit": "Spiffy is informal American slang for smart, neat and well-dressed."
+     "surface": "A smartly dressed secret agent lies low in the company of two women.",
+     "definitionFit": "Spiffy is informal for smart and well dressed, a near synonym of stylish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "agent"
+     "misdirectedWord": "hiding"
     }
    }
   },
@@ -978,43 +982,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "dances madly",
-       "note": "madly says the letters go wild and land in a new order"
+       "text": "around",
+       "at": 31,
+       "note": "the jumbled letters go around the psychologist, enclosing him"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "around says the jumbled letters are placed about the other piece"
+         "text": "madly",
+         "at": 25,
+         "note": "dancing madly means the letters of the words are thrown about wildly"
         }
        ],
        "parts": [
         {
          "words": "he dances",
-         "note": "the letters of he dances, jumbled"
-        },
-        {
-         "words": "Psychologist",
-         "gives": "FREUD",
-         "note": "Sigmund Freud, founder of psychoanalysis"
+         "at": 15
         }
        ]
+      },
+      {
+       "words": "Psychologist",
+       "at": 0,
+       "gives": "FREUD",
+       "note": "Sigmund Freud, founder of psychoanalysis"
       }
      ]
     },
     "explanation": {
-     "surface": "A famous psychologist is pleased by the sight of a man dancing wildly around him.",
-     "walkthrough": "'Dances' looks like the verb, but it belongs to the fodder; 'madly' alone does the stirring.",
-     "definitionFit": "Schadenfreude is a German loanword for pleasure taken in another person's misfortune."
+     "surface": "A psychoanalyst watches a man dancing wildly and takes a twisted pleasure in it.",
+     "walkthrough": "The psychologist is the founder of psychoanalysis, and the German loanword is sitting in the clue as his name inside the jumbled dancer.",
+     "definitionFit": "The German loanword names the pleasure felt at another person's misfortune, a perverse kind of enjoyment."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "dances"
     }
@@ -1610,38 +1617,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "exceptionally",
-       "note": "something done exceptionally is out of the ordinary, so the letters fall into an unusual order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "exceptionally",
+         "at": 17,
+         "note": "done exceptionally, the letters are arranged out of the ordinary way"
+        }
+       ],
        "parts": [
         {
          "words": "neat pub",
-         "note": "the letters of neat pub rearranged"
-        },
-        {
-         "words": "say",
-         "gives": "UTTER",
-         "note": "to utter is to say"
+         "at": 31
         }
        ]
+      },
+      {
+       "words": "say",
+       "at": 41,
+       "gives": "UTTER",
+       "note": "to say is to utter"
       }
      ]
     },
     "explanation": {
-     "surface": "A buffet spread laid out in a remarkably tidy pub.",
-     "definitionFit": "Peanut butter is a paste of ground roasted peanuts, eaten spread on bread or toast."
+     "surface": "A tidy pub serves something to spread on bread.",
+     "walkthrough": "'pub, say' tempts you to look for an example of a pub, but 'say' is a verb here.",
+     "definitionFit": "A paste of ground roasted nuts, eaten spread on toast or sandwiches."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "spread"
+     "misdirectedWord": "say"
     }
    }
   },
@@ -1791,43 +1801,40 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TASTE",
      "indicators": [
       {
        "text": "moving along",
-       "note": "the first letter moves along the word to sit further inside it"
+       "at": 19,
+       "note": "the lifted first letter travels along the word and is set down further in"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "TASTE",
-         "parts": [
-          {
-           "words": "Country",
-           "gives": "STATE",
-           "note": "a state is a country"
-          }
-         ]
+         "words": "Country's",
+         "at": 0,
+         "gives": "STATE",
+         "note": "a country is a state; the 's links it to its leader"
         },
         {
-         "unchecked": true,
-         "words": "leader's",
-         "note": "names the first letter of the country, the one that does the moving"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "leader's",
+       "at": 10,
+       "gives": "S",
+       "note": "the leader of the word for country is its first letter, lifted off the front"
       }
      ]
     },
     "explanation": {
-     "surface": "A nation's head of state is on the move and demonstrating good judgement.",
-     "walkthrough": "'Leader' means the first letter, S, which leaves the front and is slipped back in after TA.",
-     "definitionFit": "Taste is one of the five senses, the faculty for perceiving flavour."
+     "surface": "A nation's head of state is on the move, displaying good judgement.",
+     "walkthrough": "Only the first letter moves; the rest of the word for country stays in order, so this is not a full rearrangement.",
+     "definitionFit": "Taste is one of the five senses, alongside sight, hearing, smell and touch."
     },
     "features": {
      "answerInScene": false,
@@ -2366,40 +2373,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "bucks",
-       "note": "a horse that bucks throws things about, so the letters are thrown into a new order"
+       "text": "taken in by",
+       "at": 31,
+       "note": "the jumbled letters are taken inside the word for mischief"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "mischievous action",
+       "at": 43,
+       "gives": "LARK",
+       "note": "a lark is a prank or piece of fun"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "taken in by",
-         "note": "something taken in by another is held inside it"
+         "text": "bucks",
+         "at": 24,
+         "note": "bucks as a verb, like a bucking horse, throws the letters about"
         }
        ],
        "parts": [
         {
-         "words": "mischievous action",
-         "gives": "LARK",
-         "note": "a lark is a prank or bit of mischief"
-        },
-        {
          "words": "has no",
-         "note": "the letters of has no, jumbled"
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trader without any dollars has fallen for a prank.",
-     "walkthrough": "'Bucks' looks like dollars, but it is the verb, like a horse throwing its rider.",
-     "definitionFit": "A loan shark is a moneylender charging extortionate interest, often backed by threats."
+     "surface": "A money man without a dollar to his name gets roped into a prank.",
+     "walkthrough": "'bucks' looks like dollars, which fits a financial dealer, but it is the verb, as a horse bucks.",
+     "definitionFit": "A loan shark is a moneylender charging extortionate interest, a predatory lender."
     },
     "features": {
      "answerInScene": true,

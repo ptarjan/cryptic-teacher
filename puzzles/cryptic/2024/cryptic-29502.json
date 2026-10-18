@@ -1240,72 +1240,68 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SYNONYM",
-     "indicators": [
-      {
-       "text": "funny",
-       "note": "funny means peculiar, so the letters come out in an odd order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "container",
-       "unchecked": true,
-       "gives": "SYNONYM",
        "indicators": [
         {
          "text": "storing",
-         "note": "storing means keeping inside, so one letter goes within another word"
+         "at": 4,
+         "note": "storing means keeping the letter inside"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "SYNONYM",
-         "indicators": [
-          {
-           "text": "not",
-           "note": "not means without, so a letter is taken away"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Tin",
-           "gives": "SN",
-           "note": "chemical symbol"
-          },
-          {
-           "words": "yen",
-           "gives": "Y",
-           "note": "currency abbreviation"
-          },
-          {
-           "words": "money",
-           "note": "taken as written"
-          },
-          {
-           "words": "European",
-           "gives": "E",
-           "note": "standard abbreviation"
-          }
-         ]
+         "words": "Tin",
+         "at": 0,
+         "gives": "SN",
+         "note": "Sn is the chemical symbol for tin"
+        },
+        {
+         "words": "yen",
+         "at": 12,
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "composite",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 17,
+         "note": "not means the letter for European is excluded from the jumble"
+        },
+        {
+         "text": "funny",
+         "at": 30,
+         "note": "funny means odd, so the remaining letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "money",
+         "at": 36
+        },
+        {
+         "words": "European",
+         "at": 21,
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tin hoarding Japanese cash, but no euros: odd money or something like it.",
-     "walkthrough": "'Tin' looks like a container or slang for cash; it is the metal, by its chemical symbol.",
-     "definitionFit": "A synonym is a word with the same or nearly the same meaning as another."
+     "surface": "A tin box holds Japanese cash, not Euros, just play money, or so the word suggests.",
+     "walkthrough": "SN holds Y; MONEY without E rearranges to ONYM.",
+     "definitionFit": "A synonym is a word with the same meaning as another."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Tin"
+     "misdirectedWord": "funny"
     }
    }
   },

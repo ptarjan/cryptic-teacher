@@ -49,37 +49,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "STANDARDCANDLE",
-     "indicators": [
-      {
-       "text": "when temperature dropped",
-       "note": "a falling temperature goes from hot to cold, so the letter for hot is swapped for the letter for cold"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "flag",
+       "at": 20,
        "gives": "STANDARD",
-       "note": "a standard is a banner or flag"
+       "note": "a standard is a flag or banner"
       },
       {
-       "words": "name",
-       "gives": "HANDLE",
-       "note": "a handle is a name, especially a nickname"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "when temperature dropped",
+         "at": 35,
+         "note": "hot becomes cold: H for hot is replaced by C for cold"
+        }
+       ],
+       "parts": [
+        {
+         "words": "name",
+         "at": 30,
+         "gives": "HANDLE",
+         "note": "a handle is a name or nickname"
+        },
+        {
+         "gives": "H"
+        },
+        {
+         "gives": "C"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone describes a defunct unit of measurement, or a flag that was lowered on a cold day.",
-     "walkthrough": "In HANDLE the H (hot) becomes C (cold), giving CANDLE. The standard candle was an old unit of luminous intensity, replaced by the candela.",
-     "definitionFit": "The standard candle was a historical measure of light intensity, now obsolete and superseded by the SI candela."
+     "surface": "An outdated measure flagged up with a name once things cooled down.",
+     "walkthrough": "Taps label hot H and cold C, so a dropping temperature turns H into C.",
+     "definitionFit": "The standard candle was an old measure of luminous intensity, replaced by the candela."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "dropped"
+     "misdirectedWord": "temperature"
     }
    }
   },
