@@ -913,39 +913,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in says the ace sits inside the town"
-      }
-     ],
      "parts": [
       {
        "words": "City",
+       "at": 0,
        "gives": "LA",
-       "note": "Los Angeles"
+       "note": "LA is Los Angeles"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "returned",
-         "note": "returned means sent back, so the town reads backwards"
+         "at": 23,
+         "note": "returned means the town with its added letter is read backwards"
         }
        ],
        "parts": [
         {
          "op": "container",
+         "indicators": [
+          {
+           "text": "in",
+           "at": 9,
+           "note": "in means the ace goes inside the name of the town"
+          }
+         ],
          "parts": [
           {
            "words": "Essex town",
+           "at": 12,
            "gives": "EPPING",
-           "note": "Epping, a town in Essex; reversed"
+           "note": "Epping is a town in Essex, England"
           },
           {
            "words": "ace",
+           "at": 5,
            "gives": "A",
-           "note": "A = ace, as on playing cards; goes inside GNI…PPE"
+           "note": "A is the card abbreviation for ace"
           }
          ]
         }
@@ -954,9 +959,9 @@
      ]
     },
     "explanation": {
-     "surface": "A city's star player in an Essex town went back with a bonus from America.",
-     "walkthrough": "Epping is a town in Essex, just outside London. The answer is an obscure word, so trust the wordplay.",
-     "definitionFit": "A regional word: in Louisiana a lagniappe is a small extra given to a customer with a purchase."
+     "surface": "A star from a city playing in a small English town gets a reward from America.",
+     "walkthrough": "A goes inside EPPING to give EPPAING, which returned reads GNIAPPE. Epping is a market town just north-east of London.",
+     "definitionFit": "Lagniappe, from Louisiana French, is a small extra gift given to a customer with a purchase."
     },
     "features": {
      "answerInScene": false,
@@ -1191,57 +1196,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "about means turned around"
+       "text": "to crack",
+       "at": 18,
+       "note": "to crack means the other letters break into the word for clue"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "clue",
+       "at": 27,
+       "gives": "HINT",
+       "note": "a hint is a clue"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "to crack",
-         "note": "to crack something is to break into it, so the reversed letters go inside"
+         "text": "about",
+         "at": 12,
+         "note": "about means the letters of so and the doctor are turned round"
         }
        ],
        "parts": [
         {
-         "words": "clue",
-         "gives": "HINT",
-         "note": "a clue is a hint"
-        },
-        {
-         "op": "reversal",
+         "op": "charade",
          "parts": [
           {
            "words": "So",
-           "note": "so as written"
+           "at": 0,
+           "gives": "SO"
+          },
+          {
+           "words": "doctor's",
+           "at": 3,
+           "gives": "MD",
+           "note": "MD is a doctor, Doctor of Medicine; the 's stands for 'is'"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "parts": [
-        {
-         "words": "doctor's",
-         "gives": "MD",
-         "note": "MD = Doctor of Medicine; the 's is 'is'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "So the doctor is about to crack the last clue.",
-     "walkthrough": "The surface is a solver on their final clue. 'Doctor's' stands for 'doctor is', so SO and MD reverse together.",
-     "definitionFit": "A plain synonym: the hindmost is the one at the very back, as in 'the devil take the hindmost'."
+     "surface": "A doctor is ready to solve a puzzle clue.",
+     "walkthrough": "SO and MD turned about give DMOS, which cracks HINT open.",
+     "definitionFit": "Hindmost means furthest behind, the one at the very end of a line."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "clue"
+     "misdirectedWord": "crack"
     }
    }
   },

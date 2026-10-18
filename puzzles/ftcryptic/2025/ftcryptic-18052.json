@@ -48,31 +48,32 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RESIGNED",
      "indicators": [
       {
-       "text": "to start",
-       "note": "the beginning of the word is what gets swapped out for something new"
+       "text": "to start afresh",
+       "at": 25,
+       "note": "start afresh means the first letter is replaced by RE, the prefix meaning again"
       }
      ],
      "parts": [
       {
-       "words": "afresh",
-       "gives": "RE",
-       "note": "re- is the prefix meaning again, anew"
+       "words": "intended",
+       "at": 16,
+       "gives": "DESIGNED",
+       "note": "designed can mean intended, as in designed to help"
       },
       {
-       "words": "intended",
-       "gives": "DESIGNED",
-       "note": "designed means meant or intended; its opening DE is the start replaced"
+       "gives": "DE"
+      },
+      {
+       "gives": "RE"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone quits after planning a fresh start.",
-     "walkthrough": "DESIGNED has its start, DE, made afresh as RE, giving RESIGNED.",
-     "definitionFit": "To resign is to quit or give up a post, so the past tense matches."
+     "surface": "Someone quit their job, having meant to make a new beginning.",
+     "walkthrough": "RE is the prefix meaning again or afresh; it takes the place of the opening DE.",
+     "definitionFit": "To resign is to give up a post or to accept defeat, so resigned means gave up."
     },
     "features": {
      "answerInScene": true,
@@ -471,32 +472,33 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "ICE",
+     "op": "deletion",
      "indicators": [
       {
        "text": "prime parts for",
-       "note": "prime here means the letters at prime-numbered positions: second, third, fifth"
+       "at": 8,
+       "note": "prime parts means keep only the letters at prime-numbered positions in the word, dropping the others"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Mickey",
-       "gives": "ICE",
-       "select": "prime",
-       "note": "letters two, three and five"
+       "at": 24
+      },
+      {
+       "gives": "MKY"
       }
      ]
     },
     "explanation": {
-     "surface": "Keeping the best roles for Mickey Mouse or Mickey Rooney.",
-     "definitionFit": "Ice means coolness or reserve of manner, as in an icy formality."
+     "surface": "Keep the best bits for Mickey.",
+     "walkthrough": "Positions 2, 3 and 5 are the prime ones in MICKEY, leaving I, C and E.",
+     "definitionFit": "Ice means cold formality of manner, a sense shared with reserve meaning aloofness."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "prime"
     }
    }
@@ -654,27 +656,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PARFAIT",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of pairs of words"
+       "at": 0,
+       "note": "Spooner's signals swapping the opening sounds of the two words, after the Reverend Spooner"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "advanced money",
-       "gives": "PARFAIT",
-       "soundsLike": "PAR FAY",
-       "note": "advanced is FAR and money is PAY; swapping their opening sounds"
+       "words": "advanced",
+       "at": 10,
+       "gives": "FAR",
+       "note": "far means advanced, as in far along"
+      },
+      {
+       "op": "homophone",
+       "spelt": "PAIT",
+       "parts": [
+        {
+         "words": "money",
+         "at": 19,
+         "gives": "PAY",
+         "note": "pay is money, wages"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cash advance spent on pudding.",
-     "definitionFit": "A parfait is a layered cold sweet of cream, fruit or ice cream, served as a pudding."
+     "surface": "A loan paid up front for pudding.",
+     "walkthrough": "Swap the opening sounds of FAR PAY to get PAR FAY, the French-style pronunciation of the answer.",
+     "definitionFit": "A parfait is a frozen or layered sweet dish of cream, fruit and ice cream."
     },
     "features": {
      "answerInScene": false,

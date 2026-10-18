@@ -691,51 +691,54 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece wraps round another"
+       "at": 7,
+       "note": "about means the word for object goes around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Object",
-         "gives": "END",
-         "note": "an end is an aim or object, as in 'to that end'"
-        },
-        {
-         "words": "obscene",
-         "gives": "GROSS",
-         "note": "gross means coarse or obscene"
-        }
-       ]
+       "words": "Object",
+       "at": 0,
+       "gives": "END",
+       "note": "an end is an object or aim"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "what comes finally is at the end, so the closing letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "gesture",
-         "note": "last letter of gesture"
+         "words": "obscene",
+         "at": 13,
+         "gives": "GROSS",
+         "note": "gross can mean obscene or coarse"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 31,
+           "note": "finally picks the last letter of gesture"
+          }
+         ],
+         "parts": [
+          {
+           "words": "gesture",
+           "at": 21
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint about a rude hand sign that finally led to someone's arrest.",
-     "walkthrough": "'Obscene gesture' reads as one thing, but 'obscene' and 'gesture' feed separate pieces; arrested means held, as attention is.",
-     "definitionFit": "An arresting sight holds attention; to be arrested in that sense is to be absorbed or gripped, i.e. engrossed."
+     "surface": "Someone making a rude sign ends up being taken in by the police.",
+     "walkthrough": "'Arrested' looks like police action, but here it means held, as attention is arrested.",
+     "definitionFit": "Engrossed means absorbed, with one's attention completely seized and held."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "arrested"
     }
    }

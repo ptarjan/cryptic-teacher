@@ -1104,71 +1104,71 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the game wraps round everything that follows"
+       "at": 5,
+       "note": "about means going around, so the game's letters surround the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Game",
+       "at": 0,
+       "gives": "CHESS",
+       "note": "chess is a board game"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Game",
-           "gives": "CHESS",
-           "note": "chess is a board game"
-          },
-          {
-           "words": "to",
-           "note": "taken as written"
-          }
-         ]
+         "words": "to",
+         "at": 11
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "end in",
-           "note": "end in asks for only the final letter of the next word"
+           "at": 14,
+           "note": "end in grief means the final letter of grief"
           }
          ],
          "parts": [
           {
            "words": "grief",
-           "note": "final letter of grief"
+           "at": 21
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "indicators": [
+        },
         {
-         "text": "going back",
-         "note": "going back means travelling the wrong way, so that word reads backwards"
-        }
-       ],
-       "parts": [
-        {
-         "words": "prize",
-         "gives": "REWARD",
-         "note": "a reward is a prize"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "going back",
+           "at": 38,
+           "note": "going back means the word for prize is written backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "prize",
+           "at": 32,
+           "gives": "REWARD",
+           "note": "a reward is a prize"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A game is about to finish in sorrow as the trophy is returned to the cupboard.",
-     "walkthrough": "'about to' reads as 'on the point of', but 'about' wraps and 'to' is a piece.",
-     "definitionFit": "A chest of drawers is bedroom furniture with sliding compartments for keeping clothes, a classic piece of storage furniture."
+     "surface": "A competitor loses a game, grieves, and puts the trophy away in a cupboard.",
+     "walkthrough": "'storage unit' sounds like a warehouse, but it is a bedroom cupboard; 'Game' sounds like a contest lost in grief, but it only supplies letters.",
+     "definitionFit": "A chest of drawers is a piece of bedroom furniture used for storing clothes."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "Game"
     }
    }
   },
@@ -1456,28 +1456,26 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "ASIA",
+     "op": "nth",
+     "n": 3,
      "indicators": [
       {
        "text": "Centres of",
-       "note": "centres asks for the middle letter of each following word"
+       "at": 0,
+       "note": "centres of means take the middle letter of each of the following words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "trade, bases doing deals",
-       "gives": "ASIA",
-       "select": "middle",
-       "note": "middle letter of each of the four words"
+       "at": 11
       }
      ]
     },
     "explanation": {
-     "surface": "Trading hubs cutting deals across a whole continent.",
-     "definitionFit": "Asia is the largest of the world's landmasses, stretching from Turkey to Japan."
+     "surface": "Commercial hubs and depots are busy trading.",
+     "walkthrough": "The middle letters of trade, bases, doing and deals are A, S, I and A.",
+     "definitionFit": "Asia is the largest of the Earth's continents, stretching from Turkey to Japan."
     },
     "features": {
      "answerInScene": true,
@@ -1714,36 +1712,39 @@
      "indicators": [
       {
        "text": "inhabited by",
-       "note": "a place inhabited by someone has them living inside it"
+       "at": 22,
+       "note": "inhabited by means the other pieces live inside the word for filthy place"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "filthy place",
-         "gives": "STY",
-         "note": "a pigsty, any dirty place"
-        },
-        {
-         "words": "scoundrel",
-         "gives": "RAT",
-         "note": "a rat is a scoundrel"
-        }
-       ]
+       "words": "filthy place",
+       "at": 9,
+       "gives": "STY",
+       "note": "a sty, a pigsty, is a byword for a filthy place"
       },
       {
-       "words": "for example",
-       "gives": "EG",
-       "note": "e.g. means for example"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "scoundrel",
+         "at": 35,
+         "gives": "RAT",
+         "note": "a rat is a scoundrel or traitor"
+        },
+        {
+         "words": "for example",
+         "at": 46,
+         "gives": "EG",
+         "note": "EG is the abbreviation of exempli gratia, for example"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Coming near some squalid den where a villain lives, for instance.",
-     "walkthrough": "'Approach' looks like a verb but is the noun, a plan of action.",
-     "definitionFit": "A strategy is a planned method for reaching a goal, a way of tackling a problem."
+     "surface": "A grubby den is home to a villain, for instance.",
+     "definitionFit": "A strategy is a plan or method, the way one chooses to tackle a problem."
     },
     "features": {
      "answerInScene": false,

@@ -48,42 +48,32 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CHAOS",
      "indicators": [
       {
-       "text": "swapping",
-       "note": "one letter of the men is traded for another, so a swap of one character for a different one is asked for"
+       "text": "swapping sides in pedalo",
+       "at": 4,
+       "note": "the sides of pedalo are its outer letters P and O, so one is exchanged for the other in the word for men"
       }
      ],
      "parts": [
       {
        "words": "Men",
+       "at": 0,
        "gives": "CHAPS",
-       "note": "chaps = men, informally"
+       "note": "chaps are men"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "sides in",
-         "note": "the sides of a word are its two outer letters, here those of the boat"
-        }
-       ],
-       "parts": [
-        {
-         "words": "sides in pedalo",
-         "gives": "PEDALO",
-         "note": "the two ends of P-edal-O; the P in CHAPS becomes the O"
-        }
-       ]
+       "gives": "P"
+      },
+      {
+       "gives": "O"
       }
      ]
     },
     "explanation": {
-     "surface": "A group of men on a seaside pedal boat cause mayhem by swapping seats.",
-     "walkthrough": "The sides of the pedalo are its first and last letters, P and O; CHAPS swaps its P for the O to give CHAOS.",
-     "definitionFit": "Havoc and chaos are straightforward synonyms for complete disorder and confusion."
+     "surface": "Some lads changing seats in a pedal boat cause mayhem.",
+     "walkthrough": "CHAPS has its P (one side of 'pedalo') replaced by O (the other side).",
+     "definitionFit": "Chaos is utter confusion and disorder, which is what havoc means."
     },
     "features": {
      "answerInScene": true,
@@ -319,41 +309,43 @@
      "indicators": [
       {
        "text": "hidden by",
-       "note": "something hidden by a dune is buried inside it, so the dune wraps round the other pieces"
+       "at": 29,
+       "note": "hidden by means the other pieces are covered on both sides by the dune's letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "dune",
+       "at": 39,
+       "gives": "SAND",
+       "note": "a dune is made of sand, the question mark flagging the definition by example"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "dune",
-         "gives": "SAND",
-         "note": "a dune is a heap of sand"
+         "words": "tiny",
+         "at": 20,
+         "gives": "WEE",
+         "note": "wee is Scottish for tiny"
         },
         {
          "words": "pub",
+         "at": 25,
          "gives": "PH",
-         "note": "PH = public house, the map abbreviation"
+         "note": "PH is the abbreviation for public house, a pub"
         }
        ]
-      },
-      {
-       "words": "tiny",
-       "gives": "WEE",
-       "note": "wee = tiny (Scots)"
       }
      ]
     },
     "explanation": {
-     "surface": "A tiny beach bar half buried by drifting sand, with a sign pointing the way.",
-     "walkthrough": "'Second indicator' sounds like a second signpost; it is the hand on a clock that sweeps round marking seconds. PH is the Ordnance Survey map mark for a pub.",
-     "definitionFit": "A sweep hand is the thin continuously moving pointer on a watch face that counts off seconds."
+     "surface": "A little bar is concealed behind a sand dune.",
+     "definitionFit": "The sweep hand of a watch or clock is the long hand that shows the seconds."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Second"
     }
    }
