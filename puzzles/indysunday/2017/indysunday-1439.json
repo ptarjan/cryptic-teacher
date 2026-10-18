@@ -896,58 +896,62 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ASSEMBLAGE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Garbled",
-       "note": "a garbled text is jumbled up, so the letters come out in a muddled order"
+       "text": "about",
+       "at": 16,
+       "note": "about means around, so the scrambled letters surround the library and article"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so the jumbled letters surround the next pieces"
+         "text": "Garbled",
+         "at": 0,
+         "note": "a garbled message is jumbled, so its letters are scrambled into a new order"
         }
        ],
        "parts": [
         {
          "words": "message",
-         "note": "the fodder rearranged"
+         "at": 8,
+         "note": "the letters to be rearranged"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "getting",
+         "at": 38,
+         "note": "getting means acquiring, so the library abbreviation picks up the article after it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "British Library",
+         "at": 22,
+         "gives": "BL",
+         "note": "BL is the standard abbreviation for the British Library, the UK's national library"
         },
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "getting",
-           "note": "getting means acquiring something extra, adding it alongside"
-          }
-         ],
-         "parts": [
-          {
-           "words": "British Library",
-           "gives": "BL",
-           "note": "BL is the abbreviation for the British Library"
-          },
-          {
-           "words": "article",
-           "gives": "A",
-           "note": "a is the indefinite article"
-          }
-         ]
+         "words": "article",
+         "at": 46,
+         "gives": "A",
+         "note": "a is the indefinite article"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scrambled note concerning the national library obtains an item for its holdings.",
-     "walkthrough": "BL plus A sits inside the reshuffled message: ASSEM-BLA-GE.",
-     "definitionFit": "An assemblage is a gathering of things or people brought together, much like a collection."
+     "surface": "A confused note concerning the British Library comes with a newspaper piece for its archive.",
+     "walkthrough": "'about' sits between the scrambled message and what it holds, and 'getting article' adds A after BL inside.",
+     "definitionFit": "An assemblage is a gathering or collection of things or people brought together."
     },
     "features": {
      "answerInScene": true,

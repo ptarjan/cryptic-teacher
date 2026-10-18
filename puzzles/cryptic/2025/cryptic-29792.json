@@ -43,47 +43,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SAPIENT",
+     "op": "container",
      "indicators": [
       {
-       "text": "that's cut",
-       "note": "something cut has been shortened, so a letter is lopped off the end"
+       "text": "in",
+       "at": 11,
+       "note": "in says the dish goes inside the shortened toast"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "one thing set in another sits inside it, so one piece goes within the other"
+         "text": "that's cut",
+         "at": 20,
+         "note": "that's cut means the toast word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "toast",
-         "gives": "SANT",
-         "note": "SANTE, the French toast meaning 'health' or 'cheers', with its last letter cut"
+         "at": 14,
+         "gives": "SANTE",
+         "note": "sante, French for health, is a toast raised with a drink"
         },
         {
-         "words": "dish",
-         "gives": "PIE",
-         "note": "a pie is a baked dish"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "dish",
+       "at": 6,
+       "gives": "PIE",
+       "note": "a pie is a baked dish"
       }
      ]
     },
     "explanation": {
-     "surface": "A posh dish served on toast with the crusts trimmed off.",
-     "walkthrough": "'Toast' is not bread here but the drinking salute: santé is French for 'cheers', literally 'health', and the cut removes its final letter.",
-     "definitionFit": "Sapient is a literary word for wise or clever, a direct synonym of being smart."
+     "surface": "A smart diner orders a dish served on toast that has been sliced.",
+     "walkthrough": "'toast' looks like grilled bread, but it is the French toast santé, cheers, minus its last letter, SANT, holding PIE.",
+     "definitionFit": "Sapient means wise or discerning, a formal word for clever or smart."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "toast"
     }
    }
@@ -326,53 +332,57 @@
     "definitions": [
      {
       "text": "Girl with plait, going right and left, plaited — this?",
-      "at": 0
+      "at": 0,
+      "note": "the whole clue describes a braid of hair hanging from a girl's head, swinging right and left"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PIGTAIL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "going",
-       "note": "a thing that is going is departing, so the named letters leave the words before them"
+       "text": "plaited",
+       "at": 39,
+       "note": "plaited means woven together, so the pooled letters are intertwined into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "plaited",
-         "note": "plaiting weaves strands over and under each other, so the letters are interwoven into a new order"
+         "text": "going right and left",
+         "at": 17,
+         "note": "going means departing, so the letters for right and left leave the word girl"
         }
        ],
        "parts": [
         {
          "words": "Girl",
-         "gives": "GIL",
-         "note": "the word with its R (right) going"
+         "at": 0,
+         "note": "the word that loses two letters"
         },
         {
-         "words": "plait",
-         "gives": "PAIT",
-         "note": "the word with its L (left) going"
+         "gives": "RL"
         }
        ]
+      },
+      {
+       "words": "plait",
+       "at": 10,
+       "note": "taken as written"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A schoolgirl's hair plaited into a braid, with the clue asking what that braid is called.",
-     "walkthrough": "Right and left are the R and L that depart from the two words; the whole clue then doubles as the description of what a girl with a plait wears.",
-     "definitionFit": "A pigtail is a braid or plait of hair hanging at the back or side of the head, typically worn by girls."
+     "surface": "A girl's braid swings from side to side, and the clue asks what the braided hair is called.",
+     "walkthrough": "'going right and left' removes R and L from GIRL, leaving GI, which 'plaited' mixes with PLAIT; the whole clue then pictures the answer.",
+     "definitionFit": "A pigtail is a braid or plait of hair hanging from the back or side of the head."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "right"
+     "misdirectedWord": "going"
     }
    }
   },
@@ -1244,29 +1254,30 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "TURD",
+     "op": "deletion",
      "indicators": [
       {
        "text": "in middle of",
-       "note": "in the middle of means at the centre, so the inner letters are kept and the ends dropped"
+       "at": 14,
+       "note": "in middle of keeps only the central letters of the day, dropping two from each end"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "24-hour period",
-       "gives": "TURD",
-       "select": "middle",
-       "note": "a 24-hour period, a day, here SATURDAY, whose central four letters are kept"
+       "at": 27,
+       "gives": "SATURDAY",
+       "note": "Saturday is one 24-hour day of the week"
+      },
+      {
+       "gives": "SAAY"
       }
      ]
     },
     "explanation": {
-     "surface": "A parliamentary motion approved halfway through a day's sitting.",
-     "walkthrough": "'Motion passed' sounds like a vote carried in a debate, but a motion is also a bowel movement. The day must be found first: Saturday, minus SA and AY.",
-     "definitionFit": "A bowel motion is excreted waste, and the vulgar word for a lump of excrement names exactly that."
+     "surface": "A committee's motion goes through halfway through a day-long session.",
+     "walkthrough": "'24-hour period' suggests DAY, but the setter wants a named day, Saturday; 'Motion passed' is the bodily kind, not a vote.",
+     "definitionFit": "A turd is a lump of excrement, and a stool or bowel motion is what gets passed."
     },
     "features": {
      "answerInScene": false,

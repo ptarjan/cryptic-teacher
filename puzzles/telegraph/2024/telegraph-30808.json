@@ -667,46 +667,72 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "REVOLUTIONISE",
-     "indicators": [
-      {
-       "text": "swap",
-       "note": "a swap exchanges two things, so these two letters change places"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "New Year promise",
-       "gives": "RESOLUTION",
-       "note": "a New Year resolution is a promise made to oneself"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "swap",
+         "at": 50,
+         "note": "swap tells you to exchange the very and small letters wherever they stand in the two pieces"
+        }
+       ],
+       "parts": [
+        {
+         "words": "New Year promise",
+         "at": 7,
+         "gives": "RESOLUTION",
+         "note": "a New Year resolution is a promise to oneself made on 1 January"
+        },
+        {
+         "words": "small",
+         "at": 44,
+         "gives": "S",
+         "note": "S is the standard abbreviation for small, as on clothing labels"
+        },
+        {
+         "words": "very",
+         "at": 39,
+         "gives": "V"
+        }
+       ]
       },
       {
-       "words": "I've",
-       "note": "taken as written"
-      },
-      {
-       "words": "very",
-       "gives": "V",
-       "note": "V is the abbreviation for very"
-      },
-      {
-       "words": "small",
-       "gives": "S",
-       "note": "S is the abbreviation for small"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "to make",
+         "at": 31,
+         "note": "to make carries the swap over to the contraction too, so its very letter becomes the small one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I've",
+         "at": 26,
+         "gives": "IVE",
+         "note": "I've is the contraction of I have, its letters taken as written"
+        },
+        {
+         "gives": "V"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone vows at New Year to make a small change that will transform their life.",
-     "walkthrough": "RESOLUTION plus IVE gives RESOLUTIONIVE; swapping its S and V turns it into the answer.",
-     "definitionFit": "To revolutionise something is to change it radically, so reform it completely."
+     "surface": "Someone resolves at New Year to make one tiny change to their life.",
+     "walkthrough": "Write RESOLUTION then I'VE; 'very small swap' exchanges V and S, so the S in the promise becomes V and the V in I'VE becomes S.",
+     "definitionFit": "To revolutionise something is to transform it completely, to reform it from top to bottom."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "small"
+     "misdirectedWord": "swap"
     }
    }
   },
@@ -1060,37 +1086,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NATURAL",
-     "indicators": [
-      {
-       "text": "heading off",
-       "note": "with the heading off, the word loses its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 7,
+         "note": "heading off means the insect loses its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "Insect",
-         "gives": "NAT",
-         "note": "a gnat is an insect; drop its first letter"
+         "at": 0,
+         "gives": "GNAT",
+         "note": "a gnat is a small two-winged insect"
         },
         {
-         "words": "Eurasian river",
-         "gives": "URAL",
-         "note": "the Ural river flows between Europe and Asia"
+         "gives": "G"
         }
        ]
+      },
+      {
+       "words": "Eurasian river",
+       "at": 24,
+       "gives": "URAL",
+       "note": "the Ural flows from Russia to the Caspian, marking part of the border between Europe and Asia"
       }
      ]
     },
     "explanation": {
-     "surface": "A bug flies off across a river on the steppe and a vast flat plain.",
-     "walkthrough": "'Plain' looks like a noun for flat land, but it is the adjective meaning unadorned.",
-     "definitionFit": "Natural and plain both describe something simple and unaffected, without artifice."
+     "surface": "An insect sets off across a great river that runs between two continents.",
+     "walkthrough": "'over' places the beheaded insect above the river in this down answer; the Ural divides Europe from Asia, hence Eurasian.",
+     "definitionFit": "Natural and plain both mean unadorned, without artifice or embellishment."
     },
     "features": {
      "answerInScene": false,
