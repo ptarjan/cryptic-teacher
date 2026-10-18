@@ -1096,43 +1096,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KERNEL",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter of the town goes"
+       "text": "inhabited by",
+       "at": 32,
+       "note": "the town is lived in by the sailors, so they go inside its letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "inhabited by",
-         "note": "a place inhabited by people has them living inside it"
+         "text": "mostly",
+         "at": 25,
+         "note": "mostly means most but not all of the town's name, losing its last letter"
         }
        ],
        "parts": [
         {
          "words": "town",
-         "gives": "KEEL",
-         "note": "Keele, a university town in Staffordshire, without its last letter"
+         "at": 20,
+         "gives": "KEELE",
+         "note": "Keele is a small town in Staffordshire, home of Keele University"
         },
         {
-         "words": "sailors",
-         "gives": "RN",
-         "note": "RN is the Royal Navy"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "sailors",
+       "at": 45,
+       "gives": "RN",
+       "note": "RN is the Royal Navy, Britain's sailors"
       }
      ]
     },
     "explanation": {
-     "surface": "The heart of a naval town, full of sailors.",
-     "walkthrough": "Keele is a small university town in Staffordshire, England.",
-     "definitionFit": "A kernel is the core or essential centre of something, like the seed inside a nut."
+     "surface": "The heart of a town where most residents are naval personnel.",
+     "walkthrough": "The town is a small one in Staffordshire, England, best known for its university; 'mostly' drops its final letter before 'inhabited by' takes effect.",
+     "definitionFit": "A kernel is the core or heart of something, like the edible seed at the middle of a nut."
     },
     "features": {
      "answerInScene": false,

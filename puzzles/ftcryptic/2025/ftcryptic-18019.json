@@ -827,22 +827,22 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "FAMILYCAR",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "crossing",
-       "note": "crossing means spanning something, so the outer letters straddle the city's name"
+       "text": "from south",
+       "at": 54,
+       "note": "in a down answer, reading from the south means from the bottom up, so the letters run backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "from south",
-         "note": "in a down clue, reading from the south means starting at the bottom and going up"
+         "text": "crossing",
+         "at": 37,
+         "note": "the first pair of pieces straddles the capital, holding it inside"
         }
        ],
        "parts": [
@@ -851,29 +851,32 @@
          "parts": [
           {
            "words": "blue",
+           "at": 25,
            "gives": "RACY",
-           "note": "blue in the sense of risqué or slightly indecent"
-          },
-          {
-           "words": "capital",
-           "gives": "LIMA",
-           "note": "Lima is the capital of Peru"
+           "note": "blue as in risqué or smutty, which is racy"
           },
           {
            "words": "loudly",
+           "at": 30,
            "gives": "F",
-           "note": "f is forte, the musical marking for loud"
+           "note": "F is forte, the musical direction for loudly"
           }
          ]
+        },
+        {
+         "words": "capital",
+         "at": 46,
+         "gives": "LIMA",
+         "note": "Lima is the capital city of Peru"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sensible car painted blue roars noisily through the capital.",
-     "walkthrough": "'blue' looks like the vehicle's colour, but it means risqué. RACY and F straddle LIMA, and the whole string is then read upward.",
-     "definitionFit": "A family car is a roomy, sensible model chosen for everyday usefulness rather than style."
+     "surface": "A sensible car painted blue makes a noisy trip across a city.",
+     "walkthrough": "'crossing' gives RACYLIMAF, which 'from south' reads upwards. 'blue' looks like a colour for the car, but it means risqué.",
+     "definitionFit": "A family car is a roomy, sensible saloon or estate built for everyday use rather than speed or style."
     },
     "features": {
      "answerInScene": true,
@@ -1450,53 +1453,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "overlap",
+       "at": 30,
+       "note": "when the two words overlap, the letters they share are written once, not twice"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "two",
-       "note": "tells us the next phrase supplies two separate words; it adds no letters"
+       "words": "two music events",
+       "at": 13,
+       "gives": "DISCOCONCERT",
+       "note": "a disco and a concert are both musical events, giving the two words end to end"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "overlap",
-         "note": "when two things overlap they share a stretch, so that shared stretch is written only once"
-        }
-       ],
-       "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "music events",
-           "gives": "DISCO",
-           "note": "a disco is a dance event with music"
-          },
-          {
-           "words": "music events",
-           "gives": "CONCERT",
-           "note": "a concert is a live music performance"
-          }
-         ]
-        },
-        {
-         "gives": "CO"
-        }
-       ]
+       "gives": "CO"
       }
      ]
     },
     "explanation": {
-     "surface": "It is unsettling when two gigs are booked for the same time.",
-     "walkthrough": "'two' tells us the phrase supplies two separate words. The CO ending one begins the other, so it is written once.",
-     "definitionFit": "To disconcert someone is to unsettle or fluster them."
+     "surface": "A promoter flaps on discovering two gigs are double-booked at the same time.",
+     "walkthrough": "The shared CO at the end of DISCO and the start of CONCERT is counted only once when the two 'overlap'.",
+     "definitionFit": "To disconcert is to unsettle or throw someone off balance, the same as to fluster them."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "overlap"
     }
    }
