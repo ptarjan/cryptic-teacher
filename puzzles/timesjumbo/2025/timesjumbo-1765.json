@@ -563,54 +563,54 @@
        "op": "container",
        "indicators": [
         {
-         "text": "going into"
+         "text": "going into",
+         "at": 15,
+         "note": "going into says the person is placed inside the word for silly"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "moved around, so the letters of 'fears poking' are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "silly",
-           "gives": "INANE",
-           "note": "silly = inane"
-          }
-         ]
+         "words": "silly",
+         "at": 26,
+         "gives": "INANE",
+         "note": "inane means silly or senseless"
         },
         {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "person",
-           "gives": "MAN",
-           "note": "a man is a person"
-          }
-         ]
+         "words": "person",
+         "at": 8,
+         "gives": "MAN",
+         "note": "a man is a person, here a human being in general"
         }
        ]
       },
       {
-       "words": "fears, poking",
-       "gives": "ROFSPEAKING",
-       "note": "the letters rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 46,
+         "note": "about here means all around, in a jumbled order, so the letters of fears poking are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fears, poking",
+         "at": 32,
+         "note": "taken as written: anagram fodder"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A description of a kind of person who pokes around in foolish fears.",
-     "walkthrough": "'Sort of person' runs together; 'Sort of' is the definition, and 'silly' gives INANE rather than signalling an anagram.",
-     "definitionFit": "'In a manner of speaking' is a hedge meaning 'sort of' or 'so to speak'."
+     "surface": "A type of individual gets caught up in daft worries while nosing around.",
+     "walkthrough": "'Sort of' looks like the start of 'sort of person', but it is the definition: a hedge meaning 'more or less'. The split comes after the letter E, so the anagram supplies everything from the R onwards.",
+     "definitionFit": "Both phrases are verbal hedges admitting a statement is only loosely or approximately true."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "silly"
+     "aptDefinition": true,
+     "misdirectedWord": "Sort"
     }
    }
   },
@@ -1052,43 +1052,55 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "METHANE",
-     "indicators": [
-      {
-       "text": "to cover"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Police",
+       "at": 0,
        "gives": "MET",
        "note": "the Met is London's Metropolitan Police"
       },
       {
-       "words": "have",
-       "note": "as written"
-      },
-      {
-       "words": "volume",
-       "gives": "V",
-       "note": "V = volume"
-      },
-      {
-       "words": "Northern",
-       "gives": "N",
-       "note": "N = northern"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "to cover",
+         "at": 12,
+         "note": "to cover means to stand in for, so one letter of have is replaced"
+        },
+        {
+         "text": "with",
+         "at": 28,
+         "note": "with names what takes the place of the replaced letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "have",
+         "at": 7,
+         "note": "taken as written"
+        },
+        {
+         "words": "volume",
+         "at": 21,
+         "gives": "V"
+        },
+        {
+         "words": "Northern",
+         "at": 33,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The police must cover a volume of Northern Gas, as if the company had a bill to pay.",
-     "walkthrough": "'Cover' reads as paying for something; here N covers for V, standing in as a substitute.",
-     "definitionFit": "Methane is a gas, the main part of natural gas."
+     "surface": "Police must cover the sound volume with a northern gas leak.",
+     "walkthrough": "'To cover' here means to deputise, as one worker covers for another, rather than to conceal. The Met is London's Metropolitan Police.",
+     "definitionFit": "Methane is a flammable hydrocarbon gas, the main component of natural gas."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "cover"
     }
@@ -1174,30 +1186,50 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SCOTTISHNATIONALIST",
      "indicators": [
       {
        "text": "swimming",
-       "note": "moving about, so the letters are rearranged"
-      },
-      {
-       "text": "Not entirely",
-       "note": "incomplete, so 'tasty' loses its last letter"
+       "at": 17,
+       "note": "swimming suggests the letters moving about freely in the water, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "in a school — isn't it tasty",
-       "gives": "SCOTTISHNATIONALIST",
-       "note": "INASCHOOLISNTITTAST, dropping the Y of tasty, rearranged"
+       "words": "in a school",
+       "at": 26,
+       "note": "taken as written: part of the anagram fodder"
+      },
+      {
+       "words": "isn't it",
+       "at": 40,
+       "note": "taken as written: part of the anagram fodder"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not entirely",
+         "at": 56,
+         "note": "not entirely means the word tasty loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tasty",
+         "at": 49,
+         "note": "tasty without its last letter"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sturgeon swims in a shoal of fish, and someone asks if it tastes good.",
-     "walkthrough": "The fish picture is a decoy: Nicola Sturgeon led the Scottish National Party and was Scotland's First Minister.",
-     "definitionFit": "Definition by example: Nicola Sturgeon led the party campaigning for Scottish independence."
+     "surface": "A sturgeon fish swims in a shoal, and someone wonders whether it is good to eat.",
+     "walkthrough": "Sturgeon reads as the fish, which swims in a school, but it means Nicola Sturgeon, former Scottish First Minister and SNP leader. 'Not entirely' cuts tasty to TAST before the letters are mixed.",
+     "definitionFit": "Nicola Sturgeon led the Scottish National Party, so she is an example of a Scottish Nationalist."
     },
     "features": {
      "answerInScene": false,
@@ -1948,34 +1980,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MONSTER",
      "indicators": [
       {
+       "text": "holding",
+       "at": 8,
+       "note": "holding says the teacher's word takes another word into itself"
+      },
+      {
        "text": "for",
-       "note": "in place of, so ON replaces the A"
+       "at": 19,
+       "note": "for means instead of, so the word on goes in place of the letter a"
       }
      ],
      "parts": [
       {
        "words": "Teacher",
+       "at": 0,
        "gives": "MASTER",
-       "note": "a schoolmaster is a teacher"
-      },
-      {
-       "words": "on",
-       "note": "as written"
+       "note": "a master is a schoolteacher"
       },
       {
        "words": "a",
-       "note": "as written"
+       "at": 23,
+       "gives": "A"
+      },
+      {
+       "words": "on",
+       "at": 16,
+       "gives": "ON",
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher stands in for someone on a jumbo jet.",
-     "walkthrough": "'Jumbo' reads as the plane or the elephant; it is the adjective meaning huge. 'Holding' just joins, meaning 'with ON in place of A'.",
-     "definitionFit": "Monster, as in a monster portion, means jumbo or enormous."
+     "surface": "A teacher is clinging on for a jumbo jet.",
+     "walkthrough": "'Holding' and 'for' work together: MASTER holds ON for its A.",
+     "definitionFit": "Jumbo as a noun is anything huge, an enormous example of its kind, as a monster is."
     },
     "features": {
      "answerInScene": false,
@@ -2230,25 +2270,25 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "NONCRIMINAL",
      "indicators": [
       {
        "text": "surprisingly",
-       "note": "unexpectedly arranged, so the letters are shuffled"
+       "at": 23,
+       "note": "surprisingly says the letters of minor in clan turn up in an unexpected order"
       }
      ],
      "parts": [
       {
        "words": "minor in clan",
-       "note": "rearranged"
+       "at": 8,
+       "note": "taken as written: anagram fodder"
       }
      ]
     },
     "explanation": {
-     "surface": "A young person was unexpectedly let into the clan.",
-     "walkthrough": "'Allowed' reads as the verb in the surface; it is an adjective, permitted by law.",
-     "definitionFit": "A plain synonym: what breaks no criminal law is permitted."
+     "surface": "A youngster was permitted to join a family group, to everyone's surprise.",
+     "walkthrough": "'Surprisingly' signals the anagram of MINOR IN CLAN.",
+     "definitionFit": "Something noncriminal is not against the law, so it is legally permitted."
     },
     "features": {
      "answerInScene": false,
@@ -2523,52 +2563,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GEOGRAPHY",
-     "indicators": [
-      {
-       "text": "never finishing",
-       "note": "each word stops short, so each loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "never finishing",
+         "at": 17,
+         "note": "never finishing means none of the words get to their ends, so each of the four words loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Get",
-         "gives": "GE",
-         "note": "without its last letter"
+         "words": "Get on grad PhD",
+         "at": 0,
+         "note": "Get, on, grad and PhD each without their final letter"
         },
         {
-         "words": "on",
-         "gives": "O",
-         "note": "without its last letter"
-        },
-        {
-         "words": "grad",
-         "gives": "GRA",
-         "note": "without its last letter"
-        },
-        {
-         "words": "PhD",
-         "gives": "PH",
-         "note": "without its last letter"
-        },
-        {
-         "words": "unknown",
-         "gives": "Y",
-         "note": "x, y and z are the algebraic unknowns"
+         "gives": "TNDD"
         }
        ]
+      },
+      {
+       "words": "unknown",
+       "at": 33,
+       "gives": "Y",
+       "note": "Y is one of the letters for an unknown quantity in algebra"
       }
      ]
     },
     "explanation": {
-     "surface": "A graduate is told to get on with a doctorate in some obscure topic and never finish it.",
-     "walkthrough": "'Never finishing' applies to each of the four words before it, not only 'PhD'.",
-     "definitionFit": "Definition by genus: the study of the earth is one academic subject."
+     "surface": "A graduate pushes on with a doctorate but never completes the work on an unknown topic.",
+     "walkthrough": "'Never finishing' applies to all four words, Get, on, grad and PhD, leaving GE, O, GRA, PH.",
+     "definitionFit": "Geography is an academic discipline, a school or university subject."
     },
     "features": {
      "answerInScene": true,

@@ -346,41 +346,52 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "leaders of",
-       "note": "take the first letter of each word"
+       "text": "and",
+       "at": 53,
+       "note": "and joins the second country's initial on after the first, keeping the clue's order"
+      },
+      {
+       "text": "to go after",
+       "at": 22,
+       "note": "to go after says the newspaper man's letters are placed behind the two initials"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "NE",
        "indicators": [
         {
-         "text": "to go after"
+         "text": "leaders of",
+         "at": 34,
+         "note": "leaders of means the first letter of each of the two country names"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Nigeria and Egypt",
-         "gives": "NE",
-         "select": "first",
-         "note": "first letters of Nigeria and Egypt"
+         "words": "Nigeria",
+         "at": 45,
+         "note": "first letter of Nigeria"
         }
        ]
       },
       {
+       "words": "Egypt",
+       "at": 57,
+       "gives": "E",
+       "note": "E is Egypt's leader, its first letter, the plural 'leaders of' covering both countries"
+      },
+      {
        "words": "newspaper man",
+       "at": 8,
        "gives": "ED",
-       "note": "ED = editor, the man in charge of a newspaper"
+       "note": "ED is the usual abbreviation for an editor, the person in charge of a newspaper"
       }
      ]
     },
     "explanation": {
-     "surface": "A news organisation wants a reporter to follow the heads of two African states.",
-     "walkthrough": "ED for editor is a crossword staple.",
-     "definitionFit": "A plain synonym: both verbs say something is necessary to you, as in 'we require more time'."
+     "surface": "A newspaper's reporter is needed to pursue the presidents of two African nations.",
+     "walkthrough": "The countries' leaders are their first letters, not their heads of state.",
+     "definitionFit": "To need something is to require it; the two verbs are synonyms."
     },
     "features": {
      "answerInScene": false,
@@ -1045,39 +1056,42 @@
      "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "TRIO",
+       "words": "temperature",
+       "at": 6,
+       "gives": "T"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "raised",
-         "note": "in a down clue, lifting the T moves it to the top"
+         "text": "raised in",
+         "at": 18,
+         "note": "in a down clue the temperature's letter, already inside the free-for-all, is lifted up to the top of the word"
         }
        ],
        "parts": [
         {
          "words": "free-for-all",
+         "at": 28,
          "gives": "RIOT",
-         "note": "a riot is a free-for-all, four letters ending in T"
+         "note": "a riot is a wild, disorderly free-for-all"
+        },
+        {
+         "gives": "T"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "temperature",
-       "note": "T is the standard abbreviation for temperature; it is the letter that rises to the top"
       }
      ]
     },
     "explanation": {
-     "surface": "Tempers run hot in a brawl among a gang.",
-     "walkthrough": "'Temperature raised' sounds like heat rising in a fight; in a down entry 'raised' moves the T up to the start.",
-     "definitionFit": "A definition by example: any band or set of three people is one particular kind of group."
+     "surface": "Tempers rose within a group during a brawl.",
+     "walkthrough": "The free-for-all already ends in the temperature's letter; 'raised' in a down entry sends it up to the front.",
+     "definitionFit": "A trio is a set of three people or things, so a small group, often of musicians."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "raised"
+     "misdirectedWord": "temperature"
     }
    }
   },
@@ -1255,60 +1269,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LINENS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 14,
+       "note": "holding says the outer letters wrap round the rearranged ones"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
          "text": "Empty",
-         "note": "take away the inside of the word, leaving L and S"
-        },
-        {
-         "text": "torn",
-         "note": "NINE is torn into a new order"
+         "at": 0,
+         "note": "empty means the inside is removed, leaving only the first and last letters of lockers"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "LS",
-         "indicators": [
-          {
-           "text": "holding",
-           "note": "L...S hold the anagram between them"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Empty lockers",
-           "gives": "LS",
-           "select": "outer",
-           "note": "LOCKERS with the middle removed"
-          }
-         ]
-        },
+         "words": "lockers",
+         "at": 6,
+         "note": "first and last letters of lockers"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "nine torn",
-         "gives": "INEN",
-         "note": "anagram of NINE"
+         "text": "torn",
+         "at": 27,
+         "note": "torn means ripped apart, so the letters of nine are put back together in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nine",
+         "at": 22,
+         "note": "taken as written: anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bare cupboards found to contain nine ripped bedsheets.",
-     "walkthrough": "The question mark is there because sheets are only one example of linens, which also include tablecloths and towels.",
-     "definitionFit": "Linens are household textiles such as bed sheets."
+     "surface": "Emptied lockers turn out to contain nine ripped bedsheets.",
+     "walkthrough": "The question mark flags that sheets are only one kind of the answer, which also covers tablecloths and towels.",
+     "definitionFit": "Linens are household textiles such as bedsheets and pillowcases, once made of flax."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "torn"
     }
    }
   },
