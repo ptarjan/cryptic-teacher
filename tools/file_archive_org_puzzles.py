@@ -1074,13 +1074,16 @@ def columns_of_four(lines, grid, gutters, down):
     return [headed("ACROSS", over[0]), over[1], headed("DOWN", under[0]), under[1], kept[2], kept[3]]
 
 
-def vlm_four(img, cols):
+def vlm_four(img, cols, only=None):
     """The VLM's reading of the 1930 clues: each of columns_of_four()'s
     columns (`cols`, every reading's) read on its own, in that order, the
-    list headings put back where they open the first and third."""
+    list headings put back where they open the first and third. `only`:
+    the indexes of the columns to read (None: all)."""
     wins = [None] * max(len(c) for c in cols)
     parts = []
     for k, box in enumerate(vlm.boxes(img, wins, cols)):
+        if only is not None and k not in only:
+            continue
         if k in (0, 2) and k < len(wins):
             parts.append(("ACROSS", "DOWN")[k // 2])
         if box:
@@ -3490,8 +3493,76 @@ def refuse(verdict, cause, why):
     return verdict
 
 
-def read_puzzle(d, found, hit, solutions):
-    """(verdict, puzzle or None) for one title on one page."""
+#: Readings that must print a clue as filed (the same words) for it to stand
+#: with no VLM look: the scan's own readers (djvu, RapidOCR's two, Tesseract,
+#: the reprint) are several, and one alone may be the misread.
+OCR_CONFIRM = 2
+
+
+def words_of(text):
+    """A clue's letters and digits, lower case, for comparing readings."""
+    return re.sub(r"[^a-z0-9]+", "", (text or "").lower())
+
+
+def weak_lights(read, laid, blank, lengths):
+    """The lights whose clue the scan's own readers do not settle: blank, or
+    printed as filed by fewer than OCR_CONFIRM readings of `read`."""
+    weak = set()
+    for lid in lengths:
+        text = (laid.get(lid) or ("",))[0]
+        if not text.strip() or lid in blank:
+            weak.add(lid)
+            continue
+        mine = words_of(text)
+        agreeing = sum(1 for t, _ in ocr_clues.readings_for(read, lid, parse) if words_of(t) == mine)
+        if agreeing < OCR_CONFIRM:
+            weak.add(lid)
+    return weak
+
+
+def columns_with(cols, lights):
+    """The indexes of the clue columns that hold a number of `lights`
+    ("N-across"), or None when a number is in no column's lines (then every
+    column is read). `cols`: each reading's columns() output."""
+    want = {int(lid.split("-")[0]) for lid in lights}
+    got, seen = set(), set()
+    width = max((len(c) for c in cols), default=0)
+    for i in range(width):
+        text = "\n".join(column_text([c[i]]) for c in cols if i < len(c))
+        for m in re.finditer(r"^\s*(\d{1,2})\b", text, re.M):
+            if int(m.group(1)) in want:
+                got.add(i)
+                seen.add(int(m.group(1)))
+    return got if seen >= want else None
+
+
+def read_puzzle(d, found, hit, solutions, ocr_first=True):
+    """(verdict, puzzle or None) for one title on one page. The scan's own
+    readers read it first; the desktop's VLM (one at a time, ~8 asks a
+    minute) is asked only for the clue columns that hold a clue they leave
+    blank or do not settle (weak_lights), every column when the grid does not
+    lie on them or nothing parses. A page they settle is filed with no ask."""
+    if not ocr_first:
+        return read_page(d, found, hit, solutions, None)
+    verdict, puzzle = read_page(d, found, hit, solutions, False)
+    weak = verdict.pop("_weak", None)
+    if puzzle is None:
+        if verdict.get("cause") == "no-reading-parses" or "pending" in verdict:
+            return read_page(d, found, hit, solutions, None)  # the VLM's page
+        return verdict, puzzle
+    if weak is None:
+        return read_page(d, found, hit, solutions, None)
+    if not weak and verdict.get("grid") == "image" and "imageDisagrees" not in verdict:
+        verdict["vlmAsks"] = 0
+        return verdict, puzzle
+    only = None if (verdict.get("grid") != "image" or "imageDisagrees" in verdict) else weak
+    return read_page(d, found, hit, solutions, only if only is None else sorted(only))
+
+
+def read_page(d, found, hit, solutions, vlm_for=False):
+    """read_puzzle's one read: `vlm_for` False asks the VLM nothing; None
+    asks it every column; a list of lights, the columns holding them."""
+    vlm_on = vlm_for is not False
     n, leaf = hit["number"], hit["leaf"]
     verdict = {"number": n, "leaf": leaf}
     paper = paper_of(d)
@@ -3560,9 +3631,10 @@ def read_puzzle(d, found, hit, solutions):
         cols = {which: columns_of_four(rapid[which], gbox, gutters, down) for which in FOUR_READERS}
         texts = {k: column_text(c) for k, c in cols.items()}
         wins = [None] * max(len(c) for c in cols.values())
-        if vlm.wanted():
+        if vlm_on and vlm.wanted():
             try:
-                texts["vlm"] = vlm_four(img, list(cols.values()))
+                texts["vlm"] = vlm_four(img, list(cols.values()),
+                                        columns_with(list(cols.values()), vlm_for) if vlm_for else None)
             except RuntimeError:
                 pass
         texts = {k: counted(spaced(t), g) for k, t in texts.items()}
@@ -3590,10 +3662,12 @@ def read_puzzle(d, found, hit, solutions):
         wins = windows(gbox, third, m, above, left, split, lead, right)
     # The desktop's VLM, when it answers, is one more reading (the 1930
     # page's, vlm_four's above).
-    if not paper.four and vlm.wanted():
+    if not paper.four and vlm_on and vlm.wanted():
         try:
-            texts["vlm"] = "\n".join(numbered_heading(t) or t for t in
-                                     vlm.column_text(img, wins, list(cols.values())).splitlines())
+            only = columns_with(list(cols.values()), vlm_for) if vlm_for else None
+            asked = "\n".join(vlm.read(vlm.crop(img, box)) for i, box in enumerate(vlm.boxes(img, wins, list(cols.values())))
+                              if box and (only is None or i in only))
+            texts["vlm"] = "\n".join(numbered_heading(t) or t for t in asked.splitlines())
         except RuntimeError:
             pass  # gone mid-run: read as without it; run() files it to be read again
     # The Canberra Times reprint of the same puzzle is another copy of the
@@ -3700,7 +3774,7 @@ def read_puzzle(d, found, hit, solutions):
     # it whole (the reprint's among them) and put to the rest.
     read = {k: t for k, t in texts.items() if t.strip()}
     laid, blank = ocr_clues.relaid(read, laid, blank, parse, lengths)
-    if blank and "vlm" in texts and vlm.wanted():
+    if blank and "vlm" in texts and vlm_on and vlm.wanted():
         try:
             laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
         except RuntimeError:
@@ -3727,6 +3801,8 @@ def read_puzzle(d, found, hit, solutions):
     if paper.four:
         # The counts were the grid's, not the paper's: filed without.
         laid = {lid: (t, None, None) for lid, (t, _, _) in laid.items()}
+    if not vlm_on:
+        verdict["_weak"] = weak_lights(read, laid, blank, lengths)
     verdict["lights"] = len(rg.light_cells(grid))
     verdict["agreed"] = sum(1 for t, _, _ in laid.values() if t)
     if blank:
