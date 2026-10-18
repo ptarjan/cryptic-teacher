@@ -4295,6 +4295,22 @@ def _linked(d, scan, held, paper=None):
 _LINKED = {}
 
 
+#: GaleTimes editions dated within this range (inclusive ISO dates) use a
+#: bottom-left grid with the clues in columns to its right, which the crop
+#: code cannot read yet: every read refuses "no-reading-parses", so a
+#: re-read only burns VLM time. TEMPORARY: remove this once the layout fix
+#: for those pages lands.
+GALE_UNREADABLE_LAYOUT = ("2014-02-01", "2014-12-31")
+
+
+def _gale_bottom_left(edition):
+    """True when the ledger `edition` ("GaleTimes2014UKEnglish/2014-03-05") is a
+    GaleTimes one in GALE_UNREADABLE_LAYOUT."""
+    m = re.search(r"\d{4}-\d{2}-\d{2}", edition)
+    return (edition.startswith("GaleTimes") and m is not None
+            and GALE_UNREADABLE_LAYOUT[0] <= m.group() <= GALE_UNREADABLE_LAYOUT[1])
+
+
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
@@ -4303,6 +4319,8 @@ def fix_reason(row):
     whole-corpus rank."""
     for v in row.get("verdicts", ()):
         t = REREAD_REFUSED.get(v.get("cause"))
+        if v.get("cause") == "no-reading-parses" and _gale_bottom_left(row.get("edition", "")):
+            continue
         if t and scan_queue.read_before(row, scan_queue.when(t)):
             return f"refused {v['cause']} before its fix"
     if row.get("solutionKey") != solution_key():

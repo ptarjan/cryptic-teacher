@@ -334,6 +334,15 @@ check("a refusal read before its cause's fix is due; after it, or another cause,
       [f.due_reason(refused("not-a-grid", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
        f.due_reason(refused("not-a-grid", "2099-01-01T00:00:00+00:00"), "h", [], "v"),
        f.due_reason(refused("crashed", "2026-10-01T00:00:00+00:00"), "h", [], "v")])
+gale = lambda ed: {**refused("no-reading-parses", "2026-10-01T00:00:00+00:00"), "edition": ed}
+check("no-reading-parses on GaleTimes 2014-02..12 is not due; Jan 2014, 2013 and other papers are",
+      [None, None, "refused no-reading-parses before its fix", "refused no-reading-parses before its fix",
+       "refused no-reading-parses before its fix"],
+      [f.due_reason(gale("GaleTimes2014UKEnglish/2014-02-01"), "h", [], "v"),
+       f.due_reason(gale("GaleTimes2014UKEnglish/2014-12-31"), "h", [], "v"),
+       f.due_reason(gale("GaleTimes2014UKEnglish/2014-01-31"), "h", [], "v"),
+       f.due_reason(gale("GaleTimes2013UKEnglish/2013-06-05"), "h", [], "v"),
+       f.due_reason(gale("NewsUK2014UKEnglish/2014-05-05"), "h", [], "v")])
 part = lambda acc, refusal, key: {**refused(None, "2099-01-01T00:00:00+00:00"), "verdicts": [
     {"number": 1, "solution": {"accepted": acc, "lights": 30, **({"refused": refusal} if refusal else {})}}],
     **({"solutionKey": key} if key else {})}
