@@ -47,47 +47,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OPERATE",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "almost means not quite all, so one letter of the next word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Work",
+       "at": 0,
+       "gives": "OP",
+       "note": "OP is the abbreviation of opus, a musical work"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 11,
+         "note": "almost means the word is cut short by its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Work",
-         "gives": "OP",
-         "note": "OP is short for opus, a musical work"
-        },
-        {
          "words": "time",
+         "at": 5,
          "gives": "ERA",
          "note": "an era is a period of time"
         },
         {
-         "words": "put away",
-         "gives": "TE",
-         "note": "to put food away is to eat it, ATE, here losing its A"
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "put away",
+       "at": 18,
+       "gives": "ATE",
+       "note": "to put away food is to eat it, so ate"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether it is time to work, having nearly tidied away the tools.",
-     "walkthrough": "'Put away' is slang for eating a meal, and 'almost' drops one of its letters; Cyclops lets the A go rather than the usual final letter.",
-     "definitionFit": "To operate a machine is to work its controls, the same as handling it."
+     "surface": "Someone asks whether it is time to clock on, then nearly tidies away a tool handle.",
+     "walkthrough": "'Almost' trims ERA to ER; ATE is the past of eat, as in putting away a meal.",
+     "definitionFit": "To handle a machine is to work or run it, a straightforward synonym."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "put"
+     "misdirectedWord": "handle"
     }
    }
   },
@@ -340,43 +345,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PRINCIPLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "left out",
-       "note": "L is the usual abbreviation for left, and leaving it out removes that letter"
+       "text": "take",
+       "at": 21,
+       "note": "the prince takes in, or holds, the other letters"
       }
      ],
      "parts": [
+      {
+       "words": "a royal",
+       "at": 13,
+       "gives": "PRINCE",
+       "note": "a prince is a member of a royal family"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "oddly",
-         "note": "done oddly means done strangely, so the letters fall into an unusual order"
+         "at": 32,
+         "note": "oddly signals the remaining letters of pill are put in a strange order"
         }
        ],
        "parts": [
         {
-         "words": "a royal",
-         "gives": "PRINCE",
-         "note": "a prince is a member of a royal family"
-        },
-        {
-         "words": "take pill",
-         "gives": "PIL",
-         "note": "the pill being taken, losing one of its two Ls"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "out",
+           "at": 43,
+           "note": "out means the letter is dropped from pill"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pill",
+           "at": 26
+          },
+          {
+           "words": "left",
+           "at": 38,
+           "gives": "L"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A churchman becomes a royal by swallowing a tablet, with something strange left out.",
-     "walkthrough": "'Oddly' looks like 'take every other letter', but here it is the mixing signal, and 'left out' drops one L.",
-     "definitionFit": "A canon is a general rule or standard, so it is a synonym for a governing principle."
+     "surface": "A member of the royal family swallows a pill, with something odd missing.",
+     "walkthrough": "'left out' drops an L from pill, 'oddly' shuffles what remains, and 'take' has the royal swallow it. Canon here is a rule, not a churchman or a gun.",
+     "definitionFit": "A canon is a general rule or standard, which is what a principle is."
     },
     "features": {
      "answerInScene": false,
@@ -496,52 +518,58 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Covid-19",
+      "text": "Covid-19?",
       "at": 46
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VIRUS",
-     "indicators": [
-      {
-       "text": "abandoning",
-       "note": "to abandon something is to leave it behind, so a letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoning",
+         "at": 10,
+         "note": "abandoning means the following a is dropped from the word"
+        }
+       ],
        "parts": [
         {
          "words": "By way of",
-         "gives": "VI",
-         "note": "VIA means by way of; it drops the letter a"
+         "at": 0,
+         "gives": "VIA",
+         "note": "via means by way of"
         },
         {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
-        },
-        {
-         "words": "America",
-         "gives": "US",
-         "note": "US is the United States"
+         "words": "a",
+         "at": 21,
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 23,
+       "gives": "R"
+      },
+      {
+       "words": "America",
+       "at": 30,
+       "gives": "US",
+       "note": "US is short for the United States"
       }
      ]
     },
     "explanation": {
-     "surface": "A dig suggesting that America, by giving up a right, produced the pandemic.",
-     "walkthrough": "The 'a' in 'abandoning a right' is the letter A, which comes out of VIA.",
-     "definitionFit": "Covid-19 is the illness caused by a coronavirus, so it is offered as an example with a question mark."
+     "surface": "A political jibe that the USA, having abandoned the right course, bred the pandemic.",
+     "walkthrough": "'abandoning' a drops the A from VIA, leaving VI.",
+     "definitionFit": "Covid-19 is an example of an infectious agent of this kind, hence the question mark."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "a"
+     "aptDefinition": true,
+     "misdirectedWord": "right"
     }
    }
   },
@@ -927,57 +955,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BIGBROTHER",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite complete, so the final letter is cut"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Vast",
+       "at": 9,
+       "gives": "BIG",
+       "note": "vast means big"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 25,
+         "note": "almost means the word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Vast",
-         "gives": "BIG",
-         "note": "vast means very large, so a three-letter word for large is wanted"
-        },
-        {
          "words": "whorehouse",
-         "gives": "BROTHE",
-         "note": "a brothel, shorn of its last letter"
+         "at": 14,
+         "gives": "BROTHEL",
+         "note": "a whorehouse is a brothel"
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "the end of a word is its last letter, which alone is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tether",
-           "note": "the last letter of tether"
-          }
-         ]
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 35,
+         "note": "end of picks the last letter of tether"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tether",
+         "at": 42,
+         "note": "the end of tether is its last letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A huge brothel's staff are nearly at the end of their tether, as filmed for television.",
-     "walkthrough": "The answer spans 16 across and 19 down. 'At the end of one's tether' is an idiom for exasperation, but here it just supplies R.",
-     "definitionFit": "The reality television series locks contestants in a house under constant camera surveillance, so it is something seen on TV."
+     "surface": "A huge brothel, nearly at the end of its tether, appears on television.",
+     "walkthrough": "'almost' trims BROTHEL to BROTHE, and 'end of' tether supplies its last letter.",
+     "definitionFit": "Big Brother is a reality television show, so it is literally something seen on TV."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "tether"
+     "misdirectedWord": "whorehouse"
     }
    }
   },
@@ -1002,37 +1036,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BARBARIC",
-     "indicators": [
-      {
-       "text": "not good",
-       "note": "not means without, and good is abbreviated to its single letter, which is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Spike",
+       "at": 12,
+       "gives": "BARB",
+       "note": "a barb is a spike or sharp point"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "misused",
+         "at": 19,
+         "note": "misused signals that what remains of cigar is put to wrong order"
+        }
+       ],
        "parts": [
         {
-         "words": "Spike",
-         "gives": "BARB",
-         "note": "a barb is a sharp spike"
-        },
-        {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "'misused'",
-           "note": "something misused is put to the wrong use, so the letters go into the wrong order"
+           "text": "not",
+           "at": 36,
+           "note": "not means the letter for good is left out of cigar"
           }
          ],
          "parts": [
           {
            "words": "cigar",
-           "gives": "CIAR",
-           "note": "cigar without its G"
+           "at": 28
+          },
+          {
+           "words": "good",
+           "at": 40,
+           "gives": "G"
           }
          ]
         }
@@ -1041,14 +1080,13 @@
      ]
     },
     "explanation": {
-     "surface": "A savage named Spike abuses a cigar, which is not a nice thing to do.",
-     "walkthrough": "Spike looks like a man's name, but it is a spike, a BARB.",
-     "definitionFit": "Barbaric behaviour is savage and primitive, lacking civilisation, so the two words are synonyms."
+     "surface": "Spike Milligan abused a cigar, and it was in poor taste.",
+     "walkthrough": "'not good' removes G from cigar, leaving CIAR, which 'misused' shuffles to ARIC.",
+     "definitionFit": "Barbaric behaviour is savage and uncultured, the opposite of civilised."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "Spike"
     }
    }
@@ -1135,57 +1173,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STADIUM",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "failed to start",
-       "note": "failing to start means the beginning never happens, so the first letter is lost"
+       "text": "playing with",
+       "at": 58,
+       "note": "playing with signals the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "playing with",
-         "note": "playing with something is fiddling about, so the letters get moved around"
+         "text": "failed to start",
+         "at": 42,
+         "note": "failed to start means the first letter of nudist is lost"
         }
        ],
        "parts": [
         {
          "words": "nudist's",
-         "gives": "UDIST",
-         "note": "nudist without its first letter; the 's is 'has'"
+         "at": 33,
+         "gives": "NUDIST",
+         "note": "the word nudist, with the 's read as has"
         },
         {
-         "words": "a",
-         "note": "taken as written"
-        },
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 71
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "base",
-           "note": "the base of a down word is its bottom, its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "scrotum",
-           "note": "the last letter of scrotum"
-          }
-         ]
+         "text": "base",
+         "at": 82,
+         "note": "the base of a down entry is its bottom, so the final letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scrotum",
+         "at": 74,
+         "note": "the base, or last letter, of scrotum"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crude picture of a naked man's private parts getting kicked during a game.",
-     "walkthrough": "The 'balls' are footballs, not testicles; 'nudist's' means 'nudist has', so the 's gives no letter.",
-     "definitionFit": "A sports ground where football is played is an arena in which balls are kicked about."
+     "surface": "A nudist playing football risks a kick in a delicate place.",
+     "walkthrough": "'failed to start' takes the N off nudist, leaving UDIST; 'base' gives the last letter of scrotum; 'playing with' shuffles UDIST, A and that letter.",
+     "definitionFit": "Footballs are kicked in a sports arena, which is the venue named here."
     },
     "features": {
      "answerInScene": true,
@@ -1346,47 +1390,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "God",
+      "text": "God!",
       "at": 61
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "JUPITER",
-     "indicators": [
-      {
-       "text": "cutting end off",
-       "note": "cutting off an end trims away a final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Jack",
+       "at": 0,
+       "gives": "J",
+       "note": "J is the card abbreviation for jack"
+      },
+      {
+       "words": "having an erection",
+       "at": 6,
+       "gives": "UP",
+       "note": "something erect is up"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "recklessly",
+         "at": 32,
+         "note": "recklessly signals the letters are thrown into disorder"
+        }
+       ],
        "parts": [
         {
-         "words": "Jack",
-         "gives": "J",
-         "note": "J is jack in a pack of cards"
-        },
-        {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "recklessly",
-           "note": "done recklessly means done wildly, so the letters scatter"
+           "text": "cutting end off",
+           "at": 43,
+           "note": "cutting end off means the last letter of tries is dropped"
           }
          ],
          "parts": [
           {
-           "words": "an erection",
-           "gives": "UP",
-           "note": "to have an erection is to be up"
+           "words": "tries",
+           "at": 26
           },
           {
-           "words": "tries",
-           "gives": "TRIE",
-           "note": "tries without its last letter"
+           "gives": "S"
           }
          ]
         }
@@ -1395,15 +1443,15 @@
      ]
     },
     "explanation": {
-     "surface": "A lewd scene: aroused Jack rashly attempts some cutting, then someone cries out to God.",
-     "walkthrough": "'God!' looks like an exclamation of horror; it is the definition.",
-     "definitionFit": "Jupiter was king of the gods in Roman mythology, so he is a god."
+     "surface": "A man called Jack, aroused, attempts something rash with a knife and cries out to heaven.",
+     "walkthrough": "'cutting end off' turns TRIES into TRIE, and 'recklessly' jumbles it to ITER.",
+     "definitionFit": "Jupiter was the chief Roman deity, king of the gods."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "God"
+     "misdirectedWord": "erection"
     }
    }
   },

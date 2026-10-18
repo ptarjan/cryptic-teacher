@@ -853,47 +853,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CONTEMPORARY",
+     "op": "container",
      "indicators": [
       {
-       "text": "funny",
-       "note": "something funny is odd or peculiar, so these letters come out in an odd order"
+       "text": "penning",
+       "at": 17,
+       "note": "penning means enclosing, as in a pen, so one word holds the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "perverse",
+       "at": 7,
+       "gives": "CONTRARY",
+       "note": "someone perverse is contrary, deliberately awkward"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "penning",
-         "note": "to pen something is to enclose it, as a sheep pen does"
+         "text": "funny",
+         "at": 25,
+         "note": "funny means odd, so the letters of poem come out in an odd order"
         }
        ],
        "parts": [
         {
-         "words": "perverse",
-         "gives": "CONTRARY",
-         "note": "contrary means wilfully awkward or perverse"
-        },
-        {
          "words": "poem",
-         "note": "the word poem with its letters rearranged"
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nobleman behaves contrarily while writing comic verse.",
-     "walkthrough": "'Peer' suggests a lord, but it is used in its other sense of an equal; 'Peer's' is 'Peer is'.",
-     "definitionFit": "A peer is someone of the same age or standing, which is what a contemporary is."
+     "surface": "A nobleman is being awkward, writing a comic verse.",
+     "walkthrough": "'Peer' suggests a lord, which fits the surface, but it means an equal in age. 'funny' shuffles poem, and 'penning' encloses it in the word for perverse.",
+     "definitionFit": "A peer can be someone of the same age or generation, which is what a contemporary is."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Peer's"
+     "joke": "pun",
+     "misdirectedWord": "Peer"
     }
    }
   },
@@ -1011,58 +1013,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TAVERN",
      "indicators": [
       {
        "text": "In",
-       "note": "one word put in another sits inside it"
+       "at": 0,
+       "note": "In puts the word for claim inside the two end letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "eastern parts of",
+         "at": 3,
+         "note": "in an across-style reading the east of a word is its right-hand end, so the last letters of each word are taken"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "eastern parts of",
-           "note": "on a map east is the right-hand side, so the last letter of each word is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "desert",
-           "note": "last letter of desert"
-          }
-         ]
-        },
-        {
-         "words": "claim",
-         "gives": "AVER",
-         "note": "to aver is to assert or claim"
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "terrain",
-           "note": "last letter of terrain"
-          }
-         ]
+         "words": "desert terrain",
+         "at": 20,
+         "note": "the last letter of each word, desert and terrain"
         }
        ]
+      },
+      {
+       "words": "claim",
+       "at": 36,
+       "gives": "AVER",
+       "note": "to aver is to claim or assert"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone in a desert claims to have found an oasis.",
-     "walkthrough": "In a down answer the eastern end of a word is its last letter.",
-     "definitionFit": "A watering hole is informal for a pub or bar, which is what a tavern is."
+     "surface": "A traveller in a desert insists there is an oasis nearby.",
+     "walkthrough": "'eastern parts of' takes the end letters of desert and terrain, T and N, and 'In' puts AVER between them. 'Watering-hole' looks like the desert oasis but is a pub.",
+     "definitionFit": "Watering-hole is informal for a place where people drink, such as an inn or pub."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "watering-hole"

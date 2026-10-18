@@ -173,31 +173,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NETTLE",
      "indicators": [
       {
        "text": "leader's changed direction",
-       "note": "the first letter is a compass point, and it swaps for the opposite compass point"
+       "at": 17,
+       "note": "the leading letter is a compass point, south, and it is changed to the opposite direction, north"
       }
      ],
      "parts": [
       {
        "words": "rest",
+       "at": 6,
        "gives": "SETTLE",
        "note": "to settle is to come to rest"
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone irritating another by rearranging things after the boss turns round.",
-     "walkthrough": "The leading S, south, becomes N, north.",
+     "surface": "Someone at peace is irritated once the boss changes course.",
+     "walkthrough": "'leader's changed direction' swaps the S that starts SETTLE for N.",
      "definitionFit": "To nettle someone is to irritate them, like the sting of the plant."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "direction"
+     "misdirectedWord": "leader's"
     }
    }
   },
@@ -517,51 +523,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASTONMARTIN",
-     "indicators": [
-      {
-       "text": "clipped",
-       "note": "something clipped has had its end trimmed off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 4
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "clipped",
+         "at": 11,
+         "note": "clipped means the word has its tail cut off"
+        }
+       ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
          "words": "rock",
-         "gives": "STON",
-         "note": "stone with its last letter removed"
+         "at": 6,
+         "gives": "STONE",
+         "note": "a stone is a piece of rock"
         },
         {
-         "words": "damage",
-         "gives": "MAR",
-         "note": "to mar is to spoil or damage"
-        },
-        {
-         "words": "metal",
-         "gives": "TIN",
-         "note": "tin is a metal"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "damage",
+       "at": 24,
+       "gives": "MAR",
+       "note": "to mar is to damage or spoil"
+      },
+      {
+       "words": "metal",
+       "at": 34,
+       "gives": "TIN",
+       "note": "tin is a metal"
       }
      ]
     },
     "explanation": {
-     "surface": "A car clipped by a falling rock, leaving damage on its metalwork.",
-     "walkthrough": "In a down clue 'on' puts the metal beneath the damage.",
-     "definitionFit": "Aston Martin is a British maker of luxury sports cars, the marque James Bond drives."
+     "surface": "A vehicle bodywork is chipped by a stone and dented.",
+     "walkthrough": "'clipped' trims STONE to STON.",
+     "definitionFit": "Aston Martin is a British maker of luxury sports cars, so its name stands for one of them."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rock"
+     "misdirectedWord": "clipped"
     }
    }
   },
@@ -586,47 +597,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNCLASP",
+     "op": "composite",
      "indicators": [
       {
+       "text": "shed",
+       "at": 5,
+       "note": "shed means cast off, so these letters are removed from the fodder"
+      },
+      {
        "text": "damaged",
-       "note": "damaged means the removed letters need not appear in that order; they are scattered through the word"
+       "at": 10,
+       "note": "damaged signals the letters of here may come out in any order from the pool"
       },
       {
        "text": "larking",
-       "note": "larking means playing about, so what remains is jumbled"
+       "at": 41,
+       "note": "larking means fooling about, so the letters of the fodder are played with and rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UNCLASP",
-       "indicators": [
-        {
-         "text": "shed",
-         "note": "to shed is to cast off, so letters are taken away from the word that follows"
-        }
-       ],
-       "parts": [
-        {
-         "words": "here",
-         "note": "the letters to take away, in any order"
-        },
-        {
-         "words": "leprechaun's",
-         "note": "the word taken as written, apostrophe dropped"
-        }
-       ]
+       "words": "leprechaun's",
+       "at": 28,
+       "note": "the fodder, every letter including the s"
+      },
+      {
+       "words": "here",
+       "at": 18,
+       "note": "the letters to be taken out"
       }
      ]
     },
     "explanation": {
-     "surface": "A mischievous leprechaun breaking into a garden shed.",
-     "walkthrough": "'Open shed' looks like the definition but only 'Open' is; removing H, E, R, E from LEPRECHAUNS leaves L, P, C, A, U, N, S to rearrange.",
-     "definitionFit": "To release a buckle or clasp is to unfasten it, and unfastening is opening."
+     "surface": "A mischievous leprechaun breaks open a garden shed.",
+     "walkthrough": "'Shed' looks like a garden hut opened by the leprechaun but it is the verb: HERE is cast off from LEPRECHAUNS and the rest is rearranged.",
+     "definitionFit": "To unclasp something is to release its catch, so to open it."
     },
     "features": {
      "answerInScene": false,
@@ -1100,42 +1105,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CORNROW",
-     "indicators": [
-      {
-       "text": "losing first",
-       "note": "losing its first means the opening letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing first",
+         "at": 21,
+         "note": "losing first means the word drops its opening letter"
+        }
+       ],
        "parts": [
         {
-         "words": "show contempt",
-         "gives": "CORN",
-         "note": "scorn is to show contempt; its opening letter goes"
+         "words": "show contempt for",
+         "at": 3,
+         "gives": "SCORN",
+         "note": "to scorn is to show contempt for"
         },
         {
-         "words": "argument",
-         "gives": "ROW",
-         "note": "a row is a quarrel"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "argument",
+       "at": 34,
+       "gives": "ROW",
+       "note": "a row is an argument"
       }
      ]
     },
     "explanation": {
-     "surface": "Being contemptuous of someone for dropping their first point in a debate.",
-     "walkthrough": "'Do' looks like a verb, but it is a hairdo, a noun.",
-     "definitionFit": "Hair braided flat to the scalp in lines is a hairstyle, and a do is informal for a hairstyle."
+     "surface": "Someone disdains an argument they are losing at the first stage.",
+     "walkthrough": "'Do' is the noun, a hairdo, not the verb it looks like. SCORN without its S gives CORN.",
+     "definitionFit": "A cornrow is a hairstyle of tight braids lying flat on the scalp, an example of a hairdo."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Do"
     }
    }
@@ -1162,26 +1170,26 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "KEPI",
      "indicators": [
       {
-       "text": "Greek character going back",
-       "note": "a Greek letter going back means that letter group leaves the front of the word and moves to the rear"
+       "text": "Greek character going back in",
+       "at": 0,
+       "note": "the Greek letter pi at the front of the word moves back to the end, still within the word"
       }
      ],
      "parts": [
       {
        "words": "swimmer's",
+       "at": 30,
        "gives": "PIKE",
-       "note": "a pike is a freshwater fish, whose front two letters spell a Greek letter"
+       "note": "a pike is a freshwater fish, a swimmer"
       }
      ]
     },
     "explanation": {
-     "surface": "A Greek swimmer going backwards wearing a cap.",
-     "walkthrough": "The swimmer is a fish, not a person; PI moves from the front of PIKE to the back.",
-     "definitionFit": "A kepi is a French military cap with a flat top and a peak, so a piece of headwear."
+     "surface": "A letter from the Greek alphabet is returned inside a bather's cap.",
+     "walkthrough": "'Greek character going back in' moves the PI at the front of PIKE to the back.",
+     "definitionFit": "A kepi is a French military cap with a flat round top and a peak."
     },
     "features": {
      "answerInScene": false,
