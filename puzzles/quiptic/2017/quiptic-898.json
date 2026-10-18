@@ -559,64 +559,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EMPEROR",
+     "op": "composite",
      "indicators": [
       {
+       "text": "leaving",
+       "at": 34,
+       "note": "leaving says some letters go away from the word performers before the rest are rearranged"
+      },
+      {
        "text": "playing",
-       "note": "playing suggests fooling about, so the remaining letters are rearranged"
+       "at": 53,
+       "note": "playing suggests the remaining letters are performed in a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EMPEROR",
+       "words": "performers",
+       "at": 42,
+       "note": "the anagram fodder, taken as written"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "leaving",
-         "note": "letters leaving a word depart from it and are taken out"
+         "text": "Leading",
+         "at": 0,
+         "note": "Leading picks the first letter of each of the three following words"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "FSR",
-         "indicators": [
-          {
-           "text": "Leading",
-           "note": "the leading part of each of the next three words is its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "female soloist reportedly",
-           "gives": "FSR",
-           "select": "first",
-           "note": "the initial letter of each word"
-          }
-         ]
-        },
-        {
-         "words": "performers",
-         "note": "taken as written"
+         "words": "female soloist reportedly",
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prima donna, it is said, walks out on musicians performing a Beethoven symphony.",
-     "walkthrough": "The surface suggests a diva and the Fifth Symphony; 'reportedly' looks like a sound signal but just supplies its first letter. Taking F, S, R from PERFORMERS leaves PEROMER.",
-     "definitionFit": "The Emperor is the popular nickname of Beethoven's Piano Concerto No 5, so it is his fifth concerto."
+     "surface": "A prima donna walks out of an orchestra's performance of a Beethoven concerto.",
+     "walkthrough": "'Leading' takes F, S and R from female, soloist, reportedly; 'leaving' removes them from PERFORMERS, and 'playing' rearranges the rest. Beethoven's fifth piano concerto is nicknamed the Emperor.",
+     "definitionFit": "Beethoven's Piano Concerto No. 5 in E flat is universally known by the nickname Emperor."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "reportedly"
+     "misdirectedWord": "soloist"
     }
    }
   },

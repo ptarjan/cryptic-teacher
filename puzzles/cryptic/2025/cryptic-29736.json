@@ -47,53 +47,57 @@
      "indicators": [
       {
        "text": "carrying",
-       "note": "something carrying a load holds it inside, so the shortened word wraps round what follows"
+       "at": 19,
+       "note": "carrying means holding, so the shortened step holds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Taking first",
+         "at": 0,
+         "note": "Taking first means removing the first letter of step"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Taking first",
-           "note": "taking away the first means the opening letter of the following word is removed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "step",
-           "note": "taken as written, before losing its first letter"
-          },
-          {
-           "gives": "S"
-          }
-         ]
+         "words": "step",
+         "at": 13
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "gives": "S"
         }
        ]
       },
       {
-       "words": "copper",
-       "gives": "CU",
-       "note": "Cu is the chemical symbol for copper"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 28,
+         "gives": "A"
+        },
+        {
+         "words": "copper",
+         "at": 30,
+         "gives": "CU",
+         "note": "Cu is the chemical symbol for copper"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cautious first step, carefully carrying a copper pot.",
-     "walkthrough": "'Taking first' looks like part of the surface's first step, but it tells you to drop the opening letter of the next word.",
-     "definitionFit": "A cup for drinking tea is a small container, which a vessel broadly is."
+     "surface": "Someone takes a first step while holding a copper pot.",
+     "walkthrough": "STEP minus S is TEP, which holds A and CU.",
+     "definitionFit": "A teacup is a small drinking container, the cup tea is served in."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Taking"
+     "misdirectedWord": "step"
     }
    }
   },

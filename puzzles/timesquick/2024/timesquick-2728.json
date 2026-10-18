@@ -675,54 +675,59 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so this shortened word wraps the following pieces"
+       "at": 21,
+       "note": "about means going around, so the shortened word for keen wraps the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 9,
+         "note": "mostly means most but not all of the word, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means most but not all, so the last letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "keen",
-           "gives": "EAGER",
-           "note": "keen means eager"
-          },
-          {
-           "gives": "R"
-          }
-         ]
+         "words": "keen",
+         "at": 16,
+         "gives": "EAGER",
+         "note": "keen means eager"
         },
         {
-         "words": "new",
-         "gives": "N",
-         "note": "N abbreviates new"
+         "gives": "R"
         }
        ]
       },
       {
-       "words": "holiday itinerary",
-       "gives": "TOUR",
-       "note": "a tour is a planned round trip"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 27,
+         "gives": "N"
+        },
+        {
+         "words": "holiday itinerary",
+         "at": 31,
+         "gives": "TOUR",
+         "note": "a tour is a planned holiday route"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A party of travellers is fairly enthusiastic about a fresh trip plan.",
-     "definitionFit": "An entourage is the band of attendants or followers accompanying an important person."
+     "surface": "A travel company's group is impatient to set off on a new holiday route.",
+     "walkthrough": "'Group' sounds like a band or committee, but here it is the retinue that travels with a celebrity.",
+     "definitionFit": "An entourage is the band of attendants or followers that travels with an important person."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "holiday"
+     "misdirectedWord": "Group"
     }
    }
   },

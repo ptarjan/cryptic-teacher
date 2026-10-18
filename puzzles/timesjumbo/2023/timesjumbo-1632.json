@@ -163,53 +163,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LITERARYCRITICISM",
+     "op": "composite",
      "indicators": [
       {
+       "text": "missing",
+       "at": 44,
+       "note": "missing says a letter is absent from the pool before it is rearranged"
+      },
+      {
        "text": "sadly",
-       "note": "things that go sadly go wrong, so these letters end up in a new order"
+       "at": 70,
+       "note": "sadly signals that the letters are rearranged into a sorry new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "LITERARYCRITICISM",
-       "indicators": [
-        {
-         "text": "missing",
-         "note": "something missing is absent, so that letter is taken out"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "lyric items",
-         "note": "fodder taken as written"
+         "words": "lyric",
+         "at": 32
         },
         {
-         "words": "English",
-         "gives": "E",
-         "note": "standard abbreviation for English"
+         "words": "items",
+         "at": 38
         },
         {
          "words": "criteria",
-         "note": "fodder taken as written"
+         "at": 60
         }
        ]
+      },
+      {
+       "words": "English",
+       "at": 52,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A review of a work's content complains that the song lyrics lack English standards.",
-     "walkthrough": "Take E out of 'lyric items', add 'criteria', and rearrange all seventeen letters.",
-     "definitionFit": "Literary criticism is the study and evaluation of novels, poems and plays, judging their meaning and craft."
+     "surface": "A review of lyrics laments the absence of English standards.",
+     "walkthrough": "LYRIC ITEMS CRITERIA without E is rearranged.",
+     "definitionFit": "Literary criticism is the study and evaluation of works of literature."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "English"
+     "misdirectedWord": "lyric"
     }
    }
   },
@@ -903,37 +903,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ACTUARY",
-     "indicators": [
-      {
-       "text": "reduced",
-       "note": "a reduced word has been cut short, losing its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 19,
+         "note": "reduced means cut short, so the last letter of the concrete word goes"
+        }
+       ],
        "parts": [
         {
          "words": "concrete",
-         "gives": "ACTUA",
-         "note": "actual (real, concrete) without its last letter"
+         "at": 27,
+         "gives": "ACTUAL",
+         "note": "actual means real or concrete"
         },
         {
-         "words": "railway",
-         "gives": "RY",
-         "note": "standard abbreviation for railway"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "railway",
+       "at": 48,
+       "gives": "RY"
       }
      ]
     },
     "explanation": {
-     "surface": "A financial assessor reports that less concrete was delivered to the railway works.",
-     "walkthrough": "'Concrete' looks like building material, but here it is the adjective meaning real, i.e. actual.",
-     "definitionFit": "An actuary calculates insurance risks and premiums, a professional who evaluates money matters statistically."
+     "surface": "A cut in concrete supplied to the railway is assessed financially.",
+     "walkthrough": "ACTUAL loses L to give ACTUA.",
+     "definitionFit": "An actuary calculates insurance risks and premiums, a professional who evaluates money matters."
     },
     "features": {
      "answerInScene": false,
@@ -2429,35 +2432,38 @@
      "indicators": [
       {
        "text": "penning",
-       "note": "to shut something in behind a fence is to enclose it, so one piece sits within another"
+       "at": 4,
+       "note": "penning means enclosing, so the sty holds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Pen",
-         "gives": "STY",
-         "note": "a sty is a pig pen"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Pen",
+       "at": 0,
+       "gives": "STY",
+       "note": "a sty is a pen for pigs"
       },
       {
-       "words": "line",
-       "gives": "L",
-       "note": "standard abbreviation for line"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 12,
+         "gives": "A"
+        },
+        {
+         "words": "line",
+         "at": 14,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer's pen produces a witty one-liner.",
-     "walkthrough": "Both 'Pen' and 'penning' suggest writing; the first is a pigsty and the second means enclosing.",
-     "definitionFit": "Salty humour is sharp, earthy and lively, so salty talk is full of racy wit."
+     "surface": "A writer's pen produces a line full of wit.",
+     "walkthrough": "'Pen' looks like a writing tool; it is an enclosure for animals.",
+     "definitionFit": "Salty humour is sharp and earthy, so salty can describe lively, racy talk."
     },
     "features": {
      "answerInScene": false,
@@ -2658,53 +2664,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WATERWHEEL",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
+       "text": "in",
+       "at": 12,
+       "note": "in places the rearranged letters inside the shortened spring word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "what is in something sits inside it, so one piece goes within another"
+         "text": "mostly",
+         "at": 22,
+         "note": "mostly means most of the word, so its last letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "spring",
-         "gives": "WEL",
-         "note": "a well is a spring of water, here cut short"
+         "at": 15,
+         "gives": "WELL",
+         "note": "a well is a spring of water"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "Bad",
-           "note": "something bad is spoiled or wrong, so these letters are disordered"
-          }
-         ],
-         "parts": [
-          {
-           "words": "weather",
-           "note": "the fodder letters taken as written"
-          }
-         ]
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Bad",
+         "at": 0,
+         "note": "Bad suggests a corrupted form, so the letters of weather are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "weather",
+         "at": 4
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Stormy spring weather mostly wrecks the gear fixed to a mill.",
-     "walkthrough": "'Mostly' seems to apply to the weather, but it trims WELL; the jumbled weather goes inside.",
-     "definitionFit": "A waterwheel is the paddled wheel turned by a stream to drive a mill's machinery, fixed to its side."
+     "surface": "Poor spring weather ruins the mill.",
+     "walkthrough": "WELL trimmed to WEL holds ATERWHE, rearranged from WEATHER.",
+     "definitionFit": "A waterwheel is the paddled wheel fixed to a mill that turns the millstones."
     },
     "features": {
      "answerInScene": true,

@@ -48,36 +48,38 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "applied",
-       "note": "applied suggests put to a new use or worked over, so the letters before it are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "applied",
+         "at": 5,
+         "note": "applied, as in put to work in a new way, signals the letters of café are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "Café",
-         "note": "the word for a coffee shop with its letters rearranged"
-        },
-        {
-         "words": "discount",
-         "gives": "SAVING",
-         "note": "a discount is a saving on the price"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "discount",
+       "at": 13,
+       "gives": "SAVING",
+       "note": "a saving is a discount on a price"
       }
      ]
     },
     "explanation": {
-     "surface": "A café shopper avoids embarrassment by having a discount applied to the bill.",
-     "definitionFit": "A face-saving gesture preserves dignity, letting someone escape public humiliation or loss of respect."
+     "surface": "A café offers a discount, sparing its customers embarrassment.",
+     "definitionFit": "Face-saving describes something that protects one's dignity or reputation."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "applied"
     }
@@ -1007,31 +1009,41 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SEAFRET",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "William Spooner swapped the starting sounds of words, so the opening sounds trade places"
+       "at": 0,
+       "note": "Spooner's says the opening sounds of the two words are swapped"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "liberated group",
-       "gives": "SEAFRET",
-       "soundsLike": "SEE FRET",
-       "note": "liberated is free and a group is a set; swap their opening sounds"
+       "op": "homophone",
+       "spelt": "FREA",
+       "parts": [
+        {
+         "words": "liberated",
+         "at": 10,
+         "gives": "FREE",
+         "note": "liberated means free"
+        }
+       ]
+      },
+      {
+       "words": "group",
+       "at": 20,
+       "gives": "SET",
+       "note": "a set is a group"
       }
      ]
     },
     "explanation": {
-     "surface": "A freed band of people is described as a danger to seafarers.",
-     "walkthrough": "A sea fret is a sea mist rolling in off the North Sea, a regional British word.",
-     "definitionFit": "A thick coastal fog cuts visibility and is a hazard for anyone navigating a boat."
+     "surface": "A freed group of people could cause trouble for sailors.",
+     "walkthrough": "FREE SET swapped by sound becomes 'see fret'. A sea fret is a coastal sea fog.",
+     "definitionFit": "A sea fret is a cold mist rolling in from the sea, which hampers navigation."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "liberated"
     }
