@@ -75,53 +75,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FOPPISH",
+     "op": "charade",
      "indicators": [
       {
-       "text": "half",
-       "note": "half of a word is one of its two halves, here the first three of six letters"
+       "text": "on",
+       "at": 35,
+       "note": "in an across clue one piece on another comes before it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "female",
+       "at": 9,
+       "gives": "F"
+      },
+      {
+       "words": "at work",
+       "at": 16,
+       "gives": "OP",
+       "note": "OP is short for operating, so at work"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 25,
+         "note": "only half the letters of the high word are kept"
+        }
+       ],
        "parts": [
         {
-         "words": "female",
-         "gives": "F",
-         "note": "F is the standard abbreviation for female"
-        },
-        {
-         "words": "work",
-         "gives": "OP",
-         "note": "OP, short for opus, is a work"
-        },
-        {
          "words": "high",
-         "gives": "PIS",
-         "note": "high means intoxicated, as does PISSED, and the first half of PISSED is PIS"
+         "at": 30,
+         "gives": "PISSED",
+         "note": "pissed is British slang for drunk, so high on drink"
         },
         {
-         "words": "heroin",
-         "gives": "H",
-         "note": "H is drug slang for heroin"
+         "gives": "SED"
         }
        ]
+      },
+      {
+       "words": "heroin",
+       "at": 38,
+       "gives": "H",
+       "note": "H is drug slang for heroin"
       }
      ]
     },
     "explanation": {
-     "surface": "A vain woman at her job, half out of her head on heroin.",
-     "walkthrough": "'Female' looks like the subject of 'preening', but it only gives its initial. 'High' has to become a six-letter word for intoxicated before the half can be taken.",
-     "definitionFit": "Foppish means vain and fussy about dress, like a fop, and preening is the fop's habit of primping."
+     "surface": "A vain woman at the office is half out of it on heroin.",
+     "walkthrough": "PISSED loses its second half SED, leaving PIS.",
+     "definitionFit": "Foppish means vain and dandified, which fits someone who is preening."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "female"
+     "misdirectedWord": "work"
     }
    }
   },
@@ -194,40 +206,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PANIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dividing",
+       "at": 13,
+       "note": "the jumbled letters divide the copper's letters by sitting between them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "copper",
+       "at": 22,
+       "gives": "PC",
+       "note": "PC is a police constable, and a copper is a policeman"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "Screwed",
-         "note": "something screwed up is twisted out of shape, so the letters it governs are scrambled"
-        },
-        {
-         "text": "dividing",
-         "note": "letters dividing a word split it in two, so they sit inside it"
+         "at": 0,
+         "note": "screwed means twisted, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "copper",
-         "gives": "PC",
-         "note": "PC, police constable, is a copper"
+         "words": "in",
+         "at": 8
         },
         {
-         "words": "in a",
-         "note": "the letters of IN A rearranged"
+         "words": "a",
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mechanic fixing a copper flap by screwing it in place.",
-     "walkthrough": "'Copper' is the policeman, not the metal the surface suggests, and he is split around the rearranged pair of little words.",
-     "definitionFit": "A flap is a state of agitated alarm, which is exactly what a panic is."
+     "surface": "A twisted copper strip splits a flap open.",
+     "walkthrough": "'Copper' looks like the metal; it is a British police officer.",
+     "definitionFit": "Flap is informal for a state of agitated alarm, so it means panic."
     },
     "features": {
      "answerInScene": false,
@@ -314,63 +333,49 @@
      "indicators": [
       {
        "text": "covers",
-       "note": "a thing that covers another wraps round it, so its letters go outside"
+       "at": 5,
+       "note": "covers means surrounds, so the tool's letters go round the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Tool",
-         "gives": "HOE",
-         "note": "a hoe is a garden tool"
-        },
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "shrunken",
-           "note": "a shrunken word has been made smaller, here cut down to its first three letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Private Eye",
-           "gives": "MAGAZINE",
-           "note": "Private Eye is a British satirical magazine"
-          },
-          {
-           "gives": "GAZINE"
-          }
-         ]
-        }
-       ]
+       "words": "Tool",
+       "at": 0,
+       "gives": "HOE",
+       "note": "a hoe is a garden tool"
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "shrunken",
+         "at": 32,
+         "note": "the word for the publication is cut down to its short form"
+        }
+       ],
        "parts": [
         {
-         "words": "shrunken",
-         "gives": "MAG",
-         "note": "MAGAZINE cut short to its common abbreviation MAG"
+         "words": "Private Eye",
+         "at": 12,
+         "gives": "MAGAZINE",
+         "note": "Private Eye is a British satirical magazine"
         },
         {
-         "gives": "MA"
+         "gives": "AZINE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A jibe that some tool has been covering the magazine, with a mock salute at the end.",
-     "walkthrough": "The setter drops his own magazine into the clue; shortened, it is the informal MAG, and the garden implement closes round it.",
-     "definitionFit": "Homage is public respect or honour paid to someone, and the exclamation mark lets it stand as a salute."
+     "surface": "A tool covering a shrunken Private Eye deserves some respect.",
+     "walkthrough": "Private Eye is the British satirical fortnightly that runs this puzzle, so it stands for its type of publication.",
+     "definitionFit": "Homage is public honour or tribute, a show of respect."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "Tool"
     }
    }
@@ -504,58 +509,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COLOSTOMY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Small business",
+       "at": 0,
+       "gives": "CO",
+       "note": "CO is short for company, a business"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "worried",
-         "note": "a thing worried is pulled about and shaken, like a dog worrying a bone, so the letters are shaken up"
+         "text": "about",
+         "at": 30,
+         "note": "the jumbled letters go about the ring, enclosing it"
         }
        ],
        "parts": [
         {
-         "words": "Small business",
-         "gives": "CO",
-         "note": "CO is the abbreviation for company"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "about",
-           "note": "'about' means surrounding, so the next letter goes inside"
+           "text": "worried",
+           "at": 15,
+           "note": "worried means agitated, so the letters are shaken up"
           }
          ],
          "parts": [
           {
            "words": "mostly",
-           "note": "all six letters of MOSTLY rearranged, split around the ring"
-          },
-          {
-           "words": "ring",
-           "gives": "O",
-           "note": "O is ring-shaped"
+           "at": 23
           }
          ]
+        },
+        {
+         "words": "ring",
+         "at": 36,
+         "gives": "O",
+         "note": "O is ring-shaped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worried small-business owner, and some procedural manoeuvre to divert the motions at a meeting.",
-     "walkthrough": "'Motions' sounds like business at a meeting, which 'small business' and 'procedure' encourage; it means bowel movements. 'Mostly' is not trimming anything here: all six letters are rearranged.",
-     "definitionFit": "A colostomy is surgery that diverts the colon to an opening in the abdomen, rerouting bowel motions."
+     "surface": "A small firm worries about a ring-shaped bowel operation.",
+     "walkthrough": "MOSTLY is reordered to LOSTMY with O placed after LOST.",
+     "definitionFit": "A colostomy diverts the colon through the abdomen into a bag, rerouting bowel motions."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "motions"
+     "misdirectedWord": "mostly"
     }
    }
   },
@@ -947,38 +954,26 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "one thing in another sits inside it"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "first third of",
-         "note": "the first third of a six-letter word is its opening two letters"
+         "text": "in",
+         "at": 7,
+         "note": "the poetry word goes in the Oxford letters"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
+         "words": "first third of Oxford",
+         "at": 10,
          "gives": "OX",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Oxford",
-           "gives": "OX",
-           "select": "first",
-           "note": "taking the first third of the six letters of OXFORD leaves its opening two"
-          }
-         ]
+         "note": "Oxford has six letters, so its first third is the first two"
         },
         {
          "words": "Poetry",
+         "at": 0,
          "gives": "VERSE",
          "note": "verse is poetry"
         }
@@ -986,21 +981,21 @@
       },
       {
        "words": "edition",
-       "gives": "ED",
-       "note": "ED is the abbreviation for edition"
+       "at": 32,
+       "gives": "ED"
       }
      ]
     },
     "explanation": {
-     "surface": "An Oxford edition of poetry so good the reader can't get enough of it.",
-     "walkthrough": "'It' is the old euphemism for sex, and that is what the definition is hungry for, not the poetry.",
-     "definitionFit": "Someone oversexed has an excessive appetite for sex, which is 'it' in the old euphemistic sense."
+     "surface": "Poetry in the first part of an Oxford edition leaves you wanting more.",
+     "walkthrough": "'It' in the definition is the usual coy word for sex.",
+     "definitionFit": "Someone oversexed has an excessive sex drive, so never has enough sex."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "it"
+     "misdirectedWord": "Poetry"
     }
    }
   },
@@ -1195,43 +1190,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HOLYSEE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "the jumbled letters go in the dump word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "dump",
+       "at": 19,
+       "gives": "HOLE",
+       "note": "a hole is a dump, a squalid place"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "Wallowing",
-         "note": "something wallowing rolls about, so the letters are rolled into a new order"
-        },
-        {
-         "text": "in",
-         "note": "one thing in another sits inside it"
+         "at": 0,
+         "note": "wallowing means rolling about, so the letters are mixed"
         }
        ],
        "parts": [
         {
-         "words": "dump",
-         "gives": "HOLE",
-         "note": "a hole is a dump, a squalid place"
-        },
-        {
          "words": "yes",
-         "note": "the letters of YES rearranged"
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Vatican cast as a squalid dump, wallowing under the pope.",
-     "walkthrough": "The definition is a description, not a synonym: the one jurisdiction whose head is the pope.",
-     "definitionFit": "The Holy See is the jurisdiction of the Bishop of Rome, the central government of the Catholic Church, and the pope presides over it."
+     "surface": "Someone wallows in a dump, saying yes, ruled by the pope.",
+     "definitionFit": "The Holy See is the Roman Catholic jurisdiction of Rome, governed by the pope as its bishop."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "dump"
@@ -1685,48 +1682,50 @@
      "op": "charade",
      "parts": [
       {
-       "words": "done",
-       "gives": "ONED",
-       "note": "the letters of DONE rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "getting screwed",
+         "at": 23,
+         "note": "screwed means twisted, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "done",
+         "at": 18
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "turning over",
-         "note": "a thing turning over ends up the other way round, so its letters are reversed"
+         "at": 45,
+         "note": "turning over says the abbreviation is read in the other direction"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "getting screwed",
-           "note": "something screwed is twisted out of shape, so the letters are scrambled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Say",
-           "gives": "GE",
-           "note": "EG, for example, is what 'say' means; reversed"
-          }
-         ]
+         "words": "Say",
+         "at": 40,
+         "gives": "EG",
+         "note": "EG, for example, is said before an instance, like say"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone lying awake after sex, restless and turning over in bed.",
-     "walkthrough": "'Say' is the signal for an example, and the setter uses it as the letters for one.",
-     "definitionFit": "To be on edge is to be tense and restless, unable to settle."
+     "surface": "Someone feels anxious about being cheated and asks for a turnover.",
+     "walkthrough": "DONE rearranges to ONED; EG for say turns to GE.",
+     "definitionFit": "To be on edge is to be nervous and tense, unable to settle."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "Say"
     }
    }

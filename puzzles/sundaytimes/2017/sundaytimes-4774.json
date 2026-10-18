@@ -224,33 +224,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HEADBANGER",
      "indicators": [
       {
        "text": "For Spooner",
-       "note": "Spooner famously swapped the opening sounds of words, so we exchange the starts here"
+       "at": 0,
+       "note": "Spooner swapped the starts of words, so the opening sounds trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "one might put up a hammock",
-       "gives": "HEADBANGER",
-       "soundsLike": "BED HANGER",
-       "note": "someone who hangs a hammock is a bed hanger; swap the initial B and H sounds"
+       "op": "homophone",
+       "spelt": "BEAD",
+       "parts": [
+        {
+         "words": "a hammock",
+         "at": 30,
+         "gives": "BED",
+         "note": "a hammock is a bed slung between supports"
+        }
+       ]
+      },
+      {
+       "words": "one might put up",
+       "at": 13,
+       "gives": "HANGER",
+       "note": "a hanger is something that hangs or puts things up"
       }
      ]
     },
     "explanation": {
-     "surface": "A man hangs a hammock and is also a heavy-metal enthusiast.",
-     "definitionFit": "A headbanger is a heavy-metal devotee who shakes their head violently to the music."
+     "surface": "A clue about rigging a hammock turns out to describe a heavy metal fan.",
+     "walkthrough": "BED HANGER, with the B and H swapped, sounds like HEAD BANGER.",
+     "definitionFit": "A headbanger is a fan of heavy metal music who shakes their head violently to the beat."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "hammock"
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "metal"
     }
    }
   },
@@ -955,43 +966,53 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "at the",
+       "at": 31,
+       "note": "the gents is placed at, right before, the next piece"
+      },
+      {
+       "text": "with",
+       "at": 20,
+       "note": "with joins the bitter word on, placed after the rest"
+      }
+     ],
      "parts": [
       {
        "words": "gents",
+       "at": 25,
        "gives": "LOO",
-       "note": "a loo is a toilet, and the gents is the men's toilet"
+       "note": "the gents is a men's toilet, and loo is British slang for a toilet"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "K",
        "indicators": [
         {
          "text": "Head",
+         "at": 45,
          "note": "the head of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "the King's",
-         "gives": "K",
-         "select": "first",
-         "note": "first letter of King"
+         "words": "King's",
+         "at": 38
         }
        ]
       },
       {
        "words": "bitter",
+       "at": 13,
        "gives": "SHARP",
-       "note": "sharp means acidic, bitter in taste"
+       "note": "sharp and bitter both describe an acid taste"
       }
      ]
     },
     "explanation": {
-     "surface": "A pub-goer gets going on bitter in the gents at the King's Head pub.",
-     "walkthrough": "Bitter is a British beer and the King's Head a typical pub name, but bitter is just sharp-tasting.",
-     "definitionFit": "Look sharp is an idiom urging someone to hurry, as is get cracking."
+     "surface": "Drink a bitter beer and use the gents at the King's Head pub.",
+     "walkthrough": "The King's Head is a typical British pub name, but here it means K, the first letter of King's.",
+     "definitionFit": "Look sharp is a British idiom meaning hurry up, the same urging as get cracking."
     },
     "features": {
      "answerInScene": false,

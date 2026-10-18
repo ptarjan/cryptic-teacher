@@ -340,64 +340,67 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MACBETH",
+     "op": "composite",
      "indicators": [
       {
        "text": "arranged",
-       "note": "music that is arranged is rewritten, so the letters are set in a new order"
+       "at": 15,
+       "note": "a musical arrangement reorders the notes, so these letters are reordered"
+      },
+      {
+       "text": "without",
+       "at": 24,
+       "note": "without says a letter must be left out of the jumbled pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MACBETH",
+       "op": "charade",
+       "parts": [
+        {
+         "words": "item",
+         "at": 5
+        },
+        {
+         "words": "Bach",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 2,
        "indicators": [
         {
-         "text": "without",
-         "note": "without means lacking, so that selected letter is taken away from the fodder"
+         "text": "second",
+         "at": 32,
+         "note": "second picks letter number two of violin"
+        },
+        {
+         "text": "part",
+         "at": 46,
+         "note": "part says only a piece of the word violin is wanted"
         }
        ],
        "parts": [
         {
-         "words": "item Bach",
-         "note": "taken as written"
-        },
-        {
-         "op": "nth",
-         "unchecked": true,
-         "gives": "I",
-         "n": 2,
-         "indicators": [
-          {
-           "text": "second",
-           "note": "second picks out just the letter in position two of the instrument's name"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "violin part",
-           "gives": "I",
-           "select": 2,
-           "note": "second letter of the word violin; part says only a piece of it is meant"
-          }
-         ]
+         "words": "violin",
+         "at": 39
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A musician plays a Bach piece arranged to leave out the second violin's part.",
-     "definitionFit": "Macbeth is one of Shakespeare's tragedies, so it is an example of a stage play."
+     "surface": "A piece by Bach, arranged so the second violin part is cut.",
+     "walkthrough": "ITEM BACH has eight letters; take out I, the second letter of violin, and the remaining seven rearrange into the answer.",
+     "definitionFit": "Macbeth is Shakespeare's tragedy about the Scottish king, so it is a play."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "violin"
+     "joke": "pun",
+     "misdirectedWord": "arranged"
     }
    }
   },

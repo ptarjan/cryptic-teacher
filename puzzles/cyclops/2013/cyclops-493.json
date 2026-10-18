@@ -321,57 +321,62 @@
      "indicators": [
       {
        "text": "welcomes",
-       "note": "to welcome someone is to take them in, so the outer word holds the others"
+       "at": 5,
+       "note": "to welcome is to take in, so the prat's letters go round the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Prat",
+       "at": 0,
+       "gives": "ASS",
+       "note": "an ass is a fool, as is a prat (British slang for an idiot)"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "Prat",
-         "gives": "ASS",
-         "note": "an ass is a fool, a prat"
-        },
         {
          "op": "reversal",
          "indicators": [
           {
            "text": "back",
-           "note": "going back means reading the word from right to left"
+           "at": 14,
+           "note": "back says the limb word is read in the other direction"
           }
          ],
          "parts": [
           {
            "words": "member",
+           "at": 19,
            "gives": "LEG",
-           "note": "a leg is a limb, a member of the body"
+           "note": "a leg is a limb, which is a member of the body"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "last",
-       "indicators": [
+        },
         {
-         "text": "end of",
-         "note": "the end of a word is its final letter, the only one kept"
-        }
-       ],
-       "parts": [
-        {
-         "words": "debate",
-         "note": "the final letter of debate"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "at end of",
+           "at": 26,
+           "note": "the end of debate is its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "debate",
+           "at": 36
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some fool lets a member back in just as a debate that seemed endless finally winds up.",
-     "walkthrough": "'member' tempts towards MP, but here it is a limb; prat is British slang for a fool.",
-     "definitionFit": "Something ageless never grows old, so it seems to continue eternally."
+     "surface": "A fool in parliament welcomes a member returning as a debate ends.",
+     "walkthrough": "'Member' and 'debate' suggest Parliament, but the member here is a limb.",
+     "definitionFit": "Something ageless never grows old, so it seems to last for all time."
     },
     "features": {
      "answerInScene": false,
@@ -1238,27 +1243,33 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Tell me more than that!",
-      "at": 35
+      "text": "\"Tell me more than that!\"",
+      "at": 34
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EXPAND",
      "indicators": [
       {
        "text": "in",
-       "note": "in places one piece inside the other"
+       "at": 25,
+       "note": "the jumbled letters sit in the rear word"
       }
      ],
      "parts": [
+      {
+       "words": "rear",
+       "at": 28,
+       "gives": "END",
+       "note": "the end is the rear of something"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "Mad",
-         "note": "mad means deranged, so the letters are thrown out of order"
+         "at": 0,
+         "note": "mad means crazy, so the remaining letters are scrambled"
         }
        ],
        "parts": [
@@ -1267,31 +1278,20 @@
          "indicators": [
           {
            "text": "booting",
-           "note": "booting out means kicking away, so those letters are removed"
+           "at": 11,
+           "note": "booting out means kicking out, so the bloke's letters are removed"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Paxman",
-             "note": "taken as written; Jeremy Paxman is a fierce TV interviewer"
-            },
-            {
-             "words": "bloke",
-             "gives": "MAN",
-             "note": "a bloke is a man"
-            },
-            {
-             "words": "rear",
-             "gives": "END",
-             "note": "the rear is the back end"
-            }
-           ]
+           "words": "Paxman",
+           "at": 4
           },
           {
-           "gives": "MANMAN"
+           "words": "bloke",
+           "at": 19,
+           "gives": "MAN",
+           "note": "a bloke is a man"
           }
          ]
         }
@@ -1300,15 +1300,15 @@
      ]
     },
     "explanation": {
-     "surface": "An angry Paxman kicks a guest in the backside, demanding a fuller answer.",
-     "walkthrough": "Jeremy Paxman was a famously combative BBC interviewer, which makes the demand for more fit the surface. 'in rear' is the container, not a position at the end.",
-     "definitionFit": "Asking someone to expand is asking them to elaborate and say more."
+     "surface": "An angry Jeremy Paxman, the British TV interviewer, kicks a man in the backside and demands more.",
+     "walkthrough": "Jeremy Paxman is a famously combative British interviewer, so a demand for more fits him; the whole quotation is the definition.",
+     "definitionFit": "Asking someone to expand on a point is asking them to say more about it in detail."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "absurd",
-     "misdirectedWord": "rear"
+     "misdirectedWord": "booting"
     }
    }
   },
