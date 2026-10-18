@@ -255,35 +255,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "Between",
-       "note": "says the middle piece sits flanked by the two compass points, one at each end"
+       "at": 0,
+       "note": "Between sets the insect word inside, with the south letter before and the north letter after"
       }
      ],
      "parts": [
       {
-       "words": "south",
-       "gives": "S",
-       "note": "S is the compass abbreviation for south"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "south",
+         "at": 8,
+         "gives": "S"
+        },
+        {
+         "words": "north",
+         "at": 18,
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "fly",
+       "at": 25,
        "gives": "MIDGE",
-       "note": "a midge is a small flying insect"
-      },
-      {
-       "words": "north",
-       "gives": "N",
-       "note": "N is the compass abbreviation for north"
+       "note": "a midge is a small fly"
       }
      ]
     },
     "explanation": {
-     "surface": "An insect flitting across a map from bottom to top, travelling only a short way.",
-     "walkthrough": "'Fly' looks like a verb; it is the insect, a MIDGE, set between S and N to give SMIDGEN.",
-     "definitionFit": "A smidgen is a tiny amount, an informal word for a very small quantity."
+     "surface": "A small insect flies a short way between the south and the north.",
+     "definitionFit": "A smidgen is a tiny amount, a very small portion of something."
     },
     "features": {
      "answerInScene": false,
@@ -428,61 +434,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "The Nation",
-      "at": 0
+      "text": "The Nation's",
+      "at": 0,
+      "note": "read as 'the nation is', so the definition is a nation; the answer is a country"
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "uprising",
-       "note": "in a down entry, rising means reading from the bottom upwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "note covering",
+       "at": 13,
+       "gives": "G",
+       "note": "G is a musical note, and in a down answer covering puts it on top of what follows"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "covering",
-         "note": "in a down entry, a piece covering another sits on top of it"
+         "text": "uprising",
+         "at": 57,
+         "note": "in a down answer, uprising means the words are read from the bottom up"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "feeble",
-         "gives": "LAME",
-         "note": "a feeble excuse is a lame one"
-        },
-        {
-         "words": "letter from Greece",
-         "gives": "TAU",
-         "note": "tau is the Greek letter T"
-        },
-        {
-         "words": "note",
-         "gives": "G",
-         "note": "G is a musical note"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 27
+          },
+          {
+           "words": "feeble",
+           "at": 29,
+           "gives": "LAME",
+           "note": "lame means feeble, as in a lame excuse"
+          },
+          {
+           "words": "letter from Greece",
+           "at": 36,
+           "gives": "TAU",
+           "note": "tau is a letter of the Greek alphabet"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political-sounding line about this magazine's comment on a Greek revolt.",
-     "walkthrough": "The definition is a pun: The Nation is the magazine that runs this puzzle, but read plainly it is any country. A LAME TAU goes upwards under G.",
-     "definitionFit": "Guatemala is a Central American country, so it is literally a nation."
+     "surface": "The magazine's message covers a weak letter about a Greek revolt.",
+     "walkthrough": "'The Nation' looks like the name of the magazine, but read 'Nation's' as 'nation is', so the answer is a country.",
+     "definitionFit": "Guatemala is a Central American country, so it is a nation."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "uprising"
+     "misdirectedWord": "Nation's"
     }
    }
   },

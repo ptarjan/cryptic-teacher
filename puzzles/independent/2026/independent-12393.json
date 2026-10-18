@@ -875,53 +875,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "in the end",
-       "note": "'In the end' points at the final letter of the word beside it rather than at the word itself."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "House",
+       "at": 0,
+       "gives": "SEMI",
+       "note": "a semi is a semi-detached house"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "leaves",
-         "note": "To leave is to depart, so the letter just identified walks out of the second piece."
+         "at": 43,
+         "note": "leaves means that letter departs from the territory word"
         }
        ],
        "parts": [
         {
-         "words": "House",
-         "gives": "SEMI",
-         "note": "A semi is Britain's semi-detached house, one of a pair sharing a wall."
-        },
-        {
          "words": "dependency",
-         "gives": "COLON",
-         "note": "A dependency is a COLONY, a territory run from elsewhere, and it turns up a letter short."
+         "at": 6,
+         "gives": "COLONY",
+         "note": "a colony is a dependency, a territory ruled by another state"
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "in the end",
+           "at": 32,
+           "note": "in the end points to the final letter of conservatory"
+          }
+         ],
          "parts": [
           {
            "words": "conservatory",
-           "note": "The last letter of 'conservatory' is the one that departs."
+           "at": 18,
+           "note": "its final letter is used"
           }
          ]
         }
        ]
-      },
-      {
-       "gives": "Y"
       }
      ]
     },
     "explanation": {
-     "surface": "An estate agent listing a house, its granny flat and finally its conservatory.",
-     "walkthrough": "COLONY and 'conservatory' end in the same letter, which is what lets one word name the letter another has to lose.",
-     "definitionFit": "A semicolon is a punctuation mark, so 'a mark' names the family it belongs to rather than the thing itself."
+     "surface": "A house annexe, the conservatory, ends up leaving a mark on the property.",
+     "walkthrough": "'House' and 'dependency' look like one property term, but they are separate pieces: SEMI, then COLONY with the Y of conservatory removed.",
+     "definitionFit": "A punctuation mark consisting of a dot over a comma, used between clauses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dependency"
     }
    }
   },

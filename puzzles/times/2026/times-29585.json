@@ -152,40 +152,51 @@
      "indicators": [
       {
        "text": "supporting",
-       "note": "in a down clue the word that supports sits underneath"
-      },
-      {
-       "text": "leader of",
-       "note": "the leader of a word is the letter at its front"
+       "at": 9,
+       "note": "in a down answer, supporting puts the begrudging word underneath the rest"
       }
      ],
      "parts": [
       {
        "words": "old",
-       "gives": "O",
-       "note": "O = old"
+       "at": 20,
+       "gives": "O"
       },
       {
-       "words": "leader of mafia",
-       "gives": "M",
-       "note": "first letter of mafia"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader of",
+         "at": 24,
+         "note": "leader of means the first letter of mafia"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mafia",
+         "at": 34,
+         "note": "only its first letter is used"
+        }
+       ]
       },
       {
        "words": "shot",
+       "at": 40,
        "gives": "NIP",
        "note": "a nip is a small shot of spirits"
       },
       {
        "words": "Begrudge",
+       "at": 0,
        "gives": "RESENT",
-       "note": "to begrudge is to resent"
+       "note": "to resent is to begrudge"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone bitter about an old mob boss who was gunned down.",
-     "walkthrough": "'Shot' pulls towards gunfire beside the mafia; it is the drink. RESENT is named first but, 'supporting' the rest in a down entry, it goes at the bottom.",
-     "definitionFit": "A paraphrase: the Latin omni- means all, so being present in every place at once."
+     "surface": "Someone resents backing the old mafia boss who was gunned down.",
+     "walkthrough": "'shot' looks like the mafia boss's fate, but it is a nip of drink. RESENT goes below O, M and NIP.",
+     "definitionFit": "Omnipresent means present everywhere at once, which the phrase here, there and everywhere describes."
     },
     "features": {
      "answerInScene": false,
@@ -494,36 +505,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "pinching"
+       "text": "pinching",
+       "at": 6,
+       "note": "pinching means the since word grips the other letters between its own"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Since",
-         "gives": "AS",
-         "note": "as = since ('as it was late')"
-        },
-        {
-         "words": "copy",
-         "gives": "CC",
-         "note": "cc = copy, as on an email"
-        }
-       ]
+       "words": "Since",
+       "at": 0,
+       "gives": "AS",
+       "note": "as can mean since, as in 'as it was late'"
       },
       {
-       "words": "regret",
-       "gives": "RUE",
-       "note": "to rue is to regret"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "copy",
+         "at": 15,
+         "gives": "CC",
+         "note": "CC is a carbon copy"
+        },
+        {
+         "words": "regret",
+         "at": 21,
+         "gives": "RUE",
+         "note": "to rue is to regret"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plagiarist whose remorse keeps growing after being caught copying.",
-     "walkthrough": "AS holds both CC and RUE, in that order.",
-     "definitionFit": "A plain synonym, used of interest or debts that build up over time."
+     "surface": "Since someone stole a copy, their regret keeps growing.",
+     "definitionFit": "Something that accrues builds up gradually, as interest does in a bank account."
     },
     "features": {
      "answerInScene": false,
@@ -808,48 +823,59 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "periodically",
-       "note": "at regular periods, so every other letter of raves"
+       "text": "about",
+       "at": 35,
+       "note": "about means the rhyme name and the alternate letters go around the superb word"
       }
      ],
      "parts": [
       {
-       "words": "In rhyme, Peter",
-       "gives": "PIPER",
-       "note": "Peter Piper picked a peck of pickled peppers"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "In rhyme, Peter",
+         "at": 0,
+         "gives": "PIPER",
+         "note": "Peter Piper picked a peck of pickled peppers in the nursery rhyme"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "periodically",
+           "at": 16,
+           "note": "periodically takes every other letter of raves"
+          }
+         ],
+         "parts": [
+          {
+           "words": "raves",
+           "at": 29,
+           "note": "its alternate letters are used"
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "superb",
+       "at": 41,
        "gives": "ACE",
-       "note": "ace = superb"
-      },
-      {
-       "op": "alternate",
-       "indicators": [
-        {
-         "text": "about"
-        }
-       ],
-       "parts": [
-        {
-         "words": "raves",
-         "note": "r A v E s: the 2nd and 4th letters"
-        }
-       ]
+       "note": "ace means superb"
       }
      ]
     },
     "explanation": {
-     "surface": "Peter going into occasional raptures about excellent peppers, in a nursery rhyme.",
-     "walkthrough": "The rhyme is 'Peter Piper picked a peck of pickled peppers', which also supplies the theme.",
-     "definitionFit": "A botanical name: this is the plant family that includes black pepper."
+     "surface": "In a nursery rhyme, Peter now and then raves about excellent peppers.",
+     "walkthrough": "Peter Piper is the tongue-twister hero who picked a peck of pickled peppers, so the surface stays among peppers throughout.",
+     "definitionFit": "The Piperaceae is the botanical family that includes black pepper and its relatives."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Peter"
     }
    }
@@ -1032,7 +1058,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "blocking"
+       "text": "over",
+       "at": 35,
+       "note": "in a down answer, over places the earlier letters above the final a"
       }
      ],
      "parts": [
@@ -1040,38 +1068,56 @@
        "op": "container",
        "indicators": [
         {
-         "text": "over",
-         "note": "in a down clue the road sits over the A"
+         "text": "blocking",
+         "at": 21,
+         "note": "blocking means the shortened car sits in the middle of the road abbreviation"
         }
        ],
        "parts": [
         {
          "words": "road",
-         "gives": "RD",
-         "note": "Rd = road"
+         "at": 30,
+         "gives": "RD"
         },
         {
-         "words": "Car missing rear end",
-         "gives": "HOND",
-         "note": "the car make HONDA without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "missing rear end",
+           "at": 4,
+           "note": "missing rear end means the car's name loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Car",
+           "at": 0,
+           "gives": "HONDA",
+           "note": "a Honda is a make of car"
+          },
+          {
+           "gives": "A"
+          }
+         ]
         }
        ]
       },
       {
        "words": "a",
-       "note": "used as written"
+       "at": 40,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A broken-down car, its back end gone, stuck across a road in Wales.",
-     "walkthrough": "The river gives its name to the Rhondda valleys, the old coal-mining country of South Wales.",
-     "definitionFit": "A definition by category: a river of Glamorgan in South Wales."
+     "surface": "A car that has lost its rear end blocks the road over a Welsh river.",
+     "walkthrough": "A Honda is a Japanese make of car.",
+     "definitionFit": "The Rhondda is a river in South Wales that gives its name to the famous mining valley."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rear"
+     "misdirectedWord": "Car"
     }
    }
   },
@@ -1596,43 +1642,49 @@
     "definitions": [
      {
       "text": "made good, at last?",
-      "at": 28
+      "at": 28,
+      "note": "the question mark signals that 'last' is the shoemaker's form, so this means repaired at the heel"
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "injected in"
+       "text": "injected in",
+       "at": 10,
+       "note": "injected in puts the hard and drug letters inside the wound word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "wound",
+       "at": 22,
+       "gives": "REELED",
+       "note": "reeled is the past tense of reel, to wind in, as with a fishing line"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "wound",
-         "gives": "REELED",
-         "note": "wound (rhymes with sound), as a fishing line is reeled in"
+         "words": "Hard",
+         "at": 0,
+         "gives": "H",
+         "note": "H is the abbreviation for hard, on pencils"
         },
         {
          "words": "drug",
+         "at": 5,
          "gives": "E",
-         "note": "E = ecstasy"
+         "note": "E is ecstasy"
         }
        ]
-      },
-      {
-       "words": "Hard",
-       "gives": "H",
-       "note": "H = hard, as on pencils"
       }
      ]
     },
     "explanation": {
-     "surface": "A hard drug injected into a wound that has finally healed.",
-     "walkthrough": "'Wound' looks like an injury beside 'injected', but it is the past tense of wind. A last is a cobbler's foot-shaped mould.",
-     "definitionFit": "A cryptic description: a shoe mended on the cobbler's last with new heels."
+     "surface": "A hard drug is injected into a wound.",
+     "walkthrough": "'wound' looks like an injury but is the past tense of wind. A last is the foot-shaped block a cobbler works on.",
+     "definitionFit": "Shoes that have been given new heels have been repaired on the cobbler's form, the last."
     },
     "features": {
      "answerInScene": false,

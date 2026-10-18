@@ -1240,40 +1240,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "in a down clue, set upside down: the letters read upward"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "but not all",
-         "note": "the word loses its last letter"
+         "text": "upset",
+         "at": 19,
+         "note": "in a down answer, upset turns the training letters upside down, reading them backwards"
         }
        ],
        "parts": [
         {
          "words": "training",
+         "at": 10,
          "gives": "PE",
-         "note": "physical education; turned up to EP"
+         "note": "PE is physical education, physical training"
         }
        ]
       },
       {
-       "words": "a few but not all",
-       "gives": "SOM",
-       "note": "SOME without its E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not all",
+         "at": 31,
+         "note": "but not all means the word for a few loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a few",
+         "at": 25,
+         "gives": "SOME",
+         "note": "some means a few"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A training course upsets a few of the trainees, though not everyone.",
-     "walkthrough": "\"Course\" is a racecourse: Epsom Downs in Surrey, home of the Derby.",
-     "definitionFit": "Epsom is a racecourse, where the Derby is run."
+     "surface": "A training course has upset a few people, though not everyone.",
+     "walkthrough": "'of' is only a link. EP comes from PE reversed, and SOM from SOME without its last letter. Epsom is an English racecourse, home of the Derby.",
+     "definitionFit": "Epsom Downs is a famous horse-racing venue in Surrey, so it is a racecourse."
     },
     "features": {
      "answerInScene": false,
