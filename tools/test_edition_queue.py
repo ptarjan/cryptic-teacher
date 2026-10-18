@@ -1900,6 +1900,8 @@ check("a tools/ change is code; puzzles, tests, docs are not",
       ["tools/edition_queue.py", "tools/ocr_full_pass.sh"],
       hr.code_changed(["puzzles/times/1.json", "tools/edition_queue.py", "tools/test_edition_queue.py", "README.md",
                        "tools/NOTES.md", "tools/ocr_full_pass.sh", "puzzles/index.json"]))
+check("tools/ data (tools/data/**, tools/*.json) is not code", ["tools/x.js"],
+      hr.code_changed(["tools/data/shape_reannotate.json", "tools/annotation_backlog.json", "tools/data/a.py", "tools/x.js"]))
 check("a puzzle-only push is not code", [], hr.code_changed(["puzzles/times/1.json", "puzzles/everyman/2.json", ""]))
 check("CT_AUTO_RELOAD=0 (or off) opts out; unset is on", (True, False, False, True),
       (hr.enabled({}), hr.enabled({"CT_AUTO_RELOAD": "0"}), hr.enabled({"CT_AUTO_RELOAD": "off"}), hr.enabled({"CT_AUTO_RELOAD": "1"})))
