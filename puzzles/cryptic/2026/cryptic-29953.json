@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -106,42 +107,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NECK",
+     "op": "charade",
      "indicators": [
       {
        "text": "after",
-       "note": "'After' puts the designer's initials second in the queue, so they follow the letters already made rather than leading them."
+       "at": 35,
+       "note": "after says the designer's initials come behind the other letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "-",
+         "at": 42,
+         "note": "the hyphen is read as a minus sign, so the zero is subtracted from the one"
+        }
+       ],
        "parts": [
         {
-         "words": "1-0?",
-         "gives": "NE",
-         "note": "1 written out is ONE, the hyphen subtracts and the 0 is the letter O being taken away"
+         "words": "1",
+         "at": 41,
+         "gives": "ONE",
+         "note": "the figure 1 is the word one"
         },
         {
-         "words": "fashion designer",
-         "gives": "CK",
-         "note": "CK is the monogram Calvin Klein stitches into everything the label makes"
+         "words": "0",
+         "at": 43,
+         "gives": "O",
+         "note": "the figure 0 is the letter O, which looks like it"
         }
        ]
+      },
+      {
+       "words": "fashion designer",
+       "at": 18,
+       "gives": "CK",
+       "note": "CK are the initials of Calvin Klein, the American fashion designer"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone kissing a fashion designer once the score reaches one-nil.",
-     "walkthrough": "'1-0' is a sum rather than a football score: the hyphen takes away and the nought is a letter of the alphabet. Fashion houses are known by their initials, which is how two letters can be a designer.",
-     "definitionFit": "Passionately kiss → NECK: to neck is the old slang for a long clinch on the back seat, kissing and cuddling rather than a peck hello."
+     "surface": "A footballer celebrates a 1-0 win by snogging a fashion designer.",
+     "walkthrough": "'1-0' looks like a football score; read as a sum, the hyphen '-' is a minus sign, taking the zero away from the one.",
+     "definitionFit": "To neck is informal British slang for kissing and cuddling passionately."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "designer"
+     "joke": "pun",
+     "misdirectedWord": "1-0?"
     }
    }
   },
@@ -730,53 +746,60 @@
    "annotation": {
     "definitions": [
      {
-      "text": "gold",
+      "text": "gold?",
       "at": 47
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NOBLEMETAL",
-     "indicators": [
-      {
-       "text": "final two exchanged",
-       "note": "Exchanging the final two means the last letter and the one before it swap places, and nothing else moves."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "final two exchanged",
+         "at": 8,
+         "note": "the final two letters of the award's name swap places"
+        }
+       ],
        "parts": [
         {
          "words": "Award",
-         "gives": "NOBLE",
-         "note": "the Nobel is the award, arriving with its last two letters swapped round"
+         "at": 0,
+         "gives": "NOBEL",
+         "note": "a Nobel is a Nobel Prize, the international award"
         },
         {
-         "words": "money",
-         "gives": "M",
-         "note": "M is money, as in the economist's M0 and M1"
+         "gives": "EL"
         },
         {
-         "words": "and the rest",
-         "gives": "ETAL",
-         "note": "et al is the Latin 'and the others', the tag at the end of a long list of authors"
+         "gives": "LE"
         }
        ]
+      },
+      {
+       "words": "money",
+       "at": 28,
+       "gives": "M",
+       "note": "M is the abbreviation for money, as in M1 or M3 money supply"
+      },
+      {
+       "words": "and the rest",
+       "at": 34,
+       "gives": "ETAL",
+       "note": "et al. is the Latin abbreviation meaning 'and the others'"
       }
      ]
     },
     "explanation": {
-     "surface": "An award with its last two placings swapped, offering prize money and gold.",
-     "walkthrough": "The question mark flags a for-instance: the answer names a whole class of metals that will not corrode, and the clue supplies only its best-known member. The prize is one letter-swap away from a word meaning lofty.",
-     "definitionFit": "gold → NOBLE METAL: gold is the standard example of the metals that resist corrosion and never tarnish, so the definition works by example."
+     "surface": "A prizewinner swaps the last two items, the cash and everything else, for a gold medal.",
+     "walkthrough": "'final two exchanged' turns the last two letters of NOBEL round. The question mark marks gold as one example of the class.",
+     "definitionFit": "Gold is a noble metal, one of the metals that resist corrosion and oxidation in air, like platinum and silver."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "money"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Award"
     }
    }
   },
@@ -874,43 +897,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EAR",
-     "indicators": [
-      {
-       "text": "not half",
-       "note": "Taking a word 'not half' leaves you holding only the front half of it, the back half thrown away."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not half",
+         "at": 15,
+         "note": "not half means half of the word is missing, its last two letters"
+        }
+       ],
        "parts": [
         {
          "words": "simple",
-         "gives": "EA",
-         "note": "a simple job is an easy one, and only the front half of EASY is wanted"
+         "at": 24,
+         "gives": "EASY",
+         "note": "easy means simple, not difficult"
         },
         {
-         "words": "right",
-         "gives": "R",
-         "note": "R is right, as on a map or in a stage direction"
+         "gives": "SY"
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 32,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A grumble that whoever is listening is nothing like as simple as they look.",
-     "walkthrough": "In British speech 'not half' means the opposite of what it says — 'not half bad' is high praise — so it passes for emphasis while giving an instruction. The capital L makes the definition look like the title of a magazine.",
-     "definitionFit": "The Listener → EAR: the ear is the organ that does the listening, so the grand capitalised title is the thing on the side of your head."
+     "surface": "Someone remarks that The Listener crossword is only half as easy as it looks, isn't it?",
+     "walkthrough": "The Listener is a famously hard crossword series, which makes the surface plausible; here 'The Listener' is just something that listens. 'not half' cuts easy to EA.",
+     "definitionFit": "The ear is the organ of hearing, the body part that does the listening."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "simple"
+     "misdirectedWord": "Listener's"
     }
    }
   },
@@ -935,41 +961,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "VERBOSE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "describes",
+       "at": 19,
+       "note": "describes in the sense of drawing a line around, so the poetry surrounds the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "poetry",
+       "at": 12,
+       "gives": "VERSE",
+       "note": "verse is another word for poetry"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "describes",
-         "note": "To describe a circle is to draw one round something, so the poetry is drawn round the piece named next."
-        },
-        {
          "text": "seen in the mirror",
-         "note": "A word seen in a mirror reads backwards, letter for letter, from its end to its start."
+         "at": 36,
+         "note": "a mirror shows things back to front, so the river's name is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "poetry",
-         "gives": "VERSE",
-         "note": "verse is poetry taken as a form"
-        },
-        {
          "words": "flower",
-         "gives": "BO",
-         "note": "a flower is a thing that flows: the Ob is a river, and it arrives back to front"
+         "at": 29,
+         "gives": "OB",
+         "note": "a flower in crosswords is often something that flows, a river; the Ob is a long river in Siberia"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rambling poem about a flower reflected in a mirror.",
-     "walkthrough": "'Flower' as one-that-flows is the oldest trick in the British cryptic, and the rivers it hides are short: Ob, Exe, Dee, Po. The Ob runs some 2,000 miles north across Siberia.",
-     "definitionFit": "Long winded → VERBOSE: verbose writing or speech uses far more words than the job needs, which is what calling someone long-winded says."
+     "surface": "A rambling poem goes on about a flower reflected in a mirror.",
+     "walkthrough": "'flower' wants to be a bloom; it is a river, the Ob, a thing that flows. 'describes' is used in its geometric sense of drawing round.",
+     "definitionFit": "A verbose speaker uses far more words than needed, which is what long-winded describes."
     },
     "features": {
      "answerInScene": false,
@@ -1326,41 +1356,52 @@
      "indicators": [
       {
        "text": "after",
-       "note": "In a down clue 'after' means further down the column, so this piece follows the one already named."
+       "at": 33,
+       "note": "after puts the shortened side behind the batting word"
+      },
+      {
+       "text": "then",
+       "at": 47,
+       "note": "then says the caught abbreviation comes next, at the end"
       }
      ],
      "parts": [
       {
        "words": "batting",
+       "at": 39,
        "gives": "IN",
-       "note": "in cricket the side batting is the side that is in"
-      },
-      {
-       "words": "side's exhausted",
-       "gives": "SE",
-       "note": "SIDE with its middle used up leaves the outer pair"
+       "note": "in cricket the side batting is said to be in"
       },
       {
        "op": "outer",
        "indicators": [
         {
          "text": "exhausted",
-         "note": "A word exhausted has had everything inside it used up, leaving only the letters at each end."
+         "at": 23,
+         "note": "exhausted means emptied out, so only the outer letters of the word side are kept"
         }
        ],
        "parts": [
         {
-         "words": "caught",
-         "note": "ct is how a scorecard records a batsman caught out"
+         "words": "side's",
+         "at": 16,
+         "gives": "SIDE",
+         "note": "the word side, with the 's read as is"
         }
        ]
+      },
+      {
+       "words": "caught",
+       "at": 52,
+       "gives": "CT",
+       "note": "CT is an abbreviation for caught, used on cricket scorecards beside C"
       }
      ]
     },
     "explanation": {
-     "surface": "A cricket team worn out after their innings and then caught out.",
-     "walkthrough": "Three cricketing senses share one clue: the side that is in, the scorecard's shorthand for a catch, and the game named in the definition — which turns out to be the chirping kind.",
-     "definitionFit": "Perhaps cricket → INSECT: 'perhaps' marks a for-instance, and the cricket chirping in the grass is one insect among thousands."
+     "surface": "A cricket team is tired out after a long innings and then a batsman is caught out.",
+     "walkthrough": "The surface is all about the game of cricket; the definition wants the chirping insect, flagged by 'Perhaps' as one example.",
+     "definitionFit": "A cricket is a jumping insect related to grasshoppers, so it is one example of the class."
     },
     "features": {
      "answerInScene": false,
@@ -1496,44 +1537,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ASSEMBLING",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "Turned about, a word faces the other way and reads from its last letter back to its first."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 6,
+         "note": "about means turned around, so the word for tip is reversed"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "the clue's first word, used as itself"
-        },
-        {
          "words": "tip",
-         "gives": "SSEM",
-         "note": "in Britain a tip is a rubbish dump, so a tip is a mess — written here back to front"
-        },
-        {
-         "words": "jewellery",
-         "gives": "BLING",
-         "note": "bling is the slang for showy jewellery"
+         "at": 2,
+         "gives": "MESS",
+         "note": "a tip is an untidy place, a mess, as in 'his room is a tip'"
         }
        ]
+      },
+      {
+       "words": "jewellery",
+       "at": 12,
+       "gives": "BLING",
+       "note": "bling is slang for flashy jewellery"
       }
      ]
     },
     "explanation": {
-     "surface": "A hint about how jewellery gets made.",
-     "walkthrough": "Calling a bedroom a tip is British for calling it a mess, which is the sense needed rather than the gratuity. The wordplay also announces the theme: this grid is strung with jewellery.",
-     "definitionFit": "making → ASSEMBLING: assembling a thing is putting its parts together, which is making it in the factory sense, and both words are gerunds."
+     "surface": "Someone offers advice about how to make jewellery.",
+     "walkthrough": "'tip' looks like a piece of advice; it is British slang for a messy place. 'about' reverses MESS to SSEM.",
+     "definitionFit": "Assembling something is putting it together from parts, the same as making it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "tip"
     }

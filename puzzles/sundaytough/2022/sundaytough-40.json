@@ -638,31 +638,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ENTICE",
      "indicators": [
       {
-       "text": "seizing leader of",
-       "note": "the alien grabs only the head of the city, wrapping round its first letter while the rest follows"
+       "text": "seizing",
+       "at": 11,
+       "note": "the alien seizing something means it holds that letter between its own two letters"
       }
      ],
      "parts": [
       {
-       "words": "alien",
-       "gives": "ET",
-       "note": "E.T. is the film's alien"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "alien",
+         "at": 5,
+         "gives": "ET",
+         "note": "ET, the extra-terrestrial of Spielberg's film, is the crossword's usual alien"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "of",
+           "at": 26,
+           "note": "the leader is taken out of the city's name, so of here marks what is left once that letter is lifted out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "French city",
+           "at": 29,
+           "gives": "NICE",
+           "note": "Nice is the city on France's Mediterranean coast"
+          },
+          {
+           "gives": "N"
+          }
+         ]
+        }
+       ]
       },
       {
-       "words": "French city",
-       "gives": "NICE",
-       "note": "Nice is a city on the French Riviera"
+       "words": "leader",
+       "at": 19,
+       "gives": "N",
+       "note": "the leader of the city is the first letter of Nice"
       }
      ]
     },
     "explanation": {
-     "surface": "A visiting alien kidnaps the mayor of a French city.",
-     "walkthrough": "The alien goes round just the N at the front of the city, and the rest of the city's name trails after it.",
-     "definitionFit": "To draw someone in is to attract or lure them, which is what tempting them does."
+     "surface": "An extra-terrestrial invader grabs the mayor of a French town, like a scene from a sci-fi comic.",
+     "walkthrough": "The city is used twice over: 'seizing' puts its leader inside the alien, and what is left 'of' Nice once the leader is lifted out, ICE, trails behind.",
+     "definitionFit": "To draw someone in is to attract or lure them, which is what enticing means."
     },
     "features": {
      "answerInScene": false,

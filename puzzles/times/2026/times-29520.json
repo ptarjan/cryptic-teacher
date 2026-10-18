@@ -111,43 +111,36 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "SOLO",
+     "indicators": [
+      {
+       "text": "Half of",
+       "at": 0,
+       "note": "only half of the capital's letters, the first two, are turned round"
+      },
+      {
+       "text": "raised",
+       "at": 16,
+       "note": "in a down clue, raised means read upwards, so the letters run backwards"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "Half of",
-         "note": "takes the first two of OSLO's four letters"
-        },
-        {
-         "text": "raised",
-         "note": "in a down clue, lifting letters turns them upside down, so they read backwards"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Half of capital raised",
-         "gives": "SO",
-         "note": "OS, the first half of OSLO, turned up"
-        },
-        {
-         "words": "capital",
-         "gives": "LO",
-         "note": "the other half of OSLO, left where it is"
-        }
-       ]
+       "words": "capital",
+       "at": 8,
+       "gives": "OSLO",
+       "note": "Oslo is the capital of Norway"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Only one half of the capital moves: OSLO becomes SO + LO once its front half is flipped.",
-     "definitionFit": "To do something solo is to do it alone, without help."
+     "surface": "A company boasts that half of its funding was found with no outside help.",
+     "walkthrough": "'capital' looks like money raised by a business; it is the city. Only its first half, OS, goes up the grid to become SO, and LO stays as it is.",
+     "definitionFit": "Something done solo is done alone, by one person with nobody helping."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "capital"
     }
    }
@@ -1217,36 +1210,49 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ASTOUND",
      "indicators": [
       {
        "text": "for",
-       "note": "'for' in the sense of 'in exchange for', as in swapping one thing for another"
+       "at": 25,
+       "note": "for means in place of, so the stone abbreviation stands where the rampart's top letter was"
       }
      ],
      "parts": [
       {
        "words": "about",
+       "at": 8,
        "gives": "AROUND",
-       "note": "around = about"
+       "note": "about in the sense of round or near, as around"
       },
       {
-       "words": "top of rampart",
-       "gives": "R",
-       "note": "first letter of rampart, taken out"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "at": 29,
+         "note": "the top of a word in a down clue is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rampart",
+         "at": 36,
+         "note": "first letter of rampart"
+        }
+       ]
       },
       {
        "words": "stone",
+       "at": 19,
        "gives": "ST",
-       "note": "st = stone, the British weight"
+       "note": "ST is the abbreviation for stone, the British unit of weight"
       }
      ]
     },
     "explanation": {
-     "surface": "Staggering around with a stone to the top of a castle wall.",
-     "walkthrough": "'Stagger' looks like reeling about; it means amaze.",
-     "definitionFit": "A plain synonym in the transitive sense: news that staggers you leaves you reeling with amazement."
+     "surface": "Someone lurches about carrying a stone up to the top of a castle wall.",
+     "walkthrough": "'with stone for top of rampart' means: take the word for about and swap its R (the top of 'rampart') for ST. A stone is 14 pounds.",
+     "definitionFit": "To stagger someone is to amaze or shock them, the same sense as astound."
     },
     "features": {
      "answerInScene": false,
@@ -1650,52 +1656,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a big ask",
-      "at": 63
+      "text": "it's a big ask",
+      "at": 58
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "REFERENDUM",
-     "indicators": [
-      {
-       "text": "replacing"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Clergyman",
-       "gives": "REVEREND",
-       "note": "a reverend is a clergyman"
-      },
-      {
-       "words": "verse",
-       "gives": "V",
-       "note": "v = verse, taken out"
-      },
-      {
-       "words": "frequency",
-       "gives": "F",
-       "note": "f is the symbol for frequency in physics, put in"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "replacing",
+         "at": 10,
+         "note": "replacing tells you one letter of the clergyman's title is swapped out for another"
+        },
+        {
+         "text": "with",
+         "at": 26,
+         "note": "with names the letter that goes in where the verse letter came out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Clergyman",
+         "at": 0,
+         "gives": "REVEREND",
+         "note": "a reverend is a member of the clergy"
+        },
+        {
+         "words": "verse",
+         "at": 20,
+         "gives": "V"
+        },
+        {
+         "words": "frequency",
+         "at": 31,
+         "gives": "F",
+         "note": "F is the symbol for frequency in physics"
+        }
+       ]
       },
       {
        "words": "I'm hesitating",
+       "at": 42,
        "gives": "UM",
-       "note": "um, the sound of hesitation"
+       "note": "um is the sound a speaker makes while hesitating"
       }
      ]
     },
     "explanation": {
-     "surface": "A vicar hesitating over a difficult request.",
-     "walkthrough": "'A big ask' is usually a demanding favour; here it is a question put to a whole electorate.",
-     "definitionFit": "A referendum asks the whole electorate a question."
+     "surface": "A vicar dithers as he rewrites a line of a hymn, apologising that it's a lot to ask.",
+     "walkthrough": "The surface's 'big ask' sounds like a heavy favour; the definition is a question put to a whole electorate. 'replacing ... with' signals a one-letter swap in the clergyman's title.",
+     "definitionFit": "A referendum puts a question to the whole electorate, so it is a big ask of the voters, literally a question put."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "ask"
+     "misdirectedWord": "frequency"
     }
    }
   }

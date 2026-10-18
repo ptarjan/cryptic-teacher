@@ -655,57 +655,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LEATHERETTE",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "something cut short is missing its tail, so the final character goes"
+       "text": "in it",
+       "at": 58,
+       "note": "in it means the jumbled letters are placed inside the shortened word, it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in it",
-         "note": "placed inside it, meaning the earlier word wraps around what follows"
+         "text": "short",
+         "at": 12,
+         "note": "short means the word letter is cut off before its final letter"
         }
        ],
        "parts": [
         {
          "words": "letter",
-         "gives": "LETTE",
-         "note": "the word cut short by one letter"
+         "at": 18
         },
         {
-         "op": "anagram",
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 27,
+         "note": "broken means the letters of heart are smashed up and reassembled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heart",
+         "at": 34
+        },
+        {
+         "op": "first",
          "indicators": [
           {
-           "text": "broken",
-           "note": "something broken is smashed apart, so its letters are rearranged"
+           "text": "initially",
+           "at": 40,
+           "note": "initially takes only the first letter of the word that follows"
           }
          ],
          "parts": [
           {
-           "words": "heart",
-           "note": "taken as written before being reshuffled"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "initially",
-             "note": "initially means at the start, so only the opening character is kept"
-            }
-           ],
-           "parts": [
-            {
-             "words": "exposed",
-             "note": "the opening letter of the word"
-            }
-           ]
+           "words": "exposed",
+           "at": 50,
+           "note": "first letter of exposed"
           }
          ]
         }
@@ -714,9 +719,9 @@
      ]
     },
     "explanation": {
-     "surface": "A shortened breakup note revealing a broken heart.",
-     "walkthrough": "The heartbreak story hides a busy assembly: the word for letter loses its tail, then takes a shuffled heart plus one initial inside it, with 'it' pointing back to that clipped letter.",
-     "definitionFit": "Leatherette is imitation leather, a manufactured fabric, so it is a type of material."
+     "surface": "A curt note reveals a broken heart, laid bare for the first time.",
+     "walkthrough": "'short letter' gives LETTE; 'broken' mixes HEART with E (the first of 'exposed', taken 'initially') into EATHER, which goes 'in it'.",
+     "definitionFit": "Leatherette is an imitation leather fabric, a cheap upholstery material made of plastic-coated cloth."
     },
     "features": {
      "answerInScene": false,

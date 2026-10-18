@@ -44,39 +44,41 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NIBBLE",
      "indicators": [
       {
        "text": "brought in for",
-       "note": "one letter is brought into the word in place of another"
+       "at": 25,
+       "note": "brought in for means substituted for, so one letter is put in place of the other"
       }
      ],
      "parts": [
       {
        "words": "sprightly",
+       "at": 6,
        "gives": "NIMBLE",
-       "note": "nimble = sprightly"
-      },
-      {
-       "words": "bachelor",
-       "gives": "B",
-       "note": "B = bachelor, as in degrees like BA"
+       "note": "nimble means quick and sprightly in movement"
       },
       {
        "words": "maiden",
+       "at": 40,
        "gives": "M",
-       "note": "M = maiden, the cricket scorecard abbreviation; this M goes out"
+       "note": "M is the cricket abbreviation for a maiden over"
+      },
+      {
+       "words": "bachelor",
+       "at": 16,
+       "gives": "B",
+       "note": "B is the abbreviation for bachelor, as in a BA degree"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone lively nips in to grab a bite on behalf of a young woman.",
-     "walkthrough": "A maiden in cricket is an over with no runs scored, recorded as M, so the young woman of the surface is only a letter.",
-     "definitionFit": "A plain synonym: a small bite taken between meals is a snack, and the verb matches the verb."
+     "surface": "A lively single man is introduced in place of a young woman over a light meal.",
+     "walkthrough": "'brought in for' says the bachelor's B takes the maiden's M's place in the word for sprightly.",
+     "definitionFit": "A nibble is a small bite of food, a light snack eaten between meals."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "maiden"
     }
@@ -286,38 +288,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "wrong",
-       "note": "the letters are put in the wrong order"
-      },
-      {
-       "text": "initially",
-       "note": "take the first letter only"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Posted",
-       "note": "anagram fodder"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "at": 7,
+         "note": "wrong means the letters are put into a wrong, different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Posted",
+         "at": 0
+        }
+       ]
       },
       {
-       "words": "information initially",
-       "gives": "I",
-       "note": "first letter of information"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 25,
+         "note": "initially takes only the first letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "information",
+         "at": 13,
+         "note": "first letter of information"
+        }
+       ]
       },
       {
        "words": "about",
+       "at": 35,
        "gives": "C",
-       "note": "C = circa, about"
+       "note": "C stands for circa, Latin for about, used with dates"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone put out misinformation about an autocrat.",
-     "walkthrough": "The surface is fake news on social media; 'about' gives the letter C (circa, as in dates) and joins the fodder.",
-     "definitionFit": "A plain synonym: a despot rules with absolute power, which is what authoritarian describes."
+     "surface": "A tyrannical regime has been circulating false news about something.",
+     "walkthrough": "'Posted wrong' reads like spreading misinformation; it is the anagram, giving a tyrant, DESPOT, before the I and C.",
+     "definitionFit": "A despotic ruler holds absolute power and uses it harshly, which is authoritarian rule."
     },
     "features": {
      "answerInScene": true,
@@ -409,44 +426,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "POCKMARK",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner swapped the opening sounds of words"
+       "at": 8,
+       "note": "Spooner's signals a Spoonerism, named after the Reverend William Spooner, who swapped the opening sounds of words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "MOCK",
        "parts": [
         {
-         "unchecked": true,
          "words": "artificial",
-         "gives": "POCK",
-         "soundsLike": "MOCK",
-         "note": "mock = artificial; it takes the P from the next word"
-        },
-        {
-         "unchecked": true,
-         "words": "gardens",
-         "gives": "MARK",
-         "soundsLike": "PARK",
-         "note": "a park is public gardens; it takes the M"
+         "at": 18,
+         "gives": "MOK",
+         "note": "mock means imitation or artificial, as in mock leather; MOK is just how the word sounds, and Spooner swaps sounds, not letters"
         }
        ]
+      },
+      {
+       "words": "gardens",
+       "at": 29,
+       "gives": "PARK",
+       "note": "a park is a public garden or gardens"
       }
      ]
     },
     "explanation": {
-     "surface": "A flaw in someone's fake gardens.",
-     "walkthrough": "The two opening consonants trade places, which is all Spooner ever did.",
-     "definitionFit": "A plain synonym: the pitted scar left by smallpox or acne is a blemish on the skin."
+     "surface": "Someone spots a flaw in a set of fake, artificial gardens.",
+     "walkthrough": "'Spooner's' asks for the opening sounds of 'mock park' to be swapped, so the M and P sounds trade places to give 'pock mark'.",
+     "definitionFit": "A pockmark is a scar or pitted spot left on the skin by a pustule, a kind of blemish."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "gardens"
     }
    }
   },
@@ -778,66 +795,67 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Uneven",
-       "note": "take the odd-numbered letters"
+       "text": "around",
+       "at": 19,
+       "note": "around means the odd letters of the track go round the county's borders and the east letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
        "indicators": [
         {
-         "text": "around",
-         "note": "the outer letters go round the inner ones"
+         "text": "Uneven",
+         "at": 0,
+         "note": "uneven picks the odd-numbered letters, first, third, fifth and so on"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "TAKED",
+         "words": "track wends",
+         "at": 7,
+         "note": "the odd letters of track wends"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "outer",
          "indicators": [
           {
            "text": "borders",
-           "note": "only the edge letters of the word"
+           "at": 47,
+           "note": "the borders of a word are its first and last letters"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Uneven track wends",
-           "gives": "TAKED",
-           "select": "alternate",
-           "note": "the first, third, fifth, seventh and ninth letters of track wends"
+           "words": "Herefordshire's",
+           "at": 31,
+           "gives": "HEREFORDSHIRE",
+           "note": "Herefordshire is an English county on the Welsh border"
           }
          ]
         },
         {
          "words": "East",
+         "at": 26,
          "gives": "E",
-         "note": "E = East"
-        }
-       ]
-      },
-      {
-       "op": "outer",
-       "parts": [
-        {
-         "words": "Herefordshire's borders",
-         "gives": "HEREFORDSHIRE",
-         "note": "first and last letters of Herefordshire"
+         "note": "E is the compass abbreviation for east"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bumpy track winds round the edge of eastern Herefordshire, so watch out!",
-     "walkthrough": "'Uneven track' looks like a rough road; 'uneven' means odd-numbered letters, running across both words. Herefordshire is an English county on the Welsh border.",
-     "definitionFit": "An idiom: the phrase is an old-fashioned command to be careful and listen."
+     "surface": "A bumpy lane winds its way round the edges of a West Country county, so watch out!",
+     "walkthrough": "'Uneven' looks like a description of the track, but it picks out its odd letters; 'wends' belongs to that fodder, not the instruction. Herefordshire is a rural county on the Welsh border.",
+     "definitionFit": "To take heed is to pay careful attention or notice, especially to a warning."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Uneven"
     }
@@ -1208,59 +1226,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "crashed",
-       "note": "a crashed car is wrecked and its parts scattered, so the letters are rearranged"
+       "text": "into",
+       "at": 17,
+       "note": "into means these letters are put inside the middle letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "middle",
        "indicators": [
         {
-         "text": "into",
-         "note": "'into' as in going inside something"
+         "text": "middle of",
+         "at": 22,
+         "note": "the middle of a word is its central letters, here the two in the centre"
         }
        ],
        "parts": [
         {
-         "words": "Mr. Bean",
-         "gives": "EMBRAN",
-         "note": "anagram fodder"
+         "words": "cement",
+         "at": 32,
+         "note": "middle letters of cement"
         }
        ]
       },
       {
        "op": "anagram",
+       "indicators": [
+        {
+         "text": "crashed",
+         "at": 9,
+         "note": "crashed means smashed up, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "middle of",
-           "note": "'middle' as the centre of the word, so only its central letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "middle of cement",
-           "gives": "CEMENT",
-           "note": "the central two letters of cement"
-          }
-         ]
+         "words": "Mr. Bean",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mr Bean smashes his car into a concrete wall.",
-     "walkthrough": "The jumble splits the central pair, sitting between their two letters. Mr Bean is the bumbling comic character played by Rowan Atkinson.",
-     "definitionFit": "A thin sheet of tissue or material that separates two regions acts as a barrier."
+     "surface": "The comedy character Mr Bean drives into the middle of a concrete barrier.",
+     "walkthrough": "Mr Bean is the bumbling character played by Rowan Atkinson, which suits the crash. 'crashed' jumbles his name to EMBRAN, which goes 'into' ME, the 'middle of' cement.",
+     "definitionFit": "A membrane is a thin layer of tissue or material that separates or forms a barrier between two areas."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "crashed"
+     "joke": "absurd",
+     "misdirectedWord": "barrier"
     }
    }
   },
@@ -1455,39 +1471,43 @@
      "op": "container",
      "indicators": [
       {
-       "text": "reportedly",
-       "note": "what is reported is heard rather than read, so use the sound of the word"
+       "text": "captivated by",
+       "at": 26,
+       "note": "captivated by means held inside, so the sounded letters go into the protégé"
       }
      ],
      "parts": [
       {
        "words": "protégé",
+       "at": 40,
        "gives": "WARD",
-       "note": "a ward is someone under another's protection"
+       "note": "a ward is a young person under someone's protection, a protégé"
       },
       {
        "op": "homophone",
        "spelt": "IZ",
        "indicators": [
         {
-         "text": "captivated by",
-         "note": "'captivated' in its literal sense of taken captive, so held inside the next word"
+         "text": "reportedly",
+         "at": 15,
+         "note": "reportedly means as it is heard spoken, so the word is written as it sounds"
         }
        ],
        "parts": [
         {
-         "words": "is reportedly",
+         "words": "is",
+         "at": 12,
          "gives": "IS",
-         "note": "IZ is how 'is' sounds"
+         "note": "the word is, said aloud, ends in a buzzing z sound"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sorcerer is said to be spellbound by his young apprentice.",
-     "walkthrough": "'Captivated' reads as enchanted, fitting the sorcerer; its job is the literal sense, held captive.",
-     "definitionFit": "A loose synonym: a necromancer summons the dead by magic, and a wizard is any practitioner of magic."
+     "surface": "A sorcerer is said to be enthralled by his young apprentice.",
+     "walkthrough": "'reportedly' writes 'is' as it is spoken, with the buzzing z sound, and 'captivated by' holds that inside the word for protégé.",
+     "definitionFit": "A necromancer is a sorcerer who claims to talk with the dead, and a wizard is a male practitioner of magic."
     },
     "features": {
      "answerInScene": true,
@@ -1659,52 +1679,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INHALE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "originally",
-         "note": "'originally' means at the origin, so the letter each word starts with"
+         "at": 23,
+         "note": "originally takes the opening letter of each of the two words"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "IN",
-         "indicators": [
-          {
-           "text": "discovered",
-           "note": "with its covering removed, so the first and last letters go"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Inquisitive navigators originally",
-           "gives": "IN",
-           "select": "first",
-           "note": "first letters of Inquisitive Navigators"
-          }
-         ]
-        },
+         "words": "Inquisitive navigators",
+         "at": 0,
+         "note": "the first letters of Inquisitive and navigators"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "words": "discovered cetaceans",
-         "gives": "HALE",
-         "note": "whales = cetaceans, minus the W and S"
+         "text": "discovered",
+         "at": 34,
+         "note": "discovered means with the covering taken off, so the outer letters go and only the middle stays"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cetaceans",
+         "at": 45,
+         "gives": "WHALES",
+         "note": "whales are cetaceans, the order of sea mammals"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Curious sailors first spotted whales breathing.",
-     "walkthrough": "'Discovered' seems to belong with the navigators finding whales; it means uncovered, the outer letters taken off.",
-     "definitionFit": "A near synonym: respiring is breathing, and drawing air in is half of it."
+     "surface": "Curious sailors come across a pod of whales breathing at the surface.",
+     "walkthrough": "'discovered' looks like 'found'; it means uncovered, so WHALES loses its outer letters, giving HALE.",
+     "definitionFit": "To inhale is to breathe in, one half of what respiring involves."
     },
     "features": {
      "answerInScene": false,
@@ -1738,61 +1755,56 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the first pieces go inside"
+       "at": 25,
+       "note": "in means the other pieces are placed inside the emptied word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
          "text": "on vacation",
-         "note": "emptied out, leaving only the outer letters"
+         "at": 36,
+         "note": "on vacation means emptied, so only the outer letters of storage remain"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "outer",
-           "unchecked": true,
-           "gives": "SE",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "storage on vacation",
-             "gives": "SE",
-             "select": "outer",
-             "note": "storage with its inside vacated"
-            }
-           ]
-          },
-          {
-           "words": "left",
-           "gives": "L",
-           "note": "L = left"
-          }
-         ]
-        },
-        {
-         "words": "bishop",
-         "gives": "B",
-         "note": "B = bishop in chess"
+         "words": "storage",
+         "at": 28,
+         "note": "the first and last letters of storage"
         }
        ]
       },
       {
-       "words": "stuff",
-       "gives": "CRAM",
-       "note": "cram = stuff"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "stuff",
+         "at": 7,
+         "gives": "CRAM",
+         "note": "to cram is to stuff something full"
+        },
+        {
+         "words": "bishop",
+         "at": 13,
+         "gives": "B",
+         "note": "B is the chess abbreviation for bishop"
+        },
+        {
+         "words": "left",
+         "at": 20,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bishop's belongings got muddled in storage while he was on holiday.",
-     "walkthrough": "'On vacation' looks like a holiday; it means empty the word, leaving the first and last letters.",
-     "definitionFit": "A plain synonym: to jumble things into disorder, as with eggs or a signal."
+     "surface": "Someone muddles up the belongings a bishop left in storage while away on holiday.",
+     "walkthrough": "'on vacation' empties storage to S and E, and CRAM, B and L go 'in' between them.",
+     "definitionFit": "To scramble things is to jumble or mix them up into disorder."
     },
     "features": {
      "answerInScene": false,
