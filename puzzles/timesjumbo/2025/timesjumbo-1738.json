@@ -122,37 +122,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "initially",
-       "note": "'initially' means at the start, so only the first letter of 'roll' is used"
+       "text": "eaten by",
+       "at": 32,
+       "note": "something eaten by another goes inside it, so the letter is placed within the parents"
       }
      ],
      "parts": [
       {
        "words": "parents",
+       "at": 41,
        "gives": "PAMA",
-       "note": "PA and MA, the two parents"
+       "note": "parents are PA and MA"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "eaten by",
-         "note": "food eaten by someone ends up inside them"
+         "text": "initially",
+         "at": 22,
+         "note": "initially points to the opening letter of the word roll"
         }
        ],
        "parts": [
         {
-         "words": "roll initially",
-         "note": "first letter of roll, placed between PA and MA"
+         "words": "roll",
+         "at": 17,
+         "note": "first letter of roll"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A family meal where a cheese roll gets polished off by the grown-ups.",
-     "walkthrough": "The surface pairs cheese with a roll so the solver pictures a sandwich; the roll is only there for its R.",
-     "definitionFit": "Parma in northern Italy gives Parmesan (Parmigiano) its name."
+     "surface": "A cheese bread roll is gobbled up by mum and dad.",
+     "definitionFit": "Parmesan cheese is named after Parma, the Italian city and province where it is made."
     },
     "features": {
      "answerInScene": true,
@@ -356,46 +359,48 @@
      "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "a word's back is its end, so 'his back' is the last letter of abbot, whom 'his' refers to"
+       "text": "is covered in",
+       "at": 33,
+       "note": "something covered in muck sits within it, so the letter goes inside the word for muck"
       }
      ],
      "parts": [
       {
        "words": "muck",
+       "at": 47,
        "gives": "MIRE",
-       "note": "mire = mud, muck"
+       "note": "muck is mire, wet dirt"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
-         "text": "is covered in"
+         "text": "back",
+         "at": 28,
+         "note": "back points to the final letter, here of the abbot that 'his' refers to"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "his back",
-         "gives": "T",
-         "select": "last",
-         "note": "the abbot's back: last letter of abboT, inside MIRE"
+         "words": "his",
+         "at": 24,
+         "gives": "ABBOT",
+         "note": "his refers to the abbot named earlier in the clue"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An abbot worried that he has sat down in the mud.",
-     "walkthrough": "'His' points back to the abbot, so his back is the T at the end of the word abbot, not the letter S of 'his'. 'Assume' means put on, as clothing.",
-     "definitionFit": "The tall headdress worn by bishops and some abbots."
+     "surface": "A question asking what a monk would think if his back were filthy.",
+     "walkthrough": "'His' points back to the abbot, so 'his back' is the last letter of ABBOT, T, which goes inside MIRE. 'Assume' here means put on, as one assumes a garment.",
+     "definitionFit": "A mitre is the tall pointed headdress worn by bishops and some abbots, which they put on for ceremonies."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "back"
+     "joke": "pun",
+     "misdirectedWord": "assume"
     }
    }
   },
@@ -677,30 +682,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OVERS",
      "indicators": [
       {
        "text": "Missing the start",
-       "note": "a word missing its start has lost its first letter, so COVERS drops C"
+       "at": 0,
+       "note": "missing the start means the phrase's word loses its opening letter"
       }
      ],
      "parts": [
       {
        "words": "reports on",
-       "gives": "OVERS",
-       "note": "COVERS (as a journalist covers a story) without its C"
+       "at": 19,
+       "gives": "COVERS",
+       "note": "a journalist covers a story, reporting on it"
+      },
+      {
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "A journalist, having missed the opening, writes up passages of a game.",
-     "walkthrough": "In cricket an over is a set of six balls from one bowler, so overs are spells within the game.",
-     "definitionFit": "Cricket's successive six-ball spells of bowling."
+     "surface": "Someone misses the beginning of reports on spells cast during a game.",
+     "walkthrough": "In cricket an over is a set of six balls bowled from one end, so overs are spells of bowling.",
+     "definitionFit": "In cricket, overs are the six-ball periods of bowling into which an innings is divided."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "spells"
     }
    }
@@ -1776,62 +1785,68 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CLAPEYESON",
+     "op": "charade",
      "indicators": [
       {
-       "text": "after reflection",
-       "note": "a reflection in a mirror reverses left and right, so NO is read backwards"
+       "text": "and",
+       "at": 37,
+       "note": "and simply adds the following piece on after the yes"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 5,
+         "note": "extremely means take the letters at the two extremes of colourful"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "extremely",
-           "note": "'extremely' points at a word's extremes, its first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "extremely colourful",
-           "gives": "COLOURFUL",
-           "note": "the outer letters of ColourfuL"
-          }
-         ]
-        },
+         "words": "colourful",
+         "at": 15,
+         "note": "first and last letters of colourful"
+        }
+       ]
+      },
+      {
+       "words": "animal",
+       "at": 25,
+       "gives": "APE",
+       "note": "an ape is an animal"
+      },
+      {
+       "words": "Yes",
+       "at": 33
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "animal",
-         "gives": "APE",
-         "note": "an ape"
-        },
+         "text": "after reflection",
+         "at": 45,
+         "note": "a word after reflection is mirrored, so no is read backwards"
+        }
+       ],
+       "parts": [
         {
-         "words": "Yes",
-         "note": "yes, taken as written"
-        },
-        {
-         "words": "and no, after reflection",
-         "gives": "ON",
-         "note": "NO reversed"
+         "words": "no",
+         "at": 41
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Wondering whether one saw a gaudy creature, answering 'yes and no' after some thought.",
-     "walkthrough": "'Yes and no' sounds like an evasive answer, but YES is used literally and only NO is reversed.",
-     "definitionFit": "An informal idiom for catching sight of something."
+     "surface": "Someone asks whether they have seen a brightly coloured animal, and gets an equivocal reply.",
+     "definitionFit": "To clap eyes on something is an idiom for seeing or noticing it, just as you spot it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "reflection"
+     "misdirectedWord": "Spot"
     }
    }
   },
@@ -2029,46 +2044,70 @@
      "parts": [
       {
        "op": "container",
-       "unchecked": true,
-       "gives": "SHILLYSHALLY",
        "indicators": [
         {
          "text": "putting in",
-         "note": "to put something in is to insert it, so an H goes into each of the two words"
+         "at": 25,
+         "note": "putting in means the hour's letter is set inside the other words"
         }
        ],
        "parts": [
         {
          "words": "stupid",
+         "at": 12,
          "gives": "SILLY",
-         "note": "silly = stupid"
+         "note": "stupid means silly"
         },
         {
-         "words": "woman",
-         "gives": "SALLY",
-         "note": "Sally, a woman's name"
-        },
-        {
-         "words": "hour with each",
-         "gives": "HH",
-         "note": "H = hour, once for each word"
+         "words": "hour",
+         "at": 36,
+         "gives": "H"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "son",
-       "note": "S = son: each H goes in beside an S, the first letter of SILLY and of SALLY"
+       "op": "container",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "with",
+           "at": 41,
+           "note": "with means the son goes along with the woman, joined to her name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "son",
+           "at": 51,
+           "gives": "S"
+          },
+          {
+           "words": "woman",
+           "at": 19,
+           "gives": "ALLY",
+           "note": "Ally is a woman's name"
+          }
+         ]
+        },
+        {
+         "words": "each",
+         "at": 46,
+         "gives": "H",
+         "note": "each means the hour goes into the second word as well, another H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone dithering like a foolish woman who fusses over an hour with each of her sons.",
-     "walkthrough": "'With each son' tells you where the H goes: alongside the S at the start of each word, so both words change the same way.",
-     "definitionFit": "A reduplicated idiom for dithering, from 'shall I, shall I'."
+     "surface": "A foolish woman dithers as she gives an hour to each of her sons.",
+     "walkthrough": "'Each' makes the hour's H go in twice: once into SILLY and once into S plus ALLY.",
+     "definitionFit": "To shilly-shally is to dither or vacillate, failing to make up one's mind."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "son"
     }
@@ -2626,36 +2665,41 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "full of"
-      }
-     ],
      "parts": [
       {
        "words": "Buffet",
+       "at": 0,
        "gives": "BUTT",
-       "note": "to buffet or butt = to strike"
+       "note": "to buffet is to strike, as a goat or ram does when it butts"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "principally",
-         "note": "'principally' means first and foremost, so only the first letter of 'eats' is used"
+         "text": "full of",
+         "at": 10,
+         "note": "full of means the word is holds the next letter inside it"
         }
        ],
        "parts": [
         {
          "words": "is",
-         "note": "IS, as written"
+         "at": 7
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "principally",
+           "at": 24,
+           "note": "principally points to the leading letter of eats"
+          }
+         ],
          "parts": [
           {
-           "words": "eats, principally",
-           "note": "the first letter of eats, inside IS"
+           "words": "eats",
+           "at": 18,
+           "note": "first letter of eats"
           }
          ]
         }
@@ -2664,9 +2708,9 @@
      ]
     },
     "explanation": {
-     "surface": "A buffet table laden with food, mostly sandwiches.",
-     "walkthrough": "'Buffet' reads as a spread of food but is the verb to strike.",
-     "definitionFit": "Northern English slang, as in a chip or bacon butty."
+     "surface": "A buffet table laden mainly with sandwiches.",
+     "walkthrough": "'Buffet' suggests a spread of food, but here it is the verb meaning to knock. Butties is British slang for sandwiches.",
+     "definitionFit": "Butty is a northern English informal word for a sandwich, as in chip butty."
     },
     "features": {
      "answerInScene": true,
@@ -2699,41 +2743,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "'finally' means at the end, so only the last letter of actor is used"
+       "text": "entering",
+       "at": 14,
+       "note": "entering means the letter goes inside the word for stage"
       }
      ],
      "parts": [
       {
        "words": "stage",
+       "at": 23,
        "gives": "PHASE",
-       "note": "a phase = a stage"
+       "note": "a stage of development is a phase"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
-         "text": "entering"
+         "text": "finally",
+         "at": 6,
+         "note": "finally points to the closing letter of Actor"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Actor finally",
-         "gives": "R",
-         "select": "last",
-         "note": "last letter of actoR, inside PHASE"
+         "words": "Actor",
+         "at": 0,
+         "note": "last letter of Actor"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An actor at last stepping on stage to deliver a short line.",
-     "walkthrough": "'Stage' is set up as a theatre stage for the actor; it means a phase.",
-     "definitionFit": "A short sequence forming a unit of meaning, less than a full sentence."
+     "surface": "An actor finally walks on stage to deliver a few lines.",
+     "walkthrough": "'Stage' suggests the theatre, but it means a period or step.",
+     "definitionFit": "A phrase is a small group of words forming a unit within a sentence."
     },
     "features": {
      "answerInScene": true,
@@ -2859,36 +2903,38 @@
    "annotation": {
     "definitions": [
      {
-      "text": "someone else's place",
+      "text": "someone else's place?",
       "at": 14
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "STEAD",
      "indicators": [
       {
        "text": "Almost",
-       "note": "almost means not quite all, so the word stops one letter short"
+       "at": 0,
+       "note": "almost means the word is cut short by its final letter"
       }
      ],
      "parts": [
       {
-       "words": "Almost secure",
-       "gives": "STEAD",
-       "note": "STEADY without its final Y"
+       "words": "secure",
+       "at": 7,
+       "gives": "STEADY",
+       "note": "secure, firmly fixed, means steady"
+      },
+      {
+       "gives": "Y"
       }
      ]
     },
     "explanation": {
-     "surface": "Nearly getting a secure position that belongs to someone else.",
-     "walkthrough": "'Secure' reads as a verb, to obtain; it is the adjective steady, firm.",
-     "definitionFit": "To act in someone's stead is to stand in for them."
+     "surface": "A question about nearly locking down another person's home.",
+     "definitionFit": "Stead means the position or role of another person, as in acting in someone's stead."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "secure"
     }
    }
@@ -3209,45 +3255,46 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DYNASTY",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "to upset is to knock over, so ANY is turned back to front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "departs",
+       "at": 16,
+       "gives": "D",
+       "note": "D is the timetable abbreviation for departs"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 30,
+         "note": "upset means knocked over and overturned, so the word for some is reversed"
+        }
+       ],
        "parts": [
         {
-         "words": "departs",
-         "gives": "D",
-         "note": "D = departs, from timetables"
-        },
-        {
          "words": "some",
-         "gives": "YNA",
-         "note": "some = ANY, reversed"
-        },
-        {
-         "words": "scene of squalor",
-         "gives": "STY",
-         "note": "a pigsty is a byword for filth"
+         "at": 25,
+         "gives": "ANY",
+         "note": "some means any"
         }
        ]
+      },
+      {
+       "words": "scene of squalor",
+       "at": 39,
+       "gives": "STY",
+       "note": "a sty, a pigsty, is a filthy place"
       }
      ]
     },
     "explanation": {
-     "surface": "A grand family leaving, some of them upset by the squalid surroundings.",
-     "walkthrough": "'Upset' reads as distressed; it is the reversal instruction on 'some'.",
-     "definitionFit": "A succession of rulers or magnates from one line, as the Tudors or Kennedys."
+     "surface": "A mighty family leaves, some of them distressed by a squalid scene.",
+     "definitionFit": "A dynasty is a line of rulers or an influential family holding power over generations."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "upset"
     }

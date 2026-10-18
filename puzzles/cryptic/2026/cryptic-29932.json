@@ -196,48 +196,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NOSES",
-     "indicators": [
-      {
-       "text": "new",
-       "note": "the letters are made new, put in a fresh order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 17,
+         "note": "new means made afresh, so the letters of one's are put into a fresh order"
+        }
+       ],
        "parts": [
         {
-         "words": "one's new",
-         "gives": "NOSE",
-         "note": "ONE'S rearranged"
-        },
+         "words": "one's",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first",
-           "note": "only the first letter of suit is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "suit first",
-           "gives": "SUIT",
-           "note": "first letter of suit"
-          }
-         ]
+         "text": "first",
+         "at": 26,
+         "note": "first points to the opening letter of suit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suit",
+         "at": 21,
+         "note": "first letter of suit"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone snoops into another person's brand-new suit before anything else.",
-     "walkthrough": "\"Pries into\" reads as one phrase, but only \"Pries\" is the definition; \"into\" just joins it to the wordplay.",
-     "definitionFit": "To nose is to pry, so someone who noses about pries."
+     "surface": "Someone snoops into a person's new outfit before anything else.",
+     "walkthrough": "'Pries into' makes 'into' look like part of the definition, but 'noses' alone swaps for 'pries'.",
+     "definitionFit": "To nose, as in nose about, is to pry or poke inquisitively into others' affairs."
     },
     "features": {
      "answerInScene": false,
@@ -1233,43 +1232,42 @@
     ],
     "wordplay": {
      "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 11,
+       "note": "in means the middle letter goes inside the word for saloons"
+      }
+     ],
      "parts": [
       {
        "words": "saloons",
+       "at": 14,
        "gives": "CARS",
-       "note": "a saloon is a car with a separate boot"
+       "note": "saloons are cars, the British word for sedans"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "E",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "one piece goes inside the other"
-        }
-       ],
+       "op": "nth",
+       "n": 3,
        "parts": [
         {
-         "unchecked": true,
          "words": "Sweetheart",
-         "gives": "E",
-         "select": "middle",
-         "note": "the heart, middle letter, of sweet"
+         "at": 0,
+         "note": "the heart of sweet is its middle letter, the third of its five"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lover in Wild West bars has troubles.",
-     "walkthrough": "Saloons suggest bars; in Britain a saloon is a car body style, what Americans call a sedan. E goes inside CARS.",
-     "definitionFit": "Plain synonym: cares as a plural noun are anxieties, the things one worries about."
+     "surface": "A lover in the bars has troubles.",
+     "walkthrough": "'Sweetheart' reads as one word for a lover, but it splits: the heart of SWEET is E. A saloon is the British term for a sedan car.",
+     "definitionFit": "Cares are worries or anxieties, as in the cares of the world."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "saloons"
+     "misdirectedWord": "Sweetheart"
     }
    }
   },
