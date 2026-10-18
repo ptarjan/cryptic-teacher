@@ -1280,49 +1280,54 @@
      "indicators": [
       {
        "text": "held by",
-       "note": "things held by something sit within its grip"
+       "at": 19,
+       "note": "held by means placed inside the next word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retired",
+         "at": 27,
+         "note": "retired means drawn back, so the word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "retired",
-           "note": "to retire is to go back, so the word is read from end to start"
-          }
-         ],
-         "parts": [
-          {
-           "words": "royal",
-           "note": "taken as written"
-          }
-         ]
-        },
-        {
-         "words": "Deutschmarks",
-         "gives": "DM",
-         "note": "DM is the abbreviation for Deutschmarks"
+         "words": "royal",
+         "at": 35,
+         "gives": "ROYAL",
+         "note": "taken as written"
         }
        ]
       },
       {
-       "words": "Gold",
-       "gives": "OR",
-       "note": "or is gold in heraldry"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Gold",
+         "at": 0,
+         "gives": "OR",
+         "note": "or is gold in heraldry"
+        },
+        {
+         "words": "Deutschmarks",
+         "at": 6,
+         "gives": "DM",
+         "note": "DM is the abbreviation for Deutschmark, the old German currency"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Riches in gold and German currency kept by a royal who has stepped down.",
-     "walkthrough": "Or is the heraldic word for gold, a convention worth knowing; the royal is turned round before taking in the money.",
-     "definitionFit": "The Lord Mayor is the ceremonial head of a city such as London, a civic dignitary."
+     "surface": "Gold and German money are kept by a former member of the royal family.",
+     "definitionFit": "A lord mayor is the ceremonial head of certain city councils, such as London's, a civic dignitary."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "retired"
     }

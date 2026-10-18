@@ -1346,41 +1346,44 @@
      "indicators": [
       {
        "text": "circling",
-       "note": "circling means going round, so the ship's letters sit on either side of the rest"
+       "at": 5,
+       "note": "circling means going round, so the steamship abbreviation surrounds the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Ship",
-         "gives": "SS",
-         "note": "SS is the abbreviation for steamship"
-        },
-        {
-         "words": "Portugal",
-         "gives": "P",
-         "note": "P is the international vehicle code for Portugal"
-        }
-       ]
+       "words": "Ship",
+       "at": 0,
+       "gives": "SS",
+       "note": "SS stands for steamship"
       },
       {
-       "words": "badly",
-       "gives": "ILL",
-       "note": "ill means badly, as in ill-treated"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Portugal",
+         "at": 14,
+         "gives": "P",
+         "note": "P is the international vehicle code for Portugal"
+        },
+        {
+         "words": "badly",
+         "at": 23,
+         "gives": "ILL",
+         "note": "ill means badly, as in 'ill treated'"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vessel sailing round the Iberian coast lurches and capsizes.",
-     "walkthrough": "'Badly' looks like an adverb on 'tips over' but supplies its own three letters inside the ship.",
-     "definitionFit": "When a container tips over its contents run out, which is what spills means as a verb."
+     "surface": "A vessel sailing round Portugal capsizes in rough conditions.",
+     "definitionFit": "Spills is a verb meaning knocks over or overturns, as when a cup tips over and its contents run out."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "badly"
+     "misdirectedWord": "tips"
     }
    }
   },
@@ -1735,55 +1738,58 @@
      "indicators": [
       {
        "text": "penning",
-       "note": "to pen is to shut in an enclosure, so the outer word holds the others"
+       "at": 13,
+       "note": "penning means enclosing, so the trees surround the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Elders maybe",
-         "gives": "TREES",
-         "note": "the elder is a kind of shrub or small tree"
-        },
-        {
-         "words": "answer",
-         "gives": "A",
-         "note": "A is the abbreviation for answer"
-        }
-       ]
+       "words": "Elders maybe",
+       "at": 0,
+       "gives": "TREES",
+       "note": "an elder is a kind of tree, so elders are an example of trees"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "almost",
-         "note": "almost means not quite all, so the word loses its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "certainly",
-         "gives": "SURE",
-         "note": "sure means certainly"
+         "words": "answer",
+         "at": 21,
+         "gives": "A"
         },
         {
-         "gives": "E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 28,
+           "note": "almost means the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "certainly",
+           "at": 35,
+           "gives": "SURE",
+           "note": "sure means certainly"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Senior figures answering with confidence win awards.",
-     "walkthrough": "'Elders' suggests older people, but with 'maybe' it is the elder tree, an example of the plural tree. SURE loses its last letter before going in with A.",
-     "definitionFit": "To prize something is to value it highly, which is what treasuring it means."
+     "surface": "Senior figures write an answer and are almost certain of winning awards.",
+     "walkthrough": "'Elders' suggests older people; here the elder is the shrub.",
+     "definitionFit": "Treasures are valued possessions, the sort of precious things prizes are."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Elders"
     }
    }

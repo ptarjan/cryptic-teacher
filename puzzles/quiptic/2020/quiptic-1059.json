@@ -809,62 +809,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CORMORANT",
+     "op": "container",
      "indicators": [
       {
-       "text": "Funny",
-       "note": "something funny is peculiar, so these letters come out in a strange new arrangement"
+       "text": "about",
+       "at": 14,
+       "note": "about means around, so the shuffled letters go round the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means surrounding, so one piece goes round the other"
+         "text": "Funny",
+         "at": 0,
+         "note": "funny means strange, so these letters are put into an odd order"
         }
        ],
        "parts": [
         {
          "words": "cartoon",
-         "note": "the seven letters rearranged"
-        },
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "RM",
-         "indicators": [
-          {
-           "text": "oddly",
-           "note": "oddly means only the odd-numbered letters are kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "rum",
-           "gives": "RM",
-           "select": "alternate",
-           "note": "the first and third letters"
-          }
-         ]
+         "text": "oddly",
+         "at": 20,
+         "note": "oddly means the odd-numbered letters of the next word are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rum",
+         "at": 26,
+         "note": "first and third letters of rum"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An odd bird appears in a comic strip, perhaps tipsy on rum.",
-     "walkthrough": "The rearranged letters split after CO to take the pair of odd letters inside.",
-     "definitionFit": "The cormorant is a large dark diving seabird that catches fish, so it is a type of bird."
+     "surface": "A comic strip about a strange drink of rum, featuring a bird.",
+     "definitionFit": "The cormorant is a large dark diving seabird that catches fish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Funny"
+     "misdirectedWord": "rum"
     }
    }
   },

@@ -807,57 +807,57 @@
      "indicators": [
       {
        "text": "keeping",
-       "note": "keeping means holding inside, so the other letters sit within"
+       "at": 7,
+       "note": "keeping means holding, so the curses go round the reversed pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Curses",
-         "gives": "BANS",
-         "note": "to curse in the old sense is to put under a ban"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "back",
-           "note": "going back means reading the letters from right to left"
-          }
-         ],
-         "parts": [
-          {
-           "words": "party member",
-           "gives": "IN",
-           "note": "a member of the party is in it"
-          }
-         ]
-        }
-       ]
+       "words": "Curses",
+       "at": 0,
+       "gives": "BANS",
+       "note": "bans are curses or anathemas, an old sense in Chambers"
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 33,
+         "note": "back means the next words are read in the opposite direction"
+        }
+       ],
        "parts": [
         {
-         "words": "well",
-         "gives": "SO",
-         "note": "so, as in 'so, what next?', is a filler like well"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "party member",
+           "at": 15,
+           "gives": "IN",
+           "note": "an in is a member of the party in office, the ins as opposed to the outs"
+          },
+          {
+           "words": "well",
+           "at": 28,
+           "gives": "SO",
+           "note": "so is an interjection like well, as in 'so, what now?'"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Swearing at a well-backed party member, presumably in European politics.",
-     "walkthrough": "'Well back' reads as well-supported, but 'back' reverses both party member and well together before they go inside.",
-     "definitionFit": "Bosnians are people from Bosnia, a country in south-eastern Europe."
+     "surface": "Someone swears while holding back a political colleague, apparently on behalf of some Europeans.",
+     "walkthrough": "The ins are the party in office, as against the outs, so a member of it is an in.",
+     "definitionFit": "Bosnians are the people of Bosnia, in the Balkans of south-east Europe."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "well"
+     "misdirectedWord": "party"
     }
    }
   },
@@ -1278,49 +1278,53 @@
      "indicators": [
       {
        "text": "covering",
-       "note": "covering means going over and round, so one piece holds the other"
+       "at": 23,
+       "note": "covering means wrapping round, so the shortened word goes round the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not entirely",
+         "at": 0,
+         "note": "not entirely means the word is cut short by its final letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Not entirely",
-           "note": "not entirely means not the whole thing, so the end is cut off"
-          }
-         ],
-         "parts": [
-          {
-           "words": "agreeable",
-           "gives": "NICE",
-           "note": "nice means agreeable"
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "agreeable",
+         "at": 13,
+         "gives": "NICE",
+         "note": "nice means pleasant or agreeable"
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "do",
-       "gives": "UT",
-       "note": "ut is the old name for the note do in sol-fa"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 32,
+         "gives": "A"
+        },
+        {
+         "words": "do",
+         "at": 34,
+         "gives": "UT",
+         "note": "ut is the old name for the note now called do in sol-fa"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A not wholly pleasant party held on board ships.",
-     "walkthrough": "'Do' looks like a party, but it is the first note of the scale, once called ut.",
-     "definitionFit": "Nautic is a rare form of nautical, meaning relating to ships and sailing."
+     "surface": "Someone half-pleasantly mentions a party held aboard ships.",
+     "definitionFit": "Nautic is an older form of nautical, the adjective for things relating to ships and sailing."
     },
     "features": {
      "answerInScene": true,
