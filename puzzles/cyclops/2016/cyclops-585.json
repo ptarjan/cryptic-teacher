@@ -24,7 +24,8 @@
   "check": "29 entries verified against the grid (lengths, crossings, linked-clue mapping); the blog's row for 19ac left its clue-number cell blank (the row sits directly between 17/11 and 21ac, its clue text matches 19ac's verbatim, and SINGLET's 7 letters match 19ac's grid length) — number supplied"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -107,54 +108,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "THUMBSDOWN",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "wrong",
+       "at": 5,
+       "note": "wrong means the letters are put out of their right order"
+      },
+      {
+       "text": "to ignore",
+       "at": 27,
+       "note": "to ignore means one letter in the pooled fodder is left out before the rest are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "THUMBSDOWN",
-       "indicators": [
-        {
-         "text": "wrong",
-         "note": "Something wrong is not as it should be, so the letters end up in an order that is not theirs."
-        },
-        {
-         "text": "to ignore",
-         "note": "To ignore something is to leave it out, so the letter named never joins the mix."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Nowt",
-         "note": "Nowt is northern English for nothing; the four letters go into the mix."
+         "at": 0
         },
         {
          "words": "Bush",
-         "note": "The name is taken as letters."
+         "at": 16
         },
         {
          "words": "mad",
-         "note": "Three more letters."
-        },
-        {
-         "words": "a",
-         "note": "This A is taken out of MAD, leaving MD."
+         "at": 23
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 37
       }
      ]
     },
     "explanation": {
-     "surface": "There was nothing wrong with Bush, mad though he was to overlook a warning.",
-     "walkthrough": "Which Bush is never settled, because the name is wanted only for its letters. 'Nowt wrong' reads as a verdict and is really two instructions plus the first four letters.",
-     "definitionFit": "The thumbs-down is the gesture that condemns, still given to mean no when something is turned down."
+     "surface": "A satirical swipe: George Bush and nothing sensible go together, so he is crazily dismissed.",
+     "walkthrough": "Pool NOWT, BUSH and MAD; 'to ignore a' drops the A from mad, and 'wrong' rearranges the ten letters left. Nowt is northern English for nothing.",
+     "definitionFit": "A thumbs-down is the gesture of a downturned thumb, signalling disapproval or refusal."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "wrong"
+     "misdirectedWord": "Bush"
     }
    }
   },
@@ -581,36 +580,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "leader",
-       "note": "A leader goes at the head, so the word gives its first letter."
+       "text": "wearing",
+       "at": 23,
+       "note": "wearing means the forlorn word is worn around the other letters, holding them inside"
       }
      ],
      "parts": [
       {
        "words": "forlorn",
+       "at": 31,
        "gives": "DISMAL",
-       "note": "Forlorn and dismal are both dejected."
+       "note": "dismal means gloomy and forlorn"
       },
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "wearing",
-         "note": "What you wear goes round the outside of you, so the word after it closes over the letters before it."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Lives",
+         "at": 0,
          "gives": "IS",
-         "note": "He lives is he is."
+         "note": "is means exists or lives, as in 'while life is'"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 15,
+           "note": "the leader of SNP is its first letter"
+          }
+         ],
          "parts": [
           {
-           "words": "SNP leader",
-           "note": "The first letter of SNP, the Scottish National Party."
+           "words": "SNP",
+           "at": 11,
+           "note": "the abbreviation SNP supplies its opening letter"
           }
          ]
         }
@@ -619,15 +623,14 @@
      ]
     },
     "explanation": {
-     "surface": "Somebody shares a life with the SNP leader, dressed in a sad-looking sack.",
-     "walkthrough": "The garment reading of 'sack' is the trap, and it is supported by 'wearing', which is not describing clothes at all. Nicola Sturgeon led the SNP in 2016; the party gives only its initial.",
-     "definitionFit": "Getting the sack is being put out of a job, and a dismissal is the act of putting someone out of one."
+     "surface": "A satirical jab at a Scottish nationalist leader's private life and gloomy firing.",
+     "walkthrough": "The SNP is the Scottish National Party; its 'leader' is one letter. 'wearing' has the forlorn word wrapped round the short pieces, which sit near its end.",
+     "definitionFit": "The sack is slang for being fired from a job, which is a dismissal by an employer."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "sack"
+     "misdirectedWord": "Lives"
     }
    }
   },

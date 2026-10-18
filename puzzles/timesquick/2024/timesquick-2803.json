@@ -416,54 +416,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "AUTOGIRO",
+     "op": "container",
      "indicators": [
       {
-       "text": "rising",
-       "note": "in a down clue rising means read from the bottom upwards, so the word or is turned around"
+       "text": "in",
+       "at": 11,
+       "note": "in places the soldier's letters inside the run formed by the car and the reversed little word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in places the soldier inside the letters that come from the other words"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "car",
+         "at": 14,
          "gives": "AUTO",
          "note": "auto is short for automobile, a car"
         },
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "rising",
+           "at": 21,
+           "note": "in a down clue, rising means the word or is read from bottom to top, so backwards"
+          }
+         ],
          "parts": [
           {
            "words": "or",
-           "note": "taken as written"
-          },
-          {
-           "words": "US soldier",
-           "gives": "GI",
-           "note": "GI is the standard term for an American soldier"
+           "at": 18,
+           "gives": "OR"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "US soldier",
+       "at": 0,
+       "gives": "GI",
+       "note": "GI is the standard term for an American soldier"
       }
      ]
     },
     "explanation": {
-     "surface": "An American soldier sits in a car or takes off in a flying machine.",
-     "definitionFit": "This is an early rotorcraft whose unpowered rotor spins freely while a propeller drives it forward, a type of light aircraft."
+     "surface": "An American soldier sits in a car, or perhaps something airborne climbing.",
+     "walkthrough": "'rising' turns 'or' into RO, giving AUTORO; the soldier then goes in at the join, between the car and the reversed word.",
+     "definitionFit": "An autogiro is an early rotorcraft whose unpowered rotor spins freely to provide lift, a forerunner of the helicopter."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "rising"
     }
