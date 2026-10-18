@@ -63,6 +63,11 @@ check("a one-part del clears when the answer is x less a run", True, clears(
     op("deletion", leaf("sumptuous", "RICH"), unchecked=True), "RIC"))
 check("a one-part del whose answer is not a cut of x does not", False, clears(
     op("deletion", leaf("sumptuous", "RICH"), unchecked=True), "XYZ"))
+ends = {"op": "deletion", "indicators": [{"text": "topping and tailing"}], "unchecked": True, "parts": [leaf("plant", "FACTORY")]}
+check("a one-part del whose indicator names the ends takes both (ACTOR)", True, clears(ends, "ACTOR"))
+check("and not letters the indicator does not name", False, clears(ends, "FCTOR"))
+check("a one-part del naming the heart takes the middle letter", True, clears(
+    {**ends, "indicators": [{"text": "heartless"}], "parts": [leaf("slate", "PLATE")]}, "PLTE"))
 check("a one-part sub names old and new (INNIT)", True, clears(
     op("substitution", leaf("Indigenous Americans", "INUIT"), unchecked=True), "INNIT"))
 check("the cut is the end before the start", [(3, "H")], R._removals("RICH", "RIC")[:1])

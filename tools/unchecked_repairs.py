@@ -29,6 +29,7 @@ make the tree give the answer is dropped, so none can invent a parse.
 import collections
 import copy
 import itertools
+import re
 
 import wordplay
 
@@ -171,6 +172,48 @@ def inferred_root(tree, answer):
             t = copy.deepcopy(tree)
             t["parts"] += [_bare(x[lo:hi]), _bare(want[lo:hi])]
             out.append(t)
+    return out
+
+
+_DEL_ENDS = {"ends", "bounds", "extremes", "edges", "tailing", "topping", "borders", "outskirts",
+             "limits", "peeled", "skinned", "shelled", "unwrapped", "exposed", "bare", "stripped",
+             "extremities", "boundaries", "margins", "outside", "topped"}
+_DEL_FIRST = {"first", "head", "headless", "beheaded", "top", "topless", "leader", "leaderless", "opening",
+              "initially", "start", "starts", "starting", "initial", "front", "heads", "decapitated"}
+_DEL_LAST = {"last", "end", "ends", "tail", "tailless", "endless", "finally", "briefly", "almost", "short",
+             "shortly", "docked", "curtailed", "cut", "nearly", "most", "mostly", "unfinished", "ultimately",
+             "back", "rear", "conclusion", "tails", "bottom", "incomplete"}
+_DEL_MIDDLE = {"middle", "heart", "core", "centre", "center", "centrally", "gutted", "hollow", "empty",
+               "disheartened", "heartless", "coreless", "inside", "interior", "midriff", "essentially"}
+
+
+def indicated_dels(tree):
+    """Variants of each one-part del() whose indicator names what goes (ends, first or
+    last letter, middle or heart): the removed letters are read off the word the del
+    works on, as bare letters, like del(x, H). Out of bounds, topping and tailing,
+    almost, headless. Only the answer decides which variant stands."""
+    out = []
+    for at, (node, _) in enumerate(walk(tree)):
+        parts = node.get("parts") or []
+        if node.get("op") != "deletion" or len(parts) != 1:
+            continue
+        toks = set(re.findall(r"[a-z]+", " ".join(i.get("text", "") for i in node.get("indicators") or []).lower()))
+        for x in sorted(_readings(parts[0]))[:MAX_READINGS]:
+            cuts = []
+            if toks & _DEL_ENDS and len(x) > 2:
+                cuts.append([x[0], x[-1]])
+            if toks & _DEL_FIRST and len(x) > 1:
+                cuts.append([x[0]])
+            if toks & _DEL_LAST and len(x) > 1:
+                cuts.append([x[-1]])
+            if toks & _DEL_MIDDLE and len(x) > 2:
+                h = len(x) // 2
+                cuts.append([x[h]] if len(x) % 2 else [x[h - 1:h + 1]])
+                cuts.append([x[1:-1]])
+            for cut in cuts:
+                def make(node, cut=cut):
+                    return {**node, "parts": list(node["parts"]) + [_bare(c) for c in cut]}
+                out.append(_rebuild(copy.deepcopy(tree), [0], at, make))
     return out
 
 
@@ -393,6 +436,7 @@ def variants(tree, answer):
             yield swapped(tree, picks)
     yield from unpacked_spoon(tree)
     yield from inferred_root(tree, answer)
+    yield from indicated_dels(tree)
     yield from split_ins(tree)
     yield from reversed_runs(tree)
     yield from selections_over_results(tree)
