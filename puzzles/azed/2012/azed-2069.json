@@ -180,44 +180,33 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HAIRYWOUBIT",
      "indicators": [
       {
        "text": "appearing in",
-       "note": "something appearing in a garment is inside it, so the jumbled letters sit within the word for dress"
+       "at": 14,
+       "note": "the scrambled letters show up within the garment word"
       }
      ],
      "parts": [
       {
+       "words": "dress",
+       "at": 27,
+       "gives": "HABIT",
+       "note": "a habit is a form of dress, as worn by monks or for riding"
+      },
+      {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "HAIRYWOUBIT",
        "indicators": [
         {
          "text": "oddly",
-         "note": "doing something oddly means doing it in a strange way, so the letters are put in a strange order"
+         "at": 8,
+         "note": "oddly suggests the letters behave strangely, so they are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "dress",
-           "gives": "HA",
-           "note": "habit is a dress, as a nun's or a rider's; its first two letters"
-          },
-          {
-           "words": "Your WI",
-           "note": "both words taken as written and rearranged"
-          },
-          {
-           "words": "dress",
-           "gives": "BIT",
-           "note": "the rest of habit"
-          }
-         ]
+         "words": "Your WI",
+         "at": 0
         }
        ]
       }
@@ -225,15 +214,15 @@
     },
     "spelling": "HAIRY WOUBIT",
     "explanation": {
-     "surface": "Someone notes that a member of your Women's Institute turned up in a fancy-dress outfit as a caterpillar.",
-     "walkthrough": "The WI is the Women's Institute, a British women's club. The jumbled letters go inside HABIT. The question mark warns that a woubit is a fuzzy caterpillar, so 'hairy' is part of the name.",
-     "definitionFit": "Hairy woubit is an old dialect name for a woolly caterpillar, the hairy larva of a tiger moth."
+     "surface": "A Women's Institute member turns up in fancy dress as a creepy-crawly.",
+     "walkthrough": "'Oddly' looks like a signal to take alternate letters; here it scrambles all of them. The WI is the Women's Institute, a British village women's club.",
+     "definitionFit": "Hairy woubit is a dialect name in Chambers for a hairy caterpillar, such as that of the tiger moth."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "dress"
+     "misdirectedWord": "oddly"
     }
    }
   },
@@ -262,52 +251,46 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the first word is placed inside the second, so one thing sits in the other"
+       "at": 16,
+       "note": "the word for 'as' goes inside the raised word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "elevated",
+         "at": 19,
+         "note": "in a down clue, elevated means the word is written upwards, so read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "count",
-         "gives": "LET",
-         "note": "the rest of tell reversed"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "elevated",
-           "note": "in a down clue, raising a word makes it read from the bottom up, which turns its letters round"
-          }
-         ],
-         "parts": [
-          {
-           "words": "as",
-           "gives": "EG",
-           "note": "as, in the sense 'for example', is e.g."
-          }
-         ]
+         "at": 28,
+         "gives": "TELL",
+         "note": "to tell is to count, as a bank teller does"
         }
        ]
       },
       {
-       "words": "count",
-       "gives": "L",
-       "note": "to count is to tell, as a bank teller does; reversed, its last letter comes first"
+       "words": "as",
+       "at": 13,
+       "gives": "EG",
+       "note": "e.g. (for example) can stand for 'as', as in 'such as'"
       }
      ]
     },
     "explanation": {
-     "surface": "A sartorial aside about garters, as if they were a nobleman's adornment.",
-     "walkthrough": "'Count' looks like a nobleman to suit the garter, but it is the verb to tell, as in telling votes; the reversed word opens to take in the abbreviation.",
-     "definitionFit": "A leglet is an ornament worn round the leg, and a garter is one example of such a band."
+     "surface": "A garter offered as an example, tucked into some lofty tally.",
+     "walkthrough": "'E.g.' belongs to the definition, while 'as' supplies the abbreviation for 'for example'.",
+     "definitionFit": "A leglet is a band or ornament worn around the leg, and a garter is one such band."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "count"
+     "misdirectedWord": "as"
     }
    }
   },
@@ -1001,39 +984,30 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "XYLENE",
+     "op": "composite",
      "indicators": [
       {
        "text": "could be",
-       "note": "what letters could be is a different word they might be rearranged into"
+       "at": 21,
+       "note": "says the letters of the phrase could be rearranged into this answer plus the named words"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "cleanly extracted",
+       "at": 30,
+       "note": "the composite fodder, whose letters hold the answer together with TARCLAD and ETC"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "this",
-           "gives": "XYLENE",
-           "note": "the answer itself stands in for 'this'"
-          },
-          {
-           "words": "'Tar-clad' etc",
-           "note": "taken as written"
-          },
-          {
-           "words": "cleanly extracted",
-           "note": "taken as written, the combined letters of the first two pieces"
-          }
-         ]
+         "words": "Tar-clad",
+         "at": 1
         },
         {
-         "gives": "TARCLADETCCLEANLYEXTRACTED"
+         "words": "etc",
+         "at": 11
         }
        ]
       }
@@ -1041,14 +1015,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Something that coats things in tar could be removed neatly.",
-     "walkthrough": "A composite anagram: the answer plus the letters of TAR-CLAD ETC rearrange to CLEANLY EXTRACTED. The whole clue also describes the answer, which is distilled from coal tar.",
-     "definitionFit": "Xylene is a hydrocarbon solvent obtained by distilling coal tar and wood tar, so it is literally extracted from tar."
+     "surface": "A chemist muses that tarry stuff could be drawn off neatly.",
+     "walkthrough": "A composite anagram: the letters of 'cleanly extracted' are those of 'Tar-clad' and 'etc' plus 'this', the answer. Remove TARCLADETC and the six letters left make the hydrocarbon.",
+     "definitionFit": "Xylene is an aromatic hydrocarbon obtained from coal tar, so it is indeed extracted from tar."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "this"
+     "misdirectedWord": "Tar-clad"
     }
    }
   },
@@ -1119,21 +1093,27 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SWITCHSELLING",
      "indicators": [
       {
        "text": "includes",
-       "note": "one thing including another holds it inside, so the spot wraps the jumbled letters"
+       "at": 30,
+       "note": "the spot holds the scrambled letters within it"
       }
      ],
      "parts": [
+      {
+       "words": "spot",
+       "at": 25,
+       "gives": "SWELLING",
+       "note": "a swelling is a spot or pimple on the skin"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "devious",
-         "note": "devious means winding and indirect, so the letters take a crooked route"
+         "at": 39,
+         "note": "devious suggests twisting, so the letters are rearranged"
         }
        ],
        "parts": [
@@ -1142,28 +1122,14 @@
          "indicators": [
           {
            "text": "mostly",
-           "note": "mostly means not quite all, so the final letter is dropped"
+           "at": 54,
+           "note": "mostly means all but the last letter is used"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "spot",
-             "gives": "SW",
-             "note": "a spot is a swelling on the skin; its first two letters"
-            },
-            {
-             "words": "shtick",
-             "note": "taken as written, shtick being a performer's routine"
-            },
-            {
-             "words": "spot",
-             "gives": "ELLING",
-             "note": "the rest of swelling"
-            }
-           ]
+           "words": "shtick",
+           "at": 47
           },
           {
            "gives": "K"
@@ -1176,9 +1142,9 @@
     },
     "spelling": "SWITCH SELLING",
     "explanation": {
-     "surface": "A salesman's plan to win customers is a crafty gimmick.",
-     "walkthrough": "Shtick loses its K, and the rest is jumbled inside SWELLING.",
-     "definitionFit": "Switch selling is luring customers with a bargain and then persuading them to buy something dearer, a trader's tempting ploy."
+     "surface": "A salesman's slick pitch: a pimple complete with a twisty routine.",
+     "walkthrough": "'spot' reads as noticing, but it is a pimple; shtick is a comedian's routine.",
+     "definitionFit": "Switch selling is the sales trick of luring customers with a cheap offer and then steering them to a pricier item."
     },
     "features": {
      "answerInScene": true,
@@ -1274,36 +1240,29 @@
      "indicators": [
       {
        "text": "stuck in",
-       "note": "something stuck in a field is pushed inside it, so one word sits within the other"
+       "at": 15,
+       "note": "the adhesive word is lodged within the field word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "meadow",
-         "gives": "LE",
-         "note": "lee is a variant of lea, a meadow; its first two letters"
-        },
-        {
-         "words": "stick",
-         "gives": "GUM",
-         "note": "to gum is to stick things together"
-        }
-       ]
+       "words": "meadow",
+       "at": 24,
+       "gives": "LEE",
+       "note": "lee is given in Chambers as a variant spelling of lea, a meadow"
       },
       {
-       "words": "meadow",
-       "gives": "E",
-       "note": "the last letter of lee"
+       "words": "stick",
+       "at": 9,
+       "gives": "GUM",
+       "note": "gum is glue, something used to stick"
       }
      ]
     },
     "explanation": {
-     "surface": "A cane for supporting peas is pushed into the grass of a field.",
-     "walkthrough": "'Pea stick' reads as one thing, a cane for climbing peas, but the definition stops at 'pea'.",
-     "definitionFit": "A legume is any plant of the pea family, and the pea is the standard example of one."
+     "surface": "A pea-stick pushed into a grassy field, as in a vegetable patch.",
+     "walkthrough": "'Pea stick' reads as a garden cane, but the definition stops at 'pea', and 'stick' is the glue.",
+     "definitionFit": "The pea is a typical member of the bean family of pod-bearing plants, so it is an example of the answer."
     },
     "features": {
      "answerInScene": true,
@@ -1707,72 +1666,57 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "EUPATRID",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "to be about something is to be around it, so the jumbled letters go around the other piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 33,
+         "note": "the scrambled letters go about, that is around, the word for rising"
+        }
+       ],
        "parts": [
         {
-         "words": "irate",
-         "gives": "E",
-         "note": "the first of the rearranged letters"
-        },
-        {
-         "op": "reversal",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "rising",
-           "note": "something rising goes up, and up written backwards is the word that rises"
+           "text": "wildly",
+           "at": 20,
+           "note": "wildly suggests letters thrown around, so irate is rearranged"
           }
          ],
          "parts": [
           {
-           "op": "anagram",
-           "indicators": [
-            {
-             "text": "wildly",
-             "note": "acting wildly means acting without control, so the letters are thrown into a new order"
-            }
-           ],
-           "parts": [
-            {
-             "words": "rising",
-             "gives": "UP",
-             "note": "rising means going up"
-            },
-            {
-             "words": "irate",
-             "gives": "ATRI",
-             "note": "the rest of the rearranged letters"
-            },
-            {
-             "words": "died",
-             "gives": "D",
-             "note": "D is the abbreviation for died, as in genealogies"
-            }
-           ]
+           "words": "irate",
+           "at": 27
           }
          ]
+        },
+        {
+         "words": "rising",
+         "at": 39,
+         "gives": "UP",
+         "note": "up means rising, as in 'the sun is up'"
         }
        ]
+      },
+      {
+       "words": "died",
+       "at": 47,
+       "gives": "D",
+       "note": "D is the genealogical abbreviation for died"
       }
      ]
     },
     "explanation": {
-     "surface": "An old nobleman, furious about an uprising, passed away.",
-     "walkthrough": "'Rising' looks like a revolt to anger the aristocrat; it simply gives UP, which the jumbled letters of irate wrap round.",
-     "definitionFit": "The eupatrids were the hereditary nobility of ancient Athens, so one of them was an ancient aristocrat."
+     "surface": "An old nobleman, fuming as he got up, then passed away.",
+     "walkthrough": "'rising' looks like a reversal signal, but it is simply a synonym. A Eupatrid belonged to the noble families of ancient Athens.",
+     "definitionFit": "A Eupatrid was a member of the hereditary aristocracy of ancient Athens."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "rising"
     }
