@@ -192,51 +192,54 @@
      "indicators": [
       {
        "text": "including",
-       "note": "to include something is to take it inside, so letters are placed within another word"
+       "at": 16,
+       "note": "the category takes the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "category",
-         "gives": "CLASS",
-         "note": "a class is a category or grouping"
-        },
-        {
-         "words": "uranium",
-         "gives": "U",
-         "note": "U is the chemical symbol for uranium"
-        }
-       ]
+       "words": "category",
+       "at": 7,
+       "gives": "CLASS",
+       "note": "a class is a category"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "primarily",
-         "note": "primarily means in the first place, so only the opening letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "tritium",
-         "note": "the first letter of tritium"
+         "words": "uranium",
+         "at": 26,
+         "gives": "U",
+         "note": "U is the chemical symbol for uranium"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 46,
+           "note": "primarily means take the first letter of tritium"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tritium",
+           "at": 38
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A class of weapon defined by containing uranium and tritium, the stuff of nuclear bombs.",
-     "walkthrough": "The surface suggests nuclear arms, but the weapon is an old-fashioned sword.",
-     "definitionFit": "A cutlass is a short curved sword, once favoured by sailors and pirates."
+     "surface": "A kind of armament that contains nuclear materials.",
+     "definitionFit": "A cutlass is a short curved sword, the sabre of sailors and pirates."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "uranium"
+     "misdirectedWord": "Weapon"
     }
    }
   },
@@ -1253,57 +1256,63 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "STRANGER",
      "indicators": [
       {
        "text": "after",
-       "note": "coming after means placed later, so this piece follows the other"
+       "at": 5,
+       "note": "the rage piece comes after the altered sir"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "STRANGER",
        "indicators": [
         {
          "text": "takes",
-         "note": "taking one thing for another swaps them, so one letter is replaced"
+         "at": 15,
+         "note": "the word takes a new letter in place of an old one, a swap"
+        },
+        {
+         "text": "for",
+         "at": 26,
+         "note": "for means in place of, so the time letter stands where the one was"
         }
        ],
        "parts": [
         {
          "words": "Sir",
-         "note": "taken as written"
+         "at": 11
         },
         {
          "words": "one",
+         "at": 30,
          "gives": "I",
          "note": "I is the Roman numeral for one"
         },
         {
          "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
-        },
-        {
-         "words": "Rage",
-         "gives": "ANGER",
-         "note": "rage is extreme anger"
+         "at": 21,
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "Rage",
+       "at": 0,
+       "gives": "ANGER",
+       "note": "rage is anger"
       }
      ]
     },
     "explanation": {
-     "surface": "A knight in a temper orders yet another rum.",
-     "walkthrough": "'Takes time for one' means T replaces I (one). 'Rum' here is the British adjective for odd, not the drink.",
-     "definitionFit": "Rum is an old British word for odd or peculiar, so more rum is the comparative, odder."
+     "surface": "A knight gets furious after spending time drinking one more glass of rum.",
+     "walkthrough": "'rum' looks like the drink, but it is the old British adjective meaning odd.",
+     "definitionFit": "Rum is British slang for odd or peculiar, so more rum means odder."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "rum"
     }
    }
@@ -3367,47 +3376,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHARLATAN",
-     "indicators": [
-      {
-       "text": "consistently left short",
-       "note": "each one left short by the same amount, so every word loses its last two letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "consistently left short",
+         "at": 28,
+         "note": "each word is cut short in the same way, losing its last two letters"
+        }
+       ],
        "parts": [
         {
          "words": "Charlie",
-         "gives": "CHARL",
-         "note": "the name minus its final two letters"
+         "at": 10
         },
+        {
+         "gives": "IE"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
         {
          "words": "and",
-         "gives": "A",
-         "note": "the word minus its final two letters"
+         "at": 18
         },
         {
+         "gives": "ND"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
          "words": "Tanya",
-         "gives": "TAN",
-         "note": "the name minus its final two letters"
+         "at": 22
+        },
+        {
+         "gives": "YA"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A con artist has two accomplices, Charlie and Tanya, who keep getting short-changed.",
-     "walkthrough": "'And' looks like a joining word but is one of the three words docked of two letters each.",
-     "definitionFit": "A charlatan is a person who falsely claims knowledge or skill, an impostor or fraud."
+     "surface": "A cheat who has two people's names cut short.",
+     "walkthrough": "Each of the three words loses its final two letters: CHARL, A and TAN.",
+     "definitionFit": "A charlatan is a person who falsely claims skill or knowledge, a fraud or quack."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "and"
+     "misdirectedWord": "short"
     }
    }
   },

@@ -1042,34 +1042,47 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MERCURY",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 17,
+       "note": "for means stands for: the two letters are the symbol standing for the element's name"
+      }
+     ],
      "parts": [
       {
        "op": "outer",
        "indicators": [
         {
          "text": "tips",
+         "at": 12,
          "note": "the tips of a word are its two ends, its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "Handwriting",
-         "note": "the first and last letters of the word"
+         "at": 0
         }
        ]
+      },
+      {
+       "gives": "HG"
+      },
+      {
+       "gives": "MERCURY"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice on improving your penmanship.",
-     "walkthrough": "The two letters are the chemical symbol for the liquid metal, so they stand in for its full name.",
-     "definitionFit": "In Roman myth Mercury was the winged messenger of the gods, matching Hermes in Greek myth."
+     "surface": "Advice on penmanship for someone who carries notes.",
+     "walkthrough": "The outer letters of 'Handwriting' are H and G, and Hg is the chemical symbol for the metal whose name is also that of the Roman god.",
+     "definitionFit": "Mercury was the winged messenger of the gods in Roman mythology."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "tips"
     }
    }
@@ -1160,32 +1173,49 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "GLUCOSE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "William Spooner famously swapped the opening sounds of words, so the starts are exchanged"
+       "at": 0,
+       "note": "the Reverend Spooner is known for swapping the starting sounds of words, so the first sounds of the two words are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "pointer leaves",
-       "gives": "GLUCOSE",
-       "soundsLike": "CLUE GOES",
-       "note": "a pointer is a clue, and to leave is to go; swap their opening sounds"
+       "op": "homophone",
+       "spelt": "CLU",
+       "parts": [
+        {
+         "words": "pointer",
+         "at": 10,
+         "gives": "CLUE",
+         "note": "a clue is a pointer towards an answer"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "GOSE",
+       "parts": [
+        {
+         "words": "leaves",
+         "at": 18,
+         "gives": "GOES",
+         "note": "someone who leaves goes"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dog leaves sweets behind.",
-     "definitionFit": "Glucose is a simple sugar found in fruit and honey, so it is a sweet substance."
+     "surface": "A dog's indicator or arrow leaving behind something sugary.",
+     "walkthrough": "Say CLUE GOES with the opening sounds swapped and you get GLU-COSE.",
+     "definitionFit": "Glucose is a simple sugar, the sweet substance found in fruit and the blood."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "pointer"
     }
    }
@@ -1694,56 +1724,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SYMPHONY",
      "indicators": [
       {
-       "text": "clothing",
-       "note": "clothing wraps around a body, so one piece is dressed in the other"
+       "text": "in",
+       "at": 19,
+       "note": "the cycled letters go in between the outer letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "clothing",
+         "at": 29,
+         "note": "the clothing of a word is its outside, its first and last letters"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "parts": [
-          {
-           "words": "skimpy",
-           "note": "skimpy suggests a scanty cover: just the two end letters of the word"
-          }
-         ]
-        },
+         "words": "skimpy",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
         {
-         "op": "cycling",
-         "indicators": [
-          {
-           "text": "cycling",
-           "note": "cycling moves a letter round from one end of the word to the other"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Sex maniac",
-           "gives": "NYMPHO",
-           "note": "a nympho is a woman with excessive sexual desire, informally"
-          }
-         ]
+         "text": "cycling",
+         "at": 11,
+         "note": "cycling moves the first letter round to the back, as a wheel turns"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sex maniac",
+         "at": 0,
+         "gives": "NYMPHO",
+         "note": "a nympho is slang for a woman with an obsessive sex drive"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sex-obsessed person goes cycling in skimpy outfits for a job.",
-     "walkthrough": "'Cycling' looks like the bike ride in the surface, but it signals moving the first letter to the back; 'skimpy' supplies only its ends.",
-     "definitionFit": "A symphony is a large orchestral composition, so it is a musical work."
+     "surface": "A lustful person out on a bike in revealing outfits.",
+     "definitionFit": "A symphony is an extended musical composition for orchestra, a work in the sense of an opus."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cycling"
+     "misdirectedWord": "work"
     }
    }
   }

@@ -819,7 +819,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "correspondence",
+      "text": "correspondence?",
       "at": 26
      }
     ],
@@ -828,34 +828,36 @@
      "indicators": [
       {
        "text": "envelope for",
-       "note": "an envelope wraps around its contents, so the first word encloses what follows"
+       "at": 4,
+       "note": "an envelope wraps round its contents, so the word any surrounds the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Any",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Any",
+       "at": 0
       },
       {
-       "words": "record",
-       "gives": "LOG",
-       "note": "a log is a written record"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 17
+        },
+        {
+         "words": "record",
+         "at": 19,
+         "gives": "LOG",
+         "note": "a log is a record of events"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Asking whether some envelope will do for posting a vinyl disc by mail.",
-     "walkthrough": "Envelope and correspondence suggest letters in the post; correspondence here means similarity.",
-     "definitionFit": "An analogy is a likeness or parallel between two things, and correspondence in that sense means similarity."
+     "surface": "Any envelope for a disc, the clue asks, playing on letters and post.",
+     "walkthrough": "'correspondence' suggests letters in envelopes, but here it means a likeness.",
+     "definitionFit": "An analogy is a correspondence or similarity between two things."
     },
     "features": {
      "answerInScene": false,
@@ -1081,62 +1083,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "half of",
+       "at": 5,
+       "note": "only half of each of the three words is kept, here the first two letters of each"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "CA",
-       "indicators": [
-        {
-         "text": "half of",
-         "note": "half of asks for just the front portion of each of the following words"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
          "words": "cake",
-         "gives": "CA",
-         "select": "first",
-         "note": "the front half of a four-letter word"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "ST",
-       "parts": [
+         "at": 13
+        },
         {
-         "unchecked": true,
          "words": "star",
-         "gives": "ST",
-         "select": "first",
-         "note": "the front half of a four-letter word"
+         "at": 18
+        },
+        {
+         "words": "left",
+         "at": 23
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LE",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "left",
-         "gives": "LE",
-         "select": "first",
-         "note": "the front half of a four-letter word"
-        }
-       ]
+       "gives": "KEARFT"
       }
      ]
     },
     "explanation": {
-     "surface": "Instruction to save half the cake and leave it for the star of the show.",
-     "walkthrough": "'Half of' applies to all three words, not just 'cake'.",
-     "definitionFit": "A keep is the strongest central tower of a medieval fortress, so it names part or the whole of a fortified building."
+     "surface": "Save half the cake, the star said, then left.",
+     "walkthrough": "'half of' applies to all three words: CA, ST and LE.",
+     "definitionFit": "A keep is the strongest central tower of a medieval fortress, so a castle part used for the whole."
     },
     "features": {
      "answerInScene": false,

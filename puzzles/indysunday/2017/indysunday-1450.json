@@ -312,31 +312,32 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NATTERS",
      "indicators": [
       {
-       "text": "wanting",
-       "note": "wanting means needing in place of what is there, so the first letter gives way to a replacement"
+       "text": "wanting successor of leader",
+       "at": 20,
+       "note": "the leading letter is swapped for the one that follows it in the alphabet, so the first letter here wants its successor"
       }
      ],
      "parts": [
       {
        "words": "issues",
+       "at": 13,
        "gives": "MATTERS",
-       "note": "issues and matters are both subjects to be dealt with"
+       "note": "issues are matters under discussion"
       },
       {
-       "words": "successor of leader",
-       "gives": "N",
-       "note": "the leader of the word for issues is M, and the next letter of the alphabet is N"
+       "gives": "M"
+      },
+      {
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "People who gossip often have issues and want the leader replaced.",
-     "walkthrough": "The leader is M, the first letter of MATTERS; its successor in the alphabet, N, takes its place.",
-     "definitionFit": "To natter is to chat idly at length, so natters means gossips as a verb."
+     "surface": "Someone who chatters about problems after a boss has been replaced.",
+     "walkthrough": "The leader of MATTERS is M; the letter that succeeds M in the alphabet is N.",
+     "definitionFit": "To natter is a British word for to chat idly, so someone who gossips natters."
     },
     "features": {
      "answerInScene": true,
@@ -1275,60 +1276,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TOSSPOT",
+     "op": "container",
      "indicators": [
       {
-       "text": "facing off",
-       "note": "two figures facing off stand nose to nose, so the first is turned around to face the second"
+       "text": "around",
+       "at": 28,
+       "note": "the drunks stand around the letter, enclosing it between them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "TOSSPOT",
+       "words": "drunks facing off",
+       "at": 10,
+       "gives": "TOSSOT",
+       "note": "a sot is a drunk; two of them facing each other give SOT turned to look at SOT, written TOS then SOT"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "around",
-         "note": "around places the pair so they surround the letter taken from the shop"
+         "text": "back of",
+         "at": 35,
+         "note": "the back of a word is its final letter"
         }
        ],
        "parts": [
         {
-         "words": "drunks",
-         "gives": "SOTSOT",
-         "note": "two sots, a sot being a drunkard"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "P",
-         "indicators": [
-          {
-           "text": "back of",
-           "note": "the back of a word is its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Co-op",
-           "gives": "P",
-           "select": "last",
-           "note": "the final letter of the shop's name"
-          }
-         ]
+         "words": "Co-op",
+         "at": 43
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two old drunks squaring up to each other round the back of the Co-op supermarket.",
-     "walkthrough": "Two sots face each other, the first reversed, giving TOS SOT; P goes inside. The Co-op is a British chain of shops.",
-     "definitionFit": "Tosspot is an old-fashioned word for a habitual drinker, someone who tosses back pots of ale."
+     "surface": "An ancient boozer and some drunks squaring up to each other round the back of the Co-op shop.",
+     "walkthrough": "One SOT turned round faces the other SOT, giving TOS and SOT side by side; the P from the end of Co-op goes between them.",
+     "definitionFit": "A tosspot is an archaic word for a heavy drinker, a habitual drunkard."
     },
     "features": {
      "answerInScene": true,
