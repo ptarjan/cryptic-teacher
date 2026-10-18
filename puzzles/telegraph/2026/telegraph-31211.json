@@ -357,46 +357,31 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "AYEAYE",
+     "spelt": "AYEAYE",
      "indicators": [
       {
        "text": "it's said",
-       "note": "it's said means spoken out loud, so we want the sound rather than the spelling"
+       "at": 35,
+       "note": "it's said tells us to go by how the letters sound when spoken"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "AYEAYE",
-       "indicators": [
-        {
-         "text": "last couple from",
-         "note": "the last couple means the final two letters of the following word"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Hawaii",
-         "gives": "AYEAYE",
-         "select": "last",
-         "soundsLike": "I I",
-         "note": "the final pair of letters of the state are two Is, spoken like the sailor's reply"
-        }
-       ]
+       "words": "last couple from Hawaii",
+       "at": 10,
+       "gives": "II",
+       "note": "the final two letters of the word Hawaii, read as a pair of letters I"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone called Roger and a pair of travellers just back from Hawaii are mentioned.",
-     "walkthrough": "'Roger' looks like a man's name but is radio-speak for 'message received'; the two letter Is at the end of Hawaii, read out, give the answer.",
-     "definitionFit": "Both are acknowledgements of an order: the naval reply means yes, understood, just as radio operators say they have received the message."
+     "surface": "A radio operator signs off, mentioning the last two people to arrive from Hawaii.",
+     "walkthrough": "'Roger' looks like a name but is the radio word for message received; the two letters I at the end of Hawaii, spoken one after the other, give the sailor's reply.",
+     "definitionFit": "Aye aye is the naval acknowledgement of an order, just as roger confirms a message over the radio."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Roger"
     }
@@ -659,48 +644,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TOKEN",
+     "op": "container",
      "indicators": [
       {
-       "text": "unfinished",
-       "note": "unfinished means lacking its end, so the last letter is dropped"
+       "text": "in",
+       "at": 16,
+       "note": "in says the acceptable word goes inside the shortened shelter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one piece inside the other"
+         "text": "unfinished",
+         "at": 19,
+         "note": "unfinished says the last letter of the word is left off"
         }
        ],
        "parts": [
         {
          "words": "temporary shelter",
-         "gives": "TEN",
-         "note": "a tent, missing its final letter"
+         "at": 30,
+         "gives": "TENT",
+         "note": "a tent is a temporary shelter"
         },
         {
-         "words": "acceptable",
-         "gives": "OK",
-         "note": "OK means acceptable"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "acceptable",
+       "at": 5,
+       "gives": "OK",
+       "note": "OK means acceptable"
       }
      ]
     },
     "explanation": {
-     "surface": "A notice that seems fine is posted inside a half-built shelter.",
-     "walkthrough": "'Temporary shelter' is a tent, cut short; OK goes inside after the first letter.",
-     "definitionFit": "A token is a symbol or indication of something, such as a token of gratitude, just as a sign is."
+     "surface": "A camper notes a reassuring mark that all is well in a half-pitched tent.",
+     "walkthrough": "TENT 'unfinished' is TEN, with OK placed 'in' it.",
+     "definitionFit": "A token is a symbol or outward mark of something, as in a token of thanks."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Sign"
+     "misdirectedWord": "acceptable"
     }
    }
   },
