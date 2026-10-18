@@ -368,6 +368,26 @@ PRONOUNS = {"it", "this", "he", "she", "they", "them", "her", "him", "his", "its
 SKIPPED = collections.Counter()  # why a candidate was left alone, for the report
 
 
+# A link word whose note says only what it does between the pieces: "joins the two
+# sets of letters", "places the first piece before the second", "simply joins the
+# pieces", "link joining rook to crow", "on places the betting term before the blow".
+JOIN_NOTE = re.compile(r"^(?:\w+ )?(?:simply |just )?(?:joins?\b|joining\b|places?\b|placement\b|puts\b"
+                       r"|link\b|surface link\b|a link\b)", re.I)
+# What a joining note must not say: the leaf stands for letters that are taken out,
+# a theme, a cross-reference, a meaning. "letters" alone is fine ("joins the two sets
+# of letters"); the evaluator then confirms the answer survives the move.
+JOIN_BAD = re.compile(r"preamble|theme|cross-ref|meaning|definition|indicator|superfluous|spare"
+                      r"|refer|stands for|hidden|split|removed|\bout\b|\bremove", re.I)
+# Words a setter uses to join pieces, beyond LINK_WORDS (wordplay.CONNECTIVE_WORDS in the validator).
+JOIN_WORDS = LINK_WORDS | {"has", "having", "giving", "making", "gets", "get", "gives", "makes", "makes",
+                           "after", "before", "next", "beside", "plus", "next to", "alongside", "over",
+                           "under", "above", "below", "against", "into", "upon", "round", "about",
+                           "puts", "put", "see", "seeing", "bearing", "taking", "takes", "holding"}
+# "gives no letters", "adds no letters" say the leaf is padding; the bare word "letter"
+# in PAD_BAD is what catches a leaf that supplies or loses one.
+NO_LETTERS = re.compile(r"\b(?:gives?|adds?|supplies|has|contributes|giving|adding|with)\s+no\s+letters?\b", re.I)
+
+
 def _padding_kind(leaf):
     """None when the leaf is not a candidate; 'ok' when it is a link word;
     otherwise the reason it is skipped."""
@@ -375,9 +395,13 @@ def _padding_kind(leaf):
         return None
     words, note = leaf["words"].strip().lower(), leaf.get("note") or ""
     padded = bool(PAD_NOTE.match(note))
-    if not padded and not (note == "" and words in LINK_WORDS):
+    joins = words in JOIN_WORDS and bool(JOIN_NOTE.match(note))
+    if not padded and not joins and not (note == "" and words in LINK_WORDS):
         return "other note or word, not clearly padding"
-    if PAD_BAD.search(note):
+    if joins:
+        if JOIN_BAD.search(note):
+            return "note gives it another job"
+    elif PAD_BAD.search(NO_LETTERS.sub("", note)):
         return "note gives it another job"
     if words in PRONOUNS:
         return "pronoun, may refer back"
