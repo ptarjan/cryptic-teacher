@@ -3543,71 +3543,80 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ESTIMATE",
      "indicators": [
       {
        "text": "to intervene",
-       "note": "to intervene is to come between, so a letter goes inside"
+       "at": 69,
+       "note": "to intervene is to come between, so this letter goes inside the rearranged letters"
       }
      ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "ESTIMATE",
        "indicators": [
         {
          "text": "poor",
-         "note": "something poor is in a bad way, so these letters are knocked out of shape"
+         "at": 7,
+         "note": "poor suggests something in a bad state, so the remaining letters are knocked into a new order"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "ESTIMATE",
          "indicators": [
           {
-           "text": "no leader",
-           "note": "with no leader the first letter is gone"
-          },
-          {
-           "text": "to drop",
-           "note": "dropping something lets it go, so those letters are taken away"
+           "text": "drop",
+           "at": 43,
+           "note": "to drop means to let go of, so the named letters are taken out of what remains of the name"
           }
          ],
          "parts": [
           {
-           "words": "Keir Starmer",
-           "note": "the Labour leader's name taken as written"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "no leader",
+             "at": 26,
+             "note": "no leader tells us the name loses its first letter, as a party might lose its head"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Keir Starmer",
+             "at": 12
+            },
+            {
+             "gives": "K"
+            }
+           ]
           },
           {
            "words": "the three R's",
+           "at": 48,
            "gives": "RRR",
-           "note": "the three Rs in the name, punning on reading, writing and arithmetic"
-          },
-          {
-           "words": "time",
-           "gives": "T",
-           "note": "T is the abbreviation for time"
+           "note": "the three letters R in the name, punning on the three Rs of schooling"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "time",
+       "at": 64,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A jibe that the hapless Labour leader is giving up on basic education.",
-     "walkthrough": "'the three R's' are normally reading, writing and arithmetic; here they are the three letter Rs in the name. Remove K and RRR, rearrange, then insert the time letter.",
-     "definitionFit": "To reckon is to calculate roughly or judge a figure, which is what estimating means; both are verbs."
+     "surface": "A jibe at the Labour leader: poor Keir Starmer, losing his lead and needing to go back to basic schooling.",
+     "walkthrough": "'No leader' takes K from KEIR STARMER, leaving EIRSTARMER; 'drop the three R's' leaves EISTAME, which 'poor' rearranges; T ('time') then intervenes. The three Rs are reading, writing and arithmetic, the basics of school.",
+     "definitionFit": "To estimate is to judge an amount approximately, which is one sense of the verb reckon."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "R's"
+     "misdirectedWord": "poor"
     }
    }
   },
@@ -4010,52 +4019,60 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "MAPPAMUNDI",
      "indicators": [
       {
        "text": "to act up",
-       "note": "to act up is to misbehave, so the letters run wild"
+       "at": 23,
+       "note": "to act up is to misbehave, so these letters behave badly and fall into a new order"
       }
      ],
      "parts": [
       {
+       "words": "Man paid",
+       "at": 8
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "MAPPAMUNDI",
        "indicators": [
         {
          "text": "no",
-         "note": "no means without, so the letters named are left out"
+         "at": 35,
+         "note": "no here means the name goes without the two letters that follow, as in 'no smoking'"
         }
        ],
        "parts": [
         {
-         "words": "Man paid Trump",
-         "note": "taken as written"
+         "words": "Trump",
+         "at": 17,
+         "note": "the surname of the US president, used for its letters"
         },
         {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "time",
+           "at": 38,
+           "gives": "T"
+          },
+          {
+           "words": "right",
+           "at": 44,
+           "gives": "R"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone bribed Trump to behave badly, as part of a global scheme.",
-     "walkthrough": "Both T and R come out of the fodder before the remaining letters are rearranged. The Hereford Mappa Mundi is a famous medieval map in an English cathedral.",
-     "definitionFit": "Mappa mundi is Latin for a map of the world, and a map is a plan or chart of an area."
+     "surface": "Suggests a man paid by Trump to cause trouble, all in aid of some grand plan for the world.",
+     "walkthrough": "Removing T ('time') and R ('right') from TRUMP leaves UMP; MAN PAID plus UMP then acts up into the two-word answer.",
+     "definitionFit": "A mappa mundi is a medieval map of the world, and a map is a plan of territory, so it is literally a world plan."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "plan"
     }
    }
