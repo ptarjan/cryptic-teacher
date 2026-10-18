@@ -227,46 +227,39 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reversal",
      "indicators": [
       {
        "text": "Back",
-       "note": "going back means travelling in the opposite direction, so the letters are read in reverse"
+       "at": 0,
+       "note": "Back tells us to read the run of letters in the opposite direction"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "hidden",
        "indicators": [
         {
          "text": "in",
-         "note": "the letters sit inside the words that follow, not spread across the whole clue"
+         "at": 5,
+         "note": "in means the letters are found sitting inside the words that follow"
         }
        ],
        "parts": [
         {
-         "op": "hidden",
-         "parts": [
-          {
-           "words": "Scilly … divine",
-           "gives": "CILLYDI",
-           "note": "the run starts after the S of Scilly and ends two letters into divine"
-          }
-         ]
+         "words": "Scilly … divine",
+         "at": 8,
+         "gives": "CILLYDI",
+         "note": "the run of letters inside these words"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "Back in",
-       "note": "indicators: hidden, then read in reverse"
       }
      ]
     },
     "explanation": {
-     "surface": "A holiday postcard: back on the Isles of Scilly, divine, simply beautiful.",
-     "walkthrough": "The Isles of Scilly are islands off Cornwall, a classic British holiday spot, so 'Back in Scilly' reads as a return trip. The ellipsis just bridges the gap between the two words the letters span.",
-     "definitionFit": "The word describes an unspoilt, peaceful scene of pastoral charm, beauty of the plain and simple kind rather than grandeur."
+     "surface": "A holidaymaker gushes that being back on the Isles of Scilly is divine.",
+     "walkthrough": "'in' points to CILLYDI concealed across 'Scilly … divine', and 'Back' turns it round. The Isles of Scilly are a small archipelago off Cornwall.",
+     "definitionFit": "Idyllic describes a scene that is peaceful and picturesque, so it is a synonym of simply beautiful."
     },
     "features": {
      "answerInScene": true,
@@ -414,65 +407,65 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "opened by",
-       "note": "the section is split open and the airline goes into the gap"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "New",
+       "at": 0,
+       "gives": "N"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unrestricted",
+         "at": 4,
+         "note": "unrestricted means freed of its limits, so the word loses its outside letters"
+        }
+       ],
        "parts": [
         {
-         "words": "New",
-         "gives": "N",
-         "note": "N = new"
-        },
-        {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "ANGA",
-         "indicators": [
-          {
-           "text": "unrestricted",
-           "note": "restrictions are the limits at the edges, so removing them strips the outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "unrestricted hangar",
-           "gives": "ANGA",
-           "select": "outer",
-           "note": "hANGAr without its outer letters"
-          }
-         ]
-        },
-        {
-         "words": "section",
-         "gives": "PART",
-         "note": "a section is a part; it is split to take the airline"
+         "words": "hangar",
+         "at": 17,
+         "note": "the word hangar, trimmed at both ends"
         }
        ]
       },
       {
-       "words": "airline",
-       "gives": "BA",
-       "note": "BA = British Airways, placed inside PART"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "opened by",
+         "at": 32,
+         "note": "opened by means the section word is split apart with the airline set in its middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "section",
+         "at": 24,
+         "gives": "PART",
+         "note": "a part is a section"
+        },
+        {
+         "words": "airline",
+         "at": 42,
+         "gives": "BA",
+         "note": "BA is British Airways, the UK airline"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "News of a new open-plan hangar, part of it taken over by an airline, up in the Peak District.",
-     "walkthrough": "High Peak is a real district of Derbyshire in England, so the capitals disguise the definition as a place name. The answer is a Himalayan mountain in Pakistan, one of the world's highest.",
-     "definitionFit": "This Himalayan summit in Pakistan rises above 8,000 metres, the ninth highest mountain on Earth."
+     "surface": "A news item about a new hangar section open to all, opened by an airline in a Derbyshire district.",
+     "walkthrough": "High Peak is also a district of Derbyshire, which makes the surface read as local news rather than the name of a Himalayan summit.",
+     "definitionFit": "Nanga Parbat is a Himalayan mountain in Pakistan, the ninth highest on Earth, so it is a lofty summit."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Peak"
+     "misdirectedWord": "High"
     }
    }
   },
@@ -1480,48 +1473,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "KIRIBATI",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 30,
+       "note": "with means the two pieces are set side by side, the second joining the first"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "KIRIBATI",
+       "indicators": [
+        {
+         "text": "lacks",
+         "at": 17,
+         "note": "lacks means the energy letter is missing from the prime minister's name"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "lacks",
-           "note": "a word that lacks a letter is missing it, so the E is taken out"
-          },
-          {
-           "text": "broken",
-           "note": "a broken bone is out of alignment, so the letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "PM lacks energy",
-           "gives": "KIR",
-           "note": "the Prime Minister, KEIR Starmer, loses E for energy"
-          },
-          {
-           "words": "with broken tibia",
-           "gives": "IBATI",
-           "note": "TIBIA rearranged"
-          }
-         ]
+         "words": "PM",
+         "at": 14,
+         "gives": "KEIR",
+         "note": "Keir Starmer became UK Prime Minister in 2024"
+        },
+        {
+         "words": "energy",
+         "at": 23,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 35,
+         "note": "broken means the letters of tibia are smashed and reassembled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tibia",
+         "at": 42
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "News of a flagging prime minister with a broken leg.",
-     "walkthrough": "Keir Starmer is the British Prime Minister, and his first name, less E, starts the answer, a Pacific island republic.",
-     "definitionFit": "This republic of coral atolls straddles the equator in the central Pacific, a country made entirely of islands."
+     "surface": "A prime minister, short of energy, is laid up with a fractured shin bone.",
+     "walkthrough": "'lacks' takes E out of KEIR, the first name of UK Prime Minister Keir Starmer, leaving KIR; 'broken' rearranges tibia to IBATI.",
+     "definitionFit": "Kiribati is a republic of Pacific atolls, a sovereign country made up of islands."
     },
     "features": {
      "answerInScene": false,
@@ -1606,47 +1612,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "extremely",
-       "note": "the extremes of a word are its ends, so take the outer letters"
+       "text": "filling",
+       "at": 19,
+       "note": "filling means the extreme letters go inside the preserves word"
       }
      ],
      "parts": [
       {
        "words": "preserves",
+       "at": 27,
        "gives": "TINS",
-       "note": "preserves as a verb: to tin food is to preserve it; TINS holds TA"
+       "note": "preserves come in tins"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "TA",
        "indicators": [
         {
-         "text": "filling",
-         "note": "a filling goes in the middle"
+         "text": "extremely",
+         "at": 9,
+         "note": "extremely means take just the extremes of the word, its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Tapioca, extremely",
-         "gives": "TA",
-         "select": "outer",
-         "note": "outer letters of TapiocA"
+         "words": "Tapioca",
+         "at": 0,
+         "note": "the word tapioca, of which only the ends are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A note on tinned tapioca pudding: very filling.",
-     "walkthrough": "'Extremely filling' reads as 'very filling', a comment on the pudding; it splits into the selection and the insertion.",
-     "definitionFit": "The giant elder gods of Greek myth gave their name to anyone of huge power or stature."
+     "surface": "A pudding of tapioca, used as a filling, keeps in jars of preserves.",
+     "definitionFit": "Titans were the giant gods of Greek myth, so the word is used for people of great power."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "extremely"
+     "misdirectedWord": "preserves"
     }
    }
   },
@@ -1778,46 +1782,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "regularly means at fixed intervals, so take every other letter"
+       "text": "in",
+       "at": 38,
+       "note": "in means the kept letters are put inside the region's name"
       }
      ],
      "parts": [
       {
        "words": "part of the Netherlands",
+       "at": 41,
        "gives": "HOLLAND",
-       "note": "Holland is a region of the Netherlands; it holds the letters"
+       "note": "Holland is a region of the Netherlands"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "YIS",
        "indicators": [
         {
-         "text": "censored in",
-         "note": "censored text has lines cut into it, so the letters are inserted inside the region"
+         "text": "regularly censored",
+         "at": 19,
+         "note": "regularly censored means every other letter is cut, leaving the alternate ones"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "lyrics regularly",
-         "gives": "YIS",
-         "select": "alternate",
-         "note": "the even letters of lYrIcS"
+         "words": "lyrics",
+         "at": 12,
+         "note": "the word lyrics, of which every second letter is kept"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Songs by the folk-rock band Lindisfarne being banned in the Netherlands.",
-     "walkthrough": "Lindisfarne is both a 1970s Newcastle band, which is what 'lyrics' points to, and the tidal island off Northumberland, England, known by the answer's name.",
-     "definitionFit": "The tidal island off Northumberland where St Aidan founded a monastery has two names, one Old English and one religious."
+     "surface": "Song lyrics about Lindisfarne are being cut in a Dutch province.",
+     "walkthrough": "Lindisfarne is a tidal island off Northumberland, and also a folk-rock band, which makes the lyrics in the surface plausible.",
+     "definitionFit": "Lindisfarne off the Northumberland coast is also known by its religious name, the island of the early saints."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "Lindisfarne"
     }
    }
@@ -2282,39 +2285,41 @@
      "op": "charade",
      "parts": [
       {
+       "words": "Doctor",
+       "at": 0,
+       "gives": "DR"
+      },
+      {
+       "words": "that is",
+       "at": 7,
+       "gives": "IE",
+       "note": "IE is the abbreviation of id est, Latin for that is"
+      },
+      {
        "op": "outer",
        "indicators": [
         {
          "text": "vacuous",
-         "note": "vacuous means empty, so the word is emptied of its middle letters"
+         "at": 22,
+         "note": "vacuous means emptied, so the word keeps only its outside letters"
         }
        ],
        "parts": [
         {
-         "words": "Doctor",
-         "note": "DR = doctor"
+         "words": "short",
+         "at": 15,
+         "note": "the word short, with its middle emptied out"
         }
        ]
-      },
-      {
-       "words": "that is",
-       "gives": "IE",
-       "note": "i.e. = that is"
-      },
-      {
-       "words": "short, vacuous",
-       "gives": "ST",
-       "note": "ShorT emptied of its middle"
       }
      ]
     },
     "explanation": {
-     "surface": "A curt, empty-headed, callous doctor.",
-     "walkthrough": "A dry manner is cold and matter-of-fact, so the superlative describes the least sympathetic.",
-     "definitionFit": "A dry manner is cold, flat and lacking warmth, so the superlative fits someone with no feeling for others."
+     "surface": "A GP who is curt and empty-headed has the worst bedside manner.",
+     "definitionFit": "Dry can mean cold and lacking warmth of feeling, so the superlative suits the least compassionate."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "short"
     }
@@ -2912,41 +2917,41 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "gutted",
-       "note": "a gutted fish has its insides removed, so only the outer letters remain"
+       "text": "after",
+       "at": 24,
+       "note": "after means the pieces are placed one following the other in the answer"
       }
      ],
      "parts": [
       {
        "words": "pens",
+       "at": 30,
        "gives": "SWANS",
-       "note": "a pen is a female swan"
+       "note": "pens are female swans"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "EA",
        "indicators": [
         {
-         "text": "after"
+         "text": "gutted",
+         "at": 17,
+         "note": "gutted means the insides are removed, leaving only the first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "extra gutted",
-         "gives": "EA",
-         "select": "outer",
-         "note": "ExtrA with its insides removed"
+         "words": "extra",
+         "at": 11,
+         "note": "the word extra, with its middle gone"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Welsh football team gutted after losing in extra time on penalties.",
-     "walkthrough": "The surface is football: extra time, then 'pens', penalties. A pen is also a female swan, and the answer's club is nicknamed the Swans.",
-     "definitionFit": "The city's football club plays in Wales's second city, and a side is a team."
+     "surface": "A football fan is extra disappointed after a defeat on penalties.",
+     "walkthrough": "Pens looks like penalties in a football surface, but a pen is a female swan.",
+     "definitionFit": "Swansea City is a Welsh football club, so it is a team, a side from Wales."
     },
     "features": {
      "answerInScene": true,

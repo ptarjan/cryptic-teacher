@@ -284,13 +284,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXACT",
+     "op": "container",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without an end means the final letter is dropped"
+       "text": "cutting",
+       "at": 14,
+       "note": "cutting means the abbreviation slices into the other letters, sitting inside them"
       }
      ],
      "parts": [
@@ -299,44 +298,49 @@
        "indicators": [
         {
          "text": "regressive",
-         "note": "regressing means going backwards, so the letters read in the opposite direction"
+         "at": 39,
+         "note": "regressive means going backwards, so the letters are read in reverse"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "cutting",
-           "note": "something cutting into a word slices into the middle of it"
+           "text": "endlessly",
+           "at": 29,
+           "note": "endlessly means without its end, so the last letter goes"
           }
          ],
          "parts": [
           {
            "words": "taxes",
-           "gives": "TAXE",
-           "note": "the word with its last letter removed"
+           "at": 22,
+           "note": "the word taxes, shortened"
           },
           {
-           "words": "about",
-           "gives": "C",
-           "note": "C is short for circa, Latin for about"
+           "gives": "S"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "about",
+       "at": 8,
+       "gives": "C",
+       "note": "C is short for circa, Latin for about"
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that a politician goes on about tax cuts that would hurt the poor.",
-     "walkthrough": "'Bang on about' reads as one phrase meaning rant; the definition is only 'Bang on', and 'regressive' is a tax term doing reversal duty. C goes after the T of TAXE, then everything turns round.",
-     "definitionFit": "Bang on is British informal for precisely correct, the same sense as accurate or precise."
+     "surface": "A commentator says a policy of cutting taxes is spot on but endlessly regressive.",
+     "walkthrough": "Regressive taxes are a real fiscal term, so the surface reads as economics; here the word only signals reading backwards.",
+     "definitionFit": "Bang on is British slang for exactly right, so the answer is a synonym meaning precise."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "regressive"
     }
    }
@@ -946,43 +950,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANKLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Naked",
-       "note": "naked means stripped of covering, so the outer letters come off"
+       "text": "claiming",
+       "at": 13,
+       "note": "claiming means the stripped word takes the length letter into itself"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
-         "text": "claiming",
-         "note": "to claim something is to take hold of it, so one piece is gathered inside another"
+         "text": "Naked",
+         "at": 0,
+         "note": "Naked means stripped of its outer covering, so the first and last letters go"
         }
        ],
        "parts": [
         {
          "words": "Yankee",
-         "gives": "ANKE",
-         "note": "the word with its first and last letters stripped off"
-        },
-        {
-         "words": "length",
-         "gives": "L",
-         "note": "L is the abbreviation for length"
+         "at": 6,
+         "note": "the word Yankee, losing its outside letters"
         }
        ]
+      },
+      {
+       "words": "length",
+       "at": 22,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A naked American claims a length of something more than a foot.",
-     "walkthrough": "'Something over a foot' sounds like a measurement longer than twelve inches; it means the joint sitting directly above the foot.",
-     "definitionFit": "The ankle is the joint linking the leg to the foot, positioned just above it on the body."
+     "surface": "An undressed American lays claim to a stretch of something just over a foot long.",
+     "walkthrough": "'something over a foot' is cryptic: the joint sits above the foot rather than measuring more than twelve inches.",
+     "definitionFit": "The ankle is the joint directly above the foot, so it lies over it on the leg."
     },
     "features": {
      "answerInScene": false,
@@ -1136,58 +1140,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HIKER",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is left off"
+       "text": "after covering",
+       "at": 20,
+       "note": "after covering means the shortened word ends up wrapped around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "after covering",
-         "note": "to cover something is to go over and around it, so one piece sits inside another"
+         "text": "almost",
+         "at": 8,
+         "note": "almost means the word stops one letter short of its end"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "here",
-           "gives": "HER",
-           "note": "the word with its final letter dropped"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I is the Roman numeral for one"
-          }
-         ]
+         "words": "here",
+         "at": 15,
+         "note": "the word here, cut short"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 35,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         },
         {
          "words": "kilometre",
+         "at": 39,
          "gives": "K",
-         "note": "k is the abbreviation for kilo, as in km"
+         "note": "K is a common short form of kilometre, as in a 10K run"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A walker has nearly arrived after covering a single kilometre.",
-     "walkthrough": "'Covering one kilometre' reads as distance walked, which suits a rambler; covering here means wrapping round.",
-     "definitionFit": "A rambler in Britain is someone who walks in the countryside for pleasure, which is what a hiker does."
+     "surface": "A walker has nearly arrived after doing another kilometre.",
+     "walkthrough": "Rambler is a British word for someone who walks in the countryside for pleasure, not a rose or a talker.",
+     "definitionFit": "A hiker is a person who walks long distances in the country, the same as a rambler."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "covering"
+     "aptDefinition": false
     }
    }
   },
@@ -1397,55 +1405,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INFAMY",
-     "indicators": [
-      {
-       "text": "ultimately suppressed",
-       "note": "the ultimate letter is the last, and suppressing it removes it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ultimately suppressed",
+         "at": 6,
+         "note": "ultimately suppressed means the final letter is kept back, so it goes"
+        }
+       ],
        "parts": [
         {
          "words": "Info",
-         "gives": "INF",
-         "note": "the word without its final letter"
+         "at": 0,
+         "note": "the word info, losing its last letter"
         },
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "exposed",
-           "note": "exposed means with its covering removed, so only the inner letter survives"
-          }
-         ],
-         "parts": [
-          {
-           "words": "had",
-           "note": "the central letter once the outer ones go"
-          }
-         ]
-        },
-        {
-         "words": "setter's",
-         "gives": "MY",
-         "note": "the setter speaking of himself says my"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "exposed",
+         "at": 33,
+         "note": "exposed means the outer letters are stripped away, leaving the middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "had",
+         "at": 29,
+         "note": "the word had, keeping only its centre"
+        }
+       ]
+      },
+      {
+       "words": "setter's",
+       "at": 41,
+       "gives": "MY",
+       "note": "the setter speaks of themself as me, so setter's is my"
       }
      ]
     },
     "explanation": {
-     "surface": "Leaked information, which the setter had hoped to bury, reveals his shame.",
-     "walkthrough": "The surface is a scandal story, with 'exposed' suggesting leaked secrets rather than stripping a word.",
-     "definitionFit": "Infamy is a bad reputation from public wrongdoing, so it amounts to public disgrace or dishonour."
+     "surface": "A scandal: the setter's secrets, finally hushed up, were once laid bare.",
+     "walkthrough": "Setters often refer to themselves as the setter, so setter's gives MY, the possessive of me.",
+     "definitionFit": "Infamy is notoriety for something shameful, the state of public dishonour."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "exposed"
     }

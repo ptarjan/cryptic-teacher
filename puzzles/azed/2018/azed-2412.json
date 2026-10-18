@@ -1189,53 +1189,56 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ORDURE",
      "indicators": [
       {
        "text": "at",
-       "note": "the second piece is placed at a point within the first"
+       "at": 29,
+       "note": "at, in the sense of positioned in, sets the road letters within the trimmed word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ORDURE",
+       "op": "middle",
        "indicators": [
         {
          "text": "without limits",
-         "note": "without its limits a word loses its first and last letters"
+         "at": 14,
+         "note": "without limits means the word loses its bounding letters at both ends"
         }
        ],
        "parts": [
         {
          "words": "streamed",
+         "at": 5,
          "gives": "POURED",
-         "note": "poured means flowed in a stream"
-        },
+         "note": "poured means streamed, as rain does"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "edges",
-           "note": "the edges of a word are its outermost letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "road",
-           "note": "the first and last letters of this word"
-          }
-         ]
+         "text": "edges",
+         "at": 39,
+         "note": "edges means only the outermost letters of the word, first and last, are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "road's",
+         "at": 32,
+         "gives": "ROAD",
+         "note": "the word road, of which only the edges are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mud and filth washed along to the verges of a road.",
-     "definitionFit": "Ordure is excrement or filth, so it is a synonym of muck."
+     "surface": "Filth gushed out freely along the edges of the road.",
+     "walkthrough": "'without limits' leaves OURE from POURED and 'edges' gives RD from road, set 'at' its heart.",
+     "definitionFit": "Ordure is dung or excrement, a formal word for filth of that kind."
     },
     "features": {
      "answerInScene": true,
