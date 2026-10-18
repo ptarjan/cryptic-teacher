@@ -678,61 +678,60 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NOMADIC",
      "indicators": [
       {
        "text": "usurp",
-       "note": "to usurp is to seize another's place, so new letters push out an old one"
+       "at": 59,
+       "note": "to usurp is to seize another's place, so the new letters take over the old one's spot"
       }
      ],
      "parts": [
       {
        "words": "from Northern Europe",
+       "at": 11,
        "gives": "NORDIC",
-       "note": "Nordic describes Scandinavia and its neighbours"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "MA",
-       "indicators": [
-        {
-         "text": "heads of",
-         "note": "the heads of words are their first letters, so only those are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "murderous armies",
-         "gives": "MA",
-         "select": "first",
-         "note": "the first letters of these two words"
-        }
-       ]
+       "note": "Nordic describes people or things from Scandinavia and nearby northern Europe"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "capital",
-         "note": "a capital is the letter at the head of a word, so just the first is meant"
+         "at": 72,
+         "note": "a word's capital is its first, capital letter"
         }
        ],
        "parts": [
         {
          "words": "Rome's",
-         "note": "the first letter of Rome"
+         "at": 65,
+         "note": "the capital of Rome is R"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heads of",
+         "at": 33,
+         "note": "the heads of the two words are their first letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "murderous armies",
+         "at": 42,
+         "note": "the heads of murderous armies are M and A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Murderous armies sweep south from Scandinavia and seize Rome, like the barbarian invasions.",
-     "walkthrough": "MA takes the place of the R in NORDIC.",
-     "definitionFit": "Nomadic people move from place to place rather than settling, so they are always travelling."
+     "surface": "Bloodthirsty northern armies sweep down and overthrow the leadership of Rome.",
+     "walkthrough": "In NORDIC, the R is usurped by MA.",
+     "definitionFit": "Nomadic people move from place to place with no fixed home, so they are always travelling."
     },
     "features": {
      "answerInScene": true,
@@ -1107,41 +1106,43 @@
      "indicators": [
       {
        "text": "within",
-       "note": "within puts one piece inside another"
+       "at": 20,
+       "note": "within means the letters sit inside the other word"
       }
      ],
      "parts": [
       {
        "words": "division",
+       "at": 27,
        "gives": "SECTION",
-       "note": "a section is a division"
+       "note": "a section is a division of something"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "top 2",
-         "note": "the top two of a word in a down clue are its first two letters"
+         "at": 14,
+         "note": "only the top two letters of the word are kept, so the rest of it goes"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "league's",
-         "gives": "LE",
-         "select": "first",
-         "note": "the first two letters of league"
+         "at": 5,
+         "gives": "LEAGUE",
+         "note": "the top two letters of league are L and E"
+        },
+        {
+         "gives": "AGUE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Choose which teams from the top of the league go into each division.",
-     "walkthrough": "In a down clue 'top' means the start of a word, so top 2 is its first two letters.",
-     "definitionFit": "A selection is a choice, which is what a pick is as a noun."
+     "surface": "A football fan picks out the top two clubs in the league's division.",
+     "definitionFit": "A selection is something chosen, so as a noun it is a pick, as in 'take your pick'."
     },
     "features": {
      "answerInScene": false,
@@ -1235,64 +1236,69 @@
    "annotation": {
     "definitions": [
      {
-      "text": "he's good at this!",
+      "text": "he's good at this",
       "at": 60
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TENNIS",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "returning",
-       "note": "returning means going back the way you came, so the letters run backwards"
+       "text": "with the wrong",
+       "at": 29,
+       "note": "with the wrong end means the reversed name's first letter, the R that is also racket's front end, is swapped for racket's other end"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "TENNIS",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "with the wrong",
-         "note": "having the wrong one means the proper letter has been swapped for another"
+         "text": "returning",
+         "at": 19,
+         "note": "returning means coming back, so the name is read backwards"
         }
        ],
        "parts": [
         {
          "words": "Wimbledon champion",
+         "at": 0,
          "gives": "SINNER",
-         "note": "Jannik Sinner won the men's singles at Wimbledon in 2025"
-        },
+         "note": "Jannik Sinner won the Wimbledon men's singles in 2025"
+        }
+       ]
+      },
+      {
+       "gives": "R"
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "the end of a word is its last letter, so only that is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "racket",
-           "note": "the last letter of racket"
-          }
-         ]
+         "text": "end of",
+         "at": 44,
+         "note": "the end of a word here is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "racket",
+         "at": 51,
+         "note": "the end of racket is T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Wimbledon champion comes back, his racket the wrong way round, and still excels at the game.",
-     "walkthrough": "SINNER gets the wrong end: its final R becomes T, giving SINNET, which is then read backwards. The definition points back to the champion himself.",
-     "definitionFit": "Sinner is a champion at tennis, so the game he excels at is the answer, defined by example."
+     "surface": "A tennis champion comes back holding his racket the wrong way round, yet he's still good at the game.",
+     "walkthrough": "The reversed name RENNIS begins with R, the front end of 'racket'; take the wrong end, T, instead. The definition reads as a sentence: the champion is good at the game.",
+     "definitionFit": "Sinner is a professional tennis player, so the sport is what the champion is good at."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "racket"
     }
    }
@@ -1318,44 +1324,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NEGLECT",
+     "op": "composite",
      "indicators": [
       {
        "text": "maniac",
-       "note": "something maniac is wild and crazy, so the letters are thrown into a new order"
+       "at": 8,
+       "note": "a maniac is wild or deranged, so the letters run amok"
+      },
+      {
+       "text": "to spurn",
+       "at": 24,
+       "note": "to spurn is to reject, so that letter is thrown out of the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NEGLECT",
-       "indicators": [
-        {
-         "text": "to spurn",
-         "note": "to spurn is to reject, so a letter is turned away and left out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "electing",
-         "note": "taken as written"
-        },
-        {
-         "words": "institute",
-         "gives": "I",
-         "note": "I is the abbreviation for institute"
-        }
-       ]
+       "words": "electing",
+       "at": 15
+      },
+      {
+       "words": "institute",
+       "at": 33,
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "Give up on a madman who chooses to snub the institute.",
-     "walkthrough": "'Maniac' looks like a noun, the person electing, but it works as an adjective telling us to rearrange.",
-     "definitionFit": "To neglect something is to fail to look after it, effectively abandoning it."
+     "surface": "A wild voter refuses to choose the institution's candidate.",
+     "walkthrough": "Take I out of ELECTING to leave ELECTNG, then rearrange.",
+     "definitionFit": "To neglect something is to fail to look after it, so as a verb it means abandon."
     },
     "features": {
      "answerInScene": false,

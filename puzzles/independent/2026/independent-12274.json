@@ -297,52 +297,55 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ONTOP",
      "indicators": [
       {
        "text": "prising out",
-       "note": "prising out levers one thing out of its place, leaving room for the replacement"
+       "at": 12,
+       "note": "the over levers out a letter and takes its place"
       }
      ],
      "parts": [
       {
        "words": "Handy",
+       "at": 0,
        "gives": "ONTAP",
-       "note": "something on tap is readily available, to hand"
-      },
-      {
-       "words": "over",
-       "gives": "O",
-       "note": "O is the cricket scorecard abbreviation for an over"
+       "note": "something handy is on tap, readily available"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "tail",
-         "note": "the tail is the end, so only the final letter is kept"
+         "at": 36,
+         "note": "a word's tail is its last letter"
         }
        ],
        "parts": [
         {
          "words": "Australia's",
+         "at": 24,
          "gives": "AUSTRALIA",
-         "note": "the final letter of the country's name"
+         "note": "the tail of Australia is A"
         }
        ]
+      },
+      {
+       "words": "over",
+       "at": 6,
+       "gives": "O",
+       "note": "O is the cricket scorebook abbreviation for an over"
       }
      ]
     },
     "explanation": {
-     "surface": "A cricket over that dislodges the Australian tail-enders and puts a side ahead.",
-     "walkthrough": "In cricket the tail is the weak lower batting order, so the surface is about bowling Australia out; here the over's O replaces the A in a phrase meaning handy.",
-     "definitionFit": "To be on top is to be in the lead, ahead of rivals in a contest."
+     "surface": "A cricket commentator describes an over in which the Australian tail-enders are prised out and the side goes ahead.",
+     "walkthrough": "Handy gives ON TAP; 'over' (O) prising out the A at Australia's tail leaves the O in its place.",
+     "definitionFit": "To be on top is to be in the lead or winning, so the phrase means ahead of the rest."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "tail"
+     "misdirectedWord": "Handy"
     }
    }
   },
@@ -720,45 +723,49 @@
      "indicators": [
       {
        "text": "with",
-       "note": "with means alongside, so one piece is joined to the next"
+       "at": 10,
+       "note": "with here means accompanied by, so the next letters follow on directly"
       }
      ],
      "parts": [
       {
        "words": "Frenchman",
+       "at": 0,
        "gives": "RENE",
-       "note": "René is a common French first name"
+       "note": "René is a common French man's name"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "GUE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half",
-         "note": "half of a word means keeping only part of its letters, here the closing ones"
+         "at": 24,
+         "note": "half of the six-letter word is lost, here its front three letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "brogue's",
-         "gives": "GUE",
-         "select": "last",
-         "note": "the back half of the six-letter word"
+         "at": 15,
+         "gives": "BROGUE",
+         "note": "brogue, an Irish accent or a stout shoe, halves to GUE"
+        },
+        {
+         "gives": "BRO"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Frenchman whose accent is half Welsh.",
-     "walkthrough": "'Welsh' looks like nationality, but as a verb to welsh is to back out of a promise; RENEGUE is a less common spelling of renege.",
-     "definitionFit": "To welsh on a deal is to break your word and fail to pay, exactly what reneging means."
+     "surface": "A Frenchman with a thick accent is said to sound half Welsh.",
+     "walkthrough": "'Welsh' looks like the nationality but is the verb: to welsh on a deal is to fail to pay up.",
+     "definitionFit": "To welsh is to break a promise or back out of a debt, which is exactly what reneguing, a variant spelling of reneging, means."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Welsh"
     }
    }
@@ -842,52 +849,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CARICATURIST",
+     "op": "charade",
      "indicators": [
       {
-       "text": "stripped off",
-       "note": "stripping off removes outer layers, so the first and last letters go"
+       "text": "Behind",
+       "at": 0,
+       "note": "the rest of the letters come behind, that is after, the car"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "vehicle",
+       "at": 7,
+       "gives": "CAR",
+       "note": "a car is a vehicle"
+      },
+      {
+       "words": "I",
+       "at": 15
+      },
+      {
+       "words": "caught",
+       "at": 17,
+       "gives": "C",
+       "note": "C is the cricket abbreviation for caught"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "Behind",
-         "note": "what comes behind follows on, so the rest is attached after the opening piece"
+         "text": "stripped off",
+         "at": 27,
+         "note": "stripped of the outer layer, so its first and last letters go"
         }
        ],
        "parts": [
         {
-         "words": "vehicle",
-         "gives": "CAR",
-         "note": "a car is a vehicle"
-        },
-        {
-         "words": "I",
-         "note": "taken as written"
-        },
-        {
-         "words": "caught",
-         "gives": "C",
-         "note": "C is the cricket scorecard abbreviation for caught"
-        },
-        {
          "words": "11",
-         "gives": "ATURIST",
-         "note": "the answer to 11 across with its outer letters removed"
+         "at": 24,
+         "gives": "NATURISTS",
+         "note": "11 across is NATURISTS, people who strip off"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Behind a car, I spotted a naked nudist, which suited an illustrator.",
-     "walkthrough": "11 across is NATURISTS; 'stripped off' is apt for nudists and here means their first and last letters are removed.",
-     "definitionFit": "A caricaturist draws exaggerated comic portraits, a particular kind of artist producing illustrations."
+     "surface": "Someone spots naked people behind a car and gets caught looking.",
+     "walkthrough": "NATURISTS without its outer letters is ATURIST; 'stripped off' is apt, since naturists strip off.",
+     "definitionFit": "A caricaturist draws exaggerated comic portraits of people, so is a kind of illustrator."
     },
     "features": {
      "answerInScene": false,
@@ -1268,41 +1278,41 @@
      "indicators": [
       {
        "text": "stifles",
-       "note": "to stifle is to smother, wrapping something up so one piece goes inside another"
+       "at": 8,
+       "note": "to stifle is to smother, so the old man wraps round the other letters"
       }
      ],
      "parts": [
       {
        "words": "Old man",
+       "at": 0,
        "gives": "PA",
-       "note": "Pa is an informal word for father"
+       "note": "pa is a familiar word for father, one's old man"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "LAZ",
        "indicators": [
         {
          "text": "discovered",
-         "note": "dis-covered means with its cover taken off, so the outer letters go and the middle stays"
+         "at": 21,
+         "note": "dis-covered means its outer letters are removed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "fire",
-         "gives": "LAZ",
-         "select": "middle",
-         "note": "fire is BLAZE, keeping its inner letters"
+         "at": 16,
+         "gives": "BLAZE",
+         "note": "a blaze is a fire"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A father puts out a fire found in the mall.",
-     "walkthrough": "'Old man' is father, not an elderly person; 'discovered' means uncovered rather than found.",
-     "definitionFit": "A plaza is a public square, and in American usage also a shopping mall or retail complex."
+     "surface": "An old man puts out a fire found in a shopping centre.",
+     "walkthrough": "BLAZE without its covering letters is LAZ, which PA stifles.",
+     "definitionFit": "A plaza is a public square, and in North America the word is used for a shopping mall."
     },
     "features": {
      "answerInScene": true,
@@ -1401,54 +1411,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CALENDARS",
+     "op": "composite",
      "indicators": [
       {
        "text": "Rogue",
-       "note": "a rogue goes astray and misbehaves, so the letters are rearranged"
+       "at": 0,
+       "note": "rogue as an adjective means wayward, so the letters wander out of order"
+      },
+      {
+       "text": "stripping",
+       "at": 18,
+       "note": "stripping means taking letters away from the word before rearranging it"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CALENDARS",
+       "words": "landscapers",
+       "at": 6
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "stripping",
-         "note": "stripping takes something away, so those letters are removed"
+         "text": "borders of",
+         "at": 28,
+         "note": "the borders of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "landscapers",
-         "note": "taken as written"
-        },
-        {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "borders of",
-           "note": "the borders of something are its edges, so only its outer letters are taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "plants",
-           "note": "first and last letters of the word"
-          }
-         ]
+         "words": "plants",
+         "at": 39,
+         "note": "the borders of plants are P and S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rogue gardeners rip out the edging plants, and their time is running out.",
-     "walkthrough": "'Their days are numbered' looks like a threat to the gardeners, but is a literal description of the definition.",
-     "definitionFit": "Calendars set out each day of the year with a printed number, so their days really do carry numbers."
+     "surface": "Rogue gardeners rip the edges off flower beds, and their days in the job are numbered.",
+     "walkthrough": "Remove P and S from LANDSCAPERS and rearrange what is left.",
+     "definitionFit": "A calendar's pages show dates as numbered days, a witty literal reading of a phrase meaning doomed."
     },
     "features": {
      "answerInScene": false,

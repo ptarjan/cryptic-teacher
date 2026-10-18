@@ -147,44 +147,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MARCONI",
+     "op": "composite",
      "indicators": [
       {
        "text": "Hopelessly",
-       "note": "hopelessly suggests a jumbled, muddled state, so the letters are mixed up"
+       "at": 0,
+       "note": "hopelessly suggests something in a hopeless muddle, so the letters are scrambled"
+      },
+      {
+       "text": "with no",
+       "at": 21,
+       "note": "with no means lacking, so that letter is left out of the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MARCONI",
-       "indicators": [
-        {
-         "text": "with no",
-         "note": "with no says a letter is taken away from the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "romantic",
-         "note": "taken as written"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
-        }
-       ]
+       "words": "romantic",
+       "at": 11
+      },
+      {
+       "words": "time",
+       "at": 29,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A dreamy question about the first journalist working at the Telegraph, too busy for romance.",
-     "walkthrough": "The Telegraph is this paper, but here it is wireless telegraphy, which Guglielmo Marconi pioneered.",
-     "definitionFit": "Marconi developed wireless telegraphy in the 1890s, so he was the original man behind radio telegraph messages."
+     "surface": "A sigh over a hopeless romantic who never has time for the founder of this newspaper.",
+     "walkthrough": "'Telegraph' looks like this newspaper, but it is the wireless telegraph. Take T out of ROMANTIC to leave ROMANIC, then rearrange.",
+     "definitionFit": "Guglielmo Marconi pioneered wireless telegraphy, so he was an original telegraph man; the question mark flags the play on the newspaper's name."
     },
     "features": {
      "answerInScene": false,
@@ -1437,32 +1428,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TOPFLIGHT",
+     "spelt": "TOPFLIGHT",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner was the Oxford don famed for swapping the opening sounds of neighbouring words"
+       "at": 0,
+       "note": "Reverend Spooner was famous for swapping the opening sounds of words, so the starts of the two words trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "collapse stretched",
-       "gives": "TOPFLIGHT",
-       "soundsLike": "FLOP TIGHT",
-       "note": "a flop is a collapse and taut is tight; say the pair with their opening sounds exchanged"
+       "words": "collapse",
+       "at": 10,
+       "gives": "FLOP",
+       "note": "a flop is a collapse or failure"
+      },
+      {
+       "op": "homophone",
+       "spelt": "TITE",
+       "parts": [
+        {
+         "words": "stretched",
+         "at": 19,
+         "gives": "TIGHT",
+         "note": "something stretched taut is tight"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football fan worries that the top league is overstretched and about to fall apart.",
-     "walkthrough": "Swap the opening sounds of FLOP TIGHT: FL and T trade places to give TOP FLIGHT.",
-     "definitionFit": "England's Premier League is the highest division of football, the top flight; the question mark flags an example."
+     "surface": "Spooner wonders whether England's top football league has collapsed and been stretched thin.",
+     "walkthrough": "Swap the openings of FLOP and TIGHT: FL and T trade places.",
+     "definitionFit": "Top-flight means of the highest rank, and the Premier League is English football's top division, an example of it."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "collapse"
     }
    }

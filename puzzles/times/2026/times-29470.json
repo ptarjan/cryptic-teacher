@@ -47,26 +47,26 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "SPRINT",
      "indicators": [
       {
        "text": "last to start",
-       "note": "the last letter goes to the start"
+       "at": 10,
+       "note": "the last letter is moved to the start of the word"
       }
      ],
      "parts": [
       {
        "words": "Runs off",
+       "at": 0,
        "gives": "PRINTS",
-       "note": "a press runs off copies: it prints them"
+       "note": "to run off copies on a press is to print them, so runs off gives prints"
       }
      ]
     },
     "explanation": {
-     "surface": "An athlete bolts, having come last at the start of a race.",
-     "walkthrough": "'Runs' and 'race' both pull towards athletics, but 'Runs off' is printing: a press runs off copies.",
-     "definitionFit": "A plain synonym: a sprint is a contest run flat out over a short distance."
+     "surface": "An athlete bolts, though last off the blocks at the start of the race.",
+     "walkthrough": "'Runs off' looks like fleeing, but it means printing copies; move the final S to the front.",
+     "definitionFit": "A sprint is a short race run at full speed, such as the hundred metres."
     },
     "features": {
      "answerInScene": true,
@@ -230,32 +230,35 @@
      "indicators": [
       {
        "text": "secures",
-       "note": "to secure something is to hold it fast"
+       "at": 13,
+       "note": "secures means holds fast, so the other letters are held inside"
       }
      ],
      "parts": [
       {
        "words": "Right-winger",
+       "at": 0,
        "gives": "TORY",
-       "note": "a Tory is a British Conservative; the letters open around BA"
+       "note": "a Tory is a member of Britain's right-leaning Conservative Party"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "BA",
+       "op": "deletion",
        "indicators": [
         {
          "text": "a third of",
-         "note": "a third of six letters is two"
+         "at": 21,
+         "note": "a third of the six-letter word is its first two letters, the rest going"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "a third of ballot",
-         "gives": "BA",
-         "select": "first",
-         "note": "the first third of BALLOT"
+         "words": "ballot",
+         "at": 32,
+         "gives": "BALLOT",
+         "note": "the first third of ballot is BA"
+        },
+        {
+         "gives": "LLOT"
         }
        ]
       }
@@ -263,13 +266,13 @@
     },
     "explanation": {
      "surface": "A Conservative candidate wins a third of the vote in a West Country seat.",
-     "walkthrough": "Torbay is a stretch of the Devon coast in south-west England; the election surface fits it, as it is also a parliamentary seat.",
-     "definitionFit": "Definition by location: Torbay is a borough on the south Devon coast, in England's South West region."
+     "walkthrough": "Torbay is a coastal area of Devon, in south-west England, around the resort of Torquay.",
+     "definitionFit": "Torbay is a borough on the south Devon coast, so it is one part of England's South West region."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ballot"
+     "misdirectedWord": "secures"
     }
    }
   },
@@ -990,44 +993,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TROPICAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "at": 17,
+       "note": "keeping means holding, so the rearranged letters hold the abbreviation inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Irregular",
-         "note": "irregular means not in the usual order, so PATROL is rearranged"
-        },
-        {
-         "text": "keeping",
-         "note": "to keep something is to hold it"
+         "at": 0,
+         "note": "irregular means not in proper order, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "patrol",
-         "note": "anagram fodder, split TROP…AL"
-        },
-        {
-         "words": "in charge",
-         "gives": "IC",
-         "note": "IC = in charge"
+         "at": 10
         }
        ]
+      },
+      {
+       "words": "in charge",
+       "at": 25,
+       "gives": "IC"
       }
      ]
     },
     "explanation": {
-     "surface": "A band of irregular soldiers patrolling a hot region.",
-     "walkthrough": "'Irregular patrol' reads as guerrilla soldiers; 'Irregular' is the anagram signal.",
-     "definitionFit": "Definition by region: the torrid zone is the hot belt between the tropics."
+     "surface": "A band of irregular soldiers patrols a scorching region under someone in command.",
+     "walkthrough": "'Irregular patrol' reads as a band of soldiers, but 'Irregular' is the instruction. The torrid zone is the old name for the hot belt between the tropics.",
+     "definitionFit": "The torrid zone is the region between the Tropics of Cancer and Capricorn, so tropical means belonging to that hot area."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Irregular"
     }
    }
@@ -1439,18 +1444,16 @@
     "definitions": [
      {
       "text": "Moves from the Caribbean",
-      "at": 0,
-      "note": "'Moves' is plural and RUMBA is singular: the dance is a set of moves."
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RUMBA",
      "indicators": [
       {
-       "text": "being housed in",
-       "note": "something housed in a place sits within it"
+       "text": "housed in",
+       "at": 42,
+       "note": "housed in means lodged inside, so that letter goes within the other two pieces"
       }
      ],
      "parts": [
@@ -1459,43 +1462,44 @@
        "parts": [
         {
          "words": "strange",
+         "at": 52,
          "gives": "RUM",
-         "note": "rum is British informal for odd or strange"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially means at the start, so take the first letter of BEING"
-          }
-         ],
-         "parts": [
-          {
-           "words": "initially being",
-           "gives": "BEING",
-           "note": "first letter of BEING, housed between RUM and A"
-          }
-         ]
+         "note": "rum is a British informal adjective for strange or odd"
         },
         {
          "words": "area",
-         "gives": "A",
-         "note": "A = area"
+         "at": 60,
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 26,
+         "note": "initially points to the first letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "being",
+         "at": 36,
+         "note": "the first letter of being is B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "People moving away from the Caribbean first settle in an unfamiliar district.",
-     "walkthrough": "'Moves from' reads like people relocating; the moves are dance steps from Cuba. 'Rum' fits the Caribbean too.",
-     "definitionFit": "Definition by origin: the rumba is a dance that began in Cuba."
+     "surface": "Someone describes Caribbean moves, first seen being performed in an unfamiliar place.",
+     "walkthrough": "B is housed between RUM and A. The dance came from Cuba.",
+     "definitionFit": "The rumba is a dance that originated in Cuba, so its steps are dance moves from the Caribbean."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Moves"
     }
    }
@@ -1527,45 +1531,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LIFERAFT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Having gathered",
+       "at": 0,
+       "note": "having gathered means holding together inside, so the anagrammed letters take the airmen in"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Having gathered"
-        },
-        {
          "text": "at sea",
-         "note": "at sea means confused, so I and LEFT are rearranged"
+         "at": 33,
+         "note": "at sea means confused, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "one left",
-         "gives": "LIFET",
-         "note": "I (one) with LEFT, rearranged and split LIFE…T"
+         "words": "one",
+         "at": 24,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         },
         {
-         "words": "airmen",
-         "gives": "RAF",
-         "note": "the Royal Air Force"
+         "words": "left",
+         "at": 28
         }
        ]
+      },
+      {
+       "words": "airmen",
+       "at": 16,
+       "gives": "RAF",
+       "note": "the RAF, the Royal Air Force, is Britain's body of airmen"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A craft that has picked up downed airmen, one of them left drifting at sea.",
-     "walkthrough": "The whole clue is both wordplay and definition: a life raft is left at sea gathering airmen who have ditched.",
-     "definitionFit": "An &lit: an inflatable boat set adrift for survivors really does gather up ditched airmen."
+     "surface": "A dinghy that picked up downed pilots is the only thing left floating on the sea.",
+     "walkthrough": "The whole clue defines the answer as well: an inflatable that has gathered up airmen, left drifting at sea. I and LEFT are rearranged to LIFET, which takes in RAF.",
+     "definitionFit": "A liferaft is an inflatable boat for survivors at sea, such as aircrew who have ditched in the water."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "left"
     }
    }
   },
