@@ -253,6 +253,170 @@ def taken(parsed):
 
 
 
+# ------------------------------------------- the slips of one clue's own text
+#
+# Where the OCR readings and the VLM disagreed on a clue (425 clues of the
+# 10-16..18 "Update times-" commits, a vision reread of a filed text), most
+# differences were a few kinds of slip a rule can undo from the clue alone:
+# marks (punctuation.mend: a middle dot, a lone stop, ".." for an ellipsis),
+# the count left in the text ("gossip 9."), another clue's text and count
+# glued on in front ("... (4) 101 Our clue"), a drop capital or a bar read as
+# a lone letter ("I Long pair of shorts?"), a word broken by a space
+# ("de pressed"), a one-letter misread of a word the lexicon lacks ("mesal").
+# mend_text() undoes them. Not rules: a lone quote mark (the VLM adds as many
+# as it cuts), a hyphen against a dash, a figure for a letter ("11 pm" is
+# print too), a word the OCR dropped.
+
+#: Letters one OCR slip swaps for another (r/t/f, h/b, l/i, c/e, u/a/n, y/j ...).
+CONFUSED = ("rtf", "hb", "lit", "ce", "uan", "oc", "yj", "sz", "nm", "dl", "gq", "vy")
+SWAPS = {}
+for _g in CONFUSED:
+    for _a in _g:
+        SWAPS.setdefault(_a, set()).update(_g.replace(_a, ""))
+#: How often the clue corpus must print a word for a swap to read as it.
+SWAP_USES = 20
+#: A word a figure after it is the clue's reference to, not its count.
+REFERS = frozenset("""see of no nos number page and or to by than from at with for in on as is are was
+    between versus plus minus times""".split())
+#: How often the clue corpus must print the word after a lone letter for the
+#: letter to be a speck, not a word's start.
+LEAD_USES = 10
+#: A bar or a one read as a letter in front of a clue's first word.
+LEAD_SPECKS = frozenset("I | ! 1 l".split())
+#: A count and a clue number printed inside a text: "(4) 101 Next clue".
+BLED_COUNT = re.compile(r"\(\s*(\d{1,2}(?:\s*[,\-]\s*\d{1,2})*)\s*\)\W{0,2}\s*\d{1,3}\s+(?=[A-Z])")
+
+
+def lexicon():
+    """(is_word, uses): the lexicon's test and the clue corpus's count of a
+    word; loaded on first use (ocr_clues is heavy and imports this module's
+    neighbours)."""
+    import ocr_clues
+    uni, pairs = ocr_clues.clue_lm()[:2]
+
+    def uses(w, nxt=None):
+        """How often the corpus prints `w`, or `w` then `nxt`."""
+        return uni.get(w.lower(), 0) if nxt is None else pairs.get(f"{w.lower()} {nxt.lower()}", 0)
+    return ocr_clues.is_word, uses
+
+
+def count_digits(enum):
+    """The figures of a printed count: "5,4" is [5, 4]."""
+    return [int(n) for n in re.findall(r"\d+", enum or "")]
+
+
+def trailing_count(text, enum):
+    """`text` without the figures of its own count left after its last
+    words ("idle gossip 9.", "neat study 2-5."), when they are the clue's
+    count as the light has it. Only figures equal to the enumeration's
+    parts or its total, and not after a word a reference follows ("see 9",
+    "zero and 5"), so a date or a number the clue is about is not cut."""
+    m = re.search(r"(?<=[A-Za-z?!,;])\s+(\d{1,2}(?:\s?[-,.]\s?\d{1,2})*)[\s.,;:]*$", text)
+    if not m or not enum:
+        return text
+    got = count_digits(m.group(1))
+    want = count_digits(enum)
+    # A multi-part count may have a figure misread ("2-5" for 2-3).
+    slipped = len(got) == len(want) > 1 and sum(a != b for a, b in zip(got, want)) == 1
+    if got != want and got != [sum(want)] and not slipped:
+        return text
+    before = re.findall(r"[A-Za-z]+", text[:m.start()])
+    if before and before[-1].lower() in REFERS:
+        return text
+    return text[:m.start()].rstrip()
+
+
+def bled_count(text, enum):
+    """`text` with the neighbouring clue cut off where a count and a clue
+    number stand inside it ("... (4) 101 Our clue" or "Our clue (9) 171 Next
+    clue"): the clue is the side whose count is the light's `enum`, else the
+    text after the bracket, which the previous clue's count and number lead
+    to."""
+    m = BLED_COUNT.search(text or "")
+    if not m or not enum or not text[:m.start()].strip() or not text[m.end():].strip():
+        return text
+    if clue_text.count_total(m.group(1)) == clue_text.count_total(enum):
+        return text[:m.end()].rsplit("(", 1)[0].strip()
+    return text[m.end():].strip()
+
+
+def lead_speck(text, is_word, uses):
+    """`text` without a lone letter in front of its first word that is no
+    word: a drop capital printed beside the clue ("S Sound judgment") or a
+    bar read as I ("I Long pair of shorts?"), when a common capitalised
+    word follows."""
+    m = re.match(r"([A-Z|!1l]) ([A-Z][a-z]{2,})\b", text)
+    if not m:
+        return text
+    lead, word = m.groups()
+    if lead == word[0] or (lead in LEAD_SPECKS and is_word(word.lower()) and uses(word) >= LEAD_USES):
+        return text[2:]
+    return text
+
+
+def mend_words(text, is_word=None, uses=None):
+    """`text` with the words a rule can mend from the lexicon alone: two
+    pieces of a word broken by a space, joined ("de pressed", "drink ing"; a
+    piece of two letters or more, one of them no word, the next pair not a
+    better join); a word that neither the lexicon nor the clue corpus has,
+    replaced by the one common word a single OCR swap (SWAPS) away ("mesal"
+    for "metal")."""
+    if is_word is None:
+        is_word, uses = lexicon()
+    words = text.split(" ")
+    if sum(1 for w in words if len(w) == 1) > 3:
+        return text  # letters spaced out: a puzzle set that way
+    strip = lambda w: re.sub(r"^\W+|\W+$", "", w)
+
+    def joins(a, b):
+        x, y = strip(a), strip(b)
+        if not (a == x and b.rstrip(".,;:!?") == y and x.isalpha() and y.isalpha() and x.islower() and y.islower()
+                and len(x) >= 2 and len(y) >= 2 and is_word(x + y)):
+            return False
+        # One piece is no word. (Both words, "in doors", "spy catcher", "noble
+        # men": a setter's run-together or cut word is print, left alone.)
+        return not (is_word(x) and is_word(y)) and uses(x + y) >= 1
+
+    out, i = [], 0
+    while i < len(words):
+        w = words[i]
+        bare = strip(w)
+        if i + 1 < len(words) and joins(w, words[i + 1]) and not (
+                i + 2 < len(words) and joins(words[i + 1], words[i + 2])):
+            out.append(w + words[i + 1])
+            i += 2
+            continue
+        around = (words[i - 1][-1:] if i else " ") + (words[i + 1][:1] if i + 1 < len(words) else " ")
+        if len(bare) >= 5 and w == bare and bare.isalpha() and bare.islower() and i and "-" not in around \
+                and not is_word(bare) and uses(bare) == 0:
+            alt = {bare[:k] + c + bare[k + 1:] for k, ch in enumerate(bare) for c in SWAPS.get(ch, ())}
+            alt = {a for a in alt if is_word(a) and uses(a) >= SWAP_USES}
+            out.append(alt.pop() if len(alt) == 1 else w)
+        else:
+            out.append(w)
+        i += 1
+    return " ".join(out)
+
+
+def mend_text(text, enum=None, is_word=None, uses=None, words=True):
+    """One clue's text with the slips of its own reading mended, each from
+    the clue alone (see the section above). `enum`: the light's printed
+    count, which tells the figures that are the count from those that are
+    not; `words`: also the lexicon's mends (mend_words, lead_speck)."""
+    import punctuation
+    t = punctuation.mended(text or "")
+    t = re.sub(r"^[0-9]{1,2}(?=[A-Z][a-z])", "", t)  # the clue's number glued on
+    t = re.sub(r"\s{2,}", " ", t).strip()
+    t = bled_count(t, enum)
+    t = trailing_count(t, enum)
+    if words:
+        if is_word is None:
+            is_word, uses = lexicon()
+        t = lead_speck(t, is_word, uses)
+        t = mend_words(t, is_word, uses)
+    return t
+
+
 def split_run_on(parsed):
     """`parsed` with a clue the OCR ran into the one before it split off: the
     printed numbers skip N (no clue carries it, which the grid rebuild

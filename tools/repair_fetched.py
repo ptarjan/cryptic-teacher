@@ -277,6 +277,42 @@ def mend_clue_marks(puzzle):
     return {**spaced, **punctuation.mend_puzzle(puzzle)}
 
 
+def offsets(old, new):
+    """[new offset of each old offset 0..len(old)] for `old` rewritten as
+    `new`: kept characters move with their block, an edited stretch's
+    offsets land at the start of what replaced it."""
+    import difflib
+    at = [0] * (len(old) + 1)
+    for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, old, new, autojunk=False).get_opcodes():
+        for i in range(i1, i2 + 1):
+            at[i] = j1 + (i - i1 if tag == "equal" else 0)
+    at[len(old)] = len(new)
+    return at
+
+
+def mend_clue_text(puzzle):
+    """Mend each clue's text by clue_repair.mend_text (the count left after
+    its words, a neighbour's count and number run into it, a drop capital, a
+    word broken by a space, a one-letter misread of a word nobody prints),
+    in place, annotation and italics moved with the words. Returns {light:
+    its clue now}. The lights fetch_puzzle.clue_leftovers names are mended
+    by the same function, so what it reports and what this repairs agree."""
+    import clue_repair
+    is_word, uses = clue_repair.lexicon()
+    done = {}
+    for e in puzzle.get("entries") or ():
+        clue = e.get("clue") if isinstance(e.get("clue"), dict) else {}
+        enum = clue.get("enumeration")
+
+        def mapper(text, enum=enum):
+            new = clue_repair.mend_text(text, enum, is_word, uses)
+            return new, offsets(text, new)
+
+        if enumeration.rewrite_entry(e, mapper):
+            done[entry_id(e)] = e["clue"]["text"]
+    return done
+
+
 def mechanical(puzzle, filer=None):
     """(puzzle mended, notes): the repairs above, on a copy, for an archive.org
     filer's file (or any puzzle `filer`, the tool about to write it, names
@@ -292,6 +328,9 @@ def mechanical(puzzle, filer=None):
     marks = mend_clue_marks(fixed)
     if marks:
         notes.append(f"{len(marks)} clue(s) with stray marks or spaces mended")
+    texts = mend_clue_text(fixed)
+    if texts:
+        notes.append(f"{len(texts)} clue(s) with a scan's slips mended: " + ", ".join(sorted(texts)))
     breaks = restore_word_breaks(fixed)
     if breaks:
         notes.append(f"{len(breaks)} word-break count(s) restored: "

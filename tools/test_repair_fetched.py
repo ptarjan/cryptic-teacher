@@ -510,5 +510,26 @@ for n in range(200, 207):
 finally:
     shutil.rmtree(work, ignore_errors=True)
 
+print("a scan's slips in a clue's text are mended in place, annotation offsets moved with the words")
+sys.path.insert(0, str(REPO / "tools"))
+os.environ["VLM_READER_URL"] = ""
+import repair_fetched as rf
+slips = {"entries": [
+    {"number": 9, "direction": "across", "clue": {"text": "Mostly smart English group indulging in idle gossip 9.", "enumeration": "9"}},
+    {"number": 10, "direction": "across", "clue": {"text": "I Long pair of shorts?", "enumeration": "6"}},
+    {"number": 1, "direction": "down", "clue": {
+        "text": "Fodder for the right variety of grey . donkey", "enumeration": "6", "italics": [{"at": 39, "length": 6}]},
+        "annotation": {"definition": {"at": 39, "length": 6}}},
+    {"number": 2, "direction": "down", "clue": {"text": "Plain clue about a thing", "enumeration": "5"}}]}
+done = rf.mend_clue_text(slips)
+check(" ".join(sorted(done)), "1-down 10-across 9-across", "the three slipped lights are named and the plain one is not")
+check(slips["entries"][0]["clue"]["text"], "Mostly smart English group indulging in idle gossip", "the count left in the text is cut")
+check(slips["entries"][1]["clue"]["text"], "Long pair of shorts?", "a bar read as I is cut")
+check(slips["entries"][2]["clue"]["text"], "Fodder for the right variety of grey donkey", "a lone stop is cut")
+check(str(slips["entries"][2]["clue"]["italics"][0]["at"]), "37", "the italics stay on donkey")
+check(slips["entries"][3]["clue"]["text"], "Plain clue about a thing", "a plain clue is untouched")
+check(str(rf.offsets("ab . cd", "ab cd")), "[0, 1, 2, 3, 3, 3, 4, 5]", "offsets: kept characters move with their block")
+check(str(rf.mend_clue_text(slips)), "{}", "a second run changes nothing")
+
 print("repair_fetched: all checks passed" if fails == 0 else f"repair_fetched: {fails} FAILED")
 sys.exit(1 if fails else 0)
