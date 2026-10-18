@@ -1206,60 +1206,65 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "inside of",
-       "note": "that letter goes inside the next word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "New",
+       "at": 0,
+       "gives": "N"
+      },
+      {
+       "words": "tree",
+       "at": 4,
+       "gives": "ASH",
+       "note": "the ash is a common tree"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inside of",
+         "at": 27,
+         "note": "inside of means the letter goes within the word for foul"
+        }
+       ],
        "parts": [
+        {
+         "words": "foul",
+         "at": 37,
+         "gives": "VILE",
+         "note": "vile means foul, disgusting"
+        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "beginning to",
-           "note": "the beginning of a word is its opening letter"
+           "at": 9,
+           "note": "beginning to means only the opening letter of the next word is used"
           }
          ],
          "parts": [
           {
-           "words": "New",
-           "note": "N = new"
+           "words": "leaf",
+           "at": 22,
+           "note": "the word whose first letter is taken"
           }
          ]
-        },
-        {
-         "words": "tree",
-         "gives": "ASH",
-         "note": "an ash is a tree"
-        },
-        {
-         "words": "foul",
-         "gives": "VILE",
-         "note": "vile means foul"
         }
        ]
-      },
-      {
-       "words": "beginning to leaf",
-       "gives": "L",
-       "note": "the first letter of Leaf"
       }
      ]
     },
     "explanation": {
-     "surface": "A young tree coming into leaf in a grimy city.",
-     "walkthrough": "'Inside of foul' tempts a reading of the middle letters of foul; it means L goes inside VILE.",
-     "definitionFit": "A definition by example: the capital of Tennessee, home of country music."
+     "surface": "A gardening note: a young tree's first leaf comes out inside something nasty.",
+     "walkthrough": "'tree' and 'leaf' make a botanical picture, but only ASH is a synonym; 'beginning to' leaf supplies just its first letter, set 'inside of' the word for foul.",
+     "definitionFit": "Nashville is the capital of Tennessee, famous as the home of country music."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "inside"
+     "misdirectedWord": "leaf"
     }
    }
   },

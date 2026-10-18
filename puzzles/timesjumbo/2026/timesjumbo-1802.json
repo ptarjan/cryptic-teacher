@@ -969,29 +969,30 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "EJECT",
+     "op": "deletion",
      "indicators": [
       {
        "text": "becoming leaderless",
-       "note": "a word's leader is its first letter, so a word left without a leader has lost its opening letter"
+       "at": 37,
+       "note": "becoming leaderless means the word loses its first letter, its leader"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "unsatisfactory individual",
-       "gives": "EJECT",
-       "select": "first",
-       "note": "REJECT, a person turned down, without its R"
+       "at": 10,
+       "gives": "REJECT",
+       "note": "a reject is someone or something turned down as not good enough"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "An unwanted member is pushed out and the group loses its head.",
-     "walkthrough": "A reject is someone or something not good enough.",
-     "definitionFit": "A plain synonym: bouncers eject troublemakers, forcing them out of the door."
+     "surface": "A political party ousts a failing member, who loses the leadership in the process.",
+     "walkthrough": "'becoming leaderless' drops the R from REJECT.",
+     "definitionFit": "To eject is to expel or throw someone out forcibly, as a bouncer does."
     },
     "features": {
      "answerInScene": true,
@@ -1129,42 +1130,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PROBLEMATIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "arrests",
+       "at": 10,
+       "note": "arrests means holds, so the policeman's letters hold the scrambled city inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Policeman",
+       "at": 0,
+       "gives": "PC",
+       "note": "PC is a police constable"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "arrests"
-        },
-        {
          "text": "disorderly",
-         "note": "the letters are out of order"
+         "at": 18,
+         "note": "disorderly means out of order, so the letters of the city name are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Policeman",
-         "gives": "PC",
-         "note": "PC = police constable"
-        },
-        {
          "words": "Baltimore",
-         "note": "BALTIMORE rearranged"
+         "at": 29,
+         "note": "the anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cop collars a rowdy suspect in Baltimore.",
-     "walkthrough": "'Suspect' is the adjective, not the person being arrested.",
-     "definitionFit": "Adjective for adjective: a suspect claim is open to doubt, which is what a problematic one is."
+     "surface": "A news report: a Baltimore cop detains a rowdy suspect.",
+     "walkthrough": "'suspect' looks like the person arrested, but it is the adjective meaning dubious; 'disorderly' rearranges BALTIMORE inside P and C.",
+     "definitionFit": "Something problematic is questionable or open to doubt, which is what a suspect claim is."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "suspect"
     }
@@ -1339,56 +1345,65 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BRIDLEPATH",
+     "op": "charade",
      "parts": [
       {
-       "op": "reversal",
+       "op": "anagram",
        "indicators": [
         {
          "text": "flying",
-         "note": "the letters of BIRD fly into a new order"
+         "at": 6,
+         "note": "flying here means moving freely, so the letters of bird are shuffled"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "words": "bird",
+         "at": 13,
+         "note": "the anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "penned by",
+         "at": 36,
+         "note": "penned by means enclosed, so the record word goes between the two letters for left and hand"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "left",
+           "at": 46,
+           "gives": "L"
+          },
+          {
+           "words": "hand",
+           "at": 51,
+           "gives": "H"
+          }
+         ]
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
            "text": "returning",
-           "note": "TAPE goes back the other way"
+           "at": 19,
+           "note": "returning means the record word is read backwards"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "indicators": [
-            {
-             "text": "penned by"
-            }
-           ],
-           "parts": [
-            {
-             "words": "bird",
-             "note": "BIRD rearranged"
-            },
-            {
-             "words": "left",
-             "gives": "L",
-             "note": "l = left"
-            },
-            {
-             "words": "record",
-             "gives": "EPAT",
-             "note": "TAPE = record, reversed"
-            },
-            {
-             "words": "hand",
-             "gives": "H",
-             "note": "h = hand"
-            }
-           ]
+           "words": "record",
+           "at": 29,
+           "gives": "TAPE",
+           "note": "a tape is a recording"
           }
          ]
         }
@@ -1397,14 +1412,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone tracks a bird in flight, then writes the record down left-handed.",
-     "walkthrough": "'Left hand' reads as one thing; it splits into L and H, which hold the record between them.",
-     "definitionFit": "A bridle path is a track meant for riders on horseback."
+     "surface": "A birdwatcher's note: a bird flies off while a recording is jotted down by hand.",
+     "walkthrough": "'record' tempts LP or EP, but here it is TAPE, which 'returning' turns round. 'left hand' splits into two separate abbreviations, so the penned letters give LEPATH.",
+     "definitionFit": "A bridle path is a track meant for horse riders, so it is a kind of rural way or route."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Track"
+     "misdirectedWord": "record"
     }
    }
   },
@@ -1930,29 +1945,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "LOTUS",
      "indicators": [
       {
        "text": "Head cut from",
-       "note": "a word's head is its first letter, and cutting it off leaves the rest"
+       "at": 0,
+       "note": "head cut from means the first letter of the acronym is removed"
       }
      ],
      "parts": [
       {
        "words": "Melania Trump's",
-       "gives": "LOTUS",
-       "note": "FLOTUS, First Lady of the United States, without its F"
+       "at": 14,
+       "gives": "FLOTUS",
+       "note": "as US First Lady, Melania Trump is known by the acronym FLOTUS, First Lady of the United States"
+      },
+      {
+       "gives": "F"
       }
      ]
     },
     "explanation": {
-     "surface": "Melania Trump's houseplant has been pruned.",
-     "walkthrough": "The 's is possessive in the surface but 'is' in the wordplay. FLOTUS is the White House acronym for the First Lady.",
-     "definitionFit": "A definition by category: this water lily, sacred in Asia, is a plant."
+     "surface": "A gossip item about something cut from the White House garden of Melania Trump.",
+     "walkthrough": "FLOTUS, First Lady of the United States, is a standard American acronym; 'Head cut from' removes its F to leave the flower.",
+     "definitionFit": "The lotus is an aquatic flowering plant, sacred in Asian religions, related to the water lily."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Head"
     }
@@ -2099,26 +2117,26 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "LATENT",
      "indicators": [
       {
        "text": "With first half upset",
-       "note": "turn only the first three letters upside down"
+       "at": 0,
+       "note": "upset in a down clue means turned upside down, and it applies only to the first half, three of the six letters"
       }
      ],
      "parts": [
       {
        "words": "flair",
+       "at": 23,
        "gives": "TALENT",
-       "note": "talent = flair"
+       "note": "talent means flair, a natural gift"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's gift stays hidden once they are knocked off balance.",
-     "walkthrough": "Only TAL is reversed; ENT stays put.",
-     "definitionFit": "Latent means present but not yet visible."
+     "surface": "A talent show contestant loses their nerve halfway through, and the gift goes unseen.",
+     "walkthrough": "'With first half upset' turns only TAL, the first three letters, round to LAT; ENT stays as it is.",
+     "definitionFit": "Something latent is present but hidden or dormant, not yet visible or developed."
     },
     "features": {
      "answerInScene": true,
@@ -2306,35 +2324,33 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "ARM",
        "indicators": [
         {
          "text": "originally",
-         "note": "take the first letter of each word"
+         "at": 32,
+         "note": "originally means only the first letter of each of the next words is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "as \"rap metal\" originally",
-         "gives": "ARM",
-         "select": "first",
-         "note": "As Rap Metal, first letters"
+         "words": "as \"rap metal\"",
+         "at": 17,
+         "note": "the three words whose first letters are taken"
         }
        ]
       },
       {
        "words": "permitted",
+       "at": 43,
        "gives": "LET",
-       "note": "let = permitted"
+       "note": "let means permitted, allowed"
       }
      ]
     },
     "explanation": {
-     "surface": "A music group is labelled rap metal and allowed to perform.",
-     "walkthrough": "'Band' is a group of musicians in the surface; it is a strip worn on the arm.",
-     "definitionFit": "An armlet is a band worn round the arm, often for identification."
+     "surface": "A music critic labels a band's genre as rap metal, a style fusing hip-hop and heavy metal.",
+     "walkthrough": "'band' looks musical, but it is a strip worn round the arm. 'originally' takes ARM from the first letters of as, rap and metal.",
+     "definitionFit": "An armlet is a band worn round the upper arm, often to identify the wearer, as a captain or steward."
     },
     "features": {
      "answerInScene": false,
@@ -2774,63 +2790,67 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "initially",
-       "note": "initially means at the start, so only the first letter of 'crabs' is used"
+       "text": "comes over",
+       "at": 43,
+       "note": "comes over means turns over, so the whole assembly is read backwards"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "comes over",
-         "note": "to come over is to turn across, so the whole thing flips and reads backwards"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "container",
+         "indicators": [
+          {
+           "text": "harbouring",
+           "at": 16,
+           "note": "harbouring means sheltering, so the mention word holds the next letter inside"
+          }
+         ],
          "parts": [
           {
            "words": "Mention",
+           "at": 0,
            "gives": "CITE",
-           "note": "cite = mention"
+           "note": "to cite something is to mention it"
           },
           {
            "op": "first",
            "indicators": [
             {
-             "text": "harbouring",
-             "note": "a harbour shelters ships inside it, so the mention-and-husband word shelters the letter"
+             "text": "initially",
+             "at": 33,
+             "note": "initially means only the first letter of crabs is used"
             }
            ],
            "parts": [
             {
-             "words": "husband",
-             "note": "h = husband"
+             "words": "crabs",
+             "at": 27,
+             "note": "the word whose first letter is taken"
             }
            ]
           }
          ]
         },
         {
-         "words": "crabs initially",
-         "gives": "C",
-         "note": "Crabs, first letter"
+         "words": "husband",
+         "at": 8,
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wife mentions that her husband has crabs, and she comes over all feverish.",
-     "walkthrough": "CITE+H with C inside gives CITCEH, and that flipped is the answer. Hectic once meant feverish, as in a hectic flush.",
-     "definitionFit": "Hectic originally meant feverish, as in a hectic fever."
+     "surface": "A seaside mishap: after a husband mentions crabs, someone suddenly feels unwell.",
+     "walkthrough": "'harbouring' puts C ('crabs initially') inside CITE to give CITCE; adding H makes CITCEH, and 'comes over' reverses it.",
+     "definitionFit": "Hectic once meant flushed and feverish, as of the fever of tuberculosis, before its modern sense of frantic."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "crabs"
     }
    }

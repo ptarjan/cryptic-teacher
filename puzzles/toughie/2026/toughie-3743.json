@@ -49,62 +49,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SUCCESSSTORY",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 4,
+       "note": "by means next to, so the second piece sits beside the first"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Hit",
+       "at": 0,
+       "gives": "SUCCESS",
+       "note": "a hit is a success, as a hit record or show"
+      },
+      {
+       "op": "substitution",
        "indicators": [
         {
-         "text": "a lot of",
-         "note": "most of STORM, not all of it, so the last letter goes"
+         "text": "tip for",
+         "at": 27,
+         "note": "tip for means the tip, the end letter, of the storm word is swapped for the next piece"
         }
        ],
        "parts": [
         {
-         "words": "Hit",
-         "gives": "SUCCESS",
-         "note": "a hit = a success"
-        },
-        {
          "words": "a lot of commotion",
-         "gives": "STOR",
-         "note": "STORM (commotion) without its last letter"
+         "at": 7,
+         "gives": "STORM",
+         "note": "a storm is a great commotion, as in a storm of protest"
         },
         {
-         "op": "first",
-         "unchecked": true,
+         "gives": "M"
+        },
+        {
+         "words": "your",
+         "at": 35,
          "gives": "Y",
-         "indicators": [
-          {
-           "text": "tip for",
-           "note": "the tip of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "tip for your",
-           "gives": "Y",
-           "select": "first",
-           "note": "first letter of Your"
-          }
-         ]
+         "note": "Y is the first letter of your"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone battered by chaos offers advice for making your own story upbeat.",
-     "walkthrough": "'Hit' looks like a verb, someone struck amid the commotion, but it is the noun: a hit is a success.",
-     "definitionFit": "A plain description: a story of someone overcoming the odds is told to lift the listener."
+     "surface": "A newspaper item: something hit by a great fuss, and the writer adds a tip for an uplifting tale.",
+     "walkthrough": "'tip for your' looks like advice to the reader. Here 'tip for' means the end letter of the commotion word is exchanged, and the replacement is the first letter of 'your'; 'by' just sets the two halves side by side.",
+     "definitionFit": "A success story is an account of someone who overcame difficulty to triumph, which uplifts its audience."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Hit"
+     "misdirectedWord": "tip"
     }
    }
   },
@@ -283,57 +280,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SUCCUMB",
-     "indicators": [
-      {
-       "text": "raised",
-       "note": "in a down clue, raising a word writes it bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 18,
+         "note": "in a down clue, raised means the letters are read upwards, so backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "America's raised",
-         "gives": "SU",
-         "note": "US reversed"
-        },
+         "words": "America's",
+         "at": 8,
+         "gives": "US",
+         "note": "US is the United States of America; the 's means is and links it"
+        }
+       ]
+      },
+      {
+       "words": "volume",
+       "at": 25,
+       "gives": "CC",
+       "note": "cc, cubic centimetres, is a measure of volume"
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "words": "volume",
-         "gives": "CC",
-         "note": "cc = cubic centimetres, a measure of volume"
-        },
+         "text": "internally",
+         "at": 38,
+         "note": "internally means only the inside of the next word is kept, losing its first and last letters"
+        }
+       ],
+       "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "UMB",
-         "indicators": [
-          {
-           "text": "internally",
-           "note": "only the inside of JUMBO is used"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "huge internally",
-           "gives": "UMB",
-           "select": "middle",
-           "note": "the middle of jUMBo"
-          }
-         ]
+         "words": "huge",
+         "at": 33,
+         "gives": "JUMBO",
+         "note": "jumbo means huge, as a jumbo jet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "In America the volume is turned up, enormous on the inside.",
-     "walkthrough": "'Cave' looks like a noun, a hollow in America; with 'in' it is the verb phrase meaning give way.",
-     "definitionFit": "To succumb is to give way under pressure, to cave in."
+     "surface": "A report on an American cave whose huge internal volume has been increased.",
+     "walkthrough": "'Cave' looks like a noun for a cavern, but 'Cave in' is the phrasal verb. In a down answer 'raised' reads the letters upwards; 'huge' is JUMBO, and 'internally' keeps only its middle.",
+     "definitionFit": "To cave in is to give way or yield under pressure, exactly what succumbing means."
     },
     "features": {
      "answerInScene": false,
@@ -547,39 +543,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TURNTHECORNER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 43,
+       "note": "about means around, so the rearranged letters go around the pot word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "novel",
-         "note": "novel means new, so the letters are made new"
-        },
-        {
-         "text": "about"
+         "at": 37,
+         "note": "novel means new, so the letters of the two words are made into a new arrangement"
         }
        ],
        "parts": [
         {
          "words": "recent Roth",
-         "note": "anagram of RECENT ROTH"
-        },
-        {
-         "words": "pot",
-         "gives": "URN",
-         "note": "an urn is a pot; placed after the first T"
+         "at": 25,
+         "note": "the anagram fodder, both words taken as written"
         }
        ]
+      },
+      {
+       "words": "pot",
+       "at": 49,
+       "gives": "URN",
+       "note": "an urn is a large pot or vase"
       }
      ]
     },
     "explanation": {
-     "surface": "A reviewer calls the latest Philip Roth book, about cannabis, a turning point.",
-     "walkthrough": "'Novel' and 'pot' both lure the reader into a literary review about drugs; 'novel' is the mixing instruction and the pot is a vessel.",
-     "definitionFit": "To turn the corner is to get past the crisis point, as a patient does in recovery."
+     "surface": "A literary note on a recent novel by Philip Roth, the American author, that deals with cannabis.",
+     "walkthrough": "'novel' looks like a book by Roth, but it is the anagram signal: RECENT ROTH rearranged to TTHECORNER, which goes 'about' URN.",
+     "definitionFit": "To turn the corner is an idiom for getting past the most dangerous or difficult stage, as a recovering patient does."
     },
     "features": {
      "answerInScene": false,
@@ -779,41 +780,40 @@
      "indicators": [
       {
        "text": "bar",
-       "note": "bar = except, so A is left out"
+       "at": 16,
+       "note": "bar means except, so the next piece is left out of the yearly word"
       }
      ],
      "parts": [
       {
        "words": "yearly",
+       "at": 9,
        "gives": "ANNUAL",
-       "note": "annual = yearly"
+       "note": "annual means happening once a year"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "A",
        "indicators": [
         {
          "text": "essentially",
-         "note": "the essence of a word is its middle"
+         "at": 26,
+         "note": "essentially means at its essence, the middle letter of brawl"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "brawl essentially",
-         "gives": "A",
-         "select": "middle",
-         "note": "middle letter of brAwl; removed"
+         "words": "brawl",
+         "at": 20,
+         "note": "the word whose middle letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fight is the annual event at the pub.",
-     "walkthrough": "'Bar brawl' is the pub fight the surface wants; 'bar' is really 'except'.",
-     "definitionFit": "A plain synonym: a court scraps a marriage or contract by declaring it void."
+     "surface": "A pub landlord describes the annual punch-up in his bar.",
+     "walkthrough": "'bar' and 'brawl' paint a pub fight, but 'bar' means except: ANNUAL loses the A at the heart of brawl.",
+     "definitionFit": "To annul a law or marriage is to cancel it, to scrap it as invalid."
     },
     "features": {
      "answerInScene": false,
@@ -1009,60 +1009,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INTRUDE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to stop",
+       "at": 36,
+       "note": "to stop means to plug a gap, so the letter goes inside the rearranged word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "focus of",
-         "note": "the focus is the centre, the middle letter"
-        },
-        {
          "text": "playing",
-         "note": "UNITED is playing about, rearranged"
+         "at": 51,
+         "note": "playing means in play, moving around, so the letters of United are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "United playing",
-         "gives": "INTUDE",
-         "note": "anagram of UNITED"
-        },
+         "words": "United",
+         "at": 44,
+         "note": "the anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "R",
-         "indicators": [
-          {
-           "text": "to stop"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "focus of Liverpool",
-           "gives": "R",
-           "select": "middle",
-           "note": "middle letter of LiveRpool, placed after INT"
-          }
-         ]
+         "text": "focus of",
+         "at": 15,
+         "note": "focus of means the central point, the middle letter of the nine-letter word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Liverpool",
+         "at": 24,
+         "note": "the word whose middle letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Liverpool try to prevent Manchester United from getting a game going.",
-     "walkthrough": "The football surface puts Liverpool and United on the pitch; each only lends letters, one from the middle of Liverpool and all of UNITED mixed.",
-     "definitionFit": "A plain synonym: both mean pushing in where you are not wanted."
+     "surface": "A football report: Liverpool's aim is to stop Manchester United playing their game.",
+     "walkthrough": "In English football Liverpool and United are rival clubs. 'playing' rearranges UNITED to INTUDE, and 'to stop' plugs in R, the 'focus of' Liverpool.",
+     "definitionFit": "To intrude is to butt in where one is not wanted, which is to meddle or interfere."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "United"
+     "misdirectedWord": "focus"
     }
    }
   },
@@ -1299,52 +1299,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LEARNED",
+     "op": "container",
      "indicators": [
       {
-       "text": "turned up",
-       "note": "in a down clue, turning a word up writes it bottom to top"
+       "text": "buried in",
+       "at": 19,
+       "note": "buried in means placed deep inside the letters that follow"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "buried in"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "large",
-           "gives": "L",
-           "note": "L = large"
-          },
-          {
-           "words": "study turned up",
-           "gives": "NED",
-           "note": "DEN (a study) reversed"
-          }
-         ]
+         "words": "large",
+         "at": 29,
+         "gives": "L",
+         "note": "L is the abbreviation for large, as on clothing labels"
         },
         {
-         "words": "Listener",
-         "gives": "EAR",
-         "note": "the ear listens"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turned up",
+           "at": 41,
+           "note": "in a down clue, turned up means the letters are read upwards, so backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "study",
+           "at": 35,
+           "gives": "DEN",
+           "note": "a den is a private study or room"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Listener",
+       "at": 10,
+       "gives": "EAR",
+       "note": "an ear is what listens"
       }
      ]
     },
     "explanation": {
-     "surface": "An erudite eavesdropper hides in a big study that has been flipped over.",
-     "walkthrough": "The capital on Listener suggests the magazine or a named person; it is simply an ear.",
-     "definitionFit": "A plain synonym, said as two syllables (LEARN-ED): scholarly from much reading."
+     "surface": "A scholar who is all ears sits buried in a large study.",
+     "walkthrough": "'Listener' looks like a person, but it is the organ that listens. 'buried in' puts it inside the large-plus-study letters, which 'turned up' reverses in this down answer.",
+     "definitionFit": "A learned person has gained much knowledge through study, so is scholarly and well-read."
     },
     "features": {
      "answerInScene": true,
@@ -1378,40 +1382,38 @@
      "parts": [
       {
        "words": "skin, say",
+       "at": 8,
        "gives": "ORGAN",
-       "note": "the skin is the body's largest organ"
+       "note": "the skin is an organ, the largest in the body; 'say' marks it as an example"
       },
       {
        "op": "middle",
        "indicators": [
         {
-         "text": "say",
-         "note": "skin is an example of an organ"
-        },
-        {
          "text": "unclothed",
-         "note": "a word unclothed loses its outer letters"
+         "at": 24,
+         "note": "unclothed means stripped of its outer layer, so nice loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "nice unclothed",
-         "gives": "NICE",
-         "note": "nICe without its outer letters"
+         "words": "nice",
+         "at": 19,
+         "note": "the word whose middle letters are kept"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bare skin, someone says, is pleasantly natural.",
-     "walkthrough": "The surface is about nudity; 'unclothed' strips the word 'nice', not a person.",
-     "definitionFit": "Organic produce is grown naturally, without artificial chemicals."
+     "surface": "A beauty ad: natural skin, as nice as it looks without clothes.",
+     "walkthrough": "'say' tells you skin is only an example of the class, which is organ. 'unclothed' strips N and E from nice to leave IC.",
+     "definitionFit": "Organic produce is grown without artificial chemicals, so it is natural."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "unclothed"
+     "misdirectedWord": "skin"
     }
    }
   },
@@ -1652,36 +1654,26 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "USER",
      "indicators": [
       {
        "text": "first to finish",
-       "note": "the first letter moves to the finish"
+       "at": 32,
+       "note": "first to finish means the opening letter is moved to the end"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "cunning manoeuvre",
-         "gives": "USE",
-         "note": "RUSE (a crafty trick), left behind when its first letter moves on"
-        },
-        {
-         "words": "first to finish",
-         "gives": "R",
-         "note": "the R from the front of RUSE, now at the end"
-        }
-       ]
+       "words": "cunning manoeuvre",
+       "at": 14,
+       "gives": "RUSE",
+       "note": "a ruse is a cunning trick or stratagem"
       }
      ]
     },
     "explanation": {
-     "surface": "A shopper with a crafty plan to get to the checkout first.",
-     "walkthrough": "'First to finish' reads as winning a race; it tells the first letter to go to the end.",
-     "definitionFit": "A plain synonym in business speak: the people buying a service are its customers."
+     "surface": "A shopper uses a crafty trick to be first through the checkout.",
+     "walkthrough": "'first to finish' reads like winning a race, but it moves the R of RUSE to the end.",
+     "definitionFit": "A user is someone who uses a service or product, which is what a customer does."
     },
     "features": {
      "answerInScene": true,
@@ -1874,54 +1866,63 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "uncovered",
-       "note": "a word uncovered loses its outer letters"
-      }
-     ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "EXT",
        "indicators": [
         {
-         "text": "short",
-         "note": "MEN falls short of its last letter"
+         "text": "uncovered",
+         "at": 21,
+         "note": "uncovered means the outer letters are stripped off"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "messages uncovered",
-         "gives": "EXT",
-         "select": "middle",
-         "note": "tEXTs, text messages, without the outer letters"
+         "words": "messages",
+         "at": 12,
+         "gives": "TEXTS",
+         "note": "texts are phone messages"
         }
        ]
       },
       {
        "words": "about",
+       "at": 31,
        "gives": "RE",
-       "note": "re = about, concerning"
+       "note": "re means about, concerning"
       },
       {
-       "words": "short guys",
-       "gives": "ME",
-       "note": "MEN without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 37,
+         "note": "short means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "guys",
+         "at": 43,
+         "gives": "MEN",
+         "note": "men are guys"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The last word in messages exposed about small men.",
-     "walkthrough": "'Messages' must first become TEXTS before it can be uncovered; 'short guys' looks like a remark on height.",
-     "definitionFit": "A plain synonym as adjectives: the furthest possible, as in extreme or ultimate sacrifice."
+     "surface": "The last word in text messages, with nothing hidden, about some brief encounters with men.",
+     "walkthrough": "'uncovered' takes the outer T and S off TEXTS to give EXT; 'short' trims MEN to ME.",
+     "definitionFit": "Extreme means farthest out or most severe, the utmost degree, which is what ultimate also means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "short"
+     "misdirectedWord": "uncovered"
     }
    }
   },

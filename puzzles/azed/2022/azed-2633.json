@@ -2102,7 +2102,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Swelling?",
+      "text": "Swelling",
       "at": 0
      }
     ],
@@ -2115,7 +2115,7 @@
         {
          "text": "cut",
          "at": 27,
-         "note": "cut means the ring is removed"
+         "note": "cut means the ring's letter is removed from the doctor word"
         }
        ],
        "parts": [
@@ -2123,32 +2123,44 @@
          "words": "Doctor",
          "at": 10,
          "gives": "SURGEON",
-         "note": "a surgeon is a medical doctor"
+         "note": "a surgeon is a kind of doctor"
         },
         {
          "words": "ring",
          "at": 22,
          "gives": "O",
-         "note": "o is ring-shaped"
+         "note": "O is a ring, from the letter's round shape"
         }
        ]
       },
       {
-       "words": "half of it",
-       "at": 31,
-       "gives": "T",
-       "note": "one of the two letters of it"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 31,
+         "note": "half of means only one of the two letters of 'it' is used, here the second"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 39,
+         "note": "the word it, of which the second half is kept"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A medic treats a swollen finger by cutting off the ring.",
-     "definitionFit": "Surgent means rising or surging like a wave, hence welling up."
+     "surface": "A medical question: a doctor has to remove a ring from a swollen finger and saw half of it away.",
+     "walkthrough": "'Doctor' looks like an anagram signal but is SURGEON; 'cut' takes out the O (ring), and 'half of it' supplies the T.",
+     "definitionFit": "Surgent is a rare adjective meaning rising or surging up, as a flood or wave, so swelling fits."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "ring"
+     "misdirectedWord": "Doctor"
     }
    }
   }
