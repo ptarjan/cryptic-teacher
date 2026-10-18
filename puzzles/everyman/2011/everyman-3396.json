@@ -567,45 +567,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Stupid",
-       "note": "something stupid is muddled and senseless, so those letters are muddled into a new order"
+       "text": "in",
+       "at": 14,
+       "note": "in sets the jumbled rioter letters within the state abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Pennsylvania",
+       "at": 17,
+       "gives": "PA",
+       "note": "PA is the postal abbreviation for Pennsylvania"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "one thing in another sits inside it, so the state abbreviation wraps the jumble"
+         "text": "Stupid",
+         "at": 0,
+         "note": "stupid suggests the letters are muddled into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Pennsylvania",
-         "gives": "PA",
-         "note": "PA is the postal abbreviation for Pennsylvania"
-        },
-        {
          "words": "rioter",
-         "note": "rearranged"
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A foolish rioter is loose in a Pennsylvanian city.",
-     "walkthrough": "'Pennsylvania capital' reads as Harrisburg, but the definition is just 'capital'.",
-     "definitionFit": "Pretoria is the administrative capital city of South Africa."
+     "surface": "A foolish rioter causing trouble in a US state's capital city.",
+     "walkthrough": "'Pennsylvania capital' suggests Harrisburg, but the state only supplies its abbreviation; 'capital' alone is the definition.",
+     "definitionFit": "Pretoria is the administrative seat of government of South Africa, one of its three capital cities."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Pennsylvania"
+     "misdirectedWord": "capital"
     }
    }
   },
@@ -1060,34 +1063,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "refurbished",
-       "note": "refurbishing rebuilds something, so the letters are rebuilt in another order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "refurbished",
+         "at": 4,
+         "note": "refurbished means done up anew, so the letters are rebuilt in a new order"
+        }
+       ],
        "parts": [
         {
          "words": "Rep",
-         "note": "rearranged"
-        },
-        {
-         "words": "marvellous",
-         "gives": "FAB",
-         "note": "fab is short for fabulous, meaning marvellous"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "marvellous",
+       "at": 16,
+       "gives": "FAB",
+       "note": "fab is short for fabulous, meaning marvellous"
       }
      ]
     },
     "explanation": {
-     "surface": "A sales rep did up a wonderful house.",
-     "walkthrough": "A prefab is a prefabricated house, as built in Britain after the war.",
-     "definitionFit": "A prefab is a factory-made house assembled on site, a kind of dwelling."
+     "surface": "A sales rep's home, freshly done up, looks great.",
+     "definitionFit": "A prefab is a prefabricated house, assembled from factory-made sections, so a kind of home."
     },
     "features": {
      "answerInScene": true,

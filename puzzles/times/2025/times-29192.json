@@ -551,55 +551,59 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "unusually",
-       "note": "the letters of keen come out in an unusual order"
-      }
-     ],
      "parts": [
       {
        "words": "Brown",
+       "at": 15,
        "gives": "TAN",
-       "note": "tan = brown"
+       "note": "tan is a brown colour"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "to drink",
-         "note": "the anagram swallows the alcohol"
+         "at": 36,
+         "note": "to drink is to take in, so the spirit goes inside the jumbled letters"
         }
        ],
        "parts": [
         {
-         "words": "keen",
-         "gives": "KENE",
-         "note": "anagram of keen"
-        },
-        {
          "op": "anagram",
+         "indicators": [
+          {
+           "text": "unusually",
+           "at": 21,
+           "note": "unusually says the letters of keen are set out in an unusual order"
+          }
+         ],
          "parts": [
           {
-           "words": "alcohol",
-           "gives": "GIN",
-           "note": "gin goes inside: KEN(GIN)E"
+           "words": "keen",
+           "at": 31
           }
          ]
+        },
+        {
+         "words": "alcohol",
+         "at": 45,
+         "gives": "GIN",
+         "note": "gin is an alcoholic spirit"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Thomas Brown, oddly eager to have a drink.",
-     "walkthrough": "'Thomas Brown' reads as one person; Thomas is the definition, Brown gives TAN. Thomas the Tank Engine is the children's-book locomotive.",
-     "definitionFit": "Definition by example: Thomas in the children's books is a locomotive carrying its water in side tanks."
+     "surface": "Someone called Thomas Brown, oddly eager to have a drink.",
+     "walkthrough": "'Thomas Brown' reads as a person's name, but Thomas alone is the definition, and 'Perhaps' marks him as one example of the answer.",
+     "definitionFit": "Thomas the Tank Engine is the children's book and television locomotive, an example of that kind of steam engine."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Brown"
+     "joke": "pun",
+     "misdirectedWord": "Thomas"
     }
    }
   },
@@ -1169,69 +1173,69 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "OATCAKE",
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "Abandoned",
-         "note": "letters let loose get rearranged"
+         "text": "in",
+         "at": 14,
+         "note": "in places the jumbled cat letters within the tree word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "tree",
+         "at": 17,
+         "gives": "OAK",
+         "note": "the oak is a tree"
+        },
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "in",
-           "note": "the anagram goes inside the tree"
+           "text": "Abandoned",
+           "at": 0,
+           "note": "abandoned in the sense of wild, unrestrained, so the letters run riot"
           }
          ],
          "parts": [
           {
-           "words": "tree",
-           "gives": "OAK",
-           "note": "oak tree; it wraps round: O(...)AK"
-          },
-          {
-           "words": "Abandoned cat",
-           "gives": "ATC",
-           "note": "anagram of cat"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "beginning to",
-             "note": "takes the first letter of eat"
-            }
-           ],
-           "parts": [
-            {
-             "words": "beginning to eat",
-             "gives": "EAT",
-             "note": "first letter of eat"
-            }
-           ]
+           "words": "cat",
+           "at": 10
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 22,
+         "note": "beginning to asks for the first letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "eat",
+         "at": 35,
+         "note": "the word supplies its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stray cat up a tree starts nibbling a biscuit.",
-     "walkthrough": "Abandoned looks like 'deserted' describing the cat; it is the anagram instruction.",
-     "definitionFit": "Plain synonym: a flat Scottish oat biscuit."
+     "surface": "A stray cat up a tree begins to eat a biscuit.",
+     "walkthrough": "'Abandoned cat' suggests a stray, but 'Abandoned' here means wild and unruly, which is why it scrambles the letters.",
+     "definitionFit": "An oatcake is a flat savoury biscuit made from oatmeal, popular in Scotland."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "Abandoned"
     }
    }

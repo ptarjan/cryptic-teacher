@@ -1628,47 +1628,45 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "substitution",
+     "indicators": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "RUMPUNCH",
-       "indicators": [
-        {
-         "text": "replacing",
-         "note": "replacing says one piece goes in where another came out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "bit of beef",
-         "gives": "RUMP",
-         "note": "rump is a cut of beef"
-        },
-        {
-         "words": "meal's",
-         "gives": "LUNCH",
-         "note": "lunch is a meal; its first letter is the one taken out"
-        }
-       ]
+       "text": "replacing",
+       "at": 38,
+       "note": "replacing says one piece goes in where another is taken out of the meal word"
       },
       {
-       "unchecked": true,
-       "words": "starter",
-       "note": "the starter of the meal word is its first letter, which goes"
+       "text": "starter",
+       "at": 55,
+       "note": "the meal's starter is its opening letter, the one that gets swapped out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "meal's",
+       "at": 48,
+       "gives": "LUNCH",
+       "note": "lunch is a meal"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "words": "bit of beef",
+       "at": 26,
+       "gives": "RUMP",
+       "note": "rump is a cut of beef"
       }
      ]
     },
     "explanation": {
-     "surface": "A cocktail and a slice of steak serve instead of a first course.",
-     "walkthrough": "Meal's starter looks like the course before the main, but it means the first letter of the meal word.",
-     "definitionFit": "Rum punch is a drink mixed from rum, fruit juice and spice, a cocktail with spirits as its base."
+     "surface": "A recipe note: a spirit-based drink, plus a cut of beef swapped in for the first course of a meal.",
+     "walkthrough": "Take LUNCH, remove its starter L, and put RUMP in its place.",
+     "definitionFit": "Rum punch is a mixed drink built on rum, a spirit, with fruit juice and spice."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "starter"
     }
    }

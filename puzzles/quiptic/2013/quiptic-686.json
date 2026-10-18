@@ -685,45 +685,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "at sea",
-       "note": "at sea means confused and all over the place, so the letters are disordered"
+       "text": "during",
+       "at": 35,
+       "note": "during means the impression comes within the jumbled years letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "during",
-         "note": "during means within the span of, so one piece sits inside the other"
+         "text": "at sea",
+         "at": 48,
+         "note": "at sea means confused, so the letters are scrambled"
         }
        ],
        "parts": [
         {
          "words": "years",
-         "note": "the letters of years rearranged"
-        },
-        {
-         "words": "little impression",
-         "gives": "DENT",
-         "note": "a dent is a small impression in a surface"
+         "at": 42
         }
        ]
+      },
+      {
+       "words": "little impression",
+       "at": 17,
+       "gives": "DENT",
+       "note": "a dent is a small hollow pressed into a surface"
       }
      ]
     },
     "explanation": {
-     "surface": "Years spent idle on a voyage leave hardly any mark.",
-     "walkthrough": "'At sea' looks like scenery but is the signal to rearrange the years.",
-     "definitionFit": "Sedentary describes a life spent sitting down, without much physical activity."
+     "surface": "Someone idle, leaving little mark on things during years spent sailing.",
+     "walkthrough": "YEARS rearranged as SE-ARY holds DENT.",
+     "definitionFit": "A sedentary person sits a great deal and takes little exercise, so leads an inactive life."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sea"
+     "misdirectedWord": "impression"
     }
    }
   },
@@ -1581,52 +1584,50 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SPECTRE",
      "indicators": [
       {
        "text": "lacking",
-       "note": "lacking means without, so those letters are taken away"
+       "at": 30,
+       "note": "lacking means the word is missing the next piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "INSPECTRE",
+       "indicators": [
+        {
+         "text": "sound",
+         "at": 19,
+         "note": "sound means the result is taken as it is spoken, not spelt"
+        }
+       ],
        "parts": [
         {
-         "op": "homophone",
-         "spelt": "SPECTRE",
-         "indicators": [
-          {
-           "text": "sound",
-           "note": "sound means what is heard when spoken, not how it is written"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Senior policeman",
-           "gives": "SPECTOR",
-           "note": "an inspector is a senior police officer; with its first two letters gone, what is left is said like this"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "in",
-         "note": "the two letters dropped from the front of the officer's rank"
+         "words": "Senior policeman's",
+         "at": 0,
+         "gives": "INSPECTOR",
+         "note": "an inspector is a senior police officer; the 's is just the possessive"
         }
        ]
+      },
+      {
+       "words": "in",
+       "at": 38,
+       "gives": "IN",
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A senior officer seems sound enough but lacks foresight.",
-     "walkthrough": "Taking IN from INSPECTOR leaves SPECTOR, which is said like SPECTRE. 'Lacking in vision' looks like one phrase meaning short-sighted.",
-     "definitionFit": "A spectre is a ghost or apparition, and a vision can mean a ghostly apparition."
+     "surface": "A senior police officer who sounds fine but lacks foresight.",
+     "walkthrough": "The ending of the officer's title sounds the same as the ending of the answer, so it can be respelt. 'Vision' here is an apparition, not eyesight.",
+     "definitionFit": "A spectre is a ghost or apparition, and a vision can mean a ghostly figure seen."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "vision"
     }
    }
