@@ -3694,8 +3694,24 @@ def weak_lights(read, laid, blank, lengths):
         agreeing = sum(1 for t, _ in ocr_clues.readings_for(read, lid, parse)
                        if words_of(clue_repair.mend_text(t, enum)) == mine)
         if agreeing < OCR_CONFIRM:
+            agreeing = sum(1 for t in read.values() if prints_clue(t, mine))
+        if agreeing < OCR_CONFIRM:
             weak.add(lid)
     return weak
+
+
+#: The fewest letters a clue has for a reading to print it as a run inside its
+#: text (prints_clue): a shorter one could be a stretch of any other clue.
+RUN_LETTERS = 14
+
+
+def prints_clue(text, mine):
+    """Whether one reading's `text` prints the clue (`mine`: its words_of)
+    whole, though its parse does not give the light that clue: the reader lost
+    the clue's number ("4 These go before us" read "These go before us"), or
+    ran the clue's count into the next column's text ("(6) nem EDGES
+    PuattsuiN"). The reading's letters hold the clue's letters unbroken."""
+    return len(mine) >= RUN_LETTERS and mine in words_of(text)
 
 
 def columns_with(cols, lights):
