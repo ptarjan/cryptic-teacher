@@ -3048,5 +3048,15 @@ tools/test_clue_tokens.js                      the word chips under a clue and t
                                                period"), and then both are cut there. Reads
                                                clueTokens and clueCuts out of app.js, so it
                                                cannot drift from the app
+tools/test_drop_restores_hint.py               a failed redo of a clue that already had a
+                                               committed hint gets that hint back from
+                                               drop_failed_clues.py; only never-hinted clues
+                                               are blanked
+tools/test_redo_unchanged.py                   a re-annotation scoped to some clues writes only
+                                               those, and a redo of the same tree and letters
+                                               in other words leaves the old hint as it was
+tools/test_batch_subject.sh                    a batch commit's subject names only the puzzles
+                                               whose file the commit changes (164738e46f2
+                                               listed 20 ids and changed just the queue file)
 ```
 <!-- LAYOUT-END -->

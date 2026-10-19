@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Blank just the clues whose annotations fail validation, so the rest ship.
+"""Take back just the clues whose annotations fail validation, so the rest ship.
 
     python3 tools/drop_failed_clues.py ID
 
 The burn used to throw out a whole puzzle's hints when one clue still failed
 after its fix run (tools/puzzle_worker.sh _worker_finish). Here every error
 that leads with its clues ("15A: ...", "3D,5A: ...", see
-reopen_answers.named_clues) costs those clues their annotation and nothing
-else; the file is then checked again, up to three rounds, since a hint can fail
+reopen_answers.named_clues) costs those clues the failing annotation and nothing
+else: a clue that already had a committed hint gets that hint back (the redo
+that failed must not eat good work), and a never-hinted one is blanked; the file is then checked again, up to three rounds, since a hint can fail
 only once its neighbour is gone. A clue left without a hint is due again
 (annotate_check.to_write), so the planner sends it later as a scoped tail.
 
@@ -16,13 +17,14 @@ is a clue left blank (the deploy's rules queue those, worker_only_blanks); on
 any other failure (an error that names no clue, a puzzle-level one) the file
 is untouched and the exit is 1. Prints the ids dropped; exit 0.
 """
+import copy
 import re
 import sys
 
 import provenance
 import puzzle_integrity
 import validate_annotations
-from fetch_puzzle import read_puzzle_file, resolve_puzzle, write_puzzle_file
+from fetch_puzzle import committed_copy, read_puzzle_file, resolve_puzzle, write_puzzle_file
 from reopen_answers import hint_holders, named_clues
 import puzzle_schema
 
@@ -30,18 +32,33 @@ BLANK = re.compile(r"[0-9]+[AD](,[0-9]+[AD])*: no annotation\.")
 ROUNDS = 3
 
 
-def drop(puzzle, named):
-    """Remove the annotation from each clue in `named` (a light's group and its
-    alsoLeads and off-grid clues go with it), in place."""
+def drop(puzzle, named, committed=None, restored=None):
+    """Take the failing annotation off each clue in `named` (a light's group and
+    its alsoLeads and off-grid clues go with it), in place. A clue whose last
+    committed hint exists gets that hint back, once (`restored` remembers which
+    have been); only a never-hinted clue, or one whose committed hint fails as
+    well, is left blank. Good work is never discarded."""
+    old = dict(hint_holders(committed)) if committed else {}
+    restored = restored if restored is not None else set()
     for cid, item in hint_holders(puzzle):
-        if cid.split("/")[0] in named:
+        if cid.split("/")[0] not in named:
+            continue
+        ann = (old.get(cid) or {}).get("annotation")
+        if ann is not None and cid not in restored:
+            item["annotation"] = copy.deepcopy(ann)
+            restored.add(cid)
+        else:
             item.pop("annotation", None)
 
 
-def dropped_clues(path, puzzle):
-    """(puzzle, ids) with the failing clues blanked, or None when the errors
-    are not all clues' own or nothing would be left to ship."""
-    out, gone = puzzle_schema.order(puzzle), set()
+def dropped_clues(path, puzzle, committed=False):
+    """(puzzle, ids) with the failing clues put back to their last committed
+    hint, or blanked when they had none (or it fails too); None when the errors
+    are not all clues' own or nothing would be left to ship. `committed` is that
+    earlier puzzle (None: there is none); by default it is HEAD's copy."""
+    if committed is False:
+        committed = committed_copy(puzzle)
+    out, gone, restored = puzzle_schema.order(puzzle), set(), set()
     for _ in range(ROUNDS):
         errors = validate_annotations.run_errors(path, out)
         failing = [e for e in errors if not BLANK.match(e)]
@@ -50,7 +67,7 @@ def dropped_clues(path, puzzle):
         named = named_clues(failing, out)
         if not named or not provenance.has_hints(out):
             return None
-        drop(out, named)
+        drop(out, named, committed, restored)
         gone |= named
     return None
 
