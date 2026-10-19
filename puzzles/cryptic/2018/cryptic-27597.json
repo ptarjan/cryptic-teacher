@@ -596,35 +596,29 @@
      "indicators": [
       {
        "text": "wearing",
-       "note": "something worn is put on, so these sit inside the outer letters"
+       "at": 27,
+       "note": "the spectacles are worn around the letters, so they enclose them"
       }
      ],
      "parts": [
       {
        "words": "spectacles",
+       "at": 35,
        "gives": "OO",
-       "note": "a pair of round lenses looks like OO"
+       "note": "a pair of spectacles looks like two rings, OO"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "Perkin twice",
+       "at": 14,
        "gives": "PP",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Perkin twice",
-         "gives": "PP",
-         "select": "first",
-         "note": "Perkin is a setter; its initial is used twice"
-        }
-       ]
+       "note": "Perkin is a crossword setter; by the preamble the setter's initial letter is used, and twice means two copies of it"
       }
      ]
     },
     "explanation": {
-     "surface": "A colleague and a man named Perkin both wear glasses.",
-     "walkthrough": "Oppo is British slang, originally military, for a colleague or opposite number.",
-     "definitionFit": "An oppo is informal British slang for a close colleague, partner or opposite number at work."
+     "surface": "A colleague and a man called Perkin both sport glasses.",
+     "walkthrough": "Perkin is a Guardian setter, so by the preamble only the name's initial counts; spectacles stand for two round lenses, a common crossword picture.",
+     "definitionFit": "Oppo is British informal slang for a colleague or partner, a counterpart at work."
     },
     "features": {
      "answerInScene": true,
@@ -2037,42 +2031,42 @@
    },
    "solution": "PAUL",
    "annotation": {
-    "definedByPreamble": true,
+    "definitions": [
+     {
+      "text": "In the covers, when wet?",
+      "at": 0
+     }
+    ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "PAUL",
+     "op": "deletion",
      "indicators": [
       {
        "text": "In",
-       "note": "what is in a word is its inside, so only the central letters are kept"
+       "at": 0,
+       "note": "In says the answer is what sits inside the word the rest of the clue describes, its outer letters dropped"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "TARPAULINS",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "the covers, when wet?",
-         "gives": "TARPAULINS",
-         "select": "middle",
-         "note": "tarpaulins are the waterproof sheets pulled over a cricket pitch in the rain"
-        }
-       ]
+       "words": "the covers, when wet",
+       "at": 3,
+       "gives": "TARPAULIN",
+       "note": "in cricket, the pitch is protected by a tarpaulin when it rains"
+      },
+      {
+       "gives": "TARIN"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A cricket question: what goes on the pitch when it rains?",
-     "walkthrough": "The covers are the tarpaulins dragged over a cricket pitch during rain; the answer sits in the middle of that word, not of any word in the clue.",
-     "definitionFit": "Paul is the pseudonym of a cryptic crossword compiler, one of the thirty setter names the preamble leaves undefined."
+     "surface": "A question about what goes on when rain stops play.",
+     "walkthrough": "This is one of the thirty undefined theme answers, the name of a crossword setter. The rest of the clue points to TARPAULIN, the cricket covers used in rain, and the answer sits inside it.",
+     "definitionFit": "Paul is a Guardian crossword setter, one of the puzzle's thirty undefined theme names hidden in the tarpaulin."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "covers"
     }
@@ -2591,34 +2585,52 @@
    },
    "solution": "PASQUALE",
    "annotation": {
-    "definedByPreamble": true,
+    "definitions": [
+     {
+      "text": "Secretary on parade ground changing sides",
+      "at": 0
+     }
+    ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "PASQUALE",
-     "indicators": [
-      {
-       "text": "changing sides",
-       "note": "switching sides swaps right for left, so one of those letters is exchanged for the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Secretary",
+       "at": 0,
        "gives": "PA",
-       "note": "a PA is a personal assistant"
+       "note": "a PA is a personal assistant, a secretary"
       },
       {
-       "words": "parade ground",
-       "gives": "SQUARE",
-       "note": "soldiers drill on the square"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "changing sides",
+         "at": 27,
+         "note": "switching from right to left, so the letter for right is swapped for the letter for left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "parade ground",
+         "at": 13,
+         "gives": "SQUARE",
+         "note": "a barrack square is a parade ground"
+        },
+        {
+         "gives": "R"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "An office assistant goes over to the other team on the drill field.",
-     "walkthrough": "The R of the square becomes L, right turned to left.",
-     "definitionFit": "Pasquale is the pseudonym of a cryptic crossword compiler, one of the thirty setter names the preamble leaves undefined."
+     "surface": "An office secretary marches across the parade ground, swapping from one flank to the other.",
+     "walkthrough": "A theme answer, so the clue has no definition: the whole clue is wordplay. In 'changing sides', R for right becomes L for left; a barrack square is the classic parade ground.",
+     "definitionFit": "Pasquale is a Guardian crossword setter, one of the thirty theme names the preamble leaves undefined."
     },
     "features": {
      "answerInScene": false,
@@ -2812,51 +2824,59 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "AQUILON",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "exchanging partners",
-       "note": "bridge partners are North and South, so one of those letters swaps for the other"
+       "text": "poor",
+       "at": 12,
+       "note": "poor suggests the letters are in a bad, disordered state, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "first",
+       "parts": [
+        {
+         "words": "Quantum",
+         "at": 0,
+         "note": "Quantum is a crossword setter; by the preamble the initial letter, Q, is used"
+        }
+       ]
+      },
+      {
+       "op": "substitution",
        "indicators": [
         {
-         "text": "poor",
-         "note": "something poor is in bad shape, so the letters are reworked"
+         "text": "exchanging partners",
+         "at": 24,
+         "note": "in bridge North and South are partners, so the South letter is replaced by North"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "Quantum",
-           "note": "Quantum is a crossword setter, so only the initial letter counts"
-          }
-         ]
+         "words": "Louisa",
+         "at": 17,
+         "note": "taken as written, before one letter is swapped"
         },
         {
-         "words": "Louisa",
-         "gives": "LOUINA",
-         "note": "the name with its S changed to N"
+         "gives": "S"
+        },
+        {
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Physics and a sad woman called Louisa swap dance partners in a gale.",
-     "walkthrough": "In bridge, North and South are partners, so 'exchanging partners' turns S into N.",
-     "definitionFit": "Aquilon is a poetic name for the north wind, from the Latin Aquilo."
+     "surface": "A man called Quantum and a hapless Louisa swap partners while out in the wind.",
+     "walkthrough": "Quantum (a setter) gives Q. In bridge N and S are partners, so 'exchanging partners' swaps the S of LOUISA for N, making LOUINA; 'poor' rearranges Q and LOUINA.",
+     "definitionFit": "Aquilon is the north wind, from the Latin Aquilo, a poetic name for a cold northerly gale."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "partners"
     }
    }
@@ -2943,53 +2963,54 @@
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means sitting inside it"
+       "at": 38,
+       "note": "in places the two letters inside the name of the capital city"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "capital",
+       "at": 41,
+       "gives": "PARIS",
+       "note": "Paris is the French capital"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "capital",
-         "gives": "PARIS",
-         "note": "Paris is the capital of France"
+         "words": "Elgar",
+         "at": 17,
+         "gives": "E",
+         "note": "Elgar is a crossword setter, and by the preamble the setter's initial letter is what the clue uses"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "first",
-           "note": "the first of a word is its opening letter"
+           "at": 23,
+           "note": "first picks the opening letter of the word suffered that follows it"
           }
          ],
          "parts": [
           {
-           "words": "Elgar",
-           "note": "Elgar is a crossword setter, so only the initial letter counts"
+           "words": "suffered",
+           "at": 29,
+           "note": "its opening letter is taken"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
-        {
-         "words": "suffered",
-         "note": "the opening letter of the word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The composer Elgar was paralysed during a stay in the capital.",
-     "walkthrough": "Elgar looks like the composer, but here he is a setter whose initial goes into the French capital.",
-     "definitionFit": "Paresis is a medical term for partial paralysis, a weakening of voluntary movement."
+     "surface": "Sir Edward Elgar first had a paralysing ailment while in a city.",
+     "walkthrough": "Elgar is a setter here, not the composer, so by the preamble he gives his initial; 'first suffered' gives the next letter, and both go inside PARIS.",
+     "definitionFit": "Paresis is partial paralysis, a medical loss of muscle power and voluntary motion."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Elgar"
     }
@@ -3591,34 +3612,63 @@
    },
    "solution": "AUDREUS",
    "annotation": {
-    "definedByPreamble": true,
+    "definitions": [
+     {
+      "text": "Gold item of clothing, not small, but uniform",
+      "at": 0
+     }
+    ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "AUDREUS",
-     "indicators": [
-      {
-       "text": "not small, but uniform",
-       "note": "one letter is replaced by another: the abbreviation for small gives way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Gold",
+       "at": 0,
        "gives": "AU",
        "note": "Au is the chemical symbol for gold"
       },
       {
-       "words": "item of clothing",
-       "gives": "DRESS",
-       "note": "a dress is a garment"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 23,
+         "note": "not drops the small letter from the garment"
+        },
+        {
+         "text": "but",
+         "at": 34,
+         "note": "but brings in the uniform letter in place of the dropped one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "item of clothing",
+         "at": 5,
+         "gives": "DRESS",
+         "note": "a dress is an item of clothing"
+        },
+        {
+         "words": "small",
+         "at": 27,
+         "gives": "S",
+         "note": "S is the clothing-size abbreviation for small"
+        },
+        {
+         "words": "uniform",
+         "at": 38,
+         "gives": "U",
+         "note": "U is uniform in the NATO phonetic alphabet"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A golden garment is generously cut but standard issue.",
-     "walkthrough": "S for small swaps for U, the NATO alphabet's Uniform.",
-     "definitionFit": "Audreus is the pseudonym of a cryptic crossword compiler, one of the thirty setter names the preamble leaves undefined."
+     "surface": "A golden garment described as not a small size but a uniform.",
+     "walkthrough": "A theme answer, so the clue has no definition: the whole clue is wordplay. Small and uniform are the size letter and the NATO alphabet letter, and only one of the dress's two S's is changed.",
+     "definitionFit": "Audreus is a Guardian crossword setter, one of the thirty theme names the preamble leaves undefined."
     },
     "features": {
      "answerInScene": false,
@@ -3702,41 +3752,39 @@
        "indicators": [
         {
          "text": "middle of",
-         "note": "the middle of a word is its inside, so the outer letters are dropped"
+         "at": 10,
+         "note": "middle of takes the word foyer without its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "foyer",
-         "note": "the inner three letters of the word"
+         "at": 20,
+         "note": "its inner letters are used"
         }
        ]
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "Z",
        "parts": [
         {
-         "unchecked": true,
          "words": "45",
-         "gives": "Z",
-         "select": "first",
-         "note": "45 down is the setter Zander, whose initial is used"
+         "at": 29,
+         "gives": "ZANDER",
+         "note": "45 down is ZANDER, a crossword setter; by the preamble its initial letter, Z, is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shout rings out from the lobby next to room 45.",
-     "walkthrough": "The cross-reference points to a setter's name in the grid, which supplies its initial.",
-     "definitionFit": "Oyez is the traditional cry of a town crier or court officer demanding silence and attention."
+     "surface": "A shout heard from the centre of a theatre lobby next to another clue.",
+     "walkthrough": "The cross-reference 45 is the answer to 45 down, the setter Zander, who gives Z by the preamble's rule; it follows OYE, the middle of foyer.",
+     "definitionFit": "Oyez is the cry of a town crier or court officer calling for silence and attention."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "foyer"
+     "aptDefinition": false
     }
    }
   },
