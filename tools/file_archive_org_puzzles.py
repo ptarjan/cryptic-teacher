@@ -229,10 +229,41 @@ GALE_ITEM = re.compile(r"GaleTimes((?:19|20)\d\d)UKEnglish$")
 PAGE_URL = "https://archive.org/details/{edition}/page/n{leaf}/mode/1up"
 
 
+#: {edition dir as text: (its input_hash, pages.json's "url", its "edition")} of
+#: pages_facts: on the media disk the two facts stand while the edition's
+#: files do, so a plan (filed_number asks page_url of every title it judges,
+#: two reads of pages.json each, ~3 ms a Samba read: ~17 s of an FT plan)
+#: reads none again; save_likely and load_likely keep it between processes too.
+_PAGES_FACTS = {}
+
+
+def pages_facts(d):
+    """(url, edition) of edition directory `d`'s pages.json ("url" and
+    "edition", None when absent). For an edition on the media disk, read once
+    while its input_hash stands (a pages.json is only ever replaced, which
+    moves the manifest's hash when its size does: the PLAN_FULL caveat of any
+    memo here); one elsewhere (a test's) is read every time."""
+    k = os.fspath(d)
+    files = None
+    if media_manifest.on_media(d):
+        try:
+            files = input_hash(d)
+        except OSError:
+            files = None
+        seen = _PAGES_FACTS.get(k)
+        if files is not None and seen is not None and seen[0] == files:
+            return seen[1], seen[2]
+    pages = json.loads((Path(d) / "pages.json").read_text())
+    if files is not None:
+        _PAGES_FACTS[k] = (files, pages.get("url"), pages.get("edition"))
+        _LIKELY_MOVED.append(True)
+    return pages.get("url"), pages.get("edition")
+
+
 def edition_of(d, found):
     """The {edition} of PAGE_URL for edition directory `d`: its item, then
     its file's base name (pages.json) unless that is the item itself."""
-    name = json.loads((Path(d) / "pages.json").read_text()).get("edition")
+    name = pages_facts(d)[1]
     item = found["item"]
     return item if not name or name == item else f"{item}/{urllib.parse.quote(name, safe='')}"
 
@@ -241,7 +272,7 @@ def page_url(d, found, leaf):
     """Where a reader opens leaf `leaf` of edition directory `d`: the
     pages.json "url" of a page that is not archive.org's (a Gale page), else
     archive.org's PAGE_URL."""
-    url = json.loads((Path(d) / "pages.json").read_text()).get("url")
+    url = pages_facts(d)[0]
     return url or PAGE_URL.format(edition=edition_of(d, found), leaf=leaf)
 
 
@@ -3398,16 +3429,33 @@ def reprint_key(numbers, series=REPRINTED):
     and the books'), by file name and size: part of the edition's inputs, so
     a reprint downloaded or read after the edition was makes it due. ""
     when there is none."""
-    files = [p for n in sorted(set(numbers))
-             for p in (reprint_files(n) if series == REPRINTED else []) + book_reprint_files(n, series)]
+    files, books = [], False
+    for n in sorted(set(numbers)):
+        for p in (reprint_files(n) if series == REPRINTED else []):
+            files.append(f"{p.parent.name}/{p.name}:{p.stat().st_size}")
+        for pid, name, size in book_reprint_listing(n, series):
+            files.append(f"{pid}/{name}:{size}")
+            books = True
     if not files:
         return ""
     h = hashlib.sha256()
-    for p in files:
-        h.update(f"{p.parent.name}/{p.name}:{p.stat().st_size}".encode())
-    if any(p.parent.parent == Path(downloads.BOOK_REPRINTS) for p in files):
+    for f in files:
+        h.update(f.encode())
+    if books:
         h.update(f"book vote {BOOK_VOTE}".encode())
     return h.hexdigest()[:16]
+
+
+def book_reprint_listing(number, series):
+    """[(pid, file name, size)] of book_reprint_files' readings: off the
+    manifest (media_manifest.book_reprints) when the folder is on the media
+    disk, so asking it of every puzzle of a plan stats nothing there; a
+    test's own folder is listed and stat'ed."""
+    import book_queue
+    pid = series_meta.puzzle_id(series, number)
+    if media_manifest.on_media(book_queue.REPRINT_DIR):
+        return [(pid, name, size) for name, size in media_manifest.book_reprints().get(pid, ())]
+    return [(p.parent.name, p.name, p.stat().st_size) for p in book_queue.reprint_readings(pid)]
 
 
 #: The version of how a book's reprint votes on an edition's clues
@@ -5153,14 +5201,15 @@ def text_headings(d, deadline=None):
 
 
 def save_likely(path):
-    """Write _HEADINGS, _WHOLE and _HEADINGS_STAT to `path` when one moved since the last save."""
+    """Write _HEADINGS, _WHOLE, _HEADINGS_STAT and _PAGES_FACTS to `path` when one moved since the last save."""
     if not _LIKELY_MOVED:
         return
     _LIKELY_MOVED.clear()
     tmp = f"{os.fspath(path)}.{os.getpid()}.tmp"
     os.makedirs(os.path.dirname(os.fspath(path)) or ".", exist_ok=True)
     with open(tmp, "wb") as f:
-        pickle.dump({"headings": dict(_HEADINGS), "whole": dict(_WHOLE), "stat": dict(_HEADINGS_STAT)}, f,
+        pickle.dump({"headings": dict(_HEADINGS), "whole": dict(_WHOLE), "stat": dict(_HEADINGS_STAT),
+                     "pages": dict(_PAGES_FACTS)}, f,
                     protocol=pickle.HIGHEST_PROTOCOL)
     os.replace(tmp, path)
 
@@ -5182,6 +5231,9 @@ def load_likely(path):
     # re-exec's first plan stats no edition again (text_headings).
     for k, v in (snap.get("stat") or {}).items():
         _HEADINGS_STAT.setdefault(k, v)
+    # pages.json's url and edition stand while the edition's input_hash does (pages_facts).
+    for k, v in (snap.get("pages") or {}).items():
+        _PAGES_FACTS.setdefault(k, v)
 
 
 def likely(paper, known, reads, rels, scans, solutions, held, order, st=None, fhs=None):
