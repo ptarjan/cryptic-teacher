@@ -32,7 +32,13 @@ requeue_job() {
         git commit -q -m "Requeue puzzles newly flagged by a validator rule change
 
 Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>" || exit 1
-      PUSH_CHECKED_NO_REQUEUE=1 tools/push_checked.sh || exit 2   # beaten: survey the new tip
+      # The survey takes minutes and puzzle pushes land meanwhile: rebase onto them rather than
+      # re-survey, which a busy burn can beat forever. Only a conflict on the queue files goes round.
+      for _ in 1 2 3 4 5; do
+        PUSH_CHECKED_NO_REQUEUE=1 tools/push_checked.sh && exit 0
+        git pull -q --rebase origin master || { git rebase --abort; exit 2; }
+      done
+      exit 2
     )
     rc=$?
     git worktree remove --force "$tmp" 2>/dev/null
