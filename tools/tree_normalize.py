@@ -382,6 +382,13 @@ def merge_reversals(tree, answer):
 
 # ---------- the pass ----------
 
+def _thin_charades(tree):
+    """How many checked charades hold fewer than two parts: a join of one piece, which the
+    validator's wordplay.arity rule refuses (telegraph-30789 9d, times-29357 11a)."""
+    return sum(1 for n, _ in _walk(tree)
+               if n.get("op") == "charade" and not n.get("unchecked") and len(n.get("parts") or []) < 2)
+
+
 def normalize(tree, clue, answer):
     """(tree, [rewrite names]) with every canonical rewrite applied; the tree unchanged when its
     letters do not give the answer to begin with (that one is the model's, or another repair's)."""
@@ -394,7 +401,8 @@ def normalize(tree, clue, answer):
                      ("merge_selects", lambda t: merge_selects(t, answer)),
                      ("merge_reversals", lambda t: merge_reversals(t, answer))):
         new, n = fn(copy.deepcopy(tree))
-        if n and simplicity(new) < simplicity(tree) and indicators_kept(tree, new):
+        if n and simplicity(new) < simplicity(tree) and indicators_kept(tree, new) \
+                and _thin_charades(new) <= _thin_charades(tree):
             tree, used = new, used + [name] * n
     return tree, used
 

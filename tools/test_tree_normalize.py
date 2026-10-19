@@ -135,6 +135,15 @@ class TreeNormalize(unittest.TestCase):
             {"op": "reversal", "parts": [leaf("public transport", "TRAM")]}]}
         self.assertEqual(T.merge_reversals(tree, "MINIMART")[1], 0)
 
+    def test_no_rewrite_may_leave_a_one_part_charade(self):
+        # telegraph-30789 9d TSETSE, times-29357 11a DOORKNOB: wordplay.arity wants 2+ parts in a charade
+        tree = {"op": "charade", "indicators": [{"text": "twice"}], "parts": [
+            {"op": "alternate", "indicators": [{"text": "oddly"}], "parts": [leaf("tested")]},
+            {"op": "alternate", "parts": [leaf("tested")]}]}
+        new, used = T.normalize(tree, "Fly is oddly tested twice", "TSETSE")
+        self.assertEqual(T._thin_charades(new), 0)
+        self.assertEqual(used, [])
+
 
 if __name__ == "__main__":
     unittest.main()
