@@ -1230,38 +1230,38 @@
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "first",
+       "unchecked": true,
+       "gives": "AUTH",
+       "indicators": [
+        {
+         "text": "Some",
+         "note": "some of a word means only part of it is used"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
          "unchecked": true,
+         "words": "authors",
          "gives": "AUTH",
-         "indicators": [
-          {
-           "text": "Some",
-           "note": "some of a word means only part of it is used"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "authors",
-           "gives": "AUTH",
-           "select": "first",
-           "note": "the first part of the word"
-          }
-         ]
-        },
-        {
-         "words": "at last",
-         "gives": "Z",
-         "note": "Z is the last letter, as in A to Z"
+         "select": "first",
+         "note": "the first part of the word"
         }
        ]
       },
       {
-       "words": "I'm",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "at last",
+         "gives": "Z",
+         "note": "Z is the last letter, as in A to Z"
+        },
+        {
+         "words": "I'm",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
