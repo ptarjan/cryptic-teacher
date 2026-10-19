@@ -789,31 +789,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "sadly",
-       "note": "Sadly colours the word beside it as something gone wrong, and letters gone wrong are letters out of their proper order."
-      },
-      {
-       "text": "admitted",
-       "note": "To admit something is to let it in, so the letter named next joins the pile being rearranged rather than standing outside it."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Alas",
-       "note": "four of the seven letters"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sadly",
+         "note": "Sadly colours the word beside it as something gone wrong, and letters gone wrong are letters out of their proper order."
+        },
+        {
+         "text": "admitted",
+         "note": "To admit something is to let it in, so the letter named next joins the pile being rearranged rather than standing outside it."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Alas",
+         "note": "four of the seven letters"
+        },
+        {
+         "words": "as an alternative",
+         "gives": "OR",
+         "note": "or is the word that offers an alternative"
+        }
+       ]
       },
       {
-       "words": "as an alternative",
-       "gives": "OR",
-       "note": "or is the word that offers an alternative"
-      },
-      {
-       "words": "Everyman ultimately",
-       "gives": "N",
-       "note": "the last letter of Everyman"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "the last letter of the word it picks from"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Everyman",
+         "note": "the last letter of Everyman"
+        }
+       ]
       }
      ]
     },

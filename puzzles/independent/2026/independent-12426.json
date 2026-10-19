@@ -770,13 +770,7 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "crudely",
-       "note": "work done crudely is thrown together with no care for where anything lands, which is what happens to these letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "model",
@@ -784,8 +778,19 @@
        "note": "the Model T Ford is the crossword's standard model"
       },
       {
-       "words": "done rather",
-       "note": "ten letters taken exactly as they stand, to be shaken up"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crudely",
+         "note": "work done crudely is thrown together with no care for where anything lands, which is what happens to these letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "done rather",
+         "note": "ten letters taken exactly as they stand, to be shaken up"
+        }
+       ]
       }
      ]
     },
@@ -1305,39 +1310,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "remix of",
-       "at": 14,
-       "note": "a remix rearranges a recording, so the letters are put in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "principally lacking",
-         "at": 34,
-         "note": "the principal, first, letters of metal and song are missing"
+         "text": "remix of",
+         "at": 14,
+         "note": "a remix rearranges a recording, so the letters are put in a new order"
         }
        ],
        "parts": [
         {
          "op": "deletion",
+         "indicators": [
+          {
+           "text": "principally lacking",
+           "at": 34,
+           "note": "the principal, first, letters of metal and song are missing"
+          }
+         ],
          "parts": [
           {
-           "words": "metal song",
-           "at": 23
+           "op": "deletion",
+           "parts": [
+            {
+             "words": "metal song",
+             "at": 23
+            },
+            {
+             "gives": "M"
+            }
+           ]
           },
           {
-           "gives": "M"
+           "gives": "S"
           }
          ]
-        },
-        {
-         "gives": "S"
         }
        ]
       },
