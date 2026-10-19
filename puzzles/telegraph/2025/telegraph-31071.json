@@ -484,47 +484,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "not the first",
-       "note": "this tells us to drop the opening letter from the word it follows"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "second",
+         "note": "second points to the letter in position two of the name"
+        }
+       ],
        "parts": [
         {
-         "op": "nth",
-         "n": 2,
-         "indicators": [
-          {
-           "text": "second",
-           "note": "second points to the letter in position two of the name"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Kelly's",
-           "note": "the second letter of the surname"
-          }
-         ]
-        },
-        {
-         "words": "stage",
-         "gives": "LEG",
-         "note": "a leg is a stage of a journey or race"
-        },
-        {
-         "words": "frolic",
-         "gives": "DANCE",
-         "note": "to dance is to frolic or caper"
+         "words": "Kelly's",
+         "note": "the second letter of the surname"
         }
        ]
       },
       {
-       "gives": "D"
+       "words": "stage",
+       "gives": "LEG",
+       "note": "a leg is a stage of a journey or race"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not the first",
+         "note": "this tells us to drop the opening letter from the word it follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "frolic",
+         "gives": "DANCE",
+         "note": "to dance is to frolic or caper"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
@@ -624,51 +624,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "charade",
      "indicators": [
       {
-       "text": "cut",
-       "note": "cutting something trims off its end, so the last letter goes"
+       "text": "pursuing",
+       "note": "to pursue is to come after, so this piece follows the other"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "pursuing",
-         "note": "to pursue is to come after, so this piece follows the other"
+         "text": "cut",
+         "note": "cutting something trims off its end, so the last letter goes"
         }
        ],
        "parts": [
-        {
-         "words": "a",
-         "note": "taken as written"
-        },
         {
          "words": "tax",
          "gives": "VAT",
          "note": "VAT is value added tax, the UK sales tax"
         },
         {
-         "op": "alternate",
-         "indicators": [
-          {
-           "text": "occasionally",
-           "note": "occasionally means now and then, so only every other letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Will",
-           "note": "the second and fourth letters of the name"
-          }
-         ]
+         "gives": "T"
         }
        ]
       },
       {
-       "gives": "T"
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "occasionally",
+         "note": "occasionally means now and then, so only every other letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Will",
+         "note": "the second and fourth letters of the name"
+        }
+       ]
       }
      ]
     },
