@@ -179,6 +179,16 @@ check "both sides editing one backlog field merge per puzzle" \
   "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1])))' "$bl/a")" \
   "{'f': {'a': 1, 'b': 1, 'c': 3, 'd': 4}}"
 
+# Both sides moved one puzzle's allowance (a stale sweep lowering what a rule
+# change raised): the larger stays, and a field the other side filled is not emptied.
+echo '{"_why": "w", "f": {"a": 3, "b": 2}, "g": {"x": 1}}' > "$bl/o"
+echo '{"_why": "w", "f": {"a": 5, "b": 2, "c": 1}, "g": {"x": 1, "y": 7}}' > "$bl/a"
+echo '{"_why": "w", "f": {"a": 4}, "g": {}}' > "$bl/b"
+python3 "$ROOT/tools/json_merge.py" "$bl/o" "$bl/a" "$bl/b" 2>/dev/null
+check "backlog: larger allowance wins, entries the other side added survive" \
+  "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1])))' "$bl/a")" \
+  "{'_why': 'w', 'f': {'a': 5, 'c': 1}, 'g': {'y': 7}}"
+
 # What is committed: every json-keys file in its one-line-per-key layout, which
 # is what lets the merge and the filter be no-ops on it.
 for f in $(sed -n 's/^\([^#][^ ]*\) .*merge=json-keys.*filter=json-keys.*/\1/p' "$ROOT/.gitattributes"); do
