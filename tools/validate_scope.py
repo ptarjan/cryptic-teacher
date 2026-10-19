@@ -36,6 +36,11 @@ TOOLS = ROOT / "tools"
 ROOTS = (("validate_annotations", "main"), ("build_authored_puzzle", "main"))
 #: Changed puzzle files are checked one by one; these folders no check reads.
 UNREAD = ("clues_only/", "docs/")
+#: Work-queue state the burn jobs rewrite thousands of times a day. The reached
+#: modules name it only in comments and messages, never open it, so it is no
+#: input of any puzzle's check. Without this line the name match below made
+#: every push that touched it a full check (~4 minutes the deploy waited on).
+QUEUE_STATE = ("tools/data/shape_reannotate.json",)
 WORKFLOW = ".github/workflows/pages.yml"
 _HEAD = []
 
@@ -112,7 +117,7 @@ def decide(changes, base_text=None, head_text=None):
     check, edited = [], {}
     lowered = None
     for st, path in changes:
-        if path.startswith(UNREAD):
+        if path.startswith(UNREAD) or path in QUEUE_STATE:
             continue
         if path == BACKLOG and st == "M" and base_text:
             old = base_text(path)

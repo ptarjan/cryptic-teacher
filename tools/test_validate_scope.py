@@ -43,6 +43,7 @@ expect("a fetcher nothing reaches", v.decide([("M", "tools/fetch_telegraph.py")]
 expect("a test and the budgets", v.decide([("M", "tools/test_step_budgets.sh"),
                                             ("M", "tools/data/deploy_budgets.json"),
                                             ("M", "README.md")]), "files")
+expect("the burn's queue state", v.decide([("A", P), ("M", "tools/data/shape_reannotate.json")]), "files")
 expect("a rule table", v.decide([("M", "tools/data/clue_types.json")]), "full", "clue_types.json")
 expect("the backlog", v.decide([("M", "tools/annotation_backlog.json")]), "full", "annotation_backlog.json")
 OLD = '{"_why": "x", "indicators.note": {"times-21965": 3, "times-1": 2}}'
