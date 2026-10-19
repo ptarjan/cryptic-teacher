@@ -4950,12 +4950,16 @@ def _container_inside(tree, want, whole):
     return int(seen)
 
 
-def deletion_scope(tree, any_whole=False):
+def deletion_scope(tree, any_whole=False, answer=None):
     """Deletions over a charade (or, with `any_whole`, over anything) whose indicator
     names one end and where no reading of the removed letters sits at that end of the
     whole. The evaluator removes the letters from anywhere (BORE+ON less E spells BORON
-    though "endlessly" takes the N)."""
+    though "endlessly" takes the N). With `answer`, a deletion that is the whole tree also has
+    to leave the answer: (SURE+F+ACE) less E "nearly" leaves SUREFAC at the end of the whole,
+    but the E that makes SURFACE is SURE's, so "nearly" acts on SURE alone (timesjumbo-1479
+    19d, round 11)."""
     n = 0
+    want = wordplay.letters(answer) if answer else None
     for node in _walk(tree):
         parts = node.get("parts") or []
         if node.get("op") != "deletion" or len(parts) < 2 or not all(isinstance(p, dict) for p in parts):
@@ -4975,9 +4979,19 @@ def deletion_scope(tree, any_whole=False):
         for f in wholes:
             for rs in itertools.product(*cuts):
                 for r in {"".join(rs), "".join(reversed(rs))}:
-                    ok = ok or (f.endswith(r) if end else f.startswith(r))
+                    hit = f.endswith(r) if end else f.startswith(r)
+                    if hit and want and node is tree:
+                        hit = (f[:len(f) - len(r)] if end else f[len(r):]) == want
+                    ok = ok or hit
         n += not ok
     return n
+
+
+def deletion_scope_answer(tree, answer):
+    """Deletions the plain deletion_scope passes that fail once the answer picks the reading:
+    the whole tree is (SURE+F+ACE) less E "nearly", a final E exists (ACE's) so the end reads
+    fine, but the E whose loss makes SURFACE is SURE's (timesjumbo-1479 19d, round 11)."""
+    return max(0, deletion_scope(tree, answer=answer) - deletion_scope(tree)) if answer else 0
 
 
 #: Selections that two adjacent words may share one indicator for ("so extend tops" over
@@ -5152,6 +5166,110 @@ def reverse_phrase(tree):
     return sum(1 for n in _walk(tree) if n.get("op") == "reverse" and not n.get("unchecked")
                and any(len(str(p.get("words") or "").split()) >= 3 and not re.search(r"\bthis\b", str(p["words"]), re.I)
                        for p in n.get("parts") or [] if isinstance(p, dict)))
+
+
+#: The ops a single indicator word signals one of: one indicator per op (Paul, 10-18: "Beginning is
+#: one indicator and end is another"). Two indicators on one of these is two ops filed as one.
+_ONE_IND_OPS = frozenset({"reversal", "deletion", "hidden"}) | frozenset(wordplay.SELECT)
+DELETION_SCOPE_ANSWER = "deletion over a charade whose indicator names an end, but the letters that make the answer are not at it"
+DOUBLE_INDICATOR = "one op carries two indicators, or stacks two ops on one"
+
+
+def _ind_adjacent(a, b):
+    """Whether two indicators with known places touch in the clue: the two halves of one phrase."""
+    if not all(isinstance(i.get("at"), int) for i in (a, b)):
+        return False
+    lo, hi = sorted((a, b), key=lambda i: i["at"])
+    return 0 <= hi["at"] - (lo["at"] + len(str(lo.get("text") or ""))) <= 1
+
+
+_OWN_DELETION_WORD = re.compile(r"\w+less\b|\b(without|minus|lacking|dropping|losing|missing)\b", re.I)
+
+
+def _own_word(op, text):
+    """Whether indicator `text` is, on its own, a word of `op`'s type: the corpus files it there
+    in at least half of 5+ uses, or (a deletion) it says "-less"/"without". The two halves of one
+    phrase around the fodder (Bring ... back, Half of ... is forgotten, less ... on top) are not:
+    one half is a selection's or a bare verb, so two own words are two ops."""
+    counts = _role_counts(indicator_role_key(text))
+    total = sum(counts.values())
+    if total >= 5:
+        return counts.get(_OP_LEXICON[op], 0) >= 0.5 * total
+    return op == "deletion" and bool(_OWN_DELETION_WORD.search(str(text or "").lstrip("'\u2019")))
+
+
+def double_indicators(tree):
+    """Reversals, deletions, hidden words and selections that file two indicators (cryptic-29317
+    6d NEEDIER rev<turned up><elevated>: two reversals; independent-12251 2d IRON
+    del<'eadless><without an aitch>: two deletions), and a hidden word over a selection that has no
+    indicator of its own (times-16960 6d EARL hid<inside>(mid(pearly)): one word, two ops). Two
+    indicators that touch in the clue are one phrase cut in two and are left."""
+    n = 0
+    for node in _walk(tree):
+        op = node.get("op")
+        if op not in _ONE_IND_OPS:
+            continue
+        ins = [i for i in node.get("indicators") or [] if isinstance(i, dict)]
+        if len(ins) >= 2 and not all(_ind_adjacent(ins[k], ins[k + 1]) for k in range(len(ins) - 1)) \
+                and sum(_own_word(op, i.get("text")) for i in ins) >= 2:
+            n += 1
+        elif op == "hidden" and not ins:
+            continue
+        elif op == "hidden" and any(isinstance(p, dict) and p.get("op") in wordplay.SELECT
+                                    and not p.get("indicators") for p in node.get("parts") or []):
+            n += 1
+    return n
+
+
+def _subtree_spans(node, clue, low):
+    """[(start, end)] of every leaf and indicator under `node`, by its `at` or else where its words
+    first occur in the clue; a piece the clue does not show is left out."""
+    out = []
+    for m in _walk(node):
+        items = [(m.get("words"), m.get("at"))] if "words" in m else []
+        items += [(i.get("text"), i.get("at")) for i in m.get("indicators") or [] if isinstance(i, dict)]
+        for text, at in items:
+            text = str(text or "")
+            if not text:
+                continue
+            at = at if isinstance(at, int) else low.find(text.lower())
+            if at >= 0:
+                out.append((at, at + len(text)))
+    return out
+
+
+POOL_GAP = "anagram fodder with another op's words between its pieces"
+
+
+def pool_gaps(tree, clue):
+    """Anagrams of 2+ fodder pieces with a leaf or indicator of some other op sitting in the clue
+    between the pieces: the pool is read off words the anagram does not gather (ftcryptic-18053 2d
+    AMERICANPIE ana<tangled>(in camera, P): "pressure" is far past "that is opened by", and P goes
+    before IE; cryptic-29127 27a, cyclops-409 12a). The anagram's own indicator may stand between."""
+    if not clue:
+        return 0
+    low = clue.lower()
+    n = 0
+    for node in _walk(tree):
+        parts = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        if node.get("op") != "anagram" or len(parts) < 2 or node.get("unchecked"):
+            continue
+        spans = [_subtree_spans(p, clue, low) for p in parts]
+        spans = [(min(a for a, _ in s), max(b for _, b in s)) for s in spans if s]
+        if len(spans) < 2:
+            continue
+        lo, hi = min(a for a, _ in spans), max(b for _, b in spans)
+        mine = {id(m) for m in _walk(node)}
+        gap = False
+        for m in _walk(tree):
+            if id(m) in mine:
+                continue
+            for x, y in _subtree_spans({"words": m["words"], "at": m.get("at")} if "words" in m and "op" not in m
+                                       else {"indicators": m.get("indicators")}, clue, low):
+                if lo < x and y < hi and not any(a <= x and y <= b for a, b in spans):
+                    gap = True
+        n += gap
+    return n
 
 
 def _clue_words(text):
@@ -5352,6 +5470,15 @@ def shape_warnings(tag, ann, clue=None, answer=None):
     if k := reverse_phrase(tree):
         out.append(f"{tag}: {k} {REVERSE_PHRASE}: say what the words do (an anagram, a hidden "
                    f"word, a charade), not a reading of the whole phrase")
+    if k := deletion_scope_answer(tree, answer):
+        out.append(f"{tag}: {k} {DELETION_SCOPE_ANSWER}: the indicator acts on the one piece it sits "
+                   f"by, so delete inside the charade, del(piece, letters)")
+    if k := double_indicators(tree):
+        out.append(f"{tag}: {k} {DOUBLE_INDICATOR}: one op per indicator; write two ops "
+                   f"(two reversals, two deletions), and a hidden word needs no selection under it")
+    if k := pool_gaps(tree, clue):
+        out.append(f"{tag}: {k} {POOL_GAP}: the fodder is the words together under the indicator; "
+                   f"a piece the clue places elsewhere belongs to the charade or insertion, not the pool")
     if k := midword_leaves(tree, clue):
         out.append(f"{tag}: {k} {MIDWORD_LEAF}: a cut is an op (del/first/last), not a leaf that "
                    f"gives part of a word")
@@ -5927,6 +6054,9 @@ BACKLOG_MARKERS = {
     "wordplay.deletionScattered": (DELETION_SCATTERED,),
     "wordplay.reversePhrase": (REVERSE_PHRASE,),
     "wordplay.midWordLeaf": (MIDWORD_LEAF,),
+    "wordplay.deletionScopeAnswer": (DELETION_SCOPE_ANSWER,),
+    "wordplay.doubleIndicator": (DOUBLE_INDICATOR,),
+    "wordplay.poolGap": (POOL_GAP,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }

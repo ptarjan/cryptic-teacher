@@ -178,6 +178,13 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                         "(an anagram, a hidden word, a charade)",
        "indInLeaf": "an indicator's words also sit inside a longer leaf: the leaf holds only the words "
                     "that give its letters, the indicator word goes on the op",
+       "deletionScopeAnswer": "a deletion over a charade names an end, but the letters that make the "
+                              "answer are not at it: the indicator acts on one piece, so delete inside "
+                              "the charade, del(piece, letters)",
+       "doubleIndicator": "one op carries two indicators (or a hidden word stacks a selection on its one "
+                          "indicator): one op per indicator, so write two reversals / two deletions",
+       "poolGap": "an anagram's fodder pieces have another op's words between them in the clue: the "
+                  "piece belongs to the charade or insertion, not the anagram pool",
        "midWordLeaf": "a leaf gives a stretch of several clue words that starts or ends inside a word: "
                       "the cut is an op (del, first, last) with its indicator, not part of the leaf"}
 
@@ -209,6 +216,9 @@ def _validator_rules():
             "deletionScattered": lambda t, a, c: V.deletion_scattered(t),
             "reversePhrase": lambda t, a, c: V.reverse_phrase(t),
             "midWordLeaf": lambda t, a, c: V.midword_leaves(t, c),
+            "deletionScopeAnswer": lambda t, a, c: V.deletion_scope_answer(t, a.get("_answer") or None),
+            "doubleIndicator": lambda t, a, c: V.double_indicators(t),
+            "poolGap": lambda t, a, c: V.pool_gaps(t, c),
             "indInLeaf": lambda t, a, c: V.ind_in_leaf(t, c),
             # A step taken as filed that tools/clear_unchecked.py could not verify:
             # fires while any node of the tree still carries the flag.
