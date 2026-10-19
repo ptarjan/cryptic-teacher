@@ -58,6 +58,137 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Puzzle-only pushes (the burn jobs push them every few minutes) skip the
+  # sharded suite. tools/ci_scope.py decides, conservatively: only puzzle files
+  # added or modified, the burn work queue and a tightened annotation backlog
+  # count as data, and every other path (or a puzzle deleted or renamed, or a
+  # PR, or anything that cannot be diffed) is code and runs everything below.
+  #
+  # Two bases, because a burst of pushes costs two runs and a commit can be
+  # replaced before it ever ran: the guard that nothing but data moved looks
+  # back to the last run whose shards actually ran and passed (a fast run does
+  # not move it), while the puzzle check looks back to the last green run of
+  # either kind, so the fast path checks everything nobody has checked yet.
+  # The smoke shards it skips are not lost: the next full run finds the new
+  # puzzles missing from the result cache (tools/ci_cache.js) and checks them,
+  # and nightly-smoke.yml sweeps the corpus without the cache.
+  scope:
+    name: scope of the push
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      mode: ${{ steps.pick.outputs.mode }}
+      base_pass: ${{ steps.pick.outputs.base_pass }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            tools
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Decide between the puzzle fast path and the full suite
+        id: pick
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          EVENT: ${{ github.event_name }}
+          REF: ${{ github.ref }}
+        run: |
+          set -uo pipefail
+          full() { echo "full suite: $1"; echo "mode=full" >> "$GITHUB_OUTPUT"; exit 0; }
+          [ "$EVENT" = push ] && [ "$REF" = refs/heads/master ] || full "not a push to master"
+          runs=$(gh api "repos/$REPO/actions/workflows/tests.yml/runs?branch=master&event=push&status=success&per_page=30" \
+                   --jq '.workflow_runs[] | "\(.id) \(.head_sha)"') || full "could not list the green runs"
+          [ -n "$runs" ] || full "no green run to diff against"
+          base_pass=$(head -n 1 <<<"$runs" | cut -d' ' -f2)
+          base_full=
+          while read -r id sha; do
+            n=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
+                  --jq '[.jobs[] | select((.name | startswith("tests ")) and .conclusion == "success")] | length') || full "could not read run $id"
+            if [ "$n" -gt 0 ]; then base_full=$sha; break; fi
+          done <<<"$runs"
+          [ -n "$base_full" ] || full "no recent run that ran the shards"
+          git fetch --no-tags --depth=1 --filter=blob:none origin "$base_full" "$base_pass" || full "could not fetch the bases"
+          verdict=$(python3 tools/ci_scope.py decide "$base_full") || full "could not work out what changed"
+          echo "since the last full pass ($base_full): $verdict"
+          [ "$verdict" = fast ] || full "$verdict"
+          python3 tools/ci_scope.py files "$base_pass" > /dev/null || full "too many puzzles since the last green run"
+          echo "mode=fast" >> "$GITHUB_OUTPUT"
+          echo "base_pass=$base_pass" >> "$GITHUB_OUTPUT"
+
+  # What a puzzle-only push owes: the puzzle schema, the integrity audit
+  # (duplicates and cross-puzzle facts weigh the changed files against the whole
+  # corpus through the same blob-keyed row cache the full run saves) and the
+  # annotation validator on the changed puzzles with the backlog allowances
+  # (--deploy: the deploy's corpus rules), the same check pages.yml's validate
+  # job runs on a files-mode push. Blobs are fetched only for the changed
+  # puzzles' folders.
+  fast:
+    name: puzzle fast path
+    needs: scope
+    if: needs.scope.outputs.mode == 'fast'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash .github/offline.sh {0}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            tools
+            .github
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Restore the integrity row cache
+        id: rows
+        uses: actions/cache/restore@v5
+        with:
+          path: ~/.cache/cryptic-teacher/integrity-rows-*.sqlite*
+          key: integrity-rows-${{ github.sha }}
+          restore-keys: integrity-rows-
+      - name: Fetch the changed puzzles
+        shell: bash
+        env:
+          BASE_PASS: ${{ needs.scope.outputs.base_pass }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 --filter=blob:none origin "$BASE_PASS"
+          python3 tools/ci_scope.py files "$BASE_PASS" > "$RUNNER_TEMP/changed.txt"
+          echo "$(wc -l < "$RUNNER_TEMP/changed.txt") puzzle(s) changed since the last green run"
+          if [ -s "$RUNNER_TEMP/changed.txt" ]; then
+            sed 's|/[^/]*$||' "$RUNNER_TEMP/changed.txt" | sort -u | xargs git sparse-checkout add
+          fi
+      - name: Puzzle schema
+        run: |
+          [ -s "$RUNNER_TEMP/changed.txt" ] || { echo "no puzzle changed"; exit 0; }
+          xargs python3 tools/puzzle_schema.py < "$RUNNER_TEMP/changed.txt"
+      # The one step with the network: a row-cache miss (an older run's cache)
+      # reads that blob, and git fetches it on demand.
+      - name: Puzzle integrity
+        shell: bash
+        run: |
+          [ -s "$RUNNER_TEMP/changed.txt" ] || { echo "no puzzle changed"; exit 0; }
+          xargs python3 tools/puzzle_integrity.py --quiet < "$RUNNER_TEMP/changed.txt"
+      - name: Annotations
+        run: |
+          [ -s "$RUNNER_TEMP/changed.txt" ] || { echo "no puzzle changed"; exit 0; }
+          xargs python3 tools/validate_annotations.py --deploy < "$RUNNER_TEMP/changed.txt"
+      # Only a cold start saves: the full run's generated job keeps it warm.
+      - name: Save the integrity row cache
+        if: ${{ !cancelled() && steps.rows.outputs.cache-matched-key == '' }}
+        uses: actions/cache/save@v5
+        with:
+          path: ~/.cache/cryptic-teacher/integrity-rows-*.sqlite*
+          key: integrity-rows-${{ github.sha }}
+
   # The layout check and the puzzle schema check are not test scripts and need
   # neither the index nor the pages, so they run on their own without paying for
   # the build. It is the one
@@ -65,6 +196,8 @@ jobs:
   # workflow that publishes it, and a file nobody commits cannot go stale.
   generated:
     name: generated files are current
+    needs: scope
+    if: needs.scope.outputs.mode == 'full'
     runs-on: ubuntu-latest
     # Python over files already in the clone; the corpus check is most of it.
     timeout-minutes: 10
@@ -108,6 +241,14 @@ jobs:
       # Before the network is cut: tools/code_checks.py uses it.
       - run: pip install ruff
         shell: bash
+      # The puzzle fast path restores this; only a full run, which reads the
+      # whole corpus, keeps it warm.
+      - name: Restore the integrity row cache
+        uses: actions/cache/restore@v5
+        with:
+          path: ~/.cache/cryptic-teacher/integrity-rows-*.sqlite*
+          key: integrity-rows-${{ github.sha }}
+          restore-keys: integrity-rows-
       - name: Check the committed layout table, prompt reference and puzzle schema
         run: |
           fails=()
@@ -128,8 +269,16 @@ jobs:
             exit 1
           fi
           echo "generated files are current"
+      - name: Save the integrity row cache
+        if: ${{ !cancelled() && github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+        uses: actions/cache/save@v5
+        with:
+          path: ~/.cache/cryptic-teacher/integrity-rows-*.sqlite*
+          key: integrity-rows-g-${{ github.sha }}
 
   test:
+    needs: scope
+    if: needs.scope.outputs.mode == 'full'
     name: tests ${{ matrix.shard }}
     runs-on: ubuntu-latest
     strategy:
@@ -385,8 +534,8 @@ jobs:
   cache:
     name: corpus result cache
     runs-on: ubuntu-latest
-    needs: test
-    if: always()
+    needs: [scope, test]
+    if: always() && needs.scope.outputs.mode == 'full'
     timeout-minutes: 10
     defaults:
       run:
@@ -435,21 +584,34 @@ jobs:
   tests-passed:
     name: tests-passed
     runs-on: ubuntu-latest
-    needs: [generated, test, cache]
+    needs: [scope, fast, generated, test, cache]
     if: always()
     timeout-minutes: 5
     steps:
       - name: Report what the other jobs concluded
         env:
+          SCOPE: ${{ needs.scope.result }}
+          MODE: ${{ needs.scope.outputs.mode }}
+          FAST: ${{ needs.fast.result }}
           GENERATED: ${{ needs.generated.result }}
           # For a matrix job this is 'success' only when every shard succeeded.
           TESTS: ${{ needs.test.result }}
           CACHE: ${{ needs.cache.result }}
         run: |
+          echo "scope: $SCOPE ($MODE)"
+          echo "puzzle fast path: $FAST"
           echo "generated files are current: $GENERATED"
           echo "test shards: $TESTS"
           echo "corpus result cache: $CACHE"
-          if [ "$GENERATED" = success ] && [ "$TESTS" = success ] && [ "$CACHE" = success ]; then
+          # One mode ran and the other did not. A skipped job where the mode says
+          # it should have run is a gate that failed open, so it is red.
+          if [ "$SCOPE" = success ] && [ "$MODE" = fast ] && [ "$FAST" = success ] \
+             && [ "$GENERATED" = skipped ] && [ "$TESTS" = skipped ] && [ "$CACHE" = skipped ]; then
+            echo "puzzle-only push: schema, integrity and annotations passed"
+            exit 0
+          fi
+          if [ "$SCOPE" = success ] && [ "$MODE" = full ] && [ "$FAST" = skipped ] \
+             && [ "$GENERATED" = success ] && [ "$TESTS" = success ] && [ "$CACHE" = success ]; then
             echo "all test scripts passed"
             exit 0
           fi

@@ -3036,5 +3036,9 @@ tools/test_tree_normalize.py                   tree_normalize: canonical rewrite
                                                letters proved unchanged (r10 sample rows)
 tools/tree_normalize.py                        rewrite wordplay trees into Paul's canonical
                                                forms by code, before any clue goes to a model
+tools/ci_scope.py                              what tests.yml has to run for a push: the whole
+                                               suite, or the puzzle fast path
+tools/test_ci_scope.py                         tools/ci_scope.py: which pushes may skip the
+                                               sharded suite, and how tests.yml wires that in
 ```
 <!-- LAYOUT-END -->
