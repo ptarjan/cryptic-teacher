@@ -2195,6 +2195,80 @@ def r_literal_fodder(node, parent, ctx):
     return new if _eval_swapped(node, None, new, ctx) else None
 
 
+_HALF = re.compile(r"\bhalf\b|\bhalves\b|50\s*%|\bhalf-", re.I)
+
+
+def r_half_leaf(node, parent, ctx):
+    """halfLeaf: a leaf giving half of its one word (STR from street) with the clue's "half" word
+    sitting on some other op (the del<half>(..) that was never a deletion of anything, the ins's
+    second word, a charade's trailing "half-cut"). The word moves onto a first/last op over that
+    leaf, which is what picks the half; a one-part deletion left with nothing else goes. Done on
+    the whole tree, for the one half leaf and the one half word only; kept when the tree still
+    gives the answer and the rule no longer fires."""
+    if parent is not None or not ctx.get("answer"):
+        return None
+    seen = []
+    stack = [(node, ())]
+    while stack:
+        n, anc = stack.pop()
+        stack += [(p, anc + (n,)) for p in n.get("parts") or []]
+        if leaf(n) and n.get("words") and n.get("gives") and not n.get("select") and not n.get("unchecked"):
+            seen.append((n, anc))
+    halves = []
+    for lf, anc in seen:
+        w, g = W.letters(lf["words"]), W.letters(lf["gives"])
+        if len(lf["words"].split()) == 1 and len(w) >= 4 and len(g) * 2 == len(w) and (w.startswith(g) != w.endswith(g)) \
+                and not any(a.get("op") in W.SELECT or a.get("op") == "hidden" for a in anc) \
+                and not V._known_pair(lf["words"], g):
+            halves.append((lf, anc, "first" if w.startswith(g) else "last"))
+    owners = [(n, i) for n, _ in walk(node) for i in n.get("indicators") or [] if _HALF.search(i.get("text") or "")]
+    if len(halves) != 1 or len(owners) != 1 or not V.half_leaves(node):
+        return None
+    lf, anc, op = halves[0]
+    holder, ind = owners[0]
+    if not anc:
+        return None
+    new = copy.deepcopy(node)
+    # find the same nodes in the copy by their path from the root
+    def path(root, target):
+        if root is target:
+            return []
+        for k, p in enumerate(root.get("parts") or []):
+            r = path(p, target)
+            if r is not None:
+                return [k] + r
+        return None
+
+    def at(root, pth):
+        for k in pth:
+            root = root["parts"][k]
+        return root
+    lf_new, holder_new = at(new, path(node, lf)), at(new, path(node, holder))
+    ind_new = next(i for i in holder_new["indicators"] if i.get("text") == ind.get("text"))
+    holder_new["indicators"] = [i for i in holder_new["indicators"] if i is not ind_new]
+    pick = {"op": op, "indicators": [{**ind_new, "note": f"keeps the {op} half of the word"}],
+            "parts": [{k: v for k, v in lf_new.items() if k != "gives"}]}
+    pth = path(node, lf)
+    if pth:
+        at(new, pth[:-1])["parts"][pth[-1]] = pick
+    if not holder_new["indicators"]:
+        holder_new.pop("indicators")
+        if holder_new.get("op") == "deletion" and len(holder_new.get("parts") or []) == 1:
+            hp = path(new, holder_new)
+            sole = holder_new["parts"][0]
+            if hp:
+                at(new, hp[:-1])["parts"][hp[-1]] = sole
+            else:
+                new = sole
+        elif holder_new.get("op") in V.NEEDS_INDICATOR:
+            return None
+    try:
+        W.evaluate(copy.deepcopy(new), ctx["answer"])
+    except (W.WordplayError, IndexError, KeyError, TypeError, ValueError, W._NeedTarget):
+        return None
+    return new if not V.half_leaves(new) else None
+
+
 def _runs(n, k):
     """Every way to cut range(n) into k contiguous non-empty runs, as lists of (lo, hi)."""
     if k == 1:
@@ -2257,7 +2331,7 @@ def r_arity_other(node, parent, ctx):
     return next(iter(good.values())) if len(good) == 1 else None
 
 
-RULE_REPAIRS = {"arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
+RULE_REPAIRS = {"halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,

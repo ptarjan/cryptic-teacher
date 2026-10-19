@@ -885,17 +885,23 @@
       {
        "text": "after",
        "note": "'After' puts the massage second, so those letters follow the ones taken from the other word."
-      },
-      {
-       "text": "'50% off'",
-       "note": "Half price means half the word: two of its four letters are knocked off the price and off the end."
       }
      ],
      "parts": [
       {
-       "words": "scam",
-       "gives": "SC",
-       "note": "The first half of this four-letter word, the other half discounted away."
+       "op": "first",
+       "indicators": [
+        {
+         "text": "'50% off'",
+         "note": "keeps the first half of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scam",
+         "note": "The first half of this four-letter word, the other half discounted away."
+        }
+       ]
       },
       {
        "words": "massage",

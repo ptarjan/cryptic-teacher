@@ -927,12 +927,6 @@
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "cut 50% of",
-         "note": "It halves the word that follows, and the half kept is the back one — the opening pair is what gets cut away."
-        }
-       ],
        "parts": [
         {
          "words": "Everyman",
@@ -940,9 +934,19 @@
          "note": "the setter signs the puzzle Everyman, and a setter pointing at themselves in the wordplay is two letters"
         },
         {
-         "words": "fats",
-         "gives": "TS",
-         "note": "the back half of a four-letter word, its first two letters gone"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "cut 50% of",
+           "note": "keeps the last half of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fats",
+           "note": "the back half of a four-letter word, its first two letters gone"
+          }
+         ]
         }
        ]
       }
