@@ -231,6 +231,12 @@ WORDNET = ROOT / "tools" / "data" / "wordnet.json.gz"
 # tail of the list rather than beyond it: unknown here almost always means a
 # proper noun build_lexicon.js dropped by design, not a hard word.
 MISSING_RANK = 60000
+# What an unlisted answer scores in a puzzle where most answers are unlisted
+# (a foreign-language or heavily themed grid, e.g. an all-Latin Listener). There
+# the unknowns are the content, not a stray proper noun, so they count as rare.
+# Raising MISSING_RANK globally failed the SNITCH gate; this does not touch
+# puzzles with a minority of unlisted answers.
+UNLISTED_MAJORITY_RANK = 286585
 #: rarity() averages this many of a puzzle's rarest answers.
 RAREST_ANSWERS = 3
 #: Earlier puzzles a familiarity count needs behind it before it is scored.
@@ -511,13 +517,19 @@ def rarity(puz, rank):
     """
     if not rank:
         return None
-    scores = []
+    found = []  # (rank of the answer's rarest listed word, whether any word is unlisted)
     for e in puz["entries"]:
         sol, words = answer_words(e)
         if not sol:
             continue
-        r = rank[sol] if sol in rank else max(rank.get(w, MISSING_RANK) for w in words)
-        scores.append(math.log10(max(r, 10)))
+        if sol in rank:
+            found.append((rank[sol], False))
+        else:
+            found.append((max((rank[w] for w in words if w in rank), default=0),
+                           any(w not in rank for w in words)))
+    unlisted = sum(1 for _, u in found if u)
+    miss = UNLISTED_MAJORITY_RANK if unlisted * 2 > len(found) else MISSING_RANK
+    scores = [math.log10(max(max(r, miss) if u else r, 10)) for r, u in found]
     worst = sorted(scores)[-RAREST_ANSWERS:]
     return sum(worst) / len(worst) if worst else None
 
