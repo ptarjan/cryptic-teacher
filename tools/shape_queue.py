@@ -299,6 +299,8 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
        "delOnePiece": "a deletion wraps a charade though the cut lies inside one piece: put the deletion on that piece "
                       "inside the charade",
        "anaIsMove": "an anagram of one word gives the word with a single letter moved: write move<indicator>(fodder, MOVED)",
+       "delAsMove": "a deletion's indicator is a movement word and its cut letters are no clue word: write "
+                    "move<indicator>(fodder, MOVED)",
        "halfInLeaf": "a leaf holds half (half-done taco) and gives half of another of its words: write the halving "
                      "as a selection op with its own indicator",
        "selectIndEndsLeaf": "a first/last/outer op's leaf ends with the op's own indicator words (cooked on top): "
@@ -374,6 +376,7 @@ def _validator_rules():
             "middleSiblingLeaf": lambda t, a, c: V.middle_sibling_leaf(t),
             "delOnePiece": lambda t, a, c: V.del_one_piece(t),
             "anaIsMove": lambda t, a, c: V.ana_is_move(t, a),
+            "delAsMove": lambda t, a, c: V.del_as_move(t),
             "halfInLeaf": lambda t, a, c: V.half_in_leaf(t),
             "selectIndEndsLeaf": lambda t, a, c: V.select_ind_ends_leaf(t),
             "beheadInLeaf": lambda t, a, c: V.behead_in_leaf(t),

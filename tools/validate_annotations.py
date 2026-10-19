@@ -6180,6 +6180,9 @@ def reversal_split(tree, clue):
             continue
         if any(m.get("op") in ("hidden", "alternate", "deletion") for m in _walk(node) if m is not node):
             continue  # round 22c: 12 of 14 judged-fine hits reversed a hidden, alternate-letters or deletion result, one stretch of the clue
+        kids = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        if len(kids) == 1 and (kids[0].get("op") in wordplay.SELECT or kids[0].get("op") == "substitution"):
+            continue  # r42 judged: a reversal of one pick or substitution (rev<up>(middle<>(Bottoms))) is one piece, 2 of 4 fine, 0 of 38 errors
         spans = [s for p in node.get("parts") or [] if isinstance(p, dict) and (s := _extent(p, clue, low))]
         if not spans:
             continue
@@ -6465,7 +6468,7 @@ SELECT_PHRASE_IN_LEAF = "leaf opens with a letter-selection phrase and gives few
 HALVED_AS_DELETION ="halving ('half of', '50 per cent', 'bottom half') written as a plain deletion"
 SPLIT_SHARED_INDICATOR = "one indicator over two neighbouring same-kind ops, only one of them carrying it"
 _NOT_A_HALVING = re.compile(r"hearted|more than half|almost half", re.I)
-_HALVING = re.compile(r"\bhalf\b|\b\d{1,2}\s*(?:per\s*cent|%|percent)", re.I)  # any percentage: r36 FN "60% of", "about 57%"
+_HALVING =re.compile(r"\bhalf\b|\bsemi\b|\b\d{1,2}\s*(?:per\s*cent|%|percent)", re.I)  # any percentage: r36 FN "60% of", "about 57%"
 
 
 def select_word_in_leaf(tree):
@@ -6670,19 +6673,71 @@ def repeat_in_leaf(tree):
                     n += len(wordplay.letters(rep["gives"])) >= 2 and wordplay.letters(rep["gives"]) in wordplay.values(other)
                 except Exception:
                     pass
+    # r42 FN AGARAGAR, CHACHA, PRETTYPRETTY: a leaf of "more than once", "repeated", "doubled up" giving the letters
+    # the run of pieces beside it already gives
+    for parent in _walk(tree):
+        parts = [p for p in parent.get("parts") or [] if isinstance(p, dict)]
+        for i, rep in enumerate(parts):
+            if "op" in rep or rep.get("unchecked") or not rep.get("gives") or not rep.get("words"):
+                continue
+            ws = re.findall(r"[a-z']+", str(rep["words"]).lower())
+            if not ws or not set(ws) <= _REPEAT_PHRASE or not (set(ws) & _REPEAT_WORDS or ws[-3:] == ["more", "than", "once"]
+                                                              or ws == ["once", "more"]):
+                continue
+            g = wordplay.letters(rep["gives"])
+            runs = [parts[j:i] for j in range(max(0, i - 4), i)] + [parts[i + 1:k] for k in range(i + 2, min(len(parts), i + 4) + 1)]
+            # a one-word leaf beside one piece with letters of its own is the blocks above
+            n += len(g) >= 2 and any(g in _run_values(run) for run in runs
+                                     if len(run) >= 2 or len(ws) >= 2 or ("op" not in run[0] and not run[0].get("gives")))
     return n
+
+
+_REPEAT_PHRASE = _REPEAT_WORDS | frozenset("more than once up over times two the same time".split())
+
+
+def _run_values(run):
+    """The strings a run of sibling pieces can spell side by side ({} when a piece is unchecked or has no value)."""
+    out = {""}
+    for p in run:
+        if p.get("unchecked"):
+            return set()
+        try:
+            vals = {wordplay.letters(p.get("gives") or p.get("words"))} if "op" not in p else set(wordplay.values(p))
+        except Exception:
+            return set()
+        if not vals or len(out) * len(vals) > 200:
+            return set()
+        out = {a + b for a in out for b in vals}
+    return out - {""}
+
+
+def _half_of_synonym(words, g):
+    """A leaf of 3+ words with "half of" in it (not "half of the letters", "almost half of", "better half of", a
+    half-dozen, "half-hearted") that gives fewer letters than the words beside half: half of a synonym, which no
+    substring check can see. Only a non-word (CHOO, IMB, EUS; r42 judged: half of a score, weekend or duo giving TEN, SAT,
+    ANT is a fine definitional half, 26 of 51 fine overall, a non-word 1 of 11). Needs the lexicon."""
+    if "half" not in words or len(words) < 3 or len(g) < 2:
+        return False
+    i = words.index("half")
+    return (words[i + 1:i + 2] == ["of"] and words[i + 2:i + 3] != ["the"]
+            and words[i - 1:i] not in (["almost"], ["left"], ["better"], ["more"], ["than"], ["a"], ["other"], ["and"],
+                                       ["first"], ["second"], ["last"])
+            and g not in (_lexicon_letters() or {g})
+            and not {"dozen", "time", "term", "way", "than"} & set(words) and not any(w.startswith("heart") for w in words)
+            and len(g) < sum(len(w) for w in words if w not in ("half", "of")))
 
 
 def half_in_leaf(tree):
     """Plain leaves holding half (also half-done) beside a clue word whose first or last half they give
     (r34 FN TAMPA: "half-done taco" giving TA): the halving is a selection op with its own indicator.
-    r35 judged 0 of 40 fine."""
+    r35 judged 0 of 40 fine. r42 FN CHORIZO "half of train" giving CHOO, DEEPEST "Half of capital city" giving PEST,
+    IDIOTIC "notion, half rejected" giving ID: also half of a synonym (_half_of_synonym)."""
     n = 0
     for node, words in _plain_leaves(tree):
         g = wordplay.letters(node["gives"]).lower()
-        n += len(words) >= 2 and "half" in words and bool(g) and any(
+        n += (len(words) >= 2 and "half" in words and bool(g) and any(
             w != "half" and len(w) >= 4 and len(g) in (len(w) // 2, (len(w) + 1) // 2) and (w.startswith(g) or w.endswith(g))
-            for w in words)
+            for w in words)) or _half_of_synonym(words, g)
     return n
 
 
@@ -6903,6 +6958,28 @@ def ana_is_move(tree, answer=None):
             rest = f[:i] + f[i + 1:]
             moved |= {rest[:j] + f[i] + rest[j:] for j in range(len(f))}
         n += any(m != f and m in ans for m in moved)
+    return n
+
+
+DEL_AS_MOVE = "deletion whose indicator is a movement word (moved, shifting, relocating) and whose cut letters are no clue word, a move written as a deletion"
+_MOVE_WORD_IND = re.compile(r"\b(?:mov(?:e|es|ed|ing)|shift\w*|relocat\w*|transpos\w*|migrat\w*|transferr?\w*|repositi\w*|displac\w*)\b", re.I)
+_MOVE_AWAY = re.compile(r"\b(?:out|away|off|from|leav\w*|exit\w*|gone|departing|removed)\b", re.I)
+
+
+def del_as_move(tree):
+    """Deletions whose indicator is a movement word and whose cut piece is no clue word (r42 FN INGENUE
+    del<being moved to take the lead>(GENUINE, IN), MARLONBRANDO del<relocating>(LONDON, N)): the letters appear from
+    nowhere, so they are moved, not removed: move<indicator>(fodder, MOVED). Not "moved out/away/off" (a
+    departure), and not a tree movedLetter already counts (a sibling gives the cut letter back). r42 judged 1 of
+    20 fine; with the cut in a clue word ("shifting ton") 11 of 20 were fine plain deletions."""
+    if moved_letters(tree):
+        return 0
+    n = 0
+    for node in _walk(tree):
+        ps = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        n += (node.get("op") == "deletion" and len(ps) >= 2 and all("op" not in p and not p.get("words") for p in ps[1:])
+              and any(_MOVE_WORD_IND.search(t) and not _MOVE_AWAY.search(t)
+                      for t in (str(i.get("text") or "") for i in node.get("indicators") or [] if isinstance(i, dict))))
     return n
 
 
@@ -7355,6 +7432,7 @@ def shape_warnings(tag, ann, clue=None, answer=None):
             (lambda: middle_sibling_leaf(tree), MIDDLE_SIBLING_LEAF, "one middle indicator over the list is one multi-part op"),
             (lambda: del_one_piece(tree), DEL_ONE_PIECE, "put the deletion on the piece it cuts, inside the charade"),
             (lambda: ana_is_move(tree, answer), ANA_IS_MOVE, "write move<indicator>(fodder, MOVED)"),
+            (lambda: del_as_move(tree), DEL_AS_MOVE, "write move<indicator>(fodder, MOVED)"),
             (lambda: behead_in_leaf(tree), BEHEAD_IN_LEAF, "the cut is a deletion with its own indicator"),
             (lambda: own_ind_in_leaf(tree), OWN_IND_IN_LEAF, "the leaf holds only the words that give its letters")):
         if k := fn():
@@ -7964,6 +8042,7 @@ BACKLOG_MARKERS = {
     "wordplay.middleSiblingLeaf": (MIDDLE_SIBLING_LEAF,),
     "wordplay.delOnePiece": (DEL_ONE_PIECE,),
     "wordplay.anaIsMove": (ANA_IS_MOVE,),
+    "wordplay.delAsMove": (DEL_AS_MOVE,),
     "wordplay.beheadInLeaf": (BEHEAD_IN_LEAF,),
     "wordplay.selectorAsCut": (SELECTOR_AS_CUT,),
     "wordplay.anaLoneEdge": (ANA_LONE_EDGE,),
