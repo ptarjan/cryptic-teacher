@@ -14,6 +14,7 @@ import os
 import shutil
 import sys
 import tempfile
+import types
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
@@ -615,6 +616,9 @@ ImageDraw.Draw(page).rectangle((1000, 2000, 1500, 2400), fill=0)  # clue-column 
 check("clues right of a grid at the page's foot are found", (1675, 2531),
       f.right_columns(page, (196, 1598, 916, 2316)))
 check("a grid with room under it for clues has none right of it", None, f.right_columns(page, (196, 500, 916, 1218)))
+_gale = types.SimpleNamespace(key="gale")
+check("a 1947 Gale page's clues are not read right of the grid", False, f.clues_may_be_right(_gale, Path("GaleTimes1947UKEnglish/1947-05-17")))
+check("a 2014 Gale page's clues may be right of the grid", True, f.clues_may_be_right(_gale, Path("GaleTimes2014UKEnglish/2014-03-01")))
 check("a blank strip right of the grid holds no clues", None,
       f.right_columns(Image.new("L", (3296, 2849), 255), (196, 1598, 916, 2316)))
 page2 = Image.new("L", (3296, 2849), 255)
@@ -667,6 +671,7 @@ ImageDraw.Draw(speck).rectangle((2000, 2100, 2010, 2110), fill=0)
 check("a speck in the margin is no third column", None, f.overhang(speck, ogrid))
 check("a grid with no room under it has no third column", None, f.overhang(opage, (1150, 2500, 1870, 3200)))
 check("a page with room under the grid keeps its third column", (None, oend), f.right_or_over(opage, ogrid))
+check("a 2010 Gale page keeps its overhang path with the right columns off", (None, oend), f.right_or_over(opage, ogrid, f.clues_may_be_right(_gale, Path("GaleTimes2010UKEnglish/2010-03-01"))))
 owords = [[(1110, 2050, 1420, 2072, "1 Nag CAMRA to move into")], [(1110, 2080, 1420, 2102, "stronger drink (8)")],
           [(1480, 2050, 1780, 2072, "23 Tough punishment suspending")], [(1480, 2080, 1780, 2102, "paratrooper (4,4)")],
           [(1805, 2050, 2105, 2072, "7 Sweet air must flow over one")], [(1805, 2080, 2105, 2102, "(8)")]]
