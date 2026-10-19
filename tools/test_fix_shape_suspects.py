@@ -288,5 +288,20 @@ dw = {"op": "deletion", "indicators": [{"text": "throwing"}], "parts": [
 new, used = F.repair_tree(dw, "Throwing couple of rights, initially fear", "FIST", DI)
 check("a cut that is a whole added piece is left for the model", used == [])
 
+# deletionScope: the same move; an end word picks the piece whose end holds the letters, an anagram flattens
+DS = {"deletionScope": F.r_deletion_inside}
+ds = {"op": "deletion", "indicators": [{"text": "Almost"}], "parts": [
+    {"op": "charade", "parts": [{"words": "sorry", "gives": "SADE"}, {"words": "cheat", "gives": "CE"}]},
+    {"gives": "E"}]}
+new, used = F.repair_tree(ds, "Almost sorry cheat", "SADCE", DS)
+check("an end word with the letter in two pieces moves the cut into the piece it ends",
+      used == ["deletionScope"] and new["parts"][0]["op"] == "deletion" and new["parts"][1]["gives"] == "CE")
+dan = {"op": "anagram", "indicators": [{"text": "upset"}], "parts": [{"op": "deletion", "indicators": [{"text": "Almost"}], "parts": [
+    {"op": "charade", "parts": [{"words": "sorry", "gives": "SORRY"}, {"words": "cheat", "gives": "CHEAT"}]},
+    {"gives": "Y"}]}]}
+new, used = F.repair_tree(dan, "Almost sorry cheat upset group of players", "ORCHESTRA", DS)
+check("under an anagram the charade is flattened into the anagram's parts",
+      used == ["deletionScope"] and [p.get("op") for p in new["parts"]] == ["deletion", None])
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

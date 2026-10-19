@@ -423,46 +423,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "losing first",
-       "note": "losing first means dropping the opening letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "unchecked": true,
+       "gives": "LA",
+       "indicators": [
+        {
+         "text": "Leading pair of",
+         "note": "the leading pair of a word are the two letters at its front"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
          "unchecked": true,
+         "words": "lawyers",
          "gives": "LA",
-         "indicators": [
-          {
-           "text": "Leading pair of",
-           "note": "the leading pair of a word are the two letters at its front"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "lawyers",
-           "gives": "LA",
-           "select": "first",
-           "note": "the first two letters of lawyers"
-          }
-         ]
-        },
-        {
-         "words": "venerated",
-         "gives": "ICONIC",
-         "note": "an iconic figure is widely venerated"
+         "select": "first",
+         "note": "the first two letters of lawyers"
         }
        ]
       },
       {
-       "gives": "I"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing first",
+         "note": "losing first means dropping the opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "venerated",
+         "gives": "ICONIC",
+         "note": "an iconic figure is widely venerated"
+        },
+        {
+         "gives": "I"
+        }
+       ]
       }
      ]
     },

@@ -194,16 +194,16 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "short means cut off, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "note": "short means cut off, so the word loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "tune",
@@ -211,29 +211,29 @@
          "note": "a tune, cut by one letter here"
         },
         {
-         "words": "hit",
-         "gives": "RAM",
-         "note": "to ram is to strike hard"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "originally",
-           "note": "originally points to the origin, the opening letter of the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "American",
-           "note": "the first letter of American"
-          }
-         ]
+         "gives": "Y"
         }
        ]
       },
       {
-       "gives": "Y"
+       "words": "hit",
+       "gives": "RAM",
+       "note": "to ram is to strike hard"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "originally points to the origin, the opening letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "American",
+         "note": "the first letter of American"
+        }
+       ]
       }
      ]
     },
@@ -922,13 +922,7 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means around, so one word wraps the selected letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
@@ -940,18 +934,9 @@
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "English painter",
-           "gives": "STUBBS",
-           "note": "George Stubbs, the English painter of horses"
-          },
-          {
-           "words": "on",
-           "note": "taken as written"
-          }
-         ]
+         "words": "English painter",
+         "gives": "STUBBS",
+         "note": "George Stubbs, the English painter of horses"
         },
         {
          "gives": "S"
@@ -959,18 +944,33 @@
        ]
       },
       {
-       "op": "nth",
-       "n": 3,
+       "op": "container",
        "indicators": [
         {
-         "text": "the third of",
-         "note": "the third of points to the letter in third position of the next word"
+         "text": "about",
+         "note": "about means around, so one word wraps the selected letter"
         }
        ],
        "parts": [
         {
-         "words": "March",
-         "note": "the third letter of March"
+         "words": "on",
+         "note": "taken as written"
+        },
+        {
+         "op": "nth",
+         "n": 3,
+         "indicators": [
+          {
+           "text": "the third of",
+           "note": "the third of points to the letter in third position of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "March",
+           "note": "the third letter of March"
+          }
+         ]
         }
        ]
       }
