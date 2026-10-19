@@ -228,6 +228,7 @@ check("ins(NOTE+L, P) under rev becomes NOTE-with-P + L", used == ["containerIns
 
 # poolGap: an anagram's fodder pieces with another op's words between them
 PG = {"poolGap": F.r_pool_gap}
+PGE = {"poolGap": F.RULE_REPAIRS["poolGap"]}
 pgc = "dishevelled rake embraced by whore"
 pg = {"op": "container", "unchecked": True, "gives": "SHAKERAG", "indicators": [{"text": "embraced by"}], "parts": [
     {"op": "anagram", "indicators": [{"text": "dishevelled"}], "parts": [
@@ -253,6 +254,22 @@ pg4 = {"op": "container", "indicators": [{"text": "split", "at": 0}], "parts": [
     {"words": "therefore", "gives": "SO", "at": 24}]}
 new, used = F.repair_tree(pg4, "split One frightfully large therefore", "GIRASOLE", PG)
 check("split (a container word too) over an anagram is a real insertion: not folded into one pool", used == [])
+
+# poolGap, a piece in the pool that is really another op's: it leaves the pool
+pge = {"op": "charade", "parts": [{"words": "bloke", "gives": "HE", "at": 22},
+    {"op": "anagram", "indicators": [{"text": "Unusual", "at": 0}], "parts": [
+        {"op": "last", "indicators": [{"text": "close to", "at": 28}], "parts": [{"words": "union", "at": 37}]},
+        {"words": "thing", "at": 8}]}]}
+new, used = F.repair_tree(pge, "Unusual thing to have bloke close to union at?", "HENNIGHT", PGE)
+check("a last-letter piece far from the pool leaves the anagram and charades beside it",
+      used == ["poolGap"] and [p.get("op") or p["words"] for p in new["parts"]] == ["bloke", "last", "anagram"]
+      and [p["words"] for p in new["parts"][2]["parts"]] == ["thing"])
+pge2 = {"op": "container", "indicators": [{"text": "in", "at": 25}], "parts": [
+    {"op": "anagram", "indicators": [{"text": "wrought", "at": 28}], "parts": [{"words": "gold", "at": 36}, {"words": "a", "at": 12}]},
+    {"words": "small coin", "gives": "P", "at": 14}]}
+new, used = F.repair_tree(pge2, "Toady given a small coin in wrought gold", "LAPDOG", PGE)
+check("a piece goes into the container arm beside the anagram",
+      used == ["poolGap"] and new["parts"][1]["op"] == "charade" and [p["words"] for p in new["parts"][0]["parts"]] == ["gold"])
 
 # tidy_wordplay_shapes.write_allowances: only the puzzles a run touched move, and only down
 import json

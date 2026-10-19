@@ -60,6 +60,7 @@ fails.
 
 import ast
 import collections
+import copy
 import difflib
 import functools
 import itertools
@@ -5522,6 +5523,10 @@ def pool_gaps(tree, clue):
     if not clue:
         return 0
     low = clue.lower()
+    try:    # stored trees carry no offsets: place every span as view() does, or "a" is found inside "Jars"
+        tree = wordplay.locate(copy.deepcopy(tree), clue)
+    except Exception:
+        pass
     n = 0
     for node in _walk(tree):
         parts = [p for p in node.get("parts") or [] if isinstance(p, dict)]
