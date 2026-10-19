@@ -221,6 +221,20 @@ check("an unindicated hidden word under a 'having returned' reversal is counted"
     {"op": "reversal", "indicators": [{"text": "having returned"}], "parts": [{"op": "hidden", "parts": [{"words": "Blame Nicola"}]}]}))
 check("a leaf holding primarily that gives the others' initials is counted", 1, v.initials_in_leaf(
     {"op": "charade", "parts": [{"words": "Dish", "gives": "PIZZA"}, {"words": "zip and zing primarily", "gives": "ZZ"}]}))
+check("a deletion nested in an unindicated deletion is counted", 1, v.nested_same_op({"op": "deletion", "parts": [
+    {"op": "deletion", "indicators": [{"text": "lacking"}], "parts": [{"words": "x", "gives": "ABCD"}, {"gives": "C"}]}, {"gives": "B"}]}))
+check("a middle op beside a leaf giving middle letters is counted", 1, v.middle_sibling_leaf({"op": "charade", "parts": [
+    {"op": "middle", "indicators": [{"text": "essence of"}], "parts": [{"words": "primeval"}]}, {"words": "passion", "gives": "SSI"}]}))
+check("a deletion over a charade cutting inside one piece is counted", 1, v.del_one_piece({"op": "deletion", "indicators": [
+    {"text": "no end"}], "parts": [{"op": "charade", "parts": [{"words": "tune", "gives": "MELODY"}, {"words": "hit", "gives": "RAM"}], }, {"gives": "Y"}]}))
+check("an anagram that only moves one letter is counted", 1, v.ana_is_move({"op": "anagram", "indicators": [{"text": "when temperature rises"}], "parts": [
+    {"words": "unable to react", "gives": "INERT"}]}, "INTER"))
+check("three deletions with one indicator are counted", 1, v.split_shared_indicators({"op": "charade", "parts": [
+    {"op": "deletion", "indicators": [{"text": "endlessly"}], "parts": [{"words": "a", "gives": "AB"}, {"gives": "B"}]},
+    {"op": "deletion", "parts": [{"words": "b", "gives": "CD"}, {"gives": "D"}]},
+    {"op": "deletion", "parts": [{"words": "c", "gives": "EF"}, {"gives": "F"}]}]}))
+check("a leaf 'doubly' beside a leaf giving the same letters is counted", 1, v.repeat_in_leaf({"op": "charade", "parts": [
+    {"words": "dope", "gives": "ASS"}, {"words": "doubly", "gives": "ASS"}]}))
 if v._lexicon_letters():
     check("a word split around an insert into two leaves is counted", 1, v.split_word_leaves({"op": "charade", "parts": [
         {"op": "container", "parts": [{"words": "cut", "gives": "HA"}, {"words": "stay", "gives": "YSTA"}]},
