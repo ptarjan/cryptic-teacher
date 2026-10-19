@@ -89,6 +89,11 @@ const SMOKE_DEPS = [
     "tools/fetch_fifteensquared.py", "tools/fetch_wp_blog.py", "tools/times_grids.py",
     "tools/parse_timesforthetimes.py", "tools/barred_grid.py", "tools/unit_queue.py", "tools/unit_more.py", "tools/file_times_puzzles.py",
 ];
+// Files under a declared prefix that no result depends on: the work queue the
+// burn jobs rewrite thousands of times a day (tools/ci_scope.py's QUEUE_STATE;
+// tools/test_ci_scope.py keeps the two lists equal). Left in the key, every
+// "Annotate" push would re-run the whole smoke test.
+const INERT = ["tools/data/shape_reannotate.json"];
 const CHECKS = {
   "tools/smoke_test.js": { deps: SMOKE_DEPS },
 };
@@ -124,6 +129,7 @@ function codeKey(check) {
   for (const [p, blob] of [...tree()].sort(([a], [b]) => (a < b ? -1 : 1))) {
     if (p.startsWith("puzzles/")) continue;
     if (deps && !deps.some((d) => p.startsWith(d))) continue;
+    if (deps && INERT.includes(p)) continue;
     h.update(`${blob} ${p}\n`);
   }
   return (keyMemo[check] = h.digest("hex"));
@@ -228,7 +234,7 @@ function merge(cacheFile, resultsDir, outFile, shapesDir) {
   return bad;
 }
 
-module.exports = { CHECKS, SMOKE_DEPS, codeKey, puzzles, inSlice, readCache, uncached, resultsFor, idOf,
+module.exports = { CHECKS, SMOKE_DEPS, INERT, codeKey, puzzles, inSlice, readCache, uncached, resultsFor, idOf,
   capUncached, merge };
 
 if (require.main === module && process.argv[2] === "--drop-cached") {

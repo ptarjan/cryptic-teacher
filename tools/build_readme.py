@@ -815,6 +815,8 @@ LAYOUT = [
     ("annotating", "tools/prune_shims.py", "remove the puzzles/*.js shims (and their .gz) that the index no longer names"),
     ("annotating", "tools/test_tree_normalize.py", "tree_normalize: canonical rewrites by code, letters proved unchanged (r10 sample rows)"),
     ("annotating", "tools/tree_normalize.py", "rewrite wordplay trees into Paul's canonical forms by code, before any clue goes to a model"),
+    ("annotating", "tools/ci_scope.py", "what tests.yml has to run for a push: the whole suite, or the puzzle fast path"),
+    ("annotating", "tools/test_ci_scope.py", "tools/ci_scope.py: which pushes may skip the sharded suite, and how tests.yml wires that in"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
