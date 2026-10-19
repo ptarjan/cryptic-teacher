@@ -154,13 +154,14 @@ def row(rel, inputs_key, found, files_hash, scan_key, sol_seen, verdicts, vlm=No
 
 
 def read_line(rel, verdicts):
-    """The log line of an edition's read."""
+    """The log line of an edition's read, ending with its VLM asks (vlm_reader.vlm_note)."""
+    import vlm_reader
     return f"read {rel}: " + ("; ".join(
         f"{v['number']} " + ("wrote " + v["id"] if v.get("wrote") else
                              v.get("skip") or v.get("refused") or v.get("refusedWrite")
                              or ("write failed: " + v["writeFailed"] if v.get("writeFailed") else None)
                              or v.get("id") or "read")[:60]
-        for v in verdicts) or "nothing filed")
+        for v in verdicts) or "nothing filed") + f" ({vlm_reader.vlm_note()})"
 
 
 def progress(line):
