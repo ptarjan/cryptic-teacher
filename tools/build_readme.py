@@ -817,6 +817,7 @@ LAYOUT = [
     ("annotating", "tools/tree_normalize.py", "rewrite wordplay trees into Paul's canonical forms by code, before any clue goes to a model"),
     ("annotating", "tools/ci_scope.py", "what tests.yml has to run for a push: the whole suite, or the puzzle fast path"),
     ("annotating", "tools/test_ci_scope.py", "tools/ci_scope.py: which pushes may skip the sharded suite, and how tests.yml wires that in"),
+    ("annotating", "tools/test_clue_tokens.js", "the word chips under a clue and the highlights in its heading cut a hyphenated word at the same places: a compound is one chip (\"Drug-free\") unless an annotation fragment starts or ends at its hyphen (the indicator \"free\" in \"Drug-free period\"), and then both are cut there. Reads clueTokens and clueCuts out of app.js, so it cannot drift from the app"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

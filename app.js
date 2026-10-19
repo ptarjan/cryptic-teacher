@@ -4869,15 +4869,45 @@
   // it. The enumeration is never a pickable word: it is not in the text, except
   // for a count in words ("(11, two words)", tools/enumeration.py WORDED), which
   // stays in the text as printed and is cut off here.
-  function clueTokens(clue) {
+  //
+  // A hyphenated or en-dashed compound is ONE word ("Drug-free", 255 of the
+  // corpus's 265 annotated compounds are named whole), unless an annotation
+  // fragment starts or ends at its hyphen: then the highlight in the clue
+  // heading covers only half of it ("free" the indicator in "Drug-free"), and a
+  // chip for the whole compound would disagree with the heading about which
+  // words are lit. `cuts` is the list of such fragment edges (clueCuts); the
+  // compound is split after the hyphen there, so the chips and the highlights
+  // are always cut at the same places.
+  function clueTokens(clue, cuts) {
     const body = String(clue || "")
       .replace(/\(\s*\d{1,2}\s*,\s*(two|three|four|five|six|seven|eight)\s+words\s*\)\s*$/i, "");
     const out = [];
     const re = /\S+/g;
     let m;
-    while ((m = re.exec(body))) out.push({ i: m.index, text: m[0] });
+    while ((m = re.exec(body))) {
+      let from = 0;
+      const dash = /[-\u2010-\u2015](?=[^\s-\u2010-\u2015])/g;
+      let d;
+      while (cuts && cuts.length && (d = dash.exec(m[0]))) {
+        const h = m.index + d.index;
+        if (d.index > from - 1 && cuts.some((b) => b === h || b === h + 1)) {
+          out.push({ i: m.index + from, text: m[0].slice(from, d.index + 1) });
+          from = d.index + 1;
+        }
+      }
+      out.push({ i: m.index + from, text: m[0].slice(from) });
+    }
     return out;
   }
+
+  // The edges of every fragment the heading can light (placedFragments): where
+  // clueTokens may have to split a compound.
+  function clueCuts(e) {
+    const cuts = [];
+    placedFragments(e).forEach((f) => { cuts.push(f.i, f.i + f.text.length); });
+    return cuts;
+  }
+  const tokensOfClue = (e) => clueTokens(clueText(e), clueCuts(e));
 
   // Piece `at` of the blocks rung, when it is one that can be pointed at: it has
   // to name a span of the clue and yield letters. Indexed off blockPieces rather
@@ -4952,7 +4982,7 @@
   function rungSpans(e, rung, step) {
     const ann = annOf(e);
     if (!ann) return [];
-    const tokens = clueTokens(clueText(e));
+    const tokens = tokensOfClue(e);
     const spans = [];
     const add = (t, i) => {
       const span = [];
@@ -5015,7 +5045,7 @@
     const ann = annOf(e);
     if (!ann || rung === "indicators") return [];
     const defs = (ann.definitions || []).map((d) => d.text);
-    const tokens = clueTokens(clueText(e));
+    const tokens = tokensOfClue(e);
     return rungSpans(e, rung, step)
       .filter((s) => rung === "definition" || defs.indexOf(s.text) >= 0)
       .reduce((a, s) => a.concat(edgeTokens(s.tokens, tokens)), []);
@@ -5079,7 +5109,7 @@
     const at = step || 0;
     if (at && rung !== "blocks") return null;
     if (rung === "type") return familyAsk(ann);
-    const tokens = clueTokens(clueText(e));
+    const tokens = tokensOfClue(e);
     const target = rungTokens(e, rung, at);
     if (!target.length) return null;
     let prompt = "", gives = "";
@@ -5234,7 +5264,7 @@
     const slice = (a, b) => markUp(shown.slice(a, b),
       marks.map((m) => ({ i: m.i - a, len: m.len, cls: m.cls })),
       italics.map((r) => ({ at: r.at - a, length: r.length })), true);
-    const tokens = ask ? ask.tokens : clueTokens(clueText(e));
+    const tokens = ask ? ask.tokens : tokensOfClue(e);
     let out = "", at = 0;
     tokens.forEach((t, i) => {
       const settled = ask && ask.known.indexOf(i) >= 0;

@@ -3040,5 +3040,13 @@ tools/ci_scope.py                              what tests.yml has to run for a p
                                                suite, or the puzzle fast path
 tools/test_ci_scope.py                         tools/ci_scope.py: which pushes may skip the
                                                sharded suite, and how tests.yml wires that in
+tools/test_clue_tokens.js                      the word chips under a clue and the highlights
+                                               in its heading cut a hyphenated word at the same
+                                               places: a compound is one chip ("Drug-free")
+                                               unless an annotation fragment starts or ends at
+                                               its hyphen (the indicator "free" in "Drug-free
+                                               period"), and then both are cut there. Reads
+                                               clueTokens and clueCuts out of app.js, so it
+                                               cannot drift from the app
 ```
 <!-- LAYOUT-END -->
