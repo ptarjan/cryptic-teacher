@@ -187,5 +187,32 @@ new, used = F.repair_tree(fl, fc, "DIE", {"wrongRole": F.r_wrong_role})
 check("dive, leaving five is del<leaving>(dive, V)", used == ["wrongRole"] and (new := new["parts"][0])["op"] == "deletion"
       and new["indicators"][0]["text"] == "leaving" and new["parts"][1]["gives"] == "V")
 
+# sharedIndicator: the deletion indicator's words filed again as a leaf giving the result
+SI = {"sharedIndicator": F.r_shared_indicator}
+sic = "Pen exclusive news item, not the first"
+si = {"op": "deletion", "indicators": [{"text": "not the first"}], "parts": [
+    {"op": "charade", "parts": [{"words": "exclusive news item", "gives": "SCOOP"},
+                                {"words": "not the first", "gives": "COOP"}]}, {"gives": "SCOOP"}]}
+new, used = F.repair_tree(si, sic, "COOP", SI)
+check("the restated result goes, the removed letter is read off",
+      used == ["sharedIndicator"] and new["op"] == "deletion" and new["parts"][0]["words"] == "exclusive news item"
+      and new["parts"][1] == {"gives": "S"} and len(new["parts"]) == 2)
+sic2 = "Man snubbed sullen young woman"
+si2 = {"op": "deletion", "indicators": [{"text": "snubbed"}], "parts": [{"op": "charade", "parts": [
+    {"words": "sullen", "gives": "DOUR"}, {"words": "snubbed", "gives": "DOU"}, {"words": "young woman", "gives": "GAL"}]},
+    {"gives": "DOUR"}]}
+new, used = F.repair_tree(si2, sic2, "DOUGAL", SI)
+check("the other charade parts stay outside the deletion", used == ["sharedIndicator"] and new["op"] == "charade"
+      and new["parts"][0]["op"] == "deletion" and new["parts"][1]["words"] == "young woman")
+sic3 = "Destitution unlimited is plain"
+si3 = {"op": "deletion", "indicators": [{"text": "unlimited"}], "parts": [{"op": "charade", "parts": [
+    {"words": "Destitution", "gives": "POVERTY"}, {"words": "unlimited", "gives": "OVERT"}]}, {"gives": "POVERTY"}]}
+new, used = F.repair_tree(si3, sic3, "OVERT", SI)
+check("unlimited takes both ends", used == ["sharedIndicator"] and new["parts"][1] == {"gives": "PY"})
+si4 = {"op": "deletion", "indicators": [{"text": "short"}], "parts": [{"op": "charade", "parts": [
+    {"words": "fat", "gives": "LARD"}, {"words": "short", "gives": "BLAH"}]}, {"gives": "LARD"}]}
+new, used = F.repair_tree(si4, "fat short", "BLAH", SI)
+check("a result the source does not give is left for the model", used == [])
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
