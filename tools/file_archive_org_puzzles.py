@@ -1456,6 +1456,70 @@ def indented_column(title, grid, margin=40):
     return max(0, int(title[0] - indent / 2) - margin), title[3]
 
 
+#: Ink share of a pixel column under which it is a gutter's, the narrowest
+#: gutter (pixels, at a 4300px page) trimmed_lead() trusts, and how far into
+#: the column's span (a share of it) it looks for one.
+GUTTER_INK = 0.1
+GUTTER_MIN = 6
+#: The widest rule (pixels) a gutter may hold.
+GUTTER_RULE = 5
+GUTTER_SPAN = 0.4
+#: The print left of a gutter is a column of text (a share of GUTTER_DENSE
+#: ink over GUTTER_LEFT pixels at least), not the sparse numbers' margin the
+#: clue column hangs its text from (the 1951 Times' gap after "12").
+GUTTER_LEFT = 40
+GUTTER_DENSE = 0.12
+#: and at least this share of those pixel columns carry ink: the margin
+#: before a column of numbers is blank in part of them.
+GUTTER_SOLID = 0.75
+
+
+def trimmed_lead(img, grid, lead):
+    """`lead` (lead_column()'s (x0, top)) with x0 moved right to the gutter
+    between the clue column and the column of print left of it, when its
+    window reaches into that neighbour: lead_column() centres the window under
+    the title, which on the 1945-49 Times pages starts it 100px or more left
+    of the clue column (the 1949-11-19 ACROSS column reads with the small ads'
+    line ends running through it, and no list parses). The gutter is the
+    first run of GUTTER_MIN pixel columns with next to no ink, after dense print (from
+    the title's foot to the grid's foot) in the first GUTTER_SPAN of the
+    window; with none, `lead` stands."""
+    import numpy as np
+    x0, top = lead
+    edge = grid[0]
+    if edge - x0 < 200 or grid[3] <= top:
+        return lead
+    ink = np.asarray(img.crop((x0, top, edge, grid[3])).convert("L")) < 128
+    share = ink.mean(axis=0)
+    blank = share < GUTTER_INK
+    # A thin rule inside the gutter (inked down part of its height) does not
+    # break it: gaps of GUTTER_RULE pixels or less between blank runs close.
+    runs, i = [], 0
+    while i < len(blank):
+        if not blank[i]:
+            i += 1
+            continue
+        j = i
+        while j < len(blank) and blank[j]:
+            j += 1
+        if runs and i - runs[-1][1] <= GUTTER_RULE:
+            runs[-1][1] = j
+        else:
+            runs.append([i, j])
+        i = j
+    last = GUTTER_SPAN * len(share)
+    best = None
+    for lo, hi in runs:
+        if lo >= last:
+            break
+        left = share[max(lo - GUTTER_LEFT, 0):lo]
+        if hi - lo >= GUTTER_MIN and len(left) == GUTTER_LEFT and left.mean() >= GUTTER_DENSE \
+                and (left >= GUTTER_INK).mean() >= GUTTER_SOLID:
+            best = hi
+            break
+    return (x0 + best - 2, top) if best else lead
+
+
 def lead_split(lines, grid, lead, margin=40):
     """`lead` (lead_column()) with the x between it and the column under the
     grid: where the fewest words (`lines`, every reading's) under the grid
@@ -3776,6 +3840,8 @@ def read_page(d, found, hit, solutions, vlm_for=False):
     lead = lead_column(hit["box"], gbox, m) if side == "right" else \
         indented_column(hit["box"], gbox, m) if side == "below" and top is None and not column and not right \
         and not over and not paper.four else None
+    if lead:
+        lead = trimmed_lead(img, gbox, lead)
     rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json",
                                 (over - gbox[2] - 15, gbox[3]) if over else third, m, top,
                                 crop, lead, x0, right) for which in READERS}
