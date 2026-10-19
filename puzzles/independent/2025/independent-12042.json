@@ -106,36 +106,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MINSTREL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "dropping ecstasy",
-       "note": "in a down entry the drug's letter drops one place lower, swapping with the letter beneath it"
+       "text": "after",
+       "at": 36,
+       "note": "after means the left letter comes at the end"
       }
      ],
      "parts": [
       {
-       "words": "religious building",
-       "gives": "MINSTER",
-       "note": "a minster is a large church, such as York Minster; ecstasy is E, the letter that moves"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "dropping ecstasy",
+         "at": 42,
+         "note": "in this down clue the E for ecstasy drops one place lower, swapping with the letter below it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "religious building",
+         "at": 12,
+         "gives": "MINSTER",
+         "note": "a minster is a large church, such as York Minster"
+        },
+        {
+         "gives": "ER"
+        },
+        {
+         "gives": "RE"
+        }
+       ]
       },
       {
        "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
+       "at": 31,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A musician performs inside a cathedral and leaves after giving up drugs.",
-     "walkthrough": "The E of MINSTER drops one place below the R, making MINSTRE, and L comes after it: MINSTREL. 'Dropping' looks like losing the E, but the E only moves down.",
-     "definitionFit": "A minstrel was a medieval entertainer who sang and played instruments, a travelling musician."
+     "surface": "A musician is in a church, leaving once he has dropped some ecstasy.",
+     "walkthrough": "E is the drug ecstasy. 'Dropping' reads like taking a pill, but in this down clue it means the letter falls one place lower in the word for the church.",
+     "definitionFit": "A minstrel was a medieval travelling singer or player, so he is a kind of musician."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "dropping"
     }
    }
@@ -891,39 +910,43 @@
      "indicators": [
       {
        "text": "welcomes",
-       "note": "to welcome someone is to take them in, so these letters go inside the county"
+       "at": 7,
+       "note": "welcomes means takes in, so the other letters go inside the county"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "County",
-         "gives": "SHIRE",
-         "note": "a shire is an English county"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "County",
+       "at": 0,
+       "gives": "SHIRE",
+       "note": "a shire is an English county"
       },
       {
-       "words": "politician",
-       "gives": "MP",
-       "note": "MP is a Member of Parliament"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 16
+        },
+        {
+         "words": "politician",
+         "at": 18,
+         "gives": "MP",
+         "note": "MP is a Member of Parliament"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rural county hosts a politician who supplies seaside produce.",
-     "walkthrough": "Samphire grows on British salt marshes and is served like a green vegetable.",
-     "definitionFit": "Samphire is an edible plant that grows on sea cliffs and salt marshes, eaten as a seaside vegetable."
+     "surface": "A county hosts a politician who supplies seafood from its shoreline.",
+     "walkthrough": "'County' looks like the start of a place name; it is the generic word for one, which takes in the politician.",
+     "definitionFit": "Samphire is a fleshy coastal plant eaten as a vegetable, so it is food from the shoreline."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": true,
+     "misdirectedWord": "welcomes"
     }
    }
   },

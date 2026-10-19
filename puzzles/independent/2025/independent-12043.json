@@ -366,65 +366,66 @@
      "indicators": [
       {
        "text": "found in",
-       "note": "found in says the central letters sit inside the letters of the genetic abbreviation"
+       "at": 35,
+       "note": "found in means the middle letters are placed inside the reversed letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "regressive",
+         "at": 44,
+         "note": "regressive means going backwards, so the letters of DNA are read in reverse order"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "regressive",
-           "note": "regressive means going backwards, so this abbreviation is read in reverse"
-          }
-         ],
-         "parts": [
-          {
-           "words": "DNA",
-           "note": "taken as written"
-          }
-         ]
-        },
+         "words": "DNA",
+         "at": 55
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "op": "middle",
          "indicators": [
           {
            "text": "essentially",
-           "note": "the essence of a word is its core, so only the central letters of each word are kept"
+           "at": 6,
+           "note": "essentially means at its essence or core, so the central letters of each word are taken"
           }
          ],
          "parts": [
           {
-           "words": "proteins",
-           "note": "the middle two of the eight letters"
+           "words": "imitate",
+           "at": 18,
+           "note": "the middle letter of imitate"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "middle",
-       "parts": [
+        },
         {
-         "words": "imitate",
-         "note": "the middle letter of the seven"
+         "words": "proteins",
+         "at": 26,
+         "gives": "TE",
+         "note": "the central pair of letters of proteins, its essence too"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lab note about copying proteins encoded in backward-running DNA.",
-     "walkthrough": "The middles T and TE go inside AND to make ATTEND.",
-     "definitionFit": "To attend an event or a school is to go to it, being present there."
+     "surface": "A biology instruction: copy the proteins that turn up in a strand of DNA running backwards.",
+     "walkthrough": "The scientific surface makes 'imitate' and 'proteins' look like content; they are only sources of letters, and 'regressive' is a reversal signal rather than a genetics term.",
+     "definitionFit": "To attend a meeting or school is to go to it, so the two are synonyms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "essentially"
+     "misdirectedWord": "regressive"
     }
    }
   },
@@ -1425,42 +1426,39 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "OMERTA",
      "indicators": [
       {
        "text": "having made",
-       "note": "having made the letter for good into something else means it is swapped out for other letters"
+       "at": 13,
+       "note": "having made good X means the G has been turned into something else, a swap"
       }
      ],
      "parts": [
       {
        "words": "Conclusion",
+       "at": 0,
        "gives": "OMEGA",
-       "note": "the last letter of the Greek alphabet, hence the end"
+       "note": "omega is the last letter of the Greek alphabet, so it means the end or conclusion"
       },
       {
        "words": "good",
-       "gives": "G",
-       "note": "G is the abbreviation for good"
+       "at": 25,
+       "gives": "G"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "RT",
        "indicators": [
         {
-         "text": "terms",
-         "note": "terms are ends or limits, so the last letters of the following words are used"
+         "text": "terms in",
+         "at": 30,
+         "note": "terms are ends or limits, so the final letters of each word are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "our contract",
-         "gives": "RT",
-         "select": "last",
-         "note": "the last letter of each word"
+         "at": 39,
+         "note": "the last letters of our and contract"
         }
        ]
       }
@@ -1468,8 +1466,8 @@
     },
     "spelling": "OMERTÀ",
     "explanation": {
-     "surface": "A deal is sealed, with a clause swearing both sides to silence.",
-     "walkthrough": "In OMEGA the G becomes RT. 'Terms' looks like contract conditions but means word endings.",
+     "surface": "A business deal reaching its conclusion once the parties have agreed good terms in the contract, and a promise of silence.",
+     "walkthrough": "The G (good) in OMEGA is replaced by RT, the 'terms' or ends of 'our contract'. 'Made good' reads like 'repaired'; it really means the G is made into something.",
      "definitionFit": "Omertà is the Mafia's code of silence, a vow never to inform to the authorities."
     },
     "features": {
@@ -1504,83 +1502,58 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "C",
        "indicators": [
         {
          "text": "starts in",
-         "note": "starts are beginnings, so the first letter of each referenced answer is used"
+         "at": 7,
+         "note": "starts means the first letter of each of the four answers named"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "5",
-         "gives": "C",
-         "select": "first",
-         "note": "the first letter of the answer to 5 down"
+         "at": 17,
+         "gives": "CROSSBAR",
+         "note": "5 refers to the answer of 5-down, CROSSBAR"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "4",
+       "at": 20,
        "gives": "O",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "4",
-         "gives": "O",
-         "select": "first",
-         "note": "the first letter of the answer to 4 down"
-        }
-       ]
+       "note": "the start of 4-down's answer, ODDITY"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "3",
+       "at": 23,
        "gives": "N",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "3",
-         "gives": "N",
-         "select": "first",
-         "note": "the first letter of the answer to 3 down"
-        }
-       ]
+       "note": "the start of 3-down's answer, NOTARIES"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "2",
+       "at": 26,
        "gives": "D",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "2",
-         "gives": "D",
-         "select": "first",
-         "note": "the first letter of the answer to 2 down"
-        }
-       ]
+       "note": "the start of 2-down's answer, DISCOUNT"
       },
       {
        "words": "1",
+       "at": 29,
        "gives": "ONE",
-       "note": "the number spelt out"
+       "note": "here the number 1 is taken simply as the word one, not as a reference"
       }
      ]
     },
     "explanation": {
-     "surface": "A countdown to launch, explained away.",
-     "walkthrough": "The numbers look like a countdown, but 5, 4, 3 and 2 are the down answers CROSSBAR, ODDITY, NOTARIES and DISCOUNT; only 1 is taken as a number.",
-     "definitionFit": "To condone wrongdoing is to overlook or forgive it, letting it pass as if pardonable."
+     "surface": "A countdown of five, four, three, two, one, as at a rocket launch.",
+     "walkthrough": "The numbers look like a countdown; the first four are references to clues 5, 4, 3 and 2 down, whose initials are C, O, N, D, but the final 1 is just the word ONE.",
+     "definitionFit": "To condone a fault is to excuse or overlook it, so the verbs are synonyms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "starts"
+     "misdirectedWord": "1"
     }
    }
   },
@@ -1608,51 +1581,56 @@
      "op": "container",
      "indicators": [
       {
-       "text": "taking on",
-       "note": "taking on means admitting, so the outer letters hold the other pieces inside"
+       "text": "when taking on",
+       "at": 27,
+       "note": "taking on means holding or accepting something inside, so the other letters go within"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 10,
+         "note": "extremely means at the extremes, so the first and last letters of cranky are used"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "extremely",
-           "note": "extremely points to the extremes of the word, its first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "cranky",
-           "note": "first and last letters"
-          }
-         ]
-        },
-        {
-         "words": "large",
-         "gives": "L",
-         "note": "L is the abbreviation for large"
+         "words": "cranky",
+         "at": 20,
+         "note": "first and last letters of cranky"
         }
        ]
       },
       {
-       "words": "amount of work",
-       "gives": "ERG",
-       "note": "the erg is a unit of work in physics"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large",
+         "at": 42,
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
+        },
+        {
+         "words": "amount of work",
+         "at": 48,
+         "gives": "ERG",
+         "note": "an erg is a unit of work or energy in physics"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Government ministers become very irritable when given a heavy workload.",
-     "walkthrough": "'Ministers' suggests politicians, but here it means clergymen.",
-     "definitionFit": "Ministers of religion, priests and vicars, together make up the body of ordained people."
+     "surface": "Government ministers get very irritable when they are given a heavy workload.",
+     "walkthrough": "'Ministers' suggests politicians, but here it means church ministers.",
+     "definitionFit": "The clergy are the body of ordained ministers of a church, so the plural noun is a synonym."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Ministers"
     }
    }

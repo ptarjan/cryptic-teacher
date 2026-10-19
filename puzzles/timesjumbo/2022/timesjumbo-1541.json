@@ -1799,42 +1799,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "INTERWOVEN",
-     "indicators": [
-      {
-       "text": "not",
-       "note": "'X not Y' means X instead of Y, so one letter is put in the place of another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Bury",
+       "at": 12,
        "gives": "INTER",
-       "note": "to inter is to bury a body"
+       "note": "to inter is to bury"
       },
       {
-       "words": "ladies",
-       "gives": "WOMEN",
-       "note": "ladies are women"
-      },
-      {
-       "words": "five",
-       "gives": "V",
-       "note": "V is the Roman numeral five"
-      },
-      {
-       "words": "married",
-       "gives": "M",
-       "note": "M is the abbreviation for married"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 31,
+         "note": "five not married means V stands where the M would be, a swap"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ladies",
+         "at": 17,
+         "gives": "WOMEN",
+         "note": "women are ladies"
+        },
+        {
+         "words": "married",
+         "at": 35,
+         "gives": "M"
+        },
+        {
+         "words": "five",
+         "at": 26,
+         "gives": "V",
+         "note": "V is the Roman numeral for five"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Five unmarried women from the town of Bury are never apart.",
-     "walkthrough": "Bury is a town near Manchester, and its capital letter hides the verb; V takes the place of M inside WOMEN.",
-     "definitionFit": "Things interwoven are so tightly blended together that they cannot be separated."
+     "surface": "Five unmarried ladies from the town of Bury are inseparable friends.",
+     "walkthrough": "Bury is a town in Greater Manchester, but here it is a verb. 'Five not married' means the Roman five stands where the married abbreviation was.",
+     "definitionFit": "Things that are interwoven are so tightly blended together that they cannot be separated."
     },
     "features": {
      "answerInScene": false,
@@ -2336,61 +2343,73 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "stops",
-       "note": "to stop something is to close it off, so this piece comes at the end"
+       "at": 20,
+       "note": "stops means plugs a gap, so the writer's word fills the space between the other two parts"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "cracking",
-         "note": "cracking something breaks it open, so the letters fall into a new order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "rune",
-         "note": "taken as letters to be rearranged"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "cracking",
+           "at": 26,
+           "note": "cracking means breaking up, so the letters of rune are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rune",
+           "at": 35,
+           "note": "the letters of rune"
+          }
+         ]
         },
         {
-         "words": "author",
-         "gives": "PEN",
-         "note": "a pen is a writer, as in a hired pen"
+         "op": "container",
+         "indicators": [
+          {
+           "text": "appearing in",
+           "at": 48,
+           "note": "appearing in means placed inside the letters for Times"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Times",
+           "at": 61,
+           "gives": "TT",
+           "note": "T is the abbreviation for time, so times gives two of them"
+          },
+          {
+           "words": "article",
+           "at": 40,
+           "gives": "AN",
+           "note": "an is the indefinite article"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "appearing in",
-         "note": "appearing in means found inside, so this piece is enclosed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Times",
-         "gives": "TT",
-         "note": "T is the abbreviation for time, doubled for the plural"
-        },
-        {
-         "words": "article",
-         "gives": "AN",
-         "note": "an is the indefinite article"
-        }
-       ]
+       "words": "author",
+       "at": 13,
+       "gives": "PEN",
+       "note": "to pen is to author or write"
       }
      ]
     },
     "explanation": {
-     "surface": "A defiant writer stops decoding a runic inscription that appeared in The Times.",
-     "walkthrough": "'Times' with its capital looks like the newspaper, but it is a doubled abbreviation; 'stops' means the writer closes off the cracked rune.",
-     "definitionFit": "Someone incorrigible cannot be reformed, so they feel no remorse and are unrepentant."
+     "surface": "A writer gives up deciphering an ancient rune while an article appears in The Times.",
+     "walkthrough": "'Times' is the newspaper in the surface, but here it is two T abbreviations; 'author' is the verb to write.",
+     "definitionFit": "Someone unrepentant shows no regret, and an incorrigible person cannot be reformed: close synonyms."
     },
     "features": {
      "answerInScene": false,
