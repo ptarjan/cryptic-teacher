@@ -58,7 +58,7 @@ const SMOKE_DEPS = [
     "app.js", "analytics.js", "landing.js", "appnav.js", "index.html", "style.css", "qr.js", "quotes.js", "sw.js", "site.webmanifest",
     "favicon", "apple-touch-icon", "icon-192.png", "icon-512.png", "og.png", "sync/", "vendor/",
     "tools/acquire_book.py", "tools/alert.sh", "tools/annotation.py", "tools/annotation_backlog.json",
-    "tools/wordplay.py",
+    "tools/wordplay.py", "tools/tree_normalize.py", "tools/clue_shapes.py", "tools/tidy_wordplay_shapes.py",
     "tools/app_tables.py", "tools/apply_solution.py", "tools/archive_coverage.py", "tools/blog_facts.py",
     "tools/blog_facts_gold.jsonl", "tools/book_queue.py", "tools/book_twins.py", "tools/boilerplate.py", "tools/lesson_checks.py", "tools/build_abbreviations.py",
     "tools/build_lexicon.js", "tools/build_readme.py", "tools/build_seo_pages.py", "tools/canberra_london_numbers.py",
