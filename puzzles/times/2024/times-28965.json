@@ -251,59 +251,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ATTEMPT",
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means sitting inside it, so one part goes within another"
+       "at": 20,
+       "note": "in means placed inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "almost",
-         "note": "almost means not quite all, so the final letter is dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "Temperature doubled",
-           "gives": "TT",
-           "note": "T for temperature, written twice"
-          },
-          {
-           "words": "drain",
-           "gives": "EMPTY",
-           "note": "to drain a vessel is to empty it"
-          }
-         ]
+         "words": "a",
+         "at": 23,
+         "gives": "A"
         },
         {
-         "gives": "Y"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 31,
+           "note": "almost means nearly all, so the last letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "drain",
+           "at": 25,
+           "gives": "EMPTY",
+           "note": "to empty is to drain"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Temperature doubled",
+       "at": 0,
+       "gives": "TT",
+       "note": "T is the abbreviation for temperature, and doubled it is TT"
       }
      ]
     },
     "explanation": {
-     "surface": "A spike in temperature in a drain leads to the pipe cracking.",
-     "walkthrough": "'Crack' looks like a fracture, but it is the noun meaning a go at something.",
-     "definitionFit": "To have a crack at something is an informal idiom for making a try or effort."
+     "surface": "Twice the heat in a drain nearly makes it crack.",
+     "definitionFit": "A crack at something is an attempt, a try, as in 'have a crack'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "crack"
     }
    }
@@ -797,63 +798,68 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "securing",
-       "note": "to secure something is to hold it fast, so one part is held inside another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "securing",
+         "at": 7,
+         "note": "securing means holding fast, so I and IS hold the trade word between them"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means not all, so the last letter goes"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "is",
-             "note": "taken as written"
-            },
-            {
-             "words": "Credit",
-             "gives": "TICK",
-             "note": "tick is British slang for credit, as in buying on tick"
-            }
-           ]
+           "words": "One",
+           "at": 0,
+           "gives": "I",
+           "note": "I is the Roman numeral one"
           },
           {
-           "gives": "K"
+           "words": "is",
+           "at": 4
           }
          ]
         },
         {
          "words": "trade",
+         "at": 16,
          "gives": "DEAL",
-         "note": "to trade is to deal"
+         "note": "a deal is a trade, a piece of business"
         }
        ]
       },
       {
-       "words": "One",
-       "gives": "I",
-       "note": "I is the Roman numeral one"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 30,
+         "note": "mostly means most but not all, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Credit",
+         "at": 23,
+         "gives": "TICK",
+         "note": "tick is British slang for credit, as in 'buying on tick'"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trader wonders whether buying on credit is impractical.",
-     "walkthrough": "The pair 'One is' together hold the trade between them. Buying on tick is British for buying on credit.",
-     "definitionFit": "An idealistic person pursues lofty principles over workable realities, so is often called unrealistic."
+     "surface": "One is clinching a deal; the credit rating is mostly unrealistic.",
+     "walkthrough": "'On tick' is British slang for buying on credit.",
+     "definitionFit": "Idealistic means pursuing ideals rather than what is achievable, hence unrealistic or impractical."
     },
     "features": {
      "answerInScene": false,

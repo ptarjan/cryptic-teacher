@@ -44,32 +44,47 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "BARS",
+     "op": "container",
      "indicators": [
       {
-       "text": "going down",
-       "note": "in a down entry, going down means moving lower in the column, so one letter shifts further along the word"
+       "text": "down",
+       "at": 22,
+       "note": "in a down clue, down means the letter is put back lower in the word"
       }
      ],
      "parts": [
       {
-       "words": "Supports",
-       "gives": "BRAS",
-       "note": "bras are supporting undergarments"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "going",
+         "at": 16,
+         "note": "going means leaving, so the rector's letter comes out of its place in the supports word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Supports",
+         "at": 0,
+         "gives": "BRAS",
+         "note": "bras are supports worn as underwear"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
        "words": "rector",
-       "gives": "R",
-       "note": "R is the abbreviation for rector"
+       "at": 9,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A rector who once propped things up has taken a fall and given up.",
-     "walkthrough": "The R of BRAS moves one place down the column, giving BARS.",
-     "definitionFit": "To bar something is to prevent or block it, so bars works as a verb synonym for stops."
+     "surface": "A rector moves on, both supporting things and putting a stop to them.",
+     "walkthrough": "In BRAS, the R (rector) slides one place further down the light, past the A.",
+     "definitionFit": "To bar is to block or prohibit, so 'bars' as a verb means stops."
     },
     "features": {
      "answerInScene": false,
@@ -590,39 +605,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "breaking",
-       "note": "breaking smashes the word apart so its letters come back in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "emergency",
+       "at": 10,
+       "gives": "SOS",
+       "note": "SOS is the distress call used in an emergency"
+      },
+      {
+       "words": "the last part of 6",
+       "at": 22,
+       "gives": "TEN",
+       "note": "the answer to 6 ends in TEN, its last part"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "breaking",
+         "at": 41,
+         "note": "breaking means broken up, so the letters of out are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "emergency",
-         "gives": "SOS",
-         "note": "SOS is the distress call"
-        },
-        {
-         "words": "the last part of 6",
-         "gives": "TEN",
-         "note": "6 down is CUBE NUMBER; its last part is number, and ten is a number"
-        },
-        {
          "words": "out",
-         "note": "rearranged"
+         "at": 50
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An emergency drags on as the end of something breaks out.",
-     "walkthrough": "The reference to 6 means the last word of that answer, number, which stands for any number.",
-     "definitionFit": "Sostenuto is the musical direction for sustained playing, with notes prolonged."
+     "surface": "A long crisis with the end of another clue escaping.",
+     "walkthrough": "SOS, then TEN from the end of 6, then UTO from the broken-up word out.",
+     "definitionFit": "Sostenuto is a musical direction meaning sustained, the notes held for their full value."
     },
     "features": {
      "answerInScene": false,
@@ -1059,38 +1077,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "scruffy",
-       "note": "scruffy means untidy and dishevelled, so the letters are messed up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Charlie perhaps",
+       "at": 0,
+       "gives": "CHAN",
+       "note": "Charlie Chan is the fictional detective, so Chan is one surname for a Charlie"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "scruffy",
+         "at": 23,
+         "note": "scruffy means untidy, so the letters of a yak are disarranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Charlie perhaps",
-         "gives": "CHAN",
-         "note": "Charlie Chan is the fictional detective"
-        },
-        {
          "words": "a",
-         "note": "taken as written"
+         "at": 21
         },
         {
          "words": "yak",
-         "note": "rearranged"
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone named Charlie with a shaggy yak, posing as an ancient Indian sage.",
-     "walkthrough": "Charlie Chan is the Chinese-American detective of 1930s films; 'perhaps' marks him as one example of a Charlie.",
-     "definitionFit": "Chanakya was an ancient Indian teacher, philosopher and royal adviser, credited with the Arthashastra."
+     "surface": "Someone called Charlie with an unkempt yak turns out to be an Indian sage.",
+     "walkthrough": "'Charlie' suggests the C of the phonetic alphabet, but 'perhaps' points to an example: Charlie Chan.",
+     "definitionFit": "Chanakya was a scholar and royal adviser in ancient India, author of the Arthashastra on statecraft and economics."
     },
     "features": {
      "answerInScene": false,
@@ -1341,41 +1361,40 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "QWAQWA",
-     "indicators": [
-      {
-       "text": "starts to",
-       "note": "starts are the beginnings, so only the opening letter of each word counts"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "QWA",
+       "indicators": [
+        {
+         "text": "starts to",
+         "at": 12,
+         "note": "starts to means the opening letters of the words that follow"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
          "words": "quietly walk around",
-         "gives": "QWA",
-         "select": "first",
-         "note": "first letters of the three words"
+         "at": 22
         }
        ]
+      },
+      {
+       "words": "Repeatedly",
+       "at": 0,
+       "gives": "QWA",
+       "note": "repeatedly means said again, so the same three opening letters are supplied a second time"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps tiptoeing round a place that no longer exists.",
-     "walkthrough": "'Repeatedly' says the three initials are used twice. 25 is AFRICAN, so the homeland is a South African one.",
-     "definitionFit": "QwaQwa was a homeland created by apartheid South Africa, abolished in 1994."
+     "surface": "Again and again, a soft-footed stroll around a former African territory.",
+     "walkthrough": "25 is AFRICAN, so the definition is a former African homeland; the opening letters of quietly, walk and around are written twice.",
+     "definitionFit": "QwaQwa was a homeland, or bantustan, set up for Sotho people under South African apartheid."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "quietly"
+     "aptDefinition": false
     }
    }
   },
@@ -1400,34 +1419,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "refurbished",
-       "note": "refurbished means done up and reworked, so the letters are reorganised"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "refurbished",
+         "at": 17,
+         "note": "refurbished means done up again, so the letters of fair are reworked"
+        }
+       ],
        "parts": [
         {
          "words": "fair",
-         "note": "rearranged"
-        },
-        {
-         "words": "toilet",
-         "gives": "CAN",
-         "note": "can is US slang for a toilet"
+         "at": 12
         }
        ]
+      },
+      {
+       "words": "toilet",
+       "at": 29,
+       "gives": "CAN",
+       "note": "can is American slang for a toilet"
       }
      ]
     },
     "explanation": {
-     "surface": "A European tourist finds a reasonably smart, refurbished toilet.",
-     "walkthrough": "'Continental' suggests mainland Europe, but here it means of a specific continent.",
-     "definitionFit": "African describes something of the continent of Africa, so it is continental in the literal sense."
+     "surface": "A tidy toilet that has been refitted, on the continent.",
+     "walkthrough": "'Continental' suggests mainland Europe, but here it is the adjective for one particular continent.",
+     "definitionFit": "African describes things from Africa, which is a continent, so it is one sense of continental."
     },
     "features": {
      "answerInScene": false,
