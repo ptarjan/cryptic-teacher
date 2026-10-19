@@ -914,43 +914,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AESTHETE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "at": 20,
+       "note": "taken in by means the first piece is held inside the second, so these letters sit within the scrambled set"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "taken in by",
-         "note": "HE is taken inside the rearranged letters"
-        },
-        {
          "text": "fancy",
-         "note": "the letters are made fancy, rearranged"
+         "at": 32,
+         "note": "fancy as a verb-like adjective here suggests something elaborately reworked, so the letters of tea-set are rearranged"
         }
        ],
        "parts": [
         {
          "words": "tea-set",
-         "note": "TEASET rearranged, split into AEST and TE"
-        },
-        {
-         "words": "he",
-         "note": "the word he, taken as it stands and placed between the two halves"
+         "at": 38,
+         "note": "the six letters of tea-set are the anagram fodder"
         }
        ]
+      },
+      {
+       "words": "he's",
+       "at": 15,
+       "gives": "HE",
+       "note": "he is taken as written; the 's (is) just joins the clause"
       }
      ]
     },
     "explanation": {
-     "surface": "An idle dabbler in the arts, seduced by an ornate tea service.",
-     "walkthrough": "Read 'he's taken in by' as 'he is taken in by': HE sits inside the jumbled TEA-SET. 'Fancy' is the anagram indicator, fancy meaning elaborate, not liking.",
-     "definitionFit": "An aesthete cultivates a love of beauty and the arts, often shallowly, as a dilettante does."
+     "surface": "A dabbler in the arts is captivated by an ornate set of teacups and saucers.",
+     "walkthrough": "The 's of he's is just 'is', joining the two halves of the clue; the hyphen in tea-set is ignored, leaving six letters to rearrange around the pronoun.",
+     "definitionFit": "An aesthete is a person devoted to art and beauty, often with an amateur's air, which is what a dilettante is."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
     }
    }
   },
@@ -1343,52 +1349,54 @@
    "annotation": {
     "definedByPreamble": true,
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "REEVE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "back",
-         "note": "VEER is written backwards"
+         "at": 14,
+         "note": "back tells us to read the word for changing course from right to left"
         }
        ],
        "parts": [
         {
          "words": "Change course",
-         "gives": "REEV",
-         "note": "veer = change course, reversed"
-        },
+         "at": 0,
+         "gives": "VEER",
+         "note": "to change course is to veer"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first",
-           "note": "take the first letter of Edgbaston"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Edgbaston",
-           "note": "the first letter of EDGBASTON, a cricket ground in Birmingham"
-          }
-         ]
+         "text": "first",
+         "at": 33,
+         "note": "first here means only the opening letter of Edgbaston is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Edgbaston",
+         "at": 22,
+         "note": "Edgbaston is a Birmingham cricket ground; its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A driver doubling back towards Edgbaston, the Birmingham cricket ground, as a priority.",
-     "walkthrough": "The reeve is the female of the ruff, a wading bird, so this is another unclued member of the theme.",
-     "definitionFit": "A reeve is a female ruff, a wading bird, part of the puzzle's bird theme."
+     "surface": "Someone is told to turn round and head back to the Edgbaston cricket ground before anywhere else.",
+     "walkthrough": "This is a thematic clue, so there is no definition: the answer is simply a bird. 'back' turns VEER round, and the first letter of Edgbaston follows. A reeve is the female of the ruff, a wading bird.",
+     "definitionFit": "Thematic clue with no definition; a reeve is the name for a female ruff, a sandpiper-like wading bird."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "back"
+     "misdirectedWord": "Edgbaston"
     }
    }
   },
@@ -1408,58 +1416,75 @@
    "annotation": {
     "definedByPreamble": true,
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "not centre",
-       "note": "GOAL loses its middle letters OA"
-      },
-      {
-       "text": "back of",
-       "note": "take the last letter of 'net'"
+       "text": "to",
+       "at": 35,
+       "note": "to here means added on to, so the letter from net is attached after the anagram"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "curling",
-         "note": "the letters curl round into a new order"
+         "at": 27,
+         "note": "curling suggests twisting round, so these letters are bent into a new order"
         }
        ],
        "parts": [
         {
          "words": "Scored",
-         "note": "anagram fodder"
+         "at": 0,
+         "note": "the letters of Scored go into the anagram as written"
         },
         {
-         "words": "goal",
-         "gives": "GL",
-         "note": "GOAL without its centre OA"
-        },
-        {
-         "op": "last",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "to"
+           "text": "not centre",
+           "at": 14,
+           "note": "not centre means the middle two letters of goal are dropped"
           }
          ],
          "parts": [
           {
-           "words": "net",
-           "note": "the back letter of NET"
+           "words": "goal",
+           "at": 7,
+           "note": "goal loses its central pair, leaving its outer letters"
+          },
+          {
+           "gives": "OA"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back of",
+         "at": 38,
+         "note": "back of points to the final letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "net",
+         "at": 46,
+         "note": "the last letter of net is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football report: a goal scored off-centre, with the shot bending into the back of the net.",
-     "walkthrough": "Everything here is football, so 'curling' reads as a bending shot; it is the anagram indicator. The goldcrest, Britain's smallest bird, is unclued.",
-     "definitionFit": "The goldcrest is a tiny songbird with a gold crown stripe, part of the puzzle's bird theme."
+     "surface": "A footballer's shot sneaks in off-centre, bending into the rear of the net.",
+     "walkthrough": "A thematic clue with no definition: the answer is a bird. 'not centre' strips OA from GOAL to leave GL; 'curling' rearranges SCORED with GL into GOLDCRES, and T from the back of net ends it.",
+     "definitionFit": "Thematic clue without definition; the goldcrest is Britain's smallest songbird, with a yellow-orange stripe on its crown."
     },
     "features": {
      "answerInScene": false,
