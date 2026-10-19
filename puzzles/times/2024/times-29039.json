@@ -871,43 +871,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EASY",
+     "op": "container",
      "indicators": [
       {
-       "text": "cut",
-       "note": "cutting trims something short, so its final letter drops away"
+       "text": "sandwiches",
+       "at": 17,
+       "note": "sandwiches means holds between, so the shortened word goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "sandwiches",
-         "note": "sandwiching puts a filling between two outer slices"
+         "text": "cut",
+         "at": 13,
+         "note": "cut means the word is docked, losing its last letter"
         }
        ],
        "parts": [
         {
-         "words": "ogle",
-         "gives": "EY",
-         "note": "to ogle is to eye, here cut short"
+         "words": "to ogle",
+         "at": 5,
+         "gives": "EYE",
+         "note": "to eye someone is to ogle them"
         },
         {
-         "words": "Like",
-         "gives": "AS",
-         "note": "like and as both compare"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "Like",
+       "at": 0,
+       "gives": "AS",
+       "note": "as means like, in 'as good as gold'"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who likes to eye up the cut sandwiches and a slice of cake at tea.",
-     "walkthrough": "Tea-time food fills the surface, and 'sandwiches' turns out to be a verb. EYE loses its last letter and takes AS inside.",
-     "definitionFit": "Calling a task a piece of cake is an idiom for saying it is simple to do."
+     "surface": "Someone likes staring at sliced sandwiches and a slice of cake.",
+     "walkthrough": "'sandwiches' and 'cake' make a tea table, but 'a piece of cake' is the idiom for something simple.",
+     "definitionFit": "A piece of cake is the idiom for a task that is simple or effortless."
     },
     "features": {
      "answerInScene": false,
@@ -937,43 +942,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LEDERHOSEN",
-     "indicators": [
-      {
-       "text": "starts off",
-       "note": "with their starts off, words lose their opening letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "was in the van",
+       "at": 17,
+       "gives": "LED",
+       "note": "to be in the van (vanguard) is to be at the front, so to have led"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "driving",
-         "note": "the driver sits up front, so this piece leads what follows"
+         "text": "jerkily",
+         "at": 64,
+         "note": "jerkily suggests the remaining letters are jolted into a new order"
         }
        ],
        "parts": [
         {
-         "words": "was in the van",
-         "gives": "LED",
-         "note": "to be in the van (vanguard) is to lead"
-        },
-        {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "jerkily",
-           "note": "a jerky ride throws things about, so the letters are shaken up"
+           "text": "driving starts off",
+           "at": 45,
+           "note": "driving off the starts means the first letter of each word is removed"
           }
          ],
          "parts": [
           {
            "words": "the person",
-           "gives": "HEERSON",
-           "note": "each word loses its first letter: tHE pERSON"
+           "at": 34
+          },
+          {
+           "gives": "TP"
           }
          ]
         }
@@ -982,12 +984,12 @@
      ]
     },
     "explanation": {
-     "surface": "Someone in the van as the driver pulls away with a lurch.",
-     "walkthrough": "The 'van' is the vanguard, not a vehicle; being in front is leading. The rest shuffled gives ERHOSEN.",
-     "definitionFit": "Lederhosen are the leather shorts of Bavarian and Alpine folk costume, national dress worn at festivals."
+     "surface": "A costume was carried in a van whose driver set off with a series of jolts.",
+     "walkthrough": "'van' suggests a vehicle but is short for vanguard. Removing the starts of 'the person' leaves HE and ERSON for the anagram.",
+     "definitionFit": "Lederhosen are the leather shorts of Bavarian and Alpine folk dress, a traditional costume."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "van"
     }
@@ -1160,46 +1162,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AGGRIEVE",
-     "indicators": [
-      {
-       "text": "brief",
-       "note": "a brief version is cut short, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 19,
+         "note": "brief means the word is cut short, losing its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "violent behaviour",
-         "gives": "AGGR",
-         "note": "aggro, trimmed of its last letter"
+         "at": 25,
+         "gives": "AGGRO",
+         "note": "aggro is British slang for aggressive or violent behaviour"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
-        },
-        {
-         "words": "evening",
-         "gives": "EVE",
-         "note": "eve is an old word for evening"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 43,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "evening",
+       "at": 47,
+       "gives": "EVE",
+       "note": "eve is an old word for evening"
       }
      ]
     },
     "explanation": {
-     "surface": "Upset caused by a short burst of violence one night.",
-     "walkthrough": "Aggro is British slang for aggressive or violent behaviour, especially fighting.",
-     "definitionFit": "To aggrieve someone is to wrong them and leave them upset, the verb sense of causing distress."
+     "surface": "Someone is upset by a short burst of violence one night.",
+     "definitionFit": "To aggrieve is to upset or wrong someone, causing them distress."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Distress"
     }
    }
   },
@@ -1224,42 +1231,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TOMOGRAPHY",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "turned out",
-       "note": "whatever is turned out is thrown out, so letters are ejected"
+       "text": "mobile",
+       "at": 36,
+       "note": "mobile means movable, so all these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "My photo",
+       "at": 0
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "mobile",
-         "note": "mobile means free to move, so the letters rearrange"
+         "text": "turned out",
+         "at": 9,
+         "note": "turned out means only the outside letters of grainier are kept, its first and last"
         }
        ],
        "parts": [
         {
-         "words": "My photo",
-         "note": "taken as written"
-        },
-        {
          "words": "grainier",
-         "gives": "GRA",
-         "note": "the word with its tail INIER thrown out"
+         "at": 20
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 34
       }
      ]
     },
     "explanation": {
-     "surface": "Complaining that a picture taken on a phone came out grainy.",
-     "walkthrough": "The mobile phone and the grainy picture are one scene; 'mobile' is the anagram signal. The parse of 'grainier' is loose: only its first three letters join the fodder.",
-     "definitionFit": "Tomography builds pictures of the body's interior slice by slice, as in CT scans, a medical scanning method."
+     "surface": "A photo taken on a mobile phone came out more grainy.",
+     "walkthrough": "'mobile' looks like the phone, but it is the anagram signal; 'turned out' gives GR, the outside of grainier.",
+     "definitionFit": "Tomography is a medical scanning method that builds pictures of the body in slices."
     },
     "features": {
      "answerInScene": true,
@@ -1597,51 +1607,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEMOB",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "concluding early",
-       "note": "finishing early means the last letter never arrives"
+       "text": "Contrary",
+       "at": 0,
+       "note": "contrary means going the opposite way, so the letters are read in reverse"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "Contrary",
-         "note": "contrary means running the opposite way, so the letters go backwards"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "concluding early",
+           "at": 13,
+           "note": "concluding early means the word ends one letter too soon, losing its last"
+          }
+         ],
          "parts": [
           {
            "words": "lad",
-           "gives": "BO",
-           "note": "a lad is a boy, stopped a letter short"
+           "at": 9,
+           "gives": "BOY",
+           "note": "a boy is a lad"
           },
           {
-           "words": "medical",
-           "gives": "MED",
-           "note": "medical cut to its first three letters"
+           "gives": "Y"
           }
          ]
+        },
+        {
+         "words": "medical",
+         "at": 30,
+         "gives": "MED"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stubborn young soldier leaving the army early on medical grounds.",
-     "walkthrough": "'Medical discharge' looks like the definition, but only 'discharge' is. Demob is British informal for demobilisation, release from the forces.",
-     "definitionFit": "Being demobbed means being released from military service, which is a discharge from the army."
+     "surface": "A difficult young man ends his medical treatment ahead of schedule.",
+     "definitionFit": "Demob is short for demobilise, to release someone from military service."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "medical"
     }

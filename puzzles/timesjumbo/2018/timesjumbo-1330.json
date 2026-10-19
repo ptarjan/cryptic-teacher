@@ -596,52 +596,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUNNY",
-     "indicators": [
-      {
-       "text": "losing capital",
-       "note": "the capital is the head letter, so losing it drops the first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Manage",
+       "at": 0,
+       "gives": "RUN",
+       "note": "to run something is to manage it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after losing capital",
+         "at": 23,
+         "note": "losing capital means the first letter of money is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Manage",
-         "gives": "RUN",
-         "note": "to run a business is to manage it"
-        },
-        {
          "op": "regular",
-         "unchecked": true,
-         "gives": "NY",
          "indicators": [
           {
            "text": "regularly",
+           "at": 13,
            "note": "regularly means taking every other letter of what remains"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "money",
-           "gives": "NY",
-           "select": "regular",
-           "note": "without its first letter, the second and fourth letters of the rest"
+           "at": 7
           }
          ]
+        },
+        {
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Handling cash in a regular way after the leading funds have gone.",
-     "walkthrough": "Drop the M of money, leaving ONEY, then take every other letter starting with the second: N and Y.",
-     "definitionFit": "Something runny flows freely and thinly, with the liquid consistency of water."
+     "surface": "Someone manages their money steadily after losing their capital.",
+     "walkthrough": "'capital' looks like money but means the first letter; the odd letters of money, MNY, lose that capital M to leave NY.",
+     "definitionFit": "Runny means liquid and flowing freely, as water does."
     },
     "features": {
      "answerInScene": false,
@@ -1668,37 +1667,32 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "TOMTIT",
+     "op": "charade",
      "indicators": [
       {
        "text": "taken by",
-       "note": "something taken by another is held inside it"
+       "at": 12,
+       "note": "taken by means the second part is had by the first, so it follows it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "cat",
-         "gives": "TOM",
-         "note": "a tom is a male cat"
-        },
-        {
-         "words": "breast",
-         "gives": "TIT",
-         "note": "slang for a breast"
-        }
-       ]
+       "words": "cat",
+       "at": 21,
+       "gives": "TOM",
+       "note": "a tom is a male cat"
+      },
+      {
+       "words": "breast",
+       "at": 5,
+       "gives": "TIT",
+       "note": "tit is slang for a breast"
       }
      ]
     },
     "explanation": {
-     "surface": "A cat catches a bird by its breast.",
-     "walkthrough": "The breast piece sits within the cat's grasp; here that simply means it follows TOM.",
-     "definitionFit": "Tomtit is a British name for small tits, especially the blue tit, a common garden bird."
+     "surface": "A bird's breast is taken by a cat.",
+     "definitionFit": "A tomtit is a small songbird, commonly a blue tit."
     },
     "features": {
      "answerInScene": true,

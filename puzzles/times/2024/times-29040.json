@@ -105,47 +105,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CYCLE",
-     "indicators": [
-      {
-       "text": "not half",
-       "note": "not half means only half is kept, so the back half of the word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "100",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred"
+      },
+      {
+       "words": "years",
+       "at": 4,
+       "gives": "Y",
+       "note": "Y is the standard abbreviation for year or years"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not half",
+         "at": 12,
+         "note": "not half means only one half of the word clever is kept, the other dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "100",
-         "gives": "C",
-         "note": "C is the Roman numeral for a hundred"
-        },
-        {
-         "words": "years",
-         "gives": "Y",
-         "note": "Y is the standard abbreviation for year"
-        },
-        {
          "words": "clever",
-         "gives": "CLE",
-         "note": "a deletion: the first half of the six-letter word, three letters"
+         "at": 21
+        },
+        {
+         "gives": "VER"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone lives a hundred years and is only half as sharp in old age.",
-     "walkthrough": "The dash makes '100 years' look like a century being defined, but the definition is the last word.",
-     "definitionFit": "A cycle can mean a very long period or era, the same loose sense as an age in history."
+     "surface": "A century of years in which one is not very clever, a time of decline.",
+     "definitionFit": "A cycle can mean a long period or era, so it stands for an age."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "years"
+     "misdirectedWord": "clever"
     }
    }
   },
@@ -437,51 +439,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DIGUP",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "briefly means in short form, so the phrase is cut down to its abbreviation"
+       "text": "rejected",
+       "at": 33,
+       "note": "rejected means thrown back, so the combined letters are read in the reverse direction"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "rejected",
-         "note": "something rejected is sent back, so the letters are returned in reverse order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "little dog",
-           "gives": "PUG",
-           "note": "a pug is a small breed of dog"
-          },
-          {
-           "words": "I had",
-           "gives": "ID",
-           "note": "I'd is the contraction of I had"
-          }
-         ]
+         "words": "little dog",
+         "at": 8,
+         "gives": "PUG",
+         "note": "a pug is a small breed of dog"
+        },
+        {
+         "words": "I had briefly",
+         "at": 19,
+         "gives": "ID",
+         "note": "I'd is the contracted form of I had"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone digs out a small dog they owned for a short while and then gave up.",
-     "walkthrough": "The contraction I'D loses its apostrophe; the whole string PUGID is then read backwards.",
-     "definitionFit": "To dig up is to bring something out of the ground by excavating, the literal sense of unearth."
+     "surface": "Someone confesses that they turned away a small dog.",
+     "definitionFit": "To dig up something is to excavate or unearth it from the ground."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "rejected"
     }
@@ -566,40 +557,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GUMBOIL",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite complete, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Creole stew",
+       "at": 0,
+       "gives": "GUMBO",
+       "note": "gumbo is a thick stew from Louisiana Creole cooking"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 12,
+         "note": "almost means the word is not quite complete, losing its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Creole stew",
-         "gives": "GUMBO",
-         "note": "gumbo is a thick Creole stew from Louisiana"
+         "words": "evil",
+         "at": 19,
+         "gives": "ILL",
+         "note": "ill can mean evil, as in 'ill deeds'"
         },
         {
-         "words": "evil",
-         "gives": "IL",
-         "note": "ill, meaning evil or harm, without its last letter"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner complains that a spicy Creole stew burns the mouth.",
-     "walkthrough": "The surface has the stew burning the mouth; the definition is the whole last phrase. ILL as a noun means evil, as in 'speak no ill'.",
+     "surface": "A diner complains that the nearly nasty Creole stew is painfully hot in the mouth.",
      "definitionFit": "A gumboil is a painful abscess on the gum, so it is something that hurts inside the mouth."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "stings"
     }

@@ -1068,47 +1068,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in means placed within, so the short words go inside the word for glasses"
+       "at": 17,
+       "note": "in means the other letters are placed inside the word for glasses"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "glasses",
+       "at": 20,
+       "gives": "SPECS",
+       "note": "specs is short for spectacles, a pair of glasses"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "glasses",
-           "gives": "SPECS",
-           "note": "specs is short for spectacles"
-          },
-          {
-           "words": "if",
-           "note": "taken as written"
-          }
-         ]
+         "words": "if",
+         "at": 8
         },
         {
          "words": "I",
-         "note": "taken as written"
+         "at": 11
+        },
+        {
+         "words": "see",
+         "at": 13,
+         "gives": "C",
+         "note": "see is pronounced like the letter C"
         }
        ]
-      },
-      {
-       "words": "see",
-       "gives": "C",
-       "note": "C sounds like see, a common crossword shorthand"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone saying they could make out the details if they had their glasses on.",
-     "walkthrough": "See giving C is a standard crossword shortcut, since the letter is pronounced the same way.",
-     "definitionFit": "Specifics are the particular points of a matter, the same thing as details."
+     "surface": "Someone notes the small print they can make out when wearing spectacles.",
+     "definitionFit": "Specifics are the particular points or particulars of a matter."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "see"
     }
@@ -1450,53 +1447,56 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HACKS",
      "indicators": [
       {
        "text": "to break",
-       "note": "breaking into something means getting inside it, so the trimmed word goes between the other letters"
+       "at": 25,
+       "note": "to break means to split the other letters apart by going into them"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hot",
+         "at": 34,
+         "gives": "H",
+         "note": "H is the abbreviation for hot, as on taps"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leading",
+           "at": 38,
+           "note": "leading means the first letter of story"
+          }
+         ],
+         "parts": [
+          {
+           "words": "story",
+           "at": 46
+          }
+         ]
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "tip-off",
-         "note": "with its tip off, the word loses its first letter"
+         "at": 17,
+         "note": "tip-off means the tip, or first letter, is taken off the word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "hot",
-           "gives": "H",
-           "note": "H is the abbreviation for hot, as on a tap"
-          },
-          {
-           "words": "want",
-           "gives": "LACK",
-           "note": "to want is to lack"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "leading",
-             "note": "leading means at the front, so only the first letter of story is used"
-            }
-           ],
-           "parts": [
-            {
-             "words": "story",
-             "note": "the first letter of story"
-            }
-           ]
-          }
-         ]
+         "words": "want",
+         "at": 12,
+         "gives": "LACK",
+         "note": "to lack something is to want it"
         },
         {
          "gives": "L"
@@ -1506,14 +1506,13 @@
      ]
     },
     "explanation": {
-     "surface": "Reporters hoping for a tip-off to break a hot lead story.",
-     "walkthrough": "Tip-off and break a story sound like newsroom jargon, but they are the deletion and insertion signals.",
-     "definitionFit": "Hacks is a mildly disparaging term for jobbing journalists."
+     "surface": "Reporters are keen for an informant's tip to give them a hot lead story.",
+     "walkthrough": "'tip-off' looks like an informer's lead, but it removes the first letter of LACK.",
+     "definitionFit": "Hacks is an informal, slightly disparaging term for jobbing newspaper writers."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "tip-off"
     }
    }

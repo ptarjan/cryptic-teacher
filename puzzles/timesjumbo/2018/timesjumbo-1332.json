@@ -2791,66 +2791,72 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LECTERN",
      "indicators": [
       {
        "text": "between",
-       "note": "the jumbled letters go between two outer letters"
+       "at": 34,
+       "note": "between means the anagrammed letters sit inside, flanked by the two single letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "teetering",
-         "note": "something teetering wobbles, so the letters lose their order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "op": "last",
          "indicators": [
           {
            "text": "rear of",
-           "note": "the rear of a word is its last letter"
+           "at": 42,
+           "note": "rear of means the last letter of chancel"
           }
          ],
          "parts": [
           {
            "words": "chancel",
-           "note": "the last letter"
+           "at": 50
           }
          ]
-        },
-        {
-         "words": "erect",
-         "note": "the letters to be rearranged"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "front of",
-           "note": "the front of a word is its first letter"
+           "at": 62,
+           "note": "front of means the first letter of nave"
           }
          ],
          "parts": [
           {
            "words": "nave",
-           "note": "the first letter"
+           "at": 71
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "teetering",
+         "at": 24,
+         "note": "teetering means wobbling unsteadily, so the letters of erect are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "erect",
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "In church, someone tries to stand up straight but wobbles between chancel and nave.",
-     "walkthrough": "'stand erect' looks like one instruction, but 'stand' belongs to the definition.",
-     "definitionFit": "A lectern is a reading desk in a church, on which the Bible rests for readings."
+     "surface": "Someone stands upright but wobbles somewhere between the chancel and the nave of a church.",
+     "definitionFit": "A lectern is the reading desk in a church from which the Bible is read, a kind of stand."
     },
     "features": {
      "answerInScene": true,
@@ -3041,32 +3047,42 @@
      "op": "container",
      "indicators": [
       {
-       "text": "through",
-       "note": "passing through something puts it right inside"
+       "text": "in",
+       "at": 37,
+       "note": "in means everything built so far goes inside the remaining word"
       }
      ],
      "parts": [
       {
+       "words": "mild",
+       "at": 40,
+       "gives": "SLIGHT",
+       "note": "slight means mild or not severe"
+      },
+      {
        "op": "container",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the whole construction within the last word"
+         "text": "through",
+         "at": 16,
+         "note": "through means going through the middle of the other letters, so it sits inside them"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
-           "words": "mild",
-           "gives": "SLIGHT",
-           "note": "a slight illness is a mild one"
+           "words": "small",
+           "at": 24,
+           "gives": "WEE",
+           "note": "wee is Scottish for small"
           },
           {
            "words": "desert",
+           "at": 30,
            "gives": "SAND",
-           "note": "sand is what a desert is made of"
+           "note": "sand is what a desert is made of, standing for it here"
           }
          ]
         },
@@ -3075,35 +3091,32 @@
          "indicators": [
           {
            "text": "back",
-           "note": "going back means reading the word in the opposite direction"
+           "at": 11,
+           "note": "back means the word is turned around and read in reverse"
           }
          ],
          "parts": [
           {
            "words": "Made to go",
+           "at": 0,
            "gives": "SENT",
-           "note": "sent means made to go"
+           "note": "if you are made to go, you are sent"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "small",
-       "gives": "WEE",
-       "note": "wee is Scottish for small"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is sent back across a little desert in a gentle, agreeable way.",
-     "walkthrough": "'mild, pleasant manner' looks like the whole definition, but mild belongs to the wordplay.",
-     "definitionFit": "The phrase means agreeable harmony and amiability, a sweet and gentle way of behaving."
+     "surface": "Someone is forced to retreat across a small desert, behaving mildly and pleasantly all the while.",
+     "walkthrough": "'Mild, pleasant manner' looks like one definition, but 'mild' is the outermost container, leaving 'pleasant manner' to define.",
+     "definitionFit": "Sweetness and light describes amiable, agreeable behaviour, a gentle and friendly demeanour."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "mild"
+     "misdirectedWord": "desert"
     }
    }
   },
