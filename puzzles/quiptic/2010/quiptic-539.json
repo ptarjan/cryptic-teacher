@@ -743,8 +743,9 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Docker",
-      "at": 0
+      "text": "Docker's",
+      "at": 0,
+      "note": "read as docker is: the 's links the definition to the wordplay"
      }
     ],
     "wordplay": {
@@ -752,38 +753,41 @@
      "indicators": [
       {
        "text": "in",
-       "note": "being in a place means sitting inside it, so one piece goes within the other"
+       "at": 23,
+       "note": "in places the letters inside the shop word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "shop",
-         "gives": "STORE",
-         "note": "a store is a shop"
-        },
-        {
-         "words": "night",
-         "gives": "EVE",
-         "note": "eve is evening, the night before"
-        }
-       ]
+       "words": "shop",
+       "at": 26,
+       "gives": "STORE",
+       "note": "a store is a shop"
       },
       {
-       "words": "day",
-       "gives": "D",
-       "note": "D is the abbreviation for day"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "night",
+         "at": 9,
+         "gives": "EVE",
+         "note": "eve is the evening or night before"
+        },
+        {
+         "words": "day",
+         "at": 19,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dock worker spends all hours in the shop.",
-     "definitionFit": "A stevedore loads and unloads ships at a port, the job of a docker."
+     "surface": "A dock worker spends night and day in a shop.",
+     "definitionFit": "A stevedore is a dock labourer who loads and unloads ships."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "night"
     }

@@ -830,36 +830,38 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the pieces go inside United Kingdom"
+       "at": 31,
+       "note": "in means the letters for the last character and to remain sit inside the abbreviation for the country"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "United Kingdom",
-         "gives": "UK",
-         "note": "UK = United Kingdom"
-        },
-        {
-         "words": "last character",
-         "gives": "Z",
-         "note": "Z is the last letter of the alphabet"
-        }
-       ]
+       "words": "United Kingdom",
+       "at": 34,
+       "gives": "UK"
       },
       {
-       "words": "to remain",
-       "gives": "BE",
-       "note": "to be = to exist, to remain"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "last character",
+         "at": 6,
+         "gives": "Z",
+         "note": "Z is the last character of the alphabet"
+        },
+        {
+         "words": "to remain",
+         "at": 21,
+         "gives": "BE",
+         "note": "to be is to remain or continue to exist"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Asian man, the last of his line, hopes to stay on in Britain.",
-     "walkthrough": "'Last character' sounds like the final person; it is the last letter, Z.",
-     "definitionFit": "An Uzbek is a person from Uzbekistan in Central Asia."
+     "surface": "An Asian traveller, the last person left, stays on in Britain.",
+     "definitionFit": "An Uzbek is a native of Uzbekistan, a country in Central Asia."
     },
     "features": {
      "answerInScene": true,
@@ -1113,12 +1115,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "WINSOME",
      "indicators": [
       {
        "text": "disavow origins",
-       "note": "to disavow the origins is to give up the first letters"
+       "at": 25,
+       "note": "to disavow origins is to give up where each word starts, so the opening letter of each word goes"
       }
      ],
      "parts": [
@@ -1127,27 +1128,28 @@
        "parts": [
         {
          "words": "twins",
-         "gives": "WINS",
-         "note": "TWINS without its first letter"
+         "at": 11
         },
         {
          "words": "come",
-         "gives": "OME",
-         "note": "COME without its first letter"
+         "at": 17
         }
        ]
+      },
+      {
+       "gives": "TC"
       }
      ]
     },
     "explanation": {
-     "surface": "Charming twins arrive only to deny where they come from.",
-     "walkthrough": "'Origins' reads as family background; it is the first letter of each word.",
-     "definitionFit": "Winsome means charming or engaging."
+     "surface": "Charming twins arriving seem to deny where they came from.",
+     "walkthrough": "'disavow origins' removes the first letter of both words: T from twins and C from come, leaving WINS and OME.",
+     "definitionFit": "Winsome describes someone charming and appealing, which is what enchanting means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "origins"
+     "misdirectedWord": "twins"
     }
    }
   },
@@ -1719,54 +1721,59 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "initially missed",
-       "note": "the first letter is missing"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "old",
+       "at": 34,
+       "gives": "EX",
+       "note": "ex is a prefix meaning former or old"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "the pests go inside the gallery"
+         "at": 31,
+         "note": "in places the shortened pests word inside the gallery's name"
         }
        ],
        "parts": [
         {
-         "words": "old",
-         "gives": "EX",
-         "note": "ex = former, old"
-        },
-        {
          "words": "art gallery",
+         "at": 38,
          "gives": "TATE",
-         "note": "the Tate, the London art gallery"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "pests",
-         "gives": "VERMIN",
-         "note": "vermin = pests; without its first letter, ERMIN goes inside TATE"
+         "note": "the Tate is the famous London art gallery"
         },
         {
-         "gives": "V"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "initially missed",
+           "at": 14,
+           "note": "initially missed says the opening letter of the pests word is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pests",
+           "at": 8,
+           "gives": "VERMIN",
+           "note": "vermin are pests such as rats and mice"
+          },
+          {
+           "gives": "V"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Pest control is called in to an old art gallery to wipe out the vermin.",
-     "walkthrough": "EX plus T(ERMIN)ATE. The Tate is the national art gallery in London.",
-     "definitionFit": "A plain synonym, with the pest-control sense in play: wiping out every last one of something."
+     "surface": "Pest control finds the creatures slipped past it in a former gallery.",
+     "walkthrough": "'Pests' looks like the thing destroyed, but it supplies letters; 'old art gallery' splits into old and art gallery, the Tate being London's famous gallery.",
+     "definitionFit": "To exterminate is to wipe out completely, a synonym for destroy."
     },
     "features": {
      "answerInScene": true,

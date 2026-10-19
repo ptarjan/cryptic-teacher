@@ -1885,54 +1885,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FIREENGINE",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the preceding letters inside the word that follows"
+       "at": 50,
+       "note": "in puts the moved sign and one inside the word for splendid"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "FIREENGINE",
-       "indicators": [
-        {
-         "text": "beginning to travel east",
-         "note": "in an across answer east is rightwards, so the first letter moves to the end"
-        }
-       ],
+       "words": "splendid",
+       "at": 53,
+       "gives": "FINE",
+       "note": "fine means splendid or excellent"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "go-ahead sign",
-         "gives": "GREEN",
-         "note": "a green light is the signal to go"
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "beginning to travel east",
+           "at": 25,
+           "note": "in an across clue east is rightwards, so the first letter of the sign moves to the end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "go-ahead sign",
+           "at": 10,
+           "gives": "GREEN",
+           "note": "a green light is the sign to go ahead"
+          }
+         ]
         },
         {
          "words": "One",
+         "at": 0,
          "gives": "I",
-         "note": "Roman numeral one"
-        },
-        {
-         "words": "splendid",
-         "gives": "FINE",
-         "note": "fine means splendid"
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vehicle given a green light heads east in grand style, sirens blaring.",
-     "walkthrough": "In an across clue east means rightwards, so the beginning letter of the go-ahead colour travels to its end before the Roman one is added.",
-     "definitionFit": "A fire engine is the truck that firefighters rush to blazes, a classic emergency vehicle."
+     "surface": "Someone gets the green light, and a fine emergency vehicle heads east.",
+     "walkthrough": "In an across clue east means rightwards, so 'beginning to travel east' sends the sign's first letter to its far end.",
+     "definitionFit": "A fire engine is the vehicle that rushes to blazes, a classic emergency service vehicle."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "east"
+     "misdirectedWord": "travel"
     }
    }
   },
@@ -2760,34 +2766,38 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in puts the first pieces inside the city that follows"
+       "at": 7,
+       "note": "in places the letters inside the name of the capital"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "the capital",
-         "gives": "ROME",
-         "note": "Rome is a capital city"
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "the capital",
+       "at": 10,
+       "gives": "ROME",
+       "note": "Rome is the capital of Italy"
       },
       {
-       "words": "home",
-       "gives": "IN",
-       "note": "to be in is to be at home"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "home",
+         "at": 2,
+         "gives": "IN",
+         "note": "in means at home"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A house in the capital comes with a salad leaf.",
-     "definitionFit": "Romaine is the American name for cos lettuce, a long-leaved variety."
+     "surface": "Having a home in the capital city gives you a kind of salad leaf.",
+     "definitionFit": "Romaine is the cos lettuce, a long-leaved variety used in Caesar salad."
     },
     "features": {
      "answerInScene": false,

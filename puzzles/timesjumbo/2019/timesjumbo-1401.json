@@ -543,22 +543,15 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "DISDAINFUL",
-     "indicators": [
-      {
-       "text": "protecting",
-       "note": "protecting something means surrounding it, so the son sits inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "container",
        "indicators": [
         {
-         "text": "almost",
-         "note": "almost means not quite all, so the final letter goes"
+         "text": "protecting",
+         "at": 25,
+         "note": "protecting means surrounding, so the son's letter goes inside"
         }
        ],
        "parts": [
@@ -567,25 +560,40 @@
          "parts": [
           {
            "words": "female",
+           "at": 9,
            "gives": "DI",
-           "note": "Di, short for Diana, a woman's name"
-          },
-          {
-           "words": "son",
-           "gives": "S",
-           "note": "S is the abbreviation for son"
+           "note": "Di is a female name"
           },
           {
            "words": "attorney",
+           "at": 16,
            "gives": "DA",
-           "note": "District Attorney, the US prosecutor"
-          },
-          {
-           "words": "entirely",
-           "gives": "INFULL",
-           "note": "in full means entirely"
+           "note": "DA is a district attorney"
           }
          ]
+        },
+        {
+         "words": "son",
+         "at": 36,
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 40,
+         "note": "almost drops the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "entirely",
+         "at": 47,
+         "gives": "INFULL",
+         "note": "in full means entirely"
         },
         {
          "gives": "L"
@@ -595,11 +603,11 @@
      ]
     },
     "explanation": {
-     "surface": "A senior woman lawyer looks after her son nearly completely.",
-     "definitionFit": "Superior here is the adjective for haughty, looking down on others, which is what contemptuous people do."
+     "surface": "A haughty woman lawyer shields her son nearly completely.",
+     "definitionFit": "Disdainful means scornful, looking down on others, as a superior person does."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Superior"
     }
@@ -2676,49 +2684,47 @@
      "indicators": [
       {
        "text": "holds",
-       "note": "holds means has inside, so the word sits within the pair"
+       "at": 23,
+       "note": "holds means contains, so the word it goes inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "in",
-           "note": "taken as written"
-          },
-          {
-           "words": "it",
-           "note": "taken as written"
-          },
-          {
-           "words": "east",
-           "gives": "E",
-           "note": "E is the abbreviation for east"
-          }
-         ]
+         "words": "Popular",
+         "at": 0,
+         "gives": "IN",
+         "note": "in means popular or fashionable"
         },
         {
          "words": "female",
-         "gives": "F",
-         "note": "F is the abbreviation for female"
+         "at": 8,
+         "gives": "F"
+        },
+        {
+         "words": "in",
+         "at": 15,
+         "gives": "IN"
+        },
+        {
+         "words": "east",
+         "at": 18,
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "Popular",
-       "gives": "IN",
-       "note": "in means fashionable"
+       "words": "it",
+       "at": 29,
+       "gives": "IT"
       }
      ]
     },
     "explanation": {
-     "surface": "A well-liked woman in the Orient believes it will last forever.",
-     "walkthrough": "IN and E together hold IT: IN F IN(IT)E.",
-     "definitionFit": "Infinite means without limit or end, lasting forever, as eternity does."
+     "surface": "A popular woman in the east thinks it everlasting.",
+     "definitionFit": "Infinite means without end or limit, much like eternal, lasting forever."
     },
     "features": {
      "answerInScene": false,
@@ -3534,49 +3540,53 @@
      "indicators": [
       {
        "text": "in",
-       "note": "placed in means set inside the island"
+       "at": 40,
+       "note": "in places the letters inside the island name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Aegean island",
+       "at": 43,
+       "gives": "KOS",
+       "note": "Kos is a Greek island in the Aegean Sea"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Aegean island",
-         "gives": "KOS",
-         "note": "a Greek island in the Dodecanese"
+         "words": "university",
+         "at": 29,
+         "gives": "U"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "finally",
-           "note": "finally points to the last letter of the word after it"
+           "at": 9,
+           "note": "finally picks the last letter of the word attained"
           }
          ],
          "parts": [
           {
            "words": "attained",
-           "note": "its final letter"
+           "at": 17
           }
          ]
         }
        ]
-      },
-      {
-       "words": "university",
-       "gives": "U",
-       "note": "U is the abbreviation for university"
       }
      ]
     },
     "explanation": {
-     "surface": "A university on a Greek island finally achieves renown.",
-     "definitionFit": "Kudos means praise and honour received for an achievement, much like renown."
+     "surface": "Status is at last won by a university on a Greek island.",
+     "definitionFit": "Kudos is the honour and renown a person earns, a synonym of prestige."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "attained"
     }
    }
   },

@@ -1147,48 +1147,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HOCUS",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
+       "text": "concealing",
+       "at": 20,
+       "note": "concealing means hiding inside, so the card suit's letter goes within"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "concealing",
-         "note": "concealing means hiding something inside, so the shortened word wraps around the next piece"
+         "text": "mostly",
+         "at": 13,
+         "note": "mostly means most of the word, so its final letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "house",
-         "gives": "HOUS",
-         "note": "the word with its final letter removed"
+         "at": 6
         },
         {
-         "words": "clubs",
-         "gives": "C",
-         "note": "C is the abbreviation for clubs in card games"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "clubs",
+       "at": 31,
+       "gives": "C",
+       "note": "C is the abbreviation for clubs in card games"
       }
      ]
     },
     "explanation": {
-     "surface": "A gambling den cheats players while hiding certain cards.",
-     "walkthrough": "'Cheat house' suggests a crooked casino, but 'Cheat' stands alone as the definition.",
+     "surface": "A dishonest household hides a set of clubs.",
      "definitionFit": "To hocus is an old verb meaning to trick or deceive, from hocus-pocus."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "house"
+     "misdirectedWord": "clubs"
     }
    }
   },
