@@ -1104,12 +1104,55 @@ def r_sel_one_letter(node, parent, ctx):
     return node
 
 
+def _owns(ind, kind, host):
+    """Whether the corpus files an indicator's words mostly (V.ROLE_LOOSE_OWNED) under `kind`,
+    and hardly ever (V.ROLE_LOOSE_OWN_MAX) under the type of the op `host` that carries it."""
+    counts = V._role_counts(V.indicator_role_key(ind.get("text")))
+    total = sum(counts.values())
+    return total >= V.ROLE_MIN_USES and counts.get(kind, 0) >= V.ROLE_LOOSE_OWNED * total \
+        and counts.get(host, 0) <= V.ROLE_LOOSE_OWN_MAX * total
+
+
+def _unknown_word(ind):
+    return sum(V._role_counts(V.indicator_role_key(ind.get("text"))).values()) < V.ROLE_MIN_USES
+
+
+def r_ind_trade(node, parent, ctx):
+    """Two checked ops anywhere in the tree (nested or siblings) that each carry the word the
+    corpus files under the other's type -- rev<first to>(..) beside first<back>(..), ins<mad>(
+    ana<about>(..)) -- trade those words; also an op whose word the corpus has never seen
+    trading with a word the corpus files under its own type (ins<Awfully>(ana<to have pocketed>
+    (..))). Run once, from the root; kept only when the whole tree then counts fewer
+    wrong-role indicators. Words move whole; the letters are untouched."""
+    if parent is not None:
+        return None
+    ops = [n for n, _ in walk(node) if V._OP_LEXICON.get(n.get("op")) and not n.get("unchecked")
+           and id(n) not in ctx["under_unchecked"] and n.get("indicators")]
+    for x in ops:
+        kx = V._OP_LEXICON[x["op"]]
+        for y in ops:
+            ky = V._OP_LEXICON[y["op"]]
+            if x is y or kx == ky or V._swap_alike(kx, ky) or V._swap_alike(ky, kx):
+                continue
+            for a in x["indicators"]:
+                for b in y["indicators"]:
+                    if not (_owns(b, kx, ky) and (_owns(a, ky, kx) or _unknown_word(a))):
+                        continue
+
+                    def swap(a=a, b=b):
+                        x["indicators"][x["indicators"].index(a)], y["indicators"][y["indicators"].index(b)] = b, a
+                    if _gated(ctx, [x, y], swap):
+                        return node
+    return None
+
+
 def r_wrong_role(node, parent, ctx):
     """wrongRole: a leaf that folds a deletion into its words (r_leaf_fold), else indicators on
     the wrong one of two nested ops (r_role_swap), a selection indicator hung on a one-letter word
     (r_sel_one_letter)."""
     return r_leaf_fold(node, parent, ctx) or r_extremes_outer(node, parent, ctx) \
-        or r_role_swap(node, parent, ctx) or r_role_move(node, parent, ctx) or r_sel_one_letter(node, parent, ctx)
+        or r_role_swap(node, parent, ctx) or r_ind_trade(node, parent, ctx) \
+        or r_role_move(node, parent, ctx) or r_sel_one_letter(node, parent, ctx)
 
 
 def r_extremes_outer(node, parent, ctx):
