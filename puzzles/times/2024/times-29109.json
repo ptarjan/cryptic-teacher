@@ -307,65 +307,64 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "raising",
-       "note": "in a down clue, raising lifts the word so it reads upwards, reversed"
+       "text": "after",
+       "at": 34,
+       "note": "after places the years piece behind the turned-up glass"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "wasting",
-         "note": "losing, so the letter for fifty goes"
+         "text": "raising",
+         "at": 11,
+         "note": "raising in a down clue lifts the letters so they read from bottom to top"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "after"
+           "text": "wasting",
+           "at": 40,
+           "note": "wasting means losing a letter from the word"
           }
          ],
          "parts": [
           {
-           "op": "deletion",
-           "parts": [
-            {
-             "words": "a single glass",
-             "gives": "MONOCLE",
-             "note": "a monocle is a single eyeglass; raised it reads ELCONOM"
-            },
-            {
-             "gives": "L"
-            }
-           ]
+           "words": "a single glass",
+           "at": 19,
+           "gives": "MONOCLE",
+           "note": "a monocle is a single eyeglass"
+          },
+          {
+           "words": "fifty",
+           "at": 48,
+           "gives": "L",
+           "note": "L is the Roman numeral for fifty"
           }
          ]
-        },
-        {
-         "words": "years",
-         "gives": "Y",
-         "note": "Y = years"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "fifty",
-       "note": "L = fifty in Roman numerals, removed from ELCONOM to leave ECONOM"
+       "words": "years",
+       "at": 54,
+       "gives": "Y"
       }
      ]
     },
     "explanation": {
-     "surface": "A toast raised by someone who has frittered away fifty years of their life.",
-     "walkthrough": "'Raising a single glass' reads as drinking a toast, but the glass is a monocle, and raising it turns it upside down.",
-     "definitionFit": "Economy is careful, sparing use of resources."
+     "surface": "A drinker raises one glass, having squandered fifty years.",
+     "walkthrough": "'Raising a single glass' suggests a toast; the glass is a monocle, which loses L and is turned to ECONOM before Y.",
+     "definitionFit": "Economy is thrift, the careful avoidance of waste, so making little use of resources."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "glass"
     }
    }
@@ -571,55 +570,63 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "surprisingly",
-       "note": "the letters come out in an unexpected order"
+       "text": "cutting it",
+       "at": 53,
+       "note": "cutting it means slicing into the rest, so the scrambled letters go inside"
       }
      ],
      "parts": [
       {
-       "words": "to keep",
-       "gives": "STOCK",
-       "note": "to stock goods is to keep them"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "to keep",
+         "at": 5,
+         "gives": "STOCK",
+         "note": "to stock is to keep goods for sale"
+        },
+        {
+         "words": "golfing equipment",
+         "at": 13,
+         "gives": "TEES",
+         "note": "tees are pegs a golf ball is set on"
+        }
+       ]
       },
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "cutting",
-         "note": "the jumbled letters cut into IT, the golfing equipment"
+         "text": "surprisingly",
+         "at": 40,
+         "note": "surprisingly means the letters come out in an unexpected order"
         }
        ],
        "parts": [
         {
-         "words": "golfing equipment",
-         "gives": "TEES",
-         "note": "tees hold the ball up for the drive"
+         "words": "No",
+         "at": 32
         },
         {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "No, not",
-           "note": "the letters to be rearranged, as ONONT, and set after the first T of TEES"
-          }
-         ]
+         "words": "not",
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A town deciding whether to store golf gear, then flatly refusing.",
-     "walkthrough": "'It' points back to the golfing equipment, TEES, which gets cut open. Stockton-on-Tees is a town in north-east England.",
-     "definitionFit": "Stockton-on-Tees is a market town in County Durham, England."
+     "surface": "A shop asks whether to stock golf gear, then answers no.",
+     "walkthrough": "The question mark and 'No' make it sound like a shop declining to sell golf gear; 'No, not' is really the fodder.",
+     "definitionFit": "Stockton-on-Tees is a market town in north-east England on the River Tees."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "surprisingly"
+     "misdirectedWord": "golfing"
     }
    }
   },

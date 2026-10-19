@@ -626,35 +626,36 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the article and verb within the city abbreviation"
+       "at": 36,
+       "note": "in says the earlier pieces are placed inside the city's abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Los Angeles",
-         "gives": "LA",
-         "note": "standard abbreviation"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Los Angeles",
+       "at": 39,
+       "gives": "LA"
       },
       {
-       "words": "set",
-       "gives": "PUT",
-       "note": "to set something down is to put it down"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 30
+        },
+        {
+         "words": "set",
+         "at": 32,
+         "gives": "PUT",
+         "note": "to set something down is to put it"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzle asks which fictional island might be found on a Hollywood film set.",
-     "walkthrough": "Set looks like a film set in LA, but it is the verb.",
-     "definitionFit": "Laputa is the flying island visited in Swift's Gulliver's Travels, a famous place in fiction."
+     "surface": "A film set in Los Angeles gives away an island from a book.",
+     "definitionFit": "Laputa is the flying island in Swift's Gulliver's Travels, a place from fiction."
     },
     "features": {
      "answerInScene": false,
@@ -1350,44 +1351,58 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a SW African state",
-      "at": 23
+      "text": "SW African state",
+      "at": 25
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ANGOLA",
-     "indicators": [
-      {
-       "text": "holding back",
-       "note": "holding back sends the final part of the aim backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "A",
-       "note": "taken as written"
+       "at": 0,
+       "gives": "A"
       },
       {
        "words": "new",
-       "gives": "N",
-       "note": "standard abbreviation"
+       "at": 2,
+       "gives": "N"
       },
       {
-       "words": "aim",
-       "gives": "GOAL",
-       "note": "a goal is an aim"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "holding back",
+         "at": 10,
+         "note": "holding back means keeping a letter out of the word for aim"
+        }
+       ],
+       "parts": [
+        {
+         "words": "aim",
+         "at": 6,
+         "gives": "GOAL",
+         "note": "a goal is an aim"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 23,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A fresh objective for a country in southwest Africa.",
-     "walkthrough": "The wordplay is loose: the aim keeps its last two letters turned round.",
-     "definitionFit": "Angola is a country on the Atlantic coast of south-western Africa, bordering Namibia."
+     "surface": "A fresh ambition restrains a country in south-west Africa.",
+     "walkthrough": "The aim holds back its A, which then comes at the end.",
+     "definitionFit": "Angola is a country on the south-western Atlantic coast of Africa."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false
     }
    }
@@ -2035,47 +2050,51 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to disturb",
-       "note": "to disturb is to break into something, so this piece interrupts the other"
+       "text": "in",
+       "at": 39,
+       "note": "in says the earlier pieces are placed within the film's title"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "film",
+       "at": 42,
+       "gives": "ET",
+       "note": "ET is Spielberg's film about an extra-terrestrial"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
-         "text": "in",
-         "note": "in puts the fellows inside the film"
+         "text": "to disturb",
+         "at": 20,
+         "note": "to disturb puts the bound piece first, unsettling the fellows that follow"
         }
        ],
        "parts": [
         {
-         "words": "film",
-         "gives": "ET",
-         "note": "Spielberg's alien film"
+         "words": "bound",
+         "at": 14,
+         "gives": "LOPE",
+         "note": "to lope is to bound with long strides"
         },
         {
-         "words": "bound",
-         "gives": "LOPE",
-         "note": "to lope is to run with long strides"
+         "words": "fellows",
+         "at": 31,
+         "gives": "MEN",
+         "note": "men are fellows"
         }
        ]
-      },
-      {
-       "words": "fellows",
-       "gives": "MEN",
-       "note": "fellows are men"
       }
      ]
     },
     "explanation": {
-     "surface": "A leap disrupts a group of men in a film about a secret escape.",
-     "walkthrough": "The men go inside ET, then the loping piece breaks into that after its first letter.",
-     "definitionFit": "An elopement is when a couple run away together secretly to marry, a clandestine escape."
+     "surface": "A character is sure to upset the men in a movie.",
+     "definitionFit": "An elopement is a secret running away to marry, a flight hidden from family."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "bound"
     }
    }

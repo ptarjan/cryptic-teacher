@@ -337,47 +337,53 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "VANUATU",
-     "indicators": [
-      {
-       "text": "Rings",
-       "note": "to ring something is to encircle it, so the outer letters go round the rest"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "words": "Five",
+       "at": 28,
+       "gives": "V",
+       "note": "V is the Roman numeral five"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "made a mess of",
-         "note": "making a mess of something throws it into disorder, so the letters are scrambled"
+         "text": "Rings",
+         "at": 38,
+         "note": "rings means encircles, so gold goes round the scrambled letters"
         }
        ],
        "parts": [
         {
-         "words": "Five",
-         "gives": "V",
-         "note": "V is the Roman numeral for five"
-        },
-        {
          "words": "Gold",
+         "at": 33,
          "gives": "AU",
-         "note": "Au is the chemical symbol for gold"
+         "note": "AU is the chemical symbol for gold"
         },
         {
-         "words": "aunt",
-         "note": "taken as written, then mixed up"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "made a mess of",
+           "at": 13,
+           "note": "made a mess of means the letters are thrown into disorder"
+          }
+         ],
+         "parts": [
+          {
+           "words": "aunt",
+           "at": 8
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An aunt fumbles the line about five gold rings in The Twelve Days of Christmas.",
-     "walkthrough": "Five Gold Rings reads as the carol line; it is really the numeral, the symbol and a container signal.",
-     "definitionFit": "Vanuatu is an island nation in the South Pacific."
+     "surface": "An aunt botches the Christmas carol line about five gold rings.",
+     "definitionFit": "Vanuatu is an island nation in the South Pacific Ocean."
     },
     "features": {
      "answerInScene": false,
@@ -474,48 +480,48 @@
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "AXI",
        "indicators": [
         {
          "text": "unlimited",
-         "note": "with no limits the words lose their boundary letters, keeping only the middles"
+         "at": 22,
+         "note": "unlimited means the outer letters of each piece are removed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "cabs",
-         "gives": "AXI",
-         "select": "middle",
-         "note": "cabs are taxis; only the inner letters are kept"
+         "at": 32,
+         "gives": "TAXIS",
+         "note": "taxis are cabs"
         }
        ]
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "OM",
+       "op": "deletion",
        "parts": [
         {
-         "unchecked": true,
          "words": "back to my place",
-         "gives": "OM",
-         "select": "middle",
-         "note": "going back to my place means going home; only the inner letters are kept"
+         "at": 37,
+         "gives": "HOME",
+         "note": "home is where my place is"
+        },
+        {
+         "gives": "HE",
+         "note": "the outer letters of home, also dropped under unlimited"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A late-night truth: endless taxis ferrying people home.",
-     "walkthrough": "Unlimited applies to both words: taxis and home each lose their first and last letters.",
-     "definitionFit": "An axiom is a statement accepted as true without proof because it is obvious."
+     "surface": "A late-night offer of cabs back to my flat, framed as a philosophical truth.",
+     "walkthrough": "TAXIS and HOME each lose their first and last letters.",
+     "definitionFit": "An axiom is a statement accepted as true without proof, a self-evident principle."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "unlimited"
     }
    }
@@ -838,38 +844,42 @@
      "indicators": [
       {
        "text": "entertaining",
-       "note": "to entertain is to host guests, so the states are held inside"
+       "at": 20,
+       "note": "entertaining means hosting, so the states go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "that is",
-         "gives": "IE",
-         "note": "i.e. abbreviates id est, Latin for that is"
-        },
-        {
-         "words": "New Jersey",
-         "gives": "NJ",
-         "note": "the US postal abbreviation for the state"
-        }
-       ]
+       "words": "that is",
+       "at": 12,
+       "gives": "IE",
+       "note": "IE is id est, Latin for that is"
       },
       {
-       "words": "Oklahoma",
-       "gives": "OK",
-       "note": "the US postal abbreviation for the state"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "New Jersey",
+         "at": 33,
+         "gives": "NJ",
+         "note": "NJ is the postal abbreviation for New Jersey"
+        },
+        {
+         "words": "Oklahoma",
+         "at": 48,
+         "gives": "OK",
+         "note": "OK is the postal abbreviation for Oklahoma"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cliquey joke amuses people from two American states.",
-     "definitionFit": "An in-joke is humour understood only by a particular group, hence cliquey."
+     "surface": "A clique's private joke plays to New Jersey and Oklahoma.",
+     "definitionFit": "An in-joke is humour understood only by members of a particular group."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "entertaining"
     }

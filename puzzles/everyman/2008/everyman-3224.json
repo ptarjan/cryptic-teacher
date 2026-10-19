@@ -484,37 +484,33 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "MISHMASH",
+     "op": "homophone",
+     "spelt": "MISHMASH",
      "indicators": [
       {
        "text": "according to drunkard",
-       "note": "a drunk slurs speech, turning each crisp hiss into a mushy sh sound"
+       "at": 23,
+       "note": "a drunkard slurs, so these words are given as a tipsy speaker would say them, each S coming out as SH"
       }
      ],
      "parts": [
       {
-       "words": "Fail to catch",
-       "gives": "MISS",
-       "note": "to miss is to fail to catch"
-      },
-      {
-       "words": "service",
-       "gives": "MASS",
-       "note": "Mass is a church service"
+       "words": "Fail to catch service",
+       "at": 0,
+       "gives": "MISSMASS",
+       "note": "to fail to catch something is to miss it; a mass is a church service"
       }
      ]
     },
     "explanation": {
-     "surface": "A tipsy churchgoer confusedly says he missed Mass.",
-     "walkthrough": "'According to drunkard' tells you to pronounce each S as a drunken SH.",
-     "definitionFit": "A mishmash is a confused jumble of things, a muddle."
+     "surface": "A drunk misses church and ends up confused.",
+     "walkthrough": "MISS and MASS, slurred by a drunk, come out as MISH and MASH.",
+     "definitionFit": "A mishmash is a confused jumble, so it is a synonym for a muddle."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "service"
     }
    }
@@ -671,53 +667,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TOURNEDOSROSSINI",
-     "indicators": [
-      {
-       "text": "differently",
-       "note": "done differently means the word is rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 22,
+         "note": "in says the reworked letters go inside the name of the French city"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "words": "French city",
+         "at": 25,
+         "gives": "TOURS",
+         "note": "Tours is a city on the Loire in France"
+        },
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "in",
-           "note": "in places the rearranged word inside the city's name"
+           "text": "differently",
+           "at": 10,
+           "note": "done differently means its letters are arranged in another order"
           }
          ],
          "parts": [
           {
-           "words": "French city",
-           "gives": "TOURS",
-           "note": "Tours is a city on the Loire"
-          },
-          {
            "words": "done",
-           "gives": "NEDO",
-           "note": "the four letters rearranged"
+           "at": 5
           }
          ]
-        },
-        {
-         "words": "Italian composer",
-         "gives": "ROSSINI",
-         "note": "Gioachino Rossini, composer of The Barber of Seville"
         }
        ]
+      },
+      {
+       "words": "Italian composer",
+       "at": 40,
+       "gives": "ROSSINI",
+       "note": "Gioachino Rossini, Italian opera composer"
       }
      ]
     },
     "explanation": {
-     "surface": "A dish cooked a different way in a French city by an Italian composer.",
-     "walkthrough": "The dish really is named after Rossini, so the composer is both wordplay and part of the name.",
-     "definitionFit": "Tournedos Rossini is a classic French preparation of beef fillet with foie gras and truffle."
+     "surface": "A dish cooked in a novel way in a French city alongside an Italian composer.",
+     "definitionFit": "Tournedos Rossini is a classic steak preparation topped with foie gras and truffle, named after the composer."
     },
     "features": {
      "answerInScene": true,

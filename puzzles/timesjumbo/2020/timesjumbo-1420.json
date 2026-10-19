@@ -3071,33 +3071,35 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GLACIER",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without an end, so the final letter is cut off"
+       "text": "moving",
+       "at": 32,
+       "note": "moving means the letters are shifted about into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "large",
+       "at": 7
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "moving",
-         "note": "letters that are moving shift into fresh positions"
+         "text": "endlessly",
+         "at": 22,
+         "note": "endlessly means the last letter of icy is dropped"
         }
        ],
        "parts": [
         {
-         "words": "large",
-         "note": "taken as written"
+         "words": "icy",
+         "at": 17
         },
         {
-         "words": "icy",
-         "gives": "IC",
-         "note": "the word without its last letter"
+         "gives": "Y"
         }
        ]
       }
@@ -3105,13 +3107,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A riddle about something huge, frozen and forever creeping along.",
-     "walkthrough": "The whole clue is both wordplay and definition.",
-     "definitionFit": "A glacier is a huge mass of ice that flows slowly downhill without ceasing."
+     "surface": "A riddle about something big, frozen and forever on the move.",
+     "walkthrough": "LARGE plus IC (icy without its end) is rearranged; the whole clue also describes the answer, a slowly flowing mass of ice.",
+     "definitionFit": "A glacier is a huge mass of ice that creeps slowly but continually downhill."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "moving"
     }
    }
   },
