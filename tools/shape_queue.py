@@ -63,6 +63,8 @@ def pending():
             if r.get("tried"):
                 continue
             pid, _, clue = r["id"].partition("#")
+            if exempt(pid) and shape_reason(r.get("reason", "")):
+                continue
             out.setdefault(pid, {})[clue] = r.get("reason", "")
         _pending_cache.update(rows=rs, out=out)
     return _pending_cache["out"]
@@ -104,9 +106,15 @@ def listed(puzzle):
     return _by_entry(puzzle, want)
 
 
-def findings(entry, ann=None):
+def findings(entry, ann=None, pid=None):
     """The precise detectors' findings on `ann` (default: the entry's own
-    annotation) as "detector: what" strings; [] when they pass it."""
+    annotation) as "detector: what" strings; [] when they pass it. Given the
+    puzzle id `pid`, a convention series (azed, genius) keeps only unchecked ones."""
+    got = _findings(entry, ann)
+    return [f for f in got if not shape_finding(f.split(":")[0])] if exempt(pid) else got
+
+
+def _findings(entry, ann=None):
     import clue_shapes as cs
     import shape_suspects as ss
     ann = entry.get("annotation") if ann is None else ann
@@ -147,7 +155,43 @@ def gated():
     unchecked_step, which is a status tools/clear_unchecked.py settles (a tree with
     an unchecked op is not refused here, only the unchecked_leaf detector's leaves are).
     A rule added to the validator and to _validator_rules() is gated with no edit here."""
-    return tuple(k for k in _validator_rules() if k != "unchecked_step")
+    return tuple(k for k in _validator_rules() if k != "unchecked_step" and k not in WARN_ONLY)
+
+
+#: Rules the validator still computes as warnings but that queue no redo and count nowhere in
+#: the ratchet (round 20: the judges passed most of their flags as fine).
+WARN_ONLY = ("unindicatedBare", "bareInitial", "indFolded", "inDefinition")
+
+#: Series whose own conventions make the judges accept the tree: no shape rule queues for them.
+CONVENTION_SERIES = ("azed", "genius")
+
+
+def exempt(pid):
+    """True for a puzzle id (azed-2482, genius-100) of a series whose conventions the shape rules do not fit."""
+    return str(pid).partition("-")[0] in CONVENTION_SERIES
+
+
+def reason_names(reason):
+    """The class names a row's reason lists ("a: why; b: why" -> a, b)."""
+    return re.findall(r"(?:^|; )([A-Za-z][\w-]*)(?=:|;|$)", str(reason))
+
+
+def shape_reason(reason):
+    """True when every class a reason names is a shape rule or detector (what the convention
+    series skip), none a walkthrough/model-fixable/unchecked one."""
+    names = reason_names(reason)
+    return bool(names) and all(shape_finding(n) and n in _shape_names() for n in names)
+
+
+def _shape_names():
+    import shape_suspects as ss
+    return set(_validator_rules()) | set(ss.PRECISION)
+
+
+def shape_finding(name):
+    """True for a finding the convention-series exemption drops: every shape rule or detector,
+    not the unchecked leaf/step ones (a status clear_unchecked settles)."""
+    return not name.startswith("unchecked")
 
 
 WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's own words are "
@@ -293,6 +337,9 @@ def settled(entry, reason):
     names = [n for n in names if n != "re-narrate"]    # the tail of a walkthrough-gate hint
     rules = _validator_rules()
     import shape_suspects as ss
+    if names and all(n in WARN_ONLY for n in names):
+        return True     # warning-only now: nothing queues a redo for it
+    names = [n for n in names if n not in WARN_ONLY]
     if not names or any(n not in rules and n not in ss.PRECISION and n not in _ENTRY_RULES
                         for n in names):
         return False

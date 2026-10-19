@@ -6788,7 +6788,6 @@ BACKLOG_MARKERS = {
     "wordplay.cdefRepeat": (CDEF_REPEAT,),
     "wordplay.arity": (STORED_ARITY,),
     "wordplay.spanOverlap": (SPAN_OVERLAP,),
-    "wordplay.inDefinition": (IN_DEFINITION,),
     "wordplay.leafFold": (LEAF_FOLD,),
     "wordplay.repeatedSelection": (REPEATED_SELECTION,),
     "wordplay.singleLeaf": (SINGLE_LEAF,),
@@ -6799,18 +6798,15 @@ BACKLOG_MARKERS = {
     "wordplay.delSingle": (DEL_SINGLE,),
     "wordplay.indInLeaf": (IND_IN_LEAF,),
     "wordplay.scrambledLeaf": (SCRAMBLED_LEAF,),
-    "wordplay.indFolded": (IND_FOLDED,),
     "wordplay.fakeParts": (FAKE_PARTS,),
     "wordplay.paddingLeaf": (PADDING_LEAF,),
     "wordplay.nestedContainer": (NESTED_CONTAINER,),
     "wordplay.anagramSynonym": (ANAGRAM_SYNONYM,),
     "wordplay.misplacedIndicator": (MISPLACED_INDICATOR,),
-    "wordplay.bareInitial": (BARE_INITIAL,),
     "wordplay.deletionScope": (DELETION_SCOPE,),
     "wordplay.wrongRole": (WRONG_ROLE,),
     "wordplay.deletionInside": (DELETION_INSIDE,),
     "wordplay.containerInside": (CONTAINER_INSIDE,),
-    "wordplay.unindicatedBare": (UNINDICATED_BARE,),
     "wordplay.sharedIndicator": (SHARED_INDICATOR,),
     "wordplay.halfLeaf": (HALF_LEAF,),
     "wordplay.deletionScattered": (DELETION_SCATTERED,),
@@ -6968,6 +6964,14 @@ def explain_matches(name, named, lines):
                   key=lambda k: -sum(source[k].count(w) for w in words))
 
 
+def _convention_exempt(stem, field):
+    """True when `field` is a wordplay shape rule and the puzzle is Azed or Genius: their conventions
+    make the judges accept the tree, so the rule stays a warning and the ratchet does not count it."""
+    import shape_queue
+    return (shape_queue.exempt(stem) and field.startswith("wordplay.")
+            and field not in ("wordplay.unchecked", "wordplay.ddMissesWordplay"))
+
+
 def backlog_errors(stem, warnings, allowed=None):
     """The ratchet's ERRORs for one puzzle: it may be short exactly as many
     notes as the backlog file records for it, and a puzzle absent from the file
@@ -6975,7 +6979,7 @@ def backlog_errors(stem, warnings, allowed=None):
     allowed = load_backlog() if allowed is None else allowed
     errors = []
     for field, n in count_backlog(warnings).items():
-        if field not in allowed:
+        if field not in allowed or _convention_exempt(stem, field):
             continue
         cap = allowed[field].get(stem, 0)
         if n > cap:
