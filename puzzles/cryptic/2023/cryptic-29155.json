@@ -503,44 +503,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "broadcast",
-       "note": "to broadcast is to scatter seed widely, so these letters are scattered into another order"
+       "text": "after",
+       "at": 17,
+       "note": "the phone goes after the other letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 23,
+       "gives": "A"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "after",
-         "note": "after sends the phone word to the end, behind the other pieces"
+         "text": "broadcast",
+         "at": 30,
+         "note": "broadcast means scattered widely, so the word news is scattered into a new order"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
          "words": "news",
-         "note": "the four letters rearranged"
-        },
-        {
-         "words": "phone",
-         "gives": "RING",
-         "note": "to ring is to phone"
+         "at": 25
         }
        ]
+      },
+      {
+       "words": "phone",
+       "at": 11,
+       "gives": "RING",
+       "note": "to phone someone is to ring them"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone takes a call after watching a news programme.",
-     "walkthrough": "'Picking up phone' looks like the definition, but 'phone' belongs to the wordplay and comes after the rest.",
-     "definitionFit": "Picking up, as with a telephone, is responding to a call, which is answering it."
+     "surface": "Answering the phone straight after the news bulletin.",
+     "walkthrough": "'A news broadcast' reads as a bulletin, but 'broadcast' scatters the letters; 'Picking up' is the definition, not a phone action in the wordplay.",
+     "definitionFit": "Answering the phone means picking up the receiver when it rings."
     },
     "features": {
      "answerInScene": true,
@@ -1271,7 +1275,8 @@
     "definitions": [
      {
       "text": "she's learning",
-      "at": 60
+      "at": 60,
+      "note": "a phrase describing one who learns, standing for the noun"
      }
     ],
     "wordplay": {
@@ -1279,27 +1284,28 @@
      "indicators": [
       {
        "text": "absorbed",
-       "note": "something absorbed is soaked up inside, so one letter goes within the others"
+       "at": 49,
+       "note": "the cores take in that letter, absorbing it"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "TUEE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Core content of",
-         "note": "the core is the centre, so the middle pair of each word is kept"
+         "at": 0,
+         "note": "the core of a word is its middle letters, so only the two central letters of lectures and of Queens' are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "lectures Queens'",
-         "gives": "TUEE",
-         "select": "middle",
-         "note": "the middle pair of each word"
+         "at": 16,
+         "note": "taken as written, then everything but each word's middle two letters dropped"
+        },
+        {
+         "gives": "LECRESQUNS"
         }
        ]
       },
@@ -1308,27 +1314,28 @@
        "indicators": [
         {
          "text": "at last",
-         "note": "at last points to the final letter of the word before it"
+         "at": 41,
+         "note": "only the final letter of student is used"
         }
        ],
        "parts": [
         {
          "words": "student",
-         "note": "the final letter"
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lecture at Queens' College where a student finally took it all in.",
-     "walkthrough": "Queens' is a Cambridge college; 'she's learning' defines a person, the one being tutored.",
-     "definitionFit": "A tutee is someone being taught by a tutor, a person who is learning."
+     "surface": "A student at Queens' College finally taking in the gist of the lectures.",
+     "walkthrough": "The 'core content of' LECTURES and QUEENS is TU and EE; they absorb T, the last letter of 'student'. Queens' College is in Cambridge.",
+     "definitionFit": "A tutee is a pupil taught by a tutor, someone who is being taught."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "absorbed"
+     "aptDefinition": true,
+     "misdirectedWord": "Queens'"
     }
    }
   },

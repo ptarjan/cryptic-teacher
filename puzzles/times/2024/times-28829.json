@@ -690,48 +690,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BLANC",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most but not all means the final letter is dropped"
+       "text": "replaced",
+       "at": 17,
+       "note": "the letters are put back in a different place, rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "New",
+       "at": 0,
+       "gives": "N"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "replaced",
-         "note": "things replaced are put back in different places, so the order changes"
+         "text": "mostly",
+         "at": 10,
+         "note": "most of the word is used, its last letter dropped"
         }
        ],
        "parts": [
         {
-         "words": "New",
-         "gives": "N",
-         "note": "N is the abbreviation for new"
+         "words": "black",
+         "at": 4,
+         "note": "taken as written, then shortened"
         },
         {
-         "words": "black",
-         "gives": "BLAC",
-         "note": "the word without its last letter"
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fashion editor declares the new black has been usurped by white.",
-     "walkthrough": "'The new black' is a fashion phrase for what is in vogue, but it splits into N plus BLAC(K). The answer is French, as in vin blanc.",
-     "definitionFit": "Blanc is the French word for the colour, familiar in English from wine names and sauce blanc."
+     "surface": "A new colour scheme in which black has mostly given way to white.",
+     "walkthrough": "'mostly' cuts BLACK to BLAC; with N those letters are rearranged. Blanc is French for white, as in blanc de blancs.",
+     "definitionFit": "Blanc is the French word for the colour, familiar from wine labels and cooking terms."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "New"
+     "misdirectedWord": "replaced"
     }
    }
   },
@@ -1537,40 +1540,43 @@
      "indicators": [
       {
        "text": "to insert",
-       "note": "to insert something is to put it inside"
+       "at": 5,
+       "note": "the other letters are inserted into the task"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Task",
-         "gives": "CHORE",
-         "note": "a chore is a routine task"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Task",
+       "at": 0,
+       "gives": "CHORE",
+       "note": "a chore is a task"
       },
       {
-       "words": "line",
-       "gives": "L",
-       "note": "L is the abbreviation for line"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 15,
+         "gives": "A"
+        },
+        {
+         "words": "line",
+         "at": 17,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A composer's job is to add a line to a hymn tune.",
-     "walkthrough": "A + L go inside CHORE, between its R and E.",
-     "definitionFit": "A chorale is a stately Lutheran hymn melody, often harmonised, as in Bach's settings."
+     "surface": "An organist's job of fitting a line into a hymn tune.",
+     "walkthrough": "The surface pictures a musician's job, but 'Task' simply gives a household chore.",
+     "definitionFit": "A chorale is a stately hymn melody of the kind used in Lutheran worship and harmonised by Bach."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "line"
+     "misdirectedWord": "Task"
     }
    }
   },

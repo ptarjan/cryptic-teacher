@@ -401,34 +401,35 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "WARP",
+     "op": "deletion",
      "indicators": [
       {
        "text": "half of",
-       "note": "half of a title means only its first half is kept and the rest is dropped"
+       "at": 3,
+       "note": "only the first half of those letters is kept, the rest dropped"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Tolstoy's work",
-       "gives": "WARP",
-       "select": "first",
-       "note": "Tolstoy's novel War and Peace; the first half of its two nouns run together"
+       "at": 11,
+       "gives": "WARPEACE",
+       "note": "War and Peace, the and being ignored, gives eight letters"
+      },
+      {
+       "gives": "EACE"
       }
      ]
     },
     "explanation": {
-     "surface": "A reader wonders whether part of Tolstoy's huge novel is a distorted picture.",
-     "walkthrough": "Take the title's two nouns, WAR and PEACE, as eight letters; the first four are WARP.",
-     "definitionFit": "A warp is a twist or bend out of true shape, so it is a distortion, as in a warp in a plank."
+     "surface": "A question whether Tolstoy's great novel is half a distortion.",
+     "walkthrough": "The question mark admits a liberty: the title is taken as WAR PEACE without the 'and', and its first four letters are kept.",
+     "definitionFit": "A warp is a twist or bend out of true shape, as in warped timber."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "work"
+     "misdirectedWord": "Is"
     }
    }
   },
@@ -1103,74 +1104,65 @@
      "parts": [
       {
        "words": "100",
+       "at": 21,
        "gives": "C",
        "note": "C is the Roman numeral for 100"
       },
       {
        "words": "close to",
+       "at": 26,
        "gives": "ON",
-       "note": "on can mean next to, as in a house on the river"
+       "note": "on can mean close to, as in a house on the river"
       },
       {
        "words": "150",
+       "at": 35,
        "gives": "CL",
        "note": "CL is the Roman numeral for 150"
       },
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 40,
+       "gives": "A"
       },
       {
        "words": "5",
+       "at": 42,
        "gives": "V",
        "note": "V is the Roman numeral for 5"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "E",
+       "op": "deletion",
        "indicators": [
         {
          "text": "for starters",
-         "note": "for starters means taking the first letter of each word named"
+         "at": 53,
+         "note": "only the starting letter of each of the two numbers written as words is kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "8",
-         "gives": "E",
-         "select": "first",
-         "note": "the first letter of eight"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "S",
-       "parts": [
+         "words": "8 and 6",
+         "at": 45,
+         "gives": "EIGHTSIX",
+         "note": "the numbers eight and six spelt out"
+        },
         {
-         "unchecked": true,
-         "words": "6",
-         "gives": "S",
-         "select": "first",
-         "note": "the first letter of six"
+         "gives": "IGHTIX"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tally of how many cardinals a list of numbers suggests, as if counting a papal election.",
-     "walkthrough": "Cardinal numbers fill the clue, a joke on the cardinals of the definition. The 8 and 6 are spelt out, as eight and six, before their first letters are taken.",
-     "definitionFit": "A conclave is the private meeting of cardinals that elects a pope."
+     "surface": "A list of numbers that looks like a scorecard for a meeting of cardinals.",
+     "walkthrough": "The numbers look like cross-references to other clues; 8 and 6 are just EIGHT and SIX, whose first letters give ES.",
+     "definitionFit": "A conclave is the private assembly of cardinals that meets to elect a new pope."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "close"
+     "misdirectedWord": "8"
     }
    }
   },

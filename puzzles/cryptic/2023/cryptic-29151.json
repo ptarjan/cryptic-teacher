@@ -1353,45 +1353,51 @@
      "indicators": [
       {
        "text": "rejected",
-       "note": "rejected means sent back, so the whole sequence is read from end to start"
+       "at": 26,
+       "note": "rejected means sent back, so everything is read backwards"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 7,
+         "note": "the a and the girl are put inside the other letters"
+        }
+       ],
        "parts": [
         {
-         "words": "say",
-         "gives": "EG",
-         "note": "e.g., for example"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "in places the preceding words inside the following ones"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "op": "container",
-           "parts": [
-            {
-             "words": "the Bible",
-             "gives": "AV",
-             "note": "the Authorized Version of the Bible"
-            },
-            {
-             "words": "girl",
-             "gives": "LASS",
-             "note": "a lass is a girl"
-            }
-           ]
+           "words": "say",
+           "at": 11,
+           "gives": "EG",
+           "note": "eg, for example, is what say means here"
           },
           {
+           "words": "the Bible",
+           "at": 16,
+           "gives": "AV",
+           "note": "AV is the Authorised Version of the Bible"
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
            "words": "A",
-           "note": "taken as written"
+           "at": 0,
+           "gives": "A"
+          },
+          {
+           "words": "girl",
+           "at": 2,
+           "gives": "LASS",
+           "note": "a lass is a girl"
           }
          ]
         }
@@ -1400,12 +1406,12 @@
      ]
     },
     "explanation": {
-     "surface": "A girl mentioned in the Bible is rejected for her humble status.",
-     "walkthrough": "'Say' signals an example, giving the abbreviation for 'for example'; the King James Bible is the Authorized Version.",
-     "definitionFit": "Vassalage was the feudal state of being a vassal, owing service to a lord: a form of subjection."
+     "surface": "A girl appearing in the Bible, perhaps, turned away as a mere underling.",
+     "walkthrough": "A LASS goes 'in' EG + AV, giving EGALASSAV, and 'rejected' reverses it.",
+     "definitionFit": "Vassalage was the feudal state of being a vassal, owing service to a lord."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "say"
     }

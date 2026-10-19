@@ -396,40 +396,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "broken",
-       "note": "something broken is in pieces, so the letters are reassembled differently"
+       "text": "holding",
+       "at": 30,
+       "note": "gone surrounds the other letters, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "left",
+       "at": 25,
+       "gives": "GONE",
+       "note": "someone who has left is gone"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "holding",
-         "note": "holding means keeping something inside"
+         "text": "broken",
+         "at": 38,
+         "note": "the word stem is broken up and its letters rearranged"
         }
        ],
        "parts": [
         {
-         "words": "left",
-         "gives": "GONE",
-         "note": "someone who has left has gone"
-        },
-        {
          "words": "stem",
-         "note": "the letters of stem, rearranged"
+         "at": 45
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Thieves raiding a jeweller's left, clutching a snapped stem.",
-     "walkthrough": "'Left' looks like the opposite of right but means departed.",
-     "definitionFit": "Gemstones are what thieves are after in a jewellery robbery, the precious stones themselves."
+     "surface": "A thief's haul from a jewellery raid, the stolen piece wrapped round a broken stem.",
+     "walkthrough": "'Left' looks like the direction or the letter L, but here it means departed.",
+     "definitionFit": "A precious stone is exactly what robbers of a jeweller's shop are after."
     },
     "features": {
      "answerInScene": true,
@@ -463,7 +466,8 @@
      "indicators": [
       {
        "text": "Upset",
-       "note": "in a down clue, upset means turned upside down, so read from bottom to top"
+       "at": 0,
+       "note": "in a down clue an upset turns the whole thing upside down, so it reads backwards"
       }
      ],
      "parts": [
@@ -472,37 +476,41 @@
        "indicators": [
         {
          "text": "receiving",
-         "note": "receiving means taking something in"
+         "at": 17,
+         "note": "me takes in the other letters, receiving them in its middle"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "the writer",
-           "gives": "ME",
-           "note": "the writer of a clue refers to himself as me"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "the writer",
+         "at": 6,
+         "gives": "ME",
+         "note": "the writer of the clue refers to himself as me"
         },
         {
-         "words": "poor mark",
-         "gives": "X",
-         "note": "X is the cross marking a wrong answer"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 27,
+           "gives": "A"
+          },
+          {
+           "words": "poor mark",
+           "at": 29,
+           "gives": "X",
+           "note": "a cross, X, is the mark for a wrong answer"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The writer is upset after getting a bad mark in a test.",
-     "walkthrough": "'Upset' applies to the whole assembly: the writer holding the article and the cross, then turned over.",
-     "definitionFit": "An exam is a formal test of knowledge."
+     "surface": "A writer disappointed at getting a low mark in a test.",
+     "walkthrough": "ME 'receiving' A and X gives MAXE; 'Upset' reverses that.",
+     "definitionFit": "An exam is a formal test of a student's knowledge."
     },
     "features": {
      "answerInScene": true,
@@ -1467,50 +1475,54 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so this word goes around the next pieces"
+       "at": 27,
+       "note": "the shortened word goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cockney",
+         "at": 0,
+         "note": "a Cockney speaker drops the H at the start of words, so the H goes"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Cockney",
-           "note": "a Cockney speaker drops the H at the start of words"
-          }
-         ],
-         "parts": [
-          {
-           "words": "making suggestions",
-           "gives": "HINTING",
-           "note": "hinting is making suggestions"
-          },
-          {
-           "gives": "H"
-          }
-         ]
+         "words": "making suggestions",
+         "at": 8,
+         "gives": "HINTING",
+         "note": "making suggestions is hinting"
         },
         {
-         "words": "doctor",
-         "gives": "RIG",
-         "note": "to doctor results is to rig them"
+         "gives": "H"
         }
        ]
       },
       {
-       "words": "Unionist",
-       "gives": "U",
-       "note": "U is the abbreviation for Unionist"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "doctor",
+         "at": 33,
+         "gives": "RIG",
+         "note": "to doctor results is to rig them"
+        },
+        {
+         "words": "Unionist",
+         "at": 41,
+         "gives": "U"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An East Ender drops hints about a doctor and a Unionist politician carrying on together.",
-     "walkthrough": "'Doctor' looks like a noun such as DR or MO, but it is the verb meaning to tamper with. A Cockney is a working-class Londoner whose accent drops initial H.",
-     "definitionFit": "Intriguing can mean carrying on a secret love affair, the old sense of an intrigue."
+     "surface": "A Cockney gossip dropping hints that a doctor and a Unionist politician are carrying on together.",
+     "walkthrough": "'Cockney' drops the H from HINTING to give INTING, which goes 'about' RIG and U.",
+     "definitionFit": "Intriguing can mean carrying on a secret love affair, an older sense of intrigue."
     },
     "features": {
      "answerInScene": true,
