@@ -824,6 +824,9 @@ LAYOUT = [
     ("annotating", "tools/test_redo_unchanged.py", "a re-annotation scoped to some clues writes only those, and a redo of the same tree and letters in other words leaves the old hint as it was"),
     ("annotating", "tools/test_batch_subject.sh", "a batch commit's subject names only the puzzles whose file the commit changes (164738e46f2 listed 20 ids and changed just the queue file)"),
     ("annotating", "tools/test_trimmed_lead.py", "the 1945-49 Times' clue column stands right of a column of small ads, and"),
+    ("annotating", "tools/audit_crops.py", "dry-run audit of the archive filer's clue-column crops, per year"),
+    ("annotating", "tools/crop_window.py", "clue-column windows chosen from the page's own ink, and the check that a"),
+    ("annotating", "tools/test_crop_window.py", "crop_window finds the gutters between columns of print from the ink"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
