@@ -352,45 +352,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "avoiding false start",
-       "note": "a race run without its start has lost its opening, so the first letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "note": "the leader of a word is its opening letter, so only that is kept from the word before it"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader",
-           "note": "the leader of a word is its opening letter, so only that is kept from the word before it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "union",
-           "note": "the opening letter of union"
-          }
-         ]
-        },
-        {
-         "words": "PR",
-         "note": "taken as written"
-        },
-        {
-         "words": "battle",
-         "gives": "FIGHT",
-         "note": "a fight is a battle"
+         "words": "union",
+         "note": "the opening letter of union"
         }
        ]
       },
       {
-       "gives": "F"
+       "words": "PR",
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "avoiding false start",
+         "note": "a race run without its start has lost its opening, so the first letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "battle",
+         "gives": "FIGHT",
+         "note": "a fight is a battle"
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
