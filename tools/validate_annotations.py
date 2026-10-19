@@ -4201,7 +4201,7 @@ ORDERING_INDICATORS = frozenset(
     "by|with|and|then|leading|heading|first|starting|beginning|at the start|at the front|"
     "in front of|going before|preceding|followed by|supporting|on|to|for|from|getting|"
     "having|bringing|giving|making|showing|catching|joining|meeting|alongside|against|"
-    "early|late|last|finally|at last|at the end|"
+    "early|late|last|finally|at last|at the end|in the end|"
     "to follow|coming after|going after|in pursuit of|pursuing|close to|near|adjacent to|"
     "touching|joined to|attached to".split("|"))
 #: Position words, read "A initially B" = A first, "A covers B" = A above B in a down clue, that
@@ -4209,6 +4209,9 @@ ORDERING_INDICATORS = frozenset(
 #: a container misfiled this way would not spell the answer in order. Still flagged when a
 #: selection op in the charade has no indicator of its own (quiptic-170 1a ADAMANT first(talk)),
 #: the sign the word belongs to that op. Cleared rows judged 16/20 before that guard.
+#: Words that mark a leaf's clue words as an example of the thing they give ("commercial vehicle,
+#: perhaps" = VAN); on a charade of plain leaves they are the setter's hedge, not an anagram.
+EXAMPLE_MARKERS = frozenset("perhaps|say|maybe|for example|for instance|for one|as an example|possibly".split("|"))
 POSITION_INDICATORS = frozenset("initially|covers|covering|covered by|to cover".split("|"))
 
 
@@ -4507,12 +4510,12 @@ def extremes_as_one_end(tree):
 #: not after a verb of being/getting or a preposition/article, nor before a particle.
 AMBIGUOUS_DELETION = frozenset("left leaves leaving lost leave".split())
 NOT_BEFORE_DELETION = frozenset(
-    "get gets got getting be is are was were been being on to the a an of at from in by turn turned "
+    "whats thats whos get gets got getting be is are was were been being on to the a an of at from in by turn turned "
     "turns and or for with it its his her their our my your tea".split())
 NOT_AFTER_DELETION = frozenset("behind over out alone off there here on in up back and or".split())
 
 
-def _deletion_word_in(words):
+def _deletion_word_in(words, gives=""):
     """Whether `words` use a deletion word as a deletion: it has a source word before it and
     a removed word after it; an ambiguous one (left, leaves) also needs a clear context."""
     ws = str(words).split()
@@ -4520,6 +4523,11 @@ def _deletion_word_in(words):
         bare = re.sub(r"\W", "", w).lower()
         if not DELETION_LEAF_WORD.fullmatch(bare):
             continue
+        nxt = re.sub(r"\W", "", ws[i + 1]).lower() if i + 1 < len(ws) else ""
+        if (bare in ("drop", "drops") and nxt == "of" and len(gives) > 1) or (bare in ("shed", "sheds", "shedding") and nxt == "light") \
+                or (bare in ("lacking", "lacks") and nxt in ("sense", "brains", "wit")) \
+                or (bare in AMBIGUOUS_DELETION and nxt in ("wing", "hand", "side", "bank", "field", "back", "luggage")):
+            continue  # idioms and nouns: a drop of water, shed light on, one lacking sense (a NIT), left wing
         if bare in AMBIGUOUS_DELETION:
             if i == 0 or i == len(ws) - 1 or re.sub(r"\W", "", ws[i - 1]).lower() in NOT_BEFORE_DELETION \
                     or re.sub(r"\W", "", ws[i + 1]).lower() in NOT_AFTER_DELETION:
@@ -4534,7 +4542,7 @@ def folded_deletion_leaves(tree):
     return sum(1 for node in _walk(tree)
                if "words" in node and "gives" in node and "op" not in node and not node.get("unchecked")
                and len(str(node["words"]).split()) >= 3 and len(node["gives"]) <= 4
-               and _deletion_word_in(node["words"]))
+               and _deletion_word_in(node["words"], node["gives"]))
 
 
 def selection_of_one_letter(tree):
@@ -4640,6 +4648,8 @@ def misplaced_indicators(tree):
                 continue
             if key.lower() in POSITION_INDICATORS and _positional_charade(node, key.lower()):
                 continue
+            if leaf_only and key.lower() in EXAMPLE_MARKERS:
+                continue  # "perhaps" marks a leaf as an example of its clue words (times-26889 15d VAN)
             n += any(c >= MISPLACED_MIN_USES for t, d in lex.items() if t != own
                      for c in [d.get(key, 0)])
     return n
@@ -4696,7 +4706,8 @@ def _attested():
 
 
 #: Standard one-letter readings the tables lack (round 10: PRMAN "Played" P, EYING "electronically" E-).
-_EXTRA_PAIRS = frozenset({("PLAYED", "P"), ("ELECTRONICALLY", "E"), ("ELECTRONIC", "E")})
+_EXTRA_PAIRS = frozenset({("PLAYED", "P"), ("ELECTRONICALLY", "E"), ("ELECTRONIC", "E"),
+                          ("KOSHER", "K"), ("LITTLE", "L"), ("QUALITY", "Q")})  # round 11
 
 
 def _known_pair(words, gives):
@@ -5034,13 +5045,24 @@ def unindicated_uncovered(tree):
 #: Words an op's indicator can be a prefix or suffix of inside one compound clue word
 #: (Oversell = over + sell, heartbroken = heart + broken), beside the indicator lexicon's.
 _FOLD_AFFIX = {"reversal": ("over", "back", "about", "return", "upset"),
-               "anagram": ("broken", "mixed", "wild", "crazy", "drunk")}
+               "anagram": ("broken", "mixed", "wild", "crazy", "drunk"),
+               "first": ("top",),  # mountaintop -> M (nation-3423 19a FARM)
+               "last": ("tail", "foot", "bottom")}
+_FOLD_PHRASE = {op: re.compile(r"(?:%s)\s+(?:of|in|from)\s+\w+" % words, re.I) for op, words in (
+    ("first", "first|initial|opening|start|head|top|beginning|front"),
+    ("last", "final|last|end|close|closing|ending|tail|finish|back|bottom"),
+    ("middle", "heart|centre|center|middle|core"))}
 
 
 def _folded_signal(node):
     """Whether bare op `node` holds one leaf whose single clue word is a compound with the op's
     indicator at an edge and 3+ letters of the other word left (Oversell for a reversal)."""
     ps = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+    if len(ps) == 1 and "op" not in ps[0] and node.get("op") in _FOLD_PHRASE:
+        # "final of competition" for last(..): the leaf's own opening words name the pick
+        # (times-28920 22d ARENA); the words still do one job, so no indicator is filed.
+        if _FOLD_PHRASE[node["op"]].match(str(ps[0].get("words") or "")):
+            return True
     if len(ps) != 1 or "op" in ps[0] or len(str(ps[0].get("words") or "").split()) != 1:
         return False
     w = wordplay.letters(ps[0]["words"]).lower()

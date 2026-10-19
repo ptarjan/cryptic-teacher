@@ -710,7 +710,7 @@ def r_leaf_fold(node, parent, ctx):
             or node.get("at") is None or id(node) in ctx["under_unchecked"]:
         return None
     toks = node["words"].split()
-    if len(toks) < 3 or len(node["gives"]) > 4 or not V._deletion_word_in(node["words"]):
+    if len(toks) < 3 or len(node["gives"]) > 4 or not V._deletion_word_in(node["words"], node["gives"]):
         return None
     g = W.letters(node["gives"])
     clue = ctx["clue"]
