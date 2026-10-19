@@ -706,10 +706,54 @@ def _plan(papers, cache, reread, out, asked=None):
             sc, rd = only_evidence(key, sc, rd)
         scans += [(u["rank"], k, n, u) for n, u in enumerate(sc)]
         reads += [(u["rank"], k, n, u) for n, u in enumerate(rd)]
+    scans, reads = hold_refusal_rereads(scans, reads, out)
     ended = time.monotonic()
     if out is not None and ended - began >= SLOW_PLAN:
         out.append(slow_plan_note(took, ended, began))
     return by_urgency(scans), by_urgency(reads)
+
+
+#: Reasons of a puzzle never read or scanned: new work, filed before any refusal is read again.
+NEW_WORK = ("never read", "never scanned", "never read (Gale fetch)", "just laid out")
+
+
+def refusal_reread(reason):
+    return (reason.endswith(" cured since") or reason in FIX_LANDED
+            or (reason.startswith("refused ") and reason.endswith(" before its fix")))
+
+
+def refusal_rereads_wanted():
+    return os.environ.get("CT_REFUSAL_REREADS", "") not in ("", "0")
+
+
+def hold_refusal_rereads(scans, reads, out=None):
+    """(scans, reads) (_plan's (rank, k, n, unit) tuples) without the refusal
+    rereads while the plan holds any never-read or never-scanned unit: they
+    spend the one-slot VLM that new puzzles wait for. "annotation asked"
+    rereads stay (concrete bug evidence), as do scans a kept read needs; a
+    scan only a held read needed goes too. CT_REFUSAL_REREADS=1 keeps all.
+    One note says how many were held and why."""
+    new = any(u["reason"] in NEW_WORK for _, _, _, u in scans + reads)
+    held = [t for t in reads if refusal_reread(t[3]["reason"])]
+    if not held:
+        return scans, reads
+    if refusal_rereads_wanted():
+        if out is not None:
+            out.append(f"refusal rereads: {len(held)} kept (CT_REFUSAL_REREADS=1)")
+        return scans, reads
+    if not new:
+        if out is not None:
+            out.append(f"refusal rereads: {len(held)} kept, no never-read or never-scanned unit left")
+        return scans, reads
+    reads = [t for t in reads if t not in held]
+    kept = {(t[3]["paper"], rel) for t in reads for rel in t[3].get("needs") or ()}
+    gone = {(t[3]["paper"], rel) for t in held for rel in t[3].get("needs") or ()} - kept
+    before = len(scans)
+    scans = [t for t in scans if t[3]["reason"] in NEW_WORK or (t[3]["paper"], t[3]["rel"]) not in gone]
+    if out is not None:
+        out.append(f"refusal rereads: held {len(held)} (and {before - len(scans)} scans only they needed) "
+                   f"while never-read or never-scanned units remain; CT_REFUSAL_REREADS=1 restores them")
+    return scans, reads
 
 
 #: A plan of the papers that takes this many seconds says, in its notes, what each paper cost.

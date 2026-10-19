@@ -20,6 +20,7 @@ import tempfile
 from pathlib import Path
 
 os.environ["DESKTOP_HOSTS_STATIC"] = "1"  # desktop_hosts.ranked: the json order, no network probe
+os.environ["CT_REFUSAL_REREADS"] = "1"  # the cases below plan refusal rereads beside never-read units (the hold cases turn it off)
 os.environ["CT_BLANKET_REREADS"] = "1"  # the cases below plan every reread (the blanket-reread cases turn it off)
 os.environ["CT_AUTO_RELOAD"] = "0"  # no dispatch here fetches the real repo (the reload cases turn it on)
 REPO = Path(__file__).resolve().parent.parent
@@ -181,6 +182,30 @@ check("annotation asked carries its puzzle and checks; inputs changed is dropped
 os.environ["CT_BLANKET_REREADS"] = "1"
 _, rd_old = eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
 check("CT_BLANKET_REREADS=1 restores every reread", True, len(rd_old) == 7)
+# ---- refusal rereads wait while never-read or never-scanned units remain
+del os.environ["CT_REFUSAL_REREADS"]
+notes_h = []
+sc_h, rd_h = eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"), out=notes_h)
+check("refusal rereads are held while never-read units remain; the new ones stay",
+      {"1992-01-01_1", "1990-06-01_1", "1990-05-01_1", "1985-01-01_1", "1999-01-01_1", "1995-01-01_1"},
+      {u["rel"].split("/")[1] for u in rd_h})
+check("one note says how many were held and why", True,
+      sum("refusal rereads: held 1" in n and "never-read" in n for n in notes_h) == 1)
+os.environ["CT_REFUSAL_REREADS"] = "1"
+_, rd_k = eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
+check("CT_REFUSAL_REREADS=1 keeps the refusal reread", True, "1970-01-01_1" in {u["rel"].split("/")[1] for u in rd_k})
+del os.environ["CT_REFUSAL_REREADS"]
+unit_n = {"paper": "times", "rel": "X/n", "reason": "never read", "needs": ["X/n"]}
+unit_c = {"paper": "times", "rel": "X/c", "reason": "refused not-a-grid before its fix", "needs": ["X/c"]}
+unit_a = {"paper": "times", "rel": "X/a", "reason": "annotation asked", "needs": []}
+unit_t = {"paper": "trove", "rel": "t1", "reason": "no-grid cured since", "needs": []}
+scan_c = {"paper": "times", "rel": "X/c", "reason": "scan stale"}
+tup = lambda u: (0, 0, 0, u)
+sc_x, rd_x = eq.hold_refusal_rereads([tup(scan_c)], [tup(unit_n), tup(unit_c), tup(unit_a), tup(unit_t)])
+check("held: cured-since and fix-landed reads go, annotation asked stays, and the scan only they needed",
+      (["X/n", "X/a"], []), ([t[3]["rel"] for t in rd_x], sc_x))
+sc_y, rd_y = eq.hold_refusal_rereads([], [tup(unit_c), tup(unit_t)])
+check("with no new unit left the refusal rereads come back", 2, len(rd_y))
 
 f.edition_dirs, f.input_hash = listing, hashes
 
