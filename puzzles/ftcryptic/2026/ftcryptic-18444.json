@@ -1097,56 +1097,67 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "ignoring",
-       "note": "to ignore something is to leave it out, so letters are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Half of",
+         "at": 0,
+         "note": "half of the four-letter word is its first two letters"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Half of",
-           "note": "keeps the first half of the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Rule",
-           "note": "the first half of the word, two of its four letters"
-          }
-         ]
-        },
-        {
-         "words": "Britannia",
-         "gives": "RITANIA",
-         "note": "the patriotic figure with a B and an N removed"
-        },
-        {
-         "words": "Britain's borders",
-         "gives": "BN",
-         "note": "the first and last letters of the country's name, which are the ones dropped"
+         "words": "Rule",
+         "at": 8
         }
        ]
       },
       {
-       "gives": "BN"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring",
+         "at": 23,
+         "note": "ignoring letters means leaving them out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Britannia",
+         "at": 13
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "borders",
+           "at": 42,
+           "note": "a word's borders are its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Britain's",
+           "at": 32,
+           "gives": "BRITAIN",
+           "note": "the possessive word is Britain, whose ends are taken"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Half the patriotic song 'Rule, Britannia!' is sung, without Britain's frontiers, in a hopeful kingdom.",
-     "walkthrough": "'Hope' looks like optimism but is Anthony Hope, author of The Prisoner of Zenda. The B and N removed from BRITANNIA are the first and last letters of BRITAIN.",
-     "definitionFit": "Ruritania is the fictional central European kingdom invented by novelist Anthony Hope for his romantic adventure stories."
+     "surface": "Half of the patriotic song Rule Britannia is sung, without its boundaries, in some kingdom.",
+     "walkthrough": "Kingdom of Hope means the novelist Anthony Hope, whose The Prisoner of Zenda is set in this imaginary kingdom.",
+     "definitionFit": "Ruritania is the fictional central European kingdom invented by the novelist Anthony Hope."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Hope"

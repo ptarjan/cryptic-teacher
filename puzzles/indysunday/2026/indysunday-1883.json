@@ -681,36 +681,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "pack among",
-       "note": "To pack one thing among others is to push it in between them, which is where the two letters end up."
+       "text": "to pack among",
+       "at": 13,
+       "note": "packing something among items places it within them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "discounted items",
-         "gives": "INTHESALE",
-         "note": "goods with money off are in the sale, and this phrase opens up to take something"
-        },
-        {
-         "words": "500",
-         "gives": "D",
-         "note": "D is the Roman numeral for five hundred"
-        }
-       ]
+       "words": "discounted items",
+       "at": 27,
+       "gives": "INTHESALE",
+       "note": "discounted goods are in the sale"
       },
       {
-       "words": "diamonds",
-       "gives": "D",
-       "note": "D is the card player's shorthand for diamonds"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "500",
+         "at": 0,
+         "gives": "D",
+         "note": "D is the Roman numeral for 500"
+        },
+        {
+         "words": "diamonds",
+         "at": 4,
+         "gives": "D",
+         "note": "D is the card-suit abbreviation for diamonds"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a shoplifting story, so 'mounted' at the end reads as stock piled up rather than as the definition. Two Ds arrive from two quite different conventions.",
-     "definitionFit": "mounted → IN THE SADDLE: a rider up on a horse is in the saddle, and the phrase carries over to whoever is in charge of something."
+     "surface": "Five hundred jewels need to be packed in with the reduced stock.",
+     "definitionFit": "To be in the saddle is to be sitting on a horse, that is mounted, and figuratively in control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "diamonds"
     }
    }
   },
@@ -1380,31 +1389,34 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "lining",
-       "note": "The lining of a garment is what sits inside it, so the letters wanted are the inner ones of the word that follows."
+       "text": "back to front",
+       "at": 28,
+       "note": "putting the back at the front reads the whole string the other way"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "back to front",
-         "note": "The pieces are assembled one way and written into the grid the other way, ends swapped."
-        }
-       ],
        "parts": [
         {
          "words": "silk",
+         "at": 7,
          "gives": "KC",
-         "note": "a senior British barrister is a King's Counsel, and being appointed one is called taking silk"
+         "note": "a silk is a King's Counsel, KC, a senior barrister entitled to wear a silk gown"
         },
         {
          "op": "middle",
+         "indicators": [
+          {
+           "text": "lining for",
+           "at": 12,
+           "note": "the lining of a word is its inside, everything but the first and last letters"
+          }
+         ],
          "parts": [
           {
            "words": "hats",
-           "note": "the two letters inside the word, with the outer pair stripped away"
+           "at": 23
           }
          ]
         }
@@ -1413,8 +1425,15 @@
      ]
     },
     "explanation": {
-     "walkthrough": "The misdirection is that hats and linings belong together, so you look for a fabric. The lining wanted is the middle of a word, not the inside of a hat.",
-     "definitionFit": "Stitch → TACK: to tack is to fasten cloth with long loose stitches before sewing it properly, so the word names one kind of stitch."
+     "surface": "A milliner puts silk linings into hats, turning them round as she sews.",
+     "walkthrough": "Silk is a senior barrister, a King's Counsel, so called from the silk gown; the whole string is then turned round.",
+     "definitionFit": "A tack is a long loose temporary stitch used to hold fabric in place before sewing properly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "silk"
     }
    }
   },

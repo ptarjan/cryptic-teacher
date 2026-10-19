@@ -1622,32 +1622,45 @@
      "indicators": [
       {
        "text": "containing",
-       "note": "a can contains its drink, so the words for can hold the letter inside"
+       "at": 4,
+       "note": "the phrase for can holds the next letter within it"
       }
      ],
      "parts": [
       {
        "words": "Can",
+       "at": 0,
        "gives": "AMABLE",
-       "note": "'I can' means 'I am able'"
+       "note": "'I can' is 'I am able', so can gives AM ABLE"
       },
       {
-       "words": "last drop of kiwi",
-       "gives": "I",
-       "note": "the last letter of kiwi"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last drop of",
+         "at": 15,
+         "note": "the final letter, the last drop, of the word kiwi"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kiwi",
+         "at": 28
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tin holding the last of a kiwi-fruit drink.",
-     "walkthrough": "'Can' and 'cordial' paint a tin of fruit drink; can is the verb, and cordial means friendly.",
-     "definitionFit": "Someone cordial is warm and friendly, amiable."
+     "surface": "A tin holding the dregs of a kiwi-fruit drink.",
+     "walkthrough": "'Can' is not a tin here: 'I can' means 'I am able', and the kiwi's final letter goes into that phrase.",
+     "definitionFit": "Cordial as an adjective means warm and friendly, a synonym of amiable."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "cordial"
+     "misdirectedWord": "Can"
     }
    }
   },

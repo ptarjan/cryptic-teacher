@@ -676,7 +676,8 @@
      "indicators": [
       {
        "text": "back",
-       "note": "back means the whole sequence is read from end to start"
+       "at": 58,
+       "note": "read back, the whole string runs the other way"
       }
      ],
      "parts": [
@@ -688,45 +689,43 @@
          "indicators": [
           {
            "text": "in",
-           "note": "in places the butter piece inside the string of opening letters"
+           "at": 29,
+           "note": "the following letters go inside the pair of initials"
           }
          ],
          "parts": [
           {
-           "op": "charade",
+           "op": "first",
+           "indicators": [
+            {
+             "text": "initially",
+             "at": 32,
+             "note": "the opening letters of the two words"
+            }
+           ],
            "parts": [
             {
-             "op": "first",
-             "indicators": [
-              {
-               "text": "initially",
-               "note": "initially means only the opening letters of the following words count"
-              }
-             ],
-             "parts": [
-              {
-               "words": "might",
-               "note": "first letter of might"
-              }
-             ]
+             "words": "might",
+             "at": 42
             },
             {
-             "words": "a",
-             "note": "taken as written"
-            },
-            {
-             "words": "little butter",
-             "gives": "PAT",
-             "note": "a pat is a small portion of butter"
+             "words": "tempt",
+             "at": 48
             }
            ]
           },
           {
-           "op": "first",
+           "op": "charade",
            "parts": [
             {
-             "words": "tempt",
-             "note": "first letter of tempt"
+             "words": "a",
+             "at": 13
+            },
+            {
+             "words": "little butter",
+             "at": 15,
+             "gives": "PAT",
+             "note": "a pat is a small piece of butter"
             }
            ]
           }
@@ -734,17 +733,18 @@
         },
         {
          "words": "you",
+         "at": 54,
          "gives": "U",
-         "note": "U is text-speak for you"
+         "note": "U sounds like you, as in text speak"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pancake with a dab of butter might tempt you to return for more.",
-     "walkthrough": "A PAT goes inside M, T, U to give MAPATTU, which read backwards is UTTAPAM.",
-     "definitionFit": "Uttapam is a thick South Indian pancake made from fermented rice and lentil batter with toppings."
+     "surface": "A pancake with a knob of butter on it might well tempt you.",
+     "walkthrough": "M and T hold A PAT to make MAPATT; U follows, and the whole is read backwards.",
+     "definitionFit": "Uttapam is a thick South Indian pancake made from fermented rice and lentil batter."
     },
     "features": {
      "answerInScene": true,
