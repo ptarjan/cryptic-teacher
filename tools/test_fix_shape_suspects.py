@@ -226,5 +226,28 @@ check("ins(NOTE+L, P) under rev becomes NOTE-with-P + L", used == ["containerIns
       and new["parts"][0]["op"] == "charade" and new["parts"][0]["parts"][0]["op"] == "container"
       and new["parts"][0]["parts"][1]["gives"] == "L")
 
+# poolGap: an anagram's fodder pieces with another op's words between them
+PG = {"poolGap": F.r_pool_gap}
+pgc = "dishevelled rake embraced by whore"
+pg = {"op": "container", "unchecked": True, "gives": "SHAKERAG", "indicators": [{"text": "embraced by"}], "parts": [
+    {"op": "anagram", "indicators": [{"text": "dishevelled"}], "parts": [
+        {"words": "rake"}, {"words": "whore", "gives": "SHAG"}]}]}
+new, used = F.repair_tree(pg, pgc, "SHAKERAG", PG)
+check("a fodder piece that is the container's other arm leaves the pool",
+      used == ["poolGap"] and new["op"] == "container" and len(new["parts"]) == 2
+      and new["parts"][0]["words"] == "whore" and [p["words"] for p in new["parts"][1]["parts"]] == ["rake"])
+pgc2 = "Camels wandering about every second"
+pg2 = {"op": "container", "indicators": [{"text": "wandering"}], "parts": [
+    {"op": "anagram", "indicators": [{"text": "about"}], "parts": [{"words": "Camels"}, {"words": "every", "gives": "ALL"}]},
+    {"words": "second", "gives": "S"}]}
+new, used = F.repair_tree(pg2, pgc2, "SMALLSCALE", PG)
+check("an anagram-word container indicator beside the anagram's folds the pieces into one pool",
+      used == ["poolGap"] and new["op"] == "anagram" and len(new["parts"]) == 3
+      and [i["text"] for i in new["indicators"]] == ["wandering", "about"])
+pg3 = {"op": "container", "indicators": [{"text": "embraced by"}], "parts": [
+    {"op": "anagram", "indicators": [{"text": "dishevelled"}], "parts": [{"words": "rake"}, {"words": "whore", "gives": "SHAG"}]}]}
+new, used = F.repair_tree(pg3, pgc, "SHAGRAKE", PG)
+check("no piece order that gives the answer: left for the model", used == [])
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

@@ -1226,6 +1226,79 @@ def r_shared_indicator(node, parent, ctx):
     return new if node.get("gives") is None or gives_ok(new, W.letters(node["gives"])) else None
 
 
+def _top_role(ind, kind):
+    """Whether the corpus files the indicator's words under `kind` more than any other op type."""
+    counts = V._role_counts(V.indicator_role_key(ind.get("text")))
+    return sum(counts.values()) >= V.ROLE_MIN_USES and max(counts, key=counts.get) == kind
+
+
+def _words_between(clue, a, b):
+    """True when only spaces and punctuation lie in clue[a:b]."""
+    return not re.search(r"[A-Za-z0-9]", clue[a:b])
+
+
+def r_pool_outer(node, parent, ctx):
+    """poolGap, a container filed over the anagram alone: rake embraced by whore = ins<embraced by>(ana<dishevelled>(rake,
+    SHAG)) for SHAKERAG. One fodder piece is really the other arm of the container, so it leaves the pool
+    and goes beside the anagram. Used when exactly one piece and order rebuilds the answer."""
+    if node.get("op") not in ("container", "insertion") or len(node.get("parts") or []) != 1:
+        return None
+    a = node["parts"][0]
+    if a.get("op") != "anagram" or "gives" in a or a.get("unchecked") or len(a.get("parts") or []) < 2:
+        return None
+    flat = _flat_fodder(a)
+    if len(flat) < 2 or any(not isinstance(p.get("at"), int) for p in flat):
+        return None
+    good = {}
+    for k, piece in enumerate(flat):
+        rest = [copy.deepcopy(p) for j, p in enumerate(flat) if j != k]
+        inner = checked(a, parts=rest)
+        for order in ((inner, copy.deepcopy(piece)), (copy.deepcopy(piece), inner)):
+            new = checked(node, parts=list(order))
+            if _eval_swapped(node, parent, new, ctx):
+                good[json.dumps(new, sort_keys=True)] = new
+    return next(iter(good.values())) if len(good) == 1 else None
+
+
+def r_pool_gap(node, parent, ctx):
+    """poolGap: an insertion/container over an anagram and plain leaf pieces, whose indicator words sit
+    between the anagram's fodder (Camels wandering about every second: ins<wandering>(ana<about>(..), S)).
+    When the anagram of all the pieces gives the same letters and the container's indicator is
+    right beside the anagram's, the two indicators are one anagram indicator over every piece."""
+    if node.get("op") not in ("container", "insertion"):
+        return None
+    if len(node.get("parts") or []) == 1:
+        return r_pool_outer(node, parent, ctx)
+    if node.get("unchecked"):
+        return None
+    clue = ctx["clue"]
+    ana = [p for p in node.get("parts") or [] if p.get("op") == "anagram"]
+    others = [p for p in node.get("parts") or [] if p.get("op") != "anagram"]
+    if len(ana) != 1 or not others or not V.pool_gaps(node, clue) or ana[0].get("unchecked"):
+        return None
+    a = ana[0]
+    if any(not leaf(p) or not p.get("words") for p in others) or "gives" in a:
+        return None
+    inds = [*(a.get("indicators") or []), *(node.get("indicators") or [])]
+    if len(inds) < 2 or any(not isinstance(i.get("at"), int) or not i.get("text") for i in inds):
+        return None
+    if any(not _top_role(i, "anagram") for i in node.get("indicators") or []):
+        return None     # "between", "in", "around": container words, not anagram ones
+    inds.sort(key=lambda i: i["at"])
+    for x, y in zip(inds, inds[1:]):
+        if not _words_between(clue, x["at"] + len(x["text"]), y["at"]):
+            return None
+    pieces = sorted([*_flat_fodder(a), *others], key=lambda p: p.get("at") if isinstance(p.get("at"), int) else 10**6)
+    new = checked(a, parts=copy.deepcopy(pieces), indicators=copy.deepcopy(inds))
+    if node.get("gives") is not None:
+        new["gives"] = node["gives"]
+        if not gives_ok(new, W.letters(node["gives"])):
+            return None
+    if V.pool_gaps(new, clue):
+        return None
+    return new
+
+
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
            "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
@@ -1233,7 +1306,7 @@ REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap":
 RULE_REPAIRS = {"anaSynonym": r_ana_synonym, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
-                "sharedIndicator": r_shared_indicator}
+                "sharedIndicator": r_shared_indicator, "poolGap": r_pool_gap}
 
 
 def note_deletions(tree):
