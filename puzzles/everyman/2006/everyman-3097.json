@@ -476,37 +476,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PARISGREEN",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "most of means all but the end, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 20,
+         "note": "most of means the last letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "district",
-         "gives": "PARIS",
-         "note": "a parish is a local district; most of it loses the final letter"
+         "at": 28,
+         "gives": "PARISH",
+         "note": "a parish is a local church or council district"
         },
         {
-         "words": "eco-friendly",
-         "gives": "GREEN",
-         "note": "green means environmentally friendly"
+         "gives": "H"
         }
        ]
+      },
+      {
+       "words": "eco-friendly",
+       "at": 38,
+       "gives": "GREEN",
+       "note": "green means environmentally friendly"
       }
      ]
     },
     "explanation": {
-     "surface": "A pesticide applied across much of an area, yet claimed to be kind to the environment.",
-     "walkthrough": "The irony is that the answer is a highly toxic arsenic compound, anything but green.",
-     "definitionFit": "Paris green is a poisonous copper arsenite pigment once widely used to kill insects and rats."
+     "surface": "An eco-friendly bug killer is applied across most of the area.",
+     "definitionFit": "This bright green copper compound was once widely used as a pesticide against insects."
     },
     "features": {
      "answerInScene": true,
@@ -1069,47 +1072,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEVOTEE",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
+       "text": "about",
+       "at": 21,
+       "note": "the shortened word goes about the poll word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means surrounding, so one word wraps around the other"
+         "text": "mostly",
+         "at": 5,
+         "note": "mostly means the last letter is lost"
         }
        ],
        "parts": [
         {
          "words": "profound",
-         "gives": "DEE",
-         "note": "deep means profound; mostly leaves it without its final letter"
+         "at": 12,
+         "gives": "DEEP",
+         "note": "deep means profound"
         },
         {
-         "words": "poll",
-         "gives": "VOTE",
-         "note": "a poll is a vote"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "poll",
+       "at": 27,
+       "gives": "VOTE",
+       "note": "a vote is a poll"
       }
      ]
     },
     "explanation": {
-     "surface": "A supporter who has deep thoughts about an election.",
-     "definitionFit": "A devotee is an enthusiast or keen follower, the same as a fan."
+     "surface": "A supporter thinks deeply about an election.",
+     "definitionFit": "A devotee is an enthusiast or follower, exactly what a fan is."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "poll"
+     "misdirectedWord": "Fan"
     }
    }
   },
@@ -1417,40 +1425,44 @@
      "indicators": [
       {
        "text": "inside",
-       "note": "inside says these letters go within the word for porter"
+       "at": 24,
+       "note": "the next pieces go inside the beer word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "porter",
-         "gives": "ALE",
-         "note": "porter is a dark beer, a kind of ale"
-        },
-        {
-         "words": "Good",
-         "gives": "G",
-         "note": "G is the abbreviation for good"
-        }
-       ]
+       "words": "porter",
+       "at": 7,
+       "gives": "ALE",
+       "note": "porter is a dark beer, a kind of ale"
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Good",
+         "at": 15,
+         "gives": "G"
+        },
+        {
+         "words": "one",
+         "at": 20,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sprightly hotel porter, with a decent one working indoors.",
-     "walkthrough": "Porter looks like a person carrying bags, but it is the dark beer.",
-     "definitionFit": "Agile and nimble are synonyms for quick and light in movement."
+     "surface": "Is a nimble hotel porter a good one?",
+     "walkthrough": "Porter looks like a doorman, but it is the dark beer.",
+     "definitionFit": "Agile means quick and light in movement, the same as nimble."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "porter"
     }
    }

@@ -308,35 +308,37 @@
      "indicators": [
       {
        "text": "inside",
-       "note": "inside says the words for 'a page' sit within the message word"
+       "at": 12,
+       "note": "the next pieces go inside the message word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "message",
-         "gives": "CABLE",
-         "note": "a cable is a telegram, an old kind of message"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "message",
+       "at": 4,
+       "gives": "CABLE",
+       "note": "a cable is a telegram, a message"
       },
       {
-       "words": "page",
-       "gives": "P",
-       "note": "P is the standard abbreviation for page"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 19,
+         "gives": "A"
+        },
+        {
+         "words": "page",
+         "at": 21,
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Checking a message will fit on one page.",
-     "walkthrough": "The letters for 'a page' go inside the message word, just after its first letter.",
-     "definitionFit": "Someone fit for a job is competent, which is what capable means."
+     "surface": "A text is slipped inside a page so it fits.",
+     "definitionFit": "Capable means competent or able to do something, as fit does in 'fit for the job'."
     },
     "features": {
      "answerInScene": false,
@@ -604,43 +606,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "anyhow",
-       "note": "anyhow means in any old order, so these letters are jumbled"
+       "text": "at the start and finish",
+       "at": 29,
+       "note": "the alien stands at the beginning and again among the final letters of the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "alien",
+       "at": 23,
+       "gives": "ET",
+       "note": "ET is the film alien, the extra-terrestrial"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "at the start and finish",
-         "note": "the alien appears in two places, opening the word and in its closing stretch"
+         "text": "anyhow",
+         "at": 10,
+         "note": "anyhow means carelessly, in no fixed order, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "alien",
-         "gives": "ETET",
-         "note": "ET is the film's extra-terrestrial, used twice: once at the start and once at the finish"
+         "words": "quite",
+         "at": 17
         },
         {
-         "words": "quite",
-         "note": "taken as written"
+         "gives": "ET"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Manners rules are oddly foreign to a newcomer from beginning to end.",
-     "walkthrough": "The setter treats ET loosely: one copy opens the word, the other joins the jumbled letters of quite at the end.",
-     "definitionFit": "Etiquette is the code of polite behaviour, the conventional rules of social conduct."
+     "surface": "The rules are odd indeed for an alien, from beginning to end.",
+     "walkthrough": "'At the start and finish' sets ET at the front and again among the closing letters: ET, then QUITE mixed with a second ET to give IQUETTE.",
+     "definitionFit": "Etiquette is the code of polite conduct, the conventional rules of behaviour."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "alien"
     }
@@ -1381,59 +1389,62 @@
      "indicators": [
       {
        "text": "In",
-       "note": "in the museum means the other pieces sit inside the museum's abbreviation"
+       "at": 0,
+       "note": "the following pieces go in the museum letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "the museum",
+       "at": 3,
+       "gives": "VA",
+       "note": "the V&A is the Victoria and Albert Museum in London"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "the museum",
-         "gives": "VA",
-         "note": "the V&A is the Victoria and Albert Museum in London"
-        },
         {
          "op": "reversal",
          "indicators": [
           {
            "text": "go back",
-           "note": "go back means the word do runs backwards"
+           "at": 17,
+           "note": "go back means the word do is read the other way"
           }
          ],
          "parts": [
           {
            "words": "do",
-           "note": "taken as written"
+           "at": 14
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "last",
-       "indicators": [
+        },
         {
-         "text": "finally",
-         "note": "finally means only the last letter of ask is kept"
-        }
-       ],
-       "parts": [
-        {
-         "words": "ask",
-         "note": "the final letter of this word"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 33,
+           "note": "finally means the last letter of ask"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ask",
+           "at": 28
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Visitors in a museum turning back to request a drink.",
-     "walkthrough": "The V&A is London's Victoria and Albert Museum, so 'the museum' gives V and A around the rest.",
-     "definitionFit": "Vodka is a clear distilled spirit, a type of alcoholic drink."
+     "surface": "Visitors at a museum party go back to request a spirit.",
+     "definitionFit": "Vodka is a clear spirit distilled from grain or potatoes, a common alcoholic drink."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "museum"
     }

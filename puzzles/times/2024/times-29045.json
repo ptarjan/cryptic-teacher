@@ -147,46 +147,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRAVERSAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "going",
-       "note": "something going is leaving, so a letter departs from the word it sat in"
+       "text": "around",
+       "at": 29,
+       "note": "the shortened path goes around the next piece, holding it inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "around",
-         "note": "to be around something is to surround it, so one piece encloses another"
+         "text": "with",
+         "at": 14,
+         "note": "path with one going reads as the path having that letter depart"
+        },
+        {
+         "text": "going",
+         "at": 23,
+         "note": "one going means that letter departs from the path word"
         }
        ],
        "parts": [
         {
-         "words": "path with one",
-         "gives": "TRAL",
-         "note": "a path is a TRAIL, which contains I (one); that I departs"
+         "words": "path",
+         "at": 9,
+         "gives": "TRAIL",
+         "note": "a trail is a path through countryside"
         },
         {
-         "words": "states",
-         "gives": "AVERS",
-         "note": "to aver is to state firmly"
+         "words": "one",
+         "at": 19,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         }
        ]
+      },
+      {
+       "words": "states",
+       "at": 36,
+       "gives": "AVERS",
+       "note": "avers means states or asserts"
       }
      ]
     },
     "explanation": {
-     "surface": "A path runs across while someone walks round the states.",
-     "walkthrough": "'With one going' reads as company on the walk; it means the path loses its I (one), and 'states' is the verb, not the country.",
-     "definitionFit": "A traversal is a passage across something, the act of going from one side to the other."
+     "surface": "A path is crossed by someone who walks round making claims.",
+     "definitionFit": "The act of travelling across something is its traversal, so the noun is a synonym for a crossing."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "states"
     }
@@ -213,56 +225,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OTHELLO",
+     "op": "container",
      "indicators": [
       {
-       "text": "Not half",
-       "note": "only half survives, so the word loses its second half"
+       "text": "in",
+       "at": 25,
+       "note": "misery goes in the letters made from old and the half town"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "one thing placed within another sits inside it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "old",
-           "gives": "O",
-           "note": "O is a standard abbreviation for old"
-          },
-          {
-           "words": "town",
-           "gives": "TO",
-           "note": "only the first half of TOWN is kept"
-          }
-         ]
+         "words": "old",
+         "at": 28,
+         "gives": "O"
         },
         {
-         "words": "misery",
-         "gives": "HELL",
-         "note": "hell is utter misery"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Not half",
+           "at": 38,
+           "note": "not half of the word means only its first two letters are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "town",
+           "at": 32,
+           "gives": "TOWN",
+           "note": "taken as written before being cut"
+          },
+          {
+           "gives": "WN"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "misery",
+       "at": 18,
+       "gives": "HELL",
+       "note": "hell is a state of great misery"
       }
      ]
     },
     "explanation": {
-     "surface": "An old soldier's misery in an old town, told with a shrug.",
-     "walkthrough": "Othello is Shakespeare's Moorish general, so the 'part' is a stage role; 'Not half' keeps just the front of the town.",
-     "definitionFit": "Othello is the title role in Shakespeare's tragedy, a character who commands Venetian armies as a general."
+     "surface": "A soldier of rank is wretched in some ancient settlement, it seems.",
+     "walkthrough": "Shakespeare's Moor is a general in the Venetian army, so his is a part (role) of a general.",
+     "definitionFit": "Shakespeare's tragic hero is a Moorish general, so playing him is taking a stage role that is a general."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Part"

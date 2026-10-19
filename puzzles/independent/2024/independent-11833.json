@@ -735,35 +735,45 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "COMPUTER",
      "indicators": [
       {
-       "text": "needs other end of",
-       "note": "needing the other end means one end of the word is traded for its opposite end"
+       "text": "needs",
+       "at": 45,
+       "note": "the traveller needs a different letter in place of one of its own"
       }
      ],
      "parts": [
       {
        "words": "one travelling to work",
+       "at": 22,
        "gives": "COMMUTER",
        "note": "a commuter travels to work each day"
       },
       {
+       "gives": "M"
+      },
+      {
        "op": "first",
+       "indicators": [
+        {
+         "text": "other end of",
+         "at": 51,
+         "note": "M ends platform, so its other end is the first letter, which replaces an M"
+        }
+       ],
        "parts": [
         {
          "words": "platform",
-         "note": "platform starts with this letter and ends with M; the commuter's second M is swapped for it"
+         "at": 64
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A commuter needs to get to the far end of the station platform.",
-     "walkthrough": "Platform runs from P to M, so in COMMUTER the M is replaced by the other end, P.",
-     "definitionFit": "A computer is a node on a network, one of the machines linked together in it."
+     "surface": "A commuter standing at one end of a station platform has to move to the other end.",
+     "walkthrough": "Platform ends in M and starts with P: swap the second M in COMMUTER for P.",
+     "definitionFit": "Each machine linked in a computer network is a node, one part of the whole system."
     },
     "features": {
      "answerInScene": false,
