@@ -3810,11 +3810,9 @@ def main(argv):
                     got.append(str(n))
                 except Exception as err:
                     print(f"{series} {n} failed: {err}")
-        # One reindex for the lot, not one per puzzle: each is a whole-corpus
-        # pass (difficulty's rows across every core), and a gap fill of eight
-        # would make it eight.
-        if got:
-            reindex()
+        # No reindex here: recording one puzzle must not cost a whole-corpus pass
+        # (it ran a daily unit past its limit). The filers do not reindex; the index
+        # is untracked and rebuilt when the next unit's tree starts (ct_generated).
         if up_to_date and not got:
             print("up-to-date " + ", ".join(up_to_date))
             return 3

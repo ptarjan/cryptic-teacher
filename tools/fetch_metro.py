@@ -396,7 +396,9 @@ def main(argv):
         if not is_new:
             print(f"up-to-date {puzzle['id']}")
             return 3
-        reindex()
+        # No reindex here: recording one puzzle must not cost a whole-corpus pass
+        # (it ran a daily unit past its limit). The filers do not reindex; the index
+        # is untracked and rebuilt when the next unit's tree starts (ct_generated).
         print(puzzle["id"])
         return 0
 
