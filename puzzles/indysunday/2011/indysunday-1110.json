@@ -190,41 +190,44 @@
      "indicators": [
       {
        "text": "around",
-       "note": "around says the bird calls are wrapped about the next pieces"
+       "at": 24,
+       "note": "the tweets word goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Tweets",
-         "gives": "TRILLS",
-         "note": "birdsong trills, wrapped round the next bits"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
-        }
-       ]
+       "words": "Tweets",
+       "at": 17,
+       "gives": "TRILLS",
+       "note": "birds' tweets are trills"
       },
       {
-       "words": "being broadcast",
-       "gives": "ON",
-       "note": "a show being broadcast is on air"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 31,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "being broadcast",
+         "at": 35,
+         "gives": "ON",
+         "note": "a programme being broadcast is on air, or on"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Endless tweets circulating online, one of them being broadcast to the world.",
-     "walkthrough": "Tweets suggests social media, but here they are birdsong.",
-     "definitionFit": "Trillions, as in countless quantities, works as a vague hyperbolic plural meaning an enormous amount of things."
+     "surface": "A vast number of social-media tweets surround one live broadcast.",
+     "walkthrough": "'Tweets' suggests social media but means birdsong.",
+     "definitionFit": "Trillions is used loosely for any enormously large quantity, a hyperbolic count."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Tweets"
     }
    }
@@ -1055,52 +1058,57 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the upturned pieces inside the word for marriage"
+       "at": 45,
+       "note": "the reversed letters are placed in the marriage word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "marriage",
+       "at": 48,
+       "gives": "MATCH",
+       "note": "a match is a marriage"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to be upstanding",
+         "at": 28,
+         "note": "in a down clue, being upstanding means the letters read upwards, so in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "marriage",
-         "gives": "MATCH",
-         "note": "a match is a marriage or union"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "to be upstanding",
-           "note": "in a down entry, standing up means reading from bottom to top"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
+           "words": "right",
+           "at": 12,
+           "gives": "R"
+          },
+          {
            "words": "demeanour",
+           "at": 18,
            "gives": "AIR",
-           "note": "an air is a manner or demeanour"
+           "note": "air is a manner or demeanour"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Asking whether a woman's proper conduct is to keep her marriage upright and respectable.",
-     "walkthrough": "The whole clue sketches the head of a family, a woman who keeps everyone upright in a marriage.",
-     "definitionFit": "A matriarch is the female head of a family, a figure expected to show upright conduct within the household."
+     "surface": "Asks whether, for a woman, proper behaviour means keeping upright within a marriage.",
+     "walkthrough": "The whole clue hints at the respectable woman heading a family.",
+     "definitionFit": "A matriarch is the female head of a family, whose upright standing within marriage the clue imagines."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "upstanding"
     }
    }
@@ -1714,39 +1722,46 @@
    "annotation": {
     "definitions": [
      {
-      "text": "As the beach",
+      "text": "As the beach ends in sky?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "outer",
-     "unchecked": true,
-     "gives": "SANDY",
-     "indicators": [
-      {
-       "text": "ends in",
-       "note": "the ends are the first and last letters of the word that follows"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "sky",
-       "gives": "SANDY",
-       "select": "outer",
-       "note": "the two ends of this word, joined by 'and' when spoken as a phrase"
+       "words": "the beach",
+       "at": 3,
+       "gives": "SAND",
+       "note": "a beach is made of sand"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ends in",
+         "at": 13,
+         "note": "only the final letter of sky is used, at the end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sky",
+         "at": 21,
+         "note": "supplies its last letter"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A beach stretching away to meet the sky at the horizon.",
-     "walkthrough": "The ends of sky are 'S and Y', read as one word.",
-     "definitionFit": "A beach is typically covered in sand, so sandy is how one would describe it."
+     "surface": "A picture of a shoreline running out to meet the sky at the horizon.",
+     "definitionFit": "Sandy describes something like a beach, covered in or made of sand."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "ends"
     }
    }

@@ -1283,48 +1283,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TROUPE",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "the hairpiece is cut short, losing its final letter"
+       "text": "has",
+       "at": 5,
+       "note": "has, read with in, says the shortened hairpiece contains the Romeo letter"
+      },
+      {
+       "text": "in",
+       "at": 15,
+       "note": "the Romeo letter is placed in the shortened hairpiece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "has",
-         "note": "the shortened hairpiece has, that is holds, 'Romeo' within it"
+         "text": "short",
+         "at": 18,
+         "note": "short means cut off before the end, so the final letter of the hairpiece goes"
         }
        ],
        "parts": [
         {
          "words": "hairpiece",
-         "gives": "TOUPE",
-         "note": "a toupee missing its last letter"
+         "at": 24,
+         "gives": "TOUPEE",
+         "note": "a toupee is a hairpiece"
         },
         {
-         "words": "Romeo",
-         "gives": "R",
-         "note": "Romeo is R in the NATO phonetic alphabet"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "Romeo",
+       "at": 9,
+       "gives": "R",
+       "note": "R is Romeo in the NATO alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "The actor playing Romeo wears a skimpy wig.",
-     "walkthrough": "The theatrical surface makes 'Romeo' a role, but it is just the letter R.",
-     "definitionFit": "A troupe is a company of performers, the same group as a play's cast."
+     "surface": "An actor playing Romeo wears an abbreviated wig.",
+     "walkthrough": "'short' trims TOUPEE to TOUPE, and R goes in after T.",
+     "definitionFit": "A troupe is a company of performers, much like a theatrical cast."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Romeo"
+     "misdirectedWord": "Cast"
     }
    }
   },

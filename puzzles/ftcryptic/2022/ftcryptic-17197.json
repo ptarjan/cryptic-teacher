@@ -1160,45 +1160,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "knocked over",
-       "note": "something knocked over ends up the wrong way round"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "unclosed",
-         "note": "a container left unclosed has no end on it, so TIN loses its final letter"
+         "text": "knocked over",
+         "at": 9,
+         "note": "something knocked over is upended, so the dog's letters run backwards"
         }
        ],
        "parts": [
         {
          "words": "dog",
+         "at": 5,
          "gives": "LAB",
-         "note": "a Labrador; turned round it becomes BAL"
+         "note": "a lab is a Labrador dog"
         }
        ]
       },
       {
-       "words": "unclosed container",
-       "gives": "TI",
-       "note": "TIN without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unclosed",
+         "at": 25,
+         "note": "not closed off, the container word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "container",
+         "at": 34,
+         "gives": "TIN",
+         "note": "a tin is a container"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dog knocks over a food bowl beside an open tin.",
-     "walkthrough": "A balti is a curry cooked and served in a metal bowl, a British curry-house staple.",
-     "definitionFit": "Both senses fit: a balti is a curry dish, named after the bowl-shaped pan it is cooked in."
+     "surface": "A dish lies spilt after a dog knocked it over near an open container.",
+     "walkthrough": "'knocked over' reverses LAB to BAL, and 'unclosed' trims TIN to TI.",
+     "definitionFit": "A balti is a spicy curry cooked and served in a metal bowl, a South Asian dish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Dish"
+     "misdirectedWord": "unclosed"
     }
    }
   },
@@ -1502,47 +1514,51 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "primarily",
-       "note": "primarily means in the first place, so inebriated gives just its first letter"
+       "text": "on",
+       "at": 32,
+       "note": "in an across clue, on means placed after, so the church letters come first"
       }
      ],
      "parts": [
       {
        "words": "church",
-       "gives": "CH",
-       "note": "CH = church"
+       "at": 35,
+       "gives": "CH"
       },
       {
        "words": "One",
+       "at": 0,
        "gives": "I",
-       "note": "I = one"
+       "note": "I is the Roman numeral one"
       },
       {
        "words": "worker",
+       "at": 4,
        "gives": "ANT",
-       "note": "a worker ant"
+       "note": "the worker ant is the standard crossword worker"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "on",
-         "note": "in an across entry, what is placed on something comes after it"
+         "text": "primarily",
+         "at": 22,
+         "note": "primarily means first, so only the opening letter of inebriated is used"
         }
        ],
        "parts": [
         {
          "words": "inebriated",
-         "note": "first letter of inebriated"
+         "at": 11,
+         "note": "supplies its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tipsy worker drinking the church's communion wine.",
-     "walkthrough": "The pieces are read in clue order but the church goes first because the rest is 'on' it.",
-     "definitionFit": "A definition by example: Chianti, the Tuscan red, is one wine among many."
+     "surface": "A labourer, drunk on communion wine, stumbles about the church.",
+     "definitionFit": "Chianti is a red wine from the Tuscany region of Italy."
     },
     "features": {
      "answerInScene": true,
