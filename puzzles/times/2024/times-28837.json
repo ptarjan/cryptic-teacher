@@ -371,48 +371,53 @@
      "indicators": [
       {
        "text": "to keep",
-       "note": "to keep something is to hold it inside"
+       "at": 24,
+       "note": "the failing word holds the other letters within it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "failing",
-         "gives": "VICE",
-         "note": "a vice is a moral failing"
-        },
-        {
-         "words": "order",
-         "gives": "OM",
-         "note": "OM is the Order of Merit"
-        }
-       ]
+       "words": "failing",
+       "at": 16,
+       "gives": "VICE",
+       "note": "a vice is a moral failing"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "ending in",
-         "note": "the ending of a word is its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "defeat",
-         "note": "the last letter of defeat"
+         "words": "order",
+         "at": 32,
+         "gives": "OM",
+         "note": "OM is the Order of Merit"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ending in",
+           "at": 39,
+           "note": "only the last letter of defeat is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "defeat",
+           "at": 49
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French aristocrat fails to keep order and ends up defeated.",
-     "definitionFit": "A vicomte is the French rank equivalent to a viscount, a nobleman just below a count."
+     "surface": "A French aristocrat unable to keep order, and it ends in defeat.",
+     "walkthrough": "'failing' is a noun, a vice, not a verb; it holds OM and T.",
+     "definitionFit": "A vicomte is the French rank of viscount, a titled aristocrat."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "failing"
     }
@@ -1029,39 +1034,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "cryptic",
-       "note": "cryptic means puzzling and disguised, so the letters are scrambled out of recognition"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "hot off the press",
+       "at": 6,
+       "gives": "NEW",
+       "note": "something hot off the press is brand new"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cryptic",
+         "at": 31,
+         "note": "cryptic means puzzling, so the letters are disguised by reordering"
+        }
+       ],
        "parts": [
         {
-         "words": "hot off the press",
-         "gives": "NEW",
-         "note": "freshly printed means new"
-        },
-        {
          "words": "Times",
-         "note": "the letters of times rearranged"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A news story fresh from the printers, alongside this very puzzle.",
-     "walkthrough": "The clue appears in The Times, so the setter is talking about their own cryptic.",
-     "definitionFit": "A piece in journalism is an article, and a news item is one such report printed in a paper."
+     "surface": "A self-referential nod to the Times cryptic as fresh news.",
+     "definitionFit": "A news item is a single report in a paper, an article or story."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "cryptic"
     }
    }
@@ -1286,64 +1291,65 @@
      "indicators": [
       {
        "text": "occupying",
-       "note": "occupying means sitting inside, so these pieces go within the next"
+       "at": 30,
+       "note": "the square letters and one fill the emptied area"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "after evacuation",
+         "at": 45,
+         "note": "evacuated means emptied of its inside letters"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
+         "words": "area",
+         "at": 40
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "middle",
          "indicators": [
           {
            "text": "stripped",
-           "note": "stripped means its outer layer taken off, so the first and last letters go"
+           "at": 16,
+           "note": "stripped means the outer letters are removed"
           }
          ],
          "parts": [
           {
-           "words": "area",
-           "note": "the outer letters of area"
+           "words": "piazza",
+           "at": 9,
+           "gives": "SQUARE",
+           "note": "a piazza is an Italian public square"
           }
          ]
         },
         {
          "words": "one",
+         "at": 26,
          "gives": "I",
-         "note": "I is the Roman numeral one"
-        }
-       ]
-      },
-      {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "QUAR",
-       "indicators": [
-        {
-         "text": "after evacuation",
-         "note": "evacuated means emptied, so only the outside letters stay"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "piazza",
-         "gives": "QUAR",
-         "select": "middle",
-         "note": "a piazza is a square; stripped of its outer letters it leaves the middle"
+         "note": "one is the Roman numeral I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fish tanks in a cleared Italian square, one put in place after the area was evacuated.",
-     "walkthrough": "A piazza is an Italian public square, giving SQUARE before stripping.",
-     "definitionFit": "Aquaria is a plural of aquarium, the glass tanks used to keep fish and other water creatures."
+     "surface": "Fish tanks in a piazza, stripped of contents when the area was evacuated.",
+     "walkthrough": "'piazza' must first become its English equivalent, square, before it is stripped.",
+     "definitionFit": "Aquaria is the plural of aquarium, glass vessels for keeping fish."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "piazza"
     }

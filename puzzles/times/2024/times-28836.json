@@ -909,46 +909,50 @@
      "indicators": [
       {
        "text": "adopted by",
-       "note": "something adopted is taken in, so the word for currently goes inside the other letters"
+       "at": 14,
+       "note": "the current word is taken into the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "words": "clubs, perhaps",
-         "gives": "SUIT",
-         "note": "clubs are one suit in a deck of cards; perhaps signals an example"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "premier",
+           "at": 33,
+           "note": "premier means first, so the opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Spain's",
+           "at": 25
+          }
+         ]
         },
         {
-         "words": "currently",
-         "gives": "NOW",
-         "note": "now means at present"
+         "words": "clubs, perhaps",
+         "at": 41,
+         "gives": "SUIT",
+         "note": "clubs is one suit of cards, an example of a suit"
         }
        ]
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "premier",
-         "note": "premier means first, so only the opening letter of Spain is kept"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Spain's",
-         "note": "the first letter of Spain"
-        }
-       ]
+       "words": "currently",
+       "at": 4,
+       "gives": "NOW",
+       "note": "now means currently, at present"
       }
      ]
     },
     "explanation": {
-     "surface": "A sports report on the strip now worn by Spain's top football clubs.",
-     "walkthrough": "'Kit' and 'clubs' point to football, but clubs is the card suit.",
-     "definitionFit": "A snowsuit is a one-piece insulated outfit worn in cold weather, a set of clothing or kit."
+     "surface": "Football kit now worn by Spain's top clubs.",
+     "walkthrough": "'clubs' is a card suit, not a football team.",
+     "definitionFit": "A snowsuit is an all-in-one outfit for cold weather, a set of clothing worn as gear."
     },
     "features": {
      "answerInScene": false,
@@ -1303,39 +1307,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SANTA",
      "indicators": [
       {
-       "text": "with tail up",
-       "note": "in a down clue, moving the tail up means the last letter is shifted higher, nearer the top"
+       "text": "up",
+       "at": 16,
+       "note": "in a down entry the final letter is moved higher, put back further up the word"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SANTA",
        "parts": [
         {
          "words": "Devil",
+         "at": 0,
          "gives": "SATAN",
-         "note": "Satan is the Devil"
+         "note": "Satan is the devil"
+        },
+        {
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "with tail",
+       "at": 6,
+       "gives": "N",
+       "note": "the tail is the last letter of the devil's name, lifted off its end"
       }
      ]
     },
     "explanation": {
-     "surface": "The Devil, tail raised, turns up every year.",
-     "walkthrough": "The final N of SATAN moves up two places; Satan and Santa share their letters, a well-known joke.",
-     "definitionFit": "Father Christmas comes once a year on Christmas Eve to deliver presents, a yearly caller."
+     "surface": "A devil with his tail raised is the annual visitor.",
+     "walkthrough": "Move the final N of SATAN up two places.",
+     "definitionFit": "Santa Claus visits each Christmas Eve, a yearly caller with gifts."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "absurd",
-     "misdirectedWord": "tail"
+     "misdirectedWord": "Devil"
     }
    }
   },
@@ -1364,35 +1375,37 @@
      "indicators": [
       {
        "text": "into",
-       "note": "into means going inside, so the volume and six are placed within English"
+       "at": 29,
+       "note": "the volume and six go into the English letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "English",
+       "at": 34,
+       "gives": "ENG"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "English",
-         "gives": "ENG",
-         "note": "Eng. is the abbreviation for English"
+         "words": "Volume",
+         "at": 18,
+         "gives": "VOL"
         },
         {
          "words": "Six",
+         "at": 25,
          "gives": "VI",
-         "note": "VI is the Roman numeral six"
+         "note": "VI is six in Roman numerals"
         }
        ]
-      },
-      {
-       "words": "Volume",
-       "gives": "VOL",
-       "note": "vol. is the abbreviation for volume"
       }
      ]
     },
     "explanation": {
-     "surface": "Volume Six is slowly being translated into English.",
-     "definitionFit": "Evolving means developing gradually over time, slowly changing into something else."
+     "surface": "Volume Six being translated into English bit by bit.",
+     "definitionFit": "Evolving means developing slowly, changing by small steps over time."
     },
     "features": {
      "answerInScene": false,
@@ -1588,63 +1601,66 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in means placed inside, so the other pieces go within the abbreviation for Canada"
+       "at": 47,
+       "note": "these letters go in the Canada letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Canada",
+       "at": 50,
+       "gives": "CAN"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Canada",
-         "gives": "CAN",
-         "note": "CAN is the abbreviation for Canada"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "over",
+           "at": 22,
+           "note": "over means the word is turned back to front"
+          }
+         ],
+         "parts": [
+          {
+           "words": "worried",
+           "at": 14,
+           "gives": "ATE",
+           "note": "ate, as in what's eating you, means worried"
+          }
+         ]
         },
         {
          "op": "outer",
          "indicators": [
           {
            "text": "extremes of",
-           "note": "extremes are the two ends, so only the first and last letters of climate are used"
+           "at": 27,
+           "note": "the first and last letters only"
           }
          ],
          "parts": [
           {
            "words": "climate",
-           "note": "the first and last letters of climate"
+           "at": 39
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "over",
-         "note": "over means turned over, so the word for worried is read backwards"
-        }
-       ],
-       "parts": [
-        {
-         "words": "worried",
-         "gives": "ATE",
-         "note": "worry ate at him: to eat is to worry or trouble"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A champion swimmer frets about the harsh weather in Canada.",
-     "walkthrough": "'Great swimmer' suggests an Olympic champion; it means a whale, great in size.",
-     "definitionFit": "Cetaceans are the order of marine mammals including whales and dolphins, some of the largest animals in the sea."
+     "surface": "A great swimmer fretting over the Canadian climate.",
+     "walkthrough": "'ate' as worried comes from the idiom 'what's eating you?'.",
+     "definitionFit": "A cetacean is a whale, dolphin or porpoise, huge marine mammals."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Great"
+     "misdirectedWord": "worried"
     }
    }
   },
