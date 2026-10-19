@@ -668,12 +668,52 @@ def r_ana_of_container(node, parent, ctx):
     for i in (0, 1):
         arm = c["parts"][i]
         base = {k: v for k, v in node.items() if k not in ("unchecked", "gives")}
-        ana = {**copy.deepcopy(base), "parts": [copy.deepcopy(arm)]}
+        ana = {**copy.deepcopy(base), "parts": copy.deepcopy(arm["parts"] if _plain_charade(arm) else [arm])}
+        cont = c
+        own = [x for x in c.get("indicators") or [] if _owner_any(x) == V._OP_LEXICON.get("anagram")]
+        if not own and len(c.get("indicators") or []) == 2:
+            # neither word is the corpus's anagram word: with one the corpus files under container,
+            # the other (a word nothing files anywhere) is the anagram's
+            held = [x for x in c["indicators"] if _owner_any(x) == V._OP_LEXICON.get("container")]
+            free = [x for x in c["indicators"] if not _owner_any(x)]
+            own = free if len(held) == 1 and len(free) == 1 else []
+        if not ana.get("indicators") and len(own) == 1 and len(c["indicators"]) > 1:
+            # the anagram carries no word and the container two: the one the corpus files under
+            # anagram is the anagram's (one op per indicator)
+            ana["indicators"] = [copy.deepcopy(own[0])]
+            cont = {**c, "indicators": [x for x in c["indicators"] if x is not own[0]]}
         for inner in [ana, *_ana_candidates(ana)]:
             parts = copy.deepcopy(c["parts"])
             parts[i] = inner
-            cands.append(checked(c, parts=parts))
+            cands.append(checked(cont, parts=parts))
+            # the file lists the arms in clue order: the container takes the holder first
+            cands.append(checked(cont, parts=parts[::-1]))
+    flat = _literal_pool(node, c)
+    if flat is not None:
+        cands.append(flat)
     return _pick(node, parent, ctx, cands)
+
+
+def _literal_pool(node, c):
+    """ana(ins(a, b)) whose arms are the clue's own words (no letters of their own, or just the
+    words' letters): a plain anagram of the words together. The container's words are links
+    unless the anagram has no word of its own, then the one container word the corpus files
+    under anagram is its indicator."""
+    pieces = []
+    for p in c["parts"]:
+        for q in (p["parts"] if _plain_charade(p) else [p]):
+            if not leaf(q) or not q.get("words") or q.get("select") or q.get("soundsLike") \
+                    or (q.get("gives") and W.letters(q["gives"]) != W.letters(q["words"])):
+                return None
+            pieces.append({k: v for k, v in q.items() if k != "gives"})
+    inds = copy.deepcopy(node.get("indicators") or [])
+    if not inds:
+        own = [i for i in c.get("indicators") or [] if _owner_any(i) == V._OP_LEXICON.get("anagram")]
+        if len(own) != 1:
+            return None
+        inds = [copy.deepcopy(own[0])]
+    return {**{k: v for k, v in node.items() if k not in ("unchecked", "gives", "parts", "indicators")},
+            "indicators": inds, "parts": pieces}
 
 
 def _inside_reading(node, tree, want):
@@ -2585,6 +2625,9 @@ def do_rule_puzzle(pid):
         if not set(new_h) <= set(old_h) or unchecked(new_tree) > unchecked(wp) \
                 or shape_counts(new_ann) - shape_counts(ann):
             stat["rejected_gate"] += 1
+            if os.environ.get("GATE_DEBUG"):
+                print("GATE", pid, answer, sorted(set(new_h) - set(old_h)), unchecked(new_tree) - unchecked(wp),
+                      dict(shape_counts(new_ann) - shape_counts(ann)), cs.compact(new_tree), file=sys.stderr)
             continue
         left = bool(count(new_tree, {**new_ann, "_answer": answer}, clue))
         fixes.append((k, new_ann, {"id": f"{pid}#{shape_queue.clue_key(e)}", "clue": clue, "answer": answer,
