@@ -2195,6 +2195,74 @@ def r_literal_fodder(node, parent, ctx):
     return new if _eval_swapped(node, None, new, ctx) else None
 
 
+def r_ana_charade(node, parent, ctx):
+    """anaCharade: an anagram whose fodder pieces already spell the answer ("the fodder already
+    reads TAPER": ana<upset>(pates=TAPE + queen=R)). Each piece that gives the scramble of its own
+    clue words (pates -> TAPE) is the real fodder, the rest are charade pieces beside it: the
+    scrambled pieces (together, when adjacent) go under the anagram as the clue's words, the others
+    stay, in order. The indicator words the piece swallowed come off it. Kept only when the whole
+    tree gives the answer and exactly one arrangement does."""
+    if node.get("op") != "anagram" or not ctx.get("answer"):
+        return None
+    pieces = _flat_fodder(node)
+    if len(pieces) < 2 or any(not leaf(p) or not p.get("words") or p.get("select") for p in pieces):
+        return None
+    inds = [W.letters(i.get("text")) for i in node.get("indicators") or []]
+
+    def real(p):
+        """(words, fodder letters or None) for a leaf whose words, without the anagram's own
+        indicator at an edge, scramble to its gives (a possessive s the word carries aside)."""
+        g = W.letters(p.get("gives")) or W.letters(p["words"])
+        ws = p["words"].split()
+        for a in range(len(ws)):
+            for b in range(a + 1, len(ws) + 1):
+                run, rest = " ".join(ws[a:b]), ws[:a] + ws[b:]
+                if (a, b) != (0, len(ws)):
+                    if W.letters(run) not in inds or (a and b < len(ws)):
+                        continue
+                    keep = " ".join(rest)
+                else:
+                    keep = run
+                for k2 in (keep, " ".join(w for w in keep.split() if w.lower() not in ("and", "with", "of", "the", "a", "in", "to"))):
+                    lk = W.letters(k2)
+                    if not lk:
+                        continue
+                    if sorted(lk) == sorted(g) and lk != g:
+                        return keep, (None if k2 == keep else lk)
+                    if lk.endswith("S") and sorted(lk[:-1]) == sorted(g) and lk[:-1] != g:
+                        return keep, lk[:-1]
+        return None
+    scr = [real(p) for p in pieces]
+    if not any(scr):
+        return None
+    good = {}
+    for mask in range(1, 2 ** len(pieces)):
+        pick = [i for i in range(len(pieces)) if mask >> i & 1 and scr[i]]
+        if len(pick) != bin(mask).count("1"):
+            continue
+        # one pool: the picked pieces must sit side by side
+        if pick != list(range(pick[0], pick[-1] + 1)):
+            continue
+        pool = []
+        for i in pick:
+            q = {k: v for k, v in pieces[i].items() if k != "gives"}
+            keep, lit = scr[i]
+            if keep != q["words"]:
+                if isinstance(q.get("at"), int):
+                    q["at"] += q["words"].find(keep)
+                q["words"] = keep
+            if lit:
+                q["gives"] = lit
+            pool.append(q)
+        new = {k: v for k, v in node.items() if k not in ("unchecked", "gives", "parts")}
+        new["parts"] = copy.deepcopy(pool)
+        out = [copy.deepcopy(p) for p in pieces[:pick[0]]] + [new] + [copy.deepcopy(p) for p in pieces[pick[-1] + 1:]]
+        cand = charade(out)
+        if _eval_swapped(node, parent, cand, ctx):
+            good[json.dumps(cand, sort_keys=True)] = cand
+    return next(iter(good.values())) if len(good) == 1 else None
+
+
 _HALF = re.compile(r"\bhalf\b|\bhalves\b|50\s*%|\bhalf-", re.I)
 
 
@@ -2331,7 +2399,7 @@ def r_arity_other(node, parent, ctx):
     return next(iter(good.values())) if len(good) == 1 else None
 
 
-RULE_REPAIRS = {"halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
+RULE_REPAIRS = {"anaCharade": r_ana_charade, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
