@@ -902,34 +902,50 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HEADWAY",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner swapped the opening sounds of words, so the initial sounds are exchanged"
+       "at": 0,
+       "note": "Spooner's signals a Spoonerism: the opening sounds of two words are swapped, as the Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "married a boxer called David",
-       "gives": "HEADWAY",
-       "soundsLike": "WED HAYE",
-       "note": "to marry is to wed, and David Haye is a British heavyweight boxer; swapping the opening sounds of the pair gives the solution"
+       "op": "homophone",
+       "spelt": "WEAD",
+       "parts": [
+        {
+         "words": "married",
+         "at": 10,
+         "gives": "WED",
+         "note": "married means wed"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "HAY",
+       "parts": [
+        {
+         "words": "a boxer called David",
+         "at": 18,
+         "gives": "HAYE",
+         "note": "David Haye is a British former world heavyweight boxing champion"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner announces his marriage to a boxer named David as a step forward.",
-     "walkthrough": "David Haye was a world heavyweight boxing champion from London.",
-     "definitionFit": "To make headway is to move forward or advance, so the noun means progress."
+     "surface": "Someone wed a boxer named David, and announces this as a step forward in life.",
+     "walkthrough": "Say 'wed Haye' with the opening sounds swapped and you get 'head way'. David Haye is a British boxer, a former world heavyweight champion.",
+     "definitionFit": "Making headway means advancing or moving forward, so the word is a synonym for progress."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "married"
+     "joke": "pun",
+     "misdirectedWord": "boxer"
     }
    }
   },
@@ -1368,40 +1384,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "assembled",
-       "note": "assembling means putting together into a new arrangement"
+       "text": "props",
+       "at": 15,
+       "note": "props means holds up from below, so in this down answer the second piece sits beneath the first"
       }
      ],
      "parts": [
+      {
+       "words": "assembled",
+       "at": 21,
+       "gives": "MET",
+       "note": "assembled means met, gathered together"
+      },
       {
        "op": "middle",
        "indicators": [
         {
          "text": "Unlimited",
-         "note": "without limits means without the outer boundaries, so only the inner letters stay"
+         "at": 0,
+         "note": "Unlimited means the word loses its limits, its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "iron",
-         "note": "the word without its first and last letters"
-        }
-       ]
-      },
-      {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "TEM",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "props",
-         "gives": "TEM",
-         "select": "middle",
-         "note": "props are stage items; the word items without its first and last letters"
+         "at": 10,
+         "note": "iron without its ends"
         }
        ]
       }
@@ -1409,14 +1420,14 @@
     },
     "spelling": "MÉTRO",
     "explanation": {
-     "surface": "Iron pit props being put together below ground.",
-     "walkthrough": "'Props' stands for theatrical props, items, which is then trimmed.",
-     "definitionFit": "A metro is an underground railway system in a city, such as the Paris Métro."
+     "surface": "Iron supports are put together without limit beneath the ground, as in a mine or tunnel.",
+     "walkthrough": "'Unlimited' strips IRON to RO, and 'props' puts RO underneath MET in this down answer. 'assembled' looks like an anagram signal, but it is MET.",
+     "definitionFit": "A metro is an underground railway system in a city, as in Paris, so underground is a synonym."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "props"
+     "misdirectedWord": "assembled"
     }
    }
   },

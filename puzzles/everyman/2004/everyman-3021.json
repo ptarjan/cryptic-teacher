@@ -1113,55 +1113,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "upset",
-       "note": "upset means knocked over and disordered, so the word's letters are rearranged"
+       "text": "about",
+       "at": 12,
+       "note": "about means the outer letters go round the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means surrounding, so the rearranged letters go round the remains of the horse"
+         "text": "upset",
+         "at": 6,
+         "note": "upset means knocked over, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Owner",
-         "note": "the fodder letters, rearranged"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "that's lost heart",
-           "note": "losing the heart means the middle goes, leaving only the outside letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "horse",
-           "note": "the outer letters"
-          }
-         ]
+         "text": "that's lost heart",
+         "at": 24,
+         "note": "that's lost heart means the word loses its middle, leaving only its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "horse",
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A racehorse owner is distressed because the dispirited horse is out of the race.",
-     "walkthrough": "NOW(HE)RE: the horse loses its middle letters, leaving its first and last.",
-     "definitionFit": "A runner who finishes nowhere is unplaced, so the idiom means having no chance of winning."
+     "surface": "A racehorse owner is distraught because the horse has lost heart and fallen out of contention.",
+     "walkthrough": "'out of the running' fits the racing surface but is the definition: a horse finishing nowhere was never in contention.",
+     "definitionFit": "Nowhere describes a competitor finishing unplaced, far behind, so it means having no chance of winning."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "heart"
+     "misdirectedWord": "upset"
     }
    }
   },

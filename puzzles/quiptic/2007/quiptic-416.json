@@ -99,34 +99,38 @@
      "indicators": [
       {
        "text": "to keep",
-       "note": "one word holds the others inside itself, as a box keeps its contents"
+       "at": 12,
+       "note": "to keep means the outer word holds these letters within it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "plea",
-         "gives": "CRY",
-         "note": "a cry is an appeal or plea"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "plea",
+       "at": 7,
+       "gives": "CRY",
+       "note": "a plea is a cry, an appeal"
       },
       {
-       "words": "\"Financial Times\"",
-       "gives": "FT",
-       "note": "the usual abbreviation for the newspaper"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 20,
+         "gives": "A"
+        },
+        {
+         "words": "Financial Times",
+         "at": 23,
+         "gives": "FT",
+         "note": "FT is the usual short form of the Financial Times newspaper"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks shrewdly to hang on to a copy of the business paper.",
-     "definitionFit": "Crafty and shrewd are both synonyms for cunning or astute."
+     "surface": "A shrewd appeal asks someone to save a copy of the Financial Times.",
+     "definitionFit": "Crafty means cunning and clever at getting one's way, close in sense to shrewd and astute."
     },
     "features": {
      "answerInScene": false,
@@ -808,39 +812,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HARDSHIP",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the name stops one letter short"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 19,
+         "note": "almost means the word stops short of its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "Hardy",
-         "gives": "HARD",
-         "note": "the novelist's name without its final letter"
+         "at": 13,
+         "gives": "HARDY",
+         "note": "Hardy, as in Thomas Hardy the novelist, taken as written"
         },
         {
-         "words": "steamer",
-         "gives": "SHIP",
-         "note": "a steamer is a kind of ship"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "words": "steamer",
+       "at": 33,
+       "gives": "SHIP",
+       "note": "a steamer is a ship"
       }
      ]
     },
     "explanation": {
-     "surface": "Poverty drove the novelist Thomas Hardy nearly to board a steamship.",
-     "definitionFit": "Hardship means suffering caused by want, such as poverty or deprivation."
+     "surface": "Thomas Hardy nearly boarded a steamship because poverty drove him to it.",
+     "walkthrough": "'Hardy' looks like the novelist, but only its letters matter. The question mark admits that a steamer is only one kind of ship.",
+     "definitionFit": "Hardship is severe suffering or privation, and poverty is a chief example of that lack."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Hardy"
     }
@@ -1266,41 +1275,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HOODIE",
-     "indicators": [
-      {
-       "text": "Nearly",
-       "note": "nearly means falling just short, so the word is cut by its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Nearly",
+         "at": 0,
+         "note": "Nearly means the word falls one letter short, losing its end"
+        }
+       ],
        "parts": [
         {
          "words": "hoot",
-         "gives": "HOO",
-         "note": "the word lacking its last letter"
+         "at": 7,
+         "gives": "HOOT"
         },
         {
-         "words": "die",
-         "note": "taken as written"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "die",
+       "at": 18
       }
      ]
     },
     "explanation": {
-     "surface": "Someone almost laughs themselves to death while wearing a sweatshirt.",
-     "definitionFit": "A hoodie is a hooded sweatshirt, so the general garment stands for it."
+     "surface": "Someone almost laughs, then collapses, all while wearing a sweatshirt.",
+     "walkthrough": "'in' is only a link here: the definition is the garment itself, not the person wearing it.",
+     "definitionFit": "A hoodie is a sweatshirt or jacket with a hood, a casual top worn especially by young people."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "hoot"
+     "misdirectedWord": "die"
     }
    }
   },

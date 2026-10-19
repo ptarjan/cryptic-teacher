@@ -610,54 +610,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TUILE",
-     "indicators": [
-      {
-       "text": "missing topping",
-       "note": "without its top, a word in a down or across clue loses its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "T",
+       "indicators": [
+        {
+         "text": "you say",
+         "at": 16,
+         "note": "you say tells us the word tea is to be taken as it sounds, as a single letter"
+        }
+       ],
        "parts": [
         {
-         "op": "homophone",
-         "spelt": "T",
-         "indicators": [
-          {
-           "text": "you say",
-           "note": "what you say is heard, so the letter whose name sounds like the drink is wanted"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tea",
-           "gives": "TEA",
-           "note": "the letter T is pronounced like the drink"
-          }
-         ]
-        },
+         "words": "tea",
+         "at": 11,
+         "gives": "TEA",
+         "note": "spoken aloud, tea sounds like the letter T"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing topping",
+         "at": 43,
+         "note": "missing topping means the word loses its first letter, its top in the written word"
+        }
+       ],
+       "parts": [
         {
          "words": "cunning",
-         "gives": "UILE",
-         "note": "guile is cunning; without its first letter"
+         "at": 34,
+         "gives": "GUILE",
+         "note": "cunning means guile, craftiness"
+        },
+        {
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cunning baker makes a crisp treat to go with afternoon tea.",
-     "walkthrough": "A tuile, French for tile, is a thin curved wafer; the setter counts it as a pastry for the theme.",
-     "definitionFit": "A tuile is a thin, crisp baked biscuit shaped like a curved roof tile, served as a light patisserie item."
+     "surface": "Someone describes a pastry served at teatime, made with a crafty touch but lacking its usual topping.",
+     "walkthrough": "'you' looks like a second sound-alike letter, but it belongs to the homophone signal 'you say'; only 'tea' is sounded.",
+     "definitionFit": "A tuile is a thin crisp curved biscuit, a kind of light pastry named after a French roof tile."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cunning"
+     "misdirectedWord": "topping"
     }
    }
   },
@@ -1202,65 +1207,72 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INSIGNIA",
-     "indicators": [
-      {
-       "text": "with head removed",
-       "note": "taking off a head means the opening letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Popular",
+       "at": 0,
+       "gives": "IN",
+       "note": "popular means in, fashionable"
+      },
+      {
+       "words": "small",
+       "at": 8,
+       "gives": "S",
+       "note": "S is the clothing-size abbreviation for small"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with head removed",
+         "at": 21,
+         "note": "with head removed means the word loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Popular",
-         "gives": "IN",
-         "note": "in means popular or fashionable"
-        },
-        {
-         "words": "small",
-         "gives": "S",
-         "note": "S is the abbreviation for small"
-        },
-        {
          "words": "porker",
-         "gives": "IG",
-         "note": "a porker is a pig; without its first letter"
+         "at": 14,
+         "gives": "PIG",
+         "note": "a porker is a pig"
         },
         {
-         "op": "homophone",
-         "spelt": "NIA",
-         "indicators": [
-          {
-           "text": "say",
-           "note": "saying a word puts the stress on its sound, so a word with a spoken match is wanted"
-          }
-         ],
-         "parts": [
-          {
-           "words": "close",
-           "gives": "NEAR",
-           "note": "near means close; in a non-rhotic accent it is pronounced like the last syllables of the answer"
-          }
-         ]
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "NIA",
+       "indicators": [
+        {
+         "text": "say",
+         "at": 45,
+         "note": "say signals that the word is to be taken by its sound, here a non-rhotic British pronunciation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "close",
+         "at": 39,
+         "gives": "NEAR",
+         "note": "close means near, which in a British accent sounds like NIA"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A popular little pig, lacking a head, is likened to something with wings.",
-     "walkthrough": "The homophone works only in a British accent that drops the final R of near. Pilots wear wings as a badge.",
-     "definitionFit": "Wings are the badge awarded to a qualified pilot, an example of insignia, the emblems of rank or membership."
+     "surface": "A fashionable little pig, beheaded, is somehow linked to wings.",
+     "walkthrough": "'with head removed' takes P off PIG to leave IG; 'say' makes NEAR sound like NIA, as in a British non-rhotic accent. The question mark flags wings as one example of insignia.",
+     "definitionFit": "Pilots' wings are a badge of qualification, an example of insignia, the emblems showing rank or membership."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "absurd",
-     "misdirectedWord": "wings"
+     "misdirectedWord": "porker"
     }
    }
   },

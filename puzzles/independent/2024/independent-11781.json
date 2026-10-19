@@ -617,40 +617,54 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DETECTIVE",
      "indicators": [
       {
-       "text": "Put the wrong end of",
-       "note": "the wrong end swaps one end of a word for its other end, putting a different letter in"
+       "text": "Put",
+       "at": 0,
+       "note": "Put, with into, means this letter is placed where another stood in the word, replacing it"
+      },
+      {
+       "text": "into",
+       "at": 26,
+       "note": "into, with Put, names the word that receives the replacement letter"
       }
      ],
      "parts": [
       {
        "words": "broken",
+       "at": 31,
        "gives": "DEFECTIVE",
-       "note": "something broken is faulty"
+       "note": "broken means defective"
+      },
+      {
+       "gives": "F"
       },
       {
        "op": "last",
+       "indicators": [
+        {
+         "text": "the wrong end of",
+         "at": 4,
+         "note": "the wrong end of the word is its last letter, rather than the first letter that is being replaced"
+        }
+       ],
        "parts": [
         {
          "words": "foot",
-         "note": "the word's final letter replaces its first letter, which the broken word contains"
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Put your foot into a damaged shoe, or so the gumshoe reading suggests.",
-     "walkthrough": "DEFECTIVE contains the F that starts foot; put in the wrong end, the T, and you have DETECTIVE.",
-     "definitionFit": "Gumshoe is American slang for a private investigator, from their quiet rubber-soled shoes."
+     "surface": "Someone tells a battered private eye to put the wrong end of their foot forward.",
+     "walkthrough": "The word for broken already holds one end of 'foot'; the 'wrong' end is the other one, which replaces it.",
+     "definitionFit": "Gumshoe is American slang for a detective, from the soft rubber-soled shoes worn for quiet shadowing."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "foot"
     }
    }
