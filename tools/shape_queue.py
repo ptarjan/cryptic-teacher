@@ -187,6 +187,8 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                               "the charade, del(piece, letters)",
        "doubleIndicator": "one op carries two indicators (or a hidden word stacks a selection on its one "
                           "indicator): one op per indicator, so write two reversals / two deletions",
+       "movedLetter": "a letter is deleted and put back by a sibling leaf: that is a move, so redo it as "
+                      "move<indicator>(fodder, MOVED), e.g. move<dropping>([England]ALBION, [ball]O)",
        "poolGap": "an anagram's fodder pieces have another op's words between them in the clue: the "
                   "piece belongs to the charade or insertion, not the anagram pool",
        "midWordLeaf": "a leaf gives a stretch of several clue words that starts or ends inside a word: "
@@ -223,6 +225,7 @@ def _validator_rules():
             "deletionScopeAnswer": lambda t, a, c: V.deletion_scope_answer(t, a.get("_answer") or None),
             "doubleIndicator": lambda t, a, c: V.double_indicators(t),
             "poolGap": lambda t, a, c: V.pool_gaps(t, c),
+            "movedLetter": lambda t, a, c: V.moved_letters(t),
             "indInLeaf": lambda t, a, c: V.ind_in_leaf(t, c),
             # A step taken as filed that tools/clear_unchecked.py could not verify:
             # fires while any node of the tree still carries the flag.

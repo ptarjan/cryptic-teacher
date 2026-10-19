@@ -602,6 +602,13 @@ NATANT = {"definitions": [{"text": "Swimming", "at": 0}], "wordplay": {"op": "an
           "parts": [{"words": "tan repeatedly", "gives": "TANTAN"}]}}
 check("an indicator on the definition's words is found without places (NATANT)", 1,
       v.in_definition(NATANT, "Swimming gives you that tan repeatedly"))
+ALBINO = {"op": "charade", "parts": [{"op": "deletion", "indicators": [{"text": "dropping"}], "parts": [
+    {"words": "England", "gives": "ALBION"}, {"gives": "O"}]}, {"words": "ball", "gives": "O"}]}
+check("a deletion whose letter a sibling leaf gives again is a moved letter (ALBINO)", 1, v.moved_letters(ALBINO))
+check("a deletion whose letter no sibling gives is not", 0, v.moved_letters(
+    {**ALBINO, "parts": [ALBINO["parts"][0], {"words": "ball", "gives": "X"}]}))
+check("wordplay.movedLetter is a ratchet field the redo gate names", True,
+      "wordplay.movedLetter" in v.BACKLOG_MARKERS and "movedLetter" in shape_queue._validator_rules())
 # round 15: four borderline classes judged fine (unindicatedBare, bareInitial, reversePhrase, anaSynonym)
 HAIRLESS = {"op": "deletion", "parts": [lf("far from 'irsute", "HAIRLESS"), {"gives": "H"}]}
 check("an apostrophe in the leaf marks the dropped letter ('irsute)", 0, v.unindicated_uncovered(HAIRLESS))

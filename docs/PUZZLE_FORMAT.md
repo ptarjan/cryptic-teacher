@@ -146,6 +146,7 @@ filed, and the expression cannot write one. The tree, in brief:
   `wordplay.reversePhrase` (reverse reading over a whole phrase of the clue).
   One more, `wordplay.midWordLeaf` (a leaf giving a stretch of several clue words that starts or
   ends inside a word: the cut is folded into the leaf with no op).
+  `wordplay.movedLetter` (a deletion whose letter a sibling leaf gives again: use the move op).
   Round 15 narrowed four of them (a bare op is signed by a neighbour's apostrophe, a replace word or its
   own "second"; initials after a "primarily" pick; a reverse reading that anagrams clue words; a leaf
   cut or doubled by its own words is no synonym).

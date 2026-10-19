@@ -72,6 +72,7 @@ FIELDS = {
     "wordplay.midWordLeaf": lambda ann: V.midword_leaves(ann.get("wordplay")),
     "wordplay.deletionScopeAnswer": lambda ann: V.deletion_scope_answer(ann.get("wordplay"), ann.get("answer")),
     "wordplay.doubleIndicator": lambda ann: V.double_indicators(ann.get("wordplay")),
+    "wordplay.movedLetter": lambda ann: V.moved_letters(ann.get("wordplay")),
     "wordplay.poolGap": lambda ann, clue=None: V.pool_gaps(ann.get("wordplay"), clue),
 }
 #: Fields whose finding places words in the clue, so counts() hands them its text.
