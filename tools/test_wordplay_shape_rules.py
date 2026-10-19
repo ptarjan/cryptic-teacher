@@ -527,8 +527,8 @@ motors = {"op": "deletion", "indicators": [{"text": "around"}], "parts": [
 check("a whole word cut from a charade it is not a run of is scattered (STANCES)", 1, v.deletion_scattered(motors))
 check("... and one that is a run of it is not", 0, v.deletion_scattered({**motors, "parts": [motors["parts"][0], {"words": "ancestors", "gives": "ANCESTORS"}]}))
 
-for field in ("unindicatedBare", "sharedIndicator", "halfLeaf", "deletionScattered", "reversePhrase",
-              "bareInitial", "deletionScope", "wrongRole", "deletionInside", "nestedContainer","anagramSynonym", "misplacedIndicator", "scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
+for field in ("sharedIndicator", "halfLeaf", "deletionScattered", "reversePhrase",
+              "deletionScope", "wrongRole", "deletionInside", "nestedContainer","anagramSynonym", "misplacedIndicator", "scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", 
               "leafFold", "repeatedSelection", "singleLeaf", "bareInCharade", "anagramOfContainer"):
     check(f"wordplay.{field} is a ratchet field", True, f"wordplay.{field}" in v.BACKLOG_MARKERS)
 check("wordplay.containerInside is a ratchet field", True, "wordplay.containerInside" in v.BACKLOG_MARKERS)
@@ -688,4 +688,8 @@ check("each on its own op is not", 0, v.traded_indicators(
 ADORE = {"op": "reversal", "indicators": [{"text": "masks"}], "parts": [{"op": "hidden", "indicators": [{"text": "up"}], "parts": [
     lf("superhero darning", "ERODA")]}]}
 check("a hidden word on a reversal's word with an unknown reversal word is counted (ADORE)", 1, v.traded_indicators(ADORE))
+check("round 21: unindicatedBare is a warning, not a gated or ratcheted rule", (False, False),
+      ("unindicatedBare" in shape_queue.gated(), "wordplay.unindicatedBare" in v.BACKLOG_MARKERS))
+check("round 21: azed and genius are exempt, times is not", (True, True, False),
+      (shape_queue.exempt("azed-1734"), shape_queue.exempt("genius-100"), shape_queue.exempt("times-1")))
 raise SystemExit(fails)

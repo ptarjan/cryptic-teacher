@@ -110,7 +110,7 @@ filed, and the expression cannot write one. The tree, in brief:
   one `cd([clue words])`, not several leaves), `wordplay.arity` (a stored op with
   a part count its op cannot take, or a charade of fewer than two),
   `wordplay.spanOverlap` (two leaves or indicators sharing clue words),
-  `wordplay.inDefinition` (wordplay words inside the definition of a clue that is
+  wordplay.inDefinition (wordplay words inside the definition of a clue that is
   not `andLit`), `wordplay.leafFold` (a leaf with no note whose `gives` is a
   stretch of its own words: write the selection, deletion or hidden word as an
   op), `wordplay.repeatedSelection` (the same first/last/middle pick on each
@@ -128,18 +128,18 @@ filed, and the expression cannot write one. The tree, in brief:
   charades in charades whose `view()` is unchanged and recorded the rest.
   Eleven more, each one function in `validate_annotations.py` and one message:
   `wordplay.scrambledLeaf` (leaf gives its clue words' letters out of order),
-  `wordplay.indFolded` (indicator words folded into a leaf),
+  wordplay.indFolded (indicator words folded into a leaf),
   `wordplay.fakeParts` (substitution padded with wordless parts that are not in the clue),
   `wordplay.paddingLeaf` (unchecked clue-word leaf with no letters given),
   `wordplay.nestedContainer` (container whose holder is itself a container),
   `wordplay.anagramSynonym` (synonym scrambled inside an anagram),
   `wordplay.misplacedIndicator` (indicator filed on an op it does not signal),
-  `wordplay.bareInitial` (leaf gives the first letter of its words with no selection),
+  wordplay.bareInitial (leaf gives the first letter of its words with no selection),
   `wordplay.deletionScope` (deletion whose removed letters are not where its indicator says),
   `wordplay.wrongRole` (indicator filed on an op of another type),
   `wordplay.deletionInside` (deletion over a charade that takes letters from one piece, or a whole piece the charade added) and
   `wordplay.containerInside` (container over a charade whose piece goes in inside one piece of it).
-  Five more, one function and one message each: `wordplay.unindicatedBare` (op with no
+  Five more, one function and one message each: wordplay.unindicatedBare (op with no
   indicator of its own, or one indicator shared by several ops), `wordplay.sharedIndicator`
   (indicator words claimed twice), `wordplay.halfLeaf` (leaf giving half of its word with no op
   carrying the half), `wordplay.deletionScattered` (one "half" deletion over several words) and
@@ -148,6 +148,9 @@ filed, and the expression cannot write one. The tree, in brief:
   ends inside a word: the cut is folded into the leaf with no op).
   `wordplay.tradedIndicator` (two ops each carry the other's indicator word, or a hidden word carries a reversal's word).
   `wordplay.movedLetter` (a deletion whose letter a sibling leaf gives again: use the move op).
+  Round 21: wordplay.unindicatedBare, wordplay.bareInitial, wordplay.indFolded and wordplay.inDefinition
+  are warnings only (`shape_queue.WARN_ONLY`): no redo is queued and the ratchet no longer counts them; and no
+  wordplay shape rule queues or counts for Azed or Genius puzzles (`shape_queue.CONVENTION_SERIES`).
   Round 15 narrowed four of them (a bare op is signed by a neighbour's apostrophe, a replace word or its
   own "second"; initials after a "primarily" pick; a reverse reading that anagrams clue words; a leaf
   cut or doubled by its own words is no synonym).
