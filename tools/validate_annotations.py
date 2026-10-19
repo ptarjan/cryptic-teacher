@@ -4484,7 +4484,31 @@ def wrong_role_indicators(tree):
     for a, own_a, top_a in loose:  # two ops that each carry the other's word: the indicators trade places
         if any(b[0][0] != a[0] and b[1] == top_a and b[2] == own_a for b in loose):
             flagged.add(a)
-    return len(flagged) + reversal_of_anagram(tree) + selection_of_one_letter(tree)
+    return len(flagged) + reversal_of_anagram(tree) + selection_of_one_letter(tree) \
+        + extremes_as_one_end(tree) + folded_deletion_leaves(tree)
+
+
+EXTREMES_WORD = re.compile(r"\b(?:extremely|extremities|extremity|extreme|outer|edges?)\b", re.I)
+DELETION_LEAF_WORD = re.compile(
+    r"\b(?:dropping|drops?|dropped|losing|loses?|lost|leaving|leaves|left|without|missing|shedding|"
+    r"sheds?|removing|removed|ejecting|abandoning|dumping|skipping|omitting|lacking)\b", re.I)
+
+
+def extremes_as_one_end(tree):
+    """A first/last op whose indicator says both ends ("extremely", "extremities", "outer",
+    "edges"): it picks one letter, so the op should be outer."""
+    return sum(1 for node in _walk(tree)
+               if node.get("op") in ("first", "last") and not node.get("unchecked")
+               and any(EXTREMES_WORD.search(i.get("text") or "") for i in node.get("indicators") or []))
+
+
+def folded_deletion_leaves(tree):
+    """A leaf of 3+ words holding a deletion word (dropping, losing, ...) that gives only a few
+    letters: the deletion is an op, not folded into the leaf (stylish man dropping dead -> UDE)."""
+    return sum(1 for node in _walk(tree)
+               if "words" in node and "gives" in node and "op" not in node and not node.get("unchecked")
+               and len(str(node["words"]).split()) >= 3 and len(node["gives"]) <= 4
+               and DELETION_LEAF_WORD.search(str(node["words"])))
 
 
 def selection_of_one_letter(tree):
