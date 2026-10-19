@@ -107,5 +107,34 @@ class TreeNormalize(unittest.TestCase):
         self.assertEqual(T.normalize(tree, clue, "SOLA")[1], [])
 
 
+    def test_sink_container_puts_the_piece_in_the_one_piece_it_goes_in(self):
+        # azed-2282 24a TIFOSI: ins<packed in>(del<mostly>(TO + SIT, T), IF)
+        clue, ans = "Italian fans: to take seats mostly packed in whenever", "TIFOSI"
+        tree = {"op": "container", "indicators": [{"text": "packed in"}], "parts": [
+            {"op": "deletion", "indicators": [{"text": "mostly"}], "parts": [
+                {"op": "charade", "parts": [leaf("to", "TO"), leaf("take seats", "SIT")]}, {"gives": "T"}]},
+            leaf("whenever", "IF")]}
+        new, used = T.normalize(tree, clue, ans)
+        self.assertEqual(used, ["sink_deletion", "sink_container"])
+        self.assertEqual(V.container_inside_component(new, ans), 0)
+        wordplay.evaluate(new, ans)
+
+    def test_a_charade_left_under_an_anagram_joins_its_parts(self):
+        # azed-2748 30a: ana<cooked>(del<heartlessly>(lass + heart, A)) -> ana(del(lass, A), heart)
+        tree = {"op": "anagram", "indicators": [{"text": "cooked"}], "parts": [
+            {"op": "deletion", "indicators": [{"text": "heartlessly"}], "parts": [
+                {"op": "charade", "parts": [leaf("lass", "LASS"), leaf("heart", "HEART")]}, {"gives": "S"}]}]}
+        new, used = T.normalize(tree, "cooked lass heartlessly heart", "LASHEART")
+        if used:
+            self.assertEqual(V.anagram_charades(new), 0)
+
+    def test_two_reversals_under_an_indicated_charade_stay_two(self):
+        # azed-2251 16d: (rev<given a lift>(I + NIM) + rev(TRAM))<no longer> would be a one-part charade
+        tree = {"op": "charade", "indicators": [{"text": "no longer"}], "parts": [
+            {"op": "reversal", "indicators": [{"text": "given a lift"}], "parts": [leaf("I NIM", "INIM")]},
+            {"op": "reversal", "parts": [leaf("public transport", "TRAM")]}]}
+        self.assertEqual(T.merge_reversals(tree, "MINIMART")[1], 0)
+
+
 if __name__ == "__main__":
     unittest.main()

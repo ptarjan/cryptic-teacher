@@ -4923,6 +4923,12 @@ def _container_inside(tree, want, whole):
     comps = parts[0].get("parts") or []
     if len(comps) < 2 or not all(isinstance(c, dict) for c in comps):
         return 0
+    # one selection over several words (last<tips from>(Wills, Kate)) is one letter per word: the
+    # join between those words is a join between pieces, where the wide holder is fair
+    comps = [x for c in comps for x in (
+        [{**c, "parts": [q]} for q in c["parts"]]
+        if c.get("op") in wordplay.SELECT and len(c.get("parts") or []) > 1 and not c.get("unchecked")
+        and all(isinstance(q, dict) for q in c["parts"]) else [c])]
     try:
         cvals = [sorted(wordplay.values(c)) for c in comps]
         ins = sorted(wordplay.values(parts[1]))
