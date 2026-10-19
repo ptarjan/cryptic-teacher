@@ -1391,14 +1391,14 @@ def right_columns(img, grid, span=RIGHT_SPAN):
     return x1, bottom
 
 
-def right_or_over(img, grid):
+def right_or_over(img, grid, right_ok=True):
     """(right, over) for a grid under its title: right_columns() when the
     clues lie right of it, else overhang(), never both. A page that ends
     that soon under the grid has no room for three columns, and the
     "Yesterday's solution" box under its grid is inked like a third column's
     text: overhang() alone read it as one (the Feb to May 2014 Times, whose
     clues were then cropped from under the grid and found no lists)."""
-    right = right_columns(img, grid)
+    right = right_columns(img, grid) if right_ok else None
     return right, (None if right else overhang(img, grid))
 
 
@@ -3896,6 +3896,11 @@ def held_settled(d, verdict):
     return True
 
 
+def clues_may_be_right(paper, d):
+    """False for a Gale edition before 2014: its clues never lie right of the grid."""
+    return not (paper.key == "gale" and d.name[:4] < "2014")
+
+
 def read_page(d, found, hit, solutions, vlm_for=False):
     """read_puzzle's one read: `vlm_for` False asks the VLM nothing; None
     asks it every column; a list of lights, the columns holding them.
@@ -3979,7 +3984,10 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts):
     # foot is an advert (the 1961 Times page 1.15 grids' widths from its foot
     # was read for clue columns, and every page of the year was refused "no
     # reading parses"); the clue column stands left of such a grid (lead).
-    right, over = right_or_over(img, gbox) if side == "below" and top is None \
+    # A Gale page before 2014 never has its clues right of the grid: the strip
+    # there is an advert column (1947-48: the grid at the page's foot made
+    # right_columns() read the ads, and the clue column left of the grid went unread).
+    right, over = right_or_over(img, gbox, clues_may_be_right(paper, d)) if side == "below" and top is None \
         and not column and not paper.four and not third and kind != "plain" else (None, None)
     if (right or over) and alts is not None:
         alts.append(("plain", None))
