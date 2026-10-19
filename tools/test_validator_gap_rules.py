@@ -106,14 +106,16 @@ junk = {"definitions": [{"text": "Moral tale", "at": 0}],
 fixed = {"definitions": [{"text": "Moral tale", "at": 0}],
          "wordplay": {"op": "charade", "parts": [{"words": "part", "at": 16, "gives": "PART"}]}}
 check("taking a connective-only junk leaf out is not a loss", [], redo(fixed, old=junk, clue=CLUE2))
+CLUE5 = "Moral cake with part (4)"
 check("dropping a content leaf is still refused", ["dropped_words"], redo(
-    {**fixed, "wordplay": {"op": "charade", "parts": [{"words": "tale", "at": 6, "gives": "TALE"}]}},
-    old={**junk, "wordplay": {"op": "charade", "parts": [
-        {"words": "tale", "at": 6, "gives": "TALE"}, {"words": "part", "at": 16, "gives": "PART"}]}}, clue=CLUE2))
+    {"definitions": [{"text": "Moral", "at": 0}],
+     "wordplay": {"op": "charade", "parts": [{"words": "part", "at": 20, "gives": "PART"}]}},
+    old={"definitions": [{"text": "Moral", "at": 0}], "wordplay": {"op": "charade", "parts": [
+        {"words": "cake", "at": 6, "gives": "CAKE"}, {"words": "part", "at": 20, "gives": "PART"}]}}, clue=CLUE5))
 as_ind = {"definitions": [{"text": "Moral tale", "at": 0}],
           "wordplay": {"op": "charade", "indicators": [{"text": "with", "at": 11}],
                        "parts": [{"words": "part", "at": 16, "gives": "PART"}]}}
-check("a connective that was an indicator is still refused", ["dropped_words"], redo(fixed, old=as_ind, clue=CLUE2))
+check("a connective that was an indicator is forgiven: it is a link word now", [], redo(fixed, old=as_ind, clue=CLUE2))
 # Near miss: the same connective held by an old leaf with a real `gives` stays.
 CLUE3 = "Moral tale the part (4)"
 real_the = {"definitions": [{"text": "Moral tale", "at": 0}],
@@ -121,18 +123,30 @@ real_the = {"definitions": [{"text": "Moral tale", "at": 0}],
                 {"words": "the", "at": 11, "gives": "T"}, {"words": "part", "at": 15, "gives": "PART"}]}}
 fixed3 = {"definitions": [{"text": "Moral tale", "at": 0}],
           "wordplay": {"op": "charade", "parts": [{"words": "part", "at": 15, "gives": "PART"}]}}
-check("a connective held by an old leaf with a real gives is still refused", ["dropped_words"],
+check("a connective held by an old leaf with a real gives is forgiven", [],
       redo(fixed3, old=real_the, clue=CLUE3))
-# The mechanical part of dropped_words: a lost connective that can stand for an equals
-# sign goes back as a link word; a content word never does.
-for label, old_ann, new_ann, clue_text in (("indicator", as_ind, fixed, CLUE2), ("real leaf", real_the, fixed3, CLUE3)):
-    new_copy = copy.deepcopy(new_ann)
-    added = v.restore_dropped_connectives(old_ann, new_copy, clue_text)
-    word = clue_text.split()[2]
-    check(f"a connective lost from an old {label} comes back as a link word", [word], added)
-    check(f"and the redo then passes ({label})", [], v.redo_regressions(old_ann, new_copy, clue_text))
-content = copy.deepcopy(fixed)
-check("a lost content word is not restored", [], v.restore_dropped_connectives(
+# The mechanical part of dropped_words: a lost word that can stand for an equals sign
+# is a link word now (annotation.view() derives it; a stored `linkWords` is refused by the
+# schema, so the gate must not ask for one). A content word never is.
+check("a connective lost from an old indicator is forgiven", ["with"],
+      sorted(v.forgiven_dropped_words(as_ind, fixed, CLUE2)))
+check("a lost content word is not forgiven", [], sorted(v.forgiven_dropped_words(
     {**junk, "wordplay": {"op": "charade", "parts": [{"words": "tale", "at": 6, "gives": "TALE"}]}},
-    content, CLUE2))
+    fixed, CLUE2)))
+# Audit 10-19 (14-down "once"): a link-vocabulary word only an old LEAF held goes; the same
+# word as an old indicator ("displayed") stays refused, and the message names its old role.
+CLUE4 = "Moral tale once displayed (4)"
+once_leaf = {"definitions": [{"text": "Moral tale", "at": 0}],
+             "wordplay": {"op": "charade", "parts": [
+                 {"words": "once", "at": 11, "gives": "X"}, {"words": "displayed", "at": 16, "gives": "PART"}]}}
+once_gone = {"definitions": [{"text": "Moral tale", "at": 0}],
+             "wordplay": {"op": "charade", "parts": [{"words": "displayed", "at": 16, "gives": "PART"}]}}
+check("a link-vocabulary word only an old leaf held is forgiven", [], redo(once_gone, old=once_leaf, clue=CLUE4))
+shown = [r for r in v.redo_regressions(
+    {"definitions": [{"text": "Moral tale", "at": 0}], "wordplay": {"op": "charade", "indicators": [
+        {"text": "displayed", "at": 16}], "parts": [{"words": "once", "at": 11, "gives": "PART"}]}},
+    {"definitions": [{"text": "Moral tale", "at": 0}], "wordplay": {"op": "charade", "parts": [
+        {"words": "once", "at": 11, "gives": "PART"}]}}, CLUE4)]
+check("an old indicator is still refused and named with its role",
+      True, len(shown) == 1 and "displayed (in the charade indicator 'displayed')" in shown[0] and "Do not add `linkWords`" in shown[0])
 raise SystemExit(fails)
