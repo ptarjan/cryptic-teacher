@@ -488,41 +488,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "but no starter",
-       "note": "no starter means the first letter of the meal word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Empty",
+         "note": "emptying a word removes its insides, so only its outer letters remain"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "Empty",
-           "note": "emptying a word removes its insides, so only its outer letters remain"
-          }
-         ],
-         "parts": [
-          {
-           "words": "trader",
-           "note": "the first and last letters of the word"
-          }
-         ]
-        },
-        {
-         "words": "meal",
-         "gives": "LUNCHEON",
-         "note": "a luncheon is a formal midday meal"
+         "words": "trader",
+         "note": "the first and last letters of the word"
         }
        ]
       },
       {
-       "gives": "L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but no starter",
+         "note": "no starter means the first letter of the meal word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meal",
+         "gives": "LUNCHEON",
+         "note": "a luncheon is a formal midday meal"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
