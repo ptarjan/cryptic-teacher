@@ -224,49 +224,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TIPPEDTHESCALES",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "Rev. Spooner was famous for swapping the opening sounds of words, so his version of a phrase is a spoonerism"
+       "at": 27,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starting sounds are exchanged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "SCIPPEDTHE",
        "parts": [
         {
-         "unchecked": true,
-         "words": "Avoided",
-         "gives": "TIPPED",
-         "soundsLike": "SKIPPED",
-         "note": "avoided = skipped; it hands its opening SK sound to the last word and takes T in return"
-        },
-        {
-         "words": "the",
-         "note": "stays put"
-        },
-        {
-         "unchecked": true,
-         "words": "stories",
-         "gives": "SCALES",
-         "soundsLike": "TALES",
-         "note": "stories = tales; its opening T swaps for the SK sound, spelt SC"
+         "words": "Avoided the",
+         "at": 0,
+         "gives": "SKIPPEDTHE",
+         "note": "skipped means avoided, missed out, heard with the sound sk"
         }
        ]
+      },
+      {
+       "words": "stories",
+       "at": 12,
+       "gives": "TALES",
+       "note": "tales are stories"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who dodged the gossip turned out to be the decisive factor.",
-     "walkthrough": "The swap is of sounds, not letters: the SK sound of the first word moves to the last, where it is spelt SC.",
-     "definitionFit": "An idiom from weighing: one extra weight on a balance decides which pan drops, so it makes all the difference."
+     "surface": "Someone dodged the gossip, which turned out to be decisive.",
+     "walkthrough": "'Skipped the tales' with the SK and T sounds swapped gives 'tipped the scales'.",
+     "definitionFit": "To tip the scales is an idiom for being the deciding factor in an outcome."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "stories"
     }
    }
   },
@@ -714,54 +709,58 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "DUNCESCAP",
-     "indicators": [
-      {
-       "text": "pockets",
-       "note": "to pocket something is to put it inside, so the accused takes in the new penny"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "criminal",
-         "note": "something criminal is crooked, so the letters are bent out of order"
+         "text": "pockets",
+         "at": 17,
+         "note": "pockets means the scrambled letters take the next letter inside them"
         }
        ],
        "parts": [
         {
-         "words": "Accused",
-         "note": "anagram fodder"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "criminal",
+           "at": 8,
+           "note": "criminal means the letters of accused are bent into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Accused",
+           "at": 0
+          }
+         ]
         },
         {
          "words": "new",
-         "gives": "N",
-         "note": "N = new"
-        },
-        {
-         "words": "penny",
-         "gives": "P",
-         "note": "P = penny"
+         "at": 25,
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "penny",
+       "at": 29,
+       "gives": "P"
       }
      ]
     },
     "spelling": "DUNCE'S CAP",
     "explanation": {
-     "surface": "A defendant is caught stashing a newly minted penny stamped with a D.",
-     "walkthrough": "The D reads like the d that marked an old British penny, but it is the D chalked on a slow pupil's hat.",
-     "definitionFit": "A cryptic description: the tall paper cone once put on a slow pupil was traditionally marked D."
+     "surface": "A defendant on trial pocketing a new coin stamped with a letter.",
+     "walkthrough": "ACCUSED rearranged gives DUCESCA, which takes N inside; P follows.",
+     "definitionFit": "A dunce's cap was a conical hat bearing a letter D, worn as punishment by a slow pupil."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "D"
+     "misdirectedWord": "Accused"
     }
    }
   },

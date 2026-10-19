@@ -945,50 +945,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "break",
-       "note": "the seas break up, so their letters scatter"
+       "text": "to start",
+       "at": 6,
+       "note": "to start means the word for about is placed at the beginning of the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "About",
+       "at": 0,
+       "gives": "RE",
+       "note": "re means about, concerning"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to start",
-         "note": "'to start' places the word for 'about' at the start of the answer"
+         "text": "break",
+         "at": 21,
+         "note": "break means the letters of seas are smashed into a new order"
         }
        ],
        "parts": [
         {
-         "words": "About",
-         "gives": "RE",
-         "note": "re = about, concerning; 'to start' puts it first"
-        },
-        {
          "words": "seas",
-         "note": "SEAS rearranged"
-        },
-        {
-         "words": "ship",
-         "gives": "SS",
-         "note": "SS = steamship"
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "ship",
+       "at": 32,
+       "gives": "SS",
+       "note": "SS is the abbreviation for steamship"
       }
      ]
     },
     "explanation": {
-     "surface": "Just before setting out, waves crash over the boat, so the voyage is rethought.",
-     "walkthrough": "'About to start' reads as 'on the point of starting', but it says RE (about) comes at the start.",
-     "definitionFit": "A plain synonym: both verbs mean to think again about a judgment already made."
+     "surface": "Waves crash over a vessel as it sets off, prompting a rethink.",
+     "walkthrough": "RE comes first ('to start'), then ASSE from the scrambled 'seas', then SS last, as the seas break over the ship.",
+     "definitionFit": "To reassess is to evaluate again, to think again about a matter."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "About"
+     "misdirectedWord": "break"
     }
    }
   },

@@ -941,49 +941,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EFFORTLESS",
      "indicators": [
       {
        "text": "in",
-       "note": "force is placed inside the stronghold"
+       "at": 18,
+       "note": "in means the letter for force sits inside the rest"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "EFFORTLESS",
-       "indicators": [
-        {
-         "text": "changing sides",
-         "note": "the sides are right and left, so the letter for one is swapped for the other"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
+         "at": 21,
+         "gives": "E"
         },
         {
-         "words": "force",
-         "gives": "F",
-         "note": "F is force in physics"
-        },
-        {
-         "words": "stronghold",
-         "gives": "FORTRESS",
-         "note": "a fortress is a stronghold"
+         "op": "substitution",
+         "indicators": [
+          {
+           "text": "changing sides",
+           "at": 40,
+           "note": "changing sides means right is swapped for left in the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "stronghold",
+           "at": 29,
+           "gives": "FORTRESS",
+           "note": "a fortress is a stronghold"
+          },
+          {
+           "gives": "R"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "force",
+       "at": 12,
+       "gives": "F",
+       "note": "F is the physics symbol for force"
       }
      ]
     },
     "explanation": {
-     "surface": "A light force inside an English castle switching allegiance.",
-     "walkthrough": "The two sides are right and left: the letter for one swaps for the other's.",
-     "definitionFit": "Something effortless needs no exertion, which is what undemanding describes."
+     "surface": "An army's soldiers holding an English castle and defecting.",
+     "walkthrough": "'changing sides' means the R (right) of the stronghold becomes L (left), not a defection; the force sits after English.",
+     "definitionFit": "Effortless means requiring no exertion, so an easy task is effortless."
     },
     "features": {
      "answerInScene": false,

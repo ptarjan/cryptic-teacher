@@ -233,55 +233,67 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "OBSEQUIES",
-     "indicators": [
-      {
-       "text": "having come",
-       "note": "one letter having come for another means it takes that other letter's place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Old boy",
-       "gives": "OB",
-       "note": "OB is the standard abbreviation for an old boy of a school"
+       "at": 0,
+       "gives": "OB"
       },
       {
-       "words": "shiny accessories",
-       "gives": "SEQUINS",
-       "note": "sequins are small shiny discs sewn on clothes"
-      },
-      {
-       "op": "last",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "finally",
-         "note": "finally keeps just the closing letter of the word before it"
+         "text": "having",
+         "at": 31,
+         "note": "having ... for means one letter is put in place of another"
+        },
+        {
+         "text": "for",
+         "at": 51,
+         "note": "for marks the letter taken out, replaced by the new one"
         }
        ],
        "parts": [
         {
-         "words": "come",
-         "note": "the final letter of come"
+         "words": "shiny accessories",
+         "at": 13,
+         "gives": "SEQUINS",
+         "note": "sequins are small shiny discs sewn on clothes"
+        },
+        {
+         "words": "November's",
+         "at": 55,
+         "gives": "N",
+         "note": "N is November in the NATO phonetic alphabet"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 43,
+           "note": "finally means the last letter of come"
+          }
+         ],
+         "parts": [
+          {
+           "words": "come",
+           "at": 38
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "November's",
-       "gives": "N",
-       "note": "N is November in the radio alphabet; this letter is the one replaced"
       }
      ]
     },
     "explanation": {
-     "surface": "A sparkly old boy turning up dressed for a funeral in November.",
-     "walkthrough": "November's N is the letter that gets replaced: 'having come for' means the last letter of come takes its place in the shiny accessories.",
-     "definitionFit": "Obsequies is a formal word for the ceremonies held at a burial or funeral."
+     "surface": "A dressy old man at a funeral, glittering where he should be sombre.",
+     "walkthrough": "In SEQUINS, the N (November) is replaced by E, the last letter of 'come'.",
+     "definitionFit": "Obsequies are funeral ceremonies, the rites for a burial."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "November's"
     }
