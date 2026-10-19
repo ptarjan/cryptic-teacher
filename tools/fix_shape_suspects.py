@@ -1711,6 +1711,37 @@ def r_del_single(node, parent, ctx):
     return next(iter(good.values())) if len(good) == 1 else None
 
 
+def r_ind_in_leaf(node, parent, ctx):
+    """indInLeaf / ind_in_leaf: a leaf took the clue words of an indicator as well as its own
+    ([books essentially]BOOKS under mostly/essentially on an op). The indicator's span, located in
+    the clue, lies at the start or end of this leaf: the leaf keeps the words that give its letters.
+    A synonym leaf keeps its filed letters; a literal one gives its remaining words. Kept only when
+    the whole tree still evaluates to the answer. An indicator in the middle of a leaf stays for
+    the model."""
+    if not leaf(node) or not node.get("words") or node.get("at") is None or not ctx.get("answer"):
+        return None
+    clue = ctx["clue"]
+    if clue[node["at"]:node["at"] + len(node["words"])] != node["words"]:
+        return None
+    la, lb = node["at"], node["at"] + len(node["words"])
+    for n, _ in walk(ctx["tree"]):
+        for ind in n.get("indicators") or []:
+            if ind.get("at") is None or not ind.get("text") or len(W.letters(ind["text"])) < 3:
+                continue
+            a, b = ind["at"], ind["at"] + len(ind["text"])
+            if not (la <= a and b <= lb) or (a, b) == (la, lb) or (a != la and b != lb):
+                continue
+            text, at = clue_text(clue, b, lb) if a == la else clue_text(clue, la, a)
+            if not W.letters(text):
+                continue
+            literal = not node.get("gives") or W.letters(node["gives"]) == W.letters(node["words"])
+            new = {k: v for k, v in node.items() if k not in ("gives", "unchecked")} if literal else dict(node)
+            new.update(words=text, at=at)
+            if _eval_swapped(node, parent, new, ctx):
+                return new
+    return None
+
+
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
            "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
@@ -1721,7 +1752,7 @@ RULE_REPAIRS = {"anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana
                 "sharedIndicator": r_shared_indicator, "poolGap": r_pool_gap,
                 "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside,
                 "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c),
-                "del_single": r_del_single}
+                "del_single": r_del_single, "indInLeaf": r_ind_in_leaf, "ind_in_leaf": r_ind_in_leaf}
 
 
 def note_deletions(tree):
@@ -2226,7 +2257,8 @@ def do_rule_puzzle(pid):
 
 
 #: Queue rows that name a shape_suspects detector, not a validator rule: how --rule counts them.
-_DETECTOR_RULES = {"del_single": lambda wp, full, clue: V.del_single(wp)}
+_DETECTOR_RULES = {"del_single": lambda wp, full, clue: V.del_single(wp),
+                   "ind_in_leaf": lambda wp, full, clue: V.ind_in_leaf(wp, clue)}
 
 
 def run_rule(rule, apply, n_examples, seed, limit, jobs, ids=None):

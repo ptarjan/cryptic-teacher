@@ -363,5 +363,13 @@ check("a charade's word and a mismatched word swap into place by elimination",
       and new["parts"][0]["indicators"][0]["text"] == "initially"
       and new["parts"][1]["indicators"][0]["text"] == "hosted")
 
+# indInLeaf: a leaf that took an indicator's words as well loses them
+IL = {"indInLeaf": F.r_ind_in_leaf}
+il = {"op": "container", "indicators": [{"text": "End of"}], "parts": [
+    {"words": "thread", "gives": "YARN"}, {"op": "last", "indicators": [{"text": "about"}], "parts": [{"words": "End of Empire"}]}]}
+new, used = F.repair_tree(il, "Long thread about End of Empire", "YEARN", IL)
+check("an indicator's words come off the edge of the leaf that held them too",
+      used == ["indInLeaf"] and new["parts"][1]["parts"][0]["words"] == "Empire")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
