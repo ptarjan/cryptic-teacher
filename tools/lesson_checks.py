@@ -41,25 +41,59 @@ def double_definition(ann):
     return not ann.get("wordplay") and len(ann.get("definitions") or []) >= 2
 
 
+def _def_spans(ann, clue):
+    """[(start, end)] of each definition in the clue, by its `at` or else where its text first sits."""
+    low = clue.lower()
+    out = []
+    for d in ann.get("definitions") or []:
+        text = str(d.get("text") or "") if isinstance(d, dict) else str(d)
+        at = d.get("at") if isinstance(d, dict) and isinstance(d.get("at"), int) else low.find(text.lower())
+        if text and at is not None and at >= 0:
+            out.append((at, at + len(text)))
+    return out
+
+
 def dd_misses_wordplay(ann, clue, answer):
     """'hidden' or 'anagram' when a double definition's clue holds the answer
     as a hidden word (read either way, not the whole of a word) or as the
-    letters of a run of whole clue words in another order; else None."""
+    letters of a run of whole clue words in another order; else None. A run that
+    lies wholly inside one definition is that definition's own words, not hidden
+    wordplay: "for trees" scrambles to FORESTER by chance in the genuine double
+    definition "A novelist, perhaps, for trees?" (round 12)."""
     if not double_definition(ann) or not clue or not answer:
         return None
     ans = letters(answer)
-    words = [letters(w) for w in re.findall(r"[^\W\d_]+", clue)]
-    words = [w for w in words if w]
-    if len(ans) >= MIN_HIDDEN and (_hides(words, ans) or _hides([w[::-1] for w in reversed(words)], ans)):
-        return "hidden"
+    found = [(m.start(), m.end(), letters(m.group())) for m in re.finditer(r"[^\W\d_]+", clue)]
+    found = [f for f in found if f[2]]
+    words = [f[2] for f in found]
+    spans = _def_spans(ann, clue)
+
+    def inside(i, j):  # words i..j (inclusive) lie within one definition
+        return any(a <= found[i][0] and found[j][1] <= b for a, b in spans)
+
+    if len(ans) >= MIN_HIDDEN:
+        flat, pos = "".join(words), 0
+        cuts, owner = set(), []
+        for k, w in enumerate(words):
+            owner += [k] * len(w)
+            pos += len(w)
+            cuts.add(pos)
+        for rev, (text, own) in enumerate(((flat, owner), (flat[::-1], owner[::-1]))):
+            i = text.find(ans)
+            while i >= 0:
+                ws = own[i:i + len(ans)]
+                if any(i < c < i + len(ans) for c in ({len(flat) - c for c in cuts} if rev else cuts)) \
+                        and not inside(min(ws), max(ws)):
+                    return "hidden"
+                i = text.find(ans, i + 1)
     if len(ans) >= MIN_ANAGRAM:
         for i in range(len(words)):
             run = ""
-            for w in words[i:i + MAX_RUN]:
+            for j, w in enumerate(words[i:i + MAX_RUN], i):
                 run += w
                 if len(run) >= len(ans):
                     break
-            if len(run) == len(ans) and run != ans and sorted(run) == sorted(ans):
+            if len(run) == len(ans) and run != ans and sorted(run) == sorted(ans) and not inside(i, j):
                 return "anagram"
     return None
 

@@ -259,6 +259,11 @@ check("a fixed tree is settled for its detector", Q.settled(pz["entries"][1], "a
 check("a reason the detectors cannot judge is never settled", not Q.settled(pz["entries"][2], "model-fixable: x"))
 check("one unknown name keeps the row", not Q.settled(pz["entries"][2], "arity_ins: x; ddMissesWordplay: y"))
 check("a clue with no tree is never settled", not Q.settled({"annotation": None}, "arity_ins: x"))
+_cj = entry(5, {"op": "charade", "parts": [leaf("a", "A"), leaf("b", "B")]})
+check("a walkthrough-gate row whose tree is fine settles (round 12)", Q.settled(
+    _cj, "walkthrough-gate: the repaired tree gives the answer but the validator holds it back; re-narrate"))
+check("... but not while a detector still fires", not Q.settled(
+    pz["entries"][0], "walkthrough-gate: the repaired tree gives the answer but the validator holds it back; re-narrate"))
 _leaf = {"words": "x", "gives": "AB", "unchecked": True}
 _unch = {"annotation": {"wordplay": {"op": "charade", "parts": [_leaf, {"words": "y", "gives": "C"}]}}}
 _ok = {"annotation": {"wordplay": {"op": "charade", "parts": [{"words": "x", "gives": "AB"}, {"words": "y", "gives": "C"}]}}}

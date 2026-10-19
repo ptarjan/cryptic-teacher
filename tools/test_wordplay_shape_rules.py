@@ -236,6 +236,7 @@ check("a spoonerism of two sound words is verified", [], v.unverified_unchecked(
 check("the abbreviation 'volume's' V is not a bare initial", 0, v.bare_initials(
     {"op": "charade", "parts": [{"words": "volume's", "gives": "V"}, {"words": "x", "gives": "Y"}]}))
 import shape_queue
+import lesson_checks
 check("the redo gate names the nested container", True, any(
     f.startswith("nestedContainer") for f in shape_queue.findings(
         {"clue": {"text": "x"}, "solution": "ABUSE"}, {"wordplay": abuse, "definitions": []})))
@@ -457,6 +458,73 @@ check("'shed light on' is no folded deletion", 0, v.folded_deletion_leaves(
     {"op": "charade", "parts": [{"words": "shed light on", "gives": "LIT"}]}))
 check("'one lacking sense' is no folded deletion", 0, v.folded_deletion_leaves(
     {"op": "charade", "parts": [{"words": "one lacking sense", "gives": "NIT"}]}))
+
+# round 12 false positives
+check("'to lose relish' meaning PALL is no folded deletion", 0, v.folded_deletion_leaves(
+    {"op": "charade", "parts": [{"words": "to lose relish", "gives": "PALL"}]}))
+check("'play without hindrance' meaning HAM is no folded deletion", 0, v.folded_deletion_leaves(
+    {"op": "charade", "parts": [{"words": "play without hindrance", "gives": "HAM", "note": "to ham is to overact"}]}))
+check("'pupils? Half missing' is still a folded deletion", 1, v.folded_deletion_leaves(
+    {"op": "charade", "parts": [{"words": "pupils? Half missing", "gives": "PUP"}]}))
+check("a note naming the longer word keeps a fold ('Smaug' losing A)", 1, v.folded_deletion_leaves(
+    {"op": "charade", "parts": [{"words": "Dragon losing a", "gives": "SMUG", "note": "Smaug without the A"}]}))
+for w in ("ringleader", "redhead", "knucklehead"):
+    check(f"first over '{w}' is the head of a compound: no separate indicator", 0, v.unindicated_uncovered(
+        {"op": "charade", "parts": [{"op": "first", "parts": [{"words": w}]}, {"words": "running off", "gives": "PRINTING"}]}))
+check("first over \"champion's top\" names its own pick", 0, v.unindicated_uncovered(
+    {"op": "charade", "parts": [{"op": "first", "parts": [{"words": "champion's top"}]}, {"words": "running off", "gives": "PRINTING"}]}))
+check("first over President is P, a known abbreviation", 0, v.unindicated_uncovered(
+    {"op": "charade", "parts": [{"op": "first", "parts": [{"words": "President"}]}, {"words": "running off", "gives": "PRINTING"}]}))
+check("an anagram leaf with the indicator folded in (Outdated -> DATED) needs no more", 0, v.unindicated_uncovered(
+    {"op": "anagram", "parts": [{"words": "Outdated", "gives": "DATED"}, {"words": "CID", "gives": "CID"}]}))
+check("Failing giving F is a grade, not a bare initial", 0, v.bare_initials(
+    {"op": "charade", "parts": [{"words": "Failing", "gives": "F"}]}))
+dd = {"definitions": [{"text": "A novelist, perhaps", "at": 0}, {"text": "for trees?", "at": 21}]}
+check("an anagram inside one definition of a double definition is chance", None, lesson_checks.dd_misses_wordplay(
+    dd, "A novelist, perhaps, for trees?", "FORESTER"))
+check("an anagram across the definitions is still wordplay", "anagram", lesson_checks.dd_misses_wordplay(
+    {"definitions": [{"text": "A novelist, perhaps", "at": 0}, {"text": "trees?", "at": 25}]}, "A novelist, perhaps, for trees?", "FORESTER"))
+
+# round 12 false negatives
+mixed = {"op": "container", "indicators": [{"text": "capturing"}, {"text": "retreating"}], "parts": [
+    {"words": "Enemy", "gives": "FOE"}, {"words": "retreating king", "gives": "RC"}]}
+check("a reversal word filed on a container and again inside its leaf is counted (FORCE)", 1, v.ind_in_leaf(mixed))
+check("... a container word in the container's own leaf stays cosmetic", 0, v.ind_in_leaf(
+    {"op": "container", "indicators": [{"text": "capturing"}], "parts": [
+        {"words": "Enemy", "gives": "FOE"}, {"words": "capturing king", "gives": "RC"}]}))
+check("a selection phrase on an anagram is the wrong op's", 1, v.wrong_role_indicators(
+    {"op": "anagram", "indicators": [{"text": "Last couple in"}, {"text": "re-ordered"}], "parts": [{"words": "bar"}]}))
+swap = {"op": "charade", "parts": [{"words": "Greek character", "gives": "RHO"}, {"op": "container", "indicators": [{"text": "almost"}], "parts": [
+    {"words": "late", "gives": "DEA"}, {"op": "reversal", "indicators": [{"text": "provides cover"}], "parts": [{"words": "is"}]}]}]}
+check("a cut word on a container where the tree has no deletion is counted (RHODESIA)", 1, v.wrong_role_indicators(swap))
+check("a lone reversal word with no reversal op is still let go", 0, v.wrong_role_indicators(
+    {"op": "container", "indicators": [{"text": "returned"}], "parts": [{"words": "y", "gives": "CD"}, {"words": "x", "gives": "AB"}]}))
+check("an indicator word and a synonym leaf on the same words are claimed twice (BERATED)", 1, v.shared_indicators(
+    {"op": "container", "indicators": [{"text": "sleeping"}], "parts": [
+        {"words": "sleeping", "gives": "BED"}, {"words": "judge", "gives": "RATE"}]}))
+check("a short reading of the container word (onboard SS) is still one word", 0, v.shared_indicators(
+    {"op": "container", "indicators": [{"text": "onboard"}], "parts": [
+        {"words": "onboard", "gives": "SS"}, {"words": "judge", "gives": "RATE"}]}))
+two_firsts = {"op": "anagram", "indicators": [{"text": "awash", "at": 10}], "parts": [
+    {"words": "was", "at": 6},
+    {"op": "first", "parts": [{"words": "Marsh", "at": 0}]},
+    {"op": "first", "indicators": [{"text": "initially", "at": 28}], "parts": [{"words": "plants", "at": 21}]}]}
+check("one 'initially' over two picks far apart in the clue leaves the first with none (SWAMP)", 1, v.unindicated_uncovered(two_firsts))
+near = {**two_firsts, "parts": [two_firsts["parts"][0],
+        {"op": "first", "parts": [{"words": "so", "at": 0}]},
+        {"op": "first", "indicators": [{"text": "tops", "at": 10}], "parts": [{"words": "extend", "at": 3}]}]}
+check("two picks side by side share the one", 0, v.unindicated_uncovered(near))
+nad = {"op": "reversal", "indicators": [{"text": "turned up"}], "parts": [{"op": "container", "indicators": [{"text": "to welcome"}], "parts": [
+    {"op": "charade", "parts": [{"words": "called", "gives": "NAMED"}, {"words": "Garfunkel", "gives": "ART"}]}, {"words": "son", "gives": "S"}]}]}
+check("a piece put inside one piece of a holder under a reversal is counted (TRADESMAN)", 1, v.container_inside_component(nad, "TRADESMAN"))
+half = {"op": "anagram", "indicators": [{"text": "in a storm"}], "parts": [{"op": "deletion", "indicators": [{"text": "not half"}], "parts": [
+    {"op": "charade", "parts": [{"words": "Make sail", "gives": "MAKESAIL"}, {"words": "neat", "gives": "NEAT"}]}, {"words": "x", "gives": "AT"}]}]}
+check("'not half' acts on one piece even under an anagram", 1, v.deletion_inside_component(half, "Make sail neat (not half) in a storm"))
+motors = {"op": "deletion", "indicators": [{"text": "around"}], "parts": [
+    {"op": "charade", "parts": [{"words": "Majority", "gives": "MOST"}, {"words": "forbears", "gives": "ANCESTORS"}]},
+    {"words": "motors", "gives": "MOTORS"}]}
+check("a whole word cut from a charade it is not a run of is scattered (STANCES)", 1, v.deletion_scattered(motors))
+check("... and one that is a run of it is not", 0, v.deletion_scattered({**motors, "parts": [motors["parts"][0], {"words": "ancestors", "gives": "ANCESTORS"}]}))
 
 for field in ("unindicatedBare", "sharedIndicator", "halfLeaf", "deletionScattered", "reversePhrase",
               "bareInitial", "deletionScope", "wrongRole", "deletionInside", "nestedContainer","anagramSynonym", "misplacedIndicator", "scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
