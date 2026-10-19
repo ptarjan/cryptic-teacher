@@ -851,42 +851,55 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "PALESTINIAN",
-     "indicators": [
-      {
-       "text": "gets one for nothing",
-       "note": "one letter takes the place of a zero-shaped letter in the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "friend",
+       "at": 5,
        "gives": "PAL",
        "note": "a pal is a friend"
       },
       {
-       "words": "European",
-       "gives": "ESTONIAN",
-       "note": "someone from Estonia"
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "Roman numeral"
-      },
-      {
-       "words": "nothing",
-       "gives": "O",
-       "note": "zero, nought"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "gets",
+         "at": 23,
+         "note": "the European gets a new letter, taking it in exchange for another one"
+        },
+        {
+         "text": "for",
+         "at": 32,
+         "note": "one goes in for nothing, replacing it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "European",
+         "at": 14,
+         "gives": "ESTONIAN",
+         "note": "an Estonian is a European from Estonia"
+        },
+        {
+         "words": "nothing",
+         "at": 36,
+         "gives": "O",
+         "note": "O looks like zero, nothing"
+        },
+        {
+         "words": "one",
+         "at": 28,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A friend from Europe gets something free, Arab-style hospitality perhaps.",
-     "walkthrough": "'gets one for nothing' sounds like a free gift; it means the letter I replaces an O.",
-     "definitionFit": "Palestinians are an Arab people of the land between the Jordan and the Mediterranean."
+     "surface": "An Arab's friend is a European who gets something for free.",
+     "walkthrough": "'gets one for nothing' sounds like a bargain, but it swaps a zero-shaped letter in the European for the Roman numeral one.",
+     "definitionFit": "Palestinians are an Arab people from the region of Palestine."
     },
     "features": {
      "answerInScene": false,
@@ -3159,45 +3172,49 @@
      "indicators": [
       {
        "text": "into",
-       "note": "the earlier pieces go into the battle word"
+       "at": 40,
+       "note": "the pieces go inside the battle"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "battle",
-         "gives": "ACTION",
-         "note": "military action"
-        },
-        {
-         "words": "silent type",
-         "gives": "CLAM",
-         "note": "someone who clams up says nothing"
-        }
-       ]
+       "words": "battle",
+       "at": 45,
+       "gives": "ACTION",
+       "note": "action is fighting in a battle"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially means only the first letter is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "advancing",
-         "note": "first letter"
+         "words": "silent type",
+         "at": 7,
+         "gives": "CLAM",
+         "note": "a clam is a person who says little, as in clamming up"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 30,
+           "note": "the first letter of advancing is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "advancing",
+           "at": 20
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A quiet soldier is praised for moving forward first into combat.",
-     "definitionFit": "Acclamation is loud, enthusiastic approval from a crowd."
+     "surface": "A quiet soldier earns praise for going forward first into combat.",
+     "definitionFit": "Acclamation is loud enthusiastic approval, a public show of praise."
     },
     "features": {
      "answerInScene": true,

@@ -300,32 +300,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MAKEHASTE",
-     "indicators": [
-      {
-       "text": "bringing up small",
-       "note": "in a down entry, bringing up the small letter lifts it one place higher, swapping it with its neighbour"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "What milliners do",
-       "gives": "MAKEHATS",
-       "note": "milliners make hats; its final small letter is the one lifted"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 28,
+         "note": "in a down clue it goes back in one place higher up"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "bringing",
+           "at": 19,
+           "note": "the small letter is brought, taken out from its place at the end of the hats"
+          }
+         ],
+         "parts": [
+          {
+           "words": "What milliners do",
+           "at": 0,
+           "gives": "MAKEHATS",
+           "note": "milliners make hats"
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        },
+        {
+         "words": "small",
+         "at": 31,
+         "gives": "S",
+         "note": "S is the abbreviation for small, as on clothing labels"
+        }
+       ]
       },
       {
        "words": "ecstasy",
+       "at": 37,
        "gives": "E",
-       "note": "E is slang for the drug ecstasy"
+       "note": "E is the drug ecstasy"
       }
      ]
     },
     "explanation": {
-     "surface": "Hat-makers at work get a rush from a little ecstasy.",
-     "walkthrough": "Take MAKE HATS, raise the small S one place above the T, then add E. 'Small' points to S, the usual abbreviation, which is the letter moved.",
-     "definitionFit": "To make haste is an old-fashioned idiom for hurrying, which is what rushing means."
+     "surface": "Hat-makers hurry, taking a little ecstasy for a rush.",
+     "walkthrough": "'bringing up' moves the hats' final small letter one place higher in this down entry, before ecstasy's letter ends it.",
+     "definitionFit": "To make haste is an idiom for hurrying, to rush."
     },
     "features": {
      "answerInScene": false,
@@ -1693,58 +1720,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHICKADEE",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not entirely, so the final letter is cut"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "swish",
+       "at": 12,
+       "gives": "CHIC",
+       "note": "swish means smart and stylish, chic"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to receive",
+         "at": 35,
+         "note": "the shortened word takes in the publicity"
+        }
+       ],
        "parts": [
         {
-         "words": "swish",
-         "gives": "CHIC",
-         "note": "swish means smart or stylish, as does chic"
-        },
-        {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "to receive",
-           "note": "to receive something is to take it in, so one piece goes inside"
+           "text": "mostly",
+           "at": 22,
+           "note": "the last letter of the word is dropped"
           }
          ],
          "parts": [
           {
            "words": "eager",
-           "gives": "KEE",
-           "note": "keen minus its last letter"
+           "at": 29,
+           "gives": "KEEN",
+           "note": "keen means eager"
           },
           {
-           "words": "publicity",
-           "gives": "AD",
-           "note": "an ad is publicity"
+           "gives": "N"
           }
          ]
+        },
+        {
+         "words": "publicity",
+         "at": 46,
+         "gives": "AD",
+         "note": "an ad is an advertisement, publicity"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An American pop star is stylish and hungry for press attention.",
-     "walkthrough": "'US singer' suggests a celebrity, but it is a songbird. KEEN loses its N, then takes AD inside.",
-     "definitionFit": "The chickadee is a small North American bird of the tit family, known for its call."
+     "surface": "A stylish American vocalist is mostly keen to attract publicity.",
+     "walkthrough": "'singer' suggests a vocalist, but it is a songbird.",
+     "definitionFit": "The chickadee is a small North American songbird of the tit family."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "singer's"
+     "misdirectedWord": "singer"
     }
    }
   },
@@ -1769,45 +1802,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ROMANCE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "something brief is cut short, so its last letter goes"
+       "text": "shot",
+       "at": 14,
+       "note": "shot means ruined or wrecked, so the letters are broken up and rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "on",
+       "at": 19
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "shot",
-         "note": "something shot is ruined or wrecked, so the letters are scrambled"
+         "text": "briefly",
+         "at": 29,
+         "note": "the word camera loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "on",
-         "note": "taken as written"
+         "words": "camera",
+         "at": 22
         },
         {
-         "words": "camera",
-         "gives": "CAMER",
-         "note": "the word minus its final letter"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A thrilling story filmed quickly on camera.",
-     "walkthrough": "'Shot' looks like filming, which fits the surface, but it signals a jumble.",
-     "definitionFit": "A romance is a story of adventure or love, originally a medieval tale of chivalry."
+     "surface": "A thrilling story is filmed quickly.",
+     "walkthrough": "'shot' looks like filming, but it signals the rearrangement.",
+     "definitionFit": "A romance is a story of adventure or love, an exciting imaginative tale."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "shot"
     }

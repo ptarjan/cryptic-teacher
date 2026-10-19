@@ -1184,43 +1184,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about suggests moving around, so the letters are shuffled into another order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
          "text": "joining",
-         "note": "joining means one piece is attached to the other before anything else happens"
+         "at": 32,
+         "note": "the R joins the rearranged letters by slipping in among them"
         }
        ],
        "parts": [
         {
-         "words": "Osama",
-         "note": "taken as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 20,
+           "note": "about means around and out of order, so the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Osama",
+           "at": 26
+          }
+         ]
         },
         {
-         "words": "Royal Navy",
-         "gives": "RN",
-         "note": "RN is the abbreviation for the Royal Navy"
+         "words": "Royal",
+         "at": 40,
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "Navy",
+       "at": 46,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone caught up in a quarrel about Osama is signing up with the navy.",
-     "walkthrough": "'row' reads as a quarrel (rhymes with cow) but means rowing a boat (rhymes with go).",
-     "definitionFit": "An oarsman rows a boat, so he is a person taking part in a row."
+     "surface": "Someone is caught up in a dispute concerning Osama enlisting in the Royal Navy.",
+     "walkthrough": "'row' looks like a quarrel, but it is rowing a boat. The letters of OSAMA and RN, Royal Navy, combine.",
+     "definitionFit": "An oarsman is a rower, someone pulling an oar in a boat."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "row"
