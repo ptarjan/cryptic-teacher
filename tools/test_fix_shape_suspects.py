@@ -442,5 +442,18 @@ new, used = F.repair_tree(ait2, aic2, "VODKA", AI)
 check("a charade of held and holder splits, its indicator moving to the container",
       used == ["arity_ins"] and len(new["parts"]) == 2 and new["indicators"][0]["text"] == "carrying")
 
+# removed_leaf: the deleted word sits in the charade with no letters; the cut is shown
+RL = {"unchecked_leaf": F.r_removed_leaf}
+rlc = "Safe king avoids appearance in massacre"
+rlt = {"op": "deletion", "unchecked": True, "gives": "PETERLOO", "indicators": [{"text": "avoids", "at": 10}], "parts": [
+    {"op": "charade", "parts": [leaf("Safe", "PETER"), {**leaf("appearance", "LOO"), "note": "look, minus the K"},
+                                {"unchecked": True, "words": "king", "at": 5}]}]}
+new, used = F.repair_tree(rlt, rlc, "PETERLOO", RL)
+check("a letterless removed leaf gets its letters, the cut word its full spelling",
+      used == ["unchecked_leaf"] and "LOOK" in json.dumps(new) and "unchecked" not in json.dumps(new))
+check("the unchecked_leaf detector counts the old tree and not the new",
+      F._DETECTOR_RULES["unchecked_leaf"](rlt, {"wordplay": rlt, "_answer": "PETERLOO"}, rlc)
+      and not F._DETECTOR_RULES["unchecked_leaf"](new, {"wordplay": new, "_answer": "PETERLOO"}, rlc))
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
