@@ -171,44 +171,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NAIVETE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 28,
+       "note": "around tells us the rearranged letters wrap themselves about the next piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "crackers",
-         "note": "crazy, so the letters of EATEN are scrambled"
-        },
-        {
-         "text": "around"
+         "at": 13,
+         "note": "crackers means crazy, so the letters of the next word go wild and are rearranged"
         }
        ],
        "parts": [
         {
          "words": "eaten",
-         "note": "anagram fodder, rearranged to NA…ETE"
-        },
-        {
-         "words": "four",
-         "gives": "IV",
-         "note": "four in Roman numerals, placed inside"
+         "at": 22
         }
        ]
+      },
+      {
+       "words": "four",
+       "at": 35,
+       "gives": "IV",
+       "note": "IV is four in Roman numerals"
       }
      ]
     },
+    "spelling": "NAÏVETÉ",
     "explanation": {
-     "surface": "A childlike innocence about crackers being eaten.",
-     "walkthrough": "'crackers' looks like biscuits in the surface; here it means mad and scrambles EATEN.",
-     "definitionFit": "A plain synonym: naivety is innocence of the world's ways."
+     "surface": "Somebody's innocence is lost after their crackers get eaten.",
+     "walkthrough": "'crackers' looks like the biscuits being eaten, but it is the signal to rearrange 'eaten'.",
+     "definitionFit": "Naivety, or naïveté, is a childlike lack of worldly experience, a close synonym of innocence."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "crackers"
     }
    }
@@ -487,32 +491,31 @@
      "op": "container",
      "indicators": [
       {
-       "text": "initially",
-       "note": "take the first letters of Parental and dude"
+       "text": "in",
+       "at": 24,
+       "note": "in places the initials inside the word for someone's place"
       }
      ],
      "parts": [
       {
        "words": "another's place",
+       "at": 27,
        "gives": "STEAD",
-       "note": "in another's stead = in their place; the outer part"
+       "note": "to stand in someone's stead is to take their place"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "PD",
        "indicators": [
         {
-         "text": "in"
+         "text": "initially",
+         "at": 14,
+         "note": "initially means we take only the opening letter of each of the two words before it"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Parental dude initially",
-         "gives": "PD",
-         "select": "first",
-         "note": "first letters of Parental and dude"
+         "words": "Parental dude",
+         "at": 0
         }
        ]
       }
@@ -520,13 +523,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A fatherly figure stepping into someone else's role.",
-     "walkthrough": "The whole clue defines the answer too: a stepdad is a parental dude who has taken the place of another.",
-     "definitionFit": "Read straight, the clue describes a stepfather: a fatherly man filling a role that was once someone else's."
+     "surface": "A puzzled question about a fatherly figure filling in for somebody else.",
+     "walkthrough": "To stand in someone's stead is to take their place. The whole clue also describes the answer: a man who takes up a father's role.",
+     "definitionFit": "A stepfather is a man who takes the parental role of a child's absent father by marrying the mother."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "dude"
     }
    }
   },
@@ -930,41 +934,39 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "used for",
+       "at": 44,
+       "note": "used for means one thing is put in place of another, so the alternative word replaces art"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "PORRIDGE",
-       "indicators": [
-        {
-         "text": "used for"
-        }
-       ],
-       "parts": [
-        {
-         "words": "type of pheasant",
-         "gives": "PARTRIDGE",
-         "note": "a game bird related to the pheasant"
-        },
-        {
-         "words": "alternatively",
-         "gives": "OR",
-         "note": "or = alternatively"
-        }
-       ]
+       "words": "type of pheasant",
+       "at": 6,
+       "gives": "PARTRIDGE",
+       "note": "a partridge is a game bird of the pheasant family"
       },
       {
-       "unchecked": true,
        "words": "art",
-       "note": "ART in PARTRIDGE is swapped for OR"
+       "at": 53,
+       "gives": "ART",
+       "note": "the clue word art names the letters to be swapped out"
+      },
+      {
+       "words": "alternatively",
+       "at": 30,
+       "gives": "OR",
+       "note": "or is the word for alternatively"
       }
      ]
     },
     "explanation": {
-     "surface": "A game bird whose image is used in art.",
-     "walkthrough": "'Bird' looks like the partridge; it is the definition, British slang for a prison sentence, as is porridge (also the TV sitcom).",
-     "definitionFit": "British slang: both bird and porridge mean time served in prison."
+     "surface": "A birdwatcher's note about a pheasant-like bird and an artistic substitute.",
+     "walkthrough": "'Bird' looks like a call for a feathered answer, but both Bird and the answer are British slang for a prison sentence.",
+     "definitionFit": "In British slang, doing bird and doing porridge both mean serving time in prison."
     },
     "features": {
      "answerInScene": false,
