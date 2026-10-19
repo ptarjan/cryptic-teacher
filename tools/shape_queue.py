@@ -203,7 +203,7 @@ def _validator_rules():
             "indFolded": lambda t, a, c: V.folded_indicators(t),
             "fakeParts": lambda t, a, c: V.fake_parts(t),
             "bareInCharade": lambda t, a, c: V.bare_in_charade(t, a),
-            "inDefinition": lambda t, a, c: V.in_definition(a),
+            "inDefinition": lambda t, a, c: V.in_definition(a, c),
             "leafFold": lambda t, a, c: V.leaf_folds(t),
             "anaCharade": lambda t, a, c: V.anagram_charades(t),
             "nestedContainer": lambda t, a, c: V.nested_containers(t, a.get("_answer") or None),
