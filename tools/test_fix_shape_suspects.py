@@ -129,5 +129,37 @@ check("two cuts become a deletion of A and B from Labour", got is not None and g
 bad = {**fold, "gives": "LOUX"}
 check("two cuts that do not spell the letters are left", F.r_leaf_fold(bad, None, {"clue": clue2, "under_unchecked": set()}) is None)
 
+# A role move leaves the selection op without a word, and its leaf holding the selector
+# (cyclops-757 28a TRUCE): the leaf keeps the source, the selector becomes the indicator.
+clue3 = "Faithful embracing Conservative leader"
+sel = {"op": "container", "parts": [{"words": "Faithful", "gives": "TRUE"},
+       {"op": "first", "indicators": [{"text": "embracing"}], "parts": [{"words": "Conservative leader"}]}]}
+new, used = F.repair_tree(sel, clue3, "TRUCE", {"wrongRole": F.r_wrong_role})
+new, used2 = F.repair_tree(new, clue3, "TRUCE", F.FOLLOW_ON)
+check("the container takes its word back", new["indicators"][0]["text"] == "embracing")
+check("the selection takes the selector off its leaf", used2 == ["sel_edge"]
+      and new["parts"][1]["indicators"][0]["text"] == "leader" and new["parts"][1]["parts"][0]["words"] == "Conservative")
+# the selector already the op's indicator: the leaf just loses it (cyclops-490 13d, unchecked).
+un = {"op": "last", "unchecked": True, "gives": "E", "indicators": [{"text": "ultimately"}], "parts": [
+    {"unchecked": True, "words": "substitute, ultimately", "gives": "E", "at": 0}]}
+got = F.r_sel_edge(un, None, {})
+check("an unchecked pick keeps its letters and loses the selector", got["parts"][0]["words"] == "substitute"
+      and got["parts"][0]["gives"] == "E" and got["indicators"][0]["text"] == "ultimately")
+# a leaf filed with a pick (cyclops-454 8a): the selection op, the end named by the selector.
+clue4 = "Players pissed round toilet's entrance"
+got = F.r_leaf_select({"words": "toilet's entrance", "gives": "T", "at": clue4.index("toilet")}, {"op": "container"}, {})
+check("toilet's entrance is first<entrance>(toilet)", got["op"] == "first" and got["indicators"][0]["text"] == "entrance"
+      and got["parts"][0]["words"] == "toilet")
+# a deletion a repair makes new gets a note
+tr = F.note_deletions({"op": "deletion", "indicators": [{"text": "lacking heart"}], "parts": [{"words": "Scot"}, {"gives": "CO"}]})
+check("a new deletion indicator is noted", tr["indicators"][0]["note"])
+# extremely on a one-end pick: outer, only when the letters then spell the answer
+ex = {"op": "charade", "parts": [{"words": "Lion", "gives": "LION"},
+      {"op": "last", "indicators": [{"text": "extremely"}], "parts": [{"words": "tough"}]}]}
+new, used = F.repair_tree(ex, "Lion extremely tough", "LIONTH", {"wrongRole": F.r_wrong_role})
+check("last<extremely> becomes outer when both ends spell the answer", used == ["wrongRole"] and new["parts"][1]["op"] == "outer")
+new, used = F.repair_tree(ex, "Lion extremely tough", "LIONH", {"wrongRole": F.r_wrong_role})
+check("and stays one end when they do not", new["parts"][1]["op"] == "last")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

@@ -85,6 +85,7 @@ from pathlib import Path
 import annotation
 import clue_shapes as cs
 import puzzle_paths
+import puzzle_schema
 import shape_suspects as ss
 import validate_annotations as V
 import wordplay as W
@@ -943,7 +944,24 @@ def r_role_move(node, parent, ctx):
 def r_wrong_role(node, parent, ctx):
     """wrongRole: a leaf that folds a deletion into its words (r_leaf_fold), else indicators on
     the wrong one of two nested ops (r_role_swap)."""
-    return r_leaf_fold(node, parent, ctx) or r_role_swap(node, parent, ctx) or r_role_move(node, parent, ctx)
+    return r_leaf_fold(node, parent, ctx) or r_extremes_outer(node, parent, ctx) \
+        or r_role_swap(node, parent, ctx) or r_role_move(node, parent, ctx)
+
+
+def r_extremes_outer(node, parent, ctx):
+    """A first/last op over one source whose indicator names both ends ('extremely', 'extremities',
+    'outer', 'edges'): the outer op, which picks the first and the last letter. Kept only when the
+    whole tree then evaluates to the answer (the driver's evaluate gate), so a pick that was one
+    end by design stays as it is."""
+    if node.get("op") not in ("first", "last") or node.get("unchecked") or len(node.get("parts") or []) != 1 \
+            or id(node) in ctx["under_unchecked"] or not leaf(node["parts"][0]) \
+            or not any(V.EXTREMES_WORD.search(i.get("text") or "") for i in node.get("indicators") or []):
+        return None
+    new = copy.deepcopy(node)
+    new["op"] = "outer"
+    if not (vals(new) or ()) or not _eval_swapped(node, parent, new, ctx):
+        return None
+    return new
 
 
 SEL_FIRST = ("beginning", "start", "first", "initial", "opening", "head", "front")
@@ -1069,6 +1087,91 @@ REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap":
 RULE_REPAIRS = {"anaSynonym": r_ana_synonym, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection}
+
+
+def note_deletions(tree):
+    """A deletion indicator a repair made new (the leaf fold's) has no note, and every annotation
+    needs one: say what the word does (so does a selection's, made new by sel_edge/leaf_select)."""
+    for n, _ in walk(tree):
+        say = "takes the cut letters out of the word" if n.get("op") == "deletion" \
+            else f"the {n['op']} letter of the word it picks from" if n.get("op") in ("first", "last", "middle") else None
+        for i in (n.get("indicators") or []) if say else []:
+            i.setdefault("note", say)
+    return tree
+
+
+def r_sel_edge(node, parent, ctx):
+    """A first/last/middle op over one leaf whose words are the selector plus the source ('end of
+    bayou' under last, 'Conservative leader' under first) and whose letters are that selection:
+    the selector is the op's indicator (it is, already, or the op had none: a role move took its
+    word off) and the leaf keeps the source alone. Checked or not, the letters stay."""
+    parts = node.get("parts") or []
+    if node.get("op") not in ("first", "last", "middle") or len(parts) != 1 or not leaf(parts[0]):
+        return None
+    lf = parts[0]
+    if not lf.get("words") or lf.get("at") is None or len(node.get("indicators") or []) > 1:
+        return None
+    g = lf.get("gives") or node.get("gives")
+    if g and W.letters(g) == W.letters(lf["words"]):
+        g = node.get("gives")       # filed with its own words, not the pick
+    if g:
+        cands = [g]
+    else:   # a checked leaf names no letters: the op's own pick from each word
+        e = -1 if node["op"] == "last" else 0
+        cands = sorted({W.letters(w)[e] for w in lf["words"].split() if W.letters(w)})
+    founds = [(c, V.selector_in_block({"clueFragment": lf["words"], "gives": c})) for c in cands]
+    founds = [(c, f) for c, f in founds if f]
+    if len(founds) != 1:
+        return None
+    g, found = founds[0]
+    sel, rest = found
+    words = lf["words"]
+    si, ri = words.find(sel), words.find(rest)
+    if si < 0 or ri < 0:
+        return None
+    have = [i.get("text") for i in node.get("indicators") or []]
+    if have and W.letters(have[0]) != W.letters(sel):
+        return None
+    new = copy.deepcopy(node)
+    src = {**{k: v for k, v in lf.items() if k not in ("words", "at")}, "words": rest, "at": lf["at"] + ri}
+    if not lf.get("unchecked"):
+        src.pop("gives", None)
+    new["parts"] = [src]
+    if not have:
+        new["indicators"] = [{"text": sel, "at": lf["at"] + si}]
+    if not node.get("unchecked") and g not in (vals(new) or ()):
+        return None
+    return new
+
+
+def r_leaf_select(node, parent, ctx):
+    """A leaf that is filed with letters yet is a selector plus its source ('toilet's entrance'
+    gives T): the selection op over the source (r_leaf_check's selector case, for a leaf not
+    marked unchecked)."""
+    if not leaf(node) or node.get("unchecked") or not node.get("gives") or not node.get("words") \
+            or node.get("at") is None or (parent or {}).get("op") in W.SELECT:
+        return None
+    g = W.letters(node["gives"])
+    words = node["words"]
+    for pattern in [*V.SELECTOR_LEADS, V.SELECTOR_TAIL]:
+        m = pattern.match(words)
+        if not m or not V.selector_in_block({"clueFragment": words, "gives": g}):
+            continue
+        op = next(k for k in V.SELECT_NOUNS if m.group(k))
+        sel, rest = m.group("sel"), m.group("rest").strip(" ,")
+        si, ri = words.find(sel), words.find(rest)
+        src = {"words": rest, "at": node["at"] + ri}
+        if si < 0 or ri < 0 or g not in (vals({"op": op, "parts": [src]}) or ()):
+            continue
+        if node.get("note"):
+            src["note"] = node["note"]
+        return {"op": op, "indicators": [{"text": sel.strip(" ,"), "at": node["at"] + si}], "parts": [src]}
+    return None
+
+
+#: Chained after a rule's own repair, on the tree it produced: a role move leaves the selection
+#: indicator both on the op and at the edge of its source leaf, and the leaf then loses it.
+FOLLOW_ON = {"leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim, "sel_edge": r_sel_edge, "leaf_select": r_leaf_select}
 
 
 def repair_tree(tree, clue, answer=None, repairs=None):
@@ -1251,17 +1354,23 @@ def do_puzzle(pid):
     if fixes:
         base = puzzle_errors(puzzle, path, allowed)
 
-        def ok(fs):
+        def ok(fs, why=None):
             trial = copy.deepcopy(puzzle)
             for k, new_ann, _ in fs:
                 trial["entries"][k]["annotation"] = new_ann
-            return puzzle_errors(trial, path, allowed, committed=puzzle) <= base
+            errs = puzzle_errors(trial, path, allowed, committed=puzzle)
+            if why is not None:
+                why.extend(sorted(errs - base))
+            return errs <= base
         if ok(fixes):
             kept = fixes
         else:
             for f in fixes:
-                if ok(kept + [f]):
+                why = []
+                if ok(kept + [f], why):
                     kept.append(f)
+                else:
+                    examples.append({**f[2], "rejected": why})
         stat["rejected_by_validator"] += len(fixes) - len(kept)
     kept_by_id = {f[2]["id"]: f for f in kept}
     for s, old in rows.values():
@@ -1421,6 +1530,8 @@ def do_rule_puzzle(pid):
             continue
         try:
             new_tree, used = repair_tree(wp, clue, answer, {rule: RULE_REPAIRS[rule]})
+            if used:
+                new_tree = note_deletions(repair_tree(new_tree, clue, answer, FOLLOW_ON)[0])
         except (W.WordplayError, IndexError, KeyError, TypeError, ValueError, RecursionError):
             stat["error"] += 1
             continue
@@ -1434,7 +1545,8 @@ def do_rule_puzzle(pid):
         except (W.WordplayError, IndexError, KeyError, TypeError, ValueError):
             stat["rejected_evaluate"] += 1
             continue
-        new_ann = {**ann, "wordplay": new_tree}
+        new_ann = puzzle_schema.order({"entries": [{"annotation": {**ann, "wordplay": new_tree}}]})["entries"][0]["annotation"]
+        new_tree = new_ann["wordplay"]
         old_h, new_h = hits(ann, clue, answer), hits(new_ann, clue, answer)
         if not set(new_h) <= set(old_h) or unchecked(new_tree) > unchecked(wp) \
                 or shape_counts(new_ann) - shape_counts(ann):
@@ -1447,17 +1559,23 @@ def do_rule_puzzle(pid):
     if fixes:
         base = puzzle_errors(puzzle, path, allowed)
 
-        def ok(fs):
+        def ok(fs, why=None):
             trial = copy.deepcopy(puzzle)
             for k, new_ann, _ in fs:
                 trial["entries"][k]["annotation"] = new_ann
-            return puzzle_errors(trial, path, allowed, committed=puzzle) <= base
+            errs = puzzle_errors(trial, path, allowed, committed=puzzle)
+            if why is not None:
+                why.extend(sorted(errs - base))
+            return errs <= base
         if ok(fixes):
             kept = fixes
         else:
             for f in fixes:
-                if ok(kept + [f]):
+                why = []
+                if ok(kept + [f], why):
                     kept.append(f)
+                else:
+                    examples.append({**f[2], "rejected": why})
         stat["rejected_validator"] += len(fixes) - len(kept)
     for _, _, x in kept:
         stat["fixed_still_flagged" if x["left"] else "fixed_clear"] += 1
@@ -1498,6 +1616,15 @@ def run_rule(rule, apply, n_examples, seed, limit, jobs, ids=None):
     print(f"{rule}: {len(rows)} queued rows in {len(pids)} puzzles; "
           + ", ".join(f"{k} {v}" for k, v in sorted(stat.items())))
     random.seed(seed)
+    rejected = [x for x in examples if "rejected" in x]
+    examples = [x for x in examples if "rejected" not in x]
+    if rejected:   # why the validator turned a repair down: the errors the repaired puzzle gained
+        kinds = collections.Counter(e[:90] for x in rejected for e in x["rejected"])
+        print("rejected by validator, new errors:", dict(kinds.most_common(12)))
+        for x in random.sample(rejected, min(n_examples, len(rejected))):
+            print(f"\nREJECTED {x['id']} | {x['clue']} | {x['answer']}\n  before: {x['before']}\n  after:  {x['after']}")
+            for e in x["rejected"]:
+                print(f"  new error: {e[:300]}")
     for x in random.sample(examples, min(n_examples, len(examples))):
         print(f"\n{x['id']} | {x['clue']} | {x['answer']}" + ("  [still flagged]" if x["left"] else ""))
         print(f"  before: {x['before']}")
