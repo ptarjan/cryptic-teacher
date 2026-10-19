@@ -407,28 +407,33 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "GINGERTOM",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means surrounding, so the jumbled letters go round the sound-alike"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "upset",
-         "note": "upset means knocked over and disordered, so these letters are jumbled"
+         "text": "about",
+         "at": 10,
+         "note": "about means surrounding, so the jumbled word goes round the sounded letters"
         }
        ],
        "parts": [
         {
-         "words": "Got",
-         "note": "taken as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "upset",
+           "at": 4,
+           "note": "upset means knocked over, so the letters of got are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Got",
+           "at": 0
+          }
+         ]
         },
         {
          "op": "homophone",
@@ -436,30 +441,31 @@
          "indicators": [
           {
            "text": "reportedly",
-           "note": "reportedly means as people say it, so we want a word that sounds like a synonym"
+           "at": 16,
+           "note": "reportedly means as heard, so the word for lame is taken by its sound"
           }
          ],
          "parts": [
           {
            "words": "lame",
+           "at": 27,
            "gives": "INJURE",
-           "note": "to lame someone is to injure them; said loosely it sounds like this spelling"
+           "note": "to lame is to injure, and injure sounds like the letters entered"
           }
          ]
-        },
-        {
-         "words": "male",
-         "gives": "M",
-         "note": "M is the abbreviation for male"
         }
        ]
+      },
+      {
+       "words": "male",
+       "at": 32,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "A tomcat with a limp got cross.",
-     "walkthrough": "The jumbled letters with male wrap round a sound-alike for injure; the homophone is loose, so the parse is a best reading of a rough clue.",
-     "definitionFit": "A ginger tom is an orange-coated male cat, so cat defines it as a broader term."
+     "surface": "Someone got cross about a lame tomcat.",
+     "definitionFit": "A ginger tom is a male cat with orange fur."
     },
     "features": {
      "answerInScene": true,
@@ -944,44 +950,50 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "start of",
-       "note": "the start of a word is its first letter, joined in with the rest"
-      }
-     ],
      "parts": [
       {
        "words": "former",
+       "at": 15,
        "gives": "EX",
-       "note": "ex means former"
+       "note": "ex means former, as in ex-wife"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "ground",
-         "note": "ground means crushed into pieces, so the word before it is broken up"
+         "at": 29,
+         "note": "ground means crushed, so these letters are pounded into a new order"
         }
        ],
        "parts": [
         {
          "words": "burial",
-         "note": "taken as written"
+         "at": 22
         },
         {
-         "words": "century",
-         "gives": "C",
-         "note": "first letter of century"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start of",
+           "at": 43,
+           "note": "start of means the first letter of century"
+          }
+         ],
+         "parts": [
+          {
+           "words": "century",
+           "at": 52
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A legendary sword is discovered in an old burial site dating to around the turn of a century.",
-     "walkthrough": "'Burial ground' reads as a cemetery, but ground is the mixing signal; the century's opening letter goes in the mix.",
-     "definitionFit": "Excalibur is King Arthur's legendary blade from Arthurian romance."
+     "surface": "A blade is unearthed in an old cemetery near the start of the century.",
+     "definitionFit": "Excalibur is King Arthur's legendary sword."
     },
     "features": {
      "answerInScene": true,
