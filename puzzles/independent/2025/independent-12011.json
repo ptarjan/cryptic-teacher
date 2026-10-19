@@ -219,14 +219,29 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "outside",
-       "note": "outside means the joined letters sit around the place name, enclosing it"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "note": "outside means the joined letters sit around the place name, enclosing it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "encountered",
+         "gives": "MET",
+         "note": "met means encountered"
+        },
+        {
+         "words": "Welsh town",
+         "gives": "USK",
+         "note": "Usk is a small town in Monmouthshire, Wales"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
@@ -237,29 +252,14 @@
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "encountered",
-           "gives": "MET",
-           "note": "met means encountered"
-          },
-          {
-           "words": "lord",
-           "gives": "PEER",
-           "note": "a peer is a member of the nobility, such as a lord"
-          }
-         ]
+         "words": "lord",
+         "gives": "PEER",
+         "note": "a peer is a member of the nobility, such as a lord"
         },
         {
          "gives": "P"
         }
        ]
-      },
-      {
-       "words": "Welsh town",
-       "gives": "USK",
-       "note": "Usk is a small town in Monmouthshire, Wales"
       }
      ]
     },
@@ -589,21 +589,11 @@
         {
          "words": "tame",
          "note": "tame without its first and last letters"
-        }
-       ]
-      },
-      {
-       "op": "middle",
-       "parts": [
+        },
         {
          "words": "jazz",
          "note": "jazz without its first and last letters"
-        }
-       ]
-      },
-      {
-       "op": "middle",
-       "parts": [
+        },
         {
          "words": "song",
          "note": "song without its first and last letters"
@@ -951,33 +941,28 @@
        "op": "deletion",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "shop",
-           "gives": "STORE",
-           "note": "a store is a shop"
-          },
-          {
-           "op": "nth",
-           "n": 5,
-           "indicators": [
-            {
-             "text": "fifth",
-             "note": "fifth points to the letter in position five of the word"
-            }
-           ],
-           "parts": [
-            {
-             "words": "autumn's",
-             "note": "the fifth letter of autumn"
-            }
-           ]
-          }
-         ]
+         "words": "shop",
+         "gives": "STORE",
+         "note": "a store is a shop"
         },
         {
          "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 5,
+       "indicators": [
+        {
+         "text": "fifth",
+         "note": "fifth points to the letter in position five of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "autumn's",
+         "note": "the fifth letter of autumn"
         }
        ]
       }
@@ -1317,30 +1302,30 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "two items of",
-       "note": "only two elements of the following word are kept, its opening pair, and the rest falls away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
+       "words": "Red mark",
+       "gives": "WEAL",
+       "note": "a weal is a red raised mark on the skin"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
         {
-         "words": "Red mark",
-         "gives": "WEAL",
-         "note": "a weal is a red raised mark on the skin"
-        },
+         "text": "two items of",
+         "note": "only two elements of the following word are kept, its opening pair, and the rest falls away"
+        }
+       ],
+       "parts": [
         {
          "words": "this",
          "note": "taken as written"
+        },
+        {
+         "gives": "IS"
         }
        ]
-      },
-      {
-       "gives": "IS"
       }
      ]
     },
