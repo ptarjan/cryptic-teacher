@@ -81,6 +81,15 @@ TROVE_ZONES = "trove-zones"
 TROVE_INPUTS = "trove-inputs"
 #: The files of a Trove article dir (downloads.TROVE/<id>/) a read takes in.
 TROVE_FILES = ("meta.json", "ocr.txt", "grid.jpg")
+#: The book leaves' readings of held puzzles under downloads.BOOK_REPRINTS
+#: (<pid>/<identifier>-<position>.txt), one row each: {"pid", "file", "size",
+#: "at"}. book_queue.save_reprint appends one as it writes a reading;
+#: book_reprints folds them, so a plan (file_archive_org_puzzles.reprint_key,
+#: asked of every puzzle of every edition) never lists or stats a folder per
+#: puzzle on the media disk (each a Samba round trip, ~90 ms: ~2900 a gale
+#: plan). Complete only once its build ran (complete_path), as a partial
+#: manifest would read as "no reprint" for every pid it lacks.
+BOOK_REPRINTS = "book-reprints"
 
 
 def trove_files(d):
@@ -517,6 +526,72 @@ def build_book_texts(out=sys.stdout):
     return found
 
 
+def build_book_reprints(out=sys.stdout):
+    """List downloads.BOOK_REPRINTS once (a folder a puzzle, its .txt files)
+    into BOOK_REPRINTS and mark it complete. book_reprints runs it once when
+    the marker is missing; never scheduled."""
+    found = []
+    root = downloads.BOOK_REPRINTS
+    for d in sorted(os.scandir(root), key=lambda e: e.name) if os.path.isdir(root) else ():
+        if d.is_dir():
+            found += [{"pid": d.name, "file": e.name, "size": e.stat().st_size, "at": e.stat().st_mtime}
+                      for e in sorted(os.scandir(d.path), key=lambda e: e.name) if e.name.endswith(".txt")]
+    write(BOOK_REPRINTS, found)
+    complete_path(BOOK_REPRINTS).write_text(json.dumps({"at": time.time()}))
+    _BOOK_REPRINTS.clear()
+    print(f"{BOOK_REPRINTS}: {len(found)} readings", file=out)
+    return found
+
+
+def record_book_reprint(written):
+    """Append the reading `written` (<BOOK_REPRINTS>/<pid>/<name>.txt, just
+    saved) to BOOK_REPRINTS, with its size."""
+    written = Path(written)
+    record(BOOK_REPRINTS, written, pid=written.parent.name, file=written.name, size=written.stat().st_size)
+    _BOOK_REPRINTS.clear()
+
+
+def book_reprints():
+    """{pid: [(file name, size)] by name} of BOOK_REPRINTS: off the manifest,
+    never a listing of the disk; built once (build_book_reprints) when never
+    built. Kept BOOK_REPRINTS_FRESH seconds (a plan asks it ~25k times), or
+    until this process appended a row (record_book_reprint)."""
+    hit = _BOOK_REPRINTS.get("memo")
+    if hit is not None and time.monotonic() - hit[0] < BOOK_REPRINTS_FRESH:
+        return hit[1]
+    if not complete(BOOK_REPRINTS):
+        with open(os.devnull, "w") as quiet:
+            build_book_reprints(out=quiet)
+    held = {}
+    for r in memo_rows(BOOK_REPRINTS):
+        held.setdefault(r["pid"], {})[r["file"]] = r["size"]
+    out = {pid: sorted(files.items()) for pid, files in held.items()}
+    _BOOK_REPRINTS["memo"] = (time.monotonic(), out)
+    return out
+
+
+#: {"memo": (time.monotonic() when folded, book_reprints' answer)}.
+_BOOK_REPRINTS = {}
+#: Seconds book_reprints trusts its fold: a reading another process appended is seen this late at most.
+BOOK_REPRINTS_FRESH = 5.0
+
+
+def memo_rows(name):
+    """Every row of manifest `name` that parses, oldest first; [] when it
+    was never written (a torn last line is skipped)."""
+    try:
+        text = path(name).read_text()
+    except FileNotFoundError:
+        return []
+    out = []
+    for ln in text.splitlines():
+        try:
+            out.append(json.loads(ln))
+        except ValueError:
+            continue
+    return out
+
+
 def write(name, found):
     """Replace manifest `name` whole with the rows `found`."""
     DIR.mkdir(parents=True, exist_ok=True)
@@ -660,6 +735,7 @@ BUILDERS["ia-items"] = _build_items
 BUILDERS["archiveorg-done"] = lambda: importlib.import_module("fetch_archive_org_editions").build_done()
 BUILDERS["archiveorg-pages"] = lambda: importlib.import_module("fetch_archive_org_editions").build_pages()
 BUILDERS[ARCHIVE_EDITIONS] = build_archive_editions
+BUILDERS[BOOK_REPRINTS] = build_book_reprints
 BUILDERS[TROVE_TITLES] = build_trove_titles
 BUILDERS[TROVE_DATES] = build_trove_dates
 BUILDERS[TROVE_ZONES] = build_trove_zones

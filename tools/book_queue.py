@@ -232,4 +232,6 @@ def save_reprint(pid, identifier, position, across, down, root=None):
     d.mkdir(parents=True, exist_ok=True)
     path = d / f"{identifier}-{position}.txt"
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    if root is None:  # a plan reads what the folders hold off this manifest (media_manifest.book_reprints)
+        media_manifest.record_book_reprint(path)
     return path
