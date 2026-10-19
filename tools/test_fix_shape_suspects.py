@@ -61,6 +61,18 @@ ok_tree = {"op": "container", "indicators": [{"text": "opened by"}], "parts": [
     {"words": "medic", "gives": "MO"}]}
 new, used = F.repair_tree(ok_tree, "visa returned, opened by medic", "ASIMOV", {"wrongRole": F.r_wrong_role})
 check("a tree with the words in place is left alone", used == [])
+# delSelection: the indicator that names the source word splits into del<not> + first<beginning in>(Hull).
+hull = {"op": "deletion", "indicators": [{"text": "not beginning in Hull"}],
+        "parts": [{"words": "river at Hull", "gives": "HUMBER"}, {"gives": "H"}]}
+new, used = F.repair_tree(hull, "Brown river at Hull (not beginning in Hull)", "UMBER",
+                          {"delSelection": F.r_del_selection})
+check("not beginning in Hull splits into del + first",
+      used == ["delSelection"] and new["indicators"][0]["text"] == "not"
+      and new["parts"][1]["op"] == "first" and new["parts"][1]["indicators"][0]["text"] == "beginning in")
+wrong = {**hull, "parts": [hull["parts"][0], {"gives": "X"}]}
+check("a letter the word does not give is left alone",
+      F.repair_tree(wrong, "Brown river at Hull (not beginning in Hull)", "UMBER",
+                    {"delSelection": F.r_del_selection})[1] == [])
 
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

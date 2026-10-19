@@ -810,6 +810,56 @@ def r_wrong_role(node, parent, ctx):
     """wrongRole: a leaf that folds a deletion into its words (r_leaf_fold), else indicators on
     the wrong one of two nested ops (r_role_swap)."""
     return r_leaf_fold(node, parent, ctx) or r_role_swap(node, parent, ctx)
+SEL_FIRST = ("beginning", "start", "first", "initial", "opening", "head", "front")
+SEL_LAST = ("end", "last", "tail", "finish", "close")
+_SEL_PHRASE = re.compile(r"\b(" + "|".join(SEL_FIRST + SEL_LAST) + r")(\s+(?:of|in|at))?\s+([A-Za-z]+)(?:'s)?(?=\W|$)", re.I)
+
+
+def r_del_selection(node, parent, ctx):
+    """A deletion whose one indicator also names the letters it removes: 'not beginning in
+    Hull' with a bare H. Each indicator is its own op: del<not>(x, first<beginning in>(Hull)).
+    Only where the removed part is one bare letter, the selection phrase is
+    'SELECTOR [of|in|at] WORD' naming a clue word that gives that letter, and exactly
+    one side of the phrase (before or after) is left over for the deletion."""
+    inds = node.get("indicators") or []
+    parts = node.get("parts") or []
+    if node.get("op") != "deletion" or len(inds) != 1 or len(parts) != 2 or node.get("unchecked"):
+        return None
+    rem = parts[1]
+    if "op" in rem or "words" in rem or len(W.letters(rem.get("gives"))) != 1:
+        return None
+    ind = inds[0]
+    t, base = ind.get("text") or "", ind.get("at")
+    m = _SEL_PHRASE.search(t)
+    if not m or not m.group(2) or base is None:  # a source word needs its "of/in/at"
+        return None
+    sel, word = m.group(1).lower(), m.group(3)
+    pre, post = t[:m.start()].strip(), t[m.end():].strip()
+    if bool(pre) == bool(post):
+        return None
+    letter = W.letters(rem["gives"])
+    w = W.letters(word)
+    if len(w) < 3 or letter != (w[0] if sel in SEL_FIRST else w[-1]):
+        return None
+    op = "first" if sel in SEL_FIRST else "last"
+    wat = base + m.start(3)
+    if ctx["clue"][wat:wat + len(word)] != word:
+        return None
+    sel_text = t[m.start():m.start(3)].strip()
+    if pre:
+        d_text, d_at = pre, base + t.index(pre)
+    else:
+        d_text, d_at = post, base + t.index(post, m.end())
+    src = {"words": word, "at": wat}
+    pick = {"op": op, "indicators": [{"text": sel_text, "at": base + m.start(),
+            "note": f"the {'first' if op == 'first' else 'last'} letter of the word is the one picked"}],
+            "parts": [src]}
+    new = copy.deepcopy(node)
+    new["indicators"] = [{**ind, "text": d_text, "at": d_at,
+                          "note": "takes the picked letter out of the other part"}]
+    new["parts"] = [parts[0], pick]
+    old, now = vals(node), vals(new)  # the node keeps the letters it gave
+    return new if old and now and old <= now else None
 
 
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
@@ -818,7 +868,7 @@ REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap":
 #: Repairs for validator rules (the queue's anaSynonym / anagramOfContainer rows), run by --rule.
 RULE_REPAIRS = {"anaSynonym": r_ana_synonym, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
-                "wrongRole": r_wrong_role}
+                "wrongRole": r_wrong_role, "delSelection": r_del_selection}
 
 
 def repair_tree(tree, clue, answer=None, repairs=None):
@@ -1152,7 +1202,8 @@ def do_rule_puzzle(pid):
         return stat, examples
     import shape_queue
     puzzle = json.loads(path.read_text(encoding="utf-8"))
-    count = shape_queue._validator_rules()[rule]
+    # delSelection is no validator rule: its rows come from --ids, every one is tried
+    count = shape_queue._validator_rules().get(rule) or (lambda wp, full, clue: False)
     fixes = []
     for k, e in enumerate(puzzle.get("entries") or []):
         if shape_queue.clue_key(e) not in by_pid[pid]:
@@ -1165,7 +1216,7 @@ def do_rule_puzzle(pid):
         answer = shape_queue._answer(e)
         wp = ann["wordplay"]
         full = {**ann, "_answer": answer}
-        if not count(wp, full, clue):
+        if rule != "delSelection" and not count(wp, full, clue):
             stat["already_clear"] += 1
             continue
         try:
@@ -1221,11 +1272,14 @@ def do_rule_puzzle(pid):
     return stat, examples
 
 
-def run_rule(rule, apply, n_examples, seed, limit, jobs):
+def run_rule(rule, apply, n_examples, seed, limit, jobs, ids=None):
     """Repair the queued rows of a validator rule (shape_reannotate.json rows naming `rule`)."""
     global _JOB
     import shape_queue
-    rows = [r for r in json.loads(shape_queue.PATH.read_text()) if rule in r.get("reason", "")]
+    if ids:
+        rows = [{"id": x.strip()} for x in open(ids) if "#" in x]
+    else:
+        rows = [r for r in json.loads(shape_queue.PATH.read_text()) if rule in r.get("reason", "")]
     if limit:
         random.seed(seed)
         rows = random.sample(rows, limit)
@@ -1262,6 +1316,7 @@ def main():
     ap.add_argument("--rule", choices=sorted(RULE_REPAIRS),
                     help="repair the queued rows of this validator rule instead of the suspects "
                          "(tools/data/shape_reannotate.json is not touched: run prune_shape_queue.py --write after)")
+    ap.add_argument("--ids", help="with --rule delSelection: file of '<puzzle>#<clue>' ids to try (e.g. 5d, 30a)")
     ap.add_argument("--container-inside", action="store_true",
                     help="repair only the queued containerInside rows (--limit N samples; --apply writes puzzles)")
     a = ap.parse_args()
@@ -1269,7 +1324,7 @@ def main():
         run_rule("containerInside", a.apply, a.examples, a.seed, a.limit, a.jobs)
         return
     if a.rule:
-        run_rule(a.rule, a.apply, a.examples, a.seed, a.limit, a.jobs)
+        run_rule(a.rule, a.apply, a.examples, a.seed, a.limit, a.jobs, a.ids)
         return
     run(a.apply, a.examples, a.seed, a.limit, a.jobs, a.ledger, a.only)
 
