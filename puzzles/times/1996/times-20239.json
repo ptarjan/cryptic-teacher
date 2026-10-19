@@ -663,30 +663,30 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "some",
-       "note": "some means only part, so the word is cut short and its tail dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
+       "words": "duck",
+       "gives": "O",
+       "note": "a duck is a score of nothing in cricket, shaped like the letter O"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
         {
-         "words": "duck",
-         "gives": "O",
-         "note": "a duck is a score of nothing in cricket, shaped like the letter O"
-        },
+         "text": "some",
+         "note": "some means only part, so the word is cut short and its tail dropped"
+        }
+       ],
+       "parts": [
         {
          "words": "venison",
          "note": "taken as written, before trimming"
+        },
+        {
+         "gives": "ISON"
         }
        ]
-      },
-      {
-       "gives": "ISON"
       }
      ]
     },
@@ -1254,31 +1254,21 @@
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially says take the opening letters only"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially says take the opening letters only"
-          }
-         ],
-         "parts": [
-          {
-           "words": "own",
-           "note": "opening letter of this word"
-          }
-         ]
+         "words": "own",
+         "note": "opening letter of this word"
         },
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "goal",
-           "note": "opening letter of this word"
-          }
-         ]
+         "words": "goal",
+         "note": "opening letter of this word"
         }
        ]
       },

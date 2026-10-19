@@ -1276,31 +1276,21 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "outer",
+     "indicators": [
+      {
+       "text": "empty",
+       "note": "emptied words lose their insides, leaving only their outer letters"
+      }
+     ],
      "parts": [
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "empty",
-         "note": "emptied words lose their insides, leaving only their outer letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "conveniently",
-         "note": "first and last letters"
-        }
-       ]
+       "words": "conveniently",
+       "note": "first and last letters"
       },
       {
-       "op": "outer",
-       "parts": [
-        {
-         "words": "sat",
-         "note": "first and last letters"
-        }
-       ]
+       "words": "sat",
+       "note": "first and last letters"
       }
      ]
     },
@@ -1637,30 +1627,30 @@
        ]
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "nearly",
-         "note": "nearly means not quite complete, so the last letter is dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
+         "words": "duke",
+         "gives": "D",
+         "note": "D is the abbreviation for duke"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
           {
-           "words": "duke",
-           "gives": "D",
-           "note": "D is the abbreviation for duke"
-          },
+           "text": "nearly",
+           "note": "nearly means not quite complete, so the last letter is dropped"
+          }
+         ],
+         "parts": [
           {
            "words": "very",
            "note": "taken as written before trimming"
+          },
+          {
+           "gives": "Y"
           }
          ]
-        },
-        {
-         "gives": "Y"
         }
        ]
       }
