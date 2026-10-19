@@ -1309,7 +1309,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "toxic stuff!",
+      "text": "toxic stuff",
       "at": 40
      }
     ],
@@ -1317,43 +1317,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 5,
+       "note": "about means around, so the joke word surrounds the weight"
       }
      ],
      "parts": [
       {
        "words": "Joke",
+       "at": 0,
        "gives": "ONE",
-       "note": "a joke is 'one', as in 'have you heard the one about...'"
+       "note": "'the one about' is a joke, so one means joke"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "taken the wrong way",
-         "note": "going the wrong way means travelling backwards, so the weight is read right to left"
+         "at": 18,
+         "note": "taken the wrong way means read backwards"
         }
        ],
        "parts": [
         {
-         "words": "weight taken the wrong way",
+         "words": "weight",
+         "at": 11,
          "gives": "OZ",
-         "note": "OZ = ounce, reversed"
+         "note": "OZ, ounce, is a unit of weight"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A joke about weight misunderstood and causing offence.",
-     "walkthrough": "'Taken the wrong way' reads as offence; it reverses OZ, which sits inside ONE: O-ZO-NE.",
-     "definitionFit": "Ozone is a poisonous form of oxygen at ground level."
+     "surface": "A joke about someone's weight, misunderstood, turns poisonous.",
+     "walkthrough": "Joke gives ONE from the comic opening 'Have you heard the one about...'.",
+     "definitionFit": "Ozone is a pungent gas that is poisonous to breathe at ground level."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "wrong"
+     "misdirectedWord": "Joke"
     }
    }
   },
@@ -1373,40 +1377,41 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a bit?",
+      "text": "a bit",
       "at": 27
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "backfiring",
-       "note": "the remark comes back reversed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backfiring",
+         "at": 16,
+         "note": "backfiring means going backwards, so the remark is read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "clever remark backfiring",
+         "words": "clever remark",
+         "at": 2,
          "gives": "MOT",
-         "note": "MOT, as in bon mot, reversed"
-        },
-        {
-         "words": "A",
-         "gives": "A",
-         "note": "as written"
+         "note": "a mot is a witty saying, as in bon mot"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A witticism that goes slightly wrong.",
-     "walkthrough": "'A bit' looks like a modifier; it is the definition, an atom being a tiny bit.",
-     "definitionFit": "An atom is a tiny particle, the smallest bit of something."
+     "surface": "A witty quip goes slightly wrong.",
+     "definitionFit": "An atom is a tiny particle, the smallest bit of an element."
     },
     "features": {
      "answerInScene": false,

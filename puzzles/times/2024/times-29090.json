@@ -520,7 +520,8 @@
      "indicators": [
       {
        "text": "Brought up",
-       "note": "raised, which in a down clue turns the letters upwards"
+       "at": 0,
+       "note": "in a down clue, brought up means the letters read from bottom to top"
       }
      ],
      "parts": [
@@ -528,38 +529,42 @@
        "op": "container",
        "indicators": [
         {
-         "text": "around"
+         "text": "around",
+         "at": 14,
+         "note": "the agreement word goes around the other pieces"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "OK",
-           "gives": "YES",
-           "note": "yes = OK, split around the middle"
-          },
-          {
-           "words": "new",
-           "gives": "N",
-           "note": "N = new"
-          }
-         ]
+         "words": "OK",
+         "at": 11,
+         "gives": "YES",
+         "note": "yes means OK, agreed"
         },
         {
-         "words": "favourite",
-         "gives": "PET",
-         "note": "a teacher's pet is the favourite"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "new",
+           "at": 21,
+           "gives": "N"
+          },
+          {
+           "words": "favourite",
+           "at": 25,
+           "gives": "PET",
+           "note": "a pet is a favourite"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone raised in a new, much-loved part of London says it was all right.",
-     "walkthrough": "'Brought up' pretends to mean raised as a child; STEPNEY is a district in the East End of London.",
-     "definitionFit": "A definition by category: the East End district is one of many areas making up London."
+     "surface": "Someone raised in a favoured part of London says it was all right.",
+     "walkthrough": "Stepney is in the East End; in a down clue the reversal reads upwards.",
+     "definitionFit": "Stepney is a district of the East End of London."
     },
     "features": {
      "answerInScene": true,
@@ -804,61 +809,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOVAGE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 27,
+       "note": "'in' places the core of sage inside the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
-         "text": "essentially",
-         "note": "at its essence, the heart of the word"
-        },
-        {
          "text": "unlimited",
-         "note": "without its limits, its first and last letters"
+         "at": 30,
+         "note": "without its limits, so the outer letters are removed"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "LOVE",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "the sage letters go inside the clover letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "unlimited clover",
-           "gives": "LOVE",
-           "select": "middle",
-           "note": "CLOVER without its first and last letters, split around AG"
-          }
-         ]
-        },
+         "words": "clover",
+         "at": 40
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "words": "sage, essentially",
-         "gives": "AG",
-         "note": "the middle two letters of SAGE"
+         "text": "essentially",
+         "at": 14,
+         "note": "at its essence, the heart, so only the middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sage",
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener claims one herb is really just sage growing among clover.",
-     "walkthrough": "'Sage' tempts as the herb the clue names, but it is only fodder for its middle letters; the herb is another one.",
-     "definitionFit": "Lovage is a tall culinary herb with a celery-like flavour."
+     "surface": "A herb, sage, grows among the clover.",
+     "walkthrough": "Clover without its ends is LOVE; the heart of sage is AG.",
+     "definitionFit": "Lovage is a culinary plant whose leaves taste of celery, one of the herbs."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sage"
+     "misdirectedWord": "unlimited"
     }
    }
   },

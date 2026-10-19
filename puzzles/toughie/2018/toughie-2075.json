@@ -200,56 +200,60 @@
    "annotation": {
     "definitions": [
      {
-      "text": "'Cigar'",
-      "at": 0
+      "text": "Cigar",
+      "at": 1
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ZEPPELIN",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "cutting something shortens it, so the name loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 21,
+         "note": "cut means the end of the name is chopped off"
+        }
+       ],
        "parts": [
         {
          "words": "Marx brother",
-         "gives": "ZEPP",
-         "note": "Zeppo was the youngest Marx brother; his name loses its final letter"
+         "at": 8,
+         "gives": "ZEPPO",
+         "note": "Zeppo was the youngest of the Marx Brothers"
         },
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "up",
-           "note": "in a down clue, going up means reading the letters from bottom to top"
-          }
-         ],
-         "parts": [
-          {
-           "words": "banker",
-           "gives": "NILE",
-           "note": "a banker is a river, something with banks; here the Nile"
-          }
-         ]
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 32,
+         "note": "in a down clue, up means reading from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "banker",
+         "at": 25,
+         "gives": "NILE",
+         "note": "in crosswords a banker is a river, one with banks, here the Nile"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Groucho-style comedy: a Marx brother with his famous cigar, cutting a banker down to size.",
-     "walkthrough": "'Banker' is a crossword favourite for a river. The quotation marks around 'Cigar' show it is a nickname: a cigar-shaped airship.",
-     "definitionFit": "A zeppelin is a rigid airship whose long rounded body resembles a cigar, hence the playful description."
+     "surface": "Groucho's cigar evokes a Marx brother hacking up a banker.",
+     "definitionFit": "A zeppelin is an airship, nicknamed a cigar for its long rounded shape."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "banker"
@@ -1559,39 +1563,44 @@
    "annotation": {
     "definitions": [
      {
-      "text": "— is under-sized fool in nonspeaking role?",
+      "text": "— is under-sized fool in nonspeaking role",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MINIME",
+     "op": "container",
      "indicators": [
       {
-       "text": "under-sized",
-       "note": "something undersized falls short, so the word loses its last letter"
+       "text": "in",
+       "at": 22,
+       "note": "'in' places the shortened fool inside the silent role"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "nonspeaking role",
+       "at": 25,
+       "gives": "MIME",
+       "note": "a mime acts without speaking"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one piece inside another"
+         "text": "under-sized",
+         "at": 5,
+         "note": "under-sized means a little short, so the last letter goes"
         }
        ],
        "parts": [
         {
-         "words": "nonspeaking role",
-         "gives": "MIME",
-         "note": "a mime is a silent performance; it opens to take the inner piece"
+         "words": "fool",
+         "at": 17,
+         "gives": "NIT",
+         "note": "a nit is a fool"
         },
         {
-         "words": "fool",
-         "gives": "NI",
-         "note": "a nit is a fool, cut short by one letter"
+         "gives": "T"
         }
        ]
       }
@@ -1599,14 +1608,13 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "The dash stands for the answer: a pocket-sized clown who never speaks.",
-     "walkthrough": "Read the dash as the answer's name and the whole clue describes the character; the same words build it as MI(NI)ME.",
-     "definitionFit": "Mini-Me is the tiny, mute clone of Dr Evil in the Austin Powers films, a small comic sidekick who never talks."
+     "surface": "A tiny clown in a silent part is the character in question.",
+     "walkthrough": "The dash stands for the character itself, so the whole clue describes Mini-Me, the tiny, silent clone of Dr Evil in the Austin Powers films.",
+     "definitionFit": "Mini-Me is the miniature, mute clone character in the Austin Powers films."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "fool"
     }
    }
