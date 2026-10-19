@@ -457,12 +457,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "missing",
-       "note": "Missing says that letter is not in the answer — take it off before anything else happens."
-      },
-      {
        "text": "stuck in",
-       "note": "Stuck in puts the letter named right inside what is left, not on either end of it."
+       "at": 45,
+       "note": "stuck in says one piece is pushed inside the other"
       }
      ],
      "parts": [
@@ -471,32 +468,39 @@
        "indicators": [
         {
          "text": "tip of",
-         "note": "The tip of a word is the letter it starts with, the point you come to first."
+         "at": 5,
+         "note": "tip of points to the front letter of the shinbone word TIBIA"
+        },
+        {
+         "text": "missing",
+         "at": 21,
+         "note": "missing says that front letter is dropped from the word"
         }
        ],
        "parts": [
         {
          "words": "shinbone",
+         "at": 12,
          "gives": "TIBIA",
-         "note": "the tibia is the shinbone, the big bone between knee and ankle"
+         "note": "the tibia is the shinbone"
         },
         {
-         "words": "tip of",
-         "gives": "T",
-         "note": "the opening letter of the bone's name, and the clue takes it away"
+         "gives": "T"
         }
        ]
       },
       {
        "words": "last character",
+       "at": 30,
        "gives": "Z",
-       "note": "the alphabet's final letter, wedged in before what is now the last letter"
+       "note": "Z is the last character of the alphabet"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Tip of' asks for a first letter, so the shinbone loses its T before anything else is done. The character stuck in is the last of the alphabet — nothing in the clue spells it out.",
-     "definitionFit": "Ibiza is one of the Balearics, the Spanish islands off Valencia, and the one known for its clubs."
+     "surface": "A traveller's injured shin is mentioned alongside a Mediterranean holiday destination.",
+     "walkthrough": "Drop the T at the tip of TIBIA to leave IBIA, then put Z, the last letter of the alphabet, inside it.",
+     "definitionFit": "Ibiza is one of the Balearic Islands in the Mediterranean, alongside Majorca and Minorca."
     },
     "features": {
      "answerInScene": false,

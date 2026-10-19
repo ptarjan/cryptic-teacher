@@ -723,55 +723,55 @@
      "op": "container",
      "indicators": [
       {
-       "text": "around"
+       "text": "around",
+       "at": 5,
+       "note": "around says the pace word goes outside the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "at intervals",
-         "note": "things that come at intervals come with gaps between, so read a letter, skip one, read the next"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Pace",
-         "gives": "SPEED",
-         "note": "speed = pace"
-        },
-        {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "OON",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Bologna",
-           "gives": "OON",
-           "select": "alternate",
-           "note": "bOlOgNa, letters 2, 4 and 6"
-          }
-         ]
-        }
-       ]
+       "words": "Pace",
+       "at": 0,
+       "gives": "SPEED",
+       "note": "speed is pace"
       },
       {
-       "words": "loud",
-       "gives": "F",
-       "note": "f = forte, loud"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "at intervals",
+           "at": 20,
+           "note": "at intervals picks alternate letters of Bologna"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Bologna",
+           "at": 12
+          }
+         ]
+        },
+        {
+         "words": "loud",
+         "at": 38,
+         "gives": "F",
+         "note": "F (forte) is the musical abbreviation for loud"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone paces round Bologna with a noisy infant.",
-     "walkthrough": "'Baby' is a verb: to baby someone is to pamper them, as spoon-feeding does.",
-     "definitionFit": "To spoon-feed is to baby someone, doing everything for them."
+     "surface": "A noisy baby is wheeled briskly around the streets of Bologna.",
+     "walkthrough": "'baby' looks like the noun, but it is the verb meaning to pamper.",
+     "definitionFit": "To spoon-feed someone is to coddle them and do everything for them, as one would for an infant."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "baby"
     }
    }
@@ -1259,52 +1259,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BONOBO",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "bishop",
+       "at": 12,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "reflecting",
-         "note": "the letters come back as in a mirror"
+         "at": 20,
+         "note": "reflecting means the picked letters are read back as in a mirror"
         }
        ],
        "parts": [
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "B",
          "indicators": [
           {
            "text": "regularly",
-           "note": "at regular intervals, like a steady beat, so every second letter is taken"
+           "at": 31,
+           "note": "regularly picks every other letter of doubt own God"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "bishop",
-           "gives": "B",
-           "select": "alternate",
-           "note": "b = bishop, in chess"
+           "words": "doubt own God",
+           "at": 42
           }
          ]
-        },
-        {
-         "words": "doubt own God",
-         "gives": "ONOBO",
-         "note": "dOuBt OwN gOd gives OBONO, reversed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An archbishop and a bishop, on reflection, now and then doubt their own God.",
-     "walkthrough": "'Primate' plus 'bishop' paints a Church picture; the primate is an ape.",
-     "definitionFit": "A definition by category: this ape from the Congo belongs to the order of primates, alongside us."
+     "surface": "A senior churchman, thinking things over, has doubts about his own God.",
+     "walkthrough": "'Primate' looks like an archbishop beside 'bishop', but here it is an ape. The even letters of 'doubt own God' give OBONO, which reads backwards as ONOBO.",
+     "definitionFit": "The bonobo is a great ape closely related to the chimpanzee, found in the Congo basin."
     },
     "features": {
      "answerInScene": false,
@@ -2925,59 +2921,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CREEPY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 20,
+       "note": "entering says the turned word goes inside the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "around",
-         "note": "to look around is to turn round, so the look word is turned back to front"
-        },
-        {
          "text": "outskirts of",
-         "note": "a town's outskirts are its edges, so only the first and last letters of Coventry are used"
+         "at": 29,
+         "note": "outskirts of picks the first and last letters of Coventry"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "CY",
-         "indicators": [
-          {
-           "text": "entering",
-           "note": "entering a place puts you inside it, so the turned look goes between the edge letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Coventry",
-           "gives": "CY",
-           "select": "outer",
-           "note": "CoventrY, outer letters"
-          }
-         ]
-        },
+         "words": "Coventry",
+         "at": 42
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 13,
+         "note": "around says the look word is turned back to front"
+        }
+       ],
+       "parts": [
         {
          "words": "look",
-         "gives": "REEP",
-         "note": "PEER = look, reversed"
+         "at": 8,
+         "gives": "PEER",
+         "note": "to peer is to look closely"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nervous person looks about on the edge of Coventry.",
-     "walkthrough": "'Fearful' here means causing fear, the older sense, not feeling it.",
-     "definitionFit": "Fearful in the sense of frightening is what creepy means."
+     "surface": "Someone nervously looks around the edges of Coventry, an English city.",
+     "walkthrough": "'look around' tempts you to read a container, but 'around' turns the look word back to front. Coventry is an English city.",
+     "definitionFit": "Creepy describes something eerie that causes fear and unease."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Fearful"
     }
@@ -3566,66 +3561,70 @@
     "definitions": [
      {
       "text": "In Windsor, I",
-      "at": 0,
-      "note": "the royal we is what a Windsor says in place of 'I'"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "'about' as in 'about turn', so the letters face the other way"
+       "text": "cracking",
+       "at": 38,
+       "note": "cracking says the eggs are broken open with other letters put inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "cracking",
-         "note": "cracking an egg breaks into it, so the reversed letters go inside the eggs"
-        }
-       ],
+       "words": "eggs",
+       "at": 47,
+       "gives": "ROE",
+       "note": "roe is fish eggs"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "eggs",
-         "gives": "ROE",
-         "note": "roe = fish eggs"
-        },
-        {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 32,
+           "note": "about says the set word is turned round"
+          }
+         ],
          "parts": [
           {
            "words": "set",
+           "at": 28,
            "gives": "LAY",
-           "note": "lay = set down"
+           "note": "to lay is to set down"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "indicators": [
+        },
         {
-         "text": "firstly",
-         "note": "firstly means before anything else, so only the opening letter of 'would' is used"
-        }
-       ],
-       "parts": [
-        {
-         "words": "would",
-         "note": "Would, first letter"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "firstly",
+           "at": 20,
+           "note": "firstly picks the first letter of would"
+          }
+         ],
+         "parts": [
+          {
+           "words": "would",
+           "at": 14
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "At Windsor, someone would set about cracking eggs for breakfast.",
-     "walkthrough": "The Windsors are the British royal family, and a monarch speaking of themself traditionally says 'we' for 'I'.",
-     "definitionFit": "The royal we is the 'we' a monarch uses for 'I'."
+     "surface": "At Windsor Castle, a royal declares an intention to set about breaking eggs.",
+     "walkthrough": "Windsor is the British royal family's name and castle; a monarch traditionally says 'we' for 'I'.",
+     "definitionFit": "The royal we is the first-person plural used by a monarch to mean themselves alone."
     },
     "features": {
      "answerInScene": true,
@@ -3698,45 +3697,48 @@
      "indicators": [
       {
        "text": "manufactured",
-       "note": "the letters are made into something new"
+       "at": 12,
+       "note": "manufactured suggests the letters being made into something new, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "sheet",
+       "at": 6
+      },
+      {
+       "words": "an",
+       "at": 30
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "unfinished",
-         "note": "an unfinished job stops short of the end, so the word loses its final letter"
+         "at": 33,
+         "note": "unfinished says the last letter of hem is dropped"
         }
        ],
        "parts": [
         {
-         "words": "sheet",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "an",
-         "note": "as written"
-        },
-        {
          "words": "hem",
-         "gives": "HE",
-         "note": "HEM without its last letter"
+         "at": 44
+        },
+        {
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cover sheet is made with a hem left incomplete.",
-     "walkthrough": "'Cover sheet' reads as a noun phrase; 'cover' is the verb definition, 'sheet' the start of the fodder.",
-     "definitionFit": "Verb for verb: to put a blade in its sheath is to cover it, and the word widens to any enclosing cover."
+     "surface": "A sheet is made with a hem left incomplete.",
+     "walkthrough": "'unfinished' takes M off HEM to leave HE; 'manufactured' rearranges SHEET, AN and HE.",
+     "definitionFit": "To ensheathe is to enclose something in a sheath or case, wrapping it entirely."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "sheet"
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   }

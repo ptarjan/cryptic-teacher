@@ -377,20 +377,37 @@
      "parts": [
       {
        "words": "bird",
+       "at": 4,
        "gives": "TIT",
-       "note": "a tit is a small songbird"
+       "note": "a tit is a small bird"
       },
       {
-       "words": "Freak out, losing head",
-       "gives": "ANIC",
-       "note": "PANIC without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing head",
+         "at": 21,
+         "note": "losing head says the first letter of the word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Freak out",
+         "at": 10,
+         "gives": "PANIC",
+         "note": "to freak out is to panic"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sees a huge bird and starts to panic.",
-     "walkthrough": "'Big bird?' reads as one idea, but big is the definition and the bird is only TIT, among the smallest birds there are.",
-     "definitionFit": "Titanic means enormous, like the Titans of Greek myth."
+     "surface": "Someone wonders whether a large bird is panicking and losing its head.",
+     "walkthrough": "'Big bird?' tempts you to look for a large bird, but 'Big' alone is the definition and the bird is a small one.",
+     "definitionFit": "Titanic means huge or colossal, from the Titans of Greek myth."
     },
     "features": {
      "answerInScene": false,
