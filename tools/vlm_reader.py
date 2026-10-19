@@ -526,9 +526,114 @@ def ask(img, prompt, max_tokens=1500):
     return ask_png(png(img), prompt, max_tokens)
 
 
-def ask_png(data, prompt, max_tokens=1500):
-    """ask() of the image whose png() is `data`."""
-    key = hashlib.sha1(MODEL.encode() + b"\0" + prompt.encode() + b"\0" + data).hexdigest()
+def ask_key(data, prompt):
+    """The cache key of the ask of the image whose png() is `data`."""
+    return hashlib.sha1(MODEL.encode() + b"\0" + prompt.encode() + b"\0" + data).hexdigest()
+
+
+#: Env CT_VLM_SPOOL (set by the queue on the reads it starts; "0" or unset: off): a read
+#: whose ask is not cached does not wait for the VLM's slot: it spools the ask and
+#: raises Spooled (it ends deferred, writing nothing: guard), and the queue's drainer
+#: (drain_one) asks the server and caches the answer; the read runs again then.
+SPOOL_ENV = "CT_VLM_SPOOL"
+#: A spooled ask's files in spool_dir(): KEY.png, KEY.json (prompt, max_tokens, the
+#: asking pid, when) marking it queued, and KEY.json.work while a drainer asks it.
+CLAIMED = ".json.work"
+
+
+class Spooled(RuntimeError):
+    """An ask was spooled for the drainer instead of asked: the read ends deferred."""
+
+
+def spool_dir():
+    return CACHE / "spool"
+
+
+def put_spool(key, data, prompt, max_tokens):
+    """Queue the ask `key` for the drainer (png first, the json that marks it last)."""
+    d = spool_dir()
+    d.mkdir(parents=True, exist_ok=True)
+    if (d / f"{key}.json").exists() or (d / f"{key}{CLAIMED}").exists():
+        return
+    (d / f"{key}.png").write_bytes(data)
+    tmp = d / f"{key}.tmp"
+    tmp.write_text(json.dumps({"prompt": prompt, "max_tokens": max_tokens, "pid": os.getpid(), "at": time.time()}))
+    tmp.replace(d / f"{key}.json")
+
+
+def _entry(key):
+    d = spool_dir()
+    for name in (f"{key}.json", f"{key}{CLAIMED}"):
+        if (d / name).exists():
+            return d / name
+    return None
+
+
+def pending(key):
+    """Whether the ask `key` is spooled and not yet answered."""
+    return _entry(key) is not None
+
+
+def spooled():
+    """The spooled asks' keys, oldest first (claimed ones included)."""
+    try:
+        files = [f for f in spool_dir().iterdir() if f.name.endswith(".json") or f.name.endswith(CLAIMED)]
+        return [f.name.split(".")[0] for f in sorted(files, key=lambda f: f.stat().st_mtime)]
+    except OSError:
+        return []
+
+
+def spooled_by(pid):
+    """The keys of the asks process `pid` spooled and nobody has answered."""
+    out = []
+    for k in spooled():
+        try:
+            if json.loads(_entry(k).read_text()).get("pid") == pid:
+                out.append(k)
+        except (OSError, ValueError, AttributeError):
+            pass
+    return out
+
+
+def requeue_claimed():
+    """Queue every claimed ask again: a drainer that died left them (run at a drainer's start)."""
+    d = spool_dir()
+    for f in (d.glob(f"*{CLAIMED}") if d.exists() else []):
+        f.rename(f.with_name(f.name[:-len(CLAIMED)] + ".json"))
+
+
+def drain_one():
+    """Ask the server the oldest queued spooled ask and cache its answer; its key, or None
+    when none is queued or the ask failed (it stays queued). Threads may call it together:
+    a claim is an atomic rename."""
+    d = spool_dir()
+    try:
+        queued = sorted(d.glob("*.json"), key=lambda f: f.stat().st_mtime)
+    except OSError:
+        return None
+    for f in queued:
+        claim = f.with_name(f.name[:-len(".json")] + CLAIMED)
+        try:
+            f.rename(claim)
+        except OSError:
+            continue  # another thread has it
+        key = f.name[:-len(".json")]
+        try:
+            got = json.loads(claim.read_text())
+            ask_png((d / f"{key}.png").read_bytes(), got["prompt"], got["max_tokens"], spool=False)
+        except (RuntimeError, OSError, ValueError, KeyError):
+            claim.rename(f)
+            return None
+        claim.unlink(missing_ok=True)
+        (d / f"{key}.png").unlink(missing_ok=True)
+        return key
+    return None
+
+
+def ask_png(data, prompt, max_tokens=1500, spool=None):
+    """ask() of the image whose png() is `data`. `spool` (default: env SPOOL_ENV set, not "0"):
+    an ask not cached is queued for drain_one and Spooled raised, not asked."""
+    key = ask_key(data, prompt)
     path = CACHE / f"{key}.txt"
     if path.exists():
         _SPENT["cached"] += 1
@@ -539,6 +644,13 @@ def ask_png(data, prompt, max_tokens=1500):
         _MISSED[0] = True
         _CAUSE[0] = f"yield: desktop busy ({why})"
         raise RuntimeError(f"VLM {MODEL} at {URL} yields: desktop busy ({why})")
+    if spool is None:
+        spool = os.environ.get(SPOOL_ENV, "0") not in ("", "0")
+    if spool:
+        put_spool(key, data, prompt, max_tokens)
+        _MISSED[0] = True
+        _CAUSE[0] = "spooled"
+        raise Spooled(f"VLM ask {key[:8]} spooled for the drainer")
     body = {"model": MODEL, "temperature": 0, "max_tokens": max_tokens,
             "messages": [{"role": "user", "content": [
                 {"type": "image_url",
@@ -607,8 +719,22 @@ def crop(img, box):
 def column_text(img, wins, readings):
     """The model's transcription of every clue column, top to bottom and
     left to right, one printed line a line."""
-    parts = [read(crop(img, box)) for box in boxes(img, wins, readings) if box]
+    parts = read_all([crop(img, box) for box in boxes(img, wins, readings) if box])
     return "\n".join(p for p in parts if p)
+
+
+def read_all(images):
+    """read() of each image. A Spooled ask does not stop the rest: every column not
+    cached is spooled in one pass (the drainer asks them in turn), then Spooled is raised."""
+    out, last = [], None
+    for im in images:
+        try:
+            out.append(read(im))
+        except Spooled as e:
+            last = e
+    if last:
+        raise last
+    return out
 
 
 def read(image):

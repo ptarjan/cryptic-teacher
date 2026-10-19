@@ -1695,6 +1695,31 @@ check("below the cap every read starts", (3, 0),
       (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("vlm-bound")))
 vlm_reader.waiting_now = _w
 os.environ.pop("CT_VLM_WAITING")
+
+# The VLM stage: vlm_drainer answers spooled asks (the server stubbed) into the cache while no read blocks,
+# and a spooled read's asks stop being pending.
+import threading as _th
+import urllib.request as _ur
+_cache, _slots, _pipe, _real, _gate = vlm_reader.CACHE, vlm_reader._SLOTS[0], vlm_reader.PIPELINE, _ur.urlopen, eq.vlm_gate_reader
+vlm_reader.CACHE = T / "vlm-stage"
+vlm_reader._SLOTS[0], vlm_reader.PIPELINE = 1, 0
+_ur.urlopen = lambda req, timeout=None: io.BytesIO(json.dumps({"choices": [{"message": {"content": "A"}}]}).encode())
+eq.vlm_gate_reader = lambda: True
+_busy, vlm_reader.busy = vlm_reader.busy, lambda: ""
+_keys = [vlm_reader.ask_key(b"png%d" % k, "p") for k in range(3)]
+for _k, _b in zip(_keys, range(3)):
+    vlm_reader.put_spool(_k, b"png%d" % _b, "p", 10)
+_stop = _th.Event()
+eq.vlm_drainer(_stop, [])
+for _ in range(100):
+    if not vlm_reader.spooled():
+        break
+    time.sleep(0.1)
+_stop.set()
+check("the drainer answers every spooled ask into the cache", (0, True),
+      (len(vlm_reader.spooled()), all((vlm_reader.CACHE / f"{k}.txt").exists() for k in _keys)))
+vlm_reader.CACHE, vlm_reader._SLOTS[0], vlm_reader.PIPELINE, _ur.urlopen, eq.vlm_gate_reader = _cache, _slots, _pipe, _real, _gate
+vlm_reader.busy = _busy
 os.environ["CT_PSI_PATH"] = str(T / "no-psi")
 os.environ.pop("CT_MEMINFO")
 
