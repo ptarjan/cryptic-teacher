@@ -517,44 +517,44 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TRAVESTY",
      "indicators": [
       {
        "text": "to win",
-       "note": "an attempt to win surrounds and captures its prize, so one word goes inside the other"
+       "at": 15,
+       "note": "to win here means to gain or capture, so the attempt takes the match inside"
       }
      ],
      "parts": [
       {
+       "words": "attempt",
+       "at": 7,
+       "gives": "TRY",
+       "note": "a try is an attempt"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "TRAVESTY",
        "indicators": [
         {
          "text": "cycling",
-         "note": "cycling moves letters round in a loop, so the last letter comes to the front"
+         "at": 22,
+         "note": "cycling moves a letter round from one end of the match word to the other"
         }
        ],
        "parts": [
         {
-         "words": "attempt",
-         "gives": "TRY",
-         "note": "an attempt is a try"
-        },
-        {
          "words": "match",
+         "at": 30,
          "gives": "VESTA",
-         "note": "a vesta is a short match for striking"
+         "note": "a vesta is a short match"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sports parody: someone's bid to win a bicycle race.",
-     "walkthrough": "'Match' looks like a contest but is a light; a vesta is an old name for a short wax match.",
-     "definitionFit": "A travesty is a grotesque or absurd imitation, a mocking parody."
+     "surface": "A spoof bid to take a bicycle race.",
+     "walkthrough": "'cycling' suggests a bike race, but here it moves the final letter of the match word round to its front; a vesta is an old word for a short match.",
+     "definitionFit": "A travesty is a grotesque imitation, a mockery of the real thing."
     },
     "features": {
      "answerInScene": false,
@@ -733,37 +733,46 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "DELTA",
-     "indicators": [
-      {
-       "text": "goes to terminal",
-       "note": "going to the terminal means moving to the end of the line, so one letter is shifted to the last place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "is distributed",
-       "gives": "DEALT",
-       "note": "cards that are distributed are dealt"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "goes to terminal",
+         "at": 39,
+         "note": "goes to terminal says the key letter leaves its place in the word and travels to the far end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is distributed",
+         "at": 10,
+         "gives": "DEALT",
+         "note": "cards that are dealt are distributed"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       },
       {
        "words": "key part",
+       "at": 30,
        "gives": "A",
-       "note": "the key, or central, letter of the word, which is also a musical key"
+       "note": "A is a musical key, one part of the word"
       }
      ]
     },
     "explanation": {
-     "surface": "A cipher is handed out once a vital section reaches the end of the line.",
-     "walkthrough": "DEALT has its central letter A moved to the end. 'Key' does double duty: central, and A as a musical key.",
-     "definitionFit": "Delta is the NATO phonetic alphabet's code word for the letter D."
+     "surface": "A code word is handed out when a key component reaches the terminal.",
+     "walkthrough": "A is a musical key; 'when' is only a link, and the key leaves its slot to stand last.",
+     "definitionFit": "Delta is the NATO phonetic alphabet's code name for the letter D."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "terminal"
+     "misdirectedWord": "key"
     }
    }
   },

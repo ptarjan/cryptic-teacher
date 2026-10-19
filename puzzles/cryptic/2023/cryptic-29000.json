@@ -266,25 +266,48 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
-      {
-       "text": "on",
-       "at": 41,
-       "note": "on places the following pieces after the Queen's letter in this down entry"
-      },
       {
        "text": "wearing",
        "at": 16,
-       "note": "wearing joins the second scrambled piece to the first, as a costume goes with its wearer"
+       "note": "the dancing nutter is wearing the rest, so it sits inside it"
       }
      ],
      "parts": [
       {
-       "words": "Queen's",
-       "at": 44,
-       "gives": "R",
-       "note": "R stands for Regina, the Queen"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "at": 41,
+         "note": "on in a down clue puts the reshaped nose above the Queen"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "plastic",
+           "at": 24,
+           "note": "plastic means pliable, so the letters of red nose are reshaped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "red nose",
+           "at": 32
+          }
+         ]
+        },
+        {
+         "words": "Queen's",
+         "at": 44,
+         "gives": "R",
+         "note": "R is short for Regina, the Queen"
+        }
+       ]
       },
       {
        "op": "anagram",
@@ -292,45 +315,28 @@
         {
          "text": "dancing",
          "at": 7,
-         "note": "dancing jumbles the letters of Nutter"
+         "note": "dancing means the nutter's letters are moving about"
         }
        ],
        "parts": [
         {
          "words": "Nutter",
-         "at": 0,
-         "note": "taken as written"
-        }
-       ]
-      },
-      {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "plastic",
-         "at": 24,
-         "note": "plastic means mouldable, so the letters of red nose are reshaped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "red nose",
-         "at": 32,
-         "note": "taken as written"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A madcap dancer in a red plastic nose, perhaps for Comic Relief, on a royal hit parade.",
-     "walkthrough": "Return to Sender was an Elvis Presley hit of 1962; a plastic red nose is the Comic Relief charity emblem in Britain.",
-     "definitionFit": "The song was a number-one single in Britain, a classic hit record on the charts."
+     "surface": "A madman dances in a plastic clown nose to the Queen's favourite tune.",
+     "walkthrough": "The surface suggests Comic Relief's plastic red noses, but 'plastic' is the anagram signal; Queen is Regina's R, not the band.",
+     "definitionFit": "Return to Sender was a number one record for Elvis Presley in 1962."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Queen's"
+     "joke": "absurd",
+     "misdirectedWord": "plastic"
     }
    }
   },

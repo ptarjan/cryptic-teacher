@@ -108,56 +108,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MOSQUITO",
      "indicators": [
       {
        "text": "in",
-       "note": "in tells us the joined pieces sit inside the letters picked from the town"
-      },
-      {
-       "text": "the centre of",
-       "note": "the centre of tells us only the two middle letters of the town are used as the casing"
+       "at": 16,
+       "note": "in means the sailor and leave go within the centre letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
        "indicators": [
         {
-         "text": "on",
-         "note": "in a down clue, on means placed on top of, so the first piece comes before the next"
+         "text": "the centre of",
+         "at": 19,
+         "note": "the centre of Yarmouth is its middle two letters"
         }
        ],
        "parts": [
         {
          "words": "Yarmouth",
-         "gives": "M",
-         "note": "the first of the two central letters of the eight-letter town"
-        },
+         "at": 33
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "at": 7,
+         "note": "on in a down clue puts the sailor above the leave word"
+        }
+       ],
+       "parts": [
         {
          "words": "Sailor",
+         "at": 0,
          "gives": "OS",
-         "note": "OS, ordinary seaman, is a common crossword sailor"
+         "note": "OS is an ordinary seaman"
         },
         {
          "words": "leave",
+         "at": 10,
          "gives": "QUIT",
          "note": "to quit is to leave"
-        },
-        {
-         "words": "Yarmouth",
-         "gives": "O",
-         "note": "the second of the two central letters of the town"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor on shore leave in the Norfolk port of Yarmouth is making a nuisance of himself.",
-     "walkthrough": "Yarmouth has eight letters, so its centre is a pair of letters, which is split to surround the sailor and the leaving.",
-     "definitionFit": "A mosquito is a biting insect, a classic example of a pest."
+     "surface": "A sailor on shore leave in Great Yarmouth makes a nuisance of himself.",
+     "walkthrough": "Yarmouth has eight letters, so its centre is the two middle ones; 'leave' is a verb here, not shore leave.",
+     "definitionFit": "A mosquito is a biting insect, a classic irritating pest."
     },
     "features": {
      "answerInScene": false,
@@ -968,45 +972,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EARLYBIRD",
      "indicators": [
       {
        "text": "hanging around",
-       "note": "hanging around means draped round, so the journalist's letters enclose the rest"
+       "at": 11,
+       "note": "hanging around means surrounding, so the journalist's letters enclose the rest"
       }
      ],
      "parts": [
+      {
+       "words": "Journalist",
+       "at": 0,
+       "gives": "ED",
+       "note": "ED is short for editor, a journalist"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "mobile",
-         "note": "mobile means able to move, so the letters move into a new order"
+         "at": 26,
+         "note": "mobile means movable, so the letters of library are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Journalist",
-         "gives": "E",
-         "note": "the first letter of ED, editor, the usual crossword journalist"
-        },
-        {
          "words": "library",
-         "note": "the fodder, taken as written"
-        },
-        {
-         "words": "Journalist",
-         "gives": "D",
-         "note": "the last letter of ED"
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A reporter loitering by the travelling library van is a well-known local figure.",
-     "definitionFit": "The early bird of the proverb 'the early bird catches the worm' is a stock character from a saying."
+     "surface": "A reporter loiters by the travelling book van, a well-known figure.",
+     "walkthrough": "A mobile library is a book van, but 'mobile' is the anagram signal; 'is' links to the definition.",
+     "definitionFit": "The early bird is the figure in the proverb who catches the worm, an early riser."
     },
     "features": {
      "answerInScene": false,

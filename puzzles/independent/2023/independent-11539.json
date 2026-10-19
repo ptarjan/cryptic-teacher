@@ -384,41 +384,44 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one word wraps itself round the others"
+       "at": 16,
+       "note": "about means around, so the asking word wraps the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Ask desperately",
-         "gives": "BEG",
-         "note": "to beg is to ask urgently"
-        },
-        {
-         "words": "an",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Ask desperately",
+       "at": 0,
+       "gives": "BEG",
+       "note": "to beg is to ask desperately"
       },
       {
-       "words": "airline",
-       "gives": "BA",
-       "note": "British Airways"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "an",
+         "at": 22,
+         "gives": "AN"
+        },
+        {
+         "words": "airline's",
+         "at": 25,
+         "gives": "BA",
+         "note": "BA is British Airways"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Pleading with an airline about its seats that have no fixed shape.",
-     "walkthrough": "'Ask desperately' sounds like the definition of a plea; the actual definition is the seat at the end. BA stands for British Airways.",
-     "definitionFit": "A beanbag is a floppy sack of beads used as a chair, seating with no rigid frame."
+     "surface": "A passenger pleads about an airline's poorly designed seats.",
+     "walkthrough": "BA is British Airways, and 'unstructured seating' is a playful description of a frameless seat.",
+     "definitionFit": "A beanbag is a floppy cushion-like seat with no frame, shaped by the sitter."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "unstructured"
+     "misdirectedWord": "airline's"
     }
    }
   },
@@ -1004,55 +1007,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "moving",
-       "note": "letters that are moving shift out of place, so the word is rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "came across",
+       "at": 12,
+       "gives": "MET",
+       "note": "met means came across"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "moving",
+         "at": 30,
+         "note": "moving means the letters of moron are shifted about"
+        }
+       ],
        "parts": [
         {
-         "words": "came across",
-         "gives": "MET",
-         "note": "to meet someone is to come across them"
-        },
-        {
          "words": "moron",
-         "note": "these letters rearranged"
-        },
+         "at": 24
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finish",
-           "note": "the finish of a word is its last letter, so only that is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "race's",
-           "gives": "RACE",
-           "note": "the last letter of race"
-          }
-         ]
+         "text": "finish",
+         "at": 44,
+         "note": "finish picks the last letter of the race"
+        }
+       ],
+       "parts": [
+        {
+         "words": "race's",
+         "at": 37,
+         "gives": "RACE",
+         "note": "the race, with 's marking possession"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A timekeeper meets a fool wandering about at the end of a race.",
-     "walkthrough": "'Time-keeper' suggests an official at a race; it is the musician's ticking device.",
-     "definitionFit": "A metronome ticks at a set tempo to keep a musician in time, so it keeps time."
+     "surface": "A timekeeper met a fool as the race was ending.",
+     "walkthrough": "MORON is rearranged to RONOM; E is the end of race.",
+     "definitionFit": "A metronome ticks steadily to keep musicians in time."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "Time-keeper"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moving"
     }
    }
   },
@@ -1349,42 +1356,55 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "AMAZING",
-     "indicators": [
-      {
-       "text": "exchanging",
-       "note": "exchanging one thing for another swaps them, so a letter is replaced by a different one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "e-tailer",
-       "gives": "AMAZON",
-       "note": "the online retailer"
-      },
-      {
-       "words": "ring",
-       "gives": "O",
-       "note": "a ring is round, like the letter O"
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral for one"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "exchanging",
+         "at": 19,
+         "note": "exchanging means swapping the ring for one"
+        },
+        {
+         "text": "for",
+         "at": 35,
+         "note": "for marks what the ring is swapped with"
+        }
+       ],
+       "parts": [
+        {
+         "words": "e-tailer",
+         "at": 10,
+         "gives": "AMAZON",
+         "note": "Amazon is an online retailer"
+        },
+        {
+         "words": "ring",
+         "at": 30,
+         "gives": "O",
+         "note": "O is ring-shaped"
+        },
+        {
+         "words": "one",
+         "at": 39,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
       },
       {
        "words": "grand",
+       "at": 43,
        "gives": "G",
-       "note": "G is slang for a grand, a thousand"
+       "note": "G is a grand, a thousand"
       }
      ]
     },
     "explanation": {
-     "surface": "A great online shop swapping a ring for a thousand pounds' worth of something.",
-     "walkthrough": "O in AMAZON gives way to I, and G for grand is added at the end.",
-     "definitionFit": "Amazing and wonderful are synonyms, both meaning causing great wonder or delight."
+     "surface": "A marvellous online shop swaps a ring for a thousand pounds.",
+     "walkthrough": "AMAZON swaps its O for I to give AMAZIN, then G.",
+     "definitionFit": "Amazing means astonishingly good, a synonym of marvellous or wonderful."
     },
     "features": {
      "answerInScene": false,
@@ -1703,39 +1723,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "surprisingly",
-       "note": "surprisingly means in an unexpected way, so the letters come out in an unexpected order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Upright",
+       "at": 0,
+       "gives": "I",
+       "note": "I looks like an upright stroke"
+      },
+      {
+       "words": "member",
+       "at": 8,
+       "gives": "MP",
+       "note": "MP is a Member of Parliament"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "surprisingly",
+         "at": 27,
+         "note": "surprisingly means the letters of internet turn up in an unexpected order"
+        }
+       ],
        "parts": [
         {
-         "words": "Upright",
-         "gives": "I",
-         "note": "the letter I stands upright like a post"
-        },
-        {
-         "words": "member",
-         "gives": "MP",
-         "note": "a Member of Parliament"
-        },
-        {
          "words": "internet",
-         "note": "these letters rearranged"
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An upstanding MP being unexpectedly rude online.",
-     "walkthrough": "'Upright member' reads as a respectable MP; the two words supply separate pieces.",
-     "definitionFit": "Impertinent means cheekily disrespectful, a synonym for rude."
+     "surface": "An upstanding politician is unexpectedly offensive online.",
+     "walkthrough": "'Upright' is not a moral word here: the letter I is a single upright stroke.",
+     "definitionFit": "Impertinent means cheekily disrespectful, synonymous with rude."
     },
     "features": {
      "answerInScene": true,

@@ -115,42 +115,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SISAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "half of",
-       "note": "only half of the word is kept, so the rest is dropped"
+       "text": "in",
+       "at": 13,
+       "note": "in means the exists word sits within the shortened meals"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one piece inside the other"
+         "text": "half of",
+         "at": 16,
+         "note": "half of keeps the first three of the six letters"
         }
        ],
        "parts": [
         {
          "words": "plant-based meals",
-         "gives": "SAL",
-         "note": "salads are plant-based meals; the first half is kept"
+         "at": 24,
+         "gives": "SALADS",
+         "note": "salads are meals of plants"
         },
         {
-         "words": "exists",
-         "gives": "IS",
-         "note": "is means exists"
+         "gives": "ADS"
         }
        ]
+      },
+      {
+       "words": "exists",
+       "at": 6,
+       "gives": "IS",
+       "note": "is means exists"
       }
      ]
     },
     "explanation": {
-     "surface": "A claim that a fibre turns up in half of all vegan meals.",
-     "walkthrough": "The plant-based meals are salads, and the fibre comes from a plant too, which keeps the surface honest.",
+     "surface": "Fibre is present in some of your vegan meals.",
+     "walkthrough": "'plant-based meals' must be turned into a word before halving: the first half of that six-letter word is kept.",
      "definitionFit": "Sisal is a strong plant fibre from an agave, used for rope and matting."
     },
     "features": {
