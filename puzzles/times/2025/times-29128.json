@@ -1042,44 +1042,51 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "said briefly, the word is cut short by its last letter"
-      }
-     ],
      "parts": [
       {
-       "words": "Column",
-       "gives": "FIL",
-       "note": "FILE (a column of people) without its last letter"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "MIC",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "primarily",
-         "note": "primarily means first of all, so take the first letters"
+         "text": "briefly",
+         "at": 7,
+         "note": "briefly means cut short, losing the last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
+         "words": "Column",
+         "at": 0,
+         "gives": "FILE",
+         "note": "a file is a column of people, as in single file"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 42,
+         "note": "primarily means first, so the first letter of each word is taken"
+        }
+       ],
+       "parts": [
+        {
          "words": "mentions iconic characters",
-         "gives": "MIC",
-         "select": "first",
-         "note": "first letters of Mentions Iconic Characters"
+         "at": 15,
+         "note": "the words taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper column name-drops iconic film characters.",
-     "walkthrough": "'Column' is not newspaper writing but a file, a line of people one behind another.",
-     "definitionFit": "A plain synonym: the adjective for things of or like the movies."
+     "surface": "A newspaper column briefly mentions famous characters linked chiefly to film.",
+     "walkthrough": "'Column' looks like a newspaper column; it is a FILE, a line of people one behind another.",
+     "definitionFit": "Filmic means relating to films or cinematic technique."
     },
     "features": {
      "answerInScene": true,
@@ -1673,40 +1680,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GDANSK",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "blocks",
+       "at": 14,
+       "note": "the rearranged letters block, fill the gap inside, the Greek"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Greek",
+       "at": 21,
+       "gives": "GK"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "Shifting",
-         "note": "shifting sand moves about, its letters landing in a new order"
-        },
-        {
-         "text": "blocks",
-         "note": "the sand blocks the abbreviation by sitting in its middle"
+         "at": 0,
+         "note": "shifting means moving about, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Greek",
-         "gives": "GK",
-         "note": "GK = Greek"
-        },
-        {
          "words": "sand",
-         "note": "the four letters rearranged"
+         "at": 9,
+         "note": "the word taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Drifting sand is silting up a harbour in Greece.",
-     "walkthrough": "The Greek setting is a decoy: the port is Polish, on the Baltic.",
-     "definitionFit": "Definition by example: a major Baltic seaport in northern Poland."
+     "surface": "Drifting sand obstructs a harbour in Greece.",
+     "definitionFit": "Gdansk is a Polish seaport on the Baltic."
     },
     "features": {
      "answerInScene": false,

@@ -426,46 +426,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EXAMINE",
      "indicators": [
       {
        "text": "running into",
-       "note": "flowing into the river places these letters inside its name"
+       "at": 19,
+       "note": "running into means going inside the river's letters"
       }
      ],
      "parts": [
+      {
+       "words": "river",
+       "at": 32,
+       "gives": "EXE",
+       "note": "the Exe is a river in Devon"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "burst",
-         "note": "something burst is broken apart, so these letters are rearranged"
+         "at": 8,
+         "note": "something burst is broken apart, so its letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "main",
-         "note": "the letters of main rearranged"
-        },
-        {
-         "words": "river",
-         "gives": "EXE",
-         "note": "the Exe is a river in Devon"
+         "at": 14,
+         "note": "the word taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An engineer is told to inspect a burst water main leaking into a river.",
-     "walkthrough": "The Exe is a river in south-west England; 'main' here is a water pipe, not a principal thing.",
+     "surface": "A water inspector checks a burst water main leaking into a river.",
      "definitionFit": "To examine something is to inspect it closely."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "main"
+     "misdirectedWord": "burst"
     }
    }
   },
@@ -494,25 +495,28 @@
      "indicators": [
       {
        "text": "one way or the other",
-       "note": "reading in either direction gives the same result, the mark of a palindromic word"
+       "at": 5,
+       "note": "read one way or the other, forwards or backwards, the answer is the same"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "one way or the other",
-       "note": "the word reads the same forwards and backwards"
+       "words": "Act",
+       "at": 0,
+       "gives": "DEED",
+       "note": "an act; the setter uses the definition itself as the word to test both ways"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is urged to act, whichever way they decide.",
-     "walkthrough": "The wordplay offers no letters, only the property that the four-letter answer reads identically both ways.",
+     "surface": "Take action, whichever way it goes.",
+     "walkthrough": "'one way or the other' sounds like indifference; it says the word reads the same in both directions.",
      "definitionFit": "A deed is an act, something done."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "way"
     }
    }
   },
@@ -1301,40 +1305,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "upset",
-       "note": "something upset is knocked over and disordered, so these letters are rearranged"
+       "text": "about",
+       "at": 39,
+       "note": "about means around, so the rearranged letters surround the king"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so the rearranged letters surround the royal letter"
+         "text": "upset",
+         "at": 33,
+         "note": "upset means knocked over and disordered, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "geologist",
-         "note": "the letters of geologist rearranged"
-        },
-        {
-         "words": "king",
-         "gives": "R",
-         "note": "R is short for rex, Latin for king"
+         "at": 23,
+         "note": "the word taken as written"
         }
        ]
+      },
+      {
+       "words": "king",
+       "at": 45,
+       "gives": "R",
+       "note": "R is the abbreviation for rex, king"
       }
      ]
     },
     "explanation": {
-     "surface": "A distinguished conductor and a geologist are upset about the king.",
-     "walkthrough": "R goes inside the rearranged GEOGSOLTI after the first three letters.",
-     "definitionFit": "Sir Georg Solti was a Hungarian-born British conductor, knighted for his work at Covent Garden and elsewhere."
+     "surface": "A conductor knighted alongside a scientist who is upset about the monarch.",
+     "definitionFit": "Sir Georg Solti was a Hungarian-born British conductor, long director of the Chicago Symphony Orchestra."
     },
     "features": {
      "answerInScene": true,

@@ -46,47 +46,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HIATUS",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "ignoring",
+       "at": 27,
+       "note": "ignoring the question means leaving its letter out of the fodder"
+      },
+      {
+       "text": "rudely",
+       "at": 45,
+       "note": "done rudely, roughly, the remaining letters are knocked into a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HIATUS",
-       "indicators": [
-        {
-         "text": "ignoring",
-         "note": "the question is left out of the letters used"
-        },
-        {
-         "text": "rudely",
-         "note": "the letters are handled roughly, i.e. rearranged"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Asquith",
-         "note": "the name supplies the fodder"
-        },
-        {
-         "words": "question",
-         "gives": "Q",
-         "note": "Q = question, dropped from ASQUITH"
-        }
-       ]
+       "words": "Asquith",
+       "at": 18,
+       "note": "the fodder taken as written: H. H. Asquith was a British prime minister"
+      },
+      {
+       "words": "question",
+       "at": 36,
+       "gives": "Q"
       }
      ]
     },
     "explanation": {
-     "surface": "A heckler interrupts the Edwardian prime minister Asquith, brushing aside a question.",
-     "walkthrough": "Asquith is used purely for his letters; take out Q and the six left rearrange.",
-     "definitionFit": "A hiatus is a gap or break, an interruption in continuity."
+     "surface": "A prime minister's speech is cut short when he rudely brushes off a question.",
+     "walkthrough": "Take Q out of ASQUITH and rearrange the six letters left: H. H. Asquith was the British prime minister from 1908 to 1916.",
+     "definitionFit": "A hiatus is a pause or gap in a sequence, a break in continuity."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Asquith"
+     "misdirectedWord": "rudely"
     }
    }
   },
@@ -821,49 +815,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "tucking into",
-       "note": "to tuck into something is to get inside it"
-      }
-     ],
      "parts": [
       {
-       "words": "Composer's",
-       "gives": "LEHA",
-       "note": "LEHAR, the operetta composer, whose final letter is his right (R), moved below"
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Composer's",
+         "at": 0,
+         "gives": "LEHAR",
+         "note": "Franz Lehar composed The Merry Widow; his name ends in R"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "case of",
-         "note": "the outer letters of vintage"
+         "text": "tucking into",
+         "at": 17,
+         "note": "tucking into means going inside, so the letter sits within the outer letters"
         }
        ],
        "parts": [
         {
          "words": "case of vintage",
+         "at": 30,
          "gives": "VE",
-         "note": "outer letters of vintage, with R tucked inside"
+         "note": "the case of vintage is its outer letters, V and E"
         },
         {
          "words": "right",
+         "at": 11,
          "gives": "R",
-         "note": "R = right, the last letter of LEHAR"
+         "note": "R is the abbreviation for right, here the R at the end of the composer's name"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A composer tucks into a bottle of vintage port.",
-     "walkthrough": "Franz Lehar wrote The Merry Widow. His name ends in R, the right, and that R tucks into VE; \"port\" looks like the wine but is the town.",
-     "definitionFit": "Le Havre is a major French seaport on the Seine estuary."
+     "surface": "A composer's correct choice of fine wine for his cellar.",
+     "walkthrough": "'Composer's right' is the composer's own R, his last letter, which moves into the case of vintage; Franz Lehar wrote The Merry Widow.",
+     "definitionFit": "Le Havre is a major French seaport at the mouth of the Seine."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "port"
     }
@@ -1370,39 +1370,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "the doctor loses his last letter"
-      }
-     ],
      "parts": [
       {
        "words": "current",
+       "at": 24,
        "gives": "I",
-       "note": "I is the physics symbol for electric current"
+       "note": "I is the symbol for electric current"
       },
       {
        "words": "book",
-       "gives": "B",
-       "note": "B = book"
+       "at": 32,
+       "gives": "B"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "up",
-         "note": "in a down clue, the letters read upwards"
+         "at": 48,
+         "note": "in a down entry, up means the letters are read from the bottom"
         }
        ],
        "parts": [
         {
          "op": "deletion",
+         "indicators": [
+          {
+           "text": "cut",
+           "at": 44,
+           "note": "cut means docked of its last letter"
+          }
+         ],
          "parts": [
           {
            "words": "doctor",
+           "at": 37,
            "gives": "MEDIC",
-           "note": "a medic is a doctor; cut to MEDI, then reversed"
+           "note": "a medic is a doctor"
           },
           {
            "gives": "C"
@@ -1414,13 +1418,13 @@
      ]
     },
     "explanation": {
-     "surface": "A footnote about a book on current affairs that a doctor tore apart.",
-     "walkthrough": "\"Cut up\" looks like one phrase meaning chopped or upset; it is two instructions, trim and reverse.",
-     "definitionFit": "Ibidem, abbreviated ibid., means \"in the same place\" in footnotes."
+     "surface": "An academic's note citing an electrical text, a doctor having chopped it up.",
+     "walkthrough": "MEDIC loses its last letter to give MEDI, which read 'up' is IDEM.",
+     "definitionFit": "Ibidem, Latin for 'in the same place', is written in footnotes to refer again to a source just cited."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "cut"
     }
    }
@@ -1449,8 +1453,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "around",
-       "note": "the socialite is turned round"
+       "text": "following",
+       "at": 18,
+       "note": "following puts this piece after the other"
       }
      ],
      "parts": [
@@ -1458,33 +1463,36 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "following",
-         "note": "the immoral part comes after"
+         "text": "around",
+         "at": 38,
+         "note": "around means turned about, so the word is read backwards"
         }
        ],
        "parts": [
         {
          "words": "socialite",
+         "at": 28,
          "gives": "DEB",
-         "note": "a deb (debutante) is a young socialite"
+         "note": "a deb, debutante, is a young socialite"
         }
        ]
       },
       {
        "words": "immoral",
+       "at": 9,
        "gives": "EVIL",
-       "note": "immoral = evil"
+       "note": "evil means immoral"
       }
      ]
     },
     "explanation": {
-     "surface": "Prince Harry is a scoundrel, chasing after a society girl.",
-     "walkthrough": "\"Harry\" is a verb here, to harass, not the prince.",
-     "definitionFit": "To harry is to torment persistently, the same as to bedevil."
+     "surface": "Harry is a wicked man trailing after a society girl.",
+     "walkthrough": "'Harry' looks like a name; it is the verb, to harass.",
+     "definitionFit": "To harry is to harass or torment persistently, the same as to bedevil."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Harry"
     }
    }
@@ -1824,28 +1832,31 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "returning",
-       "note": "something returning comes back the way it went, so the two letters read in reverse"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "drained",
-         "note": "emptied of its middle, leaving the outer letters"
+         "text": "returning",
+         "at": 29,
+         "note": "returning means the pair of letters is read backwards"
         }
        ],
        "parts": [
         {
          "op": "outer",
+         "indicators": [
+          {
+           "text": "drained",
+           "at": 39,
+           "note": "drained means emptied of its contents, leaving only the first and last letters"
+          }
+         ],
          "parts": [
           {
            "words": "Nietzsche",
-           "note": "outer letters of Nietzsche, reversed to EN"
+           "at": 18,
+           "note": "the word taken as written"
           }
          ]
         }
@@ -1853,18 +1864,19 @@
       },
       {
        "words": "begins to work",
+       "at": 48,
        "gives": "GELS",
-       "note": "a plan gels when it starts to come together"
+       "note": "a plan that gels begins to work"
       }
      ]
     },
     "explanation": {
-     "surface": "The philosopher Nietzsche, exhausted, gets back to his work.",
-     "walkthrough": "Both thinkers are called Friedrich, so the surface steers to Nietzsche; the answer is Friedrich Engels, Marx's collaborator.",
-     "definitionFit": "Friedrich Engels was the German philosopher who co-wrote The Communist Manifesto."
+     "surface": "One German philosopher, Nietzsche, comes back exhausted and starts to function again.",
+     "walkthrough": "'Friedrich Nietzsche' wants to be the thinker; only 'Friedrich' belongs to the definition, and Nietzsche, drained to NE and turned, gives EN.",
+     "definitionFit": "Friedrich Engels was the German philosopher who co-wrote The Communist Manifesto with Marx."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "Nietzsche"
     }
