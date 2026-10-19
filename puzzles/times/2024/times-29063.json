@@ -746,41 +746,58 @@
      "indicators": [
       {
        "text": "about",
-       "note": "'about' means around, so the story goes round the rest"
+       "at": 27,
+       "note": "about means the word goes around the following pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "story",
-         "gives": "TALE",
-         "note": "a tale is a story"
-        },
-        {
-         "words": "day",
-         "gives": "D",
-         "note": "D = day"
-        }
-       ]
+       "words": "story",
+       "at": 21,
+       "gives": "TALE",
+       "note": "a tale is a story"
       },
       {
-       "words": "pond half disappeared",
-       "gives": "PO",
-       "note": "POND with half its letters gone"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "day",
+         "at": 33,
+         "gives": "D"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half disappeared",
+           "at": 42,
+           "note": "half disappeared means the second half of the word is lost"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pond",
+           "at": 37,
+           "note": "taken as written before losing half"
+          },
+          {
+           "gives": "ND"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Beatrix Potter tale in which the frog's pond half vanishes one day.",
-     "walkthrough": "Mr Jeremy Fisher is the frog in Beatrix Potter's children's story, so a little one is a young frog.",
-     "definitionFit": "A definition by example: a young frog, and Jeremy Fisher is literature's best-known frog, so 'little Jeremy Fisher' is one before it grows legs."
+     "surface": "A tale of the Beatrix Potter frog on a day when half his pond vanished.",
+     "walkthrough": "Jeremy Fisher is the frog in Beatrix Potter's tale; 'little' makes him a young one.",
+     "definitionFit": "A tadpole is a young frog, so a little Jeremy Fisher, Beatrix Potter's frog character."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "story"
+     "misdirectedWord": "Little"
     }
    }
   },
@@ -974,35 +991,38 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' places the first pieces inside the last"
+       "at": 16,
+       "note": "in means these pieces go inside the following word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "conjunction",
+       "at": 19,
+       "gives": "AND",
+       "note": "and is a conjunction"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "conjunction",
-         "gives": "AND",
-         "note": "the commonest conjunction in grammar"
+         "words": "I",
+         "at": 6
         },
         {
          "words": "connect",
+         "at": 8,
          "gives": "MATE",
-         "note": "to mate is to join or couple"
+         "note": "to mate is to join or connect"
         }
        ]
-      },
-      {
-       "words": "I",
-       "note": "as written"
       }
      ]
     },
     "explanation": {
-     "surface": "It is essential that I make contact at the same time.",
-     "walkthrough": "'In conjunction' reads as 'together'; conjunction is the grammatical term, standing for an example of one.",
-     "definitionFit": "A plain synonym in the sense 'full of life': a vital, lively person is animated."
+     "surface": "An essential grammar note: I connect things, working in conjunction.",
+     "walkthrough": "'Conjunction' reads as 'together', but it is the grammatical word AND.",
+     "definitionFit": "Animated means full of life and energy, so lively or vital."
     },
     "features": {
      "answerInScene": false,
@@ -1251,31 +1271,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "HAMBURG",
      "indicators": [
       {
        "text": "for",
-       "note": "'for' means in place of, so one letter stands in for another"
+       "at": 15,
+       "note": "for means one letter stands in place of another"
       }
      ],
      "parts": [
       {
        "words": "Hat",
+       "at": 0,
        "gives": "HOMBURG",
-       "note": "a homburg is a felt hat with a dented crown"
+       "note": "a homburg is a felt hat"
       },
       {
-       "words": "key for Oscar",
+       "words": "Oscar",
+       "at": 19,
+       "gives": "O",
+       "note": "Oscar is O in the NATO phonetic alphabet"
+      },
+      {
+       "words": "key",
+       "at": 11,
        "gives": "A",
-       "note": "A, a musical key, replaces O (Oscar in the NATO alphabet)"
+       "note": "A is a musical key"
       }
      ]
     },
     "explanation": {
-     "surface": "A hat that is the key to Oscar success in the city.",
-     "walkthrough": "The Oscar looks like the film award; it is a letter in the phonetic alphabet.",
-     "definitionFit": "A definition by example: the major German port on the Elbe."
+     "surface": "A hat is the key to winning an Oscar in some city.",
+     "walkthrough": "A homburg is a man's felt hat with a dented crown; swap its O for the key of A.",
+     "definitionFit": "Hamburg is a major port city in northern Germany."
     },
     "features": {
      "answerInScene": false,

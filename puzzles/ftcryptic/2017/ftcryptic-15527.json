@@ -249,46 +249,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ORANGEADE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Not initially",
-       "note": "'Not initially' drops the first letter of soda."
+       "text": "rum",
+       "at": 40,
+       "note": "rum means odd or strange, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "rum",
-         "note": "Rum means odd, so the letters come out in an odd order."
+         "text": "Not initially",
+         "at": 12,
+         "note": "not initially means the word drops its first letter"
         }
        ],
        "parts": [
         {
          "words": "soda",
-         "gives": "ODA",
-         "note": "Soda without its first letter S."
+         "at": 6,
+         "note": "taken as written before losing its first letter"
         },
         {
-         "words": "a",
-         "note": "Taken as printed."
-        },
-        {
-         "words": "green",
-         "note": "Taken as printed."
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 32
+      },
+      {
+       "words": "green",
+       "at": 34,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone orders a mixer, then decides on a dubious green rum instead.",
-     "walkthrough": "'Rum' looks like the spirit that goes with the soda, but it is the adjective meaning strange.",
-     "definitionFit": "Orangeade is a fizzy orange-flavoured drink."
+     "surface": "A bartender offers soda or, failing that, a rum with something green.",
+     "walkthrough": "'Rum' poses as the spirit, but it is the anagram signal (rum means odd). SODA loses its S to give ODA.",
+     "definitionFit": "Orangeade is a sweet orange-flavoured soft drink."
     },
     "features": {
      "answerInScene": true,
@@ -700,37 +704,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INKLING",
-     "indicators": [
-      {
-       "text": "not on",
-       "note": "'Not on' says the letters ON are missing from the language."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "using",
+       "at": 6,
+       "gives": "IN",
+       "note": "in can mean using, as in written in ink"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 33,
+         "note": "not means the following word is left out"
+        }
+       ],
        "parts": [
         {
-         "words": "using",
-         "gives": "IN",
-         "note": "Writing in ink is writing using ink."
+         "words": "Star Trek language's",
+         "at": 12,
+         "gives": "KLINGON",
+         "note": "Klingon is the invented language of the Klingons in Star Trek"
         },
         {
-         "words": "Star Trek language's",
-         "gives": "KLING",
-         "note": "Klingon is the Star Trek alien language; without ON it is KLING."
+         "words": "on",
+         "at": 37,
+         "gives": "ON",
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tip that speaking Star Trek's alien language just isn't done.",
-     "walkthrough": "'Not on' reads as 'not acceptable', but it removes the ON from Klingon.",
-     "definitionFit": "A plain synonym: a faint notion of something, the kind of hint you half-grasp."
+     "surface": "A tip for fans: Klingon is not to be spoken on set.",
+     "walkthrough": "'Not on' reads as 'not allowed', but it tells you to drop the word 'on' from the Star Trek language.",
+     "definitionFit": "An inkling is a slight suspicion or faint idea, so a hint."
     },
     "features": {
      "answerInScene": false,

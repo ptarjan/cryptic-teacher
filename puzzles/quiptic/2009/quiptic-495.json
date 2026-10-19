@@ -1009,54 +1009,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "up",
-       "note": "in a down clue, up means the word is read from bottom to top"
+       "text": "keeping",
+       "at": 10,
+       "note": "keeping means the word holds the following pieces inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "keeping",
-         "note": "keeping means holding on to something inside"
+         "text": "up",
+         "at": 6,
+         "note": "in a down clue up means the word is read upwards, backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Close",
-           "gives": "END",
-           "note": "a close is an end"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I is the Roman numeral for one"
-          }
-         ]
+         "words": "Close",
+         "at": 0,
+         "gives": "END",
+         "note": "an end is a close"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 18,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
         },
         {
          "words": "six",
+         "at": 26,
          "gives": "VI",
-         "note": "VI is the Roman numeral for six"
+         "note": "VI is the Roman numeral six"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Come nearer, holding one and six as payment for the priest.",
-     "walkthrough": "Close up reads as a phrase meaning shut, but close is the noun meaning end and up is a separate signal.",
-     "definitionFit": "A divine is an old-fashioned noun for a clergyman or theologian."
+     "surface": "A priest closes up shop, keeping one and six aside.",
+     "walkthrough": "'Close up' looks like a verb phrase meaning shut, but close is the noun, an end, and up reverses it in this down clue.",
+     "definitionFit": "A divine is a clergyman or theologian, an old-fashioned word for a priest."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Close"
     }

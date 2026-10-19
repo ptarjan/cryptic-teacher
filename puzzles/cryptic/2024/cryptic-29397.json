@@ -917,48 +917,51 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LECHWALESA",
      "indicators": [
       {
        "text": "about",
-       "note": "one thing about another goes round it, so the stretch of letters encloses the nation"
+       "at": 15,
+       "note": "about means the run of letters goes around the next piece"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "LECHWALESA",
        "indicators": [
         {
          "text": "Some",
-         "note": "some of the phrase means only a stretch of its letters is wanted, the rest dropped at both ends"
+         "at": 0,
+         "note": "some of the words means only part of their letters is kept, the ends being dropped"
         }
        ],
        "parts": [
         {
          "words": "idle chat",
-         "note": "the two words run together, to be trimmed at both ends"
+         "at": 5,
+         "note": "the words idle chat as written, before their outer letters go"
         },
         {
-         "words": "nation in western Europe",
-         "gives": "WALES",
-         "note": "Wales is a nation of the United Kingdom, on Britain's west side"
+         "gives": "IDT"
         }
        ]
+      },
+      {
+       "words": "nation in western Europe",
+       "at": 21,
+       "gives": "WALES",
+       "note": "Wales is a nation of the UK in western Europe"
       }
      ]
     },
     "explanation": {
-     "surface": "Idle chatter about a western European nation, then praise for a leader who brought democracy further east.",
-     "walkthrough": "The Solidarity leader became Poland's first freely elected president after communism, so the long phrase, not the nation, is the definition.",
-     "definitionFit": "The Polish trade unionist led the movement that toppled communist rule, then served as president of democratic Poland, a country east of Wales."
+     "surface": "Gossip about a western European nation drifts into talk of an eastern statesman.",
+     "walkthrough": "The hidden run stops one letter short of the end of 'chat'; 'leader bringing democracy' points to Poland's Solidarity hero.",
+     "definitionFit": "Lech Walesa led the Solidarity movement and became Poland's first freely elected president, bringing democracy east of western Europe."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "about"
+     "misdirectedWord": "chat"
     }
    }
   },

@@ -888,55 +888,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "freaking out",
-       "note": "someone freaking out loses composure, so DENIES loses its order"
+       "text": "In",
+       "at": 0,
+       "note": "in means the pieces go inside the following word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "In"
-        }
-       ],
+       "words": "part",
+       "at": 3,
+       "gives": "PT"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Republican",
-           "gives": "R",
-           "note": "R = Republican"
-          },
-          {
-           "words": "denies freaking out",
-           "gives": "ESIDEN",
-           "note": "DENIES rearranged"
-          }
-         ]
+         "words": "Republican",
+         "at": 9,
+         "gives": "R"
         },
         {
-         "words": "part",
-         "gives": "PT",
-         "note": "pt is the abbreviation for part"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "freaking out",
+           "at": 27,
+           "note": "freaking out means going wild, so the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "denies",
+           "at": 20
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Republican partly denies that the leader is losing it.",
-     "walkthrough": "'In part' reads as 'partly', but it splits: 'part' is PT and 'In' puts the rest inside it.",
-     "definitionFit": "A definition by example: a president heads a republic, a company or a club, one of many kinds of leader."
+     "surface": "A Republican partly rejects claims that the leader is panicking.",
+     "walkthrough": "'In part' reads as 'partly', but 'part' is the abbreviation PT and 'In' the container signal.",
+     "definitionFit": "A president is the head of a republic or organisation, so its leader."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "part"
+     "misdirectedWord": "In"
     }
    }
   },
@@ -1103,59 +1105,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "centrally",
-       "note": "the middle letter of singing"
+       "text": "features in",
+       "at": 18,
+       "note": "features in means the letter is placed inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "features in"
+         "text": "new",
+         "at": 40,
+         "note": "new means the letters are made afresh, rearranged"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "G",
-         "indicators": [
-          {
-           "text": "new",
-           "note": "the letters are rearranged into a new form"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Singing centrally",
-           "gives": "G",
-           "select": "middle",
-           "note": "middle letter of the seven-letter singing"
-          }
-         ]
+         "words": "one",
+         "at": 30
         },
         {
-         "words": "one great",
-         "note": "anagram fodder, 8 letters"
+         "words": "great",
+         "at": 34
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centrally",
+         "at": 8,
+         "note": "centrally means the middle letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Singing",
+         "at": 0,
+         "note": "middle letter of singing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A song's middle section appears in a great new musical genre.",
-     "walkthrough": "Reggaeton is a Latin dance music that began in Puerto Rico, mixing reggae with hip-hop.",
-     "definitionFit": "A definition by example: reggaeton is one particular genre, Puerto Rican dance music with a dembow beat."
+     "surface": "Singing takes a central place in a great new kind of music.",
+     "walkthrough": "'Singing' has seven letters, so its centre is the single fourth letter.",
+     "definitionFit": "Reggaeton is a Latin music genre from Puerto Rico blending reggae, hip hop and Latin rhythms."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "features"
+     "misdirectedWord": "Singing"
     }
    }
   },
@@ -1464,27 +1470,31 @@
      "op": "container",
      "indicators": [
       {
-       "text": "initially",
-       "note": "the first letter of that’s"
+       "text": "covered in",
+       "at": 22,
+       "note": "covered in means the letter goes inside the following word"
       }
      ],
      "parts": [
       {
        "words": "a tiny amount of salt",
+       "at": 33,
        "gives": "GRAIN",
-       "note": "a grain of salt"
+       "note": "a grain is a tiny particle of salt"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "covered in"
+         "text": "initially",
+         "at": 12,
+         "note": "initially means the first letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "that's initially",
-         "gives": "THATINITIALLY",
+         "words": "that's",
+         "at": 5,
          "note": "first letter of that's"
         }
        ]
@@ -1492,14 +1502,13 @@
      ]
     },
     "explanation": {
-     "surface": "A recipe dish that is barely seasoned, with only a pinch of salt on it.",
-     "walkthrough": "A gratin is itself a dish covered in a crust, so 'covered' suits the kitchen picture while doing the container's work.",
+     "surface": "A recipe dish begins with a sprinkle of salt over it.",
+     "walkthrough": "The T from 'that's' sits inside GRAIN.",
      "definitionFit": "A gratin is a dish topped with a browned crust of breadcrumbs or cheese."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "covered"
+     "aptDefinition": false
     }
    }
   },
@@ -1582,37 +1591,36 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "primarily",
-       "note": "the first letter of horses"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "included in",
-         "note": "something included in a group is taken inside it"
+         "at": 34,
+         "note": "included in means the letter goes inside the following word"
         }
        ],
        "parts": [
         {
          "words": "my",
+         "at": 46,
          "gives": "COR",
-         "note": "cor! = my!, a British exclamation of surprise"
+         "note": "cor is an exclamation of surprise, like my!"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "H",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 17,
+           "note": "primarily means the first letter of the word"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "primarily horses",
-           "gives": "H",
-           "select": "first",
+           "words": "horses",
+           "at": 27,
            "note": "first letter of horses"
           }
          ]
@@ -1621,15 +1629,16 @@
       },
       {
        "words": "analysis info",
+       "at": 49,
        "gives": "DATA",
-       "note": "data is the information you analyse"
+       "note": "data is information for analysis"
       }
      ]
     },
     "explanation": {
-     "surface": "A researcher's notes on some animals, mostly horses, used in their study.",
-     "walkthrough": "'My' reads as a possessive, but it is the exclamation 'My!', which is COR in British slang.",
-     "definitionFit": "Chordata is the phylum of animals with a notochord, including all vertebrates."
+     "surface": "A study of certain animals, chiefly horses, appears in my analysis.",
+     "walkthrough": "'My' is the exclamation COR, a British expression of surprise, holding H.",
+     "definitionFit": "Chordata is the phylum of animals with a notochord, including all vertebrates, so a particular group of animals."
     },
     "features": {
      "answerInScene": true,
@@ -1669,46 +1678,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OVERANDOUT",
-     "indicators": [
-      {
-       "text": "fancy",
-       "note": "DONUT is made into something fancy, rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "about",
+       "at": 25,
+       "gives": "OVER",
+       "note": "over can mean about, as in a dispute over money"
+      },
+      {
+       "words": "a",
+       "at": 31
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fancy",
+         "at": 33,
+         "note": "fancy means elaborately reworked, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "about",
-         "gives": "OVER",
-         "note": "over = about, as in 'arguing over money'"
-        },
-        {
-         "words": "a",
-         "note": "used as it stands"
-        },
-        {
-         "words": "fancy donut",
-         "gives": "NDOUT",
-         "note": "DONUT rearranged"
+         "words": "donut",
+         "at": 39,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is struck dumb by an elaborate doughnut.",
-     "walkthrough": "'Over and out' is radio talk for ending a transmission, hence 'nothing more to say'.",
-     "definitionFit": "'Over and out' is the radio sign-off meaning the speaker has finished."
+     "surface": "Someone ends a discussion of an elaborate doughnut.",
+     "walkthrough": "OVER and A are followed by NDOUT, the 'fancy' anagram of DONUT.",
+     "definitionFit": "Over and out is the radio sign-off meaning the speaker has finished transmitting."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
      "misdirectedWord": "fancy"
     }
    }

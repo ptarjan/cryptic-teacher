@@ -98,51 +98,56 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the new doctor is placed inside 'it', which wraps around him"
+       "at": 40,
+       "note": "in means these pieces go inside the word that follows"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "it",
-         "note": "taken literally; it becomes the outer shell"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "standard abbreviation for new"
-        }
-       ]
+       "words": "it",
+       "at": 43,
+       "gives": "IT"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "dropping",
-         "note": "the doctor lets one letter fall away, so the NATO word 'Oscar' is removed from him"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "doctor",
-         "gives": "SURGEON",
-         "note": "a doctor who operates"
+         "words": "new",
+         "at": 14,
+         "gives": "N"
         },
         {
-         "words": "Oscar",
-         "gives": "O",
-         "note": "O is Oscar in the NATO alphabet"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "dropping",
+           "at": 25,
+           "note": "dropping means a letter is let go from the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "doctor",
+           "at": 18,
+           "gives": "SURGEON",
+           "note": "a surgeon is a doctor"
+          },
+          {
+           "words": "Oscar",
+           "at": 34,
+           "gives": "O",
+           "note": "Oscar is O in the NATO phonetic alphabet"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A news snippet about a radical new medic who has lost an Oscar.",
-     "walkthrough": "'Oscar' tempts you towards film awards, but it is simply the NATO word for the letter O.",
-     "definitionFit": "An insurgent is a rebel rising against authority, a synonym for a revolutionary."
+     "surface": "A rebel new doctor leaves an Oscar out of the business.",
+     "walkthrough": "Only one of the doctor's two O letters is dropped; 'it' is the plain word, used as the outer shell.",
+     "definitionFit": "An insurgent is a rebel fighting against authority, so a revolutionary."
     },
     "features": {
      "answerInScene": false,
@@ -333,36 +338,28 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "MALLEABLE",
      "indicators": [
       {
        "text": "casings removed from",
-       "note": "a casing is the outside layer, so each of the next two words loses its first and last letters"
+       "at": 8,
+       "note": "casings removed means each word loses its outer letters, its case"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "smaller",
-         "gives": "MALLE",
-         "note": "'smaller' without its outer S and R"
-        },
-        {
-         "words": "cables",
-         "gives": "ABLE",
-         "note": "'cables' without its outer C and S"
-        }
-       ]
+       "words": "smaller cables",
+       "at": 29,
+       "note": "the words smaller and cables as written, before their outer letters go"
+      },
+      {
+       "gives": "SRCS"
       }
      ]
     },
     "explanation": {
-     "surface": "An electrician stripping the plastic sheathing off thin cables.",
-     "walkthrough": "'Plastic' seems to be the casing material, but it is the definition, meaning easily shaped.",
-     "definitionFit": "Plastic in its older sense means capable of being moulded or bent, exactly as malleable does."
+     "surface": "A technician strips the plastic insulation off thinner wires.",
+     "walkthrough": "'Casings removed from' strips first and last letters of each word: sMALLEr and cABLEs.",
+     "definitionFit": "Malleable means easily shaped or pliable, so plastic in its older adjective sense."
     },
     "features": {
      "answerInScene": false,
@@ -554,53 +551,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IBSEN",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "each of the two words has its end cut off"
+       "text": "reviewed",
+       "at": 36,
+       "note": "reviewed read as re-viewed means looked at again from the far end, backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "reviewed",
-         "note": "to re-view is to look back, so the trimmed letters are read backwards"
+         "text": "endlessly",
+         "at": 26,
+         "note": "endlessly means each word loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Nesbo",
-           "gives": "NESB",
-           "note": "the crime novelist's name without its final O"
-          },
-          {
-           "words": "is",
-           "gives": "I",
-           "note": "'is' without its final S"
-          }
-         ]
+         "words": "Nesbo is",
+         "at": 17,
+         "note": "Nesbo and is as written, before each loses its end"
+        },
+        {
+         "gives": "OS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A books page panning the Norwegian thriller writer Jo Nesbo.",
-     "walkthrough": "The clue offers one Norwegian writer, Nesbo, and defines another: Henrik Ibsen, the playwright.",
-     "definitionFit": "Henrik Ibsen, author of A Doll's House and Peer Gynt, is Norway's most celebrated dramatist."
+     "surface": "A Norwegian crime writer is critiqued without end.",
+     "walkthrough": "Jo Nesbo is a Norwegian crime novelist. NESBO and IS cut 'endlessly' give NESBI, which 'reviewed' turns round.",
+     "definitionFit": "Henrik Ibsen was the Norwegian playwright of A Doll's House, so a Norwegian writer."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Nesbo"
+     "misdirectedWord": "reviewed"
     }
    }
   },
@@ -745,43 +735,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THERESA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "losing face",
-       "note": "the face of a word is its front, so the first letter of 'feathers' goes"
+       "text": "ruffle",
+       "at": 4,
+       "note": "to ruffle is to disorder, so the letters are mixed up"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "ruffle",
-         "note": "ruffled feathers are disordered, so the remaining letters are rearranged"
+         "text": "losing face",
+         "at": 21,
+         "note": "losing face means the word drops its first letter, its face"
         }
        ],
        "parts": [
         {
          "words": "feathers",
-         "gives": "EATHERS",
-         "note": "'feathers' with its first letter F dropped"
+         "at": 11,
+         "note": "taken as written before losing its first letter"
+        },
+        {
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political sketch: May upsets colleagues and is humiliated.",
-     "walkthrough": "'May' opens the sentence, so its capital hides that it is a surname: Theresa May was UK Prime Minister from 2016 to 2019.",
-     "definitionFit": "Theresa is the first name of former British Prime Minister May, so the surname clues the given name."
+     "surface": "The prime minister might upset people and suffer humiliation.",
+     "walkthrough": "May looks like a verb or month; it is Theresa May, the former UK prime minister.",
+     "definitionFit": "Theresa May was the British prime minister from 2016 to 2019, so her first name goes with May."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "May"
     }
    }
@@ -1142,53 +1134,58 @@
      "indicators": [
       {
        "text": "to eat",
-       "note": "whatever eats something takes it inside, so 'desire' swallows the other pieces"
+       "at": 15,
+       "note": "to eat means the word takes the following pieces inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "desire",
-         "gives": "WISH",
-         "note": "a longing"
-        },
-        {
-         "words": "a",
-         "note": "taken as printed"
-        }
-       ]
+       "words": "desire",
+       "at": 8,
+       "gives": "WISH",
+       "note": "a wish is a desire"
       },
       {
-       "op": "homophone",
-       "spelt": "GG",
-       "indicators": [
-        {
-         "text": "on the radio",
-         "note": "on the radio things are heard rather than seen, so the horse is written as it sounds"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "horse",
-         "gives": "GEEGEE",
-         "note": "child's word for a horse, spelt as two letters"
+         "words": "a",
+         "at": 22,
+         "gives": "A"
+        },
+        {
+         "op": "homophone",
+         "spelt": "GG",
+         "indicators": [
+          {
+           "text": "on the radio",
+           "at": 30,
+           "note": "on the radio means heard rather than seen, so the word is written by its sound"
+          }
+         ],
+         "parts": [
+          {
+           "words": "horse",
+           "at": 24,
+           "gives": "GEEGEE",
+           "note": "gee-gee is a child's word for a horse, said as the letters G G"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A comic line: I'm so hungry I could eat a horse, spoken on air.",
-     "walkthrough": "Gee-gee is a childish or racing word for a horse; only its sound is used, spelt as two letters. 'Eat a horse' is the idiom for great hunger.",
-     "definitionFit": "Waggish means playfully humorous, like a wag or joker, so it is a synonym for amusing."
+     "surface": "A hungry broadcaster wants to eat a horse, for comic effect.",
+     "walkthrough": "Gee-gee is British nursery talk for a horse; 'on the radio' turns its sound into GG.",
+     "definitionFit": "Waggish means humorous and playful, like a wag or joker, so amusing."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "eat"
+     "misdirectedWord": "radio"
     }
    }
   },

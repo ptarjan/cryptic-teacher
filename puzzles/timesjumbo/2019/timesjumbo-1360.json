@@ -1696,65 +1696,70 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "to the north",
-       "note": "in a down clue going to the north means reading upwards"
+       "text": "in",
+       "at": 34,
+       "note": "in means these pieces go inside the next word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "in sets these letters within the next word"
+         "text": "to the north",
+         "at": 43,
+         "note": "in a down clue going to the north means read upwards, backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "place",
-           "gives": "PUT",
-           "note": "to place is to put"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "at first",
-             "note": "at first keeps only the opening letter of the word before it"
-            }
-           ],
-           "parts": [
-            {
-             "words": "established",
-             "note": "the first letter of established"
-            }
-           ]
-          }
-         ]
-        },
+         "words": "place",
+         "at": 37,
+         "gives": "PUT",
+         "note": "to put is to place"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "words": "I",
-         "note": "taken as written"
+         "at": 11
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "at": 25,
+           "note": "at first means the opening letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "established",
+           "at": 13,
+           "note": "first letter of established"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A link I founded at the outset somewhere up north.",
-     "walkthrough": "'Place' looks like a noun for a location; it is the verb put.",
-     "definitionFit": "A tie-up is a link or association, for example a commercial partnership between two firms."
+     "surface": "Someone describes a link they first set up in a northern spot.",
+     "walkthrough": "'To the north' turns PUT upwards to TUP, and I plus E, the start of 'established', goes inside.",
+     "definitionFit": "A tie-up is a link or association between two parties, such as businesses."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "place"
+     "misdirectedWord": "north"
     }
    }
   },

@@ -313,43 +313,36 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "intermittently",
-       "note": "only every other letter is taken"
-      }
-     ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "NER",
        "indicators": [
         {
-         "text": "missing"
+         "text": "intermittently missing",
+         "at": 18,
+         "note": "intermittently missing means every other letter is dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "in tears, intermittently",
-         "gives": "NER",
-         "select": "alternate",
-         "note": "the even letters of iNtEaRs"
+         "words": "in tears",
+         "at": 8,
+         "note": "every other letter of in tears"
         }
        ]
       },
       {
        "words": "Old Dominion",
+       "at": 41,
        "gives": "VA",
-       "note": "the Old Dominion is a nickname of Virginia, abbreviated VA"
+       "note": "Old Dominion is the nickname of Virginia, abbreviated VA"
       }
      ]
     },
     "explanation": {
-     "surface": "A weeping emperor, his tears now and then missing his old realm.",
-     "walkthrough": "The clue works backwards: the emperor 'missing Old Dominion' leaves NER, so the solver adds VA back. Nerva was a Roman emperor (AD 96–98).",
-     "definitionFit": "A definition by example: he ruled Rome AD 96–98 and adopted Trajan as his heir."
+     "surface": "An emperor weeps, now and then lamenting a lost dominion.",
+     "walkthrough": "The Old Dominion is the nickname of the US state of Virginia, whose postal code is VA.",
+     "definitionFit": "Nerva was a Roman emperor of the first century AD, the first of the Five Good Emperors."
     },
     "features": {
      "answerInScene": true,
@@ -433,26 +426,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "WAN",
      "indicators": [
       {
        "text": "Briefly",
-       "note": "cut short: the last letter goes"
+       "at": 0,
+       "note": "briefly means the word is cut short by its last letter"
       }
      ],
      "parts": [
       {
-       "words": "Briefly crave",
-       "gives": "WAN",
-       "note": "WANT loses its last letter"
+       "words": "crave",
+       "at": 8,
+       "gives": "WANT",
+       "note": "to want is to crave"
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A sudden short craving for a Cornish pasty.",
-     "walkthrough": "'Pasty' reads as the pie you crave; it is the adjective meaning pale.",
-     "definitionFit": "Pasty and wan both mean pale and unhealthy-looking."
+     "surface": "A hungry person has a quick urge for a Cornish pastry.",
+     "walkthrough": "'Pasty' reads as a pastry snack; here it is the adjective meaning pale.",
+     "definitionFit": "Wan describes a pale, sickly complexion, so pasty in the sense of pallid."
     },
     "features": {
      "answerInScene": false,
@@ -1114,52 +1110,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RELIEVE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Mostly",
-         "note": "most of the word, all but its last letter"
+         "at": 0,
+         "note": "mostly means the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Mostly depended on",
-         "gives": "RELIE",
-         "note": "RELIED without its last letter"
+         "words": "depended on",
+         "at": 7,
+         "gives": "RELIED",
+         "note": "relied means depended on"
         },
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "VE",
-         "indicators": [
-          {
-           "text": "banks",
-           "note": "a word's banks are its edges, first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "village's banks",
-           "gives": "VE",
-           "select": "outer",
-           "note": "the first and last letters of VILLAGE"
-          }
-         ]
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "banks",
+         "at": 29,
+         "note": "banks are the outer edges, so the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "village's",
+         "at": 19,
+         "gives": "VILLAGE",
+         "note": "first and last letters of village"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A village leaned on the riverbanks for help.",
-     "walkthrough": "'Banks' suggests a river or money; it means the outside letters.",
-     "definitionFit": "A plain synonym, as a verb: to help or bring assistance, as in lifting a siege."
+     "surface": "Mostly a village relied on the banks to help it out.",
+     "walkthrough": "RELIED cut short gives RELIE; VE is the two edges of 'village', its banks.",
+     "definitionFit": "To relieve is to bring help or assistance to someone, so to aid them."
     },
     "features": {
      "answerInScene": false,
