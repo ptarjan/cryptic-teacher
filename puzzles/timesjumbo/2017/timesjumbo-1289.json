@@ -1965,44 +1965,44 @@
      "indicators": [
       {
        "text": "entering",
-       "note": "to enter is to go inside, so these words go into the road"
+       "at": 22,
+       "note": "entering means going into, so the pieces go inside the motorway"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "motorway",
+       "at": 31,
+       "gives": "MI",
+       "note": "the M1 is Britain's main north-south motorway, written MI"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "motorway",
-           "gives": "MI",
-           "note": "the M1 is Britain's first motorway, written with the numeral as I"
-          },
-          {
-           "words": "on",
-           "note": "taken as written"
-          }
-         ]
+         "words": "a",
+         "at": 9,
+         "gives": "A"
         },
         {
          "words": "vehicle",
+         "at": 11,
          "gives": "CAR",
          "note": "a car is a vehicle"
+        },
+        {
+         "words": "on",
+         "at": 19,
+         "gives": "ON"
         }
        ]
-      },
-      {
-       "words": "a",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A dapper man in his car joining the motorway.",
-     "walkthrough": "The M1 is the main motorway north from London; the digit 1 doubles as the letter I.",
-     "definitionFit": "A macaroni was an eighteenth-century fop who copied continental fashions, as in Yankee Doodle, so a dandy."
+     "surface": "A fop driving onto the motorway.",
+     "walkthrough": "The M1 is a British motorway, and crosswords write it MI.",
+     "definitionFit": "A macaroni was an 18th-century English fop who affected continental fashions."
     },
     "features": {
      "answerInScene": true,
@@ -2713,35 +2713,38 @@
      "indicators": [
       {
        "text": "imports",
-       "note": "to import is to bring something in, so the doctor takes the next words inside"
+       "at": 7,
+       "note": "importing brings things inside, so the doctor encloses the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Doctor",
-         "gives": "DR",
-         "note": "Dr is the title for a doctor"
-        },
-        {
-         "words": "computers etc.",
-         "gives": "IT",
-         "note": "IT is information technology"
-        }
-       ]
+       "words": "Doctor",
+       "at": 0,
+       "gives": "DR"
       },
       {
-       "words": "at this place",
-       "gives": "HERE",
-       "note": "here means at this place"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "computers etc.",
+         "at": 15,
+         "gives": "IT",
+         "note": "IT is information technology"
+        },
+        {
+         "words": "at this place",
+         "at": 30,
+         "gives": "HERE",
+         "note": "here means at this place"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor bringing in computer kit and dithering over how to use it.",
-     "definitionFit": "A ditherer is a person who hesitates indecisively, unable to make up their mind."
+     "surface": "A physician bringing technology into the surgery, unsure what to do with it.",
+     "definitionFit": "A ditherer is a person who hesitates and cannot make up their mind."
     },
     "features": {
      "answerInScene": true,
@@ -2893,51 +2896,56 @@
      "indicators": [
       {
        "text": "collects",
-       "note": "to collect is to gather in, so the Greek letter takes the others inside"
+       "at": 16,
+       "note": "collecting means gathering in, so the Greek letter holds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Greek character",
-         "gives": "PI",
-         "note": "pi is a Greek letter"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Greek character",
+       "at": 0,
+       "gives": "PI",
+       "note": "pi is a letter of the Greek alphabet"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "mostly",
-         "note": "mostly means not all of it, so the last letter of the heap is dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "heap for burning",
-         "gives": "PYRE",
-         "note": "a pyre is a pile of wood for burning"
+         "words": "a",
+         "at": 25,
+         "gives": "A"
         },
         {
-         "gives": "E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 45,
+           "note": "mostly means all but the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "heap for burning",
+           "at": 27,
+           "gives": "PYRE",
+           "note": "a pyre is a pile of wood for burning a body"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Greek figure gathering wood for a bonfire, mostly old papers.",
-     "definitionFit": "Papyri are ancient manuscripts written on papyrus reed sheets, old documents from Egypt and Greece."
+     "surface": "A Greek gathering material for a bonfire.",
+     "definitionFit": "Papyri are ancient manuscripts written on papyrus, especially from Egypt."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "character"
     }

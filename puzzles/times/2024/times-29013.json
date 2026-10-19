@@ -477,49 +477,54 @@
      "indicators": [
       {
        "text": "buried in",
-       "note": "something buried in a thing lies inside it, enclosed on all sides"
+       "at": 32,
+       "note": "being buried in something means lying inside it, so the following pieces go within the bones"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Bits of skeleton",
-         "gives": "BONES",
-         "note": "a skeleton is made of bones"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Bits of skeleton",
+       "at": 0,
+       "gives": "BONES",
+       "note": "the bits that make up a skeleton are bones"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "tailless",
-         "note": "without its tail means the final letter is cut off"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "dog",
-         "gives": "FIDO",
-         "note": "Fido is the stock name for a dog"
+         "words": "a",
+         "at": 17,
+         "gives": "A"
         },
         {
-         "gives": "O"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "tailless",
+           "at": 19,
+           "note": "a tailless word has lost its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dog",
+           "at": 28,
+           "gives": "FIDO",
+           "note": "Fido is the stock name for a pet dog"
+          },
+          {
+           "gives": "O"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dog buries some bones, with its owner trusting all is well.",
-     "walkthrough": "FIDO loses its last letter to give FID; A + FID goes inside BONES. Fido is the conventional dog's name.",
-     "definitionFit": "Bona fides is Latin for genuine honesty of intention, the sense of acting sincerely and honestly."
+     "surface": "A grim image of a dog burying bones, oddly said to be done honestly.",
+     "walkthrough": "Fido is the stock crossword name for a dog. The phrase is Latin, borrowed whole into English.",
+     "definitionFit": "Bona fides is Latin for good faith, used in English for sincerity of intention."
     },
     "features": {
      "answerInScene": false,
@@ -687,31 +692,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "GANTRY",
      "indicators": [
       {
        "text": "replacing",
-       "note": "replacing means one thing takes another's place, swapping a single letter"
+       "at": 12,
+       "note": "replacing tells us one letter of the aristocrats word is swapped out for the key"
       }
      ],
      "parts": [
       {
        "words": "Aristocrats",
+       "at": 0,
        "gives": "GENTRY",
        "note": "the gentry are the upper classes"
       },
       {
+       "gives": "E"
+      },
+      {
        "words": "key",
+       "at": 22,
        "gives": "A",
-       "note": "A is a musical key; it takes the place of E, another key"
+       "note": "A is a musical key"
       }
      ]
     },
     "explanation": {
-     "surface": "Members of the nobility are swapping out a central structural element.",
-     "walkthrough": "In GENTRY the key E is swapped for the key A. Musical keys run A to G, so any of those letters can be a key.",
-     "definitionFit": "A gantry is a bridge-like overhead structure supporting cranes, signals or rocket equipment."
+     "surface": "Nobles taking over a vital supporting structure.",
+     "walkthrough": "The key A takes the place of the E in GENTRY; E is itself a key, which is the swap the clue hints at.",
+     "definitionFit": "A gantry is a bridge-like overhead structure supporting cranes, signals or rocket launches."
     },
     "features": {
      "answerInScene": false,
@@ -953,36 +962,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "NIGHTMARE",
      "indicators": [
       {
        "text": "gets beheaded",
-       "note": "losing the head means the first letter is cut off"
+       "at": 46,
+       "note": "beheading something takes off its first letter, the head of the word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "champion",
-         "gives": "NIGHT",
-         "note": "a champion is a knight, a mounted warrior"
-        },
-        {
-         "words": "mounted",
-         "gives": "MARE",
-         "note": "what a mounted fighter rides on is a horse, here a mare"
-        }
-       ]
+       "words": "mounted champion",
+       "at": 29,
+       "gives": "KNIGHTMARE",
+       "note": "a champion on horseback is a knight on his mare"
+      },
+      {
+       "gives": "K"
       }
      ]
     },
     "explanation": {
-     "surface": "A dreadful ordeal in which a champion on horseback is decapitated.",
-     "walkthrough": "KNIGHT loses its K and sits on top of a MARE, as a mounted knight would in a down clue.",
-     "definitionFit": "A nightmare is a frightening dream, and by extension any terrifying or very unpleasant ordeal."
+     "surface": "A tale of a jousting knight losing his head, which would indeed be horrible.",
+     "walkthrough": "The mounted champion is a KNIGHT plus the MARE he rides; losing the head letter K leaves the bad dream.",
+     "definitionFit": "A nightmare is a frightening dream, and by extension any very unpleasant experience."
     },
     "features": {
      "answerInScene": true,
@@ -1553,36 +1555,38 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so one piece wraps round another"
+       "at": 15,
+       "note": "about means placed around, so the bail money goes round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "security",
+       "at": 37,
+       "gives": "BAIL",
+       "note": "bail is money given as security for an accused person's return"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "security",
-         "gives": "BAIL",
-         "note": "bail is money given as security for an accused person"
+         "words": "European",
+         "at": 21,
+         "gives": "E"
         },
         {
          "words": "wife",
+         "at": 30,
          "gives": "W",
-         "note": "W is the standard abbreviation for wife"
+         "note": "W is the genealogical abbreviation for wife"
         }
        ]
-      },
-      {
-       "words": "European",
-       "gives": "E",
-       "note": "E for European"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone laments the financial security of a European woman's wife.",
-     "walkthrough": "BAIL goes around E and W, although it appears last in the clue.",
-     "definitionFit": "To bewail is to lament, mourning loudly or showing great regret over something."
+     "surface": "A spouse lamenting the cost of putting up bail.",
+     "definitionFit": "To bewail is to lament or grieve over something aloud, a synonym of mourning."
     },
     "features": {
      "answerInScene": false,

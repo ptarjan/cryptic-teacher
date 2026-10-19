@@ -357,48 +357,51 @@
      "indicators": [
       {
        "text": "at first",
-       "note": "this tells the solver which piece is placed in front of the other"
+       "at": 16,
+       "note": "at first tells us the anagrammed piece comes before the other"
       }
      ],
      "parts": [
       {
-       "words": "it was",
-       "gives": "WAIST",
-       "note": "these letters rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "high",
+         "at": 33,
+         "note": "high means drunk or intoxicated, so the letters of it was stagger into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it was",
+         "at": 26
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "Climbing",
-         "note": "in a down entry, climbing means reading bottom to top, so the word runs backwards"
+         "at": 0,
+         "note": "in a down entry climbing means the word reads upwards, backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "high",
-           "note": "someone high on drugs is scrambled in the head, so these letters come out jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "weed",
-           "gives": "DEEP",
-           "note": "weed means urinated, PEED, read upwards"
-          }
-         ]
+         "words": "weed",
+         "at": 9,
+         "gives": "PEED",
+         "note": "to wee is to pee, so weed is peed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A climbing plant grew so tall that it reached hip height.",
-     "walkthrough": "'Weed' looks like a plant but is the past tense of wee, to urinate.",
-     "definitionFit": "Waist-deep describes water or growth reaching the waist, the level of the hips on a standing person."
+     "surface": "A climbing weed grew so tall it reached the hips.",
+     "walkthrough": "'weed' is not a plant here but the past tense of wee, PEED, which 'Climbing' reverses; 'high' rearranges IT WAS, and 'at first' puts that before.",
+     "definitionFit": "Waist-deep describes being immersed as high as the waist, roughly up to the hips."
     },
     "features": {
      "answerInScene": true,

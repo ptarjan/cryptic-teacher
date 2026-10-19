@@ -183,40 +183,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in puts the man and son inside the court's initials"
+       "at": 19,
+       "note": "in tells us the man and son sit inside the court letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Court of Session",
-         "gives": "CS",
-         "note": "initials of Scotland's supreme civil court"
-        },
-        {
-         "words": "chap",
-         "gives": "HE",
-         "note": "a chap is a he"
-        }
-       ]
+       "words": "Court of Session",
+       "at": 22,
+       "gives": "CS",
+       "note": "CS is the abbreviation for the Court of Session, Scotland's supreme civil court"
       },
       {
-       "words": "son",
-       "gives": "S",
-       "note": "standard abbreviation for son"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "chap",
+         "at": 5,
+         "gives": "HE",
+         "note": "he is the pronoun for a chap"
+        },
+        {
+         "words": "son",
+         "at": 15,
+         "gives": "S",
+         "note": "S is the genealogical abbreviation for son"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man and his son play a game in a Scottish court.",
-     "walkthrough": "The Court of Session is Scotland's highest civil court.",
-     "definitionFit": "Chess is the board game of kings and pawns, so it is a game."
+     "surface": "A father and son appearing before the Scottish court.",
+     "definitionFit": "Chess is the board game of kings, queens and checkmate."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Court"
     }
    }
   },
@@ -687,64 +691,55 @@
      "indicators": [
       {
        "text": "Visiting",
-       "note": "visiting someone means going inside their home, so the following pieces go inside the old lady"
+       "at": 0,
+       "note": "a visitor goes inside someone's home, so the pieces go inside the grandmother word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "old lady",
+       "at": 9,
+       "gives": "GRAN",
+       "note": "gran is a familiar word for a grandmother"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "old lady",
-           "gives": "GRAN",
-           "note": "grandmother; split round the rest"
-          },
-          {
-           "words": "I",
-           "gives": "EGO",
-           "note": "the ego is the I, the self"
-          }
-         ]
+         "words": "I",
+         "at": 19,
+         "gives": "EGO",
+         "note": "ego is Latin for I, the self"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "initially",
-           "note": "initially means taking only the first letters of the next words"
+           "at": 21,
+           "note": "initially takes the first letters of revel and in"
           }
          ],
          "parts": [
           {
-           "words": "revel",
-           "note": "first letter"
+           "words": "revel in",
+           "at": 31
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
-        {
-         "words": "in",
-         "note": "first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Calling on granny, someone first delights in plainsong.",
-     "definitionFit": "Gregorian chant is the plainsong of the Roman Church named after Pope Gregory, so it is a kind of chant."
+     "surface": "Someone calling on granny and enjoying the plainsong.",
+     "walkthrough": "'I' is not a letter here but the Latin pronoun, and 'in' is not a link word: its first letter joins that of 'revel'.",
+     "definitionFit": "Gregorian chant is the plainsong of the Western church, named after Pope Gregory I."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "I"
+     "misdirectedWord": "Visiting"
     }
    }
   },

@@ -589,33 +589,37 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "going back means the pair before it is read in the opposite direction"
+       "text": "among",
+       "at": 22,
+       "note": "among means placed amid, so the pieces sit between the hundreds"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "among",
-         "note": "being among something places it inside, between the outer letters"
-        }
-       ],
+       "words": "the hundreds",
+       "at": 28,
+       "gives": "CC",
+       "note": "C is the Roman numeral for a hundred, so two hundreds give two Cs"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 17,
+           "note": "back signals the nothing word is turned round"
+          }
+         ],
          "parts": [
           {
-           "words": "the hundreds",
-           "gives": "CC",
-           "note": "C is the Roman numeral for a hundred; two of them for the plural"
-          },
-          {
            "words": "nothing",
+           "at": 9,
            "gives": "NIL",
            "note": "nil means nothing"
           }
@@ -623,20 +627,20 @@
         },
         {
          "words": "One",
+         "at": 0,
          "gives": "I",
-         "note": "Roman numeral one"
+         "note": "I is the Roman numeral one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A patient between hundreds of others, getting nothing back.",
-     "walkthrough": "'One gets nothing' joins I and NIL, and the whole pair is turned round before sitting between the two hundreds.",
-     "definitionFit": "A clinic is a place where patients go to receive medical treatment or advice."
+     "surface": "Someone getting nothing in return among a crowd of hundreds.",
+     "definitionFit": "A clinic is a place where patients get medical attention, often as outpatients."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "hundreds"
     }
@@ -769,42 +773,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "takes in",
-       "note": "taking something in holds it inside, so the other pieces go within"
+       "text": "who takes in",
+       "at": 14,
+       "note": "taking in means enclosing, so the male word goes around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "chap",
-         "gives": "MALE",
-         "note": "a chap is a male"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "abbreviation for new"
-        }
-       ]
+       "words": "chap",
+       "at": 9,
+       "gives": "MALE",
+       "note": "a chap is a male"
       },
       {
-       "words": "worker",
-       "gives": "HAND",
-       "note": "a hand is a manual worker"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 27,
+         "gives": "N"
+        },
+        {
+         "words": "worker",
+         "at": 31,
+         "gives": "HAND",
+         "note": "a hand is a manual worker"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boss who hires a new worker and then treats them badly.",
-     "walkthrough": "'chap' tempts MAN at the start, but it is the four-letter word that wraps the rest.",
-     "definitionFit": "To manhandle is to handle someone roughly, pushing or dragging them."
+     "surface": "A man hiring a new employee and treating them badly.",
+     "definitionFit": "To manhandle is to treat someone roughly or push them about physically."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "takes"
+     "misdirectedWord": "worker"
     }
    }
   },
