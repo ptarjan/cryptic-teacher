@@ -450,6 +450,8 @@ FRESH_POLL = 30
 STOP_GRACE = 30
 
 
+GAME_DROP_EVERY = 900  # seconds between page-cache drops while a game lasts
+
 def game_scans():
     """Scans left running while a game runs (CT_GAME_SCAN_WORKERS, 3): the rest are TERMed and left deferred."""
     try:
@@ -1460,13 +1462,41 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     shed = {}  # pid: when its TERM went
     game_now = [False]
 
+    # A game also wants the RAM the WSL VM holds: Linux's page cache stays in the VM (Windows sees it
+    # as vmmemWSL) after the units end (Paul 10-18: "wow is slow ... you're not freeing your ram hog
+    # thing"; Windows was down to 1 GB free, 7 GB after a drop). CT_GAME_DROP_CACHE, a shell command
+    # (unset runs none), runs once the stopped units are gone (or their grace is over), then
+    # every GAME_DROP_EVERY seconds while the game lasts, in the background.
+    drop_at = [None, None]  # (when the game began, when the last drop ran)
+
+    def drop_cache(now):
+        cmd = os.environ.get("CT_GAME_DROP_CACHE", "").strip()
+        if not cmd:
+            return
+        began, last = drop_at
+        if last is None:
+            if any(u["kind"] != "fetch" for _, (u, _) in units_running()) and now - began < 2 * STOP_GRACE + yield_grace():
+                return
+        elif now - last < GAME_DROP_EVERY:
+            return
+        drop_at[1] = now
+        try:
+            subprocess.Popen(["sh", "-c", cmd], stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
+                             stderr=subprocess.DEVNULL, start_new_session=True)
+            log("game: dropping the VM's page cache so Windows gets the RAM back")
+        except OSError as e:
+            log(f"game: page-cache drop failed: {e}")
+
     def freeze(game):
         game_now[0] = game
         if not game:
             thaw()
             shed.clear()
+            drop_at[:] = [None, None]
             return
         now = time.monotonic()
+        if drop_at[0] is None:
+            drop_at[0] = now
         live = sorted((t0, pid) for pid, (u, t0) in units_running() if u["kind"] == "scan" and pid not in shed)
         new = [pid for _, pid in live[game_scans():]]  # the oldest scans keep running
         for pid in new:
@@ -1488,6 +1518,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             b.pause()
         if new:
             log(f"game: TERM to {len(new)} scan(s) beyond the {game_scans()} that may run on; they are left for after it")
+        drop_cache(now)
 
     def thaw():
         """SIGCONT the stopped --beside filers, crediting them the time stopped."""
