@@ -2457,6 +2457,18 @@ check("clues read alike by two readers are settled, a blank one is weak", {"7-ac
 rd3 = {"djvu": good, "ch": good.replace("Fish in the sea", "Fisk in the sea")}
 check("a clue only one of two readings prints as filed is weak", {"6-across"},
       f.weak_lights(rd3, filed_laid, {}, lens))
+# A reader that lost a clue's number, or ran its count into the next column's
+# text, still printed the clue: two such readings settle it (1948 Gale pages:
+# "These go before us", "Underground watchword (6) nem EDGES PuattsuiN").
+nonum = {"ch": good.replace("6 Fish in the sea (5)", "Fish in the sea (5)"),
+         "en5": good.replace("6 Fish in the sea (5)", "Fish in the sea (5) nem EDGES PuattsuiN Company, Limited")}
+long_laid = {**filed_laid, "6-across": ("Fish in the sea off Cornwall", "5", None)}
+nonum = {k: t.replace("Fish in the sea", "Fish in the sea off Cornwall") for k, t in nonum.items()}
+check("two readings that print a clue with no number or with junk after it settle it", set(),
+      f.weak_lights(nonum, long_laid, {}, {"6-across": [1] * 5}))
+check("one such reading does not settle it", {"6-across"},
+      f.weak_lights({"ch": nonum["ch"]}, long_laid, {}, {"6-across": [1] * 5}))
+check("a short clue is not settled by a run inside another clue", False, f.prints_clue("Fish in the sea (5) Cat on a mat", "cat"))
 colA = [(0, 10, 0, 50, "ACROSS"), (12, 22, 0, 50, "1 Bird in a tree (5)")]
 colB = [(0, 10, 60, 110, "6 Fish in the sea (5)"), (12, 22, 60, 110, "DOWN 1 Cat on a mat (5)")]
 colB = [(0, 10, 60, 110, "6 Fish in the sea (5)")]
