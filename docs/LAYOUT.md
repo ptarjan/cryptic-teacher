@@ -2046,6 +2046,8 @@ tools/test_archive_org_jumbo.py                does tools/archive_org_jumbo.py t
                                                when its middle prints grey?
 tools/test_difficulty_barred.py                is a barred grid's checking rated against barred
                                                grids, not blocked ones?
+tools/test_difficulty_one_scale.py             is every paper scored by one function on one scale,
+                                               with no series named in it?
 tools/test_no_doubled_paper.py                 does any series' page say the same word twice
                                                running ("Listener Listener")? Renders a
                                                crawlable page for every series in
