@@ -126,6 +126,18 @@ filed, and the expression cannot write one. The tree, in brief:
   with one part: what it removes is not stated) and `wordplay.indInLeaf` (an
   indicator word also inside a longer leaf). `tools/tidy_wordplay_shapes.py` joined the
   charades in charades whose `view()` is unchanged and recorded the rest.
+  Eleven more, each one function in `validate_annotations.py` and one message:
+  `wordplay.scrambledLeaf` (leaf gives its clue words' letters out of order),
+  `wordplay.indFolded` (indicator words folded into a leaf),
+  `wordplay.fakeParts` (substitution padded with wordless parts that are not in the clue),
+  `wordplay.paddingLeaf` (unchecked clue-word leaf with no letters given),
+  `wordplay.nestedContainer` (container whose holder is itself a container),
+  `wordplay.anagramSynonym` (synonym scrambled inside an anagram),
+  `wordplay.misplacedIndicator` (indicator filed on an op it does not signal),
+  `wordplay.bareInitial` (leaf gives the first letter of its words with no selection),
+  `wordplay.deletionScope` (deletion whose removed letters are not where its indicator says),
+  `wordplay.wrongRole` (indicator filed on an op of another type) and
+  `wordplay.deletionInside` (deletion over a charade that takes letters from one piece, or a whole piece the charade added).
   Two more ratchets (`tools/lesson_checks.py`) have no rewrite: `wordplay.ddMissesWordplay`
   (two definitions and no wordplay, in a clue that hides the answer across words or holds
   its letters in a run of whole words: parse it) and `spelling.unsaid` (an answer with an
@@ -259,7 +271,10 @@ tree.
   means the definition). New annotations need `definitionFit`, and `surface`
   on a clue of four or more words that is not a pure double or cryptic
   definition; `tools/annotation_backlog.json` lists older puzzles' allowance
-  under each key's dotted path (`explanation.surface`, `indicators.note`).
+  under each key's dotted path (`explanation.surface`, `explanation.definitionFit`,
+  `indicators.note`). Two more keys count the same way: `blocks.note` (a block
+  with no `note` saying what its fragment does) and `indicators.for` (an indicator
+  with no `for` naming the op type it signals).
 - Letter mechanics must be machine-checkable, through `assembly`:
   - `pieces` must concatenate to the answer.
   - Each of `anagrams` is `{fodder, gives}` with `fodder` a rearrangement of
