@@ -495,39 +495,42 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one word goes round the others"
+       "at": 10,
+       "note": "the chatter word goes about the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Idle talk",
-         "gives": "GAS",
-         "note": "gas is informal for idle chatter"
-        },
-        {
-         "words": "it",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Idle talk",
+       "at": 0,
+       "gives": "GAS",
+       "note": "gas is idle chatter"
       },
       {
-       "words": "King Edward",
-       "gives": "ER",
-       "note": "ER stands for Edwardus Rex, King Edward's royal cipher"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "it",
+         "at": 16
+        },
+        {
+         "words": "King Edward's",
+         "at": 20,
+         "gives": "ER",
+         "note": "ER is the royal cipher for Edward Rex, King Edward"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Gossip about a king's quarrels, as if King Edward were having spats.",
-     "walkthrough": "'spats' looks like quarrels, but it means ankle coverings worn over shoes.",
-     "definitionFit": "Spats are short cloth coverings for the ankle and shoe, which are a kind of gaiter."
+     "surface": "Gossip about King Edward's fashion for spats.",
+     "walkthrough": "'Spats' looks like quarrels, which suits the idle talk, but it is the footwear.",
+     "definitionFit": "Spats are short cloth coverings worn over the shoe and ankle, a short form of gaiter."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "spats"
     }

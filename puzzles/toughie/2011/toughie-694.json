@@ -117,31 +117,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BIGGUN",
      "indicators": [
       {
-       "text": "exchanging one French article for another",
-       "note": "swapping one French word for 'the' or 'a' with a different one tells us to replace part of the pilot's name"
+       "text": "exchanging",
+       "at": 10,
+       "note": "one piece is swapped out of the name and another put in its place"
       }
      ],
      "parts": [
       {
        "words": "pilot",
+       "at": 4,
        "gives": "BIGGLES",
        "note": "Biggles is the fictional flying ace of W. E. Johns's boys' adventure books"
       },
       {
-       "words": "French article",
+       "words": "one French article",
+       "at": 21,
+       "gives": "LES",
+       "note": "les is French for 'the' plural"
+      },
+      {
+       "words": "for another",
+       "at": 40,
        "gives": "UN",
-       "note": "un is French for 'a', replacing les, French for 'the' (plural)"
+       "note": "un, French for 'a', is the other French article put in its place"
       }
      ]
     },
     "explanation": {
-     "surface": "An important passenger's pilot being swapped mid-flight for someone else.",
-     "walkthrough": "BIGGLES ends in LES, a French article; swap it for another, UN, and BIGG plus UN gives BIG GUN. Biggles is a fictional British pilot known from children's books.",
-     "definitionFit": "A big gun is informal slang for a powerful, important person, much like a very important person."
+     "surface": "An important pilot swaps one French word for another.",
+     "walkthrough": "The pilot is Biggles, a British fictional airman from 1930s boys' stories.",
+     "definitionFit": "A big gun is an informal term for an important, influential person."
     },
     "features": {
      "answerInScene": false,
@@ -581,26 +588,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "AWING",
      "indicators": [
       {
        "text": "not",
-       "note": "'not' tells us the word for deviation must be without the letter standing for an unknown"
+       "at": 10,
+       "note": "not means the following piece is left out"
       }
      ],
      "parts": [
       {
-       "words": "Deviation not unknown",
-       "gives": "AWING",
-       "note": "yawing is a swerve off course; lose Y, a mathematical unknown"
+       "words": "Deviation",
+       "at": 0,
+       "gives": "YAWING",
+       "note": "yawing is a plane or ship deviating from its course"
+      },
+      {
+       "words": "unknown",
+       "at": 14,
+       "gives": "Y",
+       "note": "y is an algebraic unknown"
       }
      ]
     },
     "explanation": {
-     "surface": "A pilot's drift off course, reported as something that happened mid-flight.",
-     "walkthrough": "Yawing is a ship's or aircraft's swing off course, and in algebra x, y and z are the unknowns, so Y goes. The answer's hyphen marks the old prefix a-, as in afloat.",
-     "definitionFit": "A-wing is a literary form meaning on the wing, that is, while flying through the air."
+     "surface": "An aircraft's sideways swerve is noted mid-air.",
+     "walkthrough": "'not' removes Y, the mathematician's unknown, from YAWING.",
+     "definitionFit": "A-wing is an old word meaning on the wing, in the air, so while flying."
     },
     "features": {
      "answerInScene": true,
@@ -1253,42 +1266,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "JOBSWORTH",
-     "indicators": [
-      {
-       "text": "incessantly",
-       "note": "without ceasing means without an end, so the words 'cursed' and 'the' each lose their final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Patient chap",
+       "at": 0,
+       "gives": "JOB",
+       "note": "Job in the Bible is proverbial for patience"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "incessantly",
+         "at": 13,
+         "note": "without ceasing, read as without the ends, so each word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Patient chap",
-         "gives": "JOB",
-         "note": "Job is the biblical man famous for his patience"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "cursed",
+           "at": 25,
+           "gives": "SWORE",
+           "note": "swore means cursed"
+          },
+          {
+           "words": "the",
+           "at": 32
+          }
+         ]
         },
         {
-         "words": "cursed",
-         "gives": "SWOR",
-         "note": "swore, minus its last letter"
-        },
-        {
-         "words": "the",
-         "gives": "TH",
-         "note": "the word minus its last letter"
+         "gives": "EE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A long-suffering man cursing endlessly at an obstructive bureaucrat.",
-     "walkthrough": "'Patient' looks like a hospital patient, but it is the man with the patience of Job. A jobsworth is British slang for a petty official who says 'it's more than my job's worth'.",
-     "definitionFit": "A jobsworth insists on sticking to petty rules, refusing any flexibility for fear of losing his post."
+     "surface": "A long-suffering man kept swearing at a rigid bureaucrat.",
+     "walkthrough": "'incessantly' docks the final E from both SWORE and THE. A jobsworth is British slang for a petty official who says 'it's more than my job's worth'.",
+     "definitionFit": "A jobsworth is a minor functionary who applies rules rigidly, refusing any flexibility."
     },
     "features": {
      "answerInScene": true,
