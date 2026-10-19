@@ -186,16 +186,16 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "used in",
-       "note": "something used in another thing is put inside it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "used in",
+         "note": "something used in another thing is put inside it"
+        }
+       ],
        "parts": [
         {
          "words": "South Africa",
@@ -203,30 +203,30 @@
          "note": "SA is the standard abbreviation for South Africa"
         },
         {
-         "words": "port",
-         "gives": "RIO",
-         "note": "Rio de Janeiro, the Brazilian port, often shortened"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "note": "mostly means not quite all, so the final letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "currency unit",
+           "gives": "CENT",
+           "note": "a cent is a hundredth of a dollar or euro"
+          },
+          {
+           "gives": "T"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "mostly",
-         "note": "mostly means not quite all, so the final letter is dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "currency unit",
-         "gives": "CENT",
-         "note": "a cent is a hundredth of a dollar or euro"
-        },
-        {
-         "gives": "T"
-        }
-       ]
+       "words": "port",
+       "gives": "RIO",
+       "note": "Rio de Janeiro, the Brazilian port, often shortened"
       }
      ]
     },

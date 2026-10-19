@@ -462,16 +462,16 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "broken by",
-       "note": "something broken by another thing is split open with that thing put in the gap"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "broken by",
+         "note": "something broken by another thing is split open with that thing put in the gap"
+        }
+       ],
        "parts": [
         {
          "words": "delicate",
@@ -479,27 +479,27 @@
          "note": "frail means delicate"
         },
         {
-         "words": "base",
-         "gives": "E",
-         "note": "e is the base of natural logarithms"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "bottom",
+           "note": "the bottom of a word is its final letter, so only that is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dog's",
+           "gives": "DOG",
+           "note": "the final letter of dog"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "bottom",
-         "note": "the bottom of a word is its final letter, so only that is kept"
-        }
-       ],
-       "parts": [
-        {
-         "words": "dog's",
-         "gives": "DOG",
-         "note": "the final letter of dog"
-        }
-       ]
+       "words": "base",
+       "gives": "E",
+       "note": "e is the base of natural logarithms"
       }
      ]
     },
