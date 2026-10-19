@@ -502,49 +502,51 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means in the end, so only the word's end letter is used"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "note": "ultimately means in the end, so only the word's end letter is used"
-          },
-          {
-           "text": "restraining",
-           "note": "the outer word holds the others inside it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "crime",
-           "note": "the last letter of crimE"
-          }
-         ]
-        },
-        {
-         "words": "superheroes",
-         "gives": "XMEN",
-         "note": "the X-Men are Marvel superheroes; they are split around the next two pieces"
+         "words": "crime",
+         "note": "the last letter of crimE"
         }
        ]
       },
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "restraining",
+         "note": "the outer word holds the others inside it"
+        }
+       ],
        "parts": [
         {
-         "words": "serial",
-         "gives": "SER",
-         "note": "ser. is the standard abbreviation for serial"
+         "words": "superheroes",
+         "gives": "XMEN",
+         "note": "the X-Men are Marvel superheroes; they are split around the next two pieces"
         },
         {
-         "words": "evil",
-         "gives": "VICE",
-         "note": "vice = evil, wickedness"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "serial",
+           "gives": "SER",
+           "note": "ser. is the standard abbreviation for serial"
+          },
+          {
+           "words": "evil",
+           "gives": "VICE",
+           "note": "vice = evil, wickedness"
+          }
+         ]
         }
        ]
       }
