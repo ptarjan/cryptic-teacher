@@ -91,5 +91,43 @@ check("two first-type selectors are left alone",
       F.repair_tree({**bush, "indicators": [{"text": "off with Tony's beginning and start", "at": 10}]},
                     "Bet Dubya off with Tony's beginning and start", "BEDAUB", {"delSelection": F.r_del_selection})[1] == [])
 
+# the word sits on the enclosing charade but belongs to a child op, the child holding a wrong word
+# (independent-12410 1a BUSHRANGER): charade<mistakenly>(BUSH, ana<ignoring>(del(..))).
+bush = {"op": "charade", "indicators": [{"text": "mistakenly"}], "parts": [
+    {"words": "Former US President", "gives": "BUSH"},
+    {"op": "anagram", "indicators": [{"text": "ignoring"}], "parts": [
+        {"op": "deletion", "parts": [{"words": "R Reagan", "gives": "RANGER"}, {"words": "a", "gives": "A"}]}]}]}
+new, used = F.repair_tree(bush, "Former US President — R Reagan — mistakenly ignoring a backwoodsman",
+                          "BUSHRANGER", {"wrongRole": F.r_wrong_role})
+ana, dele = new["parts"][1], new["parts"][1]["parts"][0]
+check("mistakenly moves down to the anagram, ignoring to the deletion",
+      "indicators" not in new and ana["indicators"][0]["text"] == "mistakenly"
+      and dele["indicators"][0]["text"] == "ignoring")
+# three words each on the wrong op rotate (quiptic-1368 14d).
+rot = {"op": "container", "indicators": [{"text": "order"}], "parts": [
+    {"words": "river", "gives": "EED"},
+    {"op": "reversal", "indicators": [{"text": "to enter"}], "parts": [
+        {"op": "anagram", "indicators": [{"text": "rising"}], "parts": [{"words": "a silly"}]}]}]}
+new, used = F.repair_tree(rot, "Trusting a silly order to enter rising river", "EASILYLED", {"wrongRole": F.r_wrong_role})
+check("order/to enter/rising rotate to their ops", new["indicators"][0]["text"] == "to enter"
+      and new["parts"][1]["indicators"][0]["text"] == "rising"
+      and new["parts"][1]["parts"][0]["indicators"][0]["text"] == "order")
+# a parent word the corpus has no owner for trades with the child's: ins<frenziedly>(ana<crossing>(..), R).
+unk = {"op": "container", "indicators": [{"text": "frenziedly"}], "parts": [
+    {"op": "anagram", "indicators": [{"text": "crossing"}], "parts": [{"words": "A squire"}]},
+    {"words": "river", "gives": "R"}]}
+new, used = F.repair_tree(unk, "A squire frenziedly crossing river", "QUARRIES", {"wrongRole": F.r_wrong_role})
+check("an unowned word trades with the child's", new["indicators"][0]["text"] == "crossing"
+      and new["parts"][0]["indicators"][0]["text"] == "frenziedly")
+# a leaf folding two cuts (cyclops-770 14d TRICOLOUR): Labour's lacking a British -> LOUR.
+clue2 = "Cor! It's awful — Labour's lacking a British standard"
+fold = {"words": "Labour's lacking a British", "gives": "LOUR", "at": clue2.index("Labour")}
+got = F.r_leaf_fold(fold, None, {"clue": clue2, "under_unchecked": set()})
+check("two cuts become a deletion of A and B from Labour", got is not None and got["op"] == "deletion"
+      and [p["words"] for p in got["parts"]] == ["Labour", "a", "British"]
+      and [p.get("gives") for p in got["parts"][1:]] == ["A", "B"])
+bad = {**fold, "gives": "LOUX"}
+check("two cuts that do not spell the letters are left", F.r_leaf_fold(bad, None, {"clue": clue2, "under_unchecked": set()}) is None)
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
