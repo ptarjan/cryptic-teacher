@@ -279,77 +279,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRAINEE",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite complete, so the final letter is dropped"
+       "text": "in",
+       "at": 20,
+       "note": "in means the shortened word goes inside the central letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre of",
+         "at": 23,
+         "note": "centre of takes the two middle letters of Ostend"
+        }
+       ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "T",
-         "indicators": [
-          {
-           "text": "centre of",
-           "note": "the centre of a word is its middle letters, so only those are kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Ostend",
-           "gives": "T",
-           "select": "middle",
-           "note": "the middle two letters of this six-letter word; the first is written here"
-          }
-         ]
+         "words": "Ostend",
+         "at": 33,
+         "note": "middle letters of Ostend"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 8,
+         "note": "almost means the final letter is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fell",
+         "at": 15,
+         "gives": "RAINED",
+         "note": "rained means fell, of precipitation"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "one thing in another is placed inside it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "fell",
-           "gives": "RAINE",
-           "note": "rain fell, so rained, with its last letter dropped"
-          },
-          {
-           "op": "middle",
-           "unchecked": true,
-           "gives": "E",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "Ostend",
-             "gives": "E",
-             "select": "middle",
-             "note": "the second of the two middle letters"
-            }
-           ]
-          }
-         ]
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A beginner nearly took a tumble in the middle of the Belgian port of Ostend.",
-     "walkthrough": "'Fell' suggests tumbling over, but here it describes weather: rain fell, so RAINED, cut short and set inside TE.",
-     "definitionFit": "A trainee is someone being taught a job or skill, so a learner in the general sense."
+     "surface": "A learner nearly fell over in the middle of Ostend, a Belgian port.",
+     "walkthrough": "'fell' looks like stumbling over, but it is the verb used of rain coming down. Ostend is a Belgian port.",
+     "definitionFit": "A trainee is someone learning a job, a learner."
     },
     "features": {
      "answerInScene": true,
@@ -593,35 +575,38 @@
      "indicators": [
       {
        "text": "tucking into",
-       "note": "to tuck into something is to push inside it"
+       "at": 9,
+       "note": "tucking into means the doctor piece goes inside the old lady's"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "old lady's",
+       "at": 22,
+       "gives": "MAS",
+       "note": "ma is mother, the old lady, so ma's"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "old lady's",
-         "gives": "MAS",
-         "note": "old lady is slang for mother, MA, with the possessive S"
+         "words": "A",
+         "at": 0
         },
         {
          "words": "doctor",
+         "at": 2,
          "gives": "DR",
-         "note": "Dr is the abbreviation for doctor"
+         "note": "DR is doctor"
         }
        ]
-      },
-      {
-       "words": "A",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor tucking into an old woman's curry dinner.",
-     "walkthrough": "'Tucking into' suggests eating, but here the doctor is inserted after the M of MA'S.",
-     "definitionFit": "Madras is a fairly hot Indian-restaurant curry, named after the city now called Chennai."
+     "surface": "A doctor eats his mother's curry.",
+     "walkthrough": "'tucking into' looks like eating the curry, but it is a container signal.",
+     "definitionFit": "A madras is a fairly hot Indian curry, named after the city now called Chennai."
     },
     "features": {
      "answerInScene": true,

@@ -456,33 +456,35 @@
      }
     ],
     "wordplay": {
-     "op": "regular",
-     "unchecked": true,
-     "gives": "ACKACK",
+     "op": "deletion",
      "indicators": [
       {
        "text": "regularly chopped",
-       "note": "chopping at regular points removes the letter in the same position of each word"
+       "at": 12,
+       "note": "the word splits into two equal halves, and each is chopped at the same point, its head"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Hiking gear",
-       "gives": "ACKACK",
-       "select": "regular",
-       "note": "a back pack, with the opening letter of each word cut off"
+       "at": 0,
+       "gives": "BACKPACK",
+       "note": "a backpack is a walker's bag"
+      },
+      {
+       "gives": "BP"
       }
      ]
     },
     "explanation": {
-     "surface": "A rucksack hacked into kindling for a campfire.",
-     "walkthrough": "Hiking gear is BACK PACK; regularly means the same position, here the first letter, goes from each half.",
-     "definitionFit": "Ack-ack is old military slang for anti-aircraft gunfire, from the signallers' alphabet for the letters AA."
+     "surface": "Instructions to cut up a hiking kit to make a fire.",
+     "walkthrough": "BACKPACK falls into BACK and PACK; chopping the head off each, at regular intervals, removes B and P.",
+     "definitionFit": "Ack-ack is anti-aircraft gunfire, from the old signallers' alphabet for AA."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "fire"
     }
    }

@@ -95,47 +95,44 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SEWAGE",
+     "op": "charade",
      "indicators": [
       {
        "text": "with",
-       "note": "the envelope holds the next item, so the payment goes inside the kept pair"
+       "at": 19,
+       "note": "with means the payment is joined on beside the envelope letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "envelope",
+         "at": 10,
+         "note": "envelope picks the outside letters of secretive, its first and last"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "envelope",
-           "note": "an envelope is the outside wrapping, so only the outermost letters of the word before it are kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Secretive",
-           "note": "first and last letters of Secretive"
-          }
-         ]
-        },
-        {
-         "words": "payment",
-         "gives": "WAGE",
-         "note": "a wage is a payment for work"
+         "words": "Secretive",
+         "at": 0,
+         "note": "first and last letters of secretive"
         }
        ]
+      },
+      {
+       "words": "payment",
+       "at": 24,
+       "gives": "WAGE",
+       "note": "a wage is a payment"
       }
      ]
     },
     "explanation": {
-     "surface": "A secret envelope of cash paid to a water company sounds like a corruption story.",
-     "walkthrough": "Thames Water is the privatised utility supplying London, often criticised for discharging untreated waste into rivers; the question mark flags the jibe.",
-     "definitionFit": "Sewage is waste water, and the utility's sewers handle it, so it is ironically called the company's output."
+     "surface": "A shady envelope of cash paid by a water company.",
+     "walkthrough": "'envelope' suggests a container, but here it is just the outside of 'Secretive'. Thames Water is the London water and sewerage firm.",
+     "definitionFit": "Water companies deal with waste water, and their sewage outflows into rivers are notorious."
     },
     "features": {
      "answerInScene": true,
@@ -1045,23 +1042,32 @@
     "definitions": [
      {
       "text": "Potential loser",
-      "at": 0,
-      "meaning": "first meaning: the competitor expected to lose"
-     },
-     {
-      "text": "may be grounded",
-      "at": 16,
-      "meaning": "second, cryptic meaning: a hound put beneath the ground, a dog that is under"
+      "at": 0
      }
     ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "may be",
+       "at": 16,
+       "note": "may be means the letters of grounded could become another word once rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "grounded",
+       "at": 23
+      }
+     ]
+    },
     "explanation": {
-     "walkthrough": "Split the answer into two words: a dog that is below, as if buried or kept down, is 'grounded'.",
-     "definitionFit": "The underdog is the contestant judged likely to be beaten, so a possible loser."
+     "surface": "A likely loser might be kept from flying.",
+     "definitionFit": "The underdog is the competitor expected to lose a contest."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "grounded"
     }
    }
