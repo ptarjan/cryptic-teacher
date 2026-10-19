@@ -5953,7 +5953,7 @@ def _sibling_gives(kids, d, cut_part):
         return 0  # r31 judged: a plain truncation indicator beside a pick of the same letter is a coincidence (9 of 40 fine)
     try:
         cut = wordplay.values(cut_part)
-        return int(any(k.get("op") in ("first", "last") and not k.get("unchecked") and wordplay.values(k) & cut
+        return int(any(k.get("op") in ("first", "last", "nth") and not k.get("unchecked") and wordplay.values(k) & cut
                        for k in kids if k is not d))
     except Exception:
         return 0
@@ -6556,9 +6556,12 @@ CUT_NOTE_LEAF = "leaf gives a non-word that its note says is a real word with le
 OWN_IND_IN_LEAF = "op's own indicator words also sit inside its leaf (at the end, or the start of a non-selection)"
 #: "briefly" and "concise" are left out: they are the abbreviation convention (Science briefly = SCI; 6 of 6 judged fine).
 _TRUNC_WORDS = frozenset("mostly almost nearly largely curtailed endlessly practically virtually partly "
-                         "shortened contracted abbreviated truncated clipped".split())
+                         "shortened contracted abbreviated truncated clipped skimmed trimmed docked beheaded "
+                         "decapitated topped tailed".split())
 #: "briefly" counts only when the leaf's own note says a word was shortened ("RAVE, shortened"), r30 FN.
 _BRIEFLY_CUT = re.compile(r"\b(?:shortened|clipped|without|loses|lost|drop\w*|truncated|last letter)\b", re.I)
+#: r32 FN: a leaf ULE whose note says "YULE with its first letter removed" is a word, so only the note shows the cut.
+_LETTER_REMOVED = re.compile(r"\b(?:letter|first|last|final|end)\b[^.;]{0,20}\bremoved\b", re.I)
 _TRUNC_PHRASES = ("cut short", "not quite", "not entirely", "not completely", "not fully", "cut off")
 _CUT_NOTE = re.compile(r"\b(?:without|minus|missing|losing|loses|lacking|dropp\w*|drops|clipped|truncated|shortened|"
                        r"lopped|omitting|stops short|loses|cut)\b[^.;]{0,40}\b(?:letter|last|first|final|end|head|"
@@ -6595,7 +6598,7 @@ def trunc_in_leaf(tree):
             continue
         g = wordplay.letters(node["gives"]).lower()
         note = str(node.get("note") or "")
-        if len(g) >= 3 and (g not in lex or _BRIEFLY_CUT.search(note)) and "'" not in note + text \
+        if len(g) >= 3 and (g not in lex or _BRIEFLY_CUT.search(note) or _LETTER_REMOVED.search(note)) and "'" not in note + text \
                 and any(g + c in lex or c + g in lex for c in "abcdefghijklmnopqrstuvwxyz"):
             n += 1
     return n
@@ -6636,6 +6639,124 @@ def cut_note_leaf(tree):
                 and "'" not in note + str(node.get("words")) and "apostrophe" not in note.lower() \
                 and not node.get("soundsLike") \
                 and (_CUT_NOTE.search(note) or _CUT_LETTER.search(note)):
+            n += 1
+    return n
+
+
+ANA_LONE_EDGE = "anagram scrambles a single letter that the answer shows at its start or end"
+ANA_LITERAL_EDGE = "anagram holds a clue word as written at the edge of its fodder, and the answer shows it unscrambled at its edge"
+DEL_WRAPS_CHARADE = "deletion wraps a charade though its indicator stands between the charade's pieces, so it cuts one piece"
+
+
+def _pull_part(tree, node, idx, front):
+    """A copy of `tree` with part `idx` of anagram `node` taken out and set beside it in a charade."""
+    t = copy.deepcopy(tree)
+    for cur in _walk(t):
+        if cur.get("op") == "anagram" and cur.get("parts") == node.get("parts") and cur.get("indicators") == node.get("indicators"):
+            piece = cur["parts"].pop(idx)
+            mid = dict(cur)
+            cur.clear()
+            cur.update({"op": "charade", "parts": [piece, mid] if front else [mid, piece]})
+            return t
+    return None
+
+
+def _anagrams_with_pulled_part(tree, answer, pick, keep_order=False):
+    """How many anagrams in `tree` have a part `pick(parts, idx)` accepts that, set outside the anagram at
+    the start or the end of a charade, still gives the answer. `keep_order`: a first part may only go to the
+    start and a last part to the end (the piece stays where the clue put it)."""
+    if not answer or not isinstance(tree, dict):
+        return 0
+    try:
+        wordplay.evaluate(copy.deepcopy(tree), answer)
+    except Exception:
+        return 0
+    n = 0
+    for node in _walk(tree):
+        parts = node.get("parts") or []
+        if node.get("op") != "anagram" or node.get("unchecked") or len(parts) < 2 or not all(isinstance(p, dict) for p in parts):
+            continue
+        done = False
+        for idx in (i for i in range(len(parts)) if pick(parts, i)):
+            for front in (True, False):
+                if keep_order and front != (idx == 0):
+                    continue
+                t = _pull_part(tree, node, idx, front)
+                try:
+                    wordplay.evaluate(t, answer)
+                    done = True
+                    break
+                except Exception:
+                    pass
+            if done:
+                break
+        n += done
+    return n
+
+
+def _one_letter_part(parts, i):
+    """A fodder part that is a single letter: a 1-letter leaf or a first/last pick of one letter."""
+    p = parts[i]
+    if p.get("unchecked"):
+        return False
+    if "op" in p:
+        if p["op"] not in ("first", "last"):
+            return False
+        try:
+            vals = wordplay.values(p)
+        except Exception:
+            return False
+        return any(len(v) == 1 for v in vals)  # values() lists every reading of the pick: CAR, CA and C
+    return len(wordplay.letters(p.get("gives") or p.get("words"))) == 1
+
+
+def ana_lone_edge(tree, answer=None):
+    """Anagrams with a single-letter fodder piece (an abbreviation, a first/last pick, a lone word like "a")
+    anywhere in the fodder, that the answer shows at its start or end (r32 FN: ESPLANADES E + ana(SEDAN ALPS),
+    REAWAKEN ana(A + WEAKER) + N, CYPRIOTS C + ana(...)). Paul 10-19: a lone letter that can sit outside the
+    anagram must. A letter that sits mid-answer is genuine fodder (Paul's rule 9) and is not counted."""
+    return _anagrams_with_pulled_part(tree, answer, _one_letter_part)
+
+
+def ana_literal_edge(tree, answer=None):
+    """Anagrams whose first or last fodder piece is 2+ clue-word letters taken as written, which the answer
+    shows unscrambled at its edge (r32 FN: ZEROTOLERANCE ZERO + ana(TO + CLEANER) holds TO). Single letters
+    are ana_lone_edge's."""
+    def literal_edge(parts, i):
+        p = parts[i]
+        return i in (0, len(parts) - 1) and "op" not in p and not p.get("unchecked") and not _stand_in_piece(p) \
+            and len(wordplay.letters(p.get("gives") or p.get("words"))) >= 2
+    return _anagrams_with_pulled_part(tree, answer, literal_edge, keep_order=True)
+
+
+def del_wraps_charade(tree, clue=None):
+    """Deletions over a charade of plain leaves whose indicator stands in the clue between two of the
+    charade's pieces (r32 FN: del<getting end away>(TWERP + KING, P), rev(del<short>(AS + LASS, S))): the word
+    cuts the one piece next to it, so the deletion belongs on that piece inside the charade."""
+    if not clue:
+        return 0
+    low = clue.lower()
+    try:
+        tree = wordplay.locate(copy.deepcopy(tree), clue)
+    except Exception:
+        pass
+    n = 0
+    for node in _walk(tree):
+        ps = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        if node.get("op") != "deletion" or node.get("unchecked") or len(ps) != 2 or ps[0].get("op") != "charade":
+            continue
+        pcs = [p for p in ps[0].get("parts") or [] if isinstance(p, dict)]
+        inds = [i for i in node.get("indicators") or [] if isinstance(i, dict) and str(i.get("text") or "")]
+        if len(pcs) < 2 or len(inds) != 1 or any("op" in p or p.get("unchecked") for p in pcs):
+            continue
+        gs = [wordplay.letters(p.get("gives") or p.get("words")) for p in pcs]
+        cut = wordplay.letters(ps[1].get("gives"))
+        if not cut or any(set(g) <= set(cut) for g in gs) or not any(len(g) > len(cut) and cut in g for g in gs):
+            continue  # the removed letters are a piece of the charade itself (daughter D, then D removed): a group deletion
+        t = str(inds[0]["text"])
+        at = inds[0]["at"] if isinstance(inds[0].get("at"), int) else low.find(t.lower())
+        spans = [(min(a for a, _ in s), max(b for _, b in s)) for s in (_subtree_spans(p, clue, low) for p in pcs) if s]
+        if at >= 0 and len(spans) == len(pcs) and any(b <= at for _, b in spans) and any(a >= at + len(t) for a, _ in spans):
             n += 1
     return n
 
@@ -6911,6 +7032,9 @@ def shape_warnings(tag, ann, clue=None, answer=None):
             (lambda: trunc_in_leaf(tree), TRUNC_IN_LEAF, "the truncation word is a deletion's indicator"),
             (lambda: cut_note_leaf(tree), CUT_NOTE_LEAF, "give the real word and cut it with a deletion op"),
             (lambda: selector_as_cut(tree), SELECTOR_AS_CUT, "the removed letter is a first/last pick with its own indicator"),
+            (lambda: ana_lone_edge(tree, answer), ANA_LONE_EDGE, "set the letter beside the anagram in a charade"),
+            (lambda: ana_literal_edge(tree, answer), ANA_LITERAL_EDGE, "set the word beside the anagram in a charade"),
+            (lambda: del_wraps_charade(tree, clue), DEL_WRAPS_CHARADE, "cut inside the one piece the word acts on"),
             (lambda: own_ind_in_leaf(tree), OWN_IND_IN_LEAF, "the leaf holds only the words that give its letters")):
         if k := fn():
             out.append(f"{tag}: {k} {label}: {hint}")
@@ -7507,6 +7631,9 @@ BACKLOG_MARKERS = {
     "wordplay.cutNoteLeaf": (CUT_NOTE_LEAF,),
     "wordplay.ownIndInLeaf": (OWN_IND_IN_LEAF,),
     "wordplay.selectorAsCut": (SELECTOR_AS_CUT,),
+    "wordplay.anaLoneEdge": (ANA_LONE_EDGE,),
+    "wordplay.anaLiteralEdge": (ANA_LITERAL_EDGE,),
+    "wordplay.delWrapsCharade": (DEL_WRAPS_CHARADE,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }
