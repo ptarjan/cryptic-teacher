@@ -725,42 +725,45 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ASTONVILLA",
      "indicators": [
       {
        "text": "into",
-       "note": "going into something puts it inside the other words"
+       "at": 18,
+       "note": "into means going inside, so the shortened word is put within the other pieces"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 23,
+         "gives": "A"
+        },
+        {
+         "words": "holiday home",
+         "at": 25,
+         "gives": "VILLA",
+         "note": "a villa is a house rented for holidays"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "almost",
-         "note": "almost means not quite all, so the final letter is dropped"
+         "at": 5,
+         "note": "almost means not quite the whole word, so its last letter goes"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "broke",
-           "gives": "STONY",
-           "note": "stony broke means penniless"
-          },
-          {
-           "words": "holiday home",
-           "gives": "VILLA",
-           "note": "a villa is a holiday house"
-          }
-         ]
+         "words": "broke",
+         "at": 12,
+         "gives": "STONY",
+         "note": "stony, as in stony-broke, means having no money"
         },
         {
          "gives": "Y"
@@ -770,12 +773,12 @@
      ]
     },
     "explanation": {
-     "surface": "A sports team, nearly skint, breaks into a holiday villa.",
-     "walkthrough": "'Broke' looks like the verb of breaking in, but it is the adjective meaning penniless. Aston Villa is a Birmingham football club.",
-     "definitionFit": "Aston Villa is an English Premier League football club based in Birmingham."
+     "surface": "A team almost breaks into a holiday villa.",
+     "walkthrough": "Stony-broke is British slang for penniless, so 'broke' stands for the first word of that phrase.",
+     "definitionFit": "Aston Villa is a Premier League football club based in Birmingham, England, so it is a sports side."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "broke"
     }

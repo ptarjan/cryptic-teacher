@@ -111,38 +111,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "keeping",
-       "note": "to keep something is to hold it"
-      }
-     ],
      "parts": [
       {
        "words": "Judge",
-       "gives": "J",
-       "note": "j = judge"
+       "at": 0,
+       "gives": "J"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "case",
-         "note": "a case is the outside of a thing, so a word's case is its first and last letters"
+         "text": "keeping",
+         "at": 15,
+         "note": "keeping means holding inside, so up encloses the outer letters"
         }
        ],
        "parts": [
         {
          "words": "in court",
+         "at": 6,
          "gives": "UP",
-         "note": "someone up before the magistrates is in court"
+         "note": "up, as in up before the magistrate, means appearing in court"
         },
         {
          "op": "outer",
+         "indicators": [
+          {
+           "text": "case",
+           "at": 33,
+           "note": "a word's case is its outside, its first and last letters"
+          }
+         ],
          "parts": [
           {
-           "words": "legatee's case",
-           "note": "the outer letters of LegateE, kept inside J+UP"
+           "words": "legatee's",
+           "at": 23,
+           "gives": "LEGATEE",
+           "note": "the possessive belongs to the surface: the case is that of the word legatee"
           }
          ]
         }
@@ -151,14 +156,15 @@
      ]
     },
     "explanation": {
-     "surface": "A judge in court holds on to the cover of a legatee's paperwork.",
-     "walkthrough": "The question mark marks the definition as loose: the answer is a sweet mixed drink, a cordial only in the broad sense.",
-     "definitionFit": "A loose synonym: this sweet, often minted drink counts as a cordial in the broad sense, hence the question mark."
+     "surface": "A judge in court keeps an heir's will case friendly.",
+     "walkthrough": "To be 'up' before a magistrate is to be in court.",
+     "definitionFit": "A julep is a sweet drink, often a medicinal syrup, and a cordial is such a drink; the question mark admits the stretch."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "case"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cordial"
     }
    }
   },
@@ -248,44 +254,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "wind",
-       "note": "to wind is to twist, so the letters are twisted round"
+       "at": 13,
+       "note": "wind as a verb means twist about, so the letters are rearranged"
+      },
+      {
+       "text": "out of",
+       "at": 33,
+       "note": "out of shows that a letter is left out of the pooled letters before rearranging"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "out of",
-         "note": "'out of' means taken from, so one T (time) comes out of the fodder"
-        }
-       ],
        "parts": [
         {
          "words": "trio",
-         "note": "anagram fodder"
+         "at": 18
         },
         {
-         "words": "flautist out of time",
-         "gives": "FLAUIST",
-         "note": "FLAUTIST without one T (time)"
+         "words": "flautist",
+         "at": 24
         }
        ]
+      },
+      {
+       "words": "time",
+       "at": 40,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A flautist in a wind trio keeps losing the beat.",
-     "walkthrough": "'Wind' looks like the woodwind section, and 'Playing' looks like music; in fact 'wind' is the anagram signal and 'Playing' means toying, as flirts do.",
-     "definitionFit": "Playing in the sense of toying with someone's affections: a plain synonym once the musical sense is set aside."
+     "surface": "A flautist plays with a wind trio and loses the beat.",
+     "walkthrough": "'wind' looks like part of a wind trio; it is the verb to twist, the signal to rearrange.",
+     "definitionFit": "Someone playing in the sense of toying or dallying romantically is being coquettish, teasing a would-be lover."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "wind"
     }
    }
@@ -494,35 +504,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COS",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "gets up",
+       "at": 18,
+       "note": "in a down clue, getting up means rising, so the letters read from the bottom upwards"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "shortly"
-        },
-        {
-         "text": "gets up",
-         "note": "in a down clue, getting up reads the letters upwards"
+         "text": "shortly",
+         "at": 10,
+         "note": "shortly means cut short, leaving just the abbreviation's first three letters"
         }
        ],
        "parts": [
         {
-         "words": "Socialist shortly",
-         "gives": "SOC",
-         "note": "Soc, the short form of socialist"
+         "words": "Socialist",
+         "at": 0,
+         "gives": "SOCIALIST"
+        },
+        {
+         "gives": "IALIST"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A socialist quickly stands up and walks out.",
-     "walkthrough": "'Leaves' looks like a verb of departure; it is the noun, salad leaves, since the answer is a lettuce.",
-     "definitionFit": "A definition by example: this long-leaved lettuce, also called romaine, is a salad of leaves."
+     "surface": "A socialist quickly stands and walks out.",
+     "walkthrough": "'leaves' looks like a verb, but it is the noun: lettuce leaves. 'shortly' cuts Socialist to its usual abbreviation.",
+     "definitionFit": "Cos is a variety of lettuce with long crisp leaves, also called romaine."
     },
     "features": {
      "answerInScene": false,
@@ -1255,61 +1271,58 @@
      "op": "container",
      "indicators": [
       {
-       "text": "around",
-       "note": "'around' as in turned around"
+       "text": "outside",
+       "at": 13,
+       "note": "outside places the reversed word round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "outside",
-         "note": "outside means on either side"
+         "text": "around",
+         "at": 6,
+         "note": "around signals the letters being turned back to front"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "reversal",
-           "parts": [
-            {
-             "words": "Stick",
-             "gives": "CUE",
-             "note": "a cue is a billiards stick"
-            }
-           ]
-          },
-          {
-           "words": "public house",
-           "gives": "PH",
-           "note": "PH = public house on a map"
-          }
-         ]
-        },
-        {
-         "words": "or",
-         "note": "the word itself"
+         "words": "Stick",
+         "at": 0,
+         "gives": "CUE",
+         "note": "a cue is the stick used in snooker and pool"
         }
        ]
       },
       {
-       "words": "I",
-       "note": "the letter itself"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "public house",
+         "at": 21,
+         "gives": "PH",
+         "note": "PH is the map abbreviation for public house, a pub"
+        },
+        {
+         "words": "or",
+         "at": 35
+        },
+        {
+         "words": "I",
+         "at": 38
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone dithering outside a pub, wondering whether to go in or catch a lift home.",
-     "walkthrough": "Transported is the joyful sense, carried away with delight, not moved by vehicle.",
-     "definitionFit": "A plain synonym in the figurative sense: carried away with delight, elated."
+     "surface": "Someone leaning on a stick outside a pub, or perhaps being carried home.",
+     "definitionFit": "To be transported is to be carried away by intense joy, overwhelmingly happy."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "transported"
     }
    }

@@ -1263,50 +1263,55 @@
      "indicators": [
       {
        "text": "collecting",
-       "note": "collecting means gathering in, so the other letters go inside"
+       "at": 12,
+       "note": "collecting means gathering in, so the reversed word encloses the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 6,
+         "note": "about signals turning round, so the letters are reversed"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "about means turned round, so this word is read backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Learn",
-           "gives": "SEE",
-           "note": "to see is to find out or learn"
-          }
-         ]
-        },
-        {
-         "words": "silver",
-         "gives": "AG",
-         "note": "Ag is the chemical symbol for silver"
+         "words": "Learn",
+         "at": 0,
+         "gives": "SEE",
+         "note": "to see is to learn or find out"
         }
        ]
       },
       {
-       "words": "large",
-       "gives": "L",
-       "note": "L is the abbreviation for large"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "silver",
+         "at": 23,
+         "gives": "AG",
+         "note": "Ag is the chemical symbol for silver"
+        },
+        {
+         "words": "large",
+         "at": 30,
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A coin collector studies large silver pieces.",
-     "definitionFit": "The eagle was a US gold coin worth ten dollars, named after its national bird emblem."
+     "surface": "Advice to study a coin collection including silver and large-denomination dollars.",
+     "definitionFit": "The eagle was a US gold coin worth ten dollars, named after the bird on it."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Learn"
     }
    }
