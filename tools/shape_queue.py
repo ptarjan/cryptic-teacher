@@ -160,7 +160,7 @@ def gated():
 
 #: Rules the validator still computes as warnings but that queue no redo and count nowhere in
 #: the ratchet (round 20: the judges passed most of their flags as fine).
-WARN_ONLY = ("unindicatedBare", "bareInitial", "indFolded", "inDefinition", "charadeOrder", "cutInLeaf")
+WARN_ONLY = ("unindicatedBare", "bareInitial", "indFolded", "inDefinition", "charadeOrder", "cutInLeaf", "nonWordOperand")
 
 #: Series whose own conventions make the judges accept the tree: no shape rule queues for them.
 CONVENTION_SERIES = ("azed", "genius")
@@ -244,6 +244,23 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                         "it sits by, so reverse that piece inside the charade or container",
        "cutInLeaf": "a leaf opens with a cut word (short, half, first) and gives fewer letters than its other "
                     "words: the cut is an op with its own indicator",
+       "anaSelectEdge": "an anagram holds a first/last-letter pick at the edge of its fodder, and the answer shows "
+                        "that letter outside the scramble: set the pick beside the anagram in a charade",
+       "nonWordOperand": "a deletion, substitution or homophone acts on a leaf that is no word (two synonyms run "
+                         "together): give the op one word and join the pieces in a charade",
+       "delWide": "a deletion lists several pieces before its indicator, so the indicator cuts only the piece beside "
+                  "it: the other pieces belong to the parent op",
+       "indLeafOverlap": "a two-word indicator takes a word that a leaf also gives: the leaf holds that word, the "
+                         "indicator is the other word",
+       "anaDoubleInd": "an anagram carries two separate indicators: one op, one indicator",
+       "delStraddle": "a deletion over a charade removes letters from across two of its pieces: the word cuts one "
+                      "piece, so delete inside the charade",
+       "swappedPair": "a parent op and its child carry each other's indicator words: file each indicator on the op "
+                      "of its own kind",
+       "linkInLeaf": "a leaf opens or closes with a link word (in, of, with, by ...) and gives what its other words "
+                     "alone give: the link word is the clue's join, not the leaf's",
+       "anaStandIn": "an anagram held by a container scrambles an abbreviation or synonym beside the clue's own "
+                     "words: spell the stand-in as its own piece",
        "midWordLeaf": "a leaf gives a stretch of several clue words that starts or ends inside a word: "
                       "the cut is an op (del, first, last) with its indicator, not part of the leaf"}
 
@@ -282,6 +299,15 @@ def _validator_rules():
             "charadeOrder": lambda t, a, c: V.charade_out_of_order(t, c),
             "reversalSplit": lambda t, a, c: V.reversal_split(t, c),
             "cutInLeaf": lambda t, a, c: V.cut_in_leaf(t, c),
+            "anaSelectEdge": lambda t, a, c: V.ana_select_edge(t, a.get("_answer") or None),
+            "nonWordOperand": lambda t, a, c: V.non_word_operands(t),
+            "delWide": lambda t, a, c: V.del_wide(t, c),
+            "indLeafOverlap": lambda t, a, c: V.ind_leaf_overlap(t, c),
+            "anaDoubleInd": lambda t, a, c: V.ana_double_indicator(t),
+            "delStraddle": lambda t, a, c: V.del_straddle(t),
+            "swappedPair": lambda t, a, c: V.swapped_pair(t),
+            "linkInLeaf": lambda t, a, c: V.link_in_leaf(t),
+            "anaStandIn": lambda t, a, c: V.ana_stand_in(t),
             "movedLetter": lambda t, a, c: V.moved_letters(t),
             "indInLeaf": lambda t, a, c: V.ind_in_leaf(t, c),
             # A step taken as filed that tools/clear_unchecked.py could not verify:

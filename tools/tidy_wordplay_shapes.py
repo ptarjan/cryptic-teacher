@@ -78,10 +78,19 @@ FIELDS = {
     "wordplay.charadeOrder": lambda ann, clue=None: V.charade_out_of_order(ann.get("wordplay"), clue),
     "wordplay.reversalSplit": lambda ann, clue=None: V.reversal_split(ann.get("wordplay"), clue),
     "wordplay.cutInLeaf": lambda ann: V.cut_in_leaf(ann.get("wordplay")),
+    "wordplay.anaSelectEdge": lambda ann: V.ana_select_edge(ann.get("wordplay"), ann.get("answer")),
+    "wordplay.nonWordOperand": lambda ann: V.non_word_operands(ann.get("wordplay")),
+    "wordplay.delWide": lambda ann, clue=None: V.del_wide(ann.get("wordplay"), clue),
+    "wordplay.indLeafOverlap": lambda ann, clue=None: V.ind_leaf_overlap(ann.get("wordplay"), clue),
+    "wordplay.anaDoubleInd": lambda ann: V.ana_double_indicator(ann.get("wordplay")),
+    "wordplay.delStraddle": lambda ann: V.del_straddle(ann.get("wordplay")),
+    "wordplay.swappedPair": lambda ann: V.swapped_pair(ann.get("wordplay")),
+    "wordplay.linkInLeaf": lambda ann: V.link_in_leaf(ann.get("wordplay")),
+    "wordplay.anaStandIn": lambda ann: V.ana_stand_in(ann.get("wordplay")),
 }
 #: Fields whose finding places words in the clue, so counts() hands them its text.
 NEEDS_CLUE = {"wordplay.deletionInside", "wordplay.anagramSynonym", "wordplay.poolGap",
-              "wordplay.charadeOrder", "wordplay.reversalSplit"}
+              "wordplay.charadeOrder", "wordplay.reversalSplit", "wordplay.delWide", "wordplay.indLeafOverlap"}
 
 
 def _inner(p):

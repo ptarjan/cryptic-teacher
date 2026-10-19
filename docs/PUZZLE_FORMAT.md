@@ -158,6 +158,15 @@ filed, and the expression cannot write one. The tree, in brief:
   `wordplay.reversalSplit` (a reversal's indicator stands between the pieces it reverses) and
   `wordplay.cutInLeaf` (a leaf opens with a cut word such as short, half or first and gives fewer letters than its other words).
   `wordplay.movedLetter` (a deletion whose letter a sibling leaf gives again: use the move op).
+  Round 25 (wrong scope / nesting, from the 33 r23 false negatives): `wordplay.anaSelectEdge` (an anagram holds a first/last-letter pick at the edge of its fodder that the answer shows outside the scramble),
+  `wordplay.delWide` (a deletion lists two or more pieces before its indicator, so it cuts one piece, not the group),
+  `wordplay.delStraddle` (a deletion over a charade removes letters from across two of its pieces),
+  `wordplay.swappedPair` (a parent op and its child carry each other's indicator words),
+  `wordplay.indLeafOverlap` (a two-word indicator takes a word a leaf also gives),
+  `wordplay.anaDoubleInd` (an anagram with two separate indicators),
+  `wordplay.linkInLeaf` (a leaf opens or closes with a link word and gives what its other words alone give) and
+  `wordplay.anaStandIn` (an anagram held by a container scrambles an abbreviation or synonym beside the clue's own words).
+  `nonWordOperand` (a deletion, substitution or homophone acting on a leaf that is no word) is a warning only: 75% of its judged hits were fine.
   Round 21: wordplay.unindicatedBare, wordplay.bareInitial, wordplay.indFolded and wordplay.inDefinition
   are warnings only (`shape_queue.WARN_ONLY`): no redo is queued and the ratchet no longer counts them; and no
   wordplay shape rule queues or counts for Azed or Genius puzzles (`shape_queue.CONVENTION_SERIES`). Also round 21: `wordplay.anagramSynonym` counts a two-letter stand-in (ER for Brenda, EG for say) scrambled in an anagram, not only three letters and up.
