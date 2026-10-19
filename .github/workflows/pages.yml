@@ -12,34 +12,84 @@
 # pages built the same way, and a broken test must never block a deploy.
 name: Build and deploy the site
 
+# A push that only added or edited puzzle files (tools/ci_scope.py, against the
+# commit the live site was last deployed from) runs the annotation check and
+# nothing else: about a minute. Building and deploying the site is ~5 minutes of
+# work, so those puzzles go live from pages-schedule.yml, which dispatches this
+# workflow every 15 minutes when master has moved since the last deploy. Any
+# other push builds and deploys at once.
 on:
   push:
     branches: [master]
   workflow_dispatch:
-  # The full annotation check (see validate) once a day, whatever the day's
-  # pushes changed.
-  schedule:
-    - cron: "41 9 * * *"
+    inputs:
+      # The daily run (pages-schedule.yml): the whole corpus checked, and the
+      # full build path whatever changed.
+      full:
+        description: "Check every annotation and take the full build path"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
   actions: read  # validate reads the jobs of earlier runs: its diff base; the build waits on validate
+  deployments: read  # tools/last_deploy.py: the commit the live site came from
   pages: write
   id-token: write
 
-# One deploy at a time. cancel-in-progress must stay FALSE: a push takes about
-# 4 minutes to go live, longer when many social cards are redrawn, and the
+# One deploy at a time, and only the BUILD is in the group: a puzzle-only push
+# runs just the scope and validate jobs, which must not queue behind a build of
+# several minutes. cancel-in-progress must stay FALSE: a push takes about
+# 5 minutes to go live, longer when many social cards are redrawn, and the
 # annotation backfill pushes a commit per puzzle, so
 # cancelling on every push meant no build ever reached the deploy step and the
 # site stopped updating while the corpus grew. There is no pile-up either way —
-# GitHub keeps only the newest PENDING run in a concurrency group and cancels
-# the rest — so false costs one build's latency and buys a site that ships.
-concurrency:
-  group: pages
-  cancel-in-progress: false
+# GitHub keeps only the newest PENDING build in a group and cancels
+# the rest — so false costs one build's latency and buys a site that ships. A
+# cancelled pending build loses nothing: the next 15-minute tick sees master
+# ahead of the live site and dispatches another.
 
 jobs:
+  # Does this run build and deploy the site? Beside validate, not in front of
+  # it: a puzzle-only push is done when validate is.
+  scope:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      deployments: read
+    outputs:
+      deploy: ${{ steps.pick.outputs.deploy }}
+    steps:
+      - name: Check out
+        uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            tools
+      - name: Decide whether this run deploys
+        id: pick
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT: ${{ github.event_name }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -uo pipefail
+          yes() { echo "deploys: $1"; echo "deploy=true" >> "$GITHUB_OUTPUT"; exit 0; }
+          [ "$EVENT" = push ] || yes "a $EVENT run"
+          base=$(python3 tools/last_deploy.py "$REPO") || yes "no deployment to diff against"
+          git fetch --no-tags --depth=1 --filter=blob:none origin "$base" || yes "could not fetch $base"
+          verdict=$(python3 tools/ci_scope.py decide "$base") || yes "could not diff against $base"
+          [ "$verdict" = fast ] || yes "$verdict"
+          echo "puzzle-only push since the live site's $base: validate only, pages-schedule.yml deploys it"
+          echo "deploy=false" >> "$GITHUB_OUTPUT"
+
   build:
+    needs: scope
+    if: needs.scope.outputs.deploy == 'true'
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     # A build takes a few minutes, a couple more when a change redraws a
     # full OG_LIMIT of social cards.
@@ -157,25 +207,24 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           EVENT: ${{ github.event_name }}
           REPO: ${{ github.repository }}
+          FULL: ${{ inputs.full }}
           CACHED: ${{ steps.rowcache.outputs.cache-matched-key != '' && steps.pagecache.outputs.cache-matched-key != '' }}
         run: |
           set -uo pipefail
           full() { echo "full build: $1"; echo "fast=false" >> "$GITHUB_OUTPUT"; exit 0; }
-          [ "$EVENT" = push ] || full "a $EVENT run"
+          # A push, or a dispatch from the 15-minute clock (pages-schedule.yml),
+          # which is how most puzzle-only pushes get here. Only the daily
+          # dispatch (full=true) and a cold cache take the full path by choice.
+          case "$EVENT" in
+            push) ;;
+            workflow_dispatch) [ "$FULL" != true ] || full "a full run was asked for" ;;
+            *) full "a $EVENT run" ;;
+          esac
           [ "$CACHED" = true ] || full "no restored row or page cache"
-          base=
-          # Cancelled runs are skipped without a jobs call: a burst of pushes
-          # leaves most of the newest runs cancelled while still pending, and
-          # each call was ~1s of this step (26s on a puzzle push, run
-          # 39262958136). A cancelled run that did deploy only costs an older base.
-          while read -r id sha; do
-            [ "$id" != "$GITHUB_RUN_ID" ] || continue
-            ok=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
-                   --jq '[.jobs[] | select(.name == "build") | .steps[] | select(.name == "Deploy to Pages" and .conclusion == "success")] | length' || echo 0)
-            if [ "${ok:-0}" -gt 0 ]; then base=$sha; break; fi
-          done < <(gh api "repos/$REPO/actions/workflows/pages.yml/runs?branch=master&event=push&per_page=30" \
-                     --jq '.workflow_runs[] | select(.status == "completed" and .conclusion != "cancelled") | "\(.id) \(.head_sha)"' || true)
-          [ -n "$base" ] || full "no successful deploy to diff against"
+          # The live site's commit, from the deployments (one call; it used to
+          # be a walk over the last runs' jobs, 6 to 18s). Dispatch runs deploy
+          # too now, which that walk (push runs only) could not see.
+          base=$(python3 tools/last_deploy.py "$REPO") || full "no successful deploy to diff against"
           auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
           GIT_TERMINAL_PROMPT=0 git -c protocol.version=2 -c "http.extraheader=AUTHORIZATION: basic $auth" \
             fetch --no-tags --no-recurse-submodules --depth=1 --filter=blob:none origin "$base" || full "could not fetch $base"
@@ -580,6 +629,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           EVENT: ${{ github.event_name }}
           REPO: ${{ github.repository }}
+          FULL: ${{ inputs.full }}
         run: |
           set -euo pipefail
           # The whole tree, as four fetches at once: one stream of ~50k blobs
@@ -595,7 +645,13 @@ jobs:
             wait || true
           }
           full() { echo "full check: $1"; fetch_tree || true; git sparse-checkout disable; echo "mode=full" >> "$GITHUB_OUTPUT"; exit 0; }
-          [ "$EVENT" = push ] || full "a $EVENT run"
+          # A push, or a dispatch from the 15-minute clock; the daily one asks
+          # for the whole corpus (full=true).
+          case "$EVENT" in
+            push) ;;
+            workflow_dispatch) [ "$FULL" != true ] || full "a full run was asked for" ;;
+            *) full "a $EVENT run" ;;
+          esac
           # The diff base is the newest commit whose validate job PASSED, not
           # the newest deploy: a burst of pushes cancels most builds before
           # they deploy (this group keeps only the newest pending run), so the
@@ -609,8 +665,8 @@ jobs:
             ok=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
                    --jq '[.jobs[] | select(.name == "validate" and .conclusion == "success")] | length' || echo 0)
             if [ "$ok" -gt 0 ]; then base=$sha; break; fi
-          done < <(gh api "repos/$REPO/actions/workflows/pages.yml/runs?branch=master&event=push&per_page=30" \
-                     --jq '.workflow_runs[] | select(.status == "completed") | "\(.id) \(.head_sha)"' || true)
+          done < <(gh api "repos/$REPO/actions/workflows/pages.yml/runs?branch=master&status=completed&per_page=30" \
+                     --jq '.workflow_runs[] | "\(.id) \(.head_sha)"' || true)
           [ -n "$base" ] || full "no successful run to diff against"
           git fetch --no-tags --depth=1 --filter=blob:none origin "$base" || full "could not fetch $base"
           python3 tools/validate_scope.py "$base" > "$RUNNER_TEMP/scope.txt" || full "could not work out what changed"

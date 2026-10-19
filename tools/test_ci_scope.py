@@ -43,6 +43,16 @@ class Decide(unittest.TestCase):
         self.assertEqual(verdict([("M", P), ("M", BACKLOG)], old, "not json"), "full")
         self.assertEqual(verdict([("M", P), ("A", BACKLOG)], old, tighter), "full")
 
+    def test_entry_table_rows_only_for_a_changed_puzzle_and_never_removed(self):
+        table = "tools/data/blog_disagree.json"
+        old = json.dumps({"times-7619/1-across": ["type", "x"], "x-1/2-down": ["type", "y"]})
+        added = json.dumps({"times-7619/1-across": ["type", "x"], "x-1/2-down": ["type", "y"], "times-7619/3-down": ["definition", "z"]})
+        self.assertEqual(verdict([("M", P), ("M", table)], old, added), "fast")
+        self.assertEqual(verdict([("M", table)], old, added), "full")  # nobody re-checked times-7619
+        dropped = json.dumps({"times-7619/1-across": ["type", "x"]})
+        self.assertEqual(verdict([("M", P), ("M", table)], old, dropped), "full")
+        self.assertEqual(verdict([("M", P), ("M", table)], old, "not json"), "full")
+
     def test_files_lists_only_added_and_modified_puzzles(self):
         got = S.puzzle_files([("A", P), ("M", "tools/x.py"), ("D", "puzzles/a/1/a-1.json"), ("M", "puzzles/a/1/a-2.json")])
         self.assertEqual(got, ["puzzles/a/1/a-2.json", P])

@@ -1,11 +1,16 @@
 # Every test entry point in tools/ runs HERE.
 #
-# One run at a time per branch: `cancel-in-progress: false` never kills a
-# running suite, and GitHub keeps only the newest PENDING run in the group, so
-# a burst of pushes costs two runs, not one per push. Each commit contains the
-# ones before it, so testing the newest covers every commit it replaced; what
-# the group must never do is cancel the RUNNING suite, or a steady stream of
-# pushes would starve it and nothing would ever finish.
+# One run at a time per branch AND per path: the puzzle fast path (about a
+# minute) has a group of its own and never waits behind a full suite (17 to 22
+# minutes), and the full suite's jobs share another. The groups are on the
+# jobs, not the workflow, because which path a push takes is only known after
+# the scope job ran. `cancel-in-progress: false` never kills a running job, and
+# GitHub keeps only the newest PENDING job in a group, so a burst of pushes
+# costs two runs, not one per push. Each commit contains the ones before it, so
+# testing the newest covers every commit it replaced; what a group must never
+# do is cancel the RUNNING suite, or a steady stream of pushes would starve it
+# and nothing would ever finish. A matrix job's group names its shard, or its
+# ten shards would queue behind one another.
 #
 # pages.yml has its own group, and even there a queued build dies the moment
 # the next push arrives, so a check must never live in pages.yml.
@@ -52,10 +57,6 @@ name: Run the test scripts
 on:
   push:
   pull_request:
-
-concurrency:
-  group: tests-${{ github.ref }}
-  cancel-in-progress: false
 
 jobs:
   # Puzzle-only pushes (the burn jobs push them every few minutes) skip the
@@ -132,6 +133,9 @@ jobs:
     name: puzzle fast path
     needs: scope
     if: needs.scope.outputs.mode == 'fast'
+    concurrency:
+      group: tests-fast-${{ github.ref }}
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 15
     defaults:
@@ -198,6 +202,9 @@ jobs:
     name: generated files are current
     needs: scope
     if: needs.scope.outputs.mode == 'full'
+    concurrency:
+      group: tests-full-generated-${{ github.ref }}
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     # Python over files already in the clone; the corpus check is most of it.
     timeout-minutes: 10
@@ -280,6 +287,9 @@ jobs:
     needs: scope
     if: needs.scope.outputs.mode == 'full'
     name: tests ${{ matrix.shard }}
+    concurrency:
+      group: tests-full-shard-${{ matrix.shard }}-${{ github.ref }}
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     strategy:
       # Every shard runs to the end. A red shard must not hide a second one.
@@ -536,6 +546,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [scope, test]
     if: always() && needs.scope.outputs.mode == 'full'
+    concurrency:
+      group: tests-full-cache-${{ github.ref }}
+      cancel-in-progress: false
     timeout-minutes: 10
     defaults:
       run:
