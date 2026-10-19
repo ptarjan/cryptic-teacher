@@ -911,40 +911,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SINISTER",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Not quite",
-       "note": "not quite means falling just short, so the last letter goes"
+       "text": "terrible",
+       "at": 20,
+       "note": "terrible means the letters are in a dreadful state, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "terrible",
-         "note": "something terrible is in a dreadful state, so these letters are thrown into disorder"
+         "text": "Not quite",
+         "at": 0,
+         "note": "not quite means the last letter of resisting is left off"
         }
        ],
        "parts": [
         {
          "words": "resisting",
-         "gives": "RESISTIN",
-         "note": "the word missing its final letter"
+         "at": 10,
+         "note": "the word resisting"
+        },
+        {
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is barely holding out against some dreadful wickedness.",
-     "definitionFit": "Sinister describes something menacing or wicked, a close synonym of evil."
+     "surface": "Someone who isn't quite holding out against a dreadful wickedness.",
+     "walkthrough": "'Not quite' leaves RESISTIN, which 'terrible' rearranges.",
+     "definitionFit": "Sinister means threatening harm or wicked, close to evil."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "terrible"
     }

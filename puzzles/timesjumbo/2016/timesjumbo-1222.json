@@ -2002,36 +2002,40 @@
      "indicators": [
       {
        "text": "receiving",
-       "note": "receiving means taking something in, so it goes inside"
+       "at": 8,
+       "note": "receiving means the woodmen take in the following letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Woodmen",
-         "gives": "LOGGERS",
-         "note": "loggers fell trees"
-        },
-        {
-         "words": "fine",
-         "gives": "OK",
-         "note": "OK means fine"
-        }
-       ]
+       "words": "Woodmen",
+       "at": 0,
+       "gives": "LOGGERS",
+       "note": "loggers are men who fell trees"
       },
       {
-       "words": "prosecutor",
-       "gives": "DA",
-       "note": "a DA is an American district attorney, a public prosecutor"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fine",
+         "at": 18,
+         "gives": "OK",
+         "note": "OK means fine"
+        },
+        {
+         "words": "prosecutor",
+         "at": 24,
+         "gives": "DA",
+         "note": "DA is a district attorney, a US prosecutor"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Lumberjacks receiving a penalty from a lawyer who looks livid.",
-     "walkthrough": "Fine suggests a penalty fitting the court scene, but it means all right.",
-     "definitionFit": "To look daggers at someone is to glare angrily, showing fury through the eyes."
+     "surface": "Lumberjacks fined in court, with the prosecutor turning up in a rage.",
+     "walkthrough": "'Fine' reads as a penalty in this courtroom surface, but it means all right. A district attorney is an American public prosecutor.",
+     "definitionFit": "To look daggers is an idiom for glaring angrily at someone."
     },
     "features": {
      "answerInScene": true,
@@ -2757,49 +2761,56 @@
      "indicators": [
       {
        "text": "cutting",
-       "note": "cutting into something means going inside it"
+       "at": 34,
+       "note": "cutting means the pieces slice into the word the"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "the",
-         "note": "taken as written"
-        },
-        {
-         "words": "Took charge",
-         "gives": "RAN",
-         "note": "someone who took charge ran things"
-        }
-       ]
+       "words": "the",
+       "at": 42,
+       "gives": "THE",
+       "note": "taken as written"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "at the start",
-         "note": "at the start means only the opening letter is wanted"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "cake",
-         "note": "the opening letter of cake"
+         "words": "Took charge of",
+         "at": 0,
+         "gives": "RAN",
+         "note": "ran means managed or took charge of"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at the start",
+           "at": 20,
+           "note": "at the start means only the opening letter of cake is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cake",
+           "at": 15,
+           "note": "the word cake"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone in charge of the cake slicing it at the outset.",
-     "definitionFit": "A tranche is a portion or slice, especially of money or a share issue."
+     "surface": "Someone taking charge of a cake and making the first cut.",
+     "walkthrough": "RAN plus C (the start of cake) go into THE.",
+     "definitionFit": "A tranche is a portion or instalment, from the French word for a slice."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cake"
+     "misdirectedWord": "cutting"
     }
    }
   },
@@ -3193,48 +3204,61 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "COALITION",
      "indicators": [
       {
        "text": "introduces",
-       "note": "introduces means bringing new letters in"
+       "at": 6,
+       "note": "introduces means new letters are brought into the word"
       },
       {
        "text": "to replace",
-       "note": "to replace means the new letters take over from the old ones"
+       "at": 27,
+       "note": "to replace means the new letters take the place of others"
       }
      ],
      "parts": [
       {
        "words": "State",
+       "at": 0,
        "gives": "CONDITION",
-       "note": "a state is a condition"
+       "note": "condition means state, as in state of repair"
       },
       {
-       "words": "a",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "New",
+         "at": 38,
+         "gives": "N"
+        },
+        {
+         "words": "Democrat",
+         "at": 42,
+         "gives": "D"
+        }
+       ]
       },
       {
-       "words": "Liberal",
-       "gives": "L",
-       "note": "L is the abbreviation for Liberal"
-      },
-      {
-       "words": "New",
-       "gives": "N",
-       "note": "N is the abbreviation for new"
-      },
-      {
-       "words": "Democrat",
-       "gives": "D",
-       "note": "D is the abbreviation for Democrat"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 17,
+         "gives": "A"
+        },
+        {
+         "words": "Liberal",
+         "at": 19,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A country brings in a Liberal instead of a new Democrat, changing its government.",
-     "definitionFit": "A coalition is government by an alliance of parties, typically when no party has a majority."
+     "surface": "Political talk of a Liberal taking over from a New Democrat in some country.",
+     "walkthrough": "In CONDITION (state), A plus L replace N plus D.",
+     "definitionFit": "A coalition is a government formed by several parties working together."
     },
     "features": {
      "answerInScene": true,

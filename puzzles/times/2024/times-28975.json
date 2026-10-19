@@ -109,48 +109,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLANKING",
+     "op": "container",
      "indicators": [
       {
-       "text": "not missing",
-       "note": "the second word tells us the first must be absent, so those three letters drop out"
+       "text": "round",
+       "at": 10,
+       "note": "round means the smoothing word goes around what follows"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Smoothing",
+       "at": 0,
+       "gives": "PLANING",
+       "note": "planing wood smooths its surface"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "round",
-         "note": "to go round something is to surround it, so one piece encloses the other"
+         "text": "missing",
+         "at": 26,
+         "note": "missing tells us the word not is gone from knot, leaving a single letter"
         }
        ],
        "parts": [
         {
-         "words": "Smoothing",
-         "gives": "PLANING",
-         "note": "planing wood smooths it"
+         "words": "knot",
+         "at": 16,
+         "gives": "KNOT",
+         "note": "taken as the word knot"
         },
         {
-         "words": "knot",
-         "gives": "K",
-         "note": "the word with its last three letters, n-o-t, removed leaves just its first letter"
+         "words": "not",
+         "at": 22,
+         "gives": "NOT",
+         "note": "the word not, which is removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A carpenter smooths around a knot in the wood so no floorboards are missing.",
-     "walkthrough": "'not missing' reads as 'none absent', but it tells you to take NOT out of KNOT, leaving K, which PLANING then wraps round.",
-     "definitionFit": "Planking is a collective noun for planks laid as flooring or decking, so it names a set of boards."
+     "surface": "A carpenter smoothing a knotty board while laying a floor, with nothing missing.",
+     "walkthrough": "'not missing' looks like a phrase meaning present, but it says the word not goes missing from knot. Planing is smoothing wood with a plane.",
+     "definitionFit": "Planking is a collective noun for planks, such as the boards laid to make a floor."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "not"
+     "misdirectedWord": "missing"
     }
    }
   },
@@ -738,40 +746,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "fails",
-       "note": "something that fails breaks down, so its letters fall into a new order"
+       "text": "after",
+       "at": 28,
+       "note": "after means the speaking word is placed second, following the jumbled email"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "after",
-         "note": "coming after means following on, so one piece is placed behind the other"
+         "text": "fails",
+         "at": 40,
+         "note": "an email that fails is garbled, so its letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "email",
-         "note": "rearranged"
-        },
-        {
-         "words": "speak formally",
-         "gives": "ORATE",
-         "note": "to orate is to give a formal speech"
+         "at": 34
         }
        ]
+      },
+      {
+       "words": "to speak formally",
+       "at": 10,
+       "gives": "ORATE",
+       "note": "to orate is to make a formal speech"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to improve your communication: talk properly when email lets you down.",
-     "walkthrough": "The jumbled EMAIL comes first and ORATE follows it.",
-     "definitionFit": "To ameliorate is to improve or make something better; it can also mean to become better."
+     "surface": "Advice to talk properly in person once an email has gone wrong.",
+     "walkthrough": "'Do better' is the definition, a verb meaning improve; 'email fails' reads as a tech complaint but is the signal to rearrange the word email.",
+     "definitionFit": "To ameliorate is to improve something, making it or things better."
     },
     "features": {
      "answerInScene": false,
@@ -801,44 +812,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INCIDENTAL",
-     "indicators": [
-      {
-       "text": "wasted",
-       "note": "something wasted is ruined, so its letters are broken up and rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "INCIDENTAL",
+       "words": "working",
+       "at": 12,
+       "gives": "IN",
+       "note": "in means working or switched on"
+      },
+      {
+       "words": "detective",
+       "at": 23,
+       "gives": "CID",
+       "note": "CID is the Criminal Investigation Department, the detective branch of British police"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "almost",
-         "note": "almost means not quite all, so the last letter is dropped"
+         "text": "wasted",
+         "at": 48,
+         "note": "wasted means the remaining letters are squandered and jumbled"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 41,
+           "note": "almost means the last letter of talent is dropped"
+          }
+         ],
          "parts": [
           {
-           "words": "working",
-           "gives": "IN",
-           "note": "a machine that is in is on, working"
-          },
-          {
-           "words": "detective",
-           "gives": "CID",
-           "note": "the Criminal Investigation Department is the British police detective branch"
-          },
-          {
            "words": "talent",
-           "gives": "ENTAL",
-           "note": "cut short to five letters, then rearranged"
+           "at": 34,
+           "gives": "TALENT",
+           "note": "the word talent"
+          },
+          {
+           "gives": "T"
           }
          ]
         }
@@ -847,9 +862,9 @@
      ]
     },
     "explanation": {
-     "surface": "A junior officer serving as a detective is squandering most of their ability.",
-     "walkthrough": "TALENT loses its last T before being jumbled.",
-     "definitionFit": "Something incidental is minor or secondary, happening as a side matter rather than being central."
+     "surface": "A junior officer working as a detective, whose talent is nearly all wasted.",
+     "walkthrough": "'almost' trims TALENT to TALEN, which 'wasted' rearranges to ENTAL; IN plus CID come first.",
+     "definitionFit": "Something incidental is minor or secondary, subordinate to the main thing."
     },
     "features": {
      "answerInScene": false,
@@ -1179,43 +1194,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SURPASS",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 7,
+         "note": "almost means the final letter of the word for certain is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "certain",
-         "gives": "SUR",
-         "note": "sure, cut short"
+         "at": 14,
+         "gives": "SURE",
+         "note": "sure means certain"
         },
         {
-         "words": "to involve a teammate",
-         "gives": "PASS",
-         "note": "you pass the ball to bring a teammate into play"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "to involve a teammate",
+       "at": 22,
+       "gives": "PASS",
+       "note": "in a team game you pass the ball to involve a teammate"
       }
      ]
     },
     "explanation": {
-     "surface": "Spreadsheet advice: you are nearly bound to need a colleague's help with Excel.",
-     "walkthrough": "'Excel' looks like the Microsoft program, but it is the plain verb.",
-     "definitionFit": "To excel and to surpass both mean to outdo, going beyond others or a standard."
+     "surface": "A sports pundit saying a player will shine if they bring a teammate into play.",
+     "walkthrough": "'almost' cuts SURE to SUR; then PASS, what you do to involve a teammate.",
+     "definitionFit": "To surpass is to outdo or exceed, which is what excelling over others means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Excel"
+     "misdirectedWord": "involve"
     }
    }
   },
@@ -1355,53 +1373,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SUFI",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "with no end, the final letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "about",
-         "note": "turning about means facing the other way, so the letters run backwards"
+         "at": 19,
+         "note": "about here means the shortened word is turned around"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 4,
+           "note": "endless means the last letter of the word for hoo-ha goes"
+          }
+         ],
          "parts": [
           {
-           "words": "One",
-           "gives": "I",
-           "note": "the Roman numeral for one"
+           "words": "hoo-ha",
+           "at": 12,
+           "gives": "FUSS",
+           "note": "a hoo-ha is a fuss"
           },
           {
-           "words": "hoo-ha",
-           "gives": "FUS",
-           "note": "a fuss without its final S"
+           "gives": "S"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is making an unending fuss about a pious believer.",
-     "walkthrough": "I and the shortened FUSS are put together, then the whole string is reversed.",
-     "definitionFit": "Sufis are Islamic mystics devoted to seeking closeness to God through prayer and asceticism."
+     "surface": "Someone without end making a commotion over a pious believer.",
+     "walkthrough": "Hoo-ha is a British word for a fuss; 'about' turns the shortened word round rather than meaning concerning.",
+     "definitionFit": "A Sufi is a follower of the mystical, ascetic tradition within Islam."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "hoo-ha"
     }
    }
   },

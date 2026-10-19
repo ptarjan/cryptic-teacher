@@ -148,55 +148,55 @@
      "indicators": [
       {
        "text": "covered in",
-       "note": "something covered in another thing is wrapped by it, so these letters sit inside the outer word"
+       "at": 23,
+       "note": "covered in means the following letters are wrapped by the fish"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "fish",
+       "at": 34,
+       "gives": "BASS",
+       "note": "a bass is a fish"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "fish",
-           "gives": "BASS",
-           "note": "a bass is a fish"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "originally",
-             "note": "originally means at the start, so only the opening letter of the word is wanted"
-            }
-           ],
-           "parts": [
-            {
-             "words": "meat",
-             "note": "the first letter of meat"
-            }
-           ]
-          }
-         ]
+         "words": "I",
+         "at": 0
         },
         {
          "words": "love",
+         "at": 2,
          "gives": "O",
-         "note": "love is zero in tennis, which looks like the letter O"
+         "note": "O is love, the tennis score of zero"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 12,
+           "note": "originally means only the first letter of meat is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "meat",
+           "at": 7,
+           "note": "the word meat"
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "I",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A diner confessing a love of meat cooked in a fish crust, then a puzzling aside about livers.",
-     "walkthrough": "'Livers' is not the organ but people or things that live; the question mark flags the pun.",
-     "definitionFit": "Biomass is the total mass of living organisms in an area, so the amount of living things present."
+     "surface": "Someone who loves meat, first wrapped in fish, wondering how much liver there is.",
+     "walkthrough": "I, O and M (meat 'originally') are 'covered in' BASS. Livers here means living things, not organs.",
+     "definitionFit": "Biomass is the total amount of living matter in an area, a measure of those who live."
     },
     "features": {
      "answerInScene": false,
@@ -853,43 +853,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OYSTER",
+     "op": "container",
      "indicators": [
       {
-       "text": "first wiped",
-       "note": "wiping the first letter erases it, so the opening letter is removed"
+       "text": "filling",
+       "at": 24,
+       "note": "filling means the variable goes inside the shortened roll"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "filling",
-         "note": "a filling sits inside something, so one piece goes within the other"
+         "text": "first wiped",
+         "at": 38,
+         "note": "first wiped means the opening letter of the roll is erased"
         }
        ],
        "parts": [
         {
          "words": "roll",
-         "gives": "OSTER",
-         "note": "a roll is a roster, a list of names, here losing its first letter"
+         "at": 32,
+         "gives": "ROSTER",
+         "note": "a roster is a roll or list of names"
         },
         {
-         "words": "variable",
-         "gives": "Y",
-         "note": "y is a standard algebraic variable"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "variable",
+       "at": 15,
+       "gives": "Y",
+       "note": "Y is a typical algebraic variable"
       }
      ]
     },
     "explanation": {
-     "surface": "A seafood sandwich whose bread roll has been cleaned out.",
-     "walkthrough": "'Roll' looks like bread in a seafood picture, but it is a roll call, a list.",
-     "definitionFit": "The oyster is an edible shellfish eaten raw or cooked, a classic item of seafood."
+     "surface": "A seafood sandwich with something varied filling a bread roll.",
+     "walkthrough": "'first wiped' takes ROSTER to OSTER, and Y goes inside it. The roll is a list of names, not bread.",
+     "definitionFit": "An oyster is a shellfish eaten as seafood."
     },
     "features": {
      "answerInScene": true,
@@ -1216,39 +1221,43 @@
      "indicators": [
       {
        "text": "in",
-       "note": "placed in something means set inside it, so one piece sits within another"
+       "at": 8,
+       "note": "in means these letters go inside the vehicle"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "vehicle",
+       "at": 11,
+       "gives": "CAR",
+       "note": "a car is a vehicle"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "vehicle",
-         "gives": "CAR",
-         "note": "a car is a vehicle"
+         "words": "A",
+         "at": 0
         },
         {
          "words": "month",
+         "at": 2,
          "gives": "FEB",
-         "note": "the calendar abbreviation for February"
+         "note": "FEB is the calendar abbreviation for February"
         }
        ]
-      },
-      {
-       "words": "A",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A month spent in a van selling drink.",
-     "walkthrough": "'Where alcohol sold' is a compressed phrase for a place selling alcohol.",
-     "definitionFit": "A cafe-bar is an establishment serving coffee and food that also holds a licence for drinks."
+     "surface": "Spending a month driving round to find somewhere to drink.",
+     "walkthrough": "'A month' is the letter A plus the calendar abbreviation, not one word for a month.",
+     "definitionFit": "A cafe bar is an establishment serving coffee and also licensed for drinks."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vehicle"
     }
    }
   },
@@ -1466,36 +1475,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AKIN",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "short means cut off before the end, so the final letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 2,
+         "note": "short means the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
+         "words": "man",
+         "at": 8,
+         "gives": "KING",
+         "note": "a king is a chess man, a playing piece"
         },
         {
-         "words": "man",
-         "gives": "KIN",
-         "note": "a man in chess is a piece, such as the king, here losing its last letter"
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small man said to be a relative.",
-     "walkthrough": "'Short man' suggests a small person, but 'man' is a chess piece and 'short' trims it.",
-     "definitionFit": "Akin means of the same family or similar in nature, so connected by blood or likeness."
+     "surface": "A man of small stature who is a relative.",
+     "walkthrough": "In chess the pieces are called men, so the king is a man; 'short' reads as small stature but is the cutting signal.",
+     "definitionFit": "Akin means related by blood or of similar character."
     },
     "features": {
      "answerInScene": false,
@@ -1535,50 +1547,50 @@
      "indicators": [
       {
        "text": "round",
-       "note": "going round something means surrounding it, so one piece encloses the others"
+       "at": 4,
+       "note": "round means the word for bag goes around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Bag",
+       "at": 0,
+       "gives": "WIN",
+       "note": "to bag something is to win or secure it"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Bag",
-           "gives": "WIN",
-           "note": "to bag a prize is to win it"
-          },
-          {
-           "words": "tip",
-           "gives": "HEEL",
-           "note": "a ship heels when it tips over to one side"
-          }
-         ]
+         "words": "tip",
+         "at": 10,
+         "gives": "HEEL",
+         "note": "to heel is to tip over, as a ship does"
         },
         {
          "words": "that is",
+         "at": 14,
          "gives": "IE",
-         "note": "i.e. is the abbreviation of id est, that is"
+         "note": "ie is the abbreviation of id est, that is"
+        },
+        {
+         "words": "black",
+         "at": 22,
+         "gives": "B",
+         "note": "B is the pencil-grade abbreviation for black"
         }
        ]
-      },
-      {
-       "words": "black",
-       "gives": "B",
-       "note": "B is the pencil-grading abbreviation for black"
       }
      ]
     },
     "explanation": {
-     "surface": "A black bin bag carried round the rubbish tip for the dustman.",
-     "walkthrough": "'Bag' and 'tip' look like rubbish nouns; both are verbs here. A wheelie bin is a large wheeled household rubbish bin in Britain.",
-     "definitionFit": "Refuse is rubbish, and a wheelie bin is the container that gathers it from households for collection."
+     "surface": "Bagging up rubbish at the tip, black bags, for the refuse collectors.",
+     "walkthrough": "'Tip' sounds like a rubbish dump in this surface but means lean over, as a ship heels. A wheelie bin is a British wheeled household rubbish bin.",
+     "definitionFit": "A wheelie bin is a large wheeled container in which household rubbish is collected."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "tip"
     }
    }
