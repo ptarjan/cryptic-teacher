@@ -192,58 +192,27 @@
      {
       "text": "Old boundary",
       "at": 0
-     },
-     {
-      "text": "lake",
-      "at": 26
      }
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "MERE",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "the answer sits inside the words Lyme Regis"
-      }
-     ],
      "parts": [
       {
-       "op": "hidden",
-       "parts": [
-        {
-         "words": "miles",
-         "gives": "M",
-         "note": "M is the abbreviation for miles"
-        }
-       ]
-      },
-      {
-       "words": "before",
-       "gives": "ERE",
-       "note": "ere is an old word for before"
-      },
-      {
-       "op": "hidden",
-       "parts": [
-        {
-         "words": "Lyme Regis",
-         "gives": "MERE",
-         "note": "lyME REgis"
-        }
-       ]
+       "words": "miles before lake in Lyme Regis",
+       "at": 13,
+       "note": "in means the letters sit inside the words of the place name that follows"
       }
      ]
     },
     "explanation": {
-     "surface": "A walker's guide to the Dorset coast, noting an ancient boundary and a lake near the seaside town of Lyme Regis.",
-     "walkthrough": "The clue gives MERE four ways: an archaic word for a boundary, M plus ERE, a lake, and hidden in Lyme Regis.",
-     "definitionFit": "A mere is a lake, and in older English a boundary or landmark."
+     "surface": "An ancient border lies a few miles short of a lake near Lyme Regis.",
+     "walkthrough": "The clue packs in a second route: 'miles before' gives M plus ERE (poetic for before), and 'lake' is a second meaning of the answer.",
+     "definitionFit": "A mere was an old word for a boundary or landmark, as in the meres and bounds of a parish."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "miles"
     }
    }
   },
@@ -403,47 +372,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MEDICI",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost a bull is the bull short of its last letter"
+       "text": "blocks",
+       "at": 32,
+       "note": "the shortened edict blocks the road, sitting inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "big road",
+       "at": 39,
+       "gives": "MI",
+       "note": "the M1 is Britain's main north-south motorway, written MI"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "blocks",
-         "note": "the shortened bull sits in the middle of the road, blocking it"
+         "text": "almost",
+         "at": 25,
+         "note": "almost means not quite all, so the last letter goes"
         }
        ],
        "parts": [
         {
-         "words": "big road",
-         "gives": "MI",
-         "note": "the M1 is Britain's first major motorway, with the 1 read as I"
+         "words": "bull",
+         "at": 20,
+         "gives": "EDICT",
+         "note": "a papal bull is an edict"
         },
         {
-         "words": "bull",
-         "gives": "EDIC",
-         "note": "a papal bull is an edict; EDICT loses its last letter"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bull breaks loose from a farm and stands in the middle of a motorway.",
-     "walkthrough": "The bull is not the farm animal but a formal decree from the Pope, which is an edict. The M1 is the motorway from London to Leeds.",
-     "definitionFit": "The Medici were the ruling family of Renaissance Florence, notorious for their unchecked power and excess."
+     "surface": "A runaway family bull nearly stops traffic on a major road.",
+     "walkthrough": "'Bull' looks like an animal but is a decree from the Pope.",
+     "definitionFit": "The Medici dynasty ruled Florence with unchecked power, a family famous for its excesses."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "bull"
     }
    }

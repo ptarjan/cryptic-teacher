@@ -825,36 +825,39 @@
      "indicators": [
       {
        "text": "In",
-       "note": "'in' places the following pieces inside the street name"
+       "at": 0,
+       "note": "the fellow and the shortened would go in the French avenue"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Parisian avenue",
-         "gives": "ALLEE",
-         "note": "allée is French for an avenue or tree-lined walk"
-        },
-        {
-         "words": "fellow",
-         "gives": "MAN",
-         "note": "a fellow is a man"
-        }
-       ]
+       "words": "Parisian avenue",
+       "at": 3,
+       "gives": "ALLEE",
+       "note": "allée is French for an avenue or walk"
       },
       {
-       "words": "would briefly",
-       "gives": "D",
-       "note": "'would' shortens to 'd, as in I'd"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fellow",
+         "at": 20,
+         "gives": "MAN",
+         "note": "a fellow is a man"
+        },
+        {
+         "words": "would briefly",
+         "at": 27,
+         "gives": "D",
+         "note": "'d is the short form of would, as in I'd"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man on a Paris boulevard would break into a quick dance.",
-     "walkthrough": "'Briefly' shortens only 'would', not the dance. The French street word needs its E split off at the end to take the man inside.",
-     "definitionFit": "The allemande is a stately German-origin court dance, also a movement in Baroque suites."
+     "surface": "A man in a Paris avenue might like to dance a little.",
+     "definitionFit": "The allemande is a stately German court dance, also a movement in baroque suites."
     },
     "features": {
      "answerInScene": true,
@@ -1335,40 +1338,44 @@
      "indicators": [
       {
        "text": "stifles",
-       "note": "to stifle is to smother, wrapping round so as to hold in"
+       "at": 13,
+       "note": "to stifle a sound is to smother it, so the word wraps around the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Subsequently",
-         "gives": "LATER",
-         "note": "later means subsequently"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
-        }
-       ]
+       "words": "Subsequently",
+       "at": 0,
+       "gives": "LATER",
+       "note": "subsequently means later"
       },
       {
-       "words": "pet's noise",
-       "gives": "MEW",
-       "note": "a cat mews"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 21,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "pet's noise",
+         "at": 25,
+         "gives": "MEW",
+         "note": "a mew is the noise a cat makes"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Later someone muffles a pet's crying, and the answer to the problem is found.",
-     "walkthrough": "'Solution' looks like the answer to a problem; it is a chemical solution.",
-     "definitionFit": "Limewater is a solution of calcium hydroxide in water, used in labs to test for carbon dioxide."
+     "surface": "Later a cat's cry is muffled while someone works out a problem.",
+     "walkthrough": "'Solution' looks like the answer to a puzzle, but here it is a chemical liquid.",
+     "definitionFit": "Limewater is a solution of calcium hydroxide in water, used to test for carbon dioxide."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "solution"
     }

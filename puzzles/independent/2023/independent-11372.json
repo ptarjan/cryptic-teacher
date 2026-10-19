@@ -110,43 +110,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPHERE",
+     "op": "container",
      "indicators": [
       {
-       "text": "skipping the last",
-       "note": "to skip the final item is to leave off the closing letter"
+       "text": "participating in",
+       "at": 8,
+       "note": "the man is participating in, that is inside, the shortened binge"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "participating in",
-         "note": "one who participates is taking part inside something, so one piece goes within another"
+         "text": "skipping the last",
+         "at": 36,
+         "note": "skipping the last means the final letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "binge",
-         "gives": "SPRE",
-         "note": "a spree is a binge, here docked of its final E"
+         "at": 25,
+         "gives": "SPREE",
+         "note": "a spree is a binge"
         },
         {
-         "words": "The man",
-         "gives": "HE",
-         "note": "he is the pronoun for a man"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "The man",
+       "at": 0,
+       "gives": "HE",
+       "note": "he is the man"
       }
      ]
     },
     "explanation": {
-     "surface": "A man joins in a drinking session but leaves before the end.",
-     "walkthrough": "The trimmed binge word is split open to take the pronoun.",
-     "definitionFit": "A sphere is an area of activity or expertise, as in 'outside my sphere', the same sense as one's field."
+     "surface": "A man is joining a drinking session but leaves before the end of the match.",
+     "definitionFit": "A sphere is a field of activity or influence, as in one's sphere of expertise."
     },
     "features": {
      "answerInScene": false,
@@ -176,24 +180,36 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ARMADILLO",
-     "indicators": [
-      {
-       "text": "having to transport",
-       "note": "to transport something is to carry it, so one piece is held inside another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ARMADILLO",
        "indicators": [
         {
          "text": "Half of",
-         "note": "taking a half means keeping just two of four letters and dropping the rest"
+         "at": 0,
+         "note": "half of the four-letter word is its first two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "army",
+         "at": 8,
+         "gives": "ARMY",
+         "note": "taken as written, then halved"
+        },
+        {
+         "gives": "MY"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "having to transport",
+         "at": 26,
+         "note": "to transport something is to carry it within, so the other letters hold the ailing word"
         }
        ],
        "parts": [
@@ -201,40 +217,37 @@
          "op": "charade",
          "parts": [
           {
-           "words": "army",
-           "gives": "AR",
-           "note": "the first half of the word: two of its four letters"
-          },
-          {
            "words": "enraged",
+           "at": 13,
            "gives": "MAD",
-           "note": "mad means angry"
-          },
-          {
-           "words": "ailing",
-           "gives": "ILL",
-           "note": "ailing means sick"
+           "note": "enraged means mad"
           },
           {
            "words": "over",
+           "at": 21,
            "gives": "O",
-           "note": "O is the cricket scoring abbreviation for an over"
+           "note": "O is the cricket abbreviation for over"
           }
          ]
+        },
+        {
+         "words": "ailing",
+         "at": 46,
+         "gives": "ILL",
+         "note": "ailing means ill"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Furious soldiers must carry a sick creature somewhere.",
-     "walkthrough": "'Over' is not a position word here but the cricket abbreviation O, and it is the angry word plus O that does the carrying.",
-     "definitionFit": "The armadillo is an armoured mammal of the Americas, a specific example of an animal."
+     "surface": "Half a furious army has to carry its sick.",
+     "definitionFit": "The armadillo is an American mammal protected by bony armour plates."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "over"
+     "misdirectedWord": "army"
     }
    }
   },
@@ -727,42 +740,30 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "LAUNDRESS",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in places one thing within another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "California",
-         "gives": "LA",
-         "note": "LA, Los Angeles, standing for the state it is in"
-        },
-        {
-         "words": "Nudity",
-         "gives": "UNDRESS",
-         "note": "a state of undress is nakedness"
-        }
-       ]
+       "words": "in California",
+       "at": 7,
+       "gives": "LA",
+       "note": "LA, Los Angeles, is a place in California"
+      },
+      {
+       "words": "Nudity",
+       "at": 0,
+       "gives": "UNDRESS",
+       "note": "undress is a state of nakedness, as in in a state of undress"
       }
      ]
     },
     "explanation": {
-     "surface": "Going naked in California is a purer way of living.",
-     "walkthrough": "'Cleaner' looks like a comparative adjective, but it is a noun for a person who washes things. LA here stands loosely for California, home of Los Angeles.",
-     "definitionFit": "A laundress is a woman employed to wash and iron clothes, a cleaner of linen."
+     "surface": "Someone is naked in California and is a cleaner.",
+     "walkthrough": "'Nudity in California' reads as undress at LA, so LA comes first.",
+     "definitionFit": "A laundress is a woman whose job is washing and ironing clothes and linen."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "cleaner"
     }
    }
@@ -979,46 +980,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TENNYSON",
+     "op": "container",
      "indicators": [
       {
-       "text": "I avoided",
-       "note": "the letter that is avoided gets left out"
+       "text": "when touring",
+       "at": 17,
+       "note": "touring means going around, so the shortened word goes around the city"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "when touring",
-         "note": "a tour goes all round a place, so one piece goes round another"
+         "text": "avoided",
+         "at": 9,
+         "note": "avoided means the letter I is left out"
         }
        ],
        "parts": [
         {
          "words": "Strain",
-         "gives": "TENSON",
-         "note": "tension is strain, minus its I"
+         "at": 0,
+         "gives": "TENSION",
+         "note": "tension is strain"
         },
         {
-         "words": "US city",
-         "gives": "NY",
-         "note": "NY is New York"
+         "words": "I",
+         "at": 7,
+         "gives": "I"
         }
        ]
+      },
+      {
+       "words": "US city",
+       "at": 30,
+       "gives": "NY",
+       "note": "NY is New York"
       }
      ]
     },
     "explanation": {
-     "surface": "A stressed traveller visits an American city to meet a poet.",
-     "walkthrough": "The strain word loses I first, then wraps NY.",
-     "definitionFit": "Alfred, Lord Tennyson wrote The Lady of Shalott, the poem whose line forms the title at 8 and 4."
+     "surface": "A tired traveller avoids stress while touring an American city to see a writer.",
+     "definitionFit": "Alfred, Lord Tennyson was the Victorian Poet Laureate and author of the cross-referenced work."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Strain"
     }
