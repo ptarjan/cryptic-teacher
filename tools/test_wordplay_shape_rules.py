@@ -390,6 +390,12 @@ check("with no answer it counts nothing", 0, v.container_inside_component(lag))
 seam = {**lag, "parts": [lag["parts"][0], {"words": "x", "gives": "T"}]}
 check("a piece that can go in at the join is not (LAGTASP is no answer, LAGTASP join)", 0,
       v.container_inside_component(seam, "LAGTASP"))
+sel = {"op": "container", "indicators": [{"text": "holding"}], "parts": [
+    {"op": "charade", "parts": [{"words": "love", "gives": "O"}, {"op": "last", "indicators": [{"text": "tips from"}],
+        "parts": [{"words": "Wills", "gives": "S"}, {"words": "Kate", "gives": "E"}]}]},
+    {"words": "newly-delivered", "gives": "BORN"}]}
+check("a selection over two words has the join between its letters, where a piece may go in (cyclops-503 4d)", 0,
+      v.container_inside_component({**sel, "parts": [sel["parts"][0], {"words": "x", "gives": "T"}]}, "OSTE"))
 check("three daughters scrambled as DDD is literal, not a synonym", 0, v.anagram_synonyms(
     {"op": "anagram", "parts": [{"words": "an emu"}, {"words": "three daughters", "gives": "DDD"}]}))
 check("two ends as ENDEND is literal too", 0, v.anagram_synonyms(

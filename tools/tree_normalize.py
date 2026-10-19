@@ -82,6 +82,16 @@ def _flatten(tree):
         if n.get("op") == "charade" and len(n.get("parts") or []) == 1 and not n.get("indicators") \
                 and not n.get("unchecked"):
             tree = _swap(tree, n, n["parts"][0])
+    # an anagram's fodder is one pool: a bare charade directly under it is its own parts (ana(x + y))
+    for n, _ in list(_walk(tree)):
+        if n.get("op") == "anagram" and not n.get("unchecked"):
+            parts = []
+            for p in n.get("parts") or []:
+                if isinstance(p, dict) and _plain_charade(p):
+                    parts += p["parts"]
+                else:
+                    parts.append(p)
+            n["parts"] = parts
     return tree
 
 
@@ -250,6 +260,45 @@ def hoist_deletion(tree, answer=None):
     return tree, done
 
 
+# ---------- A2: container over a charade <-> container around one piece ----------
+
+def sink_container(tree, clue, answer):
+    """ins(a + b, x) -> a + ins(b, x) where x goes in only inside b (LA(ST)G + ASP: ins(LAG + ASP, ST)
+    is LAG with ST in it, then ASP): the indicator acts on the one piece it sits by. The validator's
+    containerInside is this. (tree, count)."""
+    done = 0
+    for _ in range(20):
+        step = _sink_container_once(tree, answer)
+        if step is None:
+            break
+        tree, done = step, done + 1
+    return tree, done
+
+
+def _sink_container_once(tree, answer):
+    before = V.container_inside_component(tree, answer)
+    if not before:
+        return None
+    for node, _parent in list(_walk(tree)):
+        parts = node.get("parts") or []
+        if node.get("op") != "container" or node.get("unchecked") or len(parts) != 2 \
+                or not all(isinstance(p, dict) for p in parts) or not _sinkable_charade(parts[0]):
+            continue
+        comps = parts[0]["parts"]
+        for i, piece in enumerate(comps):
+            if piece.get("unchecked"):
+                continue
+            inner = {**{k: copy.deepcopy(v) for k, v in node.items() if k != "parts"},
+                     "parts": [copy.deepcopy(piece), copy.deepcopy(parts[1])]}
+            new = {**{k: copy.deepcopy(v) for k, v in parts[0].items() if k != "parts"},
+                   "parts": [*copy.deepcopy(comps[:i]), inner, *copy.deepcopy(comps[i + 1:])]}
+            trial = copy.deepcopy(tree)
+            trial = _flatten(_swap(trial, _match(tree, trial, node), new))
+            if _gives(trial, answer) and V.container_inside_component(trial, answer) < before:
+                return trial
+    return None
+
+
 # ---------- B1: a list of selections under one indicator ----------
 
 def merge_selects(tree, answer):
@@ -273,7 +322,9 @@ def merge_selects(tree, answer):
                 j += 1
             run = parts[i:j]
             carriers = [r for r in run if r.get("indicators")]
-            if len(run) >= 2 and len(carriers) == 1:
+            if len(run) >= 2 and len(carriers) == 1 and not (node.get("indicators") and len(run) == len(parts)):
+                # (an indicated charade of just the run would be left a one-part charade: its
+                # indicator ("after", "before") orders two pieces, so the two reversals stay two)
                 merged = {k: copy.deepcopy(v) for k, v in carriers[0].items() if k != "parts"}
                 merged["parts"] = [copy.deepcopy(r["parts"][0]) for r in run]
                 trial = copy.deepcopy(tree)
@@ -313,7 +364,7 @@ def merge_reversals(tree, answer):
                 j += 1
             run = parts[i:j]
             carriers = [r for r in run if r.get("indicators")]
-            if len(run) >= 2 and len(carriers) == 1:
+            if len(run) >= 2 and len(carriers) == 1 and not (node.get("indicators") and len(run) == len(parts)):
                 inner = [copy.deepcopy(r["parts"][0]) for r in reversed(run)]
                 merged = {k: copy.deepcopy(v) for k, v in carriers[0].items() if k != "parts"}
                 merged["parts"] = [{"op": "charade", "parts": inner}]
@@ -339,6 +390,7 @@ def normalize(tree, clue, answer):
     tree = copy.deepcopy(tree)
     used = []
     for name, fn in (("sink_deletion", lambda t: sink_deletion(t, clue, answer)),
+                     ("sink_container", lambda t: sink_container(t, clue, answer)),
                      ("merge_selects", lambda t: merge_selects(t, answer)),
                      ("merge_reversals", lambda t: merge_reversals(t, answer))):
         new, n = fn(copy.deepcopy(tree))
