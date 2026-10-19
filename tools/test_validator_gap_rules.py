@@ -212,4 +212,21 @@ check("a leaf 'two' beside a leaf giving the same letters is counted", 1, v.repe
     {"op": "charade", "parts": [{"words": "groups of workers", "gives": "TU"}, {"words": "two", "gives": "TU"}]}))
 check("a percentage deletion is a halving-style selection", 1, v.halved_as_deletion({"op": "deletion", "indicators": [
     {"text": "60% of"}], "parts": [{"words": "hospital", "gives": "SANATORIUM"}, {"gives": "RIUM"}]}))
+check("a doubling word giving a doubled string is counted", 1, v.repeat_in_leaf(
+    {"op": "charade", "parts": [{"words": "Officer doubling", "gives": "COCO"}, {"words": "a", "gives": "A"}]}))
+check("a first-letters op beside bare initial leaves is counted", 1, v.first_sibling_leaves({"op": "charade", "parts": [
+    {"op": "first", "indicators": [{"text": "heads"}], "parts": [{"words": "cooked"}]},
+    {"words": "halved", "gives": "H", "note": "the opening letter of Halved"}, {"words": "elephant", "gives": "E", "note": "the opening letter"}]}))
+check("an unindicated hidden word under a 'having returned' reversal is counted", 1, v.hidden_ind_above(
+    {"op": "reversal", "indicators": [{"text": "having returned"}], "parts": [{"op": "hidden", "parts": [{"words": "Blame Nicola"}]}]}))
+check("a leaf holding primarily that gives the others' initials is counted", 1, v.initials_in_leaf(
+    {"op": "charade", "parts": [{"words": "Dish", "gives": "PIZZA"}, {"words": "zip and zing primarily", "gives": "ZZ"}]}))
+if v._lexicon_letters():
+    check("a word split around an insert into two leaves is counted", 1, v.split_word_leaves({"op": "charade", "parts": [
+        {"op": "container", "parts": [{"words": "cut", "gives": "HA"}, {"words": "stay", "gives": "YSTA"}]},
+        {"words": "cut", "gives": "CK"}]}))
+    check("a non-word leaf whose note says a letter was moved is counted", 1, v.move_note_leaf(
+        {"op": "charade", "parts": [{"words": "Greasy", "gives": "OLY", "note": "OILY, with its I moved down"}, {"words": "x", "gives": "X"}]}))
+    check("a one-leaf deletion giving a word one letter short is counted", 1, v.deletion_no_cut(
+        {"op": "deletion", "indicators": [{"text": "not quite"}], "parts": [{"words": "target", "gives": "GOA"}]}))
 raise SystemExit(fails)

@@ -281,6 +281,17 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                           "the one piece next to it, so put the deletion on that piece inside the charade",
        "repeatInLeaf": "a leaf holds a doubling word (twice, double, again) and gives a doubled string: give the "
                        "block once and repeat it with an op carrying that indicator",
+       "splitWordLeaves": "one word is split into two leaves over the same clue words with an insert between (EI + N + D "
+                          "for EID round N): write the word as the container's outer piece, one leaf",
+       "moveNoteLeaf": "a leaf gives a non-word whose note says a letter was moved: write move<indicator>(fodder, MOVED)",
+       "firstSiblingLeaves": "a first-letters op picks one word while sibling leaves give the next words' initials: one "
+                             "indicator over the list is one multi-part op",
+       "hiddenIndAbove": "a hidden op has no indicator while the op above opens with a hidden-word marker (having, "
+                         "holding): put the marker on the hidden op",
+       "deletionNoCut": "a deletion has one leaf part and no cut piece, the leaf a word one letter short: give the whole "
+                        "word and cut it with a deletion carrying the indicator",
+       "initialsInLeaf": "a leaf holds a first-letters word (primarily, initially) and gives its other words' initials: "
+                         "write first<indicator> over those words",
        "halfInLeaf": "a leaf holds half (half-done taco) and gives half of another of its words: write the halving "
                      "as a selection op with its own indicator",
        "selectIndEndsLeaf": "a first/last/outer op's leaf ends with the op's own indicator words (cooked on top): "
@@ -346,6 +357,12 @@ def _validator_rules():
             "cutNoteLeaf": lambda t, a, c: V.cut_note_leaf(t),
             "ownIndInLeaf": lambda t, a, c: V.own_ind_in_leaf(t),
             "repeatInLeaf": lambda t, a, c: V.repeat_in_leaf(t),
+            "splitWordLeaves": lambda t, a, c: V.split_word_leaves(t),
+            "moveNoteLeaf": lambda t, a, c: V.move_note_leaf(t),
+            "firstSiblingLeaves": lambda t, a, c: V.first_sibling_leaves(t),
+            "hiddenIndAbove": lambda t, a, c: V.hidden_ind_above(t),
+            "deletionNoCut": lambda t, a, c: V.deletion_no_cut(t),
+            "initialsInLeaf": lambda t, a, c: V.initials_in_leaf(t),
             "halfInLeaf": lambda t, a, c: V.half_in_leaf(t),
             "selectIndEndsLeaf": lambda t, a, c: V.select_ind_ends_leaf(t),
             "beheadInLeaf": lambda t, a, c: V.behead_in_leaf(t),
