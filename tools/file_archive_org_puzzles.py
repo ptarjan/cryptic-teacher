@@ -4024,8 +4024,8 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts):
     if not paper.four and vlm_on and vlm.wanted():
         try:
             only = columns_with(list(cols.values()), vlm_for) if vlm_for else None
-            asked = "\n".join(vlm.read(vlm.crop(img, box)) for i, box in enumerate(vlm.boxes(img, wins, list(cols.values())))
-                              if box and (only is None or i in only))
+            asked = "\n".join(vlm.read_all([vlm.crop(img, box) for i, box in enumerate(vlm.boxes(img, wins, list(cols.values())))
+                                            if box and (only is None or i in only)]))
             texts["vlm"] = "\n".join(numbered_heading(t) or t for t in asked.splitlines())
         except RuntimeError:
             pass  # gone mid-run: read as without it; run() files it to be read again

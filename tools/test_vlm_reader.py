@@ -489,6 +489,49 @@ with vlm.asking():
 check("the stale mark is removed", False, (vlm._waiting_dir() / "999999999").exists())
 check("the mark ends with the ask", 0, vlm.waiting_now())
 
+# The spool: under CT_VLM_SPOOL an ask not cached is queued (png + json) and raises Spooled, every column of a
+# read_all at once; drain_one asks the server for the oldest and caches it; the read then hits the cache.
+vlm._SLOTS[0] = 1
+vlm.PIPELINE = 0
+vlm._MISSED[0] = False
+vlm._YIELDED[0] = float("-inf")
+asked = []
+def fake_ok(req, timeout=None):
+    asked.append(1)
+    return io.BytesIO(json.dumps({"choices": [{"message": {"content": "spoolt"}}]}).encode())
+urllib.request.urlopen = fake_ok
+os.environ[vlm.SPOOL_ENV] = "1"
+cols = [Image.new("L", (400, 300), 31 + i) for i in range(3)]
+try:
+    vlm.read_all(cols)
+    raised = False
+except vlm.Spooled:
+    raised = True
+check("a spooling read asks nothing and spools every uncached column", (True, 0, 3, True),
+      (raised, len(asked), len(vlm.spooled()), vlm.missed()))
+check("the spooled asks are the asking pid's and pending", (3, True),
+      (len(vlm.spooled_by(os.getpid())), all(vlm.pending(k) for k in vlm.spooled())))
+try:
+    vlm.read_all(cols)
+except vlm.Spooled:
+    pass
+check("spooling the same asks again does not queue them twice", 3, len(vlm.spooled()))
+os.environ.pop(vlm.SPOOL_ENV)
+first = vlm.spooled()[0]
+check("the drainer asks the oldest and caches it", (first, 1, 2), (vlm.drain_one(), len(asked), len(vlm.spooled())))
+while vlm.drain_one():
+    pass
+check("the drained asks are answered and gone", (0, 3), (len(vlm.spooled()), len(asked)))
+os.environ[vlm.SPOOL_ENV] = "1"
+check("the read that spooled them now hits the cache", (["spoolt"] * 3, 3), (vlm.read_all(cols), len(asked)))
+os.environ.pop(vlm.SPOOL_ENV)
+urllib.request.urlopen = fake_500
+vlm.put_spool("k" * 40, b"x", "p", 10)
+check("a failed drain leaves the ask queued", (None, True), (vlm.drain_one(), vlm.pending("k" * 40)))
+urllib.request.urlopen = real
+vlm._MISSED[0] = False
+vlm._SLOTS[0] = None
+
 if fails:
     print("test_vlm_reader: failed")
     sys.exit(1)

@@ -445,6 +445,29 @@ def vlm_waiting_cap():
         return 4
 
 
+#: Spooled asks (vlm_reader.spooled) at which no read starts (env CT_VLM_SPOOL_MAX): at ~6.7 asks
+#: a minute 200 are half an hour of the VLM's work, and each read begun past that only waits.
+def vlm_spool_max():
+    try:
+        return max(1, int(os.environ.get("CT_VLM_SPOOL_MAX", "200")))
+    except ValueError:
+        return 200
+
+
+def vlm_drainer(stop, threads):
+    """The VLM stage: one thread per ask in flight (vlm_reader.slots() + PIPELINE) takes the
+    oldest spooled ask (vlm_reader.drain_one), asks the server and caches the answer, so no
+    read blocks on the VLM. Idle, or the VLM down (vlm_up), it waits and looks again."""
+    def work():
+        while not stop.is_set():
+            if not (vlm_reader.spooled() and vlm_up()) or not vlm_reader.drain_one():
+                stop.wait(5)
+    vlm_reader.requeue_claimed()
+    for _ in range(max(1, vlm_reader.slots() + max(0, vlm_reader.PIPELINE))):
+        threading.Thread(target=work, daemon=True).start()
+        threads.append(1)
+
+
 #: How often (seconds) the queue is planned again.
 REPLAN = 60
 #: While no core is idle, a plan is made every REPLAN * IDLE_BACKOFF seconds
@@ -1558,6 +1581,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     memory_bound = cpu_bound = desktop_bound = desk_mem_bound = False  # logged once per slice
     idle_bound = False  # logged once each time the idle cores run out
     vlm_bound = False  # logged once each time the VLM-waiting cap is met
+    drainer = []  # the VLM stage's threads, started with the first spooled ask
+    drainer_stop = threading.Event()
+    spool_wait = {}  # {key_of(read): its spooled asks' keys} of the reads deferred for the drainer
+    stage_seen = [None, float("-inf")]  # the "vlm stage" line's last (spooled, waiting) and when
     ceiling_bound = False  # logged once each time the unit-children ceiling is met
     opened = []  # when this run started each unit that opens a desktop session (desktop_room), the last hour's
     closed = []  # (start, end) wall times of those units that ended, the last hour's (desktop_sessions)
@@ -1813,6 +1840,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         if unit["kind"] == "read":
             # A read needing the VLM while it is down ends deferred, never read without it (vlm_reader.wanted).
             env[vlm_reader.DEFER_ENV] = "1"
+            # ... and its ask the VLM has not answered is spooled for the drainer, not waited for (vlm_reader.SPOOL_ENV).
+            if os.environ.get(vlm_reader.SPOOL_ENV, "1") != "0":
+                env[vlm_reader.SPOOL_ENV] = "1"
         if alone:
             env["OCR_REMOTE"] = ""
         elif unit["kind"] != "fetch":
@@ -1855,8 +1885,12 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if rc == EXITS["lost"]:
                 losses[key_of(unit)] = losses.get(key_of(unit), 0) + 1
             if rc == EXITS["vlm"]:
-                vlm_held.add(key_of(unit))
-                vlm_lost_at[0] = time.monotonic()
+                spooled_by = vlm_reader.spooled_by(pid)
+                if spooled_by:
+                    spool_wait[key_of(unit)] = set(spooled_by)  # started again once the drainer has answered them
+                else:
+                    vlm_held.add(key_of(unit))
+                    vlm_lost_at[0] = time.monotonic()
             if rc in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]):
                 tried.discard(key_of(unit))  # started again once the desktop is idle, or the VLM answers
                 if desktop_bound and unit["kind"] == "scan":
@@ -2040,6 +2074,14 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         else:
             ceiling_bound = False
         vlm_waiting = vlm_reader.waiting_now()
+        queued = vlm_reader.spooled()
+        if queued and not drainer:
+            vlm_drainer(drainer_stop, drainer)
+        stage = (len(queued), len(spool_wait))
+        if stage != stage_seen[0] and (stage[0] or stage_seen[0]) and time.monotonic() - stage_seen[1] >= 30:
+            stage_seen[:] = [stage, time.monotonic()]
+            log(f"vlm stage: {stage[0]} asks spooled, {stage[1]} reads waiting")
+        vlm_waiting += len(queued) * vlm_waiting_cap() // vlm_spool_max()  # a full spool counts as a full cap
         vlm_full = vlm_waiting >= vlm_waiting_cap()
         if vlm_full != vlm_bound:
             vlm_bound = vlm_full
@@ -2078,6 +2120,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             or it ended deferred for it) and it is down."""
             if u["kind"] != "read" or not (key_of(u) in vlm_held or needs_vlm(u)):
                 return False
+            if key_of(u) in spool_wait:
+                if any(vlm_reader.pending(k) for k in spool_wait[key_of(u)]):
+                    return True
+                del spool_wait[key_of(u)]  # answered: its asks hit the cache now
             if not vlm_now:
                 vlm_now.append(time.monotonic() - vlm_lost_at[0] >= VLM_RECHECK and vlm_up())
                 if vlm_now[0] and vlm_held:
@@ -2165,7 +2211,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             the VLM back, a desktop session aged out: noticed within
             IDLE_WALK seconds)."""
             return (planned, plan_done, fresh_at, len(queue), len(first), len(tried), len(scanned), len(scan_failed),
-                    sum(losses.values()), len(vlm_held), tuple(running), tuple(adopted), tuple(sorted(free.items())),
+                    sum(losses.values()), len(vlm_held), len(spool_wait), vlm_full, tuple(running), tuple(adopted), tuple(sorted(free.items())),
                     len(stopped), urgent, bool(starved), bool(yielding), desk_mem, len(opened), len(closed),
                     int(time.monotonic() // IDLE_WALK), gates)
 
@@ -2212,7 +2258,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                                          or (u["kind"] == "scan" and (not yield_opt_in or (game and live_scans >= game_scans()))))):
                 continue
             if vlm_waits(u):
-                vlm_deferred += 1
+                vlm_deferred += ukey not in spool_wait  # a read for the drainer is no "VLM down"
                 continue
             if vlm_full and u["kind"] == "read":
                 continue

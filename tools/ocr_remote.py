@@ -445,6 +445,9 @@ def read_edition_here(req, blob, ask_mac):
             img.save(buf, format="PNG", compress_level=1)  # lossless: the Mac decodes these pixels
             data = buf.getvalue()
         got = ask_mac({"ask": prompt, "max_tokens": max_tokens, "png": theirs}, data)
+        if got.get("spooled"):  # the Mac queued it for its drainer: the read goes on, ends deferred
+            vlm_reader._MISSED[0] = True
+            raise vlm_reader.Spooled(got["error"])
         if "error" in got:
             up[0] = False
             raise RuntimeError(got["error"])
@@ -856,6 +859,8 @@ class Session:
                     reply = {"text": vlm_reader.ask_png(data, got["ask"], got["max_tokens"])}
                 else:
                     reply = {"text": vlm_reader.ask(Image.open(io.BytesIO(data)), got["ask"], got["max_tokens"])}
+            except vlm_reader.Spooled as e:
+                reply = {"error": str(e), "spooled": True}
             except RuntimeError as e:
                 reply = {"error": str(e)}
             try:
