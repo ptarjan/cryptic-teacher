@@ -487,5 +487,14 @@ check("a container over a many-part cycling holds the cycled piece in the other"
       used == ["arity_other"] and [p.get("gives") for p in new["parts"]][0] == "APE"
       and new["parts"][1]["op"] == "cycling" and "unchecked" not in json.dumps(new))
 
+# deletionScopeAnswer: the cut names an end of one piece, not of the whole charade
+dsc = "Almost certain aspect will be lacking depth"
+dst = {"op": "deletion", "indicators": [{"text": "Almost", "at": 0}], "parts": [
+    {"op": "charade", "parts": [{"words": "certain", "at": 7, "gives": "SURE"}, {"words": "aspect", "at": 15, "gives": "FACE"}]},
+    {"gives": "E"}]}
+new, used = F.repair_tree(dst, dsc, "SURFACE", {"deletionScopeAnswer": F.RULE_REPAIRS["deletionScopeAnswer"]})
+check("a deletion over a charade moves onto the piece the cut comes out of",
+      used == ["deletionScopeAnswer"] and new["op"] == "charade" and new["parts"][0]["op"] == "deletion")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
