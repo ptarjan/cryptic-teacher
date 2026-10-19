@@ -17,6 +17,7 @@ Prototype only: nothing imports it and no queue runs it. Caches live in ~/.cache
 """
 import argparse
 import collections
+import functools
 import glob
 import gzip
 import itertools
@@ -31,11 +32,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import det_synonyms  # noqa: E402  (the synonym dictionary: sources, ranking, leaf coverage)
 CACHE = Path.home() / ".cache" / "detsolve"
 SERIES = ("times", "sundaytimes", "timesjumbo", "timesquick", "timesclub")
 LINK = {"and", "with", "then", "by", "to", "for", "of", "on", "in", "from", "is", "has", "gets", "get", "given",
         "giving", "provides", "after", "before", "a", "the", "as", "at", "one's", "its", "it", "that", "makes",
         "make", "for", "when", "so", "are", "be", "an", "gives", "produces", "going", "to", "'s", "with"}
+WEAK_PER_PHRASE = int(os.environ.get("DETSYN_WEAK", "8"))
 SELECT_KINDS = ("first", "last", "middle", "outer", "alternate")
 
 
@@ -44,8 +47,9 @@ def letters(s):
 
 
 def norm(s):
-    s = (s or "").lower().replace("’", "'")
-    return " ".join(re.findall(r"[a-z0-9'\-]+", s))
+    """Table key of a phrase: exactly the tokens the clue lookup builds ("driver's warning" -> "driver 's warning"),
+    so a stored leaf, indicator or definition is reachable from the clue it came from (13% of clues have a 's)."""
+    return " ".join(tokens(s or ""))
 
 
 def tokens(text):
@@ -131,7 +135,11 @@ def walk(node, tab, parent=None):
     op = node.get("op")
     if op is None:
         words, gives = node.get("words"), letters(node.get("gives", ""))
-        if words and gives and parent not in ("anagram", "hidden", "homophone") and parent not in SELECT_KINDS:
+        # a non-literal leaf under an anagram or homophone is still a synonym (fodder "chaps" -> MEN); under a
+        # hidden word or a selection the words are letters-bearing, so those stay out
+        # a non-literal leaf under an anagram or homophone is still a synonym (fodder "chaps" -> MEN); under a
+        # hidden word or a selection the words are letters-bearing, so those stay out
+        if words and gives and parent != "hidden" and parent not in SELECT_KINDS:
             if letters(words) != gives and not node.get("unchecked"):
                 tab["syn"][norm(words)][gives] += 1
         return
@@ -259,6 +267,7 @@ def item_len(it):
     return len(it) - 1 if it[:1] == "*" else len(it) - 2 if it[:1] == "~" else len(it)
 
 
+@functools.lru_cache(maxsize=2_000_000)
 def pat_len(p):
     return sum(item_len(i) for i in p)
 
@@ -313,18 +322,25 @@ class Clue:
         width = j - i
         if width <= 4:
             syn = self.tab["syn"].get(key)
-            if syn:
-                for g, c in syn.most_common(400 if self.answer else 30):
-                    if len(g) <= self.n and (not self.answer or g in self.subs or len(g) <= 3 or g[::-1] in self.subs
-                                             or len(syn) < 30):
-                        out[(g,)] = (1.0 + min(c, 5) * 0.15, f"{key}->{g}")
-            for g in self.res.abbr.get(key, [])[:10]:
-                if g and len(g) <= self.n:
-                    out.setdefault((g,), (0.9, f"{key}->{g}"))
-            if width <= 2 and not self.tab["syn"].get(key):
-                for g in self.res.wn_synonyms(key)[:30]:
-                    if 2 <= len(g) <= self.n - 1 or (self.n == len(g)):
-                        out.setdefault((g,), (0.45, f"{key}~{g}"))
+            kept = weak = 0
+            cands = det_synonyms.get_sd(self.tab, self.res).cands(key)
+            have_strong = any(src in det_synonyms.STRONG for _, _, src in cands)
+            for g, sc, src in cands:
+                if len(g) > self.n or (len(g) < 2 and src not in ("corpus", "abbr")):
+                    continue
+                if self.answer and not (g in self.subs or g[::-1] in self.subs):
+                    if not (src in ("corpus", "abbr") and (len(g) <= 3 or len(syn or ()) < 30)):
+                        continue
+                if not self.answer and src not in det_synonyms.STRONG:
+                    # SOLVE has no answer to prune with: where the leaf table or an abbreviation already offers
+                    # something, the other sources stay out (they drowned the real parse); otherwise a few guesses
+                    weak += 1
+                    if have_strong or weak > WEAK_PER_PHRASE:
+                        continue
+                out.setdefault((g,), (sc, f"{key}->{g}" if src in ("corpus", "abbr") else f"{key}~{g}"))
+                kept += 1
+                if kept >= (400 if self.answer else 50):
+                    break
             if width == 1:
                 L = self.lit(i, j)
                 if 1 <= len(L) <= 5 and len(L) < self.n:
@@ -625,8 +641,7 @@ def gaps(node, tab, res, parent=None, out=None):
         if words and gives and parent not in ("anagram", "hidden", "homophone") and parent not in SELECT_KINDS \
                 and letters(words) != gives:
             key = norm(words)
-            if gives not in tab["syn"].get(key, {}) and gives not in res.abbr.get(key, []) \
-                    and gives not in res.wn_synonyms(key):
+            if gives not in det_synonyms.get_sd(tab, res).all_gives(key):
                 out.append(("syn", words, gives))
         return out
     kind = op
@@ -712,6 +727,10 @@ def run_eval(n_clues=500, seed=7, budget=150, hold=True):
         t1 = time.time()
         cl = Clue(r["clue"], n, tab, res, answer=r["answer"])
         v = verify(cl, r["answer"], res)
+        # decoy: the same clue checked against another test clue's answer of the same length (it must NOT parse)
+        decoy = next((o["answer"] for o in test[idx + 1:] + test[:idx] if len(o["answer"]) == len(r["answer"])
+                      and o["answer"] != r["answer"]), None)
+        dv = verify(Clue(r["clue"], n, tab, res, answer=decoy), decoy, res) if decoy else None
         cl2 = Clue(r["clue"], n, tab, res)
         ranked = solve(cl2, res)
         words = [w for _, w, _ in ranked]
@@ -723,7 +742,7 @@ def run_eval(n_clues=500, seed=7, budget=150, hold=True):
         words_m = [w for _, w, _ in ranked_m]
         rank_m = words_m.index(r["answer"]) + 1 if r["answer"] in words_m else None
         results.append({"pid": r["pid"], "num": r["num"], "dir": r["dir"], "clue": r["clue"], "enum": r["enum"],
-                        "answer": r["answer"], "type": clue_type(r["tree"]), "verify": v, "rank": rank,
+                        "answer": r["answer"], "type": clue_type(r["tree"]), "verify": v, "decoy": bool(dv), "rank": rank,
                         "rank_mask": rank_m, "top": ranked[:3], "secs": time.time() - t1,
                         "gaps": gaps(r["tree"], tab, res), "stored": r["tree"], "defs": r["defs"], "multiword": len(re.findall(r"\d+", r["enum"])) > 1})
     json.dump(results, open(CACHE / "eval.json", "w"))
@@ -751,6 +770,7 @@ def report(results):
     fails = [r for r in results if not r["verify"]]
     c = collections.Counter(failure_cause([tuple(x) for x in r["gaps"]]) for r in fails)
     print("VERIFY failures by first cause:", {k: f"{v} ({100 * v / max(len(fails), 1):.0f}%)" for k, v in c.items()})
+    print("VERIFY false accepts (wrong same-length answer parses):", fmt(sum(1 for r in results if r.get("decoy")), len(results)))
     print("mean secs/clue", sum(r["secs"] for r in results) / max(len(results), 1))
 
 
