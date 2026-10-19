@@ -3581,6 +3581,32 @@ def charade_in_charade(tree):
     return n
 
 
+def _bare_shape(node):
+    """`node` without its indicators and notes, all the way down: what makes two ops the same."""
+    return {k: ([_bare_shape(p) if isinstance(p, dict) else p for p in v] if k == "parts" else v)
+            for k, v in node.items() if k not in ("indicators", "note", "at")}
+
+
+def _repeated_copies(tree):
+    """ids of ops that repeat an earlier sibling exactly under a parent whose indicator is a
+    repeat word (mephisto-3095 30a GRISGRIS: (ins<protected by>(GIS, R) + ins(GIS, R))<repeatedly>).
+    The one indicator on the parent says the copy is made, so the copy needs none."""
+    out = set()
+    for parent in _walk(tree):
+        if not any(set(re.findall(r"[a-z]+", str(i.get("text") or "").lower())) & REPEAT_WORDS
+                   for i in parent.get("indicators") or []):
+            continue
+        seen = []
+        for p in parent.get("parts") or []:
+            if not isinstance(p, dict) or "op" not in p:
+                continue
+            shape = json.dumps(_bare_shape(p), sort_keys=True, default=str)
+            if shape in seen:
+                out.add(id(p))
+            seen.append(shape)
+    return out
+
+
 def unindicated_ops(tree):
     """How many checked ops that need an indicator word have none.
 
@@ -3592,8 +3618,10 @@ def unindicated_ops(tree):
     both this rule and the one that wants the sound written (10-17)."""
     spoken = {id(p) for s in _walk(tree) if s.get("op") == "spoonerism"
               for p in s.get("parts") or [] if isinstance(p, dict) and p.get("op") == "homophone"}
+    copies = _repeated_copies(tree)
     return sum(1 for n in _walk(tree) if n.get("op") in NEEDS_INDICATOR
-               and not n.get("unchecked") and not n.get("indicators") and id(n) not in spoken)
+               and not n.get("unchecked") and not n.get("indicators") and id(n) not in spoken
+               and id(n) not in copies)
 
 
 def cdef_repeats(tree):
@@ -3781,6 +3809,12 @@ def _spoon_swap_ok(sounds, gives, originals=()):
     ws = [wordplay.letters(w) for w in str(sounds or "").split()]
     if not gives or not ws or not all(ws):
         return False
+    if len(originals) == 2 and len(ws) == 2 and all(originals) and ws == list(originals):
+        # soundsLike names the two words as they stand (FULL APACE, BOG LOOK): the swap
+        # trades their opening sounds, so the answer is the same letters rearranged
+        # (PULLAFACE, LOGBOOK), changed at the start, and not the two words run together
+        joined = ws[0] + ws[1]
+        return len(gives) >= 4 and sorted(gives) == sorted(joined) and gives != joined and gives[0] != joined[0]
     if len(originals) == 2 and len(ws) == 2 and all(originals):
         (a, b), (x, y) = originals, ws
         return x[0] == b[0] and y[0] == a[0] and gives[0] == x[0] and gives[-1] == y[-1] and len(gives) >= 4
@@ -3821,6 +3855,16 @@ def _verified_substitution(node, parts):
         except (wordplay.WordplayError, KeyError, TypeError, ValueError, IndexError):
             return None
         return None
+    if len(parts) == 1 and want and "op" not in parts[0] and not parts[0].get("gives") and parts[0].get("words"):
+        # one word and a swap its indicator names ("Russia/EU trade": U out, E in), the result
+        # then anagrammed (ARISES): the result is the word's letters with exactly that swap
+        have, left = collections.Counter(wordplay.letters(parts[0]["words"])), collections.Counter(want)
+        out_, in_ = have - left, left - have
+        said = wordplay.letters(" ".join(str(i.get("text") or "") for i in node.get("indicators") or []))
+        if len(want) == len(wordplay.letters(parts[0]["words"])) and sum(out_.values()) == 1 == sum(in_.values()) \
+                and set(out_) | set(in_) <= set(said):
+            return parts[0]
+        return None
     if len(parts) != 2 or not want:
         return None
     try:
@@ -3854,6 +3898,10 @@ def _verified_leaf(node):
         return None
     if op == "substitution":
         return _verified_substitution(node, parts)
+    if op == "anagram" and len(parts) == 1 and parts[0].get("op") and _verified_leaf(parts[0]) is not None \
+            and sorted(wordplay.letters(node.get("gives"))) == sorted(wordplay.letters(parts[0].get("gives"))) \
+            and node.get("gives"):
+        return parts[0]  # a scramble of a step already computed (ARISES: Russia, U for E, then scrambled)
     if len(parts) == 1 and op == "hidden" and parts[0].get("op") in wordplay.SELECT and parts[0].get("unchecked") \
             and wordplay.letters(node.get("gives")) == wordplay.letters(parts[0].get("gives")) and node.get("gives"):
         return _verified_leaf(parts[0])  # a hidden word over a selection already computed (INCA, mid of skincare)
@@ -4155,13 +4203,35 @@ def _separate_insertion(outer, inner):
     return bool(x and y and same(x[0]) and same(x[0]) == same(y[0]))
 
 
-def nested_containers(tree):
+def _flat_insert_reaches(outer, inner, answer):
+    """Whether the two pieces `outer` and `inner` put into one holder can be joined into one
+    charade, in either order, that goes into the holder at a single gap and spells `answer`.
+    False when they must go in at two gaps (independent-10817 7d BIOMEDICINE: I into BONE after
+    B, then MEDICI after BIO, two insertions with an indicator each): the nesting is the
+    only parse. Unreadable pieces count as reaching, so the flag stays."""
+    try:
+        holder = wordplay.values(inner["parts"][0])
+        xs, ys = wordplay.values(inner["parts"][1]), wordplay.values(outer["parts"][1])
+        target = wordplay.letters(answer)
+        if target not in wordplay.values(outer):
+            return True  # the nesting does not even give the answer: a wrong tree, not a double gap
+        return any(o[:k] + a + b + o[k:] == target for o in holder for x in xs for y in ys
+                   for a, b in ((x, y), (y, x)) for k in range(1, len(o)))
+    except Exception:  # an anagram in the pieces needs the target: leave the flag
+        return True
+
+
+def nested_containers(tree, answer=None):
     """How many checked containers hold, as their first part, another checked container
-    (less the ones that put two pieces into one holder at different points on purpose)."""
+    (less the ones that put two pieces into one holder at different points on purpose, and,
+    with the `answer` for a nesting that is the whole tree, the ones no single insertion of
+    both pieces can spell: the two gaps are the setter's)."""
     return sum(1 for n in _walk(tree) if n.get("op") == "container" and not n.get("unchecked")
                for p in (n.get("parts") or [])[:1]
                if isinstance(p, dict) and p.get("op") == "container" and not p.get("unchecked")
-               and not _separate_insertion(n, p))
+               and not _separate_insertion(n, p)
+               and not (answer and n is tree and len(n["parts"]) == 2 and len(p.get("parts") or []) == 2
+                        and not _flat_insert_reaches(n, p, answer)))
 
 
 #: An anagram scrambles the clue's own letters. A leaf in its fodder that gives a
@@ -4199,14 +4269,27 @@ def anagram_synonyms(tree, ann=None, clue=None):
 
 
 REPEAT_WORDS = frozenset("twice double doubly doubled again repeatedly repeated two both".split())
+#: Count words that say how often the next word's letters come: "three daughters" is DDD,
+#: "two ends" ENDEND (quiptic-1168 12a, independent-10551 10a, azed-1886 2d).
+COUNT_WORDS = frozenset("two three four five six seven eight nine ten triple treble thrice".split())
 
 
 def _doubled(leaf):
-    """Whether a leaf gives its own words repeated (IT -> ITIT, DO -> DODO): the clue's letters
-    twice, which an anagram may scramble."""
-    kept = [w for w in re.findall(r"[A-Za-z]+", str(leaf.get("words") or "")) if w.lower() not in REPEAT_WORDS]
-    words, gives = wordplay.letters("".join(kept)), wordplay.letters(leaf.get("gives"))
-    return bool(words) and len(gives) > len(words) and len(gives) % len(words) == 0 and gives == words * (len(gives) // len(words))
+    """Whether a leaf gives its own words repeated (IT -> ITIT, DO -> DODO), or one letter
+    repeated as many times as the clue counts (three eggs -> OOO, three daughters -> DDD): the
+    clue's letters again and again, which an anagram may scramble. A count word and a plural S
+    on the repeated word are the count's, not letters of it."""
+    gives = wordplay.letters(leaf.get("gives"))
+    if len(gives) >= 2 and len(set(gives)) == 1 and any(
+            w.lower() in COUNT_WORDS for w in re.findall(r"[A-Za-z]+", str(leaf.get("words") or ""))):
+        return True  # a letter said several times over
+    kept = [w for w in re.findall(r"[A-Za-z]+", str(leaf.get("words") or ""))
+            if w.lower() not in REPEAT_WORDS | COUNT_WORDS]
+    words = wordplay.letters("".join(kept))
+    for base in {words, words[:-1] if words.endswith("S") else words}:
+        if base and len(gives) > len(base) and len(gives) % len(base) == 0 and gives == base * (len(gives) // len(base)):
+            return True
+    return False
 
 
 def _lone_stand_in(node):
@@ -4223,14 +4306,14 @@ def _loose_words(ann, clue):
     return _clue_words(clue) - _accounted_words(ann) - CONNECTIVE_WORDS - link_vocabulary()
 
 
-def _stand_in(leaf):
+def _stand_in(leaf, min_len=3):
     """Whether a leaf directly under an anagram plainly gives a different word for its words: 3+
     letters, no digit (a cross-reference gives the other answer, whose letters are the fodder),
     and not a piece of its own letters (BIN -> BI is a cut the leaf did inline). Measured 10-18:
     without these, 10 of 20 sampled direct-leaf hits were right. A well-known pair (lettuce
     -> COS) is not exempt: scrambling it is the fault."""
     words, gives = wordplay.letters(leaf["words"]), wordplay.letters(leaf["gives"])
-    return len(gives) >= 3 and not re.search(r"\d", str(leaf["words"])) \
+    return len(gives) >= min_len and not re.search(r"\d", str(leaf["words"])) \
         and not (words.startswith(gives) or words.endswith(gives) or gives in words)
 
 
@@ -4275,6 +4358,7 @@ def wrong_role_indicators(tree):
     at least ROLE_MIN_USES uses there making up ROLE_OWNED of its uses, and at most
     ROLE_OWN_MAX of them under this op's own type."""
     nodes = [n for n in _walk(tree) if _OP_LEXICON.get(n.get("op")) and not n.get("unchecked")]
+    loose = []  # (id, own, top) of words a looser bar calls the other op's; flagged only as a mutual pair
     flagged, swappable = set(), []  # flagged: (node, indicator) ids; swappable: (id, node type, owner type)
     for node in nodes:
         own = _OP_LEXICON[node["op"]]
@@ -4285,6 +4369,9 @@ def wrong_role_indicators(tree):
             if total < ROLE_MIN_USES or key in ROLE_LINKS or {own, max(counts, key=counts.get)} == {"hidden_word", "letter_selection"}:
                 continue
             top = max(counts, key=counts.get)
+            if top != own and "hidden_word" not in (own, top) and counts[top] >= ROLE_LOOSE_OWNED * total \
+                    and counts.get(own, 0) <= ROLE_LOOSE_OWN_MAX * total:
+                loose.append(((id(node), at), own, top))
             if top == own or counts.get(own, 0) > ROLE_OWN_MAX * total:
                 continue
             if counts[top] >= ROLE_SWAP_OWNED * total:
@@ -4296,6 +4383,9 @@ def wrong_role_indicators(tree):
                 flagged.add((id(node), at))
     for a, own_a, top_a in swappable:  # a is (node id, indicator index); a mutual swap is its own corroboration (EGRET)
         if any(b[0][0] != a[0] and b[1] == top_a and _swap_alike(b[2], own_a) for b in swappable):
+            flagged.add(a)
+    for a, own_a, top_a in loose:  # two ops that each carry the other's word: the indicators trade places
+        if any(b[0][0] != a[0] and b[1] == top_a and b[2] == own_a for b in loose):
             flagged.add(a)
     return len(flagged) + reversal_of_anagram(tree) + selection_of_one_letter(tree)
 
@@ -4319,6 +4409,12 @@ def selection_of_one_letter(tree):
 #: 22a EGRET files rev<stuffing>(hid<back>(..)): "back" is 92% reversal (the rest selections),
 #: "stuffing" 82% container, neither at ROLE_OWNED.
 ROLE_SWAP_OWNED = 0.8
+#: The looser bar for a mutual swap of two ops (timesjumbo-1807 4d ACKNOWLEDGEMENT: ins<bent>(
+#: ana<in possession of>(..), L); sundaytimes-5214 21a DWELLINGS: ins<rebuilt>(ana<around>(..), LL)):
+#: each carries a word the corpus files mostly under the other's type, which both ops carrying
+#: the other's word at once makes certain. "around" is 79% container and 8% anagram.
+ROLE_LOOSE_OWNED = 0.7
+ROLE_LOOSE_OWN_MAX = 0.10
 
 
 def _swap_alike(top, own):
@@ -4428,6 +4524,7 @@ DELETION_SCOPE = "deletion whose removed letters are not where its indicator say
 #: the deletion rule. A third, a leaf giving a non-word (MORECAMBE CAMBE), was dropped:
 #: 138k leaves give a letter string the word list lacks, and 17 of 20 sampled were right.
 WRONG_ROLE = "indicator filed on an op of another type"
+CONTAINER_INSIDE = "container over a charade whose piece goes in inside one piece of it"
 DELETION_INSIDE = "deletion over a charade that takes letters from one piece, or a whole piece the charade added"
 #: Round 7 (12 of 300 passing clues wrong, 4.0%): five shapes the earlier rules passed. Each hit
 #: sample of 20 was judged by hand against the same standard as the rules above.
@@ -4537,6 +4634,13 @@ _DEL_HEART = re.compile(r"\b(heart|centre|center|middle|core|disheartened|heartl
 _DEL_HALF = re.compile(r"\bhalf\b|\bhalf-", re.I)
 
 
+#: Bare function words whose letters a deletion over their phrase may take (independent-11544
+#: 25a THROW: THE+ROW less E, "saving energy").
+FUNCTION_PIECES = frozenset("THE A AN OF TO AND IN".split())
+#: How far from the exact middle of the whole a cut may sit and still be "the heart of the whole".
+HEART_SLACK = 1
+
+
 def deletion_inside_component(tree, clue=None, answer=None):
     """Deletions over a charade (indicator anywhere in the clue) that take letters from
     ONE piece, or take whole pieces the charade added. ARCH+IDEA+CON less I,
@@ -4586,7 +4690,7 @@ def deletion_inside_component(tree, clue=None, answer=None):
         named = bool(_DEL_END.search(text) or _DEL_HEAD.search(text) or (_DEL_MIDDLE.search(text) and not heart))
         for want in ((None, want_all) if want_all and node is tree else (None,)):
             seen, in_piece, whole_pieces = 0, True, True
-            end_piece, any_piece = True, False
+            end_piece, any_piece, seam, in_function, all_centred = True, False, False, True, True
             for combo in itertools.product(*cvals):
                 f = "".join(combo)
                 bounds = [0]
@@ -4604,16 +4708,61 @@ def deletion_inside_component(tree, clue=None, answer=None):
                             one = any(a <= s and e <= b for a, b in zip(bounds, bounds[1:]))
                             is_piece = any(a == s and b == e for a, b in zip(bounds, bounds[1:]))
                             edge = s == 0 or e == len(f)
-                            centred = abs(s - (len(f) - len(r)) / 2) <= 1
+                            centred = abs(s - (len(f) - len(r)) / 2) <= HEART_SLACK
+                            # a letter doubled across a seam (HOPS+SCOTCH less S) is the seam's, not one piece's
+                            seam = seam or (e in bounds[1:-1] and f[e:e + len(r)] == r) \
+                                or (s in bounds[1:-1] and s >= len(r) and f[s - len(r):s] == r)
+                            # letters out of a bare function word ("the" in THE+ROW less E, "saving
+                            # energy") are the phrase's: the cut takes them from the whole phrase
+                            in_function = in_function and any(
+                                a <= s and e <= b and "op" not in c and wordplay.letters(c.get("words")) in FUNCTION_PIECES
+                                for (a, b), c in zip(zip(bounds, bounds[1:]), comps))
                             whole_pieces = whole_pieces and s in bounds and e in bounds
-                            in_piece = in_piece and one and not is_piece and (not edge or half) \
-                                and not (heart and centred)
+                            all_centred = all_centred and centred  # BROOCH+URE less O: one O is off-centre
+                            in_piece = in_piece and one and not is_piece and (not edge or half)
                             end_piece = end_piece and one and not is_piece and edge
                             any_piece = any_piece or is_piece
-            if seen and ((not named and in_piece) or whole_pieces or end_piece or any_piece):
+            if seen and ((not named and in_piece and not seam and not in_function and not (heart and all_centred)) or whole_pieces or end_piece or any_piece):
                 n += 1
                 break
     return n
+
+
+def container_inside_component(tree, answer=None):
+    """1 when the whole tree is a container over a charade holder whose piece goes in at gaps
+    that all lie inside ONE of the holder's pieces, never at a join (timesjumbo-1490 38d
+    LIVINGWAGE: ins(LIV+IN+GAGE, W) is really LIV+IN+G(W)AGE; toughie-3357 17d LASTGASP:
+    ins(LAG+ASP, ST) is LA(ST)G+ASP). The indicator acts on the one piece it sits by, so the
+    container goes inside the charade: ins(piece, letters). The evaluator lets the piece land
+    at any gap, so the wide holder passed. Needs the answer; with none it counts nothing."""
+    if not answer or not isinstance(tree, dict) or tree.get("op") != "container" or tree.get("unchecked"):
+        return 0
+    parts = tree.get("parts") or []
+    if len(parts) != 2 or not all(isinstance(p, dict) for p in parts) or parts[0].get("op") != "charade" \
+            or parts[0].get("unchecked"):
+        return 0
+    comps = parts[0].get("parts") or []
+    if len(comps) < 2 or not all(isinstance(c, dict) for c in comps):
+        return 0
+    want = wordplay.letters(answer)
+    try:
+        cvals = [sorted(wordplay.values(c)) for c in comps]
+        ins = sorted(wordplay.values(parts[1]))
+    except Exception:
+        return 0
+    seen = False
+    for combo in itertools.product(*cvals):
+        f = "".join(combo)
+        bounds = {0}
+        for c in combo:
+            bounds.add(max(bounds) + len(c))
+        for i in ins:
+            for k in range(1, len(f)):
+                if f[:k] + i + f[k:] == want:
+                    if k in bounds:
+                        return 0  # one reading puts it at a join: the wide holder is fair
+                    seen = True
+    return int(seen)
 
 
 def deletion_scope(tree, any_whole=False):
@@ -4663,11 +4812,12 @@ def unindicated_uncovered(tree):
     spoken = {id(p) for s in _walk(tree) if s.get("op") == "spoonerism"
               for p in s.get("parts") or [] if isinstance(p, dict) and p.get("op") == "homophone"}
     n = 0
+    copies = _repeated_copies(tree)
     for parent in [{"parts": [tree]}] + list(_walk(tree)):
         groups = {}
         for p in parent.get("parts") or []:
             if isinstance(p, dict) and p.get("op") in NEEDS_INDICATOR and not p.get("unchecked") \
-                    and id(p) not in spoken:
+                    and id(p) not in spoken and id(p) not in copies:
                 groups.setdefault(p["op"], []).append(p)
         for op, ns in groups.items():
             bare = [x for x in ns if not x.get("indicators")]
@@ -4920,7 +5070,7 @@ def shape_warnings(tag, ann, clue=None, answer=None):
     if k := padding_leaves(tree):
         out.append(f"{tag}: {k} {PADDING_LEAF}: say what the words give, or take them out of the "
                    f"wordplay")
-    if k := nested_containers(tree):
+    if k := nested_containers(tree, answer):
         out.append(f"{tag}: {k} {NESTED_CONTAINER}: pieces that go in the same holder together are a "
                    f"charade (ins(AB E, U + S)); a piece in a piece in a third is "
                    f"ins(third, ins(second, first))")
@@ -4942,6 +5092,9 @@ def shape_warnings(tag, ann, clue=None, answer=None):
     if k := deletion_inside_component(tree, clue, answer):
         out.append(f"{tag}: {k} {DELETION_INSIDE}: the indicator acts on the one piece it sits by, "
                    f"del(piece, letters) inside the charade; add no piece only to remove it")
+    if k := container_inside_component(tree, answer):
+        out.append(f"{tag}: {k} {CONTAINER_INSIDE}: the indicator acts on the one piece it sits by, "
+                   f"ins(piece, letters) inside the charade, not ins over the whole charade")
     if k := unindicated_uncovered(tree):
         out.append(f"{tag}: {k} {UNINDICATED_BARE}: give each op its own indicator word from the clue; "
                    f"one indicator covers one op (a pair of first/last/middle picks may share one)")
@@ -5522,6 +5675,7 @@ BACKLOG_MARKERS = {
     "wordplay.deletionScope": (DELETION_SCOPE,),
     "wordplay.wrongRole": (WRONG_ROLE,),
     "wordplay.deletionInside": (DELETION_INSIDE,),
+    "wordplay.containerInside": (CONTAINER_INSIDE,),
     "wordplay.unindicatedBare": (UNINDICATED_BARE,),
     "wordplay.sharedIndicator": (SHARED_INDICATOR,),
     "wordplay.halfLeaf": (HALF_LEAF,),

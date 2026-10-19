@@ -136,8 +136,14 @@ filed, and the expression cannot write one. The tree, in brief:
   `wordplay.misplacedIndicator` (indicator filed on an op it does not signal),
   `wordplay.bareInitial` (leaf gives the first letter of its words with no selection),
   `wordplay.deletionScope` (deletion whose removed letters are not where its indicator says),
-  `wordplay.wrongRole` (indicator filed on an op of another type) and
-  `wordplay.deletionInside` (deletion over a charade that takes letters from one piece, or a whole piece the charade added).
+  `wordplay.wrongRole` (indicator filed on an op of another type),
+  `wordplay.deletionInside` (deletion over a charade that takes letters from one piece, or a whole piece the charade added) and
+  `wordplay.containerInside` (container over a charade whose piece goes in inside one piece of it).
+  Five more, one function and one message each: `wordplay.unindicatedBare` (op with no
+  indicator of its own, or one indicator shared by several ops), `wordplay.sharedIndicator`
+  (indicator words claimed twice), `wordplay.halfLeaf` (leaf giving half of its word with no op
+  carrying the half), `wordplay.deletionScattered` (one "half" deletion over several words) and
+  `wordplay.reversePhrase` (reverse reading over a whole phrase of the clue).
   Two more ratchets (`tools/lesson_checks.py`) have no rewrite: `wordplay.ddMissesWordplay`
   (two definitions and no wordplay, in a clue that hides the answer across words or holds
   its letters in a run of whole words: parse it) and `spelling.unsaid` (an answer with an
