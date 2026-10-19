@@ -1346,7 +1346,11 @@ def right_columns(img, grid, span=RIGHT_SPAN):
 
 
 #: The first year of the Times pages whose clue columns lie right of the grid.
-RIGHT_FROM = "2014"
+#: (2014 for the Feb-May pages' whole layout; the 2006-13 Saturday Register
+#: pages have it too: a grid at the page's foot, two clue columns right of
+#: it, a "Yesterday's solution" box under the first that overhang() read as
+#: a third column, so every such page was refused "no reading parses".)
+RIGHT_FROM = "2006"
 #: The first year of the three clue columns under the grid (overhang()); the
 #: adverts beside the 1960s grids are inked like a third column.
 OVER_FROM = "2006"
@@ -3525,7 +3529,7 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: {cause: ISO time}: an edition a title of which was refused for `cause`
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
-REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-19T00:15:00+00:00",
+REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-19T01:44:00+00:00",
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00",
                   # The crashes since fixed: the 6144 MB RLIMIT_AS bad_alloc (launcher's CT_UNIT_MEMORY_MB),
                   # an unreadable band_words cache, trove_solution_ocr's unloaded word list.
