@@ -5701,7 +5701,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             "filesHash": fh, "solutionsSeen": sol_seen, "scanKey": scan_key(paper_of(d)), "solutionKey": solution_key(),
             "vlmVersion": vlm.version(),
             "reprints": read_with}
-    fresh = 0
+    fresh, read_now = 0, set()
     for (d, found), (results, vlm_ok, *decided) in scan_queue.parallel(
             [(d, scans[rels[d]]) for d in queue], read_edition, workers, deadline,
             init=set_solutions, initargs=(solutions, puzzles), failed=edition_failed):
@@ -5724,10 +5724,13 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         known[rel] = edition_commit.row(rel, h, found, fh, scan_key(paper_of(d)), sol_seen, verdicts, vlm_ok and seen_by,
                                         solution_key())
         changed.add(rel)
+        read_now.add(rel)
         flush()
         progress(edition_commit.read_line(rel, verdicts))
     flush()
-    tally = report(known[rels[d]] for d in dirs if rels[d] in known)
+    # Only this run's verdicts: the ledger's lifetime totals reprinted old
+    # refusals (long since fixed) after every read, reading as fresh errors.
+    tally = report(known[rels[d]] for d in dirs if rels[d] in read_now)
     if len(due) > fresh:
         tally["left for the next run"] = len(due) - fresh
     print(f"{len(dirs)} {paper.key} editions in {cache}; {fresh} read this run"
