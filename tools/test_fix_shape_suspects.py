@@ -284,9 +284,10 @@ pg2 = {"op": "container", "indicators": [{"text": "wandering"}], "parts": [
     {"op": "anagram", "indicators": [{"text": "about"}], "parts": [{"words": "Camels"}, {"words": "every", "gives": "ALL"}]},
     {"words": "second", "gives": "S"}]}
 new, used = F.repair_tree(pg2, pgc2, "SMALLSCALE", PG)
-check("an anagram-word container indicator beside the anagram's folds the pieces into one pool",
-      used == ["poolGap"] and new["op"] == "anagram" and len(new["parts"]) == 3
-      and [i["text"] for i in new["indicators"]] == ["wandering", "about"])
+# Since round 17 an enclosing op's indicator standing between the pieces is no pool gap
+# (V.pool_gaps skips it), so poolGap no longer flags this clue and the repair leaves it alone.
+check("an enclosing container's indicator between the pieces is no pool gap: left alone",
+      used == [] and new["op"] == "container")
 pg3 = {"op": "container", "indicators": [{"text": "embraced by"}], "parts": [
     {"op": "anagram", "indicators": [{"text": "dishevelled"}], "parts": [{"words": "rake"}, {"words": "whore", "gives": "SHAG"}]}]}
 new, used = F.repair_tree(pg3, pgc, "SHAGRAKE", PG)

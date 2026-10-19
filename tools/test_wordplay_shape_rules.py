@@ -702,7 +702,8 @@ check("a reversal indicator between its pieces is counted (DEGAS)", 1, v.reversa
 check("one at the edge is not", 0, v.reversal_split(
     {"op": "reversal", "indicators": [{"text": "repelled"}], "parts": [lf("editor", "ED")]}, "Painter editor repelled with flatulence"))
 check("a cut word opening a leaf that gives less is counted (IDEA)", 1, v.cut_in_leaf(
-    {"op": "charade", "parts": [lf("One", "I"), lf("short contract", "DEA")]}))
+    {"op": "charade", "parts": [lf("One", "I"), lf("half of deal", "DEA")]}))
+check("a cut word that is a plain synonym ('short contract') is not (round 22c)", 0, v.cut_in_leaf(lf("short contract", "DEA")))
 check("a leaf giving all its words is not", 0, v.cut_in_leaf(lf("short story", "SHORTSTORY")))
 # round 25: wrong-scope detectors from the r23 false negatives
 GLEAM = {"op": "anagram", "indicators": [{"text": "breaks"}], "parts": [lf("Male", "MALE"), {"op": "first", "indicators": [{"text": "head"}], "parts": [lf("gymnast's", "G")]}]}

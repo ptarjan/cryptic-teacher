@@ -117,7 +117,7 @@ filed, and the expression cannot write one. The tree, in brief:
   one `cd([clue words])`, not several leaves), `wordplay.arity` (a stored op with
   a part count its op cannot take, or a charade of fewer than two),
   `wordplay.spanOverlap` (two leaves or indicators sharing clue words),
-  wordplay.inDefinition (wordplay words inside the definition of a clue that is
+  `wordplay.inDefinition` (wordplay words inside the definition of a clue that is
   not `andLit`), `wordplay.leafFold` (a leaf with no note whose `gives` is a
   stretch of its own words: write the selection, deletion or hidden word as an
   op), `wordplay.repeatedSelection` (the same first/last/middle pick on each
@@ -135,13 +135,13 @@ filed, and the expression cannot write one. The tree, in brief:
   charades in charades whose `view()` is unchanged and recorded the rest.
   Eleven more, each one function in `validate_annotations.py` and one message:
   `wordplay.scrambledLeaf` (leaf gives its clue words' letters out of order),
-  wordplay.indFolded (indicator words folded into a leaf),
+  `wordplay.indFolded` (indicator words folded into a leaf),
   `wordplay.fakeParts` (substitution padded with wordless parts that are not in the clue),
   `wordplay.paddingLeaf` (unchecked clue-word leaf with no letters given),
   `wordplay.nestedContainer` (container whose holder is itself a container),
   `wordplay.anagramSynonym` (synonym scrambled inside an anagram),
   `wordplay.misplacedIndicator` (indicator filed on an op it does not signal),
-  wordplay.bareInitial (leaf gives the first letter of its words with no selection),
+  `wordplay.bareInitial` (leaf gives the first letter of its words with no selection),
   `wordplay.deletionScope` (deletion whose removed letters are not where its indicator says),
   `wordplay.wrongRole` (indicator filed on an op of another type),
   `wordplay.deletionInside` (deletion over a charade that takes letters from one piece, or a whole piece the charade added) and
@@ -154,9 +154,9 @@ filed, and the expression cannot write one. The tree, in brief:
   One more, `wordplay.midWordLeaf` (a leaf giving a stretch of several clue words that starts or
   ends inside a word: the cut is folded into the leaf with no op).
   `wordplay.tradedIndicator` (two ops each carry the other's indicator word, or a hidden word carries a reversal's word).
-  `wordplay.charadeOrder` (a charade joins its pieces in another order than the clue gives them, with no word to say so),
+  wordplay.charadeOrder (warning only; a charade joins its pieces in another order than the clue gives them, with no word to say so),
   `wordplay.reversalSplit` (a reversal's indicator stands between the pieces it reverses) and
-  `wordplay.cutInLeaf` (a leaf opens with a cut word such as short, half or first and gives fewer letters than its other words).
+  wordplay.cutInLeaf (warning only; a leaf opens with a cut word such as short, half or first and gives fewer letters than its other words).
   `wordplay.movedLetter` (a deletion whose letter a sibling leaf gives again: use the move op).
   Round 25 (wrong scope / nesting, from the 33 r23 false negatives): `wordplay.anaSelectEdge` (an anagram holds a first/last-letter pick at the edge of its fodder that the answer shows outside the scramble),
   `wordplay.delWide` (a deletion lists two or more pieces before its indicator, so it cuts one piece, not the group),
