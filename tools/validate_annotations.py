@@ -6426,6 +6426,7 @@ SELECT_WORD_IN_LEAF = "selection op whose leaf opens with the op's own indicator
 SELECT_PHRASE_IN_LEAF = "leaf opens with a letter-selection phrase and gives fewer letters than its other words"
 HALVED_AS_DELETION ="halving ('half of', '50 per cent', 'bottom half') written as a plain deletion"
 SPLIT_SHARED_INDICATOR = "one indicator over two neighbouring same-kind ops, only one of them carrying it"
+_NOT_A_HALVING = re.compile(r"hearted|more than half|almost half", re.I)
 _HALVING = re.compile(r"\bhalf\b|\b(?:50|fifty)\s*(?:per\s*cent|%|percent)", re.I)
 
 
@@ -6466,9 +6467,11 @@ def select_phrase_in_leaf(tree):
 def halved_as_deletion(tree):
     """Deletions whose indicator says half ("half of", "50 per cent", "bottom half removed",
     "half-forgotten"; r26 FN: 5 misses): the word keeps half its letters, a halving selection, not a
-    deletion of the other half."""
+    deletion of the other half. Not "half-hearted" (one of a doubled heart letter dropped: SOBBER to SOBER,
+    7 of 9 fine r28 hits) nor "more than half" / "almost half" (not an exact half)."""
     return sum(1 for node in _walk(tree) if node.get("op") == "deletion" and not node.get("unchecked")
-               and any(_HALVING.search(str(i.get("text") or "")) for i in node.get("indicators") or [] if isinstance(i, dict)))
+               and any(_HALVING.search(t) and not _NOT_A_HALVING.search(t)
+                       for t in (str(i.get("text") or "") for i in node.get("indicators") or [] if isinstance(i, dict))))
 
 
 def split_shared_indicators(tree):
@@ -6483,6 +6486,88 @@ def split_shared_indicators(tree):
                 groups.setdefault(p["op"], []).append(p)
         for ns in groups.values():
             n += len(ns) == 2 and sum(bool(x.get("indicators")) for x in ns) == 1 and _pair_adjacent(ns)
+    return n
+
+
+TRUNC_IN_LEAF = "leaf holds a truncation word (mostly, almost, cut short) and gives a word one letter short"
+CUT_NOTE_LEAF = "leaf gives a non-word that its note says is a real word with letters cut, and no deletion op shows the cut"
+OWN_IND_IN_LEAF = "op's own indicator words also sit inside its leaf (at the end, or the start of a non-selection)"
+#: "briefly" and "concise" are left out: they are the abbreviation convention (Science briefly = SCI; 6 of 6 judged fine).
+_TRUNC_WORDS = frozenset("mostly almost nearly largely curtailed endlessly practically virtually partly".split())
+_TRUNC_PHRASES = ("cut short", "not quite", "not entirely", "not completely", "not fully", "cut off")
+_CUT_NOTE = re.compile(r"\b(?:without|minus|missing|losing|loses|lacking|dropp\w*|drops|clipped|truncated|shortened|"
+                       r"lopped|omitting|stops short|loses|cut)\b[^.;]{0,40}\b(?:letter|last|first|final|end|head|"
+                       r"initial|tail|front|back|ending|start|beginning)\b", re.I)
+
+
+_CUT_LETTER = re.compile(r"\b(?:without|minus|losing|lacking|dropping|missing|less|killed|lost|loses)\s+"
+                         r"(?:its\s+|the\s+|a\s+)?(?:[a-z]+\s+)?[A-Z]{1,2}\b"
+                         r"|\b[A-Z]{1,2}\b[^.;]{0,25}\b(?:killed|removed|dropped|lost|taken off|deleted)\b")
+
+
+def _plain_leaves(tree):
+    """Checked lettered leaves of two or more clue words, no op on them."""
+    for node in _walk(tree):
+        if "op" in node or node.get("unchecked") or not node.get("gives") or not node.get("words"):
+            continue
+        yield node, re.findall(r"[a-z']+", str(node["words"]).lower())
+
+
+def trunc_in_leaf(tree):
+    """Multi-word leaves holding a truncation word anywhere (not just first: "Nick mostly" giving SATA,
+    "island almost" giving SAR, "life cut short" giving NELLI; r28 FN: 5 misses) that give a non-word one
+    letter short of a word: the cut is a deletion with its own indicator. Not "briefly"/"concise" (the
+    abbreviation convention) and no apostrophe. Needs the lexicon."""
+    lex = _lexicon_letters()
+    if not lex:
+        return 0
+    n = 0
+    for node, words in _plain_leaves(tree):
+        text = " ".join(words)
+        if len(words) < 2 or not (_TRUNC_WORDS & set(words) or any(p in text for p in _TRUNC_PHRASES)):
+            continue
+        g = wordplay.letters(node["gives"]).lower()
+        note = str(node.get("note") or "")
+        if len(g) >= 3 and g not in lex and "'" not in note + text \
+                and any(g + c in lex or c + g in lex for c in "abcdefghijklmnopqrstuvwxyz"):
+            n += 1
+    return n
+
+
+def own_ind_in_leaf(tree):
+    """Ops whose direct plain leaf opens or ends with the op's own indicator words and holds more
+    ("French way back" under rev<back>, "arthropod's shell" under outer<shell>; r28 FN: 3 misses):
+    the leaf holds only the words that give its letters. select_word_in_leaf counts the opening case
+    for selection ops; this counts the end of the leaf for every op and the opening for the rest."""
+    n = 0
+    for node in _walk(tree):
+        if "op" not in node or node.get("unchecked") or node["op"] == "anagram":
+            continue
+        inds = [re.findall(r"[a-z']+", str(i.get("text") or "").lower()) for i in node.get("indicators") or [] if isinstance(i, dict)]
+        for p in (q for q in node.get("parts") or [] if isinstance(q, dict) and "op" not in q and q.get("gives")):
+            words = re.findall(r"[a-z']+", str(p.get("words") or "").lower())
+            n += any(iw and len(words) > len(iw) and (words[-len(iw):] == iw or (
+                words[:len(iw)] == iw and node["op"] not in wordplay.SELECT)) for iw in inds)
+    return n
+
+
+def cut_note_leaf(tree):
+    """Leaves giving a non-word of 3+ letters whose note says it is a real word minus some letters
+    (GAM "game losing its final E", STE "SITE without I", EARY "WEARY, leading W killed"; r28 FN: 5 misses):
+    the leaf must be the real word with a deletion op. Needs the lexicon."""
+    lex = _lexicon_letters()
+    if not lex:
+        return 0
+    n = 0
+    under_cut = {id(p) for node in _walk(tree) if node.get("op") in ("deletion", "move", "substitution")
+                 for p in node.get("parts") or [] if isinstance(p, dict)}
+    for node, _ in _plain_leaves(tree):
+        g = wordplay.letters(node["gives"]).lower()
+        note = str(node.get("note") or "")
+        if len(g) >= 3 and g not in lex and id(node) not in under_cut and not node.get("select") \
+                and "'" not in note + str(node.get("words")) and "apostrophe" not in note.lower() \
+                and not node.get("soundsLike") and (_CUT_NOTE.search(note) or _CUT_LETTER.search(note)):
+            n += 1
     return n
 
 
@@ -6753,7 +6838,10 @@ def shape_warnings(tag, ann, clue=None, answer=None):
             (lambda: select_word_in_leaf(tree), SELECT_WORD_IN_LEAF, "the leaf holds only the words that give its letters"),
             (lambda: select_phrase_in_leaf(tree), SELECT_PHRASE_IN_LEAF, "the selection is an op with its own indicator"),
             (lambda: halved_as_deletion(tree), HALVED_AS_DELETION, "keep half the word with a halving selection"),
-            (lambda: split_shared_indicators(tree), SPLIT_SHARED_INDICATOR, "one indicator, one multi-part op")):
+            (lambda: split_shared_indicators(tree), SPLIT_SHARED_INDICATOR, "one indicator, one multi-part op"),
+            (lambda: trunc_in_leaf(tree), TRUNC_IN_LEAF, "the truncation word is a deletion's indicator"),
+            (lambda: cut_note_leaf(tree), CUT_NOTE_LEAF, "give the real word and cut it with a deletion op"),
+            (lambda: own_ind_in_leaf(tree), OWN_IND_IN_LEAF, "the leaf holds only the words that give its letters")):
         if k := fn():
             out.append(f"{tag}: {k} {label}: {hint}")
     return out
@@ -7345,6 +7433,9 @@ BACKLOG_MARKERS = {
     "wordplay.selectWordInLeaf": (SELECT_WORD_IN_LEAF,),
     "wordplay.halvedAsDeletion": (HALVED_AS_DELETION,),
     "wordplay.splitSharedIndicator": (SPLIT_SHARED_INDICATOR,),
+    "wordplay.truncInLeaf": (TRUNC_IN_LEAF,),
+    "wordplay.cutNoteLeaf": (CUT_NOTE_LEAF,),
+    "wordplay.ownIndInLeaf": (OWN_IND_IN_LEAF,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }
