@@ -4502,13 +4502,39 @@ def extremes_as_one_end(tree):
                and any(EXTREMES_WORD.search(i.get("text") or "") for i in node.get("indicators") or []))
 
 
+#: Deletion words that are also plain words ("Get left behind" = LAG, "leaf on left" = VO,
+#: "tea leaves"): read as a deletion only with a source before and a thing taken after, and
+#: not after a verb of being/getting or a preposition/article, nor before a particle.
+AMBIGUOUS_DELETION = frozenset("left leaves leaving lost leave".split())
+NOT_BEFORE_DELETION = frozenset(
+    "get gets got getting be is are was were been being on to the a an of at from in by turn turned "
+    "turns and or for with it its his her their our my your tea".split())
+NOT_AFTER_DELETION = frozenset("behind over out alone off there here on in up back and or".split())
+
+
+def _deletion_word_in(words):
+    """Whether `words` use a deletion word as a deletion: it has a source word before it and
+    a removed word after it; an ambiguous one (left, leaves) also needs a clear context."""
+    ws = str(words).split()
+    for i, w in enumerate(ws):
+        bare = re.sub(r"\W", "", w).lower()
+        if not DELETION_LEAF_WORD.fullmatch(bare):
+            continue
+        if bare in AMBIGUOUS_DELETION:
+            if i == 0 or i == len(ws) - 1 or re.sub(r"\W", "", ws[i - 1]).lower() in NOT_BEFORE_DELETION \
+                    or re.sub(r"\W", "", ws[i + 1]).lower() in NOT_AFTER_DELETION:
+                continue
+        return True
+    return False
+
+
 def folded_deletion_leaves(tree):
     """A leaf of 3+ words holding a deletion word (dropping, losing, ...) that gives only a few
     letters: the deletion is an op, not folded into the leaf (stylish man dropping dead -> UDE)."""
     return sum(1 for node in _walk(tree)
                if "words" in node and "gives" in node and "op" not in node and not node.get("unchecked")
                and len(str(node["words"]).split()) >= 3 and len(node["gives"]) <= 4
-               and DELETION_LEAF_WORD.search(str(node["words"])))
+               and _deletion_word_in(node["words"]))
 
 
 def selection_of_one_letter(tree):
