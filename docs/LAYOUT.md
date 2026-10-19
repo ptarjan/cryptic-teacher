@@ -3022,5 +3022,9 @@ tools/test_requeue_drift.py                    tools/requeue_drift.py: a puzzle 
                                                allowance gets its flagged clues queued once
 tools/prune_shims.py                           remove the puzzles/*.js shims (and their .gz)
                                                that the index no longer names
+tools/test_tree_normalize.py                   tree_normalize: canonical rewrites by code,
+                                               letters proved unchanged (r10 sample rows)
+tools/tree_normalize.py                        rewrite wordplay trees into Paul's canonical
+                                               forms by code, before any clue goes to a model
 ```
 <!-- LAYOUT-END -->

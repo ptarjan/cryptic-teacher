@@ -811,6 +811,8 @@ LAYOUT = [
     ("annotating", "tools/requeue_drift.py", "queue what a rule change or a lexicon rebuild newly flags, instead of letting it turn CI red"),
     ("annotating", "tools/test_requeue_drift.py", "tools/requeue_drift.py: a puzzle past its allowance gets its flagged clues queued once"),
     ("annotating", "tools/prune_shims.py", "remove the puzzles/*.js shims (and their .gz) that the index no longer names"),
+    ("annotating", "tools/test_tree_normalize.py", "tree_normalize: canonical rewrites by code, letters proved unchanged (r10 sample rows)"),
+    ("annotating", "tools/tree_normalize.py", "rewrite wordplay trees into Paul's canonical forms by code, before any clue goes to a model"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

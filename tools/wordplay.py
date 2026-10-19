@@ -42,7 +42,9 @@ Grammar
                           letters picked from x's words: first letter (or
                           each word's first), middle letter(s) or all but the
                           ends, first and last, alternate letters, every
-                          2nd/3rd, the nth
+                          2nd/3rd, the nth; one indicator over a list is one op
+                          with a part per word, each giving its pick:
+                          outer<fringes of>([Argive], [Greece], [Anatolian])
     cd([words])           cryptic definition: the words, no letters
     comp(x, y)            composite (subtractive) anagram: the letters of x are
                           the answer plus the letters of y, rearranged, so the
@@ -118,7 +120,7 @@ ARITY = {"anagram": (1, 1), "reversal": (1, 1), "container": (2, 2), "deletion":
          "hidden": (1, 1), "homophone": (2, 2), "spoonerism": (1, 3),
          "substitution": (2, 3), "cycling": (1, 1), "cryptic": (1, 9), "palindrome": (0, 1),
          "rebus": (2, 2), "composite": (2, 2), "reverse": (2, 2),
-         **{s: (1, 1) for s in SELECT}}
+         **{s: (1, 9) for s in SELECT}}  # a selection over a list: several parts, each giving its pick
 # A search that grows past this many candidate strings stops: no clue needs it.
 CAP = 20000
 
@@ -706,6 +708,15 @@ def values(node):
             raise _NeedTarget(node)
         out = values(real[0] if len(real) == 1 else {"op": "charade", "parts": real})
         return {v for v in out if v == v[::-1]}
+    if op in SELECT and len(parts) > 1:
+        # one indicator over a list: outer<fringes of>(Argive, Greece, Anatolian) picks from
+        # each part in turn and joins the picks in order
+        out = {""}
+        for p in parts:
+            out = {a + b for a in out for b in values({**node, "parts": [p]})}
+            if len(out) > CAP:
+                raise WordplayError(f"{render(node)} has too many readings to check")
+        return out
     if op in SELECT:
         leaf = parts[0]
         if "op" not in leaf and leaf.get("select") and leaf.get("words"):
@@ -1271,7 +1282,22 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
                             + (f" (spans with no note yet: {keys})" if keys else
                                " (every span has a note already)"))
     evaluate(tree, answer)
-    return tree
+    return normalize(tree, clue, answer)[0]
+
+
+def normalize(tree, clue, answer):
+    """(tree, [rewrites]): the canonical shape of a tree whose letters already check, by code
+    (tools/tree_normalize.py: deletion inside the piece it cuts, one selection over a list,
+    one reversal over adjacent reversed pieces). Run after evaluate(); a rewrite is kept only
+    when evaluate() still gives the answer, so the letters are proved unchanged."""
+    import tree_normalize
+    try:
+        new, used = tree_normalize.normalize(tree, clue, answer)
+    except Exception:
+        return tree, []
+    if used:
+        evaluate(new, answer)
+    return (new, used) if used else (tree, [])
 
 
 def main():

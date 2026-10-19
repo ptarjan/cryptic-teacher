@@ -466,6 +466,20 @@ def _blocks(node, got):
         gives = got.get(id(node)) or min(wordplay.values(node), key=lambda v: (len(v), v), default=None)
         return [_block(**{**b, "gives": gives, "select": node["n"] if op == "nth" else op,
                           "note": b.get("note") or select_note(op, node.get("n"), gives)})]
+    if OP_TYPE[op] == "letter_selection" and len(parts) > 1 \
+            and all("op" not in p and "words" in p for p in parts):
+        # one selection over a list: a block per leaf, each with its own pick
+        import itertools
+        want = got.get(id(node))
+        per = [sorted(wordplay.values({**node, "parts": [p]}), key=lambda v: (len(v), v)) for p in parts]
+        picks = next((c for c in itertools.product(*per) if "".join(c) == want), None) \
+            or tuple(v[0] if v else None for v in per)
+        out = []
+        for p, pick in zip(parts, picks):
+            b = _blocks(p, got)[0]
+            out.append(_block(**{**b, "gives": pick, "select": node["n"] if op == "nth" else op,
+                                 "note": b.get("note") or select_note(op, node.get("n"), pick)}))
+        return out
     if op == "hidden" and one:
         b = _blocks(parts[0], got)[0]
         return [_block(**{**b, "gives": got.get(id(node)) or wordplay.leaf_letters(parts[0]),
