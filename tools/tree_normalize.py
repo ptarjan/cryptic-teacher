@@ -67,6 +67,11 @@ def _plain_charade(n):
     return n.get("op") == "charade" and not n.get("indicators") and not n.get("unchecked") and "gives" not in n
 
 
+def _sinkable_charade(n):
+    """A checked charade, with or without an indicator of its own (del(a + b <after>, x))."""
+    return n.get("op") == "charade" and not n.get("unchecked") and "gives" not in n
+
+
 def _flatten(tree):
     """Join indicator-less charades left inside charades by a rewrite; collapse one-part charades."""
     import tidy_wordplay_shapes as T
@@ -114,7 +119,7 @@ def _sink_once(tree, clue, answer):
     for node, _parent in list(_walk(tree)):
         parts = node.get("parts") or []
         if node.get("op") != "deletion" or node.get("unchecked") or len(parts) < 2 \
-                or not all(isinstance(p, dict) for p in parts) or not _plain_charade(parts[0]):
+                or not all(isinstance(p, dict) for p in parts) or not _sinkable_charade(parts[0]):
             continue
         comps, cuts = parts[0]["parts"], parts[1:]
         before = V.deletion_inside_component(tree, clue, answer)
@@ -134,7 +139,9 @@ def _sink_once(tree, clue, answer):
                 continue
             if not got or "" in got:
                 continue
-            new = {"op": "charade", "parts": [*copy.deepcopy(comps[:i]), inner, *copy.deepcopy(comps[i + 1:])]}
+            # the charade keeps its own indicator ("after", ...) and any other keys it carried
+            new = {**{k: copy.deepcopy(v) for k, v in parts[0].items() if k != "parts"},
+                   "parts": [*copy.deepcopy(comps[:i]), inner, *copy.deepcopy(comps[i + 1:])]}
             trial = copy.deepcopy(tree)
             trial = _flatten(_swap(trial, _match(tree, trial, node), new))
             if _gives(trial, answer) and V.deletion_inside_component(trial, clue, answer) < before:
@@ -264,9 +271,40 @@ def normalize(tree, clue, answer):
     for name, fn in (("sink_deletion", lambda t: sink_deletion(t, clue, answer)),
                      ("merge_selects", lambda t: merge_selects(t, answer)),
                      ("merge_reversals", lambda t: merge_reversals(t, answer))):
-        tree, n = fn(tree)
-        used += [name] * n
+        new, n = fn(copy.deepcopy(tree))
+        if n and simplicity(new) < simplicity(tree):
+            tree, used = new, used + [name] * n
     return tree, used
+
+
+def simplicity(tree):
+    """Paul (10-18): "just pick the simplest one as canonical". Among trees giving the same letters
+    the canonical one has the lowest key: (fewest ops, then fewest letters the ops act on). An op
+    acts on the letters of its parts (a charade is no op, just pieces side by side), so
+    SO + del(LOW, W) (4 letters) beats del(SO + LOW, W) (6), and one rev(ONE + PAL) beats two
+    revs. A rewrite is kept only if it lowers this."""
+    ops = letters = 0
+
+    def size(n):
+        nonlocal ops, letters
+        if not isinstance(n, dict):
+            return 0
+        kids = n.get("parts") or []
+        if "op" not in n:
+            try:
+                return max(map(len, wordplay.values(n)), default=0)
+            except Exception:
+                return len(str(n.get("gives") or n.get("words") or ""))
+        sizes = [size(p) for p in kids]
+        if n["op"] != "charade":            # a charade is only the pieces side by side: no op
+            ops += 1
+            letters += sum(sizes)
+        try:
+            return max(map(len, wordplay.values(n)), default=0)
+        except Exception:
+            return sum(sizes)
+    size(tree)
+    return ops, letters
 
 
 def normalize_puzzle(puzzle):
