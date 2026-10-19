@@ -179,6 +179,7 @@ filed, and the expression cannot write one. The tree, in brief:
   Anagram), its blocks (the fodder, the letters taken out) add up to more than
   the answer, which that type is let off, and there is no ring: the fodder is
   longer than the answer.
+- **A move** (letters taken from one place in the fodder and put back at another) is `{"op": "move", "parts": [fodder, moved]}`, written `move<dropping>([England]ALBION, [ball]O)` for ALBINO, type `move` (family Change): one step, never the fodder plus the letter with a deletion of its old copy.
 - **A reverse clue** (the clue words are what the answer's own wordplay would
   produce: "What makes pets" for OUT + STEP, out anagramming STEP) is
   `{"op": "reverse", "reading": "OUT + STEP", "parts": [{"words": "What makes pets"}]}`,

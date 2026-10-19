@@ -2046,8 +2046,11 @@ tools/test_archive_org_jumbo.py                does tools/archive_org_jumbo.py t
                                                when its middle prints grey?
 tools/test_difficulty_barred.py                is a barred grid's checking rated against barred
                                                grids, not blocked ones?
-tools/test_difficulty_one_scale.py             is every paper scored by one function on one scale,
-                                               with no series named in it?
+tools/test_difficulty_one_scale.py             is every paper scored by the same function on
+                                               the same scale? Two identical puzzles under
+                                               different series ids must measure identically,
+                                               and no function that measures or rates a puzzle
+                                               may name a series
 tools/test_no_doubled_paper.py                 does any series' page say the same word twice
                                                running ("Listener Listener")? Renders a
                                                crawlable page for every series in
@@ -2523,6 +2526,11 @@ tools/test_blocks_link_word.py                 when a clue's blocks are short by
 tools/test_blocks_surplus.py                   when a clue's blocks give too many letters and
                                                none too few, the warning names the single-block
                                                edits that take exactly the surplus away
+tools/test_move.py                             a letter move is one wordplay step:
+                                               move<dropping>([England]ALBION, [ball]O) gives
+                                               ALBINO, renders back as written, and views as
+                                               clue type move with the fodder and the moved
+                                               letter as its blocks
 tools/test_reprints.js                         a paper that reprints another's puzzle is
                                                listed, and every way in opens the original; a
                                                book, Globe and Mail or Canberra Times puzzle

@@ -72,6 +72,7 @@ OPS = {
     "spoonerism": ("spoon", "spoonerism", "initial sounds swapped"),
     "substitution": ("sub", "substitution", "one letter or part swapped for another"),
     "cycling": ("cyc", "cycling", "letters rotated"),
+    "move": ("move", "move", "letters taken from one place in the fodder and put back at another"),
     "cryptic": ("cdef", "cryptic definition", "the whole clue is one misleading definition"),
     "rebus": ("rebus", "rebus", "a picture of letters"),
     "composite": ("comp", "composite anagram", "one anagram shared across several fodders"),

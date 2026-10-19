@@ -3522,6 +3522,7 @@
     ["middle", "take just the middle of a word"],
     ["outer", "keep only the outside letters of a word"],
     ["cycling", "move letters from one end to the other, keeping their order"],
+    ["move", "take a letter out of a word and put it back somewhere else in that word"],
     ["substitution", "swap one letter or chunk for another"],
     ["palindrome", "check that the answer reads the same in both directions"],
     ["letter_selection", "keep only some of the letters of the words it points at"]
@@ -3565,6 +3566,8 @@
       also: ["either way", "both ways", "back and forth", "from either end"] },
     cycling: { learn: "cycling", means: "move a letter from one end of a word to the other",
       also: ["cycling", "rotated", "circulating", "going round", "first to last"] },
+    move: { learn: "move", means: "take a letter out of a word and put it back somewhere else in that word",
+      also: ["dropping", "moving", "shifted", "going down (in a down clue)", "going up (in a down clue)", "to the right"] },
     hidden_word: { learn: "hidden-word", means: "the letters are already written inside the clue, across the word breaks",
       also: ["in", "some", "part of", "held by", "within", "a bit of", "partly"] },
     letter_selection: { learn: "letter-selection", means: "keep only some letters: the first, last, middle or every other one",
@@ -4465,6 +4468,7 @@
         case "homophone": what = `${P[0]} sounds like ${g(n.spelt || "")}`; break;
         case "substitution": what = `in ${P[0]}, swap ${P[1]} for ${P[2]}`; break;
         case "cycling": what = `move letters round from one end of ${P[0]} to the other`; break;
+        case "move": what = `move ${P[1]} to another place in ${P[0]}`; break;
         case "palindrome": what = P.length ? `check that ${P[0]} reads the same both ways` : "check that the answer reads the same both ways"; break;
         default: what = WP_PICK[n.op] ? `take ${WP_PICK[n.op]} ${P.length > 1 ? P.slice(0, -1).join(", ") + " and " + P[P.length - 1] : P[0]}` : `apply ${esc(n.op)} to ${joined(n.parts, " + ")}`;
       }
