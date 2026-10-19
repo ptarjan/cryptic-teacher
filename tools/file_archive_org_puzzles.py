@@ -608,6 +608,11 @@ def ink_in(img, crop, fixed=()):
 ABOVE_GAP = 80
 
 
+#: How many times wider than the grid under a title a grid left of it must be
+#: for the one under it to be a solution's, not the puzzle.
+LIVE_OVER_SOLUTION = 1.5
+
+
 def locate_grid(img, title, right=False):
     """(box, side) of the grid a title heads: the largest ink under it, else
     over it (the 1980s Times prints its title under the grid), else left of
@@ -652,6 +657,15 @@ def locate_grid(img, title, right=False):
             and (side != "below" or box[0] <= x1 + 120) \
             and (side != "left" or box[2] < cx) and (side != "right" or box[0] > cx)
         if clear and (wide_shaped if right else shaped_on)(img, box):
+            # A grid under the title that a grid left of it dwarfs is the
+            # day's solution (the 2005 Times, "Solution to Crossword" under
+            # the live grid's clue columns): the live one is beside the title.
+            if side == "below" and not right:
+                _, lcrop, lfixed = tries[2]
+                lbox = footed(img, ink_in(img, lcrop, lfixed)) if lcrop[2] - lcrop[0] >= 2 else None
+                if lbox is not None and lbox[2] < cx and shaped_on(img, lbox) \
+                        and lbox[2] - lbox[0] >= LIVE_OVER_SOLUTION * (box[2] - box[0]):
+                    return lbox, "left"
             return box, side
         # A grid another side's crop finds whole under the title, across its
         # middle, is the grid under it: the one under-crop joins it to the
@@ -1346,26 +1360,15 @@ def right_columns(img, grid, span=RIGHT_SPAN):
     return x1, bottom
 
 
-#: The first year of the Times pages whose clue columns lie right of the grid.
-#: (2014 for the Feb-May pages' whole layout; the 2006-13 Saturday Register
-#: pages have it too: a grid at the page's foot, two clue columns right of
-#: it, a "Yesterday's solution" box under the first that overhang() read as
-#: a third column, so every such page was refused "no reading parses".)
-RIGHT_FROM = "2006"
-#: The first year of the three clue columns under the grid (overhang()); the
-#: adverts beside the 1960s grids are inked like a third column.
-OVER_FROM = "2006"
-
-
-def right_or_over(img, grid, right_ok=True, over_ok=True):
+def right_or_over(img, grid):
     """(right, over) for a grid under its title: right_columns() when the
     clues lie right of it, else overhang(), never both. A page that ends
     that soon under the grid has no room for three columns, and the
     "Yesterday's solution" box under its grid is inked like a third column's
     text: overhang() alone read it as one (the Feb to May 2014 Times, whose
     clues were then cropped from under the grid and found no lists)."""
-    right = right_columns(img, grid) if right_ok else None
-    return right, (None if right or not over_ok else overhang(img, grid))
+    right = right_columns(img, grid)
+    return right, (None if right else overhang(img, grid))
 
 
 def right_gutter(lines, grid, right):
@@ -1480,6 +1483,13 @@ def edge_candidates(img, grid, lead):
     window's other left edges when its own fails its check."""
     x0, top = lead
     return crop_window.edge_candidates(img, (max(0, x0 - 400), top, grid[0], grid[3]), x0)
+
+
+def far_edges(img, box, nominal):
+    """[x]: the gutters near `nominal` with print left of them only (the far
+    edge of a clue column), nearest first, the window's other right edges
+    when its own fails its check."""
+    return crop_window.edge_candidates(img, box, nominal, side="left")[1:]
 
 
 def trimmed_lead(img, grid, lead):
@@ -3798,8 +3808,8 @@ def read_page(d, found, hit, solutions, vlm_for=False):
     if not alts or not crop_window.poor(verdict):
         return verdict, puzzle
     best = (crop_window.score(verdict, puzzle), verdict, puzzle)
-    for x in alts:
-        v, p = _read_page(d, found, hit, solutions, vlm_for, x, None)
+    for alt in alts:
+        v, p = _read_page(d, found, hit, solutions, vlm_for, alt, None)
         if crop_window.score(v, p) > best[0]:
             best = (crop_window.score(v, p), v, p)
         if not crop_window.poor(v):
@@ -3809,10 +3819,15 @@ def read_page(d, found, hit, solutions, vlm_for=False):
     return best[1], best[2]
 
 
-def _read_page(d, found, hit, solutions, vlm_for, lead_x0, alts):
-    """read_page's one read from a window: `lead_x0` moves the left edge of a
-    lead column's crop; `alts` (a list) is filled with the other gutters
-    near it, for read_page to try."""
+def _read_page(d, found, hit, solutions, vlm_for, alt, alts):
+    """read_page's one read from a window: `alt` is (kind, x) and moves the
+    window edge of that kind ("lead": a lead column's left edge; "right": the
+    right clue columns' far edge; "over": the third column's; "under": the
+    gutter between the two columns under the grid) to x, or ("plain", None)
+    reads the layout without right or overhanging columns; `alts` (a list)
+    is filled with the other windows near the one used, for read_page to
+    try."""
+    kind, alt_x = alt or (None, None)
     vlm_on = vlm_for is not False
     n, leaf = hit["number"], hit["leaf"]
     verdict = {"number": n, "leaf": leaf}
@@ -3863,22 +3878,35 @@ def _read_page(d, found, hit, solutions, vlm_for, lead_x0, alts):
     # foot is an advert (the 1961 Times page 1.15 grids' widths from its foot
     # was read for clue columns, and every page of the year was refused "no
     # reading parses"); the clue column stands left of such a grid (lead).
-    right, over = right_or_over(img, gbox, d.name[:4] >= RIGHT_FROM, d.name[:4] >= OVER_FROM) if side == "below" and top is None \
-        and not column and not paper.four and not third else (None, None)
+    right, over = right_or_over(img, gbox) if side == "below" and top is None \
+        and not column and not paper.four and not third and kind != "plain" else (None, None)
+    if (right or over) and alts is not None:
+        alts.append(("plain", None))
     # The 2005 Times: the same, the grid left of its title (side "left").
     if side == "left" and paper.key in ("times", "gale") and not paper.four and not third:
-        right = right_columns(img, gbox, RIGHT_SPAN_LEFT)
+        right = right_columns(img, gbox, RIGHT_SPAN_LEFT) if kind != "plain" else None
         if right:
             beside, crop = False, None
+            if alts is not None:
+                alts.append(("plain", None))
     lead = lead_column(hit["box"], gbox, m) if side == "right" else \
         indented_column(hit["box"], gbox, m) if side == "below" and top is None and not column and not right \
         and not over and not paper.four else None
     if lead:
         lead = trimmed_lead(img, gbox, lead)
-        if lead_x0 is not None:
-            lead = (lead_x0, lead[1])
+        if kind == "lead":
+            lead = (alt_x, lead[1])
         elif alts is not None:
-            alts.extend(edge_candidates(img, gbox, lead)[1:])
+            alts.extend(("lead", x) for x in edge_candidates(img, gbox, lead)[1:])
+    if right and kind == "right":
+        right = (alt_x, right[1])
+    elif right and alts is not None:
+        alts.extend(("right", x) for x in far_edges(img, (gbox[0], gbox[1] - RIGHT_RISE, right[0] + 300, right[1]), right[0]))
+    if over and kind == "over":
+        over = alt_x
+    elif over and alts is not None:
+        ybox = (gbox[0], gbox[3], over + 300, gbox[3] + int(OVER_DEPTH[1] * gw))
+        alts.extend(("over", x) for x in far_edges(img, ybox, over))
     rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json",
                                 (over - gbox[2] - 15, gbox[3]) if over else third, m, top,
                                 crop, lead, x0, right) for which in READERS}
@@ -3926,6 +3954,13 @@ def _read_page(d, found, hit, solutions, vlm_for, lead_x0, alts):
     if not paper.four:
         split = over_gutters(every, gbox, over) if over else \
             under_gutter(every, gbox) if above is None and left is None and not right else None
+        if split is not None and not over:
+            if kind == "under":
+                split = alt_x
+            elif alts is not None:
+                bottom = gbox[3] + int(1.8 * gw)
+                alts.extend(("under", x) for x in crop_window.edge_candidates(
+                    img, (gbox[0], gbox[3], gbox[2], min(img.height, bottom)), split, reach=int(UNDER_SPAN * gw))[1:])
         cols = {"djvu": columns(lines, gbox, third, m, above, left, split, lead, right)}
         for which in READERS:
             cols[which] = columns(rapid[which], gbox, third, m, above, left, split, lead, right)
