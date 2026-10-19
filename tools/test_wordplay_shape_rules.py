@@ -7,6 +7,7 @@ import sys
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 import copy
+import json
 import annotation, wordplay
 import validate_annotations as v
 import tidy_wordplay_shapes as T
@@ -556,4 +557,34 @@ warn = v.shape_warnings("1A", {"wordplay": cc, "definitions": []})
 check("the ratchet refuses one more than a puzzle is allowed", 1,
       len(v.backlog_errors("x-1", warn, {"wordplay.charadeInCharade": {}})))
 check("and allows what it has", 0, len(v.backlog_errors("x-1", warn, {"wordplay.charadeInCharade": {"x-1": 1}})))
+# Round 13: the trees the verdicts read, {id: [answer, clue, wordplay]}
+R13 = json.loads(r'''{"times-28370#4d": ["RUNES", "Characters could be extras possibly around edge of scene", {"op": "container", "indicators": [{"text": "around", "at": 36}], "parts": [{"words": "extras possibly", "at": 20, "gives": "RUNS"}, {"op": "last", "indicators": [{"text": "edge of", "at": 43}], "parts": [{"words": "scene", "at": 51}]}]}], "cyclops-410#10a": ["DARK", "& 25ac. Sun quite lacking and Times not exactly remembered for cultural advancement!", {"op": "charade", "parts": [{"words": "Sun quite lacking", "gives": "DARK"}, {"words": "Times", "gives": "AGES"}]}], "times-20052#18d": ["THOUGHT", "It's an idea, albeit daft in the extreme", {"op": "charade", "parts": [{"words": "albeit", "gives": "THOUGH"}, {"op": "last", "indicators": [{"text": "in the extreme"}], "parts": [{"words": "daft"}]}]}], "toughie-3442#18d": ["OPTICAL", "Like some illusions, best when using the other extreme of magic", {"op": "substitution", "indicators": [{"text": "when using", "at": 26}], "parts": [{"words": "best", "at": 21, "gives": "OPTIMAL"}, {"gives": "M"}, {"op": "last", "indicators": [{"text": "the other extreme of", "at": 37}], "parts": [{"words": "magic", "at": 58}]}]}], "times-29667#22d": ["WILDE", "Writer lacking in cultivation, we're told", {"op": "homophone", "spelt": "WILDE", "indicators": [{"text": "we're told"}], "parts": [{"words": "lacking in cultivation", "gives": "WILD"}]}], "toughie-832#1d": ["RASP", "Cuff catches edge of school file", {"op": "container", "indicators": [{"text": "catches"}], "parts": [{"words": "Cuff", "gives": "RAP"}, {"op": "first", "indicators": [{"text": "edge of"}], "parts": [{"words": "school"}]}]}], "cryptic-22221#25a": ["ARGENT", "Silver rouble accepted by representative", {"op": "container", "indicators": [{"text": "accepted by"}], "parts": [{"words": "representative", "gives": "AGENT"}, {"words": "rouble", "gives": "R"}]}], "cryptic-30087#18a": ["RAW", "Harsh fightback", {"op": "reversal", "indicators": [{"text": "fightback"}], "parts": [{"words": "fightback", "gives": "WAR"}]}], "cryptic-21817#4d": ["SEWN", "Tacked, choosing directions in sequence", {"op": "charade", "unchecked": true, "gives": "SEWN", "indicators": [{"text": "in sequence"}], "parts": [{"words": "directions", "gives": "SEWN"}]}], "times-19431#2d": ["WOOED", "Courted sweetheart in a club", {"op": "container", "indicators": [{"text": "in"}], "parts": [{"words": "a club", "gives": "WOOD"}, {"op": "middle", "unchecked": true, "gives": "E", "parts": [{"unchecked": true, "words": "sweetheart", "gives": "E", "select": "middle"}]}]}], "cryptic-29063#7d": ["RACONTEUR", "Storyteller, creator uninvolved?", {"op": "anagram", "parts": [{"words": "creator", "at": 13}, {"words": "uninvolved", "at": 21, "gives": "UN"}]}], "nation-3499#8d": ["FREE", "Iron roundabout, without a charge", {"op": "container", "parts": [{"words": "Iron", "at": 0, "gives": "FE"}, {"words": "roundabout", "at": 5, "gives": "RE"}]}], "cryptic-22406#1d": ["HINGIS", "Something I said to 27 on court", {"op": "hidden", "parts": [{"words": "Something I said", "gives": "HINGIS"}]}], "timesquick-3294#7d": ["STURGEON", "Scot lacking heart to encourage SNP politician", {"op": "charade", "parts": [{"words": "Scot lacking heart", "gives": "ST"}, {"words": "to encourage", "gives": "URGEON"}]}], "times-29328#22a": ["SUSHI", "Vessel losing power carrying American food from Japan", {"op": "container", "indicators": [{"text": "carrying"}], "parts": [{"words": "Vessel losing power", "gives": "SHI", "note": "SHIP without P, for power"}, {"words": "American", "gives": "US", "note": "US = American"}]}], "cryptic-29305#1d": ["CHATEAU", "Supply thé and café au lait for French drink supplier", {"op": "anagram", "indicators": [{"text": "Supply"}], "parts": [{"words": "thé"}, {"words": "café au lait"}]}], "times-28709#22d": ["RHEAS", "When rook soars, catches birds that can't", {"op": "cycling", "unchecked": true, "gives": "RHEAS", "indicators": [{"text": "rook soars"}], "parts": [{"words": "catches", "gives": "HEARS"}]}], "times-29578#26a": ["UNSPORTSMANLIKE", "Most plans run poorly by president playing unfairly", {"op": "charade", "indicators": [{"text": "poorly"}], "parts": [{"op": "anagram", "indicators": [{"text": "by"}], "parts": [{"words": "Most plans run"}]}, {"words": "president", "gives": "IKE"}]}], "azed-1946#17a": ["TURNTURTLE", "'Flip!' This instruction makes sow feel sexy! (10, two words)", {"op": "charade", "parts": [{"words": "This instruction", "gives": "TURN"}, {"op": "reversal", "indicators": [{"text": "This instruction makes"}], "parts": [{"op": "charade", "parts": [{"words": "sow", "gives": "ELT"}, {"words": "feel sexy", "gives": "RUT"}]}]}]}]}''')
+
+def r13(id_):
+    ans, clue, wp = R13[id_]
+    return wp, clue, ans
+
+for id_ in ("times-28370#4d", "cyclops-410#10a", "times-20052#18d", "toughie-3442#18d", "times-29667#22d", "toughie-832#1d"):
+    check(f"{id_}: a one-end pick, a linked-clue charade or a homophone is not a wrong role", 0, v.wrong_role_indicators(r13(id_)[0]))
+for id_ in ("timesquick-3294#7d", "times-29328#22a"):
+    check(f"{id_}: a cut folded into a leaf (note names SCOT/SHIP) is still counted", 1, v.wrong_role_indicators(r13(id_)[0]))
+check("indicators swapped between an anagram and a charade are counted (UNSPORTSMANLIKE)", 1,
+      v.wrong_role_indicators(r13("times-29578#26a")[0]))
+check("an unchecked cycling that moves one letter to the front is not cycling (RHEAS)", 1, v.fake_parts(r13("times-28709#22d")[0]))
+wp, clue, ans = r13("azed-1946#17a")
+check("a leaf's words inside the reversal indicator are one word doing two jobs (TURNTURTLE)", 1, v.shared_indicators(wp, clue))
+wp, clue, ans = r13("cryptic-30087#18a")
+check("fightback is fight + back, the leaf and the indicator at once (RAW)", 0, v.shared_indicators(wp, clue))
+check("rouble is R", 0, v.bare_initials(r13("cryptic-22221#25a")[0]))
+for id_ in ("cryptic-21817#4d", "times-19431#2d"):
+    check(f"{id_}: a step the leaf computes is not unchecked", [], v.unverified_unchecked(r13(id_)[0], r13(id_)[2]))
+for id_ in ("cryptic-29063#7d", "nation-3499#8d", "cryptic-22406#1d"):
+    check(f"{id_}: a compound word that carries its indicator needs no other", 0, v.unindicated_uncovered(r13(id_)[0]))
+try:
+    wordplay.evaluate(r13("cryptic-29305#1d")[0], "CHATEAU")
+    got = "evaluates"
+except wordplay.WordplayError:
+    got = "fails"
+check("the anagram of a linked pair gives the whole answer, not its first light (CHATEAU LAFITE)", "fails", got)
+wordplay.evaluate(r13("cryptic-29305#1d")[0], "CHATEAULAFITE")
 raise SystemExit(fails)
