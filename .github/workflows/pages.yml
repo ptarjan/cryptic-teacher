@@ -199,18 +199,7 @@ jobs:
       - name: Build the puzzle shims and reindex
         run: |
           python3 tools/fetch_puzzle.py --reindex
-          python3 - <<'EOF'
-          import json, pathlib
-          d = pathlib.Path("puzzles")
-          index = json.loads((d / "index.json").read_text(encoding="utf-8"))
-          keep = {"index.js"} | {p["file"] for p in index["puzzles"] + index.get("unlisted", [])}
-          gone = [f for f in d.glob("*.js") if f.name not in keep]
-          # and the .gz stage_site.py made of one (index.js is never gzipped)
-          gone += [f for f in d.glob("*.js.gz") if f.name[:-3] not in keep or f.name == "index.js.gz"]
-          for f in gone:
-              f.unlink()
-          print(f"removed {len(gone)} shim(s) no puzzle has")
-          EOF
+          python3 tools/prune_shims.py
       # The cards are ~570MB of PNGs (run 38460299301) that change a few files
       # a night, so they are neither committed nor redrawn from scratch: the cache carries them and
       # their manifest between runs, and make_og.sh draws only the ones whose
