@@ -678,43 +678,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PLOTLINE",
+     "op": "composite",
      "indicators": [
       {
+       "text": "with",
+       "at": 6,
+       "note": "with says the named letters are added to the answer before the mixing"
+      },
+      {
        "text": "making",
-       "note": "the answer plus the extra word together make the phrase, rearranged"
+       "at": 14,
+       "note": "the answer together with us makes a rearrangement of lentil soup"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PLOTLINE",
-       "indicators": [
-        {
-         "text": "with",
-         "note": "the answer only becomes the fodder when joined with another word, so that word must be stripped back out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "lentil soup",
-         "note": "the full set of letters"
-        },
-        {
-         "words": "us",
-         "note": "taken as written, to be removed"
-        }
-       ]
+       "words": "lentil soup",
+       "at": 21,
+       "note": "taken as written: all ten letters are the pool"
+      },
+      {
+       "words": "us",
+       "at": 11,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A tale about cooking a pulse-based broth together.",
-     "walkthrough": "This is a compound anagram: answer plus US rearranges to LENTIL SOUP, so remove U and S from those letters and rearrange the eight left.",
-     "definitionFit": "A plotline is the storyline of a novel, film or play, a near synonym of story."
+     "surface": "A tale in which we cook up a pan of pulse soup.",
+     "walkthrough": "Add US to the answer and the letters rearrange to LENTIL SOUP.",
+     "definitionFit": "A plotline is the storyline of a novel, film or play."
     },
     "features": {
      "answerInScene": false,
@@ -1134,29 +1127,25 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "reverse",
+     "reading": "F + R + IEND",
      "parts": [
       {
-       "words": "Evil",
-       "gives": "FIEND",
-       "note": "a fiend is an evil being"
-      },
-      {
-       "words": "Dr",
-       "gives": "R",
-       "note": "the letter of Dr not already in the evil one"
+       "words": "Dr Evil",
+       "at": 14,
+       "note": "read Dr as the instruction 'drop R': taken from the answer it leaves a fiend, which is evil"
       }
      ]
     },
     "explanation": {
-     "surface": "Could the Austin Powers villain Dr Evil be somebody's pal?",
-     "walkthrough": "A loose clue: a fiend with the R of Dr slipped in after its first letter becomes a mate; Dr Evil, the comic villain, is the joke.",
-     "definitionFit": "Mate is informal British and Australian English for a friend or pal."
+     "surface": "Could a pal be the Austin Powers villain?",
+     "walkthrough": "Dr Evil is the villain of the Austin Powers films; here 'Dr' means drop R, and the answer without R is FIEND.",
+     "definitionFit": "A mate is a pal, a chum or companion."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "Dr"
     }
    }
