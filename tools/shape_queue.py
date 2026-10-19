@@ -262,7 +262,9 @@ def settled(entry, reason):
     ann = entry.get("annotation")
     if not ann or ann.get("wordplay") is None:
         return False
-    names = [p.split(":")[0].strip() for p in str(reason).split("; ")]
+    # A hint may hold "; " itself (unindicatedBare's): a class starts only at "<word>:" after one.
+    import re
+    names = re.findall(r"(?:^|; )([A-Za-z][\w-]*)(?=:|;|$)", str(reason)) or [str(reason).split(":")[0].strip()]
     rules = _validator_rules()
     import shape_suspects as ss
     if not names or any(n not in rules and n not in ss.PRECISION and n not in _ENTRY_RULES
