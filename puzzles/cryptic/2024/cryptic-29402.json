@@ -665,46 +665,47 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "VISIBLE",
      "indicators": [
       {
-       "text": "if making a",
-       "note": "making the letter into something else means swapping that letter out for the new pair"
+       "text": "if making",
+       "at": 9,
+       "note": "the clue asks what happens if one piece is made into another, a swap"
       }
      ],
      "parts": [
       {
        "words": "Workable",
+       "at": 0,
        "gives": "VIABLE",
-       "note": "a workable plan is viable"
+       "note": "a viable plan is one that is workable"
+      },
+      {
+       "words": "a",
+       "at": 19,
+       "gives": "A"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "SI",
        "indicators": [
         {
          "text": "essentially",
-         "note": "the essence of a word is its core, so only its middle letters are kept"
+         "at": 28,
+         "note": "the essence of design is its central pair of letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "design",
-         "gives": "SI",
-         "select": "middle",
-         "note": "the two middle letters of design"
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A design is workable if it makes its essential purpose clear.",
-     "walkthrough": "The A of VIABLE is replaced by SI, the heart of 'design'.",
-     "definitionFit": "Something visible can be seen, and something obvious is plain to see, so the adjectives are synonyms."
+     "surface": "A design looks workable once its essential point is made obvious.",
+     "walkthrough": "In VIABLE, the A is replaced by SI, the middle of 'design', giving VI-SI-BLE.",
+     "definitionFit": "Something visible can be seen plainly, so it is obvious to anyone looking."
     },
     "features": {
      "answerInScene": false,
@@ -930,73 +931,105 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PRECEDENT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Scramble",
-       "note": "scrambling mixes things up, so the letters are jumbled into a new order"
+       "text": "to complete",
+       "at": 62,
+       "note": "the time letter is added at the end to finish the word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to complete",
-         "note": "completing means coming at the end, so this piece is tacked on last"
+         "text": "Scramble",
+         "at": 0,
+         "note": "the letters are scrambled into a new order"
         }
        ],
        "parts": [
         {
          "op": "substitution",
-         "unchecked": true,
-         "gives": "PRECEDENT",
          "indicators": [
           {
-           "text": "using",
-           "note": "using one letter in place of another signals a swap of letters inside the phrase"
-          },
-          {
-           "text": "to cover",
-           "note": "covering a letter means laying another over it, so each such letter is swapped out"
+           "text": "every",
+           "at": 41,
+           "note": "the swap is made for every area letter in the panda car, not just one"
           }
          ],
          "parts": [
           {
-           "words": "panda car",
-           "note": "taken as written"
+           "op": "substitution",
+           "indicators": [
+            {
+             "text": "to cover",
+             "at": 32,
+             "note": "the energy letter covers over an area letter, taking its place"
+            }
+           ],
+           "parts": [
+            {
+             "op": "substitution",
+             "indicators": [
+              {
+               "text": "using",
+               "at": 19,
+               "note": "energy is brought in as the replacement letter"
+              }
+             ],
+             "parts": [
+              {
+               "words": "panda car",
+               "at": 9
+              },
+              {
+               "words": "area",
+               "at": 47,
+               "gives": "A"
+              },
+              {
+               "words": "energy",
+               "at": 25,
+               "gives": "E",
+               "note": "E is the physics symbol for energy"
+              }
+             ]
+            },
+            {
+             "gives": "A"
+            },
+            {
+             "gives": "E"
+            }
+           ]
           },
           {
-           "words": "energy",
-           "gives": "E",
-           "note": "E is the symbol for energy in physics"
+           "gives": "A"
           },
           {
-           "words": "time",
-           "gives": "T",
-           "note": "T is the abbreviation for time"
+           "gives": "E"
           }
          ]
-        },
-        {
-         "unchecked": true,
-         "words": "every area",
-         "note": "a is the abbreviation for area; every A in the phrase is replaced"
         }
        ]
+      },
+      {
+       "words": "time",
+       "at": 57,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A police officer is told to rush the patrol car around every district in the nick of time.",
-     "walkthrough": "A panda car is British slang for a small police patrol car. Each A in it becomes E, giving PENDECER, which is jumbled and finished with T.",
-     "definitionFit": "In law a precedent is an earlier decided case that guides later rulings, so it is a previous case."
+     "surface": "A police car is scrambled, burning energy covering the whole area, to wrap up a case in good time.",
+     "walkthrough": "A panda car is a British police patrol car. Every A in PANDACAR becomes E, giving PENDECER, which is rearranged to PRECEDEN; T completes it.",
+     "definitionFit": "A precedent is an earlier legal case or decision used as a guide for later ones."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
      "misdirectedWord": "Scramble"
     }
    }
@@ -1384,61 +1417,55 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "unchecked": true,
-     "gives": "CERAMIC",
+     "op": "container",
      "indicators": [
       {
-       "text": "on",
-       "note": "in a down clue one piece on another sits above it, so it comes first"
+       "text": "taking",
+       "at": 9,
+       "note": "the two hundreds take the other pieces in between them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "CERAMIC",
+       "words": "Hundreds",
+       "at": 0,
+       "gives": "CC",
+       "note": "C is the Roman numeral for a hundred, so two are CC"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
-         "text": "taking",
-         "note": "taking something in means holding it inside, so the pair goes round the rest"
+         "text": "on",
+         "at": 21,
+         "note": "in a down clue, time sits on top of the motorway"
         }
        ],
        "parts": [
         {
-         "op": "substitution",
-         "unchecked": true,
-         "gives": "CERAMIC",
-         "parts": [
-          {
-           "words": "Hundreds",
-           "gives": "CC",
-           "note": "C is the Roman numeral for a hundred, and the plural asks for two of them"
-          },
-          {
-           "words": "time",
-           "gives": "ERA",
-           "note": "an era is a period of time"
-          },
-          {
-           "words": "motorway",
-           "gives": "M",
-           "note": "the M1 is England's main north-south motorway"
-          }
-         ]
+         "words": "time",
+         "at": 16,
+         "gives": "ERA",
+         "note": "an era is a period of time"
+        },
+        {
+         "words": "motorway",
+         "at": 24,
+         "gives": "MI",
+         "note": "the M1 is Britain's main motorway, written MI"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hundreds spend time on the expressways of China.",
-     "walkthrough": "The 1 of the M1 is read as the Roman numeral I. 'China' at the start hides its lower-case sense, the porcelain.",
-     "definitionFit": "China is fine porcelain, which is a type of ceramic ware made from fired clay."
+     "surface": "Hundreds of people spend time on a motorway somewhere in China.",
+     "walkthrough": "'China' looks like the country but means porcelain. The M1 is London to Leeds, Britain's first full motorway.",
+     "definitionFit": "Ceramic ware is fired clay, and china is a fine porcelain kind of ceramic."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "China"
     }

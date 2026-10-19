@@ -449,60 +449,72 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DOOMSAYER",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "the succeeded letter is placed within the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "charade",
        "indicators": [
         {
-         "text": "in"
+         "text": "on",
+         "at": 40,
+         "note": "in a down clue, the first part sits on top of the second"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "lifting"
+           "text": "lifting",
+           "at": 23,
+           "note": "in a down clue, lifting raises the word so it reads upwards"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "indicators": [
-            {
-             "text": "New",
-             "note": "something new is remade, so YEAR is made over as AYER"
-            }
-           ],
-           "parts": [
-            {
-             "words": "mind-set",
-             "gives": "MOOD",
-             "note": "a mood is a frame of mind; lifted it gives DOOM"
-            },
-            {
-             "words": "succeeded",
-             "gives": "S",
-             "note": "s = succeeded, as in family trees"
-            },
-            {
-             "words": "Year",
-             "note": "rearranged as AYER, with 'New' as the indicator"
-            }
-           ]
+           "words": "mind-set",
+           "at": 31,
+           "gives": "MOOD",
+           "note": "a mood is a state of mind"
+          }
+         ]
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "New",
+           "at": 43,
+           "note": "the letters of year are made new, in a different order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Year",
+           "at": 47
           }
          ]
         }
        ]
+      },
+      {
+       "words": "succeeded",
+       "at": 10,
+       "gives": "S",
+       "note": "S is the genealogy abbreviation for succeeded"
       }
      ]
     },
     "explanation": {
-     "surface": "A gloomy type who manages to cheer up at New Year.",
-     "walkthrough": "'New Year' looks like the festive occasion, but 'New' is only an instruction to rearrange; in a down clue, 'on' means placed above.",
-     "definitionFit": "Someone who habitually predicts disaster is the pessimist's extreme, so the two are near synonyms."
+     "surface": "A gloomy person hits on a positive outlook for the New Year.",
+     "walkthrough": "'Mind-set' suggests an attitude, but here it is simply a mood; in a down answer 'lifting' reads it bottom to top.",
+     "definitionFit": "A doomsayer predicts disaster, the outlook of a pessimist who expects the worst."
     },
     "features": {
      "answerInScene": true,
@@ -1531,33 +1543,38 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "reversing"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "into",
-         "note": "to go into something is to end up inside it"
+         "at": 17,
+         "note": "the turned-round word goes into the bar word"
         }
        ],
        "parts": [
         {
          "words": "bar",
+         "at": 22,
          "gives": "ROD",
-         "note": "a rod is a bar; split RO…D"
+         "note": "a rod is a metal bar"
         },
         {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "reversing",
+           "at": 7,
+           "note": "the word for maniac is read backwards"
+          }
+         ],
          "parts": [
           {
            "words": "Maniac",
+           "at": 0,
            "gives": "NUT",
-           "note": "a nut is a maniac; reversed gives TUN"
+           "note": "a nut is a crazy person"
           }
          ]
         }
@@ -1565,14 +1582,15 @@
       },
       {
        "words": "a",
-       "note": "used as is"
+       "at": 28,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A madman reverses his car into a barrier outside a domed building.",
-     "walkthrough": "'Bar' suggests a pub for a maniac to crash into; it is a plain rod.",
-     "definitionFit": "A description: a rotunda is a round building, usually topped with a dome, from Latin rotundus, round."
+     "surface": "A madman backs into a bar near a building with a dome.",
+     "walkthrough": "The 'a' before the definition is not part of it; it supplies the final letter.",
+     "definitionFit": "A rotunda is a round building, typically topped with a dome."
     },
     "features": {
      "answerInScene": true,
