@@ -141,35 +141,57 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Ruin without a",
-       "gives": "DETH",
-       "note": "DEATH (ruin, as in 'it'll be the death of me') minus A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 5,
+         "note": "without means the following letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ruin",
+         "at": 0,
+         "gives": "DEATH",
+         "note": "death can mean ruin, as in the death of a business"
+        },
+        {
+         "words": "a",
+         "at": 13,
+         "gives": "A"
+        }
+       ]
       },
       {
        "words": "king",
+       "at": 15,
        "gives": "R",
-       "note": "R = rex, king"
+       "note": "R is the abbreviation for king, from Latin rex"
       },
       {
        "words": "one",
-       "note": "one, kept as written"
+       "at": 22,
+       "gives": "ONE",
+       "note": "taken as written"
       },
       {
        "words": "departs",
+       "at": 26,
        "gives": "D",
-       "note": "d. = departs, the timetable abbreviation"
+       "note": "D is the timetable abbreviation for departs"
       }
      ]
     },
     "explanation": {
-     "surface": "A monarch's downfall: the kingdom ruined, the king gone, someone else seizing power.",
-     "walkthrough": "'Without a king' looks like one instruction to drop R, but it splits: 'without a' removes the A from DEATH, and 'king' then supplies the R.",
-     "definitionFit": "A descriptive paraphrase: a ruler thrown off the throne has had his authority usurped, and both work as past participles."
+     "surface": "A deposed ruler's ruin, with one man leaving power to a usurper.",
+     "walkthrough": "'Ruin' must be read as a noun, as in 'the death of the firm'; the timetable abbreviation for departs supplies the final letter.",
+     "definitionFit": "A monarch who has been dethroned has been removed from the throne, the power taken over by another."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "without"
+     "aptDefinition": false,
+     "misdirectedWord": "Ruin"
     }
    }
   },
@@ -251,25 +273,45 @@
      "parts": [
       {
        "words": "accomplished",
+       "at": 13,
        "gives": "DONE",
-       "note": "done = accomplished, finished"
+       "note": "done means accomplished, completed"
       },
       {
-       "words": "another losing direction",
-       "gives": "GAL",
-       "note": "another Irish county, GALWAY, losing WAY (direction)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 35,
+         "note": "losing means the direction word is dropped from the county"
+        }
+       ],
+       "parts": [
+        {
+         "words": "another",
+         "at": 27,
+         "gives": "GALWAY",
+         "note": "another Irish county, Galway"
+        },
+        {
+         "words": "direction",
+         "at": 42,
+         "gives": "WAY",
+         "note": "a way is a direction, as in which way"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A roll-call of Irish counties, one finished and another that has lost its bearings.",
-     "walkthrough": "'Another' means another Irish county, borrowed from the definition; 'direction' is the whole word WAY, not a compass letter such as N or E.",
-     "definitionFit": "A definition by class: this is a county in the far north-west of Ireland."
+     "surface": "An Irish county is ticked off, and another county loses its way.",
+     "walkthrough": "'another' means another Irish county: GALWAY, which loses WAY to leave GAL.",
+     "definitionFit": "Donegal is the large county in Ireland's far north-west, part of Ulster."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "direction"
+     "misdirectedWord": "another"
     }
    }
   },

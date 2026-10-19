@@ -769,35 +769,49 @@
      "op": "container",
      "indicators": [
       {
-       "text": "occupies"
-      },
-      {
-       "text": "mostly",
-       "note": "mostly means all but the last letter, so MARDY drops its Y"
+       "text": "occupies",
+       "at": 11,
+       "note": "occupies means the word for everything moves inside the other"
       }
      ],
      "parts": [
       {
-       "words": "irritable",
-       "gives": "MARD",
-       "note": "mardy is northern English for sulky or irritable, cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 20,
+         "note": "mostly means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "irritable",
+         "at": 27,
+         "gives": "MARDY",
+         "note": "mardy is a northern English word for sulky or bad-tempered"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       },
       {
        "words": "Everything",
+       "at": 0,
        "gives": "ALL",
-       "note": "all = everything"
+       "note": "all means everything"
       }
      ]
     },
     "explanation": {
-     "surface": "An amateur who is grumpy most of the time.",
-     "walkthrough": "A dabbler looks like an amateur, but a mallard is a dabbling duck, feeding at the surface.",
-     "definitionFit": "The mallard is a dabbling duck, one that dabbles at the surface for food."
+     "surface": "Someone who dabbles in everything is mostly bad-tempered.",
+     "walkthrough": "'irritable' gives a northern English dialect word for grumpy; 'mostly' trims its tail before the everything word moves in, and 'dabbler' is a kind of duck.",
+     "definitionFit": "The mallard is the commonest dabbling duck, feeding by tipping up at the surface rather than diving."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "dabbler"
     }
    }
