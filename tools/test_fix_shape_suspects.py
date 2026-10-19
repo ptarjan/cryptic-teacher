@@ -61,6 +61,29 @@ ok_tree = {"op": "container", "indicators": [{"text": "opened by"}], "parts": [
     {"words": "medic", "gives": "MO"}]}
 new, used = F.repair_tree(ok_tree, "visa returned, opened by medic", "ASIMOV", {"wrongRole": F.r_wrong_role})
 check("a tree with the words in place is left alone", used == [])
+# r_container_cut: a cut word on the container goes onto a deletion over the leaf it cuts.
+dol = {"op": "charade", "indicators": [{"text": "broken by"}], "parts": [
+    {"words": "note", "gives": "DO"},
+    {"op": "container", "indicators": [{"text": "endlessly"}], "parts": [
+        {"words": "records", "gives": "LPS"}, {"words": "China", "gives": "HIN", "note": "cHINa without its two ends"}]}]}
+new, used = F.repair_tree(dol, "Swimmers note records broken by China endlessly", "DOLPHINS", {"wrongRole": F.r_wrong_role})
+cont = new["parts"][1] if used else {}
+check("endlessly moves onto del(China, C, A) and broken by onto the container (DOLPHINS)",
+      "wrongRole" in used and cont.get("indicators", [{}])[0].get("text") == "broken by"
+      and cont["parts"][1].get("op") == "deletion" and cont["parts"][1]["indicators"][0]["text"] == "endlessly"
+      and [p.get("gives") for p in cont["parts"][1]["parts"][1:]] == ["C", "A"])
+mor = {"op": "container", "indicators": [{"text": "accepting"}, {"text": "nearly"}], "parts": [
+    {"words": "Increasingly", "gives": "MORE"}, {"words": "everyone", "gives": "AL", "note": "ALL minus its last letter"}]}
+new, used = F.repair_tree(mor, "Increasingly accepting nearly everyone's state of mind", "MORALE", {"wrongRole": F.r_wrong_role})
+check("nearly moves onto del(ALL, L) from the capital word in the note (MORALE)",
+      used and new["indicators"][0]["text"] == "accepting" and new["parts"][1]["op"] == "deletion"
+      and new["parts"][1]["parts"][0]["gives"] == "ALL")
+# a cut that fits no end is left alone
+bad = {"op": "container", "indicators": [{"text": "accepting"}, {"text": "nearly"}], "parts": [
+    {"words": "Increasingly", "gives": "MORE"}, {"words": "everyone", "gives": "LA", "note": "ALL minus its last letter"}]}
+new, used = F.repair_tree(bad, "Increasingly accepting nearly everyone's state of mind", "MORLAE", {"wrongRole": F.r_wrong_role})
+check("a cut word whose end does not fit is left alone", new["parts"][1].get("op") is None)
+
 # r_ind_trade: two ops each carrying the other's word (loose bar), nested or siblings, or one unknown word.
 trade = {"op": "container", "indicators": [{"text": "mad"}], "parts": [
     {"op": "anagram", "indicators": [{"text": "about"}], "parts": [{"words": "Americans"}]},

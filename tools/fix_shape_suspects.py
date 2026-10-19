@@ -1146,13 +1146,75 @@ def r_ind_trade(node, parent, ctx):
     return None
 
 
+BOTH_ENDS = re.compile(r"endless|unlimited|edgeless|boundless|peeled|shelled|skinned|topless and tailless", re.I)
+
+
+def _cut_options(full, g, ind_text):
+    """The letters `ind_text` takes off `full` to leave `g`: [gone] (one run), or [first, last]
+    for a both-ends word; empty when the word's end does not fit or no single reading does."""
+    m = len(full) - len(g)
+    if m < 1:
+        return []
+    if BOTH_ENDS.search(ind_text):
+        return [[full[0], full[-1]]] if m == 2 and full[1:-1] == g else []
+    tail, head, mid = bool(TAIL.search(ind_text)), bool(HEAD.search(ind_text)), bool(MID.search(ind_text))
+    if tail + head + mid != 1 or m > 3:
+        return []
+    if tail and full.startswith(g):
+        return [[full[len(g):]]]
+    if head and full.endswith(g):
+        return [[full[:m]]]
+    if mid and len(full) > m + 1:
+        k = (len(full) - m) // 2
+        cuts = {j for j in (k, len(full) - m - k) if full[:j] + full[j + m:] == g}
+        return [[full[j:j + m]] for j in cuts] if len(cuts) == 1 else []
+    return []
+
+
+def r_container_cut(node, parent, ctx):
+    """A container carrying a cut word (nearly, briefly, endlessly) that the corpus files under
+    deletion, beside a leaf whose letters are one clue word (or a word its note spells in capitals)
+    with the run that word names cut off: the cut word goes onto a deletion over that leaf, the
+    removed run a leaf of its own (ins<endlessly>(LPS, China=HIN) is ins(LPS, del<endlessly>(
+    China, C, A))). Kept only when exactly one leaf and one cut fit and the tree still gives
+    the answer; a container left with no word of its own is the driver's gate to refuse."""
+    if node.get("op") != "container" or node.get("unchecked") or id(node) in ctx["under_unchecked"]:
+        return None
+    parts = node.get("parts") or []
+    found = []
+    for d in node.get("indicators") or []:
+        if not _owns(d, "deletion", "container"):
+            continue
+        for k, p in enumerate(parts):
+            if not leaf(p) or p.get("unchecked") or not p.get("words") or not p.get("gives"):
+                continue
+            g = W.letters(p["gives"])
+            fulls = [(W.letters(p["words"]), False)] if len(p["words"].split()) == 1 else []
+            fulls += [(W.letters(x), True) for x in re.findall(r"\b[A-Z]{3,}\b", p.get("note") or "")]
+            for full, from_note in fulls:
+                for gone in _cut_options(full, g, d.get("text") or ""):
+                    found.append((d, k, full, from_note, gone))
+    if len({(id(f[0]), f[1], f[2], tuple(f[4])) for f in found}) != 1:
+        return None
+    d, k, full, from_note, gone = found[0]
+    new = copy.deepcopy(node)
+    src = {x: v for x, v in new["parts"][k].items() if x != "gives"}
+    if from_note:
+        src["gives"] = full
+    new["parts"][k] = {"op": "deletion", "indicators": [copy.deepcopy(d)], "parts": [src] + [{"gives": x} for x in gone]}
+    new["indicators"] = [i for i in new["indicators"] if i is not d and i != d]
+    if not new["indicators"]:
+        new.pop("indicators")
+    return new if _eval_swapped(node, parent, new, ctx) else None
+
+
 def r_wrong_role(node, parent, ctx):
     """wrongRole: a leaf that folds a deletion into its words (r_leaf_fold), else indicators on
     the wrong one of two nested ops (r_role_swap), a selection indicator hung on a one-letter word
     (r_sel_one_letter)."""
     return r_leaf_fold(node, parent, ctx) or r_extremes_outer(node, parent, ctx) \
         or r_role_swap(node, parent, ctx) or r_ind_trade(node, parent, ctx) \
-        or r_role_move(node, parent, ctx) or r_sel_one_letter(node, parent, ctx)
+        or r_container_cut(node, parent, ctx) or r_role_move(node, parent, ctx) or r_sel_one_letter(node, parent, ctx)
 
 
 def r_extremes_outer(node, parent, ctx):
