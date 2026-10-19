@@ -427,6 +427,60 @@ def slot():
         time.sleep(random.uniform(0.2, 1.0))
 
 
+#: A process with an ask under way (waiting for a slot, or in flight) leaves a file
+#: named for its pid in the temp dir's vlm_reader.waiting/; the queue counts them
+#: (waiting_now) to start no read the VLM could not serve soon. Ends with the ask.
+_ASKING = [0]
+
+
+def _waiting_dir():
+    return Path(tempfile.gettempdir()) / "vlm_reader.waiting"
+
+
+def _alive(pid):
+    try:
+        os.kill(pid, 0)
+    except ProcessLookupError:
+        return False
+    except OSError:
+        pass  # exists, not ours
+    return True
+
+
+def waiting_now():
+    """How many live processes have an ask under way: files of pids still running
+    (stale ones, of a process killed mid-ask, are removed)."""
+    n = 0
+    try:
+        files = list(_waiting_dir().iterdir())
+    except OSError:
+        return 0
+    for f in files:
+        if f.name.isdigit() and _alive(int(f.name)):
+            n += 1
+        else:
+            f.unlink(missing_ok=True)
+    return n
+
+
+@contextlib.contextmanager
+def asking():
+    """Mark this process as waiting for the VLM for the length of one ask."""
+    mark = _waiting_dir() / str(os.getpid())
+    try:
+        mark.parent.mkdir(parents=True, exist_ok=True)
+        mark.touch()
+    except OSError:
+        pass
+    _ASKING[0] += 1
+    try:
+        yield
+    finally:
+        _ASKING[0] -= 1
+        if not _ASKING[0]:
+            mark.unlink(missing_ok=True)
+
+
 def _moved_to_other():
     """After an ask to URL failed to connect or timed out: re-resolve once
     over the other candidates (_first_answering), and when one answers make
@@ -499,7 +553,7 @@ def ask_png(data, prompt, max_tokens=1500):
         try:
             for tried in range(QUEUE_FULL_TRIES):
                 try:
-                    with slot():
+                    with asking(), slot():
                         reply = json.load(urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT * (1 + max(0, PIPELINE))))
                     break
                 except urllib.error.HTTPError as e:

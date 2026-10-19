@@ -1675,6 +1675,26 @@ for _, w in _ev:
 check("the ceiling holds starts to 2 at once, and says so", (True, True),
       (_peak2 == 2, "unit ceiling" in err.getvalue()))
 os.environ.pop("CT_UNIT_CEILING")
+
+# VLM-waiting cap: while CT_VLM_WAITING reads have an ask under way no read starts, and it says so once.
+os.environ["CT_VLM_WAITING"] = "2"
+_w = vlm_reader.waiting_now
+vlm_reader.waiting_now = lambda: 2
+eq.plan = units([], [(f"v{k}", []) for k in range(3)])
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("reads wait for the VLM's queue to drain, and it says so once", (False, 1),
+      (log.exists(), err.getvalue().count("vlm-bound")))
+vlm_reader.waiting_now = lambda: 1
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.5)
+check("below the cap every read starts", (3, 0),
+      (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("vlm-bound")))
+vlm_reader.waiting_now = _w
+os.environ.pop("CT_VLM_WAITING")
 os.environ["CT_PSI_PATH"] = str(T / "no-psi")
 os.environ.pop("CT_MEMINFO")
 

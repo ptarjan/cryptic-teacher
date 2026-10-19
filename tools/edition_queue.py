@@ -432,6 +432,19 @@ def seconds_from_env(name, default):
 #: reads that are only waiting; their cached replies (vlm_reader.ask_png) survive the kill.
 SCAN_SECONDS = seconds_from_env("CT_SCAN_SECONDS", 1200)
 READ_SECONDS = seconds_from_env("CT_READ_SECONDS", 1200)
+#: Reads allowed to wait for the VLM at once (env CT_VLM_WAITING, default 4: the
+#: slot, its pipeline and one more): at ~7 asks a puzzle the one-slot VLM finishes
+#: ~1 read a minute, so ~30 started reads sat ~30 min each in its lock holding
+#: ~0.5 GB apiece, past the read limit, and lost on every restart. While this many
+#: processes have an ask under way (vlm_reader.waiting_now) no read starts; reads OCR
+#: settles without an ask never wait, so they still flow at CPU speed.
+def vlm_waiting_cap():
+    try:
+        return max(1, int(os.environ.get("CT_VLM_WAITING", "4")))
+    except ValueError:
+        return 4
+
+
 #: How often (seconds) the queue is planned again.
 REPLAN = 60
 #: While no core is idle, a plan is made every REPLAN * IDLE_BACKOFF seconds
@@ -1544,6 +1557,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     outages = dict.fromkeys(fetch, 0)
     memory_bound = cpu_bound = desktop_bound = desk_mem_bound = False  # logged once per slice
     idle_bound = False  # logged once each time the idle cores run out
+    vlm_bound = False  # logged once each time the VLM-waiting cap is met
     ceiling_bound = False  # logged once each time the unit-children ceiling is met
     opened = []  # when this run started each unit that opens a desktop session (desktop_room), the last hour's
     closed = []  # (start, end) wall times of those units that ended, the last hour's (desktop_sessions)
@@ -2025,6 +2039,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 log(f"unit ceiling: {mem_gate.unit_ceiling()} unit children running; no read or scan starts until one exits")
         else:
             ceiling_bound = False
+        vlm_waiting = vlm_reader.waiting_now()
+        vlm_full = vlm_waiting >= vlm_waiting_cap()
+        if vlm_full != vlm_bound:
+            vlm_bound = vlm_full
+            if vlm_full:
+                log(f"vlm-bound: {vlm_waiting} reads wait for the VLM (CT_VLM_WAITING {vlm_waiting_cap()}); "
+                    f"no read starts until one finishes its asks")
         begun_now = charged = 0
         costs = None  # unit_costs, measured at this pass's first start
         held_back = cpu_held = idle_held = False
@@ -2192,6 +2213,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             if vlm_waits(u):
                 vlm_deferred += 1
+                continue
+            if vlm_full and u["kind"] == "read":
                 continue
             if costs is None:
                 costs = mem_gate.unit_costs({pid: slot_of(v) for pid, (v, _) in units_running()})

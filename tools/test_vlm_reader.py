@@ -481,6 +481,14 @@ check("asks count by kind, a repeat as cached", "vlm 1 reads, 1 picks, 1 cached"
 check("the count starts over after a line", "vlm 0", vlm.vlm_note())
 urllib.request.urlopen = real
 
+# Processes with an ask under way are counted (waiting_now); a dead pid's mark is ignored and removed.
+check("no ask under way: nobody waits", 0, vlm.waiting_now())
+with vlm.asking():
+    (vlm._waiting_dir() / "999999999").touch()  # a pid that does not exist
+    check("an ask under way counts, a stale pid does not", 1, vlm.waiting_now())
+check("the stale mark is removed", False, (vlm._waiting_dir() / "999999999").exists())
+check("the mark ends with the ask", 0, vlm.waiting_now())
+
 if fails:
     print("test_vlm_reader: failed")
     sys.exit(1)
