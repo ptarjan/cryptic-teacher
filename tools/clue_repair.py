@@ -290,12 +290,14 @@ BLED_COUNT = re.compile(r"\(\s*(\d{1,2}(?:\s*[,\-]\s*\d{1,2})*)\s*\)\W{0,2}\s*\d
 def lexicon():
     """(is_word, uses): the lexicon's test and the clue corpus's count of a
     word; loaded on first use (ocr_clues is heavy and imports this module's
-    neighbours)."""
+    neighbours). The clue corpus (~3s to load) is read only when `uses` is
+    first called, which the rules do only for a word the lexicon lacks, so
+    a clue of lexicon words mends without it."""
     import ocr_clues
-    uni, pairs = ocr_clues.clue_lm()[:2]
 
     def uses(w, nxt=None):
         """How often the corpus prints `w`, or `w` then `nxt`."""
+        uni, pairs = ocr_clues.clue_lm()[:2]
         return uni.get(w.lower(), 0) if nxt is None else pairs.get(f"{w.lower()} {nxt.lower()}", 0)
     return ocr_clues.is_word, uses
 
