@@ -1149,55 +1149,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LOUNGER",
      "indicators": [
       {
        "text": "enthralled by",
-       "note": "enthralled means held captive, so one piece is held within the other"
+       "at": 21,
+       "note": "enthralled by means held captive inside the other word"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "LOUNGER",
        "indicators": [
         {
          "text": "naked",
-         "note": "naked means stripped of covering, so the outer letters come off"
+         "at": 35,
+         "note": "naked means stripped of the outer layer, so the first and last letters go"
         }
        ],
        "parts": [
         {
          "words": "divers",
+         "at": 41,
          "gives": "PLUNGERS",
-         "note": "people who plunge into water; stripped of the first and last letters"
+         "note": "plungers are people who plunge, so divers"
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "back",
-           "note": "the back of a word is its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "potato's",
-           "gives": "POTATO",
-           "note": "last letter of potato"
-          }
-         ]
+         "gives": "PS"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 15,
+         "note": "back means the final letter of potato"
+        }
+       ],
+       "parts": [
+        {
+         "words": "potato's",
+         "at": 6,
+         "gives": "POTATO",
+         "note": "the word potato, ending in O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lazy TV-watcher is hooked on a programme of naked divers.",
-     "walkthrough": "'Couch potato' looks like the definition, but only 'Couch' is; 'potato's back' is its last letter.",
-     "definitionFit": "A lounger is a reclining seat or sofa, a kind of couch."
+     "surface": "A couch potato lies back, captivated by unclothed divers on screen.",
+     "walkthrough": "'Couch potato' looks like one phrase, but 'Couch' is the definition and 'potato's back' gives O; that O goes inside LUNGER, which is PLUNGERS with its ends taken off.",
+     "definitionFit": "A lounger is a reclining chair or couch, like a sun lounger, built for lazing on."
     },
     "features": {
      "answerInScene": true,
@@ -1342,35 +1346,38 @@
      "indicators": [
       {
        "text": "keeping",
-       "note": "to keep something is to hold it, so one piece is held inside another"
+       "at": 26,
+       "note": "keeping means holding the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "parish priest",
-         "gives": "PP",
-         "note": "abbreviation for parish priest"
-        },
-        {
-         "words": "it",
-         "note": "taken as written"
-        }
-       ]
+       "words": "parish priest",
+       "at": 8,
+       "gives": "PP"
       },
       {
-       "words": "professional",
-       "gives": "PRO",
-       "note": "short for professional"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "it",
+         "at": 34,
+         "gives": "IT"
+        },
+        {
+         "words": "professional",
+         "at": 37,
+         "gives": "PRO",
+         "note": "pro is short for professional"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Backing the vicar for keeping things businesslike.",
-     "walkthrough": "'Support' reads as a verb backing the priest, but it is a noun.",
-     "definitionFit": "A pit prop is a timber or steel post supporting the roof of a mine."
+     "surface": "A churchgoer backs their parish priest for keeping things professional.",
+     "walkthrough": "A pit prop is a timber or steel post holding up the roof of a mine.",
+     "definitionFit": "A pit prop is a beam used as a support in a mine working."
     },
     "features": {
      "answerInScene": false,
@@ -1588,65 +1595,70 @@
      "op": "container",
      "indicators": [
       {
-       "text": "drinking",
-       "note": "drinking takes something inside, so one piece goes within another"
+       "text": "after drinking",
+       "at": 28,
+       "note": "after drinking means the seaman takes the following pieces in, as if swallowing them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "hung over",
-           "note": "hung upside down, so the order of the piece is turned round"
-          }
-         ],
-         "parts": [
-          {
-           "words": "seaman",
-           "gives": "OS",
-           "note": "ordinary seaman"
-          }
-         ]
-        },
-        {
-         "words": "instant",
-         "gives": "TICK",
-         "note": "a tick is a moment"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "T",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "reportedly",
-         "note": "reportedly means as heard, so a word stands for one sounding the same"
+         "text": "hung over",
+         "at": 18,
+         "note": "hung over means turned over, so the letters of the seaman read backwards"
         }
        ],
        "parts": [
         {
-         "words": "tea",
-         "gives": "TEE",
-         "note": "the letter T is said like tea"
+         "words": "seaman",
+         "at": 10,
+         "gives": "OS",
+         "note": "OS is an ordinary seaman"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "instant",
+         "at": 43,
+         "gives": "TICK",
+         "note": "a tick is a moment or instant"
+        },
+        {
+         "op": "homophone",
+         "spelt": "T",
+         "indicators": [
+          {
+           "text": "reportedly",
+           "at": 56,
+           "note": "reportedly means the word is only heard, not spelt"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tea",
+           "at": 51,
+           "gives": "TEA",
+           "note": "the word tea said aloud sounds like the letter T"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor with a hangover sticks with instant tea.",
-     "walkthrough": "'hung over' suggests a sore head after drink; in a crossword it turns a piece upside down. 'instant tea' splits into two separate pieces.",
-     "definitionFit": "To stick to something is to persist with it, staying loyal to a plan or person."
+     "surface": "A hungover sailor sticks with a cup of instant tea.",
+     "walkthrough": "OS reversed gives SO, which holds TICK and T (tea as heard), making S-TICKT-O.",
+     "definitionFit": "To stick to something is to stay with it, persevering or keeping faith."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "hung"
     }
    }

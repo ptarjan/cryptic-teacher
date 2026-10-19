@@ -141,44 +141,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "breaks",
-       "note": "something broken is smashed into pieces that can be put back in a new order"
+       "text": "taking on",
+       "at": 19,
+       "note": "taking on means adding the next piece at the end"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "taking on",
-         "note": "taking something on means adding it to the end"
+         "text": "breaks",
+         "at": 6,
+         "note": "breaks means the letters of a rib are broken up and reassembled"
         }
        ],
        "parts": [
         {
          "words": "a rib",
-         "note": "the letters of these two words rearranged"
-        },
-        {
-         "words": "you and me",
-         "gives": "US",
-         "note": "us is the pronoun for you and me together"
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "you and me",
+       "at": 29,
+       "gives": "US",
+       "note": "us means you and me"
       }
      ]
     },
     "explanation": {
-     "surface": "A pilot cracks a rib while adding two passengers.",
-     "definitionFit": "An Airbus is a passenger aircraft, and crosswords often call any aircraft a flier because it flies."
+     "surface": "A pilot cracks a rib while taking on two people.",
+     "definitionFit": "An Airbus is an aircraft, and so something that flies through the air."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Flier"
+     "misdirectedWord": "breaks"
     }
    }
   },
@@ -1236,38 +1239,31 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "AWNING",
      "indicators": [
       {
        "text": "Don't start",
-       "note": "not starting a word means leaving off its opening letter"
+       "at": 0,
+       "note": "don't start means the word must lose its first letter"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "WNING",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "yawning",
-         "gives": "WNING",
-         "select": "first",
-         "note": "taken as written"
-        }
-       ]
+       "words": "yawning",
+       "at": 12
+      },
+      {
+       "gives": "Y"
       }
      ]
     },
     "explanation": {
-     "surface": "An order not to yawn while sheltering.",
-     "definitionFit": "An awning is a canvas sheet stretched over a doorway or window to give cover from sun or rain."
+     "surface": "An instruction not to begin yawning while sheltering.",
+     "definitionFit": "An awning is a canvas sheet stretched over a window or doorway as a shelter from sun or rain."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "start"
     }
    }
   },

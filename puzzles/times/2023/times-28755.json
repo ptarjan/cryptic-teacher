@@ -1768,48 +1768,52 @@
      "indicators": [
       {
        "text": "around",
-       "note": "around means surrounding, so the act word goes outside the rest"
+       "at": 16,
+       "note": "around means the act goes outside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "act",
-         "gives": "DEED",
-         "note": "a deed is an act"
-        },
-        {
-         "words": "river",
-         "gives": "WYE",
-         "note": "the Wye is a river on the England-Wales border"
-        }
-       ]
+       "words": "act",
+       "at": 12,
+       "gives": "DEED",
+       "note": "a deed is an act"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "close to",
-         "note": "the close of a word is its end, so only its last letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "estuary",
-         "note": "the final letter of estuary"
+         "words": "river",
+         "at": 23,
+         "gives": "WYE",
+         "note": "the Wye is a river of Wales and England"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "close to",
+           "at": 29,
+           "note": "close to means the last letter of estuary"
+          }
+         ],
+         "parts": [
+          {
+           "words": "estuary",
+           "at": 38
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tearful scene near the mouth of a river.",
-     "definitionFit": "Dewy-eyed describes eyes moist with tears, so it means tenderly sentimental."
+     "surface": "Someone turns misty-eyed at a performance beside a river near its estuary.",
+     "definitionFit": "Dewy-eyed means tearful or naively emotional, so sentimental."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "act"
     }

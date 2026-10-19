@@ -476,49 +476,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "pudding",
-       "note": "a pudding is a mixture, so the word before it is mashed into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "The French",
+       "at": 0,
+       "gives": "LA",
+       "note": "la is a French word for the"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 23,
+         "note": "first picks out only the opening letter of innkeeper"
+        }
+       ],
        "parts": [
         {
-         "words": "The French",
-         "gives": "LA",
-         "note": "la is the French feminine definite article"
-        },
+         "words": "innkeeper's",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first",
-           "note": "first keeps only the opening letter of the word before it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "innkeeper's",
-           "note": "the opening letter of innkeeper"
-          }
-         ]
-        },
+         "text": "pudding",
+         "at": 35,
+         "note": "a bread pudding mashes bread up, so its letters are mixed into a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "bread",
-         "note": "the five letters reordered"
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French innkeeper shows off her first bread-and-butter pudding.",
-     "walkthrough": "'Bread pudding' reads as one dish; bread is the fodder and pudding mixes it.",
-     "definitionFit": "Something laid bare is exposed or uncovered, so openly shown."
+     "surface": "A French innkeeper's best bread pudding is set out for guests to see.",
+     "walkthrough": "'Bread pudding' reads as a dessert; 'pudding' is in fact the signal to rearrange BREAD into DBARE.",
+     "definitionFit": "Laid bare means exposed or revealed, which is exactly what is on display."
     },
     "features": {
      "answerInScene": false,
@@ -549,46 +552,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DOGBERRY",
      "indicators": [
       {
        "text": "in",
-       "note": "in sets one piece inside the other, here within the county"
+       "at": 37,
+       "note": "in places the jumbled letters inside the county name"
       }
      ],
      "parts": [
+      {
+       "words": "county",
+       "at": 40,
+       "gives": "DERRY",
+       "note": "Derry, or Londonderry, is a county of Northern Ireland"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "treacherous",
-         "note": "treacherous ground is unstable, so these letters shift about"
+         "at": 21,
+         "note": "treacherous ground is unstable and shifting, so the letters of bog move about"
         }
        ],
        "parts": [
         {
          "words": "bog",
-         "note": "the three letters rearranged"
-        },
-        {
-         "words": "county",
-         "gives": "DERRY",
-         "note": "Derry, or Londonderry, is a county of Northern Ireland"
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who mangles words stumbles into a dangerous Irish bog.",
-     "walkthrough": "Dogberry is the constable in Shakespeare's Much Ado About Nothing, famous for malapropisms.",
-     "definitionFit": "Shakespeare's comic constable constantly misuses words, giving the term dogberryism for such blunders."
+     "surface": "Someone bungling words finds a dangerous marsh somewhere in an Irish county.",
+     "walkthrough": "Dogberry is the bumbling constable in Shakespeare's Much Ado About Nothing, famous for mangling words; Derry is a county of Northern Ireland.",
+     "definitionFit": "Shakespeare's Dogberry constantly misuses long words, so he is the classic malapropist, a man who mangles vocabulary."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "botcher"
+     "misdirectedWord": "treacherous"
     }
    }
   },
