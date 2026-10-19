@@ -7500,6 +7500,12 @@ def _convention_exempt(stem, field):
             and field not in ("wordplay.unchecked", "wordplay.ddMissesWordplay"))
 
 
+def _warning_only(field):
+    """True when `field` ("wordplay.bareInitial") is a rule shape_queue.WARN_ONLY lists: it never fails a puzzle."""
+    import shape_queue
+    return field.startswith("wordplay.") and field.split(".", 1)[1] in shape_queue.WARN_ONLY
+
+
 def backlog_errors(stem, warnings, allowed=None):
     """The ratchet's ERRORs for one puzzle: it may be short exactly as many
     notes as the backlog file records for it, and a puzzle absent from the file
@@ -7507,7 +7513,7 @@ def backlog_errors(stem, warnings, allowed=None):
     allowed = load_backlog() if allowed is None else allowed
     errors = []
     for field, n in count_backlog(warnings).items():
-        if field not in allowed or _convention_exempt(stem, field):
+        if field not in allowed or _convention_exempt(stem, field) or _warning_only(field):
             continue
         cap = allowed[field].get(stem, 0)
         if n > cap:
