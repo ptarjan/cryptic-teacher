@@ -632,7 +632,7 @@ def do_puzzle(pid):
         stat["no_file"] += len(by_pid[pid])
         return out
     puzzle = json.loads(path.read_text(encoding="utf-8"))
-    fixes, rows = [], {}
+    fixes, rows, normalized = [], {}, {}
     for k, e in enumerate(puzzle.get("entries") or []):
         s = by_pid[pid].get(eid_of(e))
         ann = e.get("annotation")
@@ -640,6 +640,13 @@ def do_puzzle(pid):
             continue
         clue = (e.get("clue") or {}).get("text", "")
         answer = e.get("solution", "")
+        # Letters that check in a non-canonical shape are rewritten by code first (tree_normalize),
+        # never queued for the model; the rest go on to the repairs below.
+        norm, used_norm = W.normalize(ann["wordplay"], clue, answer) if isinstance(ann.get("wordplay"), dict) else (None, [])
+        if used_norm:
+            ann = {**ann, "wordplay": norm}
+            normalized[k] = ann
+            stat["normalized"] += 1
         old = hits(ann, clue, answer)
         rows[eid_of(e)] = (s, old)
         if not old:
@@ -696,9 +703,11 @@ def do_puzzle(pid):
             stat["clues_clean"] += 1
             if f:
                 fixed.append(s["id"])
-    if kept:
+    if kept or normalized:
         stat["puzzles_repaired"] += 1
         if apply:
+            for k, new_ann in normalized.items():
+                puzzle["entries"][k]["annotation"] = new_ann
             for k, new_ann, _ in kept:
                 puzzle["entries"][k]["annotation"] = new_ann
             part = path.parent / f".{path.name}.part"

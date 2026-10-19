@@ -291,7 +291,9 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           letters picked from x's words: first letter (or
                           each word's first), middle letter(s) or all but the
                           ends, first and last, alternate letters, every
-                          2nd/3rd, the nth
+                          2nd/3rd, the nth; one indicator over a list is one op
+                          with a part per word, each giving its pick:
+                          outer<fringes of>([Argive], [Greece], [Anatolian])
     cd([words])           cryptic definition: the words, no letters
     comp(x, y)            composite (subtractive) anagram: the letters of x are
                           the answer plus the letters of y, rearranged, so the

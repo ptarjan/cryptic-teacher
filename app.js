@@ -4466,7 +4466,7 @@
         case "substitution": what = `in ${P[0]}, swap ${P[1]} for ${P[2]}`; break;
         case "cycling": what = `move letters round from one end of ${P[0]} to the other`; break;
         case "palindrome": what = P.length ? `check that ${P[0]} reads the same both ways` : "check that the answer reads the same both ways"; break;
-        default: what = WP_PICK[n.op] ? `take ${WP_PICK[n.op]} ${P[0]}` : `apply ${esc(n.op)} to ${joined(n.parts, " + ")}`;
+        default: what = WP_PICK[n.op] ? `take ${WP_PICK[n.op]} ${P.length > 1 ? P.slice(0, -1).join(", ") + " and " + P[P.length - 1] : P[0]}` : `apply ${esc(n.op)} to ${joined(n.parts, " + ")}`;
       }
       const inds = n.indicators || [];
       const marks = inds.map((i) => `<mark class="ind">${escClue(i.text)}</mark>`).join(LIST_SEP);
