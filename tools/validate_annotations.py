@@ -3967,7 +3967,7 @@ def arity_other(tree):
     n = 0
     for node in _unchecked_ops(tree):
         op, k = node["op"], len(node.get("parts") or [])
-        if op == "substitution":  # a bare link word among the parts is not one of the three
+        if op == "substitution" and k > 3:  # a bare link word among 4+ parts is not one of the three
             k -= sum(1 for p in node.get("parts") or [] if isinstance(p, dict) and "op" not in p
                      and not p.get("gives") and wordplay.letters(p.get("words")) in _SUB_LINKS)
         n += ((op == "deletion" and k > 9) or (op == "substitution" and k != 3)
