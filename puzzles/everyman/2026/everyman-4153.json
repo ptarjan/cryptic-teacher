@@ -136,38 +136,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "having no",
-       "note": "A word having no something is short of exactly that, so what follows is struck out rather than joined on."
-      }
-     ],
      "parts": [
       {
        "words": "In favour of",
+       "at": 0,
        "gives": "PRO",
-       "note": "pro- is the prefix of support, as in pro-democracy"
+       "note": "pro means in favour of"
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "trace of",
-         "note": "A trace is the smallest amount you could detect, and the smallest detectable amount of a written word is the letter it opens with."
+         "text": "having no",
+         "at": 18,
+         "note": "having no tells us to take a letter out of the word for flat"
         }
        ],
        "parts": [
         {
          "words": "flat",
+         "at": 13,
          "gives": "PLANE",
-         "note": "a plane is a flat surface, the geometer's word for one"
+         "note": "a plane is a flat surface"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "trace of",
+           "at": 28,
+           "note": "a trace of a word is just a hint of it, its opening letter"
+          }
+         ],
          "parts": [
           {
            "words": "laughing",
-           "note": "the first letter of the word, and the one that goes"
+           "at": 37,
+           "note": "its first letter supplies what is removed"
           }
          ]
         }
@@ -176,8 +181,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "The surface offers you laughing gas, which is nitrous oxide and not the answer. 'Gas' is the definition standing on its own, and 'laughing' is there only to be reduced to a single letter.",
-     "definitionFit": "Propane is the bottled hydrocarbon burnt in camping stoves and patio heaters, so 'gas' defines it by naming its class."
+     "surface": "Someone who likes their apartment as long as it has no whiff of nitrous oxide.",
+     "walkthrough": "'Laughing gas' looks like one phrase, but 'gas' alone is the definition; 'trace of laughing' is just L, which 'having no' removes from PLANE.",
+     "definitionFit": "Propane is a flammable hydrocarbon fuel stored as bottled gas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "laughing"
     }
    }
   },
@@ -868,49 +879,52 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Primarily",
+       "at": 0,
+       "note": "primarily means first of all, so each word gives its opening letter"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "Primarily",
-         "note": "Something primarily true is true first of all, and the first of all a word's letters is the one it begins with."
-        }
-       ],
-       "parts": [
-        {
-         "words": "baleful",
-         "note": "first letter of a word meaning menacing or full of gloom"
-        }
-       ]
+       "words": "baleful",
+       "at": 10,
+       "note": "first letter used"
       },
       {
        "words": "like",
-       "gives": "L",
-       "note": "first letter, and the little comparison word is material like the rest"
+       "at": 19,
+       "note": "first letter used"
       },
       {
        "words": "Eeyore",
-       "gives": "E",
-       "note": "first letter of the permanently downcast donkey in Winnie-the-Pooh"
+       "at": 24,
+       "note": "first letter used"
       },
       {
        "words": "and",
-       "gives": "A",
-       "note": "first letter, taken from a conjunction that looks like pure grammar"
+       "at": 31,
+       "note": "first letter used"
       },
       {
        "words": "knelling",
-       "gives": "K",
-       "note": "first letter of the slow tolling a bell does at a funeral"
+       "at": 35,
+       "note": "first letter used"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "walkthrough": "Every word after the instruction hands over its opening letter, and the sentence they spell is itself a fair description of the answer. The clue defines itself, which is what the question mark is signalling.",
-     "definitionFit": "Read straight, the whole clue is a mood: chiefly gloomy, donkey-glum, bell-tolling, so definition and wordplay are the very same words."
+     "surface": "A description of gloom: something menacing, like the miserable donkey Eeyore, or the sound of a funeral bell.",
+     "walkthrough": "The initials of the five words after 'Primarily' spell the answer, and the whole clue also describes it: Eeyore is the gloomy donkey in Winnie-the-Pooh, and knelling is the tolling of a funeral bell.",
+     "definitionFit": "Something bleak is dreary and without hope, like a melancholy donkey or a tolling death bell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Primarily"
     }
    }
   },

@@ -397,54 +397,48 @@
      "indicators": [
       {
        "text": "Cracked",
-       "note": "something cracked is broken apart, so the letters are reassembled in a new order"
+       "at": 0,
+       "note": "cracked means broken apart, so the letters are reassembled in a new order"
       }
      ],
      "parts": [
+      {
+       "words": "battery",
+       "at": 8
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "losing",
-         "note": "what is lost is no longer there, so one letter is taken out"
+         "at": 19,
+         "note": "losing means a letter is dropped from is"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "battery",
-           "note": "taken as written"
-          },
-          {
-           "words": "is",
-           "gives": "I",
-           "note": "taken as written, then minus its last letter"
-          },
-          {
-           "words": "sulphur",
-           "gives": "S",
-           "note": "S is the chemical symbol for sulphur; it is the letter removed"
-          }
-         ]
+         "words": "is",
+         "at": 16
         },
         {
-         "gives": "S"
+         "words": "sulphur",
+         "at": 26,
+         "gives": "S",
+         "note": "S is the chemical symbol for sulphur"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A split battery leaks its sulphur, a compound found in metal alloys.",
-     "walkthrough": "The surface suggests a chemistry accident; the S that goes is the one in 'is'. YTTERBIA is ytterbium oxide.",
-     "definitionFit": "Ytterbium oxide is a rare-earth chemical compound added to certain alloys and ceramics, so it fits the description."
+     "surface": "A cracked battery leaks and loses a sulphur compound used in making alloys.",
+     "walkthrough": "'losing sulphur' leaves just I from 'is'; BATTERY plus I is rearranged.",
+     "definitionFit": "Ytterbia, ytterbium oxide, is a rare-earth compound used in special alloys and ceramics."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Cracked"
+     "misdirectedWord": "battery"
     }
    }
   },
@@ -1423,6 +1417,13 @@
     ],
     "wordplay": {
      "op": "substitution",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 9,
+       "note": "with signals that the old cents are brought in alongside the fourth letter of the currency word, in its place"
+      }
+     ],
      "parts": [
       {
        "words": "Currency",
@@ -1439,7 +1440,7 @@
         {
          "text": "including",
          "at": 24,
-         "note": "including means the old-cents pair wraps around that fourth letter"
+         "note": "including means the two abbreviations wrap round the letter named next"
         }
        ],
        "parts": [
@@ -1462,16 +1463,16 @@
          "words": "the fourth",
          "at": 34,
          "gives": "E",
-         "note": "the fourth letter of the currency word, which stays in place"
+         "note": "the fourth letter of the currency word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cash note about money mixed with old cents, where the fourth one has two kinds of bits.",
-     "walkthrough": "O and C go either side of E, the fourth letter of MONEY, so OEC replaces that E: MON + OEC + Y.",
-     "definitionFit": "Monoecy is the botanical state of a plant bearing separate male and female flowers on one individual, so it has both kinds of reproductive parts."
+     "surface": "A numismatist's note on money that includes old coins, oddly said to have two kinds of bits.",
+     "walkthrough": "The fourth letter of MONEY is E; O and C go either side of it, so MON-OEC-Y.",
+     "definitionFit": "Monoecy is the botanical state of bearing separate male and female flowers on one plant: two kinds of sexual parts."
     },
     "features": {
      "answerInScene": false,
