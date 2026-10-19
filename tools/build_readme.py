@@ -828,6 +828,7 @@ LAYOUT = [
     ("annotating", "tools/audit_crops.py", "dry-run audit of the archive filer's clue-column crops, per year"),
     ("annotating", "tools/crop_window.py", "clue-column windows chosen from the page's own ink, and the check that a"),
     ("annotating", "tools/test_crop_window.py", "crop_window finds the gutters between columns of print from the ink"),
+    ("annotating", "tools/det_solve.py", "a code-only (no model) cryptic solver prototype, built to answer \"can the corpus solve or validate clues?\""),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

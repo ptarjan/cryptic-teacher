@@ -3083,5 +3083,8 @@ tools/crop_window.py                           clue-column windows chosen from t
                                                ink, and the check that a
 tools/test_crop_window.py                      crop_window finds the gutters between columns of
                                                print from the ink
+tools/det_solve.py                             a code-only (no model) cryptic solver prototype,
+                                               built to answer "can the corpus solve or
+                                               validate clues?"
 ```
 <!-- LAYOUT-END -->
