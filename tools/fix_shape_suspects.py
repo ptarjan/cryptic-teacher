@@ -707,8 +707,10 @@ def r_leaf_fold(node, parent, ctx):
     when another word of the leaf spells it, else the indicator names the end it comes from
     (r_del_removed). A leaf that gives exactly one of its own words keeps just that word."""
     if not leaf(node) or node.get("unchecked") or not node.get("words") or not node.get("gives") \
-            or node.get("at") is None or id(node) in ctx["under_unchecked"]:
+            or node.get("at") is None:
         return None
+    if id(node) in ctx["under_unchecked"]:
+        return _fold_two_cuts(node, ctx)    # its letters are checked on their own, wherever it sits
     toks = node["words"].split()
     if len(toks) < 3 or len(node["gives"]) > 4 or not V._deletion_word_in(node["words"], node["gives"]):
         return None
@@ -738,7 +740,7 @@ def r_leaf_fold(node, parent, ctx):
                         outs.append(("cut", k, w[j:j + m]))
     cuts = {(kind, k, gone) for kind, k, gone in outs}
     if len({(k, kind) for kind, k, _ in cuts}) != 1:
-        return None
+        return _fold_two_cuts(node, ctx) if not outs else None
     kind, k, _ = next(iter(cuts))
     wleaf = {"words": pos[k][0], "at": pos[k][1]}
     if kind == "lit":
@@ -760,6 +762,51 @@ def r_leaf_fold(node, parent, ctx):
         return None
     probe = {"op": "deletion", "unchecked": True, "gives": g, "indicators": [ind], "parts": [wleaf]}
     return r_del_removed(probe, parent, ctx)
+
+
+def _fold_two_cuts(node, ctx):
+    """A leaf folding two cuts out of one word (Labour's lacking a British -> LOUR): a deletion
+    word, a source word, and two words that each spell (or abbreviate, by the table) a run of the
+    source; the deletion op over the source and both cuts, when its letters give the leaf's."""
+    toks = node["words"].split()
+    if len(toks) != 4 or not V._deletion_word_in(node["words"]):
+        return None
+    clue, g = ctx["clue"], W.letters(node["gives"])
+    pos, at = [], node["at"]
+    for t in toks:
+        i = clue.find(t, at)
+        if i < 0:
+            return None
+        pos.append((t, i))
+        at = i + len(t)
+    delw = [k for k, (t, _) in enumerate(pos) if V.DELETION_LEAF_WORD.fullmatch(re.sub(r"\W", "", t))]
+    if len(delw) != 1:
+        return None
+    d = delw[0]
+    found = []
+    for k, (t, i) in enumerate(pos):
+        stem = re.sub(r"['’]s$", "", t)
+        w = W.letters(stem)
+        if k == d or len(w) <= len(g):
+            continue
+        cutpos = [q for q in range(4) if q not in (d, k)]
+        for order in (cutpos, cutpos[::-1]):
+            opts = [[x for x in {w[a:b] for a in range(len(w)) for b in range(a + 1, len(w) + 1)}
+                     if W.letters(pos[q][0]) == x or annotation.is_abbreviation({"words": pos[q][0], "gives": x})]
+                    for q in order]
+            for x1 in opts[0]:
+                for x2 in opts[1]:
+                    if w.replace(x1, "", 1).replace(x2, "", 1) == g and len(x1) + len(x2) == len(w) - len(g):
+                        found.append((k, stem, order, x1, x2))
+    if len({(f[0], tuple(sorted(zip(f[2], f[3:])))) for f in found}) != 1:
+        return None
+    k, stem, order, x1, x2 = found[0]
+    ind_tok = pos[d]
+    # the deletion word and the cuts keep clue order; the indicator is the deletion word alone
+    cuts = [{"words": pos[q][0], "at": pos[q][1], "gives": x} for q, x in sorted(zip(order, (x1, x2)))]
+    src = {"words": stem, "at": pos[k][1]}
+    new = {"op": "deletion", "indicators": [{"text": ind_tok[0], "at": ind_tok[1]}], "parts": [src, *cuts]}
+    return new if gives_ok(new, g) else None
 
 
 def _role_owner(ind):
@@ -803,13 +850,102 @@ def r_role_swap(node, parent, ctx):
                 if not theirs:
                     parent.pop("indicators", None)
                 return node
+    return _swap_unknown(node, parent, ctx)
+
+
+def _gated(ctx, nodes, mutate):
+    """Run `mutate` (it edits the indicators of `nodes` in place); keep it only when the validator
+    then counts fewer wrong-role indicators in the whole tree, else put the indicators back."""
+    before = V.wrong_role_indicators(ctx["tree"])
+    saved = [(n, list(n["indicators"]) if "indicators" in n else None) for n in nodes]
+    mutate()
+    if V.wrong_role_indicators(ctx["tree"]) < before:
+        return True
+    for n, ind in saved:
+        if ind is None:
+            n.pop("indicators", None)
+        else:
+            n["indicators"] = ind
+    return False
+
+
+def _swap_unknown(node, parent, ctx):
+    """A child op holding its parent's word while the parent holds a word the corpus has no
+    owner for (ana<crossing> inside ins<frenziedly>): the two trade places when that clears the
+    flag. A parent word the corpus files under the child's type counts as a match too."""
+    kind, pkind = V._OP_LEXICON.get(node.get("op")), V._OP_LEXICON.get(parent.get("op"))
+    if not kind or not pkind or kind == pkind:
+        return None
+    mine, theirs = node.get("indicators") or [], parent.get("indicators") or []
+    for a in mine:
+        if _role_owner(a) != pkind:
+            continue
+        for b in theirs:
+            if _role_owner(b) not in (None, kind) or _role_owner(b) == pkind:
+                continue
+
+            def swap():
+                mine[mine.index(a)], theirs[theirs.index(b)] = b, a
+            if _gated(ctx, [node, parent], swap):
+                return node
     return None
+
+
+def r_role_move(node, parent, ctx):
+    """Indicators filed on ops of another type than the corpus files them under, redealt: each
+    word goes to the one checked op of its own type that has no indicator of its own (or only
+    misfiled ones), when every misfiled word finds exactly one such op and the whole tree then
+    counts fewer wrong-role indicators. Covers a word moved down from an enclosing charade
+    (charade<mistakenly>(BUSH, ana<ignoring>(del(..))) is charade(BUSH, ana<mistakenly>(
+    del<ignoring>(..)))), a word moved to a sibling, and a three-way rotation. Run once, at the root."""
+    if parent is not None:
+        return None
+    ops = [x for x, _ in walk(node) if (V._OP_LEXICON.get(x.get("op")) or x.get("op") == "charade")
+           and not x.get("unchecked") and id(x) not in ctx["under_unchecked"]]
+    misfiled = {}   # id(op) -> [(indicator, owner)]
+    for x in ops:
+        kind = V._OP_LEXICON.get(x.get("op"))
+        for b in x.get("indicators") or []:
+            owner = _role_owner(b)
+            if owner and owner != kind and not (kind and V._swap_alike(owner, kind)):
+                misfiled.setdefault(id(x), []).append((b, owner))
+    if not misfiled:
+        return None
+    needy = collections.defaultdict(list)
+    for x in ops:
+        kind = V._OP_LEXICON.get(x.get("op"))
+        if kind and len(x.get("indicators") or []) == len(misfiled.get(id(x), [])):
+            needy[kind].append(x)
+    moves = collections.defaultdict(list)   # owner -> [(holder, indicator)]
+    for x in ops:
+        for b, owner in misfiled.get(id(x), []):
+            moves[owner].append((x, b))
+    plan = []
+    for owner, ms in moves.items():
+        if len(ms) != 1 or len(needy[owner]) != 1:
+            return None
+        plan.append((ms[0][0], ms[0][1], needy[owner][0]))
+    touched = {id(x): x for h, _, t in plan for x in (h, t)}
+    inds = {id(x): [i for i in x.get("indicators") or [] if all(i is not b for h, b, _ in plan if h is x)]
+            for x in touched.values()}
+
+    def deal():
+        for h, b, t in plan:
+            inds[id(t)].append(b)
+        for k, x in touched.items():
+            if inds[k]:
+                x["indicators"] = inds[k]
+            else:
+                x.pop("indicators", None)
+    return node if _gated(ctx, list(touched.values()), deal) else None
 
 
 def r_wrong_role(node, parent, ctx):
     """wrongRole: a leaf that folds a deletion into its words (r_leaf_fold), else indicators on
     the wrong one of two nested ops (r_role_swap)."""
-    return r_leaf_fold(node, parent, ctx) or r_role_swap(node, parent, ctx)
+    return r_leaf_fold(node, parent, ctx) or r_role_swap(node, parent, ctx) or r_role_move(node, parent, ctx)
+
+
 SEL_FIRST = ("beginning", "start", "first", "initial", "opening", "head", "front")
 SEL_LAST = ("end", "last", "tail", "finish", "close")
 _SEL_PHRASE = re.compile(r"\b(" + "|".join(SEL_FIRST + SEL_LAST) + r")(\s+(?:of|in|at))?\s+([A-Za-z]+)(?:'s)?(?=\W|$)", re.I)
