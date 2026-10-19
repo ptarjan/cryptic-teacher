@@ -1232,6 +1232,13 @@ def _top_role(ind, kind):
     return sum(counts.values()) >= V.ROLE_MIN_USES and max(counts, key=counts.get) == kind
 
 
+def _anagram_only(ind):
+    """Whether the corpus files the indicator's words as an anagram word and (almost) never as a
+    container one: wandering yes (153 to 1), split no (15 to 13)."""
+    counts = V._role_counts(V.indicator_role_key(ind.get("text")))
+    return _top_role(ind, "anagram") and counts.get("anagram", 0) >= 8 * (counts.get("container", 0) + counts.get("insertion", 0))
+
+
 def _words_between(clue, a, b):
     """True when only spaces and punctuation lie in clue[a:b]."""
     return not re.search(r"[A-Za-z0-9]", clue[a:b])
@@ -1282,8 +1289,8 @@ def r_pool_gap(node, parent, ctx):
     inds = [*(a.get("indicators") or []), *(node.get("indicators") or [])]
     if len(inds) < 2 or any(not isinstance(i.get("at"), int) or not i.get("text") for i in inds):
         return None
-    if any(not _top_role(i, "anagram") for i in node.get("indicators") or []):
-        return None     # "between", "in", "around": container words, not anagram ones
+    if any(not _anagram_only(i) for i in node.get("indicators") or []):
+        return None     # "between", "in", "around", "split": container words too (split frightfully is a real insertion)
     inds.sort(key=lambda i: i["at"])
     for x, y in zip(inds, inds[1:]):
         if not _words_between(clue, x["at"] + len(x["text"]), y["at"]):
