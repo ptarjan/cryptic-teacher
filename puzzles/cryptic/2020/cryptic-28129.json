@@ -185,51 +185,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BACCARAT",
-     "indicators": [
-      {
-       "text": "cut short",
-       "note": "something cut short loses its end, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "56",
+       "at": 0,
+       "gives": "BA",
+       "note": "per the preamble, numbers are atomic numbers: element 56 is barium, chemical symbol Ba"
+      },
+      {
+       "words": "cricket club",
+       "at": 11,
+       "gives": "CC"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 28,
+         "note": "a word cut short loses its final letter, so the last letter of 'are' is dropped here"
+        }
+       ],
        "parts": [
         {
-         "words": "56",
-         "gives": "BA",
-         "note": "element 56 is barium, symbol Ba"
-        },
-        {
-         "words": "cricket club",
-         "gives": "CC",
-         "note": "CC is the standard abbreviation for cricket club"
-        },
-        {
          "words": "are",
-         "gives": "AR",
-         "note": "the word with its final letter removed"
+         "at": 24
         },
         {
-         "words": "at",
-         "note": "taken as written"
+         "gives": "E",
+         "note": "the final letter of 'are', removed"
         }
        ]
+      },
+      {
+       "words": "at",
+       "at": 38,
+       "gives": "AT"
       }
      ]
     },
     "explanation": {
-     "surface": "A newcomer joins a cricket club and players are reduced to a game.",
-     "walkthrough": "'At game' reads like a scene, but 'at' is a plain piece of letters and 'game' alone is the definition.",
-     "definitionFit": "Baccarat is a casino card game played between a banker and players, so it is an example of a game."
+     "surface": "A player with 56 runs joins a cricket club and finds his innings cut short.",
+     "walkthrough": "The preamble's numbers are atomic numbers turned into element symbols: 56 is barium, BA. 'cut short' trims ARE to AR.",
+     "definitionFit": "Baccarat is a card game played in casinos, so it is an example of a game."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "at"
+     "misdirectedWord": "56"
     }
    }
   },
@@ -1143,58 +1147,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXTENDS",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "something without an end has lost its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Former lover",
+       "at": 0,
+       "gives": "EX",
+       "note": "an ex is a former partner"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 41,
+         "note": "about means going around, so the shortened ordeal word surrounds the element symbol"
+        }
+       ],
        "parts": [
         {
-         "words": "Former lover",
-         "gives": "EX",
-         "note": "an ex is a former partner"
-        },
-        {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "about",
-           "note": "to be about something is to go around it"
+           "text": "endless",
+           "at": 20,
+           "note": "endless means the last letter of the word for ordeal is dropped"
           }
          ],
          "parts": [
           {
            "words": "ordeal",
-           "gives": "TES",
-           "note": "a test is an ordeal; its last letter goes"
+           "at": 28,
+           "gives": "TEST",
+           "note": "a test is a trying ordeal"
           },
           {
-           "words": "60",
-           "gives": "ND",
-           "note": "element 60 is neodymium, symbol Nd"
+           "gives": "T",
+           "note": "the final letter of TEST, removed"
           }
          ]
+        },
+        {
+         "words": "60",
+         "at": 47,
+         "gives": "ND",
+         "note": "per the preamble, numbers are atomic numbers: element 60 is neodymium, chemical symbol Nd"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A former partner, facing an endless ordeal around sixty, drags things out.",
-     "walkthrough": "The trial loses its tail and then wraps around the element symbol.",
-     "definitionFit": "To extend something is to lengthen or spread it, so extends matches stretches out as a verb."
+     "surface": "Someone's ex faces a never-ending ordeal that drags on and on.",
+     "walkthrough": "Per the preamble, 60 is an atomic number: neodymium. 'when' is only a link, and 'about' wraps the trimmed ordeal word around that symbol.",
+     "definitionFit": "To extend something is to lengthen or stretch it out, a direct synonym in the third person."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "ordeal"
+     "misdirectedWord": "60"
     }
    }
   },
