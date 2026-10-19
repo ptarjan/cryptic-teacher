@@ -2470,12 +2470,12 @@ def indicators_page(found):
     for t in types:
         ranked = ranked_indicators(t)
         top, rest = ranked[:15], ranked[15:]
-        body += [f'<h2 id="{t}">{type_label(t).capitalize()} indicators</h2>',
+        body += [f'<h2 id="{t}">{type_label(t).capitalize()}</h2>',
                  f"<p>{INDICATOR_TYPES[t]}</p>",
                  "<p><strong>Most used:</strong> "
                  + build_abbreviations.LIST_SEP.join(item(t, k, n) for k, n in top) + "</p>"]
         if rest:
-            body += [f"<details><summary>All {len(ranked):,} {type_label(t)} indicators</summary>",
+            body += [f"<details><summary>All {len(ranked):,}</summary>",
                      "<p>" + build_abbreviations.LIST_SEP.join(item(t, k, n) for k, n in rest) + "</p>",
                      "</details>"]
     body += [f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">New to cryptics? '
