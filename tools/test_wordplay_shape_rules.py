@@ -421,6 +421,43 @@ for field in ("deletionScopeAnswer", "doubleIndicator", "poolGap"):
     check(f"wordplay.{field} is a ratchet field", True, f"wordplay.{field}" in v.BACKLOG_MARKERS)
 check("the redo gate names them", {"deletionScopeAnswer", "doubleIndicator", "poolGap"} <= set(shape_queue._validator_rules()), True)
 
+# round 11 false positives
+for w, g in (("kosher", "K"), ("Little", "L"), ("quality", "Q")):
+    check(f"{w} giving {g} is a known abbreviation, not a bare initial", 0, v.bare_initials(
+        {"op": "charade", "parts": [{"words": w, "gives": g}]}))
+check("perhaps on a charade of plain leaves marks an example, not misplaced", 0, v.misplaced_indicators(
+    {"op": "charade", "indicators": [{"text": "perhaps"}], "parts": [
+        {"words": "commercial vehicle", "gives": "VAN"}, {"words": "Person keeping eye on", "gives": "GUARD"}]}))
+check("in the end on a charade is an ordering word, not misplaced", 0, v.misplaced_indicators(
+    {"op": "charade", "indicators": [{"text": "in the end"}], "parts": [
+        {"words": "without", "gives": "SINE"}, {"words": "Weak", "gives": "W"}]}))
+check("last over 'final of competition' needs no separate indicator", 0, v.unindicated_uncovered(
+    {"op": "container", "indicators": [{"text": "hosting"}], "parts": [
+        {"words": "Place", "gives": "AREA"}, {"op": "last", "parts": [{"words": "final of competition"}]}]}))
+check("first over 'mountaintop' needs no separate indicator", 0, v.unindicated_uncovered(
+    {"op": "charade", "parts": [{"words": "Distant", "gives": "FAR"},
+                                {"op": "first", "parts": [{"words": "mountaintop"}]}]}))
+check("last over a plain leaf still needs one", 1, v.unindicated_uncovered(
+    {"op": "charade", "parts": [{"words": "Distant", "gives": "FAR"},
+                                {"op": "last", "parts": [{"words": "competition"}]}]}))
+check("first over 'skinhead' is still flagged", 1, v.unindicated_uncovered(
+    {"op": "charade", "parts": [{"op": "first", "parts": [{"words": "Skinhead"}]}, {"words": "running off", "gives": "PRINTING"}]}))
+check("'what's left of it' is the remainder, not a deletion folded in a leaf", 0, v.folded_deletion_leaves(
+    {"op": "charade", "parts": [{"words": "what's left of it", "gives": "ASH"}]}))
+check("'dropping dead' is still a folded deletion", 1, v.folded_deletion_leaves(
+    {"op": "charade", "parts": [{"words": "stylish man dropping dead", "gives": "UDE"}]}))
+
+check("'What's left after necessary deductions' is no folded deletion", 0, v.folded_deletion_leaves(
+    {"op": "charade", "parts": [{"words": "What's left after necessary deductions", "gives": "NET"}]}))
+check("'party left wing' is no folded deletion", 0, v.folded_deletion_leaves(
+    {"op": "charade", "parts": [{"words": "party left wing", "gives": "COR"}]}))
+check("'drop of water' is no folded deletion", 0, v.folded_deletion_leaves(
+    {"op": "charade", "parts": [{"words": "drop of water", "gives": "RAIN"}]}))
+check("'shed light on' is no folded deletion", 0, v.folded_deletion_leaves(
+    {"op": "charade", "parts": [{"words": "shed light on", "gives": "LIT"}]}))
+check("'one lacking sense' is no folded deletion", 0, v.folded_deletion_leaves(
+    {"op": "charade", "parts": [{"words": "one lacking sense", "gives": "NIT"}]}))
+
 for field in ("unindicatedBare", "sharedIndicator", "halfLeaf", "deletionScattered", "reversePhrase",
               "bareInitial", "deletionScope", "wrongRole", "deletionInside", "nestedContainer","anagramSynonym", "misplacedIndicator", "scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
               "leafFold", "repeatedSelection", "singleLeaf", "bareInCharade", "anagramOfContainer"):
