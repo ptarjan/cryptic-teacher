@@ -2026,7 +2026,30 @@ def _letters_back(node, parent, ctx, inner, lf):
     return next(iter(found.values()))[0] if len(found) == 1 else None
 
 
-RULE_REPAIRS = {"unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
+def r_literal_fodder(node, parent, ctx):
+    """unchecked_step: an anagram filed with its fodder's results (ana([Verdun + CU]) with `gives`
+    on its leaves, the letters already in answer order) so the evaluator calls it "already the
+    answer" and the step stays unchecked. The fodder is the clue words themselves: the leaves under
+    an anagram lose their filed `gives`, every flag goes, and the evaluator scrambles the real
+    words. Kept only when the whole tree then gives the answer."""
+    if parent is not None or not ctx.get("answer") or not unchecked(node):
+        return None
+    if not any(n.get("op") == "anagram" and n.get("unchecked") for n, _ in walk(node)):
+        return None
+    new = copy.deepcopy(node)
+    for n, _ in walk(new):
+        for key in ("unchecked", "select", "soundsLike"):   # fields the schema allows on unchecked leaves only
+            n.pop(key, None)
+        if "op" in n:
+            n.pop("gives", None)
+        if n.get("op") == "anagram":
+            for q, _ in walk(n):
+                if leaf(q) and q.get("words"):
+                    q.pop("gives", None)
+    return new if _eval_swapped(node, None, new, ctx) else None
+
+
+RULE_REPAIRS = {"unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
                 "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": lambda n, p, c: r_pool_gap(n, p, c) or r_pool_eject(n, p, c),
