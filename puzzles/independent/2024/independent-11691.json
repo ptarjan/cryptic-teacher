@@ -281,41 +281,43 @@
      "indicators": [
       {
        "text": "about",
-       "note": "'about' puts one word around the outside of the others, enclosing them"
+       "at": 7,
+       "note": "about means surrounding, so the informer word goes round the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Grass",
-         "gives": "SING",
-         "note": "to grass, or sing, is to inform to the police"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
-        }
-       ]
+       "words": "Grass",
+       "at": 0,
+       "gives": "SING",
+       "note": "to grass is British slang for informing on someone, as is to sing"
       },
       {
-       "words": "kilo",
-       "gives": "K",
-       "note": "K is the abbreviation for kilo"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 13,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "kilo",
+         "at": 17,
+         "gives": "K"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A TV cook needs his weekly kilo of weed.",
-     "walkthrough": "'Grass' reads as the drug, but it is the verb meaning to inform, as do sing and squeal.",
-     "definitionFit": "Si King was one half of the Hairy Bikers, the bearded cookery-show duo on British television."
+     "surface": "Someone informs on a biker carrying about a kilo of drugs.",
+     "walkthrough": "The Hairy Bikers were a British TV cookery duo who travelled by motorbike; Si King was one of them.",
+     "definitionFit": "Si King is one of the two presenters known as the Hairy Bikers on British television."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Grass"
     }
    }
@@ -1682,48 +1684,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KALAHARI",
+     "op": "container",
      "indicators": [
       {
-       "text": "boundless",
-       "note": "without bounds means the outer edges of the word are taken away"
+       "text": "devours",
+       "at": 41,
+       "note": "devours means swallows, so the goddess's name takes the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "devouring goddess",
+       "at": 23,
+       "gives": "KALI",
+       "note": "Kali is the Hindu goddess of destruction, often shown as a devourer"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "devours",
-         "note": "to devour is to swallow whole, so one word ends up inside another"
+         "text": "boundless",
+         "at": 8,
+         "note": "boundless means without its boundaries, so the outer letters of the word are dropped"
         }
        ],
        "parts": [
         {
-         "words": "devouring goddess",
-         "gives": "KALI",
-         "note": "Kali is the Hindu goddess of destruction, often shown devouring"
-        },
-        {
          "words": "one",
-         "gives": "AHAR",
-         "note": "'one' stands for another desert, the Sahara, here losing its first and last letters"
+         "at": 18,
+         "gives": "SAHARA",
+         "note": "one stands for another desert, here the Sahara"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A desert goddess consumes everything in an endless wasteland.",
-     "walkthrough": "'One' refers back to 'Desert': another desert, the Sahara, trimmed at both ends, goes inside the goddess Kali.",
-     "definitionFit": "The Kalahari is a large semi-arid sandy region in southern Africa, covering much of Botswana."
+     "surface": "A vast wilderness where a hungry goddess consumes everything.",
+     "walkthrough": "'one' refers back to the definition: another desert, the Sahara, stripped of its edges.",
+     "definitionFit": "The Kalahari is a large semi-arid sandy region in southern Africa, mainly in Botswana."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "devouring"
+     "misdirectedWord": "one"
     }
    }
   }

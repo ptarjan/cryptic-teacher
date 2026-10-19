@@ -988,7 +988,7 @@
       {
        "text": "after",
        "at": 21,
-       "note": "the vicar's assistant's letters come after the church piece"
+       "note": "after places the curate's letters following the part from nave"
       }
      ],
      "parts": [
@@ -998,22 +998,31 @@
         {
          "text": "back",
          "at": 27,
-         "note": "back means the piece is read in reverse"
+         "note": "back means the remaining letters are read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "half of nave",
-         "at": 32,
-         "gives": "VE",
-         "note": "the second half of the word nave"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half of",
+           "at": 32,
+           "note": "half of keeps only one half of the word, dropping the other two letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nave",
+           "at": 40,
+           "note": "nave is the main body of a church"
+          },
+          {
+           "gives": "NA"
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "A",
-       "at": 0,
-       "note": "taken as written"
       },
       {
        "op": "deletion",
@@ -1021,14 +1030,22 @@
         {
          "text": "loses heart",
          "at": 9,
-         "note": "a central letter of the clergyman drops out"
+         "note": "losing its heart means the middle letter of the phrase is dropped"
         }
        ],
        "parts": [
         {
-         "words": "curate",
-         "at": 2,
-         "note": "taken as written, before the letter is removed"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "A",
+           "at": 0
+          },
+          {
+           "words": "curate",
+           "at": 2
+          }
+         ]
         },
         {
          "gives": "R"
@@ -1038,14 +1055,14 @@
      ]
     },
     "explanation": {
-     "surface": "A curate faints at the back of the nave of an empty church.",
-     "walkthrough": "Back does double work in the surface; here it reverses the last two letters of nave.",
-     "definitionFit": "To evacuate a place is to empty it of people."
+     "surface": "A clergyman is dismayed to find the back of the church nave deserted.",
+     "walkthrough": "'half of nave' leaves VE, which 'back' turns to EV; A CURATE without its central R gives ACUATE.",
+     "definitionFit": "To evacuate a building is to clear it out, removing everyone, so the verb means to empty it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "back"
+     "misdirectedWord": "heart"
     }
    }
   },
@@ -1374,8 +1391,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "intercity?",
-      "at": 12
+      "text": "Easy run by intercity?",
+      "at": 0
      }
     ],
     "wordplay": {
@@ -1385,33 +1402,40 @@
        "words": "Easy run",
        "at": 0,
        "gives": "CANTER",
-       "note": "a canter is a gentle gallop"
+       "note": "a canter is a horse's easy gait, slower than a gallop"
       },
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "inter",
+         "at": 12,
+         "note": "inter means to bury, so the city's letters go inside the word by"
+        }
+       ],
        "parts": [
         {
          "words": "by",
-         "at": 9,
-         "note": "taken as written, the city goes inside it"
+         "at": 9
         },
         {
          "words": "city",
          "at": 17,
          "gives": "UR",
-         "note": "Ur was the ancient Sumerian city, crossword's favourite"
+         "note": "Ur is the ancient city in Mesopotamia"
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A gentle jog alongside an intercity train.",
-     "walkthrough": "Inter- splits off as an insertion signal: the city goes into by. The question mark marks the whole as a hint to a city.",
-     "definitionFit": "Canterbury is a cathedral city in Kent, south-east England, served by intercity trains."
+     "surface": "A trip on an intercity train is a leisurely ride.",
+     "walkthrough": "'intercity' must be split in two: inter, meaning bury, and city. The question mark marks the whole clue as a picture of a city on the route.",
+     "definitionFit": "Canterbury is a cathedral city in Kent, the sort of place an intercity train might run to."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "intercity"

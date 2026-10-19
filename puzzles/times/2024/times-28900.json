@@ -120,7 +120,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "not secure",
+      "text": "not secure?",
       "at": 29
      }
     ],
@@ -129,50 +129,48 @@
      "indicators": [
       {
        "text": "concealed",
-       "note": "what is concealed is kept hidden inside something else"
+       "at": 17,
+       "note": "concealed means hidden inside, so the spy word holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "spy's",
+       "at": 11,
+       "gives": "MOLE",
+       "note": "a mole is a spy planted inside an organisation, and the apostrophe s reads as has"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "spy",
-           "gives": "MOLE",
-           "note": "a mole is a spy planted inside an organisation"
-          },
-          {
-           "words": "See",
-           "gives": "V",
-           "note": "V stands for vide, Latin for 'see', used in references"
-          }
-         ]
+         "words": "See",
+         "at": 0,
+         "gives": "V",
+         "note": "V stands for vide, Latin for see"
         },
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 4
+        },
+        {
+         "words": "book",
+         "at": 6,
+         "gives": "B"
         }
        ]
-      },
-      {
-       "words": "book",
-       "gives": "B",
-       "note": "B is the abbreviation for book"
       }
      ]
     },
     "explanation": {
-     "surface": "A spy's hiding place for a book has been found, so it is no longer safe.",
-     "walkthrough": "The spy's 's means 'is': V, A and B are concealed inside MOLE. V for vide ('see') is a reference-book convention.",
-     "definitionFit": "Something movable is not fixed firmly in place, which is one sense of being insecure or unfastened."
+     "surface": "A secret agent has hidden a volume somewhere unsafe.",
+     "walkthrough": "'spy's concealed' reads as MOLE has concealed V, A and B.",
+     "definitionFit": "Something movable is not fixed in place, so in the sense of fastened it is not secure."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "See"
+     "aptDefinition": true,
+     "misdirectedWord": "secure"
     }
    }
   },

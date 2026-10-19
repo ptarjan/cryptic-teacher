@@ -46,42 +46,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BIGOTED",
+     "op": "container",
      "indicators": [
       {
-       "text": "on vacation",
-       "note": "a place on vacation is emptied, so the word keeps only its outer letters with the inside gone"
+       "text": "to limit",
+       "at": 15,
+       "note": "to limit means to enclose, so the attempt word goes round the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "to limit",
-         "note": "to limit something is to hem it in on both sides, so one piece encloses the others"
-        }
-       ],
+       "words": "attempt",
+       "at": 7,
+       "gives": "BID",
+       "note": "a bid is an attempt"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "attempt",
-         "gives": "BID",
-         "note": "a bid is an attempt, as in a bid for power"
+         "words": "travel",
+         "at": 24,
+         "gives": "GO",
+         "note": "to go is to travel"
         },
         {
-         "op": "charade",
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "on vacation",
+           "at": 36,
+           "note": "on vacation means emptied out, so only the outer letters of the word stay"
+          }
+         ],
          "parts": [
           {
-           "words": "travel",
-           "gives": "GO",
-           "note": "to go is to travel"
-          },
-          {
            "words": "time",
-           "gives": "TE",
-           "note": "the word with its middle letters cleared out"
+           "at": 31,
+           "note": "first and last letters of time"
           }
          ]
         }
@@ -90,9 +92,9 @@
      ]
     },
     "explanation": {
-     "surface": "Someone complains that a scheme to restrict how long holidaymakers may spend travelling is unjust.",
-     "walkthrough": "'On vacation' reads as being on holiday, but it is the empty-word device: a word on vacation keeps only its first and last letters.",
-     "definitionFit": "A bigoted person judges others with prejudice rather than fairly, so the adjective works as a looser synonym for unjust."
+     "surface": "An unjust bid to restrict how long one may spend on holiday.",
+     "walkthrough": "'on vacation' looks like holiday talk; it signals a word vacated of its middle.",
+     "definitionFit": "Bigoted means prejudiced and intolerant, so unfair towards other people."
     },
     "features": {
      "answerInScene": false,
@@ -176,47 +178,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "variety of",
-       "note": "a variety is a different version, so these letters appear in a different form"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Fish",
+       "at": 0,
+       "gives": "GAR",
+       "note": "the gar is a long-snouted fish"
+      },
+      {
+       "words": "good",
+       "at": 6,
+       "gives": "G"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "variety of",
+         "at": 11,
+         "note": "a variety of something is a different form of it, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Fish",
-         "gives": "GAR",
-         "note": "the gar is a long-snouted fish"
-        },
-        {
-         "words": "good",
-         "gives": "G",
-         "note": "G is the standard abbreviation for good"
-        },
-        {
          "words": "tuna",
-         "note": "the four letters rearranged"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
+         "at": 22
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 37
       }
      ]
     },
     "explanation": {
-     "surface": "Fish, especially a good sort of tuna, is served to someone with an enormous appetite.",
-     "walkthrough": "The surface reads as a menu; each word is in fact a piece, and the answer is the name of a famously greedy giant.",
-     "definitionFit": "Gargantua is the giant in Rabelais whose vast appetite gave English the adjective gargantuan, so his name stands for any huge eater."
+     "surface": "Fine fish and assorted tuna, served to a greedy eater.",
+     "walkthrough": "Gargantua is a literary giant, so the definition is a name used as a common noun.",
+     "definitionFit": "Gargantua is the giant of huge appetite in Rabelais's comic novels, so a glutton on a vast scale."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Fish"
     }
    }

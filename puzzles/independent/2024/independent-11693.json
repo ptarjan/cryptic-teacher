@@ -90,32 +90,44 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "BOWSPRIT",
-     "indicators": [
-      {
-       "text": "when hands change",
-       "note": "the hands are left and right, so one letter standing for the left hand is swapped for the one standing for the right"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Knot",
+       "at": 0,
        "gives": "BOW",
-       "note": "a bow is a knot with loops, as in a shoelace"
+       "note": "a bow is a knot with loops, as in a ribbon"
       },
       {
-       "words": "cut",
-       "gives": "SPLIT",
-       "note": "to cut or split something apart"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "when hands change",
+         "at": 9,
+         "note": "the hands are left and right, so the left letter is swapped for the right one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cut",
+         "at": 5,
+         "gives": "SPLIT",
+         "note": "to split is to cut apart"
+        },
+        {
+         "gives": "L"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rope is severed while sailors swap places at a mast.",
-     "walkthrough": "In wordplay the hands are left and right, abbreviated L and R; the swap leaves a sprit, itself a small spar.",
-     "definitionFit": "A bowsprit is the pole projecting forward from a ship's bow, one of the vessel's spars."
+     "surface": "A sailor slices a rope knot as the crew swap duties on deck.",
+     "walkthrough": "'hands' looks like crew members, but means left and right, abbreviated by their initials.",
+     "definitionFit": "A bowsprit is the spar that projects forward from a sailing ship's bow."
     },
     "features": {
      "answerInScene": true,
@@ -1105,52 +1117,58 @@
    "annotation": {
     "definitions": [
      {
-      "text": "between America and Australia?",
-      "at": 11
+      "text": "Set adrift between America and Australia?",
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ATSEA",
      "indicators": [
       {
        "text": "between",
-       "note": "placing something between two things puts it inside them"
+       "at": 11,
+       "note": "between puts the jumbled letters in the gap separating the two country letters"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "America",
+         "at": 19,
+         "gives": "A"
+        },
+        {
+         "words": "Australia",
+         "at": 31,
+         "gives": "A"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "adrift",
-         "note": "something adrift floats out of place, so these letters drift into another order"
+         "at": 4,
+         "note": "adrift means loose and wandering, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "America",
-         "gives": "A",
-         "note": "A is the abbreviation for America"
-        },
-        {
          "words": "Set",
-         "note": "taken as written, then rearranged"
-        },
-        {
-         "words": "Australia",
-         "gives": "A",
-         "note": "A is the abbreviation for Australia"
+         "at": 0
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "Someone has been cast off in a boat somewhere between two continents.",
-     "walkthrough": "The definition reuses the abbreviations: a ship between America and Australia is crossing the Pacific.",
-     "definitionFit": "At sea means out on the ocean, as a voyage across the Pacific would be."
+     "surface": "Someone cast loose in a boat somewhere in the Pacific.",
+     "walkthrough": "The whole clue also describes a vessel in mid-ocean, hence the question mark.",
+     "definitionFit": "Being at sea means being out on the ocean, which is where a castaway between those continents would be."
     },
     "features": {
      "answerInScene": true,
@@ -1568,36 +1586,40 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one part surrounds the others"
+       "at": 5,
+       "note": "about means surrounding, so the song's letters go round the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Song",
-         "gives": "ARIA",
-         "note": "an aria is a song in an opera"
-        },
-        {
-         "words": "gold",
-         "gives": "AU",
-         "note": "Au is the chemical symbol for gold"
-        }
-       ]
+       "words": "Song",
+       "at": 0,
+       "gives": "ARIA",
+       "note": "an aria is a solo song in opera"
       },
       {
-       "words": "wagon",
-       "gives": "CAR",
-       "note": "a car or wagon, as on a railway"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gold",
+         "at": 11,
+         "gives": "AU",
+         "note": "Au is the chemical symbol for gold"
+        },
+        {
+         "words": "wagon",
+         "at": 16,
+         "gives": "CAR",
+         "note": "car can mean a wagon, as in a railway car"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A song about a golden wagon baffles a native of South America.",
-     "walkthrough": "Araucaria is the monkey puzzle tree, native to Chile; it was also the pseudonym of a famous Guardian crossword setter.",
-     "definitionFit": "The monkey puzzle tree, genus Araucaria, comes from Chile and Argentina, hence a puzzling South American native."
+     "surface": "An opera number about a golden cart baffles a native of South America.",
+     "walkthrough": "'puzzling' points to the monkey puzzle tree; Araucaria was also the pseudonym of a famous Guardian setter.",
+     "definitionFit": "Araucaria is the genus of the monkey puzzle tree, a conifer native to Chile and Argentina."
     },
     "features": {
      "answerInScene": false,

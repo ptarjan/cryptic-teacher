@@ -1399,48 +1399,44 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CRUMBS",
      "indicators": [
       {
        "text": "saving",
-       "note": "saving means keeping something safe within, so the outer piece holds the inner one"
+       "at": 16,
+       "note": "saving means keeping something inside, so the king's letters hold the rest"
       }
      ],
      "parts": [
       {
+       "words": "king's",
+       "at": 9,
+       "gives": "CRS",
+       "note": "CR is Carolus Rex, King Charles, and the apostrophe s adds S"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "CRUMBS",
        "indicators": [
         {
          "text": "lowering head",
-         "note": "in a down entry, lowering the top letter moves it to the bottom, so it cycles round"
+         "at": 29,
+         "note": "lowering the head sends the first letter of the word down to the end"
         }
        ],
        "parts": [
         {
-         "words": "king",
-         "gives": "CR",
-         "note": "CR is Carolus Rex, King Charles"
-        },
-        {
          "words": "seat",
+         "at": 23,
          "gives": "BUM",
-         "note": "bum is British slang for the backside one sits on"
-        },
-        {
-         "words": "'s",
-         "note": "the possessive ending supplies its letter"
+         "note": "bum is British slang for the bottom one sits on"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gracious monarch keeps his throne while bowing his head.",
-     "walkthrough": "'Gracious' reads as an adjective for the king, but it is the exclamation (as in 'Good gracious!'). Bum is British for bottom.",
-     "definitionFit": "Crumbs is a mild British exclamation of surprise, used the same way as gracious or goodness."
+     "surface": "A gracious monarch protects his throne by bowing his head.",
+     "walkthrough": "'seat' here is the bottom one sits on, in its British slang form, not a chair or throne.",
+     "definitionFit": "Crumbs and gracious are both mild exclamations of surprise, as in 'goodness gracious'."
     },
     "features": {
      "answerInScene": false,
@@ -1809,40 +1805,44 @@
      "indicators": [
       {
        "text": "consuming",
-       "note": "consuming means taking in, so one piece swallows the others"
+       "at": 17,
+       "note": "consuming means eating, so the meal takes the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "meal",
-         "gives": "SUPPER",
-         "note": "supper is an evening meal"
-        },
-        {
-         "words": "large",
-         "gives": "L",
-         "note": "L is the abbreviation for large"
-        }
-       ]
+       "words": "meal",
+       "at": 12,
+       "gives": "SUPPER",
+       "note": "supper is an evening meal"
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large",
+         "at": 27,
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
+        },
+        {
+         "words": "one",
+         "at": 33,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A caterer who eats a big portion of the food.",
-     "walkthrough": "'Provider of meal' looks like the definition, but only the first word is; 'of' joins it to the meal.",
-     "definitionFit": "A supplier is a firm or person who provides goods, so it is a direct synonym of provider."
+     "surface": "A caterer whose dinner swallows up a big portion.",
+     "definitionFit": "A supplier is one who furnishes goods, so the two words are synonyms."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "consuming"
     }
    }
   },
