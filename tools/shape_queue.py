@@ -262,7 +262,11 @@ def _walkthrough_gap(entry, ann):
 #: tree gives the answer now (the reason is only "model-fixable: bad tree"), or the
 #: walkthrough now follows it.
 _ENTRY_RULES = {"model-fixable": lambda e, a: _bad_tree(e, a),
-                "walkthrough": _walkthrough_gap}
+                "walkthrough": _walkthrough_gap,
+                # "the repaired tree gives the answer but the validator holds it back": stale once the
+                # tree gives the answer, no walkthrough step is unnamed and no detector fires (round 12:
+                # times-15476 7d ICARIAN was a correct tree still queued)
+                "walkthrough-gate": lambda e, a: _bad_tree(e, a) or _walkthrough_gap(e, a)}
 
 
 def settled(entry, reason):
@@ -279,6 +283,7 @@ def settled(entry, reason):
     # A hint may hold "; " itself (unindicatedBare's): a class starts only at "<word>:" after one.
     import re
     names = re.findall(r"(?:^|; )([A-Za-z][\w-]*)(?=:|;|$)", str(reason)) or [str(reason).split(":")[0].strip()]
+    names = [n for n in names if n != "re-narrate"]    # the tail of a walkthrough-gate hint
     rules = _validator_rules()
     import shape_suspects as ss
     if not names or any(n not in rules and n not in ss.PRECISION and n not in _ENTRY_RULES
