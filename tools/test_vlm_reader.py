@@ -469,6 +469,18 @@ vlm._SLOTS[0] = None
 urllib.request.urlopen = real
 vlm._MISSED[0] = False
 
+# Each edition's log line says what it asked: real calls by kind, cache hits, "vlm 0" for none.
+urllib.request.urlopen = fake
+vlm.spent()
+check("an edition that asked nothing says vlm 0", "vlm 0", vlm.vlm_note())
+box = Image.new("L", (400, 300), 7)
+vlm.read(box)
+vlm.read(box)
+vlm.pick_in(box, "3-across", ["a", "b"])
+check("asks count by kind, a repeat as cached", "vlm 1 reads, 1 picks, 1 cached", vlm.vlm_note())
+check("the count starts over after a line", "vlm 0", vlm.vlm_note())
+urllib.request.urlopen = real
+
 if fails:
     print("test_vlm_reader: failed")
     sys.exit(1)

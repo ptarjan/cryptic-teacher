@@ -65,6 +65,9 @@ UPSCALE = 2
 PAD = 10
 
 _UP = {}
+#: This process's asks since spent() last said: real server calls by kind
+#: ("read" a column, "pick" a clue, "other"), and cache hits.
+_SPENT = {"read": 0, "pick": 0, "other": 0, "cached": 0}
 #: When ask() last yielded to a game: reachable() stays False a while after,
 #: so a caller does not take a read that lost its VLM half-way for a full one.
 _YIELDED = [float("-inf")]
@@ -441,6 +444,29 @@ def _moved_to_other():
     return True
 
 
+def _kind(prompt):
+    """Which ask `prompt` is: read() or pick_in()'s."""
+    if prompt == PROMPT.read_text():
+        return "read"
+    return "pick" if prompt.startswith(PICK_PROMPT.read_text().split("{", 1)[0]) else "other"
+
+
+def spent():
+    """The asks counted since the last call, then reset: {"read", "pick",
+    "other": real server calls, "cached": answers the cache gave}."""
+    got = dict(_SPENT)
+    _SPENT.update(dict.fromkeys(_SPENT, 0))
+    return got
+
+
+def vlm_note():
+    """What an edition's log line says of its asks: "vlm 2 reads, 3 picks, 1 cached"
+    ("vlm 0" with none), spent()'s."""
+    n = spent()
+    parts = [f"{n[k]} {k}s" for k in ("read", "pick") if n[k]] + ([f"{n['cached']} cached"] if n["cached"] else [])
+    return "vlm " + (", ".join(parts) or "0")
+
+
 def ask(img, prompt, max_tokens=1500):
     """The model's reply to `prompt` about a PIL image, cached."""
     return ask_png(png(img), prompt, max_tokens)
@@ -451,6 +477,7 @@ def ask_png(data, prompt, max_tokens=1500):
     key = hashlib.sha1(MODEL.encode() + b"\0" + prompt.encode() + b"\0" + data).hexdigest()
     path = CACHE / f"{key}.txt"
     if path.exists():
+        _SPENT["cached"] += 1
         return path.read_text()
     why = busy()
     if why:
@@ -498,6 +525,7 @@ def ask_png(data, prompt, max_tokens=1500):
     tmp = path.with_suffix(".part")
     tmp.write_text(text)
     tmp.replace(path)
+    _SPENT[_kind(prompt)] += 1
     return text
 
 
