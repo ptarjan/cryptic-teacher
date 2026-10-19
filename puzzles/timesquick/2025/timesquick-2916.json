@@ -319,8 +319,8 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "not beginning in Hull",
-       "note": "'not' removes something, and the first letter of the city's name tells which letter goes"
+       "text": "not",
+       "note": "takes the picked letter out of the other part"
       }
      ],
      "parts": [
@@ -330,7 +330,18 @@
        "note": "the Humber is the estuary on which Hull, a city in northern England, stands"
       },
       {
-       "gives": "H"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning in",
+         "note": "the first letter of the word is the one picked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hull"
+        }
+       ]
       }
      ]
     },

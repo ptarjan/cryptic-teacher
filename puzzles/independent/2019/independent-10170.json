@@ -1149,8 +1149,8 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "not start of winter",
-         "note": "the opening letter of winter is to be dropped from the spring word"
+         "text": "not",
+         "note": "takes the picked letter out of the other part"
         }
        ],
        "parts": [
@@ -1160,7 +1160,18 @@
          "note": "a well or spring is a water source"
         },
         {
-         "gives": "W"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start of",
+           "note": "the first letter of the word is the one picked"
+          }
+         ],
+         "parts": [
+          {
+           "words": "winter"
+          }
+         ]
         }
        ]
       }
