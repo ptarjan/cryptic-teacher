@@ -1061,17 +1061,17 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "hiding",
-       "at": 24,
-       "note": "hiding means the first pieces conceal the next ones inside them"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "hiding",
+         "at": 24,
+         "note": "hiding means the first pieces conceal the next ones inside them"
+        }
+       ],
        "parts": [
         {
          "words": "reached",
@@ -1080,30 +1080,30 @@
          "note": "got as in got there means reached"
         },
         {
-         "words": "hospital",
-         "at": 14,
-         "gives": "H",
-         "note": "H is the map abbreviation for hospital"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 31,
+           "note": "back means the word for trouble is read in reverse"
+          }
+         ],
+         "parts": [
+          {
+           "words": "trouble",
+           "at": 36,
+           "gives": "AIL",
+           "note": "to ail is to trouble"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "back",
-         "at": 31,
-         "note": "back means the word for trouble is read in reverse"
-        }
-       ],
-       "parts": [
-        {
-         "words": "trouble",
-         "at": 36,
-         "gives": "AIL",
-         "note": "to ail is to trouble"
-        }
-       ]
+       "words": "hospital",
+       "at": 14,
+       "gives": "H",
+       "note": "H is the map abbreviation for hospital"
       }
      ]
     },
