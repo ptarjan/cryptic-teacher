@@ -1111,37 +1111,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EARWIGGED",
-     "indicators": [
-      {
-       "text": "unopened",
-       "note": "something unopened has not had its front broken into, so the first letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unopened",
+         "at": 42,
+         "note": "unopened means the first letter is taken away"
+        }
+       ],
        "parts": [
         {
          "words": "kit",
-         "gives": "EAR",
-         "note": "gear, meaning kit or equipment, without its first letter"
+         "at": 31,
+         "gives": "GEAR",
+         "note": "kit means gear, equipment"
         },
         {
-         "words": "apparently locked",
-         "gives": "WIGGED",
-         "note": "wearing a wig, one has locks of hair, if only apparently"
+         "gives": "G"
         }
        ]
+      },
+      {
+       "words": "apparently locked",
+       "at": 55,
+       "gives": "WIGGED",
+       "note": "wearing a wig means having locks of hair, so wigged is humorously locked"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone crept off with items from an unopened kit that seemed to be secured.",
-     "walkthrough": "'Locked' suggests a fastened box, but locks here are hair: someone in a wig only appears to have them. The question mark flags this.",
-     "definitionFit": "To earwig is British slang for eavesdropping, so it means covertly overhearing conversations that were not meant for you."
+     "surface": "Someone takes items from a sealed kit that seemed to be locked.",
+     "walkthrough": "'locked' looks like secured with a key; here it means having locks of hair, the wigged sense flagged by 'apparently' and the question mark.",
+     "definitionFit": "To earwig is to eavesdrop, so earwigged means overheard secretly what others were saying."
     },
     "features": {
      "answerInScene": false,

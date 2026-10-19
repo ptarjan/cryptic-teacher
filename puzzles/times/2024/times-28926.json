@@ -129,49 +129,53 @@
      "indicators": [
       {
        "text": "around",
-       "note": "a word placed around something wraps on both sides of it, enclosing it"
+       "at": 5,
+       "note": "around means the wave's letters surround the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Wave",
-         "gives": "ROLLER",
-         "note": "a roller is a long heavy sea wave"
-        },
-        {
-         "words": "old",
-         "gives": "O",
-         "note": "O is the abbreviation for old"
-        }
-       ]
+       "words": "Wave",
+       "at": 0,
+       "gives": "ROLLER",
+       "note": "a roller is a long breaking wave"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "ultimately",
-         "note": "ultimately means in the end, so only the final letter of the word is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Kalashnikov",
-         "note": "the final letter of the rifle's name"
+         "words": "old",
+         "at": 12,
+         "gives": "O"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 29,
+           "note": "ultimately means the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Kalashnikov",
+           "at": 16,
+           "note": "its last letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone brandishes an old rifle to force an enemy to give up.",
-     "walkthrough": "'Wave' looks like a verb, as in waving a gun about, but it is the noun for a breaker at sea.",
-     "definitionFit": "To roll over is an idiom for giving in without a fight, like a dog showing its belly in submission."
+     "surface": "Someone brandishing an old rifle forces another to give in.",
+     "walkthrough": "'Wave' looks like a verb, brandishing the gun; it is a noun, a roller.",
+     "definitionFit": "To roll over is to give in without a fight, like a dog lying on its back."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Wave"
     }
@@ -302,67 +306,68 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIQUEUR",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "said briefly, a word is cut short and loses its final letter"
+       "text": "In",
+       "at": 0,
+       "note": "in means the following letters are placed inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
-         "text": "In",
-         "note": "being in something means sitting inside it, so the later pieces go within the selected letters"
+         "text": "the middle of",
+         "at": 3,
+         "note": "the middle of means the central two letters"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "middle",
-           "unchecked": true,
-           "gives": "LR",
-           "indicators": [
-            {
-             "text": "the middle of",
-             "note": "the middle points to the central letters of the word, discarding the rest"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "ballroom",
-             "gives": "LR",
-             "select": "middle",
-             "note": "the fourth and fifth of its eight letters"
-            }
-           ]
-          },
-          {
-           "words": "I",
-           "note": "taken as written"
-          }
-         ]
+         "words": "ballroom",
+         "at": 17,
+         "note": "the central two letters of this eight-letter word"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 27
         },
         {
-         "words": "wait in line",
-         "gives": "QUEU",
-         "note": "to queue is to wait in line; shortened by one letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 43,
+           "note": "briefly means the last letter is cut off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "wait in line",
+           "at": 29,
+           "gives": "QUEUE",
+           "note": "to queue is to wait in line"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "At a dance, someone stands in a queue at the bar for a drink.",
-     "walkthrough": "A word with an even number of letters has two middle letters, here an L and an R, which wrap round I and the clipped QUEUE.",
-     "definitionFit": "A liqueur is a sweet flavoured spirit, one specific kind of alcoholic beverage, so the definition is a broad category."
+     "surface": "At a dance someone queues for a drink in the middle of the ballroom.",
+     "walkthrough": "The opening 'In the middle of ballroom' reads as a place in the scene; 'In' is the container signal and 'the middle of' picks the central pair of letters.",
+     "definitionFit": "A liqueur is a sweet flavoured spirit, an alcoholic drink often served after dinner."
     },
     "features": {
      "answerInScene": true,
@@ -1528,38 +1533,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AMMO",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without ends at either side, both the first and last letters go"
+       "text": "Inverted",
+       "at": 0,
+       "note": "inverted means the word commas is read backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "middle",
        "indicators": [
         {
-         "text": "Inverted",
-         "note": "turned upside down, a down entry reads from bottom to top"
+         "text": "endlessly",
+         "at": 21,
+         "note": "endlessly means losing the letters at both ends"
         }
        ],
        "parts": [
         {
          "words": "commas",
-         "gives": "OMMA",
-         "note": "shorn of its first and last letters"
+         "at": 9,
+         "note": "taken as written before reversal"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A magazine's articles keep using quotation marks.",
-     "walkthrough": "'Inverted commas' is a fixed phrase for quotation marks, but here the words split: one turns the other round.",
-     "definitionFit": "A gun's magazine holds its cartridges, so ammunition is what it is filled with."
+     "surface": "Quotation marks are used without end in a periodical's articles.",
+     "walkthrough": "'Inverted commas' are quotation marks, but here 'Inverted' reverses COMMAS to SAMMOC, and 'endlessly' trims it. 'magazine' is the gun's bullet holder, not a periodical.",
+     "definitionFit": "Ammunition is loaded into a gun's magazine, so ammo is what that magazine contains."
     },
     "features": {
      "answerInScene": false,
