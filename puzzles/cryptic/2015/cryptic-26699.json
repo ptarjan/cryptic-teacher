@@ -1685,58 +1685,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "to go",
-       "note": "something that is to go is to be removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Grand",
+       "at": 0,
+       "gives": "G",
+       "note": "G is the standard abbreviation for grand, a thousand pounds"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to go",
+         "at": 30,
+         "note": "to go tells us the turned-round word is to leave the town's name, removed from its end"
+        }
+       ],
        "parts": [
         {
-         "words": "Grand",
-         "gives": "G",
-         "note": "G is short for grand, a thousand pounds"
+         "words": "Midlands town",
+         "at": 6,
+         "gives": "LEAMINGTON",
+         "note": "Leamington (Royal Leamington Spa) is a town in Warwickshire in the English Midlands"
         },
         {
          "op": "reversal",
          "indicators": [
           {
            "text": "about",
-           "note": "turned about means facing the other way, so the letters run backwards"
+           "at": 24,
+           "note": "about signals that the word not is turned around, read from right to left"
           }
          ],
          "parts": [
           {
-           "words": "Midlands town",
-           "gives": "NOTGNIMAEL",
-           "note": "Leamington Spa is a town in Warwickshire, in the English Midlands"
+           "words": "not",
+           "at": 20,
+           "gives": "NOT",
+           "note": "the word not, taken as its own letters before being turned round"
           }
          ]
-        },
-        {
-         "words": "not",
-         "note": "taken as written; turned round it is removed from the town"
         }
        ]
-      },
-      {
-       "gives": "TONNOT"
       }
      ]
     },
     "explanation": {
-     "surface": "A great town in the English Midlands refuses to become showy.",
-     "walkthrough": "'not about' reverses to TON, which goes from the end of the town's name. 'Grand' looks like an adjective for the town but is G.",
-     "definitionFit": "Gleaming means shining brightly, and something flashy is showy and bright to the eye."
+     "surface": "A grand Midlands town that refuses to become showy.",
+     "walkthrough": "'not' reads like a plain negative in the surface, but it is fodder: turned by 'about', it gives the letters that 'to go' strikes off the town's end. Leamington is a spa town in Warwickshire, central England.",
+     "definitionFit": "Something gleaming shines brightly, and a bright, showy appearance is what flashy describes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Grand"
+     "misdirectedWord": "not"
     }
    }
   }
