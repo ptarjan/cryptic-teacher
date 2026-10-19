@@ -741,54 +741,44 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ROTOR",
+     "op": "palindrome",
      "indicators": [
       {
-       "text": "holding",
-       "note": "to hold something is to keep it within, so the paired words surround a letter"
+       "text": "going both ways",
+       "at": 4,
+       "note": "going both ways means read in either direction, so OR for men is set down backwards and forwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "ROTOR",
+       "op": "container",
        "indicators": [
         {
-         "text": "going both ways",
-         "note": "travelling in both directions means the word is read once backwards as well as forwards"
+         "text": "holding",
+         "at": 20,
+         "note": "holding means containing, so the men letters hold the other letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "Men",
+         "at": 0,
+         "gives": "ROOR",
+         "note": "OR is other ranks, men; written both ways it is RO then OR"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "front of",
+           "at": 28,
+           "note": "front of means the first letter of the word that follows"
+          }
+         ],
          "parts": [
           {
-           "words": "Men",
-           "gives": "RO",
-           "note": "OR, other ranks, read backwards"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "front of",
-             "note": "the front of a word is its opening letter only"
-            }
-           ],
-           "parts": [
-            {
-             "words": "this",
-             "note": "opening letter of this"
-            }
-           ]
-          },
-          {
-           "words": "Men",
-           "gives": "OR",
-           "note": "OR, other ranks, the ordinary soldiers"
+           "words": "this",
+           "at": 37
           }
          ]
         }
@@ -797,12 +787,12 @@
      ]
     },
     "explanation": {
-     "surface": "Workers moving in two directions grip the front of a spinning machine.",
-     "walkthrough": "The men are read twice, once each way, making a palindrome round the central letter.",
-     "definitionFit": "A rotor is the rotating part of a machine such as a helicopter or engine."
+     "surface": "Men go back and forth around the front of a spinning gadget.",
+     "walkthrough": "OR (other ranks, men) going both ways is RO + OR; it holds T from 'this'. The result also reads the same both ways.",
+     "definitionFit": "A rotor is the rotating part of a machine, such as a helicopter's blades."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Men"
     }

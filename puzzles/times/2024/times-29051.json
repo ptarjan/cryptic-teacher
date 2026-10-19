@@ -208,59 +208,56 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SMASHEROO",
+     "indicators": [
+      {
+       "text": "punching",
+       "at": 32,
+       "note": "punching means driving into, so the shuffled has goes inside the other shuffled word"
+      }
+     ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "SMASHEROO",
+       "indicators": [
+        {
+         "text": "drunk",
+         "at": 48,
+         "note": "drunk means reeling, so the letters of morose are rearranged"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "failed",
-           "note": "HAS breaks down into a new order"
-          },
-          {
-           "text": "punching",
-           "note": "a punch goes into its target"
-          },
-          {
-           "text": "drunk",
-           "note": "MOROSE staggers into a new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "morose",
-           "gives": "SM",
-           "note": "first part of MOROSE rearranged as SMEROO"
-          },
-          {
-           "words": "has",
-           "note": "HAS rearranged, punched into the middle"
-          },
-          {
-           "words": "morose",
-           "gives": "EROO",
-           "note": "rest of SMEROO"
-          }
-         ]
+         "words": "morose",
+         "at": 41
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "failed",
+         "at": 24,
+         "note": "failed means broken down, so the letters of has are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "has",
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gloomy drunk takes a swing and misses, in the language of a boxing report.",
-     "walkthrough": "Knockout here means a stunning success, not a punch; smasheroo is American slang for a smash hit.",
-     "definitionFit": "A knockout is a sensation, which is what a smasheroo is in American slang."
+     "surface": "A US boxer's punch has missed, hitting a gloomy drunkard.",
+     "walkthrough": "Both words are scrambled here: 'failed' works on has, 'drunk' on morose, and the first result sits inside the second.",
+     "definitionFit": "Smasheroo is American slang for a smash hit or a huge success, a knockout."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "knockout"
     }
    }
@@ -456,56 +453,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RIDER",
+     "indicators": [
+      {
+       "text": "filled by",
+       "at": 6,
+       "note": "filled by means having something put inside, so the car letters take in the picked letters"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Rolls",
+       "at": 0,
+       "gives": "RR",
+       "note": "RR is Rolls-Royce, the car maker"
+      },
+      {
+       "op": "alternate",
        "indicators": [
         {
-         "text": "filled by",
-         "note": "a thing filled by something has that something put inside it, so RR takes letters into its middle"
+         "text": "regularly",
+         "at": 24,
+         "note": "regularly means at even intervals, so alternate letters of kiddies are taken"
         }
        ],
        "parts": [
         {
-         "words": "Rolls",
-         "gives": "R",
-         "note": "first letter of RR, the Rolls-Royce badge"
-        },
-        {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "IDE",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "at regular intervals, so every second letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "kiddies regularly",
-           "gives": "IDE",
-           "select": "alternate",
-           "note": "kIdDiEs, every second letter"
-          }
-         ]
-        },
-        {
-         "words": "Rolls",
-         "gives": "R",
-         "note": "last letter of RR, the Rolls-Royce badge"
+         "words": "kiddies",
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bread rolls stuffed by children, packed for someone on a journey.",
-     "walkthrough": "Rolls is the car, abbreviated RR, not bread.",
-     "definitionFit": "A rider is anyone travelling on a horse, bike or bus, so a traveller in the broad sense."
+     "surface": "Bread rolls are stuffed by children at intervals.",
+     "walkthrough": "'Rolls' looks like bread; it is RR, Rolls-Royce. Alternate letters of KIDDIES give IDE.",
+     "definitionFit": "A rider is someone travelling on a horse, bicycle or vehicle, so a traveller."
     },
     "features": {
      "answerInScene": false,
@@ -903,50 +886,51 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "TOMFOOLERY",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "at": 39,
+       "note": "put on means placed on top in this down clue, so the book part sits above the line"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "one thing sitting in another is inside it"
-        },
-        {
-         "text": "put on"
+         "at": 15,
+         "note": "in means placed inside, so the dessert goes within the word for book"
         }
        ],
        "parts": [
         {
          "words": "book",
-         "gives": "TOM",
-         "note": "start of TOME, a book"
+         "at": 34,
+         "gives": "TOME",
+         "note": "a tome is a large book"
         },
         {
          "words": "creamy dish",
+         "at": 18,
          "gives": "FOOL",
-         "note": "a fool is a pudding of fruit and cream"
-        },
-        {
-         "words": "book",
-         "gives": "E",
-         "note": "end of TOME"
-        },
-        {
-         "words": "line",
-         "gives": "RY",
-         "note": "RY = railway line"
+         "note": "a fool is a dessert of fruit folded into cream"
         }
        ]
+      },
+      {
+       "words": "line",
+       "at": 46,
+       "gives": "RY",
+       "note": "RY is the abbreviation for railway, a line"
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe noting capers go into a creamy dish.",
-     "walkthrough": "Capers are pranks, not the pickled buds a recipe suggests.",
-     "definitionFit": "Capers, silly pranks, are an example of tomfoolery."
+     "surface": "Capers might be added to a creamy dish, according to a recipe book.",
+     "walkthrough": "'Capers' looks like the pickled buds in a dish; it means antics, and 'perhaps' marks them as one example of tomfoolery.",
+     "definitionFit": "Capers are playful antics or pranks, and tomfoolery is silly, foolish behaviour."
     },
     "features": {
      "answerInScene": false,
@@ -983,49 +967,43 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "seizing",
-       "note": "CAROUSERS grabs the other letters inside"
+       "at": 9,
+       "note": "seizing means grabbing hold of, so the drinkers word holds the other letters"
       }
      ],
      "parts": [
       {
        "words": "Drinkers",
-       "gives": "CA",
-       "note": "start of CAROUSERS"
+       "at": 0,
+       "gives": "CAROUSERS",
+       "note": "carousers are people drinking and making merry"
       },
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "last of",
-         "note": "the last of a thing is its end, so the final letter of beer"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Drinkers",
-           "gives": "ROUSERS",
-           "note": "rest of CAROUSERS"
-          },
-          {
-           "words": "obtained",
-           "gives": "GOT",
-           "note": "got = obtained"
-          }
-         ]
+         "words": "obtained",
+         "at": 30,
+         "gives": "GOT",
+         "note": "got means obtained"
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "at": 17,
+           "note": "last of means the final letter of the word that follows"
+          }
+         ],
          "parts": [
           {
-           "words": "last of beer",
-           "note": "last letter of beeR"
+           "words": "beer",
+           "at": 25
           }
          ]
         }
@@ -1034,9 +1012,9 @@
      ]
     },
     "explanation": {
-     "surface": "Drinkers grabbing the dregs of the beer and walking off with big bags.",
-     "walkthrough": "Bags is old slang for trousers, so the capacious bags are baggy trousers with big pockets.",
-     "definitionFit": "Cargo trousers are loose with large pockets, and bags means trousers."
+     "surface": "Revellers grab the remaining beer and fill their roomy bags.",
+     "walkthrough": "CAROUSERS holds GOT and R: CAR + GOTR + OUSERS. Bags is British slang for trousers, as in Oxford bags.",
+     "definitionFit": "Cargo trousers are loose trousers with large pockets, and bags is an old word for baggy trousers."
     },
     "features": {
      "answerInScene": false,
@@ -1216,62 +1194,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CENTAVO",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepting",
+       "at": 24,
+       "note": "accepting means taking in, so the firm letters hold the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "CENTAVO",
+       "words": "firm",
+       "at": 19,
+       "gives": "CO",
+       "note": "CO is the abbreviation for company, a firm"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 50,
+         "note": "over means placed above in this down clue, so the case letters come first"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
+         "op": "outer",
          "indicators": [
           {
-           "text": "accepting",
-           "note": "CO takes the other letters inside"
-          },
-          {
-           "text": "raised",
-           "note": "in a down clue VAT is written upwards"
+           "text": "case of",
+           "at": 34,
+           "note": "case of means the outer letters, the shell, of the word that follows"
           }
          ],
          "parts": [
           {
-           "words": "firm",
-           "gives": "C",
-           "note": "start of CO, company"
-          },
+           "words": "evasion",
+           "at": 42
+          }
+         ]
+        },
+        {
+         "op": "reversal",
+         "indicators": [
           {
-           "op": "outer",
-           "unchecked": true,
-           "gives": "EN",
-           "indicators": [
-            {
-             "text": "case of",
-             "note": "the outer letters, like a case"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "case of evasion",
-             "gives": "EN",
-             "select": "outer",
-             "note": "outer letters of EvasioN"
-            }
-           ]
-          },
+           "text": "raised",
+           "at": 55,
+           "note": "raised means lifted up, so in a down clue the tax is read from the bottom up"
+          }
+         ],
+         "parts": [
           {
-           "words": "raised tax",
-           "gives": "TAV",
-           "note": "VAT upwards"
-          },
-          {
-           "words": "firm",
-           "gives": "O",
-           "note": "end of CO"
+           "words": "tax",
+           "at": 62,
+           "gives": "VAT",
+           "note": "VAT is value added tax"
           }
          ]
         }
@@ -1280,9 +1258,9 @@
      ]
     },
     "explanation": {
-     "surface": "A department of a genuine company caught dodging tax.",
-     "walkthrough": "The real is Brazil's currency, not an adjective; 'over' just puts EN above TAV.",
-     "definitionFit": "A currency fraction: the Brazilian real is split into a hundred centavos, so each is a division of it."
+     "surface": "A firm takes in evaded money and lifts taxes, on a slice of a Spanish royal sum.",
+     "walkthrough": "'A real' looks like the adjective; the real is Brazil's currency, divided into a hundred of these.",
+     "definitionFit": "A centavo is a hundredth of the Brazilian real, a small coin subdividing the currency."
     },
     "features": {
      "answerInScene": false,
@@ -1389,51 +1367,53 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "wings",
-       "note": "the outer letters of fantail"
+       "text": "to shelter under",
+       "at": 16,
+       "note": "to shelter under means sitting below, so in this down clue the letters come after the wing letters"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "FL",
        "indicators": [
         {
-         "text": "to shelter under"
+         "text": "wings",
+         "at": 43,
+         "note": "wings are the outer edges, so the first and last letters of the bird's name are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "fantail's wings",
-         "gives": "FL",
-         "select": "outer",
-         "note": "outer letters of FantaiL"
+         "words": "fantail's",
+         "at": 33,
+         "gives": "FANTAIL",
+         "note": "the fantail's wings are those of the word fantail"
         }
        ]
       },
       {
        "words": "duck",
+       "at": 6,
        "gives": "O",
-       "note": "a duck is a zero score in cricket"
+       "note": "a duck in cricket is a score of nothing, O"
       },
       {
        "words": "free",
+       "at": 11,
        "gives": "RID",
-       "note": "rid = free of"
+       "note": "to rid is to free"
       }
      ]
     },
     "explanation": {
-     "surface": "A ruddy duck, a real species, finds shelter beneath a fantail pigeon's wings.",
-     "walkthrough": "Ruddy duck is a bird name, but ruddy alone is the definition.",
-     "definitionFit": "A florid complexion is ruddy, flushed red."
+     "surface": "A duck hides beneath a fantail pigeon's wings.",
+     "walkthrough": "'Ruddy duck' reads as a bird name, but 'Ruddy' is the definition and 'duck' is the cricket zero.",
+     "definitionFit": "Florid means having a red or flushed complexion, which is what ruddy describes."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "Ruddy"
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
     }
    }
   },
@@ -1458,54 +1438,48 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "defends",
-       "note": "to defend is to guard from all sides"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "God",
-         "gives": "PAN",
-         "note": "Pan, the Greek god of the wild"
-        },
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "accordingly",
-           "gives": "THE",
-           "note": "start of THEN, accordingly"
-          },
-          {
-           "words": "old",
-           "gives": "O",
-           "note": "o = old"
-          }
-         ]
-        }
-       ]
+       "words": "God",
+       "at": 0,
+       "gives": "PAN",
+       "note": "Pan is the Greek god of the wild"
       },
       {
-       "words": "accordingly",
-       "gives": "N",
-       "note": "end of THEN"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "defends",
+         "at": 16,
+         "note": "defends means guards on both sides, so the word for accordingly surrounds the letter for old"
+        }
+       ],
+       "parts": [
+        {
+         "words": "accordingly",
+         "at": 4,
+         "gives": "THEN",
+         "note": "then means accordingly, as a result"
+        },
+        {
+         "words": "old",
+         "at": 24,
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A god loyally guards his ancient temple.",
-     "walkthrough": "Accordingly means 'so' or 'then', as in 'if so, then...'.",
-     "definitionFit": "A definition by example: the Pantheon in Rome is the best-known ancient temple, built for all the gods."
+     "surface": "A god therefore protects an ancient shrine.",
+     "walkthrough": "'God' looks like the definition, with temple the wordplay; it is the other way round.",
+     "definitionFit": "The Pantheon is the ancient Roman temple to all the gods, so it is a temple."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "defends"
     }
    }
   },
@@ -1530,26 +1504,29 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "turned up",
-       "note": "in a down clue OP reads upwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "in fashion",
+       "at": 10,
+       "gives": "HIP",
+       "note": "hip means fashionable, in fashion"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 26,
+         "note": "turned up means flipped upwards, so in this down clue the word for work is read from the bottom"
+        }
+       ],
        "parts": [
         {
-         "words": "work turned up",
+         "words": "work",
+         "at": 21,
          "gives": "OP",
-         "note": "OP = opus, a work, upwards"
-        },
-        {
-         "words": "in fashion",
-         "gives": "PIH",
-         "note": "hip = trendy"
+         "note": "op is short for opus, a work"
         }
        ]
       }
@@ -1557,8 +1534,8 @@
     },
     "explanation": {
      "surface": "A huge animal appears in a fashion show.",
-     "walkthrough": "OP is short for opus, a numbered musical work.",
-     "definitionFit": "The hippopotamus is among the largest land animals."
+     "walkthrough": "HIP is fashionable; OP (opus, a work) read upwards is PO.",
+     "definitionFit": "Hippo is short for hippopotamus, a huge African river animal."
     },
     "features": {
      "answerInScene": false,
@@ -1588,41 +1565,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ORWELL",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "worn out means broken down, so WORE loses its shape and its letters re-form"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 26,
+         "note": "out means wrong or in disarray, so the letters of wore are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "wore out",
-         "gives": "ORWE",
-         "note": "WORE rearranged"
-        },
-        {
-         "words": "Liberals",
-         "gives": "LL",
-         "note": "L = Liberal, twice"
+         "words": "wore",
+         "at": 21
         }
        ]
+      },
+      {
+       "words": "Liberals",
+       "at": 30,
+       "gives": "LL",
+       "note": "L is the abbreviation for Liberal; two Liberals give LL"
       }
      ]
     },
     "explanation": {
-     "surface": "Tony Blair's memoirs exhaust the Liberals.",
-     "walkthrough": "The Blair is Eric Blair, who wrote as George Orwell, not the prime minister.",
-     "definitionFit": "Eric Blair published under the pen name George Orwell."
+     "surface": "Tony Blair wore down the Liberals.",
+     "walkthrough": "'Blair' suggests Tony Blair; it is Eric Blair, who wrote as George Orwell.",
+     "definitionFit": "George Orwell was the pen name of Eric Arthur Blair, author of 1984."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Blair"
     }
    }

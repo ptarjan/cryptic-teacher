@@ -434,49 +434,53 @@
      "indicators": [
       {
        "text": "about",
-       "note": "one word goes about the others, surrounding them"
+       "at": 13,
+       "note": "about means around, so the word for idle talking goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Talking idly",
-         "gives": "MAUNDERING",
-         "note": "maundering means rambling or talking aimlessly"
-        },
-        {
-         "words": "one",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Talking idly",
+       "at": 0,
+       "gives": "MAUNDERING",
+       "note": "to maunder is to ramble or talk aimlessly"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "extremely",
-         "note": "the extremes of a word are its two ends, so only its outer letters are kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "youthful",
-         "note": "first and last letters of the word"
+         "words": "one",
+         "at": 19
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "extremely",
+           "at": 23,
+           "note": "extremely means at the extremes, so the first and last letters are taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "youthful",
+           "at": 33
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Idle chatter about a young person's misdeed.",
-     "definitionFit": "Money laundering is the offence of passing illegally obtained funds through legitimate channels to hide their source."
+     "surface": "Idle chatter about a young person's offence.",
+     "walkthrough": "MAUNDERING goes about ONE and YL, the ends of 'youthful': M + ONEYL + AUNDERING.",
+     "definitionFit": "Money laundering is disguising the origins of illegally obtained cash, a financial offence."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Talking"
+     "misdirectedWord": "youthful"
     }
    }
   },

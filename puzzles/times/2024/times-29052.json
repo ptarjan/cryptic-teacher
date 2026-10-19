@@ -479,41 +479,48 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "touring"
-      }
-     ],
      "parts": [
       {
        "words": "A",
-       "note": "the A stays as it is"
+       "at": 0
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "coming across"
+         "text": "touring",
+         "at": 10,
+         "note": "touring means going around, so the mafioso word goes round the letters inside"
         }
        ],
        "parts": [
         {
          "words": "mafioso",
+         "at": 2,
          "gives": "CAPO",
          "note": "a capo is a Mafia boss"
         },
         {
          "op": "container",
+         "indicators": [
+          {
+           "text": "coming across",
+           "at": 27,
+           "note": "coming across means spanning, so the capitals abbreviation surrounds the letter for large"
+          }
+         ],
          "parts": [
           {
            "words": "capitals",
+           "at": 18,
            "gives": "UC",
            "note": "UC stands for upper case, capital letters"
           },
           {
            "words": "large",
+           "at": 41,
            "gives": "L",
-           "note": "L = large, as on clothing labels"
+           "note": "L is the clothing-size abbreviation for large"
           }
          ]
         }
@@ -522,9 +529,9 @@
      ]
     },
     "explanation": {
-     "surface": "A gangster travels round the capitals and turns up at a big holiday resort.",
-     "walkthrough": "Upper case is the printer's term for capital letters. Two containers nest here, so work from the inside out.",
-     "definitionFit": "Acapulco is a resort on Mexico's Pacific coast."
+     "surface": "A Mafia man on a European tour finds a big holiday spot.",
+     "walkthrough": "A capo is a Mafia boss, and UC is the printers' abbreviation for upper case, meaning capital letters.",
+     "definitionFit": "Acapulco is a famous Pacific beach resort city in Mexico."
     },
     "features": {
      "answerInScene": true,
@@ -1227,45 +1234,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "put up",
-       "note": "in a down clue, put up means turned upwards"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "losing footing",
-         "note": "the foot, the last letter, is lost"
+         "text": "put up",
+         "at": 10,
+         "note": "put up means raised, so in this down clue the word for can is read from the bottom up"
         }
        ],
        "parts": [
         {
          "words": "can",
+         "at": 6,
          "gives": "TIN",
          "note": "a tin is a can"
         }
        ]
       },
       {
-       "words": "with",
-       "gives": "WIT",
-       "note": "WITH loses its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing footing",
+         "at": 22,
+         "note": "footing is the foot, the last letter in a down entry, so the word drops its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "with",
+         "at": 17
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fool can tolerate losing his balance.",
-     "walkthrough": "'Put up with' reads as tolerate; split it so 'put up' reverses TIN and 'with' is the fodder.",
-     "definitionFit": "A plain synonym: both are mild, informal names for a foolish person."
+     "surface": "A fool can tolerate a stumble.",
+     "walkthrough": "TIN read upwards is NIT; WITH losing its foot is WIT.",
+     "definitionFit": "Nitwit is an informal insult for a stupid or silly person, a fool."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "put"
+     "misdirectedWord": "footing"
     }
    }
   },
