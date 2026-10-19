@@ -867,48 +867,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TEMPERANCE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "not starting",
-       "note": "failing to start means the beginning is missing, so the first letter goes"
+       "text": "over",
+       "at": 20,
+       "note": "in a down clue, one piece over another comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "anger",
+       "at": 14,
+       "gives": "TEMPER",
+       "note": "temper means anger, as in losing one's temper"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "over",
-         "note": "in a down entry, being over means sitting above, so this piece comes first"
+         "text": "not starting",
+         "at": 38,
+         "note": "the opening letter of the word for the social event is dropped"
         }
        ],
        "parts": [
         {
-         "words": "anger",
-         "gives": "TEMPER",
-         "note": "temper is anger"
+         "words": "social event",
+         "at": 25,
+         "gives": "DANCE",
+         "note": "a dance is a social event"
         },
         {
-         "words": "social event",
-         "gives": "ANCE",
-         "note": "a dance is a social event; its first letter is dropped"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Keeping one's fury in check about a party that never got going.",
-     "walkthrough": "DANCE loses its D and sits below TEMPER.",
-     "definitionFit": "Temperance is self-restraint, especially avoiding excess in drink, which is moderation."
+     "surface": "Someone urges calm when tempers flare at a party that never got going.",
+     "walkthrough": "'in' is only a link here: the moderation is found in the wordplay that follows.",
+     "definitionFit": "Temperance is self-restraint, a synonym for moderation in drink or behaviour."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "anger"
+     "misdirectedWord": "over"
     }
    }
   },
@@ -1444,47 +1449,50 @@
    "annotation": {
     "definitions": [
      {
-      "text": "villain?",
+      "text": "villain",
       "at": 41
      }
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "IAGO",
      "indicators": [
       {
        "text": "showing up",
-       "note": "in a down entry, going up means reading from bottom to top, so the letters run backwards"
+       "at": 30,
+       "note": "in a down clue, going up means the letters are read from the bottom, i.e. backwards"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "IAGO",
        "indicators": [
         {
-         "text": "anonymously",
-         "note": "being anonymous means having no name, so every N, the abbreviation for name, is removed"
+         "text": "anonymously, perhaps",
+         "at": 8,
+         "note": "anonymous means without a name, and N is the abbreviation for name, so each N is struck out"
         }
        ],
        "parts": [
         {
          "words": "No gain",
-         "note": "taken as written; both its N's go, which happens to match reading the inner letters backwards, a coincidence of this deletion"
+         "at": 0,
+         "gives": "NOGAIN",
+         "note": "taken as written; that these words read backwards hold the villain between two Ns is a coincidence of the construction, and both Ns must still go"
+        },
+        {
+         "gives": "NN"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Profiting nothing in secret might expose a wrongdoer.",
-     "walkthrough": "NO GAIN without its N's leaves OGAI, which reverses upward. The question mark marks the answer as one example of a villain.",
-     "definitionFit": "Iago is the scheming antagonist of Shakespeare's Othello, one of literature's best-known evil characters."
+     "surface": "A question about whether an anonymous venture that earns nothing exposes some villain.",
+     "walkthrough": "Removing both Ns (N = name) from NOGAIN leaves OGAI, which 'showing up' turns around. Iago is the schemer in Shakespeare's Othello.",
+     "definitionFit": "Iago is the scheming ensign in Shakespeare's Othello, one of literature's best-known villains."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "anonymously"
     }

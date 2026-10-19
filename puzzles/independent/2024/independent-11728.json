@@ -1029,12 +1029,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DRIVETHRU",
      "indicators": [
       {
        "text": "carrying",
-       "note": "carrying something means holding it within"
+       "at": 20,
+       "note": "carrying means the doctor and the rearranged letters hold the next piece"
       }
      ],
      "parts": [
@@ -1043,41 +1042,44 @@
        "parts": [
         {
          "words": "Medic",
+         "at": 0,
          "gives": "DR",
-         "note": "Dr is the abbreviation for doctor"
+         "note": "DR is the abbreviation for doctor"
         },
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "possibly",
-           "note": "possibly suggests one of several arrangements, so the letters are reordered"
+           "at": 11,
+           "note": "possibly signals the letters of hurt may be arranged another way"
           }
          ],
          "parts": [
           {
-           "words": "setter's",
-           "gives": "IVE",
-           "note": "the setter says I've, short for I have"
-          },
-          {
            "words": "hurt",
-           "note": "taken as written"
+           "at": 6
           }
          ]
         }
        ]
+      },
+      {
+       "words": "setter's",
+       "at": 29,
+       "gives": "IVE",
+       "note": "setter's read as the setter has, i.e. I've"
       }
      ]
     },
     "explanation": {
-     "surface": "An injured doctor is carrying something the setter owns.",
-     "walkthrough": "The doctor and the rearranged injury together hold the setter's contraction in the middle.",
-     "definitionFit": "A drive-thru is a restaurant window serving customers in their cars, a common outlet for burgers and fries."
+     "surface": "A doctor who has been injured is bringing the setter some food.",
+     "walkthrough": "'1' points to the answer at 1, which is food; a drive-thru serves it.",
+     "definitionFit": "A drive-thru is a fast-food outlet serving customers in their cars, so a place supplying the food at 1."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "hurt"
     }
    }

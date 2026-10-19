@@ -364,61 +364,62 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "YAHOO",
      "indicators": [
       {
        "text": "gripped by",
-       "note": "gripped by means held inside the following letters"
+       "at": 5,
+       "note": "gripped by means held between the surrounding letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "disposing of",
-         "note": "disposing of means getting rid of, here the letter for dead"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "unknown",
-           "gives": "Y",
-           "note": "Y is an algebraic unknown"
-          },
-          {
-           "words": "Area",
-           "gives": "A",
-           "note": "A is the abbreviation for area"
-          },
-          {
-           "words": "criminal",
-           "gives": "HOOD",
-           "note": "a hood is a gangster"
-          }
-         ]
+         "words": "unknown",
+         "at": 16,
+         "gives": "Y",
+         "note": "Y is an algebraic unknown"
         },
         {
-         "words": "dead",
-         "gives": "D",
-         "note": "D is the abbreviation for dead, the letter removed"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "disposing of dead",
+           "at": 33,
+           "note": "D is the abbreviation for dead, and it is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "criminal",
+           "at": 24,
+           "gives": "HOOD",
+           "note": "a hood is a gangster or criminal"
+          },
+          {
+           "gives": "D"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Area",
+       "at": 0,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A district in the grip of a mystery gangster who gets rid of a dead thug.",
-     "definitionFit": "A yahoo is a coarse, brutish person, from the beasts in Gulliver's Travels."
+     "surface": "A gangster grabs a neighbourhood and gets rid of a corpse.",
+     "walkthrough": "The surface reads 'criminal' as an adjective, but it is the noun, a gangster.",
+     "definitionFit": "A yahoo is a coarse, boorish person, from the brutish creatures in Gulliver's Travels."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Area"
+     "misdirectedWord": "criminal"
     }
    }
   },
