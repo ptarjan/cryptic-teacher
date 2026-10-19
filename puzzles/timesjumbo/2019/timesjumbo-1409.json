@@ -394,41 +394,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTIFADA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Almost",
-       "note": "almost means not quite all, so the final letter of the next word is dropped"
+       "text": "arranged",
+       "at": 20,
+       "note": "arranged means the letters are put in a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "arranged",
-         "note": "letters that are arranged are put into a new order"
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means the last letter of fanatic is dropped"
         }
        ],
        "parts": [
         {
          "words": "fanatic",
-         "gives": "FANATI",
-         "note": "the word as written, short of its last letter"
+         "at": 7,
+         "gives": "FANATIC"
         },
         {
-         "words": "I'd",
-         "note": "taken as written, without the apostrophe"
+         "gives": "C"
         }
        ]
+      },
+      {
+       "words": "I'd",
+       "at": 16,
+       "gives": "ID",
+       "note": "the word I'd, apostrophe ignored"
       }
      ]
     },
     "explanation": {
-     "surface": "A near-zealot claims to have organised a rebellion in the Middle East.",
-     "definitionFit": "The Intifada is the Arabic name for the Palestinian revolts against Israeli occupation, beginning in 1987 and 2000."
+     "surface": "Someone almost a zealot claiming to have organised a revolt.",
+     "definitionFit": "The intifada was the Palestinian revolt against Israeli occupation beginning in 1987."
     },
     "features": {
      "answerInScene": true,
@@ -958,58 +963,71 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TYMPANICMEMBRANE",
+     "op": "container",
      "indicators": [
       {
-       "text": "heartlessly",
-       "note": "without its heart a word loses its middle letter"
+       "text": "splitting",
+       "at": 51,
+       "note": "splitting means the alarm word breaks the rearranged letters in two"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "splitting",
-         "note": "something splitting another goes into the middle of it and divides it"
+         "text": "Flustered",
+         "at": 0,
+         "note": "flustered means flung into disorder, so the letters are scrambled"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "Flustered",
-           "note": "flustered means agitated and confused, so the letters are thrown into disorder"
+           "text": "heartlessly",
+           "at": 15,
+           "note": "heartlessly means the middle letter of mum goes"
           }
          ],
          "parts": [
           {
            "words": "Mum",
-           "gives": "MM",
-           "note": "the word with its central letter removed"
+           "at": 11,
+           "gives": "MUM"
           },
           {
-           "words": "bent my ear",
-           "note": "taken as written, as anagram fodder"
+           "gives": "U"
           }
          ]
         },
         {
-         "words": "alarm",
-         "gives": "PANIC",
-         "note": "alarm is sudden fear or panic"
+         "words": "bent",
+         "at": 27
+        },
+        {
+         "words": "my",
+         "at": 32
+        },
+        {
+         "words": "ear",
+         "at": 35
         }
        ]
+      },
+      {
+       "words": "alarm",
+       "at": 45,
+       "gives": "PANIC",
+       "note": "panic is alarm"
       }
      ]
     },
     "explanation": {
-     "surface": "A flustered mother harangued the speaker so alarmingly that it felt like a burst eardrum.",
-     "walkthrough": "To bend someone's ear is to talk at them at length, which suits the surface; here 'bent my ear' is just letters to be jumbled.",
-     "definitionFit": "The tympanic membrane is the medical term for the thin tissue separating the outer and middle ear."
+     "surface": "A flustered mother bending someone's ear with alarming noise, enough to split an eardrum.",
+     "walkthrough": "'Bent' looks like a second anagram signal but is part of the fodder.",
+     "definitionFit": "The tympanic membrane is the anatomical name for the thin skin in the middle ear."
     },
     "features": {
      "answerInScene": true,
@@ -1484,39 +1502,43 @@
      "indicators": [
       {
        "text": "stops",
-       "note": "a stopper plugs the inside of something, sitting within it"
+       "at": 16,
+       "note": "stops means the pieces plug the gap inside the gun word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "heater",
-         "gives": "GAT",
-         "note": "heater and gat are both old gangster slang for a gun"
-        },
-        {
-         "words": "Singular",
-         "gives": "S",
-         "note": "S is the grammatical abbreviation for singular"
-        }
-       ]
+       "words": "heater",
+       "at": 22,
+       "gives": "GAT",
+       "note": "heater is old US slang for a gun, as is gat"
       },
       {
-       "words": "design",
-       "gives": "PLAN",
-       "note": "a design is a plan"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Singular",
+         "at": 0,
+         "gives": "S",
+         "note": "S is the grammar abbreviation for singular"
+        },
+        {
+         "words": "design",
+         "at": 9,
+         "gives": "PLAN",
+         "note": "a plan is a design"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An unusual pattern blocks a radiator from setting a shrub alight.",
-     "walkthrough": "'heater' suggests a radiator, but it is American gangster slang for a pistol.",
-     "definitionFit": "Dittany, known as the gas plant or burning bush, gives off a vapour that can be set alight."
+     "surface": "A unique design blocking a heater from working.",
+     "walkthrough": "'Heater' looks like a radiator, but it is gangster slang for a gun, a gat.",
+     "definitionFit": "The gas plant, or dittany, gives off a flammable vapour and is also called burning bush."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "heater"
     }
@@ -1666,40 +1688,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THINNING",
-     "indicators": [
-      {
-       "text": "Most of",
-       "note": "most of a word is all but its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Most of",
+         "at": 0,
+         "note": "most of means the last letter of the word is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "the",
-         "gives": "TH",
-         "note": "the word short of its last letter"
+         "at": 8,
+         "gives": "THE",
+         "note": "the word the"
         },
         {
-         "words": "time you'll see batter",
-         "gives": "INNING",
-         "note": "in baseball an inning is the period when a team's batters take their turn"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "time you'll see batter",
+       "at": 12,
+       "gives": "INNING",
+       "note": "an inning is a baseball batter's turn at the plate"
       }
      ]
     },
     "explanation": {
-     "surface": "A cook notices that pancake mix is mostly becoming watery over time.",
-     "walkthrough": "'Batter' looks like the pancake mix of the surface, but in the wordplay it is the hitter in a baseball game.",
-     "definitionFit": "Thinning means becoming less thick or viscous, which is what runny liquids do."
+     "surface": "A cook watching batter turn liquid as time passes.",
+     "walkthrough": "'Batter' looks like cake mixture, fitting 'runny', but it is the baseball batter.",
+     "definitionFit": "Thinning is becoming less thick or viscous, like a sauce made watery."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "batter"
@@ -2298,61 +2324,63 @@
      "indicators": [
       {
        "text": "into",
-       "note": "something put into a word sits inside it"
+       "at": 34,
+       "note": "into means the reversed string goes inside the sherry"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "sherry",
+       "at": 39,
+       "gives": "FINO",
+       "note": "fino is a pale dry sherry"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 31,
+         "note": "in a down clue, up means the pieces are read bottom to top"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
-           "words": "sherry",
-           "gives": "FINO",
-           "note": "fino is a pale dry sherry"
+           "words": "cold",
+           "at": 18,
+           "gives": "C",
+           "note": "C is the tap abbreviation for cold"
+          },
+          {
+           "words": "tea",
+           "at": 23,
+           "gives": "CUPPA",
+           "note": "a cuppa is a cup of tea"
           },
           {
            "words": "run",
+           "at": 27,
            "gives": "R",
            "note": "R is the cricket abbreviation for run"
           }
          ]
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "up",
-           "note": "in a down clue, up means the pieces read from bottom to top"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tea",
-           "gives": "CUPPA",
-           "note": "a cuppa is British slang for a cup of tea"
-          }
-         ]
         }
        ]
-      },
-      {
-       "words": "cold",
-       "gives": "C",
-       "note": "C is the tap abbreviation for cold"
       }
      ]
     },
     "explanation": {
-     "surface": "A cafe customer debates iced coffee or cold tea, perhaps spiked with sherry.",
-     "definitionFit": "A Frappuccino is a Starbucks blended iced coffee drink, served chilled."
+     "surface": "A question about putting iced coffee or cold tea into sherry.",
+     "walkthrough": "A cuppa is British slang for a cup of tea.",
+     "definitionFit": "A Frappuccino is Starbucks' blended iced coffee drink."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "run"
+     "misdirectedWord": "tea"
     }
    }
   },

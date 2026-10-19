@@ -370,20 +370,31 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "JEZEBELS",
-     "indicators": [
-      {
-       "text": "Finally uplifted",
-       "note": "in a down entry, lifting the closing letters upward runs them the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Blimey",
-       "gives": "JEEZ",
-       "note": "both are exclamations of surprise"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "Finally uplifted",
+         "at": 8,
+         "note": "in a down clue uplifted means raised, so the final letter is lifted one place higher up the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Blimey",
+         "at": 0,
+         "gives": "JEEZ",
+         "note": "jeez is an exclamation like blimey"
+        },
+        {
+         "gives": "EZ"
+        },
+        {
+         "gives": "ZE"
+        }
+       ]
       },
       {
        "op": "homophone",
@@ -391,23 +402,25 @@
        "indicators": [
         {
          "text": "picked up",
-         "note": "to pick up a signal is to hear it, so the sound is what counts"
+         "at": 26,
+         "note": "picked up means heard, so the word is taken by its sound"
         }
        ],
        "parts": [
         {
          "words": "beauties",
+         "at": 36,
          "gives": "BELLES",
-         "note": "belles are beauties; a bel is a unit of loudness"
+         "note": "belles are beauties"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone exclaims as they finally pick up a couple of attractive women, who turn out to be trouble.",
-     "walkthrough": "Only the last two letters of the exclamation flip. Blimey is a British exclamation of surprise.",
-     "definitionFit": "Jezebel, the scheming queen in the Bible, gives her name to any shameless or immoral woman."
+     "surface": "An exclamation of surprise at beautiful but wicked women.",
+     "walkthrough": "Only the last two letters of JEEZ are turned, giving JEZE; BELLES sounds like BELS.",
+     "definitionFit": "Jezebel, the biblical queen, gives her name to a shameless or scheming woman."
     },
     "features": {
      "answerInScene": true,
@@ -996,52 +1009,56 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SKULLCAP",
-     "indicators": [
-      {
-       "text": "blocking",
-       "note": "a block sits in the way, so it lies inside the other word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "SKULLCAP",
+       "words": "small",
+       "at": 17,
+       "gives": "S"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "up",
-         "note": "in a down entry, going up means reading from the bottom, so the letters run backwards"
+         "text": "blocking",
+         "at": 39,
+         "note": "blocking means the trimmed ditch sits inside the reversed stuff"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "SKULLCAP",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "endlessly",
-           "note": "without ends at either side, so both outer letters go"
+           "text": "up",
+           "at": 54,
+           "note": "in a down clue, up means the word reads bottom to top"
           }
          ],
          "parts": [
           {
-           "words": "small",
-           "gives": "S",
-           "note": "S is the abbreviation for small"
-          },
-          {
            "words": "stuff",
+           "at": 48,
            "gives": "PACK",
-           "note": "to stuff a bag is to pack it"
-          },
+           "note": "to stuff is to pack"
+          }
+         ]
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "endlessly",
+           "at": 29,
+           "note": "endlessly means both outer letters of the ditch word go"
+          }
+         ],
+         "parts": [
           {
            "words": "ditch",
+           "at": 23,
            "gives": "GULLY",
-           "note": "a gully is a channel or ditch cut by water"
+           "note": "a gully is a ditch or channel"
           }
          ]
         }
@@ -1050,9 +1067,8 @@
      ]
     },
     "explanation": {
-     "surface": "A gardener finds a plant growing in a little ditch, clogging it.",
-     "walkthrough": "'Small ditch' wants to be one idea; 'small' stands apart as the abbreviation.",
-     "definitionFit": "Skullcap is a herb of the mint family, named for its helmet-shaped flowers."
+     "surface": "A gardener finding a plant clogging up a small ditch.",
+     "definitionFit": "Skullcap is a flowering herb of the mint family, named for its helmet-shaped calyx."
     },
     "features": {
      "answerInScene": true,

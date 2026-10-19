@@ -440,8 +440,9 @@
    "annotation": {
     "definitions": [
      {
-      "text": "He",
-      "at": 0
+      "text": "He's",
+      "at": 0,
+      "note": "He is the chemical symbol, so 'He's' reads as 'He is' the answer"
      }
     ],
     "wordplay": {
@@ -449,41 +450,46 @@
      "indicators": [
       {
        "text": "put in",
-       "note": "putting something in places it inside another word"
+       "at": 16,
+       "note": "put in tells us the two short pieces go inside the word for control"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "control",
-         "gives": "HELM",
-         "note": "the helm is the place of steering and control"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
-        }
-       ]
+       "words": "control",
+       "at": 23,
+       "gives": "HELM",
+       "note": "the helm is the steering, so control"
       },
       {
-       "words": "United",
-       "gives": "U",
-       "note": "U is the abbreviation for United, as in football club names"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 5,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
+        },
+        {
+         "words": "United",
+         "at": 9,
+         "gives": "U",
+         "note": "U is the usual abbreviation for United in team names"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football pundit hails a player whom United have put in charge.",
-     "walkthrough": "He is not a pronoun but the chemical symbol for the element.",
-     "definitionFit": "He is the chemical symbol for helium, the light noble gas, so the symbol stands for the element itself."
+     "surface": "A football commentator praising a Manchester United player who has been given charge of the team.",
+     "walkthrough": "'He' looks like a man in the surface, but it is the chemical symbol, and the 's is 'is'.",
+     "definitionFit": "He is the periodic-table symbol for the light noble gas used in balloons."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "He"
+     "joke": "pun",
+     "misdirectedWord": "He's"
     }
    }
   },
@@ -2769,57 +2775,58 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the pieces go in, inside another word"
+       "at": 27,
+       "note": "in places the run of small pieces inside the word for grate"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "grate",
+       "at": 30,
+       "gives": "JAR",
+       "note": "to grate on someone is to jar"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "grate",
-           "gives": "JAR",
-           "note": "to jar is to grate, as on the nerves"
-          },
-          {
-           "words": "Round",
-           "gives": "O",
-           "note": "a round shape is an O"
-          }
-         ]
+         "words": "Round",
+         "at": 0,
+         "gives": "O",
+         "note": "a round shape is the letter O"
         },
         {
          "words": "copper",
+         "at": 6,
          "gives": "CU",
          "note": "Cu is the chemical symbol for copper"
-        }
-       ]
-      },
-      {
-       "op": "last",
-       "indicators": [
+        },
         {
-         "text": "ending",
-         "note": "the ending of the word is its final letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "bowl's",
-         "gives": "BOWL",
-         "note": "the last letter of the word"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ending",
+           "at": 20,
+           "note": "ending picks out only the final letter of bowl"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bowl's",
+           "at": 13,
+           "gives": "BOWL",
+           "note": "the word bowl, the 's being possessive"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A round copper bowl sitting in a fire grate is badly cracked.",
-     "walkthrough": "Cracks looks like splits in the bowl; it means wisecracks, jokes.",
-     "definitionFit": "Someone jocular is playful and joking, so their talk is full of wisecracks."
+     "surface": "A round copper bowl sitting in a fire grate that is badly cracked.",
+     "walkthrough": "'Cracks' here are jokes or wisecracks, not fractures, which the copper bowl and grate push you away from.",
+     "definitionFit": "Someone full of wisecracks is joking and humorous, which is what jocular describes."
     },
     "features": {
      "answerInScene": false,
@@ -3487,22 +3494,22 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "OCTAVES",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "concealing",
-       "note": "concealing something hides it within"
+       "text": "returns",
+       "at": 40,
+       "note": "returns tells us the whole assembled string is read backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "returns",
-         "note": "returning means going back, so the whole is read from the end"
+         "text": "concealing",
+         "at": 25,
+         "note": "concealing means the tax is hidden inside the other two pieces"
         }
        ],
        "parts": [
@@ -3511,29 +3518,32 @@
          "parts": [
           {
            "words": "Home Counties",
+           "at": 6,
            "gives": "SE",
-           "note": "the Home Counties lie in the south-east of England"
-          },
-          {
-           "words": "tax",
-           "gives": "VAT",
-           "note": "value added tax"
+           "note": "the Home Counties around London lie in the South East, SE"
           },
           {
            "words": "firm",
+           "at": 20,
            "gives": "CO",
-           "note": "CO is short for company"
+           "note": "CO is the abbreviation for company, a firm"
           }
          ]
+        },
+        {
+         "words": "tax",
+         "at": 36,
+         "gives": "VAT",
+         "note": "VAT is value added tax, the UK sales tax"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Paperwork shows a firm near London hiding its tax returns.",
-     "walkthrough": "Tax returns sounds like the annual forms; returns is the reversal signal. The Home Counties are those surrounding London.",
-     "definitionFit": "An octave is a note eight steps above or below another, so octaves are notes in a musical sense."
+     "surface": "An accountant's memo about a Home Counties company hiding tax from its returns.",
+     "walkthrough": "'Tax returns' looks like a single phrase; 'returns' is actually the reversal signal. The Home Counties are the English counties surrounding London.",
+     "definitionFit": "An octave is a musical interval of eight steps, and also the note at either end of it."
     },
     "features": {
      "answerInScene": false,
