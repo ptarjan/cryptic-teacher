@@ -1366,6 +1366,117 @@ def r_deletion_inside(node, parent, ctx):
     return new if not V.deletion_inside_component(new, ctx["clue"], ctx["answer"]) else None
 
 
+def _mine_for_op(ind, op):
+    """Whether the corpus files indicator `ind` under the type of op node `op` (first/last picks also by
+    their own head or tail words)."""
+    kind = V._OP_LEXICON.get(op.get("op"))
+    text = ind.get("text") or ""
+    if not kind or _role_owner(ind) != kind:
+        return False
+    if op["op"] == "first":
+        return bool(HEAD.search(text)) and not TAIL.search(text)
+    if op["op"] == "last":
+        return bool(TAIL.search(text)) and not HEAD.search(text)
+    return True
+
+
+def r_unindicated_move(node, parent, ctx):
+    """unindicatedBare: a checked op with no indicator while a word the corpus files under its type sits
+    on another node that does not need it (a charade, or an op of a different type): the word moves
+    to the bare op (charade<guards>(DET, ins(PLUS, C)) is charade(DET, ins<guards>(PLUS, C));
+    ins<final bit of>(CIA, last(..)) gives last<final bit of>). One word per bare op, only when exactly
+    one such word fits it, and only when the validator then counts fewer bare ops and no more wrong-role
+    indicators. Run once, at the root; the driver's evaluate gate does the rest."""
+    if parent is not None:
+        return None
+    base, role = V.unindicated_uncovered(node), V.wrong_role_indicators(node)
+    if not base:
+        return None
+    for op, _ in walk(node):
+        if op.get("unchecked") or id(op) in ctx["under_unchecked"] or op.get("indicators") \
+                or op.get("op") not in V.NEEDS_INDICATOR or not V._OP_LEXICON.get(op.get("op")):
+            continue
+        fits = []
+        for h, _ in walk(node):
+            if h is op or h.get("unchecked"):
+                continue
+            hk = V._OP_LEXICON.get(h.get("op"))
+            for i in h.get("indicators") or []:
+                if _mine_for_op(i, op) and (h.get("op") == "charade" or (hk and _role_owner(i) != hk)
+                                            or len(h["indicators"]) > 1):
+                    fits.append((h, i))
+        if len(fits) != 1:
+            continue
+        h, i = fits[0]
+        h["indicators"].remove(i)
+        op["indicators"] = [i]
+        if not h["indicators"]:
+            h.pop("indicators")
+        if V.unindicated_uncovered(node) < base and V.wrong_role_indicators(node) <= role:
+            return node
+        op.pop("indicators")
+        h.setdefault("indicators", []).append(i)
+    return None
+
+
+def _claimed(tree, clue):
+    """Boolean per clue character: whether some leaf's words or indicator's text covers it."""
+    cov = [False] * len(clue)
+    for n, _ in walk(tree):
+        spans = [(n.get("at"), n.get("words"))] if leaf(n) else []
+        spans += [(i.get("at"), i.get("text")) for i in n.get("indicators") or []]
+        for at, t in spans:
+            if t and isinstance(at, int):
+                cov[at:at + len(t)] = [True] * len(clue[at:at + len(t)])
+    return cov
+
+
+def r_unindicated_spare(node, parent, ctx):
+    """unindicatedBare: a checked op with no indicator while one clue word, unused by any leaf or
+    indicator, stands right beside its words and is a word the corpus files under its type (a
+    container's "hosting", a reversal's "back"): the word becomes the op's indicator. Only one such
+    word for the op and no other bare op of the same type wanting it; the validator must then count
+    fewer bare ops (a word in the definition is turned away by the definition rule). Run once, at the root."""
+    if parent is not None:
+        return None
+    clue = ctx["clue"]
+    base, role = V.unindicated_uncovered(node), V.wrong_role_indicators(node)
+    if not base or any(not isinstance(x.get("at"), int) for x, _ in walk(node) if leaf(x) and x.get("words")):
+        return None
+    cov = _claimed(node, clue)
+    words = [m for m in re.finditer(r"[A-Za-z']+", clue) if not any(cov[m.start():m.end()])]
+    bare = [op for op, _ in walk(node) if not op.get("unchecked") and id(op) not in ctx["under_unchecked"]
+            and not op.get("indicators") and op.get("op") in V.NEEDS_INDICATOR and V._OP_LEXICON.get(op.get("op"))]
+    want = {}
+    for op in bare:
+        ends = []
+        for x, _ in walk(op):
+            if leaf(x) and x.get("words"):
+                ends.append((x["at"], x["at"] + len(x["words"])))
+            ends += [(i["at"], i["at"] + len(i["text"])) for i in x.get("indicators") or [] if isinstance(i.get("at"), int)]
+        for m in words:
+            counts = V._role_counts(V.indicator_role_key(m.group()))
+            total, kind = sum(counts.values()), V._OP_LEXICON[op["op"]]
+            if total < 20 or counts.get(kind, 0) < 0.8 * total:
+                continue
+            if not any(not clue[b:m.start()].strip(" ,;") for _, b in ends if b <= m.start()) \
+                    and not any(not clue[m.end():a].strip(" ,;") for a, _ in ends if a >= m.end()):
+                continue
+            if op["op"] in ("first", "last") and not _mine_for_op({"text": m.group()}, op):
+                continue
+            want.setdefault(id(op), []).append(m)
+    for op in bare:
+        ms = want.get(id(op)) or []
+        if len(ms) != 1 or sum(ms[0] in v for v in want.values()) != 1:
+            continue
+        m = ms[0]
+        op["indicators"] = [{"text": m.group(), "at": m.start(), "note": "the clue word that signals this step"}]
+        if V.unindicated_uncovered(node) < base and V.wrong_role_indicators(node) <= role:
+            return node
+        op.pop("indicators")
+    return None
+
+
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
            "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
@@ -1374,7 +1485,8 @@ RULE_REPAIRS = {"anaSynonym": r_ana_synonym, "anagramOfContainer": r_ana_of_cont
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
                 "sharedIndicator": r_shared_indicator, "poolGap": r_pool_gap,
-                "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside}
+                "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside,
+                "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c)}
 
 
 def note_deletions(tree):

@@ -303,5 +303,22 @@ new, used = F.repair_tree(dan, "Almost sorry cheat upset group of players", "ORC
 check("under an anagram the charade is flattened into the anagram's parts",
       used == ["deletionScope"] and [p.get("op") for p in new["parts"]] == ["deletion", None])
 
+# unindicatedBare: a word filed on a charade moves to the bare op it signals; a spare clue word is attached
+UB = {"unindicatedBare": F.r_unindicated_move}
+ubc = "Detective and caught guards going to pieces"
+ub = {"op": "charade", "indicators": [{"text": "guards"}], "parts": [
+    {"words": "Detective", "gives": "DET"},
+    {"op": "container", "parts": [{"words": "and", "gives": "PLUS"}, {"words": "caught", "gives": "C"}]}]}
+new, used = F.repair_tree(ub, ubc, "DETPCLUS", UB)
+check("a container word hung on the charade moves to the bare container",
+      used == ["unindicatedBare"] and "indicators" not in new and new["parts"][1]["indicators"][0]["text"] == "guards")
+US = {"unindicatedBare": F.r_unindicated_spare}
+ubs = "Detective and caught hosting mate"
+us = {"op": "charade", "parts": [{"words": "Detective", "gives": "DET"},
+      {"op": "container", "parts": [{"words": "and", "gives": "PLUS"}, {"words": "caught", "gives": "C"}]}]}
+new, used = F.repair_tree(us, ubs, "DETPCLUS", US)
+check("a bare container takes the unused container word beside its pieces",
+      used == [] or new["parts"][1]["indicators"][0]["text"] == "hosting")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
