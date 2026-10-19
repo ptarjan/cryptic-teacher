@@ -2118,7 +2118,7 @@ RULE_REPAIRS = {"arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
                 "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": lambda n, p, c: r_pool_gap(n, p, c) or r_pool_eject(n, p, c),
                 "misplacedIndicator": r_misplaced_indicator,
-                "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside,
+                "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside, "deletionScopeAnswer": r_deletion_inside,
                 "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c),
                 "del_single": r_del_single, "indInLeaf": r_ind_in_leaf, "ind_in_leaf": r_ind_in_leaf}
 
