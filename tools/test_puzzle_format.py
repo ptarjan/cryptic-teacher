@@ -261,7 +261,7 @@ for n in cryptics:
         "difficulty.clue_row": difficulty.clue_row,
         "showcase.file_facts": lambda p: showcase.file_facts(fp.read_puzzle_view(p)),
         "await_preamble.which": lambda p: await_preamble.which(p, fp.read_puzzle_file(p)),
-        "puzzle_integrity._summary (the cross-file row)": puzzle_integrity._summary,
+        "puzzle_integrity._summary (the cross-file row)": lambda p: puzzle_integrity._summary((p, None)),
         "puzzle_integrity.check_puzzle flags": flags_of,
         "letter_facts.read_view": letter_facts.read_view,
     }

@@ -1978,9 +1978,18 @@ def _cached(conn, files):
     return out
 
 
-def _summary(path):
-    """_one_file's cross-file row alone, for a file the run does not judge."""
-    puzzle = read_puzzle_view(path)
+def _summary(item):
+    """_one_file's cross-file row alone, for a file the run does not judge.
+    CI's puzzle fast path checks out only the changed puzzles' folders, so a
+    file the row cache misses is read from its blob instead of the disk."""
+    path, blob = item
+    if path.exists():
+        puzzle = read_puzzle_view(path)
+    else:
+        import annotation
+        raw = subprocess.run(["git", "cat-file", "blob", blob], cwd=Path(__file__).resolve().parent,
+                             capture_output=True, check=True).stdout
+        puzzle = annotation.view_puzzle(json.loads(raw))
     pid = puzzle["id"]
     return (pid, content_hash(puzzle), clue_keys(puzzle),
             (series_meta.of(puzzle) or "cryptic", puzzle["number"], date_of(puzzle), pid))
@@ -2049,7 +2058,7 @@ def audit(files, paths, today, only=None):
     for p in paths:
         if files[p] not in cached and files[p] not in have:
             rest.setdefault(files[p], p)
-    for blob, row in zip(rest, parallel.pmap(_summary, [root / n for n in rest.values()])):
+    for blob, row in zip(rest, parallel.pmap(_summary, [(root / n, b) for b, n in rest.items()])):
         have[blob] = row
     if have:
         _store(conn, list(have.items()))
