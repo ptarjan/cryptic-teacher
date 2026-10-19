@@ -384,51 +384,55 @@
      "indicators": [
       {
        "text": "banking",
-       "note": "banking here means holding inside, as a bank holds deposits"
+       "at": 4,
+       "note": "banking means holding in, as a bank holds money, so the can word holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Can",
-         "gives": "TIN",
-         "note": "a tin is a can"
-        },
-        {
-         "words": "venture",
-         "gives": "BET",
-         "note": "to venture money is to bet it"
-        }
-       ]
+       "words": "Can",
+       "at": 0,
+       "gives": "TIN",
+       "note": "a tin is a can"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "start to",
-         "note": "the start of a word is its opening letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "annoy",
-         "note": "the opening letter of annoy"
+         "words": "venture",
+         "at": 12,
+         "gives": "BET",
+         "note": "a bet is a venture or wager"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start to",
+           "at": 20,
+           "note": "start to means the first letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "annoy",
+           "at": 29
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Could a banking venture start to irritate someone from Asia?",
-     "walkthrough": "Banking looks like the finance trade; it means TIN holds BET plus A.",
+     "surface": "Asks whether a bank's business venture could irritate someone from Asia.",
+     "walkthrough": "'Can' looks like the verb opening a question but is the noun TIN.",
      "definitionFit": "A Tibetan is a person from Tibet, a region of Asia, so is an Asian."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "banking"
+     "misdirectedWord": "Can"
     }
    }
   },

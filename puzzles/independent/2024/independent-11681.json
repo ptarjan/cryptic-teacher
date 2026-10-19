@@ -1102,39 +1102,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "arranged",
-       "note": "arranged, as with flowers in a vase, means put into a new order"
+       "text": "by",
+       "at": 23,
+       "note": "by means the next piece is put beside the first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "coroner",
+       "at": 26,
+       "gives": "COR",
+       "note": "Cor. is an abbreviation for coroner"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "arranged",
+         "at": 14,
+         "note": "arranged means the letters of posies are put in a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "coroner",
-         "gives": "COR",
-         "note": "Cor. is a dictionary abbreviation for coroner"
-        },
-        {
          "words": "posies",
-         "note": "these letters rearranged"
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bunches of flowers laid out by a coroner, perhaps at an inquest.",
-     "walkthrough": "The abbreviation COR comes first even though coroner is last in the clue: 'by' means beside.",
-     "definitionFit": "Coreopsis, or tickseed, is a yellow daisy-like garden flower."
+     "surface": "A floral tribute laid out next to an official who examines deaths.",
+     "walkthrough": "'Flower posies' looks like one phrase, but 'Flower' alone is the definition.",
+     "definitionFit": "Coreopsis is a genus of yellow daisy-like garden plants, known as tickseed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "coroner"
+     "misdirectedWord": "posies"
     }
    }
   },
@@ -1388,51 +1397,54 @@
      "indicators": [
       {
        "text": "to claim",
-       "note": "to claim is to take in, so the greeting surrounds the next pieces"
+       "at": 13,
+       "note": "to claim means the reversed greeting takes the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 7,
+         "note": "about means turned round, so the word is reversed"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "about means turned round, so the greeting is read backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Hello!",
-           "gives": "HI",
-           "note": "hi is a greeting"
-          }
-         ]
-        },
-        {
-         "words": "politician",
-         "gives": "MP",
-         "note": "MP is a Member of Parliament"
+         "words": "Hello",
+         "at": 0,
+         "gives": "HI",
+         "note": "hi is a greeting"
         }
        ]
       },
       {
-       "words": "is",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "politician",
+         "at": 22,
+         "gives": "MP",
+         "note": "MP is a Member of Parliament"
+        },
+        {
+         "words": "is",
+         "at": 33
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hello! magazine about to make a claim that a politician is being naughty.",
-     "walkthrough": "Hello! is a British celebrity magazine; here it just gives a greeting.",
-     "definitionFit": "Impish means mischievous like an imp, so playfully naughty."
+     "surface": "A greeting that is about to claim a politician as mischievous.",
+     "definitionFit": "Impish describes mischievous behaviour like that of a little imp, playfully badly behaved."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Hello!"
+     "misdirectedWord": "about"
     }
    }
   },

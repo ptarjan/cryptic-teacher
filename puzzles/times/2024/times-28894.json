@@ -171,51 +171,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DEMISEC",
+     "op": "container",
      "indicators": [
       {
-       "text": "odd",
-       "note": "odd means strange or irregular, so the letters are put into an unusual order"
+       "text": "including",
+       "at": 17,
+       "note": "including means the month holds the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "DEMISEC",
+       "words": "month",
+       "at": 11,
+       "gives": "DEC",
+       "note": "DEC is the calendar abbreviation for December"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "including",
-         "note": "to include something is to take it inside, so one piece sits within another"
+         "text": "odd",
+         "at": 27,
+         "note": "odd means strange, so the remaining letters are jumbled"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "DEMISEC",
          "indicators": [
           {
            "text": "drops",
-           "note": "to drop something is to let it fall away, so a letter is lost"
+           "at": 49,
+           "note": "drops means that letter falls out of the word"
           }
          ],
          "parts": [
           {
-           "words": "month",
-           "gives": "DEC",
-           "note": "DEC is the calendar abbreviation for December"
-          },
-          {
            "words": "times",
-           "note": "taken as written before the changes"
+           "at": 31
           },
           {
            "words": "temperature",
-           "gives": "T",
-           "note": "T is the standard abbreviation for temperature"
+           "at": 37,
+           "gives": "T"
           }
          ]
         }
@@ -224,15 +222,14 @@
      ]
     },
     "explanation": {
-     "surface": "A rather dry month brings the occasional cold snap.",
-     "walkthrough": "'Rather dry' sounds like weather, but it describes wine; the month is shortened as on a calendar, and the rearranged letters go inside it.",
-     "definitionFit": "Demi-sec is a French wine term for medium-dry, so a demi-sec wine is only somewhat dry."
+     "surface": "A particular month with occasional periods when the heat falls off.",
+     "walkthrough": "'Odd' looks like it picks odd letters, but it scrambles IMES (times without T) into MISE.",
+     "definitionFit": "Demi-sec describes a medium-dry wine, especially champagne, so it is only somewhat dry."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "dry"
+     "misdirectedWord": "odd"
     }
    }
   },

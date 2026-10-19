@@ -572,53 +572,57 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "what is eaten ends up inside the eater, so one piece is swallowed by another"
+       "at": 12,
+       "note": "eating means the shortened name takes the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "short means the name loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Short",
-           "note": "something cut short has lost its end, so the final letter goes"
-          }
-         ],
-         "parts": [
-          {
-           "words": "woman",
-           "gives": "ALICE",
-           "note": "a woman's name"
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "woman",
+         "at": 6,
+         "gives": "ALICE",
+         "note": "Alice is a woman's name"
         },
         {
-         "words": "large",
-         "gives": "L",
-         "note": "L is the clothing-size abbreviation for large"
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "salmon",
-       "gives": "COHO",
-       "note": "the coho is a Pacific salmon"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large",
+         "at": 19,
+         "gives": "L"
+        },
+        {
+         "words": "salmon",
+         "at": 25,
+         "gives": "COHO",
+         "note": "coho is a species of Pacific salmon"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small woman tucks into a big salmon while drinking heavily.",
-     "walkthrough": "'Short woman' is ALIC(E), not a person of small stature. L and COHO go in after her first letter.",
-     "definitionFit": "An alcoholic is a person addicted to drink, so a heavy drinker describes one."
+     "surface": "A small woman tucking into a big fish turns out to be a hard drinker.",
+     "walkthrough": "Coho is a Pacific salmon, less familiar than the woman's name it hides inside.",
+     "definitionFit": "An alcoholic is a person addicted to drink, so a heavy drinker by habit."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Short"
     }

@@ -911,33 +911,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ICEFLOE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not half",
-       "note": "not half means only one of the two halves of the word is kept"
+       "text": "shivering",
+       "at": 22,
+       "note": "shivering means trembling, so these letters are shaken into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "I",
+       "at": 0
+      },
+      {
+       "words": "feel",
+       "at": 2
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "shivering",
-         "note": "shivering shakes things up, so the letters are jumbled"
+         "text": "not half",
+         "at": 13,
+         "note": "not half means half of the word is lost, here its last two letters"
         }
        ],
        "parts": [
         {
-         "words": "I feel",
-         "note": "taken as written"
+         "words": "cold",
+         "at": 7
         },
         {
-         "words": "cold",
-         "gives": "CO",
-         "note": "the first half of cold"
+         "gives": "LD"
         }
        ]
       }
@@ -945,14 +951,15 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Someone shivering and feeling cold, wondering where they are standing.",
-     "walkthrough": "The whole clue is both the wordplay and the picture: someone stuck on a floating slab of ice would feel cold and shiver.",
-     "definitionFit": "An ice floe is a flat sheet of floating sea ice, a cold place to be marooned."
+     "surface": "Someone shivering on a chunk of drifting ice says they feel very cold.",
+     "walkthrough": "'Not half' looks like the slang for very, but it cuts COLD to CO; I, FEEL and CO are rearranged.",
+     "definitionFit": "An ice floe is a floating sheet of ice, where anyone standing would certainly shiver."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "shivering"
+     "joke": "pun",
+     "misdirectedWord": "half"
     }
    }
   },
@@ -1140,58 +1147,68 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AGGRIEVE",
      "indicators": [
       {
        "text": "enters",
-       "note": "entering means going inside the letters already assembled"
+       "at": 43,
+       "note": "enters means the letter goes in among the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "charade",
        "indicators": [
         {
-         "text": "endless",
-         "note": "endless means the word loses its last letter"
+         "text": "After",
+         "at": 0,
+         "note": "after means the night word follows the shortened hassle word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 6,
+           "note": "endless means the last letter is dropped"
+          }
+         ],
          "parts": [
           {
            "words": "hassle",
+           "at": 14,
            "gives": "AGGRO",
            "note": "aggro is British slang for trouble or hassle"
           },
           {
-           "words": "one",
-           "gives": "I",
-           "note": "I is the Roman numeral one"
-          },
-          {
-           "words": "the night before",
-           "gives": "EVE",
-           "note": "the eve is the evening before an event"
+           "gives": "O"
           }
          ]
         },
         {
-         "gives": "O"
+         "words": "the night before",
+         "at": 21,
+         "gives": "EVE",
+         "note": "eve is the evening before a festival"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 39,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
       }
      ]
     },
     "explanation": {
-     "surface": "After a rough night before, someone arrives in a distressed state.",
-     "walkthrough": "EVE goes after the shortened hassle word, as 'After' says, and then I slips in between the two.",
-     "definitionFit": "To aggrieve is to cause someone distress or a sense of grievance, so it matches distress as a verb."
+     "surface": "Following trouble the previous night, someone arrives upset.",
+     "walkthrough": "Aggro is British slang for aggravation or trouble. 'Distress' looks like a noun but is the verb.",
+     "definitionFit": "To aggrieve is to cause someone grief or a sense of injury, so to distress them, as a verb."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "enters"
     }

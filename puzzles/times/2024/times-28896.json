@@ -46,48 +46,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FLOTSAM",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter of the word is dropped"
+       "text": "securing",
+       "at": 25,
+       "note": "securing means the shortened word holds the other piece inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "securing",
-         "note": "to secure something is to hold it fast, so one piece is held inside the other"
+         "text": "almost",
+         "at": 18,
+         "note": "almost means the last letter is left off"
         }
        ],
        "parts": [
         {
          "words": "celebrity",
-         "gives": "FAM",
-         "note": "fame, or celebrity, with its final letter cut"
+         "at": 8,
+         "gives": "FAME",
+         "note": "fame is celebrity"
         },
         {
-         "words": "a great deal",
-         "gives": "LOTS",
-         "note": "lots is a large amount"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "a great deal",
+       "at": 34,
+       "gives": "LOTS",
+       "note": "lots means a great deal"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone dismisses a celebrity as rubbish just as they are about to land a lucrative contract.",
-     "walkthrough": "'Rubbish' reads like a verdict on the celebrity, but it is the definition; the trimmed fame wraps around lots.",
-     "definitionFit": "Flotsam is floating wreckage and debris, and by extension any worthless junk or discarded odds and ends."
+     "surface": "A dismissive verdict on a famous person nearly landing a big contract.",
+     "definitionFit": "Flotsam is floating wreckage, and figuratively worthless odds and ends or junk."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Rubbish"
+     "misdirectedWord": "deal"
     }
    }
   },
@@ -1223,42 +1227,45 @@
      "indicators": [
       {
        "text": "to host",
-       "note": "a host takes in guests, so one piece holds others inside"
+       "at": 11,
+       "note": "to host means the outer word holds the others inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Money paid",
-         "gives": "FEE",
-         "note": "a fee is a payment for a service"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
-        }
-       ]
+       "words": "Money paid",
+       "at": 0,
+       "gives": "FEE",
+       "note": "a fee is money paid for a service"
       },
       {
-       "words": "political group in Pretoria",
-       "gives": "ANC",
-       "note": "the African National Congress, South Africa's ruling party"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 19,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "political group in Pretoria",
+         "at": 23,
+         "gives": "ANC",
+         "note": "the ANC is the African National Congress, South Africa's ruling party; Pretoria is a South African capital"
+        }
+       ]
       }
      ]
     },
     "spelling": "FIANCÉE",
     "explanation": {
-     "surface": "A payment is made to accommodate a South African political party, as was planned.",
-     "walkthrough": "'As intended' reads like 'as planned', but intended is a noun here; Pretoria is South Africa's capital, hence the ANC.",
-     "definitionFit": "Someone's intended is the person they are engaged to marry, an old-fashioned noun use matching fiancée."
+     "surface": "A payment made to entertain a South African party, as planned.",
+     "walkthrough": "'Intended' looks like an adjective, but it is the noun for a person one plans to marry.",
+     "definitionFit": "Someone's intended is their future spouse, and a fiancee is a woman engaged to be married."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "intended"
     }
    }
@@ -1689,51 +1696,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GETTOGETHER",
-     "indicators": [
-      {
-       "text": "leaving",
-       "note": "when something is leaving it goes away, so those letters are taken out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 12,
+         "note": "leaving means those letters depart from the word"
+        }
+       ],
        "parts": [
         {
          "words": "guest",
-         "gives": "GET",
-         "note": "guest without the pair of letters U and S"
-        },
-        {
-         "words": "to",
+         "at": 6,
+         "gives": "GUEST",
          "note": "taken as written"
         },
         {
-         "words": "collect",
-         "gives": "GET",
-         "note": "to collect someone is to go and get them"
-        },
-        {
-         "words": "that lady",
-         "gives": "HER",
-         "note": "her is the pronoun for that woman"
+         "words": "us",
+         "at": 20,
+         "gives": "US"
         }
        ]
+      },
+      {
+       "words": "to",
+       "at": 23,
+       "gives": "TO"
+      },
+      {
+       "words": "collect",
+       "at": 26,
+       "gives": "GET",
+       "note": "to get is to collect or fetch"
+      },
+      {
+       "words": "that lady",
+       "at": 34,
+       "gives": "HER",
+       "note": "her refers to that lady"
       }
      ]
     },
     "explanation": {
-     "surface": "A party guest leaves the group to fetch a woman.",
-     "walkthrough": "'Us' is fodder for the deletion, taken literally from guest, not a pronoun for the solver.",
-     "definitionFit": "A get-together is an informal social gathering, a casual synonym for a party."
+     "surface": "A party guest leaves the group to go and pick up a woman.",
+     "definitionFit": "A get-together is an informal social gathering, an everyday word for a small party."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "us"
+     "misdirectedWord": "collect"
     }
    }
   },

@@ -457,66 +457,70 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "YEWTREE",
      "indicators": [
       {
        "text": "carrying",
-       "note": "carrying something means holding it within, so one letter goes inside the rest"
+       "at": 40,
+       "note": "carrying means the scrambled letters hold the next piece inside"
       }
      ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "YEWTREE",
        "indicators": [
         {
          "text": "disturbed",
-         "note": "something disturbed is thrown out of order, so its letters are jumbled"
+         "at": 20,
+         "note": "disturbed means the remaining letters are thrown into disorder"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "YEWTREE",
          "indicators": [
           {
            "text": "leaving",
-           "note": "the two letters leaving the word means they are taken out of it"
+           "at": 12,
+           "note": "leaving means those letters depart from the word"
           }
          ],
          "parts": [
           {
-           "words": "Caught",
-           "gives": "C",
-           "note": "c is the cricket abbreviation for caught"
-          },
-          {
-           "words": "male",
-           "gives": "M",
-           "note": "M is short for male"
-          },
-          {
            "words": "cemetery",
-           "note": "taken as written"
+           "at": 30
           },
           {
-           "words": "wide",
-           "gives": "W",
-           "note": "w is the cricket abbreviation for a wide"
+           "op": "charade",
+           "parts": [
+            {
+             "words": "Caught",
+             "at": 0,
+             "gives": "C",
+             "note": "C is the cricket abbreviation for caught"
+            },
+            {
+             "words": "male",
+             "at": 7,
+             "gives": "M"
+            }
+           ]
           }
          ]
         }
        ]
+      },
+      {
+       "words": "wide",
+       "at": 49,
+       "gives": "W",
+       "note": "W is the cricket abbreviation for a wide"
       }
      ]
     },
     "explanation": {
-     "surface": "A man departs a disturbed graveyard while a cricketing scene drifts in with caught and wide.",
-     "walkthrough": "Strip C and M from CEMETERY, jumble the remaining EETERY and hold W inside. Caught and wide are cricket scorebook abbreviations.",
-     "definitionFit": "Yews are traditionally planted in English churchyards, so the tree is a typical sight among graves."
+     "surface": "Odd goings-on in a graveyard that a man has fled.",
+     "walkthrough": "Removing C and M from CEMETERY leaves EETERY, which is rearranged around W.",
+     "definitionFit": "Yews are traditionally planted in churchyards, so the tree is a familiar sight among graves."
     },
     "features": {
      "answerInScene": true,

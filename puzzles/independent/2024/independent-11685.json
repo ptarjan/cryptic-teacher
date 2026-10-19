@@ -696,51 +696,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ECLIPSE",
      "indicators": [
       {
        "text": "including",
-       "note": "including means holding within, so the drugs surround the speed word"
+       "at": 15,
+       "note": "including means the drug letters hold the other pieces inside"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "E",
-       "indicators": [
-        {
-         "text": "at the start",
-         "note": "at the start asks for only the opening letter of the word before it"
-        }
-       ],
+       "words": "drugs",
+       "at": 9,
+       "gives": "EE",
+       "note": "E stands for ecstasy, so two of them are drugs"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "seized",
-         "gives": "E",
-         "select": "first",
-         "note": "the opening letter"
+         "words": "speed",
+         "at": 25,
+         "gives": "CLIP",
+         "note": "clip is a rate or speed, as in a fast clip"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at the start",
+           "at": 38,
+           "note": "at the start means only the first letter of the word is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "seized",
+           "at": 31
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "drugs",
-       "gives": "ES",
-       "note": "E is slang for an ecstasy tablet, so Es are drugs"
-      },
-      {
-       "words": "speed",
-       "gives": "CLIP",
-       "note": "a fast pace, as in 'at a fair clip'"
       }
      ]
     },
     "explanation": {
-     "surface": "A drug haul including amphetamines is confiscated at the outset of a raid.",
-     "walkthrough": "'Speed' plays on the drug slang but means pace. The initial E goes last, after the drugs-and-speed combination.",
-     "definitionFit": "To eclipse something is to block it from view, as the moon blocks the sun."
+     "surface": "A haul of narcotics, plus amphetamine, intercepted early on.",
+     "walkthrough": "'Speed' looks like the drug but means pace (CLIP).",
+     "definitionFit": "To eclipse is to obscure, so it blocks out light or attention from something."
     },
     "features": {
      "answerInScene": false,
@@ -841,58 +843,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIBRARIAN",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "briefly means cut short, so the cricketer's surname loses its last letter"
+       "text": "touring",
+       "at": 27,
+       "note": "touring means the scrambled letters go around the remaining piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "touring",
-         "note": "touring means going round, so the names surround the letter for India"
+         "text": "Suspect",
+         "at": 0,
+         "note": "suspect as an adjective means dodgy, so these letters are scrambled"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "words": "Brian",
+         "at": 8
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "Suspect",
-           "note": "as an adjective suspect means dubious or not to be trusted, so these letters are not in their real order"
+           "text": "briefly",
+           "at": 19,
+           "note": "briefly means the name is cut short by its last letter"
           }
          ],
          "parts": [
           {
-           "words": "Brian",
-           "note": "taken as written"
+           "words": "Lara",
+           "at": 14
           },
           {
-           "words": "Lara",
-           "gives": "LAR",
-           "note": "the surname without its final letter"
+           "gives": "A"
           }
          ]
-        },
-        {
-         "words": "India",
-         "gives": "I",
-         "note": "I is India in the NATO phonetic alphabet"
         }
        ]
+      },
+      {
+       "words": "India",
+       "at": 35,
+       "gives": "I",
+       "note": "I is India in the NATO alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "The great West Indian batsman Brian Lara is under suspicion while on a cricket tour of India.",
-     "walkthrough": "Brian Lara is the record-breaking West Indies cricketer. The question mark marks the definition as playful: librarians are known for shushing readers.",
-     "definitionFit": "A librarian traditionally keeps a library silent, telling noisy visitors to be quiet."
+     "surface": "A dodgy innings from the cricketer Brian Lara on tour in India.",
+     "walkthrough": "Brian Lara is a famous West Indian batsman; his scrambled names, with LAR, surround I.",
+     "definitionFit": "A librarian traditionally asks visitors for silence, hushing any noisy group in the library."
     },
     "features": {
      "answerInScene": false,

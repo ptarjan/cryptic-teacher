@@ -877,43 +877,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THROWER",
+     "op": "charade",
      "indicators": [
       {
-       "text": "half of",
-       "note": "taking only half means the other half of the word is cut away"
+       "text": "added to",
+       "at": 19,
+       "note": "added to means the next piece is joined on after"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 28,
+         "note": "half of means only the first two of the word's four letters are kept"
+        }
+       ],
        "parts": [
         {
          "words": "that",
-         "gives": "TH",
-         "note": "the first half of the word: its opening two of four letters"
+         "at": 36
         },
         {
-         "words": "One in eight, say",
-         "gives": "ROWER",
-         "note": "a rowing eight is a boat crewed by eight oarsmen"
+         "gives": "AT"
         }
        ]
+      },
+      {
+       "words": "One in eight, say",
+       "at": 0,
+       "gives": "ROWER",
+       "note": "a rower is one member of an eight, a rowing crew"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzle about fractions: one-eighth plus half of something in a jug.",
-     "walkthrough": "'Pitcher' looks like a jug, which suits 'in'; the question mark points to a baseball pitcher, who throws.",
-     "definitionFit": "A pitcher in baseball is the player who hurls the ball to the batter, so he is a thrower."
+     "surface": "A puzzle about one of eight plus half of something going into a jug.",
+     "walkthrough": "An eight is a rowing crew of eight oarsmen. 'Pitcher' suggests a jug, but here it means someone who pitches.",
+     "definitionFit": "A thrower is someone who hurls, and a baseball pitcher is one who throws the ball."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "eight"
+     "misdirectedWord": "pitcher"
     }
    }
   },
@@ -1536,41 +1545,43 @@
      "indicators": [
       {
        "text": "welcomed by",
-       "note": "whoever is welcomed is taken in by the hosts, so they end up inside"
+       "at": 36,
+       "note": "welcomed by means these letters are taken into the servant word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "servants",
-         "gives": "PAGES",
-         "note": "pages are young attendants"
-        },
-        {
-         "words": "monarch",
-         "gives": "ER",
-         "note": "Elizabeth Regina, the Queen's royal cipher"
-        }
-       ]
+       "words": "servants",
+       "at": 48,
+       "gives": "PAGES",
+       "note": "pages are young servants"
       },
       {
-       "words": "child",
-       "gives": "SON",
-       "note": "a son is a child"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "monarch",
+         "at": 18,
+         "gives": "ER",
+         "note": "ER is Elizabeth Regina, the Queen"
+        },
+        {
+         "words": "child",
+         "at": 30,
+         "gives": "SON",
+         "note": "a son is a child"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Palace staff greeting the king or queen and the young heir.",
-     "walkthrough": "ER, Elizabeth Regina, is the standard crossword monarch; pages here are household attendants, not sheets of paper.",
-     "definitionFit": "Personages are people of rank or distinction, so the term is a formal synonym for important figures."
+     "surface": "A queen and her son are received by the household staff.",
+     "definitionFit": "Personages are notable or distinguished persons, people of rank or importance."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "servants"
+     "aptDefinition": false
     }
    }
   }
