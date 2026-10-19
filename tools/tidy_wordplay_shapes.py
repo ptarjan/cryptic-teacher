@@ -87,6 +87,9 @@ FIELDS = {
     "wordplay.swappedPair": lambda ann: V.swapped_pair(ann.get("wordplay")),
     "wordplay.linkInLeaf": lambda ann: V.link_in_leaf(ann.get("wordplay")),
     "wordplay.anaStandIn": lambda ann: V.ana_stand_in(ann.get("wordplay")),
+    "wordplay.selectWordInLeaf": lambda ann: V.select_word_in_leaf(ann.get("wordplay")),
+    "wordplay.halvedAsDeletion": lambda ann: V.halved_as_deletion(ann.get("wordplay")),
+    "wordplay.splitSharedIndicator": lambda ann: V.split_shared_indicators(ann.get("wordplay")),
 }
 #: Fields whose finding places words in the clue, so counts() hands them its text.
 NEEDS_CLUE = {"wordplay.deletionInside", "wordplay.anagramSynonym", "wordplay.poolGap",

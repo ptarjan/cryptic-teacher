@@ -160,7 +160,8 @@ def gated():
 
 #: Rules the validator still computes as warnings but that queue no redo and count nowhere in
 #: the ratchet (round 20: the judges passed most of their flags as fine).
-WARN_ONLY = ("unindicatedBare", "bareInitial", "indFolded", "inDefinition", "charadeOrder", "cutInLeaf", "nonWordOperand")
+WARN_ONLY = ("unindicatedBare", "bareInitial", "indFolded", "inDefinition", "charadeOrder", "cutInLeaf", "nonWordOperand",
+             "selectPhraseInLeaf")  # r27: 26 of 40 judged hits fine
 
 #: Series whose own conventions make the judges accept the tree: no shape rule queues for them.
 CONVENTION_SERIES = ("azed", "genius")
@@ -261,6 +262,14 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                      "alone give: the link word is the clue's join, not the leaf's",
        "anaStandIn": "an anagram held by a container scrambles an abbreviation or synonym beside the clue's own "
                      "words: spell the stand-in as its own piece",
+       "selectWordInLeaf": "a selection op's leaf opens with the op's own indicator words (bit of, end for, "
+                           "outline of): the leaf holds only the words that give its letters",
+       "selectPhraseInLeaf": "a leaf opens with a letter-selection phrase (borders of, heading off) and gives "
+                             "fewer letters than its other words: the selection is an op with its own indicator",
+       "halvedAsDeletion": "a deletion whose indicator says half (half of, 50 per cent, bottom half) keeps half the "
+                           "word: write the halving selection, not a deletion of the other half",
+       "splitSharedIndicator": "two neighbouring same-kind ops share one indicator, only one carrying it: write "
+                               "one multi-part op under the indicator",
        "midWordLeaf": "a leaf gives a stretch of several clue words that starts or ends inside a word: "
                       "the cut is an op (del, first, last) with its indicator, not part of the leaf"}
 
@@ -308,6 +317,10 @@ def _validator_rules():
             "swappedPair": lambda t, a, c: V.swapped_pair(t),
             "linkInLeaf": lambda t, a, c: V.link_in_leaf(t),
             "anaStandIn": lambda t, a, c: V.ana_stand_in(t),
+            "selectWordInLeaf": lambda t, a, c: V.select_word_in_leaf(t),
+            "selectPhraseInLeaf": lambda t, a, c: V.select_phrase_in_leaf(t),
+            "halvedAsDeletion": lambda t, a, c: V.halved_as_deletion(t),
+            "splitSharedIndicator": lambda t, a, c: V.split_shared_indicators(t),
             "movedLetter": lambda t, a, c: V.moved_letters(t),
             "indInLeaf": lambda t, a, c: V.ind_in_leaf(t, c),
             # A step taken as filed that tools/clear_unchecked.py could not verify:

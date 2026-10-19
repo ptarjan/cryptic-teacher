@@ -6397,6 +6397,14 @@ def link_in_leaf(tree):
     return n
 
 
+def _initial_abbreviation(p):
+    """A leaf giving one or two letters that start its words (R for right, N for new, CC for twice caught):
+    the standard abbreviation mid-answer is genuine fodder (r26: 5 of 5 such anaStandIn hits fine, 0 of 4 others)."""
+    g = wordplay.letters(p.get("gives"))
+    initials = {x[0] for x in re.findall(r"[a-z]+", (p.get("words") or "").lower())}
+    return bool(g) and len(g) <= 2 and g[0].lower() in initials
+
+
 def ana_stand_in(tree):
     """Anagrams whose fodder mixes the clue's own words with a stand-in (abbreviation or synonym) leaf
     (r23 FN POLICYMAKERS ana<broadcast>(K, ER, Olympics)): the stand-in is spelled into the answer, not
@@ -6409,8 +6417,72 @@ def ana_stand_in(tree):
             parts = [p for p in node.get("parts") or [] if isinstance(p, dict)]
             if node.get("op") != "anagram" or node.get("unchecked") or len(parts) < 2:
                 continue
-            st = [_stand_in_piece(p) and not p.get("select") for p in parts]
+            st = [_stand_in_piece(p) and not p.get("select") and not _initial_abbreviation(p) for p in parts]
             n += any(st) and not all(st) and any("op" not in p and not s for p, s in zip(parts, st))
+    return n
+
+
+SELECT_WORD_IN_LEAF = "selection op whose leaf opens with the op's own indicator words"
+SELECT_PHRASE_IN_LEAF = "leaf opens with a letter-selection phrase and gives fewer letters than its other words"
+HALVED_AS_DELETION ="halving ('half of', '50 per cent', 'bottom half') written as a plain deletion"
+SPLIT_SHARED_INDICATOR = "one indicator over two neighbouring same-kind ops, only one of them carrying it"
+_HALVING = re.compile(r"\bhalf\b|\b(?:50|fifty)\s*(?:per\s*cent|%|percent)", re.I)
+
+
+def select_word_in_leaf(tree):
+    """Selection ops (first, last, outer, middle ...) whose direct leaf opens with the op's own indicator
+    words and holds more ("bit of breakfast" under first<bit of>, "end for beggar" under last<end for>,
+    r26 FN: 3 misses): the leaf holds only the words that give its letters."""
+    n = 0
+    for node in _walk(tree):
+        if node.get("op") not in wordplay.SELECT or node.get("unchecked"):
+            continue
+        inds = [re.findall(r"[a-z']+", str(i.get("text") or "").lower()) for i in node.get("indicators") or [] if isinstance(i, dict)]
+        for p in (q for q in node.get("parts") or [] if isinstance(q, dict) and "op" not in q):
+            words = re.findall(r"[a-z']+", str(p.get("words") or "").lower())
+            n += any(iw and len(words) > len(iw) and words[:len(iw)] == iw for iw in inds)
+    return n
+
+
+def select_phrase_in_leaf(tree):
+    """Leaves of 2+ words that open with a selection indicator phrase the corpus files under letter
+    selection ("borders of scarlet" giving ST, "Heading off trouble" giving OTHER; r26 FN: 3 misses) and give
+    fewer letters than the words after it: the selection is an op. cut_in_leaf takes the cut words."""
+    n = 0
+    for node in _walk(tree):
+        if "op" in node or node.get("unchecked") or not node.get("gives") or not node.get("words"):
+            continue
+        words = re.findall(r"[a-z']+", str(node["words"]).lower())
+        gives = len(re.sub(r"[^A-Z]", "", str(node["gives"])))
+        for k in (1, 2, 3):
+            rest = sum(len(w) for w in words[k:])
+            if len(words) > k and gives < rest and _owner_type(" ".join(words[:k])) == "letter_selection" \
+                    and words[0] not in CUT_WORDS:
+                n += 1
+                break
+    return n
+
+
+def halved_as_deletion(tree):
+    """Deletions whose indicator says half ("half of", "50 per cent", "bottom half removed",
+    "half-forgotten"; r26 FN: 5 misses): the word keeps half its letters, a halving selection, not a
+    deletion of the other half."""
+    return sum(1 for node in _walk(tree) if node.get("op") == "deletion" and not node.get("unchecked")
+               and any(_HALVING.search(str(i.get("text") or "")) for i in node.get("indicators") or [] if isinstance(i, dict)))
+
+
+def split_shared_indicators(tree):
+    """Two neighbouring same-kind ops (deletion, homophone, a selection) under one parent where only one
+    carries an indicator (r26 FN: "finishes off" over CHAD and BLISS, "leaders must leave" over Told that):
+    one indicator, one multi-part op."""
+    n = 0
+    for parent in _walk(tree):
+        groups = {}
+        for p in (q for q in parent.get("parts") or [] if isinstance(q, dict)):
+            if p.get("op") in _SHARED_OK and not p.get("unchecked"):
+                groups.setdefault(p["op"], []).append(p)
+        for ns in groups.values():
+            n += len(ns) == 2 and sum(bool(x.get("indicators")) for x in ns) == 1 and _pair_adjacent(ns)
     return n
 
 
@@ -6677,7 +6749,11 @@ def shape_warnings(tag, ann, clue=None, answer=None):
             (lambda: del_straddle(tree), DEL_STRADDLE, "cut inside the one piece the word acts on"),
             (lambda: swapped_pair(tree), SWAPPED_PAIR, "file each indicator on the op of its own kind"),
             (lambda: link_in_leaf(tree), LINK_IN_LEAF, "the link word is the clue's join, not the leaf's"),
-            (lambda: ana_stand_in(tree), ANA_STAND_IN, "spell the stand-in beside the anagram")):
+            (lambda: ana_stand_in(tree), ANA_STAND_IN, "spell the stand-in beside the anagram"),
+            (lambda: select_word_in_leaf(tree), SELECT_WORD_IN_LEAF, "the leaf holds only the words that give its letters"),
+            (lambda: select_phrase_in_leaf(tree), SELECT_PHRASE_IN_LEAF, "the selection is an op with its own indicator"),
+            (lambda: halved_as_deletion(tree), HALVED_AS_DELETION, "keep half the word with a halving selection"),
+            (lambda: split_shared_indicators(tree), SPLIT_SHARED_INDICATOR, "one indicator, one multi-part op")):
         if k := fn():
             out.append(f"{tag}: {k} {label}: {hint}")
     return out
@@ -7266,6 +7342,9 @@ BACKLOG_MARKERS = {
     "wordplay.swappedPair": (SWAPPED_PAIR,),
     "wordplay.linkInLeaf": (LINK_IN_LEAF,),
     "wordplay.anaStandIn": (ANA_STAND_IN,),
+    "wordplay.selectWordInLeaf": (SELECT_WORD_IN_LEAF,),
+    "wordplay.halvedAsDeletion": (HALVED_AS_DELETION,),
+    "wordplay.splitSharedIndicator": (SPLIT_SHARED_INDICATOR,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }
