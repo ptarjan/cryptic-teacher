@@ -1410,42 +1410,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIMOUSINES",
-     "indicators": [
-      {
-       "text": "over half of",
-       "note": "a little more than half is kept, so the tail of the word is cut away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "over half of",
+         "at": 3,
+         "note": "LIMO, four of the seven letters of Limoges, is more than half the word, so the end is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "Limoges",
-         "gives": "LIMO",
-         "note": "the first four of its seven letters"
+         "at": 16
         },
         {
-         "words": "its factories",
-         "gives": "USINES",
-         "note": "usines is French for factories, apt for a French city"
+         "gives": "GES"
         }
        ]
+      },
+      {
+       "words": "its factories",
+       "at": 24,
+       "gives": "USINES",
+       "note": "usines is French for factories, the French city's own word for them"
       }
      ]
     },
     "explanation": {
-     "surface": "In more than half the plants of Limoges, the French porcelain city, workers build cars.",
-     "walkthrough": "'Its' signals that the factories belong to a French city, so the word is in French.",
-     "definitionFit": "Limousines are large luxurious motor vehicles, chauffeur-driven saloons with a partition behind the driver."
+     "surface": "A claim that most of the French city of Limoges' factories turn out motor cars.",
+     "walkthrough": "'over half of' keeps LIMO, four of the seven letters of Limoges, dropping GES. 'its factories' asks for the French word, since Limoges is in France: USINES.",
+     "definitionFit": "Limousines are large luxurious motor vehicles, a type of car often chauffeur-driven."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "factories"
+     "misdirectedWord": "its"
     }
    }
   },
