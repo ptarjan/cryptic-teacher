@@ -963,49 +963,53 @@
      "indicators": [
       {
        "text": "fed",
-       "note": "something fed has food put inside it, so the following piece goes inside the earlier ones"
+       "at": 17,
+       "note": "fed means the fruit is put inside the a and bug, as food going in"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "words": "bug",
-         "gives": "ANT",
-         "note": "an ant is an insect, loosely a bug"
+         "words": "a",
+         "at": 11,
+         "gives": "A"
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "endless",
-           "note": "endless means without its end, so the final letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "fruit",
-           "gives": "BERRY",
-           "note": "a berry is a small fruit; it loses its last letter"
-          },
-          {
-           "gives": "Y"
-          }
-         ]
+         "words": "bug",
+         "at": 13,
+         "gives": "ANT",
+         "note": "an ant is an insect, a bug"
         }
        ]
       },
       {
-       "words": "a",
-       "note": "taken as written"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 21,
+         "note": "endless means the last letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruit",
+         "at": 29,
+         "gives": "BERRY",
+         "note": "a berry is a fruit"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An odd case: an insect eating fruit with its ends nibbled off.",
-     "walkthrough": "The trimmed fruit goes between the A and the ANT, as if fed into the pair.",
-     "definitionFit": "Aberrant means departing from the normal or expected course, which is what anomalous describes."
+     "surface": "An insect unusually feeding on a piece of fruit.",
+     "definitionFit": "Aberrant means departing from the normal or expected, the same as anomalous."
     },
     "features": {
      "answerInScene": false,
@@ -1043,43 +1047,46 @@
    "annotation": {
     "definitions": [
      {
-      "text": "flier?",
+      "text": "flier",
       "at": 39
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "anagram of",
-       "note": "the setter names the device outright, asking for the quoted word's letters rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "anagram of",
+         "at": 17,
+         "note": "the clue openly asks for a rearrangement of the quoted word"
+        }
+       ],
        "parts": [
         {
-         "words": "'Chile'",
-         "note": "the five letters of the country rearranged"
-        },
-        {
-         "words": "Someone choosing",
-         "gives": "OPTER",
-         "note": "one who opts, a chooser"
+         "words": "Chile",
+         "at": 29
         }
        ]
+      },
+      {
+       "words": "Someone choosing",
+       "at": 0,
+       "gives": "OPTER",
+       "note": "an opter is one who opts, someone choosing"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone picks an anagram of Chile on a printed flyer.",
-     "walkthrough": "'Flier' looks like a leaflet; it is anything that flies. The two parts appear in the answer in reverse clue order.",
-     "definitionFit": "A helicopter is a rotor-driven aircraft, so something that flies; the question mark flags the loose definition."
+     "surface": "A voter picking a word puzzle about Chile printed in a leaflet.",
+     "walkthrough": "'flier' looks like a leaflet; it is an aircraft.",
+     "definitionFit": "A helicopter is a rotary-winged aircraft, so it is something that flies."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "flier"
     }
    }

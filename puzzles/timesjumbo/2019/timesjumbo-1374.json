@@ -2080,46 +2080,49 @@
      "indicators": [
       {
        "text": "holding",
-       "note": "to hold is to keep inside, so the pieces go between the others"
+       "at": 11,
+       "note": "holding means the first piece contains the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Golf clubs",
-         "gives": "WOODSPOON",
-         "note": "a wood and a spoon, the spoon being an old name for a lofted wooden club"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
-        }
-       ]
+       "words": "Golf clubs",
+       "at": 0,
+       "gives": "WOODSPOON",
+       "note": "a wood and a spoon are both golf clubs, the spoon an old name for a lofted wood"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "finally points to the closing letter of the word before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Open",
-         "note": "the final letter of open"
+         "words": "English",
+         "at": 19,
+         "gives": "E"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 33,
+           "note": "finally asks for the final letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Open",
+           "at": 27
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Golfers' bags at the English Open, carried by players avoiding last place.",
-     "walkthrough": "A wooden spoon is the booby prize for finishing last, especially in rugby's Six Nations.",
-     "definitionFit": "The joke trophy goes to whoever comes bottom, so no competitor wants to win it."
+     "surface": "Golfers' clubs at the English Open championship.",
+     "walkthrough": "'English Open' looks like the name of a golf tournament, but it gives E and the last letter of Open.",
+     "definitionFit": "The wooden spoon is the booby prize for coming last, which no competitor hopes to win."
     },
     "features": {
      "answerInScene": true,
@@ -2274,51 +2277,57 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the first piece surrounds the rest"
+       "at": 10,
+       "note": "about means going around the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Moderated",
+       "at": 0,
+       "gives": "ABATED",
+       "note": "abated means lessened or moderated"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "being held up",
+         "at": 35,
+         "note": "in a down clue, held up means raised so the letters read from the bottom upwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Moderated",
-         "gives": "ABATED",
-         "note": "abated means lessened, moderated"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "being held up",
-           "note": "in a down entry, held up means raised from bottom to top, so read backwards"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
+           "words": "one",
+           "at": 16,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          },
+          {
            "words": "part of speech",
+           "at": 20,
            "gives": "VERB",
            "note": "a verb is a part of speech"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral one"
       }
      ]
     },
     "explanation": {
-     "surface": "A toned-down speech is held up because it was cut short.",
-     "definitionFit": "Abbreviated means shortened, the same sense as the phrase meaning briefly."
+     "surface": "A grammar lesson delayed while discussion is toned down.",
+     "walkthrough": "'in short' at the end looks like a link phrase but is the definition; 'Moderated' is the container, not the definition.",
+     "definitionFit": "Abbreviated means shortened, so something abbreviated is given in short form."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "speech"
+     "misdirectedWord": "held"
     }
    }
   },

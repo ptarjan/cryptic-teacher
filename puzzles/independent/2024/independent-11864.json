@@ -1181,57 +1181,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FLAMENCO",
+     "op": "container",
      "indicators": [
       {
-       "text": "flying",
-       "note": "a bird flying swoops about, so its letters are scattered into a new order"
+       "text": "round",
+       "at": 14,
+       "note": "round means the shuffled letters surround the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "round",
-         "note": "going round something encloses it, so one piece sits inside the other"
+         "text": "flying",
+         "at": 7,
+         "note": "flying suggests letters scattered in the air, so they are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Falcon",
-         "note": "the six letters of the bird, rearranged"
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 20,
+         "note": "half of keeps two of the four letters, here the second pair"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rome",
+         "at": 28
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "ME",
-         "indicators": [
-          {
-           "text": "half of",
-           "note": "half of a four-letter word keeps two of its letters, here the second pair"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Rome",
-           "gives": "ME",
-           "select": "last",
-           "note": "the back half of the city's name"
-          }
-         ]
+         "gives": "RO"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A falcon circling over the famous Spanish Steps in Rome.",
-     "walkthrough": "The Spanish Steps are a landmark in Rome, but here 'steps' are dance moves from Spain.",
-     "definitionFit": "Flamenco is the passionate Andalusian dance, so its footwork is literally Spanish steps."
+     "surface": "A falcon circling over Rome's famous Spanish Steps.",
+     "walkthrough": "The Spanish Steps are a stairway in Rome, but here they are dance steps from Spain; the question mark flags this.",
+     "definitionFit": "Flamenco is the Andalusian dance, so its moves are literally Spanish steps."
     },
     "features": {
      "answerInScene": false,
@@ -1564,53 +1563,58 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places one piece within the other"
+       "at": 10,
+       "note": "in puts the note and one inside the shortened key"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 18,
+         "note": "mostly means all but the last letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means all but the last bit, so the end letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "key",
-           "gives": "ATOLL",
-           "note": "a key or cay is a low island, as is an atoll; it loses its last letter"
-          },
-          {
-           "gives": "L"
-          }
-         ]
+         "words": "key",
+         "at": 13,
+         "gives": "ATOLL",
+         "note": "a key, or cay, is a low island; an atoll is a coral one"
         },
         {
-         "words": "Note",
-         "gives": "N",
-         "note": "N is short for note"
+         "gives": "L"
         }
        ]
       },
       {
-       "words": "one",
-       "gives": "A",
-       "note": "a means one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Note",
+         "at": 0,
+         "gives": "N",
+         "note": "N is short for note, as in an IOU"
+        },
+        {
+         "words": "one",
+         "at": 6,
+         "gives": "A",
+         "note": "a means one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A musical note that is partly in the right key, or not at all.",
-     "walkthrough": "'Key' twice suggests music, but the first one is a small island.",
-     "definitionFit": "Atonal music has no key or tonal centre, so it is not written in any key."
+     "surface": "A musical comment on a note that is mostly, or wholly, out of key.",
+     "walkthrough": "The first 'key' is an island, the second is musical.",
+     "definitionFit": "Atonal music is written without a tonal centre, that is, not in any musical key."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "key"

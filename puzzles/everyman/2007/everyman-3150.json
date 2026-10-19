@@ -645,40 +645,43 @@
      "indicators": [
       {
        "text": "locked in",
-       "note": "things locked in a place are shut inside it, so the earlier pieces go inside"
+       "at": 25,
+       "note": "locked in means enclosed within the warehouse word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "warehouse",
-         "gives": "STORE",
-         "note": "a store is a warehouse"
-        },
-        {
-         "words": "Adam's mate",
-         "gives": "EVE",
-         "note": "Eve was Adam's partner in Genesis"
-        }
-       ]
+       "words": "warehouse",
+       "at": 35,
+       "gives": "STORE",
+       "note": "a store is a warehouse"
       },
       {
-       "words": "daughter",
-       "gives": "D",
-       "note": "D is the abbreviation for daughter"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Adam's mate",
+         "at": 0,
+         "gives": "EVE",
+         "note": "Eve was Adam's partner in Genesis"
+        },
+        {
+         "words": "daughter",
+         "at": 16,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Eve and her daughter shut in a warehouse along with a docker.",
-     "definitionFit": "A stevedore loads and unloads ships, a dock worker by another name."
+     "surface": "Eve and her daughter trapped in a dockside warehouse.",
+     "definitionFit": "A stevedore is a docker who loads and unloads ships, a dock worker."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "mate"
+     "misdirectedWord": "locked"
     }
    }
   },
@@ -934,39 +937,43 @@
      "indicators": [
       {
        "text": "used during",
-       "note": "something used during an event happens inside it, so these pieces go within"
+       "at": 16,
+       "note": "used during means put in the middle of, so the next pieces go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "escape",
-         "gives": "FLIGHT",
-         "note": "flight is fleeing, an escape"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "escape",
+       "at": 28,
+       "gives": "FLIGHT",
+       "note": "flight is fleeing, an escape"
       },
       {
-       "words": "knight",
-       "gives": "N",
-       "note": "N is the chess notation for knight"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 7,
+         "gives": "A"
+        },
+        {
+         "words": "knight",
+         "at": 9,
+         "gives": "N",
+         "note": "N is the chess notation for knight"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A knight climbs out through a window to make his getaway.",
-     "definitionFit": "A fanlight is a small, often semicircular window above a door."
+     "surface": "A knight escaping through a window.",
+     "definitionFit": "A fanlight is a small semicircular window above a door, its glazing bars often spread like a fan."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "escape"
+     "misdirectedWord": "during"
     }
    }
   },
