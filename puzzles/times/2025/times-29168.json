@@ -1608,12 +1608,23 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "going north"
-      }
-     ],
      "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going north",
+         "note": "going north in a down clue means the letters run from the bottom up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Encountered",
+         "gives": "MET",
+         "note": "met = encountered"
+        }
+       ]
+      },
       {
        "op": "reversal",
        "indicators": [
@@ -1624,19 +1635,9 @@
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "work",
-           "gives": "OP",
-           "note": "op = opus, a work"
-          },
-          {
-           "words": "Encountered",
-           "gives": "MET",
-           "note": "met = encountered"
-          }
-         ]
+         "words": "work",
+         "gives": "OP",
+         "note": "op = opus, a work"
         }
        ]
       }
