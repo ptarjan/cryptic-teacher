@@ -448,56 +448,72 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ROBINGOODFELLOW",
-     "indicators": [
-      {
-       "text": "trading",
-       "note": "trading one thing for another swaps them, so a letter is exchanged in the outlaw's name"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Outlaw",
-       "gives": "ROBINHOOD",
-       "note": "Robin Hood, the outlaw of Sherwood Forest"
-      },
-      {
-       "words": "horse",
-       "gives": "H",
-       "note": "H is slang for heroin, itself called horse"
-      },
-      {
-       "words": "gallon",
-       "gives": "G",
-       "note": "G is the abbreviation for gallon"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "trading",
+         "at": 7,
+         "note": "trading means exchanging, so one letter of the outlaw's name is swapped out"
+        },
+        {
+         "text": "for",
+         "at": 21,
+         "note": "for says what the horse's letter is traded for: the gallon's letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Outlaw",
+         "at": 0,
+         "gives": "ROBINHOOD",
+         "note": "Robin Hood is the legendary outlaw of Sherwood Forest"
+        },
+        {
+         "words": "horse",
+         "at": 15,
+         "gives": "H",
+         "note": "horse is slang for heroin, abbreviated H"
+        },
+        {
+         "words": "gallon",
+         "at": 25,
+         "gives": "G"
+        }
+       ]
       },
       {
        "words": "to down",
+       "at": 48,
        "gives": "FELL",
        "note": "to fell is to knock down"
       },
       {
        "words": "o'",
-       "note": "the shortened of, taken as written"
+       "at": 32,
+       "gives": "O",
+       "note": "o' is a clipped of, standing for the letter O"
       },
       {
        "words": "whiskey",
+       "at": 34,
        "gives": "W",
-       "note": "Whiskey is W in the NATO alphabet"
+       "note": "Whiskey is the NATO phonetic alphabet word for W"
       }
      ]
     },
     "explanation": {
-     "surface": "An outlaw swaps his horse for a gallon of whiskey and drinks it.",
-     "walkthrough": "Swap the H of Robin Hood for G to get ROBIN GOOD, then add FELL, O and W.",
-     "definitionFit": "Robin Goodfellow is the mischievous sprite of English folklore, better known as Puck."
+     "surface": "A rogue swaps his horse for a gallon of whiskey and is about to knock back the spirit.",
+     "walkthrough": "Swapping H for G turns ROBIN HOOD into ROBIN GOOD; FELL then OW follow. 'spirit' looks like the whiskey but is the definition: Robin Goodfellow is Puck, the mischievous sprite of English folklore.",
+     "definitionFit": "Robin Goodfellow is another name for Puck, a sprite or hobgoblin of English folklore and A Midsummer Night's Dream."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "horse"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
     }
    }
   },
