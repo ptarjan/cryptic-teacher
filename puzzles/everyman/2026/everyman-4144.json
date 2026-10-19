@@ -358,8 +358,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "Most of",
-       "note": "Most of a word is nearly all of it, which in practice means every letter but the last one."
+       "text": "picked up",
+       "at": 16,
+       "note": "in a down clue, picked up means the letters are read from bottom to top, so backwards"
       }
      ],
      "parts": [
@@ -367,36 +368,34 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "picked up",
-         "note": "Picked up means lifted, and a down entry read from the bottom upwards delivers its letters in the opposite order."
+         "text": "Most of",
+         "at": 0,
+         "note": "most of a word means all but its last letter is kept"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "logbook",
-           "gives": "DIARY",
-           "note": "A logbook is filled in day by day, which is what a diary is for."
-          },
-          {
-           "words": "logbook",
-           "gives": "DIAR",
-           "note": "Take all but the final letter of those five and four are left to turn round."
-          }
-         ]
+         "words": "logbook",
+         "at": 8,
+         "gives": "DIARY",
+         "note": "a diary is a daily logbook"
         },
         {
-         "gives": "DIARY"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Picked up' reads as gossip overheard, which is how it slips past as an instruction — and in a down clue it can only mean read the letters upwards.",
-     "definitionFit": "A raid is a sudden descent by police on premises, so 'police swoop' is the newspaper phrase for exactly that operation."
+     "surface": "Part of a log book is retrieved during a police operation.",
+     "walkthrough": "DIARY loses its last letter to give DIAR, which 'picked up' turns backwards in this down entry.",
+     "definitionFit": "A raid is a sudden surprise visit by officers to search premises or make arrests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
     }
    }
   },
@@ -464,20 +463,33 @@
      }
     ],
     "wordplay": {
-     "op": "reverse",
-     "reading": "O INK",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "why",
+       "at": 17,
+       "note": "why poses the riddle whose answer is spelt out by joining the two pieces"
+      }
+     ],
      "parts": [
       {
-       "words": "why pen no use",
-       "at": 17,
-       "note": "split the answer after its first letter: a round nought followed by the fluid a writing pen needs, which explains why the pen fails"
+       "words": "no",
+       "at": 25,
+       "gives": "O",
+       "note": "O is a nought, nothing, so it can stand for no"
+      },
+      {
+       "words": "use",
+       "at": 28,
+       "gives": "INK",
+       "note": "the use a writing pen makes, what it puts on paper, is ink"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzled writer asks why the pen will not work.",
-     "walkthrough": "'pen' appears twice in two senses: a pigsty in the definition and a writing pen in the question. Split the answer as O plus INK, nought ink, and it answers the question.",
-     "definitionFit": "A pig grunts with this noise, and a pen is the enclosure where pigs are kept, so it comes from a sty."
+     "surface": "A riddle about why a writing pen has stopped working.",
+     "walkthrough": "The riddle's answer is 'no ink': O for no, then INK. The first 'pen' is a pigsty, the second a writing tool.",
+     "definitionFit": "A pig in its sty grunts, and the grunt is written as this word."
     },
     "features": {
      "answerInScene": false,

@@ -1197,8 +1197,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "thus",
-      "at": 43
+      "text": "Knight covered with no clothes at front is thus",
+      "at": 0
      }
     ],
     "wordplay": {
@@ -1206,49 +1206,56 @@
      "parts": [
       {
        "words": "Knight",
+       "at": 0,
        "gives": "N",
-       "note": "N = knight in chess notation, since K is the king"
+       "note": "N is the chess notation for knight"
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "at front",
-         "note": "takes the cut letters out of the word"
+         "text": "with no",
+         "at": 15,
+         "note": "with no says a letter is removed from the covered word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "covered",
-           "gives": "CAKED",
-           "note": "caked in mud = covered in it"
-          },
-          {
-           "words": "with no clothes",
-           "gives": "AKED",
-           "note": "CAKED without its first letter, the C of 'clothes'"
-          }
-         ]
+         "words": "covered",
+         "at": 7,
+         "gives": "CAKED",
+         "note": "caked means covered, as with mud"
         },
         {
-         "gives": "CAKED"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at front",
+           "at": 31,
+           "note": "at front means the first letter of the word clothes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "clothes",
+           "at": 23,
+           "note": "first letter of clothes"
+          }
+         ]
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A knight wearing nothing but a coat of mud is in the altogether.",
-     "walkthrough": "'Thus' points back at the whole picture: a knight with no clothes is naked, so the clue is half its own definition. 'No clothes at front' strips the C (first of 'clothes') off CAKED.",
-     "definitionFit": "'Thus' means in the state just described, and a knight with no clothes is naked."
+     "surface": "A knight with only a covering and no clothes on is in this state.",
+     "walkthrough": "The whole clue also describes the answer: a knight left with no clothes is in this state.",
+     "definitionFit": "Naked means wearing no clothes, just as the knight is described."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd",
      "misdirectedWord": "covered"
     }
    }
@@ -1335,38 +1342,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "middle",
      "indicators": [
       {
        "text": "not top or tail",
-       "note": "the top and tail are the first and last letters, both removed"
+       "at": 3,
+       "note": "not top or tail means the first and last letters are dropped"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Do",
-         "gives": "SHINDIG",
-         "note": "a do is a party, a shindig"
-        },
-        {
-         "words": "not top or tail",
-         "gives": "HINDI",
-         "note": "SHINDIG without S and G"
-        }
-       ]
-      },
-      {
-       "gives": "SHINDIG"
+       "words": "Do",
+       "at": 0,
+       "gives": "SHINDIG",
+       "note": "a shindig is a lively party, a do"
       }
      ]
     },
     "explanation": {
-     "surface": "An order not to trim a joint of meat at either end, or to eat the tongue.",
-     "walkthrough": "'Do not' reads as a command, but 'Do' is the party noun and 'not top or tail' strips its ends.",
-     "definitionFit": "A definition by example: 'tongue' in its sense of a language, and Hindi, the main language of northern India, is one."
+     "surface": "An instruction not to trim the top or tail of something, as with vegetables.",
+     "walkthrough": "'Do not' looks like an instruction; Do is a party noun here.",
+     "definitionFit": "Hindi is a language of India, and tongue means a language."
     },
     "features": {
      "answerInScene": false,

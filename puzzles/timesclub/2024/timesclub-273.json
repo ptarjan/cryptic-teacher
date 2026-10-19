@@ -46,41 +46,30 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "anagram",
      "indicators": [
       {
        "text": "left a little late",
-       "note": "the letter for left is set down slightly later in the word than where it began, one place further along"
+       "at": 16,
+       "note": "left is the letter for left, here shifted to arrive a little later in the word, one place further along"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "Chicken brood",
-         "gives": "CLUTCH",
-         "note": "a clutch is a set of eggs or chicks hatched together"
-        },
-        {
-         "gives": "L"
-        }
-       ]
-      },
-      {
-       "words": "left",
-       "gives": "L",
-       "note": "L is the standard abbreviation for left"
+       "words": "Chicken brood",
+       "at": 0,
+       "gives": "CLUTCH",
+       "note": "a clutch is a brood of chicks"
       }
      ]
     },
     "explanation": {
-     "surface": "A hen's chicks have been left a little late in a nest made of shells and grit.",
-     "walkthrough": "Take the L out of CLUTCH and put it back one letter later, after the U, to get CULTCH.",
-     "definitionFit": "Cultch is the mass of old shells, stones and grit spread on an oyster bed for spat to settle on."
+     "surface": "A hen's brood wandered off a bit late into a gravel bed.",
+     "walkthrough": "Only one letter moves: the left letter of the brood word slips one place along, past the vowel.",
+     "definitionFit": "Cultch is the material of shells and gravel spread to make an oyster bed."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "left"
     }
@@ -825,35 +814,39 @@
      "indicators": [
       {
        "text": "between",
-       "note": "something between two others is placed inside them"
+       "at": 48,
+       "note": "between says the reversed letters go between the two siblings"
       }
      ],
      "parts": [
       {
        "words": "siblings familiarly",
+       "at": 56,
        "gives": "BROSIS",
-       "note": "bro and sis are the familiar forms of brother and sister"
+       "note": "bro and sis are familiar words for brother and sister"
       },
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "at": 39,
+         "note": "recalled says these words are called back, read the other way"
+        }
+       ],
        "parts": [
         {
-         "words": "or",
-         "note": "taken as written"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "recalled",
-           "note": "recalled means called back, so the words are read backwards"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
+           "words": "or",
+           "at": 29
+          },
+          {
            "words": "faint",
+           "at": 32,
            "gives": "DIM",
-           "note": "dim means faint, as in a dim light"
+           "note": "dim means faint"
           }
          ]
         }
@@ -862,12 +855,11 @@
      ]
     },
     "explanation": {
-     "surface": "Something gives off a smell that is either strong or faint, as brother and sister remember it.",
-     "walkthrough": "Strong looks like it belongs with or faint as a pair of choices, but it ends the definition.",
-     "definitionFit": "Bromidrosis is a medical term for sweat that smells foul, the source of strong body odour."
+     "surface": "A strong or faint whiff blamed on a brother and sister.",
+     "definitionFit": "Bromidrosis is foul-smelling sweat, a medical condition behind body odour."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "faint"
     }
