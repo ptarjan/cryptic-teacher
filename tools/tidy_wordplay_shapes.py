@@ -93,6 +93,7 @@ FIELDS = {
     "wordplay.truncInLeaf": lambda ann: V.trunc_in_leaf(ann.get("wordplay")),
     "wordplay.cutNoteLeaf": lambda ann: V.cut_note_leaf(ann.get("wordplay")),
     "wordplay.ownIndInLeaf": lambda ann: V.own_ind_in_leaf(ann.get("wordplay")),
+    "wordplay.selectorAsCut": lambda ann: V.selector_as_cut(ann.get("wordplay")),
 }
 #: Fields whose finding places words in the clue, so counts() hands them its text.
 NEEDS_CLUE = {"wordplay.deletionInside", "wordplay.anagramSynonym", "wordplay.poolGap",

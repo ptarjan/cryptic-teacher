@@ -272,6 +272,8 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                       "give the whole word and cut it with a deletion op carrying that indicator",
        "cutNoteLeaf": "a leaf gives a non-word that its note says is a real word with letters cut: give the real "
                       "word and show the cut as a deletion op with its indicator",
+       "selectorAsCut": "a deletion removes a leaf made of a first/last-letter word (leader, City's first): write the "
+                        "removed letter as a first/last pick with its own indicator",
        "ownIndInLeaf": "an op's own indicator words also sit inside its leaf (French way back under rev<back>): "
                        "the leaf holds only the words that give its letters",
        "splitSharedIndicator": "two neighbouring same-kind ops share one indicator, only one carrying it: write "
@@ -330,6 +332,7 @@ def _validator_rules():
             "truncInLeaf": lambda t, a, c: V.trunc_in_leaf(t),
             "cutNoteLeaf": lambda t, a, c: V.cut_note_leaf(t),
             "ownIndInLeaf": lambda t, a, c: V.own_ind_in_leaf(t),
+            "selectorAsCut": lambda t, a, c: V.selector_as_cut(t),
             "movedLetter": lambda t, a, c: V.moved_letters(t),
             "indInLeaf": lambda t, a, c: V.ind_in_leaf(t, c),
             # A step taken as filed that tools/clear_unchecked.py could not verify:
