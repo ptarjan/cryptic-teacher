@@ -272,40 +272,45 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "LINEMAN",
-     "indicators": [
-      {
-       "text": "cycling",
-       "note": "going round in a cycle moves letters from the front around to the back"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
+       "at": 14,
+       "gives": "L"
       },
       {
-       "words": "Maine",
-       "note": "taken as written"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 25,
+         "note": "cycling moves letters round from the front of the word to its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Maine",
+         "at": 19
+        }
+       ]
       },
       {
        "words": "north",
-       "gives": "N",
-       "note": "N is the abbreviation for north"
+       "at": 33,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "An American football player quits Maine and rides a bike northwards.",
-     "walkthrough": "The state's first letter moves round to its end, giving INEMA between the two abbreviations.",
-     "definitionFit": "In American football a lineman is a player who lines up at the line of scrimmage, blocking or rushing."
+     "surface": "A footballer quit the state of Maine on a bike ride heading north.",
+     "walkthrough": "Cycling Maine moves its MA to the end, giving INEMA between L and N.",
+     "definitionFit": "In American football a lineman plays on the line of scrimmage, blocking or tackling."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "cycling"
     }
    }
@@ -866,48 +871,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OPERATIVE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not quite",
-       "note": "something not quite complete falls just short, so the final letter goes"
+       "text": "Anagram of",
+       "at": 0,
+       "note": "the clue says outright that the letters are to be rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Evita",
+       "at": 11
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Anagram of",
-         "note": "the clue literally says to rearrange what follows, a blunt instruction"
+         "text": "not quite",
+         "at": 23,
+         "note": "not quite means falling short at the end, so the last letter of Peron goes"
         }
        ],
        "parts": [
         {
-         "words": "Evita",
-         "note": "taken as written"
+         "words": "Peron",
+         "at": 17
         },
         {
-         "words": "Peron",
-         "gives": "PERO",
-         "note": "the surname without its last letter"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mocking a jumbled Evita Peron as not quite effective.",
-     "walkthrough": "The clue is cheekily honest: it really says anagram, which feels too obvious to be the instruction. Eva Perón, known as Evita, was Argentina's first lady.",
-     "definitionFit": "Operative can mean in force and having effect, so it shares the sense of producing a desired result."
+     "surface": "A description of the musical Evita as a fairly effective study of Eva Peron.",
+     "walkthrough": "EVITA and PERO (Peron less its N) are rearranged.",
+     "definitionFit": "Operative means in effect and working, so it shares the sense of producing results."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "Anagram"
+     "aptDefinition": false
     }
    }
   },

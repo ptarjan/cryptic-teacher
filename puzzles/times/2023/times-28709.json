@@ -46,42 +46,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "JUMBLE",
-     "indicators": [
-      {
-       "text": "Abridged",
-       "note": "an abridged text has been cut short, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Abridged",
+         "at": 0,
+         "note": "abridged means shortened, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "huge",
-         "gives": "JUMB",
-         "note": "JUMBO means huge; shortened by one letter"
+         "at": 9,
+         "gives": "JUMBO",
+         "note": "jumbo means huge, as in a jumbo jet"
         },
         {
-         "words": "article in French",
-         "gives": "LE",
-         "note": "LE is the French masculine definite article"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "article in French",
+       "at": 14,
+       "gives": "LE",
+       "note": "le is the French masculine definite article"
       }
      ]
     },
     "explanation": {
-     "surface": "A shortened and garbled French text leaves its reader muddled.",
-     "walkthrough": "JUMBO is the word for huge that gets cut short, and 'article in French' could be LE, LA or UN; LE fits.",
-     "definitionFit": "A disordered mess or heap is a state of muddle, so the noun works as a synonym."
+     "surface": "A massive piece of writing, cut down and in French, leaves readers bewildered.",
+     "walkthrough": "JUMBO is cut to JUMB, then joined by LE.",
+     "definitionFit": "A jumble is a muddled mess, a state of disorder."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Abridged"
+     "misdirectedWord": "article"
     }
    }
   },
@@ -165,42 +169,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MUSICHALL",
+     "op": "container",
      "indicators": [
       {
-       "text": "closed early",
-       "note": "something closed early stops before its end, so the word loses its last letter"
+       "text": "in",
+       "at": 8,
+       "note": "in places the following pieces within the island's name"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "one thing placed in another sits inside it, so what follows is enclosed by the word before"
-        }
-       ],
+       "words": "Scottish island",
+       "at": 11,
+       "gives": "MULL",
+       "note": "Mull is an island of the Inner Hebrides"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Scottish island",
-         "gives": "MULL",
-         "note": "Mull is an island of the Inner Hebrides"
+         "words": "thus",
+         "at": 27,
+         "gives": "SIC",
+         "note": "sic is Latin for thus, used to mark a quotation as written"
         },
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "closed early",
+           "at": 36,
+           "note": "something closed early stops before its end, so the last letter goes"
+          }
+         ],
          "parts": [
           {
-           "words": "thus",
-           "gives": "SIC",
-           "note": "Latin sic, meaning thus"
+           "words": "has",
+           "at": 32
           },
           {
-           "words": "has",
-           "gives": "HA",
-           "note": "the word with its final letter removed"
+           "gives": "S"
           }
          ]
         }
@@ -209,9 +217,9 @@
      ]
     },
     "explanation": {
-     "surface": "A Scottish island theatre has shut up shop ahead of time.",
-     "walkthrough": "The island is the outer piece and the rest goes inside it; 'thus' is the Latin word printers use to mark a quoted error as original.",
-     "definitionFit": "A music hall is a venue for variety entertainment, a kind of popular theatre in Victorian Britain."
+     "surface": "A playhouse on a Scottish island has accordingly shut early.",
+     "walkthrough": "Mull is a large island off Scotland's west coast; sic is the Latin for thus that editors print after a quoted error.",
+     "definitionFit": "A music hall is a theatre staging variety entertainment, popular in Victorian Britain."
     },
     "features": {
      "answerInScene": true,
@@ -362,28 +370,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FAIRDOS",
-     "indicators": [
-      {
-       "text": "a shortage of",
-       "note": "a shortage means something is missing, so the word comes up one letter short"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "just",
+       "at": 22,
+       "gives": "FAIR",
+       "note": "just means fair, even-handed"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a shortage of",
+         "at": 27,
+         "note": "a shortage means something falls short, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "just",
-         "gives": "FAIR",
-         "note": "just means fair"
+         "words": "medicine",
+         "at": 41,
+         "gives": "DOSE",
+         "note": "a dose is a measure of medicine"
         },
         {
-         "words": "medicine",
-         "gives": "DOS",
-         "note": "a DOSE of medicine, missing its last letter"
+         "gives": "E"
         }
        ]
       }
@@ -391,14 +403,14 @@
     },
     "spelling": "FAIR DO'S",
     "explanation": {
-     "surface": "A patient complains of fair care but too little medicine.",
-     "walkthrough": "Fair dos (or fair do's) is British slang for fair treatment, a fair share.",
-     "definitionFit": "The British idiom asks for equitable dealing, so it names reasonable, even-handed conduct toward someone."
+     "surface": "Fairness asks whether there is simply not enough medicine to go round.",
+     "walkthrough": "Fair dos is British slang, an appeal for fair treatment. DOSE runs short, leaving DOS.",
+     "definitionFit": "Fair dos, a British colloquial phrase, means equitable dealing, a fair share for everyone."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "just"
+     "misdirectedWord": "medicine"
     }
    }
   },

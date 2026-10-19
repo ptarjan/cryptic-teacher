@@ -1726,51 +1726,70 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "DOTE",
-     "indicators": [
-      {
-       "text": "To a Morse aficionado",
-       "note": "someone fluent in Morse code hears a letter as its pattern of dots and dashes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "To a Morse aficionado",
+         "at": 0,
+         "note": "in Morse code the letter E is a single dot, so a fan of Morse reads it as that symbol"
+        }
+       ],
        "parts": [
         {
-         "words": "Endeavour's first",
-         "gives": "DOT",
-         "note": "the first letter of Endeavour is E, which in Morse code is a single dot"
-        },
-        {
-         "op": "last",
+         "op": "first",
          "indicators": [
           {
-           "text": "ending",
-           "note": "the ending of a word is its final letter, so only that is kept"
+           "text": "first",
+           "at": 35,
+           "note": "first points to the opening letter of Endeavour"
           }
          ],
          "parts": [
           {
-           "words": "episode's",
-           "gives": "EPISODE",
-           "note": "the last letter of episode"
+           "words": "Endeavour's",
+           "at": 23,
+           "note": "its first letter is used"
           }
          ]
+        },
+        {
+         "gives": "E"
+        },
+        {
+         "gives": "DOT"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending",
+         "at": 51,
+         "note": "the ending of a word is its last letter, here of episode"
+        }
+       ],
+       "parts": [
+        {
+         "words": "episode's",
+         "at": 41,
+         "gives": "EPISODE",
+         "note": "its last letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fan of Inspector Morse finds the first episode of the prequel Endeavour sentimental.",
-     "walkthrough": "Endeavour is the TV prequel to Inspector Morse, which makes 'Morse' look like the detective; it is the telegraph code.",
-     "definitionFit": "To dote is to be foolishly or excessively fond of someone, a weak, soft-headed kind of affection."
+     "surface": "A fan of the TV detective Morse finds Endeavour's first episode ends rather soppily.",
+     "walkthrough": "Endeavour is the prequel series to Inspector Morse, the British TV detective drama. In Morse code E is one dot, so Endeavour's first letter becomes DOT; episode's ending adds E.",
+     "definitionFit": "To dote is to be excessively or foolishly fond of someone, an affection without restraint."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Morse"
