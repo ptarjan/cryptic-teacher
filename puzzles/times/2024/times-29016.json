@@ -1440,50 +1440,54 @@
      "indicators": [
       {
        "text": "hosting",
-       "note": "a host has guests inside, so one piece contains others"
+       "at": 7,
+       "note": "hosting means holding guests, so nine contains the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Figure",
-         "gives": "NINE",
-         "note": "nine is a number, a figure"
-        },
-        {
-         "words": "company",
-         "gives": "CO",
-         "note": "Co is the abbreviation for company"
-        }
-       ]
+       "words": "Figure",
+       "at": 0,
+       "gives": "NINE",
+       "note": "nine is a figure, a number"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "knocked back",
-         "note": "back means backwards, so the letters run in reverse"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "vermouth",
-         "gives": "IT",
-         "note": "It is short for Italian vermouth, as in gin and It"
+         "words": "company",
+         "at": 15,
+         "gives": "CO"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "knocked back",
+           "at": 23,
+           "note": "knocked back means the drink's letters are read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "vermouth",
+           "at": 36,
+           "gives": "IT",
+           "note": "it is Italian vermouth, as in gin and it"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A character in company downs a vermouth and finds it habit-forming.",
-     "walkthrough": "'Knocked back' suggests drinking the vermouth; in gin and It, It means Italian vermouth.",
-     "definitionFit": "The alkaloid in tobacco is the substance that makes smoking habit-forming, so it is a dependency-causing chemical."
+     "surface": "A person entertains friends who down vermouth, hooked on the drink.",
+     "walkthrough": "'knocked back' suggests drinking, but it reverses IT to TI. NI + CO + TI + NE.",
+     "definitionFit": "Nicotine is the alkaloid in tobacco that makes smoking habit-forming."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "knocked"
     }
