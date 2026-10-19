@@ -159,11 +159,16 @@ def _kept(question, answer):
         with os.fdopen(fd, "w") as f:
             json.dump(kept, f)
         os.replace(tmp, path)
-        for old in STORE.iterdir():
-            if old.stat().st_mtime < time.time() - PRUNE_DAYS * 86400:
-                old.unlink(missing_ok=True)
     except OSError as e:
         print(f"code_reach: {path} not written: {e}", file=sys.stderr)
+        return out
+    for old in STORE.iterdir():
+        # Another process's .tmp is replaced or removed under this loop.
+        try:
+            if old.stat().st_mtime < time.time() - PRUNE_DAYS * 86400:
+                old.unlink(missing_ok=True)
+        except OSError:
+            pass
     return out
 
 
