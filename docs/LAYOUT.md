@@ -1129,6 +1129,9 @@ tools/progress_record.py                       writes that history: `record` nig
                                                build overlays today's filed, solved and hinted
                                                from its own index at every deploy
 tools/data/progress.json                       tools/progress.py's history, one day a line
+tools/data/progress_fetching.json              where the Gale downloader is (paper, year, pages
+                                               left), saved nightly by progress_record.py for
+                                               the /progress queues line
 tools/test_progress.py                         does /progress/ date each phase, carry the
                                                ledger's counts to today, pace by days rather
                                                than points, and draw every chart?
