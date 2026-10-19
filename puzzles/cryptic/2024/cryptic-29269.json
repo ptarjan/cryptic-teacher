@@ -218,49 +218,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MULTIMEDIA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is lost"
+       "text": "rubbished",
+       "at": 42,
+       "note": "rubbished means trashed or broken up, so the collected letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "I",
+       "at": 19,
+       "note": "taken as written"
+      },
+      {
+       "words": "edit",
+       "at": 21,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "rubbished",
-         "note": "something rubbished has been trashed and thrown about, so these letters are jumbled"
+         "text": "almost",
+         "at": 27,
+         "note": "almost means not quite all, so the last letter of all is dropped"
         }
        ],
        "parts": [
         {
-         "words": "I edit",
-         "note": "taken as written"
-        },
-        {
          "words": "all",
-         "gives": "AL",
-         "note": "all without its last letter"
+         "at": 34
         },
         {
-         "words": "mum",
-         "note": "taken as written"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "mum",
+       "at": 38,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A video editor complains that mum trashed nearly all the sound and pictures they cut.",
-     "definitionFit": "Multimedia presentations combine audio, video and graphics, so sounds plus visuals describes the format."
+     "surface": "An editor complains that their mother pulled apart most of the audio-visual work they did.",
+     "walkthrough": "'almost' trims ALL to AL; I, EDIT, AL and MUM together are then rearranged as signalled by 'rubbished'.",
+     "definitionFit": "Multimedia combines audio and visual content such as sound, video and graphics."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "rubbished"
     }
    }
@@ -1441,40 +1451,44 @@
      "indicators": [
       {
        "text": "filling",
-       "note": "a filling goes inside a sandwich, so these letters go inside"
+       "at": 21,
+       "note": "a filling goes inside, so a and good go into the sandwich"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Sandwich",
-         "gives": "PANINI",
-         "note": "an Italian grilled sandwich"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Sandwich",
+       "at": 0,
+       "gives": "PANINI",
+       "note": "a panini is an Italian toasted sandwich"
       },
       {
-       "words": "good",
-       "gives": "G",
-       "note": "G is the abbreviation for good"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 14,
+         "gives": "A"
+        },
+        {
+         "words": "good",
+         "at": 16,
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An excellent filled sandwich worthy of a master.",
-     "walkthrough": "A and G sit inside PANINI, after its first letter.",
-     "definitionFit": "Niccolò Paganini was the celebrated Italian violin virtuoso."
+     "surface": "A nicely filled sandwich is offered to a star performer.",
+     "walkthrough": "'filling' works as in a sandwich filling: A and G go inside PANINI.",
+     "definitionFit": "Niccolò Paganini was the celebrated Italian violinist, the classic example of an instrumental virtuoso."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Sandwich"
+     "joke": "pun",
+     "misdirectedWord": "filling"
     }
    }
   },

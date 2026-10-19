@@ -362,42 +362,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BENEFICENT",
-     "indicators": [
-      {
-       "text": "reduced",
-       "note": "something reduced has been cut short, so the tail end is clipped off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 31,
+         "note": "reduced means cut down, so the last letter of benefit is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "payment to the sick",
-         "gives": "BENEFI",
-         "note": "sickness benefit is a state payment; its last letter is cut"
+         "at": 11,
+         "gives": "BENEFIT",
+         "note": "sickness benefit is a state payment to people too ill to work"
         },
         {
-         "words": "small coin",
-         "gives": "CENT",
-         "note": "a cent is a coin of low value"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "small coin",
+       "at": 42,
+       "gives": "CENT",
+       "note": "a cent is a small coin, a hundredth of a dollar or euro"
       }
      ]
     },
     "explanation": {
-     "surface": "Sick pay so meagre it has been whittled down to pennies.",
-     "walkthrough": "BENEFIT loses its T, then CENT follows.",
-     "definitionFit": "Beneficent means doing good or showing active kindness, which is what a charitable person does."
+     "surface": "Sickness benefit gets cut to a pittance.",
+     "definitionFit": "Beneficent means doing good or showing active kindness, like charity."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "reduced"
+     "aptDefinition": false
     }
    }
   },
@@ -961,53 +963,58 @@
    "annotation": {
     "definitions": [
      {
-      "text": "doctors and nurses perhaps",
+      "text": "doctors and nurses perhaps?",
       "at": 32
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FISH",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 14,
+         "note": "over means turned over, so the trimmed letters are read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "over",
-           "note": "turned over means flipped, so the letters run backwards"
+           "text": "mostly",
+           "at": 7,
+           "note": "mostly means most of the word, so the last letter is dropped"
           }
          ],
          "parts": [
           {
            "words": "Riddle",
-           "gives": "SIF",
-           "note": "to riddle is to sift through a sieve; the T goes"
+           "at": 0,
+           "gives": "SIFT",
+           "note": "to riddle is to sieve or sift"
+          },
+          {
+           "gives": "T"
           }
          ]
-        },
-        {
-         "words": "hospital",
-         "gives": "H",
-         "note": "H is the map abbreviation for hospital"
         }
        ]
+      },
+      {
+       "words": "hospital",
+       "at": 19,
+       "gives": "H",
+       "note": "H is the map abbreviation for hospital"
       }
      ]
     },
     "explanation": {
-     "surface": "A hospital puzzle involving its medical staff.",
-     "walkthrough": "A riddle is a coarse sieve, so to riddle is to sift. The question mark flags definition by example.",
-     "definitionFit": "The doctorfish and the nurse shark are sea creatures, so medical job titles here name marine species."
+     "surface": "A puzzle about hospitals and the people who work in them.",
+     "walkthrough": "Doctor fish and nurse sharks are both fish, hence the question mark; riddle here is a sieve, not a puzzle.",
+     "definitionFit": "A doctorfish is a surgeonfish and a nurse shark is a shark, so both are kinds of aquatic creature."
     },
     "features": {
      "answerInScene": false,
@@ -1487,13 +1494,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AXIS",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means nearly all, so the final letter is lost"
+       "text": "in",
+       "at": 21,
+       "note": "in tells us the unknown is placed inside the rearranged letters"
       }
      ],
      "parts": [
@@ -1502,33 +1508,49 @@
        "indicators": [
         {
          "text": "running",
-         "note": "running about, the letters scatter and settle into a new order"
+         "at": 37,
+         "note": "running here means mixed up, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "unknown",
-         "gives": "X",
-         "note": "X is an unknown in algebra"
-        },
-        {
-         "words": "Asia",
-         "gives": "ASI",
-         "note": "the continent with its last letter dropped"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 30,
+           "note": "mostly means most of the word, so the last letter of Asia is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Asia",
+           "at": 24
+          },
+          {
+           "gives": "A"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "unknown",
+       "at": 13,
+       "gives": "X",
+       "note": "X is the algebra symbol for an unknown quantity"
       }
      ]
     },
     "explanation": {
-     "surface": "A rare deer sighted on the move somewhere in Asia.",
-     "walkthrough": "X goes in with ASI and the four letters are then rearranged.",
-     "definitionFit": "The axis, or chital, is a white-dotted Indian species of the deer family."
+     "surface": "An unidentified spotted deer seen in Asia, mostly on the move.",
+     "walkthrough": "The axis deer, or chital, is native to India; 'running' signals a reshuffle, not motion.",
+     "definitionFit": "The axis deer, or chital, is a spotted deer native to the Indian subcontinent."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "unknown"
+     "misdirectedWord": "running"
     }
    }
   },
