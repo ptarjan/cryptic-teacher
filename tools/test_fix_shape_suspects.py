@@ -248,6 +248,11 @@ pg3 = {"op": "container", "indicators": [{"text": "embraced by"}], "parts": [
     {"op": "anagram", "indicators": [{"text": "dishevelled"}], "parts": [{"words": "rake"}, {"words": "whore", "gives": "SHAG"}]}]}
 new, used = F.repair_tree(pg3, pgc, "SHAGRAKE", PG)
 check("no piece order that gives the answer: left for the model", used == [])
+pg4 = {"op": "container", "indicators": [{"text": "split", "at": 0}], "parts": [
+    {"op": "anagram", "indicators": [{"text": "frightfully", "at": 6}], "parts": [{"words": "large", "at": 18}, {"words": "One", "gives": "I", "at": 14}]},
+    {"words": "therefore", "gives": "SO", "at": 24}]}
+new, used = F.repair_tree(pg4, "split One frightfully large therefore", "GIRASOLE", PG)
+check("split (a container word too) over an anagram is a real insertion: not folded into one pool", used == [])
 
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
