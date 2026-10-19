@@ -583,6 +583,23 @@ act2 = {**act, "parts": [{"op": "charade", "parts": [{"words": "pates", "at": 6,
 new, used = F.repair_tree(act2, acc, "TAPXR", ACH)
 check("a piece that is no scramble of its words is left for the model", used == [])
 
+# anaCharade, pulled out (Paul 10-19): a piece the answer starts or ends with stands outside the anagram
+AP = {"anaCharade": F.r_ana_pull}
+apc = "Fellow troubled by fire, a sorrow"
+apt = {"op": "anagram", "indicators": [{"text": "troubled", "at": 7}], "parts": [
+    {"op": "charade", "parts": [{"words": "Fellow", "at": 0, "gives": "G"}, {"words": "fire", "at": 20}]}]}
+new, used = F.repair_tree(apt, apc, "GRIEF", AP)
+check("ana(G + FIRE) = GRIEF is G then ana(FIRE)",
+      used == ["anaCharade"] and new["op"] == "charade" and new["parts"][0]["gives"] == "G"
+      and new["parts"][1]["op"] == "anagram" and new["parts"][1]["parts"][0]["words"] == "fire"
+      and new["parts"][1]["indicators"][0]["text"] == "troubled")
+apt2 = {**apt, "parts": [{"op": "charade", "parts": [{"words": "fire", "at": 20}, {"words": "Fellow", "at": 0, "gives": "R"}]}]}
+new, used = F.repair_tree(apt2, apc, "FIRERX", AP)
+check("neither end spelling the answer leaves the clue for the model", used == [])
+new, used = F.repair_tree(apt2, apc, "RIFER", AP)
+check("a trailing piece goes after the anagram", used == ["anaCharade"] and new["parts"][1].get("gives") == "R"
+      and new["parts"][0]["op"] == "anagram")
+
 # scrambledLeaf: the anagram word sits over the synonym while the scrambled result sits on the other leaf
 SW = {"scrambledLeaf": F.r_scrambled_swap}
 swc = "Celebration over treaty drafted in Pennsylvania"
