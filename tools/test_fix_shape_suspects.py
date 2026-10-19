@@ -382,5 +382,23 @@ new, used = F.repair_tree(nct, ncc, "NOTEPAD", NC)
 check("a container pair under a reversal joins into one charade",
       used == ["nestedContainer"] and new["parts"][0]["parts"][1]["op"] == "charade")
 
+# misplacedIndicator: a charade's word moves to the op it signals, swapping with a word fine on a charade
+MP = {"misplacedIndicator": F.r_misplaced_indicator}
+mpc = "Whale question in exam right at the start"
+mpt = {"op": "charade", "indicators": [{"text": "in", "at": 18}], "parts": [
+    {"words": "right", "at": 28, "gives": "R"},
+    {"op": "container", "indicators": [{"text": "at the start", "at": 34}], "parts": [
+        {"words": "exam", "at": 21, "gives": "ORAL"}, {"words": "question", "at": 6, "gives": "QU"}]}]}
+new, used = F.repair_tree(mpt, mpc, "RORQUAL", MP)
+check("in goes to the container, at the start stays with the charade",
+      used == ["misplacedIndicator"] and new["indicators"][0]["text"] == "at the start"
+      and new["parts"][1]["indicators"][0]["text"] == "in")
+mpc2 = "Drink taken by donkey leader"
+mpt2 = {"op": "charade", "indicators": [{"text": "leader", "at": 22}], "parts": [
+    {"words": "Drink", "at": 0, "gives": "TOT"}, {"words": "donkey", "at": 15, "gives": "D"}]}
+new, used = F.repair_tree(mpt2, mpc2, "TOTD", MP)
+check("a one-letter leaf under the charade's pick word is wrapped in first", used == ["misplacedIndicator"]
+      and new["parts"][1]["op"] == "first")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
