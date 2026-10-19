@@ -62,10 +62,11 @@ def gutters(img, box, side="left"):
     return out
 
 
-def edge_candidates(img, box, nominal, reach=300, limit=3):
+def edge_candidates(img, box, nominal, reach=300, limit=3, side="both"):
     """[x]: `nominal` first, then up to `limit` gutters of `box` within `reach`
-    pixels of it (dense print on both sides), nearest first."""
-    near = sorted((x for x in gutters(img, box, "both") if abs(x - nominal) <= reach and abs(x - nominal) > MIN_WIDTH),
+    pixels of it (dense print on the sides `side` names; a column's far edge
+    has print on its left only), nearest first."""
+    near = sorted((x for x in gutters(img, box, side) if abs(x - nominal) <= reach and abs(x - nominal) > MIN_WIDTH),
                   key=lambda x: abs(x - nominal))
     return [nominal] + near[:limit]
 

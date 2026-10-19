@@ -25,6 +25,11 @@ c = cw.edge_candidates(img, (0, 0, 900, 400), 480)
 assert c[0] == 480 and c[1] == g[1] and c[2] == g[0], c
 assert cw.edge_candidates(img, (0, 0, 900, 400), 410, reach=50) == [410]
 
+# a column's far edge has print on its left only
+far = cw.edge_candidates(img, (0, 0, 900, 400), 790, side="left")
+assert far[0] == 790 and len(far) > 1 and all(x != 790 for x in far[1:]), far
+assert cw.edge_candidates(img, (0, 0, 900, 400), 790, reach=100) == [790]
+
 assert cw.poor({"refused": "x", "cause": "no-reading-parses"})
 assert not cw.poor({"refused": "x", "cause": "not-a-grid"})
 assert cw.poor({"lights": 30, "agreed": 20})
