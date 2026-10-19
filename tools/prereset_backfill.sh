@@ -1184,10 +1184,17 @@ shelve_code_edits() {
 # The source-correction tables are left out (tools/own_rows.py paths): their
 # rows ship only in their own puzzle's commit, beside the clue they correct, and
 # a run still in flight has filed rows its puzzle file does not hold yet.
+#
+# Derived tables origin's own jobs regenerate (OWNED_BY_ORIGIN) are left out too:
+# a long-lived tree rebuilt them from the inputs it started with, and committing
+# them reverted what origin pushed since (ac3108cc360 held 7 such files as of
+# 12:31, clobber_guard refused it and every sync failed, 10-19). A run may write
+# them for its own reading; they are never published from here.
+OWNED_BY_ORIGIN=(tools/data/blog_compare.json tools/data/blog_facts/ tools/data/lexicons/)
 publish_shared_data() {
   [ "$DRY_RUN" = 1 ] && return 0
   # shellcheck disable=SC2046  # one path per line, none with a space
-  set -- tools/data/ $(python3 tools/own_rows.py paths | sed 's/^/:(exclude)/')
+  set -- tools/data/ $(python3 tools/own_rows.py paths | sed 's/^/:(exclude)/') "${OWNED_BY_ORIGIN[@]/#/:(exclude)}"
   [ -n "$(git --no-optional-locks status --porcelain -- "$@")" ] || return 0
   index_lock
   if ! git add -A -- "$@"; then
@@ -1216,6 +1223,10 @@ sync_wave() {
   # A tree-wide checkout holds index.lock for seconds, so a run staging then
   # failed on every retry (genius-177, 10-17): taken in turn with them.
   under_index_lock git checkout -q -- . ':(exclude)puzzles/*.json' ':(exclude)clues_only/' ':(exclude)tools/'
+  # The tables origin regenerates are not published from here (OWNED_BY_ORIGIN),
+  # so a stale local rebuild is put back as HEAD has it. blog_compare.json stays:
+  # the re-check phase reads its `due` list back and rewrites it when it starts.
+  under_index_lock git checkout -q -- tools/data/blog_facts/ tools/data/lexicons/
   # checkout only restores files git is tracking HERE. A generated page for a
   # puzzle this worktree's HEAD predates is untracked, and the moment origin
   # commits that same path, sync_tree refuses to write over it.
