@@ -254,5 +254,39 @@ pg4 = {"op": "container", "indicators": [{"text": "split", "at": 0}], "parts": [
 new, used = F.repair_tree(pg4, "split One frightfully large therefore", "GIRASOLE", PG)
 check("split (a container word too) over an anagram is a real insertion: not folded into one pool", used == [])
 
+# tidy_wordplay_shapes.write_allowances: only the puzzles a run touched move, and only down
+import json
+import pathlib
+import tempfile
+import tidy_wordplay_shapes as T
+bl = pathlib.Path(tempfile.mkdtemp()) / "annotation_backlog.json"
+bl.write_text(json.dumps({"_why": "x", "wrongRole": {"a-1": 5, "a-2": 3, "a-3": 2}}))
+saved = T.V.BACKLOG_PATH
+T.V.BACKLOG_PATH = bl
+try:
+    # a stale run saw 0 for a-2 and a-3 and 9 for a-1; only a-1 and a-3 were touched
+    T.write_allowances({"wrongRole": {"a-1": 9}}, {"a-1", "a-3"})
+finally:
+    T.V.BACKLOG_PATH = saved
+got = json.loads(bl.read_text())["wrongRole"]
+check("a touched puzzle's allowance never rises, a cleared one is dropped, an untouched one stays",
+      got == {"a-1": 5, "a-2": 3})
+
+# deletionInside: del(charade(a, b), x) with x from ONE piece moves into that piece
+DI = {"deletionInside": F.r_deletion_inside}
+dic = "Italian group of workers all but bare"
+di = {"op": "deletion", "indicators": [{"text": "all but"}], "parts": [
+    {"op": "charade", "parts": [{"words": "group of workers", "gives": "TU"}, {"words": "bare", "gives": "SCANT"}]},
+    {"gives": "T"}]}
+new, used = F.repair_tree(di, dic, "TUSCAN", DI)
+check("del over TU+SCANT less T becomes TU + del(SCANT, T), the indicator with the deletion",
+      used == ["deletionInside"] and new["op"] == "charade" and new["parts"][1]["op"] == "deletion"
+      and new["parts"][1]["parts"][0]["gives"] == "SCANT" and new["parts"][1]["indicators"][0]["text"] == "all but")
+dw = {"op": "deletion", "indicators": [{"text": "throwing"}], "parts": [
+    {"op": "charade", "parts": [{"words": "initially", "gives": "FIST"}, {"words": "couple of rights", "gives": "RR"}]},
+    {"gives": "RR"}]}
+new, used = F.repair_tree(dw, "Throwing couple of rights, initially fear", "FIST", DI)
+check("a cut that is a whole added piece is left for the model", used == [])
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

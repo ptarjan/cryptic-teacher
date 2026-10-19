@@ -62,7 +62,8 @@ at a time: run it when no other job is rewriting puzzles/. Then:
     python3 tools/fix_shape_suspects.py --apply
     git diff --name-only -- puzzles/ > /tmp/shape_fixed.txt
     python3 tools/validate_annotations.py --deploy $(cat /tmp/shape_fixed.txt)
-    python3 tools/tidy_wordplay_shapes.py puzzles/ --write   # tighten the shape allowances
+    python3 tools/tidy_wordplay_shapes.py puzzles/ --write --only /tmp/shape_fixed.txt   # tighten the
+                                                        # allowances of THESE puzzles only
     git add -- puzzles/ tools/annotation_backlog.json tools/data/shape_reannotate.json
     git commit -m "Repair N mechanical wordplay shape faults in M puzzles ..."
     git fetch && git rebase origin/master && git push origin HEAD:master
@@ -1306,6 +1307,44 @@ def r_pool_gap(node, parent, ctx):
     return new
 
 
+def r_deletion_inside(node, parent, ctx):
+    """deletionInside: del(charade(a, b, c), x) whose x comes out of ONE piece (CON+SIDE+RABBLE less B,
+    "half-hearted"): the deletion moves into that piece, charade(a, del(b, x), c), indicators with it
+    (the deletion is what they signal); the charade's filed letters stay on the charade and the
+    deletion's filed letters ride the charade. Kept only when exactly one piece gives a tree that
+    still evaluates to the answer and the validator's rule no longer fires on it."""
+    parts = node.get("parts") or []
+    if node.get("op") != "deletion" or len(parts) < 2 or node.get("unchecked") or not ctx.get("answer"):
+        return None
+    if any(not isinstance(p, dict) for p in parts):
+        return None
+    holder = parts[0]
+    if holder.get("op") != "charade" or holder.get("indicators") or holder.get("unchecked"):
+        return None
+    comps = holder.get("parts") or []
+    if len(comps) < 2:
+        return None
+    cands = []
+    for k, c in enumerate(comps):
+        inner = {x: y for x, y in node.items() if x not in ("parts", "gives")}
+        inner["parts"] = [copy.deepcopy(c), *copy.deepcopy(parts[1:])]
+        v = vals(inner)
+        if not v or "" in v:
+            continue    # a piece that goes whole is one the charade added only to remove it: the model's
+        pieces = copy.deepcopy(comps)
+        pieces[k] = inner
+        new = {x: y for x, y in holder.items() if x not in ("parts", "gives")}
+        new["op"], new["parts"] = "charade", pieces
+        if node.get("gives") is not None:
+            new["gives"] = node["gives"]
+        cands.append(new)
+    good = {json.dumps(c, sort_keys=True): c for c in cands if _eval_swapped(node, parent, c, ctx)}
+    if len(good) != 1:
+        return None
+    new = next(iter(good.values()))
+    return new if not V.deletion_inside_component(new, ctx["clue"], ctx["answer"]) else None
+
+
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
            "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
@@ -1313,7 +1352,8 @@ REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap":
 RULE_REPAIRS = {"anaSynonym": r_ana_synonym, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
-                "sharedIndicator": r_shared_indicator, "poolGap": r_pool_gap}
+                "sharedIndicator": r_shared_indicator, "poolGap": r_pool_gap,
+                "deletionInside": r_deletion_inside}
 
 
 def note_deletions(tree):

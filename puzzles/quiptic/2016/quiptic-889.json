@@ -598,14 +598,13 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means around, so the colour wraps round the following word"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "words": "home",
+       "gives": "IN",
+       "note": "in means at home"
+      },
       {
        "op": "deletion",
        "indicators": [
@@ -616,24 +615,9 @@
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "home",
-           "gives": "IN",
-           "note": "in means at home"
-          },
-          {
-           "words": "help's",
-           "gives": "HELP",
-           "note": "only its first two letters are used"
-          },
-          {
-           "words": "embarrassed",
-           "gives": "RED",
-           "note": "red-faced with embarrassment"
-          }
-         ]
+         "words": "help's",
+         "gives": "HELP",
+         "note": "only its first two letters are used"
         },
         {
          "gives": "LP"
@@ -641,8 +625,24 @@
        ]
       },
       {
-       "words": "it",
-       "note": "taken as written"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means around, so the colour wraps round the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "embarrassed",
+         "gives": "RED",
+         "note": "red-faced with embarrassment"
+        },
+        {
+         "words": "it",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
