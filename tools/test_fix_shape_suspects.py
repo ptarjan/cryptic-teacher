@@ -161,5 +161,31 @@ check("last<extremely> becomes outer when both ends spell the answer", used == [
 new, used = F.repair_tree(ex, "Lion extremely tough", "LIONH", {"wrongRole": F.r_wrong_role})
 check("and stays one end when they do not", new["parts"][1]["op"] == "last")
 
+# a selection indicator hung on the one-letter "a" belongs to the neighbouring word (cyclops-542 15a AMBUSH)
+sc = "Ex-president's after a lead from Monica to jump"
+sw = {"op": "charade", "parts": [
+    {"op": "first", "indicators": [{"text": "lead from"}], "parts": [{"words": "a"}]},
+    {"words": "Monica", "gives": "M"}, {"words": "Ex-president", "gives": "BUSH"}]}
+new, used = F.repair_tree(sw, sc, "AMBUSH", {"wrongRole": F.r_wrong_role})
+check("first<lead from>(a) moves onto Monica", used == ["wrongRole"] and new["parts"][0] == {"words": "a"}
+      and new["parts"][1]["op"] == "first" and new["parts"][1]["parts"][0]["words"] == "Monica")
+sw2 = {"op": "charade", "parts": [
+    {"op": "first", "indicators": [{"text": "at first"}], "parts": [{"words": "a"}]},
+    {"words": "lager at first", "gives": "L"}]}
+new, used = F.repair_tree(sw2, "a lager at first", "AL", {"wrongRole": F.r_wrong_role})
+check("a selector at the edge of the other leaf's words is trimmed off it",
+      used == ["wrongRole"] and new["parts"][1]["op"] == "first" and new["parts"][1]["parts"][0]["words"] == "lager")
+sw3 = {"op": "charade", "parts": [
+    {"op": "first", "indicators": [{"text": "lead from"}], "parts": [{"words": "a"}]},
+    {"words": "Monica", "gives": "X"}]}
+new, used = F.repair_tree(sw3, sc, "AX", {"wrongRole": F.r_wrong_role})
+check("no neighbour whose pick matches: left for the model", used == [])
+# a cut by a table abbreviation inside a folded deletion leaf (dive, leaving five -> DIE)
+fc = "Mistake during dive, leaving five engineers behind"
+fl = {"op": "charade", "parts": [{"words": "dive, leaving five", "gives": "DIE", "at": fc.index("dive")}]}
+new, used = F.repair_tree(fl, fc, "DIE", {"wrongRole": F.r_wrong_role})
+check("dive, leaving five is del<leaving>(dive, V)", used == ["wrongRole"] and (new := new["parts"][0])["op"] == "deletion"
+      and new["indicators"][0]["text"] == "leaving" and new["parts"][1]["gives"] == "V")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

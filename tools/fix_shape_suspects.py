@@ -749,13 +749,16 @@ def r_leaf_fold(node, parent, ctx):
     rest = [p for q, p in enumerate(pos) if q != k]
     gones = {gone for kd, kk, gone in cuts}
     for q, (t, i) in enumerate(pos):
-        if q != k and plain(t) in gones and q not in delw:
+        if q != k and q not in delw and (plain(t) in gones or any(
+                annotation.is_abbreviation({"words": t, "gives": x}) for x in gones)):
             ind = [p for r, p in enumerate(pos) if r not in (k, q)]
             ind_txt = " ".join(t2 for t2, _ in ind)
             if not ind or not clue[ind[0][1]:ind[-1][1] + len(ind[-1][0])] .replace("  ", " ") == ind_txt:
                 return None
-            new = {"op": "deletion", "indicators": [{"text": ind_txt, "at": ind[0][1]}],
-                   "parts": [wleaf, {"words": t, "at": i}]}
+            cut = {"words": t, "at": i}
+            if plain(t) not in gones:    # a table abbreviation (five -> V): the cut names its letters
+                cut["gives"] = next(x for x in sorted(gones) if annotation.is_abbreviation({"words": t, "gives": x}))
+            new = {"op": "deletion", "indicators": [{"text": ind_txt, "at": ind[0][1]}], "parts": [wleaf, cut]}
             return new if gives_ok(new, g) or g in (vals(new) or ()) else None
     ind_txt = " ".join(t for t, _ in rest)
     ind = {"text": ind_txt, "at": rest[0][1]}
@@ -941,11 +944,63 @@ def r_role_move(node, parent, ctx):
     return node if _gated(ctx, list(touched.values()), deal) else None
 
 
+def r_sel_one_letter(node, parent, ctx):
+    """A selection op over a one-letter word (first<lead from>([a]) in 'a lead from Monica'): the
+    indicator was hung on the wrong word. It belongs to the one other leaf of the tree whose words
+    sit right beside it in the clue (or hold it at an edge), filed with the letters that selection
+    gives: that leaf becomes the selection op over its source, and the one-letter word is a plain
+    leaf again. Exactly one such leaf, and the op must give its letters."""
+    parts = node.get("parts") or []
+    if node.get("op") not in W.SELECT or node.get("unchecked") or len(parts) != 1 or not leaf(parts[0]) \
+            or len(node.get("indicators") or []) != 1 or not V.selection_of_one_letter(node):
+        return None
+    ind = node["indicators"][0]
+    it, ia = ind.get("text") or "", ind.get("at")
+    clue = ctx["clue"]
+    if not it or ia is None or clue[ia:ia + len(it)] != it:
+        return None
+    ib = ia + len(it)
+    inside = {id(x) for x, _ in walk(node)}
+    found = []
+    for lf, _ in walk(ctx["tree"]):
+        if id(lf) in inside or not leaf(lf) or not lf.get("words") or lf.get("at") is None or not lf.get("gives"):
+            continue
+        words, at = lf["words"], lf["at"]
+        g = W.letters(lf["gives"])
+        if g == W.letters(words):
+            continue
+        src = None
+        if words.startswith(it + " ") or words.endswith(" " + it):
+            rest = words[len(it):].strip(" ,") if words.startswith(it) else words[:-len(it)].strip(" ,")
+            ri = words.find(rest)
+            src = {"words": rest, "at": at + ri} if rest and ri >= 0 else None
+        elif not clue[ib:at].strip(" ,") and at >= ib or not clue[at + len(words):ia].strip(" ,") and at + len(words) <= ia:
+            src = {"words": words, "at": at}
+        if src is None:
+            continue
+        new = {"op": node["op"], "indicators": [dict(ind)], "parts": [src]}
+        if g in (vals(new) or ()):
+            found.append((lf, new))
+    if len(found) != 1:
+        return None
+    lf, new = found[0]
+    if lf.get("note"):
+        new["parts"][0]["note"] = lf["note"]
+    if lf.get("unchecked"):
+        new["unchecked"], new["gives"] = True, lf["gives"]
+    plain_leaf = copy.deepcopy(parts[0])
+    for target, repl in ((node, plain_leaf), (lf, new)):
+        target.clear()
+        target.update(repl)
+    return node
+
+
 def r_wrong_role(node, parent, ctx):
     """wrongRole: a leaf that folds a deletion into its words (r_leaf_fold), else indicators on
-    the wrong one of two nested ops (r_role_swap)."""
+    the wrong one of two nested ops (r_role_swap), a selection indicator hung on a one-letter word
+    (r_sel_one_letter)."""
     return r_leaf_fold(node, parent, ctx) or r_extremes_outer(node, parent, ctx) \
-        or r_role_swap(node, parent, ctx) or r_role_move(node, parent, ctx)
+        or r_role_swap(node, parent, ctx) or r_role_move(node, parent, ctx) or r_sel_one_letter(node, parent, ctx)
 
 
 def r_extremes_outer(node, parent, ctx):
