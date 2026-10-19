@@ -201,7 +201,7 @@ try:
     for cid in (x, y):
         by_id[cid]["annotation"]["definitions"][0]["text"] = "zzz not in the clue"
     check("two clues with bad hints fail validation", len(V.run_errors(src, bad)) == 2)
-    got = D.dropped_clues(src, bad)
+    got = D.dropped_clues(src, bad, None)
     check("both are named and dropped", got is not None and got[1] == {x, y})
     kept = {groups.entry_id(e): e.get("annotation") for e in got[0]["entries"]}
     check("their hints are gone and every other is as it was",
@@ -214,14 +214,14 @@ try:
     check("and the puzzle is not 'nothing due'", not AC.nothing_due(got[0]))
     unnamed = copy.deepcopy(whole)
     unnamed["entries"][2]["clue"]["text"] += " X"
-    check("a failure that names no clue drops nothing", D.dropped_clues(src, unnamed) is None)
+    check("a failure that names no clue drops nothing", D.dropped_clues(src, unnamed, None) is None)
     empty = copy.deepcopy(whole)
     for e in empty["entries"]:
         e.pop("annotation", None)
     first = next(e for e in empty["entries"])
     first["annotation"] = copy.deepcopy(by_id[groups.entry_id(first)]["annotation"])
     first["annotation"]["definitions"][0]["text"] = "zzz not in the clue"
-    check("nothing is left to ship: refused", D.dropped_clues(src, empty) is None)
+    check("nothing is left to ship: refused", D.dropped_clues(src, empty, None) is None)
 finally:
     shutil.rmtree(tmp)
 print("annotate_partial: all checks passed" if not fails else "annotate_partial: FAILED")
