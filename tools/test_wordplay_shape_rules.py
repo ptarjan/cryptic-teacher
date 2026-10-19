@@ -639,4 +639,24 @@ check("a leaf that doubles its own words by a repeat word is not a synonym", 0, 
     {"op": "anagram", "indicators": [{"text": "damaged"}], "parts": [lf("double-headed besom's", "BBESOM"), lf("it")]}))
 check("a leaf that gives other letters is still one", 1, v.anagram_synonyms(
     {"op": "anagram", "indicators": [{"text": "damaged"}], "parts": [lf("fine ale", "PINT"), lf("it")]}))
+# round 17: unindicatedBare (holder that says it holds, lone implicit op, chained cuts, swap word), anaSynonym, poolGap
+SHIPS = {"op": "container", "parts": [lf("on board", "SS"), {"op": "charade", "parts": [lf("welcome", "HI"), lf("Penny", "P")]}]}
+check("a holder whose words carry the container word is its own indicator (SHIPS)", 0, v.unindicated_uncovered(SHIPS))
+check("a short holder whose words carry none is still bare (the tree has another indicator)", 1, v.unindicated_uncovered(
+    {**SHIPS, "parts": [lf("party", "DO"), {"op": "reversal", "indicators": [{"text": "back"}], "parts": [lf("ship", "PIHS")]}]}))
+check("a lone bare hidden word is the clue's own signal", 0, v.unindicated_uncovered(
+    {"op": "hidden", "parts": [lf("Radio Taliban", "IOTA")]}))
+check("a bare hidden word beside an indicated op is still counted", 1, v.unindicated_uncovered(
+    {"op": "charade", "parts": [{"op": "hidden", "parts": [lf("Radio Taliban", "IOTA")]},
+                                {"op": "reversal", "indicators": [{"text": "back"}], "parts": [lf("fish", "TUNA")]}]}))
+OPAL = {"op": "deletion", "indicators": [{"text": "taken out of"}], "parts": [
+    {"op": "deletion", "parts": [lf("Pop Sails", "POPSAILS"), lf("p", "P")]}, lf("s", "S")]}
+check("a run of cuts under one indicated deletion needs one indicator", 0, v.unindicated_uncovered(OPAL))
+BLUFFS = {"op": "container", "parts": [{"op": "deletion", "indicators": [{"text": "ousting"}], "parts": [
+    lf("Tories", "BLUES"), lf("European", "E")]}, lf("fellows", "FF")]}
+check("a swap word on the deletion covers the container (BLUFFS)", 0, v.unindicated_uncovered(BLUFFS))
+check("a plain word on the deletion does not", 1, v.unindicated_uncovered(
+    {**BLUFFS, "parts": [{**BLUFFS["parts"][0], "indicators": [{"text": "without"}]}, BLUFFS["parts"][1]]}))
+check("a repeat word giving its sibling again is not a synonym (TSETSE)", 0, v.anagram_synonyms(
+    {"op": "anagram", "indicators": [{"text": "torment"}], "parts": [lf("set", "SET"), lf("again", "SET")]}))
 raise SystemExit(fails)
