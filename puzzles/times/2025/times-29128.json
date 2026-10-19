@@ -556,20 +556,20 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
-       "text": "outside",
-       "note": "the family and the eating stay outside, wrapping around the next piece"
+       "text": "at last",
+       "note": "at last means at the very end, so take only the final letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "at last",
-         "note": "at last means at the very end, so take only the final letter"
+         "text": "outside",
+         "note": "the family and the eating stay outside, wrapping around the next piece"
         }
        ],
        "parts": [
@@ -579,25 +579,25 @@
          "note": "a clan is a family group"
         },
         {
-         "words": "eat",
-         "gives": "DINE",
-         "note": "dine = eat"
+         "op": "last",
+         "unchecked": true,
+         "gives": "E",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "house at last",
+           "gives": "E",
+           "select": "last",
+           "note": "last letter of housE"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "E",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "house at last",
-         "gives": "E",
-         "select": "last",
-         "note": "last letter of housE"
-        }
-       ]
+       "words": "eat",
+       "gives": "DINE",
+       "note": "dine = eat"
       }
      ]
     },
