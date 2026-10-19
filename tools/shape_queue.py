@@ -292,6 +292,13 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                         "word and cut it with a deletion carrying the indicator",
        "initialsInLeaf": "a leaf holds a first-letters word (primarily, initially) and gives its other words' initials: "
                          "write first<indicator> over those words",
+       "nestedSameOp": "an op sits directly in an op of its own kind and only one of the two has an indicator: one "
+                       "indicator is one multi-part op",
+       "middleSiblingLeaf": "a middle op picks one word while a sibling leaf gives the middle letters of its own word: one "
+                            "middle indicator over the list is one multi-part op",
+       "delOnePiece": "a deletion wraps a charade though the cut lies inside one piece: put the deletion on that piece "
+                      "inside the charade",
+       "anaIsMove": "an anagram of one word gives the word with a single letter moved: write move<indicator>(fodder, MOVED)",
        "halfInLeaf": "a leaf holds half (half-done taco) and gives half of another of its words: write the halving "
                      "as a selection op with its own indicator",
        "selectIndEndsLeaf": "a first/last/outer op's leaf ends with the op's own indicator words (cooked on top): "
@@ -363,6 +370,10 @@ def _validator_rules():
             "hiddenIndAbove": lambda t, a, c: V.hidden_ind_above(t),
             "deletionNoCut": lambda t, a, c: V.deletion_no_cut(t),
             "initialsInLeaf": lambda t, a, c: V.initials_in_leaf(t),
+            "nestedSameOp": lambda t, a, c: V.nested_same_op(t),
+            "middleSiblingLeaf": lambda t, a, c: V.middle_sibling_leaf(t),
+            "delOnePiece": lambda t, a, c: V.del_one_piece(t),
+            "anaIsMove": lambda t, a, c: V.ana_is_move(t, a),
             "halfInLeaf": lambda t, a, c: V.half_in_leaf(t),
             "selectIndEndsLeaf": lambda t, a, c: V.select_ind_ends_leaf(t),
             "beheadInLeaf": lambda t, a, c: V.behead_in_leaf(t),

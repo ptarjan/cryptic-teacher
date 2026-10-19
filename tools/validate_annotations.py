@@ -6548,6 +6548,7 @@ def split_shared_indicators(tree):
                 groups.setdefault(p["op"], []).append(p)
         for ns in groups.values():
             n += len(ns) == 2 and sum(bool(x.get("indicators")) for x in ns) == 1 and _pair_adjacent(ns)
+            n += len(ns) >= 3 and sum(bool(x.get("indicators")) for x in ns) == 1  # r40 FN NUMEROUNO: one "never-endingly" over four deletions
     return n
 
 
@@ -6627,7 +6628,7 @@ HALF_IN_LEAF = "leaf holds half and gives half of another of its words, a halvin
 SELECT_IND_ENDS_LEAF = "selection op whose letter-less leaf ends with the op's own indicator words"
 BEHEAD_IN_LEAF = "leaf holds a losing-head/tail phrase and gives the letters that are left"
 _REPEAT_WORDS = frozenset("twice doubled double repeated repeatedly again thrice redoubled doubling doubles "
-                          "repeating duplicated duplicating twofold".split())
+                          "repeating duplicated duplicating twofold doubly encored encore".split())
 _STUTTER_WORDS = frozenset("stuttering stutter stutters stuttered stammering stammer stammers stammered".split())
 _BEHEAD = re.compile(r"\b(?:losing|lost|without|minus|lacking|missing|dropping|loses|shedding|ignoring|dismissing|"
                      r"removing|ditching|discarding|dumping)\s+"
@@ -6656,6 +6657,19 @@ def repeat_in_leaf(tree):
             wb = set(re.findall(r"[a-z']+", str(b["words"]).lower()))
             n += (len(wordplay.letters(a["gives"])) >= 2 and wordplay.letters(a["gives"]) == wordplay.letters(b["gives"])
                   and bool((_REPEAT_WORDS | {"two"}) & wb) and len(wb) == 1)
+    # r40 FN CHOWCHOW: a leaf "Twice" giving the letters the op beside it already gives
+    for parent in _walk(tree):
+        parts = [p for p in parent.get("parts") or [] if isinstance(p, dict)]
+        for a, b in zip(parts, parts[1:]):
+            for rep, other in ((a, b), (b, a)):
+                if "op" in rep or rep.get("unchecked") or other.get("unchecked") or "op" not in other \
+                        or not rep.get("gives") or len(str(rep.get("words") or "").split()) != 1 \
+                        or str(rep["words"]).lower().strip(" ,.!?") not in _REPEAT_WORDS | {"two"}:
+                    continue
+                try:
+                    n += len(wordplay.letters(rep["gives"])) >= 2 and wordplay.letters(rep["gives"]) in wordplay.values(other)
+                except Exception:
+                    pass
     return n
 
 
@@ -6796,6 +6810,99 @@ def hidden_ind_above(tree):
             ws = re.findall(r"[a-z']+", str((ind or {}).get("text") or "").lower())
             n += bool(ws) and ws[0] in _HIDDEN_OPENERS and any(
                 p.get("op") == "hidden" and not p.get("indicators") for p in node.get("parts") or [] if isinstance(p, dict))
+    return n
+
+
+NESTED_SAME_OP = "an op nested directly in an op of the same kind, only one of the two carrying an indicator"
+MIDDLE_SIBLING_LEAF = "a middle op picks one word while a sibling leaf gives the middle letters of its own word"
+DEL_ONE_PIECE = "deletion wraps a charade though the cut lies inside one plain piece, so it cuts that piece"
+ANA_IS_MOVE = "anagram of one word whose result is the word with a single letter moved, a move written as an anagram"
+#: r41 judged: an anagram indicator that is no word of position or motion (shuffled, changed, new) is a real anagram
+#: that happens to sit one move from the word (8 of 40 fine); with a movement word in the indicator, 0 of 25 fine.
+_MOVE_IND = re.compile(r"\b(?:mov\w*|up|down|forwards?|backwards?|back|rais\w*|lower\w*|later|earlier|advanc\w*|ris\w*|"
+                       r"sink\w*|sent|dropp?\w*|promot\w*|relocat\w*|shift\w*|east|west|north|south|tuck\w*|put|place\w*|"
+                       r"position\w*|bring\w*|brought|transpos\w*|swap\w*|exchang\w*|jump\w*|go\w*|step\w*|slip\w*|"
+                       r"travel\w*|head\w*|climb\w*|fall\w*|lift\w*|pass\w*|row|late|early)\b", re.I)
+_NEST_KINDS = frozenset({"deletion", "container", "reversal", "first", "last", "middle", "outer"})
+
+
+def nested_same_op(tree):
+    """Deletions, containers, reversals or picks directly inside an op of the same kind where one of the two has
+    no indicator (r40 FN: del<>(del<lacking>(UNRECOGNISABLE, GLOBE), BLE), container<kept in>(container<>(FILE, D+D), D)):
+    one indicator is one op, so the two are one multi-part op."""
+    n = 0
+    for node in _walk(tree):
+        if node.get("op") not in _NEST_KINDS or node.get("unchecked"):
+            continue
+        for p in node.get("parts") or []:
+            if isinstance(p, dict) and p.get("op") == node["op"] and not p.get("unchecked") \
+                    and bool(p.get("indicators")) != bool(node.get("indicators")):
+                n += 1
+    return n
+
+
+def _centre_slice(g, w):
+    """Whether g is the centred stretch of w (one or two letters shorter at each end alike)."""
+    d = len(w) - len(g)
+    return d >= 2 and any(w[a:a + len(g)] == g for a in {d // 2, (d + 1) // 2} if a >= 1)
+
+
+def middle_sibling_leaf(tree):
+    """A middle op beside a plain one-word leaf giving the middle letters of its own word (r40 FN MESSI:
+    middle<the very essence of>(primeval) + passion giving SSI): one middle indicator over both words is one
+    multi-part op."""
+    n = 0
+    for node in _walk(tree):
+        ps = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        if node.get("unchecked") or not any(p.get("op") == "middle" and not p.get("unchecked") for p in ps):
+            continue
+        n += any("op" not in p and p.get("words") and p.get("gives") and len(str(p["words"]).split()) == 1
+                 and len(wordplay.letters(p["gives"])) >= 2 and _centre_slice(wordplay.letters(p["gives"]).lower(),
+                                                                              wordplay.letters(p["words"]).lower())
+                 for p in ps)
+    return n
+
+
+def del_one_piece(tree):
+    """Deletions of a bare cut piece from a charade of 2+ plain leaves where the cut letters lie inside exactly
+    one piece (r40 FN MELODRAMA del<no end>(MELODY + RAM, Y), AGAIN del<not entirely>(A + GANG, G); Paul ruling 1):
+    the deletion acts on that piece, del(MELODY, Y), inside the charade."""
+    n = 0
+    for node in _walk(tree):
+        ps = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        if node.get("op") != "deletion" or node.get("unchecked") or len(ps) != 2 or ps[0].get("op") != "charade" \
+                or "op" in ps[1] or ps[1].get("words") or not ps[1].get("gives"):
+            continue
+        pcs = [p for p in ps[0].get("parts") or [] if isinstance(p, dict)]
+        if len(pcs) < 2 or any("op" in p or p.get("unchecked") for p in pcs):
+            continue
+        gs = [wordplay.letters(p.get("gives") or p.get("words")) for p in pcs]
+        cut = wordplay.letters(ps[1]["gives"])
+        hold = [g for g in gs if cut in g and len(g) > len(cut)]
+        n += bool(cut) and len(hold) == 1 and sum(cut in g for g in gs) == 1 and not any(set(g) <= set(cut) for g in gs)
+    return n
+
+
+def ana_is_move(tree, answer=None):
+    """Anagrams of one plain leaf of 5+ letters whose answer holds the leaf with exactly one letter moved and not
+    the leaf itself (r40 FN BRASSERIE ana(BRASSIERE), INTER ana(INERT)): a letter move is move<indicator>(fodder, MOVED)."""
+    ans = wordplay.letters(answer).lower() if answer else ""
+    if not ans:
+        return 0
+    n = 0
+    for node in _walk(tree):
+        ps = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        if node.get("op") != "anagram" or node.get("unchecked") or len(ps) != 1 or "op" in ps[0] or not ps[0].get("gives"):
+            continue
+        f = wordplay.letters(ps[0]["gives"]).lower()
+        if len(f) < 5 or f in ans or not any(_MOVE_IND.search(str(i.get("text") or ""))
+                                             for i in node.get("indicators") or [] if isinstance(i, dict)):
+            continue
+        moved = set()
+        for i in range(len(f)):
+            rest = f[:i] + f[i + 1:]
+            moved |= {rest[:j] + f[i] + rest[j:] for j in range(len(f))}
+        n += any(m != f and m in ans for m in moved)
     return n
 
 
@@ -7244,6 +7351,10 @@ def shape_warnings(tag, ann, clue=None, answer=None):
             (lambda: initials_in_leaf(tree), INITIALS_IN_LEAF, "the pick is first<indicator> over those words"),
             (lambda: half_in_leaf(tree), HALF_IN_LEAF, "keep half the word with a halving selection"),
             (lambda: select_ind_ends_leaf(tree), SELECT_IND_ENDS_LEAF, "the leaf holds only the words that give its letters"),
+            (lambda: nested_same_op(tree), NESTED_SAME_OP, "one indicator, one multi-part op"),
+            (lambda: middle_sibling_leaf(tree), MIDDLE_SIBLING_LEAF, "one middle indicator over the list is one multi-part op"),
+            (lambda: del_one_piece(tree), DEL_ONE_PIECE, "put the deletion on the piece it cuts, inside the charade"),
+            (lambda: ana_is_move(tree, answer), ANA_IS_MOVE, "write move<indicator>(fodder, MOVED)"),
             (lambda: behead_in_leaf(tree), BEHEAD_IN_LEAF, "the cut is a deletion with its own indicator"),
             (lambda: own_ind_in_leaf(tree), OWN_IND_IN_LEAF, "the leaf holds only the words that give its letters")):
         if k := fn():
@@ -7849,6 +7960,10 @@ BACKLOG_MARKERS = {
     "wordplay.initialsInLeaf": (INITIALS_IN_LEAF,),
     "wordplay.halfInLeaf": (HALF_IN_LEAF,),
     "wordplay.selectIndEndsLeaf": (SELECT_IND_ENDS_LEAF,),
+    "wordplay.nestedSameOp": (NESTED_SAME_OP,),
+    "wordplay.middleSiblingLeaf": (MIDDLE_SIBLING_LEAF,),
+    "wordplay.delOnePiece": (DEL_ONE_PIECE,),
+    "wordplay.anaIsMove": (ANA_IS_MOVE,),
     "wordplay.beheadInLeaf": (BEHEAD_IN_LEAF,),
     "wordplay.selectorAsCut": (SELECTOR_AS_CUT,),
     "wordplay.anaLoneEdge": (ANA_LONE_EDGE,),
