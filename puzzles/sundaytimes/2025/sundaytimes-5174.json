@@ -1304,29 +1304,49 @@
      "parts": [
       {
        "words": "Do",
+       "at": 0,
        "gives": "ACT",
-       "note": "to do is to act"
+       "note": "to do something is to act"
       },
       {
        "words": "you",
+       "at": 3,
        "gives": "U",
-       "note": "u = you, text speak"
+       "note": "U is text-speak for you"
       },
       {
-       "words": "despise leaving husband",
-       "gives": "ATE",
-       "note": "HATE without H, husband"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 15,
+         "note": "leaving says the husband's letter departs from the word for despise"
+        }
+       ],
+       "parts": [
+        {
+         "words": "despise",
+         "at": 7,
+         "gives": "HATE",
+         "note": "to despise is to hate"
+        },
+        {
+         "words": "husband",
+         "at": 23,
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question: does someone hate the way a husband walks out for a holiday?",
-     "walkthrough": "'Trip' reads as a journey, but it is the verb, as in tripping a switch.",
-     "definitionFit": "A technical sense: to set a mechanism working, as you trip a switch or a relay."
+     "surface": "A question to someone who hates the husband leaving them for a journey.",
+     "walkthrough": "'trip' is the verb, as in tripping a switch or alarm, not a journey.",
+     "definitionFit": "To trip a mechanism is to set it working, which is exactly what actuating it means."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "trip"
     }
    }

@@ -1475,45 +1475,53 @@
      "parts": [
       {
        "words": "religious",
+       "at": 5,
        "gives": "PI",
-       "note": "pi is slang for pious"
+       "note": "pi is slang for pious, religious"
       },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "lacking",
-         "note": "lacking means being without, so that letter is missing"
-        },
-        {
-         "text": "hint of",
-         "note": "a hint is only a trace, so just the opening letter is meant"
+         "at": 23,
+         "note": "lacking means a letter is missing from the votes"
         }
        ],
        "parts": [
         {
          "words": "ballots",
+         "at": 15,
          "gives": "VOTES",
-         "note": "ballots are votes"
+         "note": "votes are ballots"
         },
         {
-         "words": "efficacy",
-         "gives": "E",
-         "note": "the first letter of the word"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "hint of",
+           "at": 31,
+           "note": "a hint of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "efficacy",
+           "at": 39
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Church ballots that achieve nothing get the axe.",
-     "walkthrough": "'Axes' looks like the verb meaning cuts; it is the plural of axis.",
-     "definitionFit": "A pivot is the point or shaft on which something turns, which is what an axis is."
+     "surface": "Religious votes are thrown out for lack of effectiveness.",
+     "definitionFit": "A pivot is the central point or shaft on which something turns, like an axis."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Axes"
     }
    }

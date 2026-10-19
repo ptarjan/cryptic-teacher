@@ -908,19 +908,14 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "in a down clue, up means read the letters bottom to top"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "half-cut",
-         "note": "each word is cut to half its length"
+         "text": "up",
+         "at": 27,
+         "note": "in a down clue up reads the words from the bottom, so backwards"
         }
        ],
        "parts": [
@@ -929,11 +924,13 @@
          "parts": [
           {
            "words": "cheers",
+           "at": 10,
            "gives": "TA",
-           "note": "ta is British informal thanks"
+           "note": "ta is British slang for thanks, like cheers"
           },
           {
            "words": "celebrity",
+           "at": 17,
            "gives": "NAME",
            "note": "a big name is a celebrity"
           }
@@ -942,21 +939,33 @@
        ]
       },
       {
-       "words": "if",
-       "gives": "I",
-       "note": "first half of IF"
-      },
-      {
-       "words": "only",
-       "gives": "ON",
-       "note": "first half of ONLY"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half-cut",
+         "at": 38,
+         "note": "each of the two words is cut in half, keeping the front half"
+        }
+       ],
+       "parts": [
+        {
+         "words": "if",
+         "at": 30,
+         "note": "taken as written"
+        },
+        {
+         "words": "only",
+         "at": 33,
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk toasts a star, but only if he's half-cut.",
-     "walkthrough": "Half-cut is British slang for tipsy, which suits the surface's toast; in the wordplay it halves 'if' and 'only'.",
-     "definitionFit": "An emanation is something given off or discharged, like a gas."
+     "surface": "A drunken toast to a star, wishing for something if only they were half-drunk.",
+     "walkthrough": "Half-cut is British slang for tipsy, but here it halves IF and ONLY to leave I and ON.",
+     "definitionFit": "An emanation is something given off or flowing out from a source, a discharge."
     },
     "features": {
      "answerInScene": false,
@@ -1620,47 +1629,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "to ring"
-      }
-     ],
      "parts": [
       {
        "words": "Save",
+       "at": 0,
        "gives": "BAR",
-       "note": "save and bar both mean except"
+       "note": "save, meaning except, is the same as bar"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "about"
+         "text": "to ring",
+         "at": 14,
+         "note": "the reminder rings, encircles, the other letters"
         }
        ],
        "parts": [
         {
          "words": "reminder",
+         "at": 5,
          "gives": "NUDGE",
-         "note": "a nudge is a reminder; it rings the next letters"
+         "note": "a nudge is a reminder"
         },
         {
          "op": "charade",
          "parts": [
           {
            "op": "reversal",
+           "indicators": [
+            {
+             "text": "about",
+             "at": 31,
+             "note": "about turns the graduate's letters round"
+            }
+           ],
            "parts": [
             {
              "words": "graduate",
+             "at": 22,
              "gives": "BA",
-             "note": "BA = Bachelor of Arts"
+             "note": "a BA is a Bachelor of Arts graduate"
             }
            ]
           },
           {
            "words": "your",
+           "at": 37,
            "gives": "YR",
-           "note": "yr = your, in abbreviated writing"
+           "note": "yr is the written abbreviation for your"
           }
          ]
         }
@@ -1669,12 +1686,11 @@
      ]
     },
     "explanation": {
-     "surface": "A reminder to keep phoning a graduate about your own book.",
-     "walkthrough": "'Save' looks like a verb but means except, giving BAR.",
-     "definitionFit": "Barnaby Rudge is a novel by Charles Dickens."
+     "surface": "An instruction to keep a note to phone a graduate about a book.",
+     "definitionFit": "Barnaby Rudge is a novel by Charles Dickens, set around the Gordon Riots of 1780."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Save"
     }

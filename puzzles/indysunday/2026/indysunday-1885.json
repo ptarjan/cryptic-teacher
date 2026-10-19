@@ -1120,7 +1120,8 @@
      "indicators": [
       {
        "text": "worked",
-       "note": "Dough that is worked is pushed into a new shape, and letters worked over do not keep the order they arrived in."
+       "at": 23,
+       "note": "worked, as dough is worked, means the letters are reshaped"
       }
      ],
      "parts": [
@@ -1129,35 +1130,34 @@
        "indicators": [
         {
          "text": "Leaving",
-         "note": "Leaving says a piece goes: the two letters named beside it come out before anything else happens."
+         "at": 0,
+         "note": "leaving says the letters for home go from trainees"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "home",
-           "gives": "IN",
-           "note": "someone at home is in, and that pair is what departs"
-          },
-          {
-           "words": "trainees",
-           "gives": "TRAEES",
-           "note": "the eight letters of trainees less the pair above, ready to be pushed around"
-          }
-         ]
+         "words": "trainees",
+         "at": 14,
+         "note": "taken as written"
         },
         {
-         "gives": "IN"
+         "words": "home",
+         "at": 8,
+         "gives": "IN",
+         "note": "in means at home"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Trainees leaving home to work reads as a job advert, so nothing announces itself. In Britain Good Friday and Easter Monday are both public holidays, which is what makes the weekend an extra long one.",
-     "definitionFit": "extra long weekend → EASTER: with Good Friday and Easter Monday as British bank holidays, the festival delivers four days off instead of the usual two."
+     "surface": "Trainees away from home put in overtime over a long holiday weekend.",
+     "definitionFit": "Easter gives Britain a four-day break, Good Friday to Easter Monday, longer than the usual bank holiday."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "worked"
     }
    }
   },
@@ -1494,46 +1494,41 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "agitated",
-       "note": "Agitate a liquid and everything in it is thrown out of place, which is what becomes of the letters standing beside the word."
-      }
-     ],
      "parts": [
       {
        "words": "Charlie",
+       "at": 14,
        "gives": "C",
-       "note": "Charlie is C in the phonetic alphabet used over the radio"
+       "note": "Charlie is C in the NATO phonetic alphabet"
       },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "not appearing",
-         "note": "What does not appear is missing from the finished word, so the letter named beside it never reaches the grid."
+         "text": "agitated",
+         "at": 29,
+         "note": "agitated, stirred up, means gently is to be rearranged"
         }
        ],
        "parts": [
         {
          "op": "deletion",
+         "indicators": [
+          {
+           "text": "not appearing",
+           "at": 48,
+           "note": "not appearing means the line's letter is left out"
+          }
+         ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "line",
-             "gives": "L",
-             "note": "l = line, and this is the letter held back"
-            },
-            {
-             "words": "gently",
-             "gives": "GENTY",
-             "note": "gently once the L above has gone, leaving five letters to be shaken up"
-            }
-           ]
+           "words": "gently",
+           "at": 22,
+           "note": "taken as written"
           },
           {
+           "words": "line",
+           "at": 43,
            "gives": "L"
           }
          ]
@@ -1543,8 +1538,15 @@
      ]
     },
     "explanation": {
-     "walkthrough": "'New pen' is a stationery cupboard on the surface. A pen is a female swan, so the definition is about a bird, and 'say' is the warning that she is only an example.",
-     "definitionFit": "New pen, say → CYGNET: a pen is a female swan and a cygnet is a swan's young, so 'say' marks the pen as one example of the parent bird."
+     "surface": "Someone with a new pen, who is gently stirred, finds no line comes out.",
+     "walkthrough": "A pen is a female swan, so a new pen is a young one; 'say' marks it as an example.",
+     "definitionFit": "A cygnet is a young swan, and a pen is the female swan, so a newly hatched one qualifies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pen"
     }
    }
   },

@@ -193,7 +193,8 @@
      "indicators": [
       {
        "text": "after",
-       "note": "after places the rearranged letters following the reversed piece"
+       "at": 25,
+       "note": "the son-and-does letters come after the reversed word"
       }
      ],
      "parts": [
@@ -202,42 +203,45 @@
        "indicators": [
         {
          "text": "taking up",
-         "note": "in a down clue, taking something up lifts it so it reads bottom to top"
+         "at": 31,
+         "note": "in a down clue taking up lifts the word, so it reads backwards"
         }
        ],
        "parts": [
         {
          "words": "PE",
+         "at": 41,
          "gives": "GYM",
-         "note": "PE (physical education) is the school subject also called gym"
+         "note": "PE, physical education, is gym class"
         }
        ]
       },
       {
-       "op": "reversal",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "exercises",
+         "at": 15,
+         "note": "exercises, works over, means the letters are reworked"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "exercises",
-           "note": "exercising works something over and moves it about, so those letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "son does",
-           "note": "son (as written) plus does, rearranged"
-          }
-         ]
+         "words": "son",
+         "at": 6,
+         "note": "taken as written"
+        },
+        {
+         "words": "does",
+         "at": 10,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A parent exclaims as their son works out after taking up phys ed.",
-     "walkthrough": "'Exercises' looks like the son's workout; it is the signal to rearrange 'son does'.",
+     "surface": "A son goes through his workout after starting physical education.",
      "definitionFit": "My goodness is a mild exclamation of surprise, used just like gosh."
     },
     "features": {
@@ -1509,58 +1513,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "WAIKIKI",
+     "indicators": [
+      {
+       "text": "Discussed",
+       "at": 0,
+       "note": "discussed, spoken about, means the words are heard rather than spelt"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "WAI",
-       "indicators": [
-        {
-         "text": "Discussed",
-         "note": "something discussed is spoken about, so the words that follow are heard rather than spelt"
-        }
-       ],
-       "parts": [
-        {
-         "words": "reason",
-         "gives": "WHY",
-         "note": "a reason answers the question why"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "KI",
-       "parts": [
-        {
-         "words": "critical",
-         "gives": "KEY",
-         "note": "critical in the sense of crucial or key"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "KI",
-       "parts": [
-        {
-         "words": "island",
-         "gives": "KEY",
-         "note": "a key is a low island, as in the Florida Keys"
-        }
-       ]
+       "words": "reason at critical island",
+       "at": 10,
+       "gives": "WHYKEYKEY",
+       "note": "why is a reason, key means critical, and a key is a small island as in the Florida Keys; at only joins them"
       }
      ]
     },
     "explanation": {
-     "surface": "A heated debate about motives at a vital island beach in the Pacific.",
-     "walkthrough": "Said aloud, why-key-key gives WAIKIKI; a key (or cay) is a small low island.",
-     "definitionFit": "Waikiki is the famous beach and neighbourhood of Honolulu on the Hawaiian island of Oahu."
+     "surface": "Someone has talked over the reason for a crucial island beach.",
+     "definitionFit": "Waikiki is the famous beach district of Honolulu, on the Hawaiian island of Oahu."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Discussed"
     }
    }
