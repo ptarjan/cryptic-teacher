@@ -175,7 +175,11 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
        "deletionScattered": "one 'half' deletion over several words picks its letters from all of them: "
                             "'half' acts on one word, so delete inside each word",
        "reversePhrase": "a reverse reading over a whole phrase of the clue: say what the words do "
-                        "(an anagram, a hidden word, a charade)"}
+                        "(an anagram, a hidden word, a charade)",
+       "indInLeaf": "an indicator's words also sit inside a longer leaf: the leaf holds only the words "
+                    "that give its letters, the indicator word goes on the op",
+       "midWordLeaf": "a leaf gives a stretch of several clue words that starts or ends inside a word: "
+                      "the cut is an op (del, first, last) with its indicator, not part of the leaf"}
 
 
 def _validator_rules():
@@ -204,6 +208,8 @@ def _validator_rules():
             "halfLeaf": lambda t, a, c: V.half_leaves(t),
             "deletionScattered": lambda t, a, c: V.deletion_scattered(t),
             "reversePhrase": lambda t, a, c: V.reverse_phrase(t),
+            "midWordLeaf": lambda t, a, c: V.midword_leaves(t, c),
+            "indInLeaf": lambda t, a, c: V.ind_in_leaf(t, c),
             # A step taken as filed that tools/clear_unchecked.py could not verify:
             # fires while any node of the tree still carries the flag.
             # (steps V.step_verified computes from their leaf do not count: fix round 4)
