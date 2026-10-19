@@ -334,5 +334,22 @@ d2 = {"op": "deletion", "unchecked": True, "indicators": [{"text": "Short"}], "p
 new, used = F.repair_tree(d2, "Short talk x", "RABBICAL", D1)
 check("a synonym filed short (no literal whole word) is left for the model", used == [])
 
+# anaSynonym: a synonym scrambled with the fodder is charaded on; only the fodder is anagrammed
+AS = {"anaSynonym": F.r_ana_synonym_charade}
+asn = {"op": "anagram", "indicators": [{"text": "Somehow"}], "parts": [{"words": "warn"}, {"words": "Harry", "gives": "HAL"}]}
+new, used = F.repair_tree(asn, "Somehow warn Harry", "NARWHAL", AS)
+check("ana(warn, Harry=HAL) becomes ana(warn) + HAL",
+      used == ["anaSynonym"] and new["op"] == "charade" and new["parts"][0]["op"] == "anagram"
+      and len(new["parts"][0]["parts"]) == 1 and new["parts"][1]["gives"] == "HAL")
+asp = {"op": "anagram", "indicators": [{"text": "wrong"}], "parts": {"op": "charade", "parts": [
+    {"words": "In"}, {"words": "stalked", "gives": "TROD"}, {"words": "cue"}]}}
+asp["parts"] = [asp["parts"]]
+new, used = F.repair_tree(asp, "In stalked on wrong cue", "INTRODUCE", AS)
+check("only the word the indicator reaches is scrambled; the others stay literal",
+      used == ["anaSynonym"] and [p.get("op") for p in new["parts"]] == [None, None, "anagram"])
+asx = {"op": "anagram", "indicators": [{"text": "Somehow"}], "parts": [{"words": "warn"}, {"words": "Harry", "gives": "HAL"}]}
+new, used = F.repair_tree(asx, "Somehow warn Harry", "LANWHAR", AS)
+check("a tree that cannot reach the answer is left alone", used == [])
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
