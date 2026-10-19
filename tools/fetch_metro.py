@@ -53,7 +53,7 @@ import urllib.error
 
 import enumeration  # a clue's printed counts; tools/enumeration.py
 from fetch_puzzle import (enumeration_separators, flatten_clue, http_bytes, has_words,
-                          puzzle_path, reindex, write_puzzle_file)
+                          puzzle_path, write_puzzle_file)
 from fetch_wayback import maybe_gunzip, SLEEP_SECONDS  # shared Wayback plumbing
 import series as series_meta  # puzzle_id(), default_setter(), day_count_number()
 from groups import entry_id
