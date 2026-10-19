@@ -201,65 +201,64 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
+      {
+       "text": "takes",
+       "at": 16,
+       "note": "takes means holds within, so the farewell wraps round the medic's letters"
+      },
       {
        "text": "without",
        "at": 30,
-       "note": "here without means outside, so the abbreviation sits beyond the rest at the end"
+       "note": "without here in its old sense of 'outside', so the farewell and the right letter stand outside the medic's letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "takes",
-         "at": 16,
-         "note": "the farewell word takes in, i.e. holds, the other letters"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "so long",
          "at": 22,
          "gives": "BYE",
-         "note": "a goodbye, like bye"
+         "note": "so long is a casual goodbye, like bye"
         },
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Deficient",
-           "at": 0,
-           "gives": "LOW",
-           "note": "low as in lacking or below standard"
-          },
-          {
-           "words": "medic",
-           "at": 10,
-           "gives": "DR",
-           "note": "Dr is the title of a doctor"
-          }
-         ]
+         "words": "right",
+         "at": 38,
+         "gives": "R"
         }
        ]
       },
       {
-       "words": "right",
-       "at": 38,
-       "gives": "R"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Deficient",
+         "at": 0,
+         "gives": "LOW",
+         "note": "deficient means lacking, low in amount"
+        },
+        {
+         "words": "medic",
+         "at": 10,
+         "gives": "DR",
+         "note": "DR is the abbreviation for doctor, a medic"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor with poor equipment takes ages because their device lacks the right part.",
-     "definitionFit": "A hairdryer is an electrical appliance, a domestic device for styling hair with hot air."
+     "surface": "An incompetent doctor takes ages with no proper tool.",
+     "walkthrough": "'takes' and 'without' both say the farewell plus R stands round the medic, entering after the first letter.",
+     "definitionFit": "A blow-dryer is an electrical appliance for drying hair, a household device."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "without"
+     "misdirectedWord": "Deficient"
     }
    }
   },
@@ -1113,76 +1112,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Poor punk with dunce's cap standing out from assembled clodhoppers?",
-      "at": 0
+      "text": "punk",
+      "at": 5
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
+      {
+       "text": "standing out from",
+       "at": 27,
+       "note": "standing out from means separated off, so these letters are removed from the pool"
+      },
       {
        "text": "assembled",
        "at": 45,
-       "note": "the letters are gathered together and rearranged"
+       "note": "assembled means put together, so the letters of the boots are rebuilt into a new word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "clodhoppers",
+       "at": 55
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
-         "text": "standing out from",
-         "at": 27,
-         "note": "these letters stand out, i.e. are taken away, from the rest"
+         "text": "with",
+         "at": 10,
+         "note": "with means accompanied by, so the cap letter joins the other word in the set removed"
         }
        ],
        "parts": [
         {
-         "words": "clodhoppers",
-         "at": 55,
-         "gives": "POORDCHLPES",
-         "note": "the eleven letters of the word, gathered in any order"
+         "words": "Poor",
+         "at": 0,
+         "note": "taken as written"
         },
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Poor",
-           "at": 0,
-           "note": "taken as written"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "cap",
-             "at": 23,
-             "note": "a cap sits on top, so the first letter of the word"
-            }
-           ],
-           "parts": [
-            {
-             "words": "dunce's",
-             "at": 15,
-             "note": "the dunce's cap is the first letter of the word dunce"
-            }
-           ]
-          }
-         ]
+         "words": "dunce's cap",
+         "at": 15,
+         "gives": "D",
+         "note": "the first letter of dunce, its cap or top"
         }
        ]
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A sorry loser in a dunce's cap stands out among a crowd of clumsy oafs.",
-     "definitionFit": "Yiddish-derived slang for a stupid, clumsy or worthless person, exactly like the clodhoppers around him."
+     "surface": "A shabby punk in a dunce's hat stands out among a crowd of heavy boots.",
+     "walkthrough": "Take POOR and D away from the letters of CLODHOPPERS and rearrange what is left.",
+     "definitionFit": "Punk is old slang for a worthless person; a schlep is a stupid, clumsy or useless one."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "assembled"
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "punk"
     }
    }
   },

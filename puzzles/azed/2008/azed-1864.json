@@ -929,51 +929,50 @@
      "indicators": [
       {
        "text": "about",
-       "note": "one word placed about others goes around them"
+       "at": 8,
+       "note": "about means surrounding, so the writing letters go round the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Writing",
+       "at": 0,
+       "gives": "MS",
+       "note": "MS is the abbreviation for manuscript, a piece of writing"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Writing",
-           "gives": "MS",
-           "note": "MS is short for manuscript, a piece of writing"
-          },
-          {
-           "words": "Australian",
-           "gives": "A",
-           "note": "A is the abbreviation for Australian"
-          }
-         ]
+         "words": "Australian",
+         "at": 14,
+         "gives": "A"
         },
         {
          "words": "river",
+         "at": 25,
          "gives": "R",
-         "note": "R is the abbreviation for river"
+         "note": "R is the map abbreviation for river"
+        },
+        {
+         "words": "concerning",
+         "at": 31,
+         "gives": "ON",
+         "note": "on means about or concerning, as in a talk on art"
         }
        ]
-      },
-      {
-       "words": "concerning",
-       "gives": "ON",
-       "note": "on means about or concerning"
       }
      ]
     },
     "explanation": {
-     "surface": "An essay on an Australian river discusses its freshwater crayfish, roughly speaking.",
-     "walkthrough": "Yabbies and marons are both Australian freshwater crayfish, but different species, hence 'Not exactly'.",
-     "definitionFit": "Maron, also spelt marron, is a large Western Australian freshwater crayfish, a close relative of the yabby."
+     "surface": "A manuscript about an Australian river, not quite on the subject of yabbies.",
+     "walkthrough": "A yabby is a small Australian freshwater crayfish; the marron is a larger relative, so 'Not exactly' qualifies it.",
+     "definitionFit": "Marrons are large Western Australian freshwater crayfish, close to yabbies but a different species."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Writing"
+     "misdirectedWord": "river"
     }
    }
   },
@@ -1579,43 +1578,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AZRAEL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "endlessly means the word loses its last letter"
+       "text": "wandering",
+       "at": 15,
+       "note": "wandering means straying, so the remaining letters move into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "wandering",
-         "note": "wandering letters stray from their places into a new order"
+         "text": "endlessly",
+         "at": 33,
+         "note": "endlessly means without its end, so the last letter of lazaret goes"
         }
        ],
        "parts": [
         {
          "words": "lazaret",
-         "gives": "LAZARE",
-         "note": "lazaret without its final letter"
+         "at": 25
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The angel of death roams a plague hospital without end.",
-     "walkthrough": "A lazaret is a hospital or quarantine station for contagious disease, which suits the surface.",
-     "definitionFit": "Azrael is the angel who separates soul from body at death in Islamic and Jewish tradition."
+     "surface": "The angel of death roams a quarantine hospital without stopping.",
+     "walkthrough": "LAZARET without its final T leaves LAZARE, and 'wandering' rearranges those letters. A lazaret is a hospital for infectious diseases.",
+     "definitionFit": "Azrael is the name given in Islamic and Jewish tradition to the angel who separates souls from bodies at death."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "lazaret"
+     "misdirectedWord": "endlessly"
     }
    }
   },
@@ -1925,32 +1926,38 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "OVERLAY",
-     "indicators": [
-      {
-       "text": "first to last",
-       "note": "first to last means the opening letter is moved to the end of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "flame",
-       "gives": "LOVER",
-       "note": "an old flame is a former lover"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "first to last",
+         "at": 13,
+         "note": "first to last means the opening letter moves to the end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flame",
+         "at": 6,
+         "gives": "LOVER",
+         "note": "an old flame is a former lover"
+        }
+       ]
       },
       {
        "words": "always",
+       "at": 31,
        "gives": "AY",
-       "note": "ay, or aye, is an old word for always"
+       "note": "ay is an old and Scots word for always"
       }
      ]
     },
     "explanation": {
-     "surface": "Put a cover over a flame, starting at one end and keeping it there always.",
-     "walkthrough": "'flame' reads as fire, but it is a sweetheart; moving its L to the back gives OVERL.",
-     "definitionFit": "An overlay is a layer laid over something else, so it is a cover."
+     "surface": "A sweetheart is moved from first to last and stays that way.",
+     "walkthrough": "Move the L of LOVER to the end to give OVERL. AY (also AYE) means 'ever' in old or Scots usage.",
+     "definitionFit": "An overlay is a layer laid over something, a covering."
     },
     "features": {
      "answerInScene": false,

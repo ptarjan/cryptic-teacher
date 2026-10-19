@@ -531,55 +531,64 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ATLANTA",
-     "indicators": [
-      {
-       "text": "beginning",
-       "note": "the beginning of a word is its first letter, which is the one swapped out here"
-      },
-      {
-       "text": "out for",
-       "note": "one letter is out and another is in for it, a straight swap"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Finally",
-       "gives": "ATLAST",
-       "note": "finally means at last"
-      },
-      {
-       "op": "first",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "out for",
+         "at": 25,
+         "note": "out for means one letter goes out in exchange for another"
+        }
+       ],
        "parts": [
         {
-         "words": "set",
-         "note": "the first letter of set, which leaves"
+         "words": "Finally",
+         "at": 0,
+         "gives": "ATLAST",
+         "note": "at last means finally"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "at": 8,
+           "note": "beginning to picks the first letter of set"
+          }
+         ],
+         "parts": [
+          {
+           "words": "set",
+           "at": 21
+          }
+         ]
+        },
+        {
+         "words": "North",
+         "at": 33,
+         "gives": "N",
+         "note": "N is the compass abbreviation for North"
         }
        ]
       },
       {
-       "words": "North",
-       "gives": "N",
-       "note": "N is the compass abbreviation for North, which comes in"
-      },
-      {
        "words": "American",
-       "gives": "A",
-       "note": "A is a standard abbreviation for American"
+       "at": 39,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "At last starting to head out for a capital city in North America.",
-     "walkthrough": "AT LAST has its S swapped for N, then A for American is added to the end.",
+     "surface": "At last starting to leave for a city in North America.",
+     "walkthrough": "'Finally' gives a two-word phrase, and 'out for' swaps one of its letters for another.",
      "definitionFit": "Atlanta is the capital city of the US state of Georgia."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Finally"
+     "misdirectedWord": "set"
     }
    }
   },

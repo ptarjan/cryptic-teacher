@@ -862,42 +862,44 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "LITRE",
+     "indicators": [
+      {
+       "text": "revolutionised",
+       "at": 39,
+       "note": "revolutionised means completely changed, so the remaining letters are reworked into a new order"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "LITRE",
        "indicators": [
         {
          "text": "released from",
-         "note": "letters released from a word leave it"
-        },
-        {
-         "text": "revolutionised",
-         "note": "a revolution overturns order, so the letters are rearranged"
+         "at": 6,
+         "note": "something released from a place is let out of it, so these letters leave the word"
         }
        ],
        "parts": [
         {
          "words": "Rich",
+         "at": 0,
          "gives": "FERTILE",
          "note": "rich soil is fertile"
         },
         {
          "words": "Further Education",
+         "at": 20,
          "gives": "FE",
-         "note": "FE = further education, removed to leave RTILE"
+         "note": "FE is the standard British abbreviation for Further Education"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wealthy man, freed from college, transformed his abilities.",
-     "walkthrough": "'Rich' looks like a person or wealth; it is fertile, as rich soil is. FE is British further education, post-school college.",
-     "definitionFit": "Definition by example: the litre is one unit of capacity."
+     "surface": "A wealthy person freed from college changes the world's capacity.",
+     "walkthrough": "Remove FE from FERTILE to leave RTILE, and 'revolutionised' rearranges those five letters.",
+     "definitionFit": "A litre is a metric unit of volume, so it is a measure of capacity."
     },
     "features": {
      "answerInScene": false,
@@ -1144,62 +1146,69 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UPRIVER",
+     "indicators": [
+      {
+       "text": "Carrying",
+       "at": 0,
+       "note": "carrying means holding something within, so the rest wraps round one letter"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "UPRIVER",
+       "op": "charade",
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "UPRIVER",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "Carrying",
-           "note": "to carry something is to hold it"
-          },
-          {
-           "text": "drops from",
-           "note": "what drops from a word leaves it"
-          },
-          {
            "text": "liquid",
-           "note": "liquid flows into any shape, so the remaining letters rearrange"
+           "at": 39,
+           "note": "liquid means flowing and unfixed, so the remaining letters are poured into a new order"
           }
          ],
          "parts": [
           {
-           "words": "impure",
-           "note": "the word itself"
-          },
-          {
-           "words": "minute",
-           "gives": "M",
-           "note": "M = minute, dropped to leave IPURE, rearranged UPRIE"
-          },
-          {
-           "words": "very",
-           "gives": "V",
-           "note": "V = very, carried inside UPRI|E"
-          },
-          {
-           "words": "runs",
-           "gives": "R",
-           "note": "R = runs in cricket"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "drops from",
+             "at": 21,
+             "note": "drops from means is let fall out of the word that follows"
+            }
+           ],
+           "parts": [
+            {
+             "words": "impure",
+             "at": 32
+            },
+            {
+             "words": "minute",
+             "at": 14,
+             "gives": "M",
+             "note": "M is the abbreviation for minute, as in a time measure"
+            }
+           ]
           }
          ]
+        },
+        {
+         "words": "runs",
+         "at": 47,
+         "gives": "R",
+         "note": "R is the cricket scoring abbreviation for runs"
         }
        ]
+      },
+      {
+       "words": "very",
+       "at": 9,
+       "gives": "V"
       }
      ]
     },
     "explanation": {
-     "surface": "A chemist notes that dirty liquid, carried in tiny drops, runs back to its origin.",
-     "walkthrough": "'Liquid' looks like the noun of the surface; it is the adjective meaning fluid.",
-     "definitionFit": "Plain synonym: upriver means towards the river's source."
+     "surface": "Something carrying tiny drops of dirty fluid flows back towards its origin.",
+     "definitionFit": "A river's source is upstream, so going upriver is heading towards where it begins."
     },
     "features": {
      "answerInScene": true,
@@ -1598,47 +1607,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "YORKSHIRE",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 29,
+       "note": "around means placed on both sides, so the old-days word encloses the other piece"
+      }
+     ],
      "parts": [
       {
+       "words": "In the old days",
+       "at": 0,
+       "gives": "YORE",
+       "note": "yore means long ago, as in 'days of yore'"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "YORKSHIRE",
        "indicators": [
         {
          "text": "cycled",
-         "note": "cycling a word moves its last letter round to the front"
-        },
-        {
-         "text": "around",
-         "note": "around means surrounding, so the outer piece wraps the other"
+         "at": 22,
+         "note": "cycled means sent round, so the last letter moves round to the front"
         }
        ],
        "parts": [
         {
-         "words": "In the old days",
-         "gives": "YORE",
-         "note": "in days of yore"
-        },
-        {
          "words": "duck",
+         "at": 17,
          "gives": "SHIRK",
-         "note": "to duck a duty is to shirk it; cycled to KSHIR"
+         "note": "to duck a duty is to shirk it"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Long ago, a duck rode a bike round an old county.",
-     "walkthrough": "'Duck' looks like the bird; it is the verb, to dodge.",
-     "definitionFit": "Definition by example: Yorkshire is one of England's historic counties, now split into several."
+     "surface": "Long ago, a bird on a bicycle went round an old English county.",
+     "walkthrough": "'historic' because Yorkshire's ridings were broken up as administrative counties in 1974.",
+     "definitionFit": "Yorkshire is one of England's traditional counties, so it counts as a historic county."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "duck"
     }
    }

@@ -2082,40 +2082,43 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the first word goes round the others"
+       "at": 6,
+       "note": "about means surrounding, so the spoken word goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Spoke",
-         "gives": "UTTERED",
-         "note": "to utter is to speak"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "N is the abbreviation for new"
-        }
-       ]
+       "words": "Spoke",
+       "at": 0,
+       "gives": "UTTERED",
+       "note": "to speak words is to utter them"
       },
       {
-       "words": "education sector",
-       "gives": "FE",
-       "note": "FE is further education, the British college sector after school"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 12,
+         "gives": "N"
+        },
+        {
+         "words": "education sector",
+         "at": 16,
+         "gives": "FE",
+         "note": "FE, Further Education, is the British sector of education after school"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A speaker talked about a new part of education that costs nothing.",
-     "walkthrough": "'Free' looks like no charge, but it means unrestrained.",
-     "definitionFit": "Unshackled or unrestrained, without fetters or chains, means at liberty and free."
+     "surface": "Someone talks about a new part of education that charges no fees.",
+     "definitionFit": "Unfettered means not bound by chains or restrictions, hence at liberty."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "free"
     }
    }
@@ -2693,23 +2696,25 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "AUNT",
      "parts": [
       {
        "words": "'angout",
-       "gives": "AUNT",
-       "note": "a hangout is a haunt, and the apostrophe drops its first letter as a Cockney speaker would"
+       "at": 11,
+       "gives": "HAUNT",
+       "note": "a hangout is a haunt, and the apostrophe shows a dropped H as in Cockney speech, so the H of the haunt goes too"
+      },
+      {
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "surface": "A Cockney talks about a family member's favourite place.",
-     "walkthrough": "The apostrophe in the clue word shows the dropped H; the setter asks you to drop it from the synonym too.",
-     "definitionFit": "A parent's sister, or an uncle's wife, is a family relation."
+     "surface": "A family member's favourite spot, spoken with a dropped aitch.",
+     "walkthrough": "Cockney speech drops the initial H, as 'angout does; drop it from HAUNT too. The 's stands for 'is'.",
+     "definitionFit": "An aunt is a parent's sister, a family member and so a relative."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun"
     }
@@ -3282,37 +3287,59 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "EXPONENTS",
-     "indicators": [
-      {
-       "text": "include",
-       "note": "to include is to take inside, and separate says each one goes in at a different place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Old",
+       "at": 0,
        "gives": "EX",
-       "note": "ex means former or old"
+       "note": "ex means former, as in ex-wife"
       },
       {
-       "words": "writers",
-       "gives": "POETS",
-       "note": "poets are writers of verse"
-      },
-      {
-       "words": "two separate notes",
-       "gives": "NN",
-       "note": "n is the abbreviation for note, used twice"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "include",
+         "at": 12,
+         "note": "include means take inside, so the writers' word holds the letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "two separate",
+           "at": 20,
+           "note": "two separate means a pair of the note letters, each going in at its own place"
+          }
+         ],
+         "parts": [
+          {
+           "words": "writers",
+           "at": 4,
+           "gives": "POETS",
+           "note": "poets are writers of verse"
+          },
+          {
+           "words": "notes",
+           "at": 33,
+           "gives": "N",
+           "note": "n is the abbreviation for note, as in footnote references"
+          }
+         ]
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Former writers put in two separate footnotes to explain things.",
-     "walkthrough": "'Notes' suggests music; here it is the abbreviation n, as in footnotes.",
-     "definitionFit": "Someone who sets out and interprets a theory or skill, a leading practitioner, expounds it."
+     "surface": "Writers of the past add a couple of footnotes to explain themselves.",
+     "walkthrough": "The abbreviation for note is the one book indexes use; one copy goes in after the second letter of the writers, the other after the third.",
+     "definitionFit": "An exponent is someone who expounds or interprets, so exponents are people who explain things."
     },
     "features": {
      "answerInScene": true,

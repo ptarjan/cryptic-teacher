@@ -546,51 +546,54 @@
      "indicators": [
       {
        "text": "collecting",
-       "note": "a word collecting others gathers them up inside itself"
+       "at": 18,
+       "note": "collecting means gathering in, so the stop word holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "stop",
-         "gives": "END",
-         "note": "to end something is to stop it"
-        },
-        {
-         "words": "expensive",
-         "gives": "DEAR",
-         "note": "dear means costly"
-        }
-       ]
+       "words": "stop",
+       "at": 13,
+       "gives": "END",
+       "note": "to stop something is to end it"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "finally picks out the last letter of the word before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "delftware",
-         "note": "the last letter of delftware"
+         "words": "expensive",
+         "at": 29,
+         "gives": "DEAR",
+         "note": "dear means costly"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 49,
+           "note": "finally picks the last letter of delftware"
+          }
+         ],
+         "parts": [
+          {
+           "words": "delftware",
+           "at": 39
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who has made themselves cherished, then gives up buying pricey Dutch pottery.",
-     "walkthrough": "'Stop collecting' looks like giving up a hobby, but stop is the outer word and collecting the wrapping instruction.",
-     "definitionFit": "To endear someone is to make them loved or liked, so the past tense means caused to be cherished."
+     "surface": "A collector of pricey Dutch pottery became beloved, then gave it up.",
+     "definitionFit": "To endear someone is to make them liked, so endeared means caused to be loved."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "collecting"
+     "misdirectedWord": "stop"
     }
    }
   },
@@ -756,38 +759,41 @@
      "indicators": [
       {
        "text": "to hold",
-       "note": "a word that holds others keeps them inside it"
+       "at": 20,
+       "note": "to hold means to keep inside, so the yearning word wraps round the letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Had a strong desire",
-         "gives": "LONGED",
-         "note": "longed means yearned for"
-        },
-        {
-         "words": "fellow",
-         "gives": "F",
-         "note": "F is the abbreviation for fellow"
-        }
-       ]
+       "words": "Had a strong desire",
+       "at": 0,
+       "gives": "LONGED",
+       "note": "to long for something is to want it badly"
       },
       {
-       "words": "account",
-       "gives": "AC",
-       "note": "AC is the abbreviation for account"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fellow",
+         "at": 28,
+         "gives": "F",
+         "note": "F is the abbreviation for fellow, as in FRS"
+        },
+        {
+         "words": "account",
+         "at": 38,
+         "gives": "AC"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone wanted to make a man answer for looking so glum.",
-     "definitionFit": "Long-faced describes someone looking sad or gloomy, with a drooping, dismal face."
+     "surface": "Someone who badly wanted to make a man answer for it now looks glum.",
+     "definitionFit": "A long face is a sad, dejected look, so someone long-faced looks gloomy."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "account"
     }
