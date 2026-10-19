@@ -114,43 +114,48 @@
     "enumeration": "4"
    },
    "solution": "WEIR",
+   "alteration": {
+    "from": "DAM",
+    "steps": [
+     {
+      "op": "insertion",
+      "gives": "DAME"
+     },
+     {
+      "op": "substitution"
+     }
+    ]
+   },
    "annotation": {
     "definitions": [
      {
-      "text": "Mother",
+      "text": "Mother's",
       "at": 0,
-      "note": "defines DAM, the word the clue yields; the grid takes its synonym"
+      "note": "Mother's here reads as 'Mother is', a dam being an animal's mother"
      }
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "WEIR",
      "indicators": [
       {
        "text": "raised",
-       "note": "in a down clue, raising something lifts its bottom to the top, so the letters run upwards"
+       "at": 15,
+       "note": "in a down clue, raised means the word for cross is written upwards"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "WEIR",
-       "parts": [
-        {
-         "words": "cross",
-         "gives": "MAD",
-         "note": "cross means angry, as does mad"
-        }
-       ]
+       "words": "cross",
+       "at": 9,
+       "gives": "MAD",
+       "note": "cross means angry, mad"
       }
      ]
     },
     "explanation": {
-     "surface": "A mother bearing a cross raised up, perhaps in a procession.",
-     "walkthrough": "The clue yields DAM, a mother animal; as the preamble says, the grid takes a synonym of it, WEIR, a barrier across a river. Judith Weir is one of the seven composers.",
-     "definitionFit": "A dam is the female parent of livestock; in its other sense of a river barrier it is a near synonym of the entry."
+     "surface": "Someone's mother has had her temper roused.",
+     "walkthrough": "The clue yields DAM, a mother of livestock; as the preamble says, the grid takes a synonym of it, WEIR, a barrier across a river. Judith Weir is one of the seven composers entered.",
+     "definitionFit": "A dam is the female parent of livestock such as horses, the farming sense of mother."
     },
     "features": {
      "answerInScene": false,
@@ -228,40 +233,50 @@
     "enumeration": "6"
    },
    "solution": "BRIDGE",
+   "alteration": {
+    "from": "SPANNER",
+    "steps": [
+     {
+      "op": "deletion",
+      "gives": "SPANNE"
+     },
+     {
+      "op": "substitution"
+     }
+    ]
+   },
    "annotation": {
     "definitions": [
      {
       "text": "A tool",
-      "at": 0,
-      "note": "defines SPANNER, the word the clue yields; the grid takes its synonym"
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "BRIDGE",
+     "op": "charade",
      "parts": [
       {
        "words": "southern",
-       "gives": "S",
-       "note": "S is the abbreviation for southern"
+       "at": 10,
+       "gives": "S"
       },
       {
        "words": "vitriolic critic",
+       "at": 19,
        "gives": "PANNER",
-       "note": "a critic who pans everything, savaging it in reviews"
+       "note": "a panner is a critic who pans, or savages, a show"
       }
      ]
     },
     "explanation": {
-     "surface": "Some instrument used by a savage critic from the South.",
-     "walkthrough": "The clue yields SPANNER, a wrench; the preamble asks for a synonym in the grid, and something that spans a gap is a BRIDGE. Frank Bridge is the composer.",
-     "definitionFit": "A spanner is a hand tool for turning nuts; a spanner is also anything that spans, which a bridge does over a river."
+     "surface": "A savage reviewer from the south has a weapon to wield.",
+     "walkthrough": "The clue yields SPANNER, a wrench; the grid takes its synonym BRIDGE, since a spanner can be a bridging span. Frank Bridge is one of the seven composers.",
+     "definitionFit": "A spanner is a wrench, the everyday hand implement for turning nuts."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "tool"
+     "misdirectedWord": "vitriolic"
     }
    }
   },
@@ -420,59 +435,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PIXIEHAT",
-     "indicators": [
-      {
-       "text": "lacks its leader",
-       "note": "without a leader means the front letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 5,
+         "note": "in means the team's letters are placed inside the mixed state"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "one thing sitting in another is held within it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "a mixed state",
-           "gives": "PIE",
-           "note": "pie is printer's jargon for jumbled type, so a mixed state; split around the team"
-          },
-          {
-           "words": "Team",
-           "gives": "XI",
-           "note": "a cricket or football eleven, in Roman numerals"
-          }
-         ]
+         "words": "a mixed state",
+         "at": 8,
+         "gives": "PIE",
+         "note": "pie is printers' type in a jumbled, mixed state"
         },
         {
+         "words": "Team",
+         "at": 0,
+         "gives": "XI",
+         "note": "XI is a team of eleven, as in cricket or football"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacks its leader",
+         "at": 27,
+         "note": "lacks its leader means the word that loses its first letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "that",
-         "gives": "HAT",
-         "note": "the word with its first letter removed"
+         "at": 22,
+         "gives": "THAT",
+         "note": "the word that, before it loses its first letter"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A team in a state of confusion after losing its captain.",
-     "walkthrough": "PIE in this sense is typesetters' slang for a muddle of type, and in printing 'in pie' means jumbled.",
-     "definitionFit": "A pixie hat is a knitted cap with a pointed crown, so it is cute and pointed at once."
+     "surface": "A side in disarray, missing its captain, described in a cutesy aside.",
+     "walkthrough": "Pie (also spelt pi) is spilt or jumbled printing type. A pixie hat is a knitted hat rising to a point, so the bracketed definition plays on its pointed crown.",
+     "definitionFit": "A pixie hat is a child's woollen hat with a pointed top, cute in the way an elf's cap is."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Team"
+     "misdirectedWord": "mixed"
     }
    }
   },
@@ -578,63 +599,69 @@
     "enumeration": "5"
    },
    "solution": "BLISS",
+   "alteration": {
+    "from": "HEAVEN",
+    "steps": [
+     {
+      "op": "deletion",
+      "gives": "HEAVE"
+     },
+     {
+      "op": "substitution"
+     }
+    ]
+   },
    "annotation": {
     "definitions": [
      {
       "text": "Ultimate destination?",
-      "at": 0,
-      "note": "defines HEAVEN, the word the clue yields; the grid takes its synonym"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BLISS",
      "indicators": [
       {
        "text": "over",
-       "note": "something laid over covers it, so one piece wraps around another"
+       "at": 30,
+       "note": "over means the retreat covers, and so contains, the peak's letter"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "BLISS",
+       "words": "Retreat",
+       "at": 22,
+       "gives": "HAVEN",
+       "note": "a haven is a safe retreat"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "summit",
+         "at": 45,
+         "note": "summit means the top, here the first letter of Everest's"
+        }
+       ],
        "parts": [
         {
-         "words": "Retreat",
-         "gives": "HAVEN",
-         "note": "a haven is a refuge or place to withdraw to"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "summit",
-           "note": "a summit is the top, so only the first letter of the word counts"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Everest's",
-           "note": "first letter of the mountain's name"
-          }
-         ]
+         "words": "Everest's",
+         "at": 35,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A climber's final goal, falling back over the top of Everest.",
-     "walkthrough": "The clue yields HEAVEN; the grid takes the synonym BLISS, the name of the composer Arthur Bliss.",
-     "definitionFit": "Heaven is where the soul is said to end up after death, the last stop of all; bliss is a sense of heavenly joy."
+     "surface": "A climber's last port of call: a shelter just beyond the top of Everest.",
+     "walkthrough": "The clue yields HEAVEN; the grid takes its synonym BLISS, for Arthur Bliss, one of the seven composers.",
+     "definitionFit": "Heaven is where the faithful believe they end up after death, the final stop of a life."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "destination"
+     "misdirectedWord": "Retreat"
     }
    }
   },
@@ -651,40 +678,52 @@
     "enumeration": "7"
    },
    "solution": "WARLOCK",
+   "alteration": {
+    "from": "WIZARD",
+    "steps": [
+     {
+      "op": "insertion",
+      "gives": "WIZARDS"
+     },
+     {
+      "op": "substitution"
+     }
+    ]
+   },
    "annotation": {
     "definitions": [
      {
-      "text": "Potter",
+      "text": "Potter's",
       "at": 0,
-      "note": "defines WIZARD, the word the clue yields; the grid takes its synonym"
+      "note": "Potter's reads as 'Potter is', Harry Potter being a boy wizard"
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "WARLOCK",
+     "op": "charade",
      "parts": [
       {
        "words": "western",
-       "gives": "W",
-       "note": "W is the abbreviation for western"
+       "at": 9,
+       "gives": "W"
       },
       {
-       "words": "Pyrenean chamois?",
+       "words": "Pyrenean chamois",
+       "at": 17,
        "gives": "IZARD",
-       "note": "the izard is the chamois of the Pyrenees"
+       "note": "the izard is the chamois of the Pyrenees mountains"
       }
      ]
     },
     "explanation": {
-     "surface": "A potter's piece showing a Pyrenean mountain goat from the west.",
-     "walkthrough": "'Potter' looks like a maker of pots, but it is Harry Potter. The clue yields WIZARD, and its synonym WARLOCK, the composer Peter Warlock, goes in the grid.",
-     "definitionFit": "Harry Potter is the boy hero of the books, a trainee sorcerer at Hogwarts school of magic."
+     "surface": "A goat-antelope from the western Pyrenees belonging to a craftsman at the wheel.",
+     "walkthrough": "'Potter' looks like a maker of pots; it is Harry Potter. The clue yields WIZARD and the grid takes its synonym WARLOCK, for Peter Warlock, one of the seven composers.",
+     "definitionFit": "Harry Potter, J K Rowling's hero, is a young sorcerer trained at Hogwarts."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Potter"
+     "joke": "pun",
+     "misdirectedWord": "Potter's"
     }
    }
   },
@@ -1407,38 +1446,42 @@
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "MITHRAS",
        "indicators": [
         {
          "text": "to the end",
-         "note": "sending something to the end takes it out of its place and puts it last"
+         "at": 15,
+         "note": "to the end means the letter for right leaves its place in the laughter word and is sent to the end of it"
         }
        ],
        "parts": [
         {
          "words": "Laughter",
+         "at": 0,
          "gives": "MIRTH",
          "note": "mirth is laughter and merriment"
         },
         {
-         "words": "like",
-         "gives": "AS",
-         "note": "as means like or in the manner of"
+         "gives": "R"
         }
        ]
       },
       {
-       "unchecked": true,
        "words": "right",
-       "note": "R is the abbreviation for right; it names the R already in the previous word, which is the letter that moves"
+       "at": 9,
+       "gives": "R"
+      },
+      {
+       "words": "like",
+       "at": 27,
+       "gives": "AS",
+       "note": "as means like, in the same way as"
       }
      ]
     },
     "explanation": {
-     "surface": "Laughing all the way, like a carefree deity.",
-     "walkthrough": "Nothing new is added for 'right': the letter is already in the word for laughter and simply shifts to its end.",
-     "definitionFit": "Mithras was a Persian deity whose mystery cult was popular among Roman soldiers."
+     "surface": "Laughing heartily right to the finish makes you godlike.",
+     "walkthrough": "'Right to the end' moves the right letter within the laughter word rather than adding a new one. Mithras was the Persian god of light whose cult spread through the Roman army.",
+     "definitionFit": "Mithras was a deity worshipped in a Roman mystery cult, so he is a divine being."
     },
     "features": {
      "answerInScene": false,
@@ -1460,53 +1503,57 @@
     "enumeration": "5"
    },
    "solution": "PARRY",
+   "alteration": {
+    "from": "DEFLECT",
+    "steps": [
+     {
+      "op": "deletion",
+      "gives": "DEFLE"
+     },
+     {
+      "op": "substitution"
+     }
+    ]
+   },
    "annotation": {
     "definitions": [
      {
       "text": "Swerve",
-      "at": 0,
-      "note": "defines DEFLECT, the word the clue yields; the grid takes its synonym"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PARRY",
      "indicators": [
       {
        "text": "to keep",
-       "note": "to keep something is to hold it, so one piece goes inside another"
+       "at": 16,
+       "note": "to keep means the failing word holds the left letter within it"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "PARRY",
-       "parts": [
-        {
-         "words": "failing",
-         "gives": "DEFECT",
-         "note": "a defect is a failing or flaw"
-        },
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "L is the abbreviation for left"
-        }
-       ]
+       "words": "failing",
+       "at": 8,
+       "gives": "DEFECT",
+       "note": "a defect is a failing or flaw"
+      },
+      {
+       "words": "left",
+       "at": 24,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A driver swerving after failing to keep to the left.",
-     "walkthrough": "The clue yields DEFLECT; the grid takes its synonym PARRY, to fend off a blow, which names the composer Hubert Parry.",
-     "definitionFit": "To deflect is to turn aside from a course, as a ball or a car swerving away does."
+     "surface": "A driver who cannot stay in the left lane veers across the road.",
+     "walkthrough": "The clue yields DEFLECT; the grid takes its synonym PARRY, to turn a blow aside, for Hubert Parry, one of the seven composers.",
+     "definitionFit": "To deflect is to turn aside from a course, just as a swerve veers off a line."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "keep"
+     "misdirectedWord": "failing"
     }
    }
   },
@@ -1617,42 +1664,51 @@
     "enumeration": "4"
    },
    "solution": "CAGE",
+   "alteration": {
+    "from": "ENCLOSURE",
+    "steps": [
+     {
+      "op": "deletion",
+      "gives": "CURE"
+     },
+     {
+      "op": "substitution"
+     }
+    ]
+   },
    "annotation": {
     "definitions": [
      {
       "text": "Insert",
-      "at": 0,
-      "note": "defines ENCLOSURE, the word the clue yields; the grid takes its synonym"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "CAGE",
      "indicators": [
       {
        "text": "fiddled",
-       "note": "fiddled means tampered with, so the letters are rearranged"
+       "at": 20,
+       "note": "fiddled means the letters are tampered with and rearranged, with a nod to Nero fiddling while Rome burned"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "CAGE",
-       "parts": [
-        {
-         "words": "clue's \"Nero",
-         "note": "taken as written"
-        }
-       ]
+       "words": "clue's",
+       "at": 7,
+       "note": "taken as written, apostrophe dropped"
+      },
+      {
+       "words": "Nero",
+       "at": 15,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A setter quoting the old line about Nero fiddling while Rome burned.",
-     "walkthrough": "The clue yields ENCLOSURE; a synonym in its sense of a pen is CAGE, after John Cage, the composer.",
-     "definitionFit": "An enclosure is something put in with a letter, which is what an insert is too."
+     "surface": "A crossword's quoted line about the emperor playing while Rome burned.",
+     "walkthrough": "The clue yields ENCLOSURE; the grid takes its synonym CAGE, for John Cage, one of the seven composers.",
+     "definitionFit": "An enclosure is something sent inside a letter or packet, an item put in alongside the main document."
     },
     "features": {
      "answerInScene": false,
