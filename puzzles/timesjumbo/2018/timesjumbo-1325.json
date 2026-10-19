@@ -151,36 +151,39 @@
      "indicators": [
       {
        "text": "found in",
-       "note": "things found in a place sit inside it, so the middle letters go within the islands"
+       "at": 29,
+       "note": "found in means the letters sit within the islands' abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Channel Islands",
-         "gives": "CI",
-         "note": "standard abbreviation for the Channel Islands"
-        },
-        {
-         "words": "over",
-         "gives": "O",
-         "note": "O is the cricket scorecard abbreviation for an over"
-        }
-       ]
+       "words": "Channel Islands",
+       "at": 38,
+       "gives": "CI"
       },
       {
-       "words": "200",
-       "gives": "CC",
-       "note": "CC is 200 in Roman numerals"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "over",
+         "at": 20,
+         "gives": "O",
+         "note": "O is the cricket scorer's abbreviation for an over"
+        },
+        {
+         "words": "200",
+         "at": 25,
+         "gives": "CC",
+         "note": "CC is 200 in Roman numerals"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Microbiology report: a couple of hundred bacteria types turn up on Jersey and Guernsey.",
-     "walkthrough": "'Over' as O comes from cricket, where an over is six balls bowled from one end.",
-     "definitionFit": "Cocci is the plural of coccus, a spherical bacterium, so the word names several such types."
+     "surface": "More than two hundred kinds of bacteria are discovered in Jersey and Guernsey.",
+     "walkthrough": "The Channel Islands are Jersey, Guernsey and others between England and France.",
+     "definitionFit": "Cocci are round bacterial cells, the plural of coccus, as in streptococci."
     },
     "features": {
      "answerInScene": true,
@@ -1805,64 +1808,70 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the preceding letters inside the word that follows"
+       "at": 29,
+       "note": "in puts the gutless German and workers inside the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortened",
+         "at": 37,
+         "note": "shortened means the last letter is lopped off"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
+         "words": "fact",
+         "at": 32,
+         "gives": "REALITY",
+         "note": "reality means what is actually fact"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "outer",
          "indicators": [
           {
-           "text": "shortened",
-           "note": "shortened means cut down, so the word loses its last letter"
+           "text": "Lacking guts",
+           "at": 0,
+           "note": "lacking guts means the inside letters are gone, leaving only the outside two"
           }
          ],
          "parts": [
           {
-           "words": "fact",
-           "gives": "REALITY",
-           "note": "reality is fact"
-          },
-          {
-           "gives": "Y"
+           "words": "German",
+           "at": 14
           }
          ]
         },
         {
          "words": "workers",
+         "at": 21,
          "gives": "MEN",
-         "note": "workers are men"
-        }
-       ]
-      },
-      {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "Lacking guts",
-         "note": "with its insides removed only the outer letters of the word remain"
-        }
-       ],
-       "parts": [
-        {
-         "words": "German",
-         "note": "first and last letters of the word"
+         "note": "men are workers on a site"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Gutless German labourers in reality worked a short shift.",
-     "walkthrough": "'Shift' looks like a work period to suit the workers, but it means a change of position.",
-     "definitionFit": "A realignment is a rearrangement or change of position, as is a shift in policy or allegiance."
+     "surface": "German workers lose their nerve, and a shift is cut short.",
+     "walkthrough": "'in fact' looks like a link phrase, but 'fact' is a leaf for the word meaning actuality, which is then shortened.",
+     "definitionFit": "A realignment is a change of position or alliance, so it is a shift in policy or arrangement."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "shift"
     }
    }

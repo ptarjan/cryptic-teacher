@@ -422,97 +422,45 @@
      "indicators": [
       {
        "text": "to pinch",
-       "note": "to pinch something is to grip it tight, so one piece holds the other inside it"
+       "at": 5,
+       "note": "to pinch is to grip, so the stop holds the next letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "container",
-         "parts": [
-          {
-           "op": "container",
-           "parts": [
-            {
-             "op": "container",
-             "parts": [
-              {
-               "words": "Stop",
-               "gives": "STATION",
-               "note": "a stop on a railway line is a station"
-              },
-              {
-               "op": "last",
-               "indicators": [
-                {
-                 "text": "finally",
-                 "note": "finally applies to each of the five words before it, keeping the end of every one"
-                }
-               ],
-               "parts": [
-                {
-                 "words": "nose",
-                 "note": "last letter"
-                }
-               ]
-              }
-             ]
-            },
-            {
-             "op": "last",
-             "parts": [
-              {
-               "words": "over",
-               "note": "last letter"
-              }
-             ]
-            }
-           ]
-          },
-          {
-           "op": "last",
-           "parts": [
-            {
-             "words": "man",
-             "note": "last letter"
-            }
-           ]
-          }
-         ]
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "flu",
-           "note": "last letter"
-          }
-         ]
-        }
-       ]
+       "words": "Stop",
+       "at": 0,
+       "gives": "STATION",
+       "note": "a station is a stop on a railway line"
       },
       {
        "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 38,
+         "note": "finally takes the final letter of each of the words nose, over, man, flu and but"
+        }
+       ],
        "parts": [
         {
-         "words": "but",
-         "note": "last letter"
+         "words": "nose, over man flu, but",
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sufferer of man flu holds his nose at the station to stop himself sneezing.",
-     "walkthrough": "The surface invites stopping a sneeze by pinching the nose. In fact 'finally' collects the last letters of nose, over, man, flu and but, which sit inside the station.",
-     "definitionFit": "Sternutation is the formal or medical term for the act of sneezing, from the Latin word for it."
+     "surface": "Advice for a man with a cold: pinch your nose to stop the sneezes.",
+     "walkthrough": "'finally' reaches back across the commas to all five words before it, not just 'but'; the surface's man flu is a red herring.",
+     "definitionFit": "Sternutation is the formal, medical word for the act of a sneeze."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pinch"
+     "joke": "pun",
+     "misdirectedWord": "Stop"
     }
    }
   },
@@ -1282,52 +1230,57 @@
      "indicators": [
       {
        "text": "concealed",
-       "note": "what is concealed is hidden inside something, so these pieces sit within another"
+       "at": 35,
+       "note": "concealed tells us the next letters are hidden inside the word for created"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "created",
-         "gives": "MADE",
-         "note": "something created has been made"
-        },
-        {
-         "words": "as",
-         "note": "taken as written"
-        }
-       ]
+       "words": "created",
+       "at": 9,
+       "gives": "MADE",
+       "note": "made means created"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "briefly",
-         "note": "something said briefly is cut short, so the word loses its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "doubt",
-         "gives": "QUERY",
-         "note": "a query expresses doubt"
+         "words": "as",
+         "at": 18
         },
         {
-         "gives": "Y"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 27,
+           "note": "briefly means cut short, so the last letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "doubt",
+           "at": 21,
+           "gives": "QUERY",
+           "note": "a query is a doubt or question"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A deception has been created, with all doubt quietly hidden.",
-     "definitionFit": "A masquerade is a false show or disguise, so it is a pretence covering the truth."
+     "surface": "Someone's act is exposed: doubts were quietly hidden.",
+     "definitionFit": "A masquerade is a false show or disguise, so it is a pretence."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "created"
     }
    }
   },
@@ -1746,50 +1699,56 @@
      "indicators": [
       {
        "text": "to admit",
-       "note": "to admit someone is to let them in, so the word for certain holds the rest"
+       "at": 8,
+       "note": "to admit is to let in, so the word for certain holds the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in places the first letter of recede inside the word fact"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Certain",
-         "gives": "SURE",
-         "note": "certain means sure"
-        },
-        {
-         "words": "hair",
-         "gives": "TRESS",
-         "note": "a tress is a lock of hair"
-        }
-       ]
+       "words": "Certain",
+       "at": 0,
+       "gives": "SURE",
+       "note": "sure means certain"
       },
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "words": "fact",
-         "note": "taken as written"
+         "words": "hair",
+         "at": 17,
+         "gives": "TRESS",
+         "note": "a tress is a lock of hair"
         },
         {
-         "op": "first",
+         "op": "container",
          "indicators": [
           {
-           "text": "beginning to",
-           "note": "the beginning of a word is its first letter, which alone is taken"
+           "text": "in",
+           "at": 42,
+           "note": "in places the letter inside the word fact"
           }
          ],
          "parts": [
           {
-           "words": "recede",
-           "note": "first letter"
+           "words": "fact",
+           "at": 45,
+           "gives": "FACT"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "beginning",
+             "at": 22,
+             "note": "beginning picks out the first letter of recede"
+            }
+           ],
+           "parts": [
+            {
+             "words": "recede",
+             "at": 35
+            }
+           ]
           }
          ]
         }
@@ -1798,9 +1757,9 @@
      ]
     },
     "explanation": {
-     "surface": "Sure enough, a receding hairline is a fact of life.",
-     "walkthrough": "The receding hairline leads to baldness; the answer is a hairline crack in a bone.",
-     "definitionFit": "A stress fracture is a tiny hairline crack in bone caused by repeated strain, often in athletes."
+     "surface": "A man is sure his hairline is receding and calls it a problem.",
+     "walkthrough": "The surface is about baldness, but the definition's hairline is a hair-thin crack in a bone.",
+     "definitionFit": "A stress fracture is a hair-thin crack in a bone, so the injury is literally a hairline problem."
     },
     "features": {
      "answerInScene": false,
@@ -2780,39 +2739,42 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the slimmer goes around the following letters"
+       "at": 41,
+       "note": "the dieter goes about, around, the next letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "one aiming to shrink",
-         "gives": "DIETER",
-         "note": "a dieter is trying to lose weight"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "one aiming to shrink",
+       "at": 20,
+       "gives": "DIETER",
+       "note": "a dieter is a person trying to lose weight"
       },
       {
-       "words": "metre",
-       "gives": "M",
-       "note": "M is the abbreviation for metre"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 47
+        },
+        {
+         "words": "metre",
+         "at": 49,
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A slimmer hopes to lose about a metre around the waist.",
-     "definitionFit": "A diameter is the straight-line length across a circle through its centre, a measurement along a line."
+     "surface": "Someone on a diet measures their waistline and hopes to lose about a metre.",
+     "definitionFit": "A diameter is the length of a straight line through the centre of a circle, a measurement in one dimension."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd"
+     "joke": "absurd",
+     "misdirectedWord": "shrink"
     }
    }
   },
@@ -3577,45 +3539,50 @@
      "indicators": [
       {
        "text": "to catch",
-       "note": "to catch something is to take hold of it, so the trial word encloses the rest"
+       "at": 22,
+       "note": "to catch is to hold, so the word for try contains the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "try",
-         "gives": "HEAR",
-         "note": "a judge will hear, or try, a case"
-        },
-        {
-         "words": "one",
-         "note": "taken as written"
-        }
-       ]
+       "words": "try",
+       "at": 18,
+       "gives": "HEAR",
+       "note": "to hear a case is to try it in court"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "swinging backwards",
-         "note": "something swinging backwards moves in the reverse direction, so the word is read the other way"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "by",
+         "words": "one",
+         "at": 31,
+         "gives": "ONE",
          "note": "taken as written"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "swinging backwards",
+           "at": 38,
+           "note": "swinging backwards tells us to turn the little word round"
+          }
+         ],
+         "parts": [
+          {
+           "words": "by",
+           "at": 35
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Trying to catch a tree-dwelling animal as it swings backwards through the branches.",
-     "walkthrough": "'Try' suggests attempt; it is the courtroom sense of hearing a case.",
-     "definitionFit": "The honey bear is a name for the kinkajou and the sun bear, mammals that live and feed in trees."
+     "surface": "Instructions for catching a monkey as it swings backwards through the trees.",
+     "walkthrough": "To try a case in court is to hear it, which is the sense needed here.",
+     "definitionFit": "The honey bear, another name for the kinkajou or sun bear, is a tree-dwelling animal."
     },
     "features": {
      "answerInScene": true,

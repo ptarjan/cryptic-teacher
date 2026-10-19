@@ -1056,66 +1056,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "STUDENTS",
      "indicators": [
       {
        "text": "in",
-       "note": "the shifted word sits between the two copies of the street abbreviation"
+       "at": 23,
+       "note": "in puts the cycled word between the two street abbreviations"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "STUDENTS",
+       "words": "streets facing each another",
+       "at": 26,
+       "gives": "STTS",
+       "note": "st is the abbreviation for street; two of them facing each other are one forwards and one backwards"
+      },
+      {
+       "op": "cycling",
        "indicators": [
         {
-         "text": "facing each another",
-         "note": "two things facing each other point opposite ways, so the second copy is turned round"
+         "text": "cycling",
+         "at": 9,
+         "note": "cycling means the end letter is moved round to the other end"
         }
        ],
        "parts": [
         {
-         "op": "cycling",
-         "unchecked": true,
-         "gives": "STUDENTS",
-         "indicators": [
-          {
-           "text": "cycling",
-           "note": "letters going round a cycle move from the front to the back of the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "streets",
-           "gives": "ST",
-           "note": "ST is the abbreviation for street"
-          },
-          {
-           "words": "naked",
-           "gives": "NUDE",
-           "note": "nude means naked"
-          },
-          {
-           "words": "another",
-           "gives": "ST",
-           "note": "a second street abbreviation"
-          }
-         ]
+         "words": "naked",
+         "at": 17,
+         "gives": "NUDE",
+         "note": "nude means naked"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Students cycling naked through the streets, a rag-week stunt.",
-     "walkthrough": "'Cycling' paints bicycles but is the rotation signal: the first letter moves to the end.",
-     "definitionFit": "Students are people who are learning, at school or university."
+     "surface": "Students cycle naked down streets that face each other, a rag-week stunt.",
+     "walkthrough": "'cycling' looks like riding a bike in the surface, but it moves a letter from one end of the word to the other.",
+     "definitionFit": "Students are people who are learning at school or university."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "cycling"
     }
    }
@@ -1502,41 +1485,48 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "AMBLE",
-     "indicators": [
-      {
-       "text": "replaced by",
-       "note": "one thing replaced by another is swapped out for it, letter for letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 26
       },
       {
-       "words": "1760-yard",
-       "gives": "MILE",
-       "note": "a mile is 1760 yards"
-      },
-      {
-       "words": "One",
-       "gives": "I",
-       "note": "I is the Roman numeral for one"
-      },
-      {
-       "words": "bishop",
-       "gives": "B",
-       "note": "B is the chess abbreviation for bishop"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "replaced by",
+         "at": 4,
+         "note": "replaced by means one letter is swapped out for another in the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "1760-yard",
+         "at": 28,
+         "gives": "MILE",
+         "note": "a mile is 1760 yards"
+        },
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "bishop",
+         "at": 16,
+         "gives": "B",
+         "note": "B is the chess notation for bishop"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bishop taking a mile-long stroll in place of someone else.",
-     "walkthrough": "A MILE has its I swapped for B.",
-     "definitionFit": "An amble is a leisurely, easy-paced stroll."
+     "surface": "A bishop takes someone's place on a mile-long walk.",
+     "walkthrough": "The '1760-yard walk' looks like the definition, but the number is the unit of distance it measures.",
+     "definitionFit": "To amble is to stroll at a gentle, leisurely pace."
     },
     "features": {
      "answerInScene": true,
