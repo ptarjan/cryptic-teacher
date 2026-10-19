@@ -1957,9 +1957,11 @@ def printed_lines(words):
     each of whose middles lies within the other's height share a row (a
     column rule read as one tall word joins none), left to right, a row
     split where a gap wider than three heights parts two columns. A word
-    no row's first word takes joins a row whose other words are all under
-    half its tallest word's height (a title the grid's clue numbers beside
-    it opened) when it and that tallest word share a row so and it is no
+    no row's first word takes joins a row whose other words left of it are
+    all under half its tallest word's height (a title the grid's clue numbers
+    beside it opened; a tall heading of another column, right of the number,
+    does not part them: Gale's "THE TIMES CROSSWORD" 22,779 beside "Around
+    Britain") when it and that tallest word share a row so and it is no
     more than a tenth taller (a number's digits stand a little over a
     title's capitals): the title's number joins the title; a title beside a
     shorter body line, or a body line's run of words, does not."""
@@ -1971,13 +1973,19 @@ def printed_lines(words):
 
     def alike(a, b):
         return a[1] <= mid(b) <= a[3] and b[1] <= mid(a) <= b[3]
+
+    def apart(row, w):
+        return min(max(x[0] - w[2], w[0] - x[2], 0) for x in row)
     rows, tallest = [], []
     for w in sorted(words, key=mid):
         k = next((k for k, r in enumerate(rows) if alike(r[0], w)), None)
-        if k is None:
-            k = next((k for k, (r, t) in enumerate(zip(rows, tallest))
-                      if 10 * height(w) <= 11 * height(t) and alike(t, w)
-                      and all(2 * height(x) < height(t) for x in r if x is not t)), None)
+        taller = next((j for j, (r, t) in enumerate(zip(rows, tallest))
+                       if 10 * height(w) <= 11 * height(t) and alike(t, w)
+                       and all(2 * height(x) < height(t) for x in r if x is not t and x[0] < w[0])), None)
+        # A number beside its title joins the title's row, not the row of a
+        # speck of another column that shares its height further along.
+        if k is None or taller is not None and taller != k and apart(rows[taller], w) < apart(rows[k], w):
+            k = taller
         if k is None:
             rows.append([w])
             tallest.append(w)
@@ -2219,9 +2227,33 @@ def ocr_headings(img, paper, key, day=None):
                 if which not in (r[0] for r in sols.get(n, ())):
                     sols.setdefault(n, []).append((which, b))
     sols = {n: reads for n, reads in sols.items() if len(reads) >= least}
-    return ([(n, reads[0][1], reads[0][2], [r[0] for r in reads]) for n, reads in titles.items()
-             if len(reads) >= least or n - 1 in sols] or near,
-            [(n, reads[0][1]) for n, reads in sols.items()])
+    found = [(n, reads[0][1], reads[0][2], [r[0] for r in reads]) for n, reads in titles.items()
+             if len(reads) >= least or n - 1 in sols] or near
+    return gale_headings(img, paper, key, day, found, [(n, reads[0][1]) for n, reads in sols.items()])
+
+
+def gale_headings(img, paper, key, day, titles, sols):
+    """(titles, sols) of ocr_headings with what the page's other headings show
+    is no title moved off them: a "Solution to yesterday's / crossword
+    22,778" heading, its second line read as a title, is the solution heading
+    of the title SOLUTION_LAGS above it on the page (22,779), so a solution;
+    and a number far off the date's, with another title read on the page
+    near it ("The Times Crossword 2000", a bookshop advertisement in 1999),
+    is no title. Titles all read in the page's foot, where the solution
+    headings are printed, are the headings only: the title's own words lost
+    to the whole-page read (Times 22,211's "THE TIMES CROSSWORD"), the
+    titles ocr_titles reads round the grids that stand SOLUTION_LAGS past
+    one of them are the page's."""
+    if day is not None and titles and all(t[1][3] > 0.8 * img.height for t in titles):
+        titles = [t for t in ocr_titles(img, paper, day, key, far=True)
+                  if any(t[0] - x[0] in SOLUTION_LAGS for x in titles)] + titles
+    nums = {t[0] for t in titles}
+    moved = [t for t in titles if any(t[0] + lag in nums for lag in SOLUTION_LAGS)]
+    titles = [t for t in titles if t not in moved]
+    if day is not None and any(abs(t[0] - paper.expected(day)) <= paper.slack for t in titles):
+        titles = [t for t in titles if abs(t[0] - paper.expected(day)) <= paper.slack]
+    held = {n for n, _ in sols}
+    return titles, sols + [(t[0], t[1]) for t in moved if t[0] not in held]
 
 
 #: The strip under a Times title that the day before's solution heading is
@@ -3529,7 +3561,7 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: {cause: ISO time}: an edition a title of which was refused for `cause`
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
-REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-19T01:44:00+00:00",
+REREAD_REFUSED = {"not-a-grid": "2026-10-19T02:26:00+00:00", "no-reading-parses": "2026-10-19T01:44:00+00:00",
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00",
                   # The crashes since fixed: the 6144 MB RLIMIT_AS bad_alloc (launcher's CT_UNIT_MEMORY_MB),
                   # an unreadable band_words cache, trove_solution_ocr's unloaded word list.
@@ -4207,6 +4239,29 @@ _BAND_CACHE_FIX = {
     "times1930": ("ebb010eefdcdbb6d", "a3cc6c34daf75219", "9ef2131e09133cb0"),
 }
 CORPUS_KEYS.update({old: {paper: pins[2]} for paper, pins in _BAND_CACHE_FIX.items() for old in pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before printed_lines
+#: joined a title's number to its title past another column's speck and
+#: gale_headings read a Gale page's "Solution to yesterday's crossword" as the
+#: solution heading it is: an edit to code every paper's scan reaches, but
+#: only the Gale Times pages' scans (no djvu text, title read off the page)
+#: it moves; the other papers' scans stand under their old keys. The Gale
+#: Times (gale) is scanned again.
+_LINES_FIX = {
+    "ft": ("b5a9547b6ba1b011", "38bb34a8c63766dc", "873f163269afb857"),
+    "galeft": ("42259f1d59f49601", "c1cdd7ff200f6886", "2aa5bda7ccc446d2"),
+    "galeindependent": ("01bdb8d0a846dd0f", "03899a7fd1014aec", "49e5aa898f77c900"),
+    "galesundaytimes": ("035bd707b488443f", "9da58a9026e6f5d3", "da64c98f54178a8c"),
+    "galetelegraph": ("fc62368f9ce2f471", "aab5380b0deca0ae", "80896c9302ec7e7b"),
+    "galetls": ("c20a08156e78314f", "afa2632c0a58943a", "cf369c2954aa9130"),
+    "guardian": ("70e174678220d20e", "5dfdc58dc3f12eae", "34ed1a212a8cddc4"),
+    "telegraph": ("24c84ee2abcf3607", "4c5024af88621236", "df3912f16a91f7f5"),
+    "times": ("e5e7a6fad3527737", "cf95a7905201b627", "930dd842c679fca1"),
+    "times1930": ("9ef2131e09133cb0", "e2816b3064f23306", "81aad3c2558f6560"),
+}
+CORPUS_KEYS.update({old: {paper: pins[2]} for paper, pins in _LINES_FIX.items() for old in pins[:2]})
+# The keys before the band cache fix stand where the lines fix leaves their paper's scans.
+CORPUS_KEYS.update({old: {paper: _LINES_FIX[paper][2]} for paper, pins in _BAND_CACHE_FIX.items()
+                    if paper in _LINES_FIX for old in pins[:2]})
 
 
 def current_keys(paper):

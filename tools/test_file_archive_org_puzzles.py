@@ -209,7 +209,8 @@ gt = f.GALE_TELEGRAPH
 row = {"edition": "GaleTelegraph1975UKEnglish/1975-03-04", "scanKey": f.scan_key(gt), "filesHash": "h", "scan": {}}
 check("scan_current's caches: a paper's name as the globals walk finds it, again after a re-bind; one key set "
       "shared by every ask; an edition named by string read as paper_of's (asked twice, by rel and by row)",
-      (True, "ZZ_CACHED", "ZZ_MOVED", True, {f.scan_key(gt), f.sized_scan_key(gt), *f._BAND_CACHE_FIX[gt.key][:2]},
+      (True, "ZZ_CACHED", "ZZ_MOVED", True, {f.scan_key(gt), f.sized_scan_key(gt), *f._BAND_CACHE_FIX[gt.key][:2],
+                                                                      *f._LINES_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
