@@ -678,4 +678,14 @@ check("a plain word on the deletion does not", 1, v.unindicated_uncovered(
     {**BLUFFS, "parts": [{**BLUFFS["parts"][0], "indicators": [{"text": "without"}]}, BLUFFS["parts"][1]]}))
 check("a repeat word giving its sibling again is not a synonym (TSETSE)", 0, v.anagram_synonyms(
     {"op": "anagram", "indicators": [{"text": "torment"}], "parts": [lf("set", "SET"), lf("again", "SET")]}))
+# round 19: tradedIndicator (REALALES, ADORE)
+REAL = {"op": "reversal", "indicators": [{"text": "about"}], "parts": [{"op": "container", "indicators": [{"text": "knocking back"}], "parts": [
+    lf("Sybil", "SEER"), lf("to sing chorus", "LALA")]}]}
+check("two ops trading indicator words are counted (REALALES)", 2, v.traded_indicators(REAL))
+check("each on its own op is not", 0, v.traded_indicators(
+    {"op": "reversal", "indicators": [{"text": "knocking back"}], "parts": [{"op": "container", "indicators": [{"text": "about"}], "parts": [
+        lf("Sybil", "SEER"), lf("to sing chorus", "LALA")]}]}))
+ADORE = {"op": "reversal", "indicators": [{"text": "masks"}], "parts": [{"op": "hidden", "indicators": [{"text": "up"}], "parts": [
+    lf("superhero darning", "ERODA")]}]}
+check("a hidden word on a reversal's word with an unknown reversal word is counted (ADORE)", 1, v.traded_indicators(ADORE))
 raise SystemExit(fails)

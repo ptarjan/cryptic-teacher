@@ -74,6 +74,7 @@ FIELDS = {
     "wordplay.doubleIndicator": lambda ann: V.double_indicators(ann.get("wordplay")),
     "wordplay.movedLetter": lambda ann: V.moved_letters(ann.get("wordplay")),
     "wordplay.poolGap": lambda ann, clue=None: V.pool_gaps(ann.get("wordplay"), clue),
+    "wordplay.tradedIndicator": lambda ann: V.traded_indicators(ann.get("wordplay")),
 }
 #: Fields whose finding places words in the clue, so counts() hands them its text.
 NEEDS_CLUE = {"wordplay.deletionInside", "wordplay.anagramSynonym", "wordplay.poolGap"}

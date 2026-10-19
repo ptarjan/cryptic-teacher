@@ -5897,6 +5897,39 @@ def _owner_type(text):
     return top if total >= 5 and counts[top] >= 0.8 * total else None
 
 
+TRADED_INDICATOR = "two ops each carry the other's indicator word, or a hidden word carries a reversal's word"
+
+
+def traded_indicators(tree):
+    """Indicators that trade places (round 19, listed miss REALALES: rev<about>(ins<knocking back>), where
+    "about" is 78% container and "knocking back" 91% reversal; ADORE: rev<masks>(hid<up>), "up" being 93%
+    reversal and a hidden word's indicator under 1%). Counts the indicators of a checked op whose word the
+    corpus files, in 20+ uses, 75%+ under another op's type and at most 20% under this one's, when a second op
+    carries the first's type's word the same way; or, for a hidden word
+    carrying a near-reversal word (90%+, under 2% hidden), when the tree's reversal has no indicator the
+    corpus knows for a reversal."""
+    nodes = [n for n in _walk(tree) if _OP_LEXICON.get(n.get("op")) and not n.get("unchecked") and n.get("indicators")]
+    found = []  # (node id, own type, other type, strict)
+    for node in nodes:
+        own = _OP_LEXICON[node["op"]]
+        for i in node["indicators"]:
+            counts = _role_counts(indicator_role_key(i.get("text")))
+            total = sum(counts.values())
+            if total < ROLE_MIN_USES:
+                continue
+            top = max(counts, key=counts.get)
+            if top == own:
+                continue
+            if counts[top] >= 0.75 * total and counts.get(own, 0) <= 0.2 * total:
+                found.append((id(node), own, top, False))
+            if counts[top] >= 0.9 * total and counts.get(own, 0) <= 0.02 * total:
+                found.append((id(node), own, top, True))
+    mutual = {a for a in found if any(b[0] != a[0] and b[1] == a[2] and b[2] == a[1] for b in found)}
+    hid = {a for a in found if a[3] and a[1] == "hidden_word" and a[2] == "reversal" and any(
+        _OP_LEXICON[o["op"]] == "reversal" and _lacks_role(o, "reversal") for o in nodes)}
+    return len({(a[0], a[1]) for a in mutual | hid})
+
+
 def double_indicators(tree):
     """Reversals, deletions, hidden words and selections that file two indicators (cryptic-29317
     6d NEEDIER rev<turned up><elevated>: two reversals; independent-12251 2d IRON
@@ -6209,6 +6242,8 @@ def shape_warnings(tag, ann, clue=None, answer=None):
     if k := midword_leaves(tree, clue):
         out.append(f"{tag}: {k} {MIDWORD_LEAF}: a cut is an op (del/first/last), not a leaf that "
                    f"gives part of a word")
+    if k := traded_indicators(tree):
+        out.append(f"{tag}: {k} {TRADED_INDICATOR}: file each indicator word on the op of its own kind")
     return out
 
 
@@ -6785,6 +6820,7 @@ BACKLOG_MARKERS = {
     "wordplay.doubleIndicator": (DOUBLE_INDICATOR,),
     "wordplay.movedLetter": (MOVED_LETTER,),
     "wordplay.poolGap": (POOL_GAP,),
+    "wordplay.tradedIndicator": (TRADED_INDICATOR,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }
