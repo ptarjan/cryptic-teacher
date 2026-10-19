@@ -1254,37 +1254,54 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "AILMENTS",
-     "indicators": [
-      {
-       "text": "cycling separately",
-       "note": "each of the two words is rotated by itself, its front letter moving to the back"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Letters",
-       "gives": "MAIL",
-       "note": "letters sent through the post"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 20,
+         "note": "cycling means the word's first letter is moved round to its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Letters",
+         "at": 0,
+         "gives": "MAIL",
+         "note": "letters sent through the post are mail"
+        }
+       ]
       },
       {
-       "words": "posted",
-       "gives": "SENT",
-       "note": "dispatched"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "separately",
+         "at": 28,
+         "note": "separately means the cycling is done to the second word on its own as well, not to the pair as one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "posted",
+         "at": 8,
+         "gives": "SENT",
+         "note": "posted means sent"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Letters sent by bicycle courier, each separately, lead to grumbles.",
-     "walkthrough": "'Complaints' looks like grumbling about the post, but means illnesses here.",
-     "definitionFit": "Ailments are minor illnesses, and in medicine a complaint is a disorder."
+     "surface": "Somebody grumbles that letters went out while cycling, causing complaints.",
+     "walkthrough": "'separately' tells you to cycle each word on its own rather than the pair together.",
+     "definitionFit": "Ailments are illnesses, and a complaint is a common word for a minor medical disorder."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "cycling"
     }
    }

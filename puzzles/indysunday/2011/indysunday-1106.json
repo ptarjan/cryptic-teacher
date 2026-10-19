@@ -569,7 +569,8 @@
      "indicators": [
       {
        "text": "returned",
-       "note": "returned means sent back the way it came, so the string is read right to left"
+       "at": 60,
+       "note": "returned means the whole result is read backwards"
       }
      ],
      "parts": [
@@ -578,26 +579,33 @@
        "indicators": [
         {
          "text": "among",
-         "note": "among means placed in the middle of the others, so one thing goes inside"
+         "at": 27,
+         "note": "among means this letter is put in the middle of the others"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "CTSONGA",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "certain",
+           "at": 33,
+           "note": "certain means only some of these words' letters, a run from inside them, are kept and the rest dropped"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "certain defects on gadgets",
-           "gives": "CTSONGA",
-           "select": "middle",
-           "note": "certain means some of: a stretch of letters running from the end of defects through on into gadgets"
+           "words": "defects on gadgets",
+           "at": 41
+          },
+          {
+           "gives": "DEFEDGETS"
           }
          ]
         },
         {
          "words": "one",
+         "at": 23,
          "gives": "I",
          "note": "I is the Roman numeral for one"
         }
@@ -606,14 +614,14 @@
      ]
     },
     "explanation": {
-     "surface": "A man pleads he knows nothing about the faults in some gadgets that were sent back.",
-     "walkthrough": "I goes into CTSONGA to make CITSONGA, which read backwards gives AGNOSTIC.",
-     "definitionFit": "An agnostic holds that nothing can be known about God, so is a person professing lack of knowledge."
+     "surface": "A man pleads ignorance about one flaw in some devices.",
+     "walkthrough": "'certain' picks a run of letters out of 'defects on gadgets'; with I among them, the lot is read backwards.",
+     "definitionFit": "An agnostic holds that nothing can be known about God, so professes not to know."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "returned"
+     "misdirectedWord": "certain"
     }
    }
   },
@@ -898,40 +906,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GELIGNITE",
-     "indicators": [
-      {
-       "text": "breaking up",
-       "note": "breaking up means falling to pieces, so these letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "breaking up",
+         "at": 24,
+         "note": "breaking up in a down clue means these letters rise, read from bottom to top"
+        }
+       ],
        "parts": [
         {
          "words": "for example",
-         "gives": "GE",
-         "note": "the letters of eg rearranged"
-        },
-        {
-         "words": "brown coal",
-         "gives": "LIGNITE",
-         "note": "lignite is soft brown coal"
+         "at": 11,
+         "gives": "EG",
+         "note": "EG is the abbreviation for exempli gratia, for example"
         }
        ]
+      },
+      {
+       "words": "brown coal",
+       "at": 36,
+       "gives": "LIGNITE",
+       "note": "lignite is soft brown coal"
       }
      ]
     },
     "explanation": {
-     "surface": "A blasting agent, perhaps, shattering soft coal.",
-     "definitionFit": "Gelignite is a blasting jelly of nitroglycerine and nitrocellulose used in quarrying and demolition."
+     "surface": "An explosive blast breaking apart a seam of brown coal.",
+     "walkthrough": "'breaking up' looks like an anagram signal, but in a down entry 'up' turns the abbreviation over.",
+     "definitionFit": "Gelignite is a blasting explosive of nitroglycerine in a gel base."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
     }
    }
   },

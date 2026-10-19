@@ -397,60 +397,60 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "originally",
-       "note": "take the original, first, letters of the words"
+       "text": "encased in",
+       "at": 57,
+       "note": "encased in means these letters sit within the other piece"
       }
      ],
      "parts": [
       {
-       "words": "assortment of",
-       "gives": "MIXED",
-       "note": "an assortment is a mixed selection"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "assortment of",
+         "at": 68,
+         "gives": "MIXED",
+         "note": "an assortment of things is a mixed collection"
+        },
+        {
+         "words": "flashy jewels",
+         "at": 82,
+         "gives": "BLING",
+         "note": "bling is slang for showy jewellery"
+        }
+       ]
       },
       {
-       "op": "container",
+       "op": "first",
        "indicators": [
         {
-         "text": "encased in",
-         "note": "to be encased in something is to be enclosed by it"
+         "text": "originally",
+         "at": 46,
+         "note": "originally means the first letter of each of the three preceding words is used"
         }
        ],
        "parts": [
         {
-         "words": "flashy jewels",
-         "gives": "BLING",
-         "note": "bling is showy jewellery"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "ESS",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "evidently sparkling, sabre originally",
-           "gives": "ESS",
-           "select": "first",
-           "note": "first letters of evidently, sparkling, sabre"
-          }
-         ]
+         "words": "evidently sparkling, sabre",
+         "at": 19,
+         "note": "the opening letters of these three words"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sparkling sabre set in a pile of glittering jewels, as ornamental as it is dangerous.",
-     "walkthrough": "'Sword' and 'sabre' keep you in the armoury; the definition is the idiom for something with good and bad sides.",
-     "definitionFit": "A double-edged sword is a thing with both benefits and drawbacks, a mixed blessing."
+     "surface": "A sword with two cutting edges, sparkling and set among a jumble of showy gems.",
+     "walkthrough": "'originally' applies to each of the three words before it, not just to sabre.",
+     "definitionFit": "A double-edged sword is an idiom for something with both advantages and drawbacks, just like a mixed blessing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "sabre"
+     "misdirectedWord": "sword"
     }
    }
   },
@@ -806,46 +806,49 @@
      "indicators": [
       {
        "text": "circling",
-       "note": "to circle something is to ring it"
+       "at": 14,
+       "note": "circling means the insect's letters surround the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "insect",
-         "gives": "ANT",
-         "note": "an ant is an insect"
-        },
-        {
-         "words": "chain",
-         "gives": "STRING",
-         "note": "a string of beads is a chain"
-        }
-       ]
+       "words": "insect",
+       "at": 7,
+       "gives": "ANT",
+       "note": "an ant is an insect"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "'finally' points to where a word ends, its last letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "bike",
-         "note": "last letter of bike"
+         "words": "chain",
+         "at": 23,
+         "gives": "STRING",
+         "note": "a string is a chain or series"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 38,
+           "note": "finally means the last letter of bike"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bike",
+           "at": 32
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stinging insect buzzes round a bicycle chain.",
-     "walkthrough": "'Biting insect' reads as one phrase; the definition is Biting alone, in the sense of sharp or severe.",
-     "definitionFit": "Astringent criticism is biting: sharp and severe."
+     "surface": "A biting insect buzzes around a bicycle chain.",
+     "definitionFit": "Astringent describes something sharp or harsh in tone, as is biting criticism."
     },
     "features": {
      "answerInScene": false,
@@ -975,45 +978,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "melted",
-       "note": "melted ice loses its shape, so the letters of ICES lose their order"
+       "text": "filled with",
+       "at": 18,
+       "note": "filled with means the other letters are placed inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Number of vessels",
+       "at": 0,
+       "gives": "FLEET",
+       "note": "a fleet is a number of ships sailing together"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "filled with"
+         "text": "melted",
+         "at": 30,
+         "note": "melted ices lose their shape, so the letters are reshaped into a new order"
         }
        ],
        "parts": [
         {
-         "words": "melted ices",
-         "gives": "CIES",
-         "note": "ICES rearranged"
-        },
-        {
-         "words": "Number of vessels",
-         "gives": "FLEET",
-         "note": "a fleet is a number of ships"
+         "words": "ices",
+         "at": 37
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A number of dishes filled with ice cream that has gone soft.",
-     "walkthrough": "'Vessels' suggests bowls, which suits melted ices; they are ships, a FLEET.",
-     "definitionFit": "Fleeciest means most like fleece, the softest."
+     "surface": "Boats packed with melting ice, described as the softest.",
+     "definitionFit": "Fleecy means soft and woolly like a sheep's fleece; the superlative is the softest."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "vessels"
+     "misdirectedWord": "Number"
     }
    }
   },
@@ -1109,8 +1114,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "in",
-       "note": "a thing put in another is held inside it"
+       "text": "with",
+       "at": 29,
+       "note": "with means the next piece is added on alongside"
       }
      ],
      "parts": [
@@ -1118,33 +1124,36 @@
        "op": "container",
        "indicators": [
         {
-         "text": "with",
-         "note": "'with' means accompanied by, so A is added alongside"
+         "text": "in",
+         "at": 7,
+         "note": "in means the fool sits inside the butter piece"
         }
        ],
        "parts": [
         {
          "words": "quantity of butter",
+         "at": 10,
          "gives": "PAT",
-         "note": "a pat of butter"
+         "note": "a pat is a small portion of butter"
         },
         {
          "words": "Noodle",
+         "at": 0,
          "gives": "ASS",
-         "note": "a noodle is a fool, an ass"
+         "note": "noodle is slang for a fool, as is ass"
         }
        ]
       },
       {
        "words": "a",
-       "note": "taken as it stands"
+       "at": 34
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe: toss the noodles in a knob of butter and some sauce.",
-     "walkthrough": "In a kitchen surface 'noodle' is pasta; it is the slang for a fool.",
-     "definitionFit": "Definition by class: passata, sieved tomatoes, is a sauce base in Italian cooking."
+     "surface": "Cooking instructions: noodles tossed in butter, served with a sauce.",
+     "walkthrough": "'Noodle' looks like pasta in this kitchen surface, but it is slang for a fool.",
+     "definitionFit": "Passata is an Italian sauce of sieved tomatoes."
     },
     "features": {
      "answerInScene": true,
@@ -1239,18 +1248,14 @@
        "indicators": [
         {
          "text": "Source of",
-         "note": "the source of a word is its first letter"
-        },
-        {
-         "text": "case of",
-         "note": "the case of a word is its outside letters"
+         "at": 0,
+         "note": "source of means the first letter, where the word begins"
         }
        ],
        "parts": [
         {
-         "words": "Source of oval",
-         "gives": "OVAL",
-         "note": "first letter of oval"
+         "words": "oval",
+         "at": 10
         }
        ]
       },
@@ -1259,19 +1264,32 @@
        "indicators": [
         {
          "text": "in",
-         "note": "a thing placed in another is held inside it"
+         "at": 37,
+         "note": "in means the timber casing goes inside the fruit"
         }
        ],
        "parts": [
         {
          "words": "fruit",
+         "at": 15,
          "gives": "AKEE",
-         "note": "the akee, or ackee, is a tropical fruit"
+         "note": "the akee (ackee) is a tropical fruit"
         },
         {
-         "words": "case of timber",
-         "gives": "TR",
-         "note": "outer letters of timber"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "case of",
+           "at": 22,
+           "note": "case of means the outer letters of timber, its casing"
+          }
+         ],
+         "parts": [
+          {
+           "words": "timber",
+           "at": 30
+          }
+         ]
         }
        ]
       }
@@ -1279,14 +1297,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "What produces egg-shaped fruit, with timber hidden inside it?",
-     "walkthrough": "Read whole, the clue describes the tree: its oval fruit is the acorn and its wood is timber. 'That' points to the fruit the case of timber goes into.",
-     "definitionFit": "An oak tree bears oval acorns and yields timber."
+     "surface": "Where oval fruit comes from, and the wood that encases it.",
+     "walkthrough": "The akee is a Caribbean fruit. Read whole, the clue also describes the answer: it bears acorns and is clad in timber.",
+     "definitionFit": "An oak tree produces acorns, which are oval nuts, and its trunk is valued timber."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "fruit"
+     "misdirectedWord": "case"
     }
    }
   },
