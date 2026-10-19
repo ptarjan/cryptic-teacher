@@ -154,40 +154,49 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MAKESHIFT",
      "indicators": [
       {
        "text": "In Dr Spooner's view",
-       "note": "the clergyman known for swapping the opening sounds of words signals that exchange here"
+       "at": 0,
+       "note": "Dr Spooner famously swapped the first sounds of words, so the opening sounds are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Arab leader",
-       "gives": "SHEIKH",
-       "soundsLike": "SHAKE",
-       "note": "an Arab chief, often said with a long a sound"
+       "op": "homophone",
+       "spelt": "SHAKE",
+       "parts": [
+        {
+         "words": "Arab leader",
+         "at": 22,
+         "gives": "SHEIKH",
+         "note": "a sheikh is an Arab chief, said as shake"
+        }
+       ]
       },
       {
-       "unchecked": true,
-       "words": "upset",
-       "gives": "MIFFED",
-       "soundsLike": "MIFT",
-       "note": "miffed means annoyed"
+       "op": "homophone",
+       "spelt": "MIFT",
+       "parts": [
+        {
+         "words": "upset",
+         "at": 34,
+         "gives": "MIFFED",
+         "note": "miffed means upset, said roughly as mift"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor thinks an annoyed Arab ruler is only a stopgap.",
-     "walkthrough": "Swap the opening sounds of SHAKE and MIFT and you hear MAKE SHIFT.",
-     "definitionFit": "Makeshift describes something improvised to serve for now, a temporary stopgap solution."
+     "surface": "An Arab chief is upset, as Dr Spooner might put it, about a temporary arrangement.",
+     "walkthrough": "'Arab leader upset' gives SHEIKH MIFFED, said 'shake mift'; 'In Dr Spooner's view' swaps the opening sounds to give 'make shift'.",
+     "definitionFit": "Something makeshift is a stopgap, a provisional substitute used until a proper one can be found."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "upset"
     }
    }
@@ -214,35 +223,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RUDDY",
      "indicators": [
       {
        "text": "replaces",
-       "note": "replaces says one letter takes the place of another in the word"
+       "at": 10,
+       "note": "replaces means one letter takes the place of another in the word"
       },
       {
-       "text": "leader",
-       "note": "a leader comes first, so it is the opening letter that is swapped out"
+       "text": "'s leader",
+       "at": 24,
+       "note": "the leader of the word is its first letter, the one swapped out"
       }
      ],
      "parts": [
       {
-       "words": "Queen",
-       "gives": "R",
-       "note": "R for Regina, Latin for queen"
+       "words": "China",
+       "at": 19,
+       "gives": "BUDDY",
+       "note": "china is Cockney rhyming slang (china plate) for mate, a buddy"
       },
       {
-       "words": "China",
-       "gives": "BUDDY",
-       "note": "china is Cockney rhyming slang for mate, from china plate"
+       "gives": "B"
+      },
+      {
+       "words": "Queen",
+       "at": 4,
+       "gives": "R",
+       "note": "R is short for Regina, queen"
       }
      ]
     },
     "explanation": {
-     "surface": "A communist queen takes over from the Chinese leader.",
-     "walkthrough": "China is Cockney rhyming slang (china plate = mate), so a buddy; its first letter B gives way to R.",
-     "definitionFit": "Ruddy means having a healthy reddish colour, as in a ruddy complexion."
+     "surface": "The Red Queen takes over from China's leader.",
+     "walkthrough": "'China' looks like the country, but in Cockney rhyming slang china plate means mate. R replaces the leader B of BUDDY.",
+     "definitionFit": "Ruddy describes a healthy reddish complexion, so it means red."
     },
     "features": {
      "answerInScene": false,
@@ -770,32 +784,33 @@
    "annotation": {
     "definitions": [
      {
-      "text": "What goes round",
+      "text": "What goes round and round without changing?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ROTOR",
+     "op": "palindrome",
      "indicators": [
       {
-       "text": "and round",
-       "note": "going round again turns the word back on itself, so it is read from the end"
+       "text": "and round without changing",
+       "at": 16,
+       "note": "turned round, the word reads back to front yet stays exactly the same"
       }
      ],
      "parts": [
       {
-       "words": "without changing",
+       "words": "What goes round",
+       "at": 0,
        "gives": "ROTOR",
-       "note": "the word must come out the same after being turned about"
+       "note": "the spinning part of a machine"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A riddle about something that spins endlessly yet stays the same.",
-     "walkthrough": "The answer is a palindrome: turned round it reads exactly as before, which is what 'without changing' promises.",
-     "definitionFit": "A rotor is the spinning part of a machine such as a helicopter's blades or an engine's turbine."
+     "surface": "A riddle about something that keeps circling endlessly yet never alters.",
+     "walkthrough": "The answer is a palindrome, so it stays the same when its letters are turned round, as well as being a thing that spins.",
+     "definitionFit": "A rotor is the rotating part of a machine, such as a helicopter's blades, which spins continuously."
     },
     "features": {
      "answerInScene": true,

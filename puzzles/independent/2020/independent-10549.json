@@ -801,59 +801,61 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NEXUS",
      "indicators": [
       {
        "text": "in",
-       "note": "to be in something is to be held within it"
+       "at": 14,
+       "note": "in means these letters are placed inside the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NEXUS",
-       "indicators": [
-        {
-         "text": "nearly",
-         "note": "nearly means not quite all, so the last letter is dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "nearly",
+           "at": 17,
+           "note": "nearly means the word is cut short of its last letter"
+          }
+         ],
          "parts": [
           {
            "words": "new",
-           "gives": "NE",
-           "note": "the word without its final letter"
+           "at": 24,
+           "gives": "NEW",
+           "note": "the word new is shortened"
           },
           {
-           "words": "Crossed lines",
-           "gives": "X",
-           "note": "two crossed lines form an X"
-          },
-          {
-           "words": "American",
-           "gives": "US",
-           "note": "US is short for American"
+           "gives": "W"
           }
          ]
+        },
+        {
+         "words": "American",
+         "at": 28,
+         "gives": "US"
         }
        ]
+      },
+      {
+       "words": "Crossed lines",
+       "at": 0,
+       "gives": "X",
+       "note": "two crossed lines make the letter X"
       }
      ]
     },
     "explanation": {
-     "surface": "A fault on a new American phone system mixes up the calls.",
-     "walkthrough": "'Crossed lines' sounds like a telephone fault, but it is just the shape of the letter X.",
-     "definitionFit": "A nexus is a connected series or web of links, a central linkage point, so it can mean a network."
+     "surface": "A telephone fault: crossed lines in a nearly new American network.",
+     "walkthrough": "'Crossed lines' sounds like a phone fault, but it is a picture of the letter X.",
+     "definitionFit": "A nexus is a connected series or web of links, which is what a network is."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Crossed"
     }
    }
@@ -1723,37 +1725,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ICEAXE",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "something short is lacking its end, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Reserve",
+       "at": 0,
+       "gives": "ICE",
+       "note": "ice means coolness or reserve of manner"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to go over",
+         "at": 19,
+         "note": "to go over is to turn back, so the shortened test is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Reserve",
-         "gives": "ICE",
-         "note": "to put something on ice is to hold it in reserve"
-        },
-        {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "to go over",
-           "note": "going over is flipping, so the letters turn round"
+           "text": "short",
+           "at": 8,
+           "note": "short means the word loses its last letter"
           }
          ],
          "parts": [
           {
            "words": "test",
-           "gives": "EXA",
-           "note": "an exam missing its last letter"
+           "at": 14,
+           "gives": "EXAM",
+           "note": "an exam is a test"
+          },
+          {
+           "gives": "M"
           }
          ]
         }
@@ -1762,12 +1769,12 @@
      ]
     },
     "explanation": {
-     "surface": "Holding back a quick check of climbing gear before setting off.",
-     "walkthrough": "'Reserve' is ICE from the idiom 'on ice', meaning kept for later.",
-     "definitionFit": "An ice axe is the pick-and-adze tool climbers use to cut steps and arrest falls on snowy slopes."
+     "surface": "A climber must hold back from an abbreviated test that would examine their mountaineering kit.",
+     "walkthrough": "'Reserve' is a noun here: coolness of manner, as in an icy reserve.",
+     "definitionFit": "An ice axe is the climber's tool for cutting steps and arresting falls, a standard item of mountaineering gear."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Reserve"
     }

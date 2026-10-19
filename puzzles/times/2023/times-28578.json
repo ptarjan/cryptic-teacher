@@ -451,45 +451,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AVALANCHE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not entirely, so the word loses its last letter"
+       "text": "disrupted",
+       "at": 20,
+       "note": "disrupted means thrown into disorder, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "a",
+       "at": 30
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "disrupted",
-         "note": "something disrupted is thrown into disorder, so the letters are scrambled"
+         "text": "mostly",
+         "at": 32,
+         "note": "mostly means all but the last letter of calm is kept"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
          "words": "calm",
-         "gives": "CAL",
-         "note": "calm without its final letter"
+         "at": 39,
+         "note": "the word calm is cut short"
         },
         {
-         "words": "haven",
-         "note": "taken as written"
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "haven",
+       "at": 44,
+       "note": "taken as written, as anagram letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A snowslide wrecks a tranquil mountain refuge.",
-     "definitionFit": "An avalanche is a mass of snow sliding suddenly down a mountainside, exactly a sudden snowfall."
+     "surface": "Something has disrupted a nearly calm refuge with a sudden snowfall.",
+     "walkthrough": "'mostly' cuts calm to CAL; with A and HAVEN those letters are 'disrupted'.",
+     "definitionFit": "An avalanche is a mass of snow sliding suddenly down a mountainside."
     },
     "features": {
      "answerInScene": true,
@@ -879,58 +884,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MACROCOSM",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "most of a word means all but its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Computer",
+       "at": 0,
+       "gives": "MAC",
+       "note": "a Mac is an Apple computer"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "splitting",
+         "at": 19,
+         "note": "splitting means going into the middle of the other word, dividing it"
+        }
+       ],
        "parts": [
         {
-         "words": "Computer",
-         "gives": "MAC",
-         "note": "a Mac is an Apple computer"
-        },
-        {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "splitting",
-           "note": "something splitting another forces itself inside it"
+           "text": "most of",
+           "at": 29,
+           "note": "most of means the word loses its last letter"
           }
          ],
          "parts": [
           {
            "words": "capital",
-           "gives": "ROM",
-           "note": "Rome without its last letter"
+           "at": 37,
+           "gives": "ROME",
+           "note": "Rome is the capital of Italy"
           },
           {
-           "words": "company's",
-           "gives": "COS",
-           "note": "co is the abbreviation for company, plus the 's"
+           "gives": "E"
           }
          ]
+        },
+        {
+         "words": "company's",
+         "at": 9,
+         "gives": "COS",
+         "note": "CO is the abbreviation for company, so company's gives CO'S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tech firm's expansion into a capital city on a grand scale.",
-     "walkthrough": "'Computer company' reads as one firm, but the two words do separate jobs: one comes first, the other, with its 's, splits the shortened city.",
-     "definitionFit": "A macrocosm is a whole complex system, the universe as one vast structure, opposite to a microcosm."
+     "surface": "A tech firm is said to be dividing much of its money within some large organisation.",
+     "walkthrough": "'Computer company' reads as one firm, but the two words give separate pieces: the computer stays at the front while the company's goes inside the capital.",
+     "definitionFit": "A macrocosm is the whole of a complex system, such as the universe, seen as one great structure."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "company's"
+     "misdirectedWord": "capital"
     }
    }
   },
@@ -1020,42 +1031,48 @@
      "op": "container",
      "indicators": [
       {
-       "text": "securing",
-       "note": "to secure something is to hold it fast within, so the keyboard letter goes inside"
+       "text": "in",
+       "at": 30,
+       "note": "in means these letters are placed inside the pub"
       }
      ],
      "parts": [
       {
        "words": "pub",
+       "at": 33,
        "gives": "BAR",
        "note": "a bar is a pub"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "placed in a place means set inside it, so the earlier pieces sit within the bar"
-        }
-       ],
        "parts": [
         {
          "words": "Doctor",
+         "at": 0,
          "gives": "GP",
          "note": "a GP is a general practitioner, a family doctor"
         },
         {
          "op": "container",
+         "indicators": [
+          {
+           "text": "securing",
+           "at": 15,
+           "note": "securing means holding firmly, so these letters enclose the next one"
+          }
+         ],
          "parts": [
           {
            "words": "that is",
+           "at": 7,
            "gives": "IE",
-           "note": "i.e., id est, Latin for that is"
+           "note": "IE is the abbreviation of id est, that is"
           },
           {
            "words": "piano",
+           "at": 24,
            "gives": "P",
-           "note": "p is the musical abbreviation for piano"
+           "note": "P is the musical abbreviation for piano, softly"
           }
          ]
         }
@@ -1064,14 +1081,14 @@
      ]
     },
     "explanation": {
-     "surface": "A doctor booking a piano for a pub gig by a Scottish musician.",
-     "walkthrough": "Two layers of nesting: the keyboard letter sits inside 'that is', and that with the doctor sits inside the pub.",
-     "definitionFit": "A bagpiper plays the bagpipes, the instrument most associated with Scotland, so is a Scottish musician by example."
+     "surface": "A doctor, a piano and a pub are gathered for a Scottish musician.",
+     "walkthrough": "'Doctor' looks like a verb, as in tampering with something, but it is a noun: the family doctor.",
+     "definitionFit": "Bagpipes are the iconic instrument of Scotland, and a piper who plays them is a Scottish musician."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "piano"
+     "misdirectedWord": "Doctor"
     }
    }
   },
