@@ -584,50 +584,52 @@
      "indicators": [
       {
        "text": "brought into",
-       "note": "things brought into a place end up inside it, so these letters go within the next piece"
+       "at": 25,
+       "note": "the letters are brought into the cafe, so they go inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "small restaurant",
+       "at": 38,
+       "gives": "CAFE",
+       "note": "a cafe is a small restaurant"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "small restaurant",
-         "gives": "CAFE",
-         "note": "a cafe is a small, informal restaurant"
+         "words": "a",
+         "at": 8,
+         "gives": "A"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "a drop of",
-           "note": "a drop is the tiniest amount, so only the first letter of the wine is taken"
+           "text": "drop of",
+           "at": 10,
+           "note": "a drop is a tiny amount, here just the first letter of Rioja"
           }
          ],
          "parts": [
           {
            "words": "Rioja",
-           "note": "the opening letter of the Spanish wine"
+           "at": 18
           }
          ]
         }
        ]
-      },
-      {
-       "words": "a",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A bottle of Rioja is brought to the table in a little bistro.",
-     "walkthrough": "The 'a' of 'a drop of Rioja' does double service: it is both a letter A and part of the phrase meaning one letter.",
-     "definitionFit": "A carafe is an open-topped glass bottle used for serving wine or water at table."
+     "surface": "A bottle with a splash of Spanish red is carried into a bistro.",
+     "definitionFit": "A carafe is a glass bottle or jug for serving wine or water at the table."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "drop"
+     "aptDefinition": false
     }
    }
   },
@@ -707,45 +709,44 @@
      "indicators": [
       {
        "text": "involves",
-       "note": "to involve is to include or take in, so the following pieces go inside"
+       "at": 4,
+       "note": "to involve is to include, so the joy word takes the others inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Joy",
+       "at": 0,
+       "gives": "ELATION",
+       "note": "elation is great joy"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Joy",
-           "gives": "ELATION",
-           "note": "elation is great joy"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "the Roman numeral for one"
-          }
-         ]
+         "words": "one",
+         "at": 13,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         },
         {
          "words": "male",
-         "gives": "M",
-         "note": "M is the standard abbreviation for male"
+         "at": 17,
+         "gives": "M"
+        },
+        {
+         "words": "in",
+         "at": 22,
+         "gives": "IN"
         }
        ]
-      },
-      {
-       "words": "in",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A sense of joy is somehow bound up with a man's part in a murder.",
-     "walkthrough": "'in' looks like the joining word for the insertion, but it supplies letters of its own.",
-     "definitionFit": "Elimination is a euphemism for killing someone off, as in a gangster eliminating a rival."
+     "surface": "Delight results when one man takes part in a killing.",
+     "walkthrough": "'in' looks like a link word, but it is part of the letters: IN goes into ELATION with I and M.",
+     "definitionFit": "Elimination is a euphemism for killing someone off, as in gangster talk."
     },
     "features": {
      "answerInScene": false,
@@ -1082,60 +1083,73 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the preceding letters inside the next phrase"
+       "at": 22,
+       "note": "the verse and me letters go in the a and song pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "song",
-           "gives": "ARIA",
-           "note": "an aria is a solo song in opera"
-          },
-          {
-           "op": "reversal",
-           "indicators": [
-            {
-             "text": "turned up",
-             "note": "in a down clue, turned up means read from bottom to top, so the word runs backwards"
-            }
-           ],
-           "parts": [
-            {
-             "words": "me",
-             "note": "taken as written"
-            }
-           ]
-          }
-         ]
+         "words": "a",
+         "at": 25,
+         "gives": "A"
         },
         {
-         "words": "Verse",
-         "gives": "V",
-         "note": "V is the abbreviation for verse"
+         "words": "song",
+         "at": 27,
+         "gives": "ARIA",
+         "note": "an aria is a song in an opera"
         }
        ]
       },
       {
-       "words": "a",
-       "note": "taken as written"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "by",
+         "at": 6,
+         "note": "by means beside, so the two pieces sit next to each other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Verse",
+         "at": 0,
+         "gives": "V"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turned up",
+           "at": 12,
+           "note": "in a down clue turned up means read upwards, so me is reversed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "me",
+           "at": 9,
+           "gives": "ME",
+           "note": "taken as written, then reversed"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A singer recites a verse of their own, then performs a song and a prayer.",
-     "walkthrough": "In a down entry, 'turned up' means read upwards. The 'a' before 'song' joins the song to form the outer shell.",
-     "definitionFit": "The Ave Maria, or Hail Mary, is a Catholic prayer to the Virgin Mary, also set to music."
+     "surface": "A line of poetry I wrote was raised in a song and in prayer.",
+     "walkthrough": "'turned up' reverses only because this is a down clue, where reading upwards means reading backwards.",
+     "definitionFit": "The Ave Maria, or Hail Mary, is a Catholic prayer to the Virgin, also set many times to music."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "turned"
+     "misdirectedWord": "song"
     }
    }
   },
@@ -1673,39 +1687,43 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the spoken word encloses the other pieces"
+       "at": 5,
+       "note": "about means around, so the spoken word goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Said",
-         "gives": "ORAL",
-         "note": "oral means spoken"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        }
-       ]
+       "words": "Said",
+       "at": 0,
+       "gives": "ORAL",
+       "note": "oral means spoken, said aloud rather than written"
       },
       {
-       "words": "card game",
-       "gives": "GIN",
-       "note": "gin rummy, a card game"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 11,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "card game",
+         "at": 15,
+         "gives": "GIN",
+         "note": "gin is gin rummy, a card game"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone talks of a card game that is new and different.",
-     "walkthrough": "'novel' looks like a book, but it is the adjective meaning new.",
-     "definitionFit": "Original and novel both describe something new and not copied from anything before."
+     "surface": "Someone claims a particular card game is new.",
+     "walkthrough": "'novel' looks like a book, but here it is the adjective for new.",
+     "definitionFit": "Something original is fresh and new, which is what novel means as an adjective."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "novel"
     }

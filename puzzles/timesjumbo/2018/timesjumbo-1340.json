@@ -2622,57 +2622,45 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "THEREFORE",
      "indicators": [
       {
-       "text": "covered by",
-       "note": "being covered means being enclosed on both sides"
+       "text": "is covered by",
+       "at": 23,
+       "note": "the city letters sit under a cover formed by the other letters, which go round them"
       }
      ],
      "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "on vacation",
+         "at": 43,
+         "note": "vacated means emptied, so only the outside letters of those are left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "those",
+         "at": 37
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "mostly",
-         "note": "mostly means the final letter is dropped"
+         "at": 16,
+         "note": "mostly means not quite all, so the last letter of the city goes"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "on vacation",
-             "note": "a word on vacation is emptied out, leaving only its outside letters"
-            }
-           ],
-           "parts": [
-            {
-             "words": "those",
-             "note": "the opening letter of the emptied word"
-            }
-           ]
-          },
-          {
-           "words": "English city",
-           "gives": "HEREFORD",
-           "note": "the cathedral city in the West Midlands"
-          },
-          {
-           "op": "last",
-           "parts": [
-            {
-             "words": "those",
-             "note": "the closing letter of the emptied word"
-            }
-           ]
-          }
-         ]
+         "words": "English city",
+         "at": 3,
+         "gives": "HEREFORD",
+         "note": "Hereford is a cathedral city in western England"
         },
         {
          "gives": "D"
@@ -2682,12 +2670,14 @@
      ]
     },
     "explanation": {
-     "surface": "A city is largely full of people away on holiday.",
-     "definitionFit": "Therefore means for that reason or consequently, the same as 'so' used as a connective."
+     "surface": "So a city in England is largely occupied by holidaymakers.",
+     "walkthrough": "'on vacation' suggests holidaymakers, but it means the word those is emptied of its middle.",
+     "definitionFit": "Therefore and so are both conjunctions meaning for that reason or consequently."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "vacation"
     }
    }
@@ -3567,50 +3557,54 @@
      "indicators": [
       {
        "text": "going round",
-       "note": "going round something means circling it, holding it inside"
+       "at": 26,
+       "note": "the shortened tour goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "first half of",
+         "at": 6,
+         "note": "only the first half of the word tour is kept, so its second half goes"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "first half of",
-           "note": "keeping the first half means the second half is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tour",
-           "note": "taken as written, then halved"
-          },
-          {
-           "gives": "UR"
-          }
-         ]
+         "words": "tour",
+         "at": 20
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "gives": "UR"
         }
        ]
       },
       {
-       "words": "county of England",
-       "gives": "KENT",
-       "note": "the south-eastern county known as the Garden of England"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 38,
+         "gives": "A"
+        },
+        {
+         "words": "county of England",
+         "at": 40,
+         "gives": "KENT",
+         "note": "Kent is a county in south-east England"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tourist enjoyed the first half of a trip round an English county.",
-     "definitionFit": "If you have taken to someone, you have come to like them, so it means liked."
+     "surface": "Someone enjoyed the start of a trip around a southern English county.",
+     "definitionFit": "If you took to someone you warmed to them, so the phrasal verb means liked."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false
     }
    }
