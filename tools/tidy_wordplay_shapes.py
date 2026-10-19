@@ -144,15 +144,28 @@ def tidy_file(path, write):
     return done, counts(puzzle)
 
 
-def write_allowances(left):
-    """left: {field: {puzzle: clues}}. Each field's list is the smaller of it and
-    any list already there, so a re-run only ever tightens it."""
+def write_allowances(left, touched):
+    """left: {field: {puzzle: clues}}; touched: the puzzles this run changed (or was pointed at).
+    Only those puzzles' allowances move, and only down (the smaller of the count and what is
+    there; a count of none drops the row). Every other puzzle's allowance is left as it is: a
+    run counts with the validator it was started on, and one older than the corpus (the wrongRole
+    sweep, 2d740977d82) would otherwise take allowances away from puzzles it never touched."""
     path = V.BACKLOG_PATH
     data = json.loads(path.read_text())
     for f, rows in left.items():
         had = data.get(f)
-        data[f] = {k: min(n, had.get(k, n)) if had is not None else n
-                   for k, n in sorted(rows.items(), key=V._sort_key) if n}
+        if had is None:
+            had = {}
+        out = dict(had)
+        for k in touched:
+            n = rows.get(k, 0)
+            if k in had:
+                n = min(n, had[k])
+            if n:
+                out[k] = n
+            else:
+                out.pop(k, None)
+        data[f] = dict(sorted(out.items(), key=V._sort_key))
     order = list(V.BACKLOG_MARKERS)
     out = {k: data[k] for k in order if k in data}
     out.update({k: v for k, v in data.items() if k not in out})
@@ -162,12 +175,18 @@ def write_allowances(left):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("root", help="the puzzles/ folder")
+    ap.add_argument("--only", help="file of puzzle paths (one per line): count and record only these, "
+                                   "as the sweep that repaired them does")
     ap.add_argument("--write", action="store_true", help="rewrite the files in place and record the allowances")
     ap.add_argument("--commit", action="store_true", help="--write, then make the one migration commit")
     a = ap.parse_args()
     write = a.write or a.commit
-    files = sorted(os.path.join(d, f) for d, _, fs in os.walk(a.root) for f in fs
-                   if f.endswith(".json") and not f.startswith("."))
+    if a.only:
+        files = sorted(l.strip() for l in open(a.only) if l.strip().endswith(".json"))
+    else:
+        files = sorted(os.path.join(d, f) for d, _, fs in os.walk(a.root) for f in fs
+                       if f.endswith(".json") and not f.startswith("."))
+    touched = set()
     done = puzzles = 0
     left = {f: {} for f in FIELDS}
     for i, path in enumerate(files, 1):
@@ -175,6 +194,8 @@ def main():
         puzzles += bool(n)
         done += n
         pid = os.path.basename(path)[:-len(".json")]
+        if n or a.only:
+            touched.add(pid)
         for f, k in c.items():
             if k:
                 left[f][pid] = k
@@ -185,7 +206,7 @@ def main():
     for f, rows in left.items():
         print(f"{f}: {sum(rows.values())} clues in {len(rows)} puzzles")
     if write:
-        write_allowances(left)
+        write_allowances(left, touched)
     if not a.commit:
         return
     lines = "\n".join(f"- {f}: {sum(r.values())} clues in {len(r)} puzzles" for f, r in left.items())
