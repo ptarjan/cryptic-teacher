@@ -226,34 +226,28 @@
      "indicators": [
       {
        "text": "away",
-       "note": "the R is sent away from the word"
+       "at": 24,
+       "note": "away tells us the letter for right is removed from the word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Horrified grimace",
-         "gives": "RICTUS",
-         "note": "a rictus is a fixed, gaping grimace, as of horror"
-        },
-        {
-         "words": "right away",
-         "gives": "ICTUS",
-         "note": "R (right) removed from RICTUS"
-        }
-       ]
+       "words": "Horrified grimace",
+       "at": 0,
+       "gives": "RICTUS",
+       "note": "a rictus is a fixed gaping grimace, as of horror"
       },
       {
-       "gives": "RICTUS"
+       "words": "right",
+       "at": 18,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A face frozen in horror betrays how much stress someone is under.",
-     "walkthrough": "'Stress' looks like nervous strain, but ICTUS is the stress on a syllable in verse.",
-     "definitionFit": "An ictus is the rhythmical stress in a line of verse."
+     "surface": "A face frozen in horror reveals how stressed someone is.",
+     "walkthrough": "A rictus is a fixed, gaping grimace; drop the R for 'right' to leave ICTUS.",
+     "definitionFit": "In prosody an ictus is the rhythmical accent or beat falling on a syllable in verse."
     },
     "features": {
      "answerInScene": false,
@@ -356,40 +350,58 @@
      "indicators": [
       {
        "text": "incarcerates",
-       "note": "to incarcerate is to imprison, so the shortened heathen holds the old duke inside"
+       "at": 15,
+       "note": "incarcerates means locks up, so one piece is held inside another"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 8,
+         "note": "almost means the word is cut short by its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Heathen almost",
-         "gives": "PAGA",
-         "note": "PAGAN without its last letter"
+         "words": "Heathen",
+         "at": 0,
+         "gives": "PAGAN",
+         "note": "a pagan is a heathen, someone outside the main religions"
         },
         {
-         "words": "old",
-         "gives": "O",
-         "note": "O = old"
+         "gives": "N"
         }
        ]
       },
       {
-       "words": "duke",
-       "gives": "D",
-       "note": "D = duke"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "at": 28,
+         "gives": "O"
+        },
+        {
+         "words": "duke",
+         "at": 32,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An irreligious captor locks up an elderly nobleman inside a place of worship.",
-     "walkthrough": "'Almost' acts first, trimming the heathen before the prisoner goes in.",
-     "definitionFit": "A pagoda is a tiered temple of East Asia."
+     "surface": "A godless man imprisons an elderly aristocrat inside a place of worship.",
+     "walkthrough": "PAGAN without its last letter is PAGA; it locks up O and D to give PAGODA.",
+     "definitionFit": "A pagoda is a tiered tower used as a Buddhist or Hindu temple in East Asia."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "incarcerates"
     }
    }
   },
@@ -525,59 +537,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DAYTRIP",
-     "indicators": [
-      {
-       "text": "beaten",
-       "note": "PARTY is knocked into a new shape"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Democrat",
+       "at": 7,
+       "gives": "D"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 22,
+         "note": "in places the letter for one inside the rearranged letters"
+        }
+       ],
        "parts": [
         {
-         "words": "Democrat",
-         "gives": "D",
-         "note": "D = Democrat"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "in",
-           "note": "I goes inside the rearranged letters"
+           "text": "beaten",
+           "at": 25,
+           "note": "beaten means knocked about, so the letters of party are knocked into a new order"
           }
          ],
          "parts": [
           {
-           "words": "beaten party",
-           "gives": "AYTRP",
-           "note": "PARTY rearranged"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I = one, the Roman numeral"
+           "words": "party",
+           "at": 32
           }
          ]
+        },
+        {
+         "words": "one",
+         "at": 18,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Democrat is outed as a member of the party that lost the election.",
-     "walkthrough": "'Outing' looks like exposing someone; it is an excursion. 'Beaten party' sounds like the losing side at an election.",
-     "definitionFit": "A day trip is a short outing there and back in a day."
+     "surface": "A Democrat who joins a party that has just lost goes out with them.",
+     "walkthrough": "'Beaten' rearranges PARTY to AYTRP, and 'in' puts I (one) inside that to give AYTRIP; D for Democrat goes in front.",
+     "definitionFit": "A day trip is an excursion made and completed within a single day, an outing."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Outing"
+     "aptDefinition": false,
+     "misdirectedWord": "beaten"
     }
    }
   },
@@ -1424,34 +1435,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "nuts",
-       "note": "crazy, so the letters are scrambled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "County",
+       "at": 0,
+       "gives": "STAFFS",
+       "note": "Staffs is the standard abbreviation for Staffordshire, an English county"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nuts",
+         "at": 7,
+         "note": "nuts means crazy, so the letters of get near are scrambled"
+        }
+       ],
        "parts": [
         {
-         "words": "County",
-         "gives": "STAFFS",
-         "note": "Staffs = Staffordshire, an English county"
-        },
-        {
          "words": "get near",
-         "note": "GET NEAR rearranged"
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rural nutters close in on a senior non-commissioned officer.",
-     "walkthrough": "'Nuts' looks like a noun (county nutters) but is the anagram indicator.",
-     "definitionFit": "A staff sergeant is a non-commissioned officer above a sergeant."
+     "surface": "People from a county go mad trying to get close to a high-ranking soldier.",
+     "walkthrough": "Staffs is the short form of Staffordshire, a county in the English Midlands; GET NEAR rearranged gives ERGEANT.",
+     "definitionFit": "A staff sergeant is a senior non-commissioned officer rank in the army, above sergeant."
     },
     "features": {
      "answerInScene": true,
@@ -1592,45 +1605,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Weird",
-       "note": "strange, so the letters are rearranged"
+       "text": "veils",
+       "at": 23,
+       "note": "veils means covers, so one piece wraps around the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "secretive",
+       "at": 13,
+       "gives": "SLY",
+       "note": "sly means secretive or furtive"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "veils"
+         "text": "Weird",
+         "at": 0,
+         "note": "weird means strange, so the letters of rites are put into a strange order"
         }
        ],
        "parts": [
         {
-         "words": "Weird rites",
-         "gives": "ISTER",
-         "note": "RITES rearranged"
-        },
-        {
-         "words": "secretive",
-         "gives": "SLY",
-         "note": "sly = secretive, underhand"
+         "words": "rites",
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Strange secret ceremonies and veils, as a convent might hold.",
-     "walkthrough": "'Veils' looks like a noun, a nun's headwear; it is the verb, SLY wrapping ISTER.",
-     "definitionFit": "Nuns are Sisters, so they behave in a sisterly way; 'perhaps' flags the example."
+     "surface": "Odd rituals and covered faces hint at some hidden order of women.",
+     "walkthrough": "The dash makes 'veils' look like a noun in a list, but it is a verb: the secretive word covers the rearranged rites.",
+     "definitionFit": "Nuns are called sisters, so behaving as sisters do describes them, with 'perhaps' signalling an example."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "veils"
     }
    }

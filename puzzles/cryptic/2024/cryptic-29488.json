@@ -96,35 +96,77 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "HARDBITTEN",
-     "indicators": [
-      {
-       "text": "having swapped starts of next rota",
-       "note": "the opening letters of the words next and rota are exchanged between the two pieces"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "factory worker",
-       "gives": "HAND",
-       "note": "a hand is a manual worker, as in factory hand"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "having swapped",
+         "at": 34,
+         "note": "having swapped means the two named letters change places between the two words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "factory worker",
+         "at": 9,
+         "gives": "HAND",
+         "note": "a hand is a manual worker in a factory"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "starts of",
+           "at": 49,
+           "note": "starts of means the first letters of the words next and rota"
+          }
+         ],
+         "parts": [
+          {
+           "words": "next",
+           "at": 59
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "rota",
+           "at": 64
+          }
+         ]
+        }
+       ]
       },
       {
-       "words": "resentful",
-       "gives": "BITTER",
-       "note": "bitter means feeling resentment"
+       "op": "substitution",
+       "parts": [
+        {
+         "words": "resentful",
+         "at": 24,
+         "gives": "BITTER",
+         "note": "bitter means resentful"
+        },
+        {
+         "gives": "R"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A harsh factory worker, sore at having a shift rota swapped around.",
-     "walkthrough": "The N of HAND becomes R and the R of BITTER becomes N, giving HARD and BITTEN.",
-     "definitionFit": "Hard-bitten describes someone tough and unsentimental, which is close to ruthless in sense."
+     "surface": "A harsh factory hand resents having to swap shifts on the rota.",
+     "walkthrough": "HAND and BITTER exchange N and R (the starts of 'next' and 'rota'): HAND becomes HARD and BITTER becomes BITTEN.",
+     "definitionFit": "Hard-bitten describes someone toughened and unsentimental by experience, which is close to ruthless."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "rota"
     }
@@ -662,58 +704,55 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ROLLERBLIND",
+     "op": "container",
      "indicators": [
       {
-       "text": "cycling",
-       "note": "cycling moves letters round, here the last letter going to the end of the line from the front"
+       "text": "around",
+       "at": 39,
+       "note": "around means the cycled word goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "cycling",
        "indicators": [
         {
-         "text": "around",
-         "note": "around means one piece goes round the other"
+         "text": "cycling",
+         "at": 31,
+         "note": "cycling means the first letter moves round to the end of the word"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "drunk",
-           "note": "a drunk name is scrambled, its letters staggering about"
-          }
-         ],
-         "parts": [
-          {
-           "words": "comic",
-           "gives": "DROLL",
-           "note": "droll means amusingly odd"
-          }
-         ]
-        },
+         "words": "comic",
+         "at": 25,
+         "gives": "DROLL",
+         "note": "droll means comic or amusingly odd"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "Berlin",
-           "note": "the city name supplies six letters to rearrange"
-          }
-         ]
+         "text": "drunk",
+         "at": 53,
+         "note": "drunk means reeling, so the letters of Berlin are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Berlin",
+         "at": 46
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tipsy comedian cycling around Berlin can't see clearly.",
-     "walkthrough": "The D of DROLL moves to the back, then that wraps around the jumbled city.",
-     "definitionFit": "A roller blind is a window shade on a roller, which blocks the view out or in."
+     "surface": "A comedian rides a bike drunk around Berlin, which hardly helps the view.",
+     "walkthrough": "'Cycling' suggests riding a bike, but it moves the comic's first letter round to the back before the drunken city goes inside.",
+     "definitionFit": "A roller blind is a window shade that pulls down from a roll, blocking the outside scene."
     },
     "features": {
      "answerInScene": false,

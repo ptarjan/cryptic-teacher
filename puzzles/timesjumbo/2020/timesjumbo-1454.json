@@ -1496,65 +1496,44 @@
      "indicators": [
       {
        "text": "In",
-       "note": "the cattle are found within the selected letters"
+       "at": 0,
+       "note": "In places the cattle word inside the selected letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "odd parts of",
+         "at": 3,
+         "note": "odd parts means the first, third, fifth letters and so on of the words"
+        }
+       ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "TERI",
-         "indicators": [
-          {
-           "text": "odd parts of",
-           "note": "the odd parts are the letters in positions one, three, five and so on"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "the prairie",
-           "gives": "TERI",
-           "select": "alternate",
-           "note": "first four odd letters of the prairie"
-          }
-         ]
-        },
-        {
-         "words": "cattle",
-         "gives": "YAK",
-         "note": "yaks are Himalayan cattle"
+         "words": "the prairie",
+         "at": 16
         }
        ]
       },
       {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "I",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "the prairie",
-         "gives": "I",
-         "select": "alternate",
-         "note": "the last odd letter"
-        }
-       ]
+       "words": "cattle",
+       "at": 29,
+       "gives": "YAK",
+       "note": "yaks are long-haired Himalayan cattle"
       }
      ]
     },
     "explanation": {
-     "surface": "Out on the plains, a herd of cattle comes upon some Japanese cooking.",
-     "walkthrough": "The odd letters of the prairie are T, E, R, I, I; YAK sits between the last two.",
-     "definitionFit": "Teriyaki is a dish of meat or fish glazed in a sweet soy marinade, a standard item of Japanese cuisine."
+     "surface": "Out on parts of the prairie a cowboy's cattle turn up in a Japanese dish.",
+     "walkthrough": "The odd letters run across both words, 'the' as well as 'prairie'; the cattle land just before the last of them.",
+     "definitionFit": "Teriyaki is a Japanese dish of meat or fish glazed with a sweet soy marinade and grilled."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "odd"
+     "misdirectedWord": "cattle"
     }
    }
   },
@@ -1930,46 +1909,50 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the compass point goes around the rest"
+       "at": 6,
+       "note": "about means surrounding, so one piece goes around the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Point",
-         "gives": "EAST",
-         "note": "east is a point of the compass"
-        },
-        {
-         "words": "energy",
-         "gives": "E",
-         "note": "E is the symbol for energy"
-        }
-       ]
+       "words": "Point",
+       "at": 0,
+       "gives": "EAST",
+       "note": "east is a point of the compass"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "rising",
-         "note": "in a down entry, rising means read from bottom to top, so those letters run backwards"
+         "at": 12,
+         "note": "rising in a down clue means the letters are read upwards, so backwards"
         }
        ],
        "parts": [
         {
-         "words": "is",
-         "note": "taken as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "energy",
+           "at": 19,
+           "gives": "E",
+           "note": "E is the physics symbol for energy"
+          },
+          {
+           "words": "is",
+           "at": 26
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A remark that rising energy is the simplest thing about the matter.",
-     "walkthrough": "Point sounds like a remark or a tip; it is a compass point.",
-     "definitionFit": "Easiest is the superlative of easy, describing whatever is simplest and least demanding of all."
+     "surface": "A speaker makes a point about rising energy costs being the simplest issue.",
+     "walkthrough": "'Point' is a compass point here, not a remark; the reversed energy-and-is pair splits that point after its first two letters.",
+     "definitionFit": "Easiest is the superlative of easy, so it means simplest or most straightforward."
     },
     "features": {
      "answerInScene": false,
@@ -2345,41 +2328,34 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in puts the party letter inside the word for a hint"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "words": "Popular",
+       "at": 0,
+       "gives": "IN",
+       "note": "in means fashionable or popular"
+      },
+      {
        "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 17,
+         "note": "in puts the Democrat letter inside the word for a lead"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Popular",
-           "gives": "IN",
-           "note": "something in is fashionable or popular"
-          },
-          {
-           "words": "lead",
-           "gives": "CLU",
-           "note": "start of CLUE, a lead"
-          },
-          {
-           "words": "Democrat",
-           "gives": "D",
-           "note": "D is the abbreviation for Democrat"
-          }
-         ]
+         "words": "lead",
+         "at": 20,
+         "gives": "CLUE",
+         "note": "a clue is a lead in an investigation"
         },
         {
-         "words": "lead",
-         "gives": "E",
-         "note": "end of CLUE"
+         "words": "Democrat",
+         "at": 8,
+         "gives": "D"
         }
        ]
       },
@@ -2388,22 +2364,23 @@
        "indicators": [
         {
          "text": "initially",
-         "note": "initially means at the start, so only the first letter is used"
+         "at": 34,
+         "note": "initially means the first letter of the word that follows"
         }
        ],
        "parts": [
         {
          "words": "dissent",
-         "note": "first letter of dissent"
+         "at": 26
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A popular Democrat out in front keeps internal dissent under control.",
-     "walkthrough": "Lead suggests being in front; it is a clue, a hint to follow.",
-     "definitionFit": "Something included has been made part of a whole, so it is held within, which is what contained means."
+     "surface": "A well-liked Democrat holds the lead in a race while dissent is kept under control.",
+     "walkthrough": "A clue is a lead, as in a detective's lead; D goes inside it to make CLUDE.",
+     "definitionFit": "Included means held within as part of a whole, which is what contained means here."
     },
     "features": {
      "answerInScene": false,
@@ -3004,49 +2981,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "covering",
-       "note": "covering something wraps around it, so the pronoun sits inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "covering",
+         "at": 6,
+         "note": "covering means wrapping around, so the two time letters enclose the pronoun"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Times",
-           "gives": "T",
-           "note": "the second T"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "Times",
+         "at": 0,
+         "gives": "TT",
+         "note": "T is the abbreviation for time, so times gives two of them"
         },
         {
          "words": "that man",
+         "at": 15,
          "gives": "HE",
-         "note": "that man is he"
+         "note": "he is the pronoun for that man"
         }
        ]
       },
       {
-       "words": "Times",
-       "gives": "T",
-       "note": "T is the abbreviation for time, so two of them are times"
+       "words": "a",
+       "at": 25,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "The Times newspaper reports on a man who is quite a Greek character.",
-     "walkthrough": "Times looks like the newspaper; it is the plural of T, the abbreviation for time.",
-     "definitionFit": "Theta is the eighth letter of the Greek alphabet, so a written symbol, or character, of that language."
+     "surface": "A newspaper writes about a man and a letter from the Greek alphabet.",
+     "walkthrough": "Times is two Ts, which wrap around HE; A follows.",
+     "definitionFit": "Theta is the eighth letter of the Greek alphabet, so it is a Greek character."
     },
     "features": {
      "answerInScene": false,
