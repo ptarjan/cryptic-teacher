@@ -282,35 +282,46 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the shuffled letters surround what follows"
-      },
-      {
-       "text": "going in",
-       "note": "going in places the sailor inside the next word"
+       "at": 11,
+       "note": "about means surrounding, so the rearranged tale goes round everything else"
       }
      ],
      "parts": [
-      {
-       "words": "tale",
-       "gives": "LEAT",
-       "note": "letters of tale rearranged"
-      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "Weird",
-         "note": "weird means strange or odd, so these letters come out in an odd order"
+         "at": 0,
+         "note": "something weird is strange or odd, so the letters of tale are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tale",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "going in",
+         "at": 24,
+         "note": "the sailor goes inside THERE"
         }
        ],
        "parts": [
         {
          "words": "that place",
+         "at": 33,
          "gives": "THERE",
-         "note": "there means in that place"
+         "note": "there means in or to that place"
         },
         {
          "words": "sailor",
+         "at": 17,
          "gives": "JACK",
          "note": "a jack, or jack tar, is a sailor"
         }
@@ -319,14 +330,14 @@
      ]
     },
     "explanation": {
-     "surface": "A strange yarn about a seaman heading to some spot to go fishing.",
-     "walkthrough": "Two containers nest: the sailor goes into 'that place' first, and the whole lot sits within the shuffled tale.",
-     "definitionFit": "Leatherjacket is the name of several tough-skinned fish, such as the filefish."
+     "surface": "A strange story about a sailor heading off somewhere to fish.",
+     "walkthrough": "Two containers nest here: the sailor goes into the word for that place, and the rearranged tale wraps round both.",
+     "definitionFit": "A leatherjacket is a fish with tough skin, a kind of filefish or triggerfish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "fish"
+     "misdirectedWord": "Weird"
     }
    }
   },
@@ -906,34 +917,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "sticky",
-       "note": "a sticky situation is awkward and messy, signalling the letters are muddled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sticky",
+         "at": 19,
+         "note": "a sticky situation is a messy one, so the letters of in hot are mixed up"
+        }
+       ],
        "parts": [
         {
          "words": "in hot",
-         "note": "letters of in and hot rearranged"
-        },
-        {
-         "words": "French city",
-         "gives": "NICE",
-         "note": "Nice is a city on the French Riviera"
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "French city",
+       "at": 27,
+       "gives": "NICE",
+       "note": "Nice is a city on the French Riviera"
       }
      ]
     },
     "explanation": {
-     "surface": "Exposed on a sweltering, humid day in a Riviera resort.",
-     "walkthrough": "'Sticky' reads as humid weather, but it signals the shuffle.",
-     "definitionFit": "To be on thin ice is an idiom for being in a risky, precarious position."
+     "surface": "Someone feels exposed on a hot, humid day in a French city.",
+     "walkthrough": "IN HOT rearranged gives ONTHI. Sticky reads as describing the weather, but it is the anagram signal.",
+     "definitionFit": "To be on thin ice is an idiom for being in a precarious position, at risk of falling into trouble."
     },
     "features": {
      "answerInScene": false,
@@ -969,44 +982,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "strangely",
-       "note": "strangely means in an unusual way, so the letters are put in an unusual order"
+       "text": "in",
+       "at": 4,
+       "note": "the ten is placed inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "one thing in another sits inside it"
+         "text": "strangely",
+         "at": 16,
+         "note": "done strangely means done in an odd new order, so the letters of game bid are rearranged"
         }
        ],
        "parts": [
         {
          "words": "game bid",
-         "note": "letters of game and bid rearranged"
-        },
-        {
-         "words": "Ten",
-         "gives": "X",
-         "note": "X is the Roman numeral for ten"
+         "at": 7
         }
        ]
+      },
+      {
+       "words": "Ten",
+       "at": 0,
+       "gives": "X",
+       "note": "X is the Roman numeral for ten"
       }
      ]
     },
     "explanation": {
-     "surface": "An odd bid at a card table, with a varied crowd of players.",
-     "definitionFit": "A mixed bag is an idiom for a varied collection of people or things."
+     "surface": "A strange bid of ten during a card game.",
+     "walkthrough": "GAME BID rearranged gives MIEDBAG, and X goes in after MI.",
+     "definitionFit": "A mixed bag is an idiom for a varied collection, often of people with little in common."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Ten"
+     "misdirectedWord": "bid"
     }
    }
   },

@@ -868,46 +868,57 @@
      "indicators": [
       {
        "text": "round",
-       "note": "going round something means surrounding it"
+       "at": 34,
+       "note": "the reversed still goes round the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "coming back",
+         "at": 22,
+         "note": "coming back means the word yet is read in reverse"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "coming back",
-           "note": "coming back means travelling the opposite way, so the word is read backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "still",
-           "gives": "YET",
-           "note": "still, as in 'yet more'"
-          }
-         ]
-        },
-        {
-         "words": "consume",
-         "gives": "EAT",
-         "note": "to consume food"
+         "words": "still",
+         "at": 16,
+         "gives": "YET",
+         "note": "still in the sense of even now is yet"
         }
        ]
       },
       {
-       "words": "sandwich",
-       "gives": "ROLL",
-       "note": "a bread roll, filled as a sandwich"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to",
+         "at": 40,
+         "note": "to joins the eating word to what it eats, and consuming means taking the sandwich inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "consume",
+         "at": 43,
+         "gives": "ATE",
+         "note": "to consume food is to eat it, so ate"
+        },
+        {
+         "words": "sandwich",
+         "at": 51,
+         "gives": "ROLL",
+         "note": "a roll is a bread roll, a kind of sandwich"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A refreshment server keeps returning so people can eat sandwiches.",
-     "walkthrough": "'Still' looks like an adjective for the drinks, as in still water, but it is the adverb meaning 'even now'.",
+     "surface": "A drinks trolley is still coming back round to eat a sandwich.",
      "definitionFit": "A tea trolley is a wheeled cart from which tea and other drinks are served."
     },
     "features": {
@@ -1266,29 +1277,28 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "ROD",
+     "op": "deletion",
      "indicators": [
       {
        "text": "in prime locations",
-       "note": "prime locations are the positions numbered by prime numbers, two, three and five"
+       "at": 10,
+       "note": "only the letters at prime-numbered positions (2nd, 3rd and 5th) are kept, so the 1st and 4th go"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "crowd",
-       "gives": "ROD",
-       "select": "prime",
-       "note": "its second, third and fifth letters"
+       "at": 4
+      },
+      {
+       "gives": "CW"
       }
      ]
     },
     "explanation": {
-     "surface": "A pub packed with people in the best spots.",
-     "walkthrough": "'Prime locations' sounds like estate-agent talk, but it means letter positions 2, 3 and 5.",
-     "definitionFit": "A rod is a slender straight bar of metal or wood."
+     "surface": "A busy bar packed with people in the best spots.",
+     "walkthrough": "Prime locations suggests the best places, but it means positions 2, 3 and 5, the prime numbers, in CROWD.",
+     "definitionFit": "A rod is a long thin bar of metal or wood."
     },
     "features": {
      "answerInScene": false,
