@@ -3613,22 +3613,14 @@ _BOUNDARY_WORDS = re.compile(r"boundar|edge|border|extrem|outer|outside|limit|en
 
 
 def _moved_letter_ops(tree):
-    """ids of ops one word of a move indicator already covers (round 14, 5 of 28 sampled
-    unindicatedBare flags): the deletion of a letter that the sibling leaf puts back
-    (ins<advancing>(del(NEVER, R), R) = NERVE; the container's word says the letter moves), the
+    """ids of ops one word of an indicator already covers (round 14 unindicatedBare flags): the
     substitution whose replacement is the replaced letters turned (UNITE, IT -> rev<turn>(IT)),
     and the first and last of one word as the two boundary letters ("to enter the boundaries of")."""
     out = set()
     for parent in _walk(tree):
         kids = [p for p in parent.get("parts") or [] if isinstance(p, dict)]
-        if parent.get("op") == "container" and parent.get("indicators"):
-            for d in kids:
-                ps = [p for p in d.get("parts") or [] if isinstance(p, dict)]
-                if d.get("op") != "deletion" or len(ps) != 2 or "op" in ps[1]:
-                    continue
-                if any("op" not in k and k is not d and wordplay.letters(k.get("gives"))
-                       == wordplay.letters(ps[1].get("gives")) != "" for k in kids):
-                    out.add(id(d))
+        # A letter taken out by a deletion and put back by the container (NERVE) is NOT accepted:
+        # Paul ruled it an error, round 15 (a real move op is coming); it is flagged again.
         if parent.get("op") == "deletion" and any(_POSITION_WORD.search(str(i.get("text") or ""))
                                                   for i in parent.get("indicators") or []):
             # del<initially removed>(BALDER, first(bark)): the deletion's own words name the end it takes
@@ -3646,6 +3638,40 @@ def _moved_letter_ops(tree):
             leaf = [p for p in rep.get("parts") or [] if isinstance(p, dict) and "op" not in p]
             if "op" in rep and rep.get("indicators") and len(leaf) == 1 and sorted(
                     wordplay.letters(leaf[0].get("gives"))) == sorted(wordplay.letters(kids[1].get("gives"))) != []:
+                out.add(id(parent))
+    return out
+
+
+_SUBSTITUTE_WORD = re.compile(r"\b(usurp\w*|replac\w*|substitut\w*|supplant\w*|swap\w*|instead|displac\w*|ousting|"
+                              r"ousts?|for|replaced by|exchang\w*)\b", re.I)
+_CONTAINER_WORD = re.compile(r"\b(in|inside|within|case|around|about|round|holding|housing|boxing|framing|"
+                             r"covering|wrapping|outside)\b", re.I)
+
+
+def _self_signed_ops(tree):
+    """ids of bare ops that a neighbour's words already sign (round 15, 8 of 12 judged-fine
+    unindicatedBare flags): a deletion whose leaf marks the dropped letter with an apostrophe ('irsute,
+    'orse), a deletion under a container whose indicator says one letter replaces another (ins<usurps>
+    (del(ATTEST, S), MP)), an inner container that repeats the outer's letters under its one indicator
+    (ins<bathing in>(ins(MIGHT, R), R)), and a container whose picked part carries "in case of"."""
+    out = set()
+    for parent in _walk(tree):
+        kids = [p for p in parent.get("parts") or [] if isinstance(p, dict)]
+        if parent.get("op") == "deletion" and kids and "op" not in kids[0] \
+                and re.search(r"(?:^|\s)['’](?![sS]\b)\w", str(kids[0].get("words") or "")):
+            out.add(id(parent))
+        if parent.get("op") == "container" and kids:
+            inds = " ".join(str(i.get("text") or "") for i in parent.get("indicators") or [])
+            if kids[0].get("op") == "deletion" and _SUBSTITUTE_WORD.search(inds):
+                out.add(id(kids[0]))
+            if kids[0].get("op") == "container" and inds and len(kids) == 2 and "op" not in kids[1]:
+                inner = [p for p in kids[0].get("parts") or [] if isinstance(p, dict)]
+                if len(inner) == 2 and "op" not in inner[1] and wordplay.letters(inner[1].get("gives")) \
+                        == wordplay.letters(kids[1].get("gives")) != "":
+                    out.add(id(kids[0]))
+            if not parent.get("indicators") and any(
+                    k.get("op") in wordplay.SELECT and _CONTAINER_WORD.search(
+                        " ".join(str(i.get("text") or "") for i in k.get("indicators") or [])) for k in kids):
                 out.add(id(parent))
     return out
 
@@ -4414,11 +4440,23 @@ def anagram_synonyms(tree, ann=None, clue=None):
             same = [q for q in pool if not q.get("gives") or wordplay.letters(q["gives"]) == wordplay.letters(q["words"])]
             n += bool(same) and sum(1 for q in pool if len(wordplay.letters(q.get("gives"))) >= 2
                                     and wordplay.letters(q["gives"]) != wordplay.letters(q["words"])
-                                    and not _doubled(q) and not _near_literal(q)
+                                    and not _doubled(q) and not _near_literal(q) and not _phrase_letters(q)
                                     and not q.get("select")
                                     and (p is not node or _stand_in(q)))
         n += bool(clue) and _lone_stand_in(node) and bool(_loose_words(ann, clue))
     return n
+
+
+def _phrase_letters(leaf):
+    """Whether a leaf of 2+ clue words gives 3+ letters that all come from those words, each as often as
+    they stand there (twice or three times with a repeat or count word: "double-headed besom's" BBESOM,
+    "trio of women" WWW, "tunes lacking essential character" TUES). Round 15, 4 of 5 judged-fine
+    anaSynonym flags: the words are cut or repeated by their own instruction, not swapped for a synonym."""
+    words = str(leaf.get("words") or "")
+    gives = collections.Counter(wordplay.letters(leaf.get("gives")))
+    have = collections.Counter(wordplay.letters(words))
+    times = 3 if {w.lower() for w in re.findall(r"[A-Za-z]+", words)} & (REPEAT_WORDS | COUNT_WORDS | {"trio", "pair", "couple", "duo"}) else 1
+    return len(words.split()) >= 2 and sum(gives.values()) >= 3 and gives != have and all(have[c] * times >= n for c, n in gives.items())
 
 
 REPEAT_WORDS = frozenset("twice double doubly doubled again repeatedly repeated two both".split())
@@ -4965,6 +5003,37 @@ _POSITION_WORD = re.compile(r"\b(opening|first|initial\w*|start\w*|head|top|lead
                             r"end|tail|finish\w*|closing|hint|touch|trace)\b", re.I)
 
 
+_ACROSTIC_WORD = re.compile(r"\b(primarily|originally|initially|firstly|at first|for starters|first of all|"
+                            r"to begin with|at the start|in the beginning|at the outset)\b", re.I)
+
+
+def _acrostic_run(leaf, anc):
+    """Whether `leaf` stands in a charade beside a first-letter pick that carries the indicator
+    ("primarily", "originally"): one indicator over the run of initials (round 15, 3 of 8 judged-fine
+    bareInitial flags: first<primarily>(Proudly) + impenitent I + artiste A ...)."""
+    return any(a.get("op") == "charade" and any(
+        isinstance(p, dict) and p.get("op") == "first" and any(
+            _ACROSTIC_WORD.search(str(i.get("text") or "")) for i in p.get("indicators") or [])
+        for p in a.get("parts") or [])
+        and any(p is leaf for p in a.get("parts") or []) for a in anc)
+
+
+def _position_word_cut(leaf, anc):
+    """Whether `leaf` is the cut part of a deletion and its own words name the end ("leader" -> L)."""
+    return bool(_POSITION_WORD.search(str(leaf.get("words") or ""))) and any(
+        a.get("op") == "deletion" and any(p is leaf for p in (a.get("parts") or [])[1:]) for a in anc)
+
+
+def _split_word_leaf(leaf, anc):
+    """Whether a sibling leaf holds the same word and gives its tail: one word split into its
+    first letter and the rest (ins(STRIPED, P) from "pinstriped")."""
+    w, g = wordplay.letters(leaf["words"]), wordplay.letters(leaf["gives"])
+    return any(a.get("op") for a in anc[-1:]) and any(
+        p is not leaf and isinstance(p, dict) and "op" not in p and wordplay.letters(p.get("words")) == w
+        and len(wordplay.letters(p.get("gives"))) >= 3 and w.endswith(wordplay.letters(p.get("gives")))
+        for p in anc[-1].get("parts") or [])
+
+
 def bare_initials(tree):
     """Leaves of one clue word of BARE_INITIAL_MIN_LETTERS+ letters that give its first
     letter, where no selection op is above the leaf and the word has no one-letter
@@ -4992,8 +5061,11 @@ def bare_initials(tree):
             continue  # del<Wifeless>(.., [Wifeless]W): the words that cut name what is cut (RIGHTING)
         if words in _ORDINALS and _ORDINALS[words] == gives:
             continue  # twentieth is T, the twentieth letter (FILET)
+        if _acrostic_run(leaf, anc) or _position_word_cut(leaf, anc) or _split_word_leaf(leaf, anc):
+            continue
         # kilograms -> K as kilos are: the unit's long form is its prefix's word plus "gram(s)"
         forms = {words, bare, re.sub(r"GRAMS?$", "", bare)}
+        forms |= {wordplay.letters(h) for h in re.split(r"[-‐-―]", str(leaf["words"]))}  # gravity-force -> G
         if not any(len(k) == 1 for w in forms for k in usage.get(w, {})) and not _known_pair(leaf["words"], gives) \
                 and not any((w, gives) in pairs for w in forms):
             n += 1
@@ -5253,7 +5325,7 @@ def unindicated_uncovered(tree):
     spoken = {id(p) for s in _walk(tree) if s.get("op") == "spoonerism"
               for p in s.get("parts") or [] if isinstance(p, dict) and p.get("op") == "homophone"}
     n = 0
-    copies = _repeated_copies(tree) | _moved_letter_ops(tree)
+    copies = _repeated_copies(tree) | _moved_letter_ops(tree) | _self_signed_ops(tree)
     for parent in [{"parts": [tree]}] + list(_walk(tree)):
         groups = {}
         kids = [p for p in parent.get("parts") or [] if isinstance(p, dict)]
@@ -5306,8 +5378,9 @@ _FOLD_AFFIX = {"reversal": ("over", "back", "about", "return", "upset"),
                "first": ("top", "head", "leader"),  # mountaintop -> M (nation-3423 19a FARM); redhead, ringleader, knucklehead (round 12)
                "last": ("tail", "foot", "bottom")}
 _FOLD_PHRASE = {op: re.compile(r"(?:%s)\s+(?:of|in|from)\s+\w+" % words, re.I) for op, words in (
-    ("first", "first|initial|opening|start|head|top|beginning|front"),
-    ("last", "final|last|end|close|closing|ending|tail|finish|back|bottom"),
+    ("first", "first|initial|opening|start|head|top|beginning|front|half"),
+    ("last", "final|last|end|close|closing|ending|tail|finish|back|bottom|half"),
+    ("nth", "second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth"),
     ("middle", "heart|centre|center|middle|core"))}
 
 
@@ -5315,9 +5388,10 @@ _NOPOSS = re.compile(r"(?!)")
 #: Compounds that end in an affix word but are not a pick of the other word (a skinhead is a person; round 11).
 _NOT_COMPOUND = frozenset()  # round 14: skinhead is S in two judged-fine clues (STALKER, SURFEIT); no longer excluded
 #: "champion's top": the leaf's own words end in the pick's word after a possessive (round 12 UNEXCITED).
-_FOLD_POSS = {op: re.compile(r"^\S+['\u2019]s\s+(?:%s)$" % words, re.I) for op, words in (
+_FOLD_POSS = {op: re.compile(r"^\S+['\u2019]s?\s+(?:%s)$" % words, re.I) for op, words in (
     ("first", "first|initial|opening|start|head|top|beginning|front"),
-    ("last", "final|last|end|close|closing|ending|tail|finish|bottom"))}
+    ("last", "final|last|end|close|closing|ending|tail|finish|bottom"),
+    ("nth", "second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth"))}
 
 
 def _folded_signal(node, alone=True):
@@ -5355,9 +5429,9 @@ def _folded_signal(node, alone=True):
         if _FOLD_PHRASE[node["op"]].match(str(ps[0].get("words") or "")) \
                 or _FOLD_POSS.get(node["op"], _NOPOSS).match(str(ps[0].get("words") or "").strip()):
             return True
-        lw = wordplay.letters(ps[0].get("words"))
+        lw = wordplay.letters(re.sub(r"['’]s\b", "", str(ps[0].get("words") or ""), flags=re.I))
         if alone and node["op"] in ("first", "last") and len(str(ps[0].get("words") or "").split()) == 1 and lw and _abbreviation_pair(
-                ps[0]["words"], lw[0] if node["op"] == "first" else lw[-1]):
+                lw, lw[0] if node["op"] == "first" else lw[-1]):
             return True
     if len(ps) != 1 or "op" in ps[0] or len(str(ps[0].get("words") or "").split()) != 1:
         return False
@@ -5526,7 +5600,19 @@ def reverse_phrase(tree):
     at the answer and is the Azed form ("This could make pals" SLAPUP), so it is left."""
     return sum(1 for n in _walk(tree) if n.get("op") == "reverse" and not n.get("unchecked")
                and any(len(str(p.get("words") or "").split()) >= 3 and not re.search(r"\bthis\b", str(p["words"]), re.I)
+                       and not _reading_reuses_words(n, p)
                        for p in n.get("parts") or [] if isinstance(p, dict)))
+
+
+def _reading_reuses_words(node, leaf):
+    """Whether a word of the reverse reading (3+ letters) is an anagram of the last 1-4 words of the
+    leaf (round 15, 3 of 4 reversePhrase flags judged fine: NATE for "neat", STEP for "pets", POTATOES
+    for "to a poet's"): the answer then tells how the clue words were made, which a solver can check."""
+    words = re.findall(r"[A-Za-z']+", str(leaf.get("words") or ""))
+    runs = {"".join(sorted(wordplay.letters("".join(words[len(words) - k:])))) for k in (1, 2, 3, 4)
+            if k <= len(words)}  # the end of the phrase, as in "What makes pets" (ROUGH + HEWN fails on "When")
+    return any(len(w) >= 3 and "".join(sorted(w.upper())) in runs
+               for w in re.findall(r"[A-Za-z]+", str(node.get("reading") or "")))
 
 
 #: The ops a single indicator word signals one of: one indicator per op (Paul, 10-18: "Beginning is

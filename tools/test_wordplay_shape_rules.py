@@ -597,9 +597,39 @@ SAMFOO["parts"][0]["indicators"] = []
 check("two deletions with no indicator at all are still counted", 2, v.unindicated_uncovered(SAMFOO))
 NERVE = {"op": "container", "indicators": [{"text": "advancing"}], "parts": [
     {"op": "deletion", "parts": [{"words": "Not once", "gives": "NEVER"}, {"gives": "R"}]}, {"words": "rook", "gives": "R"}]}
-check("a letter the sibling puts back is moved by the container's word (NERVE)", 0, v.unindicated_uncovered(NERVE))
+check("a letter the sibling puts back is an error again, Paul round 15 (NERVE)", 1, v.unindicated_uncovered(NERVE))
 NATANT = {"definitions": [{"text": "Swimming", "at": 0}], "wordplay": {"op": "anagram", "indicators": [{"text": "Swimming"}],
           "parts": [{"words": "tan repeatedly", "gives": "TANTAN"}]}}
 check("an indicator on the definition's words is found without places (NATANT)", 1,
       v.in_definition(NATANT, "Swimming gives you that tan repeatedly"))
+# round 15: four borderline classes judged fine (unindicatedBare, bareInitial, reversePhrase, anaSynonym)
+HAIRLESS = {"op": "deletion", "parts": [lf("far from 'irsute", "HAIRLESS"), {"gives": "H"}]}
+check("an apostrophe in the leaf marks the dropped letter ('irsute)", 0, v.unindicated_uncovered(HAIRLESS))
+check("the same deletion without the apostrophe is counted", 1, v.unindicated_uncovered(
+    {**HAIRLESS, "parts": [lf("far from hirsute", "HAIRLESS"), {"gives": "H"}]}))
+ATTEMPT = {"op": "container", "indicators": [{"text": "usurps"}], "parts": [
+    {"op": "deletion", "parts": [lf("evidence", "ATTEST"), lf("society", "S")]}, lf("politician", "MP")]}
+check("a container word that says one letter replaces another covers the deletion", 0, v.unindicated_uncovered(ATTEMPT))
+check("a plain container word does not", 1, v.unindicated_uncovered({**ATTEMPT, "indicators": [{"text": "holds"}]}))
+check("the second of a leaf's own named half or ordinal needs no indicator", 0, v.unindicated_uncovered(
+    {"op": "charade", "parts": [{"op": "nth", "parts": [lf("Labour's second", "LABOURSECOND")]}, lf("triumph", "GAIN")]}))
+check("a plural possessive pick word is the leaf's own", 0, v.unindicated_uncovered(
+    {"op": "charade", "parts": [{"op": "first", "parts": [lf("Communists' initial", "C")]}, lf("rule", "ORDER")]}))
+PIAF = {"op": "charade", "parts": [{"op": "first", "indicators": [{"text": "primarily"}], "parts": [lf("Proudly")]},
+                                    lf("impenitent", "I"), lf("artiste", "A")]}
+check("an acrostic run after a 'primarily' pick is not bare initials", 0, v.bare_initials(PIAF))
+check("a pick with another indicator does not license bare initials", 1, v.bare_initials(
+    {**PIAF, "parts": [{**PIAF["parts"][0], "indicators": [{"text": "starts to"}]}] + PIAF["parts"][1:2]}))
+check("a leaf whose own words name the end, cut by a deletion, is not a bare initial", 0, v.bare_initials(
+    {"op": "deletion", "parts": [lf("Mistake", "LAPSE"), lf("leader", "L")]}))
+check("a hyphenated word whose part is the abbreviation is not a bare initial", 0, v.bare_initials(
+    {"op": "charade", "parts": [lf("gravity-force", "G"), lf("canoeing", "CANOEING")]}))
+check("a reverse reading that anagrams a run of the clue's words is not counted", 0, v.reverse_phrase(
+    {"op": "reverse", "reading": "ALTER NATE", "parts": [lf("How to make neat")]}))
+check("a reading with no such word still is", 1, v.reverse_phrase(
+    {"op": "reverse", "reading": "ROUGH + HEWN", "parts": [lf("When cryptic maybe")]}))
+check("a leaf that doubles its own words by a repeat word is not a synonym", 0, v.anagram_synonyms(
+    {"op": "anagram", "indicators": [{"text": "damaged"}], "parts": [lf("double-headed besom's", "BBESOM"), lf("it")]}))
+check("a leaf that gives other letters is still one", 1, v.anagram_synonyms(
+    {"op": "anagram", "indicators": [{"text": "damaged"}], "parts": [lf("fine ale", "PINT"), lf("it")]}))
 raise SystemExit(fails)

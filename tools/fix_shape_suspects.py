@@ -38,6 +38,7 @@ clue, the answer and the existing tree with no reading of the clue:
                letters when it gave them literally / its select parent still yields).
   ind_trim     an indicator whose edge words are a leaf of its own op: the indicator
                loses them.
+  half_cut     a deletion of exactly half a word under "half"/"not half"/"mostly": first/last over the word.
   leaf_check   an unchecked leaf whose letters are its own words, or an abbreviation
                the table holds, is checked; one whose words are a selector plus a
                source (selector_in_block) becomes the selection op over the source.
@@ -2035,8 +2036,32 @@ def r_shared_charade(node, parent, ctx):
     return new if _eval_swapped(node, parent, new, ctx) else None
 
 
+HALF = re.compile(r"\bhalf\b|\bhalved\b|\bmostly\b|\bsemi|\bdemi", re.I)
+
+
+def r_half_cut(node, parent, ctx):
+    """half_cut: a deletion that takes exactly half of a word, under an indicator that means half
+    ("not half", "half", "mostly"): SIR + del<not half>(DARING, ING) is the first half of DARING.
+    The deletion becomes first/last over the leaf, the same indicator kept (Paul, round 15)."""
+    parts = node.get("parts") or []
+    inds = node.get("indicators") or []
+    if node.get("op") != "deletion" or len(parts) != 2 or len(inds) != 1 or not HALF.search(inds[0].get("text") or ""):
+        return None
+    whole, gone = parts
+    if not leaf(whole) or not whole.get("gives") or "op" in gone or not gone.get("gives") or gone.get("words"):
+        return None
+    full, cut = W.letters(whole["gives"]), W.letters(gone["gives"])
+    if len(full) % 2 or len(cut) != len(full) // 2:
+        return None
+    op = "first" if full.endswith(cut) else "last" if full.startswith(cut) else None
+    if op is None:
+        return None
+    new = {"op": op, "indicators": copy.deepcopy(inds), "parts": [copy.deepcopy(whole)]}
+    return new if (full[:len(cut)] if op == "first" else full[len(cut):]) in (vals(new) or ()) else None
+
+
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
-           "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
+           "arity_wrap": r_arity_wrap, "half_cut": r_half_cut, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
 #: Repairs for validator rules (the queue's anaSynonym / anagramOfContainer rows), run by --rule.
 def r_arity_ins(node, parent, ctx):

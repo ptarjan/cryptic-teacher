@@ -146,6 +146,9 @@ filed, and the expression cannot write one. The tree, in brief:
   `wordplay.reversePhrase` (reverse reading over a whole phrase of the clue).
   One more, `wordplay.midWordLeaf` (a leaf giving a stretch of several clue words that starts or
   ends inside a word: the cut is folded into the leaf with no op).
+  Round 15 narrowed four of them (a bare op is signed by a neighbour's apostrophe, a replace word or its
+  own "second"; initials after a "primarily" pick; a reverse reading that anagrams clue words; a leaf
+  cut or doubled by its own words is no synonym).
   Three more: `wordplay.deletionScopeAnswer` (deletion over a charade whose indicator names an
   end, but the letters that make the answer are not at it), `wordplay.doubleIndicator` (one op
   carrying two indicators, or two ops stacked on one: one indicator per op) and `wordplay.poolGap`
