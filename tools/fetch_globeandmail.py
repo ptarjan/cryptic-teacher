@@ -571,7 +571,10 @@ def main(argv):
         puzzle = latest()
         if not puzzle:
             return 3
-        reindex()
+        # No reindex here: recording a print touches one Quick's file, and a
+        # whole-corpus reindex (62k puzzles, difficulty over all of them) ran
+        # the 2026-10-18 unit past its 45-minute limit right after "recorded".
+        # The filers do not reindex; daily_update.sh does, before it commits.
         print(puzzle["id"])
         return 0
 
