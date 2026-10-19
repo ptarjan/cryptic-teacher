@@ -1953,11 +1953,29 @@ os.environ["CT_YIELD_HOSTS"] = "  "
 check("blank CT_YIELD_HOSTS is the same as unset", (None, []), (eq.desktop_yielding(), asked))
 os.environ["CT_YIELD_HOSTS"] = "micro@192.168.1.198 b@host"
 check("CT_YIELD_HOSTS with OCR_REMOTE empty: yields to a busy host",
-      ("a game is running", [["micro@192.168.1.198", "b@host"]]), (eq.desktop_yielding(), asked))
+      ("a game is running", [["micro@100.68.145.15", "micro@192.168.1.198", "micro@192.168.1.180", "b@host"]]),
+      (eq.desktop_yielding(), asked))
+# A launcher host that is the desktop's old LAN lease also tries the others, and a switch is logged once.
+import desktop_hosts
+real_ranked, logged = desktop_hosts.ranked, []
+real_log, eq._YIELD_VIA[0] = eq.log, None
+eq.log = logged.append
+desktop_hosts.ranked = lambda port=22, fresh=False, tailnet_first=False: ["192.168.1.180", "100.68.145.15", "192.168.1.198"]
+os.environ["CT_YIELD_HOSTS"] = "micro@192.168.1.198"
+check("yield host at a desktop address: the ranked addresses, the answering one first",
+      ["micro@192.168.1.180", "micro@100.68.145.15", "micro@192.168.1.198"], eq.yield_hosts())
+eq.yield_hosts()
+check("the first probe logs nothing and a repeat none", [], logged)
+desktop_hosts.ranked = lambda port=22, fresh=False, tailnet_first=False: ["100.68.145.15", "192.168.1.180", "192.168.1.198"]
+eq.yield_hosts(); eq.yield_hosts()
+check("a switch of the first address is logged once", 1, len(logged))
+desktop_hosts.ranked, eq.log = real_ranked, real_log
+os.environ["CT_YIELD_HOSTS"] = "micro@192.168.1.198 b@host"
 os.environ["OCR_REMOTE"] = "d@one,b@host"
 asked.clear()
 eq.desktop_yielding()
-check("OCR_REMOTE's hosts come first, CT_YIELD_HOSTS adds the rest once", [["d@one", "b@host", "micro@192.168.1.198"]], asked)
+check("OCR_REMOTE's hosts come first, CT_YIELD_HOSTS adds the rest once, the desktop at every address",
+      [["d@one", "b@host", "micro@100.68.145.15", "micro@192.168.1.198", "micro@192.168.1.180"]], asked)
 desktop_busy.busy = lambda hosts: None
 os.environ.pop("OCR_REMOTE")
 check("an idle CT_YIELD_HOSTS host does not yield", None, eq.desktop_yielding())

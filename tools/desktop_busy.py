@@ -141,7 +141,7 @@ def busy(hosts):
             return old["why"]
         reading = None
         user = hosts[0].rpartition("@")[0]
-        for host in desktop_hosts.remotes(user) if user else hosts:
+        for host in desktop_hosts.remotes(user, tailnet_first=True) if user else hosts:
             reading = probe(host)
             if reading is not None:
                 break

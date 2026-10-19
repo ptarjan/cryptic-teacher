@@ -187,6 +187,54 @@ vlm.URL, vlm._RESOLVED[0] = "http://127.0.0.1:9", False
 vlm._UP.clear()
 vlm.reachable()
 check("an override URL never falls back", True, all(p[0].startswith("http://127.0.0.1:9") for p in probed))
+# A read already running resolved a LAN address that then goes stale (the
+# lease flapped): the ask that times out re-resolves once over the other
+# candidates and goes on there, instead of failing (or hanging) the read.
+chat_urls = []
+def fake_flap(req, timeout=None):
+    if req.full_url.endswith("/running"):
+        return io.BytesIO(b'{"running": []}')
+    if req.full_url.endswith("/v1/models"):
+        if req.full_url.startswith(lan):
+            raise socket.timeout("timed out")
+        return io.BytesIO(json.dumps({"data": [{"id": vlm.MODEL}]}).encode())
+    chat_urls.append(req.full_url)
+    if req.full_url.startswith(lan):
+        raise socket.timeout("timed out")
+    return io.BytesIO(json.dumps({"choices": [{"message": {"content": "moved reply"}}]}).encode())
+urllib.request.urlopen = fake_flap
+vlm.URL, vlm._RESOLVED[0] = lan, True
+vlm._UP.clear(); vlm._MISSED[0] = False
+got = vlm.ask_png(b"flap-png-1", "flap prompt 1")
+check("ask timing out on a stale address: re-resolved, answered elsewhere", ("moved reply", vlm.URLS[1], False),
+      (got, vlm.URL, vlm._MISSED[0]))
+check("it asked the stale one once, then the new one once", [lan, vlm.URLS[1]], [u.rsplit("/v1", 1)[0] for u in chat_urls])
+# Nothing else answers: it still ends as before (down mid-read), after one try.
+urllib.request.urlopen = lambda req, timeout=None: (_ for _ in ()).throw(socket.timeout("t"))
+vlm.URL, vlm._RESOLVED[0] = lan, True
+try:
+    vlm.ask_png(b"flap-png-2", "flap prompt 2")
+    err = None
+except RuntimeError as e:
+    err = str(e)
+check("no other address answers: the read ends as down mid-read", (True, "timeout"),
+      (bool(err) and "failed (timeout)" in err, vlm.cause()))
+# An override is never moved.
+chat_urls.clear()
+urllib.request.urlopen = fake_flap
+vlm.URL = "http://127.0.0.1:9"
+try:
+    vlm.ask_png(b"flap-png-3", "flap prompt 3")
+except RuntimeError:
+    pass
+check("an override URL is not re-resolved", "http://127.0.0.1:9", vlm.URL)
+vlm.URL = lan
+# Tailnet first: of the others, the tailnet (100.64.0.0/10) URL is asked before a LAN one.
+kept_urls = vlm.URLS
+vlm.URLS = ["http://192.0.2.198:8090", "http://192.0.2.180:8090", "http://100.68.145.15:8090"]
+check("others after the URL: tailnet before LAN", ["http://100.68.145.15:8090", "http://192.0.2.180:8090"],
+      sorted([u for u in vlm._candidates() if u != vlm.URLS[0]], key=lambda u: not vlm._on_tailnet(u)))
+vlm.URLS = kept_urls
 urllib.request.urlopen = real
 vlm._RESOLVED[0] = True
 

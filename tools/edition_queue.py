@@ -1356,12 +1356,38 @@ def local_cpu(unit):
     return slot_of(unit) in LOCAL_POOLS or (unit["kind"] != "fetch" and not ocr_remote.hosts())
 
 
+#: The desktop address the yield probe last put first, to log a switch once.
+_YIELD_VIA = [None]
+
+
 def yield_hosts():
     """The ssh hosts whose busyness the queue yields to: OCR_REMOTE's, then
-    any more in CT_YIELD_HOSTS (space-separated; unset or empty adds none)."""
+    any more in CT_YIELD_HOSTS (space-separated; unset or empty adds none).
+    A host at one of the desktop's addresses (desktop_hosts) stands for the
+    desktop: it is replaced by the desktop's every address, ranked (the ones
+    answering now first, the tailnet one before the LAN ones), so a LAN
+    lease that moved under CT_YIELD_HOSTS does not blind the probe. One line
+    is logged when the address put first changes."""
+    import desktop_hosts
     import ocr_remote
     hosts = ocr_remote.hosts()
-    return hosts + [h for h in os.environ.get("CT_YIELD_HOSTS", "").split() if h not in hosts]
+    hosts = hosts + [h for h in os.environ.get("CT_YIELD_HOSTS", "").split() if h not in hosts]
+    out = []
+    for h in hosts:
+        user, _, address = h.rpartition("@")
+        if desktop_hosts.is_desktop(address):
+            for a in desktop_hosts.ranked(22, tailnet_first=True):
+                r = f"{user}@{a}" if user else a
+                if r not in out:
+                    out.append(r)
+        elif h not in out:
+            out.append(h)
+    first = next((h.rpartition("@")[2] for h in out if desktop_hosts.is_desktop(h.rpartition("@")[2])), None)
+    if first and first != _YIELD_VIA[0]:
+        if _YIELD_VIA[0]:
+            log(f"game-yield probe: desktop now at {first} (was {_YIELD_VIA[0]})")
+        _YIELD_VIA[0] = first
+    return out
 
 
 def desktop_yielding():
