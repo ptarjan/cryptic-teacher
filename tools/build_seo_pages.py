@@ -2855,18 +2855,12 @@ def page_key(i):
     return h.hexdigest()
 
 
-def puzzle_page_job(i):
-    """Render, check and write puzzle page i of the solved list, in a worker,
-    or reuse last build's (tools/page_cache.py).
-
-    Returns (path, stale, blocks, found, facts, stored): whether the file on
-    disk differed, this page's own clue_blocks() and clue_indicators()
-    candidates, which outputs() merges in page order into exactly what one
-    serial pass builds, what /showcase/ needs to know about the puzzle, and
-    (key, entry, reused) for the store, or None with the store off.
-    The text stays in the worker, so no page crosses a pipe.
-    """
-    global _ASKED
+def reuse_page(i):
+    """(result, key, why) for puzzle page i of the solved list: `result` is the
+    stored page's puzzle_page_job() result when every check passes (its key,
+    the stamped assets it asked for, the abbreviation pairs it looked up, the
+    file on disk), else None and `why` names the check that failed. Shared by
+    puzzle_page_job() and the parent-side first pass (reuse_first)."""
     solved, neighbours, meta, check, fp, stored = _PAGES
     path = puzzle_paths.PUZZLE_DIR / solved[i][1]["id"] / "index.html"
     key = page_key(i) if fp else None
@@ -2889,10 +2883,52 @@ def puzzle_page_job(i):
                 found = indicator_found(cands)
                 hit = (asked, digest, blocks, cands, indicator_lexicon_hash(), found, file_facts,
                        abbrs)
-            return (path, False, blocks, found, showcase.with_meta(file_facts, row),
-                    (key, hit, True, None))
+            return ((path, False, blocks, found, showcase.with_meta(file_facts, row),
+                     (key, hit, True, None)), key, why)
         else:
             why = f"file:{series}"
+    return None, key, why
+
+
+def reuse_first(n):
+    """[(index, result)] for the pages of 0..n-1 that reuse_page() can reuse,
+    and the indexes it cannot, checked here in the parent.
+
+    A warm cache reuses nearly every page, and in puzzle_page_job that costs
+    more in the pipe than in the check: each result carries the page's clue
+    blocks and candidates back from a worker (a shard's reuse of 10.7k pages
+    took 10s on four cores, run 39236355785). Checked here, serially, a page
+    reused costs its key and its checks and nothing else; only the pages it
+    cannot reuse go to the workers. The same checks decide, so the same files
+    come out."""
+    got, missed = {}, []
+    for i in range(n):
+        reused, _, _ = reuse_page(i)
+        if reused:
+            got[i] = reused
+        else:
+            missed.append(i)
+    return got, missed
+
+
+def puzzle_page_job(i):
+    """Render, check and write puzzle page i of the solved list, in a worker,
+    or reuse last build's (tools/page_cache.py).
+
+    Returns (path, stale, blocks, found, facts, stored): whether the file on
+    disk differed, this page's own clue_blocks() and clue_indicators()
+    candidates, which outputs() merges in page order into exactly what one
+    serial pass builds, what /showcase/ needs to know about the puzzle, and
+    (key, entry, reused) for the store, or None with the store off.
+    The text stays in the worker, so no page crosses a pipe.
+    """
+    global _ASKED
+    solved, neighbours, meta, check, fp, stored = _PAGES
+    path = puzzle_paths.PUZZLE_DIR / solved[i][1]["id"] / "index.html"
+    reused, key, why = reuse_page(i)
+    if reused:
+        return reused
+    row = meta.get(solved[i][1]["id"])
     # The list is newest-first, so "next" is the older neighbour.
     prev_p, next_p = neighbours[i]
     _ASKED = set()
@@ -2978,7 +3014,7 @@ def read_shards(n, solved):
     return got
 
 
-def outputs(check=False, shard=None, shards=None):
+def outputs(check=False, shard=None, shards=None, first=False):
     """Every generated file as (path, stale): the puzzle pages first, written
     across the cores by puzzle_page_job(), then the rest, one at a time.
 
@@ -2986,6 +3022,10 @@ def outputs(check=False, shard=None, shards=None):
     their results in SHARD_DIR and yields nothing; shards=n is the tail that
     reads all n shards' results in place of rendering, then runs as the
     unsharded build does. Byte for byte the same files either way.
+    first=True (`--reuse-first`) checks the pages the store can reuse in this
+    process and sends only the rest to the workers (reuse_first); it is the
+    deploy's fast path for a push that only added puzzles, in place of the
+    shards.
 
     Pages are written as they are made and only their paths kept, because the
     site does not fit in memory: tens of thousands of puzzle pages.
@@ -3041,6 +3081,10 @@ def outputs(check=False, shard=None, shards=None):
     if shards:
         got = read_shards(shards, solved)
         results = [got[stub["id"]] for _, stub in solved]
+    elif first:
+        got, missed = reuse_first(len(solved))
+        got.update(zip(missed, parallel.pmap(puzzle_page_job, missed)))
+        results = [got[j] for j in range(len(solved))]
     else:
         results = parallel.pmap(puzzle_page_job, range(len(solved)))
     for path, stale, page_blocks, page_found, page_facts, kept in results:
@@ -3259,7 +3303,7 @@ def main():
     # Each file is compared, written and dropped as it is made; only the paths
     # are kept, for orphans().
     files, stale = set(), []
-    for p, changed in outputs(check, shards=shards):
+    for p, changed in outputs(check, shards=shards, first="--reuse-first" in sys.argv):
         files.add(p)
         if changed:
             stale.append(p)
