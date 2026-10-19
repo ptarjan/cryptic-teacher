@@ -572,47 +572,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OPAQUELY",
-     "indicators": [
-      {
-       "text": "not a",
-       "note": "saying 'not' before a letter means that letter is taken away"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "words": "Love",
+       "at": 0,
+       "gives": "O",
+       "note": "love is zero in tennis scoring, which looks like the letter O"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "distribution",
-         "note": "distributing things spreads them around into new places, so the order changes"
+         "at": 22,
+         "note": "a distribution shares things out and scatters them, so the remaining letters of equal pay are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Love",
-         "gives": "O",
-         "note": "zero, as in a tennis score"
-        },
-        {
-         "words": "equal",
-         "note": "taken as written"
-        },
-        {
-         "words": "pay",
-         "gives": "PY",
-         "note": "the word with its A removed"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not",
+           "at": 16,
+           "note": "'not a' tells us to leave the letter a out of the words equal pay"
+          }
+         ],
+         "parts": [
+          {
+           "words": "equal pay",
+           "at": 5
+          },
+          {
+           "words": "a",
+           "at": 20
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A campaign slogan: love equal pay, but not a muddled distribution of it.",
-     "walkthrough": "One of the two As in 'equal pay' goes before the letters are rearranged.",
-     "definitionFit": "Something done opaquely is obscure or unclear, so lacking clarity is a direct synonym."
+     "surface": "A slogan for equal pay, then a grumble that it isn't being distributed fairly.",
+     "walkthrough": "The surface reads 'distribution' as the sharing of wages, but here it means scattering the letters left once 'not a' has removed one A.",
+     "definitionFit": "Something done opaquely is done in an obscure, murky way, so it lacks transparency or clarity."
     },
     "features": {
      "answerInScene": false,
@@ -768,68 +773,72 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CALLIPYGIAN",
-     "indicators": [
-      {
-       "text": "not quite",
-       "note": "falling just short means the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "CALLIPYGIAN",
        "indicators": [
         {
          "text": "arrangement",
-         "note": "an arrangement puts items in a fresh order, as with flowers in a vase"
+         "at": 6,
+         "note": "a flower arrangement suggests the letters of lilac being arranged into a new order"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Lilac",
-           "note": "the flower's letters rearranged"
-          },
-          {
-           "op": "outer",
-           "unchecked": true,
-           "gives": "PY",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "extremely pretty",
-             "gives": "PY",
-             "select": "outer",
-             "note": "the first and last letters only"
-            }
-           ]
-          },
-          {
-           "words": "extremely big",
-           "gives": "GIAN",
-           "note": "giant, missing its final letter"
-          }
-         ]
+         "words": "Lilac",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 18,
+         "note": "extremely here points to the extremes, the first and last letters, of pretty"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pretty",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 54,
+         "note": "not quite means the word falls just short, so its final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extremely big",
+         "at": 39,
+         "gives": "GIANT",
+         "note": "something extremely big is giant"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A flower arrangement that is both lovely and huge.",
-     "walkthrough": "'Extremely' does two jobs: first it keeps the outer letters of 'pretty', then 'extremely big' is simply giant. 5 is BOTTOM.",
-     "definitionFit": "From Greek for beautiful buttocks, this rare adjective describes a person with a well-shaped rear."
+     "surface": "A flower arrangement of lilac described as very pretty and very large.",
+     "walkthrough": "5 is the answer to 5-across, BOTTOM. Lilac rearranged gives CALLI; the ends of pretty give PY; GIANT 'not quite' loses its T to give GIAN.",
+     "definitionFit": "Callipygian is a rare Greek-derived adjective meaning possessing beautifully shaped buttocks, matching a shapely bottom."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Lilac"
+     "misdirectedWord": "arrangement"
     }
    }
   },
@@ -1001,29 +1010,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "THONG",
      "indicators": [
       {
        "text": "with a speech impediment",
-       "note": "a lisp turns one hissing consonant into a softer pair of letters"
+       "at": 30,
+       "note": "the speech impediment is a lisp, which turns the S sound into TH"
       }
      ],
      "parts": [
       {
-       "words": "a number",
+       "words": "number",
+       "at": 23,
        "gives": "SONG",
-       "note": "a number is a piece of music"
+       "note": "a number is a song, a piece of music performed"
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "TH"
       }
      ]
     },
     "explanation": {
-     "surface": "A skimpy costume for a performer who sings a number with a lisp.",
-     "walkthrough": "Someone with a lisp says TH for S. 'Number' is a song, not a figure. 5 is BOTTOM.",
-     "definitionFit": "This skimpy undergarment or swimsuit leaves the buttocks almost entirely bare, so it barely covers them."
+     "surface": "A skimpy garment, and someone with a lisp announcing a song.",
+     "walkthrough": "5 is the answer to 5-across, BOTTOM. A lisper says 'a song' as 'a thong', swapping S for TH.",
+     "definitionFit": "A thong is a skimpy piece of underwear or swimwear that leaves the buttocks almost entirely bare."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "number"
