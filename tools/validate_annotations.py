@@ -5620,6 +5620,25 @@ def _reading_reuses_words(node, leaf):
 _ONE_IND_OPS = frozenset({"reversal", "deletion", "hidden"}) | frozenset(wordplay.SELECT)
 DELETION_SCOPE_ANSWER = "deletion over a charade whose indicator names an end, but the letters that make the answer are not at it"
 DOUBLE_INDICATOR = "one op carries two indicators, or stacks two ops on one"
+MOVED_LETTER = "a letter taken out by a deletion and put back by a sibling leaf is a move, not an add-then-delete"
+
+
+def moved_letters(tree):
+    """Deletions whose removed letters a sibling leaf of the same parent gives again (Paul, round 15:
+    ALBINO = del<dropping>(ALBION, O) + [ball]O is an error; the tree is move<dropping>(ALBION, O)).
+    Counts a deletion once per tree place; a removed part that is a leaf with letters, a sibling that is
+    a leaf with the same letters."""
+    n = 0
+    for parent in _walk(tree):
+        kids = [p for p in parent.get("parts") or [] if isinstance(p, dict)]
+        for d in kids:
+            ps = [p for p in d.get("parts") or [] if isinstance(p, dict)]
+            if d.get("op") != "deletion" or d.get("unchecked") or len(ps) != 2 or "op" in ps[1]:
+                continue
+            cut = wordplay.letters(ps[1].get("gives"))
+            n += bool(cut) and any("op" not in k and k is not d and wordplay.letters(k.get("gives")) == cut
+                                   for k in kids)
+    return n
 
 
 def _ind_adjacent(a, b):
@@ -5954,6 +5973,9 @@ def shape_warnings(tag, ann, clue=None, answer=None):
     if k := double_indicators(tree):
         out.append(f"{tag}: {k} {DOUBLE_INDICATOR}: one op per indicator; write two ops "
                    f"(two reversals, two deletions), and a hidden word needs no selection under it")
+    if k := moved_letters(tree):
+        out.append(f"{tag}: {k} {MOVED_LETTER}: write move<indicator>(fodder, MOVED), e.g. "
+                   f"move<dropping>([England]ALBION, [ball]O)")
     if k := pool_gaps(tree, clue):
         out.append(f"{tag}: {k} {POOL_GAP}: the fodder is the words together under the indicator; "
                    f"a piece the clue places elsewhere belongs to the charade or insertion, not the pool")
@@ -6534,6 +6556,7 @@ BACKLOG_MARKERS = {
     "wordplay.midWordLeaf": (MIDWORD_LEAF,),
     "wordplay.deletionScopeAnswer": (DELETION_SCOPE_ANSWER,),
     "wordplay.doubleIndicator": (DOUBLE_INDICATOR,),
+    "wordplay.movedLetter": (MOVED_LETTER,),
     "wordplay.poolGap": (POOL_GAP,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
