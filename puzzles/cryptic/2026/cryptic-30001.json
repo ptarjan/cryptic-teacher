@@ -232,8 +232,8 @@
      "op": "container",
      "indicators": [
       {
-       "text": "last of",
-       "note": "'Last of' asks for the final letter of the word it points at rather than for the word itself."
+       "text": "in",
+       "note": "'in' is the plain instruction to drop one piece inside another, and what follows it is the container."
       }
      ],
      "parts": [
@@ -246,13 +246,13 @@
        "op": "last",
        "indicators": [
         {
-         "text": "in",
-         "note": "'in' is the plain instruction to drop one piece inside another, and what follows it is the container."
+         "text": "last of",
+         "note": "'Last of' asks for the final letter of the word it points at rather than for the word itself."
         }
        ],
        "parts": [
         {
-         "words": "last of women",
+         "words": "women",
          "note": "the final letter of 'women'"
         }
        ]
@@ -1530,9 +1530,21 @@
      ],
      "parts": [
       {
-       "words": "lady loses heart",
-       "gives": "LY",
-       "note": "take the middle two letters out of 'lady' and the outer two close up"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "loses heart",
+         "note": "takes the cut letters out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lady"
+        },
+        {
+         "gives": "AD"
+        }
+       ]
       },
       {
        "words": "on",
