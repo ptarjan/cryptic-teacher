@@ -196,4 +196,12 @@ check("the indicator after the charade is not", 0, v.del_wraps_charade(twerking,
 check("a nth pick a deletion cuts and re-adds is a move", 1, v.moved_letters({"op": "charade", "parts": [
     {"op": "nth", "n": 5, "indicators": [{"text": "fifth of"}], "parts": [{"words": "sonnets"}]},
     {"op": "deletion", "indicators": [{"text": "moving"}], "parts": [{"words": "Greek island", "gives": "CRETE"}, {"gives": "E"}]}]}))
+check("a leaf holding twice that gives a doubled string is counted", 1, v.repeat_in_leaf(
+    {"op": "charade", "parts": [{"words": "Boy called twice", "gives": "ALFALF"}, {"words": "a", "gives": "A"}]}))
+check("a leaf holding half beside the word whose half it gives is counted", 1, v.half_in_leaf(
+    {"op": "container", "parts": [{"words": "half-done taco", "gives": "TA"}, {"words": "A", "gives": "A"}]}))
+check("a letter-less selection leaf ending with the op's indicator is counted", 1, v.select_ind_ends_leaf(
+    {"op": "first", "indicators": [{"text": "on top"}], "parts": [{"words": "cooked on top"}]}))
+check("a leaf holding losing head that gives letters is counted", 1, v.behead_in_leaf(
+    {"op": "charade", "parts": [{"words": "Youngster losing head", "gives": "ID"}, {"words": "x", "gives": "X"}]}))
 raise SystemExit(fails)

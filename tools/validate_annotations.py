@@ -6622,6 +6622,64 @@ def own_ind_in_leaf(tree):
     return n
 
 
+REPEAT_IN_LEAF = "leaf holds a doubling word (twice, double, again) and gives a doubled string"
+HALF_IN_LEAF = "leaf holds half and gives half of another of its words, a halving selection folded into the leaf"
+SELECT_IND_ENDS_LEAF = "selection op whose letter-less leaf ends with the op's own indicator words"
+BEHEAD_IN_LEAF = "leaf holds a losing-head/tail phrase and gives the letters that are left"
+_REPEAT_WORDS = frozenset("twice doubled double repeated repeatedly again thrice redoubled".split())
+_BEHEAD = re.compile(r"\b(?:losing|lost|without|minus|lacking|missing|dropping|loses|shedding|ignoring)\s+"
+                     r"(?:its\s+|the\s+|his\s+|her\s+|their\s+)?(?:head|tail|top|bottom|leader|front|back|"
+                     r"first letter|last letter|initial|first|last)\b|\b(?:headless|tailless)\b", re.I)
+
+
+def repeat_in_leaf(tree):
+    """Plain leaves holding twice, double or again with another word that give a string made of one block
+    twice (r34 FN ALFALF: "Boy called twice" giving ALFALF): the repeat is an op with its own indicator.
+    r35 judged 0 of 40 fine."""
+    n = 0
+    for node, words in _plain_leaves(tree):
+        g = wordplay.letters(node["gives"])
+        h = len(g) // 2
+        n += len(words) >= 2 and bool(_REPEAT_WORDS & set(words)) and len(g) >= 4 and len(g) % 2 == 0 and g[:h] == g[h:]
+    return n
+
+
+def half_in_leaf(tree):
+    """Plain leaves holding half (also half-done) beside a clue word whose first or last half they give
+    (r34 FN TAMPA: "half-done taco" giving TA): the halving is a selection op with its own indicator.
+    r35 judged 0 of 40 fine."""
+    n = 0
+    for node, words in _plain_leaves(tree):
+        g = wordplay.letters(node["gives"]).lower()
+        n += len(words) >= 2 and "half" in words and bool(g) and any(
+            w != "half" and len(w) >= 4 and len(g) in (len(w) // 2, (len(w) + 1) // 2) and (w.startswith(g) or w.endswith(g))
+            for w in words)
+    return n
+
+
+def select_ind_ends_leaf(tree):
+    """Selection ops whose leaf has no letters of its own and ends with the op's indicator words and holds more
+    (r34 FN BUTTERUP: first<on top>("cooked on top")): the leaf holds only the words that give its letters.
+    own_ind_in_leaf takes the leaves that give letters. r35 judged 2 of 30 fine."""
+    n = 0
+    for node in _walk(tree):
+        if node.get("op") not in wordplay.SELECT or node.get("unchecked"):
+            continue
+        inds = [re.findall(r"[a-z']+", str(i.get("text") or "").lower()) for i in node.get("indicators") or [] if isinstance(i, dict)]
+        for p in (q for q in node.get("parts") or [] if isinstance(q, dict) and "op" not in q and not q.get("gives")):
+            words = re.findall(r"[a-z']+", str(p.get("words") or "").lower())
+            n += any(iw and len(words) > len(iw) and words[-len(iw):] == iw for iw in inds)
+    return n
+
+
+def behead_in_leaf(tree):
+    """Plain leaves of 2+ words holding "losing head", "without its tail", "headless" and giving letters
+    (r34 FN IDLER: "Youngster losing head" giving ID): the cut is a deletion with its own indicator.
+    r35 judged 3 of 33 fine."""
+    return sum(1 for node, words in _plain_leaves(tree)
+               if len(words) >= 2 and _BEHEAD.search(" ".join(words)) and len(wordplay.letters(node["gives"])) >= 2)
+
+
 def cut_note_leaf(tree):
     """Leaves giving a non-word of 3+ letters whose note says it is a real word minus some letters
     (GAM "game losing its final E", STE "SITE without I", EARY "WEARY, leading W killed"; r28 FN: 5 misses):
@@ -7035,6 +7093,10 @@ def shape_warnings(tag, ann, clue=None, answer=None):
             (lambda: ana_lone_edge(tree, answer), ANA_LONE_EDGE, "set the letter beside the anagram in a charade"),
             (lambda: ana_literal_edge(tree, answer), ANA_LITERAL_EDGE, "set the word beside the anagram in a charade"),
             (lambda: del_wraps_charade(tree, clue), DEL_WRAPS_CHARADE, "cut inside the one piece the word acts on"),
+            (lambda: repeat_in_leaf(tree), REPEAT_IN_LEAF, "the repeat is an op with its own indicator"),
+            (lambda: half_in_leaf(tree), HALF_IN_LEAF, "keep half the word with a halving selection"),
+            (lambda: select_ind_ends_leaf(tree), SELECT_IND_ENDS_LEAF, "the leaf holds only the words that give its letters"),
+            (lambda: behead_in_leaf(tree), BEHEAD_IN_LEAF, "the cut is a deletion with its own indicator"),
             (lambda: own_ind_in_leaf(tree), OWN_IND_IN_LEAF, "the leaf holds only the words that give its letters")):
         if k := fn():
             out.append(f"{tag}: {k} {label}: {hint}")
@@ -7630,6 +7692,10 @@ BACKLOG_MARKERS = {
     "wordplay.truncInLeaf": (TRUNC_IN_LEAF,),
     "wordplay.cutNoteLeaf": (CUT_NOTE_LEAF,),
     "wordplay.ownIndInLeaf": (OWN_IND_IN_LEAF,),
+    "wordplay.repeatInLeaf": (REPEAT_IN_LEAF,),
+    "wordplay.halfInLeaf": (HALF_IN_LEAF,),
+    "wordplay.selectIndEndsLeaf": (SELECT_IND_ENDS_LEAF,),
+    "wordplay.beheadInLeaf": (BEHEAD_IN_LEAF,),
     "wordplay.selectorAsCut": (SELECTOR_AS_CUT,),
     "wordplay.anaLoneEdge": (ANA_LONE_EDGE,),
     "wordplay.anaLiteralEdge": (ANA_LITERAL_EDGE,),
