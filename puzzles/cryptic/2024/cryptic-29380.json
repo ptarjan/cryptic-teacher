@@ -175,46 +175,50 @@
      "indicators": [
       {
        "text": "sandwiches",
-       "note": "to sandwich something is to hold it between two outer layers, so this word goes round what follows"
+       "at": 10,
+       "note": "sandwiches means encloses as bread holds a filling, so the outer word goes around"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Excessive",
-         "gives": "UNDUE",
-         "note": "undue means more than is warranted"
-        },
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "standard abbreviation"
-        }
-       ]
+       "words": "Excessive",
+       "at": 0,
+       "gives": "UNDUE",
+       "note": "undue means excessive"
       },
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "filling of",
-         "note": "the filling of something is its centre, so only the middle letters of the next word are used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "pate",
-         "note": "the two central letters of pate"
+         "words": "left",
+         "at": 21,
+         "gives": "L"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "filling of",
+           "at": 38,
+           "note": "the filling of a word is its middle letters, without the ends"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pate",
+           "at": 49,
+           "gives": "PATE"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint about an overstuffed bread roll, with pâté and more crammed inside.",
-     "walkthrough": "'roll' looks like the bread from the surface, but it is the verb: to move in waves. 'as well as' simply adds the second insertion.",
-     "definitionFit": "To undulate is to move with a wave-like rising and falling motion, as the sea rolls."
+     "surface": "Too much pâté filling in a bread roll.",
+     "walkthrough": "The food surface makes roll look like a noun; here it is the verb, as waves roll.",
+     "definitionFit": "To undulate is to move in smooth rising and falling waves, as a sea swell does."
     },
     "features": {
      "answerInScene": false,
@@ -774,39 +778,42 @@
      "indicators": [
       {
        "text": "to stifle",
-       "note": "to stifle something is to smother it, enclosing it completely"
+       "at": 22,
+       "note": "to stifle is to smother, so the doomed word wraps around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "doomed",
-         "gives": "FATED",
-         "note": "fated means destined, doomed"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "standard abbreviation"
-        }
-       ]
+       "words": "doomed",
+       "at": 15,
+       "gives": "FATED",
+       "note": "fated means doomed"
       },
       {
-       "words": "expression of despair",
-       "gives": "SIGH",
-       "note": "a sigh expresses dejection"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "right",
+         "at": 32,
+         "gives": "R"
+        },
+        {
+         "words": "expression of despair",
+         "at": 38,
+         "gives": "SIGH",
+         "note": "a sigh expresses despair"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doomed prophet, like Cassandra, smothering cries of despair.",
-     "definitionFit": "A prophet foresees the future, and being far-sighted means having vision about what lies ahead."
+     "surface": "A doomed person is made to suppress a cry of despair.",
+     "definitionFit": "A prophet sees well into the future, the figurative meaning of having long sight."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "doomed"
     }
    }
@@ -1568,38 +1575,41 @@
      "indicators": [
       {
        "text": "held in",
-       "note": "something held in another is enclosed by it"
+       "at": 36,
+       "note": "held in means kept within, so the public word holds the party and I"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "public",
+       "at": 44,
+       "gives": "OVERT",
+       "note": "overt means public, open"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "public",
-         "gives": "OVERT",
-         "note": "overt means open, done in public"
+         "words": "party",
+         "at": 28,
+         "gives": "DO",
+         "note": "a do is a party"
         },
         {
          "words": "I",
-         "note": "taken as written"
+         "at": 34
         }
        ]
-      },
-      {
-       "words": "party",
-       "gives": "DO",
-       "note": "a do is a party"
       }
      ]
     },
     "explanation": {
-     "surface": "Admitting to getting completely drunk at a party held in public view.",
-     "definitionFit": "To overdo it is to go too far, and drinking oneself senseless is one example of such excess."
+     "surface": "Getting drunk at a party one has thrown publicly.",
+     "definitionFit": "To overdo it is to go too far, exceed sensible limits, of which getting drunk is an example."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "public"
     }
    }

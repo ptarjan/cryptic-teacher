@@ -689,40 +689,42 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "the urgent word sits outside, wrapping the other two pieces"
+       "at": 15,
+       "note": "outside means on the exterior, so the urgent word surrounds the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "urgent",
-         "gives": "DIRE",
-         "note": "a dire need is an urgent one"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "standard abbreviation"
-        }
-       ]
+       "words": "urgent",
+       "at": 8,
+       "gives": "DIRE",
+       "note": "dire can mean urgent, as in dire need"
       },
       {
-       "words": "society",
-       "gives": "S",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "at": 23,
+         "gives": "E"
+        },
+        {
+         "words": "society",
+         "at": 31,
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Passion is pressing beyond the bounds of polite English company.",
-     "definitionFit": "Desire as a noun means strong sexual longing, the sense of lust."
+     "surface": "Lust is pressing beyond the bounds of English polite society.",
+     "definitionFit": "Desire is a strong longing, especially a sexual one."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "society"
+     "misdirectedWord": "urgent"
     }
    }
   },
@@ -804,52 +806,56 @@
      "indicators": [
       {
        "text": "including",
-       "note": "including means the designer's name takes the other pieces inside it"
+       "at": 9,
+       "note": "including means holding within, so the designer surrounds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Designer",
-         "gives": "DIOR",
-         "note": "Christian Dior, the fashion designer"
-        },
-        {
-         "words": "small",
-         "gives": "S",
-         "note": "abbreviation for small, as on clothing labels"
-        }
-       ]
+       "words": "Designer",
+       "at": 0,
+       "gives": "DIOR",
+       "note": "Dior is a French fashion designer"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "short",
-         "note": "short says the word is cut off before its final letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "homage",
-         "gives": "TRIBUTE",
-         "note": "a tribute is an homage"
+         "words": "small",
+         "at": 19,
+         "gives": "S"
         },
         {
-         "gives": "E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 29,
+           "note": "short means the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "homage",
+           "at": 35,
+           "gives": "TRIBUTE",
+           "note": "a tribute is homage"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fashion house pays a little tribute to the trade middleman.",
-     "definitionFit": "A distributor is a middleman supplying goods in bulk to retailers, as a wholesaler does."
+     "surface": "A fashion designer gives a brief tribute to a trader.",
+     "definitionFit": "A distributor supplies goods in bulk to retailers, the role of a wholesaler."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Designer"
     }
@@ -937,35 +943,38 @@
      "indicators": [
       {
        "text": "on",
-       "note": "on board means placed inside a vessel, so the pieces sit within it"
+       "at": 20,
+       "note": "on, with board, means aboard a ship, inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "board",
-         "gives": "SS",
-         "note": "SS, steamship, stands for the vessel one is aboard"
-        },
-        {
-         "words": "whiskey",
-         "gives": "W",
-         "note": "whiskey is W in the NATO phonetic alphabet"
-        }
-       ]
+       "words": "board",
+       "at": 23,
+       "gives": "SS",
+       "note": "on board means within SS, the steamship prefix"
       },
       {
-       "words": "is",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "whiskey",
+         "at": 9,
+         "gives": "W",
+         "note": "Whiskey is W in the NATO phonetic alphabet"
+        },
+        {
+         "words": "is",
+         "at": 17,
+         "gives": "IS"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man from the Continent has a drink on a ship.",
-     "walkthrough": "On board conventionally means inside SS, the steamship abbreviation.",
-     "definitionFit": "A Swiss person is a native of Switzerland, a country of Europe."
+     "surface": "A European has whiskey aboard a ship.",
+     "definitionFit": "Swiss describes a native of Switzerland, a European country."
     },
     "features": {
      "answerInScene": true,
@@ -1133,36 +1142,38 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the change word goes round the others"
+       "at": 25,
+       "note": "about means surrounding, so the change of opinion goes outside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Sudden change of opinion",
-         "gives": "VEER",
-         "note": "to veer is to swing suddenly in direction or view"
-        },
-        {
-         "words": "marine",
-         "gives": "RM",
-         "note": "RM, Royal Marine"
-        }
-       ]
+       "words": "Sudden change of opinion",
+       "at": 0,
+       "gives": "VEER",
+       "note": "to veer is to change direction or opinion suddenly"
       },
       {
-       "words": "English",
-       "gives": "E",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "marine",
+         "at": 39,
+         "gives": "RM",
+         "note": "RM is Royal Marine"
+        },
+        {
+         "words": "English",
+         "at": 31,
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sudden U-turn about an English painter of the sea.",
-     "walkthrough": "The marine and English pieces sit inside in reverse clue order. 'Marine artist' suggests a seascape painter, but marine belongs to the wordplay.",
-     "definitionFit": "Johannes Vermeer was the Dutch Golden Age painter of interiors such as Girl with a Pearl Earring."
+     "surface": "A sudden shift of opinion about an English seascape painter.",
+     "definitionFit": "Johannes Vermeer was a Dutch painter of the seventeenth century."
     },
     "features": {
      "answerInScene": false,

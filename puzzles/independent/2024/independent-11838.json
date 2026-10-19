@@ -287,56 +287,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LUDIC",
+     "op": "container",
      "indicators": [
       {
-       "text": "after wiping walls",
-       "note": "wiping the walls of something clears off its outermost letters at each end"
+       "text": "opens",
+       "at": 17,
+       "note": "opens means splits apart, so the daughter goes into the middle of the trimmed word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
-         "text": "opens",
-         "note": "opens here means splits apart and sits inside"
+         "text": "after wiping walls",
+         "at": 30,
+         "note": "wiping walls means removing the outer letters, the walls of the word"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "LUIC",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "sluice",
-           "gives": "LUIC",
-           "select": "middle",
-           "note": "sluice with its outer letters stripped"
-          }
-         ]
-        },
-        {
-         "words": "daughter",
-         "gives": "D",
-         "note": "D is the abbreviation for daughter"
+         "words": "sluice",
+         "at": 23,
+         "gives": "SLUICE"
         }
        ]
+      },
+      {
+       "words": "daughter",
+       "at": 8,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A cheerful girl opens the sluice gate after scrubbing the walls down.",
-     "definitionFit": "Ludic is a formal adjective from Latin ludus, game, meaning showing spontaneous play."
+     "surface": "A daughter cleans a sluice gate in a lighthearted mood.",
+     "definitionFit": "Ludic, from the Latin for play, describes spontaneous and fun-loving behaviour."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "opens"
+     "misdirectedWord": "walls"
     }
    }
   },
@@ -361,46 +352,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REPLICATE",
+     "op": "container",
      "indicators": [
       {
-       "text": "not fully completed",
-       "note": "something not fully completed stops short, losing its final letter"
+       "text": "enters",
+       "at": 9,
+       "note": "enters means goes inside, so the cat goes into the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "enters",
-         "note": "to enter is to go inside, so the animal sits within the other word"
+         "text": "not fully completed",
+         "at": 24,
+         "note": "not fully completed means the word lacks its final letter"
         }
        ],
        "parts": [
         {
          "words": "answers",
-         "gives": "REPLIE",
-         "note": "replies, cut short at the end"
+         "at": 16,
+         "gives": "REPLIES",
+         "note": "replies are answers"
         },
         {
-         "words": "cat",
-         "note": "taken as written"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "cat",
+       "at": 5,
+       "gives": "CAT"
       }
      ]
     },
     "explanation": {
-     "surface": "A cheat copies answers while a cat wanders over the half-finished exam paper.",
-     "definitionFit": "To replicate is to make an exact duplicate, as with an experiment repeated."
+     "surface": "A copycat submits unfinished answers.",
+     "definitionFit": "To replicate is to reproduce or duplicate something exactly."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Copy"
+     "misdirectedWord": "cat"
     }
    }
   },
@@ -484,40 +480,31 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "INUTERO",
      "indicators": [
       {
        "text": "being discovered",
-       "note": "discovered means having the cover removed, so both words lose their outer letters"
+       "at": 36,
+       "note": "being dis-covered means losing the covers, the outer letters of each word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "minutes",
-         "gives": "INUTE",
-         "note": "minutes stripped of its first and last letters"
-        },
-        {
-         "words": "from",
-         "gives": "RO",
-         "note": "from stripped of its first and last letters"
-        }
-       ]
+       "words": "minutes from",
+       "at": 23
+      },
+      {
+       "gives": "MSFM"
       }
      ]
     },
     "explanation": {
-     "surface": "A pregnancy only minutes away from being found out.",
-     "walkthrough": "'Being discovered' applies to both preceding words; the answer is split 2,5 but built 5,2.",
-     "definitionFit": "In utero is Latin for inside the womb, which is where a typical pregnancy develops."
+     "surface": "A pregnancy scan may reveal things within minutes.",
+     "definitionFit": "Latin for inside the womb, which is where a foetus grows in a normal pregnancy."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "discovered"
     }
    }
@@ -823,65 +810,72 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the other letters inside the city name"
+       "at": 33,
+       "note": "in means placed inside, so these letters go within the shortened city"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to leave",
+         "at": 58,
+         "note": "to leave means going away, so the letter is taken out"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
+         "words": "Oklahoma city",
+         "at": 36,
+         "gives": "TULSA",
+         "note": "Tulsa is a city in Oklahoma"
+        },
+        {
+         "words": "second",
+         "at": 51,
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
          "indicators": [
           {
-           "text": "second to leave",
-           "note": "the second letter of the city name is dropped out"
+           "text": "first to",
+           "at": 12,
+           "note": "first to means the first letter of the next word"
           }
          ],
          "parts": [
           {
-           "words": "Oklahoma city",
-           "gives": "TULSA",
-           "note": "Tulsa is the second city of Oklahoma"
-          },
-          {
-           "gives": "S"
+           "words": "attend",
+           "at": 21
           }
          ]
         },
         {
          "words": "rave",
+         "at": 28,
          "gives": "RANT",
-         "note": "to rave is to rant wildly"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "first to",
-         "note": "first to keeps only the opening letter of the word that follows"
-        }
-       ],
-       "parts": [
-        {
-         "words": "attend",
-         "note": "opening letter of attend"
+         "note": "to rant is to rave"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A big ugly bloke is the first to show up at a party in Tulsa.",
-     "walkthrough": "'Second to leave' refers to the city's own second letter, the S, which drops out once the other letters are inside.",
-     "definitionFit": "A tarantula is a large spider covered with bristles, a fearsome beast to arachnophobes."
+     "surface": "A wild party in Tulsa, with one person arriving first and another leaving.",
+     "walkthrough": "Second to leave looks like removing the second letter; second is S.",
+     "definitionFit": "A tarantula is a large, hairy spider, menacing enough to be called a brute."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "brute"
+     "misdirectedWord": "second"
     }
    }
   },
