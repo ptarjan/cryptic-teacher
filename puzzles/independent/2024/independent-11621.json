@@ -106,43 +106,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "YALTA",
+     "op": "container",
      "indicators": [
       {
-       "text": "Almost",
-       "note": "almost means not quite all of the word, so its final letter is dropped"
+       "text": "to tour",
+       "at": 32,
+       "note": "to tour means to go around, so the shortened word wraps the key"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to tour",
-         "note": "to tour a place is to go round it, so one piece wraps around the other"
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means the last letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "agreed for Sloane Ranger",
-         "gives": "YA",
-         "note": "a posh Sloane Ranger says 'yah' for yes; almost all of it leaves the first two letters"
+         "at": 7,
+         "gives": "YAH",
+         "note": "yah is the upper-class 'yes' of a Sloane Ranger, a posh young Londoner"
         },
         {
-         "words": "key",
-         "gives": "ALT",
-         "note": "Alt is a key on a computer keyboard"
+         "gives": "H"
         }
        ]
+      },
+      {
+       "words": "key",
+       "at": 40,
+       "gives": "ALT",
+       "note": "Alt is a key on a computer keyboard"
       }
      ]
     },
     "explanation": {
-     "surface": "A posh young Londoner agrees to go on a tour of a fashionable Black Sea resort.",
-     "walkthrough": "A Sloane Ranger is a stereotypical upper-class young Londoner from around Sloane Square, whose way of saying yes is 'yah'. Key looks like a musical key or an island; it is a keyboard key.",
-     "definitionFit": "Yalta is a seaside town in Crimea on the Black Sea coast, famous as the site of the 1945 conference."
+     "surface": "A posh young Londoner nearly agrees to visit a resort on the Black Sea.",
+     "walkthrough": "A Sloane Ranger is a stereotypical upper-class young person from the Sloane Square area of London, who says 'yah' for yes.",
+     "definitionFit": "Yalta is a Crimean holiday town on the Black Sea, famous for the 1945 conference."
     },
     "features": {
      "answerInScene": true,
@@ -168,59 +173,62 @@
     "definitions": [
      {
       "text": "Priest, maybe",
-      "at": 31,
-      "note": "a ritualist is a person; the clue offers a priest as one example"
+      "at": 31
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RITUALIST",
-     "indicators": [
-      {
-       "text": "No lead",
-       "note": "with no lead, the word loses the letter at its front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Strange",
+         "at": 12,
+         "note": "strange means odd, so the remaining letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "Strange",
-           "note": "strange means odd or out of the ordinary, so the letters come out in an unusual order"
+           "text": "No lead",
+           "at": 0,
+           "note": "no lead means the first letter is dropped"
           }
          ],
          "parts": [
           {
            "words": "15",
-           "gives": "UITAR",
-           "note": "the answer to 15 across, minus its first letter"
+           "at": 8,
+           "gives": "GUITAR",
+           "note": "the answer to 15 across, GUITAR"
+          },
+          {
+           "gives": "G"
           }
          ]
-        },
-        {
-         "words": "record",
-         "gives": "LIST",
-         "note": "to list is to record, and a list is a record"
         }
        ]
+      },
+      {
+       "words": "record",
+       "at": 20,
+       "gives": "LIST",
+       "note": "a list is a written record"
       }
      ]
     },
     "explanation": {
-     "surface": "A record by Judas Priest sounds strange because it has no lead guitar.",
-     "walkthrough": "15 across is GUITAR; drop its first letter and rearrange UITAR. Judas Priest is a heavy metal band, which helps the surface's music theme.",
-     "definitionFit": "A ritualist is someone devoted to religious rites, and a priest who performs them strictly is a typical example."
+     "surface": "A guitar with no lead cable is a strange thing to record, says a priest.",
+     "walkthrough": "15 across is GUITAR; without its first letter it gives UITAR, which 'Strange' rearranges to RITUA.",
+     "definitionFit": "A ritualist is someone devoted to ritual, and a priest is one example of such a person."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Priest"
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
     }
    }
   },
@@ -723,64 +731,38 @@
     "definitions": [
      {
       "text": "anniversary?",
-      "at": 62,
-      "note": "the question mark flags an example: an eightieth is one particular anniversary"
+      "at": 62
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "EIGHTIETH",
+     "op": "homophone",
+     "spelt": "EIGHTIETH",
      "indicators": [
       {
-       "text": "last three pieces from",
-       "note": "the last three pieces of the following name are its closing three letters"
+       "text": "Violet Elizabeth reading out",
+       "at": 0,
+       "note": "Violet Elizabeth Bott lisps in the Just William stories, so saying letters aloud the way she would turns S sounds into TH"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
+       "words": "last three pieces from Keats",
+       "at": 29,
        "gives": "ATS",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Keats",
-         "gives": "ATS",
-         "select": "last",
-         "note": "the closing three letters of the poet's name"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "EIGHTIETH",
-       "indicators": [
-        {
-         "text": "Violet Elizabeth reading out",
-         "note": "reading out means saying letters aloud, in the lisping voice of this character"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Violet Elizabeth",
-         "gives": "AYTEEETH",
-         "note": "A, T, S spoken as letters with a lisp turning the S sound into TH"
-        }
-       ]
+       "note": "the last three letters of Keats are A, T and S"
       }
      ]
     },
     "explanation": {
-     "surface": "A lisping girl reads out a few lines of Keats at an anniversary event.",
-     "walkthrough": "Violet Elizabeth Bott, in Richmal Crompton's Just William books, lisps ('I'll thcream and thcream'). Said as letters, A-T-S sounds like 'eighties'; her lisp makes it 'eightieth'.",
-     "definitionFit": "An eightieth is the anniversary marking eighty years, such as an eightieth birthday."
+     "surface": "A girl reads aloud the last part of a Keats poem at an anniversary event.",
+     "walkthrough": "Violet Elizabeth Bott, from Richmal Crompton's Just William books, lisps. Spelling out A, T, S she says 'ay-tee-eth', which sounds like the answer.",
+     "definitionFit": "An eightieth birthday or wedding is a celebrated milestone, hence the question mark on anniversary as an example."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "pieces"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Violet"
     }
    }
   },
@@ -1057,47 +1039,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GUITAR",
+     "op": "charade",
      "indicators": [
       {
-       "text": "curt",
-       "note": "curt means cut short, so the next word loses its final letter"
+       "text": "behind",
+       "at": 25,
+       "note": "behind means the reversed letters come after the shortened name"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curt",
+         "at": 32,
+         "note": "curt means cut short, so Guy loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "Guy",
-         "gives": "GU",
-         "note": "Guy shortened"
+         "at": 37,
+         "gives": "GUY"
         },
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "retreating",
-           "note": "retreating means going backwards, so these letters run in reverse"
-          }
-         ],
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retreating",
+         "at": 14,
+         "note": "retreating means going backwards, so these letters are read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Deserter",
-             "gives": "RAT",
-             "note": "a rat is someone who deserts their side"
-            },
-            {
-             "words": "one",
-             "gives": "I",
-             "note": "Roman numeral for one"
-            }
-           ]
+           "words": "Deserter",
+           "at": 0,
+           "gives": "RAT",
+           "note": "a rat is one who deserts, like a rat leaving a sinking ship"
+          },
+          {
+           "words": "one",
+           "at": 10,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
           }
          ]
         }
@@ -1106,14 +1100,13 @@
      ]
     },
     "explanation": {
-     "surface": "A deserter retreats behind the brusque wartime hero Guy Gibson.",
-     "walkthrough": "Guy Gibson led the Dambusters raid, but Gibson here is the guitar make, and Guy is only fodder.",
-     "definitionFit": "Gibson is an American make of electric guitar, famously the Les Paul played by Jimmy Page."
+     "surface": "A deserter backing away from Guy Gibson, the Dambusters squadron leader.",
+     "walkthrough": "Guy Gibson led the Dambusters raid, which makes 'Gibson' look like a person; here it is the Gibson guitar company.",
+     "definitionFit": "Gibson is a well-known guitar maker, so a Gibson is an example of the instrument."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Gibson"
     }
    }

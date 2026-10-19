@@ -562,52 +562,57 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "OUTSPOKEN",
-     "indicators": [
-      {
-       "text": "accepting",
-       "note": "accepting means taking in, so the university and man surround the rest"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "words": "Open University",
+       "at": 11,
+       "gives": "OU"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "special",
-         "note": "special suggests a made-over version, so the next word's letters are rearranged"
+         "text": "accepting",
+         "at": 31,
+         "note": "accepting means taking in, so the other letters go inside"
         }
        ],
        "parts": [
         {
-         "words": "Open University",
-         "gives": "OU",
-         "note": "OU is the Open University"
-        },
-        {
-         "words": "post",
-         "note": "taken as written, then rearranged"
-        },
-        {
          "words": "man",
-         "gives": "KEN",
-         "note": "Ken is a man's name"
+         "at": 27,
+         "gives": "TOKEN",
+         "note": "a man in a board game is a playing piece, or token"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "special",
+           "at": 41,
+           "gives": "S"
+          },
+          {
+           "words": "post",
+           "at": 49,
+           "gives": "P",
+           "note": "P is an abbreviation for post, as in p and p"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A blunt academic at the Open University takes up a special job.",
-     "walkthrough": "'Special' looks like it describes the post, but it signals a rearrangement of that word.",
-     "definitionFit": "Someone forthright says plainly what they think, which is what being outspoken means."
+     "surface": "A frank Open University man takes on a special job.",
+     "definitionFit": "Outspoken people speak their minds frankly and openly, without hesitating."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "special"
+     "misdirectedWord": "man"
     }
    }
   },
@@ -1544,39 +1549,42 @@
      "indicators": [
       {
        "text": "pinching",
-       "note": "pinching means grabbing hold of, so the drunkard encloses the next letters"
+       "at": 9,
+       "note": "pinching means squeezing something inside, so the drunkard surrounds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Drunkard",
-         "gives": "SOT",
-         "note": "a sot is a habitual drunk"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Drunkard",
+       "at": 0,
+       "gives": "SOT",
+       "note": "a sot is a drunkard"
       },
       {
-       "words": "bishop",
-       "gives": "B",
-       "note": "B is the chess abbreviation for bishop"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 18,
+         "gives": "A"
+        },
+        {
+         "words": "bishop",
+         "at": 20,
+         "gives": "B",
+         "note": "B is the chess abbreviation for bishop"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "A drunk steals a bishop's shoes.",
-     "definitionFit": "A sabot is a wooden clog worn by peasants in France, so a type of shoe."
+     "definitionFit": "A sabot is a wooden clog worn by peasants in France and elsewhere."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "pinching"
     }
    }
