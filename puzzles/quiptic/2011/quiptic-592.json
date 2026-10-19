@@ -128,51 +128,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "have a go at",
-      "at": 36
+      "text": "to have a go at",
+      "at": 33
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "IMPUGN",
-     "indicators": [
-      {
-       "text": "chucking",
-       "note": "chucking one thing for another means throwing it out and swapping in a replacement"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "One",
+       "at": 0,
        "gives": "I",
        "note": "I is the Roman numeral one"
       },
       {
-       "words": "man",
-       "note": "taken as written"
-      },
-      {
-       "words": "article",
-       "gives": "A",
-       "note": "a is the indefinite article"
-      },
-      {
-       "words": "dog",
-       "gives": "PUG",
-       "note": "a pug is a small breed of dog"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "chucking",
+         "at": 8,
+         "note": "throwing away, so one letter is thrown out of the word"
+        },
+        {
+         "text": "for",
+         "at": 25,
+         "note": "one thing in place of another, so the dog goes where the article was"
+        }
+       ],
+       "parts": [
+        {
+         "words": "man",
+         "at": 4,
+         "gives": "MAN",
+         "note": "taken as written"
+        },
+        {
+         "words": "article",
+         "at": 17,
+         "gives": "A",
+         "note": "a is the indefinite article"
+        },
+        {
+         "words": "dog",
+         "at": 29,
+         "gives": "PUG",
+         "note": "a pug is a small breed of dog"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man throwing a stick for his dog to chase.",
-     "walkthrough": "'Chucking' looks like throwing a ball for the dog, but it means swapping out the article for the breed.",
-     "definitionFit": "To impugn someone is to challenge or attack their honesty, an informal have a go at."
+     "surface": "A man throws away a newspaper item to give his dog a go.",
+     "walkthrough": "'article' looks like a piece of writing; it is the grammatical article A.",
+     "definitionFit": "To impugn is to challenge or attack someone's honesty, which is to criticise or have a go at them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "chucking"
+     "misdirectedWord": "article"
     }
    }
   },
@@ -764,52 +778,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNSTRESSED",
-     "indicators": [
-      {
-       "text": "Unlimited",
-       "note": "with no limits means the outer letters at both ends are cut away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Unlimited",
+         "at": 0,
+         "note": "without its limits, i.e. the first and last letters dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "middle",
-         "parts": [
-          {
-           "words": "buns",
-           "note": "the inner letters of the word"
-          }
-         ]
-        },
+         "words": "buns",
+         "at": 10,
+         "note": "its inner letters are UN"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "served up",
-           "note": "in a down clue served up means brought upwards, so the word reads bottom to top"
-          }
-         ],
-         "parts": [
-          {
-           "words": "puddings",
-           "gives": "DESSERTS",
-           "note": "puddings are desserts"
-          }
-         ]
+         "text": "served up",
+         "at": 28,
+         "note": "in a down entry, up means read from the bottom"
+        }
+       ],
+       "parts": [
+        {
+         "words": "puddings",
+         "at": 19,
+         "gives": "DESSERTS",
+         "note": "desserts are puddings"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An all-you-can-eat café serving buns and puddings with no fuss.",
-     "walkthrough": "Spelt backwards, desserts famously gives stressed.",
-     "definitionFit": "Being unstressed means free from strain or worry, so a thing done without hassle."
+     "surface": "An all-you-can-eat bakery serves buns and puddings without fuss.",
+     "walkthrough": "DESSERTS written backwards is STRESSED.",
+     "definitionFit": "Unstressed means not under strain, relaxed and free of hassle."
     },
     "features": {
      "answerInScene": false,

@@ -560,44 +560,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MISAPPREHENDING",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "reaching",
+       "at": 23,
+       "note": "arriving at, so the next piece follows on"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "mistakenly",
-         "note": "'Perhaps I'm' arranged mistakenly gives its letters in a new order"
-        },
-        {
-         "text": "reaching"
+         "at": 12,
+         "note": "done in error, so the letters are muddled"
         }
        ],
        "parts": [
         {
          "words": "Perhaps I'm",
-         "note": "anagram of PERHAPS I'M"
-        },
-        {
-         "words": "conclusion",
-         "gives": "ENDING",
-         "note": "an ending is a conclusion"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "conclusion",
+       "at": 32,
+       "gives": "ENDING",
+       "note": "an ending is a conclusion"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone admits they may have jumped to the wrong conclusion and misunderstood.",
-     "walkthrough": "'Perhaps' looks like a hedge; it is fodder. 'Reaching conclusion' reads as coming to a judgement but simply puts ENDING after the jumble.",
-     "definitionFit": "To misapprehend is to misunderstand, so misapprehending means failing to understand."
+     "surface": "Someone worries that the conclusion they have drawn may be wrong.",
+     "walkthrough": "'mistakenly' fits the surface as an adverb about reaching a conclusion, but it acts only on the two words before it.",
+     "definitionFit": "To misapprehend is to misunderstand, so misapprehending is not grasping the meaning correctly."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Perhaps"
+     "misdirectedWord": "mistakenly"
     }
    }
   },
@@ -930,55 +934,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ARTEFACT",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 34,
+       "note": "placed inside, so these letters go within the others"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "regularly",
-         "note": "take every other letter of 'written'"
-        }
-       ],
        "parts": [
         {
          "words": "key",
+         "at": 39,
          "gives": "A",
          "note": "A is a musical key"
         },
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "RTE",
-         "indicators": [
-          {
-           "text": "into"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "written",
-           "gives": "RTE",
-           "select": "alternate",
-           "note": "wRiTtEn: the 2nd, 4th and 6th letters"
-          }
-         ]
-        },
-        {
          "words": "piece of information",
+         "at": 43,
          "gives": "FACT",
          "note": "a fact is a piece of information"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 16,
+         "note": "at regular intervals, so only every other letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "written",
+         "at": 26,
+         "note": "its even letters are R, T and E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A museum object bears an important inscription.",
-     "walkthrough": "'Key piece of information' reads as one phrase meaning vital fact; 'key' is split off to give the note A.",
-     "definitionFit": "An artefact is a man-made object of cultural or historical interest."
+     "surface": "A cultural relic has an important fact inscribed on it.",
+     "walkthrough": "'key' looks like an adjective, 'important'; it is the musical key A.",
+     "definitionFit": "An artefact is a man-made object of historical or cultural interest, such as a museum piece."
     },
     "features": {
      "answerInScene": true,
