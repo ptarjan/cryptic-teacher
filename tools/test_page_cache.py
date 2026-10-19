@@ -161,6 +161,16 @@ for lex in ({"anagram": {"WILDLY": 3}}, {"anagram": {"WILD": 1}, "container": {"
         sys.exit(f"test_page_cache: re-matched candidates under {lex} are not a fresh render's")
 if not B.indicator_found(cands, lexicon={"anagram": {"WILDLY": 3}}):
     sys.exit("test_page_cache: the candidates matched nothing")
+# /indicators/ lists only words with an example clue to click.
+real_roles = B.role_lexicon
+B.indicator_lexicon = lambda: {"anagram": {"WILDLY": 3, "NOVEL": 2}}
+B.role_lexicon = lambda: {}
+try:
+    ipg = B.indicators_page({("anagram", "WILDLY"): ((), "cryptic-30000", "1-across")})
+finally:
+    B.indicator_lexicon, B.role_lexicon = real, real_roles
+if "wildly" not in ipg or "novel" in ipg:
+    sys.exit("test_page_cache: /indicators/ lists a word with no example clue")
 
 fresh = changed(index=0.5, tags=["big-grid"])
 if showcase.with_meta(showcase.file_facts(puz), fresh) != showcase.facts(puz, fresh):

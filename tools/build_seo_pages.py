@@ -2464,15 +2464,17 @@ def indicators_page(found):
     families = counted
     kinds_of = {t: [k for k in types if k in INDICATOR_KINDS and INDICATOR_KINDS[k][0] == t]
                 for t in families}
-    total = sum(len(lex[t]) for t in counted)
-    linked = sum(1 for t in counted for k in lex[t] if (t, k) in found)
+    # A list ranks; it does not pad: a word with no example clue on a page this
+    # run writes is left off.
+    def ranked_indicators(t):
+        return [(k, n) for k, n in globals()["ranked_indicators"](t) if (t, k) in found]
+
+    total = sum(len(ranked_indicators(t)) for t in counted)
 
     def item(t, k, n):
-        label = esc(indicator_label(k))
-        if (t, k) in found:
-            _, pid, eid = found[(t, k)]
-            label = f'<a href="{solve_url(pid, eid)}">{label}</a>'
-        return label + build_abbreviations.count_html(n)
+        _, pid, eid = found[(t, k)]
+        return (f'<a href="{solve_url(pid, eid)}">{esc(indicator_label(k))}</a>'
+                + build_abbreviations.count_html(n))
 
     title = f"Cryptic crossword indicators — {total:,} words, by type"
     desc = (f"{total:,} cryptic crossword indicators, grouped by what they tell you to do "
@@ -2495,7 +2497,7 @@ def indicators_page(found):
         "from solving blogs and from this site's own explanations. The number after each "
         "word is how many clues used it that way. The same word can do more than one job: "
         "<em>about</em> is a container, but it can also mean an anagram. "
-        f"{linked:,} of the words are links to a real clue that uses them.</p>",
+        "Each word links to a real clue that uses it.</p>",
         "<p>Jump to: " + build_abbreviations.LIST_SEP.join(
             f'<a href="#{t}">{type_label(t)}</a>' + (
                 " (" + ", ".join(f'<a href="#{k}">{KIND_TITLES[k].lower()}</a>' for k in kinds_of[t])
@@ -2506,6 +2508,8 @@ def indicators_page(found):
         """An optional h3 and lesson, then the ranked Most used line and All N toggle."""
         top, rest = ranked[:15], ranked[15:]
         out = []
+        if not ranked:
+            return out
         if heading:
             out.append(f'<h3 id="{heading[0]}">{heading[1]}</h3>')
         if lesson:
