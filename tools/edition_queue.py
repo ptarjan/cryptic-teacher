@@ -70,7 +70,10 @@ CT_RELOAD_GRACE seconds, then are TERMed and left deferred) and the run exits
 75, which tools/ocr_full_pass.sh takes as "move the tree to origin/master and
 start again at once". The queue asks for that itself when a fetch of
 origin/master (every CT_RELOAD_POLL, 180s) shows tools/ code changed, not
-puzzles; CT_AUTO_RELOAD=0 opts out.
+puzzles, and only in the queue's own code (hot_reload.queue_code: what it
+imports at module level, transitively, the scripts it starts and its wrappers;
+a change elsewhere in tools/ logs "reload: ignoring N changed files" and
+waits for the next relevant one). CT_AUTO_RELOAD=0 opts out.
 
 With CT_YIELD_HOSTS set (space-separated ssh hosts, e.g. "micro@192.168.1.198";
 unset by default) the queue yields to those hosts too, even with OCR_REMOTE
@@ -1059,6 +1062,13 @@ def code_files():
     return {f: digest(f) for f in paths}
 
 
+def queue_closure():
+    """The tools/ files (repo-relative) whose change reloads this queue:
+    hot_reload.queue_code's, and every module this process has loaded."""
+    mine = {f"tools/{f.name}" for f in code_files()}
+    return hot_reload.queue_code(TOOLS) | mine
+
+
 def digest(path):
     try:
         return hashlib.sha1(path.read_bytes()).hexdigest()
@@ -1402,7 +1412,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     # A re-exec blocks these across it (reexec); the handlers are in place now.
     signal.pthread_sigmask(signal.SIG_UNBLOCK, {signal.SIGTERM, signal.SIGINT, signal.SIGHUP})
     code = code_files()
-    watcher = hot_reload.Watcher(TOOLS.parent).start() if hot_reload.enabled() and watch else None
+    watcher = hot_reload.Watcher(TOOLS.parent, closure=queue_closure()).start() if hot_reload.enabled() and watch else None
     begun = code_checked = time.monotonic()
     running = {}  # pid: (unit, started)
     tried = set()
