@@ -31,7 +31,9 @@ fix_shape_suspects.repair_tree calls it first, so the shape sweep applies these 
 """
 import argparse
 import copy
+import itertools
 import json
+import re
 import os
 import sys
 
@@ -93,14 +95,82 @@ def _gives(tree, answer):
 
 # ---------- A: deletion over a charade <-> deletion inside one piece ----------
 
-def _cut_candidates(node):
+def _cut_candidates(node, comps=None):
     """Indexes of the charade's pieces the node's cut could come off, edge-preferred by the indicator."""
-    comps = node["parts"][0]["parts"]
+    comps = comps if comps is not None else node["parts"][0]["parts"]
     text = " ".join(str(i.get("text") or "") for i in node.get("indicators") or [])
     order = list(range(len(comps)))
     if V._DEL_END.search(text):
         order.reverse()
     return order
+
+
+_HEAD_WORD = re.compile(r"\b(open\w*|head\w*|start\w*|begin\w*|first|top\w*|lead\w*|decapitat\w*|behead\w*|"
+                        r"unopened|initial\w*|front)\b", re.I)
+_END_WORD = re.compile(r"\b(mostly|most of|tail\w*|end(?:s|ing|less\w*)?|last|final\w*|finish\w*|"
+                       r"unending)\b", re.I)
+_EDGE_WORD = re.compile(r"\b(edges?|outsides?|extremities|boundar\w*|borders?|both ends|ends|outer)\b", re.I)
+
+
+def _letters(s):
+    return "".join(c for c in str(s).upper() if c.isalpha())
+
+
+def _kind(text):
+    """How the indicator places the cut: 'edges', 'head', 'end', 'both' (head and end named, either
+    edge may do), 'mid' (heart words), or None for an indicator that names no place."""
+    if _EDGE_WORD.search(text) and not re.search(r"\b(end|ending|endless\w*)\b", text, re.I):
+        return "edges"
+    h = bool(_HEAD_WORD.search(text) or V._DEL_HEAD.search(text))
+    e = bool(_END_WORD.search(text) or V._DEL_END.search(text))
+    if h and e:
+        return "both"
+    if h:
+        return "head"
+    if e:
+        return "end"
+    if V._DEL_HEART.search(text) or V._DEL_HALF.search(text):
+        return "mid"
+    return None
+
+
+def _cut_sits(kind, piece, cut):
+    """Whether `cut` (letters) sit in `piece` where the indicator kind says."""
+    if not cut or cut not in piece and kind != "edges":
+        return False
+    if kind == "head":
+        return piece.startswith(cut)
+    if kind == "end":
+        return piece.endswith(cut)
+    if kind == "both":
+        return piece.startswith(cut) or piece.endswith(cut)
+    if kind == "edges":
+        return (piece[:1] + piece[-1:] == cut) or piece.startswith(cut) or piece.endswith(cut)
+    if kind == "mid":
+        return cut in piece[1:-1]
+    return cut in piece
+
+
+def _placed(node, comps, cuts):
+    """Indexes of the pieces the cut may sit on, per the indicator's own place word; empty when the
+    letters sit nowhere right, or (no place named) when more than one piece could take them."""
+    text = " ".join(str(i.get("text") or "") for i in node.get("indicators") or [])
+    kind = _kind(text)
+    try:
+        cut_vals = [_letters("".join(v)) for v in itertools.product(*[wordplay.values(c) for c in cuts])]
+    except Exception:
+        return []
+    ok = []
+    for i in _cut_candidates(node, comps):
+        try:
+            vals = [_letters(v) for v in wordplay.values(comps[i])]
+        except Exception:
+            continue
+        if any(_cut_sits(kind, v, c) for v in vals for c in cut_vals):
+            ok.append(i)
+    if kind is None and len(ok) != 1:
+        return []
+    return ok
 
 
 def sink_deletion(tree, clue, answer):
@@ -125,7 +195,7 @@ def _sink_once(tree, clue, answer):
         before = V.deletion_inside_component(tree, clue, answer)
         if not before:
             return None
-        for i in _cut_candidates(node):
+        for i in _placed(node, comps, cuts):
             piece = comps[i]
             if piece.get("unchecked"):
                 continue
@@ -272,9 +342,26 @@ def normalize(tree, clue, answer):
                      ("merge_selects", lambda t: merge_selects(t, answer)),
                      ("merge_reversals", lambda t: merge_reversals(t, answer))):
         new, n = fn(copy.deepcopy(tree))
-        if n and simplicity(new) < simplicity(tree):
+        if n and simplicity(new) < simplicity(tree) and indicators_kept(tree, new):
             tree, used = new, used + [name] * n
     return tree, used
+
+
+def _indicator_texts(tree):
+    return sorted(str(i.get("text") or "").lower() for n, _ in _walk(tree) for i in n.get("indicators") or []
+                  if isinstance(i, dict))
+
+
+def _op_count(tree):
+    return sum(1 for n, _ in _walk(tree) if n.get("op") not in (None, "charade"))
+
+
+def indicators_kept(before, after):
+    """Paul (10-18): the tree matches the clue's wordplay, one op per indicator. A rewrite keeps
+    exactly the indicators it started with (never folds ops carrying different indicator words into
+    one, never drops or adds one) and never adds an op; so one indicator's several ops may merge
+    into one, and a cut may sink, but nothing else changes how many ops the indicators justify."""
+    return _indicator_texts(before) == _indicator_texts(after) and _op_count(after) <= _op_count(before)
 
 
 def simplicity(tree):

@@ -71,6 +71,29 @@ class TreeNormalize(unittest.TestCase):
         self.assertEqual(new["indicators"], [{"text": "after"}])
         wordplay.evaluate(new, ans)
 
+    def test_sink_deletion_only_onto_the_piece_where_the_indicator_says(self):
+        # toughie-3771#3d: "not opening" takes the FIRST letter, which is the U of unutilised
+        tree = {"op": "anagram", "indicators": [{"text": "unfortunately"}],
+                "parts": [{"op": "deletion", "indicators": [{"text": "not opening"}],
+                           "parts": [{"op": "charade", "parts": [leaf("Surrey", "SURREY"), leaf("unutilised", "UNUTILISED")]},
+                                     {"gives": "U"}]}]}
+        # the cut may sink onto unutilised only, never Surrey
+        self.assertEqual(T._placed(tree["parts"][0], tree["parts"][0]["parts"][0]["parts"], [{"gives": "U"}]), [1])
+        self.assertEqual(T._placed({"indicators": [{"text": "endlessly"}]}, tree["parts"][0]["parts"][0]["parts"],
+                                   [{"gives": "Y"}]), [0])
+        # no place named: a letter that two pieces hold is ambiguous, so no sink
+        self.assertEqual(T._placed({"indicators": [{"text": "without"}]}, tree["parts"][0]["parts"][0]["parts"],
+                                   [{"gives": "U"}]), [])
+
+    def test_separate_indicators_are_never_folded_into_one_op(self):
+        clue, ans, tree = AEGEAN
+        two = copy.deepcopy(tree)
+        two["parts"][1]["indicators"] = [{"text": "tops"}]
+        new, used = T.normalize(two, clue, ans)
+        self.assertEqual(used, [])
+        self.assertEqual(new, two)
+        self.assertTrue(T.indicators_kept(tree, T.normalize(tree, clue, ans)[0]))
+
     def test_simplicity_key_prefers_fewer_ops_then_fewer_letters(self):
         clue, ans, tree = SOLO
         new, _ = T.normalize(tree, clue, ans)
