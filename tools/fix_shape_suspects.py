@@ -651,12 +651,124 @@ def r_container_inside(node, parent, ctx):
     return _pick(node, parent, ctx, cands)
 
 
+def _holder_nest(outer):
+    """(holder, x, y, inner) of outer = ins(inner = ins(holder, x), y), both checked 2-part containers."""
+    parts = outer.get("parts") or []
+    if outer.get("op") != "container" or outer.get("unchecked") or len(parts) != 2:
+        return None
+    inner = parts[0]
+    ip = inner.get("parts") or []
+    if inner.get("op") != "container" or inner.get("unchecked") or len(ip) != 2:
+        return None
+    return ip[0], ip[1], parts[1], inner
+
+
+def r_nested_container(node, parent, ctx):
+    """ins(ins(H, x), y), a container holding a container: the regroupings that put x and y into
+    H together (H holds x+y, or y+x, as one charade; H holds ins(x, y) or ins(y, x)). Of those
+    that evaluate to the answer, the simplest is kept: fewest ops, then fewest letters acted on,
+    then the charade in clue order (Paul 10-18: "just pick the simplest one as canonical").
+    A regrouping that would put two indicators on one op is rejected (one op per indicator)."""
+    got = _holder_nest(node)
+    answer = ctx.get("answer")
+    if not got or not answer or V._separate_insertion(node, got[3]):
+        return None
+    h, x, y, inner = got
+    if inner.get("indicators") and node.get("indicators"):
+        return None     # one op per indicator (Paul 10-18): two indicators can't share the one container
+    inds = copy.deepcopy((inner.get("indicators") or []) + (node.get("indicators") or []))
+    ox, oy = span(x), span(y)
+    xfirst = not (ox and oy and oy[0] < ox[0])
+    pairs = [(x, y), (y, x)] if xfirst else [(y, x), (x, y)]
+    cands = []
+    for a, b in pairs:
+        cands.append({"op": "container", "indicators": inds,
+                      "parts": [copy.deepcopy(h), charade([copy.deepcopy(a), copy.deepcopy(b)])]})
+    for a, b in pairs:
+        cands.append({"op": "container", "indicators": inds,
+                      "parts": [copy.deepcopy(h), {"op": "container", "parts": [copy.deepcopy(a), copy.deepcopy(b)]}]})
+    good = []
+    for k, c in enumerate(cands):
+        if not inds:
+            c.pop("indicators")
+        try:
+            W.evaluate(copy.deepcopy(c), answer)
+        except (W.WordplayError, IndexError, KeyError, TypeError, ValueError):
+            continue
+        good.append(((simplicity(c), k), c))
+    if not good:
+        return None
+    return min(good, key=lambda g: g[0])[1]
+
+
+def r_leaf_fold(node, parent, ctx):
+    """A leaf of 3+ words with a deletion word whose letters are one of its words with a run cut
+    out (gates having lost a -> GTES): the deletion op over that word, the cut a leaf of its own
+    when another word of the leaf spells it, else the indicator names the end it comes from
+    (r_del_removed). A leaf that gives exactly one of its own words keeps just that word."""
+    if not leaf(node) or node.get("unchecked") or not node.get("words") or not node.get("gives") \
+            or node.get("at") is None or id(node) in ctx["under_unchecked"]:
+        return None
+    toks = node["words"].split()
+    if len(toks) < 3 or len(node["gives"]) > 4 or not V._deletion_word_in(node["words"]):
+        return None
+    g = W.letters(node["gives"])
+    clue = ctx["clue"]
+    pos, at = [], node["at"]
+    for t in toks:
+        i = clue.find(t, at)
+        if i < 0:
+            return None
+        pos.append((t, i))
+        at = i + len(t)
+    plain = lambda t: W.letters(t)
+    delw = [k for k, (t, _) in enumerate(pos) if V.DELETION_LEAF_WORD.fullmatch(re.sub(r"\W", "", t))]
+    outs = []
+    for k, (t, i) in enumerate(pos):
+        w = plain(t)
+        if k in delw or not w:
+            continue
+        if w == g:
+            outs.append(("lit", k, ""))
+            continue
+        if len(g) < len(w):
+            for j in range(len(w)):
+                for m in range(1, len(w) - len(g) + 1):
+                    if w[:j] + w[j + m:] == g:
+                        outs.append(("cut", k, w[j:j + m]))
+    cuts = {(kind, k, gone) for kind, k, gone in outs}
+    if len({(k, kind) for kind, k, _ in cuts}) != 1:
+        return None
+    kind, k, _ = next(iter(cuts))
+    wleaf = {"words": pos[k][0], "at": pos[k][1]}
+    if kind == "lit":
+        return wleaf
+    rest = [p for q, p in enumerate(pos) if q != k]
+    gones = {gone for kd, kk, gone in cuts}
+    for q, (t, i) in enumerate(pos):
+        if q != k and plain(t) in gones and q not in delw:
+            ind = [p for r, p in enumerate(pos) if r not in (k, q)]
+            ind_txt = " ".join(t2 for t2, _ in ind)
+            if not ind or not clue[ind[0][1]:ind[-1][1] + len(ind[-1][0])] .replace("  ", " ") == ind_txt:
+                return None
+            new = {"op": "deletion", "indicators": [{"text": ind_txt, "at": ind[0][1]}],
+                   "parts": [wleaf, {"words": t, "at": i}]}
+            return new if gives_ok(new, g) or g in (vals(new) or ()) else None
+    ind_txt = " ".join(t for t, _ in rest)
+    ind = {"text": ind_txt, "at": rest[0][1]}
+    if clue[rest[0][1]:rest[-1][1] + len(rest[-1][0])] != ind_txt:
+        return None
+    probe = {"op": "deletion", "unchecked": True, "gives": g, "indicators": [ind], "parts": [wleaf]}
+    return r_del_removed(probe, parent, ctx)
+
+
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
            "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
 #: Repairs for validator rules (the queue's anaSynonym / anagramOfContainer rows), run by --rule.
 RULE_REPAIRS = {"anaSynonym": r_ana_synonym, "anagramOfContainer": r_ana_of_container,
-                "containerInside": r_container_inside}
+                "containerInside": r_container_inside, "nestedContainer": r_nested_container,
+                "wrongRole": r_leaf_fold}
 
 
 def repair_tree(tree, clue, answer=None, repairs=None):
