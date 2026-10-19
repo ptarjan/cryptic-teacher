@@ -3567,6 +3567,15 @@ REREAD_REFUSED = {"not-a-grid": "2026-10-19T02:29:00+00:00", "no-reading-parses"
                   # an unreadable band_words cache, trove_solution_ocr's unloaded word list.
                   "crashed": "2026-10-19T00:56:00+00:00"}
 
+#: {writeFailed message: ISO time}: an edition a puzzle of which failed to
+#: write with that message and was read before that time is read again
+#: (fix_reason) as "refused writeFailed before its fix". A writeFailed verdict
+#: has no `cause`, so REREAD_REFUSED cannot name it.
+REREAD_WRITE_FAILED = {
+    # 107 FT 1992-93 editions: a clue with no "text" (a blank one) raised in the write path,
+    # held in their ledger rows since; blank clues are now held, never a crash.
+    "KeyError: 'text'": "2026-10-19T04:41:00+00:00"}
+
 
 def refuse(verdict, cause, why):
     """`verdict` refused for `cause` (one of REFUSALS), `why` the detail."""
@@ -4775,6 +4784,9 @@ def fix_reason(row):
         t = REREAD_REFUSED.get(v.get("cause"))
         if t and scan_queue.read_before(row, scan_queue.when(t)):
             return f"refused {v['cause']} before its fix"
+        t = REREAD_WRITE_FAILED.get(v.get("writeFailed"))
+        if t and scan_queue.read_before(row, scan_queue.when(t)):
+            return "refused writeFailed before its fix"
     if short_three_columns(row) and scan_queue.read_before(row, scan_queue.when(REREAD_THREE_COLUMNS[2])):
         return "short Times page, its third clue column read since"
     if row.get("solutionKey") != solution_key():
@@ -5181,7 +5193,7 @@ FRESH = 3600
 #: whole go first. Every reason due_reason or plan gives is named here.
 RANKS = {"just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
-         **{f"refused {c} before its fix": 2 for c in REFUSALS}, "scan stale, answers missing": 2,
+         **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "scan stale": 3, "--reread": 3,
          "read by another VLM": 3}
 #: The reasons of a read whose scan is by older scan code: "answers missing"
@@ -5552,8 +5564,8 @@ def refusal_detail(row, reason):
     """Which puzzle of ledger `row` a "refused <cause> before its fix" read is
     for and what the refusal said (truncated), for the queue's log line."""
     cause = reason[len("refused "):-len(" before its fix")]
-    return "; ".join(f"puzzle {v.get('number') or v.get('id') or '?'}: {str(v.get('refused'))[:100]}"
-                     for v in row.get("verdicts", ()) if v.get("cause") == cause)[:300]
+    return "; ".join(f"puzzle {v.get('number') or v.get('id') or '?'}: {str(v.get('refused') or v.get('writeFailed'))[:100]}"
+                     for v in row.get("verdicts", ()) if v.get("cause") == cause or (cause == "writeFailed" and v.get("writeFailed")))[:300]
 
 
 def likely_gain(unit):

@@ -367,6 +367,13 @@ check("a refusal read before its cause's fix is due; after it, or another cause,
        f.due_reason(refused("unlisted", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
        f.due_reason(refused("crashed", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
        f.due_reason(refused("crashed", "2099-01-01T00:00:00+00:00"), "h", [], "v")])
+failed_write = lambda msg, at: {**refused(None, at), "verdicts": [{"number": 1, "writeFailed": msg}]}
+check("a write that raised KeyError 'text' before its fix is due, ranked with the refusals; another message, or a later read, is not",
+      ["refused writeFailed before its fix", None, None, 2],
+      [f.due_reason(failed_write("KeyError: 'text'", "2026-10-11T13:41:23+00:00"), "h", [], "v"),
+       f.due_reason(failed_write("KeyError: 'text'", "2099-01-01T00:00:00+00:00"), "h", [], "v"),
+       f.due_reason(failed_write("OSError: disk full", "2026-10-11T13:41:23+00:00"), "h", [], "v"),
+       f.rank_of_reason("refused writeFailed before its fix")])
 part = lambda acc, refusal, key: {**refused(None, "2099-01-01T00:00:00+00:00"), "verdicts": [
     {"number": 1, "solution": {"accepted": acc, "lights": 30, **({"refused": refusal} if refusal else {})}}],
     **({"solutionKey": key} if key else {})}
@@ -385,7 +392,7 @@ import scan_queue
 # A reread time is when its fix landed: one still ahead re-reads every row
 # the pass reads until then, over and over.
 check("no reread time is in the future", [],
-      [t for t in f.REREAD_REFUSED.values()
+      [t for t in (*f.REREAD_REFUSED.values(), *f.REREAD_WRITE_FAILED.values())
        if scan_queue.when(t) > scan_queue.when("now")])
 # Real titles the pass found no title on (no-crossword-found):
 # "Times" garbled past one word, a mark after Crossword, "No" run on or
