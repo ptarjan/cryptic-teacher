@@ -36,6 +36,10 @@ Grammar
                           spoon(a, b, SPELT) when the swap is by sound
     sub(x, OLD, NEW)      OLD in x replaced by NEW
     cyc(x)                x with letters moved from one end to the other
+    move(x, MOVED)        MOVED, one run of x's letters, taken out and put back
+                          elsewhere in x (the answer decides where), one step:
+                          move<dropping>([England]ALBION, [ball]O) for ALBINO,
+                          never ALBION + O with the first O deleted
     pal(x)                x, which reads the same backwards; pal() with no x
                           when the answer itself is all the wordplay
     first(x) last(x) middle(x) outer(x) alt(x) regular(x) nth(n)(x)
@@ -105,7 +109,7 @@ import unicodedata
 # Expression name -> stored op.
 OPS = {"ana": "anagram", "rev": "reversal", "ins": "container", "del": "deletion",
        "hid": "hidden", "sound": "homophone", "spoon": "spoonerism",
-       "sub": "substitution", "cyc": "cycling", "cd": "cryptic", "pal": "palindrome",
+       "sub": "substitution", "cyc": "cycling", "move": "move", "cd": "cryptic", "pal": "palindrome",
        "rebus": "rebus", "comp": "composite", "reverse": "reverse",
        "first": "first", "last": "last", "middle": "middle", "outer": "outer",
        "alt": "alternate", "regular": "regular", "nth": "nth"}
@@ -118,7 +122,7 @@ SELECT = ("first", "last", "middle", "outer", "alternate", "regular", "nth")
 # ana() takes one argument; a charade written there becomes its parts (_fodder_parts).
 ARITY = {"anagram": (1, 1), "reversal": (1, 1), "container": (2, 2), "deletion": (2, 9),
          "hidden": (1, 1), "homophone": (2, 2), "spoonerism": (1, 3),
-         "substitution": (2, 3), "cycling": (1, 1), "cryptic": (1, 9), "palindrome": (0, 1),
+         "substitution": (2, 3), "cycling": (1, 1), "move": (2, 2), "cryptic": (1, 9), "palindrome": (0, 1),
          "rebus": (2, 2), "composite": (2, 2), "reverse": (2, 2),
          **{s: (1, 9) for s in SELECT}}  # a selection over a list: several parts, each giving its pick
 # A search that grows past this many candidate strings stops: no clue needs it.
@@ -253,7 +257,7 @@ class _Parser:
         if not lo <= len(args) <= hi:
             want = {"homophone": "sound(x, SPELT)", "spoonerism": "spoon(a, b) or spoon(a, b, SPELT)",
                     "container": "ins(outer, inner)", "deletion": "del(from, removed, ...)",
-                    "substitution": "sub(x, OLD, NEW)",
+                    "substitution": "sub(x, OLD, NEW)", "move": "move(x, MOVED)",
                     "rebus": 'rebus([words], "reading")',
                     "composite": "comp(fodder, taken out)",
                     "reverse": 'reverse([words], "PIECE + PIECE")'}.get(op, f"{word}(x)")
@@ -590,6 +594,19 @@ def _removals(f, r):
     return {kept for j, kept in states if j == len(r)}
 
 
+def _moves(f, m):
+    """Every string `f` becomes when one run `m` of its letters is taken out and put
+    back somewhere else (ALBION with its O dropped is ALBINO); never `f` itself."""
+    if not m or len(m) >= len(f):
+        return set()
+    out = set()
+    for k in range(len(f) - len(m) + 1):
+        if f.startswith(m, k):
+            rest = f[:k] + f[k + len(m):]
+            out |= {rest[:j] + m + rest[j:] for j in range(len(rest) + 1)}
+    return out - {f}
+
+
 # What a reversal's indicators say about the stretch it turns round, not the whole word.
 _ENDS = {"first": 0, "initial": 0, "opening": 0, "start": 0, "head": 0, "top": 0, "front": 0,
          "leading": 0, "beginning": 0, "last": 1, "final": 1, "closing": 1, "end": 1, "tail": 1,
@@ -701,6 +718,8 @@ def values(node):
         return out
     if op == "cycling":
         return {v[k:] + v[:k] for v in values(parts[0]) for k in range(1, len(v))}
+    if op == "move":
+        return {r for f in values(parts[0]) for m in values(parts[1]) for r in _moves(f, m)}
     if op == "palindrome":
         real = lettered(parts)
         if not real:
@@ -847,6 +866,15 @@ def match(node, want, got=None):
                     ok = True
                     break
             if ok:
+                break
+    elif op == "move":
+        ok = False
+        for f in sorted(values(parts_of(node)[0])):
+            m = next((m for m in sorted(values(parts_of(node)[1])) if want in _moves(f, m)), None)
+            if m is not None:
+                match(parts_of(node)[0], f, got)
+                match(parts_of(node)[1], m, got)
+                ok = True
                 break
     elif op == "palindrome":
         real = lettered(parts_of(node))
@@ -1070,7 +1098,7 @@ def _count(s):
 #: The ops whose evaluation reads a fixed part by position, so the count must be
 #: exact. The rest take their shape from elsewhere (a charade has any number, a
 #: homophone may carry its spelling in `spelt`, ana() takes a charade's parts).
-COUNTED = ("reversal", "container", "deletion", "hidden", "substitution", "cycling",
+COUNTED = ("reversal", "container", "deletion", "hidden", "substitution", "cycling", "move",
            "spoonerism", *SELECT)
 
 

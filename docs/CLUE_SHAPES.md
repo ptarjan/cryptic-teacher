@@ -20,6 +20,7 @@ Ops: the name the tables and prose use, and how it is written in a skeleton or t
 | spoonerism | `spoon` | initial sounds swapped |
 | substitution | `sub` | one letter or part swapped for another |
 | cycling | `cyc` | letters rotated |
+| move | `move` | letters taken from one place in the fodder and put back at another |
 | cryptic definition | `cdef` | the whole clue is one misleading definition |
 | rebus | `rebus` | a picture of letters |
 | composite anagram | `comp` | one anagram shared across several fodders |

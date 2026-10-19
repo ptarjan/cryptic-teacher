@@ -88,7 +88,7 @@ def whole_anagram(ann, entry=None):
 OP_TYPE = {"charade": "charade", "anagram": "anagram", "reversal": "reversal",
            "container": "container", "deletion": "deletion", "hidden": "hidden_word",
            "homophone": "homophone", "spoonerism": "spoonerism",
-           "substitution": "substitution", "cycling": "cycling",
+           "substitution": "substitution", "cycling": "cycling", "move": "move",
            "cryptic": "cryptic_definition", "rebus": "rebus",
            "composite": "composite_anagram", "reverse": "reverse_clue",
            "palindrome": "palindrome", "first": "letter_selection",
@@ -487,7 +487,7 @@ def _blocks(node, got):
     if op == "homophone" and one:
         b = _blocks(parts[0], got)[0]
         return [_block(**{**b, "gives": node["spelt"], "soundsLike": b.get("gives")})]
-    if op in ("deletion", "substitution"):
+    if op in ("deletion", "substitution", "move"):
         # Letters an indicator names have no clue words and are no block.
         parts = [parts[0]] + [p for p in parts[1:] if "op" in p or "words" in p]
     return [b for p in parts for b in _blocks(p, got)]

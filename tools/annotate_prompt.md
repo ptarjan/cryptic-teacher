@@ -132,7 +132,11 @@ shows, so you write none of those. Worked annotations close this file.
   `rebus([whole clue], "reading")`, the reading naming what it shows (`"H to O"`). A
   **composite anagram** (the fodder is the answer plus letters the clue names, "thirsted"
   = DERTH + ITS) is `comp<indicator>([fodder], [named letters])`, never `ana(del(...))`: the
-  check is that the fodder's letters are the answer's plus the named ones. A **reverse
+  check is that the fodder's letters are the answer's plus the named ones. A **move**
+  (a letter leaves its place and goes back in elsewhere: "England dropping ball" = ALBION
+  with its O dropped, ALBINO) is `move<dropping>([England]ALBION, [ball]O)`, one step, never
+  the fodder plus the letter with its old copy deleted (`del((ALBION + O), O)`) or
+  `ins(del(...), ...)`: those spell the answer but say a letter was added. A **reverse
   clue** (the clue words are what the answer's wordplay would produce: "What makes pets"
   for OUT + STEP) keeps its `def` and its `wp` is `reverse([those clue words], "OUT + STEP")`,
   the reading the answer's own pieces in capitals joined by spaces or `+`; say in the leaf's
@@ -285,6 +289,10 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           spoon(a, b, SPELT) when the swap is by sound
     sub(x, OLD, NEW)      OLD in x replaced by NEW
     cyc(x)                x with letters moved from one end to the other
+    move(x, MOVED)        MOVED, one run of x's letters, taken out and put back
+                          elsewhere in x (the answer decides where), one step:
+                          move<dropping>([England]ALBION, [ball]O) for ALBINO,
+                          never ALBION + O with the first O deleted
     pal(x)                x, which reads the same backwards; pal() with no x
                           when the answer itself is all the wordplay
     first(x) last(x) middle(x) outer(x) alt(x) regular(x) nth(n)(x)

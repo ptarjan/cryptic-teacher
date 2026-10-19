@@ -2463,7 +2463,7 @@ TYPE_FAMILIES = {
     "cryptic_definition": "definition only", "double_definition": "definition only",
     "charade": "assembly", "container": "assembly", "deletion": "assembly",
     "letter_selection": "assembly", "hidden_word": "assembly", "reversal": "assembly",
-    "substitution": "assembly", "cycling": "assembly", "palindrome": "assembly",
+    "substitution": "assembly", "cycling": "assembly", "move": "assembly", "palindrome": "assembly",
     "anagram": "anagram", "homophone": "homophone", "spoonerism": "spoonerism",
 }
 
@@ -2586,8 +2586,9 @@ def check_definition_not_fodder(entries, errors, warnings):
 
 # Mechanisms where the blocks legitimately do not add up to the answer: a
 # deletion, substitution or composite anagram names letters that are taken away,
+# a move names letters its fodder already holds (ALBION, and the O it moves),
 # and the three definition-only types plus the sound types claim no letters at all.
-UNBALANCED_TYPES = ("deletion", "substitution", "composite_anagram", "cryptic_definition",
+UNBALANCED_TYPES = ("deletion", "substitution", "move", "composite_anagram", "cryptic_definition",
                     "double_definition", "homophone", "spoonerism", "and_lit")
 
 # A clue whose whole mechanism is one letter selection hands over those letters
@@ -5941,7 +5942,7 @@ def check_no_abbreviation_notes(tag, tree, errors):
 #: Ops that rearrange, cut or reshape letters, so the letters they give are a step
 #: a solver cannot see from the leaves alone. A charade only joins.
 TRANSFORMING_OPS = frozenset({"anagram", "reversal", "container", "deletion", "substitution",
-                              "cycling", "hidden", "homophone", "spoonerism", "composite",
+                              "cycling", "move", "hidden", "homophone", "spoonerism", "composite",
                               "palindrome", *wordplay.SELECT})
 #: Indicators that must stand against what they work on.
 ADJACENT_OPS = ("anagram", "reversal", "hidden")
