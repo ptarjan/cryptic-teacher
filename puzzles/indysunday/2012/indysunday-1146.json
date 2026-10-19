@@ -928,39 +928,44 @@
      "indicators": [
       {
        "text": "touring",
-       "note": "touring means going around, so the first word encircles the next ones"
+       "at": 10,
+       "note": "touring means the character word goes round the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Character",
-         "gives": "TONE",
-         "note": "the tone of a place is its character"
-        },
-        {
-         "words": "storage facility",
-         "gives": "ROM",
-         "note": "ROM is read-only memory, computer storage"
-        }
-       ]
+       "words": "Character",
+       "at": 0,
+       "gives": "TONE",
+       "note": "tone can mean character, as in the tone of a place"
       },
       {
-       "words": "book",
-       "gives": "B",
-       "note": "B is short for book"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "storage facility",
+         "at": 18,
+         "gives": "ROM",
+         "note": "ROM, read-only memory, is a computer's storage"
+        },
+        {
+         "words": "book",
+         "at": 40,
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A literary figure tours a warehouse with a book that gives them notes.",
-     "definitionFit": "A trombone is a brass instrument, something that produces musical notes."
+     "surface": "A character tours a warehouse with a book, looking for the origin of some memos.",
+     "walkthrough": "Notes looks like written messages; it is musical notes.",
+     "definitionFit": "A trombone is a brass instrument with a slide, which produces musical notes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "notes"
     }
    }
