@@ -876,46 +876,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PORTRAIT",
+     "op": "container",
      "indicators": [
       {
-       "text": "nearly",
-       "note": "nearly means not quite all, so the last letter is cut off"
+       "text": "in",
+       "at": 25,
+       "note": "in tells us the shortened train goes inside the harbour word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "the harbour",
+       "at": 28,
+       "gives": "PORT",
+       "note": "a port is a harbour"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the shortened word inside the harbour word"
+         "text": "nearly",
+         "at": 18,
+         "note": "nearly means the word is cut short by its final letter"
         }
        ],
        "parts": [
         {
-         "words": "the harbour",
-         "gives": "PORT",
-         "note": "a port is a harbour"
+         "words": "train",
+         "at": 12
         },
         {
-         "words": "train",
-         "gives": "TRAI",
-         "note": "the word without its final letter"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A picture captures a train arriving at the docks.",
-     "walkthrough": "'Photo' and 'train' suggest a railway snapshot; the harbour is the outer word, not the setting.",
-     "definitionFit": "A portrait is a picture of a person, and a photograph of someone's face can be called one."
+     "surface": "A snapshot shows a train almost pulling into the harbour.",
+     "definitionFit": "A portrait is a picture of a person, and a photo of someone is one kind of such picture."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "train"
     }

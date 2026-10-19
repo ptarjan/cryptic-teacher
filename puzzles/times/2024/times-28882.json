@@ -686,53 +686,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COMPETITOR",
-     "indicators": [
-      {
-       "text": "pruned",
-       "note": "pruning trims the end off a branch, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "firm",
+       "at": 6,
+       "gives": "CO",
+       "note": "CO is the abbreviation for company, a firm"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "at": 32,
+         "note": "holding means the cut-down word wraps around the French word"
+        }
+       ],
        "parts": [
         {
-         "words": "firm",
-         "gives": "CO",
-         "note": "Co. is the abbreviation for company"
-        },
-        {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "holding",
-           "note": "to hold something is to keep it inside, so one piece sits within another"
+           "text": "pruned",
+           "at": 24,
+           "note": "pruned means trimmed, so the word loses its last letter"
           }
          ],
          "parts": [
           {
            "words": "more",
-           "gives": "MOR",
-           "note": "the word with its final letter trimmed"
+           "at": 19
           },
           {
-           "words": "little in France",
-           "gives": "PETIT",
-           "note": "petit is French for small"
+           "gives": "E"
           }
          ]
+        },
+        {
+         "words": "little in France",
+         "at": 40,
+         "gives": "PETIT",
+         "note": "petit is French for little"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A competing business is getting bigger cutbacks while keeping a small French operation.",
-     "walkthrough": "The French word for little goes inside the trimmed MOR, between its first letter and the rest.",
-     "definitionFit": "A competitor is someone who contends against others for the same prize or market, a direct synonym of rival."
+     "surface": "A rival business is cutting back more while keeping a small French presence.",
+     "walkthrough": "'more pruned' gives MOR, which holds PETIT.",
+     "definitionFit": "A competitor is someone you contend against, which is what a rival is."
     },
     "features": {
      "answerInScene": true,
@@ -930,48 +934,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PARTERRE",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
+       "text": "admitted",
+       "at": 42,
+       "note": "admitted means let in, so the blunder word goes inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "admitted",
-         "note": "something admitted is let inside, so one piece goes within another"
+         "text": "mostly",
+         "at": 15,
+         "note": "mostly means all but the last letter is kept"
         }
        ],
        "parts": [
         {
          "words": "separated",
-         "gives": "PARTE",
-         "note": "parted, with its final letter removed"
+         "at": 22,
+         "gives": "PARTED",
+         "note": "parted means separated"
         },
         {
-         "words": "blunder",
-         "gives": "ERR",
-         "note": "to err is to make a mistake"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "blunder",
+       "at": 34,
+       "gives": "ERR",
+       "note": "to err is to blunder"
       }
      ]
     },
     "explanation": {
-     "surface": "A garden bed has been mostly split up after someone made a mistake.",
-     "walkthrough": "The verb for blunder goes inside the shortened PARTE, just before its final E.",
-     "definitionFit": "A parterre is a formal garden layout of ornamental flower beds arranged in a pattern, a classic feature of grand gardens."
+     "surface": "A garden feature mostly split apart after somebody made a mistake.",
+     "walkthrough": "'mostly separated' gives PARTE, which admits ERR.",
+     "definitionFit": "A parterre is a formal ornamental garden of flower beds arranged in a pattern."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "blunder"
+     "misdirectedWord": "separated"
     }
    }
   },
@@ -1000,41 +1009,42 @@
      "indicators": [
       {
        "text": "taking",
-       "note": "to take something in is to hold it inside, so the outer piece wraps the inner"
+       "at": 17,
+       "note": "taking means holding something within, here the vehicle holds the other pieces"
+      },
+      {
+       "text": "around",
+       "at": 32,
+       "note": "around confirms the vehicle goes about the outside of the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "around",
-         "note": "around means encircling, confirming that the outer piece goes about the others"
-        }
-       ],
-       "parts": [
-        {
-         "words": "vehicle",
-         "gives": "CAR",
-         "note": "a car is a motor vehicle"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "vehicle",
+       "at": 24,
+       "gives": "CAR",
+       "note": "a car is a vehicle"
       },
       {
-       "words": "loan",
-       "gives": "LEND",
-       "note": "a lend is informal British for a loan"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 9
+        },
+        {
+         "words": "loan",
+         "at": 11,
+         "gives": "LEND",
+         "note": "to loan is to lend"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone records a loan while driving the car about.",
-     "walkthrough": "'A lend of' is informal British and Australian for a borrowing. The car wraps round both the article and the loan.",
-     "definitionFit": "A calendar can be a list or schedule, such as a court calendar of cases, so it works as a register of entries."
+     "surface": "An instruction to record a loan, with a car taken as surety.",
+     "definitionFit": "A calendar can be a list or schedule of events, cases or people, so it is a kind of register."
     },
     "features": {
      "answerInScene": false,
@@ -1158,47 +1168,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHERVIL",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means falling just short, so the final letter is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "cold",
+       "at": 8,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on a tap"
+      },
+      {
+       "words": "the girl",
+       "at": 26,
+       "gives": "HER",
+       "note": "her refers to the girl"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 42,
+         "note": "almost means the last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "cold",
-         "gives": "C",
-         "note": "C is the abbreviation for cold on taps"
-        },
-        {
-         "words": "the girl",
-         "gives": "HER",
-         "note": "the pronoun for a girl"
-        },
-        {
          "words": "nasty",
-         "gives": "VIL",
-         "note": "vile, with its last letter removed"
+         "at": 36,
+         "gives": "VILE",
+         "note": "vile means nasty"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone gets a chill on encountering a fairly unpleasant young woman.",
-     "walkthrough": "'The girl' is not a name to find but the pronoun that refers to her.",
-     "definitionFit": "Chervil is a delicate culinary plant with a mild aniseed flavour, used in French cooking, so it is a herb."
+     "surface": "A herb is cold-shouldered when it meets a girl who is almost nasty.",
+     "definitionFit": "Chervil is a delicate culinary plant related to parsley, used for flavouring."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Herb"
+     "misdirectedWord": "meeting"
     }
    }
   },

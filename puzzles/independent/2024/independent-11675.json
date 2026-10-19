@@ -226,34 +226,29 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the first piece inside the letters that follow"
+       "at": 7,
+       "note": "in puts the drinking word inside the middle of week"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "midweek",
+       "at": 10,
        "gives": "EE",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "midweek",
-         "gives": "EE",
-         "select": "middle",
-         "note": "mid- asks for the centre of the word week, its two central letters"
-        }
-       ]
+       "note": "the middle letters of the word week"
       },
       {
        "words": "Drinks",
+       "at": 0,
        "gives": "LAPS",
-       "note": "an animal laps when it drinks with its tongue"
+       "note": "laps, as a cat laps milk, means drinks"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone offered drinks in the middle of the week declines: 'Pass!'",
-     "definitionFit": "Time passes, or elapses; both verbs describe time going by."
+     "surface": "Someone is offered drinks in the middle of the week and declines.",
+     "walkthrough": "'midweek' is the middle of the word week, the two letters EE, which hold LAPS.",
+     "definitionFit": "Time is said to pass or go by; the answer is the verb for time slipping away."
     },
     "features": {
      "answerInScene": false,
@@ -766,38 +761,32 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "having",
+       "at": 8,
+       "note": "having means the awards set holds on to the next piece, which follows it"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "grand slam of 25, 21D, 10 & 6",
+       "at": 15,
        "gives": "EGOT",
-       "indicators": [
-        {
-         "text": "first",
-         "note": "first asks for the opening letter of each of the referenced entries"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "25, 21D, 10 & 6",
-         "gives": "EGOT",
-         "select": "first",
-         "note": "those entries are EMMY, GRAMMY, OSCAR and TONY; their initials make the showbiz 'grand slam' acronym"
-        }
-       ]
+       "note": "the answers at 25, 21D, 10 and 6 are the Emmy, Grammy, Oscar and Tony; winning all four is called the EGOT, show business's grand slam"
       },
       {
-       "words": "having",
+       "words": "first",
+       "at": 45,
        "gives": "IST",
-       "note": "the suffix -ist names a person who holds or practises something"
+       "note": "first is written 1st, read as the letters IST"
       }
      ]
     },
     "explanation": {
-     "surface": "A conceited performer who has won all four major entertainment awards.",
-     "walkthrough": "An EGOT is the nickname for winning an Emmy, Grammy, Oscar and Tony; the -IST suffix makes someone holding one an EGOT-IST.",
-     "definitionFit": "A bighead is a conceited, self-centred person, which is what an egotist is."
+     "surface": "A conceited star who has won every major showbiz award, the first to do so?",
+     "walkthrough": "An EGOT is the set of all four big American entertainment awards, named from their initials; 1st looks like IST.",
+     "definitionFit": "A bighead is a conceited person who thinks and talks mostly about themselves, which is what this word means."
     },
     "features": {
      "answerInScene": true,
@@ -1513,8 +1502,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Soon pressing flesh, leader from Mycenae? That's him",
-      "at": 0
+      "text": "That's him",
+      "at": 42
      }
     ],
     "wordplay": {
@@ -1522,52 +1511,56 @@
      "indicators": [
       {
        "text": "pressing",
-       "note": "pressing means squeezing round, so the first word encloses the others"
+       "at": 5,
+       "note": "pressing means squeezing in, so the other pieces are pushed inside the word for soon"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Soon",
-         "gives": "ANON",
-         "note": "anon is an old word for soon"
-        },
-        {
-         "words": "flesh",
-         "gives": "GAME",
-         "note": "game is the meat of hunted animals"
-        }
-       ]
+       "words": "Soon",
+       "at": 0,
+       "gives": "ANON",
+       "note": "anon is an old word for soon"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "leader",
-         "note": "the leader of a word is its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Mycenae",
-         "note": "the first letter of the city's name"
+         "words": "flesh",
+         "at": 14,
+         "gives": "GAME",
+         "note": "game is the flesh of wild animals eaten as meat"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader from",
+           "at": 21,
+           "note": "the leader of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Mycenae",
+           "at": 33,
+           "note": "its first letter is M"
+          }
+         ]
         }
        ]
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A Greek king of Mycenae shaking hands with people: that's the one.",
-     "walkthrough": "The whole clue defines the answer too: 'leader from Mycenae' is its king.",
-     "definitionFit": "Agamemnon was the legendary king of Mycenae who led the Greeks at Troy."
+     "surface": "A politician will soon be pressing the flesh, campaigning like a ruler of ancient Mycenae.",
+     "walkthrough": "'pressing the flesh' looks like a politician's handshaking, but the phrase splits; 'That's him' points back to the Mycenaean leader whose initial the wordplay uses.",
+     "definitionFit": "In Greek myth this king ruled Mycenae and led the Greek army in the Trojan War."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "flesh"
+     "misdirectedWord": "pressing"
     }
    }
   },
