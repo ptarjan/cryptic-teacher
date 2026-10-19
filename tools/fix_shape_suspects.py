@@ -2386,6 +2386,39 @@ def r_ana_pull(node, parent, ctx):
     return next(iter(good.values())) if len(good) == 1 else None
 
 
+def r_ana_edge(node, parent, ctx):
+    """anaCharade, any depth (Paul 10-19): an anagram whose first / last fodder parts are
+    abbreviation or synonym leaves standing at that edge of the scramble's output (ana<unusual>(N +
+    RIP SIGN) inside I + ..., where N opens the scramble) -> those parts come out and sit beside the
+    anagram in a charade (joined into a parent charade). The fewest pulled wins; kept only when the
+    whole tree still gives the answer and exactly one such tree does, else the clue is left for redo."""
+    if node.get("op") != "anagram" or node.get("unchecked") or not ctx.get("answer"):
+        return None
+    parts = node.get("parts") or []
+    if len(parts) < 2 or any(not isinstance(p, dict) or p.get("unchecked") for p in parts):
+        return None
+    st = [V._stand_in_piece(p) for p in parts]
+    lead = next((i for i, s in enumerate(st) if not s), len(st))
+    trail = next((i for i, s in enumerate(reversed(st)) if not s), len(st))
+    if lead >= len(st):
+        return None
+    good = {}
+    for j in range(lead + 1):
+        for k in range(trail + 1):
+            if not (j + k) or j + k >= len(parts):
+                continue
+            ana = {key: v for key, v in node.items() if key not in ("parts", "unchecked", "gives")}
+            ana["parts"] = copy.deepcopy(parts[j:len(parts) - k])
+            cand = {"op": "charade", "parts": copy.deepcopy(parts[:j]) + [ana] + copy.deepcopy(parts[len(parts) - k:])}
+            if _eval_swapped(node, parent, cand, ctx):
+                good[(j + k, json.dumps(cand, sort_keys=True))] = cand
+    if not good:
+        return None
+    least = min(g[0] for g in good)
+    best = [c for (n_, _), c in good.items() if n_ == least]
+    return best[0] if len(best) == 1 else None
+
+
 def _path(root, target):
     """The indexes of `parts` that lead from `root` to the node `target` ([] for root itself)."""
     if root is target:
@@ -2584,7 +2617,7 @@ def r_arity_other(node, parent, ctx):
     return next(iter(good.values())) if len(good) == 1 else None
 
 
-RULE_REPAIRS = {"scrambledLeaf": r_scrambled_swap, "anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c), "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
+RULE_REPAIRS = {"scrambledLeaf": r_scrambled_swap, "anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c), "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,

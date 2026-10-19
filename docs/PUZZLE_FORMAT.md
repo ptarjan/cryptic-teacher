@@ -101,7 +101,10 @@ filed, and the expression cannot write one. The tree, in brief:
   Fodder is only what moves: a piece the answer already starts or ends with
   stands outside as a charade sibling (`G + ana<troubled>(FIRE)` = GRIEF, not
   `ana<troubled>(G + FIRE)`); `tools/fix_shape_suspects.py --rule anaCharade`
-  pulls those out mechanically.
+  pulls those out mechanically. The same field counts such a piece at any depth
+  of the tree: an anagram whose first or last fodder part is an abbreviation or
+  synonym leaf and whose tree still gives the answer with that part set beside
+  the anagram (`I + N + ana<unusual>(RIP SIGN)`, not `ana<unusual>(N + RIP SIGN)`).
   view() reads the fodder's letters off the parts in clue order (the tiles the
   ring deals), and the blocks follow the parts.
 - **Shape rules.** A tree that parses and evaluates can still say something the
