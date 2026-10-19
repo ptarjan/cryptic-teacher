@@ -601,10 +601,54 @@ def _pick(node, parent, ctx, cands):
     return next(iter(top.values()))
 
 
-def r_ana_synonym(node, parent, ctx):
-    """A synonym scrambled with the fodder: only the clue's own words are anagrammed, the
-    synonym is charaded on at the end the answer's letters give."""
-    return _pick(node, parent, ctx, _ana_candidates(node))
+def _ana_split_candidates(node):
+    """Rewrites of an anagram whose fodder holds synonyms: the synonyms charaded on, and ANY
+    subset of the other leaves anagrammed (the rest charaded on as their own letters, so
+    "In stalked on wrong cue" scrambles only cue), every order of the pieces; [] if none."""
+    if node.get("op") != "anagram":
+        return []
+    flat = _flat_fodder(node)
+    syn = [p for p in flat if _is_stand_in(p)]
+    rest = [p for p in flat if not _is_stand_in(p)]
+    if not syn or not rest or len(syn) + len(rest) > 6:
+        return []
+    if any(leaf(p) and p.get("gives") and W.letters(p["gives"]) != W.letters(p.get("words"))
+           for p in rest) or any(not leaf(p) or p.get("select") for p in rest):
+        return []       # a part giving other letters that is not a synonym: not mechanical
+    import itertools
+    out = []
+    for mask in range(1, 2 ** len(rest)):
+        scr = [p for i, p in enumerate(rest) if mask >> i & 1]
+        lit = [p for i, p in enumerate(rest) if not mask >> i & 1]
+        core = checked(node, parts=copy.deepcopy(scr))
+        for perm in itertools.permutations([*copy.deepcopy(syn), *copy.deepcopy(lit), core]):
+            out.append(charade(list(perm)))
+    return out
+
+
+def r_ana_synonym_charade(node, parent, ctx):
+    """anaSynonym: an anagram scrambling a synonym beside the clue's own words becomes
+    charade(synonym, anagram(own words)) in whichever order and split evaluates to the
+    answer. Unlike r_ana_synonym it does not need the new tree to be simpler (the old one is
+    the flagged shape): it needs the validator's count to fall, and exactly one simplest tree."""
+    if node.get("op") != "anagram" or not ctx.get("answer"):
+        return None
+    cands = _ana_split_candidates(node)
+    if not cands:
+        return None
+    old = V.anagram_synonyms(ctx["tree"])
+    good = []
+    for c in cands:
+        if not _eval_swapped(node, parent, c, ctx):
+            continue
+        whole = _whole(node, parent, c, ctx)
+        if V.anagram_synonyms(whole) < old:
+            good.append((simplicity(whole), c))
+    if not good:
+        return None
+    best = min(k for k, _ in good)
+    top = {json.dumps(c, sort_keys=True): c for k, c in good if k == best}
+    return next(iter(top.values())) if len(top) == 1 else None
 
 
 def r_ana_of_container(node, parent, ctx):
@@ -1539,7 +1583,7 @@ REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap":
            "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
 #: Repairs for validator rules (the queue's anaSynonym / anagramOfContainer rows), run by --rule.
-RULE_REPAIRS = {"anaSynonym": r_ana_synonym, "anagramOfContainer": r_ana_of_container,
+RULE_REPAIRS = {"anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
                 "sharedIndicator": r_shared_indicator, "poolGap": r_pool_gap,
