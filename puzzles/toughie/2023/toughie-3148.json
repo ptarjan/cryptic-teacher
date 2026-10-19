@@ -88,17 +88,17 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "in",
-       "at": 24,
-       "note": "the reversed word sits inside the others"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 24,
+         "note": "the reversed word sits inside the others"
+        }
+       ],
        "parts": [
         {
          "words": "Nick's",
@@ -107,30 +107,30 @@
          "note": "to nick is to arrest, and cop is a synonym, so nick's gives cop's"
         },
         {
-         "words": "Echo",
-         "at": 34,
-         "gives": "E",
-         "note": "E is Echo in the NATO alphabet"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "reviewed",
+           "at": 15,
+           "note": "reviewed, looked back over, means the word is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "The Full Monty",
+           "at": 0,
+           "gives": "ALL",
+           "note": "the full monty means everything, all of it"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "reviewed",
-         "at": 15,
-         "note": "reviewed, looked back over, means the word is read backwards"
-        }
-       ],
-       "parts": [
-        {
-         "words": "The Full Monty",
-         "at": 0,
-         "gives": "ALL",
-         "note": "the full monty means everything, all of it"
-        }
-       ]
+       "words": "Echo",
+       "at": 34,
+       "gives": "E",
+       "note": "E is Echo in the NATO alphabet"
       }
      ]
     },
