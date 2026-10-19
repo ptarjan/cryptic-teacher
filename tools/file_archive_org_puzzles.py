@@ -1996,14 +1996,18 @@ def printed_lines(words):
 def band_words(img, band, which, cache_path):
     """Reader `which`'s words in a band of the page, in page coordinates;
     cached as JSON with the band it read."""
-    if cache_path.exists():
+    try:
         cached = json.loads(cache_path.read_text())
         if tuple(cached["box"]) == tuple(band):
             return [tuple(w) for w in cached["words"]]
+    except (OSError, ValueError, KeyError, TypeError):
+        pass  # missing or unreadable (empty, truncated by a killed read): a miss
     words = [(x0 + band[0], y0 + band[1], x1 + band[0], y1 + band[1], t)
              for x0, y0, x1, y1, t in read_words(img.crop(band), which)]
     cache_path.parent.mkdir(parents=True, exist_ok=True)
-    cache_path.write_text(json.dumps({"box": list(band), "words": words}))
+    tmp = cache_path.with_name(f"{cache_path.name}.{os.getpid()}.tmp")
+    tmp.write_text(json.dumps({"box": list(band), "words": words}))
+    os.replace(tmp, cache_path)
     return words
 
 
@@ -3522,7 +3526,10 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
 REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-19T00:15:00+00:00",
-                  "number-date-mismatch": "2026-10-09T10:00:00+00:00"}
+                  "number-date-mismatch": "2026-10-09T10:00:00+00:00",
+                  # The crashes since fixed: the 6144 MB RLIMIT_AS bad_alloc (launcher's CT_UNIT_MEMORY_MB),
+                  # an unreadable band_words cache, trove_solution_ocr's unloaded word list.
+                  "crashed": "2026-10-19T00:56:00+00:00"}
 
 
 def refuse(verdict, cause, why):
@@ -4178,6 +4185,24 @@ _PAPER_NAMES = {}
 _CORPUS_PAPERS = {"times": "0e663a8f51a2d840", "times1930": "9bd5e92db2bd9a53", "ft": "ec1c493d7a63b2ae",
                   "guardian": "503a6e254efafd7c", "telegraph": "7d84cc09fe38bd9d", "gale": "9563e1b93356e0dc"}
 CORPUS_KEYS = {"f5d96d62730b57d5": _CORPUS_PAPERS, "631672b37146c86b": _CORPUS_PAPERS}
+#: {paper key: (scan_key, sized_scan_key) before band_words wrote its cache atomically and
+#: read an unreadable one as a miss, scan_key after}: that edit is to code scan() reaches but
+#: moves no scan's result, so the scans under the old keys stand (current_keys) and
+#: rekey_scans moves them.
+_BAND_CACHE_FIX = {
+    "ft": ("2a16e9f1fd466f50", "56fe3caebad2b5bb", "b5a9547b6ba1b011"),
+    "gale": ("6ebe01438fbef354", "6a011e7e5d96ec18", "dedd7fe3f7abfefb"),
+    "galeft": ("3241c7509ed886ca", "dc2225eceb34355d", "42259f1d59f49601"),
+    "galeindependent": ("aa42976d3d002fa5", "9266e203d752b6a7", "01bdb8d0a846dd0f"),
+    "galesundaytimes": ("cf19092cd0a9c451", "fd7048d9bb2d5f17", "035bd707b488443f"),
+    "galetelegraph": ("4ae0f3e07bbb68cd", "8726b988f05e0cc2", "fc62368f9ce2f471"),
+    "galetls": ("d7509cafb9ea40c4", "82178c19e214a9c4", "c20a08156e78314f"),
+    "guardian": ("2cdda7edc65acd51", "998022d2180ffa29", "70e174678220d20e"),
+    "telegraph": ("b3809b473f0fd01d", "563016d857904d06", "24c84ee2abcf3607"),
+    "times": ("1743a4444df41960", "46c602ea68b713c2", "e5e7a6fad3527737"),
+    "times1930": ("ebb010eefdcdbb6d", "a3cc6c34daf75219", "9ef2131e09133cb0"),
+}
+CORPUS_KEYS.update({old: {paper: pins[2]} for paper, pins in _BAND_CACHE_FIX.items() for old in pins[:2]})
 
 
 def current_keys(paper):

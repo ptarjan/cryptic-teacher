@@ -102,6 +102,25 @@ check("the scan key follows every name scan() reaches: the title pattern, the ti
        "hint_strips", "HEADING_HINT", "PAGE_READERS", "HINT_PAD",
        "times1930_headings", "Paper.headings"} - reached)
 check("and not the filing code: a change to it rescans nothing", set(), {"read_puzzle", "read_solution"} & reached)
+# A band cache a killed read left empty or cut short is a miss: read again,
+# rewritten whole, no temp file left.
+_reads = []
+_real_read_words = f.read_words
+f.read_words = lambda im, which: _reads.append(which) or [(1, 2, 3, 4, "word")]
+_band_dir = Path(os.environ["TMP"]) / "bands"
+_band_dir.mkdir()
+_band_img = Image.new("L", (50, 50), 255)
+for _bad in ("", '{"box": [0, 0, 5'):
+    _bad_path = _band_dir / "b.json"
+    _bad_path.write_text(_bad)
+    _reads.clear()
+    check(f"an unreadable band cache {_bad!r} is read again", [(1 + 5, 2 + 6, 3 + 5, 4 + 6, "word")],
+          f.band_words(_band_img, (5, 6, 20, 30), "ch", _bad_path))
+    check("and rewritten whole", {"box": [5, 6, 20, 30], "words": [[6, 8, 8, 10, "word"]]}, json.loads(_bad_path.read_text()))
+    check("with no temp file left", ["b.json"], [p.name for p in _band_dir.iterdir()])
+    f.band_words(_band_img, (5, 6, 20, 30), "ch", _bad_path)
+    check("a readable cache is not read again", 1, len(_reads))
+f.read_words = _real_read_words
 # The mirror: the key moves with code scan() runs and stays with code it
 # does not, here and in another module.
 base = {"m": "import n\nclass P:\n    def __init__(self):\n        self.k = K\n    def used(self, x):\n"
@@ -190,7 +209,8 @@ gt = f.GALE_TELEGRAPH
 row = {"edition": "GaleTelegraph1975UKEnglish/1975-03-04", "scanKey": f.scan_key(gt), "filesHash": "h", "scan": {}}
 check("scan_current's caches: a paper's name as the globals walk finds it, again after a re-bind; one key set "
       "shared by every ask; an edition named by string read as paper_of's (asked twice, by rel and by row)",
-      (True, "ZZ_CACHED", "ZZ_MOVED", True, {f.scan_key(gt), f.sized_scan_key(gt)}, [True, True, True, False]),
+      (True, "ZZ_CACHED", "ZZ_MOVED", True, {f.scan_key(gt), f.sized_scan_key(gt), *f._BAND_CACHE_FIX[gt.key][:2]},
+       [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
        [f.scan_current(row, "h"), f.scan_current(row, "h"), f.scan_current(row, "h", row["edition"]),
@@ -340,10 +360,12 @@ check("a 0 read as two marks costs one misread; marks that are not a 0's sides d
 check("Crossword split by the OCR reads", 15795, f.TITLE.search("The Times Or ossword Puzzle No 15,795") and
       int(f.TITLE.search("The Times Or ossword Puzzle No 15,795")[1].replace(",", "")))
 check("a refusal read before its cause's fix is due; after it, or another cause, is not",
-      ["refused not-a-grid before its fix", None, None],
+      ["refused not-a-grid before its fix", None, None, "refused crashed before its fix", None],
       [f.due_reason(refused("not-a-grid", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
        f.due_reason(refused("not-a-grid", "2099-01-01T00:00:00+00:00"), "h", [], "v"),
-       f.due_reason(refused("crashed", "2026-10-01T00:00:00+00:00"), "h", [], "v")])
+       f.due_reason(refused("unlisted", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
+       f.due_reason(refused("crashed", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
+       f.due_reason(refused("crashed", "2099-01-01T00:00:00+00:00"), "h", [], "v")])
 part = lambda acc, refusal, key: {**refused(None, "2099-01-01T00:00:00+00:00"), "verdicts": [
     {"number": 1, "solution": {"accepted": acc, "lights": 30, **({"refused": refusal} if refusal else {})}}],
     **({"solutionKey": key} if key else {})}
@@ -656,7 +678,7 @@ check("a held Gale Times 2007 page short of clues is read again", "short Times p
       f.fix_reason(held))
 check("a whole one, a refused one, another paper's, a 2014 page, or one read since is not", [None] * 5,
       [f.fix_reason({**held, "verdicts": [{"clues": 28, "lights": 28, "complete": True}]}),
-       f.fix_reason({**held, "verdicts": [{"refused": "x", "cause": "crashed"}]}),
+       f.fix_reason({**held, "verdicts": [{"refused": "x", "cause": "unlisted"}]}),
        f.fix_reason({**held, "scan": {"item": "GaleTelegraph2007UKEnglish", "date": "2007-03-14"}}),
        f.fix_reason({**held, "scan": {"item": "GaleTimes2014UKEnglish", "date": "2014-09-17"}}),
        f.fix_reason({**held, "readAt": "2099-01-01T00:00:00+00:00"})])
