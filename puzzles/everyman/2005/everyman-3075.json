@@ -92,35 +92,37 @@
      "indicators": [
       {
        "text": "biting",
-       "note": "a dog biting something holds it between its jaws, so the other letters go inside"
+       "at": 9,
+       "note": "the dog's letters close around the rest, as jaws bite"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "dog",
-         "gives": "BEAGLE",
-         "note": "a breed of hound"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "dog",
+       "at": 5,
+       "gives": "BEAGLE",
+       "note": "a beagle is a breed of dog"
       },
       {
-       "words": "lord",
-       "gives": "LD",
-       "note": "standard abbreviation for lord"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 16,
+         "gives": "A"
+        },
+        {
+         "words": "lord",
+         "at": 18,
+         "gives": "LD"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hound snaps at an aristocrat.",
-     "walkthrough": "The bite goes in after the dog's first letter, splitting the breed name in two.",
-     "definitionFit": "The bald eagle is the white-headed bird of prey that serves as the national emblem of the USA."
+     "surface": "A dog bites a nobleman.",
+     "definitionFit": "The bald eagle is a large North American bird of prey, the US national emblem."
     },
     "features": {
      "answerInScene": false,
@@ -640,47 +642,51 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the preceding letters inside the word that follows"
+       "at": 25,
+       "note": "the turned letters sit inside the vehicle"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "returning",
-           "note": "something returning goes back the way it came, so these letters are read backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "vehicle",
-           "gives": "RAC",
-           "note": "a car is a vehicle"
-          }
-         ]
-        },
-        {
-         "words": "good",
-         "gives": "G",
-         "note": "G is the standard abbreviation for good"
-        }
-       ]
+       "words": "vehicle",
+       "at": 28,
+       "gives": "CAR",
+       "note": "a car is a vehicle"
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "the Roman numeral for one"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 15,
+         "note": "the two letters go back the way they came, so are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "good",
+           "at": 6,
+           "gives": "G"
+          },
+          {
+           "words": "one",
+           "at": 11,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A decent man drives back home smoking.",
-     "walkthrough": "G and I are reversed to IG, which goes between the C and AR of the car.",
-     "definitionFit": "A smoke is informal for something to smoke, and a cigar is a roll of tobacco leaf for smoking."
+     "surface": "Someone enjoys a good smoke on the drive back in the car.",
+     "walkthrough": "G and I, read backwards because of 'returning', give IG, and 'in' puts IG inside CAR.",
+     "definitionFit": "A cigar is something you smoke, so it is an example of a smoke."
     },
     "features": {
      "answerInScene": true,

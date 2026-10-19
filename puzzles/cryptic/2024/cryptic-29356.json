@@ -103,35 +103,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RARE",
      "indicators": [
       {
        "text": "changes sides",
-       "note": "a US politician changing sides swaps one party label letter for the other's"
+       "at": 38,
+       "note": "the Democrat crosses the floor and becomes a Republican, R, so that letter is swapped"
       }
      ],
      "parts": [
       {
        "words": "challenge",
+       "at": 8,
        "gives": "DARE",
        "note": "a dare is a challenge"
       },
       {
        "words": "US politician",
-       "gives": "R",
-       "note": "D for Democrat gives way to R for Republican"
+       "at": 24,
+       "gives": "D",
+       "note": "D stands for a Democrat in US politics"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A rare sight: an American politician crossing the floor in response to a challenge.",
-     "walkthrough": "D (Democrat) in the challenge word becomes R (Republican) when the politician switches party.",
-     "definitionFit": "Rare means seldom found or uncommon, which is a synonym for unusual."
+     "surface": "A US politician switching parties is an unusual challenge to make.",
+     "walkthrough": "'changes sides' turns the Democrat D into a Republican R; American party labels are D and R.",
+     "definitionFit": "Something rare is seldom found, which is what unusual describes."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "sides"
     }
    }
@@ -417,65 +422,70 @@
      "indicators": [
       {
        "text": "enters",
-       "note": "entering means going inside, so these letters are placed within the next word"
+       "at": 28,
+       "note": "the two letters go into the other word, as a person enters a room"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "to eliminate",
-           "note": "eliminating means getting rid of, so one letter is removed from the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "submission",
-           "gives": "DEFERENCE",
-           "note": "deference is respectful submission"
-          },
-          {
-           "words": "European",
-           "gives": "E",
-           "note": "E is the abbreviation for European"
-          }
-         ]
-        },
-        {
-         "words": "International",
-         "gives": "I",
-         "note": "I is the abbreviation for international"
-        }
-       ]
-      },
-      {
-       "op": "first",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "leader",
-         "note": "'leader' keeps only the first letter of 'French'"
+         "text": "to eliminate",
+         "at": 46,
+         "note": "the word for submission gets rid of one letter here"
         }
        ],
        "parts": [
         {
-         "words": "French",
-         "note": "the first letter of French"
+         "words": "submission",
+         "at": 35,
+         "gives": "DEFERENCE",
+         "note": "deference is respectful submission to someone"
+        },
+        {
+         "words": "European",
+         "at": 59,
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "International",
+         "at": 0,
+         "gives": "I"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 21,
+           "note": "the leader of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "French",
+           "at": 14,
+           "note": "taken as written"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French leader bows to international pressure to end a European war.",
-     "walkthrough": "The first E drops out of the submission word, and IF fills the gap.",
-     "definitionFit": "A difference can mean a disagreement or dispute, as in settling one's differences, a mild sense of conflict."
+     "surface": "An international French politician submits a proposal to end a European dispute.",
+     "walkthrough": "'to eliminate European' takes one E from DEFERENCE, leaving DFERENCE; 'enters' then puts IF in after the D.",
+     "definitionFit": "A difference can be a disagreement or quarrel between people, the sense of a conflict."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "submission"
     }
@@ -832,63 +842,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BRIEFCASES",
+     "op": "container",
      "indicators": [
       {
-       "text": "(-99)",
-       "note": "the minus sign says to subtract the letters standing for that number from the word"
+       "text": "in",
+       "at": 26,
+       "note": "the pieces go inside the underwear word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in means placed inside, so these pieces sit within the underwear word"
-        }
-       ],
+       "words": "underwear",
+       "at": 29,
+       "gives": "BRIEFS",
+       "note": "briefs are a type of underpants"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "container",
-           "parts": [
-            {
-             "words": "underwear",
-             "gives": "BRIEFS",
-             "note": "briefs are underpants"
-            },
-            {
-             "words": "cold",
-             "gives": "C",
-             "note": "C is the abbreviation for cold"
-            }
-           ]
-          },
-          {
-           "words": "like",
-           "gives": "AS",
-           "note": "as means like"
-          }
-         ]
+         "words": "cold",
+         "at": 5,
+         "gives": "C",
+         "note": "C is the tap abbreviation for cold"
         },
         {
-         "words": "ice",
-         "gives": "E",
-         "note": "IC is crossword shorthand for 99, so ice loses IC"
+         "words": "like",
+         "at": 11,
+         "gives": "AS",
+         "note": "as means like"
+        },
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "ice",
+           "at": 16,
+           "gives": "ICE",
+           "note": "taken as the word itself"
+          },
+          {
+           "words": "-99",
+           "at": 21,
+           "gives": "IC",
+           "note": "the minus sign takes away 99, which in Roman numerals is IC"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stuffs underwear with chilled items packed like ice.",
-     "walkthrough": "IC is not a correct Roman numeral (99 is XCIX), but crosswords accept it as 100 less 1.",
-     "definitionFit": "Briefcases are flat cases for carrying documents, a kind of bag."
+     "surface": "A crazy packing list: bags hold cold things, ice and underwear.",
+     "walkthrough": "In Roman numerals IC (100 less 1) is 99, so 'ice (-99)' is ICE minus IC, leaving E.",
+     "definitionFit": "Briefcases are flat bags for carrying documents, a type of bag."
     },
     "features": {
      "answerInScene": false,
@@ -1295,53 +1303,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARCHDEACON",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "endlessly means without its end, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "at": 10,
+         "note": "the letters are played with, so rearranged"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "playing",
-           "note": "playing with something means toying with it, so the letters are moved around"
+           "text": "endlessly",
+           "at": 27,
+           "note": "the word loses its last letter"
           }
          ],
          "parts": [
           {
            "words": "charades",
-           "gives": "CHARADE",
-           "note": "charades with its last letter dropped"
+           "at": 18,
+           "note": "taken as written"
+          },
+          {
+           "gives": "S"
           }
          ]
-        },
-        {
-         "words": "party",
-         "gives": "CON",
-         "note": "Con is short for Conservative, a political party"
         }
        ]
+      },
+      {
+       "words": "party",
+       "at": 39,
+       "gives": "CON",
+       "note": "Con is short for the Conservative Party"
       }
      ]
     },
     "explanation": {
-     "surface": "A churchman gets stuck into a game of charades that never ends: what a party!",
-     "walkthrough": "'Party' reads as a celebration, but it is a political party, abbreviated.",
-     "definitionFit": "An archdeacon is a senior Anglican cleric ranking just below a bishop."
+     "surface": "A clergyman plays charades without stopping at a party.",
+     "walkthrough": "The parlour game looks like the scene, but its letters are the raw material; Con is the usual short form of Conservative.",
+     "definitionFit": "An archdeacon is a senior Anglican cleric who ranks below a bishop."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "party"
+     "misdirectedWord": "playing"
     }
    }
   },

@@ -489,33 +489,33 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GROWNUP",
      "indicators": [
       {
        "text": "includes",
-       "note": "to include something is to hold it within, so one piece goes inside the other"
+       "at": 10,
+       "note": "the set takes the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "GROWNUP",
+       "words": "set",
+       "at": 6,
+       "gives": "GROUP",
+       "note": "a group is a set"
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
          "text": "heartless",
-         "note": "without a heart means the middle letters are removed, keeping only the ends"
+         "at": 19,
+         "note": "the middle of the word is removed, leaving its ends"
         }
        ],
        "parts": [
         {
-         "words": "set",
-         "gives": "GROUP",
-         "note": "a set is a group of things"
-        },
-        {
          "words": "woman",
+         "at": 29,
          "note": "taken as written"
         }
        ]
@@ -523,14 +523,14 @@
      ]
     },
     "explanation": {
-     "surface": "A grown-up's collection includes an unfeeling woman.",
-     "walkthrough": "'Heartless woman' sounds like a cruel person, but it asks you to strip out the middle letters of the word.",
-     "definitionFit": "A grown-up is an informal word for a fully mature person, the same as an adult."
+     "surface": "A set of adults includes a cold-hearted woman.",
+     "walkthrough": "'heartless' looks like a description of the woman's character, but it strips her word to its ends.",
+     "definitionFit": "A grown-up is someone fully grown, so an adult rather than a child."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "set"
+     "misdirectedWord": "heartless"
     }
    }
   },

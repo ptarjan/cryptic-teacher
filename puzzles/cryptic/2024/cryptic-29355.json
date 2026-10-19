@@ -228,50 +228,50 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LAUNDRETTE",
      "indicators": [
       {
        "text": "covered in",
-       "note": "covered in means placed inside something else that wraps around it"
+       "at": 44,
+       "note": "the stripped word is placed inside the coffee word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "LAUNDRETTE",
+       "words": "coffee",
+       "at": 55,
+       "gives": "LATTE",
+       "note": "a latte is a milky coffee"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "removing clothes",
-         "note": "removing clothes strips a word of its outer covering, its first and last letters"
+         "at": 27,
+         "note": "the word strips off its outer letters, as if undressing"
         }
        ],
        "parts": [
         {
-         "words": "coffee",
-         "gives": "LATTE",
-         "note": "a latte is a milky coffee"
-        },
-        {
-         "words": "square",
+         "words": "square's",
+         "at": 18,
          "gives": "HUNDRED",
-         "note": "a hundred is the square of ten"
+         "note": "a hundred is a square number, ten times ten"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prudish person stripping off while covered in spilled coffee.",
-     "walkthrough": "'Square' is a number here: ten squared is a hundred, which sheds its outer letters before sitting inside the coffee.",
-     "definitionFit": "A launderette is a business where people wash their clothes, so it is literally an outfit that does cleaning."
+     "surface": "A cleaning firm finds a stripped man covered in spilt coffee.",
+     "walkthrough": "'square' looks like a fogey but is a square number, ten times ten. 'Outfit' is a business, not clothing.",
+     "definitionFit": "A laundrette is a business with coin-operated washing machines, an establishment for cleaning clothes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "square"
+     "joke": "absurd",
+     "misdirectedWord": "square's"
     }
    }
   },
@@ -1438,47 +1438,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "TEEPEE",
+     "spelt": "TEEPEE",
      "indicators": [
       {
        "text": "heard",
-       "note": "heard tells us to go by how the letters are spoken, not how they are written"
+       "at": 21,
+       "note": "the two letters are spoken out loud as their names"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "TEEPEE",
-       "indicators": [
-        {
-         "text": "originally",
-         "note": "originally points to the first letter of each word, where each starts"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Tom Petty",
-         "gives": "TEEPEE",
-         "select": "first",
-         "soundsLike": "TP",
-         "note": "the initials of Tom Petty, said as two letter names"
-        }
-       ]
+       "words": "Tom Petty originally",
+       "at": 0,
+       "gives": "TP",
+       "note": "the first letters of Tom Petty, the US rock singer, are T and P"
       }
      ]
     },
     "explanation": {
-     "surface": "The rock singer Tom Petty first heard playing around a campsite tent.",
-     "walkthrough": "The initials are not used as letters but spoken, T and P, which spells the answer when written out.",
-     "definitionFit": "A teepee is the conical tent of Plains peoples, circular at its base, so a round tent."
+     "surface": "Tom Petty's early music was heard around a tent.",
+     "walkthrough": "The initials T and P, said aloud, are the letter names tee and pee. Tom Petty was an American rock musician.",
+     "definitionFit": "A teepee is a conical Native American dwelling made of skins over poles, round at the base."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "round"
+     "joke": "pun",
+     "misdirectedWord": "Petty"
     }
    }
   },

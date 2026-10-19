@@ -818,32 +818,58 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "receiving",
-       "note": "receiving means taking something in, so the reversed word joins before the head letter"
+       "at": 36,
+       "note": "the view-and-head letters take the raised order into them, as a host receives a guest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in places the direction inside the word for a view"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "view",
-         "gives": "SEE",
-         "note": "to view is to see"
+         "op": "container",
+         "indicators": [
+          {
+           "text": "in",
+           "at": 16,
+           "note": "the west letter goes inside the view word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "view",
+           "at": 19,
+           "gives": "SEE",
+           "note": "to see is to view"
+          },
+          {
+           "words": "west",
+           "at": 11,
+           "gives": "W",
+           "note": "W is the compass abbreviation for west"
+          }
+         ]
         },
         {
-         "words": "west",
-         "gives": "W",
-         "note": "W is the abbreviation for west"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Head",
+           "at": 31,
+           "note": "only the first letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Ram's",
+           "at": 25,
+           "note": "taken as written"
+          }
+         ]
         }
        ]
       },
@@ -852,40 +878,28 @@
        "indicators": [
         {
          "text": "raised",
-         "note": "raised in a down clue means read upwards, so the word is reversed"
+         "at": 52,
+         "note": "in this down clue the word goes upwards, so it is reversed"
         }
        ],
        "parts": [
         {
          "words": "order",
+         "at": 46,
          "gives": "EDICT",
-         "note": "an edict is an order"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "Head",
-         "note": "the head of a word is its first letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Ram's",
-         "note": "first letter of Ram"
+         "note": "an edict is an official order"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drink from the West Country, with a ram's head on view as the order is raised.",
-     "definitionFit": "Sweet cider is a fermented apple drink made with less sugar converted to alcohol."
+     "surface": "A Ram's Head pub is told to raise a drink from the west to the view.",
+     "walkthrough": "In a down answer, 'raised' reads the order word from the bottom up; 'receiving' sets it between the view letters and the head of Ram's.",
+     "definitionFit": "Sweet cider is an alcoholic apple drink, the less dry kind."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Ram's"
     }

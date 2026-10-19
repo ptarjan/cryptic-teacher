@@ -206,45 +206,30 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "ELLE",
+     "spelt": "ELLE",
      "indicators": [
       {
        "text": "report",
-       "note": "a report is something spoken, so the letter is said rather than written"
+       "at": 11,
+       "note": "a report is a sound, so the letter is spoken out loud"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "ELLE",
-       "indicators": [
-        {
-         "text": "the first of",
-         "note": "only the opening letter of the following word is wanted"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "lots",
-         "gives": "ELLE",
-         "select": "first",
-         "soundsLike": "L",
-         "note": "the opening letter of lots is L, and the name of that letter is pronounced 'el'"
-        }
-       ]
+       "words": "the first of lots",
+       "at": 18,
+       "gives": "L",
+       "note": "the first letter of lots is L"
       }
      ]
     },
     "explanation": {
-     "surface": "Talk about a Macpherson being first among many.",
-     "walkthrough": "The name of the letter L, spoken, matches the first name of the model.",
-     "definitionFit": "Elle Macpherson is the Australian supermodel, so her surname clues her first name."
+     "surface": "A news report on Macpherson tops a list of lots at auction.",
+     "walkthrough": "The first letter of lots, said aloud, is the letter name el. Elle Macpherson is an Australian supermodel.",
+     "definitionFit": "Elle is the first name of the model Elle Macpherson, so the surname points to her."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "report"
     }
@@ -1634,38 +1619,42 @@
      "indicators": [
       {
        "text": "nurses",
-       "note": "to nurse is to cradle or hold close, so one piece is held inside another"
+       "at": 39,
+       "note": "the word holds the others inside, as one nurses a baby in one's arms"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "date",
-         "gives": "SEE",
-         "note": "to see someone is to date them"
-        },
-        {
-         "words": "Conservative",
-         "gives": "C",
-         "note": "C is the abbreviation for Conservative"
-        }
-       ]
+       "words": "date",
+       "at": 34,
+       "gives": "SEE",
+       "note": "to see someone is to date them"
       },
       {
-       "words": "law lord",
-       "gives": "LUD",
-       "note": "lud, as in m'lud, is how a judge is addressed"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Conservative",
+         "at": 12,
+         "gives": "C"
+        },
+        {
+         "words": "law lord",
+         "at": 25,
+         "gives": "LUD",
+         "note": "lud is the form of address to a judge, as in m'lud"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Tory judge's girlfriend looks after him and leaves him isolated.",
-     "definitionFit": "To seclude someone is to keep them apart from others, leaving them solitary."
+     "surface": "A Conservative judge goes on a date, nursing his loneliness.",
+     "walkthrough": "In British courts a judge is addressed as 'm'lud', a slurred 'my lord'.",
+     "definitionFit": "To seclude someone is to keep them apart from others, leaving them isolated."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "nurses"
     }
