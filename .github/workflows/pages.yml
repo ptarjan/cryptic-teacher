@@ -61,12 +61,16 @@ jobs:
     outputs:
       deploy: ${{ steps.pick.outputs.deploy }}
     steps:
+      # Only the scripts the decision reads: tools/ in cone mode pulled every
+      # tools/data blob (~265MB) lazily, 45s+ of a 30s budget (run 39309089344).
       - name: Check out
         uses: actions/checkout@v5
         with:
           filter: blob:none
+          sparse-checkout-cone-mode: false
           sparse-checkout: |
-            tools
+            /tools/*.py
+            /.github/workflows/pages.yml
       - name: Decide whether this run deploys
         id: pick
         env:
