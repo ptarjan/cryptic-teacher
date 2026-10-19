@@ -1277,36 +1277,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "incubate",
-       "note": "a bird incubates eggs by sitting over them, so one piece is held inside the other"
+       "text": "to incubate",
+       "at": 15,
+       "note": "to incubate is to sit over eggs, so the managed word goes around the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "managed",
-         "gives": "RAN",
-         "note": "to run a business is to manage it"
-        },
-        {
-         "words": "200",
-         "gives": "CC",
-         "note": "C is the Roman numeral for 100"
-        }
-       ]
+       "words": "managed",
+       "at": 7,
+       "gives": "RAN",
+       "note": "to run a business is to manage it"
       },
       {
-       "words": "eggs",
-       "gives": "OO",
-       "note": "an egg's shape resembles the letter O"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "200",
+         "at": 27,
+         "gives": "CC",
+         "note": "CC is 200 in Roman numerals"
+        },
+        {
+         "words": "eggs",
+         "at": 31,
+         "gives": "OO",
+         "note": "an egg is shaped like an O, so eggs are Os"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A creature somehow managed to brood two hundred eggs.",
-     "definitionFit": "The raccoon is a ringtailed, masked North American mammal, so it is an example of an animal."
+     "surface": "An animal somehow hatches a couple of hundred eggs.",
+     "definitionFit": "The raccoon is a North American mammal with a masked face and ringed tail."
     },
     "features": {
      "answerInScene": true,
@@ -1384,42 +1388,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MARATHON",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means nearly all, so the word loses its last letter"
+       "text": "sport",
+       "at": 35,
+       "note": "sport here is a verb, to play around, so the letters are mixed"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "sport",
-         "note": "sport here is a verb sense of play or frolic, so the letters romp into a new order"
+         "text": "almost",
+         "at": 16,
+         "note": "almost means not quite complete, so more loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "more",
-         "gives": "MOR",
-         "note": "the word without its final letter"
+         "at": 23
         },
         {
-         "words": "than a",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "than",
+       "at": 28
+      },
+      {
+       "words": "a",
+       "at": 33
       }
      ]
     },
     "explanation": {
-     "surface": "Someone says a gruelling race is nearly something greater than a mere sport.",
-     "walkthrough": "'Sport' looks like a noun completing the phrase, but it is the anagram signal.",
-     "definitionFit": "A marathon is a long-distance running race of about 26 miles, a classic track-and-field competition."
+     "surface": "A boast that a long-distance race is more than just a sport.",
+     "walkthrough": "'sport' looks like part of the definition; it is the anagram signal.",
+     "definitionFit": "The marathon is a long-distance running race of about 26 miles."
     },
     "features": {
      "answerInScene": true,

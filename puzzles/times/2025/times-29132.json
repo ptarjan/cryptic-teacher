@@ -618,38 +618,42 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "rising",
-       "note": "in a down clue, rising means read from bottom to top"
-      }
-     ],
      "parts": [
       {
        "words": "I",
-       "note": "as written"
+       "at": 0
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "dons",
-         "note": "to don is to put on, so one part is put around the other"
+         "at": 13,
+         "note": "dons means puts on, so the turned-round see wears the vague word around it"
         }
        ],
        "parts": [
         {
          "words": "prone to imprecision",
+         "at": 18,
          "gives": "VAGUE",
-         "note": "vague, wrapped round YLE as V-YLE-AGUE"
+         "note": "vague means imprecise"
         },
         {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "rising",
+           "at": 6,
+           "note": "in a down clue, rising means the word reads upward, back to front"
+          }
+         ],
          "parts": [
           {
            "words": "see",
+           "at": 2,
            "gives": "ELY",
-           "note": "the see, or bishop's diocese, of Ely; rising it is YLE"
+           "note": "Ely is a see, the diocese of a bishop, in Cambridgeshire"
           }
          ]
         }
@@ -658,14 +662,15 @@
      ]
     },
     "explanation": {
-     "surface": "Academics at elite universities stand up to speak loosely.",
-     "walkthrough": "'I see' is not a phrase of understanding: 'see' is a diocese, here Ely, an English cathedral city.",
-     "definitionFit": "The Ivy League is the group of eight old, prestigious universities in the north-east US."
+     "surface": "I notice that rising university teachers tend to be woolly in elite colleges.",
+     "walkthrough": "'dons' suggests academics, fitting the surface; it means 'puts on' like clothing.",
+     "definitionFit": "The Ivy League is a group of elite old universities in the north-eastern United States."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "see"
+     "joke": "pun",
+     "misdirectedWord": "dons"
     }
    }
   },
@@ -1201,28 +1206,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MOLLYCODDLE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "swap the opening sounds of two words, as Dr Spooner did"
+       "at": 0,
+       "note": "Spooner's signals that the opening sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "figurine of canine",
-       "gives": "MOLLYCODDLE",
-       "soundsLike": "COLLIE MODEL",
-       "note": "a model of a collie, with the first sounds swapped"
+       "op": "homophone",
+       "spelt": "COLLY",
+       "parts": [
+        {
+         "words": "canine",
+         "at": 22,
+         "gives": "COLLIE",
+         "note": "a collie is a breed of dog, a canine"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "MODDLE",
+       "parts": [
+        {
+         "words": "figurine of",
+         "at": 10,
+         "gives": "MODEL",
+         "note": "a model is a small figure"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner owns a china ornament of his pet dog.",
-     "walkthrough": "'Pet' looks like the dog, but it is the verb, to pamper.",
-     "definitionFit": "To mollycoddle is to pet or pamper someone excessively."
+     "surface": "A spoonerism describing a small statue of a beloved dog.",
+     "walkthrough": "Say 'model collie' and swap the first sounds: 'colly moddle', reordered to the answer's two halves.",
+     "definitionFit": "To mollycoddle someone is to pamper or indulge them excessively."
     },
     "features": {
      "answerInScene": false,
@@ -1586,41 +1607,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OASIS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Crustless",
-       "note": "remove the outside, the crusts at each end"
+       "text": "on",
+       "at": 16,
+       "note": "in a down clue, on places the first piece above the second"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Crustless",
+         "at": 0,
+         "note": "crustless means without its edges, so toast loses its first and last letters"
+        }
+       ],
        "parts": [
         {
          "words": "toast",
-         "gives": "OAS",
-         "note": "tOASt without its outer letters"
+         "at": 10
         },
         {
-         "words": "income support",
-         "gives": "IS",
-         "note": "abbreviation for the British welfare benefit"
+         "gives": "TT"
         }
        ]
+      },
+      {
+       "words": "income support",
+       "at": 19,
+       "gives": "IS",
+       "note": "IS is the abbreviation for Income Support, a UK state benefit"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone living on benefits eats toast with the crusts cut off in a shelter.",
-     "walkthrough": "Income Support is a British means-tested benefit, abbreviated IS.",
-     "definitionFit": "An oasis is a place of refuge, like water in a desert."
+     "surface": "Someone on state benefits eats crustless toast for comfort.",
+     "definitionFit": "An oasis is a place of shelter or relief, a haven amid hardship."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "toast"
     }
    }
   },
@@ -1812,12 +1842,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ELDER",
      "indicators": [
       {
        "text": "Cockney",
-       "note": "a Cockney drops the H at the start of words"
+       "at": 0,
+       "note": "a Cockney, a working-class Londoner, drops the H at the start of words"
       }
      ],
      "parts": [
@@ -1826,26 +1855,31 @@
        "parts": [
         {
          "words": "believed",
-         "gives": "ELD",
-         "note": "HELD, as in held a view, without its H"
+         "at": 8,
+         "gives": "HELD",
+         "note": "held means believed, as in held an opinion"
         },
         {
          "words": "that female",
-         "gives": "ER",
-         "note": "HER without its H"
+         "at": 17,
+         "gives": "HER",
+         "note": "her is the pronoun for that female"
         }
        ]
+      },
+      {
+       "gives": "HH"
       }
      ]
     },
     "explanation": {
-     "surface": "A Londoner trusted that woman as a forebear.",
-     "walkthrough": "A Cockney is a working-class Londoner whose accent drops H, so both 'held' and 'her' lose it.",
-     "definitionFit": "A looser sense: one's elders are those born before, the older generations, which stretches to forebears."
+     "surface": "A Londoner held that a woman was his forebear.",
+     "definitionFit": "An elder is a forebear or senior member of a family or community."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "female"
     }
    }
   },

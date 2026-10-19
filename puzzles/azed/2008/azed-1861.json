@@ -439,57 +439,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HUSTLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "reduced by 50%",
-       "note": "cutting by half leaves only two of the four letters of the following word"
+       "text": "rings",
+       "at": 25,
+       "note": "rings means encircles, so the rubber word goes around the half-word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "rubber",
+       "at": 18,
+       "gives": "HULE",
+       "note": "hule is a Mexican word for rubber, or the tree yielding it, listed in Chambers"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "rings",
-         "note": "to ring something is to encircle it, so the rubber word goes round the shortened one"
+         "text": "reduced by 50%",
+         "at": 36,
+         "note": "cutting a four-letter word by half removes two of its letters, here the front pair"
         }
        ],
        "parts": [
         {
-         "words": "rubber",
-         "gives": "HULE",
-         "note": "hule is a Central American rubber tree and its latex"
+         "words": "just",
+         "at": 31,
+         "note": "the word as written, of which half is kept"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "ST",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "just",
-           "gives": "ST",
-           "select": "last",
-           "note": "the second half of just"
-          }
-         ]
+         "gives": "JU"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A salesman pushes rubber rings that have just been marked down by half.",
-     "walkthrough": "'Rubber rings' reads as a product, but 'rings' is the verb, and the rubber is a Central American tree's latex.",
-     "definitionFit": "To hustle goods is to push them on buyers with pushy, high-pressure salesmanship."
+     "surface": "A sales pitch for rubber rings that have just been marked down by half.",
+     "definitionFit": "To hustle goods is to push them on buyers forcefully, the way a pushy street trader does."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rings"
+     "misdirectedWord": "rubber"
     }
    }
   },
@@ -1122,12 +1116,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PARLEYVOO",
      "indicators": [
       {
        "text": "swallowing",
-       "note": "something swallowing takes another thing inside it, so the word for one joins the rest"
+       "at": 27,
+       "note": "swallowing means taking inside, so the rearranged letters go around A"
       }
      ],
      "parts": [
@@ -1136,31 +1129,33 @@
        "indicators": [
         {
          "text": "active",
-         "note": "active letters are lively and moving about, so they settle in a different order"
+         "at": 19,
+         "note": "active suggests lively movement, so the letters of pool and very are stirred into a new order"
         }
        ],
        "parts": [
         {
          "words": "pool",
-         "note": "taken as written"
-        },
-        {
-         "words": "one",
-         "gives": "A",
-         "note": "a means one"
+         "at": 8
         },
         {
          "words": "very",
-         "note": "taken as written"
+         "at": 14
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 38,
+       "gives": "A",
+       "note": "a means one"
       }
      ]
     },
     "explanation": {
-     "surface": "A frog splashes about in a pond and gulps down an insect.",
-     "walkthrough": "Frog is a slangy, offensive British word for a French person; parleyvoo, from 'parlez-vous', is a jokey name for one.",
-     "definitionFit": "Parleyvoo is facetious slang for a Frenchman, matching frog, the derogatory nickname for the French."
+     "surface": "A frog in a pond, darting about and gulping something down.",
+     "walkthrough": "'Frog' is a slang word for a Frenchman, not the amphibian in the pool.",
+     "definitionFit": "Parleyvoo, from French parlez-vous, is a jocular word for a Frenchman, as is the slang term frog."
     },
     "features": {
      "answerInScene": false,
@@ -2140,34 +2135,37 @@
      "indicators": [
       {
        "text": "taken",
-       "note": "letters taken in are held within, so the verb encloses the rest"
+       "at": 35,
+       "note": "taken here means taken in, so the approaching word holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "drew near",
-         "gives": "CAME",
-         "note": "came means drew near, arrived"
-        },
-        {
-         "words": "is",
-         "note": "taken as written"
-        }
-       ]
+       "words": "drew near",
+       "at": 13,
+       "gives": "CAME",
+       "note": "came is the past of come, to approach or draw near"
       },
       {
-       "words": "notice",
-       "gives": "AD",
-       "note": "an ad is a notice in a paper"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "is",
+         "at": 25
+        },
+        {
+         "words": "notice",
+         "at": 28,
+         "gives": "AD",
+         "note": "an ad, advertisement, is a notice"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Raiders crept closer in the dark, and the sentries wonder whether anyone noticed.",
-     "definitionFit": "A camisade was a surprise attack by night, its soldiers wearing shirts over armour to recognise each other."
+     "surface": "As something approached in the dark, did anyone pay attention to it?",
+     "definitionFit": "A camisade was a military raid made at night, attackers wearing shirts over armour to recognise one another."
     },
     "features": {
      "answerInScene": true,
