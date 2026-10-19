@@ -1792,57 +1792,87 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "imbibing",
-       "note": "to imbibe is to drink in, so pieces are taken inside another"
+       "text": "later",
+       "at": 36,
+       "note": "later says the second letter goes in further along the word than the first, so the drink from the wine goes in at a second, later point"
       }
      ],
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "imbibing",
+         "at": 6,
+         "note": "to imbibe is to drink in, so the word for drunk takes the following letters into itself"
+        }
+       ],
        "parts": [
         {
          "words": "Drunk",
+         "at": 0,
          "gives": "LEGLESS",
-         "note": "legless is British slang for very drunk"
+         "note": "legless is British slang for very drunk, too drunk to stand"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "last of",
-           "note": "the last of a word is its closing letter"
+           "at": 15,
+           "note": "the last of Martini is its final letter, I"
           }
          ],
          "parts": [
           {
            "words": "Martini",
-           "note": "the closing letter of Martini"
+           "at": 23,
+           "note": "final letter taken"
           }
          ]
         }
        ]
       },
       {
-       "op": "last",
+       "gives": "GL"
+      },
+      {
+       "op": "container",
        "parts": [
         {
-         "words": "wine",
-         "note": "the closing letter of wine"
+         "gives": "GL"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "at": 43,
+           "note": "the last of wine is its final letter, E"
+          }
+         ],
+         "parts": [
+          {
+           "words": "wine",
+           "at": 51,
+           "note": "final letter taken"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk sipping a Martini then wine, with no one to answer to.",
-     "walkthrough": "'Later' places the second letter further along the drunk word than the first. Legless is British slang for very drunk.",
-     "definitionFit": "A liege is a feudal lord, so someone without one owes allegiance to no overlord or superior."
+     "surface": "A drinker downs a Martini and then some wine, ending up legless and answerable to nobody.",
+     "walkthrough": "LEGLESS (British slang for very drunk) takes in I and E at two separate points: I after the first L, and, 'later', E after the G, giving LIEGE-LESS.",
+     "definitionFit": "A liege is a feudal lord, so someone liegeless owes allegiance to no superior."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Drunk"
     }
