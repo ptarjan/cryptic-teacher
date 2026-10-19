@@ -499,59 +499,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ABSENTEE",
+     "op": "container",
      "indicators": [
       {
-       "text": "endless",
-       "note": "without an end means the final letter is cut off"
+       "text": "outside",
+       "at": 47,
+       "note": "the mixed letters go outside, round, the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "outside",
-         "note": "the jumbled word is placed around the outside of the shortened one"
+         "text": "badly",
+         "at": 34,
+         "note": "done badly, so the letters of beaten are disordered"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "badly",
-           "note": "something done badly comes out wrong, so these letters are jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "beaten",
-           "note": "taken as written, then rearranged"
-          }
-         ]
-        },
+         "words": "beaten",
+         "at": 40
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 22,
+         "note": "without its end, so the last letter goes"
+        }
+       ],
+       "parts": [
         {
          "words": "sex",
-         "gives": "SE",
-         "note": "the word with its last letter removed"
+         "at": 30,
+         "gives": "SEX",
+         "note": "taken as written before its end is lost"
+        },
+        {
+         "gives": "X"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lurid tabloid tale of someone anticipating sex but getting badly beaten up.",
-     "walkthrough": "The definition is wry: an absentee is someone who was expected to turn up but did not.",
-     "definitionFit": "An absentee is someone missing from a place where their presence was anticipated, such as school or work."
+     "surface": "Someone anticipating endless sex is badly beaten up in the street.",
+     "definitionFit": "An absentee is someone expected to be present, at work or school, who has not turned up."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "sex"
+     "misdirectedWord": "beaten"
     }
    }
   },
@@ -1547,46 +1550,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRINIDAD",
-     "indicators": [
-      {
-       "text": "cut short",
-       "note": "cut short means losing the end, so the final letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 17,
+         "note": "cut short means losing the final letter"
+        }
+       ],
        "parts": [
         {
          "words": "excursion",
-         "gives": "TRI",
-         "note": "a trip is an excursion, here without its final letter"
+         "at": 7,
+         "gives": "TRIP",
+         "note": "a trip is an excursion"
         },
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "on return",
-           "note": "returning means going back, so the phrase is read in reverse"
-          }
-         ],
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on return",
+         "at": 36,
+         "note": "coming back, so the pops and in words are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "pops",
-             "gives": "DAD",
-             "note": "pops is an informal word for father"
-            },
-            {
-             "words": "in",
-             "note": "taken as written"
-            }
-           ]
+           "words": "pops",
+           "at": 28,
+           "gives": "DAD",
+           "note": "pops is an informal word for father, dad"
+          },
+          {
+           "words": "in",
+           "at": 33
           }
          ]
         }
@@ -1595,7 +1603,7 @@
      ]
     },
     "explanation": {
-     "surface": "A holiday trip is curtailed when father drops in on the way home.",
+     "surface": "A shortened outing, with father dropping in on the way back.",
      "definitionFit": "Trinidad is the larger island of the Caribbean nation Trinidad and Tobago."
     },
     "features": {
@@ -1817,37 +1825,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BOSSANOVA",
-     "indicators": [
-      {
-       "text": "denied six consecutive characters",
-       "note": "being denied a run of letters means a block of that many in a row is taken away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "supremo",
+       "at": 6,
+       "gives": "BOSS",
+       "note": "a supremo is the boss"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "denied six consecutive characters",
+         "at": 27,
+         "note": "denied means refused, so a run of six letters in a row is taken out of the dancer's name"
+        }
+       ],
        "parts": [
         {
-         "words": "supremo",
-         "gives": "BOSS",
-         "note": "a supremo is the person in charge"
+         "words": "Anna Pavlova",
+         "at": 14
         },
         {
-         "words": "Anna Pavlova",
-         "gives": "ANOVA",
-         "note": "the ballerina's name with the third to eighth letters removed"
+         "gives": "NAPAVL"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dance company head, the great ballerina, is refused a part in six shows in a row.",
-     "walkthrough": "Anna Pavlova was a famous Russian ballerina; the six removed letters are NAPAVL.",
-     "definitionFit": "The bossa nova is a Brazilian dance style and music related to samba."
+     "surface": "The supreme ballerina Anna Pavlova was refused six characters in a show.",
+     "walkthrough": "The six letters come from the middle of the name, straddling the space between the two words.",
+     "definitionFit": "The bossa nova is a Brazilian dance and its music, related to the samba."
     },
     "features": {
      "answerInScene": true,

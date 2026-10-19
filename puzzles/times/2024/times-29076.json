@@ -455,34 +455,38 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "caught in",
-       "note": "the feline's letters sit inside the joint"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "up",
-         "note": "in a down clue, up reads the letters bottom to top"
+         "at": 25,
+         "note": "in a down clue going up means the letters are read from bottom to top, so backwards"
         }
        ],
        "parts": [
         {
          "op": "container",
+         "indicators": [
+          {
+           "text": "caught in",
+           "at": 9,
+           "note": "the feline's word is held inside the joint"
+          }
+         ],
          "parts": [
           {
            "words": "joint",
+           "at": 19,
            "gives": "HIP",
-           "note": "the hip joint, opened round the cat"
+           "note": "the hip is a joint of the body"
           },
           {
            "words": "Feline's",
+           "at": 0,
            "gives": "CATS",
-           "note": "cat's, with the apostrophe s kept; H(CATS)IP reads upwards as PISTACH"
+           "note": "felines are cats; with the 's read as 'is' joined on, giving cats"
           }
          ]
         }
@@ -490,20 +494,21 @@
       },
       {
        "words": "one",
+       "at": 28,
        "gives": "I",
-       "note": "I = one"
+       "note": "I is the Roman numeral one"
       },
       {
        "words": "old",
-       "gives": "O",
-       "note": "o = old"
+       "at": 32,
+       "gives": "O"
       }
      ]
     },
     "explanation": {
-     "surface": "A cat has got stuck in a joint while climbing an old tree.",
-     "walkthrough": "The feline's 's is not grammar: it supplies the S of PISTACHIO.",
-     "definitionFit": "A definition by kind: the green nut we eat grows on a small tree of the same name."
+     "surface": "A cat is trapped in a joint of meat high up in an ancient tree.",
+     "walkthrough": "The container is built first and then the whole thing is turned round, not just the cat.",
+     "definitionFit": "The pistachio is a small tree of the cashew family, grown for its green nuts."
     },
     "features": {
      "answerInScene": true,
@@ -1112,44 +1117,47 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "NIRVANA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcomed by",
+       "at": 36,
+       "note": "a guest welcomed by hosts is taken in among them, so the front group goes inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "welcomed by",
-         "note": "the front group goes inside the rani"
-        },
-        {
-         "text": "circulating"
+         "text": "circulating",
+         "at": 48,
+         "note": "moving round and about, so the letters of rani are mixed up"
         }
        ],
        "parts": [
         {
          "words": "rani",
-         "gives": "NIRA",
-         "note": "a rani is an Indian queen; RANI rotated to NIRA, opened round VAN"
-        },
-        {
-         "words": "those at the front",
-         "gives": "VAN",
-         "note": "the van is the front of an army"
+         "at": 60
         }
        ]
+      },
+      {
+       "words": "those at the front",
+       "at": 17,
+       "gives": "VAN",
+       "note": "the van, short for vanguard, is the group at the front"
       }
      ]
     },
     "explanation": {
-     "surface": "A travelling Indian queen greets her leading followers in a moment of Hindu bliss.",
-     "walkthrough": "A rani is the wife of a rajah, an Indian queen. 'Those at the front' means the vanguard, the leading troops.",
-     "definitionFit": "In Hindu and Buddhist thought nirvana is the state of perfect bliss."
+     "surface": "Leading Hindus are greeted by a queen moving among her guests.",
+     "walkthrough": "'those at the front' looks like a first-letters instruction, but it is a synonym for the leading group.",
+     "definitionFit": "Nirvana is the state of perfect peace and release from rebirth in Hindu and Buddhist belief."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "front"
     }
    }
@@ -1649,41 +1657,30 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EVE",
+     "op": "middle",
      "indicators": [
       {
        "text": "stripped",
-       "note": "the word is stripped of its outer letters"
+       "at": 16,
+       "note": "stripped of its outer covering, so the first and last letters go"
       }
      ],
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
+       "words": "at no time",
+       "at": 5,
        "gives": "NEVER",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "at no time",
-         "gives": "NEVER",
-         "select": "outer",
-         "note": "never = at no time; stripped of its first and last letters"
-        }
-       ]
+       "note": "never means at no time"
       }
      ]
     },
     "explanation": {
-     "surface": "A girl who never undressed.",
-     "walkthrough": "'At no time' is NEVER; strip it and the middle is a girl's name.",
-     "definitionFit": "A definition by example: 'girl' in crosswords often stands for any female first name, here the first woman in Genesis."
+     "surface": "A girl was never undressed, the clue seems to insist.",
+     "definitionFit": "Eve is a girl's name, that of the first woman in the Bible."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "stripped"
     }
    }

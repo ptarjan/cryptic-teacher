@@ -90,42 +90,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "wrongly",
-       "note": "done wrongly means done out of order, so the letters are rearranged"
+       "text": "about",
+       "at": 14,
+       "note": "the rearranged letters go about, round, the male word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so the shuffled letters surround the other piece"
+         "text": "wrongly",
+         "at": 6,
+         "note": "done wrongly, so the letters of teach are put in a different order"
         }
        ],
        "parts": [
         {
          "words": "Teach",
-         "note": "the letters of teach, rearranged"
-        },
-        {
-         "words": "male",
-         "gives": "HE",
-         "note": "he is the male pronoun"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "male",
+       "at": 20,
+       "gives": "HE",
+       "note": "he is the male pronoun"
       }
      ]
     },
     "explanation": {
-     "surface": "Giving a tomcat the wrong lessons.",
-     "definitionFit": "The cheetah is a big cat of the African savanna, the fastest land animal."
+     "surface": "Someone teaches badly about a tomcat.",
+     "definitionFit": "The cheetah is a big spotted wild cat, the fastest land animal."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "male"
     }
@@ -1101,50 +1104,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "corrected",
-       "note": "something corrected is put right, changing its order"
+       "text": "round",
+       "at": 27,
+       "note": "the mixed letters go round the middle letter, holding it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "round",
-         "note": "round means surrounding, so the jumbled letters go outside the selected letter"
+         "text": "corrected",
+         "at": 9,
+         "note": "put right, so the letters of on and walk are reordered"
         }
        ],
        "parts": [
         {
-         "words": "on walk",
-         "note": "the letters of on walk, rearranged"
+         "words": "on",
+         "at": 19
         },
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "centre of",
-           "note": "the centre of a three-letter word is its middle letter, the one taken from Ely"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Ely",
-           "note": "the middle letter of Ely"
-          }
-         ]
+         "words": "walk",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre of",
+         "at": 33,
+         "note": "the centre of a three-letter word is its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ely",
+         "at": 43
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A smart alec is put right while walking round a cathedral city.",
-     "walkthrough": "Ely is a small cathedral city in Cambridgeshire.",
-     "definitionFit": "A know-all is someone who acts as if they know everything, the same as a sarcastic wise guy."
+     "surface": "A smart alec is put right while walking round the middle of Ely, a cathedral city.",
+     "walkthrough": "Ely is a small cathedral city in Cambridgeshire, England.",
+     "definitionFit": "A know-all is someone who acts as though they know everything, a smart alec."
     },
     "features": {
      "answerInScene": true,
@@ -1319,41 +1329,52 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the morning letters surround the numbers"
+       "at": 24,
+       "note": "the morning letters go about, round, the ten pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "in the morning",
+       "at": 8,
+       "gives": "AM",
+       "note": "AM, ante meridiem, means in the morning"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "at": 34,
+         "note": "one ten sits after the other ten"
+        }
+       ],
        "parts": [
         {
-         "words": "the morning",
-         "gives": "AM",
-         "note": "am is the abbreviation for morning"
+         "words": "ten",
+         "at": 30,
+         "gives": "X",
+         "note": "X is the Roman numeral ten"
         },
         {
          "words": "ten",
-         "gives": "X",
-         "note": "X is the Roman numeral ten"
+         "at": 40,
+         "gives": "IO",
+         "note": "IO looks like the figures 1 and 0, ten"
         }
        ]
-      },
-      {
-       "words": "after ten",
-       "gives": "IO",
-       "note": "ten written as 1 and 0, looking like the letters IO, coming after the first ten"
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Maxim is up at ten past ten in the morning.",
-     "walkthrough": "Ten appears twice: once as a Roman X, once as the digits 1 and 0 read as letters.",
-     "definitionFit": "An axiom is a self-evident truth or accepted principle, which is a maxim."
+     "surface": "Someone's morning motto comes round at ten past ten.",
+     "walkthrough": "Ten is clued two ways: once as a Roman numeral and once as the digits one and zero.",
+     "definitionFit": "An axiom is a self-evident truth or accepted saying, much like a maxim."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Maxim"
+     "misdirectedWord": "after"
     }
    }
   },

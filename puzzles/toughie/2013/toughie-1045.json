@@ -747,56 +747,45 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece is placed round the others"
+       "at": 13,
+       "note": "the news letters go about, round, the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "News updates",
-         "gives": "RSS",
-         "note": "RSS is the web feed format that delivers news updates"
-        },
-        {
-         "words": "remains",
-         "gives": "ASH",
-         "note": "ash is what remains after burning, as with cremated remains"
-        }
-       ]
+       "words": "News updates",
+       "at": 0,
+       "gives": "RSS",
+       "note": "RSS is the web feed format that delivers news updates"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "NE",
-       "indicators": [
-        {
-         "text": "half-",
-         "note": "half of a word keeps just one of its two halves, here the back pair"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "nine",
+         "words": "remains",
+         "at": 19,
+         "gives": "ASH",
+         "note": "ash is what remains after burning"
+        },
+        {
+         "words": "half-nine",
+         "at": 31,
          "gives": "NE",
-         "select": "last",
-         "note": "the second half of nine"
+         "note": "NE is the second half of the word nine"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Breaking news about human remains, released at half past nine, was indiscreet.",
-     "walkthrough": "'At half-nine' reads as a time of day, but it asks for half the word nine. RSS, a web news feed, wraps the rest.",
-     "definitionFit": "Rashness is acting hastily without thought for consequences, which is a lack of prudence or indiscretion."
+     "surface": "News bulletins about human remains are broadcast at half past nine.",
+     "walkthrough": "'half-nine' reads as a time, half past nine, but it means half of the word nine.",
+     "definitionFit": "Rashness is acting without thought, which is a lack of discretion."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "remains"
+     "misdirectedWord": "half-nine"
     }
    }
   },

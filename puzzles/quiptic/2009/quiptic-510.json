@@ -597,67 +597,47 @@
      "indicators": [
       {
        "text": "claiming",
-       "note": "to claim something is to take hold of it, so the journalist encloses what follows"
+       "at": 37,
+       "note": "taking for itself, so the journalist holds the other letters inside"
       }
      ],
      "parts": [
       {
        "words": "a journalist",
+       "at": 24,
        "gives": "HACK",
-       "note": "a hack is a journalist, often a mediocre one"
+       "note": "a hack is a journalist, usually a jobbing one"
       },
       {
        "op": "charade",
        "indicators": [
         {
          "text": "ahead of",
-         "note": "ahead of says the race comes in front of the letters that follow it"
+         "at": 51,
+         "note": "the race comes before the letters from riders"
         }
        ],
        "parts": [
         {
          "words": "race",
+         "at": 46,
          "gives": "TT",
-         "note": "the TT is the Tourist Trophy motorcycle race on the Isle of Man"
+         "note": "the TT is the Isle of Man motorcycle race"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first and third of",
-           "note": "only the letters in positions one and three of the next word are kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "riders",
-           "note": "the first letter of riders"
-          }
-         ]
-        },
-        {
-         "op": "nth",
-         "unchecked": true,
-         "gives": "I",
-         "n": 3,
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "riders",
-           "gives": "I",
-           "select": 3,
-           "note": "the third letter of riders"
-          }
-         ]
+         "words": "first and third of riders",
+         "at": 60,
+         "gives": "RI",
+         "note": "the setter's letters here are R and I, though the third letter of riders is D; R and I are its first two"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A reporter covers a horse race and celebrates a rider's triple success.",
-     "walkthrough": "The TT is the Isle of Man motorcycle race; 'a journalist' is the outer piece, split after its second letter.",
-     "definitionFit": "A hat-trick is three successes in a row by one player, such as three goals in a match."
+     "surface": "A sports reporter writes up a race, mentioning the leading riders.",
+     "walkthrough": "The TT is the Tourist Trophy motorcycle race on the Isle of Man. The letters needed are the first two of riders, so 'third' looks like the setter's slip.",
+     "definitionFit": "A hat-trick is three successes in a row, such as three goals by one player in a match."
     },
     "features": {
      "answerInScene": true,
@@ -1229,48 +1209,50 @@
      "indicators": [
       {
        "text": "surrounding",
-       "note": "surrounding means enclosing on all sides, so the first piece wraps round the rest"
+       "at": 10,
+       "note": "the attention word goes round the saint and the initial, holding them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Attention",
-         "gives": "EAR",
-         "note": "to give someone your ear is to pay attention"
-        },
-        {
-         "words": "St",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Attention",
+       "at": 0,
+       "gives": "EAR",
+       "note": "to give ear is to pay attention"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "head",
-         "note": "the head of a name is its first letter, so only that one is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Edmund's",
-         "note": "first letter of Edmund"
+         "words": "St",
+         "at": 22
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head",
+           "at": 34,
+           "note": "the head of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Edmund's",
+           "at": 25
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A feast day honouring the saint involves attention to St Edmund's head.",
-     "walkthrough": "St Edmund was an English king and martyr whose severed head, legend says, was found guarded by a wolf.",
-     "definitionFit": "Easter is the Christian festival celebrating the resurrection of Jesus."
+     "surface": "People pay attention to Saint Edmund at a festival.",
+     "definitionFit": "Easter is the Christian festival celebrating the Resurrection."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "head"
     }

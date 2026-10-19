@@ -1034,51 +1034,56 @@
      {
       "text": "that's smoked",
       "at": 30,
-      "note": "a clause for a thing that is smoked, standing for the noun"
+      "note": "a defining phrase for a noun: something one smokes, here a cigar"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PANATELLA",
+     "op": "container",
      "indicators": [
       {
-       "text": "Headless",
-       "note": "a headless word loses its first letter"
+       "text": "found in",
+       "at": 16,
+       "note": "something found in a place sits inside it, so the shortened insect goes within the dish"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "dish",
+       "at": 25,
+       "gives": "PAELLA",
+       "note": "paella is a Spanish rice dish"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "found in",
-         "note": "the insect is found inside the dish"
+         "text": "Headless",
+         "at": 0,
+         "note": "without its head, so the insect's first letter is cut off"
         }
        ],
        "parts": [
         {
-         "words": "dish",
-         "gives": "PAELLA",
-         "note": "paella is a Spanish rice dish"
+         "words": "insect",
+         "at": 9,
+         "gives": "GNAT",
+         "note": "a gnat is a small flying insect"
         },
         {
-         "words": "insect",
-         "gives": "NAT",
-         "note": "GNAT without its head, G"
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A decapitated bug turns up in a plate of smoked food.",
-     "walkthrough": "'Smoked' looks like it describes the dish, but it is the definition.",
-     "definitionFit": "A panatella is a long thin cigar, something that is smoked."
+     "surface": "A diner discovers a decapitated bug in a meal that has been smoked.",
+     "walkthrough": "'dish that's smoked' reads as one smoked food, but the definition is only 'that's smoked'.",
+     "definitionFit": "A panatella is a long thin cigar, which is something a person smokes."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "smoked"
     }
    }
