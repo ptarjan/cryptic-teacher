@@ -2217,6 +2217,36 @@ INDICATOR_TYPES = {
 }
 assert set(INDICATOR_TYPES) <= set(clue_types.NAMES)
 
+# Ops the blog-voted indicators.json never names but our annotations do, read
+# from tools/data/indicator_roles.json (tools/build_indicator_roles.py): the
+# annotated corpus's count of each indicator word per op. They follow the
+# types above, after the lexicon's own.
+ROLE_INDICATOR_TYPES = {
+    "substitution": "Swap one piece for another. <em>For</em>, <em>replacing</em> and "
+                    "<em>instead of</em> say which letters come out and which go in.",
+    "cycling": "Move the end letters round to the other end. <em>Cycling</em>, "
+               "<em>first to last</em> and <em>back to front</em> turn ROTA into OTAR.",
+    "palindrome": "The answer reads the same both ways. <em>Either way</em> and "
+                  "<em>whichever way you look at it</em> say so.",
+}
+ROLE_MIN_USES, ROLE_MIN_SHARE = 20, 0.5
+INDICATOR_TYPES.update(ROLE_INDICATOR_TYPES)
+assert set(INDICATOR_TYPES) <= set(clue_types.NAMES)
+
+
+@functools.cache
+def role_lexicon():
+    """{type: {key: clues}} for ROLE_INDICATOR_TYPES: each word goes under the
+    one op the annotated corpus files it under most (one op per indicator),
+    where that is at least ROLE_MIN_USES uses and ROLE_MIN_SHARE of its uses."""
+    roles = json.loads((ROOT / "tools" / "data" / "indicator_roles.json").read_text(encoding="utf-8"))
+    out = {t: {} for t in ROLE_INDICATOR_TYPES}
+    for word, counts in roles.items():
+        top = max(counts, key=counts.get)
+        if top in out and counts[top] >= ROLE_MIN_USES and counts[top] >= ROLE_MIN_SHARE * sum(counts.values()):
+            out[top][word.lower()] = counts[top]
+    return out
+
 
 @functools.cache
 def indicator_lexicon():
@@ -2278,7 +2308,7 @@ def indicator_lexicon_hash():
 
 def ranked_indicators(t):
     """indicators.json's [(key, clues)] for type t, most used first."""
-    return sorted(indicator_lexicon()[t].items(), key=lambda kv: (-kv[1], kv[0]))
+    return sorted({**indicator_lexicon(), **role_lexicon()}[t].items(), key=lambda kv: (-kv[1], kv[0]))
 
 
 # How many of a type's indicators /learn/ shows: the head, where a beginner's
@@ -2316,8 +2346,9 @@ def indicators_page(found):
     puzzle page that uses it (clue_indicators), explained by us where we can.
     """
     lex = indicator_lexicon()
-    types = [t for t in INDICATOR_TYPES if lex.get(t)]
     unknown = sorted(set(lex) - set(INDICATOR_TYPES))
+    lex = {**lex, **role_lexicon()}
+    types = [t for t in INDICATOR_TYPES if lex.get(t)]
     if unknown:
         raise SystemExit(f"{INDICATORS.relative_to(ROOT)} has indicator types the "
                          f"/indicators/ page does not explain: {', '.join(unknown)}. "
