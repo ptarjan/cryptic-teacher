@@ -297,38 +297,41 @@
      "indicators": [
       {
        "text": "to acquire",
-       "note": "whatever acquires something takes it in, so one piece goes inside another"
+       "at": 8,
+       "note": "the attempt takes in, acquires, the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Attempt",
-         "gives": "TRY",
-         "note": "a try is an attempt"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Attempt",
+       "at": 0,
+       "gives": "TRY",
+       "note": "a try is an attempt"
       },
       {
-       "words": "sleeveless garment",
-       "gives": "VEST",
-       "note": "a vest is a sleeveless undergarment or top"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 19,
+         "gives": "A"
+        },
+        {
+         "words": "sleeveless garment",
+         "at": 21,
+         "gives": "VEST",
+         "note": "a vest is a sleeveless undergarment"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A performer tries to get hold of a vest for a comic stage show.",
-     "walkthrough": "'Burlesque' sits at the end looking like the reason for the vest, but it is the definition.",
-     "definitionFit": "A travesty is a grotesque imitation or parody, which is what a burlesque does to its serious subject."
+     "surface": "Trying to buy a sleeveless top for a variety show.",
+     "definitionFit": "A travesty is a grotesque imitation, much like a burlesque or parody."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "burlesque"
     }
@@ -648,38 +651,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RETSINA",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "lidless",
-       "note": "without a lid means the top is missing, so the first letter goes"
+       "text": "knocked back",
+       "at": 28,
+       "note": "knocked back means turned back, so the letters run backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "knocked back",
-         "note": "knocked back means sent backwards, so the letters run the other way"
+         "text": "lidless",
+         "at": 10,
+         "note": "without a lid, the top letter is removed"
         }
        ],
        "parts": [
         {
          "words": "container",
-         "gives": "ANISTER",
-         "note": "a canister without its first letter"
+         "at": 18,
+         "gives": "CANISTER",
+         "note": "a canister is a container"
+        },
+        {
+         "gives": "C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drinker gulps wine straight from an open container.",
-     "walkthrough": "'Knocked back' suggests drinking quickly, which fits the surface, but it signals reversal.",
-     "definitionFit": "Retsina is a Greek white wine flavoured with pine resin, so it is one kind of wine."
+     "surface": "Someone drinks wine straight from an open tin.",
+     "walkthrough": "'lidless' leaves ANISTER, and 'knocked back' reads it backwards. Knocked back is also slang for drinking.",
+     "definitionFit": "Retsina is a Greek white wine flavoured with pine resin."
     },
     "features": {
      "answerInScene": true,
@@ -710,52 +717,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SAFFRON",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "at heart",
+         "at": 8,
+         "note": "the heart of causing is its central letter"
+        }
+       ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "S",
-         "indicators": [
-          {
-           "text": "at heart",
-           "note": "the heart of something is its centre, so the middle letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "causing",
-           "gives": "S",
-           "select": "middle",
-           "note": "the middle letter of the seven"
-          }
-         ]
-        },
+         "words": "causing",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 36,
+         "note": "mostly means all but the final letter"
+        }
+       ],
+       "parts": [
         {
          "words": "indignity",
-         "gives": "AFFRON",
-         "note": "an affront is an insult or indignity, less its last letter"
+         "at": 25,
+         "gives": "AFFRONT",
+         "note": "an affront is an insult, an indignity"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Social stigmas lie at the core of what makes people feel humiliated.",
-     "walkthrough": "'Stigmas' reads as marks of disgrace; it is the botanical sense, the parts of a flower that catch pollen.",
-     "definitionFit": "The spice is made from the dried stigmas of the crocus flower, so the stigmas themselves are what you buy."
+     "surface": "Marks of disgrace are mostly causing humiliation.",
+     "walkthrough": "'Stigmas' looks like marks of shame, but these are the parts of a crocus flower.",
+     "definitionFit": "Saffron is the dried stigmas of the saffron crocus, used as spice."
     },
     "features": {
      "answerInScene": false,
@@ -1228,36 +1234,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AVID",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "short means cut down, so the word loses its ending"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 2,
+         "note": "short means cut short, losing the end"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
+         "words": "film",
+         "at": 8,
+         "gives": "VIDEO",
+         "note": "a video is a recorded film"
         },
         {
-         "words": "film",
-         "gives": "VID",
-         "note": "a video, cut to its first three letters"
+         "gives": "EO"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A brief movie depicts intense romance.",
-     "walkthrough": "'A short film' looks like a unit, but 'short' only trims the film.",
-     "definitionFit": "Avid means eager and enthusiastic, so someone avid is keen with great passion for something."
+     "surface": "A brief movie displays strong emotion.",
+     "walkthrough": "Short here trims the last two letters, as VID is a common shortening of video.",
+     "definitionFit": "Avid means eager and enthusiastic, keen to an intense degree."
     },
     "features": {
      "answerInScene": false,
@@ -1647,37 +1657,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LAITIES",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "endless means with no end, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 35,
+         "note": "without its end, the last letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "put down",
-         "gives": "LAI",
-         "note": "laid, meaning put down, without its final letter"
+         "at": 26,
+         "gives": "LAID",
+         "note": "laid means put down"
         },
         {
-         "words": "connections",
-         "gives": "TIES",
-         "note": "ties are connections or bonds"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "connections",
+       "at": 43,
+       "gives": "TIES",
+       "note": "ties are bonds, connections"
       }
      ]
     },
     "explanation": {
-     "surface": "Ordinary folk are dismissing their endless networking.",
-     "walkthrough": "'Put down' suggests belittling; it is simply placing, so laid.",
-     "definitionFit": "A laity is the body of ordinary people as opposed to clergy or professionals; laities are several such bodies."
+     "surface": "Common folk lay down their links with no end.",
+     "definitionFit": "The laity are lay people, non-clergy members of a church, so laities are such groups."
     },
     "features": {
      "answerInScene": false,

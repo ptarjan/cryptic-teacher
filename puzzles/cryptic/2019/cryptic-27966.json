@@ -334,47 +334,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PERINATAL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
+       "text": "out",
+       "at": 40,
+       "note": "out means put out of order, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "parent",
+       "at": 21,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "out",
-         "note": "out can mean set out afresh or disordered, so the letters before it are rearranged"
+         "text": "mostly",
+         "at": 28,
+         "note": "mostly means most of the word, so the last letter goes"
         }
        ],
        "parts": [
         {
-         "words": "parent",
-         "note": "taken as written"
+         "words": "laid",
+         "at": 35
         },
         {
-         "words": "laid",
-         "gives": "LAI",
-         "note": "laid without its last letter"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Around the time of the birth, the exhausted parent was mostly laid out flat.",
-     "walkthrough": "'Laid out' reads as a phrase for lying flat; 'mostly' trims the pair's final letter and 'out' then scrambles all nine.",
-     "definitionFit": "The medical adjective describes the weeks immediately before and after a baby is delivered."
+     "surface": "A tired mother or father around the time of a baby's arrival, nearly laid out flat.",
+     "walkthrough": "'mostly' trims LAID to LAI; 'out' scrambles PARENT plus LAI.",
+     "definitionFit": "Perinatal describes the weeks just before and after a baby is born."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "out"
+     "misdirectedWord": "laid"
     }
    }
   },
@@ -1564,43 +1567,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ELIDE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Tailless",
-       "note": "without a tail means the final letter is removed"
+       "text": "across",
+       "at": 14,
+       "note": "the shortened bird stretches across, around, the letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "across",
-         "note": "stretching across something spans it, so one piece lies over another"
+         "text": "Tailless",
+         "at": 0,
+         "note": "without its tail, the last letter is removed"
         }
        ],
        "parts": [
         {
          "words": "duck",
-         "gives": "EIDE",
-         "note": "an eider is a sea duck, here losing its last letter"
+         "at": 9,
+         "gives": "EIDER",
+         "note": "the eider is a sea duck"
         },
         {
-         "words": "lake",
-         "gives": "L",
-         "note": "L is the abbreviation for lake"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "lake",
+       "at": 21,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A duck with no tail swims across a lake and is cut off from the others.",
-     "walkthrough": "'Cut off' reads as isolated; it is the verb for dropping a sound or syllable in speech.",
-     "definitionFit": "To elide a vowel or syllable is to omit it in pronunciation, suppressing or shortening part of a word."
+     "surface": "A duck without its tail feathers has been cut off from its lake.",
+     "walkthrough": "'Tailless' trims EIDER to EIDE, which goes 'across' L.",
+     "definitionFit": "To elide is to omit a sound or syllable when speaking, to drop it."
     },
     "features": {
      "answerInScene": false,
