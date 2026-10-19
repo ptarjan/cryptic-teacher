@@ -1017,6 +1017,18 @@ def parted(clue, others):
     "Paintedbrownrestaurantred...", and "fora" for "for a",
     whose two words the corpus's clues print far more) parted as they are, and
     two words it ran together over a stop ("to.poison", "Anag.of") parted."""
+    # A figure run into words ("Nothereis14found") that another reading
+    # prints apart ("Not here is 14 found"): parted as it prints them.
+    for m in re.findall(r"[A-Za-z]+\d{1,2}[A-Za-z]+", clue):
+        digits = re.search(r"\d+", m).group()
+        for theirs in others:
+            put = [digits if t == BREAK else t for t in theirs]
+            hit = next((put[i:j] for i in range(len(put)) for j in range(i + 3, min(len(put), i + 9) + 1)
+                        if "".join(put[i:j]).lower() == m.lower()
+                        and sum(t == digits for t in put[i:j]) == 1), None)
+            if hit:
+                clue = clue.replace(m, " ".join(hit), 1)
+                break
     # Words run together over a stop are one run here: "walls.from" is
     # longer than any word of No 17 16D.
     runs = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)*", re.sub(r"(?<=[A-Za-z])(?: ?[.:\u00b7\u2022]{1,2}|[,;:!?][\u00b7\u2022]|[\"\u201c\u201d]\(?|-{2,3})(?=[A-Za-z])", "", clue))
@@ -1339,6 +1351,33 @@ def edge_split(edge, piece, rest, side):
 #: must print it beside each neighbour than the neighbours side by side.
 LONE_WORD_LETTERS = 3
 LONE_WORD_RATIO = 2
+
+
+def lone_known(i, a, w, low, seen, extra, leads, trails, first_at, last_at):
+    """Whether the dictionary word `a` (clue word `i`, as printed `w`) that
+    no other reading has is a word they lost: the clue's capitalised first
+    word, every reading printing the clue has the clue's next word, and none prints a
+    word of any weight in its place (a speck or two letters that are no
+    word is no rival). Else a lone word is a misread or a hallucination."""
+    printers = [k for k, lead in enumerate(leads) if lead is not None]
+    if not printers or not is_word(a) or not (i == first_at and w[:1].isupper() and len(a) >= 2):
+        return False
+    if a in ("a", "i") or CAPS_IN_WORD.search(w):
+        return False
+    nearby = [j for j in (i - 1, i + 1) if 0 <= j < len(low) and low[j] not in MARKS and low[j] != BREAK]
+    if i != first_at:
+        # Only the clue's first word: a crop that takes the number's row loses
+        # it. Inside the clue or at its end, a word two readings lack stays
+        # lost ("She eats junkets": test_ocr_vote_checks).
+        return False
+    if any(k not in seen[j] for j in nearby for k in printers):
+        return False
+    rivals = [t for g in (i, i + 1) for ws in extra[g] for t in [ws] if t not in MARKS and t != BREAK]
+    if i == first_at:
+        rivals += [t for k in printers for t in (leads[k] or ()) if t not in MARKS and t != BREAK]
+    if i == last_at:
+        rivals += [t for k in printers for t in (trails[k] or ()) if t not in MARKS and t != BREAK]
+    return not any(is_word(t) or len(t) > 3 for t in rivals)
 
 
 def lone_word_fits(word, before, after):
@@ -2114,6 +2153,14 @@ def vote(clue, others, keep_known=False, families=None, rates=None, clues=(), nu
             # rest the answer or the next clue's garble.
             count_cut = cnt.start()
             break
+        if not got and lone_known(i, a, w, low, seen, extra, leads, trails, first_at, last_at):
+            # A dictionary word only this reading has, where every other
+            # reading printing the clue has its neighbours and nothing in
+            # its place: the others' crop or line lost it (the clue's own
+            # first word, "He doesn't draw carts" against "doesn't draw
+            # carts"), no reader read something else there.
+            how = "settled by the dictionary"
+            continue
         if not got:
             return None, f"no other reading has {w!r}"
         if (i == 0 and len(w) == 1 and second[:1].isupper()
@@ -2207,7 +2254,13 @@ def vote(clue, others, keep_known=False, families=None, rates=None, clues=(), nu
             # Three readings or more, every one, print the same non-word:
             # the print's own (No 4 15D's Elizabethan "busie", not "susie").
             pick = a
-        elif not known(a) and not (i and w[0].isupper()) and mend(read, before, after):
+        elif not known(a) and not (i and w[0].isupper()) and not (
+                # The clue's first word, a name, every reading spells alike
+                # (bar an apostrophe): the mend would change the capital the
+                # type prints largest and clearest ("Herrick's", not "Derrick's").
+                i == first_at and w[:1].isupper() and len(a) > 3 and len(got) >= 1
+                and all(v.lower().replace("'", "") == a.replace("'", "") for v in got.values())
+                and (mended_to := mend(read, before, after)) and mended_to[:1] != a[:1]) and mend(read, before, after):
             # No reading a known word: the known word they all misspell (a
             # capital inside the clue is a name the corpus may not know).
             pick = mend(read, before, after)
@@ -3239,7 +3292,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
             blank[lid] = "another clue's number inside it"
             out[lid] = ("", enum, group)
             continue
-        text = opening_one(cut_at_count(text, enum))
+        text = opening_one(cut_at_count(text, enum), own)
         # A clue may open on another light's number ("19, we hear, in the
         # crew", "25 in voice"): that is no lost opening.
         ref = re.match(r"(\d{1,2})(?:,| (?:across|down|ac|dn)\b)?\s+[a-z]", text or "")
@@ -3289,9 +3342,15 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
     return out, blank
 
 
-def opening_one(text):
+def opening_one(text, own=None):
     """`text` with a "1" opening it before a small word read as the "I" it
-    is ("1 hear"); were the opening lost, the vote finds it."""
+    is ("1 hear"); were the opening lost, the vote finds it. Past the
+    clue's own number's figures ("2 1 have left" for 22's "I have left")
+    the number is dropped too."""
+    if text and own is not None:
+        m = re.match(r"(\d{1,2})\.?\s+1(?=\s+[a-z])", text)
+        if m and m.group(1) in str(own):
+            text = text[m.end() - 1:]
     return re.sub(r"^1(?=\s+[a-z])", "I", text) if text else text
 
 

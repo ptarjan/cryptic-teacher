@@ -4960,6 +4960,23 @@ _LINKED = {}
 REREAD_THREE_COLUMNS = ("2006-11-01", "2013-12-31", "2026-10-18T04:37:45+00:00")
 
 
+#: {day: ISO time}: a Gale edition of that day whose page no scan reader parsed
+#: ("no ACROSS and DOWN lists", the VLM then reading it whole) and was read
+#: before that time is read again as "refused unparsed before its fix": the
+#: fix reads it now (1948-11-10: trimmed_lead's 7px rule between the small ads
+#: and the clue column ran the ad's line ends into the ACROSS column). One
+#: day per fix proved on its page, never a blanket over the unparsed.
+REREAD_UNPARSED = {"1948-11-10": "2026-10-19T18:00:00+00:00"}
+
+
+def unparsed_fixed(row):
+    """Whether `row` is a REREAD_UNPARSED day's edition with a puzzle every
+    scan reader left unparsed, read before that fix."""
+    t = REREAD_UNPARSED.get(str((row.get("scan") or {}).get("date", "")))
+    return bool(t) and scan_queue.read_before(row, scan_queue.when(t)) and any(
+        v.get("unparsed") and not v.get("refused") and not v.get("complete") for v in row.get("verdicts", ()))
+
+
 def short_three_columns(row):
     """Whether `row` is a Gale Times edition of REREAD_THREE_COLUMNS' days with
     a puzzle held short of clues (fewer than lights, none refused)."""
@@ -4983,6 +5000,8 @@ def fix_reason(row):
         t = REREAD_WRITE_FAILED.get(v.get("writeFailed"))
         if t and scan_queue.read_before(row, scan_queue.when(t)):
             return "refused writeFailed before its fix"
+    if unparsed_fixed(row):
+        return "refused unparsed before its fix"
     if short_three_columns(row) and scan_queue.read_before(row, scan_queue.when(REREAD_THREE_COLUMNS[2])):
         return "short Times page, its third clue column read since"
     if row.get("solutionKey") != solution_key():
