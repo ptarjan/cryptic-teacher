@@ -34,15 +34,25 @@ requeue_job() {
 Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>" || exit 1
       # The survey takes minutes and puzzle pushes land meanwhile: rebase onto them rather than
       # re-survey, which a busy burn can beat forever. Only a conflict on the queue files goes round.
-      for _ in 1 2 3 4 5; do
+      # The burn pushes every few seconds, so five quick tries lost the race and dropped the raised
+      # allowances (deploy red): keep rebasing and pushing, with backoff, until REQUEUE_PUSH_SECS.
+      deadline=$(( $(date +%s) + ${REQUEUE_PUSH_SECS:-1200} )); n=0
+      while :; do
         PUSH_CHECKED_NO_REQUEUE=1 tools/push_checked.sh && exit 0
+        [ "$(date +%s)" -lt "$deadline" ] || exit 3
+        n=$((n + 1)); sleep $(( (n < 6 ? n * 2 : 12) + RANDOM % 5 ))
         git pull -q --rebase origin master || { git rebase --abort; exit 2; }
       done
-      exit 2
     )
     rc=$?
     git worktree remove --force "$tmp" 2>/dev/null
     echo "push_checked: requeue job finished (exit $rc)"
+    if [ $rc -ne 0 ] && [ $rc -ne 2 ]; then
+      # Never drop the work silently: the allowance raises did not land, so the deploy may be red.
+      date -u +"%FT%TZ requeue job failed (exit $rc); newly flagged puzzles are NOT requeued" >> "$common/requeue_drift.failed"
+      ( . "$here/alert.sh" && alert "push_checked requeue job could not push its allowance raises (exit $rc, see $common/requeue_drift.log); puzzles a validator rule change newly flags may fail the deploy. Run: python3 tools/requeue_drift.py --write, then commit and push." ) || true
+      return "$rc"
+    fi
     [ $rc -eq 2 ] && : > "$common/requeue_drift.again"
     [ -e "$common/requeue_drift.again" ] || break
   done
