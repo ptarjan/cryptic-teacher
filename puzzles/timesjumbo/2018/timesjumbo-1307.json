@@ -497,36 +497,39 @@
      "indicators": [
       {
        "text": "stops",
-       "note": "stops means plugs, so the complaint fills the gap inside the old partner"
+       "at": 15,
+       "note": "stops says the letters plug the gap inside the word for old partner, like a stopper"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "old partner",
-         "gives": "EX",
-         "note": "an ex is a former partner"
-        },
-        {
-         "words": "Loud",
-         "gives": "F",
-         "note": "F is forte, loud in music"
-        }
-       ]
+       "words": "old partner",
+       "at": 21,
+       "gives": "EX",
+       "note": "an ex is a former partner"
       },
       {
-       "words": "complaint",
-       "gives": "FLU",
-       "note": "an illness is a complaint"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Loud",
+         "at": 0,
+         "gives": "F",
+         "note": "F is forte, the musical abbreviation for loud"
+        },
+        {
+         "words": "complaint",
+         "at": 5,
+         "gives": "FLU",
+         "note": "flu is a complaint, an illness"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shouting match ends when a former partner storms out.",
-     "walkthrough": "E(F + FLU)X. 'Complaint' looks like a grievance but is an illness.",
-     "definitionFit": "Efflux is the act of flowing out, a running out of liquid or gas."
+     "surface": "A loud complaint makes a former partner storm out.",
+     "definitionFit": "An efflux is an outflow, the act of flowing or running out."
     },
     "features": {
      "answerInScene": false,
@@ -665,41 +668,44 @@
      "indicators": [
       {
        "text": "pinching",
-       "note": "pinching means grabbing and holding, so the fellow encloses the rest"
+       "at": 7,
+       "note": "pinching says the fellow holds the following letters between his letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Fellow",
-         "gives": "TED",
-         "note": "any man's name will do for fellow"
-        },
-        {
-         "words": "gold",
-         "gives": "OR",
-         "note": "or is gold in heraldry"
-        }
-       ]
+       "words": "Fellow",
+       "at": 0,
+       "gives": "TED",
+       "note": "Ted is any fellow's name"
       },
       {
-       "words": "chain",
-       "gives": "CH",
-       "note": "CH is the abbreviation for chain, the old unit of length"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gold",
+         "at": 16,
+         "gives": "OR",
+         "note": "or is the heraldic word for gold"
+        },
+        {
+         "words": "chain",
+         "at": 21,
+         "gives": "CH",
+         "note": "ch is the abbreviation for chain, an old unit of length"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "A man who steals a gold chain loses his job.",
-     "walkthrough": "T(OR + CH)ED. 'Fired' looks like sacked, but it means set on fire.",
-     "definitionFit": "Torched means set alight deliberately, so fired in the sense of burnt."
+     "walkthrough": "'pinching' looks like theft, and 'fired' like dismissal, but it means set alight.",
+     "definitionFit": "Torched means set on fire, deliberately burnt."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "fired"
     }
    }
@@ -2796,50 +2802,55 @@
      "indicators": [
       {
        "text": "contains",
-       "note": "contains means holds inside, so the word for shroud goes round the rest"
+       "at": 13,
+       "note": "contains says the following letters go inside the word for shroud"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "shroud",
-         "gives": "BURY",
-         "note": "to shroud is to cover up or bury"
-        },
-        {
-         "words": "piece",
-         "gives": "GUN",
-         "note": "a piece is slang for a gun"
-        }
-       ]
+       "words": "shroud",
+       "at": 6,
+       "gives": "BURY",
+       "note": "to bury is to shroud or cover"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "at last",
-         "note": "at last points to the final letter of mended"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "mended",
-         "note": "its last letter"
+         "words": "piece",
+         "at": 22,
+         "gives": "GUN",
+         "note": "a piece is slang for a gun"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "at last",
+           "at": 35,
+           "note": "at last means the final letter of mended is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mended",
+           "at": 28,
+           "gives": "D"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A red burial cloth has a piece sewn back on.",
-     "walkthrough": "BUR(GUN + D)Y. 'A red' looks like an adjective; it is a noun, one red wine.",
-     "definitionFit": "Burgundy is a red wine from the region of eastern France, so it is an example of a red."
+     "surface": "A red burial shroud has a piece of cloth mended at last.",
+     "walkthrough": "'A red' is a red wine: burgundy from the Burgundy region of France.",
+     "definitionFit": "Burgundy is a French wine, most famously red, so it is a red."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "piece"
     }
    }
@@ -2862,7 +2873,7 @@
      {
       "text": "Clothing no longer",
       "at": 0,
-      "note": "the answer is an archaic word for clothes, hence 'no longer'"
+      "note": "clothing in a word no longer in common use"
      }
     ],
     "wordplay": {
@@ -2870,40 +2881,43 @@
      "indicators": [
       {
        "text": "to wear",
-       "note": "what is worn goes around the wearer, so the abbreviation for right encloses the rest"
+       "at": 41,
+       "note": "to wear says the right abbreviation goes on round the other letters like a garment"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "right",
-         "gives": "RT",
-         "note": "RT is an abbreviation for right"
-        },
-        {
-         "words": "fine",
-         "gives": "AI",
-         "note": "A1 means first-rate, with the 1 read as I"
-        }
-       ]
+       "words": "right",
+       "at": 19,
+       "gives": "RT"
       },
       {
-       "words": "people",
-       "gives": "MEN",
-       "note": "men are people"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fine",
+         "at": 29,
+         "gives": "AI",
+         "note": "A1 means fine, first-rate, read as AI"
+        },
+        {
+         "words": "people",
+         "at": 34,
+         "gives": "MEN",
+         "note": "men are people"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Old-fashioned dress is no longer suitable for elegant people to wear.",
-     "walkthrough": "R(AI + MEN)T.",
-     "definitionFit": "Raiment is a literary, old-fashioned term for garments, rarely used in speech today."
+     "surface": "Clothing deemed no longer right for fine people to wear.",
+     "walkthrough": "'no longer' marks the word as archaic. A1, read as letters AI, means first-rate.",
+     "definitionFit": "Raiment is an old literary word for garments, now used only for effect."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "fine"
     }
    }
@@ -2998,7 +3012,8 @@
     "definitions": [
      {
       "text": "a country's people",
-      "at": 27
+      "at": 27,
+      "note": "plural noun: the people of one country"
      }
     ],
     "wordplay": {
@@ -3006,38 +3021,42 @@
      "indicators": [
       {
        "text": "encapsulates",
-       "note": "encapsulates means encloses, so the flag goes round the rest"
+       "at": 14,
+       "note": "encapsulates says the flag word wraps around the following letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "flag",
-         "gives": "IRIS",
-         "note": "a flag is a kind of iris"
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "flag",
+       "at": 9,
+       "gives": "IRIS",
+       "note": "a flag is an iris, the plant"
       },
       {
-       "words": "Quebec",
-       "gives": "Q",
-       "note": "Q is Quebec in the NATO alphabet"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "Quebec",
+         "at": 2,
+         "gives": "Q",
+         "note": "Quebec is the NATO radio alphabet code word for Q"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Quebec flag is wrapped around a group of citizens.",
-     "walkthrough": "IR(A + Q)IS. 'Flag' looks like a banner, but it is the plant.",
-     "definitionFit": "Iraqis are the inhabitants of Iraq, so they are the population of one country."
+     "surface": "A Canadian flag from Quebec stands for a nation's people.",
+     "walkthrough": "A flag is also a yellow iris, the waterside plant.",
+     "definitionFit": "Iraqis are the citizens of Iraq, a nation's people."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "flag"
     }

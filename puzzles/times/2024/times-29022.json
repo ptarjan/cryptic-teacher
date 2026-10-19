@@ -825,62 +825,67 @@
      {
       "text": "another",
       "at": 53,
-      "note": "read with 'sweet drink': another sweet drink"
+      "note": "another sweet drink, following on from cola in the clue"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HOTCHOCOLATE",
+     "op": "container",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of something is all but a bit, so the last letter is cut"
+       "text": "after drinking",
+       "at": 14,
+       "note": "after drinking says the jumbled letters take in the shortened drink"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "drinking",
-         "note": "something drinking takes what it drinks inside itself"
+         "text": "Bad",
+         "at": 0,
+         "note": "bad says the letters of toothache are spoilt and rearranged"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "Bad",
-           "note": "something gone bad is spoiled, so the letters are jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "toothache",
-           "note": "taken as written"
-          }
-         ]
-        },
+         "words": "toothache",
+         "at": 4
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 29,
+         "note": "most of means the last letter of the drink is dropped"
+        }
+       ],
+       "parts": [
         {
          "words": "sweet drink",
-         "gives": "COL",
-         "note": "cola, a fizzy sweet drink, without its last letter"
+         "at": 37,
+         "gives": "COLA",
+         "note": "cola is a sweet fizzy drink"
+        },
+        {
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bad toothache follows a session of sugary drinks.",
-     "walkthrough": "The definition leans on the wordplay: cola is one sweet drink and the answer is 'another'. The trimmed cola goes inside the pain word before everything is jumbled.",
-     "definitionFit": "Hot chocolate is a warm milky cocoa beverage, sweetened, so it is a second example alongside cola."
+     "surface": "Someone gets a bad toothache after downing a fizzy sweet drink, then another one.",
+     "walkthrough": "'sweet drink' looks like the definition, but it is wordplay; the definition is 'another', meaning a second sweet drink.",
+     "definitionFit": "Hot chocolate is a sweet hot drink made with cocoa, so it is a second sweet drink after cola."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Bad"
+     "misdirectedWord": "another"
     }
    }
   },
@@ -1087,37 +1092,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MINIBAR",
-     "indicators": [
-      {
-       "text": "Brief",
-       "note": "a brief word is cut short, so its final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Brief",
+         "at": 0,
+         "note": "brief means the word is cut short, losing its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "note",
-         "gives": "MINI",
-         "note": "a minim is a musical note, the half note; shortened by one letter"
+         "at": 6,
+         "gives": "MINIM",
+         "note": "a minim is a musical note, a half note"
         },
         {
-         "words": "prohibit",
-         "gives": "BAR",
-         "note": "to bar is to forbid"
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "prohibit",
+       "at": 14,
+       "gives": "BAR",
+       "note": "to bar is to prohibit"
       }
      ]
     },
     "explanation": {
-     "surface": "A short memo is left banning something in a hotel room.",
-     "walkthrough": "'Brief note' reads as a short message, but it is a musical note with its tail clipped.",
-     "definitionFit": "Many hotel rooms have a small fridge stocked with drinks and snacks charged to the guest's bill."
+     "surface": "A short note banning something in a hotel room.",
+     "walkthrough": "A minim is the British name for a half note in music; 'Brief' cuts it to MINI.",
+     "definitionFit": "A minibar is the small fridge of drinks provided in many hotel rooms."
     },
     "features": {
      "answerInScene": true,

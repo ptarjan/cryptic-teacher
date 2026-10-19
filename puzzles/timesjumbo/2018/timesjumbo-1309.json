@@ -1567,46 +1567,62 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "DISINFECT",
-     "indicators": [
-      {
-       "text": "getting energy for a",
-       "note": "getting one thing for another means swapping it in, one letter replacing another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Democrat",
-       "gives": "D",
-       "note": "D is the abbreviation for Democrat"
+       "at": 0,
+       "gives": "D"
       },
       {
        "words": "is",
-       "note": "taken as written"
+       "at": 9,
+       "gives": "IS"
       },
       {
-       "words": "actually",
-       "gives": "INFACT",
-       "note": "actually means in fact"
-      },
-      {
-       "words": "energy",
-       "gives": "E",
-       "note": "E is the symbol for energy"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "getting",
+         "at": 21,
+         "note": "getting says the word for actually receives a new letter in its spelling"
+        },
+        {
+         "text": "for",
+         "at": 36,
+         "note": "energy for a says the letter for energy takes the place of the a"
+        }
+       ],
+       "parts": [
+        {
+         "words": "actually",
+         "at": 12,
+         "gives": "INFACT",
+         "note": "in fact means actually"
+        },
+        {
+         "words": "a",
+         "at": 40,
+         "gives": "A"
+        },
+        {
+         "words": "energy",
+         "at": 29,
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Democrat really is getting the energy for a political purge.",
-     "walkthrough": "In IN FACT the A is replaced by E, giving INFECT.",
-     "definitionFit": "To disinfect something is to cleanse it of germs, a purge of contamination."
+     "surface": "A Democrat is really pushing energy policy as part of a political purge.",
+     "walkthrough": "IN FACT has its A swapped for E to give INFECT.",
+     "definitionFit": "To disinfect is to cleanse of germs, a purge of contamination."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "purge"
+     "misdirectedWord": "Democrat"
     }
    }
   },
@@ -2644,46 +2660,49 @@
      "indicators": [
       {
        "text": "involving",
-       "note": "involving means taking something in, so the blow wraps round the next letters"
+       "at": 9,
+       "note": "involving says the following letters go inside the word for hit"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "hit",
-         "gives": "BOP",
-         "note": "to bop is to hit"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
-        }
-       ]
+       "words": "hit",
+       "at": 5,
+       "gives": "BOP",
+       "note": "to bop is to hit"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "primarily",
-         "note": "primarily points to the first letter of the word it follows"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "bassist",
-         "note": "first letter of bassist"
+         "words": "English",
+         "at": 19,
+         "gives": "E"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 35,
+           "note": "primarily means the first letter of bassist is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bassist",
+           "at": 27,
+           "gives": "B"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A jazz hit features an English bass player.",
-     "walkthrough": "E and B sit inside BOP after its first letter.",
-     "definitionFit": "Bebop is a fast, complex style of jazz developed in the 1940s by players such as Charlie Parker."
+     "surface": "A jazz hit featuring an English bass player.",
+     "definitionFit": "Bebop is a fast, complex style of jazz from the 1940s."
     },
     "features": {
      "answerInScene": true,

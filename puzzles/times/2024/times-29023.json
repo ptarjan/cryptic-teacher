@@ -292,64 +292,76 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EMMENTHAL",
-     "indicators": [
-      {
-       "text": "Half of",
-       "note": "taking half of a word means discarding the other half of its letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Half of",
+         "at": 0,
+         "note": "half of means only two of the four letters of them are kept"
+        }
+       ],
        "parts": [
         {
          "words": "them",
-         "gives": "EM",
-         "note": "the second half of the four letters"
+         "at": 8,
+         "gives": "THEM",
+         "note": "taken as written before it is cut"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "stabbed by",
-           "note": "something stabbed has another thing pushed into it, so one piece goes inside another"
-          }
-         ],
+         "gives": "TH"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stabbed by",
+         "at": 30,
+         "note": "stabbed by says the letter for knight is driven into the words before it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
          "parts": [
           {
            "words": "came upon",
+           "at": 13,
            "gives": "MET",
-           "note": "to come upon someone is to meet them"
+           "note": "met means came upon"
           },
           {
-           "words": "knight",
-           "gives": "N",
-           "note": "N is the chess notation for a knight"
+           "words": "prince",
+           "at": 23,
+           "gives": "HAL",
+           "note": "Prince Hal is Shakespeare's young Henry V"
           }
          ]
         },
         {
-         "words": "prince",
-         "gives": "HAL",
-         "note": "Prince Hal, Shakespeare's young Henry V"
+         "words": "knight",
+         "at": 41,
+         "gives": "N",
+         "note": "N is the chess notation for knight"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A knight attacks a prince that half the group came across, and the exclamation is a commiseration.",
-     "walkthrough": "'Hard cheese!' is British slang for 'bad luck', which hides the literal sense: a firm cheese. The knight goes inside the word for 'came upon' only.",
-     "definitionFit": "Emmenthal is a firm Swiss cheese with large holes, a classic example of the hard variety."
+     "surface": "A melodrama: a prince is stabbed by a knight, and the reaction is 'Hard cheese!', meaning tough luck.",
+     "walkthrough": "'Hard cheese!' is British slang for bad luck, but here it is literal. N goes inside METHAL, after EM from 'Half of them'.",
+     "definitionFit": "Emmental is a firm Swiss cheese with large holes, a hard cheese."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "cheese"
+     "misdirectedWord": "Hard"
     }
    }
   },
@@ -532,50 +544,54 @@
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means sitting inside it"
+       "at": 41,
+       "note": "in says these letters go inside the word for slanted script"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "slanted script",
-         "gives": "ITALICS",
-         "note": "italic type slopes to the right"
-        },
-        {
-         "words": "one's",
-         "gives": "IS",
-         "note": "one is I, plus the s"
-        }
-       ]
+       "words": "slanted script",
+       "at": 44,
+       "gives": "ITALICS",
+       "note": "italics are slanted printed letters"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "at first",
-         "note": "at first points to the opening letter of the word before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "misquoted",
-         "note": "its opening letter"
+         "words": "one's",
+         "at": 16,
+         "gives": "IS",
+         "note": "one's is I plus 's, giving IS"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "at": 32,
+           "note": "at first means the opening letter of misquoted is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "misquoted",
+           "at": 22,
+           "gives": "M"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nation's traditions are wrongly quoted in a sloping typeface.",
-     "walkthrough": "'Country' is Italy, the customs being Italian ones; the clue is a touch vague here, and 'slanted script' is a container, not the definition.",
-     "definitionFit": "An Italicism is a typically Italian idiom or habit, so the plural means characteristic ways of that nation."
+     "surface": "Someone notes that a nation's customs were misquoted, with the quote printed in slanted type.",
+     "definitionFit": "Italicisms are idioms or habits typical of Italy, so customs of one particular country."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Country"
     }
    }

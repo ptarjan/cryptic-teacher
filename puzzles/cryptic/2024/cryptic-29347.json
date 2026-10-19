@@ -801,38 +801,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "confused",
-       "note": "confused means mixed up, so the letters of the next word are muddled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Criticize",
+       "at": 0,
+       "gives": "PAN",
+       "note": "to pan is to criticise harshly"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "confused",
+         "at": 10,
+         "note": "confused says the letters of medic are mixed up into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Criticize",
-         "gives": "PAN",
-         "note": "to pan is to criticise harshly, as a reviewer does"
-        },
-        {
          "words": "medic",
-         "note": "the letters of medic rearranged"
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Blaming a bewildered doctor during a serious public health emergency.",
-     "definitionFit": "A pandemic is a disease outbreak spreading across countries or continents, a health emergency on a large scale."
+     "surface": "Critics attack a confused doctor during a major health crisis.",
+     "walkthrough": "'confused' turns MEDIC into DEMIC.",
+     "definitionFit": "A pandemic is an epidemic spread worldwide, the gravest kind of public health emergency."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "confused"
+     "misdirectedWord": "Criticize"
     }
    }
   },
@@ -1067,57 +1070,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "REFLEX",
      "indicators": [
       {
-       "text": "caught by",
-       "note": "something caught by others is held between them, so it goes inside"
+       "text": "when caught by",
+       "at": 12,
+       "note": "when caught by says the jumbled letters go inside the following ones"
       }
      ],
      "parts": [
       {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "right",
+         "at": 27,
+         "gives": "R"
+        },
+        {
+         "words": "cross",
+         "at": 33,
+         "gives": "X",
+         "note": "X is shaped like a cross"
+        }
+       ]
+      },
+      {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "REFLEX",
        "indicators": [
         {
          "text": "poorly",
-         "note": "poorly means unwell or in bad shape, so the letters of the word before it are disordered"
+         "at": 5,
+         "note": "poorly says the letters of feel are in poor shape and rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "right",
-           "gives": "R",
-           "note": "R is the abbreviation for right"
-          },
-          {
-           "words": "Feel",
-           "note": "the letters of feel rearranged"
-          },
-          {
-           "words": "cross",
-           "gives": "X",
-           "note": "a cross is the shape X"
-          }
-         ]
+         "words": "Feel",
+         "at": 0,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Feeling ill after being hit by a right cross, the boxing punch, so the doctor checks reflexes.",
-     "walkthrough": "'Right cross' looks like a boxing punch but is two pieces: R and X around the rearranged letters.",
-     "definitionFit": "Doctors test reflexes, such as tapping the knee, as a routine check on the nervous system."
+     "surface": "A boxer feels unwell after a right cross, so a doctor checks him over.",
+     "walkthrough": "'Right cross' looks like a boxing punch, but it splits into two single letters that hold the jumbled word between them.",
+     "definitionFit": "A doctor tests the knee-jerk reflex by tapping below the kneecap."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "cross"
     }
    }

@@ -223,56 +223,57 @@
      "indicators": [
       {
        "text": "with inner",
-       "note": "the name keeps its outside but is given new inner contents, so the following pieces sit between its ends"
+       "at": 6,
+       "note": "with inner says the following pieces go inside the short form of Henry"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "outer",
-         "parts": [
-          {
-           "words": "Henry",
-           "note": "only the outside letters of the name are kept, its inside is replaced"
-          }
-         ]
-        },
-        {
-         "words": "perception",
-         "gives": "EAR",
-         "note": "an ear for something is a perception of it"
-        }
-       ]
+       "words": "Henry",
+       "at": 0,
+       "gives": "HY",
+       "note": "Hy is a short form of the name Henry"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "up",
-         "note": "in a down clue, up means the word is read from bottom to top, backwards"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "settled",
-         "gives": "LIT",
-         "note": "a bird that settled on a branch lit on it"
+         "words": "perception",
+         "at": 17,
+         "gives": "EAR",
+         "note": "an ear is perception, as in an ear for music"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "up",
+           "at": 36,
+           "note": "up in a down clue means the word for settled is read from the bottom up"
+          }
+         ],
+         "parts": [
+          {
+           "words": "settled",
+           "at": 28,
+           "gives": "LIT",
+           "note": "lit means settled, as a bird lights on a branch"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man named Henry, intuitive by nature, paid his bill with good grace.",
-     "walkthrough": "Henry keeps its first and last letters, and its middle is swapped for EAR plus LIT reversed, giving H-EAR-TIL-Y.",
-     "definitionFit": "Doing something heartily means doing it with warmth and gusto, which is a close synonym of cheerfully."
+     "surface": "Henry, gifted with insight, pays his bill with a smile.",
+     "walkthrough": "Hy is an old written short form of Henry; 'up' only applies to the word for settled, since this is a down clue.",
+     "definitionFit": "Heartily means with warmth and gusto, so it is a near-synonym of cheerfully."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Henry"
+     "misdirectedWord": "settled"
     }
    }
   },
@@ -404,59 +405,65 @@
     "definitions": [
      {
       "text": "Notorious",
-      "at": 0
+      "at": 0,
+      "note": "an adjective: scarlet describes a flagrant, notorious sinner, as in a scarlet woman"
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "ruins of",
-       "note": "ruins are what is left when something is wrecked, so the letters fall into a new order"
+       "text": "captured in",
+       "at": 25,
+       "note": "captured in says that letter goes inside the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "captured in",
-         "note": "captured in means held inside something else"
+         "text": "ruins of",
+         "at": 37,
+         "note": "ruins of says the letters of castle are wrecked and rebuilt in a new order"
         }
        ],
        "parts": [
         {
          "words": "castle",
-         "note": "the six letters of the word are rearranged"
-        },
+         "at": 46,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally points to the very end of the word before it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "robber",
-           "note": "the last letter of the word"
-          }
-         ]
+         "text": "finally",
+         "at": 17,
+         "note": "finally means the last letter of robber is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "robber",
+         "at": 10,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An infamous thief was finally caught among the remains of a ruined fortress.",
-     "walkthrough": "Ruins of reads as a phrase about the castle, but it is what tells you to rearrange that word's letters.",
-     "definitionFit": "Scarlet has an old sense of sinful or disreputable, as in a scarlet woman, so it can mean notorious."
+     "surface": "An infamous outlaw is finally caught hiding in a ruined castle.",
+     "walkthrough": "'Notorious robber' tempts as a definition, since Will Scarlet was one of Robin Hood's outlaws, but 'robber' only supplies its last letter.",
+     "definitionFit": "Scarlet is used of flagrant wrongdoing, as in a scarlet woman or scarlet sins, meaning shameful and widely known."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Notorious"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "robber"
     }
    }
   },
@@ -1025,42 +1032,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "energetic",
-       "note": "energetic suggests lively movement, so the letters are jumbled"
+       "text": "round",
+       "at": 27,
+       "note": "round says the jumbled letters go round the word for bay"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "round",
-         "note": "round means placed around something else"
+         "text": "energetic",
+         "at": 13,
+         "note": "energetic says the letters of run are thrown about lively into a new order"
         }
        ],
        "parts": [
         {
          "words": "run",
-         "note": "the three letters rearranged"
-        },
-        {
-         "words": "bay",
-         "gives": "COVE",
-         "note": "a small sheltered bay"
+         "at": 23
         }
        ]
+      },
+      {
+       "words": "bay",
+       "at": 33,
+       "gives": "COVE",
+       "note": "a cove is a small bay"
       }
      ]
     },
     "explanation": {
-     "surface": "A streaker strips off during a lively jog around the bay.",
-     "definitionFit": "To uncover something is to take off what covers it, which is what stripping off means."
+     "surface": "A swimmer strips off for a lively run round the bay.",
+     "walkthrough": "The surface suggests a swimmer stripping off; 'Strip off' is the definition, meaning to expose.",
+     "definitionFit": "To uncover something is to strip off its covering and expose it."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "bay"
     }

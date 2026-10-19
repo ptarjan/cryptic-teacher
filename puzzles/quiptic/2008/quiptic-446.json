@@ -123,41 +123,48 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a charge",
-      "at": 20
+      "text": "charge",
+      "at": 22,
+      "note": "a bill is a charge for goods or services"
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BILL",
      "indicators": [
       {
-       "text": "I replaced",
-       "note": "the letter I is put in where another vowel stood, swapping one letter for another"
+       "text": "replaced",
+       "at": 11,
+       "note": "replaced says the letter I takes the place of the letter a in the word for bullet"
       }
      ],
      "parts": [
       {
        "words": "Bullet",
-       "gives": "BULL",
-       "note": "the wordplay needs the animal word, the first four letters of this word"
+       "at": 0,
+       "gives": "BALL",
+       "note": "a ball is an old word for a bullet, as in a musket ball"
+      },
+      {
+       "words": "a",
+       "at": 20,
+       "gives": "A"
       },
       {
        "words": "I",
-       "note": "the letter itself, taking the place of U"
+       "at": 9,
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone notes that a round of ammunition was swapped out at some cost.",
-     "walkthrough": "The wordplay works only on BULL with its U changed to I; the printed 'Bullet' carries two letters the parse cannot use, apparently a slip in the clue.",
-     "definitionFit": "A bill is an invoice or statement of money owed, so it is a charge to be paid."
+     "surface": "A dramatic headline about a bullet and a criminal charge, as if a gunman were in court.",
+     "walkthrough": "Bullet gives BALL; 'I replaced a' swaps its A for I.",
+     "definitionFit": "A restaurant bill is the sum charged to a customer, so the two nouns are synonyms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Bullet"
+     "misdirectedWord": "charge"
     }
    }
   },
@@ -1069,53 +1076,60 @@
      "indicators": [
       {
        "text": "filled with",
-       "note": "being filled with something means holding it inside, so letters go in"
+       "at": 9,
+       "note": "filled with says the next letters go inside the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 2,
+         "note": "almost means the last letter of the word is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "almost",
-           "note": "almost means not quite all, so the referenced answer loses its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "3",
-           "gives": "BILL",
-           "note": "the answer to 3 down"
-          },
-          {
-           "gives": "L"
-          }
-         ]
+         "words": "3",
+         "at": 0,
+         "gives": "BILL",
+         "note": "the answer to 3 down, BILL"
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "gives": "L"
         }
        ]
       },
       {
-       "words": "second",
-       "gives": "S",
-       "note": "S is the abbreviation for second"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 21,
+         "gives": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "second second",
+         "at": 23,
+         "gives": "S",
+         "note": "S is the abbreviation for second; the second 'second' is the one used here"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cross-reference teases with a doubled word before naming a plant.",
-     "walkthrough": "BILL shortened to BIL holds A and S; the clue prints 'second' twice, and only one is needed by the wordplay, so the other is surplus.",
-     "definitionFit": "Basil is an aromatic herb, a plant grown for cooking."
+     "surface": "A gardening note about a plant, padded with a stray repeated word.",
+     "walkthrough": "BILL, the answer to 3 down, loses its last letter to give BIL, and A plus S (second) go inside it.",
+     "definitionFit": "Basil is an aromatic herb grown in kitchen gardens, a plant used in cooking."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "filled"
     }
    }
   },
