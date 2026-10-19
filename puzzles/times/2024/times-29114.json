@@ -106,58 +106,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "primarily",
-       "note": "take only the first letter"
-      }
-     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "L",
        "indicators": [
         {
-         "text": "snubbed by"
+         "text": "primarily",
+         "at": 17,
+         "note": "primarily takes only the opening letter of like"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "primarily like",
-         "gives": "L",
-         "select": "first",
-         "note": "the first letter of 'like'"
+         "words": "like",
+         "at": 27
         }
        ]
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "snubbed by",
+         "at": 37,
+         "note": "snubbed by means the European is cold-shouldered and left out"
+        }
+       ],
        "parts": [
         {
          "words": "work",
+         "at": 32,
          "gives": "OEUVRE",
-         "note": "an artist's oeuvre is their body of work"
+         "note": "oeuvre is a body of work, especially an artist's"
         },
         {
          "words": "European",
-         "gives": "E",
-         "note": "the standard abbreviation, removed from OEUVRE to leave OUVRE"
+         "at": 48,
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gallery-goer is told where the art is, like something a European critic sniffed at.",
-     "walkthrough": "'Primarily' sits right after 'art' and seems to take its A, but it applies to 'like', which follows it.",
-     "definitionFit": "The Louvre in Paris is the world's most visited art museum."
+     "surface": "A gallery seemingly ignored by Europeans.",
+     "definitionFit": "The Louvre in Paris is one of the world's great art museums."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "primarily"
+     "aptDefinition": true,
+     "misdirectedWord": "snubbed"
     }
    }
   },
@@ -236,48 +234,50 @@
     "definitions": [
      {
       "text": "Like a poet's",
-      "at": 0,
-      "note": "Read 'Like a poet's' as 'like a (certain) poet's work', an adjective."
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "off",
-       "note": "the letters of QUEST go off, out of order"
+       "text": "carrying",
+       "at": 27,
+       "note": "carrying means the Dane holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Hamlet, say",
+       "at": 14,
+       "gives": "DANE",
+       "note": "Hamlet was Prince of Denmark, a Dane"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "carrying"
+         "text": "off",
+         "at": 42,
+         "note": "off means awry, so the letters of quest are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "quest off",
-         "gives": "TESQU",
-         "note": "QUEST rearranged, placed inside DANE"
-        },
-        {
-         "words": "Hamlet, say",
-         "gives": "DANE",
-         "note": "Hamlet was Prince of Denmark"
+         "words": "quest",
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A remark that a poet's version of Hamlet sets out on a quest.",
-     "walkthrough": "'Hamlet, say' is the example-of pattern: Hamlet is one instance of a Dane. The poet in question is Dante.",
-     "definitionFit": "Dantesque means in the style of Dante, the poet of the Divine Comedy."
+     "surface": "A poet's Hamlet abandons his mission.",
+     "walkthrough": "DANE carries TESQU, the letters of quest rearranged.",
+     "definitionFit": "Dantesque means in the style of Dante, the Italian poet of the Inferno."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Hamlet"
     }
@@ -884,12 +884,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FILETMIGNON",
      "indicators": [
       {
        "text": "limited by",
-       "note": "the movie is hemmed in by the other letters"
+       "at": 20,
+       "note": "limited by means the movie title is bounded by the rearranged letters"
       }
      ],
      "parts": [
@@ -897,35 +896,35 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "differently",
-         "note": "the letters of FILMING ON are set in a different order"
+         "text": "set differently",
+         "at": 42,
+         "note": "set differently means the letters of filming on are arranged anew"
         }
        ],
        "parts": [
         {
-         "words": "movie",
-         "gives": "ET",
-         "note": "E.T., Spielberg's film"
-        },
-        {
-         "words": "filming on set differently",
-         "gives": "FILMIGNON",
-         "note": "FILMING ON rearranged, around ET"
+         "words": "filming on",
+         "at": 31
         }
        ]
+      },
+      {
+       "words": "movie",
+       "at": 14,
+       "gives": "ET",
+       "note": "E.T. is Spielberg's film about an alien"
       }
      ]
     },
     "explanation": {
-     "surface": "A film editor's favourite scene is shot on set in a new way.",
-     "walkthrough": "The cut sounds like a film edit, but it is butchery. 'Set' is part of the anagram instruction, not fodder.",
-     "definitionFit": "Filet mignon is a prized small steak cut from the tenderloin."
+     "surface": "A prime steak from a film shoot.",
+     "walkthrough": "'set differently' signals the rearrangement; E.T. is the Spielberg film.",
+     "definitionFit": "Filet mignon is a tender premium steak from the beef tenderloin."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "cut"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "movie"
     }
    }
   },
@@ -1037,50 +1036,56 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HUEANDCRY",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "in means the jumbled letters go inside"
+      }
+     ],
      "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartlessly",
+         "at": 39,
+         "note": "heartlessly removes one of the central letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "haste",
+         "at": 33,
+         "gives": "HURRY",
+         "note": "hurry means haste"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "delinquent",
-         "note": "badly behaved, so the letters are out of order"
-        },
-        {
-         "text": "heartlessly",
-         "note": "without a heart, so the central letter of the word is cut out"
+         "at": 13,
+         "note": "delinquent means misbehaving, so the letters of caned are disordered"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "the rearranged letters go inside"
-          }
-         ],
-         "parts": [
-          {
-           "words": "delinquent caned",
-           "gives": "EANDC",
-           "note": "CANED rearranged"
-          },
-          {
-           "words": "haste heartlessly",
-           "gives": "HURY",
-           "note": "HURRY loses its central R"
-          }
-         ]
+         "words": "caned",
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A young offender who was beaten in a hurry has a complaint.",
-     "walkthrough": "Delinquent is an adjective here, not a noun for the young offender, and haste gives HURRY, not the letters of 'haste'.",
+     "surface": "A young offender protests after being beaten in a rush.",
+     "walkthrough": "HURRY loses a central R to give HURY, which holds EANDC, from caned.",
      "definitionFit": "A hue and cry is a loud public outcry or protest."
     },
     "features": {

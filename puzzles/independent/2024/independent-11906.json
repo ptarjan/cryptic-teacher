@@ -331,43 +331,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GREATAUNTS",
+     "op": "container",
      "indicators": [
       {
-       "text": "Short",
-       "note": "something short is cut off before its end, so the final letter goes"
+       "text": "visits",
+       "at": 14,
+       "note": "visits means the word for kid goes inside the shortened fat"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "visits",
-         "note": "a visitor goes inside someone's home, so one piece enters another"
+         "text": "Short",
+         "at": 0,
+         "note": "short means the final letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "fat",
-         "gives": "GREAS",
-         "note": "grease is fat, docked of its last letter"
+         "at": 6,
+         "gives": "GREASE",
+         "note": "grease is fat"
         },
         {
-         "words": "kid",
-         "gives": "TAUNT",
-         "note": "to kid someone is to tease or taunt them"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "kid",
+       "at": 10,
+       "gives": "TAUNT",
+       "note": "to kid is to tease or taunt"
       }
      ]
     },
     "explanation": {
-     "surface": "A small, plump child calls on family members.",
-     "walkthrough": "'Short fat kid' reads as one chubby child, but short trims the fat and kid is a verb.",
-     "definitionFit": "A great-aunt is a parent's aunt, so great-aunts are kinsfolk."
+     "surface": "A podgy little child calls on family members.",
+     "walkthrough": "'Short' applies only to fat, and 'visits' means the kid word goes inside it.",
+     "definitionFit": "Great-aunts are the sisters of one's grandparents, so family relatives."
     },
     "features": {
      "answerInScene": true,
@@ -1683,12 +1688,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EBULLIENT",
      "indicators": [
       {
        "text": "to keep",
-       "note": "keeping something means holding it within"
+       "at": 11,
+       "note": "to keep means the jumbled letters hold the next piece"
       }
      ],
      "parts": [
@@ -1697,51 +1701,48 @@
        "indicators": [
         {
          "text": "at sea",
-         "note": "being at sea means confused and lost, so the letters are muddled"
+         "at": 4,
+         "note": "at sea means confused, so the letters of net are mixed up"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means not quite all, so the final letter goes"
-          }
-         ],
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Net",
-             "note": "the three letters rearranged"
-            },
-            {
-             "words": "cows",
-             "gives": "BULLIES",
-             "note": "to cow someone is to bully them"
-            }
-           ]
-          },
-          {
-           "gives": "S"
-          }
-         ]
+         "words": "Net",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 24,
+         "note": "mostly drops the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cows",
+         "at": 19,
+         "gives": "BULLIES",
+         "note": "to cow is to bully, so cows means bullies"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fishing net on the ocean holding cattle mostly stays afloat.",
-     "walkthrough": "Cows looks like cattle, but it is the verb meaning intimidates.",
-     "definitionFit": "Buoyant in its figurative sense means cheerful and lively, as does ebullient."
+     "surface": "A fishing net out on the ocean holds most of the cattle and floats.",
+     "walkthrough": "'cows' is a verb meaning intimidates, not the cattle the surface suggests.",
+     "definitionFit": "Ebullient means cheerful and full of energy, much as buoyant means lively."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "cows"
     }
    }

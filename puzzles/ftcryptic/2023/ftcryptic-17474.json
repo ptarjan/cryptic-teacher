@@ -108,46 +108,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANTONYMS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "receiving",
+       "at": 14,
+       "note": "receiving means the jumbled letters take in the award"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Working",
-         "note": "letters that are working are put to a new use, so rearranged"
-        },
-        {
-         "text": "receiving",
-         "note": "the rearranged letters take the award inside them"
+         "at": 0,
+         "note": "working means the letters of man's are worked into a new order"
         }
        ],
        "parts": [
         {
          "words": "man's",
-         "note": "MAN'S rearranged, split AN…MS"
-        },
-        {
-         "words": "award for performing",
-         "gives": "TONY",
-         "note": "a Tony is the American theatre award"
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "award for performing",
+       "at": 24,
+       "gives": "TONY",
+       "note": "a Tony is the US theatre award for performing"
       }
      ]
     },
     "explanation": {
-     "surface": "A working man picks up an award for a performance of the Cole Porter song Night and Day.",
-     "walkthrough": "Night and Day reads as the Cole Porter song, which suits the Tony; the question mark warns that it is really two words of opposite meaning.",
-     "definitionFit": "Night and day are opposites, so the pair are antonyms, an example signalled by the question mark."
+     "surface": "A man wins an award for singing the Cole Porter song Night and Day.",
+     "walkthrough": "'Night and Day' looks like the song title but is a pair of opposites. The letters of man's become ANMS around TONY.",
+     "definitionFit": "Night and day are opposites, so the pair is an example of antonyms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Night"
+     "misdirectedWord": "performing"
     }
    }
   },
@@ -287,35 +290,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "prepared",
-       "note": "prepared food is made up from its ingredients, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "occasionally",
-         "note": "only now and then, so every other letter of ICED"
+         "text": "prepared",
+         "at": 9,
+         "note": "prepared means the letters of pastries are made up into a new order"
         }
        ],
        "parts": [
         {
          "words": "Pastries",
-         "note": "anagram fodder"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "alternate",
-         "parts": [
-          {
-           "words": "iced",
-           "note": "I and E, the first and third letters"
-          }
-         ]
+         "text": "occasionally",
+         "at": 22,
+         "note": "occasionally takes every other letter of iced"
+        }
+       ],
+       "parts": [
+        {
+         "words": "iced",
+         "at": 35
         }
        ]
       }
@@ -323,9 +328,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A description of a bakery where pastries are made and some get iced.",
-     "walkthrough": "The whole clue is the definition as well as the wordplay: a patisserie is where pastries are made and sometimes iced.",
-     "definitionFit": "A patisserie is a pastry shop, where pastries are made and iced."
+     "surface": "A cake shop where pastries are made and sometimes iced.",
+     "walkthrough": "The rearranged pastries give PATISSER; the first and third letters of iced give IE.",
+     "definitionFit": "A patisserie is a shop or bakery where pastries and cakes are made."
     },
     "features": {
      "answerInScene": true,
@@ -1469,36 +1474,41 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "stealing"
+       "text": "Flipping",
+       "at": 0,
+       "note": "flipping means everything built is turned round and read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "Flipping",
-         "note": "the whole thing is turned over, read backwards"
-        }
-       ],
        "parts": [
         {
          "words": "low",
+         "at": 9,
          "gives": "MOO",
-         "note": "cows low, that is moo"
+         "note": "to low is to moo, as cattle do"
         },
         {
          "op": "container",
+         "indicators": [
+          {
+           "text": "stealing",
+           "at": 23,
+           "note": "stealing means the scoundrel takes in the penny"
+          }
+         ],
          "parts": [
           {
            "words": "scoundrel",
+           "at": 13,
            "gives": "RAT",
-           "note": "a rat is a scoundrel; it takes in P to make RPAT"
+           "note": "a rat is a scoundrel"
           },
           {
            "words": "penny",
-           "gives": "P",
-           "note": "p = penny"
+           "at": 32,
+           "gives": "P"
           }
          ]
         }
@@ -1507,15 +1517,14 @@
      ]
     },
     "explanation": {
-     "surface": "A thoroughly low villain is caught pinching a penny in a pub.",
-     "walkthrough": "'Flipping' looks like a mild swear word; it means turn the result over. 'Low' is what a cow does.",
-     "definitionFit": "A plain synonym: the room in an inn where beer is drawn from the tap and served."
+     "surface": "A cursed lowlife lifts a coin in a pub.",
+     "walkthrough": "The penny goes into the scoundrel first; then the whole string is read backwards.",
+     "definitionFit": "A taproom is a bar in a pub or inn where drinks are served."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Flipping"
+     "misdirectedWord": "low"
     }
    }
   },
@@ -1770,39 +1779,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NICKNAMES",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 50,
+       "note": "in means the reformed letters go inside the prisons"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "prisons",
+       "at": 53,
+       "gives": "NICKS",
+       "note": "nick is British slang for a prison or police station"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "to reform",
-         "note": "reforming reshapes, so MEAN's letters are rearranged"
-        },
-        {
-         "text": "in"
+         "at": 40,
+         "note": "to reform means the letters of mean are reshaped"
         }
        ],
        "parts": [
         {
-         "words": "prisons",
-         "gives": "NICKS",
-         "note": "the nick is British slang for prison"
-        },
-        {
          "words": "mean",
-         "note": "MEAN rearranged"
+         "at": 35
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two notorious gangsters are mean enough to need reforming in jail.",
-     "walkthrough": "Scarface (Al Capone) and Baby Face Nelson were American gangsters; the surface is about them, but the definition is what those names are.",
-     "definitionFit": "Scarface and Baby Face are nicknames, informal names given to Al Capone and Lester Gillis."
+     "surface": "Gangsters with tough monikers are meant to go straight inside jail.",
+     "definitionFit": "Scarface and Baby Face Nelson are informal names given to the gangsters Al Capone and Lester Gillis."
     },
     "features": {
      "answerInScene": true,
