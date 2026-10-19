@@ -890,57 +890,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FIELDFARE",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not all of it, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cuckoo",
+         "at": 7,
+         "note": "cuckoo means crazy, so the letters are scrambled"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "cuckoo",
-           "note": "cuckoo means crazy, so the letters go haywire"
+           "text": "mostly",
+           "at": 20,
+           "note": "mostly means most of the word, losing its last letter"
           }
          ],
          "parts": [
           {
            "words": "flies",
-           "gives": "FLIE",
-           "note": "the word without its final letter"
+           "at": 14
           },
           {
-           "words": "day",
-           "gives": "D",
-           "note": "D is the abbreviation for day"
-          },
-          {
-           "words": "Far",
-           "note": "taken as written"
+           "gives": "S",
+           "note": "the final letter of flies"
           }
          ]
-        },
-        {
-         "words": "East",
-         "gives": "E",
-         "note": "E is the abbreviation for east"
         }
        ]
+      },
+      {
+       "words": "day",
+       "at": 30,
+       "gives": "D"
+      },
+      {
+       "words": "Far",
+       "at": 37
+      },
+      {
+       "words": "East",
+       "at": 41,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A cuckoo migrates mainly by day towards the Orient.",
-     "walkthrough": "'cuckoo' looks like the bird being defined, but it is the anagram signal; the bird is 'Bird' at the start.",
-     "definitionFit": "The fieldfare is a large thrush that winters in Britain, so it is an example of a bird."
+     "surface": "A cuckoo flies most of the day towards the Far East.",
+     "walkthrough": "'mostly' cuts FLIES to FLIE, which 'cuckoo' rearranges into FIEL. 'Cuckoo' looks like the bird of the definition but is the anagram signal.",
+     "definitionFit": "The fieldfare is a large thrush that winters in Britain, a species of songbird."
     },
     "features": {
      "answerInScene": true,
@@ -1101,43 +1104,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EVEREST",
-     "indicators": [
-      {
-       "text": "without blinkers",
-       "note": "blinkers sit at the side of a horse's head, so without them the word loses its leading edge"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "always",
+       "at": 6,
+       "gives": "EVER",
+       "note": "always means ever"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without blinkers",
+         "at": 18,
+         "note": "blinkers sit at the front of a horse's head, so dropping them takes away the leading letter of the word"
+        }
+       ],
        "parts": [
         {
-         "words": "always",
-         "gives": "EVER",
-         "note": "ever means always"
+         "words": "best",
+         "at": 13
         },
         {
-         "words": "best",
-         "gives": "EST",
-         "note": "the word with its first letter removed"
+         "gives": "B",
+         "note": "the first letter of best"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A horse always performs best when not wearing blinkers.",
-     "walkthrough": "'Mount' looks like a horse, which suits the blinkers; it is the mountain. Only the first letter of 'best' is dropped.",
-     "definitionFit": "Mount Everest is the world's highest mountain, and mount is used in its name."
+     "surface": "Is it always best to go without blinkers, like a racehorse?",
+     "walkthrough": "Blinkers usually means losing both outer letters; here only the leading letter goes, which the question mark admits.",
+     "definitionFit": "Everest is the highest mountain on earth, and Mount is the title it carries."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Mount"
+     "aptDefinition": false,
+     "misdirectedWord": "blinkers"
     }
    }
   },

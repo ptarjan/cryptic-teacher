@@ -880,43 +880,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HARANGUE",
+     "op": "container",
      "indicators": [
       {
-       "text": "avoiding the",
-       "note": "to avoid something is to leave it out, so a word is dropped from the name"
+       "text": "through",
+       "at": 8,
+       "note": "one word running through another means it is placed inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "through",
-         "note": "going through something means passing inside it, so one piece sits within the other"
+         "text": "avoiding",
+         "at": 27,
+         "note": "avoiding the means the city's name is used without its article"
         }
        ],
        "parts": [
         {
          "words": "Dutch city",
-         "gives": "HAGUE",
-         "note": "The Hague, with its article dropped"
+         "at": 16,
+         "gives": "THEHAGUE",
+         "note": "The Hague is the seat of the Dutch government"
         },
         {
-         "words": "Hurried",
-         "gives": "RAN",
-         "note": "ran means hurried"
+         "words": "the",
+         "at": 36,
+         "gives": "THE",
+         "note": "the word the, taken from the start of the city's name"
         }
        ]
+      },
+      {
+       "words": "Hurried",
+       "at": 0,
+       "gives": "RAN",
+       "note": "hurried means ran"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone rushed through a Dutch city making an aggressive speech.",
-     "walkthrough": "The city's name includes its article, and 'avoiding the' strips exactly that word before the insertion.",
-     "definitionFit": "A harangue is a long, forceful, aggressive address or lecture to an audience."
+     "surface": "Someone rushes across a Dutch city to escape a hostile tirade.",
+     "walkthrough": "The Hague's full name starts with 'The', which is why 'avoiding the' is needed.",
+     "definitionFit": "A harangue is a long aggressive lecture, an angry speech directed at listeners."
     },
     "features": {
      "answerInScene": false,

@@ -389,49 +389,53 @@
      "indicators": [
       {
        "text": "drunk by",
-       "note": "something drunk by another goes inside it"
+       "at": 35,
+       "note": "something drunk by another is taken inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "phoney",
-         "gives": "COD",
-         "note": "cod means fake, as in cod Latin"
-        },
-        {
-         "words": "drinks",
-         "gives": "ALES",
-         "note": "ales are drinks"
-        }
-       ]
+       "words": "phoney",
+       "at": 44,
+       "gives": "COD",
+       "note": "cod is British slang for fake or phoney"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "case of",
-         "note": "a case is the outside of something, so only the outer letters are kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "champagne",
-         "note": "first and last letters"
+         "words": "drinks",
+         "at": 6,
+         "gives": "ALES",
+         "note": "ales are drinks"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "case of",
+           "at": 17,
+           "note": "the case of a word is its outer letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "champagne",
+           "at": 25
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cocktail party with drinks and a case of fizz quaffed by a fraud.",
-     "walkthrough": "Cod is British slang for sham or mock, as in cod Latin; 'Mixed' looks like a description of the drinks but is the definition.",
-     "definitionFit": "Coalesced means came together into one mass, so the parts were merged or mixed."
+     "surface": "A fraud drinks cocktails and a crate of champagne.",
+     "walkthrough": "'Mixed drinks' looks like cocktails, but 'Mixed' is the definition; cod is British slang for fake.",
+     "definitionFit": "Coalesced means came together into one, a merging like things combined."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Mixed"
     }

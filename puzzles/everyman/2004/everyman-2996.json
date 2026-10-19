@@ -47,46 +47,50 @@
      "indicators": [
       {
        "text": "rings",
-       "note": "to ring something is to encircle it, so one word goes round the others"
+       "at": 4,
+       "note": "rings means encircles, so the lad surrounds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Lad",
-         "gives": "BOY",
-         "note": "a lad is a boy"
-        },
-        {
-         "words": "doctor",
-         "gives": "MB",
-         "note": "MB, Bachelor of Medicine, is a doctor's qualification"
-        }
-       ]
+       "words": "Lad",
+       "at": 0,
+       "gives": "BOY",
+       "note": "a lad is a boy"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "first of",
-         "note": "first of tells us to keep only the opening letter of the word that follows"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "all",
-         "note": "the opening letter of all"
+         "words": "doctor",
+         "at": 10,
+         "gives": "MB",
+         "note": "MB is a Bachelor of Medicine, a doctor's degree"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first of",
+           "at": 18,
+           "note": "first of picks the opening letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "all",
+           "at": 27
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A young man phones a doctor before anything else while in a port in India.",
-     "walkthrough": "'rings' reads as telephoning, but here it means encircling: the lad's word goes round the doctor's qualification and the letter together.",
-     "definitionFit": "Bombay, now Mumbai, is the great harbour city on India's west coast."
+     "surface": "A boy calls the doctor first of all while in an Indian port.",
+     "walkthrough": "MB and A (first of all) are ringed by BOY. 'first of all' looks like a set phrase but gives just A.",
+     "definitionFit": "Bombay is the former name of Mumbai, the major seaport on India's west coast."
     },
     "features": {
      "answerInScene": true,
@@ -806,52 +810,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STANDALONE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter of the final word is dropped"
+       "text": "racing",
+       "at": 14,
+       "note": "racing means moving fast, so the letters rush into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "on",
+       "at": 21
+      },
+      {
+       "words": "land",
+       "at": 24
+      },
+      {
+       "words": "at",
+       "at": 33
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "racing",
-         "note": "racing suggests things whirling about, so the letters get mixed up"
+         "text": "mostly",
+         "at": 41,
+         "note": "mostly means most of the word, its last letter dropped"
         }
        ],
        "parts": [
         {
-         "words": "on",
-         "note": "taken as written"
-        },
-        {
-         "words": "land",
-         "note": "taken as written"
-        },
-        {
-         "words": "at",
-         "note": "taken as written"
-        },
-        {
          "words": "sea",
-         "gives": "SE",
-         "note": "the word sea without its last letter"
+         "at": 36
+        },
+        {
+         "gives": "A",
+         "note": "the final letter of sea"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A champion who has no rival in races both on land and on water.",
-     "definitionFit": "To stand alone is an idiom for being unmatched, having no equal or rival."
+     "surface": "A competitor is supreme at racing on land and on the water.",
+     "walkthrough": "'mostly' cuts SEA to SE; ON, LAND, AT and SE together are rearranged by 'racing'.",
+     "definitionFit": "To stand alone is to have no peer or rival, being without match."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "racing"
     }
