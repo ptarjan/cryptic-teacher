@@ -171,36 +171,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PANIC",
      "indicators": [
       {
        "text": "form",
-       "note": "split it as 'for M': one letter is put in place of that letter"
+       "at": 3,
+       "note": "form here means take a different shape: the word from 13 is re-formed with one letter swapped"
       }
      ],
      "parts": [
       {
        "words": "13",
+       "at": 0,
        "gives": "MANIC",
-       "note": "the answer to 13 across"
+       "note": "the answer to 13 across, MANIC"
+      },
+      {
+       "gives": "M"
       },
       {
        "words": "pressure",
+       "at": 8,
        "gives": "P",
-       "note": "P is the physics symbol for pressure"
+       "note": "P is the standard physics abbreviation for pressure"
       }
      ]
     },
     "explanation": {
-     "surface": "Reads like a technical note about a pressure-operated flap on some machine.",
-     "walkthrough": "'form' must be split into 'for M', so P replaces the M of MANIC. Bloggers flagged this split as a stretch.",
-     "definitionFit": "A flap is a state of agitated nervous alarm, an informal British sense matching sudden fear."
+     "surface": "A cross-reference instruction reading like a note about a pressure flap on some machine.",
+     "walkthrough": "Change the M of MANIC (13 across) to P, the symbol for pressure.",
+     "definitionFit": "A flap is an informal word for a state of agitated alarm, the same as a sudden fright."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "form"
+     "misdirectedWord": "flap"
     }
    }
   },
@@ -1183,68 +1187,55 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "NEWYORKER",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "position in",
-       "note": "to position something in a place is to set it inside"
+       "text": "lost heart to",
+       "at": 15,
+       "note": "the middle letter of never is given up and replaced by what follows"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "NEWYORKER",
+       "words": "never",
+       "at": 9
+      },
+      {
+       "gives": "V"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "lost heart to",
-         "note": "losing a heart to something means the middle is given up and replaced by it"
+         "text": "position in",
+         "at": 50,
+         "note": "the letter is positioned inside the word for labour"
         }
        ],
        "parts": [
         {
-         "words": "never",
-         "note": "taken as written; its middle letter goes"
-        },
-        {
-         "op": "nth",
-         "unchecked": true,
-         "gives": "Y",
-         "n": 6,
-         "indicators": [
-          {
-           "text": "penultimate",
-           "note": "penultimate means second to last, so just that letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Corbyn's",
-           "gives": "Y",
-           "select": 6,
-           "note": "second-to-last letter of the name"
-          }
-         ]
-        },
-        {
          "words": "Labour",
+         "at": 62,
          "gives": "WORK",
-         "note": "labour is work"
+         "note": "labour means work"
+        },
+        {
+         "words": "Corbyn's penultimate",
+         "at": 29,
+         "gives": "Y",
+         "note": "Y is the second-to-last letter of Corbyn"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political jibe about Jeremy Corbyn, then Labour Party leader, and a magazine that has never lost faith.",
-     "walkthrough": "Capitalised 'Labour' suggests the British political party, but here it simply means work. The V at the centre of NEVER is swapped out.",
-     "definitionFit": "The New Yorker is a long-running American weekly magazine of journalism, fiction and cartoons."
+     "surface": "A political lament: the Labour Party never quite warming to Jeremy Corbyn, its leader, and where he stood.",
+     "walkthrough": "Y (penultimate letter of Corbyn) goes into WORK to make WYORK, which replaces the V at the heart of NEVER.",
+     "definitionFit": "The New Yorker is a famous American weekly magazine of journalism, fiction and cartoons."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Labour"
     }
