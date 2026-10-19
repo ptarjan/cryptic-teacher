@@ -233,7 +233,13 @@ def normalize(ann, entry, entries, puzzle=None):
     held = puzzle if puzzle is not None else {"entries": entries}
     if annotation.is_model(ann) or any(k in ann for k in VIEW_KEYS):
         return annotation.from_model(ann, entry, held)
-    return dict(ann)
+    out = dict(ann)
+    if isinstance(out.get("wordplay"), dict):
+        # a stored tree is parse -> evaluate -> normalize too: letters checked, shape made canonical
+        import wordplay
+        out["wordplay"] = wordplay.normalize(
+            out["wordplay"], (entry.get("clue") or {}).get("text", ""), entry.get("solution", ""))[0]
+    return out
 
 
 def move_alteration(entry):

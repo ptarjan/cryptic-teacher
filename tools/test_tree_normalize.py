@@ -59,6 +59,26 @@ class TreeNormalize(unittest.TestCase):
         self.assertEqual(cs.compact(new), "([German agreed]JA + rev<over>(([a single]ONE + [friend]PAL)))")
         wordplay.evaluate(new, ans)
 
+    def test_sink_deletion_keeps_the_charades_own_indicator(self):
+        clue, ans, _ = SOLO
+        tree = {"op": "deletion", "indicators": [{"text": "mostly"}],
+                "parts": [{"op": "charade", "indicators": [{"text": "after"}],
+                           "parts": [leaf("extremely", "SO"), leaf("close to ground", "LOW")]},
+                          {"gives": "W"}]}
+        new, used = T.normalize(tree, clue, ans)
+        self.assertEqual(used, ["sink_deletion"])
+        self.assertEqual(new["op"], "charade")
+        self.assertEqual(new["indicators"], [{"text": "after"}])
+        wordplay.evaluate(new, ans)
+
+    def test_simplicity_key_prefers_fewer_ops_then_fewer_letters(self):
+        clue, ans, tree = SOLO
+        new, _ = T.normalize(tree, clue, ans)
+        self.assertLess(T.simplicity(new), T.simplicity(tree))
+        clue, ans, tree = JALAPENO
+        new, _ = T.normalize(tree, clue, ans)
+        self.assertLess(T.simplicity(new), T.simplicity(tree))
+
     def test_a_tree_whose_letters_fail_is_left_to_the_model(self):
         clue, _, tree = SOLO
         self.assertEqual(T.normalize(tree, clue, "SOLA")[1], [])
