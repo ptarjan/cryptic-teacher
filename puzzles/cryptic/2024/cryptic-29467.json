@@ -773,43 +773,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EIGHTIETH",
      "indicators": [
       {
        "text": "in",
-       "note": "in means one part is placed inside the other"
+       "at": 5,
+       "note": "in places the draw word inside the reordered height"
       }
      ],
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "EIGHTIETH",
        "indicators": [
         {
          "text": "first to last",
-         "note": "the opening letter is moved to the end of the word, leaving the rest in order"
+         "at": 16,
+         "note": "first to last means the opening letter of height is moved to the end"
         }
        ],
        "parts": [
         {
          "words": "height",
-         "note": "taken as written, before its first letter moves"
-        },
-        {
-         "words": "Draw",
-         "gives": "TIE",
-         "note": "a drawn match is a tie"
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "Draw",
+       "at": 0,
+       "gives": "TIE",
+       "note": "a tie is a drawn game"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for sketching a figure at a set height in a technical drawing.",
-     "walkthrough": "The cycled word is itself a fraction, one eighth, and the drawn match sits inside it to make the answer, a much smaller fraction.",
-     "definitionFit": "One part in eighty is 1/80, which as a percentage is 1.25 per cent."
+     "surface": "Sketching inside an elevation, moving from front to back, at a small percentage.",
+     "walkthrough": "Dividing 100 by 80 gives 1.25, so one eightieth is 1.25 per cent.",
+     "definitionFit": "One eightieth as a fraction equals 0.0125, or one and a quarter per cent."
     },
     "features": {
      "answerInScene": false,
@@ -1269,28 +1268,19 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reverse",
+     "reading": "THIN + E",
      "parts": [
       {
-       "unchecked": true,
        "words": "slime",
-       "note": "the whole word, which must be read in two parts as the next blocks show"
-      },
-      {
-       "words": "slim",
-       "gives": "THIN",
-       "note": "the first four letters of slime, read as a word meaning slender"
-      },
-      {
-       "words": "e",
-       "note": "the last letter of slime, taken as written"
+       "at": 9,
+       "note": "read as wordplay, slim (a synonym of thin) followed by E spells out this word, so the answer's pieces thin and E produce slime"
       }
      ]
     },
     "explanation": {
-     "surface": "A letter signed off in some disgusting goo.",
-     "walkthrough": "The trick is to split slime into two parts, an adjective and a lone letter. The question mark warns that the word must be broken up.",
-     "definitionFit": "Thine is the old possessive form of thou, meaning belonging to you."
+     "walkthrough": "This is a reverse clue: the answer splits as THIN plus E, and swapping thin for its synonym slim, with E added, gives the clue word slime.",
+     "definitionFit": "Thine is the archaic second-person possessive, meaning belonging to you."
     },
     "features": {
      "answerInScene": false,

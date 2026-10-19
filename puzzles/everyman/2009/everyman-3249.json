@@ -179,50 +179,44 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "one piece is placed inside another, the word in standing for that placement"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Thirsty",
-         "gives": "DRY",
-         "note": "thirsty means in need of a drink"
-        },
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "attempt",
-           "gives": "SH",
-           "note": "a shy is a throw or attempt; this is its outside part"
-          },
-          {
-           "words": "Slip up",
-           "gives": "ERR",
-           "note": "to err is to make a mistake"
-          }
-         ]
-        }
-       ]
+       "words": "Thirsty",
+       "at": 0,
+       "gives": "DRY",
+       "note": "dry means thirsty"
       },
       {
-       "words": "attempt",
-       "gives": "Y",
-       "note": "the end of shy, closing round the slip"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 17,
+         "note": "in places the slip-up word inside the attempt word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "attempt",
+         "at": 20,
+         "gives": "SHY",
+         "note": "a shy is a try or attempt, as in a coconut shy"
+        },
+        {
+         "words": "Slip up",
+         "at": 9,
+         "gives": "ERR",
+         "note": "to err is to make a mistake, to slip up"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone parched who bungles their attempt to order a drink.",
-     "walkthrough": "A shy is a throw, as at a coconut shy, so an attempt; ERR goes inside it.",
-     "definitionFit": "Dry sherry is a fortified wine, a drink in its own right."
+     "surface": "Parched, someone fumbles their try at getting something to drink.",
+     "walkthrough": "A shy is a throw or attempt, as at a fairground coconut shy; 'to get' is a link.",
+     "definitionFit": "Dry sherry is a pale fortified wine from Spain, such as fino, served as an aperitif."
     },
     "features": {
      "answerInScene": true,
@@ -354,47 +348,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHOIR",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the word loses its final letter"
+       "text": "about",
+       "at": 29,
+       "note": "about means going around, so the shortened word surrounds the love letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means surrounding, so the shortened word wraps round the other piece"
+         "text": "mostly",
+         "at": 22,
+         "note": "mostly means most but not all of the word, so its last letter goes"
         }
        ],
        "parts": [
         {
          "words": "sing",
-         "gives": "CHIR",
-         "note": "chirp, as a bird sings, without its last letter"
+         "at": 17,
+         "gives": "CHIRP",
+         "note": "to chirp is to sing like a bird"
         },
         {
-         "words": "love",
-         "gives": "O",
-         "note": "love is zero in tennis, shaped like O"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "love",
+       "at": 35,
+       "gives": "O",
+       "note": "O is love, the zero score in tennis"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction for a choir to sing mostly about love.",
-     "definitionFit": "A choir is an organised body of singers, as in a church."
+     "surface": "A chorus mainly sings about romance.",
+     "definitionFit": "A choir is an organised company of singers, as in a church or school."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sing"
+     "misdirectedWord": "love"
     }
    }
   },
@@ -530,36 +529,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRICYCLE",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "short means cut down, so the word loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 25,
+         "note": "short means the word is cut down, losing its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "journey",
-         "gives": "TRI",
-         "note": "trip, a journey, without its final letter"
+         "at": 31,
+         "gives": "TRIP",
+         "note": "a trip is a journey"
         },
         {
-         "words": "round",
-         "gives": "CYCLE",
-         "note": "a cycle is a round, as of events"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "round",
+       "at": 39,
+       "gives": "CYCLE",
+       "note": "a cycle is a round, a repeating series"
       }
      ]
     },
     "explanation": {
-     "surface": "A child on a three-wheeler could manage a short trip round the block.",
-     "definitionFit": "A tricycle is a pedal vehicle with three wheels."
+     "surface": "A three-wheeled bike might be good for a brief outing about town.",
+     "walkthrough": "'could make' is a link.",
+     "definitionFit": "A tricycle is a pedal vehicle with three wheels, tri meaning three."
     },
     "features": {
      "answerInScene": true,

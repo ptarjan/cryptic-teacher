@@ -89,42 +89,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BACKWARD",
-     "indicators": [
-      {
-       "text": "not first",
-       "note": "Losing what comes first means the opening letter is removed from the word."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "defender",
+       "at": 5,
+       "gives": "BACK",
+       "note": "a back is a defending player in football or rugby"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not first",
+         "at": 26,
+         "note": "not first means the opening letter of the prize word is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "defender",
-         "gives": "BACK",
-         "note": "In football or hockey a back is a defending player."
+         "words": "prize",
+         "at": 19,
+         "gives": "AWARD",
+         "note": "an award is a prize"
         },
         {
-         "words": "prize",
-         "gives": "WARD",
-         "note": "A prize is an award; drop its opening A."
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sluggish defender is somehow still handed a trophy.",
-     "walkthrough": "'Slow' reads as describing the defender, but it is the definition standing alone at the start.",
-     "definitionFit": "Backward can describe a pupil who is behind in learning, a dated synonym for being slow."
+     "surface": "A sluggish full-back still wins a trophy, though not first place.",
+     "definitionFit": "Backward can describe someone slow to develop or learn, behind others."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "defender"
+     "misdirectedWord": "first"
     }
    }
   },
@@ -868,42 +871,28 @@
      "indicators": [
       {
        "text": "into",
-       "note": "Going into something means entering it, so one part sits inside another."
+       "at": 5,
+       "note": "into says the duke's letter goes inside the fruit word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "enriched",
-         "note": "Something enriched has had an extra ingredient mixed into it."
-        }
-       ],
-       "parts": [
-        {
-         "words": "fruit",
-         "gives": "BANANA",
-         "note": "A banana is a fruit."
-        },
-        {
-         "words": "nitrogen",
-         "gives": "N",
-         "note": "N is the chemical symbol for nitrogen, added inside the fruit."
-        }
-       ]
+       "words": "nitrogen-enriched fruit",
+       "at": 10,
+       "gives": "BANANNA",
+       "note": "banana with N, the chemical symbol for nitrogen, added to it inside"
       },
       {
        "words": "Duke",
-       "gives": "D",
-       "note": "D is the abbreviation for Duke."
+       "at": 0,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Recipe-like: a fertilised fruit and some nuts wrapped together.",
-     "walkthrough": "'Fruit and nut' looks like a chocolate bar; 'nut' is slang for the head, and the break comes after 'and'.",
-     "definitionFit": "A bandanna is a large coloured kerchief tied around the head, and nut is slang for head."
+     "surface": "A snack bar of fruit and nuts with a nobleman and fertiliser added.",
+     "walkthrough": "'nut' is slang for head, so the definition is a head wrap, not part of a snack bar.",
+     "definitionFit": "A bandanna is a large patterned scarf often tied around the head, and nut is slang for head."
     },
     "features": {
      "answerInScene": false,
