@@ -555,5 +555,19 @@ check("a container's two words: the anagram word goes to the anagram",
       used == ["anagramOfContainer"] and new["op"] == "container" and [i["text"] for i in new["indicators"]] == ["about"]
       and new["parts"][0]["op"] == "anagram" and new["parts"][0]["indicators"][0]["text"] == "Novel")
 
+# halfLeaf: the "half" word sits on the op beside the leaf that gives half its word; it moves onto
+# a first/last pick over that leaf, and a deletion that was nothing else goes
+HL = {"halfLeaf": F.r_half_leaf}
+hlc = "Spread pate, leaving half in tin"
+hlt = {"op": "deletion", "indicators": [{"text": "leaving half", "at": 13}], "parts": [
+    {"op": "container", "indicators": [{"text": "in", "at": 27}], "parts": [
+        {"words": "tin", "at": 30, "gives": "SN"}, {"words": "pate", "at": 7, "gives": "PA"}]}]}
+new, used = F.repair_tree(hlt, hlc, "SPAN", HL)
+check("del<half>(ins(SN, PA)) becomes ins(SN, first<half>(pate))",
+      used == ["halfLeaf"] and new["op"] == "container" and new["parts"][1]["op"] == "first"
+      and new["parts"][1]["indicators"][0]["text"] == "leaving half" and "gives" not in new["parts"][1]["parts"][0])
+new, used = F.repair_tree(hlt, hlc, "SPANX", HL)
+check("a tree that does not give the answer is left alone", used == [] and new["op"] == "deletion")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
