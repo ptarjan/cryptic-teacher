@@ -648,6 +648,7 @@ def locate_grid(img, title, right=False):
         clear = box is not None and (side != "below" or box[1] > crop[1] + 2
                                      or starts_under(img, box, crop[1])) \
             and (side != "above" or box[3] >= y0 - ABOVE_GAP) \
+            and (side != "below" or box[0] <= x1 + 120) \
             and (side != "left" or box[2] < cx) and (side != "right" or box[0] > cx)
         if clear and (wide_shaped if right else shaped_on)(img, box):
             return box, side
@@ -3520,7 +3521,7 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: {cause: ISO time}: an edition a title of which was refused for `cause`
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
-REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-19T00:09:00+00:00",
+REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-19T00:15:00+00:00",
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00"}
 
 
