@@ -1120,8 +1120,18 @@ worker_commit_batch() {   # what
     alert "$WORKER_JOB could not stage ${ids[*]}'s files or rows of tools/fetch_puzzle.py, so $what ${ids[*]} is not committed: $(printf '%s' "$out" | tail -5)"
     return 1
   fi
-  if [ "${#ids[@]}" -eq 1 ]; then subject="$what ${ids[0]}"
-  else subject="$what ${#ids[@]} puzzles: ${ids[*]}"; fi
+  # The subject names the puzzles whose file this commit changes: one whose
+  # file is already as HEAD has it (a sibling's commit swept it in, or the run
+  # changed nothing) is settled below all the same but not listed (164738e46f2
+  # named 20 puzzles and changed only the queue file).
+  local -a named=()
+  for id in "${ids[@]}"; do
+    puzzle_specs "$id" one
+    git --no-optional-locks diff --cached --quiet -- "${one[@]}" || named+=("$id")
+  done
+  if [ "${#named[@]}" -eq 1 ]; then subject="$what ${named[0]}"
+  elif [ "${#named[@]}" -eq 0 ]; then subject="$what: queue rows of ${#ids[@]} puzzles, no puzzle file changed"
+  else subject="$what ${#named[@]} puzzles: ${named[*]}"; fi
   # shellcheck disable=SC2046  # one path per line, none with a space
   worker_commit "$subject" "${specs[@]}" $(python3 tools/own_rows.py paths) || return 1
   for id in "${ids[@]}"; do
