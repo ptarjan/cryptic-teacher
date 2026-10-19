@@ -440,45 +440,55 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "INCREDIT",
-     "indicators": [
-      {
-       "text": "must replace",
-       "note": "replace says one item is swapped in where the other stood"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Overdrawn",
-       "gives": "INTHERED",
-       "note": "an overdrawn account is in the red"
-      },
-      {
-       "words": "clubs",
-       "gives": "C",
-       "note": "C is the card-suit abbreviation for clubs"
-      },
-      {
-       "words": "the",
-       "note": "taken as written, the word swapped out"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "must replace",
+         "at": 16,
+         "note": "must replace says the clubs letter takes the place of the word the inside the phrase"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Overdrawn",
+         "at": 0,
+         "gives": "INTHERED",
+         "note": "an overdrawn account is in the red"
+        },
+        {
+         "words": "the",
+         "at": 29,
+         "gives": "THE",
+         "note": "the word the, found inside IN THE RED"
+        },
+        {
+         "words": "clubs",
+         "at": 10,
+         "gives": "C",
+         "note": "C is the card-suit abbreviation for clubs"
+        }
+       ]
       },
       {
        "words": "computers etc",
+       "at": 33,
        "gives": "IT",
-       "note": "IT is information technology"
+       "note": "IT, information technology, covers computers and the like"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to someone overdrawn to sell their golf clubs and gadgets to clear their debts.",
-     "definitionFit": "An account in credit has a positive balance, the opposite of owing money."
+     "surface": "A bank customer who is overdrawn is told that their clubs and computers must go to clear the debt.",
+     "walkthrough": "'the' is not a link word: it is the very word swapped out of the phrase for overdrawn.",
+     "definitionFit": "Having money in the account, rather than owing the bank, is the opposite of being in debt."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "clubs"
+     "misdirectedWord": "the"
     }
    }
   },
@@ -711,58 +721,57 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CYNIC",
      "indicators": [
       {
        "text": "takes",
-       "note": "taking a place means standing in for someone, so letters are swapped in where another stood"
+       "at": 48,
+       "note": "takes ... place says the new letters go where the old one was"
       },
       {
        "text": "place",
-       "note": "place completes the phrase about standing in, naming the spot the incoming letters fill"
+       "at": 64,
+       "note": "together with takes, signals swapping one letter for others"
       }
      ],
      "parts": [
       {
        "words": "fashionable",
+       "at": 18,
        "gives": "CHIC",
-       "note": "chic means stylish"
+       "note": "chic means stylish or fashionable"
+      },
+      {
+       "words": "husband's",
+       "at": 54,
+       "gives": "H",
+       "note": "H is the standard abbreviation for husband"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "YN",
        "indicators": [
         {
          "text": "finally",
-         "note": "finally points at the closing letter of each of the two words before it"
+         "at": 40,
+         "note": "finally tells us to take the closing letters of fancy and man"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "fancy man",
-         "gives": "YN",
-         "select": "last",
-         "note": "the last letters of these two words"
+         "at": 30,
+         "note": "last letters of fancy and man"
         }
        ]
-      },
-      {
-       "words": "husband's",
-       "gives": "H",
-       "note": "H is the abbreviation for husband"
       }
      ]
     },
     "explanation": {
-     "surface": "A stylish lover moves in and takes the husband's place, to sneers.",
-     "walkthrough": "'fancy man' reads as a lover, but only its two final letters are used.",
-     "definitionFit": "A cynic sneers at others' motives, so a scoffer is a fair description."
+     "surface": "A cynic sneers as a stylish lover moves into the absent husband's place.",
+     "walkthrough": "'fancy man' looks like a single lover, but finally takes the last letters of both words, Y and N, which replace the H of CHIC.",
+     "definitionFit": "A cynic sneers at people's motives and doubts their sincerity, so is a natural scoffer."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "fancy"
     }

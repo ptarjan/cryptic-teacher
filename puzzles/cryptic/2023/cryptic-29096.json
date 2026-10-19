@@ -577,43 +577,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CLEAVAGE",
      "indicators": [
       {
        "text": "written in",
-       "note": "written in means placed inside, so the answer letter goes within the shortened words"
+       "at": 36,
+       "note": "written in says the answer abbreviation is put inside what remains"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CLEAVAGE",
        "indicators": [
         {
-         "text": "having lost us",
-         "note": "having lost means something is dropped, and us read as plural is the two letters u"
+         "text": "having lost",
+         "at": 12,
+         "note": "having lost means the clue's own two words drop the letters named next"
         }
        ],
        "parts": [
         {
          "words": "Clue vague",
-         "note": "taken as written"
+         "at": 0
         },
         {
-         "words": "answer",
-         "gives": "A",
-         "note": "A is the abbreviation for answer"
+         "words": "us",
+         "at": 24,
+         "gives": "UU",
+         "note": "us read as the plural of the letter U, so both Us go"
         }
        ]
+      },
+      {
+       "words": "answer",
+       "at": 29,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A crossword setter admits an unclear clue, the answer written in.",
-     "walkthrough": "'Us' is read as two U's, one dropped from each word.",
-     "definitionFit": "Cleavage, the gap between breasts, may be on show at the front of a low-cut top."
+     "surface": "A setter admits a clue is vague and needs fixing, with an answer written into it.",
+     "walkthrough": "'us' is not the pronoun but plural U: Clue vague without its two Us leaves CLEVAGE, and A is written in after CLE.",
+     "definitionFit": "A low neckline reveals the cleavage at the front of the chest, so this is something a low-cut top might show."
     },
     "features": {
      "answerInScene": false,
@@ -644,49 +648,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "over",
-       "note": "over means turned over, so the word for direct is flipped end to end"
+       "text": "round",
+       "at": 17,
+       "note": "round says the reversed word goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "round",
-         "note": "round says the flipped word goes around the remaining letters, enclosing them"
+         "text": "over",
+         "at": 23,
+         "note": "over tells us the word for direct is turned backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "direct",
-           "gives": "AIM",
-           "note": "to direct a weapon is to aim it"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "direct",
+         "at": 10,
+         "gives": "AIM",
+         "note": "to direct something at a target is to aim it"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 28,
+         "gives": "A"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "head",
-           "note": "the head of a word is its first letter, so only the start of Fed's is kept"
+           "at": 36,
+           "note": "head means the first letter of Fed's"
           }
          ],
          "parts": [
           {
            "words": "Fed's",
-           "note": "a Fed is a US federal agent"
+           "at": 30,
+           "note": "first letter of Fed's"
           }
          ]
         }
@@ -695,9 +705,9 @@
      ]
     },
     "explanation": {
-     "surface": "Gangsters ordering a hit on an FBI agent.",
-     "walkthrough": "A Fed is an American FBI agent, nicely chosen for a clue about organised crime.",
-     "definitionFit": "The Mafia is the organised crime syndicate, a body of criminals."
+     "surface": "Criminals aim to get round a federal agent in charge.",
+     "walkthrough": "AIM turned over gives MIA, which goes round A and the F that heads Fed's. A Fed is an American FBI agent.",
+     "definitionFit": "The Mafia is the organised crime syndicate, a body of gangsters."
     },
     "features": {
      "answerInScene": true,
@@ -1274,50 +1284,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "New form for",
-       "note": "a new form means a reshaping, so the remaining letters are rearranged"
+       "at": 0,
+       "note": "a new form for the letters of trainees means they are rearranged"
+      },
+      {
+       "text": "missing",
+       "at": 22,
+       "note": "missing says the named letters are taken from trainees before the rest are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "trainees",
+       "at": 13
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "missing",
-         "note": "missing means lacking, so those central letters are taken out of trainees"
+         "text": "in the middle",
+         "at": 35,
+         "note": "in the middle picks the central letters of item"
         }
        ],
        "parts": [
         {
-         "words": "trainees",
-         "note": "taken as written"
-        },
-        {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "in the middle",
-           "note": "in the middle means only the central letters of item are wanted"
-          }
-         ],
-         "parts": [
-          {
-           "words": "item",
-           "note": "the central two letters of item"
-          }
-         ]
+         "words": "item",
+         "at": 30,
+         "note": "the middle two letters of item"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "New recruits filling in a form, with one item left blank in the middle.",
-     "walkthrough": "A sarnie is British slang for a sandwich; 'filling' means sandwich filling, not filling in a form.",
-     "definitionFit": "A sandwich needs a filling placed between its slices of bread."
+     "surface": "A training form with an item missing in the middle needs to be filled in.",
+     "walkthrough": "Take TE, the middle of item, out of trainees; RAINES rearranged gives the answer. A sarnie is British slang for a sandwich.",
+     "definitionFit": "A sandwich is bread that is no good until it has a filling put inside it."
     },
     "features": {
      "answerInScene": false,

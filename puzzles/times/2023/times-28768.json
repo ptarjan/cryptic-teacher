@@ -390,45 +390,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALTHOUGH",
-     "indicators": [
-      {
-       "text": "not reaching conclusion",
-       "note": "stopping short of the conclusion means the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 8,
+       "gives": "A"
+      },
+      {
+       "words": "learner",
+       "at": 10,
+       "gives": "L",
+       "note": "L is the learner-driver abbreviation"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not reaching conclusion",
+         "at": 28,
+         "note": "not reaching conclusion means the final letter of the word for pondered is cut off"
+        }
+       ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "learner",
-         "gives": "L",
-         "note": "L is the learner plate on a British car"
-        },
-        {
          "words": "pondered",
-         "gives": "THOUGH",
-         "note": "thought, meaning pondered, without its final letter"
+         "at": 18,
+         "gives": "THOUGHT",
+         "note": "to have pondered is to have thought"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A student mulled it over without ever reaching a conclusion.",
-     "definitionFit": "Although and even if are synonymous conjunctions introducing a concession."
+     "surface": "A student thinks something over without ever arriving at an answer.",
+     "walkthrough": "Pondered gives the past tense of think, which loses its final letter.",
+     "definitionFit": "Although and even if both introduce a concession, as in although it rained, we went."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "conclusion"
+     "misdirectedWord": "learner"
     }
    }
   },
@@ -1240,42 +1246,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALBUM",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "said briefly means cut short, so the end is lopped off"
+       "text": "holding",
+       "at": 32,
+       "note": "holding says the short word for former student goes round the British abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "holding",
-         "note": "holding something means having it inside"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Former American student",
-         "gives": "ALUM",
-         "note": "alumnus, a graduate in US usage, shortened"
-        },
-        {
-         "words": "British",
-         "gives": "B",
-         "note": "B is the abbreviation for British"
-        }
-       ]
+       "words": "Former American student briefly",
+       "at": 0,
+       "gives": "ALUM",
+       "note": "alum is the shortened American word for an alumnus, a former student"
+      },
+      {
+       "words": "British",
+       "at": 40,
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "A US graduate is in briefly to hold a British record.",
-     "definitionFit": "An album is a long-playing record of several tracks."
+     "surface": "An American graduate keeps hold of a British record.",
+     "definitionFit": "An album is a long-playing record, a collection of tracks released together."
     },
     "features": {
      "answerInScene": true,

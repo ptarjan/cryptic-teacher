@@ -50,49 +50,54 @@
      "indicators": [
       {
        "text": "cut",
-       "note": "something that cuts into a word splits it apart and sits inside it"
+       "at": 23,
+       "note": "cut means these letters slice into the word for really, splitting it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "really",
+       "at": 27,
+       "gives": "SO",
+       "note": "so, as in so good, means really"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "really",
-         "gives": "SO",
-         "note": "'so' as an intensifier, as in 'so good'"
-        },
         {
          "op": "middle",
          "indicators": [
           {
            "text": "Middle of",
-           "note": "the middle of a word is its central letter, so only the centre is kept"
+           "at": 0,
+           "note": "middle of picks the central letter of rough"
           }
          ],
          "parts": [
           {
            "words": "rough",
-           "note": "the central letter of the five-letter word"
+           "at": 10,
+           "note": "middle letter of rough"
           }
          ]
+        },
+        {
+         "words": "part's",
+         "at": 16,
+         "gives": "BIT",
+         "note": "part's is read as part is, and a bit is a part"
         }
        ]
-      },
-      {
-       "words": "part's",
-       "gives": "BIT",
-       "note": "a bit is a part; the 's is 'part is'"
       }
      ]
     },
     "explanation": {
-     "surface": "A rough bit of a script is cut for an actor in a hurry.",
-     "walkthrough": "U and BIT together cut SO apart: S(UBIT)O. 'Player' is a musician, not an actor, and the definition is a direction on a score.",
-     "definitionFit": "Subito is the Italian musical term marking a sudden change, as in subito piano."
+     "surface": "A player finds part of a rough passage really cut short suddenly.",
+     "walkthrough": "Read part's as part is: the part and the middle of rough cut into really. Subito is an Italian direction in music meaning suddenly.",
+     "definitionFit": "Subito is a musical instruction telling a performer to change at once, so it means suddenly for a musician."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "player"
     }
@@ -728,35 +733,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "GRASS",
      "indicators": [
       {
        "text": "changing hands",
-       "note": "the hands are left and right, so one is traded for the other"
+       "at": 22,
+       "note": "changing hands means the left-hand letter is swapped for the right-hand letter"
       }
      ],
      "parts": [
       {
        "words": "goblet perhaps",
+       "at": 7,
        "gives": "GLASS",
-       "note": "a goblet is a kind of drinking glass"
+       "note": "a goblet is one kind of glass"
       },
       {
-       "words": "hands",
-       "gives": "R",
-       "note": "the left hand swapped for the right: L becomes R, the abbreviation for right"
+       "gives": "L"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A cup or goblet passes from one owner to another.",
-     "walkthrough": "Swap the L of GLASS for R and the goblet becomes the slang for cannabis.",
-     "definitionFit": "Both pot and grass are slang names for cannabis."
+     "surface": "A pot or a goblet is passed from one owner to another.",
+     "walkthrough": "L and R are the standard abbreviations for left and right, the two hands; swap the L of GLASS for R.",
+     "definitionFit": "Pot and grass are both slang words for cannabis."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Pot"
     }
    }
