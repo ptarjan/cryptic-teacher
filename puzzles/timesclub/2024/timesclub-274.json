@@ -265,7 +265,8 @@
      "indicators": [
       {
        "text": "up",
-       "note": "in a down entry, going up means reading from bottom to top"
+       "at": 73,
+       "note": "in a down clue up means read from the bottom, so the whole thing is reversed"
       }
      ],
      "parts": [
@@ -274,36 +275,48 @@
        "indicators": [
         {
          "text": "in which",
-         "note": "one item placed within another is enclosed by it"
-        },
-        {
-         "text": "should dress",
-         "note": "to dress something is to clothe it, wrapping it all round"
+         "at": 19,
+         "note": "in which means that the following letters go inside the silk"
         }
        ],
        "parts": [
         {
          "words": "silk",
+         "at": 14,
          "gives": "QC",
-         "note": "a silk is a Queen's Counsel, a senior barrister"
+         "note": "a silk is a Queen's Counsel, QC, a senior barrister"
         },
         {
-         "op": "anagram",
+         "op": "container",
          "indicators": [
           {
-           "text": "different",
-           "note": "letters made different are rearranged into another order"
+           "text": "should dress",
+           "at": 45,
+           "note": "to dress is to clothe, so the shuffled yeomen wrap round the unknown"
           }
          ],
          "parts": [
           {
-           "words": "yeomen",
-           "note": "taken as written"
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "different",
+             "at": 28,
+             "note": "different means altered, so the letters of yeomen are rearranged"
+            }
+           ],
+           "parts": [
+            {
+             "words": "yeomen",
+             "at": 38
+            }
+           ]
           },
           {
            "words": "unknown number",
+           "at": 58,
            "gives": "Z",
-           "note": "z is a standard algebraic unknown"
+           "note": "Z is an algebraic unknown, a number to be found"
           }
          ]
         }
@@ -312,9 +325,9 @@
      ]
     },
     "explanation": {
-     "surface": "A barrister's case in which yeomen guard an unidentified figure.",
-     "walkthrough": "A silk is a Queen's Counsel, QC; turned up it gives CQ, which holds the yeomen letters reworked around Z. 'Dress' means the yeomen letters clothe the Z.",
-     "definitionFit": "Coenzyme Q, or ubiquinone, is a quinone derivative involved in cell respiration, a chemical made from a parent compound."
+     "surface": "A silk-derived material in which different guards should dress up a mystery number.",
+     "walkthrough": "Z goes inside the rearranged yeomen, all inside QC, and the whole is read upwards.",
+     "definitionFit": "Coenzyme Q, or ubiquinone, is a compound derived from benzoquinone, used in cell respiration."
     },
     "features": {
      "answerInScene": false,
@@ -1495,32 +1508,40 @@
    "annotation": {
     "definitions": [
      {
-      "text": "lens",
-      "at": 11
+      "text": "this lens",
+      "at": 6
      }
     ],
     "wordplay": {
      "op": "deletion",
+     "indicators": [
+      {
+       "text": "to be",
+       "at": 16,
+       "note": "the clue says judge plus this lens is to be the word for full of cracks, so the answer is that word with the judge removed"
+      }
+     ],
      "parts": [
       {
        "words": "full of cracks",
+       "at": 22,
        "gives": "JOCULAR",
-       "note": "cracks are wisecracks, jokes"
+       "note": "cracks are jokes, so full of cracks is jocular"
       },
       {
        "words": "Judge",
-       "gives": "J",
-       "note": "J is the abbreviation for judge"
+       "at": 0,
+       "gives": "J"
       }
      ]
     },
     "explanation": {
-     "surface": "Inspect this lens and decide whether it is covered in cracks.",
-     "walkthrough": "Read backwards: J plus the answer makes a word meaning full of wisecracks, so the answer is that word without J. 'Judge' looks like a verb but is the letter J.",
-     "definitionFit": "An ocular is the eyepiece of a microscope or telescope, the lens nearest the viewer's eye."
+     "surface": "An instruction to judge a lens to see whether it is flawed.",
+     "walkthrough": "Put J before this lens and you get JOCULAR, full of wisecracks; so the lens is JOCULAR without the J.",
+     "definitionFit": "An ocular is the eyepiece lens of a microscope or telescope."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "cracks"

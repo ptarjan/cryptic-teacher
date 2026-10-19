@@ -1658,44 +1658,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "visits",
-       "note": "a visitor goes inside the house"
-      }
-     ],
      "parts": [
       {
        "words": "in",
-       "note": "kept as written"
+       "at": 14,
+       "gives": "IN"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "not quite",
-         "note": "the last letter of IN CITY is dropped"
+         "text": "visits",
+         "at": 7,
+         "note": "visits means goes into, so the office goes inside the district"
         }
        ],
        "parts": [
         {
-         "words": "financial district",
-         "gives": "CIT",
-         "note": "the City is London's financial district; without its Y it is CIT"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not quite",
+           "at": 36,
+           "note": "not quite means one letter short, so the district loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "financial district",
+           "at": 17,
+           "gives": "CITY",
+           "note": "the City is London's financial district"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
         },
         {
          "words": "Office",
+         "at": 0,
          "gives": "DEN",
-         "note": "a den is a study, a home office"
+         "note": "a den is a study or private office"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Business calls made in the City that don't quite come off.",
-     "walkthrough": "\"Office\" reads as the place visited; it is the visitor, DEN.",
-     "definitionFit": "A plain synonym: both mean an event or occurrence, something that takes place."
+     "surface": "An office makes calls in the City, almost without anything happening.",
+     "walkthrough": "The City is London's financial district; CIT holds DEN.",
+     "definitionFit": "An incident is an event, something that happens."
     },
     "features": {
      "answerInScene": false,
@@ -3269,36 +3282,41 @@
     ],
     "wordplay": {
      "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "in places the pieces within the word for a human"
+      }
+     ],
      "parts": [
       {
        "words": "human",
+       "at": 32,
        "gives": "PERSON",
-       "note": "a human is a person"
+       "note": "a person is a human being"
       },
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "I'm",
-         "note": "kept as written"
+         "at": 7,
+         "gives": "IM"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "heading for",
-           "note": "the head of mouth is its first letter"
+           "at": 11,
+           "note": "a heading is at the top, so only the first letter of mouth is taken"
           }
          ],
          "parts": [
           {
            "words": "mouth",
-           "note": "first letter"
+           "at": 23
           }
          ]
         }
@@ -3307,9 +3325,9 @@
      ]
     },
     "explanation": {
-     "surface": "A piece of fruit heading for someone's mouth.",
-     "walkthrough": "The fruit speaks of going into a mouth; only M is taken from mouth.",
-     "definitionFit": "Definition by example: an orange, tomato-like fruit eaten when soft and ripe."
+     "surface": "Someone exclaims that a piece of fruit is about to go into their mouth.",
+     "walkthrough": "IM and M go inside PERSON, between PERS and ON.",
+     "definitionFit": "A persimmon is an orange tomato-like fruit from a tree of the ebony family."
     },
     "features": {
      "answerInScene": true,
