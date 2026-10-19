@@ -831,59 +831,66 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "no longer having",
-       "note": "something no longer had has gone"
-      }
-     ],
      "parts": [
       {
        "words": "title",
+       "at": 7,
        "gives": "TERM",
-       "note": "a term is a name for something, a title"
+       "note": "a term is a name or title given to something"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "to pen",
-         "note": "to pen is to shut in, as sheep in a pen, so the article goes inside"
+         "at": 58,
+         "note": "to pen means to enclose, so the article is shut inside"
         }
        ],
        "parts": [
         {
          "op": "deletion",
+         "indicators": [
+          {
+           "text": "no longer having",
+           "at": 34,
+           "note": "no longer having says the following letter is dropped"
+          }
+         ],
          "parts": [
           {
            "words": "author's rep perhaps",
+           "at": 13,
            "gives": "AGENT",
-           "note": "a literary agent represents an author"
+           "note": "an agent represents an author, among others, hence perhaps"
           },
           {
            "words": "energy",
+           "at": 51,
            "gives": "E",
-           "note": "E = energy, removed from AGENT to leave AGNT"
+           "note": "E is the physics symbol for energy"
           }
          ]
         },
         {
          "words": "article",
+         "at": 65,
          "gives": "A",
-         "note": "a = the indefinite article, penned in AG…NT"
+         "note": "A is the indefinite article"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An author's agent wearily handles a title for Virago, the feminist publisher.",
-     "walkthrough": "Virago is a real feminist publishing house, which makes the definition look like a publisher; it means a scold.",
-     "definitionFit": "A plain synonym: a virago is a domineering, shrewish woman."
+     "surface": "A literary agent loses enthusiasm for a book by a fierce woman for a feminist publisher.",
+     "walkthrough": "Virago is also a feminist publishing house, which colours the author picture. AGENT minus E is AGNT, with A penned inside.",
+     "definitionFit": "A termagant is a scolding, overbearing woman, the same idea as a virago or shrew."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Virago"
     }
    }
@@ -3377,13 +3384,27 @@
         {
          "text": "without",
          "at": 25,
-         "note": "without means lacking, so the first word loses a letter"
+         "note": "without says some letters are taken out of the words before it"
+        },
+        {
+         "text": "or",
+         "at": 43,
+         "note": "or joins the two things the story is told without, so both letters go"
         }
        ],
        "parts": [
         {
-         "words": "told",
-         "at": 14
+         "op": "charade",
+         "parts": [
+          {
+           "words": "told",
+           "at": 14
+          },
+          {
+           "words": "story",
+           "at": 19
+          }
+         ]
         },
         {
          "op": "first",
@@ -3391,46 +3412,27 @@
           {
            "text": "initially",
            "at": 57,
-           "note": "initially asks for the first letter of each of deviation and repetition"
+           "note": "initially picks the first letter of each of the two words"
           }
          ],
          "parts": [
           {
            "words": "deviation",
-           "at": 33,
-           "note": "deviation begins with D"
+           "at": 33
+          },
+          {
+           "words": "repetition",
+           "at": 46
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "or",
-         "at": 43,
-         "note": "or here carries the same lack on to the second word, so story also loses a letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "story",
-         "at": 19
-        },
-        {
-         "words": "repetition",
-         "at": 46,
-         "gives": "R",
-         "note": "initially applies here too: repetition begins with R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer's star sign told a tale without wandering off or repeating himself.",
-     "walkthrough": "'initially' gives D and R; 'without' takes D from 'told', and 'or' carries the same lack on so R goes from 'story', leaving TOL and STOY. The 's in 'Author's' is 'has'.",
+     "surface": "An author's star sign tells a tale without straying or repeating itself.",
+     "walkthrough": "'without deviation or repetition' echoes the rules of the radio game Just a Minute; taking D and R from TOLD STORY leaves TOLSTOY.",
      "definitionFit": "Leo Tolstoy was the Russian novelist who wrote War and Peace and Anna Karenina."
     },
     "features": {

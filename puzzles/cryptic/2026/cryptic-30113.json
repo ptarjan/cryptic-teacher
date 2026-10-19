@@ -300,39 +300,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "top",
-       "note": "In a down entry the top is where the word starts, so only its first letter is taken."
-      }
-     ],
      "parts": [
       {
        "words": "Doctor",
-       "gives": "DR",
-       "note": "the two letters on any doctor's brass plate"
+       "at": 0,
+       "gives": "DR"
       },
       {
        "words": "in the past",
+       "at": 9,
        "gives": "AGO",
-       "note": "something in the past happened a while ago"
+       "note": "ago means in the past, as in long ago"
       },
       {
-       "words": "Neath's",
-       "gives": "N",
-       "note": "the first letter of Neath, a town in south Wales"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top",
+         "at": 29,
+         "note": "the top of a down entry's word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Neath's",
+         "at": 21
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor who was once the leading fire-eater in Neath.",
-     "walkthrough": "'Doctor' is the setter's favourite word for shuffling letters, and here it does nothing of the kind — it is two letters taken at face value. The red beast on the Welsh flag is the one being described.",
-     "definitionFit": "The beast of legend is known above all for the flame it breathes, so the hyphenated description names it by its one famous trick."
+     "surface": "A doctor in the old days was the leading man of Neath, a town in South Wales.",
+     "walkthrough": "Neath is a town in South Wales, a nod to the red dragon on the Welsh flag.",
+     "definitionFit": "Dragons in legend breathe fire, so the description identifies the mythical beast."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Doctor"
+     "misdirectedWord": "top"
     }
    }
   },

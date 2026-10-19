@@ -471,36 +471,32 @@
      "op": "charade",
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "C",
-       "parts": [
-        {
-         "words": "See",
-         "gives": "SEE",
-         "note": "the word is said exactly like the name of the third letter"
-        }
-       ]
+       "words": "See",
+       "at": 0,
+       "gives": "C",
+       "note": "the letter C is pronounced like the word see"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "ending of",
-         "note": "ending of takes just the final letter of each word that follows"
+         "at": 4,
+         "note": "ending of picks the final letter of each word named after it"
         }
        ],
        "parts": [
         {
          "words": "concerto",
-         "note": "its final letter"
+         "at": 14
         },
         {
          "words": "grand",
-         "note": "its final letter"
+         "at": 30
         },
         {
          "words": "opera",
-         "note": "its final letter"
+         "at": 36
         }
        ]
       }
@@ -508,9 +504,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A reader is invited to look at how a concerto or a grand opera finishes.",
-     "walkthrough": "The whole clue is also the definition: a closing passage is what you see at the end of such works.",
-     "definitionFit": "A coda is the concluding section of a musical piece, the passage that rounds off a movement or opera."
+     "surface": "A listener is told to notice how a concerto and a grand opera close.",
+     "walkthrough": "The whole clue does both jobs: C (said 'see') plus the last letters of concerto, grand and opera, and it also describes the piece that rounds off such works.",
+     "definitionFit": "A coda is the closing passage of a musical work, such as the final section of a concerto or an opera."
     },
     "features": {
      "answerInScene": true,
@@ -1727,60 +1723,47 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "removing",
+       "at": 5,
+       "note": "removing says the letters of the word stew are taken out of the two pieces, leaving the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "removing",
-         "note": "removing takes letters away, so those of the dish are struck out of what follows"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "cooker",
+         "at": 24,
          "gives": "STOVE",
          "note": "a stove is a cooker"
         },
         {
-         "gives": "ST"
+         "words": "modern",
+         "at": 32,
+         "gives": "NEW",
+         "note": "new means modern"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "modern",
-           "gives": "NEW",
-           "note": "new means modern"
-          },
-          {
-           "words": "stew",
-           "note": "taken as written, the letters to be removed"
-          }
-         ]
-        },
-        {
-         "gives": "EWSTEW"
-        }
-       ]
+       "words": "stew",
+       "at": 14
       }
      ]
     },
     "explanation": {
-     "surface": "A chef takes the casserole off a new kitchen range.",
-     "walkthrough": "Taking the four letters of the dish out of the two joined words leaves the answer; 'Cook' is the verb, to bake in an oven.",
-     "definitionFit": "To oven something is to bake or cook it in an oven, a verb use recorded in Chambers."
+     "surface": "A cook takes the stew off a modern cooker.",
+     "walkthrough": "S and T leave the front of STOVE and E and W leave NEW, so four letters remain. Chambers allows oven as a verb.",
+     "definitionFit": "To oven something is to bake or cook it in an oven, a verb sense recorded in Chambers."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Cook"
+     "misdirectedWord": "stew"
     }
    }
   },
