@@ -75,6 +75,24 @@ def load(path=None):
     return {d: {s: c + [None] * (len(PHASES) - len(c)) for s, c in days[d].items()} for d in sorted(days)}
 
 
+#: Where tools/gale_fetch.py is now, as the nightly record last saw it (its
+#: state lives under ~/.cache on the downloader's host, which the site build
+#: does not see): {"at": day, "paper": name, "year": int, "left": int,
+#: "back": bool}. {} until a night has recorded one.
+FETCHING = ROOT / "tools" / "data" / "progress_fetching.json"
+
+
+def load_fetching(path=None):
+    try:
+        return json.loads((path or FETCHING).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def save_fetching(cursor, path=None):
+    (path or FETCHING).write_text(json.dumps(cursor, sort_keys=True, indent=1) + "\n", encoding="utf-8")
+
+
 def _trimmed(c):
     while c and c[-1] is None:
         c = c[:-1]

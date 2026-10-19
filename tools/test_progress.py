@@ -179,6 +179,22 @@ assert B.at_pace(0, 5) == "done" and B.at_pace(10, 0) == "not moving"
 assert B.at_pace(100, 10) == "10 days" and B.at_pace(3650, 1) == "10 years"
 
 P.HISTORY = path
+
+# Where the Gale downloader is: recorded nightly from its plan (its state is
+# on the downloader's host), drawn under the queues table.
+from datetime import date as _d
+rows = [("TTDA", _d(1935, 1, 16), None), ("TTDA", _d(1935, 1, 15), None), ("TTDA", _d(1934, 12, 31), None),
+        ("LSNR", _d(1935, 1, 1), None)]
+cur = R.fetching(rows, {"TTDA": "The Times"})
+assert cur == {"paper": "The Times", "year": 1935, "left": 2, "back": True}, cur
+assert R.fetching([]) is None
+assert R.fetching([("TLSH", _d(1992, 1, 3)), ("TLSH", _d(1992, 1, 10))])["back"] is False
+P.FETCHING = Path(tempfile.mkdtemp()) / "fetching.json"
+assert P.load_fetching() == {} and B.fetching_note(P.load_fetching()) == ""
+P.save_fetching({"at": "2026-10-18", **cur})
+assert B.fetching_note(P.load_fetching()) == (
+    '<p class="muted small-note">Fetching: Gale (The Times), working back through 1935 '
+    '(2 pages left in that bucket), as of the 18 Oct night count.</p>'), B.fetching_note(P.load_fetching())
 idx = {"puzzles": [{"series": "times", "hasSolutions": True, "annotated": True}] * 4
                   + [{"series": "times", "hasSolutions": False, "annotated": False}]}
 def ided(idx):
@@ -190,6 +206,7 @@ ided(idx)
 html = B.progress_page(idx, today=date(2026, 10, 8))
 assert html.count("<svg") == 5, html.count("<svg")
 assert "<h2>The queues</h2>" in html and "<th>To annotate</th>" in html and "Not read" not in html
+assert html.index("</table>", html.index("<h2>The queues</h2>")) < html.index("Fetching: Gale (The Times)")
 assert "30 <span" in html and "(&minus;5 / " in html, "read queue fell 40 to 30 with 1 filed"
 assert "<polyline" in html, html[:2000]
 

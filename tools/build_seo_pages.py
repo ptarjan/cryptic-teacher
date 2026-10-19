@@ -1864,6 +1864,18 @@ def queue_table(row, recorded):
             + "".join(rows) + "</table>")
 
 
+def fetching_note(cur):
+    """The line under the queues table saying where the Gale downloader is, from
+    the nightly record (progress.load_fetching()); "" when none."""
+    if not cur or not cur.get("year"):
+        return ""
+    n = cur["left"]
+    return (f'<p class="muted small-note">Fetching: Gale ({esc(cur["paper"])}), working '
+            f'{"back through" if cur.get("back") else "forward through"} {cur["year"]} '
+            f'({n:,} {"page" if n == 1 else "pages"} left in that bucket), as of the '
+            f'{short_day(cur["at"])} night count.</p>')
+
+
 def pace_cells(pts, today):
     """(7-day cell, 30-day cell, 7-day pace or None) for a funnel_series().
     A window longer than the history held shows its real span in days; the
@@ -1962,7 +1974,8 @@ def progress_page(idx, today=None, now=None):
                "is counted as a puzzle filed, which also counts a puzzle filed from another source "
                "and misses a scan read for nothing. A ? is a count recorded on fewer than two "
                "nights. A series with every queue empty is left out.</p>",
-               queue_table(days[today], recorded)) if queued is not None else ()),
+               queue_table(days[today], recorded),
+               fetching_note(progress.load_fetching())) if queued is not None else ()),
             "<h2>Running totals</h2>", recent,
             *((f"<details><summary>All time, from {short_day(next(iter(days)))}</summary>",
                cumulative_chart(days, full=True)[0], "</details>") if trimmed else ()),
