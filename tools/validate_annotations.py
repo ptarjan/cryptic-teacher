@@ -3676,6 +3676,72 @@ def _self_signed_ops(tree):
     return out
 
 
+#: Letters of a holder's words that already say "holds / is held in": onboard, interpolar, inside, within.
+_HOLDER_WORD = re.compile(r"^(?:onboard|inter|inside|within|inner)|(?:board|hold|holder)$")
+
+
+def _self_holding_containers(tree):
+    """ids of bare containers whose holder leaf says it holds (round 17, 14 of 97 sampled unindicatedBare
+    flags judged fine): [Onboard]SS, [interpolar]SN (a holder of one or two letters from a short phrase),
+    [Indeed]DEED (the holder's word is the indicator word plus the holder). The same word-is-both
+    reading shared_indicators allows."""
+    out = set()
+    for node in _walk(tree):
+        kids = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        if node.get("op") != "container" or node.get("indicators") or len(kids) != 2 or "op" in kids[0]:
+            continue
+        w, g = wordplay.letters(kids[0].get("words")), wordplay.letters(kids[0].get("gives"))
+        if not w or not g or w == g:
+            continue
+        nwords = len(str(kids[0].get("words") or "").split())
+        rest = w[:len(w) - len(g)] if w.endswith(g) else (w[len(g):] if w.startswith(g) else "")
+        w = w.lower()
+        edge = bool(_HOLDER_WORD.search(w))
+        if (len(g) <= 2 and nwords <= 2 and edge) or (nwords == 1 and rest and _CONTAINER_WORD.fullmatch(rest.lower())):
+            out.add(id(node))
+    return out
+
+
+def _lone_implicit_op(tree):
+    """ids of the only op in a tree that needs an indicator when no node of the tree carries one (round 17,
+    35 of 51 sampled flags of this shape judged fine, 12 more unclear, 3 real): a bare homophone, hidden word,
+    anagram or container whose clue states its signal inside a leaf's words or not at all (HEAR, IOTA,
+    COARSEN, REMAINS). With other ops in the tree the same flag stays: there an indicator is misfiled or
+    swapped (16 of 16 real). A lone bare deletion or pick stays flagged (the tests hold it)."""
+    nodes = list(_walk(tree))
+    ops = [n for n in nodes if n.get("op") in NEEDS_INDICATOR and not n.get("unchecked")]
+    if len(ops) == 1 and ops[0].get("op") in ("homophone", "hidden", "anagram", "container") \
+            and not any(n.get("indicators") for n in nodes):
+        return {id(ops[0])}
+    return set()
+
+
+def _chained_deletions(tree):
+    """ids of bare deletions on the first-part chain under a deletion that has an indicator (round 17
+    OPAL): del<Piss taken out of>(del(del(Pop Sails, P), I), S) - one indicator for the run of cuts."""
+    out = set()
+    for node in _walk(tree):
+        if node.get("op") != "deletion" or not node.get("indicators"):
+            continue
+        cur = node
+        while True:
+            kids = [p for p in cur.get("parts") or [] if isinstance(p, dict)]
+            if not kids or kids[0].get("op") != "deletion" or kids[0].get("indicators"):
+                break
+            out.add(id(kids[0]))
+            cur = kids[0]
+    return out
+
+
+def _substituting_containers(tree):
+    """ids of bare containers whose first part is a deletion signed with a swap word (round 17 BLUFFS:
+    ins(del<ousting>(BLUES, E), FF)): the one "ousting" says the cut letter is replaced by the rest."""
+    return {id(n) for n in _walk(tree) if n.get("op") == "container" and not n.get("indicators")
+            for kids in [[p for p in n.get("parts") or [] if isinstance(p, dict)]]
+            if kids and kids[0].get("op") == "deletion"
+            and _SUBSTITUTE_WORD.search(" ".join(str(i.get("text") or "") for i in kids[0].get("indicators") or []))}
+
+
 def unindicated_ops(tree):
     """How many checked ops that need an indicator word have none.
 
@@ -4441,10 +4507,22 @@ def anagram_synonyms(tree, ann=None, clue=None):
             n += bool(same) and sum(1 for q in pool if len(wordplay.letters(q.get("gives"))) >= 2
                                     and wordplay.letters(q["gives"]) != wordplay.letters(q["words"])
                                     and not _doubled(q) and not _near_literal(q) and not _phrase_letters(q)
+                                    and not _repeats_sibling(q, pool)
                                     and not q.get("select")
                                     and (p is not node or _stand_in(q)))
         n += bool(clue) and _lone_stand_in(node) and bool(_loose_words(ann, clue))
     return n
+
+
+def _repeats_sibling(leaf, pool):
+    """Whether `leaf` is a lone repeat word ("again", "twice") giving the letters another fodder leaf of
+    the pool already holds: ana<torment>(set, [again]SET) is SET twice, not a synonym (round 17 TSETSE)."""
+    ws = re.findall(r"[A-Za-z]+", str(leaf.get("words") or ""))
+    if len(ws) != 1 or ws[0].lower() not in REPEAT_WORDS:
+        return False
+    gives = wordplay.letters(leaf.get("gives"))
+    return any(q is not leaf and gives in (wordplay.letters(q.get("words")), wordplay.letters(q.get("gives")))
+               for q in pool)
 
 
 def _phrase_letters(leaf):
@@ -4955,7 +5033,9 @@ _EXTRA_PAIRS = frozenset({("PLAYED", "P"), ("ELECTRONICALLY", "E"), ("ELECTRONIC
                           ("KOSHER", "K"), ("LITTLE", "L"), ("QUALITY", "Q"),  # round 11
                           ("FAILING", "F"),  # round 12 (a grade)
                           ("ROUBLE", "R"), ("ROUBLES", "R"),  # round 13 (cryptic-22221 ARGENT)
-                          ("VIOLET", "V"), ("LICENTIATE", "L"), ("ACROSS", "A")})  # round 14 (judged standard)
+                          ("VIOLET", "V"), ("LICENTIATE", "L"), ("ACROSS", "A"),  # round 14 (judged standard)
+                          ("WESTERLY", "W"), ("EASTERLY", "E"), ("NORTHERLY", "N"), ("SOUTHERLY", "S"),  # round 17:
+                          ("UNITED", "U"), ("WITHOUT", "W")})  # compass adjectives, "united" and "without" (w/o), judged fine
 
 
 def _known_pair(words, gives):
@@ -5325,7 +5405,9 @@ def unindicated_uncovered(tree):
     spoken = {id(p) for s in _walk(tree) if s.get("op") == "spoonerism"
               for p in s.get("parts") or [] if isinstance(p, dict) and p.get("op") == "homophone"}
     n = 0
-    copies = _repeated_copies(tree) | _moved_letter_ops(tree) | _self_signed_ops(tree)
+    copies = _repeated_copies(tree) | _moved_letter_ops(tree) | _self_signed_ops(tree) \
+        | _self_holding_containers(tree) | _chained_deletions(tree) | _substituting_containers(tree) \
+        | _lone_implicit_op(tree)
     for parent in [{"parts": [tree]}] + list(_walk(tree)):
         groups = {}
         kids = [p for p in parent.get("parts") or [] if isinstance(p, dict)]
@@ -5522,6 +5604,20 @@ def shared_indicators(tree, clue=None):
                               and len(str(p.get("words")).split()) == 1
                               and wordplay.letters(p.get("words")) != wordplay.letters(p.get("gives"))
                               and wordplay.letters(p.get("words")).startswith(wordplay.letters(p.get("gives")))}
+        if node.get("op") in ("anagram", "homophone"):
+            # Round 17 (4 of 6 sampled sharedIndicator flags judged fine): outpost = out + POST, Twinkletoes =
+            # twinkle + TOES (the leaf's word opens or ends with the anagram indicator), and "See" read as the
+            # letter C (the sound of a letter's name is its own word, no other indicator to give)
+            for p in node.get("parts") or []:
+                if not isinstance(p, dict) or "op" in p:
+                    continue
+                w, g = wordplay.letters(p.get("words")), wordplay.letters(p.get("gives"))
+                if node["op"] == "homophone" and len(wordplay.letters(node.get("spelt"))) == 1 \
+                        and len(str(p.get("words") or "").split()) == 1:
+                    cut_words.add(w)
+                elif node["op"] == "anagram" and g and w != g and len(str(p.get("words") or "").split()) == 1 and (
+                        (w.endswith(g) and w[:-len(g)] in said_ind) or (w.startswith(g) and w[len(g):] in said_ind)):
+                    cut_words.add(w)
         if node.get("op") == "reversal":
             # Return in transport = BUS round GO reversed (round 14, 3 of 6 sampled sharedIndicator flags judged fine):
             # the leaf's words are the reversal's, "go back" read as one phrase; the tree cannot say it shorter
@@ -5742,6 +5838,8 @@ def pool_gaps(tree, clue):
         for m in _walk(tree):
             if id(m) in mine:
                 continue
+            if "op" in m and any(q is node for q in _walk(m)):
+                continue  # round 17: an enclosing op's indicator ("keeps ... in", "when framing") may stand between the pieces
             for x, y in _subtree_spans({"words": m["words"], "at": m.get("at")} if "words" in m and "op" not in m
                                        else {"indicators": m.get("indicators")}, clue, low):
                 if lo < x and y < hi and not any(a <= x and y <= b for a, b in spans):
