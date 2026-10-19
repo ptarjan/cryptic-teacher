@@ -320,60 +320,62 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CLOSINGTIME",
+     "op": "composite",
      "indicators": [
       {
        "text": "Mismanaging",
-       "note": "mismanaging something handles it badly, so the letters get jumbled out of their order"
+       "at": 0,
+       "note": "mismanaging means handling badly, so these letters are jumbled"
+      },
+      {
+       "text": "to leave",
+       "at": 40,
+       "note": "to leave means these letters are taken out of the pool before it is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CLOSINGTIME",
+       "op": "charade",
+       "parts": [
+        {
+         "words": "slight",
+         "at": 12
+        },
+        {
+         "words": "income",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "to leave",
-         "note": "to leave means that letter departs from the collection before it is rearranged"
+         "text": "last",
+         "at": 35,
+         "note": "the last letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "slight income",
-         "note": "the twelve letters taken as written"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "last",
-           "note": "last asks for only the final letter of the drinker's word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "lush's",
-           "gives": "LUSH",
-           "note": "a lush is a heavy drinker; its final letter"
-          }
-         ]
+         "words": "lush's",
+         "at": 28,
+         "gives": "LUSH",
+         "note": "a lush is a drunkard; the 's is possessive"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk who has squandered a small wage has to leave when the pub shuts.",
-     "walkthrough": "Remove the H from the twelve letters, then rearrange the remaining eleven. In Britain pubs traditionally called last orders and closed at a fixed hour.",
-     "definitionFit": "Closing time is the hour at which a pub stops serving and customers must leave."
+     "surface": "A drinker's small wage runs out, and the pub ejects them at the end of the night.",
+     "walkthrough": "Remove H, the last letter of lush, from SLIGHT INCOME and rearrange the rest. In Britain, closing time is when pubs stop serving and turn drinkers out.",
+     "definitionFit": "Closing time is the hour when a pub must stop serving and its customers are sent out."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Mismanaging"
+     "misdirectedWord": "lush's"
     }
    }
   },
@@ -1119,38 +1121,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about suggests moving the letters around into a different order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 5,
+         "note": "about here means around in a new order, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "Lied",
-         "note": "rearranged"
-        },
-        {
-         "words": "head",
-         "gives": "NESS",
-         "note": "a ness is a headland or promontory, as in Orford Ness"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "head's",
+       "at": 11,
+       "gives": "NESS",
+       "note": "a ness is a headland, a head of land jutting into the sea"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone lied about their boss doing nothing.",
-     "definitionFit": "Idleness is the state of doing nothing, a lack of activity or work."
+     "surface": "Someone lied regarding the boss's laziness.",
+     "walkthrough": "Ness, a headland, survives in British place names such as Sheerness and Dungeness.",
+     "definitionFit": "Idleness is the state of doing nothing, so it is a synonym for inaction."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "head"
+     "misdirectedWord": "head's"
     }
    }
   },

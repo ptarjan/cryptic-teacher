@@ -572,46 +572,50 @@
      "indicators": [
       {
        "text": "biting",
-       "note": "something biting takes the other pieces between its jaws, so they sit inside it"
+       "at": 10,
+       "note": "biting means holding in the mouth, so the outer word surrounds the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Male bird",
+       "at": 0,
+       "gives": "GANDER",
+       "note": "a gander is a male goose"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "Male bird",
-         "gives": "GANDER",
-         "note": "a gander is a male goose"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "head of",
-           "note": "the head of a word is its first letter, so only the start of one is kept"
+           "at": 17,
+           "note": "the head of a word is its first letter"
           }
          ],
          "parts": [
           {
            "words": "one",
-           "note": "first letter of one"
+           "at": 25
           }
          ]
+        },
+        {
+         "words": "very large",
+         "at": 29,
+         "gives": "OS",
+         "note": "OS is the clothing abbreviation for outsize"
         }
        ]
-      },
-      {
-       "words": "very large",
-       "gives": "OS",
-       "note": "OS is short for outsize, very large"
       }
      ]
     },
     "explanation": {
-     "surface": "A gander pecking at an enormous duck.",
-     "walkthrough": "'Very large duck' reads as one phrase, but duck alone is the definition; OS (outsize) is a clothing-size abbreviation.",
-     "definitionFit": "The goosander is a species of fish-eating sawbill water bird belonging to the duck family."
+     "surface": "A male goose attacks the leader of a huge duck.",
+     "walkthrough": "OS stands for outsize, the label on clothing for very large sizes.",
+     "definitionFit": "The goosander is a large fish-eating sawbill, one of the diving ducks."
     },
     "features": {
      "answerInScene": true,
@@ -750,43 +754,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLAIDCYMRU",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "for the most part",
-       "note": "only most of the word is used, so its final letter is dropped"
+       "text": "and",
+       "at": 33,
+       "note": "and gathers the last word into the pool of letters that the next word jumbles"
+      },
+      {
+       "text": "spoiled",
+       "at": 39,
+       "note": "spoiled means ruined, so these letters are reworked into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "spoiled",
-         "note": "spoiled things are ruined and disordered, so the letters are jumbled"
+         "text": "for the most part",
+         "at": 7,
+         "note": "most of the word, meaning its last letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "Crude",
-         "gives": "CRUD",
-         "note": "the word without its last letter"
+         "at": 0,
+         "note": "the word is shortened to its first four letters"
         },
         {
-         "words": "my pal and I",
-         "gives": "MYPALI",
-         "note": "taken as written, and dropped"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "my",
+       "at": 26
+      },
+      {
+       "words": "pal",
+       "at": 29
+      },
+      {
+       "words": "I",
+       "at": 37
       }
      ]
     },
     "explanation": {
-     "surface": "A crude remark from a friend ruins a Welsh party.",
-     "walkthrough": "'Party' looks like a social gathering, but it is the political sense: Plaid Cymru is the Welsh nationalist party.",
-     "definitionFit": "Plaid Cymru is the nationalist political party of Wales, campaigning for Welsh independence."
+     "surface": "Rough behaviour by a friend and me ruined a gathering in Wales.",
+     "walkthrough": "Plaid Cymru is Welsh for 'Party of Wales'; Cymru is the Welsh name for Wales.",
+     "definitionFit": "Plaid Cymru is the Welsh nationalist political party, so it is a party in Wales."
     },
     "features": {
      "answerInScene": true,

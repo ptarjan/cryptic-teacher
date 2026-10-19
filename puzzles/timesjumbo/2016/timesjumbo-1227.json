@@ -210,39 +210,43 @@
      "indicators": [
       {
        "text": "when welcoming",
-       "note": "welcoming means taking someone in, so the following letters go inside"
+       "at": 8,
+       "note": "welcoming means taking in, so the outer word holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Intense",
-         "gives": "SEARING",
-         "note": "searing heat is intense"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Intense",
+       "at": 0,
+       "gives": "SEARING",
+       "note": "searing heat or pain is intense"
       },
       {
-       "words": "female",
-       "gives": "F",
-       "note": "F is the abbreviation for female"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 23,
+         "gives": "A"
+        },
+        {
+         "words": "female",
+         "at": 25,
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An intense moment as a woman is welcomed aboard ship.",
-     "definitionFit": "Seafaring describes travelling by ocean, so living or working aboard a vessel; the question mark admits the loose fit."
+     "surface": "Things get heated when a woman is invited aboard.",
+     "walkthrough": "The question mark admits the definition is a loose gloss: seafaring life is life on a ship.",
+     "definitionFit": "Seafaring describes travelling by sea or working as a sailor, so it means being at sea in a vessel."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "welcoming"
+     "aptDefinition": true,
+     "misdirectedWord": "Intense"
     }
    }
   },
@@ -614,49 +618,54 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "DECENCY",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about here means going around, so the study wraps round the next piece"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DECENCY",
+       "op": "container",
        "indicators": [
         {
-         "text": "lacking core body",
-         "note": "lacking the core body means the whole central bulk of the word is lost"
+         "text": "about",
+         "at": 6,
+         "note": "about means surrounding, so the word for study goes round the church"
         }
        ],
        "parts": [
         {
          "words": "Study",
+         "at": 0,
          "gives": "DEN",
-         "note": "a den is a study, a private room"
+         "note": "a den is a private room for study"
         },
         {
          "words": "church",
+         "at": 12,
          "gives": "CE",
          "note": "CE is the Church of England"
-        },
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "lacking core body's",
+         "at": 27,
+         "note": "without its central body of letters, only the first and last letters remain"
+        }
+       ],
+       "parts": [
         {
          "words": "clearly",
-         "note": "taken as written"
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A study of the church, obviously missing the heart of the body's sense of justice.",
-     "walkthrough": "DE(CE)N then CLEARLY with its whole middle LEARL removed, leaving CY.",
-     "definitionFit": "Decency is propriety and fair dealing, behaving to others as is right and proper."
+     "surface": "Researching a church apparently lacks a sense of justice at its heart.",
+     "walkthrough": "'body's' belongs with 'core': the whole inner body of clearly goes, leaving only its ends.",
+     "definitionFit": "Decency is proper, fair-minded behaviour, so it covers fairness."
     },
     "features": {
      "answerInScene": false,
@@ -2940,41 +2949,66 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "IGNORANCE",
-     "indicators": [
-      {
-       "text": "after receiving",
-       "note": "receiving means taking in, so the other letters go inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "I",
-       "note": "taken as written"
+       "at": 0
       },
       {
-       "words": "leave",
-       "gives": "GO",
-       "note": "to go is to leave"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "after receiving",
+         "at": 16,
+         "note": "receiving means taking in, so the word for leave holds a note, and the contest does likewise"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leave",
+         "at": 2,
+         "gives": "GO",
+         "note": "to go is to leave"
+        },
+        {
+         "words": "notes",
+         "at": 48,
+         "gives": "N",
+         "note": "N is an abbreviation for note"
+        }
+       ]
       },
       {
-       "words": "contest",
-       "gives": "RACE",
-       "note": "a race is a contest"
-      },
-      {
-       "words": "non-consecutive notes",
-       "gives": "NN",
-       "note": "N is an abbreviation for note; the two go in separate places, not side by side"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "non-consecutive",
+         "at": 32,
+         "note": "the notes are not side by side, so the second one is taken in separately by the contest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "contest",
+         "at": 8,
+         "gives": "RACE",
+         "note": "a race is a contest"
+        },
+        {
+         "words": "notes",
+         "at": 48,
+         "gives": "N",
+         "note": "the plural notes supply a second N, again the abbreviation for note"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A competitor quits a contest after being handed some odd notes.",
-     "walkthrough": "I + G(N)O + RA(N)CE: one N goes into each word, hence non-consecutive.",
-     "definitionFit": "Ignorance is the state of lacking knowledge, so being uninformed describes it as a noun phrase."
+     "surface": "Someone quits a competition after collecting some scattered notes, knowing nothing.",
+     "walkthrough": "The 'non-consecutive notes' are two separate N's, one taken in by each of the other words, so they never sit side by side.",
+     "definitionFit": "Ignorance is the state of lacking knowledge, so it is the condition of being uninformed."
     },
     "features": {
      "answerInScene": false,

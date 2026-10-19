@@ -114,37 +114,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "BLUEBLOODED",
-     "indicators": [
-      {
-       "text": "changing sides",
-       "note": "changing sides asks you to swap right for left, the abbreviations for the two sides, within the word for pondered"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "low",
+       "at": 13,
        "gives": "BLUE",
-       "note": "feeling low is feeling blue"
+       "note": "to feel blue is to feel low"
       },
       {
-       "words": "pondered",
-       "gives": "BROODED",
-       "note": "brooded means pondered gloomily"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "changing sides",
+         "at": 27,
+         "note": "right swaps for left, R becoming L"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pondered",
+         "at": 18,
+         "gives": "BROODED",
+         "note": "to brood is to ponder at length"
+        },
+        {
+         "gives": "R"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Whether high-born or lowly, someone thought about switching allegiance.",
-     "walkthrough": "In BROODED the R (right) changes to L (left), giving BLOODED.",
-     "definitionFit": "Aristocrats were said to have blue blood, so someone of noble birth is described this way."
+     "surface": "Whether of high or low birth, someone weighed up switching allegiance.",
+     "walkthrough": "'changing sides' is right turning to left, the R and L abbreviations.",
+     "definitionFit": "Blue-blooded means of noble or aristocratic birth, born into the upper ranks."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "sides"
+     "aptDefinition": true,
+     "misdirectedWord": "low"
     }
    }
   },
@@ -754,60 +766,65 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means going round, so the trimmed word wraps the other pieces"
+       "at": 66,
+       "note": "about means going round, so the trimmed word encloses the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removing cap",
+         "at": 72,
+         "note": "a cap is the top, so the first letter is removed"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
+         "words": "obsessed",
+         "at": 57,
+         "gives": "NEUROTIC",
+         "note": "neurotic means obsessive and anxious"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
          "indicators": [
           {
-           "text": "removing cap",
-           "note": "a cap sits on top, and in a down entry the top is the first letter, which goes"
+           "text": "to start with",
+           "at": 26,
+           "note": "to start with means the first letter only"
           }
          ],
          "parts": [
           {
-           "words": "obsessed",
-           "gives": "NEUROTIC",
-           "note": "neurotic means obsessive or anxious"
-          },
-          {
-           "gives": "N"
+           "words": "sprouts",
+           "at": 18
           }
          ]
         },
         {
          "words": "mushroom",
+         "at": 40,
          "gives": "CEP",
-         "note": "a cep is a porcini mushroom"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "to start with",
-         "note": "to start with means only the opening letter of the preceding word is used"
-        }
-       ],
-       "parts": [
-        {
-         "words": "sprouts",
-         "note": "first letter of sprouts"
+         "note": "a cep is the porcini mushroom"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who loathes Brussels sprouts, starting with mushroom and obsessing over it.",
-     "walkthrough": "Brussels and sprouts look like a pair, but Brussels is the seat of the European Union and belongs to the definition.",
-     "definitionFit": "Someone opposed to increasing the powers of the European Union, based in Brussels, is described by this term."
+     "surface": "Someone who detests Brussels sprouts starts on mushrooms instead.",
+     "walkthrough": "'Brussels sprouts' is a false pairing: Brussels stands for the EU, whose institutions sit there.",
+     "definitionFit": "A Eurosceptic opposes the European Union, whose institutions are based in Brussels."
     },
     "features": {
      "answerInScene": false,
@@ -2817,36 +2834,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BIBELOT",
-     "indicators": [
-      {
-       "text": "with a final twist",
-       "note": "a twist at the end turns round the last two letters only"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Good book",
-       "gives": "BIBLE",
-       "note": "the Good Book is the Bible"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "with a final twist",
+         "at": 10,
+         "note": "a twist at the end means the final pair of letters swap places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Good book",
+         "at": 0,
+         "gives": "BIBLE",
+         "note": "the Good Book is the Bible"
+        },
+        {
+         "gives": "LE"
+        },
+        {
+         "gives": "EL"
+        }
+       ]
       },
       {
        "words": "its first section",
+       "at": 30,
        "gives": "OT",
-       "note": "OT is the Old Testament, the first part of the Bible"
+       "note": "the Old Testament is the first part of the Bible"
       }
      ]
     },
     "explanation": {
-     "surface": "A Bible with a twist ending whose opening part is worthless.",
-     "definitionFit": "A bibelot is a small trinket or curio; trumpery means showy but worthless finery."
+     "surface": "The Bible with a surprise ending, its opening part being rubbish.",
+     "walkthrough": "'its' refers back to the Good Book, whose first section is the Old Testament.",
+     "definitionFit": "A bibelot is a small decorative trinket, and trumpery means showy but worthless finery."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "trumpery"
+     "misdirectedWord": "twist"
     }
    }
   },
