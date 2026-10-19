@@ -371,5 +371,16 @@ new, used = F.repair_tree(il, "Long thread about End of Empire", "YEARN", IL)
 check("an indicator's words come off the edge of the leaf that held them too",
       used == ["indInLeaf"] and new["parts"][1]["parts"][0]["words"] == "Empire")
 
+# nestedContainer under a reversal: the pair is judged against the whole tree, not the answer alone
+NC = {"nestedContainer": F.r_nested_container}
+ncc = "Fellow holding a fit of pique back"
+nct = {"op": "reversal", "indicators": [{"text": "back"}], "parts": [
+    {"op": "container", "indicators": [{"text": "holding"}], "parts": [
+        {"op": "container", "parts": [{"words": "Fellow", "gives": "DON"}, {"words": "a", "gives": "A"}]},
+        {"words": "fit of pique", "gives": "PET"}]}]}
+new, used = F.repair_tree(nct, ncc, "NOTEPAD", NC)
+check("a container pair under a reversal joins into one charade",
+      used == ["nestedContainer"] and new["parts"][0]["parts"][1]["op"] == "charade")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

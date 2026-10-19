@@ -54,24 +54,34 @@
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "secluded spot",
-         "gives": "CORNER",
-         "note": "a corner is a tucked-away spot"
-        },
-        {
-         "words": "beginning to flop",
-         "gives": "F",
-         "note": "first letter of flop"
-        }
-       ]
+       "words": "secluded spot",
+       "gives": "CORNER",
+       "note": "a corner is a tucked-away spot"
       },
       {
-       "words": "down",
-       "gives": "LOW",
-       "note": "down = low, in spirits"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "note": "the first letter of the word it picks from"
+          }
+         ],
+         "parts": [
+          {
+           "words": "flop",
+           "note": "first letter of flop"
+          }
+         ]
+        },
+        {
+         "words": "down",
+         "gives": "LOW",
+         "note": "down = low, in spirits"
+        }
+       ]
       }
      ]
     },
