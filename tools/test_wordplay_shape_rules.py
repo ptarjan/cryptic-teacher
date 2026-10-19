@@ -467,7 +467,7 @@ check("'play without hindrance' meaning HAM is no folded deletion", 0, v.folded_
     {"op": "charade", "parts": [{"words": "play without hindrance", "gives": "HAM", "note": "to ham is to overact"}]}))
 check("'pupils? Half missing' is still a folded deletion", 1, v.folded_deletion_leaves(
     {"op": "charade", "parts": [{"words": "pupils? Half missing", "gives": "PUP"}]}))
-check("a note naming the longer word keeps a fold ('Smaug' losing A)", 1, v.folded_deletion_leaves(
+check("a note naming the longer word is a synonym phrase now ('Smaug' losing A, round 18)", 0, v.folded_deletion_leaves(
     {"op": "charade", "parts": [{"words": "Dragon losing a", "gives": "SMUG", "note": "Smaug without the A"}]}))
 for w in ("ringleader", "redhead", "knucklehead"):
     check(f"first over '{w}' is the head of a compound: no separate indicator", 0, v.unindicated_uncovered(
@@ -566,8 +566,8 @@ def r13(id_):
 
 for id_ in ("times-28370#4d", "cyclops-410#10a", "times-20052#18d", "toughie-3442#18d", "times-29667#22d", "toughie-832#1d"):
     check(f"{id_}: a one-end pick, a linked-clue charade or a homophone is not a wrong role", 0, v.wrong_role_indicators(r13(id_)[0]))
-for id_ in ("timesquick-3294#7d", "times-29328#22a"):
-    check(f"{id_}: a cut folded into a leaf (note names SCOT/SHIP) is still counted", 1, v.wrong_role_indicators(r13(id_)[0]))
+check("timesquick-3294#7d: ST runs in order through the leaf's own word Scot, still a folded cut", 1, v.wrong_role_indicators(r13("timesquick-3294#7d")[0]))
+check("times-29328#22a: SHIP less P named only in the note is a synonym phrase now (round 18)", 0, v.wrong_role_indicators(r13("times-29328#22a")[0]))
 check("indicators swapped between an anagram and a charade are counted (UNSPORTSMANLIKE)", 1,
       v.wrong_role_indicators(r13("times-29578#26a")[0]))
 check("an unchecked cycling that moves one letter to the front is not cycling (RHEAS)", 1, v.fake_parts(r13("times-28709#22d")[0]))
