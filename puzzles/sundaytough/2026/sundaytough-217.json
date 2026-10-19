@@ -451,54 +451,37 @@
       {
        "text": "flipping",
        "at": 59,
-       "note": "flipping means turned over, so the string of first letters is read backwards"
+       "note": "flipping turns something over, so the collected letters are read in reverse order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Initially",
+         "at": 0,
+         "note": "initially points to the opening letter of each of the following six words"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Initially",
-           "at": 0,
-           "note": "initially picks the first letter of each of the following six words"
-          }
-         ],
-         "parts": [
-          {
-           "words": "yarn's twisted trying out",
-           "at": 10,
-           "note": "first letters of these four words"
-          }
-         ]
-        },
-        {
-         "words": "needle-less",
-         "at": 36,
-         "gives": "N",
-         "note": "first letter of the hyphenated word needle-less, still under 'Initially'"
-        },
-        {
-         "words": "knitting",
-         "at": 48,
-         "gives": "K",
-         "note": "first letter of knitting, still under 'Initially'"
+         "words": "yarn's twisted trying out needle-less knitting",
+         "at": 10,
+         "note": "the first letters of these six words"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A knitter finds that trying to knit without needles leaves the yarn in a baffling tangle.",
-     "walkthrough": "'Initially' governs all six words, needle-less counting as one hyphenated word: YTTONK. 'flipping' reverses it, while also reading as a mild exclamation.",
-     "definitionFit": "A knotty problem is a tangled, difficult one, so knotty means hard to solve."
+     "surface": "A knitter grumbles about attempting to knit without needles while the yarn gets tangled.",
+     "walkthrough": "The opening letters spell YTTONK, which flipped gives the answer. 'Flipping' also works as a mild British expletive in the surface.",
+     "definitionFit": "A knotty problem is a difficult, intricate one, so knotty means puzzling or hard to solve."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "flipping"
     }

@@ -1229,25 +1229,40 @@
      "parts": [
       {
        "words": "silver",
+       "at": 4,
        "gives": "AG",
        "note": "Ag is the chemical symbol for silver"
       },
       {
-       "words": "cot with head missing",
-       "gives": "ED",
-       "note": "cot = BED, minus its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with head missing",
+         "at": 15,
+         "note": "the head of a word is its first letter, which goes missing here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cot",
+         "at": 11,
+         "gives": "BED",
+         "note": "a cot is a small bed"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "An antique silver cot that has lost its headboard.",
-     "walkthrough": "The head missing from the cot sounds like a broken headboard; it is the B of BED.",
-     "definitionFit": "A plain synonym for elderly, as in an aged relative; silver also hints at grey hair."
+     "definitionFit": "Aged means having lived long, an ordinary synonym of old."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "head"
     }
    }
