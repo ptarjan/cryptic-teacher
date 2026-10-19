@@ -74,10 +74,12 @@ def survey_all(paths):
         yield from pool.imap(survey, paths, V.POOL_CHUNK)
 
 
-def drift(surveyed, allowed, fields):
-    """{field: {puzzle: [clue keys]}} for each puzzle past its allowance in a requeueable field."""
+def drift(surveyed, allowed, fields, everything=()):
+    """{field: {puzzle: [clue keys]}} for each puzzle past its allowance in a requeueable field.
+    A field in `everything` is a grandfathered one (--all): every puzzle with a hit counts, over
+    its allowance or not."""
     return {f: {stem: flagged[f] for stem, flagged, _ in surveyed
-                if len(flagged.get(f, ())) > allowed.get(f, {}).get(stem, 0)}
+                if len(flagged.get(f, ())) > (0 if f in everything else allowed.get(f, {}).get(stem, 0))}
             for f in fields if f in allowed}
 
 
@@ -103,14 +105,21 @@ def requeue(over, fields, rows):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--write", action="store_true")
+    ap.add_argument("--all", action="append", default=[], metavar="FIELD",
+                    help="queue every current hit of this backlog field (e.g. wordplay.halfLeaf), "
+                         "not just the puzzles past their allowance: for a rule whose existing hits "
+                         "were grandfathered by --tighten. Repeatable. Allowances are set to the count.")
     a = ap.parse_args()
     fields = rule_fields()
+    bad = [f for f in a.all if f not in fields]
+    if bad:
+        ap.error(f"--all: not a requeueable backlog field: {', '.join(bad)}")
     allowed = V.load_backlog()
     surveyed = list(survey_all(V.puzzle_files()))
     if any(bad for _, _, bad in surveyed):
         print("requeue_drift: the corpus has errors of its own; fix them first (nothing written)")
         return 1
-    over = drift(surveyed, allowed, fields)
+    over = drift(surveyed, allowed, fields, a.all)
     for field, puzzles in over.items():
         print(f"{field}: {len(puzzles)} puzzle(s), {sum(len(k) for k in puzzles.values())} clue(s) flagged in puzzles over their allowance")
     if not a.write or not any(over.values()):

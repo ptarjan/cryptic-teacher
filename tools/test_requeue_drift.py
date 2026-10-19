@@ -24,6 +24,15 @@ class RequeueDrift(unittest.TestCase):
         self.assertEqual(R.drift(surveyed, allowed, ["wordplay.wrongRole"]),
                          {"wordplay.wrongRole": {"a-1": ["1a", "2d"], "a-3": ["4a"]}})
 
+    def test_all_queues_every_hit_of_a_grandfathered_field(self):
+        surveyed = [("a-1", {"wordplay.halfLeaf": ["1a"], "wordplay.wrongRole": ["1a"]}, False),
+                    ("a-2", {"wordplay.halfLeaf": []}, False)]
+        allowed = {"wordplay.halfLeaf": {"a-1": 1}, "wordplay.wrongRole": {"a-1": 1}}
+        fields = ["wordplay.halfLeaf", "wordplay.wrongRole"]
+        self.assertEqual(R.drift(surveyed, allowed, fields), {"wordplay.halfLeaf": {}, "wordplay.wrongRole": {}})
+        self.assertEqual(R.drift(surveyed, allowed, fields, ["wordplay.halfLeaf"]),
+                         {"wordplay.halfLeaf": {"a-1": ["1a"]}, "wordplay.wrongRole": {}})
+
     def test_requeue_lists_a_clue_once_and_extends_a_row_that_misses_the_rule(self):
         fields = {"wordplay.wrongRole": "wrongRole"}
         over = {"wordplay.wrongRole": {"a-1": ["1a", "2d", "3a"]}}
