@@ -1378,38 +1378,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "THORN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 10,
+       "note": "round means the first piece goes around the second"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Lacerated",
+       "at": 0,
+       "gives": "TORN",
+       "note": "torn means lacerated"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "round",
-         "note": "to go round something is to encircle it, so one piece wraps another"
+         "text": "back of",
+         "at": 16,
+         "note": "the back of a word is its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Lacerated",
-         "gives": "TORN",
-         "note": "lacerated flesh is torn"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "back of",
-           "note": "the back of a word is its tail end, so only its last letter is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "rosebush",
-           "note": "last letter of rosebush"
-          }
-         ]
+         "words": "rosebush",
+         "at": 24
         }
        ]
       }
@@ -1417,14 +1413,13 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Scratched while reaching round the far side of a rose bush, and the culprit is asked about.",
-     "walkthrough": "Read as a whole the clue describes the answer: a prick from a rose bush tears your skin. The wordplay puts H inside TORN.",
-     "definitionFit": "A rose bush carries sharp prickles along its stems, the classic cause of scratched hands for gardeners."
+     "surface": "Someone cut around the back of the rosebush wonders what scratched them.",
+     "walkthrough": "TORN goes round H, the last letter of 'rosebush'. The whole clue is also the definition: what lacerates you on a rosebush is a thorn.",
+     "definitionFit": "A thorn is the sharp spike on a rose stem that scratches anyone reaching into the bush."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "round"
+     "aptDefinition": true
     }
    }
   },

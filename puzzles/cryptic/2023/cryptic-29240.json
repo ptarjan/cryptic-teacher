@@ -306,43 +306,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CRABBIER",
+     "op": "container",
      "indicators": [
       {
-       "text": "unfinished",
-       "note": "something unfinished lacks its ending, so the final letter goes"
+       "text": "stuck in",
+       "at": 8,
+       "note": "stuck in means this piece is put inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "stuck in",
-         "note": "something stuck in another sits inside it, so one piece goes within the other"
+         "text": "unfinished",
+         "at": 17,
+         "note": "unfinished means the word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "physics lab",
-         "gives": "CER",
-         "note": "CERN, the European particle physics laboratory, without its last letter"
+         "at": 28,
+         "gives": "CERN",
+         "note": "CERN is the European particle physics laboratory near Geneva"
         },
         {
-         "words": "Teacher",
-         "gives": "RABBI",
-         "note": "a rabbi is a Jewish religious teacher"
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "Teacher",
+       "at": 0,
+       "gives": "RABBI",
+       "note": "a rabbi is a Jewish religious teacher"
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher trapped in a half-built lab grows ever more grumpy.",
-     "walkthrough": "CERN is the physics laboratory near Geneva; trimming it leaves three letters, and the teacher slots after the first.",
-     "definitionFit": "Crabby means bad-tempered, so the comparative form describes someone growing more irritable."
+     "surface": "A teacher trapped in a half-built physics lab gets grumpier and grumpier.",
+     "walkthrough": "CERN is the particle physics laboratory on the Swiss-French border; 'unfinished' docks its final letter before the teacher is stuck inside.",
+     "definitionFit": "Crabby means bad-tempered, so the comparative form describes someone growing more grumpy."
     },
     "features": {
      "answerInScene": false,
@@ -379,27 +384,26 @@
        "indicators": [
         {
          "text": "Centres for",
-         "note": "centres are the middle parts, so only the inner letters of each word are kept"
+         "at": 0,
+         "note": "the centres of words are their middle letters, taken here from each of the three words"
         }
        ],
        "parts": [
         {
          "words": "homemade",
-         "note": "the middle two of eight letters"
+         "at": 12
         }
        ]
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "BR",
+       "op": "deletion",
        "parts": [
         {
-         "unchecked": true,
          "words": "fabrics",
-         "gives": "BR",
-         "select": "middle",
-         "note": "the letters at the centre, around the middle"
+         "at": 21
+        },
+        {
+         "gives": "FAICS"
         }
        ]
       },
@@ -408,16 +412,16 @@
        "parts": [
         {
          "words": "beyond",
-         "note": "the middle two of six letters"
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Home-sewn textiles that have outgrown the planning phase.",
-     "walkthrough": "Each word gives its two central letters; for the seven-letter word they are the letters straddling the middle.",
-     "definitionFit": "An embryo is an organism at its earliest stage of growth, and figuratively anything still being developed."
+     "surface": "Homemade fabrics that have moved past being in development.",
+     "walkthrough": "The setter's centres are loose: 'homemade' and 'beyond' give their true middle pairs, but 'fabrics' gives its third and fourth letters, a little off its true centre.",
+     "definitionFit": "An embryo is an organism in its earliest stage of growth, before birth or hatching."
     },
     "features": {
      "answerInScene": false,
@@ -1391,53 +1395,23 @@
    "annotation": {
     "definitions": [
      {
-      "text": "silent order",
-      "at": 28
+      "text": "Vacated search to find this silent order?",
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "cryptic",
-     "unchecked": true,
-     "gives": "BEQUIET",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "BEQUIET",
-         "indicators": [
-          {
-           "text": "Vacated",
-           "note": "a vacated place has been emptied, so only the outside letters are left standing"
-          }
-         ],
-         "parts": [
-          {
-           "op": "outer",
-           "parts": [
-            {
-             "words": "search",
-             "note": "the first and last letters, once the inside is cleared out"
-            }
-           ]
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "silent order",
-         "note": "the hushing sound is itself a command, and the answer spells out what it means"
-        }
-       ]
+       "words": "Vacated search to find this silent order",
+       "at": 0,
+       "note": "emptying the word 'search' of its inside leaves its outer letters, an exclamation calling for silence; the answer is that command in words"
       }
      ]
     },
     "explanation": {
-     "surface": "Searchers leave an empty house and wonder what hushed instruction they were meant to find there.",
-     "walkthrough": "The wordplay does not build the letters of the answer: emptying 'search' leaves the hushing sound, and the answer is what that sound tells you to do.",
-     "definitionFit": "The phrase is a command to stop talking, an instruction demanding silence."
+     "walkthrough": "Remove the inside of SEARCH and SH is left, the sound you make to hush someone. The answer is what SH means.",
+     "definitionFit": "Saying 'sh' is the wordless way of telling someone to stop talking and keep quiet."
     },
     "features": {
      "answerInScene": false,

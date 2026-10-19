@@ -188,54 +188,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNGUENT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "skinned",
-       "note": "a skinned thing has lost its outside, so the first and last letters go"
+       "text": "for starter",
+       "at": 39,
+       "note": "this piece comes first in the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "for starter",
-         "note": "a starter comes first, so this piece leads the answer"
+         "text": "up",
+         "at": 36,
+         "note": "in a down clue, up means the word is read from bottom to top"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "up",
-           "note": "in a down entry, going up means reading from bottom to top"
-          }
-         ],
-         "parts": [
-          {
-           "words": "antelope",
-           "gives": "GNU",
-           "note": "the gnu or wildebeest is an African antelope"
-          }
-         ]
-        },
+         "words": "antelope",
+         "at": 27,
+         "gives": "GNU",
+         "note": "a gnu is an African antelope"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "op": "anagram",
+         "text": "cooked",
+         "at": 20,
+         "note": "cooked means the letters are worked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "middle",
          "indicators": [
           {
-           "text": "cooked",
-           "note": "cooking transforms ingredients, so the letters are mixed up"
+           "text": "skinned",
+           "at": 7,
+           "note": "skinning removes the outer letters of the word"
           }
          ],
          "parts": [
           {
            "words": "Hunter",
-           "gives": "UNTE",
-           "note": "the word without its outer letters"
+           "at": 0
           }
          ]
         }
@@ -244,14 +246,14 @@
      ]
     },
     "explanation": {
-     "surface": "A hunter skins and cooks an antelope as a starter, and the result is a greasy dish.",
-     "walkthrough": "The clue reads Hunter first, but the reversed antelope is placed first in the answer.",
-     "definitionFit": "An unguent is an ointment, a soft oily salve rubbed on the skin."
+     "surface": "A hunter skins and cooks an antelope for a first course, which turns out greasy.",
+     "walkthrough": "'skinned' strips HUNTER to UNTE, and 'cooked' rearranges that to UENT. GNU read 'up' gives UNG, placed first 'for starter'.",
+     "definitionFit": "An unguent is a soft greasy ointment or salve rubbed on the skin."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cooked"
+     "misdirectedWord": "starter"
     }
    }
   },
@@ -663,44 +665,44 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NIGHTLY",
      "indicators": [
       {
        "text": "into",
-       "note": "one piece goes into another, so it sits between its letters"
+       "at": 42,
+       "note": "into means this piece goes inside the other"
       }
      ],
      "parts": [
       {
+       "words": "big city",
+       "at": 47,
+       "gives": "NY",
+       "note": "NY is New York, the Big Apple"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "NIGHTLY",
        "indicators": [
         {
          "text": "line travelling all the way down",
-         "note": "line stands for its usual single letter, and in a down entry it moves right to the bottom of its word"
+         "at": 9,
+         "note": "the letter L for line moves from the top of the word to its bottom"
         }
        ],
        "parts": [
         {
          "words": "Well lit",
+         "at": 0,
          "gives": "LIGHT",
-         "note": "a well-lit room is light"
-        },
-        {
-         "words": "big city",
-         "gives": "NY",
-         "note": "NY is New York, the archetypal big city"
+         "note": "light means well lit, as a bright room"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bright railway line runs the whole way into a major city each evening.",
-     "walkthrough": "'Line' looks like a railway, but it is the letter L, already the first letter of the well-lit word; the instruction moves it to the end.",
-     "definitionFit": "Nightly means happening each night, so it covers what happens in the evening every day."
+     "surface": "A brightly lit railway line running all the way down to a big city each evening.",
+     "walkthrough": "In LIGHT the L (line) travels to the end, giving IGHTL, which goes into NY.",
+     "definitionFit": "Something that happens nightly occurs each night, which matches every evening."
     },
     "features": {
      "answerInScene": true,

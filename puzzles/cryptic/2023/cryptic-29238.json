@@ -950,33 +950,54 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "WENTTOSEA",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner swapped the opening sounds of words, so we do the same here"
+       "at": 0,
+       "note": "Spooner's signals the opening sounds of two words are swapped"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "dispatched for a tinkle",
-       "gives": "WENTTOSEA",
-       "soundsLike": "SENT TO WEE",
-       "note": "dispatched is sent, for is to, and a tinkle is a wee; swapping the opening sounds of the first and last words gives the spoken form"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "dispatched",
+         "at": 10,
+         "gives": "SENT",
+         "note": "sent means dispatched"
+        },
+        {
+         "words": "for",
+         "at": 21,
+         "gives": "TO",
+         "note": "for, as in sent for a purpose, gives to"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "WEA",
+       "parts": [
+        {
+         "words": "a tinkle",
+         "at": 25,
+         "gives": "WEE",
+         "note": "a tinkle is British slang for a wee, a pee; after the swap the word heard is spelt as the ocean"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone was sent off to relieve themselves, as the famous owl and pussycat did.",
-     "walkthrough": "Swapping the S and W sounds of the three-word phrase gives the answer. Edward Lear's nonsense poem begins 'The Owl and the Pussy-cat went to sea'.",
-     "definitionFit": "In Lear's poem the owl and the pussycat set sail in a pea-green boat, so they went to sea."
+     "surface": "Someone sent off to the loo, compared to a nursery rhyme's animals.",
+     "walkthrough": "SENT TO WEE with the S and W swapped sounds like WENT TO SEA. In Edward Lear's poem the Owl and the Pussycat went to sea in a pea-green boat.",
+     "definitionFit": "Lear's nonsense poem opens with the two animals sailing off in a pea-green boat."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "tinkle"
     }
    }

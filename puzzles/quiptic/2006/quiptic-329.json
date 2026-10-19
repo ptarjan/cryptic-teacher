@@ -489,43 +489,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LINEKER",
+     "op": "container",
      "indicators": [
       {
-       "text": "half",
-       "note": "only half of the word is kept, the rest dropped"
+       "text": "hidden",
+       "at": 26,
+       "note": "hidden means this piece is tucked inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Passenger ship",
+       "at": 0,
+       "gives": "LINER",
+       "note": "a liner is a passenger ship"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "hidden",
-         "note": "something hidden is tucked inside something else"
+         "text": "half",
+         "at": 21,
+         "note": "half means only half the word is kept"
         }
        ],
        "parts": [
         {
-         "words": "Passenger ship",
-         "gives": "LINER",
-         "note": "a liner is a large passenger ship"
+         "words": "keel",
+         "at": 16
         },
         {
-         "words": "keel",
-         "gives": "KE",
-         "note": "the first half of keel"
+         "gives": "EL"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ship whose keel is partly out of sight.",
-     "walkthrough": "Gary Lineker is a former England footballer and TV presenter; 'pitches' are football pitches, not a ship's pitching.",
-     "definitionFit": "Gary Lineker spent his career on football pitches, so is a person familiar with them."
+     "surface": "A passenger ship with half its keel out of sight, and someone who knows the sea.",
+     "walkthrough": "Gary Lineker was an England footballer, so a football pitch is meant, not the pitching of a ship.",
+     "definitionFit": "Gary Lineker, the former England striker and TV presenter, spent his career on football pitches."
     },
     "features": {
      "answerInScene": false,
@@ -1108,41 +1111,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SEPIA",
+     "op": "container",
      "indicators": [
       {
-       "text": "with no tail",
-       "note": "a word losing its tail loses its last letter"
+       "text": "in",
+       "at": 28,
+       "note": "in means this piece goes inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "sea",
+       "at": 31
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "one piece placed in another sits inside it"
+         "text": "with no tail",
+         "at": 15,
+         "note": "with no tail means the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "sea",
-         "note": "taken as written"
+         "words": "pig",
+         "at": 11
         },
         {
-         "words": "pig",
-         "gives": "PI",
-         "note": "pig with its final letter dropped"
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tailless brown pig swimming in the sea.",
-     "definitionFit": "Sepia is a reddish dark brown colour, originally from cuttlefish ink."
+     "surface": "A dark brown pig without a tail swimming in the sea.",
+     "walkthrough": "Sepia is named after the cuttlefish whose ink first gave the pigment.",
+     "definitionFit": "Sepia is a reddish-brown pigment originally made from cuttlefish ink, and the colour itself."
     },
     "features": {
      "answerInScene": false,

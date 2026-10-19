@@ -661,47 +661,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SERAGLIO",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Almost",
-       "note": "nearly the whole thing means its last letter is dropped"
+       "text": "affected",
+       "at": 18,
+       "note": "affected means altered, so the letters are put in a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "affected",
-         "note": "something affected is altered or disturbed, so the letters are rearranged"
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means the word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "all",
-         "gives": "AL",
-         "note": "the word with its final letter cut"
+         "at": 7,
+         "gives": "ALL"
         },
         {
-         "words": "orgies",
-         "note": "taken as written"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "orgies",
+       "at": 11
       }
      ]
     },
     "explanation": {
-     "surface": "Debauched parties had an effect on nearly all the married women.",
-     "walkthrough": "'Almost all' reads as a quantity of orgies; it is the instruction to trim ALL to AL before the shuffle.",
-     "definitionFit": "A seraglio is a harem, the women's quarters of a household, and by extension the group of wives and concubines kept there."
+     "surface": "Nearly every orgy affected the wives as a group.",
+     "walkthrough": "ALL cut short gives AL, which joins ORGIES to be rearranged.",
+     "definitionFit": "A seraglio is a harem, the women's quarters of a household, and the wives kept there."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "all"
+     "misdirectedWord": "orgies"
     }
    }
   },

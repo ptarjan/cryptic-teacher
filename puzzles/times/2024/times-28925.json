@@ -179,43 +179,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REAREND",
+     "op": "container",
      "indicators": [
       {
-       "text": "nearly",
-       "note": "nearly means not quite all, so the final letter is dropped"
+       "text": "around",
+       "at": 5,
+       "note": "the tear goes around the other piece, enclosing it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Tear",
+       "at": 0,
+       "gives": "REND",
+       "note": "to rend is to tear"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "around",
-         "note": "around means surrounding, so one word goes on either side of another"
+         "text": "nearly",
+         "at": 27,
+         "note": "nearly means the word is cut short by its final letter"
         }
        ],
        "parts": [
         {
-         "words": "Tear",
-         "gives": "REND",
-         "note": "to rend is to tear apart"
+         "words": "neighbourhood",
+         "at": 12,
+         "gives": "AREA",
+         "note": "an area is a neighbourhood"
         },
         {
-         "words": "neighbourhood",
-         "gives": "ARE",
-         "note": "an area is a neighbourhood; without its last letter it gives these three letters"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tearing around the local streets very nearly has a car crash.",
-     "walkthrough": "AREA loses its last letter and sits inside REND. A prang is British slang for a minor car crash, and to rear-end another car is to drive into its back.",
-     "definitionFit": "Both words describe a minor road accident; rear-ending means driving into the back of another vehicle, a typical small collision."
+     "surface": "Someone races round the local streets and ends up in a minor crash.",
+     "walkthrough": "A prang is British slang for a minor car crash, and to rear-end is to drive into the back of another car.",
+     "definitionFit": "To prang a car is to bump it in a small collision, as when you drive into the back of one."
     },
     "features": {
      "answerInScene": true,
@@ -552,37 +557,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TANKINI",
-     "indicators": [
-      {
-       "text": "to conceal bottom",
-       "note": "hiding the bottom of a down entry means its lowest, final letter disappears"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to conceal bottom",
+         "at": 8,
+         "note": "concealing the bottom hides the word's last letter"
+        }
+       ],
        "parts": [
         {
          "words": "Failing",
-         "gives": "TANKIN",
-         "note": "tanking is informal for failing badly; its last letter is dropped"
+         "at": 0,
+         "gives": "TANKING",
+         "note": "tanking means failing badly"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
+         "gives": "G"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 27,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
       }
      ]
     },
     "explanation": {
-     "surface": "A swimsuit so skimpy it fails to cover the wearer's bottom.",
-     "walkthrough": "The surface is about a bottom that is not covered; really the bottom letter of TANKING is removed. A tankini is a swimsuit with a tank top and bikini bottoms.",
-     "definitionFit": "It is a two-piece swimming outfit, a bathing costume that exposes more skin than a one-piece."
+     "surface": "A swimsuit too skimpy to cover someone's backside.",
+     "walkthrough": "Tanking is informal for failing badly, as a business or a film does. 'bottom' plays on the swimsuit but means the word's last letter.",
+     "definitionFit": "A tankini is a two-piece swimsuit pairing a tank top with bikini bottoms."
     },
     "features": {
      "answerInScene": true,
@@ -1212,48 +1221,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STKITTS",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not all, so the last letter is lost"
+       "text": "visit",
+       "at": 14,
+       "note": "visiting the streets means going into them, so this piece sits inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "streets",
+       "at": 45,
+       "gives": "STS",
+       "note": "STS is the abbreviation for streets"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "visit",
-         "note": "to visit a place is to go inside it, so one piece enters another"
+         "text": "mostly",
+         "at": 35,
+         "note": "mostly means the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "streets",
-         "gives": "STS",
-         "note": "St is short for street, so STS is streets"
+         "words": "queen maybe",
+         "at": 23,
+         "gives": "KITTY",
+         "note": "a queen is a female cat, and kitty is a pet name for a cat"
         },
         {
-         "words": "queen maybe",
-         "gives": "KITT",
-         "note": "a queen is a female cat, so a kitty perhaps; without its last letter"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A state visit by the Queen includes a tour of the streets.",
-     "walkthrough": "'Queen' looks royal, but a queen is a female cat. St Kitts is one of the two islands of the Caribbean state of St Kitts and Nevis.",
-     "definitionFit": "The federation of Saint Kitts and Nevis has two islands, so each one is a component of that country."
+     "surface": "A royal state visit where the Queen tours the streets.",
+     "walkthrough": "A queen is a female cat, so 'queen maybe' points to a cat, cut short by 'mostly'. The surface suggests a royal tour, but the queen is a pet.",
+     "definitionFit": "St Kitts is one of the two islands making up the Caribbean federation of St Kitts and Nevis."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "queen"
     }
    }
@@ -1279,13 +1292,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ATRIUM",
+     "op": "container",
      "indicators": [
       {
-       "text": "dismissing case",
-       "note": "a case is the outside of something, so dismissing it strips the outer letters"
+       "text": "stops",
+       "at": 32,
+       "note": "stopping something plugs it, so this piece goes inside the other"
       }
      ],
      "parts": [
@@ -1294,37 +1306,39 @@
        "parts": [
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 38,
+         "gives": "A"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "stops",
-           "note": "a stopper plugs a gap, so one piece sits inside another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "corporation",
-           "gives": "TUM",
-           "note": "a corporation is an old jocular word for a pot belly, a tum"
-          },
-          {
-           "words": "writ",
-           "gives": "RI",
-           "note": "writ with its outer letters removed"
-          }
-         ]
+         "words": "corporation",
+         "at": 40,
+         "gives": "TUM",
+         "note": "corporation is a jocular British word for a pot belly, a tum"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "dismissing case",
+         "at": 16,
+         "note": "the case of a word is its outer letters, so dismissing them leaves the inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "writ",
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A High Court writ is thrown out, which stops a corporation in its tracks.",
-     "walkthrough": "The legal surface misleads twice: 'case' is the outer letters and 'corporation' is an old jokey word for a paunch.",
-     "definitionFit": "An atrium is a tall open central hall or courtyard in a building, often several storeys high."
+     "surface": "A writ from the High Court, thrown out, halts a company's plans.",
+     "walkthrough": "Corporation is old British slang for a pot belly. 'High Court' looks like the legal body, but here it means a lofty courtyard.",
+     "definitionFit": "An atrium is a central hall or open court, often rising the full height of a building."
     },
     "features": {
      "answerInScene": false,
