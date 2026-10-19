@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """A code-only (no model) cryptic solver prototype, built to answer "can the corpus solve or validate clues?"
 
-    python3 tools/det_solve.py corpus            # cache every annotated Times-family clue (about 1 minute)
-    python3 tools/det_solve.py measure [--n 500]    # sample 30 puzzles, hold them out, measure VERIFY and SOLVE
+    python3 tools/det_solve.py corpus            # cache every annotated clue of every series (about 90 seconds, 8 processes)
+    python3 tools/det_solve.py measure [--n 500]    # sample 30 Times puzzles, hold out their answers, measure VERIFY and SOLVE
     python3 tools/det_solve.py signal            # VERIFY vs the stored annotation: the disagreement list
 
-Tables are built from the annotated corpus (wordplay trees): indicator phrase -> op, clue phrase -> letters
-(synonyms and abbreviations), definition phrase -> answer. The test puzzles AND every puzzle sharing one of
-their answers are left out of the tables, so neither number leaks.
+Tables are built from the whole annotated corpus (wordplay trees): indicator phrase -> op, clue phrase -> letters
+(synonyms and abbreviations), definition phrase -> answer. Test clues are drawn from the Times series only. Every
+clue whose answer is a test answer is left out of the tables, so neither number leaks (--hold-puzzles is the old,
+much harsher rule: drop each test puzzle and every puzzle sharing a test answer, about a third of all puzzles).
 
 VERIFY gets the clue and the answer: is there a parse (a definition at one end, a wordplay that builds the
 answer exactly from table pieces and indicator ops)? SOLVE gets the enumeration only (optionally some crossing
@@ -84,25 +85,33 @@ def load_corpus(force=False):
     if f.exists() and not force:
         return json.load(gzip.open(f, "rt"))
     CACHE.mkdir(parents=True, exist_ok=True)
-    rows = []
-    for s in SERIES:
-        for p in sorted(glob.glob(str(ROOT / "puzzles" / s / "*" / "*.json"))):
-            try:
-                d = json.load(open(p))
-            except Exception:
-                continue
-            for e in d.get("entries", []):
-                a = e.get("annotation") or {}
-                w = a.get("wordplay")
-                if not w or not e.get("solution"):
-                    continue
-                rows.append({"pid": d["id"], "series": s, "num": e["number"], "dir": e["direction"],
-                             "clue": e["clue"]["text"], "enum": e["clue"].get("enumeration", ""),
-                             "answer": letters(e["solution"]),
-                             "defs": [x.get("text", "") for x in a.get("definitions", [])],
-                             "tree": w, "andlit": bool(a.get("andLit"))})
+    paths = sorted(glob.glob(str(ROOT / "puzzles" / "*" / "*" / "*.json")))
+    from multiprocessing import Pool
+    with Pool(min(8, os.cpu_count() or 2)) as pool:
+        rows = [r for part in pool.imap(_load_one, paths, chunksize=64) for r in part]
     json.dump(rows, gzip.open(f, "wt"))
     return rows
+
+
+def _load_one(p):
+    """Annotated clues of one puzzle file (every series under puzzles/)."""
+    try:
+        d = json.load(open(p))
+    except Exception:
+        return []
+    out = []
+    s = Path(p).parent.parent.name
+    for e in d.get("entries", []):
+        a = e.get("annotation") or {}
+        w = a.get("wordplay")
+        if not w or not e.get("solution"):
+            continue
+        out.append({"pid": d["id"], "series": s, "num": e["number"], "dir": e["direction"],
+                    "clue": e["clue"]["text"], "enum": e["clue"].get("enumeration", ""),
+                    "answer": letters(e["solution"]),
+                    "defs": [x.get("text", "") for x in a.get("definitions", [])],
+                    "tree": w, "andlit": bool(a.get("andLit"))})
+    return out
 
 
 def clue_type(tree):
@@ -652,7 +661,8 @@ def sample_clues(rows, n_puz=30, n_clues=500, seed=7):
     rnd = random.Random(seed)
     by = collections.defaultdict(list)
     for r in rows:
-        by[r["pid"]].append(r)
+        if r["series"] in SERIES:     # tests come from Times clues only, so numbers compare across corpus sizes
+            by[r["pid"]].append(r)
     pids = sorted(p for p, v in by.items() if len(v) >= 14)
     rnd.shuffle(pids)
     pids = pids[:n_puz]
@@ -676,12 +686,23 @@ def run_eval(n_clues=500, seed=7, budget=150, hold=True):
     ans = {r["answer"] for r in test}
     # hold out the whole sampled puzzles and every puzzle holding any of their answers
     all_test_answers = ans
-    excl = (set(pids) | puzzles_sharing(rows, all_test_answers)) if hold else set()
-    tab = build_tables(rows, excl, set())
-    train_answers = {r["answer"] for r in rows if r["pid"] not in excl}
+    n_all = len({r["pid"] for r in rows})
+    legacy = set(pids) | puzzles_sharing(rows, all_test_answers)
+    if hold == "puzzle":
+        # legacy: drop the test puzzles and every puzzle sharing a test answer
+        excl, excl_ans = legacy, set()
+    elif hold:
+        # drop only the clues whose answer is a test answer (and the test clues themselves): no leakage, little loss
+        excl, excl_ans = set(), set(all_test_answers)
+    else:
+        excl, excl_ans = set(), set()
+    tab = build_tables(rows, excl, excl_ans)
+    train_answers = {r["answer"] for r in rows if r["pid"] not in excl and r["answer"] not in excl_ans}
     res = Resources(train_answers)
-    print(f"tables: syn {len(tab['syn'])} ind {len(tab['ind'])} def {len(tab['def'])}; held out {len(excl)} puzzles; "
-          f"{time.time() - t0:.0f}s", flush=True)
+    n_clue_drop = sum(1 for r in rows if r["pid"] in excl or r["answer"] in excl_ans)
+    print(f"tables: syn {len(tab['syn'])} ind {len(tab['ind'])} def {len(tab['def'])}; "
+          f"legacy puzzle hold-out would drop {len(legacy)} of {n_all} puzzles; this run drops {len(excl)} puzzles "
+          f"and {n_clue_drop} of {len(rows)} clues; {time.time() - t0:.0f}s", flush=True)
     results = []
     for idx, r in enumerate(test):
         if time.time() - t0 > budget:
@@ -827,6 +848,7 @@ def main():
     ap.add_argument("--seed", type=int, default=7)
     ap.add_argument("--budget", type=int, default=150)
     ap.add_argument("--leaky", action="store_true", help="ceiling check: tables include the test puzzles")
+    ap.add_argument("--hold-puzzles", action="store_true", help="legacy hold-out: drop whole puzzles sharing a test answer")
     a = ap.parse_args()
     if a.cmd == "corpus":
         t = time.time()
@@ -834,7 +856,7 @@ def main():
         print(len(rows), "annotated clues", f"{time.time() - t:.0f}s")
         print(collections.Counter(clue_type(r["tree"]) for r in rows).most_common())
     elif a.cmd == "measure":
-        report(run_eval(a.n, a.seed, a.budget, not a.leaky))
+        report(run_eval(a.n, a.seed, a.budget, False if a.leaky else "puzzle" if a.hold_puzzles else "answer"))
     elif a.cmd == "report":
         report(json.load(open(CACHE / "eval.json")))
     elif a.cmd == "signal":
