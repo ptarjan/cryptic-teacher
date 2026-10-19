@@ -469,40 +469,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "badly",
-       "note": "badly suggests the word is done wrongly, so its letters are muddled"
+       "text": "penning",
+       "at": 12,
+       "note": "penning means enclosing, so the article goes inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "penning",
-         "note": "penning means enclosing, like a pen around animals, so one piece goes inside"
+         "text": "badly",
+         "at": 6,
+         "note": "something done badly is botched, so the letters of erred are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Erred",
-         "note": "the letters of erred rearranged"
-        },
-        {
-         "words": "article",
-         "gives": "A",
-         "note": "a is the indefinite article"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "article",
+       "at": 20,
+       "gives": "A",
+       "note": "a is the indefinite article"
       }
      ]
     },
     "explanation": {
-     "surface": "Having made a mistake writing an article, the author checked it over again.",
-     "walkthrough": "A goes into the rearranged ERRED: RERE-A-D.",
-     "definitionFit": "To reread is to look through a text a second time, a direct synonym."
+     "surface": "Someone who made a mess of a piece of writing goes back over it.",
+     "walkthrough": "'badly' turns ERRED into RERED, and 'penning' puts A (article) inside it.",
+     "definitionFit": "To reread a text is to go over its pages a second time, which is looking through it again."
     },
     "features": {
      "answerInScene": true,
@@ -841,35 +844,38 @@
      "indicators": [
       {
        "text": "In",
-       "note": "in signals that what follows goes inside the grass word"
+       "at": 0,
+       "note": "the seed case and I are placed in the grass, which wraps round them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "grass",
-         "gives": "REED",
-         "note": "a reed is a tall grass"
-        },
-        {
-         "words": "seed case",
-         "gives": "BUR",
-         "note": "a bur is a prickly seed case"
-        }
-       ]
+       "words": "grass",
+       "at": 3,
+       "gives": "REED",
+       "note": "a reed is a tall grass"
       },
       {
-       "words": "I",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "seed case",
+         "at": 18,
+         "gives": "BUR",
+         "note": "a bur (or burr) is a prickly seed case"
+        },
+        {
+         "words": "I",
+         "at": 29
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "In long grass someone finds a seed pod and fixes a serious error.",
-     "walkthrough": "'Grave mistake' is a pun: burying someone in the wrong grave, put right by burying again. RE-BURI-ED.",
-     "definitionFit": "If a body was put in the wrong grave, correcting it means it was buried again, a punning question-marked definition."
+     "surface": "A gardener among the grasses finds a seed case and puts right a mistake.",
+     "walkthrough": "The definition plays on 'grave': a body buried in the wrong grave would be dug up and reburied, so the error is corrected by burying again.",
+     "definitionFit": "If a burial went wrong, interring the body a second time would put the mistake right, hence the question mark."
     },
     "features": {
      "answerInScene": false,

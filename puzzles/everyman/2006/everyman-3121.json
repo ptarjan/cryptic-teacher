@@ -1085,34 +1085,22 @@
      "parts": [
       {
        "words": "Article",
+       "at": 0,
        "gives": "THE",
-       "note": "the definite article"
+       "note": "the is the definite article"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "newspaper initially",
+       "at": 11,
        "gives": "FT",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points to initials, so the paper is reduced to the first letters of its name"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "newspaper",
-         "gives": "FT",
-         "select": "first",
-         "note": "the initials of the Financial Times, a London daily"
-        }
-       ]
+       "note": "the Financial Times newspaper is known by its initials, FT"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper article that first broke the story of a robbery.",
-     "definitionFit": "Theft is the act of stealing, and robbery is theft by force, close enough to stand as a synonym."
+     "surface": "A newspaper article reveals a robbery.",
+     "walkthrough": "The FT is the Financial Times, a British newspaper commonly called by its initials.",
+     "definitionFit": "Theft is the act of stealing, which is what a robbery is."
     },
     "features": {
      "answerInScene": true,
@@ -1388,43 +1376,50 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Ignoring third of debt, what could be repayable in 2008?",
-      "at": 0
+      "text": "in 2008?",
+      "at": 48,
+      "note": "the definition names the period one was in during 2008, which had a 29 February"
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "LEAPYEAR",
      "indicators": [
       {
-       "text": "could be",
-       "note": "could be suggests the letters might become something else once rearranged"
+       "text": "what could be",
+       "at": 24,
+       "note": "what could be says the remaining letters could be rearranged into something else"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "LEAPYEAR",
        "indicators": [
         {
          "text": "Ignoring",
-         "note": "ignoring a letter means leaving it out of the longer word"
+         "at": 0,
+         "note": "ignoring means leaving out, so that letter is removed from repayable"
         }
        ],
        "parts": [
         {
          "words": "repayable",
-         "note": "taken as written"
+         "at": 38
         },
         {
          "op": "nth",
          "n": 3,
+         "indicators": [
+          {
+           "text": "third of",
+           "at": 9,
+           "note": "third of picks the third letter of debt"
+          }
+         ],
          "parts": [
           {
            "words": "debt",
-           "note": "the third letter of debt, to be removed"
+           "at": 18,
+           "note": "the third letter of debt"
           }
          ]
         }
@@ -1432,16 +1427,15 @@
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "Wondering which debt falls due in 2008, setting part of it aside.",
-     "walkthrough": "Remove B from the long word and rearrange what remains. The whole clue also defines: 2008 had 366 days.",
-     "definitionFit": "A leap year has an extra day in February, and 2008 was one, being divisible by four."
+     "surface": "A puzzle about a debt that might fall due in a particular year.",
+     "walkthrough": "'third of debt' is B; 'Ignoring' removes it from REPAYABLE to leave REPAYALE, and 'what could be' rearranges those letters.",
+     "definitionFit": "2008 had a 29 February, making it one of the years with 366 days, so an example."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "debt"
+     "misdirectedWord": "repayable"
     }
    }
   },
