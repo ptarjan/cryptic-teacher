@@ -137,4 +137,13 @@ check("worn type's shared slips are put back to the lexicon word",
 check("a known word, a name and a word with no lexicon spelling are left", "Aladdin cf xyzzy",
       ocr_clues.unworn("Aladdin cf xyzzy"))
 
+import clue_text
+_p = {"across": [{"tokens": [{23}], "text": "Unshipped blossom is much the same", "see": None, "enums": {"5"}},
+                 {"tokens": [{24}], "text": "The talk of the town 25 5 Bury fat", "see": None, "enums": {"9"}},
+                 {"tokens": [{26}], "text": "Extremes indicated", "see": None, "enums": {"4,3,6"}}], "down": []}
+_got = clue_repair.split_run_on(_p)[0]["across"]
+check("a next clue's number then this clue's lost count splits the two (times-5839 24A)",
+      [("The talk of the town", {"5"}), ("Bury fat", {"9"})],
+      [(c["text"], c["enums"]) for c in _got[1:3]])
+
 sys.exit(1 if fails else 0)

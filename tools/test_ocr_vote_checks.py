@@ -1444,6 +1444,13 @@ check("tied case, hyphen split and ligature read the same under every PYTHONHASH
 check("a case tie in a stray letter's readings takes the sorted spelling",
       "throws AN sprightly", next(iter(outs)).splitlines()[0])
 
+check("a name every reading spells alike stands against the known word its first letter would make (times-5832 1A)",
+      "Herrick's apple-girls", oc.agree("Herrick's apple-girls", [mark("1 Herrick's apple-girls (6, 5)"), mark("1 Herricks apple-girls (6, 5)")])[0])
+check("the clue's capitalised first word one reading alone has, the others starting at the next, is kept (times-5822 1A)",
+      "He doesn't draw carts", oc.agree("He doesn't draw carts", [mark("1 doesn't draw carts (12)"), mark("1 doesn't draw carts (12)")])[0])
+check("a figure run into words another reading prints apart is parted (times-5920 11A)",
+      "Not here is 14 found swaying", oc.agree("Nothereis14found swaying", [mark("11 Not here is 14 found swaying (4)"), mark("11 Not here is 14 found swaying (4)")])[0])
+
 print(f"FAILS {fails}")
 if fails:
     print("test_ocr_vote_checks: failed")

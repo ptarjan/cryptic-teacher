@@ -887,6 +887,10 @@ ENUM_SEG = re.compile(r"[\s.?!;:'\"]*[(\[{]?\s*(\d{1,2}(?:(?:\s*[,.\-]\s*|\s+)\d
 #: A clue number opening a clue inside another clue's text, with the count of
 #: the clue before it in front when that count stands inside the text.
 RUN_ON_NUMBER = re.compile(rf"(?:\((\d[\d,\-\u2013]*)\)\s*)?(?<![\d(])({RUN_ON_NUM}){RUN_ON_AFTER}")
+#: A clue number and, run on after it, the clue before's one-figure count
+#: ("... the town 25 5 Bury fat (9)": the count (5) lost its brackets and
+#: line, and sits between the next clue's number and its words).
+RUN_ON_STRAY = re.compile(r"(?<![\d(])(\d{1,2})\s+(\d)(?=\s+[A-Z])")
 #: A clue that is only a cross-reference, its count never there.
 BARE_SEE = re.compile(rf"\(?\s*{SEE_WORD}\s*({SEE_NUMBER}|[lI])\s*(?:ac|dn|across|down)?\.?\s*\)?$", re.I)
 

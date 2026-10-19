@@ -456,21 +456,26 @@ def split_run_on(parsed):
                 if own is None or not c["text"] or c["see"] is not None:
                     continue
                 after = next((heads(x) for x in out[i + 1:] if heads(x) is not None), None)
-                for m in clue_text.RUN_ON_NUMBER.finditer(c["text"]):
-                    n = 11 if m.group(2)[-1] == "]" else int(m.group(2))
-                    first = c["text"][:m.start()].strip()
+                found = [(m, m.group(2), m.group(1), m.start(), m.end()) for m in clue_text.RUN_ON_NUMBER.finditer(c["text"])]
+                # The next clue's number then the figure that is this clue's count
+                # (never a number the list has, so only where it is missing).
+                found += [(m, m.group(1), m.group(2), m.start(), m.end()) for m in clue_text.RUN_ON_STRAY.finditer(c["text"])
+                          if int(m.group(1)) in missing]
+                for m, num, count, m_start, m_end in found:
+                    n = 11 if num[-1] == "]" else int(num)
+                    first = c["text"][:m_start].strip()
                     see = clue_text.BARE_SEE.match(first)
-                    if not (n in missing or (after is None and n not in have and n <= 36) or (after is not None and n in have and len(re.findall(clue_text.RUN_ON_NUMBER, c["text"])) == 1)) or n <= own or not first or (m.start() < 3 and not see):
+                    if not (n in missing or (after is None and n not in have and n <= 36) or (after is not None and n in have and len(re.findall(clue_text.RUN_ON_NUMBER, c["text"])) == 1)) or n <= own or not first or (m_start < 3 and not see):
                         continue
                     if after is not None and n >= after:
                         continue  # a clue between two others numbers between them
-                    later = {"tokens": [{n}], "text": c["text"][m.end():].strip(),
+                    later = {"tokens": [{n}], "text": c["text"][m_end:].strip(),
                              "enums": c["enums"], "see": None}
                     if see:
                         ref = str(clue_text.see_number(see.group(1)))
                         head = dict(c, text=f"See {ref}", enums=set(), see=int(ref))
                     else:
-                        head = dict(c, text=first, enums={m.group(1).replace("\u2013", "-")} if m.group(1) else set())
+                        head = dict(c, text=first, enums={count.replace("\u2013", "-")} if count else set())
                     out[i:i + 1] = [head, later]
                     notes.append(f"{n} {direction}: split off {own} {direction}, which ran on into it")
                     break
