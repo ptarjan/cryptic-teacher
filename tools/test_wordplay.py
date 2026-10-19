@@ -469,11 +469,16 @@ for name, tree in [
     ("a deletion with one part", {"op": "deletion", "parts": [leaf("ab")]}),
     ("a substitution with four parts", {"op": "substitution", "parts": [leaf("ab"), leaf("a"), leaf("b"), leaf("c")]}),
     ("a reversal with none", {"op": "reversal"}),
-    ("a first with two", {"op": "first", "parts": [leaf("ab"), leaf("cd")]}),
     ("a nested bad count", {"op": "charade", "parts": [leaf("a"), {"op": "container", "parts": [leaf("b")]}]}),
 ]:
     r = refused(tree, "AB")
     check(f"{name} is a WordplayError naming the count", r.startswith(("(", "")) and "part(s)" in r and "CRASH" not in r, r)
+# One op per indicator: first(A, B) over a list is the first letter of each piece (AC here),
+# so it is a clean refusal when the answer differs, and evaluates when it matches.
+_r = refused({"op": "first", "parts": [leaf("ab"), leaf("cd")]}, "AB")
+check("a first over two pieces is the first letter of each, refused cleanly",
+      "does not give" in _r and "CRASH" not in _r, _r)
+check("a first over two pieces gives AC", refused({"op": "first", "parts": [leaf("ab"), leaf("cd")]}, "AC") == "evaluated")
 _r = refused({"op": "anagram", "parts": [{"op": "deletion", "parts": [leaf("ab"), leaf("x"), leaf("y")]}]}, "AB")
 check("a failing three-piece deletion under an anagram is diagnosed, not a crash",
       "gives nothing" in _r and "CRASH" not in _r, _r)
