@@ -33,7 +33,7 @@ PUZZLE = re.compile(r"puzzles/[^/]+/[^/]+/[^/]+\.json")
 #: reads the real file (they run against fixtures; tools/test_ci_scope.py pins
 #: the list against ci_cache.js, which excludes the same files from the smoke
 #: test's code key).
-QUEUE_STATE = ("tools/data/shape_reannotate.json",)
+QUEUE_STATE = validate_scope.QUEUE_STATE
 BACKLOG = validate_scope.BACKLOG
 MAX_FILES = 1500
 
