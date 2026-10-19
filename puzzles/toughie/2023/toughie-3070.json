@@ -100,45 +100,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TURBOPROP",
-     "indicators": [
-      {
-       "text": "finally leaving",
-       "note": "the final letter departs, so the word loses its end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finally leaving",
+         "at": 8,
+         "note": "the final letter departs from the fish"
+        }
+       ],
        "parts": [
         {
          "words": "Swimmer",
-         "gives": "TURBO",
-         "note": "a turbot is a flatfish, minus its last letter"
+         "at": 0,
+         "gives": "TURBOT",
+         "note": "a turbot is a fish, so a swimmer"
         },
         {
-         "words": "for",
-         "gives": "PRO",
-         "note": "pro means in favour of"
-        },
-        {
-         "words": "Portugal",
-         "gives": "P",
-         "note": "P is the international vehicle code for Portugal"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "for",
+       "at": 24,
+       "gives": "PRO",
+       "note": "pro means for, in favour of"
+      },
+      {
+       "words": "Portugal",
+       "at": 28,
+       "gives": "P",
+       "note": "P is the international vehicle code for Portugal"
       }
      ]
     },
     "explanation": {
-     "surface": "A fish stops swimming and someone flies off to Portugal.",
-     "walkthrough": "'Finally leaving for Portugal' reads as one phrase about a holiday; split it after 'leaving', with 'for' giving PRO.",
-     "definitionFit": "A turboprop is an aircraft driven by a propeller turned by a gas turbine engine."
+     "surface": "A fish loses its way before heading off to Portugal, where it catches a plane.",
+     "walkthrough": "'for' looks like a link word before Portugal, but it means in favour of and supplies its own piece.",
+     "definitionFit": "A turboprop is an aircraft driven by a propeller turned by a gas turbine."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "for"
     }
@@ -413,33 +418,33 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "ALIBI",
+     "op": "deletion",
      "indicators": [
       {
        "text": "prime locations",
-       "note": "prime-numbered positions: the second, third, fifth, seventh and eleventh letters are kept"
+       "at": 17,
+       "note": "only the letters at prime-numbered positions are kept, so every letter in a non-prime slot is taken away"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Wall in Bosnia",
-       "gives": "ALIBI",
-       "select": "prime",
-       "note": "letters 2, 3, 5, 7 and 11 of the phrase"
+       "words": "Wall in Bosnia's",
+       "at": 0
+      },
+      {
+       "gives": "WLNOSNAS"
       }
      ]
     },
     "explanation": {
-     "surface": "A defensive wall built at strategic sites in Bosnia.",
-     "walkthrough": "Prime locations sound like choice sites for a fortification; they are the letter positions 2, 3, 5, 7 and 11 in 'Wall in Bosnia'. The question mark flags ALIBI used as a verb.",
-     "definitionFit": "To alibi someone is to supply an excuse showing they were elsewhere, a verb meaning to vouch for them."
+     "surface": "A wall in Bosnia sits at strategic spots offering protection.",
+     "walkthrough": "Number the letters of WALLINBOSNIA: those in positions 2, 3, 5, 7 and 11, the prime numbers, are A, L, I, B, I. 'prime locations' looks like real estate but means prime-numbered positions.",
+     "definitionFit": "To alibi someone, used as a verb, is to vouch that they were elsewhere, a defence against an accusation."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "prime"
     }
    }
@@ -566,46 +571,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CELERIAC",
-     "indicators": [
-      {
-       "text": "peeled",
-       "note": "peeling removes the skin, so the outermost letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Church",
+       "at": 0,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "peeled",
+         "at": 14,
+         "note": "peeling strips the outer skin, so the first and last letters go"
+        }
+       ],
        "parts": [
         {
-         "words": "Church",
-         "gives": "CE",
-         "note": "CE is the Church of England"
-        },
-        {
          "words": "pastor",
-         "gives": "LERI",
-         "note": "a cleric, without its first and last letters"
-        },
-        {
-         "words": "a",
-         "note": "as printed"
-        },
-        {
-         "words": "cold",
-         "gives": "C",
-         "note": "C for cold, as on a tap"
+         "at": 7,
+         "gives": "CLERIC",
+         "note": "a cleric is a clergyman, such as a pastor"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 21,
+       "gives": "A"
+      },
+      {
+       "words": "cold",
+       "at": 23,
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "A church pastor preparing a cold vegetable dish.",
-     "walkthrough": "Peeled belongs to the kitchen picture, but it acts on the pastor, not the vegetable.",
-     "definitionFit": "Celeriac is a variety of celery grown for its large edible knobbly root, eaten raw or cooked."
+     "surface": "A church minister peels a chilly vegetable.",
+     "walkthrough": "'peeled' strips the skin from the pastor word, just as you would peel the vegetable itself.",
+     "definitionFit": "Celeriac is a variety of celery grown for its swollen edible root, eaten as a vegetable."
     },
     "features": {
      "answerInScene": true,
@@ -996,43 +1003,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUNIN",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Loveless",
-       "note": "love is zero in tennis, which looks like the letter O, and less says take it away"
+       "text": "starting",
+       "at": 22,
+       "note": "the king's letter comes at the start"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "King",
+       "at": 17,
+       "gives": "R",
+       "note": "R is short for rex, Latin for king"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "starting",
-         "note": "starting means going at the front, so this piece leads the answer"
+         "text": "Loveless",
+         "at": 0,
+         "note": "love is zero, the letter O, so it is dropped"
         }
        ],
        "parts": [
         {
-         "words": "King",
-         "gives": "R",
-         "note": "R for Rex, Latin for king"
+         "words": "23",
+         "at": 9,
+         "gives": "UNION",
+         "note": "the answer to clue 23 is union"
         },
         {
-         "words": "23",
-         "gives": "UNIN",
-         "note": "the answer to 23, with its O removed"
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A heartbroken trade union joined by a king at the start of a row.",
-     "walkthrough": "23 is UNION; love is O, the tennis score of nil.",
-     "definitionFit": "A run-in is an argument or confrontation, typically a brief clash with authority or a rival."
+     "surface": "A loveless marriage, with a monarch thrown in, begins a row.",
+     "walkthrough": "UNION, the answer to 23, loses its O (love, a zero score in tennis) to give UNIN, with R at the start.",
+     "definitionFit": "A run-in is an argument or confrontation, as in a run-in with the police."
     },
     "features": {
      "answerInScene": false,
@@ -1179,13 +1191,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPLEEN",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
+       "text": "controlling",
+       "at": 28,
+       "note": "controlling means holding in check, so the outer pieces hold the power letter"
       }
      ],
      "parts": [
@@ -1193,45 +1204,52 @@
        "op": "charade",
        "indicators": [
         {
-         "text": "Pre-",
-         "note": "pre means before, so the rest is set in front"
+         "text": "Pre",
+         "at": 0,
+         "note": "pre means before, so the shortened nap word goes before the noon letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "controlling",
-           "note": "to control something is to have it in your grip"
+           "text": "mostly",
+           "at": 21,
+           "note": "most of the word, so its final letter is lost"
           }
          ],
          "parts": [
           {
-           "words": "nap",
-           "gives": "SLEE",
-           "note": "sleep, with its last letter cut"
+           "words": "nap's",
+           "at": 15,
+           "gives": "SLEEP",
+           "note": "a nap is a short sleep"
           },
           {
-           "words": "power",
-           "gives": "P",
-           "note": "P for power, as in physics"
+           "gives": "P"
           }
          ]
         },
         {
          "words": "noon",
-         "gives": "N",
-         "note": "N for noon"
+         "at": 4,
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "power",
+       "at": 9,
+       "gives": "P",
+       "note": "P is the physics symbol for power"
       }
      ]
     },
     "explanation": {
-     "surface": "A morning power nap keeping someone's irritability in check.",
-     "walkthrough": "'Power nap' reads as one phrase; split it, with power giving P held inside the shortened nap.",
-     "definitionFit": "Spleen means irritable anger, from the old belief that the organ was the seat of ill humour."
+     "surface": "A short, energising sleep before midday keeps an ill mood in check.",
+     "walkthrough": "SLEEP minus its last letter gives SLEE, before N; that SLEEN holds P after its S.",
+     "definitionFit": "Spleen means anger or ill humour, from the old belief that the organ was the seat of bad temper."
     },
     "features": {
      "answerInScene": true,
@@ -1261,47 +1279,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCHEMED",
+     "op": "charade",
      "indicators": [
       {
-       "text": "discovered",
-       "note": "dis-covered means with its covering taken off, so the outer letters go"
+       "text": "after",
+       "at": 30,
+       "note": "the solution piece comes after the school piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "school",
+       "at": 36,
+       "gives": "SCH"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "after",
-         "note": "coming after means following on behind"
+         "text": "discovered",
+         "at": 19,
+         "note": "dis-covered means with its covering removed, so the outer letters go"
         }
        ],
        "parts": [
         {
-         "words": "school",
-         "gives": "SCH",
-         "note": "standard abbreviation"
-        },
-        {
          "words": "solution",
-         "gives": "EMED",
-         "note": "a remedy, minus its first and last letters"
+         "at": 10,
+         "gives": "REMEDY",
+         "note": "a remedy is a solution to a problem"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cunning answer found after lessons.",
-     "walkthrough": "Discovered looks like found; it means uncovered.",
-     "definitionFit": "Contrived as a past-tense verb means plotted or devised a plan, often slyly."
+     "surface": "An answer was found after school had finished.",
+     "walkthrough": "'discovered' reads as found but means dis-covered, with its covering of outer letters taken off.",
+     "definitionFit": "To scheme is to plot or devise, so a plan that was schemed was contrived."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "discovered"
     }
    }
@@ -1333,58 +1353,62 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "EYETEETH",
+     "op": "container",
      "indicators": [
       {
-       "text": "cycled",
-       "note": "a cycle goes round, so letters from the front move to the back"
+       "text": "around",
+       "at": 12,
+       "note": "the cycled word goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "cycling",
        "indicators": [
         {
-         "text": "around",
-         "note": "going around something means enclosing it"
+         "text": "cycled",
+         "at": 5,
+         "note": "the letters go round in a cycle, the front ones moving to the end"
         }
        ],
        "parts": [
         {
          "words": "They",
-         "gives": "EYTH",
-         "note": "the word with its first letter moved to the end"
+         "at": 0,
+         "gives": "THEY",
+         "note": "taken as written, before its letters move"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in France and",
+         "at": 19,
+         "gives": "ET",
+         "note": "et is French for and"
         },
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "in France and",
-           "gives": "ET",
-           "note": "French for and"
-          },
-          {
-           "words": "Spain",
-           "gives": "E",
-           "note": "E is the vehicle code for Spain"
-          },
-          {
-           "words": "energy",
-           "gives": "E",
-           "note": "E for energy, as in physics"
-          }
-         ]
+         "words": "Spain",
+         "at": 33,
+         "gives": "E",
+         "note": "E is the international vehicle code for Spain"
+        },
+        {
+         "words": "energy",
+         "at": 44,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cyclists touring France and Spain energetically, some wearing caps.",
-     "walkthrough": "Cycled suggests a bike tour, and capped a cycling cap; here it cycles letters, and capped means dentally crowned.",
-     "definitionFit": "Eye teeth are the canines of the upper jaw, and dentists sometimes fit crowns over teeth."
+     "surface": "Some people cycled around France and Spain with gusto, perhaps wearing caps.",
+     "walkthrough": "'They cycled' looks like people on bikes, but the word itself is cycled. The definition is fair because dentists fit caps on teeth.",
+     "definitionFit": "Eyeteeth are the canine teeth of the upper jaw, and a dentist may crown them."
     },
     "features": {
      "answerInScene": false,
@@ -1521,56 +1545,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "replaced",
-       "note": "replaced means put back in a different position, so the letters move"
+       "text": "to cover",
+       "at": 30,
+       "note": "the rearranged letters cover the initial letter, putting it inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to cover",
-         "note": "to cover something is to go over and around it"
+         "text": "replaced",
+         "at": 21,
+         "note": "the letters are put back in a new order"
         }
        ],
        "parts": [
         {
          "words": "isn't",
-         "note": "the four letters without the apostrophe, rearranged"
-        },
+         "at": 15
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially means at the start, so only the first letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "embarrassment",
-           "note": "its first letter"
-          }
-         ]
+         "text": "initially",
+         "at": 53,
+         "note": "picks the first letter of embarrassment"
+        }
+       ],
+       "parts": [
+        {
+         "words": "embarrassment",
+         "at": 39
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gusset that has not been replaced, leaving someone embarrassed.",
-     "walkthrough": "The surface is a wardrobe malfunction; 'Perhaps gusset' is the definition, a gusset being one example of the answer.",
-     "definitionFit": "A gusset is a piece of fabric sewn into a garment to strengthen or enlarge it, one kind of inserted panel."
+     "surface": "A gusset that isn't put back hides a blush.",
+     "walkthrough": "The letters of ISN'T are rearranged as INST, which goes around E, the first letter of 'embarrassment'.",
+     "definitionFit": "A gusset is a piece of fabric set into a garment, so it is one example of an insertion."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "replaced"
+     "misdirectedWord": "cover"
     }
    }
   },
@@ -1795,46 +1821,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VIANDS",
-     "indicators": [
-      {
-       "text": "wanting",
-       "note": "wanting means lacking, so something is missing"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Six",
+       "at": 0,
+       "gives": "VI",
+       "note": "VI is six in Roman numerals"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wanting",
+         "at": 12,
+         "note": "wanting means lacking, so the hot letter is missing"
+        }
+       ],
        "parts": [
         {
-         "words": "Six",
-         "gives": "VI",
-         "note": "Roman numeral"
-        },
-        {
          "words": "workers",
-         "gives": "ANDS",
-         "note": "hands, as in farmhands, minus the letter for hot"
+         "at": 4,
+         "gives": "HANDS",
+         "note": "hands are manual workers"
         },
         {
-         "unchecked": true,
          "words": "hot",
-         "note": "H for hot, the letter taken out"
+         "at": 20,
+         "gives": "H",
+         "note": "H is the abbreviation for hot, as on taps"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Six labourers who would like a hot meal.",
-     "walkthrough": "Wanting reads as desiring hot food; it means lacking, and hot is H.",
-     "definitionFit": "Viands is an old-fashioned word for items of food and provisions, especially choice dishes."
+     "surface": "Half a dozen labourers want hot meals.",
+     "walkthrough": "'wanting' looks like desiring but means lacking: HANDS loses H.",
+     "definitionFit": "Viands is an old-fashioned word for items of food, provisions."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "wanting"
     }
    }

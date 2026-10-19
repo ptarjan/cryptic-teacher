@@ -1042,41 +1042,45 @@
      "indicators": [
       {
        "text": "holding",
-       "note": "holding something means having it inside, so the first piece wraps around the rest"
+       "at": 9,
+       "note": "the prisoner word holds the other pieces within it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Prisoner",
-         "gives": "CON",
-         "note": "a con is a convict"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Prisoner",
+       "at": 0,
+       "gives": "CON",
+       "note": "a con is a convict"
       },
       {
-       "words": "little flower",
-       "gives": "RILL",
-       "note": "a flower is something that flows, and a rill is a small stream"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 17,
+         "gives": "A"
+        },
+        {
+         "words": "little flower",
+         "at": 19,
+         "gives": "RILL",
+         "note": "a flower is something that flows, and a rill is a small stream"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prisoner clutching a small bloom is about to be hanged in the Tower of London.",
-     "walkthrough": "'Flower' means a thing that flows, a river, a crossword favourite; the Tower is a bell tower, not the London prison.",
-     "definitionFit": "A carillon is a set of bells hung in a tower and played from a keyboard."
+     "surface": "A convict clutches a small bloom, about to be executed in the Tower of London.",
+     "walkthrough": "'flower' is read as something that flows, a stream. The surface suggests hanging at the Tower, but the definition means bells hung in a church tower.",
+     "definitionFit": "A carillon is a set of tuned bells hung in a tower and played from a keyboard."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "hung"
+     "misdirectedWord": "flower"
     }
    }
   },
@@ -3439,56 +3443,57 @@
      "indicators": [
       {
        "text": "deployed about",
-       "note": "spread out about something, so the first word surrounds the rest"
+       "at": 44,
+       "note": "the common-sense word is spread around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "common sense",
-         "gives": "NOUS",
-         "note": "nous is practical intelligence"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "rejecting",
-           "note": "rejecting something sends it back, so the pair of words runs backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "crazy",
-           "gives": "MAD",
-           "note": "taken as a synonym"
-          }
-         ]
-        }
-       ]
+       "words": "common sense",
+       "at": 31,
+       "gives": "NOUS",
+       "note": "nous is British slang for common sense"
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejecting",
+         "at": 5,
+         "note": "to reject is to throw back, so the words come out backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "schemes",
-         "gives": "ARTS",
-         "note": "arts are cunning schemes or wiles"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "crazy",
+           "at": 15,
+           "gives": "MAD",
+           "note": "mad means crazy"
+          },
+          {
+           "words": "schemes",
+           "at": 21,
+           "gives": "ARTS",
+           "note": "arts are cunning schemes or wiles"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prophet dismisses wild plots and urges ordinary good sense instead.",
-     "definitionFit": "Nostradamus was a sixteenth-century French astrologer whose prophecies are still quoted, making him a famous prophet."
+     "surface": "A prophet turns down mad plans, his practical wits spread all around.",
+     "walkthrough": "'rejecting' turns the whole of 'crazy schemes' round, and 'deployed about' spreads common sense either side of it; arts here are crafty tricks, as in 'wiles and arts'.",
+     "definitionFit": "Nostradamus was the 16th-century French astrologer famous for his prophecies, the archetypal prophet."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "schemes"
+     "misdirectedWord": "rejecting"
     }
    }
   }
