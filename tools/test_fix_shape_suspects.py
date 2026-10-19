@@ -496,5 +496,23 @@ new, used = F.repair_tree(dst, dsc, "SURFACE", {"deletionScopeAnswer": F.RULE_RE
 check("a deletion over a charade moves onto the piece the cut comes out of",
       used == ["deletionScopeAnswer"] and new["op"] == "charade" and new["parts"][0]["op"] == "deletion")
 
+# anagramOfContainer: ana(ins(a, b)) over literal words is one anagram of them together; over one
+# arm it is ins(ana(arm), other) with the anagram's word taken off the container
+AC = {"anagramOfContainer": F.r_ana_of_container}
+acc = "Ship off clothes tried out where culture's displayed"
+act = {"op": "anagram", "indicators": [{"text": "off", "at": 5}, {"text": "out", "at": 25}], "parts": [
+    {"op": "container", "indicators": [{"text": "clothes", "at": 9}], "parts": [
+        {"words": "Ship", "at": 0}, {"words": "tried", "at": 17}]}]}
+new, used = F.repair_tree(act, acc, "PETRIDISH", AC)
+check("a literal-word anagram of a container is a plain anagram of the words",
+      used == ["anagramOfContainer"] and new["op"] == "anagram" and len(new["parts"]) == 2)
+acc3 = "Novel she wrote about one being different"
+act3 = {"op": "anagram", "parts": [{"op": "container", "indicators": [{"text": "Novel", "at": 0}, {"text": "about", "at": 15}], "parts": [
+    {"words": "she wrote", "at": 6}, {"words": "one", "at": 21, "gives": "I"}]}]}
+new, used = F.repair_tree(act3, acc3, "OTHERWISE", AC)
+check("a container's two words: the anagram word goes to the anagram",
+      used == ["anagramOfContainer"] and new["op"] == "container" and [i["text"] for i in new["indicators"]] == ["about"]
+      and new["parts"][0]["op"] == "anagram" and new["parts"][0]["indicators"][0]["text"] == "Novel")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
