@@ -1736,46 +1736,51 @@
      "indicators": [
       {
        "text": "into",
-       "note": "into means placed inside, so those letters go within the tree"
+       "at": 27,
+       "note": "the other pieces go into the tree word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "tree",
+       "at": 32,
+       "gives": "ASH",
+       "note": "an ash is a tree"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "tree",
-         "gives": "ASH",
-         "note": "the ash is a tree"
-        },
         {
          "op": "reversal",
          "indicators": [
           {
            "text": "knocked up",
-           "note": "in a down entry, up means reading from the bottom upwards"
+           "at": 16,
+           "note": "in a down clue, knocked up turns the word upwards, reversing it"
           }
          ],
          "parts": [
           {
            "words": "throw",
+           "at": 9,
            "gives": "LOB",
-           "note": "to lob is to throw high"
+           "note": "to lob is to throw"
           }
          ]
+        },
+        {
+         "words": "one",
+         "at": 5,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
         }
        ]
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral one"
       }
      ]
     },
     "explanation": {
-     "surface": "A ball tossed up gets stuck in a tree and has to be let fall.",
-     "definitionFit": "To drop a rule or practice is to abandon it, to abolish it."
+     "surface": "Someone knocks a thrown object up into a tree, perhaps dropping it.",
+     "definitionFit": "To abolish a rule or practice is to drop it, ending it formally."
     },
     "features": {
      "answerInScene": false,
@@ -1963,60 +1968,67 @@
      "indicators": [
       {
        "text": "to hold",
-       "note": "to hold means to keep inside, so the next pieces go within"
+       "at": 34,
+       "note": "the reversed hand holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "up",
-           "note": "in a down entry, up means read from bottom to top"
-          }
-         ],
-         "parts": [
-          {
-           "words": "hand",
-           "gives": "MITT",
-           "note": "mitt is slang for hand"
-          }
-         ]
-        },
-        {
-         "words": "in",
-         "note": "taken as written"
-        }
-       ]
-      },
-      {
-       "op": "first",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "for a start",
-         "note": "for a start points to the opening letter"
+         "text": "up",
+         "at": 31,
+         "note": "in a down clue, up means the word is read upwards"
         }
        ],
        "parts": [
         {
-         "words": "yours",
-         "note": "the first letter"
+         "words": "hand",
+         "at": 26,
+         "gives": "MITT",
+         "note": "mitt is slang for a hand"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in",
+         "at": 42,
+         "gives": "IN",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "for a start",
+           "at": 51,
+           "note": "the first letter of the word is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "yours",
+           "at": 45
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A child singing a carol is asked to raise his hand and hold yours.",
-     "walkthrough": "Carol here is Dickens's A Christmas Carol, in which the sick child of Bob Cratchit appears.",
-     "definitionFit": "Tiny Tim is the small, frail son of Bob Cratchit in A Christmas Carol."
+     "surface": "A small boy holding your hand while reaching up.",
+     "walkthrough": "'Carol' is not a person: it is Dickens's A Christmas Carol.",
+     "definitionFit": "Tiny Tim is the sickly young son of Bob Cratchit in A Christmas Carol."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Carol's"
     }
    }

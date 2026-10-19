@@ -1589,59 +1589,61 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ANISETTE",
      "indicators": [
       {
        "text": "imbibing",
-       "note": "to imbibe is to drink in, so the earlier pieces take another inside"
+       "at": 22,
+       "note": "imbibing means drinking in, so the other letters take the next one inside"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "mostly",
-         "note": "mostly means not quite all, so the word loses its last letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "A",
-           "note": "taken as written"
-          },
-          {
-           "words": "new",
-           "gives": "N",
-           "note": "N is the abbreviation for new"
-          },
-          {
-           "words": "single",
-           "gives": "I",
-           "note": "I is the Roman numeral one"
-          },
-          {
-           "words": "compiler",
-           "gives": "SETTER",
-           "note": "a crossword compiler is called a setter"
-          }
-         ]
+         "words": "A",
+         "at": 0,
+         "gives": "A"
         },
         {
-         "gives": "R"
+         "words": "new",
+         "at": 2,
+         "gives": "N"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 15,
+           "note": "mostly means the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "compiler",
+           "at": 6,
+           "gives": "SETTER",
+           "note": "a setter compiles a crossword"
+          },
+          {
+           "gives": "R"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "single",
+       "at": 31,
+       "gives": "I",
+       "note": "I, the Roman numeral one, is a single"
       }
      ]
     },
     "explanation": {
-     "surface": "A newly arrived crossword maker has a drink of liqueur.",
-     "walkthrough": "SETTER loses its last letter; A, N and SETTE together take in I.",
-     "definitionFit": "Anisette is a sweet aniseed-flavoured spirit of the liqueur sort, drunk diluted or neat after meals."
+     "surface": "A rookie crossword setter is sipping a single glass of liqueur.",
+     "definitionFit": "Anisette is a sweet aniseed-flavoured liqueur."
     },
     "features": {
      "answerInScene": true,

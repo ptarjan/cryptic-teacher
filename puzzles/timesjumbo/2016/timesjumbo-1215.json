@@ -105,48 +105,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WRATH",
+     "op": "container",
      "indicators": [
       {
-       "text": "cut",
-       "note": "cutting a word shortens it, so its final letter is lost"
+       "text": "across",
+       "at": 8,
+       "note": "the shortened why lies across, spanning either side of, the desert word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "across",
-         "note": "lying across something means stretching around it on both sides"
+         "text": "cut",
+         "at": 4,
+         "note": "a word that is cut loses its tail, so the last letter of why goes"
         }
        ],
        "parts": [
         {
          "words": "Why",
-         "gives": "WH",
-         "note": "the word 'why' with its last letter removed"
+         "at": 0
         },
         {
-         "words": "desert",
-         "gives": "RAT",
-         "note": "to rat is to desert or betray one's side"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "words": "desert",
+       "at": 15,
+       "gives": "RAT",
+       "note": "to rat is to desert or abandon one's side"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about why anyone would trek across a desert in blistering heat.",
-     "walkthrough": "'Desert' looks like sand, but it is the verb: to rat on someone.",
-     "definitionFit": "Wrath is fierce anger, and heat is a common figure for passionate temper, so great heat suits it."
+     "surface": "A puzzled question about why someone would trek across a desert in blazing heat.",
+     "walkthrough": "'great heat' reads as the desert climate, but it is heat of temper.",
+     "definitionFit": "Heat can mean intense anger, so great heat is fury or rage."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "desert"
+     "misdirectedWord": "heat"
     }
    }
   },
@@ -983,42 +986,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UXORIAL",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost the whole word means its last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "thrashed",
-         "note": "a team that is thrashed is knocked about, so its letters are jumbled"
+         "at": 7,
+         "note": "a beaten or thrashed side is knocked about, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Our XI",
+         "words": "Our",
+         "at": 0,
          "note": "taken as written"
         },
         {
+         "words": "XI",
+         "at": 4,
+         "note": "taken as written, the Roman numeral for a team of eleven"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 19,
+         "note": "almost all of the word means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
          "words": "all",
-         "gives": "AL",
-         "note": "all without its final letter"
+         "at": 26,
+         "gives": "ALL",
+         "note": "taken as written"
+        },
+        {
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Our cricket team trounced by nearly the whole of the Netherlands side.",
-     "walkthrough": "'The Dutch' is not the Netherlands: 'my old Dutch' is London slang for one's wife. XI is a team of eleven.",
-     "definitionFit": "Uxorial means relating to a wife, from Latin uxor, and the Dutch is old Cockney slang for a wife."
+     "surface": "Our cricket team has been heavily beaten by the Netherlands side, which won almost everything.",
+     "walkthrough": "'Dutch' is old Cockney slang for a wife ('my old Dutch'), so 'of the Dutch' means relating to a wife.",
+     "definitionFit": "The adjective describes things relating to a wife, and Dutch is slang for one's spouse."
     },
     "features": {
      "answerInScene": false,
@@ -1564,41 +1582,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ONCALL",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost the whole word means its last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 11,
+         "note": "almost the whole word, so its final letter is lost"
+        }
+       ],
        "parts": [
         {
          "words": "Previously",
-         "gives": "ONC",
-         "note": "once, without its final letter"
+         "at": 0,
+         "gives": "ONCE",
+         "note": "once means at a former time, previously"
         },
         {
-         "words": "everyone",
-         "gives": "ALL",
-         "note": "all, everybody"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "everyone",
+       "at": 18,
+       "gives": "ALL",
+       "note": "all means everyone"
       }
      ]
     },
     "explanation": {
-     "surface": "In the past, nearly everybody was free to help.",
-     "definitionFit": "Someone on call is ready to be summoned to work at short notice, and so available."
+     "surface": "Earlier, nearly the whole staff could be reached.",
+     "definitionFit": "Someone on call is ready to be summoned for duty, that is, available."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "almost"
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },

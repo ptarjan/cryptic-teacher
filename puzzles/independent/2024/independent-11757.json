@@ -427,65 +427,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "turned about means facing the other way, so the letters run backwards"
+       "text": "keeping",
+       "at": 29,
+       "note": "the reversed word keeps the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "keeping",
-         "note": "to keep something is to hold it, so one piece holds others inside"
+         "text": "about",
+         "at": 23,
+         "note": "about means the word is turned round"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "container",
-           "parts": [
-            {
-             "words": "agreed",
-             "gives": "YES",
-             "note": "saying yes means you agreed"
-            },
-            {
-             "words": "money",
-             "gives": "M",
-             "note": "the abbreviation for money"
-            }
-           ]
-          },
-          {
-           "words": "I",
-           "note": "as printed"
-          }
-         ]
+         "words": "agreed",
+         "at": 16,
+         "gives": "YES",
+         "note": "yes means agreed"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "money",
+         "at": 37,
+         "gives": "M"
+        },
+        {
+         "words": "I",
+         "at": 43
         },
         {
          "words": "left",
-         "gives": "L",
-         "note": "the usual abbreviation"
+         "at": 45,
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone grins after a deal on the money they are owed.",
-     "walkthrough": "The word for agreeing is turned round first, and only then wraps the money, the I and the left.",
-     "definitionFit": "A smiley face or expression is one wearing a grin, cheerful in appearance."
+     "surface": "Someone beams after agreeing a deal that let them keep the cash they left.",
+     "definitionFit": "Smiley is an informal adjective for someone cheerful and smiling."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "left"
+     "aptDefinition": false
     }
    }
   },
@@ -1834,51 +1830,54 @@
      "indicators": [
       {
        "text": "added in",
-       "note": "whatever is put in goes inside something else"
+       "at": 27,
+       "note": "the other letters are added inside the tea word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Tea",
-         "gives": "BREW",
-         "note": "a brew is a pot of tea"
-        },
-        {
-         "words": "with",
-         "gives": "AND",
-         "note": "with and and both mean together"
-        }
-       ]
+       "words": "Tea",
+       "at": 0,
+       "gives": "BREW",
+       "note": "a brew is British slang for a cup of tea"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "a touch of",
-         "note": "a touch is the lightest contact, so only the very first letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "nutmeg",
-         "note": "its opening letter"
+         "words": "with",
+         "at": 4,
+         "gives": "AND",
+         "note": "and means with, in addition to"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a touch of",
+           "at": 9,
+           "note": "just a touch, the first letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nutmeg",
+           "at": 20
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cup of tea spiced with nutmeg tastes very fresh.",
-     "walkthrough": "'With' is not a link here: it supplies its synonym AND, which goes inside the tea along with the nutmeg's first letter.",
-     "definitionFit": "Something unused and just made is as new as it can be, straight from the maker."
+     "surface": "A cup of tea with a pinch of nutmeg tastes newly made.",
+     "walkthrough": "A brew is everyday British for a cup of tea.",
+     "definitionFit": "Brand new means completely new, unused, at its most fresh."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "touch"
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   }
