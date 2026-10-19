@@ -46,49 +46,56 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "MACADAMIA",
-     "indicators": [
-      {
-       "text": "installing",
-       "note": "to install is to put something new in place, here into the spot vacated by another letter"
-      },
-      {
-       "text": "for",
-       "note": "'X for Y' means X takes the place of Y, swapping one letter out of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Mark",
-       "gives": "M",
-       "note": "M is the abbreviation for mark, the old German currency"
+       "at": 0,
+       "gives": "M"
       },
       {
-       "words": "places of learning",
-       "gives": "ACADEMIA",
-       "note": "the world of universities and colleges"
-      },
-      {
-       "words": "area",
-       "gives": "A",
-       "note": "A is the standard abbreviation for area"
-      },
-      {
-       "words": "oriental",
-       "gives": "E",
-       "note": "oriental means eastern, and E is east"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "installing",
+         "at": 24,
+         "note": "installing puts the area letter into the word"
+        },
+        {
+         "text": "for",
+         "at": 40,
+         "note": "for means in place of, so the area letter replaces the eastern one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "places of learning",
+         "at": 5,
+         "gives": "ACADEMIA",
+         "note": "academia is the world of universities and colleges"
+        },
+        {
+         "words": "oriental",
+         "at": 44,
+         "gives": "E",
+         "note": "oriental means eastern, abbreviated E"
+        },
+        {
+         "words": "area",
+         "at": 35,
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mark is made at universities that have planted an eastern tree on their grounds.",
-     "walkthrough": "M plus ACADEMIA, with the E of academia swapped for A, gives MACADAMIA.",
-     "definitionFit": "The macadamia is an Australian tree grown for its edible nuts, so it is a specific example of a tree."
+     "surface": "Universities set aside ground to grow an Eastern tree, marked out.",
+     "walkthrough": "In ACADEMIA, the E (east, oriental) gives way to A, and M goes in front.",
+     "definitionFit": "The macadamia is an Australian evergreen that bears edible nuts."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "oriental"
     }

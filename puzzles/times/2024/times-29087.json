@@ -1091,44 +1091,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "in a down clue, the word reads upwards, reversed"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "mostly",
-         "note": "most of the word is kept, dropping the last letter"
+         "text": "up",
+         "at": 13,
+         "note": "in a down answer up means the letters read from bottom to top"
         }
        ],
        "parts": [
         {
          "words": "lives",
+         "at": 7,
          "gives": "IS",
-         "note": "is = lives, exists"
+         "note": "lives means is, as in 'he is'"
         }
        ]
       },
       {
        "words": "a",
-       "note": "as printed"
+       "at": 16,
+       "gives": "A"
       },
       {
-       "words": "tropical fruit tree, mostly",
-       "gives": "MANG",
-       "note": "MANGO without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 39,
+         "note": "mostly means all but the last letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tropical fruit tree",
+         "at": 18,
+         "gives": "MANGO",
+         "note": "the mango is a tropical fruit tree"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An ape living high in a tropical fruit tree.",
-     "walkthrough": "The jungle surface fits the answer exactly. The siamang is a large black gibbon of Malaysia and Sumatra.",
-     "definitionFit": "A definition by example: this black ape of Sumatra and Malaysia is the largest species of gibbon."
+     "surface": "An ape makes its home high in a tropical fruit tree.",
+     "walkthrough": "IS read upwards gives SI, then A and MANG, which is mango missing its last letter.",
+     "definitionFit": "The siamang is the largest gibbon, a black ape of the Malaysian and Sumatran forests."
     },
     "features": {
      "answerInScene": true,
@@ -1638,51 +1651,47 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "peeled",
-       "note": "the word loses its skin, its outer letters"
+       "text": "stews",
+       "at": 20,
+       "note": "stewing mixes things up in the pot, so the letters are shuffled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Dry",
+       "at": 0
+      },
+      {
+       "words": "veg",
+       "at": 4
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "stews",
-         "note": "the letters are stewed, mixed up"
+         "text": "peeled",
+         "at": 13,
+         "note": "a peeled word has its outer skin, the first and last letters, taken off"
         }
        ],
        "parts": [
         {
-         "words": "Dry veg",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "OO",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "cook peeled",
-           "gives": "OO",
-           "select": "middle",
-           "note": "COOK without its outer letters"
-          }
-         ]
+         "words": "cook",
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A kitchen verdict that stews made from dried vegetables are acceptable.",
-     "walkthrough": "A cook peeling veg is the picture, but 'peeled' strips the cook himself down to OO.",
-     "definitionFit": "Very good is a formal way of saying OK, agreed."
+     "surface": "A kitchen verdict: dried vegetables cooked into stews are acceptable.",
+     "walkthrough": "'Peeled' strips cook down to OO; that and the letters of dry and veg are stirred together.",
+     "definitionFit": "Saying 'very good' signals approval or agreement, like saying OK to a request."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cook"
+     "misdirectedWord": "stews"
     }
    }
   }
