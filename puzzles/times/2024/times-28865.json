@@ -56,13 +56,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CARBOOTSALES",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "a word cut short loses its tail, so the final letter is dropped"
+       "text": "hiding",
+       "at": 43,
+       "note": "hiding means keeping something tucked away inside"
       }
      ],
      "parts": [
@@ -70,42 +69,49 @@
        "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "hiding",
-           "note": "whatever hides something keeps it tucked away inside, so one run of letters goes within another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "carries",
-           "gives": "CARTS",
-           "note": "to cart something is to carry it"
-          },
-          {
-           "words": "volume",
-           "gives": "BOO",
-           "note": "a volume is a BOOK, trimmed of its last letter"
-          }
-         ]
+         "words": "carries",
+         "at": 29,
+         "gives": "CARTS",
+         "note": "to cart is to carry, so carries is carts"
         },
         {
          "words": "beers",
+         "at": 37,
          "gives": "ALES",
          "note": "ales are beers"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 50,
+         "note": "short means the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "volume",
+         "at": 56,
+         "gives": "BOOK",
+         "note": "a volume is a book"
+        },
+        {
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A street market is doing a brisk trade in beer, with a shortage of books on the side.",
-     "walkthrough": "A car-boot sale is a British market where people sell unwanted goods from the backs of their cars. The deletion happens first, then the shortened word is tucked inside.",
-     "definitionFit": "Car-boot sales are informal open-air markets held in fields or car parks, so the plural covers several such events."
+     "surface": "Someone lugs beer around with a slim book concealed among the bottles.",
+     "walkthrough": "'carries' looks like a verb about holding beer, but it is the noun-like verb 'carts', with the shortened book tucked inside before the beers.",
+     "definitionFit": "Car boot sales are British open-air sales where people sell unwanted goods from their car boots (trunks)."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "carries"
     }
@@ -300,42 +306,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TONIC",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "tons",
+       "at": 12,
+       "gives": "T"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 17,
+         "note": "mostly means all but the last letter of the phrase"
+        }
+       ],
        "parts": [
         {
-         "words": "tons",
-         "gives": "T",
-         "note": "T is the abbreviation for tons"
+         "words": "kept ready",
+         "at": 24,
+         "gives": "ONICE",
+         "note": "kept on ice is held in reserve, ready for use"
         },
         {
-         "words": "kept ready",
-         "gives": "ONIC",
-         "note": "something on ice is kept in reserve, ready for use; lose its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Crates of soft drinks are mostly stored ready for sale.",
-     "walkthrough": "'Tons mostly' looks like TON, but 'mostly' shortens ON ICE, the idiom for being held in reserve, and tons is only T.",
-     "definitionFit": "Tonic water is a carbonated mixer flavoured with quinine, served with gin."
+     "surface": "A huge stock of a fizzy drink kept on standby.",
+     "walkthrough": "'kept ready' is ON ICE, a phrase for something held in reserve; 'mostly' drops its final E to leave ONIC, after T for tons.",
+     "definitionFit": "Tonic water is a carbonated mixer flavoured with quinine."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "mostly"
+     "misdirectedWord": "kept"
     }
    }
   },

@@ -772,52 +772,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RELATIVEPRONOUN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "half-hearted",
-       "note": "the heart of 'poor' is its middle pair, and half of that pair is lost"
+       "text": "Funny",
+       "at": 0,
+       "note": "funny means the letters are put into an odd order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Valentine",
+       "at": 6
+      },
+      {
+       "words": "our",
+       "at": 17
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Funny",
-         "note": "funny means peculiar, so the letters of the following words are made to behave oddly"
+         "text": "half-hearted",
+         "at": 26,
+         "note": "the heart of poor is its middle OO, and half of that is lost"
         }
        ],
        "parts": [
         {
-         "words": "Valentine",
-         "note": "as printed, fodder"
-        },
-        {
-         "words": "our",
-         "note": "as printed, fodder"
-        },
-        {
          "words": "poor",
-         "gives": "POR",
-         "note": "one of the two middle letters dropped"
+         "at": 21
+        },
+        {
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lament over a lukewarm Valentine from a secret admirer, ending in 'who was it?'",
-     "walkthrough": "My Funny Valentine is a song, which helps the surface; the definition is the grammar term that 'who' is an example of.",
-     "definitionFit": "Who introduces a clause referring back to a noun, as in 'the man who came', making it a textbook example."
+     "surface": "A 'My Funny Valentine' lament about a poor, unenthusiastic lover, ending with a question.",
+     "walkthrough": "'half-hearted' leaves POR from poor, and that goes into the anagram with VALENTINE and OUR.",
+     "definitionFit": "In grammar 'who' is a relative pronoun, introducing a clause about a noun just mentioned."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "who"
+     "misdirectedWord": "Funny"
     }
    }
   },
@@ -1670,46 +1672,50 @@
      "indicators": [
       {
        "text": "about",
-       "note": "going about something means surrounding it, so 'see' wraps the other parts"
+       "at": 4,
+       "note": "about means the see word goes round the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "See",
-         "gives": "DATE",
-         "note": "to see someone is to date them"
-        },
-        {
-         "words": "green",
-         "gives": "ECO",
-         "note": "eco-friendly, environmentally green"
-        }
-       ]
+       "words": "See",
+       "at": 0,
+       "gives": "DATE",
+       "note": "to see someone is to date them"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "at last",
-         "note": "'at last' picks the final letter of 'colour'"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "colour",
-         "note": "its last letter"
+         "words": "green",
+         "at": 10,
+         "gives": "ECO",
+         "note": "eco is a prefix meaning environmentally green"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "at last",
+           "at": 23,
+           "note": "at last means the final letter of colour"
+          }
+         ],
+         "parts": [
+          {
+           "words": "colour",
+           "at": 16
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone planning to repaint the deck, perhaps green.",
-     "walkthrough": "'Deck' here is the verb, to adorn, not the wooden platform.",
-     "definitionFit": "To deck is to adorn or festoon, as in 'deck the halls', which is to decorate."
+     "surface": "Look into some green paint for the boat's deck.",
+     "walkthrough": "'deck' looks like part of a ship, but it is the verb meaning adorn.",
+     "definitionFit": "To deck a room, as with holly, is to adorn or ornament it."
     },
     "features": {
      "answerInScene": true,

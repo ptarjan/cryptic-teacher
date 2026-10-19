@@ -747,45 +747,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "INNOCENT",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "returned",
-       "note": "something returned goes back the way it came, so the prisoner word is read backwards"
+       "text": "for the first time",
+       "at": 39,
+       "note": "read as 'for the first T': the reversed prisoner stands in for the first T"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "INNOCENT",
+       "words": "meaning",
+       "at": 13,
+       "gives": "INTENT",
+       "note": "intent is meaning, as in 'the intent of the law'"
+      },
+      {
+       "gives": "T"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "for the first time",
-         "note": "read as 'for the first T', it swaps that letter out for the other piece"
+         "text": "returned",
+         "at": 30,
+         "note": "returned means the word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "meaning",
-         "gives": "INTENT",
-         "note": "the intent of words is their meaning"
-        },
-        {
          "words": "prisoner",
+         "at": 21,
          "gives": "CON",
-         "note": "a con is a convict"
+         "note": "a con is a convict, a prisoner"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prisoner returned to court and declared not guilty for the first time.",
-     "walkthrough": "'For the first time' hides 'for the first T': the reversed prisoner replaces the first T in the meaning word.",
-     "definitionFit": "Someone innocent is free of guilt, the verdict when a court finds a person not guilty."
+     "surface": "A verdict of not guilty, with a prisoner coming back for the first time.",
+     "walkthrough": "'for the first time' looks like a phrase of time, but it means replacing the first T of INTENT with NOC (CON reversed).",
+     "definitionFit": "An innocent person is blameless, cleared of the crime charged."
     },
     "features": {
      "answerInScene": true,
@@ -1167,96 +1170,28 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "T",
-       "indicators": [
-        {
-         "text": "starts in",
-         "note": "starts are beginnings, so only the opening letter of each listed entry is kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "5",
-         "gives": "T",
-         "select": "first",
-         "note": "5-down's answer starts with this letter"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "R",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "4",
-         "gives": "R",
-         "select": "first",
-         "note": "4-down's answer starts with this letter"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "I",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "3",
-         "gives": "I",
-         "select": "first",
-         "note": "3-down's answer starts with this letter"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "A",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "2",
-         "gives": "A",
-         "select": "first",
-         "note": "2-down's answer starts with this letter"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "L",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "1",
-         "gives": "L",
-         "select": "first",
-         "note": "1-down's answer starts with this letter"
-        }
-       ]
+       "words": "starts in 5, 4, 3, 2, 1",
+       "at": 11,
+       "gives": "TRIAL",
+       "note": "the starts of the answers to 5, 4, 3, 2 and 1 down (TRANSFIX, RECITAL, INDUCT, ALOE, LAVA), taken in that order"
       },
       {
        "words": "go",
+       "at": 37,
        "gives": "RUN",
-       "note": "to go is to run"
+       "note": "a go or attempt is a run"
       }
      ]
     },
     "explanation": {
-     "surface": "A countdown for a rocket test launch: five, four, three, two, one, go!",
-     "walkthrough": "The numbers are cross-references: the first letters of the answers to 5, 4, 3, 2 and 1 down, in that order.",
-     "definitionFit": "A trial run is a test or rehearsal done before the real thing, so it is an experiment."
+     "surface": "A rocket launch countdown, ending with the shout to go.",
+     "walkthrough": "The numbers look like a countdown but are cross-references to the down answers 5, 4, 3, 2 and 1, whose first letters are read in the countdown order.",
+     "definitionFit": "A trial run is a test or rehearsal done before the real thing."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "5"
     }
    }
@@ -1863,51 +1798,58 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "FLANNELS",
      "indicators": [
       {
        "text": "for",
-       "note": "for means in place of, so one pair of letters replaces another"
+       "at": 23,
+       "note": "using one thing for another means it replaces it"
       }
      ],
      "parts": [
       {
        "words": "Sewers",
+       "at": 0,
        "gives": "CHANNELS",
        "note": "sewers are drainage channels"
-      },
-      {
-       "words": "fine",
-       "gives": "F",
-       "note": "F is the pencil-grade abbreviation for fine"
-      },
-      {
-       "words": "line",
-       "gives": "L",
-       "note": "L is the abbreviation for line"
       },
       {
        "op": "outer",
        "indicators": [
         {
          "text": "edges of",
-         "note": "edges are the outer bits, so the first and last letters of the fabric word are kept"
+         "at": 27,
+         "note": "the edges of cloth are its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "cloth",
-         "note": "the first and last letters of the word"
+         "at": 36
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fine",
+         "at": 13,
+         "gives": "F",
+         "note": "F is the pencil-grade abbreviation for fine"
+        },
+        {
+         "words": "line",
+         "at": 18,
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Seamstresses use a fine line along the edges of cloth when making trousers.",
-     "walkthrough": "'Sewers' reads as people who sew, but it means drains; 'for' says the new letters stand in place of the cloth's edge letters.",
-     "definitionFit": "Flannels are trousers made of flannel cloth, traditionally worn for cricket."
+     "surface": "Tailors using thin thread along the hems of trousers.",
+     "walkthrough": "'Sewers' looks like people who sew, but it means drains: CHANNELS, with its CH (the edges of cloth) swapped for FL.",
+     "definitionFit": "Flannels are trousers made of flannel cloth, traditional for cricket."
     },
     "features": {
      "answerInScene": true,

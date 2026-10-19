@@ -352,30 +352,52 @@
      "indicators": [
       {
        "text": "consuming",
-       "note": "consuming means eating up and taking inside, so the official holds the rest"
+       "at": 16,
+       "note": "consuming means taking the other letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Church official",
+       "at": 0,
+       "gives": "VERGER",
+       "note": "a verger looks after a church"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Church official",
-         "gives": "VERGER",
-         "note": "a verger is a church caretaker and attendant"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "revolting",
+           "at": 40,
+           "note": "revolting means turning over, so the letters go backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "for example",
+           "at": 27,
+           "gives": "EG"
+          }
+         ]
         },
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "endless",
-           "note": "without an end means the final letter is cut off"
+           "at": 54,
+           "note": "endless means the last letter is dropped"
           }
          ],
          "parts": [
           {
            "words": "but",
-           "note": "taken as written, losing its last letter"
+           "at": 50,
+           "gives": "BUT",
+           "note": "taken as written before shortening"
           },
           {
            "gives": "T"
@@ -383,34 +405,17 @@
          ]
         }
        ]
-      },
-      {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "revolting",
-         "note": "to revolt is to turn over, so the abbreviation before it is turned round"
-        }
-       ],
-       "parts": [
-        {
-         "words": "for example",
-         "gives": "EG",
-         "note": "e.g. abbreviates exempli gratia, for example"
-        }
-       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A verger eats a disgusting meal.",
-     "walkthrough": "'Revolting' looks like disgusting, describing the dish, but it means turned round.",
-     "definitionFit": "A vegeburger is a patty of vegetables shaped like a hamburger, served as a dish."
+     "surface": "A churchman eating something disgusting and unfinished.",
+     "walkthrough": "'revolting' looks like a description of the dish, but it is the signal to turn the example abbreviation round; 'endless' trims but.",
+     "definitionFit": "A vegeburger is a meatless patty made of vegetables, served as a meal."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "revolting"
     }
    }
@@ -1310,41 +1315,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OEUVRE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Endlessly",
-       "note": "without ends means both outer letters are dropped"
+       "text": "strange",
+       "at": 19,
+       "note": "strange means the remaining letters are put into an unusual order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "middle",
        "indicators": [
         {
-         "text": "strange",
-         "note": "something strange is out of its usual form, so the remaining letters are reordered"
+         "text": "Endlessly",
+         "at": 0,
+         "note": "endlessly means the word loses both its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "devoured",
-         "gives": "EVOURE",
-         "note": "the word loses its first and last letters"
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tore through an odd book from cover to cover.",
-     "walkthrough": "'Devoured' fits a reader racing through a book, which hides that it is the raw material.",
-     "definitionFit": "An oeuvre is a work of art or literature, or an artist's whole body of work."
+     "surface": "Something oddly consumed without end.",
+     "walkthrough": "'Endlessly' trims devoured to EVOURE, which is rearranged.",
+     "definitionFit": "An oeuvre is a body of work by an artist or writer, or a single piece."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "devoured"
     }
