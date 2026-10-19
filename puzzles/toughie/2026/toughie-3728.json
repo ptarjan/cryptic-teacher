@@ -355,9 +355,9 @@
        "op": "container",
        "indicators": [
         {
-         "text": "having relocated",
-         "at": 32,
-         "note": "having relocated means the letter that leads the word for try is moved to a new spot, just after the start of the word for second"
+         "text": "relocated",
+         "at": 39,
+         "note": "relocated means a letter is moved from one place into another word"
         }
        ],
        "parts": [
@@ -365,7 +365,7 @@
          "words": "Second",
          "at": 0,
          "gives": "TICK",
-         "note": "a tick is a moment, a second, as in 'back in a tick'"
+         "note": "a tick is a second, a moment"
         },
         {
          "op": "first",
@@ -373,14 +373,14 @@
           {
            "text": "first for",
            "at": 12,
-           "note": "first for picks the opening letter of the name that follows"
+           "note": "first for means the opening letter of Hastings"
           }
          ],
          "parts": [
           {
            "words": "Hastings",
            "at": 22,
-           "note": "first letter of Hastings"
+           "note": "the word supplies only its opening letter"
           }
          ]
         }
@@ -388,6 +388,13 @@
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "having",
+         "at": 32,
+         "note": "having relocated tells us the H is taken away from the try word"
+        }
+       ],
        "parts": [
         {
          "words": "try",
@@ -403,9 +410,9 @@
      ]
     },
     "explanation": {
-     "surface": "A second trial, the first for Warren Hastings, follows a change of venue for the punishment of an offence.",
-     "walkthrough": "In TICKHEAR the H, matching 'first for Hastings', is 'having relocated' to follow the T, leaving EAR. A thick ear is British slang for a clout round the head given as punishment.",
-     "definitionFit": "A thick ear is a swollen ear from a cuff round the head, the traditional rough punishment handed out for misbehaving."
+     "surface": "A historian's second attempt at the Battle of Hastings, with a penalty moved after a foul.",
+     "walkthrough": "TICK HEAR has the H that heads Hastings moved from the start of HEAR into TICK.",
+     "definitionFit": "A thick ear is a swollen ear from a blow, the clout traditionally given as a punishment for bad behaviour."
     },
     "features": {
      "answerInScene": false,
@@ -1440,12 +1447,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "gripping",
-       "note": "to grip is to hold, so the outer letters hold something"
-      },
-      {
        "text": "penning",
-       "note": "to pen is to enclose, as sheep in a fold"
+       "at": 9,
+       "note": "penning means the outer letters enclose everything else like a pen"
       }
      ],
      "parts": [
@@ -1453,41 +1457,63 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "weirdly",
-         "note": "letters arranged weirdly are in a strange new order"
-        },
-        {
          "text": "misplaced",
-         "note": "misplaced letters are put in the wrong positions, so they get reordered"
+         "at": 56,
+         "note": "misplaced letters are put in a different order"
         }
        ],
        "parts": [
         {
          "words": "faith",
-         "note": "taken as written"
-        },
-        {
-         "words": "emotive",
-         "note": "taken as written"
+         "at": 66
         }
        ]
       },
       {
-       "words": "article",
-       "gives": "A",
-       "note": "A is the indefinite article"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "gripping",
+         "at": 34,
+         "note": "gripping means the rearranged word holds the article inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "weirdly",
+           "at": 17,
+           "note": "weirdly signals that the letters of emotive are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "emotive",
+           "at": 25
+          }
+         ]
+        },
+        {
+         "words": "article",
+         "at": 43,
+         "gives": "A",
+         "note": "a is the indefinite article"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone battles against an emotional article about a lost faith.",
-     "walkthrough": "Two anagrams nest: the jumbled first word, holding the article, sits in the middle of the jumbled last word, which splits into two letters before and three after.",
-     "definitionFit": "To have a time of it is an idiom for going through a hard spell, meaning to struggle."
+     "surface": "Someone fights to restrain emotional outbursts while clinging to a wrongly placed faith.",
+     "walkthrough": "EMOTIVE rearranged grips A to give VEATIMEO, and FAITH rearranged as HA...FIT pens it.",
+     "definitionFit": "To have a time of it is an idiom for going through difficulties, so to have a hard struggle."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "article"
+     "misdirectedWord": "penning"
     }
    }
   },

@@ -974,7 +974,8 @@
      "indicators": [
       {
        "text": "filling",
-       "note": "filling puts something inside, so the A and very abbreviation go into the meal"
+       "at": 7,
+       "note": "filling means these letters go inside the meal word"
       }
      ],
      "parts": [
@@ -983,53 +984,57 @@
        "indicators": [
         {
          "text": "grabbed",
-         "note": "grabbed means seized and held, so the result holds the next piece"
+         "at": 33,
+         "note": "grabbed means the meal word holds the next piece inside it"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "meal that's later",
-           "gives": "TEA",
-           "note": "tea is a meal taken later in the day"
-          },
-          {
-           "words": "A",
-           "note": "taken as written"
-          }
-         ]
+         "words": "meal that's later",
+         "at": 15,
+         "gives": "TEA",
+         "note": "tea is a meal taken later in the day than lunch"
         },
         {
-         "words": "very",
-         "gives": "V",
-         "note": "V is the abbreviation for very"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "revolving",
+           "at": 46,
+           "note": "revolving turns the abbreviation round so it reads backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "near",
+           "at": 41,
+           "gives": "NR"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "revolving",
-         "note": "revolving means turning round, so the abbreviation for near is read backwards"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "near",
-         "gives": "NR",
-         "note": "NR is the abbreviation for near"
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "very",
+         "at": 2,
+         "gives": "V"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hearty supper eaten late is snapped up near a rotating eatery.",
-     "walkthrough": "Two insertions happen in turn: first the A and V go into the meal, then that result grabs the turned abbreviation before its last letter.",
-     "definitionFit": "A taverna is a small Greek eating house serving food and wine, a kind of informal dining place."
+     "surface": "A large meal is followed by a later one near a rotating restaurant.",
+     "walkthrough": "Tea counts as the later meal because it comes after lunch; nr is the dictionary abbreviation for near.",
+     "definitionFit": "A taverna is a small Greek eating house, so it is a restaurant."
     },
     "features": {
      "answerInScene": true,

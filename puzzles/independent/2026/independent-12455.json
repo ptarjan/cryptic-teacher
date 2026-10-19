@@ -664,40 +664,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Rotten",
-       "note": "'Rotten' describes something decayed and out of shape, and letters in a rotten word no longer sit where they started."
-      }
-     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "mostly",
-         "note": "'mostly' means take most of a word — all of it except the letter it ends on."
+         "text": "Rotten",
+         "at": 0,
+         "note": "rotten here means decayed out of shape, so these letters are put in a new order"
         }
        ],
        "parts": [
         {
-         "words": "clues",
-         "gives": "CLUE",
-         "note": "the plural loses its final letter before anything is shuffled"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 13,
+           "note": "mostly means all but the last letter of clues is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "clues",
+           "at": 7
+          },
+          {
+           "gives": "S"
+          }
+         ]
         }
        ]
       },
       {
        "words": "deserve",
+       "at": 20,
        "gives": "RATE",
-       "note": "to rate a mention is to deserve one"
+       "note": "to deserve something is to rate it, as in 'she rates a mention'"
       }
      ]
     },
     "explanation": {
-     "surface": "Bad clues deserve to rot away, which is a setter making a joke at his own expense.",
-     "walkthrough": "'Rotten' looks like a verdict on the clues and is the instruction instead, and Coot is happy to let the insult land on his own puzzle.",
-     "definitionFit": "To ulcerate is to break down into an open sore that will not heal, and 'fester' is the everyday verb for the same suppuration."
+     "surface": "A grumpy solver says poor clues mostly deserve to rot.",
+     "definitionFit": "An ulcer is an open sore, so to ulcerate is to form sores, which is to fester or suppurate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rotten"
     }
    }
   },
@@ -993,49 +1007,60 @@
    "annotation": {
     "definitions": [
      {
-      "text": "to miss alarm?",
-      "at": 46
+      "text": "miss alarm?",
+      "at": 49
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "agitated",
-       "note": "Something agitated is shaken about, and letters shaken about do not come to rest where they began."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "terminal to",
-         "note": "'terminal' names the end of a thing, so only the last letter of the word after it is taken."
+         "text": "agitated",
+         "at": 10,
+         "note": "agitated means stirred up, so the letters of these two words are mixed up"
         }
        ],
        "parts": [
         {
-         "words": "See lover",
-         "note": "eight letters of fodder, both words taken whole"
+         "words": "See",
+         "at": 0
         },
         {
-         "op": "last",
-         "parts": [
-          {
-           "words": "relationship",
-           "note": "the letter this word ends on"
-          }
-         ]
+         "words": "lover",
+         "at": 4
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "terminal to",
+         "at": 21,
+         "note": "the terminal letter of relationship is its last one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "relationship",
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An agitated lover, at the end of the affair, is in no state to hear the morning alarm.",
-     "walkthrough": "The dash makes 'terminal to relationship' read as the end of the affair, which is the surface talking while the words do plain letter-picking underneath.",
-     "definitionFit": "To oversleep is to sleep past the hour you meant to wake, which is what missing your alarm comes to — the question mark flags the loose phrasing."
+     "surface": "An upset lover reaches the end of a relationship.",
+     "walkthrough": "SEE and LOVER rearranged give OVERSLEE, and the P ending relationship finishes it.",
+     "definitionFit": "To sleep past the time you intended means failing to wake when the clock rings, so you miss the alarm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "terminal"
     }
    }
   },

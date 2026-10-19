@@ -529,54 +529,66 @@
      "op": "container",
      "indicators": [
       {
-       "text": "held",
-       "note": "the jumbled letters hold the next word, which sits inside them"
-      },
-      {
        "text": "in embrace of",
-       "note": "to be in the embrace of something is to be wrapped inside it"
+       "at": 40,
+       "note": "in the embrace of means everything else is held inside the dish word"
       }
      ],
      "parts": [
       {
        "words": "dish",
+       "at": 54,
        "gives": "PLATE",
        "note": "a plate is a dish"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "novel",
-         "note": "novel means new and fresh, so the two words before it take a new arrangement"
+         "text": "held",
+         "at": 25,
+         "note": "held means the jumbled letters hold the next word"
         }
        ],
        "parts": [
         {
-         "words": "in",
-         "note": "taken as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "novel",
+           "at": 19,
+           "note": "novel means new, so the letters of in and old take a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "in",
+           "at": 12
+          },
+          {
+           "words": "old",
+           "at": 15
+          }
+         ]
         },
         {
          "words": "unfeeling",
+         "at": 30,
          "gives": "NUMB",
-         "note": "numb means without feeling"
-        },
-        {
-         "words": "old",
-         "note": "taken as written"
+         "note": "numb means unfeeling"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fair heroine in a classic novel is held by a cold-hearted villain, the stuff of old romance.",
-     "walkthrough": "'Old novel' reads as a book from the past, but novel tells you to rearrange 'in old', which then holds unfeeling, all inside the dish.",
-     "definitionFit": "A platinum blonde is a woman with very pale, silvery fair hair; fair here means light-haired, and maiden a young woman."
+     "surface": "A fair-haired girl in an old novel is held, unmoved, in an embrace.",
+     "walkthrough": "'novel' looks like a book, but it is the signal to rearrange the two short words before them.",
+     "definitionFit": "A platinum blonde is a woman with very pale silvery hair, so a fair-haired young woman."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "novel"
     }
    }
