@@ -3609,7 +3609,7 @@ def _repeated_copies(tree):
     return out
 
 
-_BOUNDARY_WORDS = re.compile(r"boundar|edge|border|extrem|outer|outside|limit|ends? of", re.I)
+_BOUNDARY_WORDS = re.compile(r"boundar|edge|border|extrem|outer|outside|limit|ends? of|fring|margin|perimeter", re.I)
 
 
 def _moved_letter_ops(tree):
@@ -3714,6 +3714,88 @@ def _lone_implicit_op(tree):
             and not any(n.get("indicators") for n in nodes):
         return {id(ops[0])}
     return set()
+
+
+def _lone_bare_sound(tree):
+    """ids of a bare homophone or hidden word that is the only bare op of its tree (round 17, 12 of 13 sampled
+    flags of this shape judged fine, none of the real ones): the other ops carry their indicators, so no
+    word of the clue is misfiled, and a sound or a hidden run is often left unsigned by the setter."""
+    nodes = list(_walk(tree))
+    bare = [n for n in nodes if n.get("op") in NEEDS_INDICATOR and not n.get("unchecked") and not n.get("indicators")]
+    if len(bare) == 1 and bare[0].get("op") in ("homophone", "hidden") \
+            and sum(1 for n in nodes if n.get("op") == bare[0]["op"]) == 1:  # a hidden word split in two stays flagged (TENOR)
+        return {id(bare[0])}
+    return set()
+
+
+def _lone_bare_first(tree):
+    """ids of the only bare op of a tree when it is a first-letter pick of one clue word that no other leaf uses
+    (round 18, 218 DIRGE "includes Grangemouth", 269 OCEANUS "Upstart", 279 HER "Halpern": 3 of 3 judged fine, the
+    two real ones had a word used twice or a phrase): the setter leaves a lone initial unsigned."""
+    nodes = list(_walk(tree))
+    bare = [n for n in nodes if n.get("op") in NEEDS_INDICATOR and not n.get("unchecked") and not n.get("indicators")]
+    if len(bare) != 1 or bare[0].get("op") != "first" or any(n.get("op") == "charade" and n.get("indicators") for n in nodes) \
+            or any(n is not bare[0] and n.get("op") in wordplay.SELECT for n in nodes):
+        return set()  # an indicator filed on the charade, or a twin pick, is the swap or share the other rules look for
+    words = _leaf_words(bare[0])
+    if len(words) != 1 or len(str(next(q for q in _walk(bare[0]) if q.get("words")).get("words")).split()) != 1:
+        return set()
+    return {id(bare[0])} if sum(1 for q in nodes if "op" not in q and wordplay.letters(q.get("words")) == words[0]) == 1 else set()
+
+
+def _leaf_words(node):
+    return tuple(wordplay.letters(q.get("words")) for q in _walk(node) if "op" not in q and q.get("words"))
+
+
+def _paired_ends(tree):
+    """ids of a bare first/last/outer whose twin on the same words carries the indicator (round 18, 4 of 4
+    sampled: "Either end of terrific" first<end of>/last, "either side of duff"): one phrase names both ends."""
+    out = set()
+    for parent in _walk(tree):
+        group = {}
+        for p in parent.get("parts") or []:
+            if isinstance(p, dict) and p.get("op") in ("first", "last", "outer") and not p.get("unchecked"):
+                group.setdefault(_leaf_words(p), []).append(p)
+        for twins in group.values():
+            both = any(_BOUNDARY_WORDS.search(str(i.get("text") or "")) or re.search(r"\bsides?\b", str(i.get("text") or ""))
+                       for t in twins for i in t.get("indicators") or [])  # "start" / "outskirts" of two words is a swap (WASHBOWL)
+            if len(twins) == 2 and both and sum(1 for t in twins if t.get("indicators")) == 1 and twins[0]["op"] != twins[1]["op"]:
+                out.update(id(t) for t in twins if not t.get("indicators"))
+    return out
+
+
+def _indicator_inside_run(picks):
+    """Whether every indicator of the picks stands between the first and last word of their leaves, as far as
+    places are known (an indicator before the run, far from it, is VIOLA's: it signs the first pick alone)."""
+    words = [q["at"] for p in picks for q in _walk(p) if "op" not in q and q.get("words") and isinstance(q.get("at"), int)]
+    inds = [i["at"] for p in picks for i in p.get("indicators") or [] if isinstance(i.get("at"), int)]
+    return not words or not inds or all(min(words) <= a <= max(words) for a in inds)
+
+
+def _picks_with_indicator(tree):
+    """ids of bare picks in a run of 3+ picks under one parent when one of them carries an indicator (round 18,
+    "initially ... heading for" over five initials, "in successive locations" over nth letters): one phrase
+    signs the whole run."""
+    out = set()
+    for parent in _walk(tree):
+        picks = [p for p in parent.get("parts") or [] if isinstance(p, dict) and p.get("op") in wordplay.SELECT
+                 and not p.get("unchecked")]
+        if len(picks) >= 3 and any(p.get("indicators") for p in picks) and _indicator_inside_run(picks):
+            out.update(id(p) for p in picks if not p.get("indicators"))
+        sounds = [p for p in parent.get("parts") or [] if isinstance(p, dict) and p.get("op") == "homophone"
+                  and not p.get("unchecked")]  # TWO BY FOUR: three sounds, one "Trumpet"
+        if len(sounds) >= 3 and any(p.get("indicators") for p in sounds):
+            out.update(id(p) for p in sounds if not p.get("indicators"))
+    return out
+
+
+def _outer_in_boundary_container(tree):
+    """ids of a bare outer/first/last under a container whose indicator names the edges ("between fringes of"):
+    the container's words pick the ends (round 18 SPADES)."""
+    return {id(k) for n in _walk(tree) if n.get("op") == "container" and any(
+        _BOUNDARY_WORDS.search(str(i.get("text") or "")) for i in n.get("indicators") or [])
+        for k in n.get("parts") or [] if isinstance(k, dict) and k.get("op") in ("outer", "first", "last")
+        and not k.get("indicators")}
 
 
 def _chained_deletions(tree):
@@ -4147,7 +4229,54 @@ def unverified_unchecked(tree, answer=None):
             done |= {id(n), id(leaf)}
             if n.get("op") == "spoonerism":
                 done |= {id(q) for q in _walk(n)}
+    for n in _walk(tree):
+        if n.get("op") and n.get("unchecked") and id(n) not in done and _recomputes(n):
+            done |= {id(q) for q in _walk(n)}
     return [n for n in _walk(tree) if n.get("unchecked") and id(n) not in done]
+
+
+def _strip_unchecked(node):
+    if not isinstance(node, dict):
+        return node
+    return {k: ([_strip_unchecked(p) for p in v] if k == "parts" else v) for k, v in node.items() if k != "unchecked"}
+
+
+def _pool(node):
+    """The letters (sorted) a fodder piece contributes to an anagram: a leaf's `gives` or words, a deletion's first
+    piece less the rest, any other op's `gives`; None when they cannot be told."""
+    parts = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+    if "op" not in node:
+        return collections.Counter(wordplay.letters(node.get("gives") or node.get("words")))
+    if node["op"] == "deletion" and len(parts) >= 2 and all(_pool(p) is not None for p in parts):
+        left = _pool(parts[0])
+        for p in parts[1:]:
+            left = left - _pool(p)
+        return left if sum(_pool(parts[0]).values()) - sum(left.values()) == sum(sum(_pool(p).values()) for p in parts[1:]) else None
+    return collections.Counter(wordplay.letters(node["gives"])) if node.get("gives") else None
+
+
+def _recomputes(node):
+    """Whether an unchecked op step is computed by its pieces (round 18, 9 of 11 sampled unchecked_step flags
+    judged fine): the flag only records a precaution when the evaluator, with the flag lifted, gives the stated
+    letters; when an anagram's fodder (a deletion's remainder included) has exactly its stated letters; or when a
+    hidden or middle pick states a run of its leaf's own letters."""
+    live = _strip_unchecked(node)
+    want = wordplay.letters(node.get("gives"))
+    try:
+        if node["op"] == "anagram" and want:
+            pools = [_pool(p) for p in live.get("parts") or [] if isinstance(p, dict)]
+            if pools and all(p is not None for p in pools) and sum(pools, collections.Counter()) == collections.Counter(want):
+                return True
+        if node["op"] in ("hidden", "middle") and want:
+            run = "".join(wordplay.letters(q.get("words")) for q in _walk(live) if "op" not in q and q.get("words"))
+            if want in run and len(want) < len(run):
+                return True
+        if want:
+            wordplay.evaluate(live, want)
+            return True
+        return bool(wordplay.values(live))
+    except Exception:  # noqa: BLE001 - any failure to compute leaves the step flagged
+        return False
 
 
 def arity_ins(tree):
@@ -4851,9 +4980,8 @@ def _cut_evidence(node):
         bare = re.sub(r"\W", "", t)
         w = wordplay.letters(bare)
         if DELETION_LEAF_WORD.fullmatch(bare):
-            if bare.lower().endswith(("ing", "ed")):
-                return True
-        elif len(w) > len(g) and _is_subsequence(g, w):
+            continue  # round 18: "lacking good manners" = RUDE, "losing millions" = ITE read as one phrase (8 of 9 judged fine)
+        if len(w) > len(g) and _is_subsequence(g, w):
             return True
     return any(len(t) > len(g) and _is_subsequence(g, t) for t in (x.upper() for x in re.findall(r"\b[A-Z][A-Za-z]{2,}\b", str(node.get("note") or ""))))
 
@@ -5268,9 +5396,9 @@ def deletion_inside_component(tree, clue=None, answer=None):
             # "endlessly"; round 9, 5 of 5 sampled fine): the indicator is by that piece and the
             # scramble hides the seam, so the inner deletion would say nothing more; not for "not half": the half
             # is one piece's (azed-2517 31a SEAMANLIKE, round 12)
-            lone = id(node) in fodder and not half and all(
-                sum(1 for v in cvals if any(r in x for x in v)) == 1
-                for rs in itertools.product(*cuts) for r in {"".join(rs), "".join(reversed(rs))} if r)
+            # round 18: also when the letters occur in several pieces (TAKE+RECEIPT less E, HEADWAY+SURRENDER
+            # less E; 5 of 6 judged fine): a scramble hides every seam, so only a piece the charade added counts
+            lone = id(node) in fodder and not half
             if seen and ((not named and in_piece and not seam and not in_function and not (heart and all_centred)
                           and not lone) or whole_pieces or (end_piece and not lone) or any_piece):
                 n += 1
@@ -5407,7 +5535,8 @@ def unindicated_uncovered(tree):
     n = 0
     copies = _repeated_copies(tree) | _moved_letter_ops(tree) | _self_signed_ops(tree) \
         | _self_holding_containers(tree) | _chained_deletions(tree) | _substituting_containers(tree) \
-        | _lone_implicit_op(tree)
+        | _lone_implicit_op(tree) | _lone_bare_sound(tree) | _paired_ends(tree) | _picks_with_indicator(tree) \
+        | _outer_in_boundary_container(tree) | _lone_bare_first(tree)
     for parent in [{"parts": [tree]}] + list(_walk(tree)):
         groups = {}
         kids = [p for p in parent.get("parts") or [] if isinstance(p, dict)]
@@ -5460,7 +5589,8 @@ _FOLD_AFFIX = {"reversal": ("over", "back", "about", "return", "upset"),
                "first": ("top", "head", "leader"),  # mountaintop -> M (nation-3423 19a FARM); redhead, ringleader, knucklehead (round 12)
                "last": ("tail", "foot", "bottom")}
 _FOLD_PHRASE = {op: re.compile(r"(?:%s)\s+(?:of|in|from)\s+\w+" % words, re.I) for op, words in (
-    ("first", "first|initial|opening|start|head|top|beginning|front|half"),
+    ("outer", "extremes|ends|edges|sides|borders|limits|fringes|outskirts|boundaries|extremities|margins"),
+    ("first", "first|initial|opening|start|head|top|beginning|front|half|drop"),
     ("last", "final|last|end|close|closing|ending|tail|finish|back|bottom|half"),
     ("nth", "second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth"),
     ("middle", "heart|centre|center|middle|core"))}
@@ -5839,7 +5969,7 @@ def pool_gaps(tree, clue):
             if id(m) in mine:
                 continue
             if "op" in m and any(q is node for q in _walk(m)):
-                continue  # round 17: an enclosing op's indicator ("keeps ... in", "when framing") may stand between the pieces
+                continue  # round 17, kept in 18: an enclosing op's indicator ("keeps ... in", "when framing") may stand between the pieces
             for x, y in _subtree_spans({"words": m["words"], "at": m.get("at")} if "words" in m and "op" not in m
                                        else {"indicators": m.get("indicators")}, clue, low):
                 if lo < x and y < hi and not any(a <= x and y <= b for a, b in spans):

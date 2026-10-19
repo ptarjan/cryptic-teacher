@@ -446,7 +446,7 @@ check("first over 'skinhead' is S, as skin + head (round 14: STALKER, SURFEIT ju
     {"op": "charade", "parts": [{"op": "first", "parts": [{"words": "Skinhead"}]}, {"words": "running off", "gives": "PRINTING"}]}))
 check("'what's left of it' is the remainder, not a deletion folded in a leaf", 0, v.folded_deletion_leaves(
     {"op": "charade", "parts": [{"words": "what's left of it", "gives": "ASH"}]}))
-check("'dropping dead' is still a folded deletion", 1, v.folded_deletion_leaves(
+check("'dropping dead' as one phrase is a synonym reading now (round 18, 8 of 9 judged fine)", 0, v.folded_deletion_leaves(
     {"op": "charade", "parts": [{"words": "stylish man dropping dead", "gives": "UDE"}]}))
 
 check("'What's left after necessary deductions' is no folded deletion", 0, v.folded_deletion_leaves(
@@ -646,9 +646,28 @@ check("a short holder whose words carry none is still bare (the tree has another
     {**SHIPS, "parts": [lf("party", "DO"), {"op": "reversal", "indicators": [{"text": "back"}], "parts": [lf("ship", "PIHS")]}]}))
 check("a lone bare hidden word is the clue's own signal", 0, v.unindicated_uncovered(
     {"op": "hidden", "parts": [lf("Radio Taliban", "IOTA")]}))
-check("a bare hidden word beside an indicated op is still counted", 1, v.unindicated_uncovered(
+check("a bare anagram beside an indicated op is still counted", 1, v.unindicated_uncovered(
+    {"op": "charade", "parts": [{"op": "anagram", "parts": [lf("Radio Taliban", "IOTA")]},
+                                {"op": "reversal", "indicators": [{"text": "back"}], "parts": [lf("fish", "TUNA")]}]}))
+check("a bare hidden word beside indicated ops is the setter's unsigned run", 0, v.unindicated_uncovered(
     {"op": "charade", "parts": [{"op": "hidden", "parts": [lf("Radio Taliban", "IOTA")]},
                                 {"op": "reversal", "indicators": [{"text": "back"}], "parts": [lf("fish", "TUNA")]}]}))
+# round 18: unindicatedBare (paired ends, runs of picks and sounds, lone initial, root container), deletion of fodder, unchecked recompute
+TERR = lambda a, b: {"op": "charade", "parts": [{"op": "first", "indicators": a, "parts": [lf("terrific", "")]}, lf("Either", "OR"),
+                                                 {"op": "last", "indicators": b, "parts": [lf("terrific", "")]}]}
+check("both ends of one word: the one indicator naming ends serves the twin", 0, v.unindicated_uncovered(TERR([{"text": "end of"}], [])))
+check("a one-end word on a twin of the same word is a swap and stays counted", 1, v.unindicated_uncovered(TERR([{"text": "start"}], [])))
+check("a lone bare initial of a word used once is the setter's unsigned initial", 0, v.unindicated_uncovered(
+    {"op": "charade", "parts": [{"op": "first", "parts": [lf("Halpern", "")]}, lf("sign of hesitation", "ER")]}))
+check("a bare initial in a charade with an indicator of its own is a swap, counted", 1, v.unindicated_uncovered(
+    {"op": "charade", "indicators": [{"text": "chief"}], "parts": [{"op": "first", "parts": [lf("Halpern", "")]}, lf("sign", "ER")]}))
+check("a run of three sounds sharing one indicator", 0, v.unindicated_uncovered(
+    {"op": "charade", "parts": [{"op": "homophone", "indicators": [{"text": "Trumpet"}], "parts": [lf("to", "TO")]},
+                                {"op": "homophone", "parts": [lf("purchase", "BUY")]}, {"op": "homophone", "parts": [lf("in place of", "FOR")]}]}))
+check("an unchecked anagram whose fodder letters differ from its gives stays flagged", 1, len(v.unverified_unchecked(
+    {"op": "anagram", "unchecked": True, "gives": "CANCEL", "parts": [lf("lance 100", "LANCED")]}, "CANCEL")))
+check("an unchecked anagram whose fodder letters are its gives is recomputed", [], v.unverified_unchecked(
+    {"op": "anagram", "unchecked": True, "gives": "CANCEL", "parts": [lf("lance 100", "LANCEC")]}, "CANCEL"))
 OPAL = {"op": "deletion", "indicators": [{"text": "taken out of"}], "parts": [
     {"op": "deletion", "parts": [lf("Pop Sails", "POPSAILS"), lf("p", "P")]}, lf("s", "S")]}
 check("a run of cuts under one indicated deletion needs one indicator", 0, v.unindicated_uncovered(OPAL))
