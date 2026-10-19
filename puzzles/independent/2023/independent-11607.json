@@ -163,48 +163,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "not",
-       "note": "not here tells us to take away the letter standing for the following word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the end of the word, so only its closing letter is kept"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally points to the end of the word, so only its closing letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Prince",
-           "note": "the final letter of Prince"
-          }
-         ]
-        },
-        {
-         "words": "agreed",
-         "gives": "YES",
-         "note": "yes is a word of agreement"
-        },
-        {
-         "words": "they're monstrous",
-         "gives": "OGRES",
-         "note": "ogres are monstrous giants"
+         "words": "Prince",
+         "note": "the final letter of Prince"
         }
        ]
       },
       {
-       "words": "good",
-       "gives": "G",
-       "note": "G is the usual abbreviation for good"
+       "words": "agreed",
+       "gives": "YES",
+       "note": "yes is a word of agreement"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "note": "not here tells us to take away the letter standing for the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "they're monstrous",
+         "gives": "OGRES",
+         "note": "ogres are monstrous giants"
+        },
+        {
+         "words": "good",
+         "gives": "G",
+         "note": "G is the usual abbreviation for good"
+        }
+       ]
       }
      ]
     },

@@ -449,43 +449,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "wiping",
-       "at": 30,
-       "note": "wiping removes the letters for left and right from the two words"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "gold",
-           "at": 19,
-           "note": "taken as written"
-          },
-          {
-           "words": "both hands",
-           "at": 37,
-           "gives": "L",
-           "note": "left and right hands, so L comes out of gold and R out of dress"
-          }
-         ]
+         "words": "gold",
+         "at": 19,
+         "note": "taken as written"
         },
         {
-         "words": "dress",
-         "at": 24,
-         "note": "taken as written"
+         "words": "both hands",
+         "at": 37,
+         "gives": "L",
+         "note": "left and right hands, so L comes out of gold and R out of dress"
         }
        ]
       },
       {
-       "gives": "R"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wiping",
+         "at": 30,
+         "note": "wiping removes the letters for left and right from the two words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dress",
+         "at": 24,
+         "note": "taken as written"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
@@ -1175,12 +1175,7 @@
          "words": "narthexes",
          "at": 37,
          "note": "only the first letter is used"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
+        },
         {
          "words": "altars",
          "at": 51,
