@@ -330,7 +330,9 @@ for k, (at, p) in enumerate(zip((40, 47, 53), far["parts"])):
     p["parts"][0]["at"] = at
 far["parts"][0]["indicators"][0]["at"] = 0
 check("but an indicator far from the run it is said to cover is not (VIOLA)", 2, v.unindicated_uncovered(far))
-check("a midword leaf (THED from the day) is counted", 1, v.midword_leaves(
+check("a midword leaf holding a cut word (INTE from winter stripped) is counted", 1, v.midword_leaves(
+    {"op": "charade", "parts": [{"words": "winter stripped", "gives": "INTE"}, {"words": "x", "gives": "Y"}]}))
+check("one with no cut word (THED from the day) is not, r31", 0, v.midword_leaves(
     {"op": "charade", "parts": [{"words": "the day", "gives": "THED"}, {"words": "x", "gives": "Y"}]}))
 check("a stretch on word edges is not", 0, v.midword_leaves({"op": "charade", "parts": [{"words": "up the road", "gives": "THEROAD"}]}))
 check("an indicator on each is fine", 0, v.unindicated_uncovered(mids("essentially", "heart of", "inside")))

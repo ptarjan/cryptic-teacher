@@ -4814,6 +4814,11 @@ def midword_leaves(tree, clue=None):
         edges = {0, *ends}  # a stretch is a piece of whole words only if it starts and ends on word edges
         if any(s in edges and s + len(g) in edges for s in range(len(w) - len(g) + 1) if w[s:s + len(g)] == g):
             continue
+        # r28+r30 judged: every hit with a cut word in the leaf (half, stripped, limits, skinned, deposing leader) was
+        # wrong; the three fine ones (INCR "one in credit", CAPT "captain, briefly", SINGULARP) joined an abbreviation
+        cutters = [x for x in re.findall(r"[a-z']+", str(node["words"]).lower()) if x != "briefly"]
+        if not any(x in CUT_WORDS or _owner_type(x) in ("deletion", "letter_selection") for x in cutters):
+            continue
         if not _known_pair(node["words"], wordplay.letters(node["gives"])):
             n += 1
     return n
@@ -5448,7 +5453,8 @@ def deletion_inside_component(tree, clue=None, answer=None):
                             seen += 1
                             one = any(a <= s and e <= b for a, b in zip(bounds, bounds[1:]))
                             is_piece = any(a == s and b == e for a, b in zip(bounds, bounds[1:]))
-                            edge = s == 0 or e == len(f)
+                            # a doubled letter at the end (CAL[L], MIT[T]) leaves the same word cut either way
+                            edge = s == 0 or e == len(f) or f[:s] + f[e:] in (f[len(r):], f[:-len(r)])
                             centred = abs(s - (len(f) - len(r)) / 2) <= HEART_SLACK
                             # a letter doubled across a seam (HOPS+SCOTCH less S) is the seam's, not one piece's
                             seam = seam or (e in bounds[1:-1] and f[e:e + len(r)] == r) \
@@ -5933,9 +5939,41 @@ def moved_letters(tree):
             if d.get("op") != "deletion" or d.get("unchecked") or len(ps) != 2 or "op" in ps[1]:
                 continue
             cut = wordplay.letters(ps[1].get("gives"))
-            n += bool(cut) and any("op" not in k and k is not d and wordplay.letters(k.get("gives")) == cut
-                                   for k in kids)
+            n += bool(cut) and (any("op" not in k and k is not d and wordplay.letters(k.get("gives")) == cut
+                                    for k in kids) or bool(_sibling_gives(kids, d, ps[1])))
+        n += _leaf_cut_put_back(kids)
     return n
+
+
+def _sibling_gives(kids, d, cut_part):
+    """1 when a sibling first/last pick gives the letters the deletion `d` removes (r30 FN SHAH:
+    del<advancing>(HASH, S) beside last<finally>(enemies)): the same move, one letter taken out and put back."""
+    said = " ".join(str(i.get("text") or "") for i in d.get("indicators") or [] if isinstance(i, dict))
+    if _DEL_END.search(said) or _DEL_HEAD.search(said) or re.search(r"\b(?:losing|largely|mostly|made|less)\b", said, re.I):
+        return 0  # r31 judged: a plain truncation indicator beside a pick of the same letter is a coincidence (9 of 40 fine)
+    try:
+        cut = wordplay.values(cut_part)
+        return int(any(k.get("op") in ("first", "last") and not k.get("unchecked") and wordplay.values(k) & cut
+                       for k in kids if k is not d))
+    except Exception:
+        return 0
+
+
+_LEAF_CUT_NOTE = re.compile(r"\b(?:without|minus|losing|lacking|dropping|missing)\b", re.I)
+
+
+def _leaf_cut_put_back(kids):
+    """1 when a leaf's note says its word is a longer one without a letter (EDGE, "LEDGE ... without its front
+    letter") and a sibling leaf gives that letter again (L; r30 FN EDGETOOL): a move, not a cut and an add."""
+    for a in kids:
+        if "op" in a or a.get("unchecked") or not _LEAF_CUT_NOTE.search(str(a.get("note") or "")):
+            continue
+        g = wordplay.letters(a.get("gives"))
+        for w in re.findall(r"\b[A-Z]{3,}\b", str(a.get("note"))):
+            gone = [wordplay.letters(b.get("gives")) for b in kids if b is not a and "op" not in b]
+            if len(w) == len(g) + 1 and any(len(x) == 1 and sorted(w) == sorted(g + x) for x in gone if x):
+                return 1
+    return 0
 
 
 def _ind_adjacent(a, b):
@@ -6464,6 +6502,30 @@ def select_phrase_in_leaf(tree):
     return n
 
 
+SELECTOR_AS_CUT = "deletion removes a leaf made of a first/last-letter word (leader, City's first), not a first/last pick"
+
+
+def selector_as_cut(tree):
+    """Deletions whose removed leaf is a selection word alone or closing a longer phrase ("leader" giving P,
+    "City's first" giving C; r30 FN: 2 misses): the removed letter is a first/last pick with its own
+    indicator, del(PACE, first<leader>(...)) -- the leaf holds only the words that give its letters."""
+    n = 0
+    for node in _walk(tree):
+        if node.get("op") != "deletion" or node.get("unchecked"):
+            continue
+        for p in (q for q in (node.get("parts") or [])[1:] if isinstance(q, dict) and "op" not in q and q.get("gives")):
+            words = re.findall(r"[a-z']+", str(p.get("words") or "").lower())
+            gives = len(re.sub(r"[^A-Z]", "", str(p["gives"])))
+            if {"second", "initials"} & set(words):
+                continue  # r31 judged: "second" is the abbreviation S (6 of 9 fine hits)
+            if words and gives <= 2 and (
+                    (len(words) == 1 and _owner_type(words[0]) == "letter_selection") or
+                    (len(words) > 1 and _owner_type(words[-1]) == "letter_selection"
+                     and gives < sum(len(w) for w in words[:-1]))):
+                n += 1
+    return n
+
+
 def halved_as_deletion(tree):
     """Deletions whose indicator says half ("half of", "50 per cent", "bottom half removed",
     "half-forgotten"; r26 FN: 5 misses): the word keeps half its letters, a halving selection, not a
@@ -6493,7 +6555,10 @@ TRUNC_IN_LEAF = "leaf holds a truncation word (mostly, almost, cut short) and gi
 CUT_NOTE_LEAF = "leaf gives a non-word that its note says is a real word with letters cut, and no deletion op shows the cut"
 OWN_IND_IN_LEAF = "op's own indicator words also sit inside its leaf (at the end, or the start of a non-selection)"
 #: "briefly" and "concise" are left out: they are the abbreviation convention (Science briefly = SCI; 6 of 6 judged fine).
-_TRUNC_WORDS = frozenset("mostly almost nearly largely curtailed endlessly practically virtually partly".split())
+_TRUNC_WORDS = frozenset("mostly almost nearly largely curtailed endlessly practically virtually partly "
+                         "shortened contracted abbreviated truncated clipped".split())
+#: "briefly" counts only when the leaf's own note says a word was shortened ("RAVE, shortened"), r30 FN.
+_BRIEFLY_CUT = re.compile(r"\b(?:shortened|clipped|without|loses|lost|drop\w*|truncated|last letter)\b", re.I)
 _TRUNC_PHRASES = ("cut short", "not quite", "not entirely", "not completely", "not fully", "cut off")
 _CUT_NOTE = re.compile(r"\b(?:without|minus|missing|losing|loses|lacking|dropp\w*|drops|clipped|truncated|shortened|"
                        r"lopped|omitting|stops short|loses|cut)\b[^.;]{0,40}\b(?:letter|last|first|final|end|head|"
@@ -6502,7 +6567,8 @@ _CUT_NOTE = re.compile(r"\b(?:without|minus|missing|losing|loses|lacking|dropp\w
 
 _CUT_LETTER = re.compile(r"\b(?:without|minus|losing|lacking|dropping|missing|less|killed|lost|loses)\s+"
                          r"(?:its\s+|the\s+|a\s+)?(?:[a-z]+\s+)?[A-Z]{1,2}\b"
-                         r"|\b[A-Z]{1,2}\b[^.;]{0,25}\b(?:killed|removed|dropped|lost|taken off|deleted)\b")
+                         r"|\b[A-Z]{1,2}\b[^.;]{0,25}\b(?:killed|removed|dropped|lost|taken off|deleted|lifted out)\b"
+                         r"|\bwith\s+(?:its\s+)?[A-Z]{1,2}\b(?:\s*\([^)]{0,12}\))?\s+(?:missing|lifted out|removed)\b")
 
 
 def _plain_leaves(tree):
@@ -6524,11 +6590,12 @@ def trunc_in_leaf(tree):
     n = 0
     for node, words in _plain_leaves(tree):
         text = " ".join(words)
-        if len(words) < 2 or not (_TRUNC_WORDS & set(words) or any(p in text for p in _TRUNC_PHRASES)):
+        briefly = "briefly" in words and _BRIEFLY_CUT.search(str(node.get("note") or ""))
+        if len(words) < 2 or not (_TRUNC_WORDS & set(words) or any(p in text for p in _TRUNC_PHRASES) or briefly):
             continue
         g = wordplay.letters(node["gives"]).lower()
         note = str(node.get("note") or "")
-        if len(g) >= 3 and g not in lex and "'" not in note + text \
+        if len(g) >= 3 and (g not in lex or _BRIEFLY_CUT.search(note)) and "'" not in note + text \
                 and any(g + c in lex or c + g in lex for c in "abcdefghijklmnopqrstuvwxyz"):
             n += 1
     return n
@@ -6548,6 +6615,7 @@ def own_ind_in_leaf(tree):
             words = re.findall(r"[a-z']+", str(p.get("words") or "").lower())
             n += any(iw and len(words) > len(iw) and (words[-len(iw):] == iw or (
                 words[:len(iw)] == iw and node["op"] not in wordplay.SELECT)) for iw in inds)
+            n += node["op"] == "deletion" and any(iw and words == iw and len(iw) > 1 for iw in inds)  # r30 FN: leaf "not at first" under the indicator "not at first"
     return n
 
 
@@ -6566,7 +6634,8 @@ def cut_note_leaf(tree):
         note = str(node.get("note") or "")
         if len(g) >= 3 and g not in lex and id(node) not in under_cut and not node.get("select") \
                 and "'" not in note + str(node.get("words")) and "apostrophe" not in note.lower() \
-                and not node.get("soundsLike") and (_CUT_NOTE.search(note) or _CUT_LETTER.search(note)):
+                and not node.get("soundsLike") \
+                and (_CUT_NOTE.search(note) or _CUT_LETTER.search(note)):
             n += 1
     return n
 
@@ -6841,6 +6910,7 @@ def shape_warnings(tag, ann, clue=None, answer=None):
             (lambda: split_shared_indicators(tree), SPLIT_SHARED_INDICATOR, "one indicator, one multi-part op"),
             (lambda: trunc_in_leaf(tree), TRUNC_IN_LEAF, "the truncation word is a deletion's indicator"),
             (lambda: cut_note_leaf(tree), CUT_NOTE_LEAF, "give the real word and cut it with a deletion op"),
+            (lambda: selector_as_cut(tree), SELECTOR_AS_CUT, "the removed letter is a first/last pick with its own indicator"),
             (lambda: own_ind_in_leaf(tree), OWN_IND_IN_LEAF, "the leaf holds only the words that give its letters")):
         if k := fn():
             out.append(f"{tag}: {k} {label}: {hint}")
@@ -7436,6 +7506,7 @@ BACKLOG_MARKERS = {
     "wordplay.truncInLeaf": (TRUNC_IN_LEAF,),
     "wordplay.cutNoteLeaf": (CUT_NOTE_LEAF,),
     "wordplay.ownIndInLeaf": (OWN_IND_IN_LEAF,),
+    "wordplay.selectorAsCut": (SELECTOR_AS_CUT,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }

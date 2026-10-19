@@ -158,6 +158,16 @@ check("the leaf without the indicator is not", 0, v.own_ind_in_leaf(rue))
 mostly = {"op": "charade", "parts": [{"words": "Mostly safe", "gives": "PETE"}, {"words": "sex", "gives": "IT"}]}
 check("a leaf holding 'mostly' that gives a word cut short is counted", 1, v.trunc_in_leaf(mostly) if v._lexicon_letters() else 1)
 check("'briefly' abbreviations are not", 0, v.trunc_in_leaf({"op": "charade", "parts": [{"words": "Science briefly", "gives": "SCI"}]}))
+# r31: tuning on the r30 misses
+check("'briefly' with a note saying the word was shortened is counted", 1, v.trunc_in_leaf(
+    {"op": "container", "parts": [{"words": "party briefly", "gives": "RAV", "note": "RAVE, shortened"}]}) if v._lexicon_letters() else 1)
+check("a leaf that is exactly the indicator's words is counted", 1, v.own_ind_in_leaf({"op": "deletion", "indicators": [
+    {"text": "not at first"}], "parts": [{"words": "Idle", "gives": "SLACKING"}, {"words": "not at first", "gives": "S"}]}))
+check("a deletion removing a lone selection word is counted", 1, v.selector_as_cut({"op": "deletion", "parts": [
+    {"words": "step", "gives": "PACE"}, {"words": "leader", "gives": "P"}]}) if v._owner_type("leader") == "letter_selection" else 1)
+shah = {"op": "charade", "parts": [{"op": "last", "indicators": [{"text": "finally"}], "parts": [{"words": "enemies"}]},
+                                   {"op": "deletion", "indicators": [{"text": "advancing"}], "parts": [{"words": "mess", "gives": "HASH"}, {"gives": "S"}]}]}
+check("a deletion whose letter a sibling pick gives again is a move", 1, v.moved_letters(shah))
 site = {"op": "charade", "parts": [{"words": "one out of place", "gives": "STE", "note": "SITE, a place, without I (one)"}]}
 check("a non-word leaf whose note says a letter was cut is counted", 1, v.cut_note_leaf(site) if v._lexicon_letters() else 1)
 check("the same leaf under a deletion is not", 0, v.cut_note_leaf({"op": "deletion", "parts": [site["parts"][0], {"gives": "I"}]}))
