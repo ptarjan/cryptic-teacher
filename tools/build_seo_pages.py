@@ -2269,10 +2269,13 @@ INDICATOR_KINDS = {
     "outer_deletion": ("deletion", "deletion:outer", "outer-deletion",
                        "Drop the first and last letters, leaving the inside."),
     "named_deletion": ("deletion", "deletion:named", "named-letter deletion",
-                       "Take out a named piece wherever it sits, as <em>loveless</em> takes out LOVE. "
-                       "Words like <em>without</em> and <em>losing</em> are used for several "
-                       "kinds of cut, so only words used mostly this way are listed."),
+                       "Take out the piece the clue names, wherever it sits, as <em>loveless</em> "
+                       "takes out LOVE. <em>Without</em>, <em>leaving</em> and <em>not</em> only say "
+                       "to remove; the named piece decides where the letters come from."),
 }
+# The kinds of deletion that say where the cut is; a deletion word with none of
+# them is a named-piece deletion.
+POSITIONAL_DELETIONS = ("deletion:head", "deletion:tail", "deletion:heart", "deletion:outer")
 # The h3 under a family's h2 for each kind.
 KIND_TITLES = {
     "first_letters": "First letters", "last_letters": "Last letters",
@@ -2302,6 +2305,8 @@ def role_lexicon():
     per indicator), where that is at least ROLE_MIN_USES uses and ROLE_MIN_SHARE
     of its uses. A kind is the one the word is filed under most within its op,
     on the same bar (its uses, and ROLE_MIN_SHARE of the word's uses of that op).
+    A deletion word with no positional kind (head, tail, heart, outer) at the
+    share bar goes under named_deletion: it only says "remove".
     Keys are indicators.json's (capitals), so a clue's indicator matches."""
     data = ROOT / "tools" / "data"
     roles = json.loads((data / "indicator_roles.json").read_text(encoding="utf-8"))
@@ -2317,8 +2322,15 @@ def role_lexicon():
         mine = {k: n for k, n in kinds.get(word, {}).items() if k.partition(":")[0] == top}
         if mine:
             best = max(mine, key=mine.get)
-            if best in kind_page and mine[best] >= ROLE_MIN_USES and mine[best] >= ROLE_MIN_SHARE * sum(mine.values()):
+            total = sum(mine.values())
+            if best in kind_page and mine[best] >= ROLE_MIN_USES and mine[best] >= ROLE_MIN_SHARE * total:
                 out[kind_page[best]][word] = mine[best]
+            elif (top == "deletion" and total >= ROLE_MIN_USES
+                  and not any(k in mine and mine[k] >= ROLE_MIN_SHARE * total
+                              for k in POSITIONAL_DELETIONS)):
+                # NOT, LEAVING, WITHOUT: the word only says "remove", and the
+                # clue's named piece decides where the letters come from.
+                out["named_deletion"][word] = mine.get("deletion:named", 0) or total
     return out
 
 
@@ -2376,6 +2388,14 @@ def indicator_found(cands, found=None, lexicon=None):
             for kind, (parent, _, _, _) in INDICATOR_KINDS.items():
                 if parent == t and key in roles.get(kind, ()):
                     pairs[(kind, key)] = exact
+        # A kind's words come from the annotated corpus's counts, which
+        # indicators.json need not list under the parent (BEGINNING is a
+        # first-letter word it has no letter_selection key for): match the
+        # kind's own words under the parent's `for`.
+        for kind, (parent, _, _, _) in INDICATOR_KINDS.items():
+            if roles.get(kind):
+                for (_, key), exact in clue_pairs({parent: roles[kind]}, inds).items():
+                    pairs.setdefault((kind, key), exact)
         for (t, key), exact in pairs.items():
             rank = (ours, exact, depth, day)
             if (t, key) not in found or found[(t, key)][0] < rank:
