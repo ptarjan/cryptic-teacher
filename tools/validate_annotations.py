@@ -4367,7 +4367,7 @@ def _doubled(leaf):
 def _near_literal(leaf):
     """Whether a leaf's `gives` is its own words with at most one letter off: a typo (eve -> EYE)
     or a number word read as its numeral (anyone -> ANYI, one -> I) inside fodder."""
-    w, g = wordplay.letters(leaf["words"]), wordplay.letters(leaf["gives"])
+    w, g = wordplay.letters(str(leaf["words"]).replace("&", " and ")), wordplay.letters(leaf["gives"])
     if len(w) == len(g):
         return sum(a != b for a, b in zip(w, g)) <= 1
     pre = len(os.path.commonprefix([w, g]))
