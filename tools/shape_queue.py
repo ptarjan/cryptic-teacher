@@ -280,6 +280,14 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                          "unscrambled at its edge: set the word beside the anagram in a charade",
        "delWrapsCharade": "a deletion wraps a charade though its indicator stands between the charade's pieces: it cuts "
                           "the one piece next to it, so put the deletion on that piece inside the charade",
+       "repeatInLeaf": "a leaf holds a doubling word (twice, double, again) and gives a doubled string: give the "
+                       "block once and repeat it with an op carrying that indicator",
+       "halfInLeaf": "a leaf holds half (half-done taco) and gives half of another of its words: write the halving "
+                     "as a selection op with its own indicator",
+       "selectIndEndsLeaf": "a first/last/outer op's leaf ends with the op's own indicator words (cooked on top): "
+                            "the leaf holds only the words that give its letters",
+       "beheadInLeaf": "a leaf holds a losing-head/tail phrase (youngster losing head) and gives the letters left: "
+                       "give the whole word and cut it with a deletion op carrying that indicator",
        "ownIndInLeaf": "an op's own indicator words also sit inside its leaf (French way back under rev<back>): "
                        "the leaf holds only the words that give its letters",
        "splitSharedIndicator": "two neighbouring same-kind ops share one indicator, only one carrying it: write "
@@ -338,6 +346,10 @@ def _validator_rules():
             "truncInLeaf": lambda t, a, c: V.trunc_in_leaf(t),
             "cutNoteLeaf": lambda t, a, c: V.cut_note_leaf(t),
             "ownIndInLeaf": lambda t, a, c: V.own_ind_in_leaf(t),
+            "repeatInLeaf": lambda t, a, c: V.repeat_in_leaf(t),
+            "halfInLeaf": lambda t, a, c: V.half_in_leaf(t),
+            "selectIndEndsLeaf": lambda t, a, c: V.select_ind_ends_leaf(t),
+            "beheadInLeaf": lambda t, a, c: V.behead_in_leaf(t),
             "selectorAsCut": lambda t, a, c: V.selector_as_cut(t),
             "anaLoneEdge": lambda t, a, c: V.ana_lone_edge(t, a.get("_answer") or None),
             "anaLiteralEdge": lambda t, a, c: V.ana_literal_edge(t, a.get("_answer") or None),
