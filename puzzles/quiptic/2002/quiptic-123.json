@@ -779,36 +779,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KUDOS",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter of the title is dropped"
+       "text": "comes back",
+       "at": 8,
+       "note": "comes back means the letters so and the shortened duke are read backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "comes back",
-         "note": "coming back means travelling the other way, so the letters are read right to left"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "So",
+         "at": 0,
+         "note": "so is taken as written; that the answer also runs backwards through So duke is a coincidence of this construction, not a hidden word"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 19,
+           "note": "almost means the word duke loses its final letter"
+          }
+         ],
          "parts": [
           {
-           "words": "So",
-           "note": "taken as written"
+           "words": "duke",
+           "at": 3,
+           "note": "duke is used as written, minus its last letter; the backwards run through So duke is a coincidence"
           },
           {
-           "words": "duke",
-           "gives": "DUK",
-           "note": "duke without its final letter; the letters also run backwards inside 'So duke', a coincidence of this parse"
+           "gives": "E"
           }
          ]
         }
@@ -817,9 +821,9 @@
      ]
     },
     "explanation": {
-     "surface": "A duke returns home with his bank account nearly in the black.",
-     "walkthrough": "'In credit' sounds like a bank balance; 'in' is only the link and credit is the definition.",
-     "definitionFit": "Kudos is praise and honour earned for an achievement, the sense of giving someone credit."
+     "surface": "A duke returns, nearly in the black financially.",
+     "walkthrough": "SO plus DUK (duke without its last letter) gives SODUK, which 'comes back' to make the answer.",
+     "definitionFit": "Kudos is praise or prestige, the credit someone gets for an achievement."
     },
     "features": {
      "answerInScene": false,
@@ -1024,52 +1028,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MODERATOR",
-     "indicators": [
-      {
-       "text": "not quite",
-       "note": "not quite all of the word means its last letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 18,
+         "note": "not quite means the word modern stops short of its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "modern",
-         "gives": "MODER",
-         "note": "modern without its last letter"
+         "at": 28
         },
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "over",
-           "note": "turned over means flipped round, so the duty roster is read backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "list of duties",
-           "gives": "ROTA",
-           "note": "a rota is a schedule of who does which job"
-          }
-         ]
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 35,
+         "note": "over means the rota word is turned over, read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "list of duties",
+         "at": 40,
+         "gives": "ROTA",
+         "note": "a rota is a list of duties taken in turn"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clergyman is a little behind the times in how he organises his duty roster.",
-     "definitionFit": "In Presbyterian churches the moderator is the minister who presides over a church court or assembly."
+     "surface": "A churchman is a little behind the times about his duty roster.",
+     "walkthrough": "MODER (modern cut short) is followed by ATOR, ROTA turned 'over'. In Presbyterian churches the moderator is the minister who presides over a church court.",
+     "definitionFit": "In the Church of Scotland the moderator is the minister chosen to chair the General Assembly or a presbytery."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "modern"
+     "misdirectedWord": "over"
     }
    }
   },

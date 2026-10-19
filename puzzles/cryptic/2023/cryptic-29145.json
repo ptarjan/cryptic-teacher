@@ -270,46 +270,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UNDISPUTED",
      "indicators": [
       {
        "text": "around",
-       "note": "one part goes around the other, enclosing it"
+       "at": 42,
+       "note": "around means the reversed word goes round the jumbled letters"
       }
      ],
      "parts": [
+      {
+       "words": "reversed",
+       "at": 33,
+       "gives": "UNDID",
+       "note": "to undo something is to reverse it, so undid means reversed"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "in crash",
-         "note": "a word caught in a crash is smashed and its letters scrambled into a new order"
+         "at": 23,
+         "note": "in crash means the letters of upset are smashed into a new order"
         }
        ],
        "parts": [
         {
          "words": "upset",
-         "note": "the five letters of this word, scrambled"
-        },
-        {
-         "words": "reversed",
-         "gives": "UNDID",
-         "note": "to undo something is to reverse it, so this is a past-tense synonym"
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is acknowledged as having been upset in a car crash, their vehicle flipped over.",
-     "walkthrough": "'Upset' and 'reversed' both look like indicators, but 'upset' is the fodder and 'reversed' supplies UNDID; 'it' is the scrambled word, which UNDID wraps around.",
-     "definitionFit": "Something recognised by everyone is beyond argument, which is what undisputed means, as in an undisputed champion."
+     "surface": "Someone is shown to be distressed by a car crash, and turned around.",
+     "walkthrough": "'Upset' looks like an anagram signal but it is the fodder; 'in crash' is the signal, and 'it' points back to the jumbled letters.",
+     "definitionFit": "Something undisputed is accepted by everyone, so it is generally recognised or acknowledged."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "reversed"
+     "misdirectedWord": "upset"
     }
    }
   },

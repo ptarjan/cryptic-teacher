@@ -585,35 +585,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MAGNET",
-     "indicators": [
-      {
-       "text": "whose hidden opponents flip",
-       "note": "the pair of bridge opponents sitting inside the word turn over, so that pair reads the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "spy chief",
+       "at": 14,
        "gives": "M",
-       "note": "M is the head of MI6 in the James Bond stories"
+       "note": "M is the head of the secret service in the James Bond stories"
       },
       {
-       "words": "Agent",
-       "note": "taken as written; its inner E and N are East and North, opponents at bridge"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "flip",
+         "at": 54,
+         "note": "flip means those two letters swap round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Agent",
+         "at": 25
+        },
+        {
+         "words": "whose hidden opponents",
+         "at": 31,
+         "gives": "EN",
+         "note": "E and N are opposing bridge players, here sitting hidden inside agent"
+        },
+        {
+         "gives": "NE"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An espionage thriller: the spymaster suspects an agent of secretly switching sides.",
-     "walkthrough": "In bridge, North-South play against East-West, so the adjacent E and N inside the word are opponents; swapping them gives the answer.",
-     "definitionFit": "A magnet is the classic object that attracts things, here iron rather than spies."
+     "surface": "Who lures the spy boss? An agent whose concealed enemies change sides.",
+     "walkthrough": "In bridge, North-South play against East-West, so the two compass letters hidden in the middle of the agent are opponents.",
+     "definitionFit": "A magnet is an object that draws iron towards it, so it is literally what attracts."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "opponents"
     }
    }
@@ -1206,57 +1220,44 @@
      }
     ],
     "wordplay": {
-     "op": "homophone",
-     "unchecked": true,
-     "gives": "PLEASE",
-     "indicators": [
-      {
-       "text": "in speech",
-       "note": "in speech means as spoken out loud, so we write what we hear"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "place",
+       "at": 17,
+       "gives": "PL",
+       "note": "Pl. is the street-map abbreviation for Place"
+      },
+      {
+       "op": "homophone",
+       "spelt": "EASE",
+       "indicators": [
+        {
+         "text": "in speech",
+         "at": 60,
+         "note": "in speech means the two letters are said aloud as their names, which sound like a word for comfort"
+        }
+       ],
        "parts": [
         {
-         "words": "place",
-         "gives": "PL",
-         "note": "Pl. is the abbreviation for Place in street addresses"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "EASE",
-         "indicators": [
-          {
-           "text": "conclusions of",
-           "note": "conclusions are endings, so each word gives only its final character"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "committee and referee",
-           "gives": "EASE",
-           "select": "last",
-           "soundsLike": "EES",
-           "note": "both words end in E, and two Es said out loud match this spelling"
-          }
-         ]
+         "words": "conclusions of committee and referee",
+         "at": 23,
+         "gives": "EE",
+         "note": "the last letters of committee and referee are two Es"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A polite request to a referee to set out the committee's findings.",
-     "definitionFit": "Please, as in please sit down, is a courteous request meaning be so kind as to."
+     "surface": "A polite request to put the findings of a committee and a referee into an address.",
+     "walkthrough": "Two Es said aloud, 'ease', follow PL.",
+     "definitionFit": "Saying 'please' asks someone to kindly do something, the same as 'be so good as to'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "conclusions"
+     "aptDefinition": true,
+     "misdirectedWord": "speech"
     }
    }
   },

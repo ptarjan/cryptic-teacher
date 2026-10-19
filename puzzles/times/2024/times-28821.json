@@ -461,40 +461,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RECURS",
-     "indicators": [
-      {
-       "text": "stopping short",
-       "note": "stopping short means the word for swear ends a letter early"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "about",
+       "at": 11,
+       "gives": "RE",
+       "note": "re means about or concerning"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "stopping short",
+         "at": 27,
+         "note": "stopping short means the swear word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "about",
-         "gives": "RE",
-         "note": "re means about or concerning"
+         "words": "to swear",
+         "at": 17,
+         "gives": "CURSE",
+         "note": "to curse is to swear"
         },
         {
-         "words": "to swear",
-         "gives": "CURS",
-         "note": "CURSE means to swear, with its final letter dropped"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone returns about to swear, but holds back mid-oath.",
-     "definitionFit": "Something that recurs happens again or returns repeatedly, like a symptom that keeps coming back."
+     "surface": "Someone returns, about to swear, then checks themselves.",
+     "definitionFit": "Something that recurs happens again, returning after a gap."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "stopping"
     }
    }
   },
@@ -1233,42 +1238,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OVOLO",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means most but not all, so the last letter of old is dropped"
+       "text": "seen in",
+       "at": 27,
+       "note": "seen in means these letters appear inside the castles letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "seen in",
-         "note": "seen in means placed within, so these letters go inside the castles"
-        }
-       ],
+       "words": "castles",
+       "at": 35,
+       "gives": "OO",
+       "note": "O-O is the chess notation for castling"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "castles",
-         "gives": "OO",
-         "note": "in chess notation castling is written O-O"
+         "words": "very",
+         "at": 10,
+         "gives": "V"
         },
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 20,
+           "note": "mostly means old loses its last letter"
+          }
+         ],
          "parts": [
           {
-           "words": "very",
-           "gives": "V",
-           "note": "V is the abbreviation for very"
+           "words": "old",
+           "at": 15
           },
           {
-           "words": "old",
-           "gives": "OL",
-           "note": "old without its last letter"
+           "gives": "D"
           }
          ]
         }
@@ -1277,9 +1285,9 @@
      ]
     },
     "explanation": {
-     "surface": "Ancient decorative plasterwork found in castles.",
-     "walkthrough": "'Castles' suggests buildings; it is the chess move written as two Os.",
-     "definitionFit": "An ovolo is a convex architectural moulding with a quarter-round profile, used on cornices."
+     "surface": "A very old moulding, mostly found in castles.",
+     "walkthrough": "In chess notation, castling on the king's side is written O-O, so 'castles' gives OO.",
+     "definitionFit": "An ovolo is a rounded convex moulding used in classical architecture."
     },
     "features": {
      "answerInScene": true,

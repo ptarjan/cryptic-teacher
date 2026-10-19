@@ -262,45 +262,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SAILOR",
+     "op": "container",
      "indicators": [
       {
-       "text": "not entirely",
-       "note": "not entirely means a word stops short of its full length"
+       "text": "about",
+       "at": 25,
+       "note": "about means the shortened word goes round the trouble word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means going round, so one piece wraps the other"
+         "text": "not entirely",
+         "at": 7,
+         "note": "not entirely means the kind word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "kind",
-         "gives": "SOR",
-         "note": "sort, a kind, without its final letter"
+         "at": 20,
+         "gives": "SORT",
+         "note": "a sort is a kind"
         },
         {
-         "words": "trouble",
-         "gives": "AIL",
-         "note": "to ail is to trouble or afflict"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "trouble",
+       "at": 31,
+       "gives": "AIL",
+       "note": "to ail is to trouble"
       }
      ]
     },
     "explanation": {
-     "surface": "A seaman who is not altogether kind about some trouble on board.",
-     "definitionFit": "A sailor is a seaman, someone who works on ships."
+     "surface": "A seaman who is not altogether kind about some trouble.",
+     "definitionFit": "A sailor is a member of a ship's crew, a seaman."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "kind"
     }
@@ -1076,51 +1081,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRINCULO",
+     "op": "container",
      "indicators": [
       {
-       "text": "not last one",
-       "note": "not the last one means the final letter of the word is lost"
+       "text": "among",
+       "at": 31,
+       "note": "among means the other letters go within the three word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "among",
-         "note": "among means placed in the midst of something"
-        }
-       ],
+       "words": "three",
+       "at": 37,
+       "gives": "TRIO",
+       "note": "a trio is a group of three"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "three",
-         "gives": "TRIO",
-         "note": "a trio is a group of three"
+         "words": "New",
+         "at": 0,
+         "gives": "N"
         },
         {
-         "op": "charade",
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "cryptic",
+           "at": 4,
+           "note": "cryptic means the remaining letters are made obscure, jumbled up"
+          }
+         ],
          "parts": [
           {
-           "words": "New",
-           "gives": "N",
-           "note": "N is the abbreviation for new"
-          },
-          {
-           "op": "anagram",
+           "op": "deletion",
            "indicators": [
             {
-             "text": "cryptic",
-             "note": "cryptic means puzzling and obscure, so the letters are scrambled"
+             "text": "not last one",
+             "at": 18,
+             "note": "not last one means the word clue loses its final letter"
             }
            ],
            "parts": [
             {
              "words": "clue",
-             "gives": "CLU",
-             "note": "the word clue without its last letter"
+             "at": 12
+            },
+            {
+             "gives": "E"
             }
            ]
           }
@@ -1131,9 +1140,9 @@
      ]
     },
     "explanation": {
-     "surface": "A setter's fresh tricky clue, minus one, among three others, for a tipsy Shakespeare character.",
-     "walkthrough": "'Not last one' applies to clue alone: the word loses its final letter before being scrambled.",
-     "definitionFit": "Trinculo is the drunken jester in The Tempest, who falls in with Stephano and Caliban."
+     "surface": "A setter's fresh cryptic clue, minus the last one of three, is about a drunk in Shakespeare.",
+     "walkthrough": "'Cryptic clue' reads as the puzzle talking about itself; 'cryptic' is the jumbling signal.",
+     "definitionFit": "Trinculo is the drunken jester in Shakespeare's play The Tempest."
     },
     "features": {
      "answerInScene": false,
@@ -1252,37 +1261,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TWIT",
-     "indicators": [
-      {
-       "text": "not the full",
-       "note": "not the full means part of the word is missing at the end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not the full",
+         "at": 16,
+         "note": "not the full means the pair word is cut short of its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "pair",
-         "gives": "TW",
-         "note": "two, a pair, cut short"
+         "at": 29,
+         "gives": "TWO",
+         "note": "two is a pair"
         },
         {
-         "words": "The very thing",
-         "gives": "IT",
-         "note": "'that's it!' means the very thing"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "The very thing",
+       "at": 35,
+       "gives": "IT",
+       "note": "it means the very thing, as in 'that's it!'"
       }
      ]
     },
     "explanation": {
-     "surface": "One of Roald Dahl's duo, not both of them, is just the thing.",
-     "walkthrough": "The surface nudges toward The Twits, whose pair is Mr and Mrs Twit; the wordplay works on 'pair' instead.",
-     "definitionFit": "Mr and Mrs Twit are the nasty couple in Roald Dahl's book The Twits, so either one is a character called Twit."
+     "surface": "A Roald Dahl character, only half of a couple, is just the thing.",
+     "walkthrough": "'Not the full pair' suggests one of Dahl's Twits, Mr and Mrs; in fact it is TW from TWO.",
+     "definitionFit": "Mr Twit and Mrs Twit are the revolting couple in Roald Dahl's book The Twits."
     },
     "features": {
      "answerInScene": true,
@@ -1639,40 +1652,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPLODGE",
-     "indicators": [
-      {
-       "text": "half-",
-       "note": "half means only part of the word is kept, the rest dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 9,
+         "note": "half means only the first half of the second spot is kept"
+        }
+       ],
        "parts": [
         {
          "words": "spot",
-         "gives": "SP",
-         "note": "the first half of spot"
+         "at": 14
         },
         {
-         "words": "porter's office",
-         "gives": "LODGE",
-         "note": "a porter's lodge is the gatehouse office of a college"
+         "gives": "OT"
         }
        ]
+      },
+      {
+       "words": "porter's office",
+       "at": 20,
+       "gives": "LODGE",
+       "note": "a porter's lodge is the gatehouse office of a college or estate"
       }
      ]
     },
     "explanation": {
-     "surface": "A spot, or a small spot, at the porter's lodge.",
-     "walkthrough": "The same word appears twice: first as the definition, then as the fodder to be halved.",
-     "definitionFit": "A splodge is a blot or irregular mark, i.e. a spot."
+     "surface": "A spot, or half of one, appears at the porter's office.",
+     "definitionFit": "A splodge is a blot or messy patch, a spot of something spilt."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "porter's"
     }
@@ -1699,41 +1713,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HERPES",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means nearly all, so the final letter is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "woman's",
+       "at": 14,
+       "gives": "HER",
+       "note": "her is the possessive for a woman"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 43,
+         "note": "mostly means the annoyance word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "woman's",
-         "gives": "HER",
-         "note": "her is the possessive for a woman"
+         "words": "source of annoyance",
+         "at": 22,
+         "gives": "PEST",
+         "note": "a pest is a source of annoyance"
         },
         {
-         "words": "source of annoyance",
-         "gives": "PES",
-         "note": "pest, a source of annoyance, missing its end"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman's irritating complaint turns out to be a skin condition.",
-     "definitionFit": "Herpes is a viral infection causing blisters on the skin."
+     "surface": "A skin complaint is mostly what bothers a woman.",
+     "definitionFit": "Herpes is a viral infection causing blisters and sores on the skin."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "annoyance"
+     "aptDefinition": false
     }
    }
   }

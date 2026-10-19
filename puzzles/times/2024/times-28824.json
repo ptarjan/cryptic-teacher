@@ -451,46 +451,49 @@
      "indicators": [
       {
        "text": "round",
-       "note": "going round something means enclosing it, so the path surrounds what follows"
+       "at": 5,
+       "note": "round means the path word goes around the university and hospital letters"
+      },
+      {
+       "text": "in",
+       "at": 31,
+       "note": "in confirms the university and hospital letters sit inside the path word"
       }
      ],
      "parts": [
       {
        "words": "Path",
+       "at": 0,
        "gives": "LANE",
-       "note": "a lane is a narrow road or track"
+       "note": "a lane is a narrow path or road"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "here 'in' only joins the wordplay to the definition, which follows it"
-        }
-       ],
        "parts": [
         {
          "words": "university",
-         "gives": "U",
-         "note": "U is the abbreviation for university"
+         "at": 11,
+         "gives": "U"
         },
         {
          "words": "hospital",
+         "at": 22,
          "gives": "SAN",
-         "note": "a san, short for sanatorium, is a kind of hospital"
+         "note": "san is short for sanatorium, a kind of hospital"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A track goes around a college medical centre in a town by a lake.",
-     "walkthrough": "San, short for sanatorium, is the old British boarding-school word for the sick bay.",
-     "definitionFit": "The Swiss city stands on the northern shore of Lake Geneva, so it is a town beside a lake."
+     "surface": "A track circles a university hospital in a town by a lake.",
+     "walkthrough": "Lausanne is a Swiss city on the shore of Lake Geneva.",
+     "definitionFit": "Lausanne stands on the northern shore of Lake Geneva, so it is a city beside a lake."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": true,
+     "misdirectedWord": "hospital"
     }
    }
   },
@@ -1468,49 +1471,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AXIS",
+     "op": "container",
      "indicators": [
       {
-       "text": "for Cockney",
-       "note": "London Cockney speech drops the h at the start of words"
+       "text": "stops",
+       "at": 36,
+       "note": "stops means the eleven letters plug the gap in the middle of the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "stops",
-         "note": "something that stops a gap fills it, so the number sits inside the other word"
+         "text": "for Cockney",
+         "at": 13,
+         "note": "Cockneys famously drop their aitches, so the word has loses its H"
         }
        ],
        "parts": [
         {
          "words": "has",
-         "gives": "AS",
-         "note": "the word without its opening letter, as a Cockney would say it"
+         "at": 25
         },
         {
-         "words": "eleven",
-         "gives": "XI",
-         "note": "XI is eleven in Roman numerals, also a cricket or football team"
+         "gives": "H"
         }
        ]
+      },
+      {
+       "words": "eleven",
+       "at": 29,
+       "gives": "XI",
+       "note": "XI is eleven in Roman numerals, and also a cricket or football team"
       }
      ]
     },
     "explanation": {
-     "surface": "A London Underground line has eleven stations, as an East Ender might say.",
-     "walkthrough": "The Central line is a London Underground route, but here it means a line through the centre. A cricket or football side is an eleven.",
-     "definitionFit": "An axis is the imaginary straight line through the middle of a body around which it rotates or is symmetrical."
+     "surface": "A London Underground line, spoken by a Londoner, has eleven stations.",
+     "walkthrough": "The Central Line is a London Underground line, but here it is the central line of something. 'AS (has without its H) is stopped by XI.",
+     "definitionFit": "An axis is the imaginary straight line through the middle of something, around which it turns."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Central"
+     "misdirectedWord": "stops"
     }
    }
   },
