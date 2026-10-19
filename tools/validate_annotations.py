@@ -4555,7 +4555,8 @@ ORDERING_INDICATORS = frozenset(
 #: Words that mark a leaf's clue words as an example of the thing they give ("commercial vehicle,
 #: perhaps" = VAN); on a charade of plain leaves they are the setter's hedge, not an anagram.
 EXAMPLE_MARKERS = frozenset("perhaps|say|maybe|for example|for instance|for one|as an example|possibly".split("|"))
-POSITION_INDICATORS = frozenset("initially|covers|covering|covered by|to cover".split("|"))
+#: Round 18: "originally", "primarily", "firstly" read as "initially" does (UPRIGHTS, WASTED: A primarily B = A first).
+POSITION_INDICATORS = frozenset("initially|originally|primarily|firstly|covers|covering|covered by|to cover".split("|"))
 
 
 #: An inner container whose indicator says its piece goes in apart from the other
@@ -4968,13 +4969,10 @@ def _is_subsequence(small, big):
 
 
 def _cut_evidence(node):
-    """Whether a leaf folds a cut into its words rather than meaning a short word. It does when a
-    deletion verb in -ing/-ed sits among them ("sweetheart removing old", "desire, dropping head":
-    the words that follow name what goes), or its letters run in order through one of its clue
-    words (pupils -> PUP) or through a longer word its note names (LOVER without O -> LVER,
-    Smaug -> SMUG). It does not for "without" and the bare verbs and nouns: "to lose relish" ->
-    PALL, "play without hindrance" -> HAM, "without the Sun" -> DARK, "just a drop" -> SIP mean
-    something short (round 12: 6 of 12 flagged leaves, judged right)."""
+    """Whether a leaf folds a cut into its words rather than meaning a short word. It does only when its
+    letters run in order through one of its own clue words (pupils -> PUP). Round 18: a deletion verb among the
+    words ("sweetheart removing old", "couple losing millions" = ITE) and a longer word its note names (ITEM less
+    M) no longer count: 12 of 13 sampled flags of those shapes were judged fine, a phrase read as one synonym."""
     g = wordplay.letters(node["gives"])
     for t in str(node["words"]).split():
         bare = re.sub(r"\W", "", t)
@@ -4983,7 +4981,7 @@ def _cut_evidence(node):
             continue  # round 18: "lacking good manners" = RUDE, "losing millions" = ITE read as one phrase (8 of 9 judged fine)
         if len(w) > len(g) and _is_subsequence(g, w):
             return True
-    return any(len(t) > len(g) and _is_subsequence(g, t) for t in (x.upper() for x in re.findall(r"\b[A-Z][A-Za-z]{2,}\b", str(node.get("note") or ""))))
+    return False  # round 18: a note naming a longer word (ITEM less M, UNION less O) is a synonym phrase, 12 of 13 judged fine
 
 
 def folded_deletion_leaves(tree):
@@ -5067,7 +5065,7 @@ def _positional_charade(node, key):
     parts = [p for p in node.get("parts") or [] if isinstance(p, dict)]
     if any(p.get("op") in wordplay.SELECT and not p.get("indicators") for p in parts):
         return False
-    if key == "initially":
+    if key in ("initially", "originally", "primarily", "firstly"):
         return not (len(parts) >= 3 and all("op" not in p and len(wordplay.letters(p.get("gives"))) == 1 for p in parts))
     return not any(p.get("op") in ("container", "outer") for p in parts)
 
@@ -5163,7 +5161,8 @@ _EXTRA_PAIRS = frozenset({("PLAYED", "P"), ("ELECTRONICALLY", "E"), ("ELECTRONIC
                           ("ROUBLE", "R"), ("ROUBLES", "R"),  # round 13 (cryptic-22221 ARGENT)
                           ("VIOLET", "V"), ("LICENTIATE", "L"), ("ACROSS", "A"),  # round 14 (judged standard)
                           ("WESTERLY", "W"), ("EASTERLY", "E"), ("NORTHERLY", "N"), ("SOUTHERLY", "S"),  # round 17:
-                          ("UNITED", "U"), ("WITHOUT", "W")})  # compass adjectives, "united" and "without" (w/o), judged fine
+                          ("UNITED", "U"), ("WITHOUT", "W"),
+                          ("METERS", "M"), ("METRES", "M"), ("INSTITUTE", "I")})  # round 18 (judged fine)  # compass adjectives, "united" and "without" (w/o), judged fine
 
 
 def _known_pair(words, gives):
