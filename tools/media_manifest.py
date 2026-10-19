@@ -564,7 +564,10 @@ def book_reprints():
             build_book_reprints(out=quiet)
     held = {}
     for r in memo_rows(BOOK_REPRINTS):
-        held.setdefault(r["pid"], {})[r["file"]] = r["size"]
+        # "name" is the key a first build wrote; a row of any other shape is skipped, never a crash.
+        pid, file, size = r.get("pid"), r.get("file") or r.get("name"), r.get("size")
+        if isinstance(pid, str) and isinstance(file, str) and isinstance(size, int):
+            held.setdefault(pid, {})[file] = size
     out = {pid: sorted(files.items()) for pid, files in held.items()}
     _BOOK_REPRINTS["memo"] = (time.monotonic(), out)
     return out

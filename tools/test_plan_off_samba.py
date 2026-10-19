@@ -79,6 +79,7 @@ check("... to what a listing of the disk gives", disk_key([("ftcryptic-8", "a-1.
 ed = downloads.ARCHIVE_ORG / "GaleTimes1950UKEnglish" / "1950-01-02"
 ed.mkdir(parents=True)
 (ed / "pages.json").write_text(json.dumps({"url": "https://gale.example/p1", "edition": "x"}))
+media_manifest.write(media_manifest.GALE_EDITIONS, [])  # edition_rows wants both manifests built
 media_manifest.record_edition(ed)
 reads = []
 orig_read = Path.read_text
