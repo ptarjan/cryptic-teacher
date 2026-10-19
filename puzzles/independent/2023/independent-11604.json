@@ -480,46 +480,50 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ROADKILL",
      "indicators": [
       {
        "text": "in",
-       "note": "in places one set of letters inside another word"
+       "at": 31,
+       "note": "in places the shuffled letters inside the word for wind"
       }
      ],
      "parts": [
+      {
+       "words": "wind",
+       "at": 34,
+       "gives": "ROLL",
+       "note": "to roll is to wind, as yarn round a spool"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "playing",
-         "note": "playing about suggests the letters are messed around into a new order"
+         "at": 23,
+         "note": "playing suggests the letters frolicking into a new order"
         }
        ],
        "parts": [
         {
-         "words": "a kid",
-         "note": "the letters of these two words, rearranged"
+         "words": "a",
+         "at": 17
         },
         {
-         "words": "wind",
-         "gives": "ROLL",
-         "note": "to wind something, such as yarn, is to roll it"
+         "words": "kid",
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A child at play in the breeze occasionally pesters someone.",
-     "walkthrough": "'Badger' looks like a verb meaning pester, but it is the animal; wind is a verb, not the breeze.",
-     "definitionFit": "Roadkill is animals hit by traffic, and a badger is one familiar example on British roads."
+     "surface": "A badger sometimes gets a child playing out in the wind.",
+     "walkthrough": "Wind here is the verb, as in winding yarn, not the breeze.",
+     "definitionFit": "Roadkill is an animal killed by traffic, and badgers are a common example on British roads."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "badger"
     }
    }
@@ -1280,44 +1284,44 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ANNEXE",
      "indicators": [
       {
        "text": "outside",
-       "note": "outside places one word around another, enclosing it"
+       "at": 25,
+       "note": "outside means these letters wrap round the next piece"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ANNEXE",
+       "op": "middle",
        "indicators": [
         {
          "text": "Remove borders from",
-         "note": "the borders of something are its edges, so the first and last letters go"
+         "at": 0,
+         "note": "taking off the borders leaves only the inner letters of the word for flag"
         }
        ],
        "parts": [
         {
          "words": "flag",
+         "at": 20,
          "gives": "BANNER",
          "note": "a banner is a flag"
-        },
-        {
-         "words": "old",
-         "gives": "EX",
-         "note": "ex means former, old"
         }
        ]
+      },
+      {
+       "words": "old",
+       "at": 33,
+       "gives": "EX",
+       "note": "ex means former or old, as in ex-wife"
       }
      ]
     },
     "explanation": {
-     "surface": "Take the edging off a flag hung outside an old wing.",
-     "walkthrough": "The enclosing comes first, giving a longer word, and then its outer letters are stripped.",
-     "definitionFit": "An annexe is an extension or subsidiary building attached to a main one."
+     "surface": "Instructions to trim a flag's edges outside an old part of a building.",
+     "walkthrough": "'Remove borders from' strips BANNER to ANNE, which goes 'outside' EX.",
+     "definitionFit": "An annexe is an extension or wing added to a main building."
     },
     "features": {
      "answerInScene": true,

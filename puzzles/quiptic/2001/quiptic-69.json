@@ -156,47 +156,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DATED",
+     "op": "container",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without an end, so the final letter of the word is dropped"
+       "text": "swallowing",
+       "at": 21,
+       "note": "swallowing means the word for father takes in the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "father",
+       "at": 14,
+       "gives": "DAD",
+       "note": "dad is father"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "swallowing",
-         "note": "to swallow is to take something inside, so one piece goes within the other"
+         "text": "endlessly",
+         "at": 36,
+         "note": "endlessly means the last letter of tea goes"
         }
        ],
        "parts": [
         {
-         "words": "father",
-         "gives": "DAD",
-         "note": "familiar word for father"
+         "words": "tea",
+         "at": 32
         },
         {
-         "words": "tea",
-         "gives": "TE",
-         "note": "the word tea with its last letter removed"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fusty old dad gulping his tea.",
-     "definitionFit": "Something dated has gone out of style and belongs to an earlier period, so it seems behind the times."
+     "surface": "A fusty father gulping tea without finishing it.",
+     "definitionFit": "Dated describes something that has gone out of fashion, like a style that shows its age."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "endlessly"
+     "misdirectedWord": "swallowing"
     }
    }
   },
@@ -225,7 +228,8 @@
      "indicators": [
       {
        "text": "if standing up",
-       "note": "in a down clue standing up means reading from the bottom to the top"
+       "at": 47,
+       "note": "in a down clue, standing up means the letters read upwards, so backwards"
       }
      ],
      "parts": [
@@ -234,36 +238,41 @@
        "indicators": [
         {
          "text": "restrained by",
-         "note": "something restrained is held in check, so it sits inside the other piece"
+         "at": 20,
+         "note": "restrained by means held inside the word for self-esteem"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "self-esteem",
-           "gives": "EGO",
-           "note": "one's ego is one's sense of self-worth"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "self-esteem",
+         "at": 34,
+         "gives": "EGO",
+         "note": "ego is a sense of self-esteem"
         },
         {
-         "words": "clergyman",
-         "gives": "REV",
-         "note": "short for Reverend, a clergyman's title"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 8,
+           "gives": "A"
+          },
+          {
+           "words": "clergyman",
+           "at": 10,
+           "gives": "REV",
+           "note": "Rev, short for reverend, is a clergyman"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An elderly vicar kept in check by his own pride.",
-     "definitionFit": "Overage describes someone beyond the permitted age limit, past the upper bound for something."
+     "surface": "A priest too old for the job held back only by his pride.",
+     "walkthrough": "In a down entry, standing up means the letters are read from the bottom upwards.",
+     "definitionFit": "Overage means beyond the permitted or usual age limit, so too old for something."
     },
     "features": {
      "answerInScene": true,
@@ -649,36 +658,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TIRED",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost all of the word is kept, so its final letter falls away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 11,
+         "note": "almost means the name is not quite complete, losing its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "Tim",
-         "gives": "TI",
-         "note": "the name with its last letter dropped"
+         "at": 7
         },
         {
-         "words": "embarrassed",
-         "gives": "RED",
-         "note": "red in the face from embarrassment"
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "embarrassed",
+       "at": 18,
+       "gives": "RED",
+       "note": "red, as in red-faced, means embarrassed"
       }
      ]
     },
     "explanation": {
-     "surface": "Sleepy Tim is a bit flushed with shame.",
-     "definitionFit": "Being tired means sleepy and in need of rest, much as feeling sluggish before bed."
+     "surface": "Sleepy Tim is close to blushing.",
+     "walkthrough": "'Almost' trims TIM to TI.",
+     "definitionFit": "Tired means weary and ready for sleep, close in sense to drowsy."
     },
     "features": {
      "answerInScene": true,
@@ -1133,40 +1145,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CATSPAW",
-     "indicators": [
-      {
-       "text": "nearly",
-       "note": "nearly all is kept, so the final letter falls away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Felix",
+       "at": 20,
+       "gives": "CAT",
+       "note": "Felix the Cat is a famous cartoon cat"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 35,
+         "note": "nearly means the word is one letter short at the end"
+        }
+       ],
        "parts": [
         {
-         "words": "Felix",
-         "gives": "CAT",
-         "note": "Felix the Cat, the cartoon character"
+         "words": "lay eggs",
+         "at": 26,
+         "gives": "SPAWN",
+         "note": "to spawn is to lay eggs, as fish and frogs do"
         },
         {
-         "words": "lay eggs",
-         "gives": "SPAW",
-         "note": "spawn means lay eggs, here cut short by a letter"
+         "gives": "N"
         }
        ]
       }
      ]
     },
+    "spelling": "CAT'S PAW",
     "explanation": {
-     "surface": "Getting a cartoon cat to produce eggs.",
-     "walkthrough": "From the fable in which a monkey uses a cat's paw to pull chestnuts from the fire.",
-     "definitionFit": "A cat's paw is someone exploited as a tool by another, doing their dirty work."
+     "surface": "Getting Felix to almost produce eggs, a nonsensical demand on a cartoon cat.",
+     "walkthrough": "'Nearly' trims SPAWN to SPAW.",
+     "definitionFit": "A cat's-paw is a dupe exploited by someone else, from the fable of the monkey using a cat's paw to pull chestnuts from a fire."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "Felix"

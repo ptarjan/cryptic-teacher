@@ -340,46 +340,50 @@
      "indicators": [
       {
        "text": "swallow",
-       "note": "whatever is swallowed ends up inside, so the following items go within the word for he"
+       "at": 14,
+       "note": "swallow means the word for he takes the following letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "he",
-         "gives": "MALE",
-         "note": "he refers to a male"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
-        }
-       ]
+       "words": "he",
+       "at": 11,
+       "gives": "MALE",
+       "note": "he refers to a male"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "to begin with",
-         "note": "to begin with points at only the opening letter of the word before it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "capsule",
-         "note": "the first letter of capsule"
+         "words": "one",
+         "at": 22,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "to begin with",
+           "at": 34,
+           "note": "to begin with means just the first letter of capsule"
+          }
+         ],
+         "parts": [
+          {
+           "words": "capsule",
+           "at": 26
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone poorly wonders whether a patient will take a pill to start the treatment.",
-     "walkthrough": "The dash splits 'Ill' and 'will', which together make the phrase ill will. The rest is MAL(I C)E.",
-     "definitionFit": "Malice is the desire to harm others, which is exactly what the phrase ill will means."
+     "surface": "An ill patient wonders whether he will take one pill at the start.",
+     "walkthrough": "The definition is split across the dash: 'Ill will'. I and C go inside MALE.",
+     "definitionFit": "Malice is the wish to harm others, which is exactly what ill will means."
     },
     "features": {
      "answerInScene": false,
@@ -945,35 +949,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MOCKED",
      "indicators": [
       {
-       "text": "doubles",
-       "note": "doubles says the opening letter's value is multiplied by two and so swapped for another letter"
+       "text": "after capital doubles",
+       "at": 22,
+       "note": "the capital letter here is a Roman numeral, which is doubled in value to a different numeral"
       }
      ],
      "parts": [
       {
        "words": "cut short",
+       "at": 12,
        "gives": "DOCKED",
-       "note": "docked means cut short, as of a tail or pay"
+       "note": "docked means cut short, as a tail can be"
       },
       {
-       "words": "capital",
-       "gives": "M",
-       "note": "the capital (first) letter of the word is D, Roman 500; twice that is 1000, Roman M"
+       "gives": "D"
+      },
+      {
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is ridiculed and has their pay cut once the capital's prices double.",
-     "walkthrough": "'Capital' looks like a city or money; it is the initial D of DOCKED. Read as a Roman numeral, D doubled is M.",
-     "definitionFit": "To mock is to ridicule or scoff at, so mocked is a past-tense synonym of derided."
+     "surface": "Someone mocked and silenced once the money in the capital multiplied.",
+     "walkthrough": "D is 500 in Roman numerals; doubled it becomes M, 1,000. So the first D of DOCKED is replaced by M.",
+     "definitionFit": "To mock is to ridicule, so derided and mocked are synonyms in the past tense."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "capital"
     }
    }

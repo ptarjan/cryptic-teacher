@@ -784,57 +784,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ERSATZ",
+     "op": "container",
      "indicators": [
       {
-       "text": "explodes",
-       "note": "an explosion scatters the pieces, so the letters of the star word are thrown into new order"
+       "text": "in",
+       "at": 20,
+       "note": "in places the rearranged letters inside the middle pair"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
-         "text": "in",
-         "note": "in puts the reworked letters inside the selected central pair"
+         "text": "middle of",
+         "at": 23,
+         "note": "middle of takes the two central letters of freeze-up"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "EZ",
-         "indicators": [
-          {
-           "text": "middle of",
-           "note": "only the central letters of the following word are wanted"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "freeze-up",
-           "gives": "EZ",
-           "select": "middle",
-           "note": "the two central letters of freezeup, read as one eight-letter word"
-          }
-         ]
-        },
+         "words": "freeze-up",
+         "at": 33
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "explodes",
+         "at": 11,
+         "note": "explodes means the letters of star are blown apart and reassembled"
+        }
+       ],
+       "parts": [
         {
          "words": "star",
-         "note": "the letters of star rearranged"
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A celebrity loses their temper during a cold snap and is accused of being fake.",
-     "walkthrough": "Ignore the hyphen: freezeup has eight letters, so its middle pair is E and Z.",
-     "definitionFit": "Ersatz describes an inferior imitation or substitute, so it means not genuine."
+     "surface": "A fake celebrity blows up halfway through a cold snap.",
+     "walkthrough": "The hyphen is ignored, so freeze-up counts as eight letters and its middle is a pair.",
+     "definitionFit": "Ersatz means artificial or a substitute imitation, so not genuine."
     },
     "features": {
      "answerInScene": false,
@@ -914,56 +910,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "VULNERABLE",
      "indicators": [
       {
        "text": "to replace",
-       "note": "replacing swaps one thing out for another, so the chosen letters take the place of the energy letter"
+       "at": 55,
+       "note": "to replace means the new letters take the place of the energy symbol"
       }
      ],
      "parts": [
       {
        "words": "like Bede",
+       "at": 21,
        "gives": "VENERABLE",
-       "note": "the Venerable Bede was the eighth-century English monk and historian"
+       "note": "the Venerable Bede was an English monk and historian"
+      },
+      {
+       "words": "some energy",
+       "at": 66,
+       "gives": "E",
+       "note": "E is the physics symbol for energy; 'some' says only one of the E's is swapped"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "UL",
        "indicators": [
         {
          "text": "regularly",
-         "note": "regularly means at even intervals, so every other letter of the fuel word is kept"
+         "at": 45,
+         "note": "regularly means every other letter of fuel"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "fuel",
-         "gives": "UL",
-         "select": "alternate",
-         "note": "the second and fourth letters of fuel"
+         "at": 40
         }
        ]
-      },
-      {
-       "words": "some energy",
-       "gives": "E",
-       "note": "E is the symbol for energy; the word some means just one of its two E's goes"
       }
      ]
     },
     "explanation": {
-     "surface": "An aged monk in frail health needs feeding often to keep his strength up.",
-     "walkthrough": "In VENERABLE the first E is swapped for UL, giving VULNERABLE.",
-     "definitionFit": "Vulnerable means exposed to harm or weak, as someone whose health is fragile is."
+     "surface": "An elderly saintly figure in poor health who needs fuel to restore his energy.",
+     "walkthrough": "The even letters of FUEL give UL, which replaces the first E of VENERABLE.",
+     "definitionFit": "Vulnerable means exposed to harm, as someone in fragile or precarious health is."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "fuel"
+     "misdirectedWord": "energy"
     }
    }
   },
@@ -1442,56 +1435,62 @@
      "indicators": [
       {
        "text": "to capture",
-       "note": "capturing something holds it inside, so the try word surrounds the rest"
+       "at": 15,
+       "note": "to capture means the word for try holds the next letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "try",
-         "gives": "GO",
-         "note": "to have a go is to try"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "try",
+       "at": 11,
+       "gives": "GO",
+       "note": "a go is a try, as in have a go"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "failing",
-         "note": "failing means being absent, so the artist letters drop out of the animal"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "grazing animal",
-         "gives": "ZEBRA",
-         "note": "a zebra grazes on the African plains"
+         "words": "a",
+         "at": 26,
+         "gives": "A"
         },
         {
-         "words": "artist",
-         "gives": "RA",
-         "note": "RA, Royal Academician, is a crossword artist"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "failing",
+           "at": 51,
+           "note": "failing means the artist is lost from the animal's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "grazing animal",
+           "at": 28,
+           "gives": "ZEBRA",
+           "note": "a zebra is a grazing animal"
+          },
+          {
+           "words": "artist",
+           "at": 44,
+           "gives": "RA",
+           "note": "RA is a Royal Academician, an artist"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "From a viewing hide, someone attempts to catch a zebra while an artist struggles.",
-     "walkthrough": "ZEBRA loses RA to give ZEB, and GO holds A plus ZEB.",
-     "definitionFit": "A gazebo is a summerhouse or turret giving a wide view, originally built as a vantage point."
+     "surface": "From a lookout post, an attempt to catch a grazing zebra while an artist fails.",
+     "walkthrough": "Lookout is the definition, with In as a link; failing signals the artist dropping out of the animal.",
+     "definitionFit": "A gazebo is a garden pavilion giving a view, originally a summer-house built as a lookout."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "artist"
+     "misdirectedWord": "lookout"
     }
    }
   },
@@ -1520,39 +1519,42 @@
      "indicators": [
       {
        "text": "guarded by",
-       "note": "something guarded is surrounded by its guards, so the police letters wrap around the others"
+       "at": 17,
+       "note": "guarded by means the letters sit inside the police force's initials"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "police once",
-         "gives": "RUC",
-         "note": "the Royal Ulster Constabulary, Northern Ireland's police force until 2001"
-        },
-        {
-         "words": "way",
-         "gives": "ST",
-         "note": "ST, street, is a way"
-        }
-       ]
+       "words": "police once",
+       "at": 28,
+       "gives": "RUC",
+       "note": "the RUC, Royal Ulster Constabulary, was Northern Ireland's police force until 2001"
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral for one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "way",
+         "at": 8,
+         "gives": "ST",
+         "note": "ST, street, is a way"
+        },
+        {
+         "words": "one",
+         "at": 13,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A country lane where a lone figure was once protected by the police.",
-     "walkthrough": "'Country' looks like a nation but is the adjective meaning rural; 'once' marks that the police force no longer exists.",
-     "definitionFit": "Rustic means rural, belonging to the countryside, as country does when used as an adjective."
+     "surface": "A country path where someone is protected by a former police force.",
+     "definitionFit": "Rustic is an adjective for things of the countryside, like country in country cottage."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Country"
     }
@@ -1896,34 +1898,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "broadcast",
-       "note": "broadcast means scattered widely, as seed is, so the radio letters are scattered into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "old",
+       "at": 12,
+       "gives": "EX",
+       "note": "ex means former or old"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broadcast",
+         "at": 22,
+         "note": "broadcast is also used for scattering seed, so the letters are scattered"
+        }
+       ],
        "parts": [
         {
-         "words": "old",
-         "gives": "EX",
-         "note": "ex means former or old"
-        },
-        {
          "words": "radio",
-         "note": "the letters of radio rearranged"
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Opening segments taken from a vintage radio programme.",
-     "walkthrough": "'Broadcast' fits the radio picture but here means scattered.",
-     "definitionFit": "Exordia is the Latin plural of exordium, the opening section of a speech or written treatise."
+     "surface": "Opening segments from vintage radio programmes being aired.",
+     "definitionFit": "Exordia, plural of exordium, are the introductory parts of speeches or treatises."
     },
     "features": {
      "answerInScene": true,
