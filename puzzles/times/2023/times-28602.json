@@ -191,72 +191,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BUTTERNUT",
      "indicators": [
       {
        "text": "around",
-       "note": "the two casks sit around a further piece, enclosing it"
+       "at": 29,
+       "note": "around means surrounding, so the casks go round the letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "BUTTERNUT",
+       "words": "casks placed end to end",
+       "at": 5,
+       "gives": "BUTTNUT",
+       "note": "BUTT and TUN are casks; placed end to end, the tun's end meets the butt's, so it is turned"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "not outside",
-         "note": "dropping the outside of a word strips off its first and last letters"
+         "at": 42,
+         "note": "not outside means the outer letters are dropped, keeping the inside"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
-         "unchecked": true,
-         "gives": "BUTTERNUT",
-         "indicators": [
-          {
-           "text": "placed end to end",
-           "note": "putting one cask end to end turns it round so its last letter comes first"
-          }
-         ],
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "casks",
-             "gives": "BUTT",
-             "note": "a butt is a large cask for wine or ale"
-            },
-            {
-             "words": "here",
-             "gives": "ER",
-             "note": "the inside of the word, with its outer letters gone"
-            },
-            {
-             "words": "casks",
-             "gives": "NUT",
-             "note": "a tun is another large cask, here turned round"
-            }
-           ]
-          }
-         ]
+         "words": "here",
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Wooden barrels lined up end to end around a spot.",
-     "walkthrough": "'Casks' supplies two barrels, a butt and a tun; the tun is laid end to end so it reads backwards, and the middle of 'here' goes between them.",
-     "definitionFit": "Butternut is the white walnut tree, whose pale timber is used in furniture and carving."
+     "surface": "Wooden barrels laid end to end around this spot.",
+     "definitionFit": "Butternut is the timber of the white walnut tree, a North American hardwood."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "placed"
+     "misdirectedWord": "Wood"
     }
    }
   },
@@ -1074,45 +1048,65 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ALTOCLEF",
-     "indicators": [
-      {
-       "text": "for",
-       "note": "one thing for another means it takes the other's place"
-      },
-      {
-       "text": "always",
-       "note": "always means on every occasion, so each instance in the word is swapped, not only one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "autocue",
-       "note": "taken as written"
-      },
-      {
-       "words": "line",
-       "gives": "L",
-       "note": "L is the abbreviation for line"
-      },
-      {
-       "words": "you",
-       "gives": "U",
-       "note": "U sounds like you, as in text-speak"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "always",
+         "at": 21,
+         "note": "always means the swap is made every time the letter occurs"
+        }
+       ],
+       "parts": [
+        {
+         "op": "substitution",
+         "indicators": [
+          {
+           "text": "for",
+           "at": 13,
+           "note": "for means in place of, so one letter stands in for another"
+          }
+         ],
+         "parts": [
+          {
+           "words": "autocue",
+           "at": 31
+          },
+          {
+           "words": "you",
+           "at": 17,
+           "gives": "U",
+           "note": "U sounds like you, the text-speak form"
+          },
+          {
+           "words": "line",
+           "at": 8,
+           "gives": "L"
+          }
+         ]
+        },
+        {
+         "gives": "U"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
        "words": "loud",
+       "at": 40,
        "gives": "F",
-       "note": "f, forte, is the musical direction for loud"
+       "note": "F is forte, the musical direction for loud"
       }
      ]
     },
     "explanation": {
-     "surface": "A presenter's autocue always has a line for you to read loudly.",
-     "walkthrough": "'Always' means every U in the word is swapped, not just one.",
-     "definitionFit": "The alto clef is a C clef on the middle line of the stave, used to show pitch for viola music."
+     "surface": "A presenter's autocue says 'line' for every 'you' and runs loud.",
+     "walkthrough": "Both U's in AUTOCUE become L, giving ALTOCLE.",
+     "definitionFit": "The alto clef is the musical sign placing middle C on the staff's centre line, fixing note pitches."
     },
     "features": {
      "answerInScene": false,

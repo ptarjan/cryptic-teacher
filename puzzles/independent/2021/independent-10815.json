@@ -893,48 +893,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FERMATSLASTTHEOREM",
+     "op": "composite",
      "indicators": [
       {
        "text": "confusing",
-       "note": "confusing the letters muddles their order, so they are rearranged"
+       "at": 19,
+       "note": "confusing means mixing up, so the letters are jumbled"
+      },
+      {
+       "text": "Not",
+       "at": 53,
+       "note": "Not marks the letter that must be left out of the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "FERMATSLASTTHEOREM",
-       "indicators": [
-        {
-         "text": "Not",
-         "note": "not tells us the letter that follows is excluded from the fodder"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "for elite maths master",
-         "note": "anagram fodder, every letter"
+         "words": "for",
+         "at": 29,
+         "note": "taken as written"
         },
         {
-         "words": "I",
-         "note": "the letter to be dropped"
+         "words": "elite",
+         "at": 33,
+         "note": "taken as written"
+        },
+        {
+         "words": "maths",
+         "at": 39,
+         "note": "taken as written"
+        },
+        {
+         "words": "master",
+         "at": 45,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "I",
+       "at": 57
       }
      ]
     },
+    "spelling": "FERMAT'S LAST THEOREM",
     "explanation": {
-     "surface": "A mathematical assertion baffles even a brilliant teacher, who admits he cannot follow it.",
-     "walkthrough": "Remove one I from the fodder, then rearrange. Fermat claimed a proof but never wrote it; Andrew Wiles proved it in 1994.",
-     "definitionFit": "Fermat's Last Theorem is a famous statement in number theory, long only an unproven assertion, hence a mathematical claim."
+     "surface": "A puzzling remark that baffles top maths teachers, with the speaker denying authorship.",
+     "walkthrough": "Rearrange FOR ELITE MATHS MASTER less one I.",
+     "definitionFit": "Fermat claimed a proof he never wrote down; the statement stood unproved until Andrew Wiles in 1994."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "confusing"
+     "aptDefinition": false,
+     "misdirectedWord": "master"
     }
    }
   },

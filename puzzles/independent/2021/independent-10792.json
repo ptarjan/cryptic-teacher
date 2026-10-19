@@ -743,45 +743,47 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "INTRANET",
-     "indicators": [
-      {
-       "text": "surges first",
-       "note": "surging first means rushing to the front, so the current letter leaves its place and leads the word"
-      }
-     ],
      "parts": [
       {
+       "words": "current",
+       "at": 44,
+       "gives": "I",
+       "note": "I is the symbol for electric current"
+      },
+      {
        "op": "container",
-       "unchecked": true,
-       "gives": "INTRANET",
        "indicators": [
         {
          "text": "interrupting",
-         "note": "to interrupt is to break into, so the process word goes inside the web word"
+         "at": 22,
+         "note": "interrupting means breaking into, so one piece goes inside the other"
         }
        ],
        "parts": [
         {
+         "words": "web",
+         "at": 35,
+         "gives": "NET",
+         "note": "a net is a web"
+        },
+        {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "INTRANET",
+         "indicators": [
+          {
+           "text": "surges first",
+           "at": 52,
+           "note": "the current letter surges ahead out of its place to the very front"
+          }
+         ],
          "parts": [
           {
            "words": "process",
+           "at": 14,
            "gives": "TRAIN",
-           "note": "a train is a procession, a process of people moving along"
+           "note": "a train is a procession, a process of following on"
           },
           {
-           "words": "web",
-           "gives": "NET",
-           "note": "a net is a woven web"
-          },
-          {
-           "words": "current",
-           "gives": "I",
-           "note": "I is the symbol for electric current"
+           "gives": "I"
           }
          ]
         }
@@ -790,14 +792,14 @@
      ]
     },
     "explanation": {
-     "surface": "Some procedure disrupts the web when the power spikes.",
-     "walkthrough": "After the insertion, the I that the inserted word brought in moves to the front of the whole string: 'surges first'.",
-     "definitionFit": "An intranet is a private computer network confined to one organisation, so it is a network kept local."
+     "surface": "A procedure cuts into the web when a power surge comes first.",
+     "walkthrough": "TRAIN in NET gives NTRAINET; the I then surges to the front.",
+     "definitionFit": "An intranet is a private network within one organisation, a local computer network."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "process"
+     "misdirectedWord": "current"
     }
    }
   },
