@@ -164,13 +164,17 @@ jobs:
           [ "$EVENT" = push ] || full "a $EVENT run"
           [ "$CACHED" = true ] || full "no restored row or page cache"
           base=
+          # Cancelled runs are skipped without a jobs call: a burst of pushes
+          # leaves most of the newest runs cancelled while still pending, and
+          # each call was ~1s of this step (26s on a puzzle push, run
+          # 39262958136). A cancelled run that did deploy only costs an older base.
           while read -r id sha; do
             [ "$id" != "$GITHUB_RUN_ID" ] || continue
             ok=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
                    --jq '[.jobs[] | select(.name == "build") | .steps[] | select(.name == "Deploy to Pages" and .conclusion == "success")] | length' || echo 0)
             if [ "${ok:-0}" -gt 0 ]; then base=$sha; break; fi
           done < <(gh api "repos/$REPO/actions/workflows/pages.yml/runs?branch=master&event=push&per_page=30" \
-                     --jq '.workflow_runs[] | select(.status == "completed") | "\(.id) \(.head_sha)"' || true)
+                     --jq '.workflow_runs[] | select(.status == "completed" and .conclusion != "cancelled") | "\(.id) \(.head_sha)"' || true)
           [ -n "$base" ] || full "no successful deploy to diff against"
           auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
           GIT_TERMINAL_PROMPT=0 git -c protocol.version=2 -c "http.extraheader=AUTHORIZATION: basic $auth" \
@@ -494,11 +498,14 @@ jobs:
           key: indexnow-${{ github.sha }}
       # After everything the deploy needs, and only when this run rendered
       # many pages (a code change, a cold cache): see Restore the puzzle pages.
+      # 800, not 2000: puzzle pushes each move a hundred-odd pages and, below
+      # the bar, nothing is saved, so the next push re-renders those and its
+      # own (run 39262958136 rendered 1781 pages for 29 puzzles, ~40s).
       - name: Pack the puzzle pages
-        if: ${{ !cancelled() && steps.deployment.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 2000 }}
+        if: ${{ !cancelled() && steps.deployment.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800 }}
         run: bash tools/cache_tar.sh pack pages .page-cache.tar
       - name: Save the puzzle pages
-        if: ${{ !cancelled() && steps.deployment.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 2000 }}
+        if: ${{ !cancelled() && steps.deployment.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800 }}
         uses: actions/cache/save@v5
         with:
           path: .page-cache.tar
