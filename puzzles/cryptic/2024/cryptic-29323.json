@@ -44,63 +44,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MODIFIER",
      "indicators": [
       {
        "text": "in",
-       "note": "placing one thing in another means the reversed name sits inside the jumbled letters"
+       "at": 37,
+       "note": "in puts the turned dog inside the rearranged mire"
       }
      ],
      "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awful",
+         "at": 40,
+         "note": "awful means dreadful, a sign that the letters are messed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mire",
+         "at": 46,
+         "note": "taken as written, then rearranged"
+        }
+       ]
+      },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "rolling over",
-         "note": "something rolling over ends up upside down, so the dog's name is read backwards"
+         "at": 24,
+         "note": "a dog rolling over is upside down, so its name is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "awful",
-           "note": "an awful state is a mess, so the letters of mire are jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "mire",
-           "gives": "M",
-           "note": "first letter of the jumbled mire"
-          },
-          {
-           "words": "dog",
-           "gives": "FIDO",
-           "note": "Fido is the stock name for a dog"
-          },
-          {
-           "words": "mire",
-           "gives": "IER",
-           "note": "remaining letters of the jumbled mire"
-          }
-         ]
+         "words": "dog",
+         "at": 20,
+         "gives": "FIDO",
+         "note": "Fido is a traditional name for a dog"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dog wallows on its back in some horrible mud.",
-     "walkthrough": "The jumbled mire splits around the reversed dog: M before it, IER after, giving MODIFIER.",
-     "definitionFit": "In grammar a modifier is a term, such as an adjective, that limits or describes another."
+     "surface": "A dog rolls over in some awful mud.",
+     "walkthrough": "'Word that qualifies' sounds like a contest entrant, but it is grammar.",
+     "definitionFit": "In grammar a modifier is a word, like an adjective or adverb, that qualifies another."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Word"
+     "misdirectedWord": "qualifies"
     }
    }
   },
@@ -684,39 +681,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "criminal",
-       "note": "something criminal is crooked, so the letters are bent out of order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Crime boss",
+       "at": 0,
+       "gives": "DON",
+       "note": "a don is a Mafia boss"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "criminal",
+         "at": 15,
+         "note": "criminal means bad or wrong, so the letters of lad are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Crime boss",
-         "gives": "DON",
-         "note": "a Mafia boss is a don"
-        },
-        {
          "words": "lad",
-         "note": "lad rearranged"
-        },
-        {
-         "words": "avoid",
-         "gives": "DUCK",
-         "note": "to duck is to dodge"
+         "at": 24,
+         "note": "taken as written, then rearranged"
         }
        ]
+      },
+      {
+       "words": "avoid",
+       "at": 28,
+       "gives": "DUCK",
+       "note": "to duck is to dodge or avoid"
       }
      ]
     },
     "explanation": {
-     "surface": "A Mafia boss and a crooked youth dodge someone linked to the underworld god.",
-     "walkthrough": "Pluto suggests the Roman god of the underworld, matching the crime story; it is Disney's dog.",
-     "definitionFit": "Pluto is Mickey Mouse's dog, and Donald Duck is part of the same Disney cartoon gang."
+     "surface": "A crime boss and a criminal youth try to dodge someone.",
+     "walkthrough": "Pluto is Mickey Mouse's dog in Disney cartoons, not the planet or the god.",
+     "definitionFit": "Donald Duck is a Disney cartoon character and pal of Pluto the dog."
     },
     "features": {
      "answerInScene": false,
@@ -1092,54 +1093,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NARBONNE",
      "indicators": [
       {
        "text": "around",
-       "note": "letters around something enclose it"
+       "at": 28,
+       "note": "around says the rearranged letters go round the old capital"
       }
      ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "NARBONNE",
        "indicators": [
         {
          "text": "ground",
-         "note": "ground means crushed up, so the letters are broken down and remixed"
+         "at": 21,
+         "note": "ground means crushed or milled, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "near",
-           "gives": "NAR",
-           "note": "first part of near rearranged"
-          },
-          {
-           "words": "former capital",
-           "gives": "BONN",
-           "note": "Bonn was West Germany's capital"
-          },
-          {
-           "words": "near",
-           "gives": "E",
-           "note": "the remaining letter of the rearranged near"
-          }
-         ]
+         "words": "near",
+         "at": 16,
+         "note": "taken as written, then rearranged"
         }
        ]
+      },
+      {
+       "words": "former capital",
+       "at": 35,
+       "gives": "BONN",
+       "note": "Bonn was the capital of West Germany"
       }
      ]
     },
     "explanation": {
-     "surface": "An ancient French town lies on land close to an onetime capital.",
-     "walkthrough": "Bonn was capital of West Germany until reunification; the rearranged letters split around it.",
-     "definitionFit": "Narbonne in southern France was founded by the Romans as Narbo Martius."
+     "surface": "An old French city stands on the ground near a former capital.",
+     "definitionFit": "Narbonne is an ancient town in southern France, founded by the Romans."
     },
     "features": {
      "answerInScene": true,

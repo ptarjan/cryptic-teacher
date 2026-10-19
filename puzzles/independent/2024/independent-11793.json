@@ -1686,32 +1686,45 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "EPISODIC",
+     "op": "container",
      "indicators": [
       {
-       "text": "Swap ends",
-       "note": "exchanging the end of each word for the other's changes both words' final letters"
+       "text": "in",
+       "at": 10,
+       "note": "in tells us the reworked matches go inside the other piece"
       }
      ],
      "parts": [
       {
        "words": "very long",
+       "at": 13,
        "gives": "EPIC",
-       "note": "an epic is very long"
+       "note": "something epic is very long"
       },
       {
-       "words": "cricket matches",
-       "gives": "ODIS",
-       "note": "ODIs are One Day Internationals in cricket"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "Swap ends",
+         "at": 0,
+         "note": "the two ends of the word change places, the front pair moving to the back"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cricket matches",
+         "at": 23,
+         "gives": "ODIS",
+         "note": "ODIs are One Day Internationals, a form of cricket match"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The teams change ends during lengthy cricket matches at regular intervals.",
-     "walkthrough": "Swapping the final C and S turns EPIC and ODIS into EPIS and ODIC.",
-     "definitionFit": "Episodic means occurring in separate episodes, irregularly and at intervals rather than continuously."
+     "surface": "Advice for very long cricket matches: the batsmen should change ends at intervals.",
+     "walkthrough": "In cricket the batsmen change ends, which is the surface's disguise; here the phrase works on the letters of the matches instead.",
+     "definitionFit": "Episodic describes something occurring in separate episodes, that is, sporadically rather than continuously."
     },
     "features": {
      "answerInScene": false,

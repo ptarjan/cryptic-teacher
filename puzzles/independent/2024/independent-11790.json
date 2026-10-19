@@ -115,40 +115,42 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means going round, so the calm word wraps around the other letters"
+       "at": 14,
+       "note": "about means surrounding, so serene goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "composed",
-         "gives": "SERENE",
-         "note": "composed means calm, untroubled"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "composed",
+       "at": 5,
+       "gives": "SERENE",
+       "note": "composed means calm, serene"
       },
       {
-       "words": "daughter",
-       "gives": "D",
-       "note": "D is the standard abbreviation for daughter"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 20,
+         "gives": "A"
+        },
+        {
+         "words": "daughter",
+         "at": 22,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A song has been written about a man's daughter.",
-     "walkthrough": "'Composed' wants to mean written, as of a song; it is the adjective calm. SEREN(AD)E.",
-     "definitionFit": "A serenade is a piece of music sung or played to a lover, so it is a kind of song."
+     "surface": "A song written about a daughter.",
+     "walkthrough": "'Composed' suggests music or an anagram, but it means calm.",
+     "definitionFit": "A serenade is a song sung or played to a lover, often under a window at night."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "composed"
     }
    }
@@ -375,38 +377,41 @@
      "indicators": [
       {
        "text": "to hold",
-       "note": "to hold something is to keep it inside, so the other words sit within the first"
+       "at": 11,
+       "note": "to hold means to contain, so will goes round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Resolution",
-         "gives": "WILL",
-         "note": "will is resolve or determination"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Resolution",
+       "at": 0,
+       "gives": "WILL",
+       "note": "will is resolution, determination"
       },
       {
-       "words": "session",
-       "gives": "TERM",
-       "note": "a term is a session, as in a school or court"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 19,
+         "gives": "A"
+        },
+        {
+         "words": "session",
+         "at": 21,
+         "gives": "TERM",
+         "note": "a term is a session, as of a court or school"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A decision to hold a meeting inside a disused factory building.",
-     "walkthrough": "'Resolution' looks like a formal motion at the session; it is will, determination. W(A TERM)ILL.",
+     "surface": "A resolution to hold a meeting in an old factory.",
      "definitionFit": "A watermill is a mill powered by a water wheel, an early kind of factory."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Resolution"
     }
@@ -820,71 +825,51 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RELIC",
      "indicators": [
       {
        "text": "found in",
-       "note": "something found in another is placed inside it"
+       "at": 13,
+       "note": "found in means placed inside, so the one goes into the remaining letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "contents of",
+         "at": 22,
+         "note": "contents of means only the inner stretch of the two words is kept, the outer parts discarded"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "contents of",
-           "note": "the contents of something are what lies inside, so the outer letters of the run of words are thrown away"
-          }
-         ],
-         "parts": [
-          {
-           "words": "barrel",
-           "note": "taken as written; its opening letters are shed"
-          },
-          {
-           "gives": "BAR"
-          }
-         ]
+         "words": "barrel chest",
+         "at": 34,
+         "note": "taken as written, then trimmed to its inner letters"
         },
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "one",
-             "gives": "I",
-             "note": "I is the Roman numeral one"
-            },
-            {
-             "words": "chest",
-             "note": "taken as written; only its opening letter survives"
-            }
-           ]
-          },
-          {
-           "gives": "HEST"
-          }
-         ]
+         "gives": "BARHEST"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 9,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A keepsake discovered inside an old barrel or chest.",
-     "walkthrough": "Treat 'barrel chest' as one run of letters and take its inside, RELC, then put I within it.",
-     "definitionFit": "A relic is an object kept from the past as a reminder, so it is a souvenir."
+     "surface": "A souvenir is found among the contents of a barrel or a chest.",
+     "walkthrough": "'Barrel chest' is a physique, but the letters RELC sit inside it, across the gap.",
+     "definitionFit": "A relic is an object kept as a memento of the past, a keepsake."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "chest"
+     "misdirectedWord": "contents"
     }
    }
   },

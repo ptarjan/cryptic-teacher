@@ -146,54 +146,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NITWIT",
-     "indicators": [
-      {
-       "text": "shortly",
-       "note": "shortly asks for a cut-down version, with the final letter docked"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "NITWIT",
        "indicators": [
         {
          "text": "Up",
-         "note": "in a down entry, up means the word is read from bottom to top"
+         "at": 0,
+         "note": "in a down clue, up means the word is read from bottom to top, backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "in",
-           "gives": "NI",
-           "note": "the word in, read upwards"
-          },
-          {
-           "words": "time",
-           "gives": "T",
-           "note": "T is the standard abbreviation for time"
-          },
-          {
-           "words": "accompanied by",
-           "gives": "WIT",
-           "note": "with, which means accompanied by, minus its last letter"
-          }
-         ]
+         "words": "in",
+         "at": 3,
+         "gives": "IN"
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 6,
+       "gives": "T"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 12,
+         "note": "shortly means cut short, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "accompanied by",
+         "at": 20,
+         "gives": "WITH",
+         "note": "with means accompanied by"
+        },
+        {
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone up early, briefly joined by an idiot.",
-     "definitionFit": "A nitwit is a silly, stupid person, a straightforward synonym for an idiot or dimwit."
+     "surface": "Being up in time, shortly joined by a fool.",
+     "definitionFit": "A nitwit is a silly, foolish person."
     },
     "features": {
      "answerInScene": false,
@@ -1122,49 +1124,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FOURTEEN",
-     "indicators": [
-      {
-       "text": "not at first",
-       "note": "not at first means the opening letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "FOURT",
+       "indicators": [
+        {
+         "text": "for audition",
+         "at": 16,
+         "note": "for audition means to be heard, so the word is taken by its sound"
+        }
+       ],
        "parts": [
         {
-         "op": "homophone",
-         "spelt": "FOURT",
-         "indicators": [
-          {
-           "text": "for audition",
-           "note": "an audition is a hearing, so the word is taken by its sound"
-          }
-         ],
-         "parts": [
-          {
-           "words": "strove",
-           "gives": "FOUGHT",
-           "note": "strove means fought, which in British speech is said like fort"
-          }
-         ]
-        },
+         "words": "strove",
+         "at": 9,
+         "gives": "FOUGHT",
+         "note": "fought is the past of fight, to strive"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not at first",
+         "at": 30,
+         "note": "not at first means losing the first letter"
+        }
+       ],
+       "parts": [
         {
          "words": "noticed",
-         "gives": "EEN",
-         "note": "seen, meaning noticed, without its first letter"
+         "at": 43,
+         "gives": "SEEN",
+         "note": "seen means noticed"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone competed hard at a tryout but was overlooked at the start.",
-     "walkthrough": "In non-rhotic British pronunciation, fought, fort and the start of the number sound alike.",
-     "definitionFit": "Fourteen is the whole number between thirteen and fifteen, so it is simply a number."
+     "surface": "Someone strove for an audition but went unnoticed at first.",
+     "walkthrough": "In British English 'fought' sounds like 'fourt', the start of the answer.",
+     "definitionFit": "Fourteen is a whole number, between thirteen and fifteen."
     },
     "features": {
      "answerInScene": false,
@@ -1972,39 +1979,43 @@
      "indicators": [
       {
        "text": "holding",
-       "note": "to hold something is to have it inside, so one piece encloses the other"
+       "at": 17,
+       "note": "holding means containing, so the remarks go round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Pointed remarks",
-         "gives": "BARBS",
-         "note": "barbs are cutting remarks"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Pointed remarks",
+       "at": 0,
+       "gives": "BARBS",
+       "note": "barbs are cutting, pointed remarks"
       },
       {
-       "words": "party",
-       "gives": "DO",
-       "note": "a do is a party"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 25,
+         "gives": "A"
+        },
+        {
+         "words": "party",
+         "at": 27,
+         "gives": "DO",
+         "note": "a do is a party"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Snide comments fly at a party held on a sunny island.",
-     "definitionFit": "Barbados is a Caribbean island popular with tourists, so it is a holiday destination."
+     "surface": "Pointed remarks, while holding a party on a holiday island.",
+     "definitionFit": "Barbados is a Caribbean island popular with tourists."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "party"
+     "misdirectedWord": "Pointed"
     }
    }
   },
@@ -3073,47 +3084,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "JEEVES",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "short asks for the word cut down by its final letter"
+       "text": "about",
+       "at": 25,
+       "note": "about means surrounding, so the shortened joke goes round the wife"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so one piece wraps the other"
+         "text": "short",
+         "at": 8,
+         "note": "short means cut short, so the last letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "pleasantry",
-         "gives": "JES",
-         "note": "jest, a joke, without its last letter"
+         "at": 14,
+         "gives": "JEST",
+         "note": "a jest is a pleasantry, a joke"
         },
         {
-         "words": "first wife",
-         "gives": "EVE",
-         "note": "Eve was Adam's wife, the first in the Bible"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "first wife",
+       "at": 31,
+       "gives": "EVE",
+       "note": "Eve was the first wife, Adam's"
       }
      ]
     },
     "explanation": {
-     "surface": "A manservant cracks a brief joke about the original wife.",
-     "definitionFit": "Jeeves is P. G. Wodehouse's famous gentleman's gentleman, the valet of Bertie Wooster, so the name stands for a manservant."
+     "surface": "A valet tells a short joke about his first wife.",
+     "walkthrough": "The 's stands for 'is'. Jeeves is P G Wodehouse's famous valet to Bertie Wooster.",
+     "definitionFit": "Jeeves is the archetypal fictional manservant, so his name stands for a valet."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pleasantry"
+     "misdirectedWord": "first"
     }
    }
   },

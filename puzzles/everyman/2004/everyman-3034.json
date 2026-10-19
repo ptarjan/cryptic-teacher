@@ -1076,61 +1076,59 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the pieces sit in the edge letters, which wrap around them"
+       "at": 44,
+       "note": "in puts the joined pieces between the two outer letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "the outskirts of",
+         "at": 47,
+         "note": "the outskirts of a word are its first and last letters"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "outer",
-           "indicators": [
-            {
-             "text": "outskirts of",
-             "note": "the outskirts of a place are its edges, so only the first and last letters are kept"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Dartford",
-             "note": "the first and last letters of Dartford, a town in Kent"
-            }
-           ]
-          },
-          {
-           "words": "English",
-           "gives": "E",
-           "note": "E is the standard abbreviation for English"
-          }
-         ]
-        },
-        {
-         "words": "river",
-         "gives": "R",
-         "note": "R is the map abbreviation for river"
+         "words": "Dartford",
+         "at": 64
         }
        ]
       },
       {
-       "words": "I have",
-       "gives": "IVE",
-       "note": "I've is the contraction of I have"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "at": 21,
+         "gives": "E"
+        },
+        {
+         "words": "river",
+         "at": 29,
+         "gives": "R"
+        },
+        {
+         "words": "I have",
+         "at": 36,
+         "gives": "IVE",
+         "note": "I've is the contraction of I have"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone claims to have tracked an English river to its source on the edge of Dartford.",
-     "walkthrough": "The question mark breaks the surface into a question and answer; 'English river' is two abbreviations, not one river.",
-     "definitionFit": "To derive something is to trace it back to its origin, as with a word's etymology."
+     "surface": "Someone claims to have traced an English river to its source, on the edge of Dartford.",
+     "walkthrough": "Dartford is a town in Kent, on the Thames estuary; only its D and D are used.",
+     "definitionFit": "To derive something is to trace its origin, as with deriving a word from Latin."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "river"
+     "misdirectedWord": "outskirts"
     }
    }
   },
