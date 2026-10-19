@@ -1005,37 +1005,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EDAMAME",
-     "indicators": [
-      {
-       "text": "to go",
-       "note": "something told to go must leave, so that letter is taken out of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "cheese",
+       "at": 9,
+       "gives": "EDAM",
+       "note": "Edam is a Dutch cheese"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to go",
+         "at": 38,
+         "note": "the good abbreviation is to go, removed from the word for meat"
+        }
+       ],
        "parts": [
         {
-         "words": "cheese",
-         "gives": "EDAM",
-         "note": "Edam is the Dutch cheese with a red wax rind"
+         "words": "meat",
+         "at": 28,
+         "gives": "GAME",
+         "note": "game is the meat of wild animals such as venison or pheasant"
         },
         {
-         "words": "meat good",
-         "gives": "AME",
-         "note": "GAME, the meat of wild animals and birds, without G for good"
+         "words": "good",
+         "at": 33,
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A takeaway order: beans and cheese with some meat, all good to go.",
-     "walkthrough": "'Good to go' reads as the takeaway phrase meaning ready, but G (good) is being told to leave the word before it.",
-     "definitionFit": "Edamame are young green soya beans boiled in the pod, a Japanese snack, so the answer is a kind of legume."
+     "surface": "A recipe of beans and cheese alongside meat, ready as a takeaway.",
+     "walkthrough": "'meat' wants to be MEAT itself, but it is GAME, and 'good to go' drops G to leave AME.",
+     "definitionFit": "Edamame are young soya beans eaten in the pod, a Japanese dish of legumes."
     },
     "features": {
      "answerInScene": true,
@@ -1255,35 +1261,39 @@
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means being enclosed by it, so the first pieces go inside"
+       "at": 17,
+       "note": "the pieces go in the word for Wellington, inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Wellington",
+       "at": 20,
+       "gives": "BOOT",
+       "note": "a wellington is a rubber boot, a welly"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Wellington",
-         "gives": "BOOT",
-         "note": "a wellington is a rubber boot"
+         "words": "A",
+         "at": 0,
+         "gives": "A"
         },
         {
          "words": "match official",
+         "at": 2,
          "gives": "REF",
-         "note": "a ref is a referee"
+         "note": "a ref is a referee, a match official"
         }
        ]
-      },
-      {
-       "words": "A",
-       "note": "the letter itself"
       }
      ]
     },
     "explanation": {
-     "surface": "A referee at a match in Wellington, New Zealand, or perhaps not there at all.",
-     "walkthrough": "Wellington looks like the New Zealand capital twice over; both times it is a wellington boot, the British rubber rain boot.",
-     "definitionFit": "Someone going barefoot wears nothing on their feet, so they are certainly without any boot on."
+     "surface": "A referee officiating in Wellington, New Zealand, or someone without wellies?",
+     "walkthrough": "'Wellington' looks like the New Zealand capital, but it is a wellington boot both times.",
+     "definitionFit": "Barefoot means without shoes or boots, so someone barefoot is not wearing a rubber boot."
     },
     "features": {
      "answerInScene": false,

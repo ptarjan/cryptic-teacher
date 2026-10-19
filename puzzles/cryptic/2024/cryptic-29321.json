@@ -708,57 +708,64 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ECONOMICAL",
-     "indicators": [
-      {
-       "text": "is for",
-       "note": "one letter is for another means it stands in its place, swapping one for the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Green",
+       "at": 0,
        "gives": "ECO",
-       "note": "eco- is the environmental prefix, green in the political sense"
+       "note": "eco- is the prefix for green, environmental"
       },
       {
-       "words": "professed",
-       "gives": "NOMINAL",
-       "note": "nominal means in name only, as professed but not real"
-      },
-      {
-       "op": "first",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "primarily",
-         "note": "primarily means first, so just the opening letter of the money word is taken"
+         "text": "is for",
+         "at": 31,
+         "note": "one letter takes the place of another, standing in for the national abbreviation"
         }
        ],
        "parts": [
         {
-         "words": "cash",
-         "note": "first letter of cash"
+         "words": "professed",
+         "at": 6,
+         "gives": "NOMINAL",
+         "note": "nominal means in name only, professed but not real"
+        },
+        {
+         "words": "National",
+         "at": 38,
+         "gives": "N"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 21,
+           "note": "only the primary, first letter of cash is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cash",
+           "at": 16
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "National",
-       "gives": "N",
-       "note": "N is the standard abbreviation for National"
       }
      ]
     },
     "explanation": {
-     "surface": "A Green politician pledges money for a national savings scheme.",
-     "walkthrough": "In NOMINAL the second N is replaced by C, giving ECO + NOMICAL. 'National Saving' reads as one phrase, but the definition is Saving alone.",
-     "definitionFit": "Saving, as an adjective, means thrifty or careful with resources, which is what economical describes."
+     "surface": "An environmental campaigner speaks about cash and National Savings accounts.",
+     "walkthrough": "'Saving' is an adjective here, as in labour-saving; National Savings is a UK state savings bank, which the surface borrows.",
+     "definitionFit": "Economical means thrifty, using little, as a money-saving or labour-saving option does."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "National"
+     "misdirectedWord": "Saving"
     }
    }
   },

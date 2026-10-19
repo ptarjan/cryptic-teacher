@@ -163,47 +163,35 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HARDATIT",
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the strike word goes round the other letters"
+       "at": 6,
+       "note": "the word for knock goes about the headgear letters, around them"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HARDATIT",
-       "indicators": [
-        {
-         "text": "'eadgear",
-         "note": "the dropped aitch of Cockney speech shows that every H must go from the phrase it describes"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Knock",
-         "gives": "HIT",
-         "note": "to knock is to hit"
-        },
-        {
-         "words": "builder's",
-         "gives": "HARDHAT",
-         "note": "a builder's headgear is a hard hat"
-        }
-       ]
+       "words": "Knock",
+       "at": 0,
+       "gives": "HIT",
+       "note": "to hit is to knock"
+      },
+      {
+       "words": "builder's 'eadgear",
+       "at": 12,
+       "gives": "ARDAT",
+       "note": "a builder's hard hat, said with the H dropped as the apostrophe in 'eadgear hints, becomes 'ard 'at"
       }
      ]
     },
     "explanation": {
-     "surface": "A Cockney describes roughing up a builder's helmet.",
-     "walkthrough": "With its aitches dropped, hard hat becomes 'ARD 'AT, and HIT wraps around those letters.",
-     "definitionFit": "Someone hard at it is working energetically without a pause, an idiom for unrelenting effort."
+     "surface": "A workman on site knocks his hard hat about while working nonstop.",
+     "walkthrough": "The apostrophe in ''eadgear' signals dropped H's, so the hard hat becomes 'ARD 'AT, which goes inside HIT.",
+     "definitionFit": "Being hard at it means working busily and without a break, so the person is not easing off."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Knock"
@@ -527,41 +515,46 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "VALUES",
      "indicators": [
       {
        "text": "for",
-       "note": "one thing given for another means it replaces it in the word"
+       "at": 15,
+       "note": "one letter stands for another, the left abbreviation taking the place of the good one"
       }
      ],
      "parts": [
       {
-       "words": "left",
-       "gives": "L",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "shadowy",
+         "at": 27,
+         "gives": "VAGUE",
+         "note": "vague means indistinct or shadowy"
+        },
+        {
+         "words": "south",
+         "at": 35,
+         "gives": "S"
+        }
+       ]
       },
       {
        "words": "good",
-       "gives": "G",
-       "note": "standard abbreviation"
+       "at": 19,
+       "gives": "G"
       },
       {
-       "words": "shadowy",
-       "gives": "VAGUE",
-       "note": "shadowy means indistinct"
-      },
-      {
-       "words": "south",
-       "gives": "S",
-       "note": "compass abbreviation"
+       "words": "left",
+       "at": 10,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Treasures abandoned forever somewhere dark in the south.",
-     "walkthrough": "'Left for good' reads as abandoned forever; it actually means L replaces G in VAGUE.",
-     "definitionFit": "To value something is to treasure or prize it; both are verbs here."
+     "surface": "Valuables are left behind for good in a dark southern spot.",
+     "walkthrough": "'left for good' reads as abandoned forever, but it means L replaces G in VAGUES.",
+     "definitionFit": "To value something is to prize it highly, so values is a verb meaning treasures."
     },
     "features": {
      "answerInScene": false,
