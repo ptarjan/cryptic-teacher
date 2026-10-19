@@ -204,4 +204,12 @@ check("a letter-less selection leaf ending with the op's indicator is counted", 
     {"op": "first", "indicators": [{"text": "on top"}], "parts": [{"words": "cooked on top"}]}))
 check("a leaf holding losing head that gives letters is counted", 1, v.behead_in_leaf(
     {"op": "charade", "parts": [{"words": "Youngster losing head", "gives": "ID"}, {"words": "x", "gives": "X"}]}))
+check("Pope dismissing foremost giving OPE is a beheading leaf", 1, v.behead_in_leaf(
+    {"op": "charade", "parts": [{"words": "Pope dismissing foremost", "gives": "OPE"}, {"words": "x", "gives": "X"}]}))
+check("a stutter word giving a doubled string is counted", 1, v.repeat_in_leaf(
+    {"op": "charade", "parts": [{"words": "Stuttering", "gives": "LALA"}, {"words": "advice to catch", "gives": "LAND"}]}))
+check("a leaf 'two' beside a leaf giving the same letters is counted", 1, v.repeat_in_leaf(
+    {"op": "charade", "parts": [{"words": "groups of workers", "gives": "TU"}, {"words": "two", "gives": "TU"}]}))
+check("a percentage deletion is a halving-style selection", 1, v.halved_as_deletion({"op": "deletion", "indicators": [
+    {"text": "60% of"}], "parts": [{"words": "hospital", "gives": "SANATORIUM"}, {"gives": "RIUM"}]}))
 raise SystemExit(fails)
