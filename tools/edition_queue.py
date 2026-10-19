@@ -726,6 +726,30 @@ def refusal_reread(reason):
             or (reason.startswith("refused ") and reason.endswith(" before its fix")))
 
 
+#: Refusal rereads whose cause a 10-PAGE CANARY proved fixed: they skip the hold below and
+#: are ordered (by_urgency) right after the never-read units of the CT_NEWEST_FIRST papers,
+#: alongside other papers' never-read work, ahead of every other reread. One tuple per case:
+#: (paper key, refusal cause as in "refused <cause> before its fix", first year, last year, note).
+#: RULE: add a line only after a 10-page canary of that cause and era was read with the
+#: current code and mostly parsed; the note records the date and the canary's result.
+CANARY_PROVEN = (
+    ("gale", "no-reading-parses", 1960, 1966, "10-18 canary: 20 of 22 sample pages parsed"),
+    ("gale", "no-reading-parses", 2005, 2006, "10-18 canary: 20 of 22 sample pages parsed"),
+)
+
+
+def canary_proven(unit):
+    """The CANARY_PROVEN note of a refusal reread `unit`, or None."""
+    reason, year = unit.get("reason") or "", (unit.get("date") or "")[:4]
+    if not year.isdigit():
+        return None
+    for paper, cause, first, last, note in CANARY_PROVEN:
+        if (unit.get("paper") == paper and reason == f"refused {cause} before its fix"
+                and first <= int(year) <= last):
+            return note
+    return None
+
+
 def refusal_rereads_wanted():
     return os.environ.get("CT_REFUSAL_REREADS", "") not in ("", "0")
 
@@ -738,7 +762,11 @@ def hold_refusal_rereads(scans, reads, out=None):
     scan only a held read needed goes too. CT_REFUSAL_REREADS=1 keeps all.
     One note says how many were held and why."""
     new = any(u["reason"] in NEW_WORK for _, _, _, u in scans + reads)
-    held = [t for t in reads if refusal_reread(t[3]["reason"])]
+    proven = [t for t in reads if refusal_reread(t[3]["reason"]) and canary_proven(t[3])]
+    if proven and out is not None:
+        for note in dict.fromkeys(canary_proven(t[3]) for t in proven):
+            out.append(f"canary-proven rereads: kept {sum(canary_proven(t[3]) == note for t in proven)} ({note})")
+    held = [t for t in reads if refusal_reread(t[3]["reason"]) and not canary_proven(t[3])]
     if not held:
         return scans, reads
     if refusal_rereads_wanted():
@@ -919,7 +947,11 @@ def by_urgency(units):
         # Another paper's never read/scanned units go ahead of the named papers' rereads: once the named
         # papers' new pages are read, those rereads mostly end "already held" or an update (10-18: 34 new
         # filings of 184 writes), and 3,300 never-read FT pages waited behind ~30k of them.
-        units = ([t for t in newest if files_likely_tier(t[0], t[3]) == 0] + [t for t in rest if t[0] <= 1]
+        # CANARY_PROVEN rereads join that never-read work, after it.
+        proven = [t for t in units if canary_proven(t[3])]
+        newest = [t for t in newest if t not in proven]
+        rest = [t for t in rest if t not in proven]
+        units = ([t for t in newest if files_likely_tier(t[0], t[3]) == 0] + [t for t in rest if t[0] <= 1] + proven
                  + [t for t in newest if files_likely_tier(t[0], t[3]) > 0] + [t for t in rest if t[0] > 1])
     return [u for *_, u in units]
 
