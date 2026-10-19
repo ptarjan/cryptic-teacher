@@ -1677,63 +1677,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "ignoring",
+       "at": 8,
+       "note": "ignoring tells us to leave out the letters named next, as if they were not there"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "ignoring",
-         "at": 8,
-         "note": "ignoring the letters means leaving them out of the text"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "BTEC",
-           "at": 30,
-           "note": "the word itself, losing its T and its C"
-          },
-          {
-           "gives": "T"
-          }
-         ]
-        },
-        {
-         "gives": "C"
-        }
-       ]
+       "words": "BTEC test",
+       "at": 30,
+       "note": "taken as written"
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "test",
-           "at": 35,
-           "note": "the word itself, losing both its Ts"
-          },
-          {
-           "gives": "T"
-          }
-         ]
-        },
-        {
-         "gives": "T"
-        }
-       ]
+       "words": "Ts and Cs",
+       "at": 17,
+       "gives": "TCTT",
+       "note": "every T and every C in the phrase is to be dropped"
       }
      ]
     },
     "explanation": {
-     "surface": "Employees skip the terms and conditions in a vocational exam.",
-     "walkthrough": "'Ts and Cs' looks like terms and conditions, but means the letters T and C. A BTEC is a British vocational qualification.",
-     "definitionFit": "Worker bees are the sterile females of the hive, so bees are crossword workers."
+     "surface": "Students sitting a vocational exam are told to skip the terms and conditions.",
+     "walkthrough": "'Ts and Cs' looks like the usual shorthand for terms and conditions, but here it means the letters T and C themselves, all of which go from BTECTEST.",
+     "definitionFit": "Worker bees are the female labourers of a hive, so bees serve crosswords as a stock word for workers."
     },
     "features": {
      "answerInScene": false,

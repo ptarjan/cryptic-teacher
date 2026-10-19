@@ -1251,7 +1251,8 @@
      "indicators": [
       {
        "text": "after",
-       "note": "after places one section behind the other in reading order"
+       "at": 25,
+       "note": "after places the rearranged letters behind the taxi part"
       }
      ],
      "parts": [
@@ -1260,31 +1261,20 @@
        "indicators": [
         {
          "text": "boards",
-         "note": "to board a vehicle is to get inside it"
+         "at": 38,
+         "note": "boards means gets on, so the letter goes inside the vehicle"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Unlimited",
-           "note": "without limits means the boundaries are gone, so first and last letters drop"
-          }
-         ],
-         "parts": [
-          {
-           "words": "taxi perhaps",
-           "gives": "UBER",
-           "note": "Uber is a ride-hailing taxi firm"
-          },
-          {
-           "gives": "R"
-          }
-         ]
+         "words": "taxi perhaps",
+         "at": 45,
+         "gives": "UBER",
+         "note": "Uber is a ride-hailing service, an example of a taxi"
         },
         {
          "words": "knight",
+         "at": 31,
          "gives": "N",
          "note": "N is the chess notation for knight"
         }
@@ -1295,19 +1285,24 @@
        "indicators": [
         {
          "text": "amended",
-         "note": "amended means altered, so the remaining letters change their order"
+         "at": 17,
+         "note": "amended means altered, so these letters are reordered"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "Unlimited",
+           "at": 0,
+           "note": "unlimited means without its limits, so the outer letters go"
+          }
+         ],
          "parts": [
           {
            "words": "refund",
-           "note": "the word as written, before its ends go"
-          },
-          {
-           "gives": "D"
+           "at": 10
           }
          ]
         }
@@ -1316,14 +1311,14 @@
      ]
     },
     "explanation": {
-     "surface": "A full refund is given after a knight climbs into a cab.",
-     "walkthrough": "'taxi perhaps' needs a brand name rather than a synonym. 'Unlimited' means the refund word loses both ends before being rearranged.",
-     "definitionFit": "Unberufen is German for unbidden or uncalled-for, used as an exclamation like touch wood to avert bad luck."
+     "surface": "A rider demands a full refund after a knight climbs aboard a cab.",
+     "walkthrough": "Uber is a ride-hailing firm, so it can stand for a taxi; the answer is a German word.",
+     "definitionFit": "Unberufen is German for unbidden or uncalled-for, also said to ward off bad luck."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "boards"
+     "misdirectedWord": "knight"
     }
    }
   },
