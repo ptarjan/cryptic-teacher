@@ -536,50 +536,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BATHTUB",
-     "indicators": [
-      {
-       "text": "finally failing",
-       "note": "the final letter fails, so the end of that word drops off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Black",
+       "at": 0,
+       "gives": "B",
+       "note": "B is the pencil-grade abbreviation for black"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to turn",
+         "at": 38,
+         "note": "to turn means the joined pieces are read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Black",
-         "gives": "B",
-         "note": "B is the abbreviation for black, as on pencils"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "to turn",
-           "note": "turning round the group of letters makes them read in the opposite direction"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
+           "words": "though",
+           "at": 7,
+           "gives": "BUT",
+           "note": "but can mean though, however"
+          },
+          {
+           "words": "hot",
+           "at": 14,
+           "gives": "H",
+           "note": "H is the tap abbreviation for hot"
+          },
+          {
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "finally failing",
+             "at": 22,
+             "note": "finally failing means the last letter of tap is dropped"
+            }
+           ],
            "parts": [
             {
-             "words": "though",
-             "gives": "BUT",
-             "note": "though and but both introduce a contrast"
-            },
-            {
-             "words": "hot",
-             "gives": "H",
-             "note": "H for hot, as on taps"
-            },
-            {
              "words": "tap",
-             "gives": "TA",
-             "note": "tap loses its last letter"
+             "at": 18,
+             "note": "taken as written before losing its last letter"
+            },
+            {
+             "gives": "P"
             }
            ]
           }
@@ -590,14 +596,14 @@
      ]
     },
     "explanation": {
-     "surface": "A grimy tap that won't turn makes washing awkward.",
-     "walkthrough": "Only the last three pieces are turned round; Black stays at the front. H for hot is the tap label.",
-     "definitionFit": "A bathtub is the large basin in which a person bathes."
+     "surface": "A dark complaint about a hot tap finally refusing to turn.",
+     "walkthrough": "BUT + H + TA reads BUTHTA, which turned round gives ATHTUB after B.",
+     "definitionFit": "A bathtub is a vessel for bathing in, a place for washing oneself."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Black"
+     "misdirectedWord": "turn"
     }
    }
   },
@@ -1537,46 +1543,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GONERIL",
+     "op": "container",
      "indicators": [
       {
-       "text": "Detailed",
-       "note": "read as de-tailed: the word has its tail cut off"
+       "text": "about",
+       "at": 18,
+       "note": "about means the shortened word goes around the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means going around something else"
+         "text": "Detailed",
+         "at": 0,
+         "note": "detailed means the word loses its tail, its final letter"
         }
        ],
        "parts": [
         {
          "words": "question",
-         "gives": "GRIL",
-         "note": "grill, to question hard, losing its last letter"
+         "at": 9,
+         "gives": "GRILL",
+         "note": "to grill someone is to question them closely"
         },
         {
-         "words": "a single",
-         "gives": "ONE",
-         "note": "a single thing is one"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "a single",
+       "at": 24,
+       "gives": "ONE",
+       "note": "a single thing is one"
       }
      ]
     },
     "explanation": {
-     "surface": "A thorough interrogation of a monarch's daughter.",
-     "walkthrough": "GRIL goes about ONE. 'Detailed' looks like thorough but means losing the tail.",
-     "definitionFit": "Goneril is the eldest of King Lear's daughters in Shakespeare's tragedy."
+     "surface": "A searching question about one king's daughter.",
+     "walkthrough": "'Detailed' reads as thorough, but it means de-tailed: losing the last letter.",
+     "definitionFit": "Goneril is the eldest daughter of Shakespeare's King Lear."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Detailed"

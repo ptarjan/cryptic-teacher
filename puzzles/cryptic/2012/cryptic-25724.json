@@ -1007,48 +1007,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GRAMMARIAN",
-     "indicators": [
-      {
-       "text": "half",
-       "note": "half of a word means only part of it survives"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed",
+         "at": 16,
+         "note": "backed means the kept half is read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "backed",
-           "note": "to back is to move backwards, so the order runs in reverse"
+           "text": "half",
+           "at": 11,
+           "note": "half means only the first four of the name's eight letters are kept"
           }
          ],
          "parts": [
           {
            "words": "Margaret",
-           "gives": "MARG",
-           "note": "the first half of the name"
+           "at": 0,
+           "note": "taken as written before losing half its letters"
+          },
+          {
+           "gives": "ARET"
           }
          ]
-        },
-        {
-         "words": "a maid",
-         "gives": "MARIAN",
-         "note": "Maid Marian is Robin Hood's sweetheart"
         }
        ]
+      },
+      {
+       "words": "a maid",
+       "at": 23,
+       "gives": "MARIAN",
+       "note": "Maid Marian is Robin Hood's companion, so a maid gives Marian"
       }
      ]
     },
     "explanation": {
-     "surface": "A girl's partner is turned round and a maid is buried by someone.",
-     "walkthrough": "Browning's A Grammarian's Funeral has the scholar's disciples carrying him up a mountain to bury him.",
-     "definitionFit": "Browning's poem describes the burial of a scholar of language, so the poet in effect laid him in his grave."
+     "surface": "Half of Margaret reverses, and a maid is buried by a poet.",
+     "walkthrough": "MARG reversed gives GRAM. 17 is Robert Browning, whose poem A Grammarian's Funeral buries one; the 's is a link.",
+     "definitionFit": "Browning's poem describes the funeral of a scholar of language, so the poet buried one in verse."
     },
     "features": {
      "answerInScene": false,
@@ -2060,53 +2064,62 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ELIZABETHBARRETT",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "to be left off",
+       "at": 38,
+       "note": "to be left off means the starting letter of body is removed from the pool before the rest is rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ELIZABETHBARRETT",
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Hazel",
+         "at": 0,
+         "note": "taken as written"
+        },
+        {
+         "words": "better",
+         "at": 7,
+         "note": "taken as written"
+        },
+        {
+         "words": "rabbit",
+         "at": 14,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "to be left off",
-         "note": "what is left off is omitted"
+         "text": "starts",
+         "at": 31,
+         "note": "starts means the first letter of body"
         }
        ],
        "parts": [
         {
-         "words": "Hazel, better rabbit",
-         "note": "taken as written"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "starts",
-           "note": "the start of a word is its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "body",
-           "note": "the opening letter is removed from the words"
-          }
-         ]
+         "words": "body",
+         "at": 26,
+         "note": "taken as written before its first letter is picked"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hazel, the rabbit hero of Watership Down, is told to shed some weight before mating.",
-     "walkthrough": "There is no anagram signal; the definition and the letter count make the rearrangement clear.",
-     "definitionFit": "The poet Elizabeth Barrett eloped with Robert Browning in 1846 and became his wife."
+     "surface": "Hazel, the rabbit hero of Watership Down, as a better rabbit; the cross-references turn it into literary history.",
+     "walkthrough": "HAZEL BETTER RABBIT without one B are rearranged; there is no separate rearranging signal. 5 17 is Robert Browning, whom the poet Elizabeth Barrett married.",
+     "definitionFit": "Elizabeth Barrett eloped with and married the poet Robert Browning in 1846."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "absurd",
+     "aptDefinition": false,
      "misdirectedWord": "rabbit"
     }
    }

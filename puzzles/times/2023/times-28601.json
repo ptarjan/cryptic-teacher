@@ -1128,51 +1128,79 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "THIRTEEN",
      "indicators": [
       {
        "text": "held in",
-       "note": "something held in another is inside it"
+       "at": 57,
+       "note": "held in means the rearranged ceremony goes inside the following words"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "if one pushes forward",
-         "note": "a letter pushing forward moves ahead of others, rearranging the order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "ceremony",
-         "gives": "RITE",
-         "note": "a rite is a ceremony"
-        },
-        {
          "words": "the",
+         "at": 65,
          "note": "taken as written"
         },
         {
          "words": "north",
-         "gives": "N",
-         "note": "N is the abbreviation for north"
+         "at": 69,
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "if",
+         "at": 23,
+         "note": "if sets the condition that the one goes at the front of the ceremony letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 26,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "pushes forward",
+           "at": 30,
+           "note": "pushes forward means the one inside the ceremony word comes out and moves to its front"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ceremony",
+           "at": 48,
+           "gives": "RITE",
+           "note": "a rite is a ceremony"
+          },
+          {
+           "gives": "I"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Pushing to the front at a northern ritual is considered bad luck.",
-     "walkthrough": "'One' is I: move it to the front of the ceremony word, then place that inside THE N.",
-     "definitionFit": "Thirteen is the number traditionally regarded as unlucky, hence superstitions about Friday the thirteenth."
+     "surface": "Superstition about a ceremony in the north being unlucky if someone pushes forward.",
+     "walkthrough": "'pushes forward' moves the I of the ceremony word to its front, giving IRTE; 'if' is a link.",
+     "definitionFit": "The number thirteen is widely held by superstition to bring bad luck."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "one"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pushes"
     }
    }
   },

@@ -753,44 +753,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REFRIGERATION",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter of the second word is dropped"
+       "text": "wild",
+       "at": 33,
+       "note": "wild means uncontrolled, so the letters run into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "foreign",
+       "at": 9,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "wild",
-         "note": "something wild is out of control, so these letters run riot into a new order"
+         "text": "mostly",
+         "at": 26,
+         "note": "mostly means all but the final letter of terrain"
         }
        ],
        "parts": [
         {
-         "words": "foreign",
-         "note": "taken as written"
+         "words": "terrain",
+         "at": 17,
+         "note": "taken as written before losing its last letter"
         },
         {
-         "words": "terrain",
-         "gives": "TERRAI",
-         "note": "terrain with its last letter removed"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller describes an icy, untamed landscape abroad.",
-     "definitionFit": "Freezing, as a noun, is the act of chilling to keep cold, which is what refrigeration means."
+     "surface": "Strange foreign land, largely untamed and icy.",
+     "walkthrough": "FOREIGN + TERRAI are rearranged together.",
+     "definitionFit": "Refrigeration is the process of chilling things, the noun sense of freezing."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Freezing"
     }
@@ -885,43 +890,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PERSISTENT",
      "indicators": [
       {
        "text": "dipping into",
-       "note": "to dip into is to go inside, so the shortened word goes inside what follows"
+       "at": 25,
+       "note": "dipping into means the shortened sibling goes inside the other pieces"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 38,
+         "gives": "PER",
+         "note": "per means a, as in 'ten pounds per head'"
+        },
+        {
+         "words": "set of books",
+         "at": 40,
+         "gives": "NT",
+         "note": "NT is the New Testament, a set of books of the Bible"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "endlessly",
-         "note": "without an end means the final letter is dropped"
+         "at": 15,
+         "note": "endlessly means the word for sibling loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "a",
-           "gives": "PER",
-           "note": "a as in 'ten pounds a day', meaning per"
-          },
-          {
-           "words": "sibling",
-           "gives": "SISTER",
-           "note": "a sister is a sibling"
-          },
-          {
-           "words": "set of books",
-           "gives": "NT",
-           "note": "the New Testament, a set of books of the Bible"
-          }
-         ]
+         "words": "sibling",
+         "at": 7,
+         "gives": "SISTER",
+         "note": "a sister is a sibling"
         },
         {
          "gives": "R"
@@ -931,9 +939,9 @@
      ]
     },
     "explanation": {
-     "surface": "A determined sister keeps dipping into a box set of novels.",
-     "walkthrough": "The tiny word 'a' is doing real work: it means 'per', as in a price per item.",
-     "definitionFit": "Dogged and persistent both describe someone who keeps going stubbornly despite difficulty."
+     "surface": "A determined sister dipping into a set of books.",
+     "walkthrough": "'a' meaning per, as in 'so much a head', is the step most solvers miss.",
+     "definitionFit": "Persistent and dogged both mean refusing to give up despite difficulty."
     },
     "features": {
      "answerInScene": true,

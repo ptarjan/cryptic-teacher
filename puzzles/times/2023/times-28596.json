@@ -229,54 +229,51 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BAGEL",
+     "op": "charade",
      "indicators": [
       {
        "text": "covered by",
-       "note": "something covered by another thing sits inside it, wrapped round"
+       "at": 27,
+       "note": "covered by in a down clue means placed beneath the airline letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "airline",
+       "at": 38,
+       "gives": "BA",
+       "note": "BA is British Airways"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Northbound",
+         "at": 0,
+         "note": "northbound in a down clue means the word reads upwards, backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "airline",
-         "gives": "BA",
-         "note": "BA is British Airways"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "Northbound",
-           "note": "heading north in a down clue means reading upwards, so the letters run backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "part of journey",
-           "gives": "LEG",
-           "note": "a leg is one stage of a journey"
-          }
-         ]
+         "words": "part of journey",
+         "at": 11,
+         "gives": "LEG",
+         "note": "a leg is a stage of a journey"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A flight leg heading north where the airline serves round fare.",
-     "walkthrough": "'Round fare' is food that is circular, not a return ticket price.",
-     "definitionFit": "A bagel is a ring-shaped bread roll, so it is literally food with a round shape."
+     "surface": "A northbound flight leg, with the airline serving a round snack.",
+     "walkthrough": "LEG read upwards is GEL, written below BA.",
+     "definitionFit": "A bagel is a ring-shaped bread roll, so food that is round."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "fare"
+     "misdirectedWord": "round"
     }
    }
   },
