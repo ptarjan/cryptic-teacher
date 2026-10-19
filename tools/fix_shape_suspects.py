@@ -762,13 +762,63 @@ def r_leaf_fold(node, parent, ctx):
     return r_del_removed(probe, parent, ctx)
 
 
+def _role_owner(ind):
+    """The op type the corpus files an indicator's words under (at least ROLE_MIN_USES uses, and
+    ROLE_SWAP_OWNED of them one type), else None."""
+    counts = V._role_counts(V.indicator_role_key(ind.get("text")))
+    total = sum(counts.values())
+    if total < V.ROLE_MIN_USES:
+        return None
+    top = max(counts, key=counts.get)
+    return top if counts[top] >= V.ROLE_SWAP_OWNED * total else None
+
+
+def r_role_swap(node, parent, ctx):
+    """Indicators filed on the wrong one of two nested ops. The ops swap them when each carries
+    a word the corpus files under the other's type (ins<returned>(rev<opened by>(..), ..) is
+    ins<opened by>(rev<returned>(..), ..)); an op with no indicator of its own takes the word
+    its parent carries for its type (ana<ignoring>(del(..)) is ana(del<ignoring>(..)), a first
+    op under ins<head>). Words move whole; the letters are untouched."""
+    kind = V._OP_LEXICON.get(node.get("op"))
+    if not kind or not parent or node.get("unchecked") or parent.get("unchecked") \
+            or id(node) in ctx["under_unchecked"]:
+        return None
+    pkind = V._OP_LEXICON.get(parent.get("op"))
+    if parent.get("op") != "charade" and not pkind:
+        return None
+    mine, theirs = node.get("indicators") or [], parent.get("indicators") or []
+    if pkind and pkind != kind and not V._swap_alike(pkind, kind):
+        for a in mine:
+            if _role_owner(a) != pkind:
+                continue
+            for b in theirs:
+                if V._swap_alike(_role_owner(b), kind):
+                    mine[mine.index(a)], theirs[theirs.index(b)] = b, a
+                    return node
+    if not mine and kind != pkind:
+        for b in theirs:
+            if _role_owner(b) == kind:
+                theirs.remove(b)
+                node["indicators"] = [b]
+                if not theirs:
+                    parent.pop("indicators", None)
+                return node
+    return None
+
+
+def r_wrong_role(node, parent, ctx):
+    """wrongRole: a leaf that folds a deletion into its words (r_leaf_fold), else indicators on
+    the wrong one of two nested ops (r_role_swap)."""
+    return r_leaf_fold(node, parent, ctx) or r_role_swap(node, parent, ctx)
+
+
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
            "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
 #: Repairs for validator rules (the queue's anaSynonym / anagramOfContainer rows), run by --rule.
 RULE_REPAIRS = {"anaSynonym": r_ana_synonym, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
-                "wrongRole": r_leaf_fold}
+                "wrongRole": r_wrong_role}
 
 
 def repair_tree(tree, clue, answer=None, repairs=None):
