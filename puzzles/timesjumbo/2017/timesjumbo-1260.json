@@ -1681,30 +1681,31 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LUSTY",
      "indicators": [
       {
        "text": "with change of hands",
-       "note": "the right hand is swapped for the left one"
+       "at": 21,
+       "note": "change of hands means right is swapped for left, R becoming L"
       }
      ],
      "parts": [
       {
        "words": "Out of practice",
+       "at": 0,
        "gives": "RUSTY",
-       "note": "skills that are rusty are unpractised"
+       "note": "rusty means out of practice"
       },
       {
-       "words": "hands",
-       "gives": "L",
-       "note": "L for left replaces R for right"
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A rusty player swaps hands and finds strength.",
-     "definitionFit": "Lusty means healthy and vigorous, full of strength and energy."
+     "surface": "A rusty sportsman switches to the other hand and gets stronger.",
+     "definitionFit": "Lusty means vigorous and healthy, full of physical strength."
     },
     "features": {
      "answerInScene": false,
@@ -1977,32 +1978,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PRAISEBE",
      "indicators": [
       {
        "text": "à la Spooner",
-       "note": "in the manner of Reverend Spooner, who swapped the opening sounds of words"
+       "at": 15,
+       "note": "in the manner of Spooner, so the opening sounds of the two words swap"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Cook vegetable",
-       "gives": "PRAISEBE",
-       "soundsLike": "BRAISE PEA",
-       "note": "to braise is to cook slowly; swap the opening sounds"
+       "words": "Cook",
+       "at": 0,
+       "gives": "BRAISE",
+       "note": "braise is a way to cook"
+      },
+      {
+       "op": "homophone",
+       "spelt": "PE",
+       "parts": [
+        {
+         "words": "vegetable",
+         "at": 5,
+         "gives": "PEA",
+         "note": "a pea is a vegetable, said here as the sound pee"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grateful cook stews some greens and gives thanks to God.",
-     "definitionFit": "Praise be is an exclamation of thanksgiving to God, expressing relief or gratitude."
+     "surface": "A cook is told to braise a vegetable and give thanks to God.",
+     "walkthrough": "Swapping the B and P sounds of BRAISE PEA gives PRAISE BEE, said like the phrase.",
+     "definitionFit": "Praise be is an exclamation of gratitude to God, a short thanksgiving."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "Cook"
     }
    }

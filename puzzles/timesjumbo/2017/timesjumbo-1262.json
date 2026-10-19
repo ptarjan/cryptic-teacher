@@ -1319,50 +1319,54 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the preceding pieces inside the bad-weather word"
+       "at": 22,
+       "note": "in places the pieces before it inside the bad weather word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "bad weather",
-         "gives": "HAIL",
-         "note": "hail is a stormy fall of ice pellets"
-        },
-        {
-         "words": "With",
-         "gives": "AND",
-         "note": "and means together with"
-        }
-       ]
+       "words": "bad weather",
+       "at": 25,
+       "gives": "HAIL",
+       "note": "hail is bad weather"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "leader of",
-         "note": "the leader of a word is its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "ramble",
-         "note": "the first letter of ramble"
+         "words": "With",
+         "at": 0,
+         "gives": "AND",
+         "note": "and means with, plus"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader of",
+           "at": 5,
+           "note": "the leader of a word is its first letter, so ramble gives its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ramble",
+           "at": 15
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A walker heading a ramble in a storm grabs for support.",
-     "definitionFit": "A handrail is a rail fixed beside stairs or a path for people to grip and steady themselves."
+     "surface": "A walker caught in a storm grabs something steady to keep their footing.",
+     "definitionFit": "A rail fixed beside stairs is a support the hand grips for balance."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ramble"
+     "misdirectedWord": "weather"
     }
    }
   },
