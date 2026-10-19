@@ -72,6 +72,7 @@ jobs:
           key: git-store-${{ github.sha }}
           restore-keys: git-store-
       - name: Check out
+        id: checkout
         env:
           TOKEN: ${{ github.token }}
         run: |
@@ -372,8 +373,13 @@ jobs:
       # authored puzzle 31s. Paths match each restore exactly: they are part
       # of the cache's version. tools/test_ci_checkout.sh checks each
       # restore has its save.
+      # Not gated on the deploy: the store is the checkout's, and it is good
+      # once the checkout succeeded. Gated on the deploy it was never saved
+      # while the build was failing (every run 2026-10-19 02:45 to 09:38), so
+      # each run restored the 02:45 store and fetched everything pushed since
+      # (Check out 35s against 6s warm, runs 39226527488, 39228388950).
       - name: Save the git store
-        if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.checkout.outcome == 'success' }}
         uses: actions/cache/save@v5
         with:
           path: |
