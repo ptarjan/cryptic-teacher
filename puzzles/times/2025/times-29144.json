@@ -496,46 +496,50 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "takes the first letter of commodity"
-        }
-       ],
-       "parts": [
-        {
-         "words": "a",
-         "note": "used as printed"
-        }
-       ]
+       "words": "a",
+       "at": 14,
+       "gives": "A"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "embraced by"
+         "text": "embraced by",
+         "at": 36,
+         "note": "embraced by means held inside, so the letter goes into the generation word"
         }
        ],
        "parts": [
         {
          "words": "millennials",
+         "at": 48,
          "gives": "GENY",
-         "note": "Generation Y is another name for millennials"
+         "note": "Gen Y is the generation called millennials"
         },
         {
-         "words": "commodity initially",
-         "gives": "C",
-         "note": "first letter of commodity"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 26,
+           "note": "initially means only the first letter is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "commodity",
+           "at": 16,
+           "note": "first letter C"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A company trading in something millennials have taken to.",
-     "walkthrough": "Generation Y, born roughly 1981 to 1996, is the usual label for millennials.",
-     "definitionFit": "An agency is a business providing a service, such as a travel agency."
+     "surface": "A question whether young people have taken to a business with one product.",
+     "definitionFit": "An agency is a firm providing a service, such as a travel or advertising business."
     },
     "features": {
      "answerInScene": true,
@@ -969,31 +973,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "LARKIN",
      "indicators": [
       {
        "text": "endlessly",
-       "note": "the last letter is dropped"
+       "at": 20,
+       "note": "endlessly means without its end, so the last letter goes"
       }
      ],
      "parts": [
       {
-       "words": "fooling around endlessly",
-       "gives": "LARKIN",
-       "note": "LARKING without its last G"
+       "words": "fooling around",
+       "at": 5,
+       "gives": "LARKING",
+       "note": "larking means fooling around"
+      },
+      {
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A poet who never stops messing about.",
-     "walkthrough": "Philip Larkin was an English poet, best known for The Whitsun Weddings.",
-     "definitionFit": "Philip Larkin was a twentieth-century English poet."
+     "surface": "A versifier messing about without end.",
+     "definitionFit": "Philip Larkin was an English poet, author of The Whitsun Weddings."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "endlessly"
+     "misdirectedWord": "fooling"
     }
    }
   },

@@ -43,42 +43,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "QUORUM",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter of the prison word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 26,
+         "note": "almost means one short, so the final letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "prison",
-         "gives": "QUO",
-         "note": "QUOD is old slang for prison, here missing its last letter"
+         "at": 19,
+         "gives": "QUOD",
+         "note": "quod is British slang for prison"
         },
         {
-         "words": "Drink",
-         "gives": "RUM",
-         "note": "a spirit distilled from sugar cane"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "Drink",
+       "at": 0,
+       "gives": "RUM",
+       "note": "rum is an alcoholic drink"
       }
      ]
     },
     "explanation": {
-     "surface": "A drink smuggled into jail is just about enough to help an inmate cope.",
-     "walkthrough": "The drink comes first in the clue but last in the answer: it is delivered to the shortened prison word.",
-     "definitionFit": "A quorum is the minimum number of members a meeting needs before it can legitimately do business."
+     "surface": "Alcohol smuggled into jail is nearly enough to survive on.",
+     "walkthrough": "'delivered to' just places the drink after the prison word.",
+     "definitionFit": "A quorum is the minimum number of members needed for a meeting to conduct business validly."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "delivered"
+     "misdirectedWord": "get"
     }
    }
   },
@@ -604,7 +608,8 @@
      "indicators": [
       {
        "text": "returned",
-       "note": "returned means sent back, so the whole assembly is read backwards"
+       "at": 36,
+       "note": "returned means sent back, so the whole thing reads backwards"
       }
      ],
      "parts": [
@@ -613,43 +618,47 @@
        "indicators": [
         {
          "text": "touring",
-         "note": "touring means travelling round, so the jockey letters surround the rest"
+         "at": 12,
+         "note": "touring means going around, so the DJ surrounds the other letters"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Disk jockey",
-           "gives": "DJ",
-           "note": "DJ is the usual short form"
-          },
-          {
-           "words": "former",
-           "gives": "EX",
-           "note": "ex means former"
-          }
-         ]
+         "words": "Disk jockey",
+         "at": 0,
+         "gives": "DJ",
+         "note": "DJ is the abbreviation for disc jockey"
         },
         {
-         "words": "province",
-         "gives": "NI",
-         "note": "NI is Northern Ireland, often called the Province"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "former",
+           "at": 20,
+           "gives": "EX",
+           "note": "ex means former"
+          },
+          {
+           "words": "province",
+           "at": 27,
+           "gives": "NI",
+           "note": "NI is Northern Ireland, the province of the UK"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A DJ on tour in an old province comes home bewitched.",
-     "walkthrough": "Northern Ireland is commonly called the Province in British usage.",
-     "definitionFit": "To be jinxed is to be cursed with bad luck, as if a spell had been cast."
+     "surface": "A radio DJ travelling round an ex-colony comes home bewitched.",
+     "walkthrough": "DJ round EXNI gives DEXNIJ, which 'returned' turns round.",
+     "definitionFit": "Someone jinxed has had a curse put on them, bringing bad luck."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "touring"
+     "misdirectedWord": "province"
     }
    }
   },

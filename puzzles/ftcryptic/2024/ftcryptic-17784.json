@@ -521,59 +521,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WORSENED",
+     "op": "container",
      "indicators": [
       {
-       "text": "brief",
-       "note": "brief says the word is cut short by its last letter"
+       "text": "in",
+       "at": 36,
+       "note": "in places the witness-plus-name group inside the brief statement word"
       }
      ],
      "parts": [
+      {
+       "words": "brief statement",
+       "at": 39,
+       "gives": "WORD",
+       "note": "to have a word is to make a brief statement"
+      },
       {
        "op": "container",
        "indicators": [
         {
          "text": "withholding",
-         "note": "withholding means keeping something back inside, so one word holds the next"
+         "at": 19,
+         "note": "withholding means keeping something held back inside, so the witness word holds the name letter"
         }
        ],
        "parts": [
         {
-         "words": "statement",
-         "gives": "WORD",
-         "note": "a word is a brief statement, as in a word of warning"
+         "words": "witness",
+         "at": 11,
+         "gives": "SEE",
+         "note": "to witness something is to see it"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "in places that combination inside the last word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "witness",
-           "gives": "SEE",
-           "note": "to see is to witness"
-          },
-          {
-           "words": "name",
-           "gives": "N",
-           "note": "N is the abbreviation for name"
-          }
-         ]
+         "words": "name",
+         "at": 31,
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An irritated witness keeps a name out of their short testimony.",
-     "walkthrough": "Two containers nest here: the name goes inside the witness, and that inside the shortened statement.",
-     "definitionFit": "Aggravated means made worse, as an aggravated injury, so it matches worsened."
+     "surface": "A witness keeps back a name while giving a short statement to the police.",
+     "definitionFit": "Something aggravated has been made worse, a straightforward synonym in the past tense."
     },
     "features": {
      "answerInScene": false,
@@ -1344,33 +1334,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HAYWIRE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner was famous for swapping the opening sounds of words, so that swap is wanted"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the start sounds of the two words are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "much more out of it",
-       "gives": "HAYWIRE",
-       "soundsLike": "WAY HIGHER",
-       "note": "much more is way, more out of it is higher; swapping their opening sounds"
+       "words": "much",
+       "at": 10,
+       "gives": "WAY",
+       "note": "way means much, as in way better"
+      },
+      {
+       "op": "homophone",
+       "spelt": "HIRE",
+       "parts": [
+        {
+         "words": "more out of it",
+         "at": 15,
+         "gives": "HIGHER",
+         "note": "higher, as in more high on drugs, more out of it"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone far more intoxicated and muddled than before.",
-     "walkthrough": "High is slang for out of it on drugs, so much more out of it is way higher.",
-     "definitionFit": "Going haywire means behaving erratically or getting badly muddled."
+     "surface": "Someone even more intoxicated and muddled than before.",
+     "walkthrough": "WAY HIGHER spoken with its opening sounds swapped becomes HAY WIRE; 'higher' and 'hire' sound alike.",
+     "definitionFit": "To go haywire is to become disordered or erratic, so a confused mind or machine is haywire."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "more"
     }
    }
   },
