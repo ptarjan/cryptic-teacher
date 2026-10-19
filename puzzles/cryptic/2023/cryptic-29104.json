@@ -446,12 +446,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OLIVEOIL",
      "indicators": [
       {
        "text": "in",
-       "note": "in places one piece inside the other"
+       "at": 39,
+       "note": "in means the phrase's letters go inside the rearranged ones"
       }
      ],
      "parts": [
@@ -460,30 +459,34 @@
        "indicators": [
         {
          "text": "modified",
-         "note": "modified means changed, so the letters shift"
+         "at": 42,
+         "note": "modified means the letters of olio are changed in order"
         }
        ],
        "parts": [
         {
-         "words": "as it happens",
-         "gives": "LIVE",
-         "note": "a live broadcast goes out as it happens"
-        },
-        {
          "words": "olio",
-         "note": "olio, a hotchpotch stew, rearranged"
+         "at": 51
         }
        ]
+      },
+      {
+       "words": "as it happens",
+       "at": 24,
+       "gives": "LIVE",
+       "note": "a broadcast shown as it happens is live"
       }
      ]
     },
     "explanation": {
-     "surface": "A cook uses something, as it turns out, in a revised olio stew.",
-     "definitionFit": "Olive oil is a staple cooking fat in the kitchen."
+     "surface": "A cook stirs something into a reworked olio as events unfold.",
+     "walkthrough": "An olio is a stew; its letters rearranged as OOIL take LIVE after the first O.",
+     "definitionFit": "Olive oil is a common cooking fat pressed from olives, an everyday kitchen ingredient."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "olio"
     }
    }
   },
@@ -1379,28 +1382,43 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "THAI",
      "indicators": [
       {
        "text": "dismissing conclusions",
-       "note": "dismissing conclusions means sending away the end of each word"
+       "at": 38,
+       "note": "the conclusions are the final letters of each part, which are sent away"
       }
      ],
      "parts": [
       {
-       "words": "that is",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "that",
+         "at": 30
+        },
+        {
+         "words": "is",
+         "at": 35,
+         "gives": "IE",
+         "note": "that is gives i.e., the abbreviation for id est"
+        }
+       ]
+      },
+      {
+       "gives": "TE"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone from Asia, that is, who is rejecting conclusions.",
-     "definitionFit": "A Thai is a native of Thailand in South-East Asia."
+     "surface": "A traveller dismisses the end of a conversation about an Asian country.",
+     "walkthrough": "'that is' is i.e.; THAT loses its last T and IE its last E.",
+     "definitionFit": "A Thai is a native or citizen of Thailand, the country in South-East Asia."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "conclusions"
     }
    }
   },
@@ -1431,45 +1449,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IRISHMOSS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "best part of",
-       "note": "the best part of something is most of it, so one letter is cut"
+       "text": "in confusion",
+       "at": 46,
+       "note": "in confusion means the letters are jumbled into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in confusion",
-         "note": "confusion means disorder, so the letters are jumbled"
+         "text": "best part of",
+         "at": 20,
+         "note": "the best part, meaning most, of the word: all but its last letter"
         }
        ],
        "parts": [
         {
          "words": "shore",
-         "gives": "SHOR",
-         "note": "shore without its last letter"
+         "at": 33
         },
         {
-         "words": "I miss",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "I",
+       "at": 39
+      },
+      {
+       "words": "miss",
+       "at": 41
       }
      ]
     },
     "explanation": {
-     "surface": "A forager misses the edible seaweed growing on the best stretch of shore.",
-     "definitionFit": "Irish moss, or carrageen, is a red seaweed eaten and used as a thickener."
+     "surface": "On the beach, someone confused regrets missing some seaweed they could have eaten.",
+     "walkthrough": "SHOR (most of shore), I and MISS are rearranged.",
+     "definitionFit": "Irish moss, or carrageen, is a red seaweed of Atlantic coasts used as food and to thicken desserts."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "best"
     }
    }
   },

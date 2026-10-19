@@ -121,42 +121,50 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "RANDOMVARIABLE",
      "indicators": [
       {
        "text": "to change",
-       "note": "the remaining letters must change their order to form something new"
+       "at": 87,
+       "note": "to change means the remaining letters are rearranged into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "RANDOMVARIABLE",
        "indicators": [
         {
          "text": "both wanting leadership",
-         "note": "each of the two words lacks its leader, meaning its first letter is dropped"
+         "at": 63,
+         "note": "both words lose their leading letters, the first letter of each"
         }
        ],
        "parts": [
         {
-         "words": "Braverman",
-         "note": "Suella Braverman, the former UK Home Secretary; her surname is used as written"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Braverman",
+           "at": 41,
+           "note": "Suella Braverman, a former UK Home Secretary"
+          },
+          {
+           "words": "tabloid",
+           "at": 55,
+           "note": "taken as written"
+          }
+         ]
         },
         {
-         "words": "tabloid",
-         "note": "taken as written"
+         "gives": "BT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tabloid and a right-wing politician both clamouring for a change of party leader, with every outcome on the table.",
-     "walkthrough": "Drop the B of Braverman and the T of tabloid, then rearrange the fourteen letters left. Suella Braverman is a British Conservative politician.",
-     "definitionFit": "In statistics a random variable assigns a value to each possible result of an experiment, so it describes the whole set of outcomes."
+     "surface": "A politician and a popular newspaper both want their leaders replaced.",
+     "walkthrough": "Dropping the initial B and T leaves RAVERMAN and ABLOID, which rearrange to give the two words. A tabloid is a popular, sensational newspaper.",
+     "definitionFit": "In statistics, a random variable is a quantity whose value is set by chance, mapping each possible outcome of an experiment to a number."
     },
     "features": {
      "answerInScene": false,
@@ -421,57 +429,52 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "BLINDFOLD",
-     "indicators": [
-      {
-       "text": "cycling",
-       "note": "cycling round means the front letter is moved to the back of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essentially",
+         "at": 7,
+         "note": "the essence of a word is its core, so the middle letters are taken"
+        }
+       ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "BL",
-         "indicators": [
-          {
-           "text": "essentially",
-           "note": "the essence of a word is its core, so only its middle letters are taken"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Public",
-           "gives": "BL",
-           "select": "middle",
-           "note": "the middle two letters of public"
-          }
-         ]
-        },
-        {
-         "words": "find",
-         "gives": "INDF",
-         "note": "find with its first letter carried round to the end"
-        },
-        {
-         "words": "over the hill",
-         "gives": "OLD",
-         "note": "over the hill means past one's prime, old"
+         "words": "Public",
+         "at": 0
         }
        ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 24,
+         "note": "cycling moves a letter from the front of the word to the back"
+        }
+       ],
+       "parts": [
+        {
+         "words": "find",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "over the hill",
+       "at": 32,
+       "gives": "OLD",
+       "note": "someone over the hill is old"
       }
      ]
     },
     "explanation": {
-     "surface": "An ageing cyclist struggling over a hill, eyes shut, as the public rarely do.",
-     "walkthrough": "The ellipsis leads into the next clue but plays no part in the wordplay.",
-     "definitionFit": "To do something blindfold is to do it with the eyes covered, unable to see, as in playing chess blindfold."
+     "surface": "Cyclists climbing a public hill reach the top without seeing a thing.",
+     "walkthrough": "The middle of Public is BL; FIND cycled puts its F at the end, giving INDF.",
+     "definitionFit": "Blindfold as an adverb means with the eyes covered, unable to see, as in playing chess blindfold."
     },
     "features": {
      "answerInScene": false,
@@ -982,37 +985,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "HILARIOUS",
-     "indicators": [
-      {
-       "text": "opening is ten times bigger",
-       "note": "the first letter, read as a Roman numeral, is swapped for the numeral worth ten times as much"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "greeting",
+       "at": 13,
        "gives": "HI",
        "note": "hi is a greeting"
       },
       {
-       "words": "different",
-       "gives": "VARIOUS",
-       "note": "various means different, as in various kinds"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "opening is ten times bigger",
+         "at": 34,
+         "note": "the opening letter, a Roman numeral, is replaced by the numeral worth ten times as much: five becomes fifty"
+        }
+       ],
+       "parts": [
+        {
+         "words": "different",
+         "at": 24,
+         "gives": "VARIOUS",
+         "note": "various means different, as in various kinds"
+        },
+        {
+         "gives": "V"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A greeting card joke that gets ten times bigger with a different opening line.",
-     "walkthrough": "V is the Roman numeral 5 and L is 50, so V becomes L.",
-     "definitionFit": "Hilarious means extremely amusing, a stronger synonym of very funny."
+     "surface": "A greeting card's joke is so funny that the start of it is blown up to ten times the size.",
+     "walkthrough": "V is five in Roman numerals; L is fifty, ten times bigger, so VARIOUS becomes LARIOUS.",
+     "definitionFit": "Hilarious means extremely amusing, provoking loud laughter."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "opening"
+     "misdirectedWord": "bigger"
     }
    }
   },
