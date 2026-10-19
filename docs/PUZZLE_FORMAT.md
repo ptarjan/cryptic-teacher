@@ -167,6 +167,7 @@ filed, and the expression cannot write one. The tree, in brief:
   `wordplay.linkInLeaf` (a leaf opens or closes with a link word and gives what its other words alone give) and
   `wordplay.anaStandIn` (an anagram held by a container scrambles an abbreviation or synonym beside the clue's own words).
   `wordplay.selectWordInLeaf` (a first/last/outer op's leaf opens with the op's own indicator words), `wordplay.halvedAsDeletion` (half, 50 per cent or bottom half written as a plain deletion) and `wordplay.splitSharedIndicator` (two neighbouring same-kind ops share one indicator, only one carrying it).
+  `wordplay.truncInLeaf` (a leaf holds mostly, almost or nearly and gives the word one letter short), `wordplay.cutNoteLeaf` (a leaf gives a non-word its note says is a real word with letters cut) and `wordplay.ownIndInLeaf` (an op's own indicator words also sit inside its leaf).
   selectPhraseInLeaf (a leaf opens with a selection phrase such as borders of and gives fewer letters than its other words) is a warning only: 65% of its judged hits were fine.
   `nonWordOperand` (a deletion, substitution or homophone acting on a leaf that is no word) is a warning only: 75% of its judged hits were fine.
   Round 21: wordplay.unindicatedBare, wordplay.bareInitial, wordplay.indFolded and wordplay.inDefinition

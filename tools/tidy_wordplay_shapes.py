@@ -90,6 +90,9 @@ FIELDS = {
     "wordplay.selectWordInLeaf": lambda ann: V.select_word_in_leaf(ann.get("wordplay")),
     "wordplay.halvedAsDeletion": lambda ann: V.halved_as_deletion(ann.get("wordplay")),
     "wordplay.splitSharedIndicator": lambda ann: V.split_shared_indicators(ann.get("wordplay")),
+    "wordplay.truncInLeaf": lambda ann: V.trunc_in_leaf(ann.get("wordplay")),
+    "wordplay.cutNoteLeaf": lambda ann: V.cut_note_leaf(ann.get("wordplay")),
+    "wordplay.ownIndInLeaf": lambda ann: V.own_ind_in_leaf(ann.get("wordplay")),
 }
 #: Fields whose finding places words in the clue, so counts() hands them its text.
 NEEDS_CLUE = {"wordplay.deletionInside", "wordplay.anagramSynonym", "wordplay.poolGap",

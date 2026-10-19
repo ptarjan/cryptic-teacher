@@ -149,4 +149,22 @@ shown = [r for r in v.redo_regressions(
         {"words": "once", "at": 11, "gives": "PART"}]}}, CLUE4)]
 check("an old indicator is still refused and named with its role",
       True, len(shown) == 1 and "displayed (in the charade indicator 'displayed')" in shown[0] and "Do not add `linkWords`" in shown[0])
+# r29: truncation / cut leaves (times-29276 9a, cryptic-30110 19d, times-29183 28a)
+rue = {"op": "charade", "parts": [{"op": "reversal", "indicators": [{"text": "back"}], "parts": [
+    {"words": "French way back", "gives": "RUE"}]}]}
+check("an op's indicator also ending its leaf is counted", 1, v.own_ind_in_leaf(rue))
+rue["parts"][0]["parts"][0]["words"] = "French way"
+check("the leaf without the indicator is not", 0, v.own_ind_in_leaf(rue))
+mostly = {"op": "charade", "parts": [{"words": "Mostly safe", "gives": "PETE"}, {"words": "sex", "gives": "IT"}]}
+check("a leaf holding 'mostly' that gives a word cut short is counted", 1, v.trunc_in_leaf(mostly) if v._lexicon_letters() else 1)
+check("'briefly' abbreviations are not", 0, v.trunc_in_leaf({"op": "charade", "parts": [{"words": "Science briefly", "gives": "SCI"}]}))
+site = {"op": "charade", "parts": [{"words": "one out of place", "gives": "STE", "note": "SITE, a place, without I (one)"}]}
+check("a non-word leaf whose note says a letter was cut is counted", 1, v.cut_note_leaf(site) if v._lexicon_letters() else 1)
+check("the same leaf under a deletion is not", 0, v.cut_note_leaf({"op": "deletion", "parts": [site["parts"][0], {"gives": "I"}]}))
+check("an apostrophe drop is not", 0, v.cut_note_leaf({"op": "charade", "parts": [
+    {"words": "'ouse", "gives": "OUSE", "note": "'ouse, losing its H"}]}))
+check("half-hearted is not a halving deletion", 0, v.halved_as_deletion({"op": "deletion", "indicators": [
+    {"text": "half-hearted"}], "parts": [{"words": "mob", "gives": "RABBLE"}, {"gives": "B"}]}))
+check("half of is", 1, v.halved_as_deletion({"op": "deletion", "indicators": [
+    {"text": "half of"}], "parts": [{"words": "mob", "gives": "RABBLE"}, {"gives": "BLE"}]}))
 raise SystemExit(fails)

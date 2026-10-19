@@ -268,6 +268,12 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                              "fewer letters than its other words: the selection is an op with its own indicator",
        "halvedAsDeletion": "a deletion whose indicator says half (half of, 50 per cent, bottom half) keeps half the "
                            "word: write the halving selection, not a deletion of the other half",
+       "truncInLeaf": "a leaf holds a truncation word (mostly, almost, nearly) and gives the word one letter short: "
+                      "give the whole word and cut it with a deletion op carrying that indicator",
+       "cutNoteLeaf": "a leaf gives a non-word that its note says is a real word with letters cut: give the real "
+                      "word and show the cut as a deletion op with its indicator",
+       "ownIndInLeaf": "an op's own indicator words also sit inside its leaf (French way back under rev<back>): "
+                       "the leaf holds only the words that give its letters",
        "splitSharedIndicator": "two neighbouring same-kind ops share one indicator, only one carrying it: write "
                                "one multi-part op under the indicator",
        "midWordLeaf": "a leaf gives a stretch of several clue words that starts or ends inside a word: "
@@ -321,6 +327,9 @@ def _validator_rules():
             "selectPhraseInLeaf": lambda t, a, c: V.select_phrase_in_leaf(t),
             "halvedAsDeletion": lambda t, a, c: V.halved_as_deletion(t),
             "splitSharedIndicator": lambda t, a, c: V.split_shared_indicators(t),
+            "truncInLeaf": lambda t, a, c: V.trunc_in_leaf(t),
+            "cutNoteLeaf": lambda t, a, c: V.cut_note_leaf(t),
+            "ownIndInLeaf": lambda t, a, c: V.own_ind_in_leaf(t),
             "movedLetter": lambda t, a, c: V.moved_letters(t),
             "indInLeaf": lambda t, a, c: V.ind_in_leaf(t, c),
             # A step taken as filed that tools/clear_unchecked.py could not verify:
