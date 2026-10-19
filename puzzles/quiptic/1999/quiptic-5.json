@@ -331,52 +331,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CASUAL",
-     "indicators": [
-      {
-       "text": "irregularity",
-       "note": "an irregularity means things are out of their proper order, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
+       "words": "about",
+       "at": 8,
+       "gives": "CA",
+       "note": "CA is circa, about"
+      },
+      {
+       "op": "composite",
+       "indicators": [
         {
-         "words": "about",
-         "gives": "CA",
-         "note": "ca, short for the Latin circa, means about"
+         "text": "irregularity",
+         "at": 21,
+         "note": "irregularity means the letters are out of their regular order"
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "without",
-           "note": "without means lacking, so the letters for the ex-partner are removed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "sexual",
-           "note": "taken as written"
-          },
-          {
-           "words": "former partner",
-           "gives": "EX",
-           "note": "an ex is a former partner"
-          }
-         ]
+         "text": "without",
+         "at": 34,
+         "note": "the result is the word sexual without the former partner's letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sexual",
+         "at": 14,
+         "note": "the fodder, losing two letters"
+        },
+        {
+         "words": "former partner",
+         "at": 42,
+         "gives": "EX",
+         "note": "an ex is a former partner"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is blase about straying sexually once their ex is out of the picture.",
-     "walkthrough": "CA comes first; SEXUAL rearranged with EX taken out leaves SUAL, giving CASUAL.",
-     "definitionFit": "Both words describe a relaxed, unconcerned manner, as in an offhand or casual remark."
+     "surface": "A dismissive attitude towards an affair, now that the ex is out of the picture.",
+     "definitionFit": "Casual and offhand both describe an unconcerned, relaxed manner."
     },
     "features": {
      "answerInScene": true,
@@ -1086,53 +1081,67 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "PRAIRIE",
-     "indicators": [
-      {
-       "text": "ditching",
-       "note": "ditching means throwing away, so these letters leave the name"
-      },
-      {
-       "text": "in favour of",
-       "note": "dropping one thing in favour of another means swapping it for the replacement"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Blair",
-       "note": "Tony Blair, the former British prime minister"
-      },
-      {
-       "words": "British",
-       "gives": "B",
-       "note": "B is the abbreviation for British"
-      },
-      {
-       "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
-      },
-      {
-       "words": "PR",
-       "note": "taken as written; it stands for public relations"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "in favour of",
+         "at": 28,
+         "note": "one thing dropped in favour of another means it is replaced by it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "ditching",
+           "at": 6,
+           "note": "ditching means getting rid of a letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Blair",
+           "at": 0,
+           "note": "the name itself, losing two letters along the way"
+          },
+          {
+           "words": "British",
+           "at": 15,
+           "gives": "B"
+          }
+         ]
+        },
+        {
+         "words": "left",
+         "at": 23,
+         "gives": "L"
+        },
+        {
+         "words": "PR",
+         "at": 41,
+         "note": "PR is public relations, taken as written"
+        }
+       ]
       },
       {
        "words": "that is",
+       "at": 45,
        "gives": "IE",
-       "note": "i.e. is the abbreviation for the Latin id est, that is"
+       "note": "IE is id est, Latin for that is"
       }
      ]
     },
     "explanation": {
-     "surface": "A political jibe that Blair abandoned his British left-wing roots for spin; that much is plain.",
-     "walkthrough": "In BLAIR the B and L are replaced by PR, giving PRAIR, then IE is added. 'Plain' looks like part of the jibe but is the definition.",
-     "definitionFit": "A prairie is a large open area of flat grassland, a plain, especially in North America."
+     "surface": "A political jibe: Tony Blair abandoned Britain and the left for spin.",
+     "definitionFit": "A prairie is a vast flat grassland, a plain."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "plain"
     }

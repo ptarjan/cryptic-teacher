@@ -324,46 +324,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BOTANICALGARDEN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "short",
-       "note": "something short lacks its end, so the final letter of the following word goes"
+       "text": "injured",
+       "at": 25,
+       "note": "injured tissue is damaged and disordered, so these letters are reshuffled"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Bone",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "and",
+       "at": 5,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "injured",
-         "note": "injured things are knocked out of shape, so the letters are rearranged"
+         "text": "short",
+         "at": 9,
+         "note": "short means the last letter is cut off"
         }
        ],
        "parts": [
         {
-         "words": "Bone",
-         "note": "taken as written"
-        },
-        {
-         "words": "and",
-         "note": "taken as written"
-        },
-        {
          "words": "cartilage",
-         "gives": "CARTILAG",
-         "note": "the word without its last letter"
+         "at": 15,
+         "note": "the word itself, losing its last letter"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A medical note of bone and cartilage damage, where hospital beds are set out for visiting.",
-     "walkthrough": "'beds' suggests a hospital ward to match the injuries, but these are flower beds.",
-     "definitionFit": "A botanical garden is a public garden where plant beds are laid out for people to come and see."
+     "surface": "A medical-sounding report of a damaged bone and cartilage, and where patients lie for visitors.",
+     "walkthrough": "'Beds' suggests a hospital ward; these are flower beds laid out for the public.",
+     "definitionFit": "A botanic garden lays out planted beds of specimens for the public to visit."
     },
     "features": {
      "answerInScene": false,
@@ -495,37 +500,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "INDISCREET",
-     "indicators": [
-      {
-       "text": "turning tail",
-       "note": "only the tail is turned round, so just the last two letters of the second word swap order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "trendy",
+       "at": 9,
        "gives": "IN",
-       "note": "in means fashionable"
+       "note": "in means fashionable or trendy"
       },
       {
-       "words": "individual",
-       "gives": "DISCRETE",
-       "note": "discrete means separate or individual"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "turning tail",
+         "at": 27,
+         "note": "turning the tail means only the final two letters of the word swap round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "individual",
+         "at": 16,
+         "gives": "DISCRETE",
+         "note": "discrete means separate or individual"
+        },
+        {
+         "gives": "TE"
+        },
+        {
+         "gives": "ET"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fashionable but careless person flees.",
-     "walkthrough": "DISCRETE and DISCREET differ only in the order of their last two letters, which is the turned tail.",
-     "definitionFit": "Being indiscreet means speaking or acting without care for consequences, a sense near enough to reckless."
+     "surface": "A rash, fashionable person running away.",
+     "walkthrough": "'Turning tail' swaps only the last two letters, turning one spelling of the word into its near-twin.",
+     "definitionFit": "An indiscreet person speaks or acts without care, which is rash or reckless."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "turning"
+     "misdirectedWord": "tail"
     }
    }
   },

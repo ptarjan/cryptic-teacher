@@ -644,52 +644,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHILDCARE",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "almost means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means the word stops one letter short of its end"
+        }
+       ],
        "parts": [
         {
          "words": "relax",
-         "gives": "CHIL",
-         "note": "chill means relax; almost all of it"
+         "at": 7,
+         "gives": "CHILL",
+         "note": "to chill is to relax"
         },
         {
-         "words": "daughters",
-         "gives": "D",
-         "note": "D is the abbreviation for daughter"
-        },
-        {
-         "words": "round",
-         "gives": "CA",
-         "note": "ca, short for circa, means round or approximately"
-        },
-        {
-         "words": "about",
-         "gives": "RE",
-         "note": "re means about or concerning"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "daughters",
+       "at": 18,
+       "gives": "D",
+       "note": "D is the abbreviation for daughter"
+      },
+      {
+       "words": "round",
+       "at": 28,
+       "gives": "CA",
+       "note": "round as in approximately is circa, abbreviated CA"
+      },
+      {
+       "words": "about",
+       "at": 34,
+       "gives": "RE",
+       "note": "re means about, as in a letter heading"
       }
      ]
     },
     "explanation": {
-     "surface": "A parent trying to unwind while the daughters run around, wondering who is minding them.",
-     "walkthrough": "'Them' in the definition refers back to the daughters, and the question mark admits that minding daughters is just one instance of the answer.",
-     "definitionFit": "Supervising young people while parents work or rest is exactly the service this compound word names."
+     "surface": "Trying to unwind while surrounded by your girls is hardly restful.",
+     "walkthrough": "The question mark marks the definition as indirect: 'them' are the daughters of the surface.",
+     "definitionFit": "Childcare is the minding of young people, so looking after the daughters is an example."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "round"
+     "misdirectedWord": "relax"
     }
    }
   },
@@ -1100,43 +1106,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CUMBERSOME",
+     "op": "container",
      "indicators": [
       {
-       "text": "with no opening",
-       "note": "having no opening means lacking a start, so the first letter goes"
+       "text": "within",
+       "at": 37,
+       "note": "the trimmed figures go within the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "reach",
+       "at": 44,
+       "gives": "COME",
+       "note": "to reach a place is to come to it"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "within",
-         "note": "within means inside, so these letters sit inside the next piece"
+         "text": "with no opening",
+         "at": 21,
+         "note": "with no opening means the first letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "reach",
-         "gives": "COME",
-         "note": "to reach a place is to come to it"
+         "words": "figures",
+         "at": 13,
+         "gives": "NUMBERS",
+         "note": "numbers are figures"
         },
         {
-         "words": "figures",
-         "gives": "UMBERS",
-         "note": "numbers are figures; its first letter dropped"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Figures that are hard to handle because they are always just out of reach.",
-     "walkthrough": "'Figures' reads as bodies or shapes, but it is numbers with the N removed.",
-     "definitionFit": "Something cumbersome is bulky and awkward to carry or handle, hence difficult to manage."
+     "surface": "Awkward numbers lacking a start that are nevertheless close at hand.",
+     "definitionFit": "Something cumbersome is bulky and awkward, hard to handle."
     },
     "features": {
      "answerInScene": false,
@@ -1166,37 +1176,50 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "MANKIND",
+     "op": "container",
      "indicators": [
       {
-       "text": "replacement of outsiders",
-       "note": "replacing the outsiders means swapping the first and last letters for new ones"
+       "text": "with",
+       "at": 43,
+       "note": "the doctor's letters are now with the inner part, placed around it"
       }
      ],
      "parts": [
       {
-       "words": "relying on",
-       "gives": "BANKING",
-       "note": "banking on something is relying on it"
+       "words": "qualified doctor",
+       "at": 48,
+       "gives": "MD",
+       "note": "MD is a Doctor of Medicine"
       },
       {
-       "words": "qualified doctor",
-       "gives": "MD",
-       "note": "MD, Doctor of Medicine, is a doctor's qualification"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "replacement of outsiders",
+         "at": 18,
+         "note": "the outer letters are replaced, so first the core without them is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "relying on",
+         "at": 7,
+         "gives": "BANKING",
+         "note": "banking on means relying on"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "People depending on a locum to stand in for foreign doctors.",
-     "walkthrough": "BANKING loses its outer B and G, and M and D take their places.",
-     "definitionFit": "The human race taken collectively, all people, is what this word names."
+     "surface": "People who depend on a stand-in doctor.",
+     "walkthrough": "BANKING (relying on) loses its outside letters B and G, and M and D take their places, giving M ANKIN D.",
+     "definitionFit": "Mankind is the human race taken as a whole."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "outsiders"
+     "misdirectedWord": "replacement"
     }
    }
   },
@@ -1330,36 +1353,38 @@
      "indicators": [
       {
        "text": "around",
-       "note": "to go around something is to enclose it, so one piece surrounds another"
+       "at": 11,
+       "note": "the phrase goes around the other letters, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Show gusto",
-         "gives": "GOIT",
-         "note": "'go it' is an old colloquial phrase for acting with vigour"
-        },
-        {
-         "words": "duke",
-         "gives": "D",
-         "note": "D is the abbreviation for duke"
-        }
-       ]
+       "words": "Show gusto",
+       "at": 0,
+       "gives": "GOIT",
+       "note": "to go it is to act with energy and gusto"
       },
       {
-       "words": "wife",
-       "gives": "W",
-       "note": "W is the abbreviation for wife"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "duke",
+         "at": 18,
+         "gives": "D"
+        },
+        {
+         "words": "wife",
+         "at": 24,
+         "gives": "W"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A duke and his wife surrounded by an enthusiastic crowd welcoming an immigrant.",
-     "walkthrough": "'Migrant' suggests a person, but it is a migratory bird, a long-billed wader.",
-     "definitionFit": "The godwit is a wading bird famous for very long migrations, so it is a migratory species."
+     "surface": "Displaying enthusiasm around a nobleman, his wife and an immigrant.",
+     "walkthrough": "'Migrant' looks like a person; here it is a migratory bird.",
+     "definitionFit": "The godwit is a long-billed wading bird that migrates long distances."
     },
     "features": {
      "answerInScene": false,

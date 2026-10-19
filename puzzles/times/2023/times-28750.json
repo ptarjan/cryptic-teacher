@@ -1323,45 +1323,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RECOIL",
+     "op": "container",
      "indicators": [
       {
-       "text": "more than half of",
-       "note": "more than half keeps most of the word and loses the rest"
+       "text": "during",
+       "at": 23,
+       "note": "one thing during another is inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "during",
-         "note": "during means within the span of the next piece"
+         "text": "more than half of",
+         "at": 30,
+         "note": "more than half of the month name keeps three of its five letters, dropping the start"
         }
        ],
        "parts": [
         {
          "words": "April",
-         "gives": "RIL",
-         "note": "the last three of its five letters"
+         "at": 48,
+         "note": "the month itself, cut down"
         },
         {
-         "words": "green",
-         "gives": "ECO",
-         "note": "eco- means environmentally friendly, green"
+         "gives": "AP"
         }
        ]
+      },
+      {
+       "words": "green",
+       "at": 17,
+       "gives": "ECO",
+       "note": "eco means environmentally friendly, green"
       }
      ]
     },
     "explanation": {
-     "surface": "Plants springing back into green growth in April.",
+     "surface": "The leap of spring growth through most of April.",
      "definitionFit": "To recoil is to spring or jump back, as a gun does when fired."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Spring"
     }

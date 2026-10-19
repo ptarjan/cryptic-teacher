@@ -235,23 +235,37 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "IDYLLIST",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the preceding pieces inside the letters that follow"
+       "at": 34,
+       "note": "the reversed letters are placed in the middle of the city's letters"
       }
      ],
      "parts": [
       {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 37,
+         "note": "the middle of the word city is its two inner letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "city",
+         "at": 47
+        }
+       ]
+      },
+      {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "IDYLLIST",
        "indicators": [
         {
          "text": "raised",
-         "note": "in a down clue, raised means lifted upwards, so the word reads bottom to top"
+         "at": 5,
+         "note": "in a down clue, raising letters reads them upwards, so backwards"
         }
        ],
        "parts": [
@@ -259,48 +273,16 @@
          "op": "charade",
          "parts": [
           {
-           "op": "middle",
-           "unchecked": true,
-           "gives": "I",
-           "indicators": [
-            {
-             "text": "middle of",
-             "note": "middle of asks for only the central letters of the following word"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "city",
-             "gives": "I",
-             "select": "middle",
-             "note": "first of the two central letters of city, wrapped round the rest"
-            }
-           ]
+           "words": "hare-brained",
+           "at": 12,
+           "gives": "SILLY",
+           "note": "hare-brained means silly"
           },
           {
            "words": "daughter",
+           "at": 25,
            "gives": "D",
-           "note": "D is the standard abbreviation for daughter"
-          },
-          {
-           "words": "hare-brained",
-           "gives": "YLLIS",
-           "note": "silly, meaning hare-brained, read upwards"
-          },
-          {
-           "op": "middle",
-           "unchecked": true,
-           "gives": "T",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "city",
-             "gives": "T",
-             "select": "middle",
-             "note": "second of the two central letters of city"
-            }
-           ]
+           "note": "D is the genealogical abbreviation for daughter"
           }
          ]
         }
@@ -309,12 +291,12 @@
      ]
     },
     "explanation": {
-     "surface": "A poet who grew up with a scatterbrained daughter in a city centre.",
-     "walkthrough": "SILLY reversed and D sit inside IT, the middle of 'city'.",
+     "surface": "A poet brought up a scatterbrained girl in the heart of town.",
+     "walkthrough": "'Raised' works on the down clue's letters read upwards, and the reversed pair sits inside the two middle letters of 'city'. An idyllist is a rare word.",
      "definitionFit": "An idyllist writes idylls, short pastoral poems, so is a kind of poet."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "raised"
     }
@@ -874,46 +856,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TAKESILK",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly keeps most of the word but drops its final letter"
+       "text": "flounders",
+       "at": 19,
+       "note": "to flounder is to flail about clumsily, so the letters are thrown into disorder"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "flounders",
-         "note": "to flounder is to struggle clumsily, so the letters tumble into a new order"
+         "text": "mostly",
+         "at": 7,
+         "note": "mostly means all but the last letter is kept"
         }
        ],
        "parts": [
         {
          "words": "Skate",
-         "note": "taken as written"
+         "at": 0,
+         "note": "the word itself, losing its last letter"
         },
         {
-         "words": "like",
-         "gives": "LIK",
-         "note": "like minus its last letter"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "like",
+       "at": 14,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A fishy scene: skate and flounder, both flatfish, before a lawyer's promotion.",
-     "walkthrough": "Skate and flounders look like fellow fish; flounders is the verb, the anagram signal. In Britain, senior barristers made King's Counsel wear silk gowns.",
-     "definitionFit": "To take silk is to become a King's or Queen's Counsel, a promotion for a British barrister."
+     "surface": "A list of flatfish: skate and similar flounders, with a fish-pun feel.",
+     "walkthrough": "'Flounders' looks like more fish but is the anagram signal. SKAT (most of skate) plus LIKE are rearranged. In Britain a barrister who becomes a King's or Queen's Counsel is said to take silk.",
+     "definitionFit": "Taking silk is the phrase for a barrister being made senior counsel, a step up in the legal profession."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "flounders"
     }
    }
