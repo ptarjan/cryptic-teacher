@@ -1777,16 +1777,22 @@ def series_chart(row, pages=()):
 
 
 def queue_depths(c):
-    """(to fetch, to read, to annotate) for one series' row c: puzzles known
-    to exist that we hold neither filed nor queued (known less filed less
-    queued), scans on disk not read (queued), filed puzzles with a clue
-    unexplained (filed less hinted). The recorded downloaded phase counts
-    scans only, so it is not used: a series filed from a blog or an API has
-    far more filed than downloaded. A queue the row has no count for is
+    """(to fetch, read failed, to read, to annotate) for one series' row c.
+    To fetch is puzzles known to exist that we do not hold: known less the
+    larger of downloaded and filed plus queued (a series filed from a blog
+    or an API has far more filed than downloaded scans, so downloaded alone
+    would overcount). Read failed is scans downloaded that were read and
+    gave no puzzle (downloaded less filed less queued). To read is scans on
+    disk not read (queued); to annotate is filed puzzles with a clue
+    unexplained (filed less hinted). A queue the row has no count for is
     None; none is below 0."""
-    known, _, filed, _, hinted, _, queued = c
-    fetch = None if known is None or queued is None else max(known - (filed + queued), 0)
-    return fetch, queued, max(filed - hinted, 0)
+    known, _, filed, _, hinted, downloaded, queued = c
+    if known is None or queued is None:
+        fetch = failed = None
+    else:
+        fetch = max(known - max(downloaded or 0, filed + queued), 0)
+        failed = max((downloaded or 0) - filed - queued, 0)
+    return fetch, failed, queued, max(filed - hinted, 0)
 
 
 def held_series(days):
@@ -1833,22 +1839,28 @@ def queue_cell(depth, flow):
 
 
 def queue_table(row, recorded):
-    """The three queues by series: to fetch, to read, to annotate, each its
-    depth in `row` and its 7-day flow a day over the `recorded` nights.
+    """The queues by series: to fetch, read failed, to read, to annotate, each
+    its depth in `row` and (but read failed) its 7-day flow a day over the
+    `recorded` nights.
     Series with every queue empty are left out; the biggest queue ranks
     first; the last row is the total."""
     depths = {s: queue_depths(c) for s, c in row.items()}
     shown = sorted((s for s, d in depths.items() if any(d)),
                    key=lambda s: -max(n or 0 for n in depths[s]))
+
+    def cells(d, flows, tag):
+        # Read failed (second) has no flow: it is a leftover, not a pipe.
+        fl = [flows[0], None, flows[1], flows[2]]
+        return "".join(f"<{tag}>{queue_cell(n, f) if f else '&mdash;' if n is None else f'{n:,}'}</{tag}>"
+                       for n, f in zip(d, fl))
     rows = []
     for s in shown:
         one = {d: {s: r[s]} for d, r in recorded.items() if s in r}
-        rows.append(f"<tr><td>{esc(series_name(s))}</td>" + "".join(
-            f"<td>{queue_cell(n, f)}</td>" for n, f in zip(depths[s], queue_flows(one, 7))) + "</tr>")
-    tot = [sum(d[i] or 0 for d in depths.values()) for i in range(3)]
-    rows.append("<tr><th>All series</th>" + "".join(
-        f"<th>{queue_cell(n, f)}</th>" for n, f in zip(tot, queue_flows(recorded, 7))) + "</tr>")
-    return ("<table><tr><th>Series</th><th>To fetch</th><th>To read</th><th>To annotate</th></tr>"
+        rows.append(f"<tr><td>{esc(series_name(s))}</td>" + cells(depths[s], queue_flows(one, 7), "td") + "</tr>")
+    tot = [sum(d[i] or 0 for d in depths.values()) for i in range(4)]
+    rows.append("<tr><th>All series</th>" + cells(tot, queue_flows(recorded, 7), "th") + "</tr>")
+    return ("<table><tr><th>Series</th><th>To fetch</th><th>Read failed</th><th>To read</th>"
+            "<th>To annotate</th></tr>"
             + "".join(rows) + "</table>")
 
 
@@ -1935,17 +1947,21 @@ def progress_page(idx, today=None, now=None):
             "above); known and downloaded are counted once a night.</p>",
             *(("<h2>The queues</h2>",
                "<p>Three queues feed the goal, each shown as its depth now and, in brackets, its "
-               "seven-day flow a day: in / out. <strong>To fetch</strong> is scans known to exist and "
-               "not held yet: known less everything filed or in the read queue, never below 0. Its "
+               "seven-day flow a day: in / out. <strong>To fetch</strong> is puzzles known to exist "
+               "that we have not downloaded: known less downloaded (or less filed plus read queue "
+               "where that is more, for a series filed from a blog), never below 0. Its "
                "in is the gain in the known count (negative when that count falls) and its out is "
-               "the gain in filed plus read queue. <strong>To read</strong> is scans on disk not "
+               "the gain in filed plus read queue. <strong>Read failed</strong> is scans we hold "
+               "that were read and gave no puzzle (a blank clue list, no crossword found, or "
+               "nothing that parsed): downloaded less filed less read queue. It is a leftover "
+               "to be fixed, so it has no flow. <strong>To read</strong> is scans on disk not "
                "read yet; its in is the gain in the read queue plus its out, and its out is the "
                "gain in filed. <strong>To annotate</strong> is filed puzzles with a clue still "
                "unexplained (filed less hinted); its in is the gain in filed and its out the gain "
                "in hinted. Each flow is the change in a recorded count between nights, so a read "
                "is counted as a puzzle filed, which also counts a puzzle filed from another source "
                "and misses a scan read for nothing. A ? is a count recorded on fewer than two "
-               "nights. A series with all three queues empty is left out.</p>",
+               "nights. A series with every queue empty is left out.</p>",
                queue_table(days[today], recorded)) if queued is not None else ()),
             "<h2>Running totals</h2>", recent,
             *((f"<details><summary>All time, from {short_day(next(iter(days)))}</summary>",
