@@ -4761,9 +4761,9 @@ def _loose_words(ann, clue):
     return _clue_words(clue) - _accounted_words(ann) - CONNECTIVE_WORDS - link_vocabulary()
 
 
-def _stand_in(leaf, min_len=3):
-    """Whether a leaf directly under an anagram plainly gives a different word for its words: 3+
-    letters, no digit (a cross-reference gives the other answer, whose letters are the fodder),
+def _stand_in(leaf, min_len=2):
+    """Whether a leaf directly under an anagram plainly gives a different word for its words: 2+
+    letters (round 21: 4 of 4 two-letter hits in 1,254 clean clues were real: ER, EG, CA, RR UP), no digit (a cross-reference gives the other answer, whose letters are the fodder),
     and not a piece of its own letters (BIN -> BI is a cut the leaf did inline). Measured 10-18:
     without these, 10 of 20 sampled direct-leaf hits were right. A well-known pair (lettuce
     -> COS) is not exempt: scrambling it is the fault."""

@@ -150,7 +150,7 @@ filed, and the expression cannot write one. The tree, in brief:
   `wordplay.movedLetter` (a deletion whose letter a sibling leaf gives again: use the move op).
   Round 21: wordplay.unindicatedBare, wordplay.bareInitial, wordplay.indFolded and wordplay.inDefinition
   are warnings only (`shape_queue.WARN_ONLY`): no redo is queued and the ratchet no longer counts them; and no
-  wordplay shape rule queues or counts for Azed or Genius puzzles (`shape_queue.CONVENTION_SERIES`).
+  wordplay shape rule queues or counts for Azed or Genius puzzles (`shape_queue.CONVENTION_SERIES`). Also round 21: `wordplay.anagramSynonym` counts a two-letter stand-in (ER for Brenda, EG for say) scrambled in an anagram, not only three letters and up.
   Round 15 narrowed four of them (a bare op is signed by a neighbour's apostrophe, a replace word or its
   own "second"; initials after a "primarily" pick; a reverse reading that anagrams clue words; a leaf
   cut or doubled by its own words is no synonym).
