@@ -818,6 +818,8 @@ LAYOUT = [
     ("annotating", "tools/ci_scope.py", "what tests.yml has to run for a push: the whole suite, or the puzzle fast path"),
     ("annotating", "tools/test_ci_scope.py", "tools/ci_scope.py: which pushes may skip the sharded suite, and how tests.yml wires that in"),
     ("annotating", "tools/test_clue_tokens.js", "the word chips under a clue and the highlights in its heading cut a hyphenated word at the same places: a compound is one chip (\"Drug-free\") unless an annotation fragment starts or ends at its hyphen (the indicator \"free\" in \"Drug-free period\"), and then both are cut there. Reads clueTokens and clueCuts out of app.js, so it cannot drift from the app"),
+    ("annotating", "tools/test_redo_unchanged.py", "a re-annotation scoped to some clues writes only those, and a redo of the same tree and letters in other words leaves the old hint as it was"),
+    ("annotating", "tools/test_batch_subject.sh", "a batch commit's subject names only the puzzles whose file the commit changes (164738e46f2 listed 20 ids and changed just the queue file)"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

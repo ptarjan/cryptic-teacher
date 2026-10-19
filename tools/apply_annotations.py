@@ -47,6 +47,7 @@ session there is no model to read, so say who it was:
     python3 tools/apply_annotations.py 30098 ann.json --by human
     python3 tools/apply_annotations.py 30098 ann.json --by claude-opus-5-5
 """
+import copy
 import json
 import os
 import re
@@ -361,6 +362,33 @@ def keep_spelling(new, entry, was):
         new["spelling"] = said
 
 
+# The fields that only word a hint: a redo that changes nothing else has
+# changed nothing a learner can use.
+PROSE_KEYS = frozenset({"note", "meaning", "walkthrough", "surface", "definitionFit",
+                        "joke", "misdirectedWord", "explanation", "features"})
+# A listed clue whose reason is about the prose is redone for the prose.
+PROSE_REASONS = ("walkthrough", "ddMisses", "model-fixable")
+
+
+def bones(ann):
+    """`ann` less its prose: the tree, its letters, indicators, positions and
+    flags (an `unchecked` still on a step is a difference)."""
+    if isinstance(ann, dict):
+        return {k: bones(v) for k, v in ann.items() if k not in PROSE_KEYS}
+    if isinstance(ann, list):
+        return [bones(v) for v in ann]
+    return ann
+
+
+def redo_adds_nothing(old, new, reason=None):
+    """True when the redo `new` of the hint `old` is the same tree and letters
+    in other words (or not different at all): the old hint stays, byte for
+    byte (10-16..18: ~6% of reruns). A clue listed for its prose is exempt."""
+    if not old or not new or any(r in str(reason or "") for r in PROSE_REASONS):
+        return False
+    return bones(old) == bones(new)
+
+
 def apply_also(puzzle, annotations, errors=None):
     """Write each alsoLeads answer's annotation, keyed by its clue id
     ("22-across/2", groups.clue_id), in place: normalized as its light
@@ -494,6 +522,7 @@ def apply(path, annotations, by=None, only=None):
     # for it). Its own uncommitted hints a run may still null.
     committed = committed_entries(path) or {}
     held = []
+    unchanged = []   # redone clues whose tree and letters did not change
     # A clue on the shape re-annotation list (tools/shape_queue.py) keeps its
     # old hint against a null too, committed or not: it is live until a new
     # one validates.
@@ -504,6 +533,11 @@ def apply(path, annotations, by=None, only=None):
     errors = []
     for entry in puzzle["entries"]:
         if entry_id(entry) in continuations or entry_id(entry) not in annotations:
+            continue
+        # A run scoped to some clues (annotateOnly) writes only those: the
+        # others stay byte for byte, even when the run sends them back as
+        # they are (landing them again re-derives their positions and prose).
+        if only is not None and entry_id(entry) not in only:
             continue
         ann = annotations[entry_id(entry)]
         was = committed.get(entry_id(entry)) or {}
@@ -552,6 +586,17 @@ def apply(path, annotations, by=None, only=None):
                     f"{'; '.join(found)}. Write the wordplay tree again so no step has those faults "
                     f"(changing only the prose does not settle it), or give null to keep the old hint.")
                 new = None
+            old = (was.get("annotation") if (
+                was.get("solution") == entry.get("solution")
+                and (was.get("clue") or {}).get("text") == entry["clue"].get("text")) else None)
+            # Only a scoped run (a re-annotation by hand takes the whole puzzle
+            # to refresh its prose), and only against the committed hint (the
+            # run's own earlier write may still be getting its prose mended).
+            if (new is not None and only is not None
+                    and redo_adds_nothing(old, new, relisted.get(entry_id(entry)))):
+                entry["annotation"] = copy.deepcopy(old)
+                unchanged.append(entry_id(entry))
+                continue
             if new is not None:
                 entry["annotation"] = new
                 move_alteration(entry)
@@ -578,14 +623,18 @@ def apply(path, annotations, by=None, only=None):
         write_puzzle_file(path, puzzle)
     except puzzle_integrity.RefusedWrite as err:
         raise SystemExit(refusal(path, puzzle, err))
-    shape_queue.done(puzzle, {k for k, v in annotations.items() if v is not None and k not in held},
-                     {k for k in held if k in relisted})
+    shape_queue.done(puzzle, {k for k, v in annotations.items() if v is not None and k not in held
+                      and k not in unchanged and (only is None or k in only)},
+                     {k for k in [*held, *unchanged] if k in relisted})
     for eid, new in fixes.items():
         print(f"apply_annotations: {eid} corrected to {new} — it agrees with every "
               f"crossing and printed answer (solutions.corrected)")
     if held:
         print(f"apply_annotations: {', '.join(held)} kept the committed hint your null "
               f"would have blanked — it validated before; give a hint to replace it")
+    if unchanged:
+        print(f"apply_annotations: {', '.join(unchanged)} redone as the same tree and letters "
+              f"as the hint on file — the old hint stays as it was")
     solved = sum(1 for k in required if annotations[k] is not None or k in held)
     return solved, len(required)
 
