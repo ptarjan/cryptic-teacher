@@ -1047,45 +1047,52 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "erected",
-       "note": "in a down entry, set upright means read from the bottom up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "sculpture",
-         "note": "the letters of EBONY are reshaped like carved material"
+         "text": "erected",
+         "at": 14,
+         "note": "erected means set upright, so in a down answer the letters are read upwards"
         }
        ],
        "parts": [
         {
          "words": "Opera venue's",
+         "at": 0,
          "gives": "ENO",
-         "note": "ENO = English National Opera, the London company"
-        },
+         "note": "ENO is the English National Opera"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sculpture",
+         "at": 28,
+         "note": "sculpture means shaping, so the letters are reshaped"
+        }
+       ],
+       "parts": [
         {
          "words": "ebony",
-         "note": "EBONY rearranged"
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An opera house has put up an ebony statue in stages.",
-     "walkthrough": "'Erected' suggests building a statue, but in a down clue it turns ENO upward into ONE.",
-     "definitionFit": "Doing things one by one means singly, in turn, not all at once."
+     "surface": "An opera house puts up an ebony sculpture.",
+     "definitionFit": "One by one means singly in sequence, the opposite of all together."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "erected"
+     "misdirectedWord": "sculpture"
     }
    }
   },
@@ -1747,23 +1754,38 @@
      "parts": [
       {
        "words": "amateur",
-       "gives": "A",
-       "note": "A = amateur"
+       "at": 4,
+       "gives": "A"
       },
       {
-       "words": "lacking experience falls short",
-       "gives": "GREE",
-       "note": "green = inexperienced, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "falls short",
+         "at": 31,
+         "note": "falls short means the word stops before its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lacking experience",
+         "at": 12,
+         "gives": "GREEN",
+         "note": "green means inexperienced"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A novice who isn't fit enough doesn't make the distance.",
-     "walkthrough": "'Fit' is a verb: two accounts that fit, agree.",
-     "definitionFit": "Fit here is the verb, as when two accounts fit or tally; agree has that same sense of matching up."
+     "surface": "A fit but inexperienced amateur doesn't quite make the grade.",
+     "definitionFit": "Things that agree fit together or correspond, as figures that tally."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Fit"
     }

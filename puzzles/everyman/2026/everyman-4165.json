@@ -498,47 +498,52 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Cake decorator",
+      "text": "Cake decorator's",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "returned",
-       "note": "To return is to come back the way you went, so what is left is read from its far end."
+       "text": "with two cuts",
+       "at": 39,
+       "note": "two cuts means a pair of letters is chopped from the front of the reversed word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "at": 30,
+         "note": "returned means the word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "instructions",
-           "gives": "RECIPE",
-           "note": "the instructions for making a cake are its recipe"
-          },
-          {
-           "words": "two cuts",
-           "gives": "RECI",
-           "note": "two letters are lopped off the end, the P and the E, leaving four"
-          }
-         ]
-        },
-        {
-         "gives": "RECIPE"
+         "words": "instructions",
+         "at": 17,
+         "gives": "RECIPE",
+         "note": "a recipe is a set of cooking instructions"
         }
        ]
+      },
+      {
+       "gives": "EP"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Cakes, decorating and instructions all belong to one kitchen, so nothing in the surface hints that one of those words is there only for its letters.",
-     "definitionFit": "The icer is the one who spreads the icing, so the job title comes straight off the sugar coating they apply."
+     "surface": "A baker reads how to ice a cake, with a couple of steps cut out.",
+     "walkthrough": "Reversing RECIPE gives EPICER; the two cuts remove EP from its front. The 's stands for 'is'.",
+     "definitionFit": "Someone who spreads icing on cakes is literally one who ices them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "instructions"
     }
    }
   },
@@ -1017,32 +1022,48 @@
     ],
     "wordplay": {
      "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 35,
+       "note": "in tells us the offering sits within the two outer letters"
+      }
+     ],
      "parts": [
       {
        "op": "outer",
        "indicators": [
         {
-         "text": "extremes in",
-         "note": "A word's extremes are its first and last letters, and here they close around what has gone before."
+         "text": "two extremes",
+         "at": 22,
+         "note": "the two extremes of a word are its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "tyranny",
-         "note": "the two ends of the word, its opening letter and its closing one"
+         "at": 38,
+         "note": "the outside letters of tyranny"
         }
        ]
       },
       {
-       "words": "offering two",
+       "words": "offering",
+       "at": 13,
        "gives": "OR",
-       "note": "'or' is the little word that offers a choice between two things"
+       "note": "OR is heraldic gold, the Magi's offering"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The question mark is the setter admitting the surface is unkind: a right-winger dealing in tyranny is a joke, not a definition, and only the letters are meant.",
-     "definitionFit": "A Tory is a British Conservative, so the label names a place on the political spectrum rather than a temperament."
+     "surface": "A wry question whether a conservative politician offers both ends of tyrannical rule.",
+     "walkthrough": "OR is gold in heraldry, and gold was one of the Magi's offerings; it goes between T and Y.",
+     "definitionFit": "A Tory is a member of Britain's Conservative Party, a party of the political right."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "offering"
     }
    }
   },
