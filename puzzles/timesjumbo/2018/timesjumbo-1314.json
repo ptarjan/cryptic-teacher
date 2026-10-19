@@ -2410,35 +2410,39 @@
      "indicators": [
       {
        "text": "holds",
-       "note": "a cup that holds something has it inside, so the other pieces go within"
+       "at": 14,
+       "note": "holds means contains, so the cup word wraps the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "cup",
-         "gives": "MUG",
-         "note": "a mug is a drinking cup"
-        },
-        {
-         "words": "very little",
-         "gives": "TINY",
-         "note": "tiny means very small"
-        }
-       ]
+       "words": "cup",
+       "at": 10,
+       "gives": "MUG",
+       "note": "a mug is a cup"
       },
       {
-       "words": "in",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "very little",
+         "at": 20,
+         "gives": "TINY",
+         "note": "tiny means very small"
+        },
+        {
+         "words": "in",
+         "at": 32,
+         "gives": "IN"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A disgusting cup has only a drop left inside.",
-     "walkthrough": "'Revolting' suggests disgusting; here it means rising in revolt.",
-     "definitionFit": "Sailors or soldiers rising against their officers are in revolt, the participle sense of revolting."
+     "surface": "A disgusting mug contains very little inside it.",
+     "walkthrough": "'Revolting' reads as disgusting but means rising up in rebellion.",
+     "definitionFit": "Mutinying sailors or soldiers are rebelling against authority, which is revolting in the uprising sense."
     },
     "features": {
      "answerInScene": false,
@@ -2590,31 +2594,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PROCESSOR",
      "indicators": [
       {
-       "text": "Wrong",
-       "note": "a wrong symbol is the wrong one swapped in where the right one should be"
+       "text": "used in",
+       "at": 25,
+       "note": "used in means the new symbol is put into the word in place of its existing one"
       }
      ],
      "parts": [
       {
        "words": "top academic",
+       "at": 33,
        "gives": "PROFESSOR",
-       "note": "a professor holds the highest academic rank"
+       "note": "a professor is a senior academic"
       },
       {
-       "words": "hexadecimal symbol",
+       "gives": "F"
+      },
+      {
+       "words": "Wrong hexadecimal symbol",
+       "at": 0,
        "gives": "C",
-       "note": "hexadecimal uses the digits 0-9 and letters A to F; C replaces F, another of them"
+       "note": "hexadecimal uses digits 0-9 and A-F; C is another of them, wrong in place of the F the academic has"
       }
      ]
     },
     "explanation": {
-     "surface": "A senior professor's computer displays an incorrect hex code.",
-     "walkthrough": "Both F and C are hexadecimal digits, so swapping one for the other is the 'wrong' symbol.",
-     "definitionFit": "A processor, the CPU, is the chip that does a computer's calculations, and by extension a computing machine."
+     "surface": "A senior lecturer's computer shows the wrong hex digit.",
+     "walkthrough": "PROFESSOR contains F, itself a hexadecimal symbol; using a different one, C, instead gives the answer.",
+     "definitionFit": "A processor is the central chip that runs a computer, and by extension the computer itself."
     },
     "features": {
      "answerInScene": true,

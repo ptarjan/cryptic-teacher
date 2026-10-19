@@ -126,50 +126,53 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' places the first pieces inside the other word"
+       "at": 9,
+       "note": "in places these letters inside the turned word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "at": 17,
+         "note": "in a down clue, turning up means the word is read from bottom to top, backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "turning up",
-           "note": "in a down clue, turning up reads the word from bottom to top, so backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "part",
-           "note": "taken as written, then turned round"
-          }
-         ]
-        },
-        {
-         "words": "degree",
-         "gives": "DEG",
-         "note": "DEG is the standard abbreviation for degree"
+         "words": "part",
+         "at": 12,
+         "note": "taken as written"
         }
        ]
       },
       {
-       "words": "A",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "degree",
+         "at": 2,
+         "gives": "DEG"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A student admits that part of their degree went badly, leaving a shortfall.",
-     "walkthrough": "The inserted letters go between the second and third letters of the turned word.",
-     "definitionFit": "A trade gap is a nation's shortfall when imports exceed exports, a kind of deficit."
+     "surface": "A qualification taken partly while things go wrong, leaving a shortfall.",
+     "walkthrough": "Part reversed gives TRAP, and A plus DEG sits inside it.",
+     "definitionFit": "A trade gap is a shortfall between a country's imports and exports, so it is a deficit in trade."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "part"
+     "misdirectedWord": "turning"
     }
    }
   },
@@ -1396,59 +1399,58 @@
      "indicators": [
       {
        "text": "adopting",
-       "note": "adopting takes something in, so it goes inside"
+       "at": 31,
+       "note": "adopting means taking in, so the earlier letters take in the rugby abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "cricket club",
+         "at": 2,
+         "gives": "CC"
+        },
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "almost",
-           "note": "almost means falling just short, so the last letter goes"
+           "at": 15,
+           "note": "almost means not quite all of the word, so its final letter is dropped"
           }
          ],
          "parts": [
           {
            "words": "entirely",
+           "at": 22,
            "gives": "ALL",
-           "note": "all means entirely"
+           "note": "all means entirely, as in 'all alone'"
           },
           {
            "gives": "L"
-          }
-         ]
-        },
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "cricket club",
-           "gives": "CC",
-           "note": "CC is the abbreviation for cricket club"
-          },
-          {
-           "words": "rugby",
-           "gives": "RU",
-           "note": "RU stands for Rugby Union"
           }
          ]
         }
        ]
       },
       {
-       "words": "A",
-       "note": "taken as written"
+       "words": "rugby",
+       "at": 40,
+       "gives": "RU",
+       "note": "RU stands for Rugby Union"
       }
      ]
     },
     "explanation": {
-     "surface": "A cricket club nearly fully takes up rugby as an extra sport.",
-     "walkthrough": "The rugby letters go between the club abbreviation and the shortened word, not around the whole.",
-     "definitionFit": "An accrual is something that accumulates or is added over time, such as interest."
+     "surface": "A cricket club takes up rugby almost wholesale as an extra activity.",
+     "walkthrough": "'Almost entirely' reads as a single adverb, but 'entirely' is a word to shorten, and the rugby letters end up inside the whole A-cricket-club-almost string.",
+     "definitionFit": "An accrual is something that accumulates or is added over time, such as interest, so it is an extra item."
     },
     "features": {
      "answerInScene": false,
