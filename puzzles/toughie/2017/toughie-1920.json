@@ -485,45 +485,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ABOVESUSPICION",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "a brief version of a phrase is cut short, so the Latin phrase loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 23,
+         "note": "briefly removes the last letter"
+        }
+       ],
        "parts": [
         {
          "words": "from the beginning",
-         "gives": "ABOV",
-         "note": "Latin 'ab ovo', literally from the egg, with its last letter cut"
+         "at": 31,
+         "gives": "ABOVO",
+         "note": "ab ovo is Latin for from the egg, meaning from the very beginning"
         },
         {
-         "words": "European",
-         "gives": "E",
-         "note": "E = European"
-        },
-        {
-         "words": "touch",
-         "gives": "SUSPICION",
-         "note": "a touch of something is a trace, as in 'a suspicion of garlic'"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "European",
+       "at": 56,
+       "gives": "E"
+      },
+      {
+       "words": "touch",
+       "at": 65,
+       "gives": "SUSPICION",
+       "note": "a suspicion is a slight trace, a touch, as in a suspicion of garlic"
       }
      ]
     },
     "explanation": {
-     "surface": "A classical riddle about Caesar's wife, told briefly and from the start with a European flavour.",
-     "walkthrough": "Julius Caesar divorced his wife Pompeia because 'Caesar's wife must be above suspicion'. 'Touch' in the sense of a faint trace is the hard step.",
-     "definitionFit": "The proverb says Caesar's wife must be beyond any doubt or reproach, so the definition quotes the phrase's origin."
+     "surface": "Describing Caesar's wife from the start, with a European flavour.",
+     "walkthrough": "AB OVO cut short gives ABOV, then E and SUSPICION.",
+     "definitionFit": "Caesar said his wife must be beyond reproach, the source of the proverb."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "touch"
     }

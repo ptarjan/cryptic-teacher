@@ -173,65 +173,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "KNELT",
-     "indicators": [
-      {
-       "text": "somehow",
-       "note": "somehow means in some unspecified way, so the remaining letters may be rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "composite",
        "indicators": [
         {
-         "text": "missing a",
-         "note": "missing an A means that one letter is dropped from the name before it"
+         "text": "somehow",
+         "at": 17,
+         "note": "somehow signals that the letters are reworked"
+        },
+        {
+         "text": "missing",
+         "at": 32,
+         "note": "missing means the a is taken out of those letters"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Kane's",
-           "gives": "KANE",
-           "note": "the name, with 's read as 'is'"
-          },
-          {
-           "op": "outer",
-           "indicators": [
-            {
-             "text": "after vacation",
-             "note": "a vacation empties a place, so the word is emptied of its inside letters"
-            }
-           ],
-           "parts": [
-            {
-             "words": "lot",
-             "note": "the outside letters of this word"
-            }
-           ]
-          }
-         ]
+         "words": "Kane's",
+         "at": 25,
+         "gives": "KANE",
+         "note": "Kane's is read as Kane is, so only the name gives letters"
         },
         {
-         "gives": "A"
+         "words": "a",
+         "at": 40
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "after vacation",
+         "at": 46,
+         "note": "after vacation means lot is emptied, leaving its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lot",
+         "at": 42
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Kane has gone into hiding, mostly missing after a holiday.",
-     "walkthrough": "The 's reads as 'is'. The rearrangement signal leaves the three surviving letters of the name in their original order, which is a light touch from the setter.",
-     "definitionFit": "Going down to the ground on one's knees is kneeling, so the past tense fits 'went to ground'."
+     "surface": "Someone named Kane has gone missing after the holidays.",
+     "walkthrough": "KANE without A leaves KNE, and LT is 'lot' emptied of its middle.",
+     "definitionFit": "To kneel is to go down on bended knee, getting low to the floor."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "vacation"
     }
    }

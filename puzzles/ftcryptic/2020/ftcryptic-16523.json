@@ -1455,41 +1455,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ONYX",
-     "indicators": [
-      {
-       "text": "some",
-       "note": "some means only a portion, so the opening run of letters is dropped and the rest kept"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "some",
+         "at": 21,
+         "note": "some means only part of the word chalcedony is kept, its opening letters dropped"
+        }
+       ],
        "parts": [
         {
          "words": "chalcedony",
-         "gives": "ONY",
-         "note": "the last three letters of the word, the first seven being discarded"
+         "at": 26
         },
         {
-         "words": "unknown",
-         "gives": "X",
-         "note": "X is the classic unknown quantity in algebra"
+         "gives": "CHALCED"
         }
        ]
+      },
+      {
+       "words": "unknown",
+       "at": 37,
+       "gives": "X",
+       "note": "x is the algebraic unknown"
       }
      ]
     },
     "explanation": {
-     "surface": "A geology note about a mineral variety and an unidentified sample.",
-     "walkthrough": "The same mineral name appears twice, once as the definition and once as the source of letters, which is unusually cheeky.",
-     "definitionFit": "Onyx is a banded variety of chalcedony, a fine-grained quartz mineral used for cameos and carvings."
+     "surface": "A mineral question: a sample of chalcedony of unknown kind.",
+     "walkthrough": "The mineral's name appears twice: once as the definition, once as the source of the letters.",
+     "definitionFit": "Onyx is a banded variety of the mineral, prized for cameos."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
     }
    }
   },

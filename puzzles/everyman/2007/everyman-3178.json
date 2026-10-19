@@ -57,12 +57,14 @@
      "indicators": [
       {
        "text": "on",
-       "note": "in an across clue, one part placed on another is written after it"
+       "at": 16,
+       "note": "on means the following group comes after the word for hack"
       }
      ],
      "parts": [
       {
        "words": "hack",
+       "at": 19,
        "gives": "CUT",
        "note": "to hack is to cut"
       },
@@ -71,40 +73,43 @@
        "indicators": [
         {
          "text": "in",
-         "note": "the duke sits inside the phrase that follows, enclosed by its letters"
+         "at": 6,
+         "note": "in puts the duke's letter inside a plus the wood"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
-           "words": "wood",
-           "gives": "ASH",
-           "note": "ash is a tree and its timber"
+           "words": "a",
+           "at": 9,
+           "gives": "A"
           },
           {
-           "words": "Duke",
-           "gives": "D",
-           "note": "D is the standard abbreviation for duke"
+           "words": "wood",
+           "at": 11,
+           "gives": "ASH",
+           "note": "ash is a wood"
           }
          ]
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "words": "Duke",
+         "at": 0,
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A duke out in a wood with a hacking jacket on cuts an impressive figure.",
-     "walkthrough": "The duke's letter goes inside 'a wood' (A + ASH), and that whole unit follows the word for hack.",
-     "definitionFit": "To cut a dash is an idiom for looking stylish and impressing onlookers."
+     "surface": "A duke in a forest hacks away and makes a dramatic impact.",
+     "walkthrough": "'hack' looks like a verb acting on the wood, but it is just the first piece, with the rest placed on it.",
+     "definitionFit": "To cut a dash is an idiom for looking stylish and impressive in public."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "hack"
     }
@@ -552,50 +557,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "YOYO",
-     "indicators": [
-      {
-       "text": "cartwheeled",
-       "note": "turning a cartwheel flips you over, so the remaining letters turn round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "cartwheeled",
+         "at": 19,
+         "note": "cartwheeled means turned head over heels, so the letters are reversed"
+        }
+       ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "YOYO",
          "indicators": [
           {
            "text": "headless",
-           "note": "without a head means the first letter is cut off"
+           "at": 6,
+           "note": "headless means the first letter is lost"
           }
          ],
          "parts": [
           {
            "words": "one",
+           "at": 15,
            "gives": "TOY",
-           "note": "'one' points back to the toy named at the start"
+           "note": "one refers back to the toy just named, the word itself"
+          },
+          {
+           "gives": "T"
           }
          ]
-        },
-        {
-         "unchecked": true,
-         "words": "twice",
-         "note": "an instruction to write the shortened, turned piece two times over"
         }
        ]
+      },
+      {
+       "words": "twice",
+       "at": 31,
+       "gives": "YO",
+       "note": "twice means the same two letters are repeated"
       }
      ]
     },
     "explanation": {
-     "surface": "A toy figure that has lost its head goes spinning over and over.",
-     "walkthrough": "'One' refers back to the definition word: drop its first letter, turn it round, and write the result twice.",
-     "definitionFit": "A yo-yo is a spool on a string that climbs and drops, a classic children's plaything."
+     "surface": "A toy, missing its head, has been spun round twice.",
+     "walkthrough": "TOY without its head is OY; cartwheeling it gives YO, and 'twice' doubles it.",
+     "definitionFit": "A yo-yo is a spool toy that climbs and falls on a string."
     },
     "features": {
      "answerInScene": true,
@@ -1279,33 +1287,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "manoeuvres",
-       "note": "manoeuvres are moves and shifts, so the letters are moved into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Note",
+       "at": 0,
+       "gives": "TE",
+       "note": "te is a note in tonic sol-fa, also spelt ti"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "manoeuvres",
+         "at": 9,
+         "note": "manoeuvres means the letters of the are moved around"
+        }
+       ],
        "parts": [
         {
-         "words": "Note",
-         "gives": "TE",
-         "note": "te is the seventh note of the sol-fa scale"
-        },
-        {
          "words": "the",
-         "note": "the letters of the, rearranged"
+         "at": 5
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A memo says military exercises show real strength.",
-     "definitionFit": "A law with teeth has real force, an idiom for effective power to enforce."
+     "surface": "A memo about the troop exercises showing real military might.",
+     "walkthrough": "TE is followed by ETH, a rearrangement of THE.",
+     "definitionFit": "A law or body with teeth has real force to enforce its will, an idiom for effective strength."
     },
     "features": {
      "answerInScene": false,
@@ -1488,35 +1499,39 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one part goes inside the vehicle word"
+       "at": 9,
+       "note": "in places a and the female inside the vehicle"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "vehicle",
-         "gives": "RR",
-         "note": "RR stands for Rolls-Royce, a car"
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "vehicle",
+       "at": 12,
+       "gives": "RR",
+       "note": "RR is Rolls-Royce, a car"
       },
       {
-       "words": "female",
-       "gives": "SHE",
-       "note": "she is the female pronoun"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "female",
+         "at": 2,
+         "gives": "SHE",
+         "note": "she is a female"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman in a car drives more and more wildly.",
-     "walkthrough": "The vehicle is a Rolls-Royce, abbreviated to its two initials, which enclose the other letters.",
-     "definitionFit": "Rash means hasty and imprudent, so the comparative is a synonym for more reckless."
+     "surface": "A woman in a car becomes a more dangerous driver.",
+     "walkthrough": "The vehicle is a Rolls-Royce, known by its two-letter badge.",
+     "definitionFit": "Rash means hasty and heedless, so the comparative is more impetuous."
     },
     "features": {
      "answerInScene": true,
