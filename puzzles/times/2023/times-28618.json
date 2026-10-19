@@ -135,53 +135,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PRURIENT",
+     "op": "container",
      "indicators": [
       {
-       "text": "stripped",
-       "note": "stripped means the outer layer, the first and last letters, is removed"
+       "text": "in which",
+       "at": 5,
+       "note": "in which means the following letters go inside the abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Part",
+       "at": 0,
+       "gives": "PT"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in which",
-         "note": "in which means the other letters are placed inside this word"
+         "text": "stripped",
+         "at": 26,
+         "note": "stripped means each word loses its outer letters"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
-           "words": "Part",
-           "gives": "PT",
-           "note": "PT is the abbreviation for part"
+           "words": "true",
+           "at": 14,
+           "note": "the word true without its first and last letters"
           },
           {
-           "words": "true",
-           "gives": "RU",
-           "note": "true with its outer letters removed"
+           "words": "friend",
+           "at": 19,
+           "note": "the word friend without its first and last letters"
           }
          ]
         },
         {
-         "words": "friend",
-         "gives": "RIEN",
-         "note": "friend with its outer letters removed"
+         "gives": "TEFD"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A role in which a close friend undresses, for someone who enjoys that kind of thing.",
-     "walkthrough": "That sort of thing is a coy euphemism for sex, the definition's hint.",
-     "definitionFit": "Prurient means having an excessive interest in sexual matters, which is the euphemism here."
+     "surface": "A role where a loyal friend takes their clothes off, for someone who likes that kind of thing.",
+     "walkthrough": "'stripped' works on both words at once, taking the outer letters off each, and 'Part' gives its standard abbreviation as the container.",
+     "definitionFit": "Prurient means having an excessive interest in sexual matters, so being into that sort of thing is a coy paraphrase."
     },
     "features": {
      "answerInScene": true,
@@ -405,42 +408,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HEINOUS",
+     "op": "container",
      "indicators": [
       {
-       "text": "without energy",
-       "note": "without means lacking, and energy is the physics symbol E"
+       "text": "confined to",
+       "at": 17,
+       "note": "confined to means held inside the following word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "confined to",
-         "note": "confined to means shut up inside the other word"
+         "text": "without",
+         "at": 34,
+         "note": "without means leaving out a letter"
         }
        ],
        "parts": [
         {
          "words": "home",
-         "gives": "HOUS",
-         "note": "house minus its E for energy"
+         "at": 29,
+         "gives": "HOUSE",
+         "note": "a house is a home"
         },
         {
-         "words": "One from Germany",
-         "gives": "EIN",
-         "note": "ein is German for one"
+         "words": "energy",
+         "at": 42,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
         }
        ]
+      },
+      {
+       "words": "One from Germany",
+       "at": 0,
+       "gives": "EIN",
+       "note": "ein is German for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A German stuck at home with no energy left: too awful to talk about.",
-     "definitionFit": "Heinous means shockingly wicked, so bad that it is unspeakable."
+     "surface": "A German stuck indoors with no energy is too dreadful to mention.",
+     "walkthrough": "The question mark admits the surface is a stretch: 'One from Germany' is not a person but the German word for one.",
+     "definitionFit": "A heinous act is so wicked it is beyond words, which is what unspeakable means."
     },
     "features": {
      "answerInScene": false,
@@ -853,42 +865,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NACREOUS",
+     "op": "composite",
      "indicators": [
       {
-       "text": "short tango",
-       "note": "short of tango means lacking the letter that tango stands for in the phonetic alphabet"
+       "text": "dancing",
+       "at": 17,
+       "note": "dancing means the letters move about into a new order"
+      },
+      {
+       "text": "short",
+       "at": 25,
+       "note": "short means lacking something, here one letter"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "dancing",
-         "note": "dancing letters move about and settle in a new order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "courtesan",
-         "gives": "COURESAN",
-         "note": "courtesan with its T removed, since tango is T"
-        }
-       ]
+       "words": "courtesan",
+       "at": 7
+      },
+      {
+       "words": "tango",
+       "at": 31,
+       "gives": "T",
+       "note": "Tango is T in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A pearl-wearing courtesan performs an abbreviated tango.",
-     "definitionFit": "Nacre is mother-of-pearl, so nacreous describes the pearly, iridescent sheen."
+     "surface": "A courtesan dancing a brief tango has a pearly sheen.",
+     "walkthrough": "Take T out of COURTESAN, as 'short' says, and rearrange the rest.",
+     "definitionFit": "Nacre is mother-of-pearl, so nacreous describes something with a lustrous iridescent sheen."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "tango"
+     "misdirectedWord": "short"
     }
    }
   },
@@ -1208,46 +1219,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SKIPLANE",
-     "indicators": [
-      {
-       "text": "evacuated",
-       "note": "evacuated means emptied, so only the outer letters remain"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "evacuated",
+         "at": 6,
+         "note": "evacuated means emptied, so only the outside letters remain"
+        }
+       ],
        "parts": [
         {
          "words": "Sheik",
-         "gives": "SK",
-         "note": "sheik emptied of its inner letters"
-        },
+         "at": 0,
+         "note": "the outside letters of Sheik"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "flying",
-           "note": "flying letters scatter and land in a new arrangement"
-          }
-         ],
-         "parts": [
-          {
-           "words": "alpine",
-           "note": "taken as written, then rearranged"
-          }
-         ]
+         "text": "flying",
+         "at": 16,
+         "note": "flying here means scattered, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alpine",
+         "at": 23,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sheik flies off in a mountain transport after clearing out.",
-     "definitionFit": "A ski-plane is an aircraft fitted with skis for landing on snow, a means of transport."
+     "surface": "A sheik flies over the Alps after an evacuation.",
+     "walkthrough": "'evacuated' empties Sheik to SK; 'flying' rearranges alpine as IPLANE.",
+     "definitionFit": "A skiplane is an aircraft fitted with skis for landing on snow, a means of carrying people and goods."
     },
     "features": {
      "answerInScene": true,

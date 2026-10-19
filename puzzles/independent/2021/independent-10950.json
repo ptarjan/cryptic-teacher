@@ -682,45 +682,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SILVER",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 28,
+       "note": "in puts the reordered letters inside the abbreviations"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "small",
+         "at": 31,
+         "gives": "S"
+        },
+        {
+         "words": "rook",
+         "at": 37,
+         "gives": "R",
+         "note": "R is the chess notation for rook"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "corrected",
-         "note": "correcting the word puts its letters into a different order"
+         "at": 13,
+         "note": "corrected means put right, so the letters are reordered"
         }
        ],
        "parts": [
         {
-         "words": "small",
-         "gives": "S",
-         "note": "S = small"
-        },
-        {
          "words": "evil",
-         "note": "anagram fodder, 4 letters"
-        },
-        {
-         "words": "rook",
-         "gives": "R",
-         "note": "R = rook in chess notation"
+         "at": 23,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A famous horse has been cured of its bad behaviour, as has a little chess piece.",
-     "walkthrough": "S and R are standard abbreviations, and 'in' sits the rearranged EVIL between them.",
-     "definitionFit": "Silver is the Lone Ranger's horse in the Western stories."
+     "surface": "A celebrated racehorse is cured of its bad nature by a chess piece.",
+     "walkthrough": "'corrected' rearranges evil to ILVE, which goes between S and R.",
+     "definitionFit": "Silver was the Lone Ranger's white horse, celebrated in the radio and TV westerns."
     },
     "features": {
      "answerInScene": false,

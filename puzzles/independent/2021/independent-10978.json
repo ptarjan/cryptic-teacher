@@ -784,42 +784,44 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SILVERED",
      "indicators": [
       {
-       "text": "following split",
-       "note": "once the word is split into two parts, each part can be read separately and one part translated"
+       "text": "split",
+       "at": 15,
+       "note": "split means the word is broken in two, and its first half AG is then read as the chemical symbol it is and swapped for the element's name"
+      },
+      {
+       "text": "following",
+       "at": 5,
+       "note": "following says the second half of the split word comes after the element's name"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Aged",
-         "gives": "SILVER",
-         "note": "the first two letters, AG, are the chemical symbol for silver, swapped for the metal's name"
-        },
-        {
-         "words": "Aged",
-         "gives": "ED",
-         "note": "the last two letters of the word, kept as they are"
-        }
-       ]
+       "words": "Aged",
+       "at": 0,
+       "gives": "AGED",
+       "note": "the word aged is split into AG and ED"
+      },
+      {
+       "gives": "AG",
+       "note": "Ag is the chemical symbol for silver"
+      },
+      {
+       "gives": "SILVER",
+       "note": "the element whose symbol is Ag"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone grew old after a break-up and their hair turned grey.",
-     "walkthrough": "'Aged' looks like the definition, but split it as AG + ED and replace the chemical symbol with the metal it stands for.",
-     "definitionFit": "Hair that has silvered has turned the pale grey colour of the metal, a common description of ageing."
+     "surface": "Someone got old after a divorce and their hair turned grey.",
+     "walkthrough": "Split 'Aged' into AG + ED; AG is the chemical symbol for silver, so write the element out in full and keep ED 'following' it.",
+     "definitionFit": "Hair that has silvered has turned a pale metallic grey with age."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Aged"
+     "misdirectedWord": "split"
     }
    }
   },
@@ -1157,66 +1159,70 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LUNCHEONS",
      "indicators": [
       {
        "text": "taking",
-       "note": "taking one thing in place of another is a swap"
+       "at": 26,
+       "note": "taking signals one thing being put in place of another"
+      },
+      {
+       "text": "for",
+       "at": 47,
+       "note": "for means instead of, naming what is replaced"
       }
      ],
      "parts": [
       {
        "words": "Heavy hitters from police",
+       "at": 0,
        "gives": "TRUNCHEONS",
-       "note": "truncheons are the clubs carried by British police"
+       "note": "truncheons are the clubs British police carry"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 51,
+         "note": "oddly means the first and third letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tory",
+         "at": 57,
+         "note": "the odd letters of Tory"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "leader",
-         "note": "a leader goes first, so only the first letter is kept"
+         "at": 40,
+         "note": "leader means the first letter"
         }
        ],
        "parts": [
         {
          "words": "Labour",
-         "note": "the first letter of the party's name"
-        }
-       ]
-      },
-      {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "TR",
-       "indicators": [
-        {
-         "text": "oddly",
-         "note": "oddly points to the odd-numbered positions, the first and third letters"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Tory",
-         "gives": "TR",
-         "select": "alternate",
-         "note": "the first and third letters"
+         "at": 33,
+         "note": "first letter of Labour"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Police batons are swapped for a political leader's meals, with Labour and Tory in the mix.",
-     "walkthrough": "'Taking L for TR' means put L where TR was: TRUNCHEONS becomes the answer.",
-     "definitionFit": "Luncheons are formal midday meals, the old-fashioned word for lunch, so each is one of the meals."
+     "surface": "Political commentary: police clubs, and Labour taking over from the Tories at lunch.",
+     "walkthrough": "The odd letters of Tory, TR, are replaced by L from Labour's leader, turning TRUNCHEONS into LUNCHEONS.",
+     "definitionFit": "Luncheons are formal midday meals."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "hitters"
+     "misdirectedWord": "leader"
     }
    }
   },
