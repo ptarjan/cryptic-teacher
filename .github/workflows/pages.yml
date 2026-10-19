@@ -108,6 +108,7 @@ jobs:
       # restore-keys takes the newest. A stale or missing store is still
       # correct, just slow: a row is reused only when its key matches.
       - name: Restore the row cache
+        id: rowcache
         uses: actions/cache/restore@v5
         with:
           path: |
@@ -127,6 +128,58 @@ jobs:
           path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
           key: clue-index-${{ github.sha }}
           restore-keys: clue-index-
+      # (The puzzle pages' store, described at Unpack the puzzle pages below.)
+      - name: Restore the puzzle pages
+        id: pagecache
+        uses: actions/cache/restore@v5
+        with:
+          path: .page-cache.tar
+          key: seo-pages-${{ github.sha }}
+          restore-keys: seo-pages-
+      # A push that only added or edited puzzle files, against the commit the
+      # last deploy shipped, takes the puzzle fast path (Paul 10-19: "like 1
+      # minute for new puzzles that don't change the core code"): no warming
+      # slices and no page shards. What it skips is only warm-up, never a
+      # decision. The row cache's slices make rows the reindex would make
+      # itself for the few puzzles it finds missing; the shards only spread
+      # the checking of ~42k pages that reuse_first now does in one pass, the
+      # same checks. "Only puzzle files" is tools/ci_scope.py's answer (the
+      # one tests.yml's fast path uses): any other path, a deleted puzzle, more
+      # than MAX_FILES puzzles, a manual or scheduled run, no deploy to diff
+      # against or no restored row and page caches (a cold build is what the
+      # slices and shards are for) is the full path below.
+      # The base is the newest commit whose Deploy to Pages step succeeded,
+      # not the newest green run: the page and row caches are saved only after
+      # a deploy, and the code they were made by is that commit's.
+      - name: Choose the build path
+        id: scope
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT: ${{ github.event_name }}
+          REPO: ${{ github.repository }}
+          CACHED: ${{ steps.rowcache.outputs.cache-matched-key != '' && steps.pagecache.outputs.cache-matched-key != '' }}
+        run: |
+          set -uo pipefail
+          full() { echo "full build: $1"; echo "fast=false" >> "$GITHUB_OUTPUT"; exit 0; }
+          [ "$EVENT" = push ] || full "a $EVENT run"
+          [ "$CACHED" = true ] || full "no restored row or page cache"
+          base=
+          while read -r id sha; do
+            [ "$id" != "$GITHUB_RUN_ID" ] || continue
+            ok=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
+                   --jq '[.jobs[] | select(.name == "build") | .steps[] | select(.name == "Deploy to Pages" and .conclusion == "success")] | length' || echo 0)
+            if [ "${ok:-0}" -gt 0 ]; then base=$sha; break; fi
+          done < <(gh api "repos/$REPO/actions/workflows/pages.yml/runs?branch=master&event=push&per_page=30" \
+                     --jq '.workflow_runs[] | select(.status == "completed") | "\(.id) \(.head_sha)"' || true)
+          [ -n "$base" ] || full "no successful deploy to diff against"
+          auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          GIT_TERMINAL_PROMPT=0 git -c protocol.version=2 -c "http.extraheader=AUTHORIZATION: basic $auth" \
+            fetch --no-tags --no-recurse-submodules --depth=1 --filter=blob:none origin "$base" || full "could not fetch $base"
+          verdict=$(GIT_TERMINAL_PROMPT=0 python3 tools/ci_scope.py decide "$base") || full "could not diff against $base"
+          [ "$verdict" = fast ] || full "$verdict"
+          GIT_TERMINAL_PROMPT=0 python3 tools/ci_scope.py files "$base" > "$RUNNER_TEMP/puzzles.txt" || full "too many puzzles changed since $base"
+          echo "puzzle fast path: $(wc -l < "$RUNNER_TEMP/puzzles.txt") puzzle file(s) since $base"
+          echo "fast=true" >> "$GITHUB_OUTPUT"
       # app.js reads the glossary from a <script> tag, so the file has to exist
       # before anything hashes it. That is this early because --reindex restamps
       # index.html on its way past, not only the stamping step further down.
@@ -182,20 +235,28 @@ jobs:
       # cache is saved even when the code moved; on a warm cache they are
       # eight lookups.
       - name: Warm the row cache, slice 1 of 8
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 0/8
       - name: Warm the row cache, slice 2 of 8
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 1/8
       - name: Warm the row cache, slice 3 of 8
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 2/8
       - name: Warm the row cache, slice 4 of 8
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 3/8
       - name: Warm the row cache, slice 5 of 8
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 4/8
       - name: Warm the row cache, slice 6 of 8
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 5/8
       - name: Warm the row cache, slice 7 of 8
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 6/8
       - name: Warm the row cache, slice 8 of 8
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/fetch_puzzle.py --warm-rows 7/8
       - name: Build the puzzle shims and reindex
         run: |
@@ -236,13 +297,8 @@ jobs:
       # Restored here, saved (Save the puzzle pages) only after a big
       # re-render: saving ~67k pages takes about a minute, and a stale cache
       # costs only the few pages each later push moved.
-      - name: Restore the puzzle pages
-        uses: actions/cache/restore@v5
-        with:
-          path: .page-cache.tar
-          key: seo-pages-${{ github.sha }}
-          restore-keys: seo-pages-
-      # One tar file, not a glob over puzzles/: see tools/cache_tar.sh.
+      # Restored up in the build (before Choose the build path), which needs
+      # to know the store is there; unpacked here.
       - name: Unpack the puzzle pages
         run: bash tools/cache_tar.sh unpack .page-cache.tar
       # A cold render of the ~42k puzzle pages is ~175s of one step, which a 160s
@@ -253,16 +309,30 @@ jobs:
       # and sitemaps from what the shards left in .page-shards/. Same files,
       # byte for byte, as `python3 tools/build_seo_pages.py` makes alone.
       - name: Generate the crawlable pages, shard 1 of 4
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --shard 0/4
       - name: Generate the crawlable pages, shard 2 of 4
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --shard 1/4
       - name: Generate the crawlable pages, shard 3 of 4
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --shard 2/4
       - name: Generate the crawlable pages, shard 4 of 4
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --shard 3/4
       - name: Assemble the crawlable pages
         id: pages
+        if: steps.scope.outputs.fast != 'true'
         run: python3 tools/build_seo_pages.py --assemble 4
+      # The puzzle fast path's one step in place of the shards and the
+      # assemble: the same build as `python3 tools/build_seo_pages.py`, whose
+      # first pass reuses the stored pages in this process and sends only the
+      # pages it cannot reuse (a new puzzle, its pager neighbours) to the
+      # workers. The hub, listings and sitemaps are written as ever.
+      - name: Generate the crawlable pages (puzzle push)
+        id: pages_fast
+        if: steps.scope.outputs.fast == 'true'
+        run: python3 tools/build_seo_pages.py --reuse-first
       # Every page that is not a puzzle gets a card of its own title and
       # description, so these are drawn from the pages and come after them.
       # Their URLs are stamped with a hash of what they are drawn from, not of
@@ -425,10 +495,10 @@ jobs:
       # After everything the deploy needs, and only when this run rendered
       # many pages (a code change, a cold cache): see Restore the puzzle pages.
       - name: Pack the puzzle pages
-        if: ${{ !cancelled() && steps.deployment.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || '0') > 2000 }}
+        if: ${{ !cancelled() && steps.deployment.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 2000 }}
         run: bash tools/cache_tar.sh pack pages .page-cache.tar
       - name: Save the puzzle pages
-        if: ${{ !cancelled() && steps.deployment.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || '0') > 2000 }}
+        if: ${{ !cancelled() && steps.deployment.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 2000 }}
         uses: actions/cache/save@v5
         with:
           path: .page-cache.tar
