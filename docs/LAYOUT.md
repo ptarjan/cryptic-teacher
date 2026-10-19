@@ -3070,5 +3070,11 @@ tools/test_batch_subject.sh                    a batch commit's subject names on
                                                listed 20 ids and changed just the queue file)
 tools/test_trimmed_lead.py                     the 1945-49 Times' clue column stands right of a
                                                column of small ads, and
+tools/audit_crops.py                           dry-run audit of the archive filer's clue-column
+                                               crops, per year
+tools/crop_window.py                           clue-column windows chosen from the page's own
+                                               ink, and the check that a
+tools/test_crop_window.py                      crop_window finds the gutters between columns of
+                                               print from the ink
 ```
 <!-- LAYOUT-END -->

@@ -170,6 +170,7 @@ from difflib import SequenceMatcher
 from pathlib import Path
 import clue_repair
 import clue_text
+import crop_window
 from clue_text import (CAPS_HEADING, COUNT_END, HEADING_ALONE, NUMBERED_HEADING, OPENING_NUMBER, OPENING_SPECK,
                        count_left, counts_mended, direction, heading_of, number_digits, numbered_heading,
                        uncounted_dropped)
@@ -1472,6 +1473,13 @@ GUTTER_DENSE = 0.12
 #: and at least this share of those pixel columns carry ink: the margin
 #: before a column of numbers is blank in part of them.
 GUTTER_SOLID = 0.75
+
+
+def edge_candidates(img, grid, lead):
+    """[x]: the gutters left and right of lead's x0 (crop_window), the
+    window's other left edges when its own fails its check."""
+    x0, top = lead
+    return crop_window.edge_candidates(img, (max(0, x0 - 400), top, grid[0], grid[3]), x0)
 
 
 def trimmed_lead(img, grid, lead):
@@ -3779,7 +3787,32 @@ def held_settled(d, verdict):
 
 def read_page(d, found, hit, solutions, vlm_for=False):
     """read_puzzle's one read: `vlm_for` False asks the VLM nothing; None
-    asks it every column; a list of lights, the columns holding them."""
+    asks it every column; a list of lights, the columns holding them.
+
+    A crop that did not hold the clue columns (crop_window.poor(): refused
+    unreadable, no grid-fitting list, lights left blank) is read again from
+    the other gutters near the window's left edge, and the best reading
+    stands: the window is right by its own check, not by the layout's offset."""
+    alts = []
+    verdict, puzzle = _read_page(d, found, hit, solutions, vlm_for, None, alts)
+    if not alts or not crop_window.poor(verdict):
+        return verdict, puzzle
+    best = (crop_window.score(verdict, puzzle), verdict, puzzle)
+    for x in alts:
+        v, p = _read_page(d, found, hit, solutions, vlm_for, x, None)
+        if crop_window.score(v, p) > best[0]:
+            best = (crop_window.score(v, p), v, p)
+        if not crop_window.poor(v):
+            break
+    if best[1] is not verdict:
+        best[1]["cropFrom"] = "gutter"
+    return best[1], best[2]
+
+
+def _read_page(d, found, hit, solutions, vlm_for, lead_x0, alts):
+    """read_page's one read from a window: `lead_x0` moves the left edge of a
+    lead column's crop; `alts` (a list) is filled with the other gutters
+    near it, for read_page to try."""
     vlm_on = vlm_for is not False
     n, leaf = hit["number"], hit["leaf"]
     verdict = {"number": n, "leaf": leaf}
@@ -3842,6 +3875,10 @@ def read_page(d, found, hit, solutions, vlm_for=False):
         and not over and not paper.four else None
     if lead:
         lead = trimmed_lead(img, gbox, lead)
+        if lead_x0 is not None:
+            lead = (lead_x0, lead[1])
+        elif alts is not None:
+            alts.extend(edge_candidates(img, gbox, lead)[1:])
     rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json",
                                 (over - gbox[2] - 15, gbox[3]) if over else third, m, top,
                                 crop, lead, x0, right) for which in READERS}
