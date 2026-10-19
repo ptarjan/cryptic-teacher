@@ -2263,6 +2263,68 @@ def r_ana_charade(node, parent, ctx):
     return next(iter(good.values())) if len(good) == 1 else None
 
 
+def _path(root, target):
+    """The indexes of `parts` that lead from `root` to the node `target` ([] for root itself)."""
+    if root is target:
+        return []
+    for k, p in enumerate(root.get("parts") or []):
+        r = _path(p, target)
+        if r is not None:
+            return [k] + r
+    return None
+
+
+def _at(root, pth):
+    for k in pth:
+        root = root["parts"][k]
+    return root
+
+
+def r_scrambled_swap(node, parent, ctx):
+    """scrambledLeaf: a leaf giving the scramble of its own words (strife's -> FIRSTES) beside an
+    anagram op over one synonym leaf (ana<involved>(Sailor=RAT)): the anagram indicator went on the
+    wrong word. The anagram moves onto the scrambled leaf, which becomes verbatim clue words, and
+    the synonym stands bare where the anagram was. Done on the whole tree, for one such leaf and one
+    such anagram; kept when the tree still gives the answer and the rule no longer fires."""
+    if parent is not None or not ctx.get("answer") or not V.scrambled_leaves(node, min_len=3):
+        return None
+    scr, ana = [], []
+    stack = [(node, None, ())]
+    while stack:
+        n, par, anc = stack.pop()
+        stack += [(p, n, anc + (n,)) for p in n.get("parts") or []]
+        if leaf(n):
+            w, g = W.letters(n.get("words")), W.letters(n.get("gives"))
+            if n.get("words") and g and len(g) >= 3 and g != w and sorted(g) == sorted(w) and not n.get("unchecked") \
+                    and not any(a.get("op") == "anagram" for a in anc) \
+                    and not (par and par.get("op") in ("reversal", "cycling")):
+                scr.append(n)
+        elif n.get("op") == "anagram" and len(n.get("parts") or []) == 1 and not n.get("unchecked") \
+                and leaf(n["parts"][0]) and n["parts"][0].get("words") and n["parts"][0].get("gives") \
+                and sorted(W.letters(n["parts"][0]["gives"])) != sorted(W.letters(n["parts"][0]["words"])):
+            ana.append(n)
+    if len(scr) != 1 or len(ana) != 1:
+        return None
+    new = copy.deepcopy(node)
+    s_new, a_new = _at(new, _path(node, scr[0])), _at(new, _path(node, ana[0]))
+    wrap = {k: v for k, v in a_new.items() if k != "parts"}
+    wrap["parts"] = [{k: v for k, v in s_new.items() if k != "gives"}]
+    sole = a_new["parts"][0]
+    sp, ap = _path(new, s_new), _path(new, a_new)
+    if not sp or s_new is a_new:
+        return None
+    _at(new, sp[:-1])["parts"][sp[-1]] = wrap
+    if ap:
+        _at(new, ap[:-1])["parts"][ap[-1]] = sole
+    else:
+        return None     # the anagram is the root and the scrambled leaf sits under it: not this shape
+    try:
+        W.evaluate(copy.deepcopy(new), ctx["answer"])
+    except (W.WordplayError, IndexError, KeyError, TypeError, ValueError, W._NeedTarget):
+        return None
+    return new if V.scrambled_leaves(new, min_len=3) < V.scrambled_leaves(node, min_len=3) else None
+
+
 _HALF = re.compile(r"\bhalf\b|\bhalves\b|50\s*%|\bhalf-", re.I)
 
 
@@ -2399,7 +2461,7 @@ def r_arity_other(node, parent, ctx):
     return next(iter(good.values())) if len(good) == 1 else None
 
 
-RULE_REPAIRS = {"anaCharade": r_ana_charade, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
+RULE_REPAIRS = {"scrambledLeaf": r_scrambled_swap, "anaCharade": r_ana_charade, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
