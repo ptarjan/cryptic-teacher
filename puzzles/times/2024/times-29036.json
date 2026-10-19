@@ -118,51 +118,54 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "whatever eats something takes it inside itself, so one piece goes within another"
+       "at": 10,
+       "note": "eating means the dog's letters surround the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Small dog",
+       "at": 0,
+       "gives": "PEKE",
+       "note": "a peke is a Pekingese, a small dog"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "Small dog",
-         "gives": "PEKE",
-         "note": "a peke is a Pekingese, a small lapdog"
-        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "top of",
-           "note": "in a down answer the top is the start, so only the opening letter is kept"
+           "at": 17,
+           "note": "the top of royal is its first letter"
           }
          ],
          "parts": [
           {
            "words": "royal",
-           "note": "the first letter of royal"
+           "at": 24
           }
          ]
+        },
+        {
+         "words": "uniform's",
+         "at": 30,
+         "gives": "U",
+         "note": "U is uniform in the NATO alphabet; the 's joins it to the definition"
         }
        ]
-      },
-      {
-       "words": "uniform",
-       "gives": "U",
-       "note": "Uniform is the NATO phonetic alphabet word for U"
       }
      ]
     },
     "explanation": {
-     "surface": "A little dog is chewing a piece of royal regalia, the ceremonial wig of a uniformed courtier.",
-     "walkthrough": "Pekingese is shortened to peke in everyday speech, and Uniform is the radio alphabet's word for its letter.",
-     "definitionFit": "A peruke is an old word for a periwig, the long powdered hairpiece of the seventeenth and eighteenth centuries."
+     "surface": "A little dog chews the top of a royal uniform's wig.",
+     "definitionFit": "A peruke is an old word for a periwig, the long wig worn in the seventeenth and eighteenth centuries."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "uniform"
+     "misdirectedWord": "uniform's"
     }
    }
   },
@@ -240,48 +243,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FLICKER",
+     "op": "container",
      "indicators": [
       {
-       "text": "empty",
-       "note": "emptying a word removes its contents, leaving only the outer shell"
+       "text": "around",
+       "at": 20,
+       "note": "around means the bird word wraps around the emptied chick"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "bird",
+       "at": 15,
+       "gives": "FLIER",
+       "note": "a flier is something that flies, as a bird does"
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "around",
-         "note": "one thing going round another encloses it, so letters sit within letters"
+         "text": "empty",
+         "at": 27,
+         "note": "empty means the inside of chick is removed, leaving its outer letters"
         }
        ],
        "parts": [
         {
-         "words": "bird",
-         "gives": "FLIER",
-         "note": "a flier is anything that flies, such as a bird"
-        },
-        {
          "words": "chick",
-         "gives": "CK",
-         "note": "the word with its middle letters removed"
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bird fussing round its hungry chick keeps darting in and out of view.",
-     "walkthrough": "Neatly, the answer is itself a bird, a kind of American woodpecker, so the surface's bird is doing double duty.",
-     "definitionFit": "A light that flickers keeps appearing and vanishing briefly, which is exactly to come and go."
+     "surface": "A bird hovers around a chick and flits in and out of view.",
+     "definitionFit": "A light that flickers keeps appearing and disappearing, coming and going in quick succession."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "empty"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bird"
     }
    }
   },
@@ -1297,63 +1299,68 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DESTITUTE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
+       "text": "about",
+       "at": 15,
+       "note": "about means the shortened word wraps around the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "to go about something is to surround it, so one piece encloses another"
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means the word for put off loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "put off",
-         "gives": "DETE",
-         "note": "to deter is to put off; the last letter goes"
+         "at": 7,
+         "gives": "DETER",
+         "note": "to deter is to put off or discourage"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "one thing in another sits inside it, so a letter is enclosed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "situ",
-           "note": "taken as written"
-          },
-          {
-           "words": "time",
-           "gives": "T",
-           "note": "T is the abbreviation for time"
-          }
-         ]
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 26,
+         "note": "in means T goes inside the Latin word situ"
+        }
+       ],
+       "parts": [
+        {
+         "words": "situ",
+         "at": 29
+        },
+        {
+         "words": "time",
+         "at": 21,
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone mostly put off the move, staying put until finally left alone and abandoned.",
-     "walkthrough": "There are two containers: time goes into the Latin word first, and the shortened verb then wraps the result. 'once' marks an archaic sense.",
-     "definitionFit": "In older English the word meant deserted or forsaken; today it means lacking the basic necessities of life."
+     "surface": "Something largely postponed is left where it was and abandoned.",
+     "walkthrough": "T goes after the S of SITU to make STITU, which sits inside DETE. In situ is Latin for in its original place.",
+     "definitionFit": "Destitute formerly meant forsaken or deserted, an archaic sense now replaced by penniless."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "situ"
+     "misdirectedWord": "once"
     }
    }
   },
@@ -1378,48 +1385,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SEGUE",
+     "op": "container",
      "indicators": [
       {
-       "text": "sawn-off",
-       "note": "a sawn-off barrel has its end cut away, so the last letter goes"
+       "text": "covering",
+       "at": 23,
+       "note": "covering means the witness word wraps around the shortened gun"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "witness",
+       "at": 15,
+       "gives": "SEE",
+       "note": "to witness is to see"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "covering",
-         "note": "one thing covering another wraps round it, so letters sit inside"
+         "text": "sawn-off",
+         "at": 32,
+         "note": "sawn-off means the word gun has its end cut off"
         }
        ],
        "parts": [
         {
-         "words": "witness",
-         "gives": "SEE",
-         "note": "to witness is to see"
+         "words": "gun",
+         "at": 41
         },
         {
-         "words": "gun",
-         "gives": "GU",
-         "note": "the word with its last letter sawn off"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A witness follows on with testimony about a sawn-off shotgun.",
-     "walkthrough": "'sawn-off gun' is a real weapon in the surface, but 'sawn-off' just trims the word to GU, which SEE then covers.",
-     "definitionFit": "To segue is to move smoothly from one thing into the next, as a DJ does between tracks."
+     "surface": "A witness keeps a sawn-off shotgun hidden.",
+     "definitionFit": "To segue is to move smoothly from one item to the next, following on without a break."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "sawn-off"
     }
    }

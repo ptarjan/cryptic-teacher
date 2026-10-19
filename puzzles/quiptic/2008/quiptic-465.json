@@ -388,38 +388,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Terrible",
-       "note": "terrible suggests a mess, so these letters are jumbled"
+       "text": "after",
+       "at": 27,
+       "note": "after means the anagram follows the vessel word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "vessel",
+       "at": 33,
+       "gives": "SHIP",
+       "note": "a ship is a vessel"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Terrible",
+         "at": 0,
+         "note": "terrible signals the letters are in a bad, disordered state"
+        }
+       ],
        "parts": [
         {
-         "words": "vessel",
-         "gives": "SHIP",
-         "note": "a ship is a vessel"
-        },
-        {
          "words": "crew",
-         "note": "the letters of crew rearranged"
+         "at": 9
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "first",
-           "note": "first picks out the opening letter of the next word"
+           "at": 14,
+           "note": "first means only the opening letter of killed is used"
           }
          ],
          "parts": [
           {
            "words": "killed",
-           "note": "the opening letter of killed"
+           "at": 20
           }
          ]
         }
@@ -428,14 +438,13 @@
      ]
     },
     "explanation": {
-     "surface": "A useless crew got sailors killed when their boat foundered.",
-     "walkthrough": "'After vessel' puts SHIP in front of the rest.",
-     "definitionFit": "A shipwreck is the destruction of a vessel at sea, the classic maritime disaster."
+     "surface": "A dreadful crew were the first to die when their ship met catastrophe on the ocean.",
+     "definitionFit": "A shipwreck is the destruction or sinking of a ship, a calamity at sea."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Terrible"
+     "misdirectedWord": "first"
     }
    }
   },
@@ -964,38 +973,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "when moved",
-       "note": "moved means shifted about, so the letters change places"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "when moved",
+         "at": 12,
+         "note": "when moved means the letters are shifted about into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "a sob",
-         "note": "the letters of 'a sob' rearranged"
+         "words": "a",
+         "at": 6
         },
         {
-         "words": "old instrument",
-         "gives": "LUTE",
-         "note": "the lute is an early stringed instrument"
+         "words": "sob",
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "old instrument",
+       "at": 26,
+       "gives": "LUTE",
+       "note": "the lute is a stringed instrument of earlier centuries"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone emotionally moved by early music lets out a sob.",
-     "walkthrough": "'Utter' reads as a verb but is the adjective meaning complete.",
-     "definitionFit": "Utter as an adjective means complete or total, a synonym of absolute."
+     "surface": "Someone lets out a sob when stirred by an old musical instrument.",
+     "walkthrough": "'Utter' looks like the verb 'say', but it is the adjective meaning complete.",
+     "definitionFit": "Absolute and utter both mean complete or total, as in utter nonsense."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Utter"
     }
    }
@@ -1022,12 +1037,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SELECTED",
      "indicators": [
       {
        "text": "to accommodate",
-       "note": "to accommodate is to house, so the other pieces go inside"
+       "at": 21,
+       "note": "to accommodate means the anagram holds the other letters inside"
       }
      ],
      "parts": [
@@ -1036,36 +1050,39 @@
        "indicators": [
         {
          "text": "building",
-         "note": "building means constructing anew, so these letters are rearranged"
+         "at": 12,
+         "note": "building means the letters are put together in a new form"
         }
        ],
        "parts": [
         {
          "words": "Leeds",
-         "note": "the letters of Leeds rearranged"
-        },
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "words": "city",
+         "at": 36,
          "gives": "EC",
-         "note": "EC is the postcode area of the City of London"
+         "note": "EC is the postcode for the City of London"
         },
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "T",
          "indicators": [
           {
            "text": "centre",
-           "note": "centre takes just the middle letter of the word before it"
+           "at": 49,
+           "note": "the centre of culture is its middle letter"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "culture",
-           "gives": "T",
-           "select": "middle",
-           "note": "the middle letter of culture"
+           "at": 41
           }
          ]
         }
@@ -1074,9 +1091,9 @@
      ]
     },
     "explanation": {
-     "surface": "A Leeds development making room for a city arts centre.",
-     "walkthrough": "EC and T go into the middle of the rearranged Leeds; the City is London's financial district, postcode EC.",
-     "definitionFit": "To have selected something is to have chosen it, an exact synonym in the past tense."
+     "surface": "A Leeds development was picked to house an arts centre for the city.",
+     "walkthrough": "EC and T go into the middle of the rearranged LEEDS: SEL + ECT + ED. Leeds is a city in Yorkshire.",
+     "definitionFit": "To have selected is to have chosen or picked out from a range."
     },
     "features": {
      "answerInScene": false,
@@ -1102,46 +1119,48 @@
     "definitions": [
      {
       "text": "nothing special",
-      "at": 45,
-      "note": "the answer is an adjective; read as 'is nothing special'"
+      "at": 45
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Translation of",
-       "note": "translation turns words into another form, so the letters are converted into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Translation of",
+         "at": 0,
+         "note": "a translation renders the word in another form, so its letters are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "rune",
-         "note": "the letters of rune rearranged"
-        },
-        {
-         "words": "symbol",
-         "gives": "MARK",
-         "note": "a mark is a symbol or sign"
-        },
-        {
-         "words": "expert",
-         "gives": "ABLE",
-         "note": "able means skilled, expert"
+         "at": 15
         }
        ]
+      },
+      {
+       "words": "symbol",
+       "at": 20,
+       "gives": "MARK",
+       "note": "a mark is a symbol or sign"
+      },
+      {
+       "words": "expert",
+       "at": 30,
+       "gives": "ABLE",
+       "note": "able means skilled or expert"
       }
      ]
     },
     "explanation": {
-     "surface": "A specialist deciphers an ancient runic inscription and finds it says nothing much.",
+     "surface": "An expert deciphers a runic sign and finds it nothing out of the ordinary.",
      "definitionFit": "Something unremarkable is ordinary and not worth comment, with nothing special about it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Translation"
     }
