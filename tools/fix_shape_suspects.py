@@ -96,7 +96,7 @@ SUSPECTS = DATA / "shape_suspects.json"
 OUT = DATA / "shape_reannotate.json"
 UNARY = ("reversal", "cycling", "hidden") + W.SELECT
 
-TAIL = re.compile(r"end|tail|last|finish|clos|short|almost|most|nearly|brief|large|main|quite|incomplete|"
+TAIL = re.compile(r"end|tail|last|final|finish|clos|short|almost|most|nearly|brief|large|main|quite|incomplete|"
                   r"unfinish|curtail|dock|abridg|truncat|clip|bottom|all but|not all|not entirely|"
                   r"not fully|not completely|partly|practically|virtually|cut off|chopped", re.I)
 HEAD = re.compile(r"head|top|first|start|lead|open|initial|front|begin|scalp|decapit|behead|cap", re.I)
@@ -1476,6 +1476,64 @@ def r_unindicated_spare(node, parent, ctx):
         op.pop("indicators")
     return None
 
+def _cut_of(full, got, kind):
+    """The letters a `kind` ("tail", "head", "mid") cut takes off `full` to leave `got`, or None."""
+    m = len(full) - len(got)
+    if m != 1:    # one letter: "largely"/"not all" on a longer run is a different cut, the model's
+        return None
+    if kind == "tail" and full.startswith(got):
+        return full[len(got):]
+    if kind == "head" and full.endswith(got):
+        return full[:m]
+    if kind == "mid" and len(full) > m + 1:
+        k = (len(full) - m) // 2
+        cuts = {j for j in (k, len(full) - m - k) if full[:j] + full[j + m:] == got}
+        if len(cuts) == 1:
+            j = cuts.pop()
+            return full[j:j + m]
+    return None
+
+
+def r_del_single(node, parent, ctx):
+    """del_single: a one-part deletion over a composite (a charade, an anagram, a container) whose
+    letters come out of ONE leaf the model filed already cut (del<finally going off>(BAS + MA + TI),
+    TI = "Tim" less its end): the cut moves onto that leaf, which gives the clue's own word whole,
+    del<ind>([Tim]TIM, M), and the deletion node goes. Only a leaf whose clue words are the
+    literal word that the cut leaves its letters from; kept only when exactly one leaf gives a tree
+    that still evaluates to the answer. A synonym cut short (Short talk > RABBI) needs the model:
+    its whole word is nowhere in the tree."""
+    parts = node.get("parts") or []
+    if node.get("op") != "deletion" or len(parts) != 1 or not node.get("unchecked") or not ctx.get("answer"):
+        return None
+    inds = node.get("indicators") or []
+    if len(inds) != 1 or not isinstance(parts[0], dict) or leaf(parts[0]) or not V.del_single(node):
+        return None
+    text = inds[0].get("text") or ""
+    kinds = [k for k, rx in (("tail", TAIL), ("head", HEAD), ("mid", MID)) if rx.search(text)]
+    if len(kinds) != 1:
+        return None
+    good = {}
+    for lf, _ in walk(parts[0]):
+        if not leaf(lf) or not lf.get("words") or not lf.get("gives"):
+            continue
+        full, got = W.letters(lf["words"]), W.letters(lf["gives"])
+        gone = _cut_of(full, got, kinds[0])
+        if gone is None or W.letters(text) in full.split():
+            continue
+        whole = {k: v for k, v in lf.items() if k != "gives"}
+        whole["gives"] = full.upper()
+        cut = checked(node, parts=[whole, {"gives": gone.upper()}])
+        new = copy.deepcopy(parts[0])
+        for x, par in walk(new):
+            if leaf(x) and x.get("words") == lf["words"] and x.get("gives") == lf["gives"] and par is not None:
+                par["parts"][[id(q) for q in par["parts"]].index(id(x))] = cut
+                break
+        else:
+            continue
+        if _eval_swapped(node, parent, new, ctx):
+            good[json.dumps(new, sort_keys=True)] = new
+    return next(iter(good.values())) if len(good) == 1 else None
+
 
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
            "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
@@ -1486,7 +1544,8 @@ RULE_REPAIRS = {"anaSynonym": r_ana_synonym, "anagramOfContainer": r_ana_of_cont
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
                 "sharedIndicator": r_shared_indicator, "poolGap": r_pool_gap,
                 "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside,
-                "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c)}
+                "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c),
+                "del_single": r_del_single}
 
 
 def note_deletions(tree):
@@ -1912,7 +1971,7 @@ def do_rule_puzzle(pid):
     import shape_queue
     puzzle = json.loads(path.read_text(encoding="utf-8"))
     # delSelection is no validator rule: its rows come from --ids, every one is tried
-    count = shape_queue._validator_rules().get(rule) or (lambda wp, full, clue: False)
+    count = shape_queue._validator_rules().get(rule) or _DETECTOR_RULES.get(rule) or (lambda wp, full, clue: False)
     fixes = []
     for k, e in enumerate(puzzle.get("entries") or []):
         if shape_queue.clue_key(e) not in by_pid[pid]:
@@ -1988,6 +2047,10 @@ def do_rule_puzzle(pid):
         os.replace(part, path)
         stat["puzzles_written"] += 1
     return stat, examples
+
+
+#: Queue rows that name a shape_suspects detector, not a validator rule: how --rule counts them.
+_DETECTOR_RULES = {"del_single": lambda wp, full, clue: V.del_single(wp)}
 
 
 def run_rule(rule, apply, n_examples, seed, limit, jobs, ids=None):
