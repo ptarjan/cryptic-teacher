@@ -562,30 +562,29 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "COO",
-     "indicators": [
-      {
-       "text": "Expanded",
-       "note": "the formula is written out in full, the 2 becoming a second O"
-      }
-     ],
      "parts": [
       {
        "words": "odourless gas",
-       "gives": "COO",
-       "note": "carbon dioxide, whose formula has one carbon and two oxygens"
+       "at": 9,
+       "gives": "CO",
+       "note": "carbon dioxide, CO2, is an odourless gas, starting CO"
+      },
+      {
+       "words": "Expanded",
+       "at": 0,
+       "gives": "O",
+       "note": "expanded means the 2 of the formula CO2 is written out in full as a second O"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzled note about an odourless gas that has expanded.",
-     "walkthrough": "Carbon dioxide is CO2; 'expanded' writes the second oxygen out. 'Coo!' is a British exclamation of surprise.",
-     "definitionFit": "'Coo!' is what you say when something strikes you as odd."
+     "surface": "A gas without a smell has swollen, which seems strange.",
+     "walkthrough": "'Expanded' asks you to write the subscript 2 of the chemical formula out as a repeated letter.",
+     "definitionFit": "Coo is a British exclamation of surprise, said when something seems strange."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Expanded"
     }
    }
@@ -611,40 +610,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ILLITERATE",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "the word loses both its ends"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 18,
+         "note": "endless means losing both ends, so only the middle letters of the word for stupid remain"
+        }
+       ],
        "parts": [
         {
          "words": "stupid",
-         "gives": "ILL",
-         "note": "SILLY without its first and last letters"
-        },
-        {
-         "words": "repeat",
-         "gives": "ITERATE",
-         "note": "to iterate is to repeat"
+         "at": 10,
+         "gives": "SILLY",
+         "note": "silly means stupid"
         }
        ]
+      },
+      {
+       "words": "repeat",
+       "at": 26,
+       "gives": "ITERATE",
+       "note": "to iterate is to repeat"
       }
      ]
     },
     "explanation": {
-     "surface": "A string of insults: ignorant, stupid, the same thing over and over.",
-     "walkthrough": "'Endless' could clip only the last letter; here SILLY loses both ends to give ILL.",
-     "definitionFit": "Illiterate can mean ignorant in general, not only unable to read."
+     "surface": "A description of someone ignorant and foolish who keeps on repeating themselves.",
+     "walkthrough": "'endless' here trims both ends of the word, not just the last letter.",
+     "definitionFit": "Illiterate means unable to read or, more loosely, uneducated and ignorant of a subject."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "endless"
     }
@@ -1156,40 +1156,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Most of",
-       "note": "most of a word is all but its last letter, so the timber is cut short"
-      }
-     ],
      "parts": [
       {
-       "words": "timber",
-       "gives": "WOO",
-       "note": "WOOD without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Most of",
+         "at": 0,
+         "note": "most of means all but the final letter of the word for timber"
+        }
+       ],
+       "parts": [
+        {
+         "words": "timber",
+         "at": 8,
+         "gives": "WOOD",
+         "note": "wood is timber"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "northern",
-         "note": "in a down clue, going north means reading upwards"
+         "at": 18,
+         "note": "northern means going north, so in a down clue the island is read upwards"
         }
        ],
        "parts": [
         {
          "words": "island",
+         "at": 27,
          "gives": "ELBA",
-         "note": "Napoleon's island of exile"
+         "note": "Elba is the Mediterranean island where Napoleon was exiled"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Timber on a northern island that might be fit for a law court.",
-     "walkthrough": "'Court' suggests a law court or a tennis court; the question mark signals the old sense of courting, or wooing.",
-     "definitionFit": "Someone wooable is fit to be courted."
+     "surface": "Wood from a northern island being fit for use in a law court.",
+     "walkthrough": "In a down entry, 'northern' sends the island upwards. 'court' is not a law court: it means to woo.",
+     "definitionFit": "To court someone is to woo them, so a person suitable for courting is woo-able."
     },
     "features": {
      "answerInScene": false,
@@ -1387,38 +1399,36 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "beginning to",
-       "note": "take the beginning of rot"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "that letter goes inside huge"
+         "at": 31,
+         "note": "in places the first letter of rot inside the word for huge"
         }
        ],
        "parts": [
         {
          "words": "huge",
+         "at": 34,
          "gives": "BIG",
-         "note": "big = huge"
+         "note": "big means huge"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "borders of",
-           "note": "the borders of a word are its first and last letters"
+           "text": "beginning to",
+           "at": 14,
+           "note": "the beginning of a word is its first letter, so rot gives its opening letter"
           }
          ],
          "parts": [
           {
            "words": "rot",
+           "at": 27,
            "note": "first letter of rot"
           }
          ]
@@ -1427,19 +1437,27 @@
       },
       {
        "op": "outer",
+       "indicators": [
+        {
+         "text": "borders of",
+         "at": 39,
+         "note": "the borders of a word are its first and last letters"
+        }
+       ],
        "parts": [
         {
          "words": "grass",
-         "note": "outside letters of grass"
+         "at": 50,
+         "note": "first and last letters of grass"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Where mushrooms spring up: rot among huge grassy margins.",
-     "walkthrough": "'Fungus' is not a mushroom but Fungus the Bogeyman, the picture book by Raymond Briggs, who is its source.",
-     "definitionFit": "Raymond Briggs created Fungus the Bogeyman."
+     "surface": "Where a mould comes from: decay starting in large clumps at the edges of a lawn.",
+     "walkthrough": "'Fungus' looks like mould, but it is Fungus the Bogeyman, the picture book by the British author and illustrator Raymond Briggs.",
+     "definitionFit": "Raymond Briggs created the character Fungus the Bogeyman, so he is the source of Fungus."
     },
     "features": {
      "answerInScene": false,
@@ -1600,37 +1618,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "to look back is to face the way you came, so the word for look is read in reverse"
+       "text": "into",
+       "at": 18,
+       "note": "into means put inside, so the other letters go within the word for a human"
       }
      ],
      "parts": [
       {
        "words": "human",
+       "at": 23,
        "gives": "BEING",
-       "note": "a human being"
+       "note": "a human is a being, as in human being"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "into",
-         "note": "both pieces go inside the human"
-        }
-       ],
        "parts": [
         {
          "words": "English",
-         "gives": "E",
-         "note": "E = English"
+         "at": 0,
+         "gives": "E"
         },
         {
          "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 13,
+           "note": "back means the word for look is read in reverse"
+          }
+         ],
          "parts": [
           {
            "words": "look",
+           "at": 8,
            "gives": "PEEK",
-           "note": "a peek is a look"
+           "note": "a peek is a quick look"
           }
          ]
         }
@@ -1639,14 +1661,14 @@
      ]
     },
     "explanation": {
-     "surface": "An Englishman peering back into how people cultivate things.",
-     "walkthrough": "The question mark flags an odd definition: bees are kept and cultivated rather than crops.",
-     "definitionFit": "Beekeeping is a form of husbandry, cultivating bees for honey."
+     "surface": "An Englishman glancing back at a human figure as a kind of farming.",
+     "walkthrough": "The question mark flags that keeping bees is only loosely a kind of cultivation.",
+     "definitionFit": "Keeping bees for honey is a sort of farming, the rearing of insects being loosely a kind of cultivation."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "cultivation"
+     "misdirectedWord": "form"
     }
    }
   },

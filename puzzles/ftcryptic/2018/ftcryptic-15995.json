@@ -1112,40 +1112,43 @@
      "indicators": [
       {
        "text": "must include",
-       "note": "including something means holding it within, so one piece goes inside another"
+       "at": 14,
+       "note": "must include means has to contain, so the Latin word for therefore holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "therefore",
-         "gives": "ERGO",
-         "note": "ergo is Latin for therefore"
-        },
-        {
-         "words": "male",
-         "gives": "M",
-         "note": "M is the abbreviation for male"
-        }
-       ]
+       "words": "therefore",
+       "at": 4,
+       "gives": "ERGO",
+       "note": "ergo is Latin for therefore"
       },
       {
-       "words": "graduate",
-       "gives": "BA",
-       "note": "a BA, Bachelor of Arts, is a graduate"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "male",
+         "at": 27,
+         "gives": "M"
+        },
+        {
+         "words": "graduate",
+         "at": 32,
+         "gives": "BA",
+         "note": "a BA, Bachelor of Arts, is a graduate"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rule is laid down that any exclusion must also cover men with degrees.",
-     "walkthrough": "The male and graduate pieces sit together after the first letter of ERGO.",
-     "definitionFit": "An embargo is an official prohibition, especially on trade with a particular country, so it is a ban."
+     "surface": "A prohibition, so a man with a degree has to be let in.",
+     "definitionFit": "An embargo is an official prohibition, especially on trade with a country."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "graduate"
     }
    }
   },

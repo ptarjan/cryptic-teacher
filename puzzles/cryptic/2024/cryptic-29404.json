@@ -731,44 +731,46 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "IDEM",
      "indicators": [
       {
        "text": "ditching",
-       "note": "ditching means getting rid of, so the named letters are dropped"
+       "at": 7,
+       "note": "ditching means throwing away, so letters are dropped from LibDem"
       }
      ],
      "parts": [
       {
        "words": "LibDem",
-       "note": "taken as written"
+       "at": 0
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "LB",
+       "indicators": [
+        {
+         "text": "extremists",
+         "at": 20,
+         "note": "the extremists of a word are its outermost letters, here the first and last of Lab"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Lab extremists",
-         "gives": "LB",
-         "select": "outer",
-         "note": "the extreme letters of Lab"
+         "words": "Lab",
+         "at": 16,
+         "note": "first and last letters of Lab"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Liberal Democrat dumps Labour's extremists, as before.",
-     "walkthrough": "Removing an L and a B from LibDem leaves the Latin word. LibDem is a member of Britain's Liberal Democrat party.",
-     "definitionFit": "Idem is Latin for 'the same', used in references to cite a source already given."
+     "surface": "A Liberal Democrat abandoning Labour's radical wing, just as happened previously.",
+     "walkthrough": "'Lab extremists' sounds like left-wing radicals, but it means only the outer letters of the word Lab.",
+     "definitionFit": "Idem is the Latin word used in references to mean the same author or source as already cited."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Lab"
+     "misdirectedWord": "extremists"
     }
    }
   },
@@ -841,40 +843,43 @@
      "indicators": [
       {
        "text": "suppressing",
-       "note": "to suppress is to hold something down within, so one word surrounds the other"
+       "at": 38,
+       "note": "suppressing means holding something down within, so the cheers enclose the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "plaudits",
-         "gives": "CHEERS",
-         "note": "cheers are shouts of approval"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "plaudits",
+       "at": 29,
+       "gives": "CHEERS",
+       "note": "plaudits are cheers of applause"
       },
       {
-       "words": "disturbance",
-       "gives": "RIOT",
-       "note": "a riot is a violent disturbance"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 50
+        },
+        {
+         "words": "disturbance",
+         "at": 52,
+         "gives": "RIOT",
+         "note": "a riot is a violent public disturbance"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A warrior queen and her followers win praise for crushing a rebellion.",
-     "walkthrough": "Boudicca, queen of the British Iceni tribe, is pictured in her war chariot.",
-     "definitionFit": "Boudicca famously led her army from a war chariot, so she and others like her were charioteers, or chariot drivers."
+     "surface": "The warrior queen and her kind are applauded while putting down an uprising.",
+     "walkthrough": "Boudicca was queen of the ancient British Iceni tribe who led a revolt against Rome, and is traditionally pictured riding a war chariot.",
+     "definitionFit": "Boudicca is famed for riding a war chariot, so she and people like her are charioteers, drivers of chariots."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "suppressing"
+     "misdirectedWord": "disturbance"
     }
    }
   },
