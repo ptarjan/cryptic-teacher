@@ -199,20 +199,50 @@ def lock(ledger, wait_for_it=False):
         yield True
 
 
+def parse_line(line, where=None):
+    """The rows in one ledger line (str or bytes), as a list. A torn line
+    (two appenders over SMB can cut one row short, pad it with NULs and run
+    the other's text on) has its NULs stripped; if it still does not parse,
+    each complete JSON object found from a '{' is kept and the rest skipped,
+    with one short stderr note naming `where` (file:line). Never raises: a
+    skipped row just leaves its page due again."""
+    if isinstance(line, bytes):
+        line = line.decode("utf-8", "replace")
+    clean = line.replace("\x00", "")
+    try:
+        row = json.loads(clean)
+        return [row] if isinstance(row, dict) else []
+    except ValueError:
+        pass
+    dec, rows, i = json.JSONDecoder(), [], clean.find("{")
+    while i >= 0:
+        try:
+            row, end = dec.raw_decode(clean, i)
+        except ValueError:
+            i = clean.find("{", i + 1)
+            continue
+        if isinstance(row, dict):
+            rows.append(row)
+        i = clean.find("{", end)
+    print(f"torn ledger line {where or clean[:40]!r}: kept {len(rows)} row(s)", file=sys.stderr, flush=True)
+    return rows
+
+
 def ledger_rows(path, key):
     """{row[key]: row} of a jsonl ledger, the last row for a key standing;
     {} when it is missing. A final line still being appended (no newline
-    yet) is not a row."""
+    yet) is not a row. A torn line is read by parse_line."""
     try:
-        text = path.read_text(encoding="utf-8")
+        text = path.read_text(encoding="utf-8", errors="replace")
     except FileNotFoundError:
         return {}
     out = {}
     lines = text.split("\n")
-    for line in lines[:-1] if not text.endswith("\n") else lines:
+    for n, line in enumerate(lines[:-1] if not text.endswith("\n") else lines, 1):
         if line.strip():
-            row = json.loads(line)
-            out[row[key]] = row
+            for row in parse_line(line, f"{path.name}:{n}"):
+                if key in row:
+                    out[row[key]] = row
     return out
 
 
@@ -470,7 +500,9 @@ def _parsed(path):
             and hashlib.blake2b(data[:hit[1]]).digest() == hit[2]:
         done, rows = hit[1], hit[3]
     end = data.rfind(b"\n") + 1
-    new = tuple(json.loads(line) for line in data[done:end].decode("utf-8").split("\n") if line.strip())
+    first = data.count(b"\n", 0, done) + 1
+    new = tuple(r for n, line in enumerate(data[done:end].split(b"\n"), first) if line.strip()
+                for r in parse_line(line, f"{Path(path).name}:{n}"))
     rows = rows + new
     _PARSED[path] = (key if len(data) == st.st_size else (key[0], -1, 0), end,
                      hashlib.blake2b(data[:end]).digest(), rows)

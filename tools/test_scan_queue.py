@@ -300,6 +300,15 @@ except RuntimeError:
     pass
 check("a VLM that stops answering mid-run reads as down for the rest of that worker's run", False,
       vlm_reader.reachable())
+# A torn ledger line (two SMB appenders: one row cut short, NUL padded, the
+# other's text after it) is recovered or skipped, never a crash.
+torn = Path(tmp) / "torn.jsonl"
+torn.write_bytes(b'{"edition": "a", "n": 1}\n{"edition": "b", "x": "cut' + b"\x00" * 9
+                 + b'{"edition": "c", "n": 3}\n{"edition": "d", "n": 4}\n')
+check("a torn line keeps the complete row inside it", ["a", "c", "d"], sorted(q.ledger_rows(torn, "edition")))
+check("jsonl_rows reads past a torn line", [1, 3, 4], [r["n"] for r in q.jsonl_rows(torn)])
+check("a line of only NULs is no row", [], q.parse_line(b"\x00\x00\x00", "t:1"))
+check("NULs inside a whole row are stripped", [{"a": 1}], q.parse_line(b'{"a":\x00 1}', "t:1"))
 # jsonl_rows parses a file once while it is unchanged; an append, a same-size
 # rewrite or a delete is seen at once; a half-written last line is no row.
 jl = Path(tmp) / "cache.jsonl"

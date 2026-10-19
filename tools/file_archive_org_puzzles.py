@@ -4527,8 +4527,9 @@ def load_known(ledger):
 
 
 def _fold_known(known, line):
-    row = json.loads(line)
-    known[row["edition"]] = _known_row(row)
+    for row in scan_queue.parse_line(line):
+        if "edition" in row:
+            known[row["edition"]] = _known_row(row)
 
 
 def _planned_known(ledger):
