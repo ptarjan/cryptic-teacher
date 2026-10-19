@@ -72,7 +72,36 @@ jobs:
       run:
         shell: bash .github/offline.sh {0}
     steps:
-      - uses: actions/checkout@v5
+      # The tree is ~54k files; actions/checkout fetches and writes all of it
+      # (~95s a job, 11 jobs). pages.yml saves its object store, and this
+      # restores it and fetches only what was pushed since, as pages.yml's
+      # Check out does (same script; tools/test_ci_checkout.sh tests that one).
+      # A miss is a full fetch. Network steps need `shell: bash`: the job's
+      # default shell has no network.
+      - name: Restore the git store
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            .git/objects
+            .git/shallow
+            .git/refs/ct
+          key: git-store-${{ github.sha }}
+          restore-keys: git-store-
+      - name: Check out
+        shell: bash
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [ -d .git/objects ] && [ "$(du -sm .git/objects | cut -f1)" -gt 1500 ]; then
+            echo "git store over 1500MB: fetching from scratch"; rm -rf .git
+          fi
+          git init -q .
+          git remote add origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
+          auth=$(printf 'x-access-token:%s' "${TOKEN:-}" | base64 -w0)
+          git -c protocol.version=2 -c "http.extraheader=AUTHORIZATION: basic $auth" \
+            fetch --no-tags --no-recurse-submodules --depth=1 origin "+$GITHUB_SHA:refs/remotes/origin/master"
+          git checkout -q --force -B master refs/remotes/origin/master
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -121,7 +150,36 @@ jobs:
       run:
         shell: bash .github/offline.sh {0}
     steps:
-      - uses: actions/checkout@v5
+      # The tree is ~54k files; actions/checkout fetches and writes all of it
+      # (~95s a job, 11 jobs). pages.yml saves its object store, and this
+      # restores it and fetches only what was pushed since, as pages.yml's
+      # Check out does (same script; tools/test_ci_checkout.sh tests that one).
+      # A miss is a full fetch. Network steps need `shell: bash`: the job's
+      # default shell has no network.
+      - name: Restore the git store
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            .git/objects
+            .git/shallow
+            .git/refs/ct
+          key: git-store-${{ github.sha }}
+          restore-keys: git-store-
+      - name: Check out
+        shell: bash
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [ -d .git/objects ] && [ "$(du -sm .git/objects | cut -f1)" -gt 1500 ]; then
+            echo "git store over 1500MB: fetching from scratch"; rm -rf .git
+          fi
+          git init -q .
+          git remote add origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
+          auth=$(printf 'x-access-token:%s' "${TOKEN:-}" | base64 -w0)
+          git -c protocol.version=2 -c "http.extraheader=AUTHORIZATION: basic $auth" \
+            fetch --no-tags --no-recurse-submodules --depth=1 origin "+$GITHUB_SHA:refs/remotes/origin/master"
+          git checkout -q --force -B master refs/remotes/origin/master
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -206,6 +264,28 @@ jobs:
           python3 tools/build_abbreviations.py
           python3 tools/fetch_puzzle.py --reindex
           python3 tools/prune_shims.py
+      # Shard 0 saves what it built, under keys of its own (pages.yml's are
+      # exact-sha and only written after a deploy, which a burst of pushes
+      # cancels, leaving every later run restoring a stale store). The paths
+      # match the restores, so restore-keys finds these too; a stale store is
+      # slower, never wrong.
+      - name: Pack the puzzle shims for the cache
+        if: ${{ !cancelled() && matrix.shard == 0 && github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+        run: bash tools/cache_tar.sh pack shims .shim-cache.tar
+      - name: Save the row cache
+        if: ${{ !cancelled() && matrix.shard == 0 && github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+        uses: actions/cache/save@v5
+        with:
+          path: |
+            .git/ct-rows.sqlite*
+            ~/.cache/cryptic-teacher/code_reach
+          key: row-cache-t-${{ github.sha }}
+      - name: Save the puzzle shims
+        if: ${{ !cancelled() && matrix.shard == 0 && github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+        uses: actions/cache/save@v5
+        with:
+          path: .shim-cache.tar
+          key: puzzle-shims-t-${{ github.sha }}
       # Only a shard holding a script in ci_shards.js's PAGES builds the pages,
       # ~2 minutes cold. The page store (build_seo_pages's fingerprint of the
       # code and data a page reads) makes a warm build re-render only the pages
