@@ -175,30 +175,41 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "NIGHTCAPS",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner was famous for swapping the opening sounds of neighbouring words"
+       "at": 0,
+       "note": "Spooner's tells us to swap the opening sounds of the two words the clue gives, as the Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "bird of prey sleeps",
-       "gives": "NIGHTCAPS",
-       "soundsLike": "KITE NAPS",
-       "note": "a kite is a bird of prey and naps are sleeps; swapping their opening sounds gives the answer"
+       "op": "homophone",
+       "spelt": "CIGHT",
+       "parts": [
+        {
+         "words": "bird of prey",
+         "at": 10,
+         "gives": "KITE",
+         "note": "a kite is a hawk-like bird of prey; said aloud its opening sound could equally be spelt with a C"
+        }
+       ]
+      },
+      {
+       "words": "sleeps",
+       "at": 23,
+       "gives": "NAPS",
+       "note": "naps are short sleeps"
       }
      ]
     },
     "explanation": {
-     "surface": "The reverend's hawk dozes and then has a drink.",
-     "definitionFit": "Nightcaps are drinks taken just before bed."
+     "surface": "A falconry scene: some hunting bird dozes off and has a few drinks.",
+     "walkthrough": "KITE NAPS with its opening K and N sounds exchanged is said NITE KAPS: the K sound comes out as the C of the second word, and NITE is spelt with -IGHT.",
+     "definitionFit": "A nightcap is an alcoholic drink taken just before going to bed, so the plural stands for drinks."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "sleeps"

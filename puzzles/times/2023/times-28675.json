@@ -233,53 +233,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "nasty",
-       "note": "something nasty is twisted out of its proper shape, so these letters are rearranged"
+       "text": "after",
+       "at": 29,
+       "note": "after places the rearranged letters following the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
        "indicators": [
         {
          "text": "end of",
-         "note": "the end of a word is its final letter alone, so only that is taken"
+         "at": 35,
+         "note": "end of means just the last letter of Christmas"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "parts": [
-          {
-           "words": "Christmas",
-           "note": "the last letter of Christmas"
-          }
-         ]
-        },
+         "words": "Christmas",
+         "at": 42
+        }
+       ]
+      },
+      {
+       "words": "Eve",
+       "at": 52,
+       "gives": "EVE",
+       "note": "taken as written"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "Eve",
-         "note": "taken as written"
-        },
+         "text": "nasty",
+         "at": 16,
+         "note": "nasty signals that sneers is turned into something else, its letters rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "sneers",
-         "note": "the six letters of sneers rearranged"
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sneers nastily on Christmas Eve, giving the evening a grim feel.",
-     "walkthrough": "'After' puts the sneers anagram behind the end of Christmas and Eve.",
-     "definitionFit": "Severeness is the state of being severe, that is stern and grim in manner."
+     "surface": "Bitter mocking at the close of a Christmas Eve gathering spoils the mood.",
+     "walkthrough": "The surface reads nasty as describing the sneers, but it is the signal that the six letters are rearranged; Christmas gives only its final letter.",
+     "definitionFit": "Severeness is the quality of being harsh or stern, a grim and unsmiling character."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Eve"
+     "misdirectedWord": "Christmas"
     }
    }
   },

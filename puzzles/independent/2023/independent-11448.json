@@ -568,45 +568,45 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DESCEND",
      "indicators": [
       {
        "text": "in",
-       "note": "one thing placed in another is enclosed by it"
+       "at": 9,
+       "note": "in places the cycled word inside the outer letters of the city name"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "DESCEND",
+       "op": "outer",
        "indicators": [
         {
-         "text": "cycling",
-         "note": "cycling means going round in a loop, so a letter moves from one end of the word to the other"
+         "text": "outskirts of",
+         "at": 29,
+         "note": "outskirts are the edges, so we take the first and last letters of Dortmund"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "outskirts of",
-           "note": "the outskirts are the edges, so only the outer letters are used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Dortmund",
-           "note": "the first and last letters"
-          }
-         ]
-        },
+         "words": "Dortmund",
+         "at": 42
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 12,
+         "note": "cycling moves a letter round from the back of the word to its front"
+        }
+       ],
+       "parts": [
         {
          "words": "arena",
+         "at": 20,
          "gives": "SCENE",
-         "note": "a scene is an arena of activity, as in the political scene"
+         "note": "a scene is an arena or sphere of activity"
         }
        ]
       }
@@ -614,8 +614,8 @@
     },
     "explanation": {
      "surface": "A cyclist gets off their bike inside a velodrome on the edge of a German city.",
-     "walkthrough": "'Cycling' looks like part of the velodrome picture, but it tells you to move the last E of SCENE round to the front.",
-     "definitionFit": "To dismount is to come down from a horse or bike, so descend is a close verb synonym."
+     "walkthrough": "Cycling is the device here, not a bike: the last letter of the arena word goes round to its front before it sits inside the city name's outer letters.",
+     "definitionFit": "To dismount is to get down from a horse or bike, which is to come down or descend."
     },
     "features": {
      "answerInScene": true,
@@ -1158,65 +1158,65 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "in retirement",
-       "note": "retiring means withdrawing or going back, so the letters run backwards"
+       "text": "hiding",
+       "at": 16,
+       "note": "hiding means the old man's letters wrap around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "old man",
+       "at": 8,
+       "gives": "DAD",
+       "note": "old man is informal for father, dad"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "hiding",
-         "note": "to hide something is to keep it inside, so one piece sits within another"
+         "text": "in retirement",
+         "at": 38,
+         "note": "retiring means going back, so these pieces are read backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
-           "op": "container",
-           "parts": [
-            {
-             "words": "old man",
-             "gives": "DAD",
-             "note": "old man is slang for father, dad"
-            },
-            {
-             "words": "say",
-             "gives": "EG",
-             "note": "EG, for example, is what say means"
-            }
-           ]
+           "words": "say",
+           "at": 23,
+           "gives": "EG",
+           "note": "EG, for example, is what say signals"
           },
           {
            "words": "a",
-           "note": "taken as written"
+           "at": 28,
+           "gives": "A"
+          },
+          {
+           "words": "million",
+           "at": 30,
+           "gives": "M"
           }
          ]
-        },
-        {
-         "words": "million",
-         "gives": "M",
-         "note": "M is the abbreviation for million"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spoilt elderly father secretly squirrels away a million for his retirement.",
-     "walkthrough": "'Spoiled' is the definition, not a description of the old man; 'say' is the usual shorthand for for example.",
-     "definitionFit": "Something spoiled has been harmed or ruined, so damaged is a direct adjective synonym."
+     "surface": "A father secretly stashing away a fortune for his retirement.",
+     "walkthrough": "Say signals the abbreviation for for example; retirement, read cryptically, means going backwards, and the old man splits after his first two letters to hold the reversed piece.",
+     "definitionFit": "Something spoiled has been harmed or ruined, the same as damaged goods."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Spoiled"
+     "misdirectedWord": "retirement"
     }
    }
   },

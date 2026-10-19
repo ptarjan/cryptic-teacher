@@ -222,53 +222,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RETROGRADESTEP",
+     "op": "container",
      "indicators": [
       {
-       "text": "half",
-       "note": "only half of the word is kept, the rest is dropped"
+       "text": "housing",
+       "at": 24,
+       "note": "housing means the reversed college servant goes around the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "housing",
-         "note": "a house holds its occupants, so one piece goes inside another"
+         "text": "raised",
+         "at": 17,
+         "note": "raised in a down clue means read upwards, so backwards"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
+         "words": "College employee",
+         "at": 0,
+         "gives": "PORTER",
+         "note": "a porter works at the lodge of a college"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rates",
+         "at": 32,
+         "gives": "GRADES",
+         "note": "to rate is to grade, so rates are grades"
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "raised",
-           "note": "in a down clue lifting something turns it bottom to top"
+           "text": "half",
+           "at": 45,
+           "note": "half means only the first two of the four letters of term are kept"
           }
          ],
          "parts": [
           {
-           "words": "College employee",
-           "gives": "PORTER",
-           "note": "a porter keeps the lodge at a college"
-          }
-         ]
-        },
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "rates",
-           "gives": "GRADES",
-           "note": "to rate is to grade"
+           "words": "term",
+           "at": 50,
+           "gives": "TERM",
+           "note": "the word term itself, of which half is used"
           },
           {
-           "words": "term",
-           "gives": "TE",
-           "note": "the first half of the word"
+           "gives": "RM"
           }
          ]
         }
@@ -277,14 +284,14 @@
      ]
     },
     "explanation": {
-     "surface": "A college worker puts up rents just before the half-term break, which is a backward move.",
-     "walkthrough": "PORTER turned upwards becomes RETROP, which then houses GRADES followed by TE: RETRO(GRADES TE)P.",
-     "definitionFit": "A retrograde step is a change for the worse, a backward movement, so it is a negative or regressive move."
+     "surface": "A college porter putting up fees just before the half-term holiday, which is a bad move.",
+     "walkthrough": "'raised' turns PORTER upwards into RETROP, which houses GRADES and TE (half of TERM).",
+     "definitionFit": "A retrograde step is an action that makes things worse, going backward rather than forward."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "half-term"
+     "misdirectedWord": "raised"
     }
    }
   },
