@@ -121,51 +121,50 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the pieces sit inside the prison"
+       "at": 49,
+       "note": "in means placed inside the next word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "prison",
+       "at": 52,
+       "gives": "JAIL",
+       "note": "a jail is a prison"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "prison",
-         "gives": "JAIL",
-         "note": "jail = prison; it wraps the rest"
-        },
-        {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "UNK",
+         "op": "middle",
          "indicators": [
           {
            "text": "naked",
-           "note": "stripped of its outer layer, so HUNKY loses its first and last letters"
+           "at": 32,
+           "note": "naked means stripped of its covering, so the outer letters are removed"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "naked hunky",
-           "gives": "UNK",
-           "select": "outer",
-           "note": "HUNKY without its outer letters"
+           "words": "hunky",
+           "at": 38,
+           "note": "without its ends it gives UNK"
           }
          ]
+        },
+        {
+         "words": "male",
+         "at": 44,
+         "gives": "M"
         }
        ]
-      },
-      {
-       "words": "male",
-       "gives": "M",
-       "note": "M = male"
       }
      ]
     },
     "explanation": {
-     "surface": "A prisoner receives unwanted letters from a naked, hunky man.",
-     "walkthrough": "The racy surface about a hunky male is a cover: 'naked' only strips a word of its outer letters.",
-     "definitionFit": "Junk mail is unsolicited post, usually advertising."
+     "surface": "A letter from a naked hunk who is behind bars.",
+     "walkthrough": "HUNKY stripped gives UNK; with M it goes inside JAIL after the J.",
+     "definitionFit": "Junk mail is unrequested advertising post sent to many people."
     },
     "features": {
      "answerInScene": true,
@@ -322,45 +321,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "KLONDYKE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "at": 40,
+       "note": "in a down clue supporting means sitting underneath, so the anagram comes after"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "King",
+       "at": 51,
+       "gives": "K",
+       "note": "K is the chess and card abbreviation for king"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "poor",
-         "note": "DONKEY is in poor shape and rearranged"
-        },
-        {
-         "text": "supporting"
+         "text": "head",
+         "at": 62,
+         "note": "head means the first letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "King",
-         "gives": "K",
-         "note": "K = king, in chess"
-        },
+         "words": "Log's",
+         "at": 56,
+         "note": "first letter L"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "Log's head",
-         "gives": "L",
-         "note": "first letter of Log"
-        },
+         "text": "poor",
+         "at": 28,
+         "note": "poor means in bad shape, so the letters of donkey are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "donkey",
-         "gives": "ONDYKE",
-         "note": "DONKEY rearranged"
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A poor donkey holds up King Log's head, a fable scene.",
-     "walkthrough": "Patience is the card game called solitaire in the US; Klondike is its best-known form. King Log is a character from Aesop, so the capital hides K + L.",
-     "definitionFit": "Klondike (also spelt Klondyke) is a type of patience, the one-player card game."
+     "surface": "A poor donkey props up King Log's head, as in Aesop's fable.",
+     "walkthrough": "Klondike is a solitary card game, called patience in Britain and solitaire in the US; this spelling is a variant. King Log is the do-nothing ruler of Aesop's frogs.",
+     "definitionFit": "Klondyke is a particular solitaire card game, and patience is the British name for solitaire."
     },
     "features": {
      "answerInScene": false,
@@ -630,54 +644,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GASKET",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
        "indicators": [
         {
-         "text": "takes"
-        },
-        {
-         "text": "recycled",
-         "note": "TAKES is remade into a new order"
+         "text": "finally",
+         "at": 8,
+         "note": "finally asks for the last letter of the word"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "the last letter of Samsung"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Samsung finally",
-           "gives": "SAMSUNG",
-           "note": "last letter of SamsunG"
-          }
-         ]
-        },
+         "words": "Samsung",
+         "at": 0,
+         "note": "last letter G"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "recycled",
+         "at": 22,
+         "note": "recycled means reprocessed, so the letters of takes are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "takes",
-         "gives": "ASKET",
-         "note": "TAKES rearranged"
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Samsung at last starts using recycled packaging.",
-     "walkthrough": "The surface is corporate green news; 'packing' here is engineering, the seal in a joint rather than a box's padding.",
-     "definitionFit": "A gasket is packing material that seals the joint between two surfaces."
+     "surface": "Samsung at last adopts reused packaging.",
+     "definitionFit": "A gasket is a seal of rubber or similar packing placed between joined surfaces."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "packing"
     }
@@ -896,60 +905,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "IRRATIONAL",
+     "indicators": [
+      {
+       "text": "limiting",
+       "at": 45,
+       "note": "limiting means enclosing, so the outer letters go round the allowance"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "extremely",
-         "note": "the extreme letters of artful"
-        }
-       ],
        "parts": [
         {
          "words": "old tax collectors",
+         "at": 7,
          "gives": "IR",
-         "note": "IR = Inland Revenue, the former UK tax authority"
-        },
-        {
-         "words": "allowance",
-         "gives": "RATION",
-         "note": "a ration is a fixed allowance"
+         "note": "IR is the Inland Revenue, the British tax authority until 2005"
         },
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "AL",
          "indicators": [
           {
-           "text": "limiting"
+           "text": "extremely",
+           "at": 27,
+           "note": "extremely means taking only the extreme, outer letters"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "artful",
-           "gives": "AL",
-           "select": "outer",
-           "note": "outer letters of ArtfuL"
+           "at": 37,
+           "note": "outer letters A and L"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "allowance",
+       "at": 54,
+       "gives": "RATION",
+       "note": "a ration is a fixed allowance"
       }
      ]
     },
     "explanation": {
-     "surface": "Old tax collectors were absurdly crafty about capping allowances.",
-     "walkthrough": "The two outer pieces come from different parts of the clue yet act as one pair of bookends. The Inland Revenue merged into HMRC in 2005, hence 'old'.",
-     "definitionFit": "Irrational means absurd, lacking reason."
+     "surface": "Former taxmen, very cunning, cap an allowance absurdly.",
+     "walkthrough": "The Inland Revenue was Britain's tax collector, merged into HMRC in 2005, hence 'old'.",
+     "definitionFit": "Irrational means unreasonable or illogical, which is close to absurd."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "allowance"
+     "misdirectedWord": "limiting"
     }
    }
   },
@@ -1250,42 +1258,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "including"
+       "text": "including",
+       "at": 29,
+       "note": "including means holding the following pieces inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "series of changes",
+       "at": 11,
+       "gives": "PEAL",
+       "note": "a peal is a series of changes rung on church bells"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
          "text": "by",
-         "note": "'by' in its sense of next to, as in a house by the sea, so that woman stands right beside the epitaph"
+         "at": 47
         }
        ],
        "parts": [
         {
-         "words": "series of changes",
-         "gives": "PEAL",
-         "note": "in bell-ringing a peal is a long series of changes; it wraps the rest"
+         "words": "epitaph",
+         "at": 39,
+         "gives": "RIP",
+         "note": "RIP, rest in peace, is a common epitaph"
         },
         {
-         "words": "epitaph",
-         "gives": "RIP",
-         "note": "RIP, rest in peace, is carved on gravestones"
+         "words": "that woman",
+         "at": 50,
+         "gives": "HER",
+         "note": "her refers to a woman already mentioned"
         }
        ]
-      },
-      {
-       "words": "that woman",
-       "gives": "HER",
-       "note": "her = that woman"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman's epitaph gets revised several times as a side issue.",
-     "walkthrough": "'Changes' are bell-ringing sequences, the orders in which a set of bells is rung.",
-     "definitionFit": "Peripheral means incidental, of minor importance."
+     "surface": "A list of edits includes a woman's own epitaph.",
+     "walkthrough": "'changes' looks like edits, but in bell-ringing it means the orders in which bells are rung.",
+     "definitionFit": "Peripheral means marginal or of minor importance, so incidental to the main matter."
     },
     "features": {
      "answerInScene": false,
@@ -1610,60 +1623,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASIMOV",
-     "indicators": [
-      {
-       "text": "cut by 50pc",
-       "note": "half of MOVIES is cut away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "words": "answer",
+       "at": 9,
+       "gives": "A"
+      },
+      {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "ASIMOV",
        "indicators": [
         {
          "text": "about",
-         "note": "'about' as in about-turn: the word that follows faces the other way"
+         "at": 19,
+         "note": "about means turned round, so the word is reads backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "answer",
-           "gives": "A",
-           "note": "A = answer"
-          },
-          {
-           "words": "is",
-           "gives": "SI",
-           "note": "IS turned round"
-          },
-          {
-           "words": "films",
-           "gives": "MOV",
-           "note": "MOVIES with its second half removed"
-          }
-         ]
+         "words": "is",
+         "at": 16,
+         "gives": "IS"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "being cut by 50pc",
+         "at": 31,
+         "note": "cut by fifty per cent means half of the word is removed, here its last half"
+        }
+       ],
+       "parts": [
+        {
+         "words": "films",
+         "at": 25,
+         "gives": "MOVIES",
+         "note": "movies are films"
+        },
+        {
+         "gives": "IES"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A screenwriter's reply is about films being slashed by half.",
-     "walkthrough": "The 's stands for 'is', joining the definition to the wordplay. Isaac Asimov wrote science fiction.",
-     "definitionFit": "Isaac Asimov was a prolific science-fiction writer."
+     "surface": "A writer's response is that films are being cut by half.",
+     "walkthrough": "MOVIES halved leaves MOV.",
+     "definitionFit": "Isaac Asimov was a prolific science-fiction author, best known for the Foundation and robot stories."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "films"
+     "misdirectedWord": "answer"
     }
    }
   },

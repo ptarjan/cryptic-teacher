@@ -383,46 +383,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "excluded"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "professional",
+       "at": 15,
+       "gives": "PRO",
+       "note": "pro is short for professional"
+      },
+      {
+       "words": "remedy",
+       "at": 28,
+       "gives": "CURE",
+       "note": "a cure is a remedy"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "excluded",
+         "at": 49,
+         "note": "excluded means left out, so the named letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "professional",
-         "gives": "PRO",
-         "note": "a pro is a professional"
-        },
-        {
-         "words": "remedy",
-         "gives": "CURE",
-         "note": "a cure is a remedy"
-        },
-        {
          "words": "meant",
-         "gives": "MENT",
-         "note": "MEANT once its A has gone"
+         "at": 35
         },
         {
          "words": "amateur",
-         "gives": "A",
-         "note": "A for amateur, the sports abbreviation — this is the letter 'excluded' from MEANT"
+         "at": 41,
+         "gives": "A"
         }
        ]
-      },
-      {
-       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Amateur = A comes from sport, where A once distinguished unpaid players from professionals — apt in a clue that opens with PRO.",
-     "definitionFit": "Procurement is the formal business word for acquiring goods and services — an organisation's procurement is its acquisition — noun matching noun."
+     "surface": "A professional's cure was intended for paying clients, amateurs not included.",
+     "walkthrough": "MEANT without A leaves MENT.",
+     "definitionFit": "Procurement is the act of obtaining or buying goods, especially for an organisation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "remedy"
     }
    }
   },
@@ -705,40 +711,72 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "ending to"
-      }
-     ],
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
-         "text": "leads to"
+         "text": "ending to",
+         "at": 9,
+         "note": "ending to asks for the final letter of the next word"
         }
        ],
        "parts": [
         {
          "words": "Hamlet",
-         "note": "the play's final letter — its 'ending'"
+         "at": 19,
+         "note": "last letter T"
         }
        ]
       },
       {
        "op": "first",
+       "indicators": [
+        {
+         "text": "leads to",
+         "at": 26,
+         "note": "leads means the front letters of each of the following words"
+        }
+       ],
        "parts": [
         {
-         "words": "riots against Gertrude in consequence",
-         "note": "the leading letters of the five words"
+         "words": "riots",
+         "at": 35,
+         "note": "first letter R"
+        },
+        {
+         "words": "against",
+         "at": 41,
+         "note": "first letter A"
+        },
+        {
+         "words": "Gertrude",
+         "at": 49,
+         "note": "first letter G"
+        },
+        {
+         "words": "in",
+         "at": 58,
+         "note": "first letter I"
+        },
+        {
+         "words": "consequence",
+         "at": 61,
+         "note": "first letter C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Leads to' looks like joinery but is the instruction: take the leads — the front letters — of the last five words. Fitting, for a play that ends strewn with bodies.",
-     "definitionFit": "Tragic means very sad — desperately so — and the word comes straight from tragedy, the genre Hamlet defines."
+     "surface": "The grim end of Hamlet, with uprisings set against Gertrude as a result.",
+     "walkthrough": "Hamlet is the tragedy in which Gertrude, the hero's mother, dies, so the surface is in keeping with the answer.",
+     "definitionFit": "Tragic means deeply distressing, causing great sorrow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leads"
     }
    }
   },

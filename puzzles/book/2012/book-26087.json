@@ -238,7 +238,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "game indoors",
+      "text": "game",
       "at": 48
      }
     ],
@@ -247,44 +247,59 @@
      "indicators": [
       {
        "text": "after",
-       "note": "'after' sends the words before it second, behind the university letter"
+       "at": 31,
+       "note": "after means the rest of the wordplay comes next, following small beer in the answer"
       }
      ],
      "parts": [
       {
        "words": "Small beer",
+       "at": 0,
        "gives": "TRIVIA",
-       "note": "small beer means unimportant matters, trivia"
+       "note": "small beer means trivial matters, trivia"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "Excitedly",
-         "note": "doing something excitedly is doing it in a wild, disordered way"
+         "text": "indoors",
+         "at": 53,
+         "note": "indoors means inside, so the letter for university goes into the rearranged letters"
         }
        ],
        "parts": [
         {
-         "words": "university",
-         "gives": "U",
-         "note": "U is the abbreviation for university"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Excitedly",
+           "at": 12,
+           "note": "excitedly signals the letters are stirred up into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "slurp it",
+           "at": 22
+          }
+         ]
         },
         {
-         "words": "slurp it",
-         "note": "taken as written"
+         "words": "university",
+         "at": 37,
+         "gives": "U"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Students noisily gulp weak ale after a match.",
-     "walkthrough": "The jumbled letters supply the L that ends TRIVIAL as well as PURSUIT. Small beer is weak ale, or by extension anything unimportant.",
-     "definitionFit": "Trivial Pursuit is a general-knowledge board game, played round a table indoors."
+     "surface": "A drinker gets excited about slurping weak beer after a university game.",
+     "walkthrough": "'Small beer' looks like a drink, but it is an idiom for unimportant matters.",
+     "definitionFit": "Trivial Pursuit is a board game of general-knowledge questions."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "beer"
     }
