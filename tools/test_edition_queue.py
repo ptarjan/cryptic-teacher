@@ -1998,6 +1998,38 @@ sh("git", "merge", "-q", "--ff-only", "origin/master", cwd=mine)
 check("a watcher started on the moved tree sees nothing new", [], hr.Watcher(mine).check())
 check("a watcher with no git repo gives up quietly", None, hr.Watcher(Path(_tmp) / "seed" / "nope").check())
 
+# Only a change inside the queue's code closure reloads it.
+tree = Path(_tmp) / "closure"
+for name, text in {"q.py": "import helper\nimport json\nsubprocess.run(['python3', 'tools/child.py'])\nNOTE = 'see tools/mention.py'\n\ndef lazy():\n    import lazy_only\n",
+                   "helper.py": "import deep\n", "deep.py": "X = 1\n", "child.py": "import childdep\n", "childdep.py": "Y = 1\n",
+                   "lazy_only.py": "Z = 1\n", "mention.py": "W = 1\n", "unrelated.py": "import deep\n", "wrap.sh": "python3 tools/q.py\n. tools/part.sh\n",
+                   "part.sh": "echo hi\n", "page.js": "1\n", "test_q.py": "import q\n"}.items():
+    (tree / name).parent.mkdir(parents=True, exist_ok=True)
+    (tree / name).write_text(text)
+cl = hr.queue_code(tree, "q.py")
+check("the closure is the root, its module-level imports (transitively), scripts named in calls, its wrapper and the wrapper's helpers",
+      {"q.py", "helper.py", "deep.py", "child.py", "childdep.py", "wrap.sh", "part.sh"}, {p[6:] for p in cl})
+check("a lazy import, a script only mentioned, tests, pages and other scripts are outside it",
+      ([], 4), (lambda r: (r[0], len(r[1])))(hr.relevant(["tools/lazy_only.py", "tools/mention.py", "tools/page.js", "tools/unrelated.py"], cl)))
+check("the real queue's closure holds the units' scripts and not the site builders or fetchers it never starts",
+      (True, True, True, True, False, False, False, False),
+      tuple(("tools/" + n in hr.queue_code(eq.TOOLS)) for n in ("scan_queue.py", "vlm_reader.py", "file_archive_org_puzzles.py", "ocr_full_pass.sh",
+                                                                 "build_seo_pages.py", "fetch_globeandmail.py", "ci_cache.js", "shape_queue.py")))
+push_file(seed, "tools/b.py", "1\n", "unrelated tool")
+irrelevant = hr.Watcher(mine, closure={"tools/a.py"})
+import contextlib, io
+out = io.StringIO()
+with contextlib.redirect_stdout(out):
+    got = (irrelevant.check(), irrelevant.hit)
+check("a push of code outside the closure does not trigger a reload and says so once",
+      (([], None), 1, True), (got, out.getvalue().count("ignoring 1 changed files outside the queue's code"), "tools/b.py" in out.getvalue()))
+with contextlib.redirect_stdout(out):
+    irrelevant.check()
+check("the same ignored change is not logged again at the next poll", 1, out.getvalue().count("ignoring"))
+push_file(seed, "tools/a.py", "3\n", "fix a tool in the closure")
+check("a push touching the closure reloads, and names only the files in it", (["tools/a.py"], ["tools/a.py"]),
+      (lambda w: (w.check(), w.hit))(hr.Watcher(mine, closure={"tools/a.py"})))
+
 def reload_run(sig_after=1.5, grace=None, handoff=None, watcher=None, hold=30):
     """Fork a dispatch of long units, send SIGHUP (or let `watcher` fire); (rc, seconds to end, handoff pids, pids of the units)."""
     log.unlink(missing_ok=True)
