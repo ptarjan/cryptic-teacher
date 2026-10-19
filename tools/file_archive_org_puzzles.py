@@ -1467,6 +1467,13 @@ GUTTER_INK = 0.1
 GUTTER_MIN = 6
 #: The widest rule (pixels) a gutter may hold.
 GUTTER_RULE = 5
+#: and the widest a rule printed heavy may be when its pixel columns average
+#: is inked at least GUTTER_RULE_INK down the window (the 1948-11-10 Times:
+#: a 7px rule between the small ads and the clue column, its two margins
+#: each under GUTTER_MIN wide, so no gutter was found and the ad's line ends
+#: ran into the ACROSS list: no list parsed).
+GUTTER_RULE_THICK = 8
+GUTTER_RULE_INK = 0.3
 GUTTER_SPAN = 0.4
 #: The print left of a gutter is a column of text (a share of GUTTER_DENSE
 #: ink over GUTTER_LEFT pixels at least), not the sparse numbers' margin the
@@ -1510,30 +1517,36 @@ def trimmed_lead(img, grid, lead):
     ink = np.asarray(img.crop((x0, top, edge, grid[3])).convert("L")) < 128
     share = ink.mean(axis=0)
     blank = share < GUTTER_INK
-    # A thin rule inside the gutter (inked down part of its height) does not
-    # break it: gaps of GUTTER_RULE pixels or less between blank runs close.
-    runs, i = [], 0
-    while i < len(blank):
-        if not blank[i]:
-            i += 1
-            continue
-        j = i
-        while j < len(blank) and blank[j]:
-            j += 1
-        if runs and i - runs[-1][1] <= GUTTER_RULE:
-            runs[-1][1] = j
-        else:
-            runs.append([i, j])
-        i = j
     last = GUTTER_SPAN * len(share)
+    # A thin rule inside the gutter (inked down part of its height) does not
+    # break it: gaps of GUTTER_RULE pixels or less between blank runs close;
+    # failing that, a heavy rule's (GUTTER_RULE_THICK) too.
     best = None
-    for lo, hi in runs:
-        if lo >= last:
-            break
-        left = share[max(lo - GUTTER_LEFT, 0):lo]
-        if hi - lo >= GUTTER_MIN and len(left) == GUTTER_LEFT and left.mean() >= GUTTER_DENSE \
-                and (left >= GUTTER_INK).mean() >= GUTTER_SOLID:
-            best = hi
+    for thick in (False, True):
+        runs, i = [], 0
+        while i < len(blank):
+            if not blank[i]:
+                i += 1
+                continue
+            j = i
+            while j < len(blank) and blank[j]:
+                j += 1
+            gap = i - runs[-1][1] if runs else 0
+            if runs and (gap <= GUTTER_RULE or (thick and gap <= GUTTER_RULE_THICK
+                                                and share[runs[-1][1]:i].mean() >= GUTTER_RULE_INK)):
+                runs[-1][1] = j
+            else:
+                runs.append([i, j])
+            i = j
+        for lo, hi in runs:
+            if lo >= last:
+                break
+            left = share[max(lo - GUTTER_LEFT, 0):lo]
+            if hi - lo >= GUTTER_MIN and len(left) == GUTTER_LEFT and left.mean() >= GUTTER_DENSE \
+                    and (left >= GUTTER_INK).mean() >= GUTTER_SOLID:
+                best = hi
+                break
+        if best:
             break
     return (x0 + best - 2, top) if best else lead
 
@@ -3693,11 +3706,35 @@ def weak_lights(read, laid, blank, lengths):
         enum = laid[lid][1]
         agreeing = sum(1 for t, _ in ocr_clues.readings_for(read, lid, parse)
                        if words_of(clue_repair.mend_text(t, enum)) == mine)
+        if agreeing < OCR_CONFIRM and not re.match(r"\d", text):
+            # A reading's own number run into its clue ("2 Foozle" for 22).
+            agreeing = sum(1 for t, _ in ocr_clues.readings_for(read, lid, parse)
+                           if words_of(clue_repair.mend_text(clue_repair.leaked_number(t, lid), enum)) == mine)
         if agreeing < OCR_CONFIRM:
             agreeing = sum(1 for t in read.values() if prints_clue(t, mine))
         if agreeing < OCR_CONFIRM:
             weak.add(lid)
     return weak
+
+
+def leaked_laid(read, laid, blank, parse):
+    """(laid, blank) with each blank light laid from the clue two readings
+    print alike once the number each ran into it is taken off
+    (clue_repair.leaked_number): the vote found no two readings alike only
+    for those figures. unfit_blanked() checks the text again."""
+    laid, blank = dict(laid), dict(blank)
+    for lid in list(blank):
+        if (laid.get(lid) or ("",))[0].strip():
+            continue
+        seen = {}
+        for t, _ in ocr_clues.readings_for(read, lid, parse):
+            t = clue_repair.mend_text(clue_repair.leaked_number(t, lid), (laid.get(lid) or (None, None))[1])
+            seen.setdefault(words_of(t), []).append(t)
+        best = max(seen.items(), key=lambda kv: len(kv[1]), default=None)
+        if best and len(best[0]) >= RUN_LETTERS and len(best[1]) >= OCR_CONFIRM:
+            laid[lid] = (best[1][0], laid[lid][1] if lid in laid else None, laid[lid][2] if lid in laid else None)
+            del blank[lid]
+    return laid, blank
 
 
 #: The fewest letters a clue has for a reading to print it as a run inside its
@@ -3995,6 +4032,10 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts):
     # The Canberra Times reprint of the same puzzle is another copy of the
     # print, its readings voters like the scan's own.
     reprints = reprint_readings(n, paper.series)
+    # Worn type reads an e as c, o or x the same way in every reader ("cra",
+    # "somo"): each scan reading has the one lexicon word it wore from put
+    # back (ocr_clues.worn), so the readers agree on it.
+    texts = {k: t if k == "vlm" else ocr_clues.unworn(t) for k, t in texts.items()}
     texts.update(reprints)
     texts, dropped = screened(texts, g)
     if dropped:
@@ -4104,6 +4145,7 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts):
     # A light no reading laid and the VLM's pick left blank, laid from the
     # readers that agree on its clue.
     laid, blank = ocr_clues.relaid(read, laid, blank, parse, lengths, bare=bare)
+    laid, blank = leaked_laid(read, laid, blank, parse)
     # Each filed clue as the readings print it: its count's shape, each word's
     # capital, hyphen and spelling.
     laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths)

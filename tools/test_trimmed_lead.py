@@ -35,4 +35,11 @@ b = np.full((400, 900), 255, np.uint8)
 b[:, 150:170][rng.random((400, 20)) < 0.3] = 0
 b[:, 190:600][rng.random((400, 410)) < 0.3] = 0
 assert f.trimmed_lead(Image.fromarray(b), (600, 100, 900, 400), (100, 100)) == (100, 100)
+# 1948-11-10: a 7px heavy rule (inked 55%) between margins of 4px and 5px, each
+# under GUTTER_MIN: the rule closes them into one gutter.
+c = page(900, 400, 100, 300)
+c[:, 304:311][rng.random((400, 7)) < 0.55] = 0
+c[:, 316:600][rng.random((400, 284)) < 0.3] = 0
+x0, top = f.trimmed_lead(Image.fromarray(c), (600, 100, 900, 400), (140, 100))
+assert 312 <= x0 <= 316, x0
 print("ok")
