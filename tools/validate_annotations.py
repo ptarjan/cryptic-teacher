@@ -3608,6 +3608,47 @@ def _repeated_copies(tree):
     return out
 
 
+_BOUNDARY_WORDS = re.compile(r"boundar|edge|border|extrem|outer|outside|limit|ends? of", re.I)
+
+
+def _moved_letter_ops(tree):
+    """ids of ops one word of a move indicator already covers (round 14, 5 of 28 sampled
+    unindicatedBare flags): the deletion of a letter that the sibling leaf puts back
+    (ins<advancing>(del(NEVER, R), R) = NERVE; the container's word says the letter moves), the
+    substitution whose replacement is the replaced letters turned (UNITE, IT -> rev<turn>(IT)),
+    and the first and last of one word as the two boundary letters ("to enter the boundaries of")."""
+    out = set()
+    for parent in _walk(tree):
+        kids = [p for p in parent.get("parts") or [] if isinstance(p, dict)]
+        if parent.get("op") == "container" and parent.get("indicators"):
+            for d in kids:
+                ps = [p for p in d.get("parts") or [] if isinstance(p, dict)]
+                if d.get("op") != "deletion" or len(ps) != 2 or "op" in ps[1]:
+                    continue
+                if any("op" not in k and k is not d and wordplay.letters(k.get("gives"))
+                       == wordplay.letters(ps[1].get("gives")) != "" for k in kids):
+                    out.add(id(d))
+        if parent.get("op") == "deletion" and any(_POSITION_WORD.search(str(i.get("text") or ""))
+                                                  for i in parent.get("indicators") or []):
+            # del<initially removed>(BALDER, first(bark)): the deletion's own words name the end it takes
+            out.update(id(p) for p in kids[1:] if p.get("op") in ("first", "last") and not p.get("indicators"))
+        if parent.get("op") == "container" and parent.get("indicators"):
+            if any(_BOUNDARY_WORDS.search(str(i.get("text") or "")) for i in parent["indicators"]):
+                for c in kids:
+                    cs = [p for p in c.get("parts") or [] if isinstance(p, dict)]
+                    if c.get("op") == "charade" and len(cs) == 2 and {p.get("op") for p in cs} == {"first", "last"} \
+                            and len({json.dumps([(q.get("words"), q.get("at")) for q in p.get("parts") or []
+                                                 if isinstance(q, dict)], default=str) for p in cs}) == 1:
+                        out.update(id(p) for p in cs)
+        if parent.get("op") == "substitution" and not parent.get("indicators") and len(kids) == 3:
+            rep = kids[2]
+            leaf = [p for p in rep.get("parts") or [] if isinstance(p, dict) and "op" not in p]
+            if "op" in rep and rep.get("indicators") and len(leaf) == 1 and sorted(
+                    wordplay.letters(leaf[0].get("gives"))) == sorted(wordplay.letters(kids[1].get("gives"))) != []:
+                out.add(id(parent))
+    return out
+
+
 def unindicated_ops(tree):
     """How many checked ops that need an indicator word have none.
 
@@ -3677,8 +3718,40 @@ def span_overlaps(tree):
                and not (a[0] == b[0] == "leaf" and a[1] == b[1] and a[2] == b[2]))
 
 
-def in_definition(ann):
-    """Wordplay spans inside a definition of a clue that is not &lit.
+def _with_places(ann, clue):
+    """`ann` with an `at` filled in on every definition, indicator and leaf that has none and whose
+    text stands once in `clue` (whole words): round 14 found annotations filed without places
+    (ETNA, NATANT) that the place rules cannot see, two of 20 missed errors in 600 passing clues."""
+    flat = str(clue or "")
+
+    def find(text):
+        hits = [m.start() for m in re.finditer(r"(?<![A-Za-z])%s(?![A-Za-z])" % re.escape(str(text)), flat, re.I)]
+        return hits[0] if len(hits) == 1 else None
+
+    def fill(item, key):
+        if isinstance(item, dict) and "at" not in item and item.get(key):
+            at = find(item[key])
+            return {**item, "at": at} if at is not None else item
+        return item
+
+    def walk(node):
+        node = {**node}
+        if "words" in node and "op" not in node:
+            node = fill(node, "words")
+        if node.get("indicators"):
+            node["indicators"] = [fill(i, "text") for i in node["indicators"]]
+        if node.get("parts"):
+            node["parts"] = [walk(p) if isinstance(p, dict) else p for p in node["parts"]]
+        return node
+    out = {**ann, "definitions": [fill(d, "text") for d in ann.get("definitions") or []]}
+    if isinstance(ann.get("wordplay"), dict):
+        out["wordplay"] = walk(ann["wordplay"])
+    return out
+
+
+def in_definition(ann, clue=None):
+    """Wordplay spans inside a definition of a clue that is not &lit. With `clue`, spans filed
+    without places are located in it first (_with_places).
 
     Two shapes are the setter's, not a fault, and are not counted (read off the
     45 grandfathered rows, 10-17):
@@ -3692,6 +3765,12 @@ def in_definition(ann):
         leaves, so the definition is the part and the leaf the word."""
     if ann.get("andLit"):
         return 0
+    if clue:
+        # a definition on the whole clue is an &lit the file did not mark (round 14: 7 of 11 new hits)
+        if any(isinstance(d, dict) and wordplay.letters(d.get("text")) == wordplay.letters(clue)
+               for d in ann.get("definitions") or []):
+            return 0
+        ann = _with_places(ann, clue)
     ds = [(d["at"], d["at"] + len(d["text"]), d["text"]) for d in ann.get("definitions") or []
           if isinstance(d, dict) and "at" in d and d.get("text")]
     n, stack = 0, [(ann.get("wordplay"), None)] if isinstance(ann.get("wordplay"), dict) else []
@@ -4245,7 +4324,7 @@ ORDERING_INDICATORS = frozenset(
     "having|bringing|giving|making|showing|catching|joining|meeting|alongside|against|"
     "early|late|last|finally|at last|at the end|in the end|"
     "to follow|coming after|going after|in pursuit of|pursuing|close to|near|adjacent to|"
-    "touching|joined to|attached to".split("|"))
+    "touching|joined to|attached to|to begin with|wanting".split("|"))
 #: Position words, read "A initially B" = A first, "A covers B" = A above B in a down clue, that
 #: pass as a charade once the letters concatenate (ANGELUS, TELESCOPE, OUTDO, PLEAD; fix round 3):
 #: a container misfiled this way would not spell the answer in order. Still flagged when a
@@ -4836,7 +4915,8 @@ def _attested():
 _EXTRA_PAIRS = frozenset({("PLAYED", "P"), ("ELECTRONICALLY", "E"), ("ELECTRONIC", "E"),
                           ("KOSHER", "K"), ("LITTLE", "L"), ("QUALITY", "Q"),  # round 11
                           ("FAILING", "F"),  # round 12 (a grade)
-                          ("ROUBLE", "R"), ("ROUBLES", "R")})  # round 13 (cryptic-22221 ARGENT)
+                          ("ROUBLE", "R"), ("ROUBLES", "R"),  # round 13 (cryptic-22221 ARGENT)
+                          ("VIOLET", "V"), ("LICENTIATE", "L"), ("ACROSS", "A")})  # round 14 (judged standard)
 
 
 def _known_pair(words, gives):
@@ -4881,7 +4961,7 @@ _ORDINALS = {w.upper(): chr(65 + i) for i, w in enumerate(
 #: A deletion indicator that names the end it takes ("opening ... ignored by", hoaxer less the D
 #: of Dalloway's): the cut leaf's letter is picked by that word (timesjumbo-1690 29a).
 _POSITION_WORD = re.compile(r"\b(opening|first|initial\w*|start\w*|head|top|lead\w*|beginning|last|final\w*|"
-                            r"end|tail|finish\w*|closing)\b", re.I)
+                            r"end|tail|finish\w*|closing|hint|touch|trace)\b", re.I)
 
 
 def bare_initials(tree):
@@ -5156,7 +5236,10 @@ def deletion_scope_answer(tree, answer):
 #: first(so) + first(extend)) and the sound pair ("doubly" over two homophones): the one
 #: shared form a solver is still told the truth by (cyclops-591 7d SPARSE judged fine in
 #: round 7). Any other op, or three of these, with one indicator is a lie about the clue.
-_SHARED_OK = frozenset(wordplay.SELECT) | {"homophone"}
+#: "deletion" joins them (round 14, 10 of 28 sampled false flags): "Reserve volume endlessly", "kings
+#: must leave" cut one letter from each of two neighbouring words, the one indicator's plural or
+#: position says both; _pair_adjacent holds the two to neighbouring words as for a selection.
+_SHARED_OK = frozenset(wordplay.SELECT) | {"homophone", "deletion"}
 
 
 def unindicated_uncovered(tree):
@@ -5169,7 +5252,7 @@ def unindicated_uncovered(tree):
     spoken = {id(p) for s in _walk(tree) if s.get("op") == "spoonerism"
               for p in s.get("parts") or [] if isinstance(p, dict) and p.get("op") == "homophone"}
     n = 0
-    copies = _repeated_copies(tree)
+    copies = _repeated_copies(tree) | _moved_letter_ops(tree)
     for parent in [{"parts": [tree]}] + list(_walk(tree)):
         groups = {}
         kids = [p for p in parent.get("parts") or [] if isinstance(p, dict)]
@@ -5199,7 +5282,7 @@ def _pair_adjacent(ns):
     """Whether two same-op nodes stand side by side in the clue, each counted with its indicator (or
     have no places given). Only picks of letters are held to it: a pair of sounds shares its one
     indicator across a longer stretch (cyclops-591 7d, round 7)."""
-    if ns[0].get("op") not in wordplay.SELECT:
+    if ns[0].get("op") not in wordplay.SELECT and ns[0].get("op") != "deletion":
         return True
     spans = []
     for x in ns:
@@ -5229,7 +5312,7 @@ _FOLD_PHRASE = {op: re.compile(r"(?:%s)\s+(?:of|in|from)\s+\w+" % words, re.I) f
 
 _NOPOSS = re.compile(r"(?!)")
 #: Compounds that end in an affix word but are not a pick of the other word (a skinhead is a person; round 11).
-_NOT_COMPOUND = frozenset({"skinhead"})
+_NOT_COMPOUND = frozenset()  # round 14: skinhead is S in two judged-fine clues (STALKER, SURFEIT); no longer excluded
 #: "champion's top": the leaf's own words end in the pick's word after a possessive (round 12 UNEXCITED).
 _FOLD_POSS = {op: re.compile(r"^\S+['\u2019]s\s+(?:%s)$" % words, re.I) for op, words in (
     ("first", "first|initial|opening|start|head|top|beginning|front"),
@@ -5358,6 +5441,17 @@ def shared_indicators(tree, clue=None):
             if node["op"] == "container":
                 cut_words |= {wordplay.letters(p.get("words")) for p in (node.get("parts") or [])[:1]
                               if isinstance(p, dict) and "op" not in p and len(wordplay.letters(p.get("gives"))) <= 2}
+                # Withholding = WITH + holding (round 14): the holder is the word's own opening or ending
+                cut_words |= {wordplay.letters(p.get("words")) for p in (node.get("parts") or [])[:1]
+                              if isinstance(p, dict) and "op" not in p and len(wordplay.letters(p.get("gives"))) >= 3
+                              and len(str(p.get("words")).split()) == 1
+                              and wordplay.letters(p.get("words")) != wordplay.letters(p.get("gives"))
+                              and wordplay.letters(p.get("words")).startswith(wordplay.letters(p.get("gives")))}
+        if node.get("op") == "reversal":
+            # Return in transport = BUS round GO reversed (round 14, 3 of 6 sampled sharedIndicator flags judged fine):
+            # the leaf's words are the reversal's, "go back" read as one phrase; the tree cannot say it shorter
+            cut_words |= {wordplay.letters(p.get("words")) for p in node.get("parts") or []
+                          if isinstance(p, dict) and "op" not in p}
     n = sum(c - 1 for c in seen.values() if c > 1)
     n += sum(1 for t, at, _ in texts if at is None and t in leaves and t not in cut_words)
     # a leaf's whole multi-word clue words standing inside a longer indicator (azed-1946 17a TURNTURTLE:

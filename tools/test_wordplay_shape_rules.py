@@ -337,9 +337,9 @@ check("an indicator on each is fine", 0, v.unindicated_uncovered(mids("essential
 check("an adjacent pair of one selection may share one", 0, v.unindicated_uncovered(
     {"op": "charade", "parts": [{"op": "first", "indicators": [{"text": "tops"}], "parts": [{"words": "so", "gives": "S"}]},
                                 {"op": "first", "parts": [{"words": "extend", "gives": "E"}]}]}))
-check("but not a pair of deletions", 1, v.unindicated_uncovered(
-    {"op": "charade", "parts": [{"op": "deletion", "indicators": [{"text": "lacking"}], "parts": [{"words": "a", "gives": "AB"}, {"gives": "B"}]},
-                                {"op": "deletion", "parts": [{"words": "c", "gives": "CD"}, {"gives": "D"}]}]}))
+check("but not a pair of deletions far apart in the clue", 1, v.unindicated_uncovered(
+    {"op": "charade", "parts": [{"op": "deletion", "indicators": [{"text": "lacking", "at": 2}], "parts": [{"words": "a", "at": 0, "gives": "AB"}, {"gives": "B"}]},
+                                {"op": "deletion", "parts": [{"words": "c", "at": 40, "gives": "CD"}, {"gives": "D"}]}]}))  # round 14: neighbours share one
 poss = {"op": "charade", "parts": [{"op": "anagram", "indicators": [{"text": "possibly"}], "parts": [{"words": "wrap", "gives": "WRAP"}]},
                                    {"words": "possibly", "gives": "CRACKERS"}]}
 check("an indicator that is also a leaf's words is claimed twice", 1, v.shared_indicators(poss))
@@ -442,7 +442,7 @@ check("first over 'mountaintop' needs no separate indicator", 0, v.unindicated_u
 check("last over a plain leaf still needs one", 1, v.unindicated_uncovered(
     {"op": "charade", "parts": [{"words": "Distant", "gives": "FAR"},
                                 {"op": "last", "parts": [{"words": "competition"}]}]}))
-check("first over 'skinhead' is still flagged", 1, v.unindicated_uncovered(
+check("first over 'skinhead' is S, as skin + head (round 14: STALKER, SURFEIT judged fine)", 0, v.unindicated_uncovered(
     {"op": "charade", "parts": [{"op": "first", "parts": [{"words": "Skinhead"}]}, {"words": "running off", "gives": "PRINTING"}]}))
 check("'what's left of it' is the remainder, not a deletion folded in a leaf", 0, v.folded_deletion_leaves(
     {"op": "charade", "parts": [{"words": "what's left of it", "gives": "ASH"}]}))
@@ -587,4 +587,19 @@ except wordplay.WordplayError:
     got = "fails"
 check("the anagram of a linked pair gives the whole answer, not its first light (CHATEAU LAFITE)", "fails", got)
 wordplay.evaluate(r13("cryptic-29305#1d")[0], "CHATEAULAFITE")
+
+# round 14: one deletion word over two neighbouring words, a moved letter, and annotations filed without places
+SAMFOO = {"op": "charade", "parts": [
+    {"op": "deletion", "indicators": [{"text": "tails off"}], "parts": [{"words": "Unchanged", "gives": "SAME"}, {"gives": "E"}]},
+    {"op": "deletion", "parts": [{"words": "fare", "gives": "FOOD"}, {"gives": "D"}]}]}
+check("tails off cuts both neighbouring words (SAMFOO)", 0, v.unindicated_uncovered(SAMFOO))
+SAMFOO["parts"][0]["indicators"] = []
+check("two deletions with no indicator at all are still counted", 2, v.unindicated_uncovered(SAMFOO))
+NERVE = {"op": "container", "indicators": [{"text": "advancing"}], "parts": [
+    {"op": "deletion", "parts": [{"words": "Not once", "gives": "NEVER"}, {"gives": "R"}]}, {"words": "rook", "gives": "R"}]}
+check("a letter the sibling puts back is moved by the container's word (NERVE)", 0, v.unindicated_uncovered(NERVE))
+NATANT = {"definitions": [{"text": "Swimming", "at": 0}], "wordplay": {"op": "anagram", "indicators": [{"text": "Swimming"}],
+          "parts": [{"words": "tan repeatedly", "gives": "TANTAN"}]}}
+check("an indicator on the definition's words is found without places (NATANT)", 1,
+      v.in_definition(NATANT, "Swimming gives you that tan repeatedly"))
 raise SystemExit(fails)
