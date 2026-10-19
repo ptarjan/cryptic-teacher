@@ -1365,12 +1365,14 @@
      "indicators": [
       {
        "text": "behind",
-       "note": "behind puts the word for anger after the word for City, not before it"
+       "at": 31,
+       "note": "behind places the shortened anger after the city in the answer"
       }
      ],
      "parts": [
       {
        "words": "City",
+       "at": 38,
        "gives": "LA",
        "note": "LA is Los Angeles, the city"
       },
@@ -1378,35 +1380,48 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "header missing",
-         "note": "a missing header means the top letter of the word is lost"
+         "text": "missing",
+         "at": 16,
+         "note": "missing says that letter is absent from the word for anger"
         }
        ],
        "parts": [
         {
          "words": "anger",
+         "at": 25,
          "gives": "IRE",
-         "note": "ire is anger"
+         "note": "ire means anger"
         },
         {
-         "words": "Erling's",
-         "gives": "E",
-         "note": "the opening letter of Erling, which is dropped"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "header",
+           "at": 9,
+           "note": "a header is the top of something, so here the opening letter of Erling's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Erling's",
+           "at": 0
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Erling Haaland misses with a header, and there is fury in the Manchester City dugout.",
-     "walkthrough": "The football picture misleads: Erling only supplies its first letter, E, which is taken off the end of LA + IRE.",
-     "definitionFit": "A lair is an animal's den, often a hollow dug out of the ground, hence a dugout."
+     "surface": "Erling Haaland misses with a header and Manchester City's bench fumes.",
+     "walkthrough": "Erling Haaland and City suggest Manchester City football, but City is LA. Erling's header is E, removed from IRE to leave IR.",
+     "definitionFit": "An animal's lair is a den, often a hollow dug out of the ground, hence the question mark."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "dugout"
+     "misdirectedWord": "header"
     }
    }
   },

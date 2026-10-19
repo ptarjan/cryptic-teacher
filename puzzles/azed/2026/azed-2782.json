@@ -628,7 +628,8 @@
      "indicators": [
       {
        "text": "within",
-       "note": "within means placed inside, so one piece sits in the other"
+       "at": 30,
+       "note": "within puts the shortened word for inane inside the shortened word for curt"
       }
      ],
      "parts": [
@@ -636,15 +637,17 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "similarly truncated",
-         "note": "truncated means cut short at the end, and similarly says the same cut applies to both words"
+         "text": "similarly",
+         "at": 37,
+         "note": "similarly says the word for curt is cut short in the same way, losing its last letter"
         }
        ],
        "parts": [
         {
          "words": "curt",
+         "at": 25,
          "gives": "TERSE",
-         "note": "terse means curt"
+         "note": "curt means terse"
         },
         {
          "gives": "E"
@@ -653,11 +656,19 @@
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "truncated",
+         "at": 47,
+         "note": "truncated means cut short, so the word for inane loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "inane",
+         "at": 15,
          "gives": "EMPTY",
-         "note": "empty means inane, without sense"
+         "note": "inane means empty, lacking sense"
         },
         {
          "gives": "Y"
@@ -667,12 +678,12 @@
      ]
     },
     "explanation": {
-     "surface": "Sorceresses like Circe are described as foolish and rude in equally cut-down terms.",
-     "walkthrough": "Similarly means both words lose the same thing, their last letter, before one goes inside the other.",
-     "definitionFit": "Circe lured Odysseus's men to her island and turned them into swine, so she is an example of the seducers who entice."
+     "surface": "Circe's talk is called vacuous and abrupt, and both judgements are cut short.",
+     "walkthrough": "'Similarly' tells the solver that the word for curt is docked exactly as the word for inane is, by its final letter.",
+     "definitionFit": "Circe, the enchantress of the Odyssey, lured Odysseus's men to her island and turned them into swine: a classic seducer."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "inane"
     }

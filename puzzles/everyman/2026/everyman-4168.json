@@ -509,45 +509,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "first",
+     "indicators": [
+      {
+       "text": "primarily",
+       "at": 38,
+       "note": "primarily means at first, so the opening letters of the four words"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "primarily",
-         "note": "Primarily means at the start, so each word it governs gives up its opening letter and nothing else."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Falsehood's",
-         "note": "its opening letter; a falsehood is a lie"
-        }
-       ]
+       "words": "Falsehood's",
+       "at": 0
       },
       {
        "words": "absolute",
-       "gives": "A",
-       "note": "its opening letter; absolute means complete, with nothing held back"
+       "at": 12
       },
       {
        "words": "converse",
-       "gives": "C",
-       "note": "its opening letter; the converse of a thing is its opposite"
+       "at": 21
       },
       {
        "words": "truth",
-       "gives": "T",
-       "note": "its opening letter, taken like the three before it"
+       "at": 31
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Someone explaining, a shade pompously, what the opposite of a lie is.",
-     "walkthrough": "'Truth' looks like the definition parked at the end, and it is really the fourth word being mined for its initial. The sentence describes what its own initials spell, which is what the question mark flags.",
-     "definitionFit": "A fact is what is true rather than false, so read straight the sentence defines it: the exact opposite of a falsehood."
+     "surface": "A philosophical definition: what is the exact opposite of a lie?",
+     "definitionFit": "A fact is something known to be true, the direct opposite of a lie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
     }
    }
   },
@@ -1153,25 +1149,48 @@
     "definitions": [
      {
       "text": "As a rule, what's found",
-      "at": 0,
-      "note": "a noun phrase: what is found as a rule is what is normal or standard"
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "reverse",
-     "reading": "N OR M",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "in puts the word or between the two end letters"
+      }
+     ],
      "parts": [
       {
-       "words": "in an extremity of neoliberalism",
-       "at": 24,
-       "note": "the word neoliberalism begins with N and ends with M, so its extremity is either one of those two letters, which spells out the answer"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremity of",
+         "at": 30,
+         "note": "an extremity of a word is one of its ends, so the outer letters of neoliberalism are wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "neoliberalism",
+         "at": 43,
+         "note": "the word neoliberalism, whose two end letters are taken"
+        }
+       ]
+      },
+      {
+       "words": "an",
+       "at": 27,
+       "gives": "OR",
+       "note": "an extremity means one end or the other, so the word or joins the two end letters"
       }
      ]
     },
     "explanation": {
-     "surface": "An observation that, as a rule, something turns up at the far end of free-market politics.",
-     "walkthrough": "Split the answer as N OR M: an extremity of neoliberalism is its first letter or its last, that is, N or M.",
-     "definitionFit": "The norm is the usual or typical state of affairs, what one ordinarily expects to encounter."
+     "surface": "A comment that free-market ideology, pushed to its limit, has become standard practice.",
+     "walkthrough": "'An extremity of' neoliberalism is either one end or the other: N or M, read as a single word.",
+     "definitionFit": "The norm is the standard or usual pattern, what one typically encounters in ordinary circumstances."
     },
     "features": {
      "answerInScene": false,

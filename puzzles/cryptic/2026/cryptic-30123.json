@@ -697,48 +697,58 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "the anagram sits inside the state"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "words": "Ohio",
+       "at": 31,
+       "gives": "O",
+       "note": "O is a short abbreviation for Ohio"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "sort of",
-         "note": "sorting shuffles the letters"
+         "text": "in",
+         "at": 28,
+         "note": "in puts the jumbled letters inside the state"
         }
        ],
        "parts": [
         {
          "words": "state",
+         "at": 36,
          "gives": "CAL",
-         "note": "Cal. is short for California"
+         "note": "CAL is an abbreviation for California, a US state"
         },
         {
-         "words": "casino",
-         "note": "CASINO rearranged, placed after the C of CAL"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "sort of",
+           "at": 13,
+           "note": "sort of means a rough kind of, so the letters are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "casino",
+           "at": 21,
+           "note": "the letters of casino, to be rearranged"
+          }
+         ]
         }
        ]
-      },
-      {
-       "words": "Ohio",
-       "gives": "O",
-       "note": "O is an abbreviation for Ohio"
       }
      ]
     },
     "explanation": {
-     "surface": "An Ohio casino that is only open now and then.",
-     "walkthrough": "Both abbreviations are old-style ones: O for Ohio and Cal. for California, rather than the two-letter postal codes OH and CA.",
-     "definitionFit": "Occasional and intermittent both mean happening now and then."
+     "surface": "A gambling venue of some kind in Ohio that opens only now and then.",
+     "walkthrough": "'Ohio state' reads as one US state, but Ohio gives only its initial and the state is California, whose old abbreviation is CAL.",
+     "definitionFit": "Occasional means happening now and then, at irregular intervals."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "state"
     }
