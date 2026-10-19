@@ -239,37 +239,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADDRESSEE",
-     "indicators": [
-      {
-       "text": "unfinished",
-       "note": "something left unfinished stops short, so its final letter is missing"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 17,
+         "note": "unfinished means the speech word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "speech",
-         "gives": "ADDRES",
-         "note": "an address is a formal speech, cut short by one letter"
+         "at": 28,
+         "gives": "ADDRESS",
+         "note": "an address is a formal speech"
         },
         {
-         "words": "bishop's responsibility",
-         "gives": "SEE",
-         "note": "a see is the diocese a bishop is in charge of"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "bishop's responsibility",
+       "at": 38,
+       "gives": "SEE",
+       "note": "a see is the diocese a bishop is responsible for"
       }
      ]
     },
     "explanation": {
-     "surface": "Wondering who gets to hear a bishop's half-written sermon about his duties.",
-     "walkthrough": "In a down clue 'on' puts the first piece above the second. The definition is a whole question, read as 'one who will receive', i.e. the person a letter goes to.",
-     "definitionFit": "The addressee is the person to whom a letter or parcel is sent, the intended recipient"
+     "surface": "Who gets the half-finished speech about what a bishop must look after?",
+     "definitionFit": "An addressee is the person a letter or parcel is directed to, its recipient."
     },
     "features": {
      "answerInScene": false,
@@ -534,8 +537,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "framed?",
-      "at": 52
+      "text": "being framed?",
+      "at": 46
      }
     ],
     "wordplay": {
@@ -543,40 +546,42 @@
      "indicators": [
       {
        "text": "about",
-       "note": "to be about something is to surround it on both sides"
+       "at": 24,
+       "note": "the odds letters go round the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Odds you might be given",
-         "gives": "SP",
-         "note": "SP is the starting price, the betting odds offered when a race begins"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "the standard abbreviation"
-        }
-       ]
+       "words": "Odds you might be given",
+       "at": 0,
+       "gives": "SP",
+       "note": "SP is the starting price, the odds a bookmaker offers"
       },
       {
-       "words": "workers",
-       "gives": "TU",
-       "note": "a trade union, the organised workers"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "at": 30,
+         "gives": "E"
+        },
+        {
+         "words": "workers",
+         "at": 38,
+         "gives": "TU",
+         "note": "TU is a trade union, a body of workers"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bookmaker offering odds on whether English workers were stitched up by the authorities.",
-     "walkthrough": "SP is a racing abbreviation from British betting shops; it opens to take E and TU.",
-     "definitionFit": "To be framed is to be falsely incriminated, which is exactly being stitched up by someone"
+     "surface": "A bookie offers odds on English workers being stitched up.",
+     "definitionFit": "A set-up is a trap or frame-up, the plight of someone wrongly incriminated."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "framed"
     }
    }
@@ -606,46 +611,49 @@
      "indicators": [
       {
        "text": "carrying",
-       "note": "a carrier holds its load inside it"
+       "at": 33,
+       "note": "the vehicle word carries the turned letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "vehicle",
-         "gives": "MOTOR",
-         "note": "a motor is a car"
-        },
-        {
-         "words": "a",
-         "note": "used as it stands"
-        }
-       ]
+       "words": "vehicle",
+       "at": 25,
+       "gives": "MOTOR",
+       "note": "a motor is a car"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "west",
-         "note": "in an across clue, heading west means reading right to left"
+         "at": 54,
+         "note": "in an across clue, going west means reading right to left"
         }
        ],
        "parts": [
         {
-         "words": "communist",
-         "gives": "RED",
-         "note": "red is the traditional colour of communism"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 42
+          },
+          {
+           "words": "communist",
+           "at": 44,
+           "gives": "RED",
+           "note": "red is a byword for communist"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A car carrying a Western communist, with someone listening to the talk inside.",
-     "walkthrough": "In an across clue 'west' means right to left. 'Language' here means wording and swearing, which a forum moderator polices.",
-     "definitionFit": "A moderator oversees online posts or a debate, keeping remarks civil and removing offensive wording"
+     "surface": "A car is transporting a communist heading west.",
+     "definitionFit": "A moderator keeps forum or debate posts in line, policing bad language and conduct."
     },
     "features": {
      "answerInScene": false,
@@ -730,36 +738,40 @@
      "indicators": [
       {
        "text": "welcomed by",
-       "note": "a guest welcomed by a host is taken in, so one piece goes inside another"
+       "at": 24,
+       "note": "Eve takes the test and one into her arms"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Apple consumer",
+       "at": 36,
+       "gives": "EVE",
+       "note": "Eve ate the apple in Eden"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Apple consumer",
-         "gives": "EVE",
-         "note": "Eve ate the apple in Genesis"
+         "words": "test",
+         "at": 14,
+         "gives": "MOT",
+         "note": "the MOT is the annual British roadworthiness test for cars"
         },
         {
          "words": "one",
+         "at": 20,
          "gives": "I",
-         "note": "the Roman numeral for one"
+         "note": "I is the Roman numeral one"
         }
        ]
-      },
-      {
-       "words": "test",
-       "gives": "MOT",
-       "note": "the MOT is Britain's annual roadworthiness test for cars"
       }
      ]
     },
     "explanation": {
-     "surface": "A contentious product trial at the Apple technology company.",
-     "walkthrough": "Apple is capitalised to suggest the company, but it is the fruit from Eden. The MOT is the yearly safety check every British car over three years old needs.",
-     "definitionFit": "An emotive issue stirs strong feelings and so tends to provoke argument and dispute"
+     "surface": "A divisive trial in which a customer of Apple Inc is involved.",
+     "walkthrough": "'Apple consumer' looks like an iPhone buyer; it is Eve from Genesis.",
+     "definitionFit": "An emotive issue stirs strong feelings, which makes it a contentious one."
     },
     "features": {
      "answerInScene": false,
@@ -1300,64 +1312,66 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ALUMNUS",
      "indicators": [
       {
        "text": "about",
-       "note": "being about something means lying right round it"
+       "at": 33,
+       "note": "the other pieces go round the thousand letter"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ALUMNUS",
-       "indicators": [
-        {
-         "text": "Almost",
-         "note": "almost the whole of something falls just short, so the last letter goes"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Almost",
+           "at": 0,
+           "note": "almost means the last letter of all is dropped"
+          }
+         ],
          "parts": [
           {
            "words": "all",
-           "gives": "AL",
-           "note": "the word minus its final letter"
+           "at": 7,
+           "note": "taken as written, without its last letter"
           },
           {
-           "words": "university",
-           "gives": "U",
-           "note": "the standard abbreviation"
-          },
-          {
-           "words": "1000",
-           "gives": "M",
-           "note": "the Roman numeral for a thousand"
-          },
-          {
-           "words": "students",
-           "gives": "NUS",
-           "note": "the National Union of Students, the UK students' body"
+           "gives": "L"
           }
          ]
+        },
+        {
+         "words": "university",
+         "at": 11,
+         "gives": "U"
+        },
+        {
+         "words": "students",
+         "at": 22,
+         "gives": "NUS",
+         "note": "NUS is the National Union of Students"
         }
        ]
+      },
+      {
+       "words": "1000",
+       "at": 39,
+       "gives": "M",
+       "note": "M is the Roman numeral for 1000"
       }
      ]
     },
     "explanation": {
-     "surface": "Nearly every student at a university, around a thousand of them, is finishing a degree.",
-     "walkthrough": "The NUS is the National Union of Students, which represents British students; U and NUS together go round the M.",
-     "definitionFit": "An alumnus is a former student of a school or college, especially one who has completed a degree"
+     "surface": "Nearly every college student, around a thousand of them, graduates.",
+     "definitionFit": "An alumnus is a former student of a college, someone who has graduated from it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "graduate"
     }
    }
   },
