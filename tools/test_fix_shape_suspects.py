@@ -214,5 +214,17 @@ si4 = {"op": "deletion", "indicators": [{"text": "short"}], "parts": [{"op": "ch
 new, used = F.repair_tree(si4, "fat short", "BLAH", SI)
 check("a result the source does not give is left for the model", used == [])
 
+# containerInside under a reversal: rev(ins(NOTE+L, P)) is NOT(P)E+L reversed; the P goes into NOTE
+# even though the two shapes tie on simplicity (cryptic-29035 9a LEPTON).
+cic = "Observe learner keeping quiet - backward type interacting weakly"
+lep = {"op": "reversal", "indicators": [{"text": "backward"}], "parts": [
+    {"op": "container", "indicators": [{"text": "keeping"}], "parts": [
+        {"op": "charade", "parts": [{"words": "Observe", "gives": "NOTE"}, {"words": "learner", "gives": "L"}]},
+        {"words": "quiet", "gives": "P"}]}]}
+new, used = F.repair_tree(lep, cic, "LEPTON", {"containerInside": F.r_container_inside})
+check("ins(NOTE+L, P) under rev becomes NOTE-with-P + L", used == ["containerInside"]
+      and new["parts"][0]["op"] == "charade" and new["parts"][0]["parts"][0]["op"] == "container"
+      and new["parts"][0]["parts"][1]["gives"] == "L")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
