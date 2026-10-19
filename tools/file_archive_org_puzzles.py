@@ -3520,7 +3520,7 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: {cause: ISO time}: an edition a title of which was refused for `cause`
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
-REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-18T23:42:00+00:00",
+REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-19T00:09:00+00:00",
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00"}
 
 
@@ -3692,7 +3692,15 @@ def read_page(d, found, hit, solutions, vlm_for=False):
     # The clues read from a crop left of the grid: two columns a grid's
     # width wide (beside), or the one column left_column() finds.
     column = left_column(lines, gbox) if side == "below" and top is None and not paper.four else None
-    crop = (gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)) if beside else column and column[::2]
+    # A Gale page has no djvu text, so the 1987 Saturday prize's column
+    # (left_column) found no heading and every such page was refused "no
+    # reading parses": its heading is read from a RapidOCR strip left of the grid.
+    if column is None and not lines and paper.key == "gale" and "1980" <= d.name[:4] < "1990" \
+            and side == "below" and top is None and not paper.four:
+        probe = rapid_lines(img, gbox, "ch", CROPS / "rapid" / f"{key}.probe.json", None, m, None,
+                            (gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)), None, None, None)
+        column = left_column(probe, gbox)
+    crop =(gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)) if beside else column and column[::2]
     # The 2006-13 Times' three columns under the grid, the third overhanging
     # it: read from a crop that reaches its end (a page that ends soon under
     # the grid is not the 2014 Times' clues right of it).
