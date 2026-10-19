@@ -6073,8 +6073,8 @@ def reversal_split(tree, clue):
     for node in _walk(tree):
         if node.get("op") != "reversal" or node.get("unchecked"):
             continue
-        if any(m.get("op") in ("hidden", "alternate") for m in _walk(node) if m is not node):
-            continue  # round 22c: 8 of 9 judged-fine hits reversed a hidden or alternate-letters pick, one stretch of the clue
+        if any(m.get("op") in ("hidden", "alternate", "deletion") for m in _walk(node) if m is not node):
+            continue  # round 22c: 12 of 14 judged-fine hits reversed a hidden, alternate-letters or deletion result, one stretch of the clue
         spans = [s for p in node.get("parts") or [] if isinstance(p, dict) and (s := _extent(p, clue, low))]
         if not spans:
             continue
@@ -6941,7 +6941,6 @@ BACKLOG_MARKERS = {
     "wordplay.poolGap": (POOL_GAP,),
     "wordplay.tradedIndicator": (TRADED_INDICATOR,),
     "wordplay.reversalSplit": (REVERSAL_SPLIT,),
-    "wordplay.cutInLeaf": (CUT_IN_LEAF,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }
