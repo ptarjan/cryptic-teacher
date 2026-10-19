@@ -1780,16 +1780,16 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "In",
-       "note": "in sets the shortened name inside the letters from the numbers"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "In",
+         "note": "in sets the shortened name inside the letters from the numbers"
+        }
+       ],
        "parts": [
         {
          "words": "Two Thousand",
@@ -1797,30 +1797,30 @@
          "note": "K stands for a thousand, so two of them give a pair"
         },
         {
-         "words": "One",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "is cut off",
+           "note": "a word cut off loses its end, so the computer's name drops its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "its computer",
+           "gives": "HAL",
+           "note": "HAL 9000 is the computer in the film 2001: A Space Odyssey"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "is cut off",
-         "note": "a word cut off loses its end, so the computer's name drops its last letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "its computer",
-         "gives": "HAL",
-         "note": "HAL 9000 is the computer in the film 2001: A Space Odyssey"
-        },
-        {
-         "gives": "L"
-        }
-       ]
+       "words": "One",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
       }
      ]
     },

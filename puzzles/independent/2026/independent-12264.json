@@ -832,17 +832,17 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "over",
-       "at": 24,
-       "note": "over here means covering, so the outer letters lie over the shortened word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 24,
+         "note": "over here means covering, so the outer letters lie over the shortened word"
+        }
+       ],
        "parts": [
         {
          "words": "Experiment",
@@ -851,32 +851,32 @@
          "note": "a trial is an experiment or test"
         },
         {
-         "words": "running",
-         "at": 16,
-         "gives": "ON",
-         "note": "on means running, as a machine that is on"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 29,
+           "note": "most of the word is kept, its last letter dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the",
+           "at": 37,
+           "gives": "THE"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "most of",
-         "at": 29,
-         "note": "most of the word is kept, its last letter dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "the",
-         "at": 37,
-         "gives": "THE"
-        },
-        {
-         "gives": "E"
-        }
-       ]
+       "words": "running",
+       "at": 16,
+       "gives": "ON",
+       "note": "on means running, as a machine that is on"
       }
      ]
     },
