@@ -1654,56 +1654,59 @@
      "indicators": [
       {
        "text": "invested in",
-       "note": "money invested in something is put inside it, so these letters go within"
+       "at": 18,
+       "note": "invested in means put inside, so the pieces go within the word for rate"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "rate",
+       "at": 30,
+       "gives": "COST",
+       "note": "a rate is a charge or price, so cost"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "rate",
-         "gives": "COST",
-         "note": "a rate is a price or cost"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "LON",
+         "op": "deletion",
          "indicators": [
           {
            "text": "Half of",
-           "note": "half of a word keeps just one of its two halves, here the front"
+           "at": 0,
+           "note": "only half of the capital's name is kept, the second half being dropped"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "capital",
-           "gives": "LON",
-           "select": "first",
-           "note": "the first half of London, the capital"
+           "at": 8,
+           "gives": "LONDON",
+           "note": "London is the capital of the UK"
+          },
+          {
+           "gives": "DON"
           }
          ]
+        },
+        {
+         "words": "I",
+         "at": 16,
+         "gives": "I"
         }
        ]
-      },
-      {
-       "words": "I",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Half one's capital has been put into a rate on which this man has agreed.",
-     "walkthrough": "The capital is London; its first half plus I goes inside COST: CO-LONI-ST.",
-     "definitionFit": "A colonist is a person who has gone to live in and settle a new territory, so a settler."
+     "surface": "A financial puzzle: a share of the capital invested at some rate by a man who has settled his account.",
+     "walkthrough": "The financial words (capital, invested, rate, settled) all mislead: 'settled' here means made a home in a new land.",
+     "definitionFit": "A colonist is a settler, someone who has made a home in a new territory."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "capital"
+     "misdirectedWord": "settled"
     }
    }
   },

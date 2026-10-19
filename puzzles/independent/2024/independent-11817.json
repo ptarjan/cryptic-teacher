@@ -451,33 +451,35 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "OBI",
+     "op": "deletion",
      "indicators": [
       {
        "text": "Either end of",
-       "note": "the same three letters stand at the start and the finish of the full name, so either end supplies them"
+       "at": 0,
+       "note": "the name both begins and ends with the same three letters, so either end gives them"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Jedi master",
-       "gives": "OBI",
-       "select": "first",
-       "note": "the Star Wars mentor Kenobi, whose first name's opening three letters repeat at the end of his surname"
+       "words": "Jedi master's",
+       "at": 14,
+       "gives": "OBIWANKENOBI",
+       "note": "Obi-Wan Kenobi is the Jedi master of Star Wars"
+      },
+      {
+       "gives": "WANKENOBI"
       }
      ]
     },
     "explanation": {
-     "surface": "A Star Wars fan asking for either tip of a Jedi's belt.",
-     "walkthrough": "Obi-Wan Kenobi starts with OBI and ends with OBI, so either end gives it.",
-     "definitionFit": "An obi is the broad sash worn around the waist with a Japanese kimono."
+     "surface": "A question of which end of a Star Wars master's belt to grab.",
+     "walkthrough": "OBI-WAN KENOBI starts with OBI and also ends with OBI, so either end serves.",
+     "definitionFit": "An obi is the broad sash worn with a Japanese kimono."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "end"
     }
    }
@@ -955,35 +957,39 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places these letters inside the word that follows"
+       "at": 20,
+       "note": "in puts uniform and left inside the block"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "block",
-         "gives": "GAG",
-         "note": "a gag blocks the mouth"
-        },
-        {
-         "words": "uniform",
-         "gives": "U",
-         "note": "Uniform is U in the NATO alphabet"
-        }
-       ]
+       "words": "block",
+       "at": 23,
+       "gives": "GAG",
+       "note": "to gag is to block or stop up"
       },
       {
-       "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "uniform",
+         "at": 7,
+         "gives": "U",
+         "note": "U is uniform in the NATO alphabet"
+        },
+        {
+         "words": "left",
+         "at": 15,
+         "gives": "L",
+         "note": "L, the abbreviation for left"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prison scene: uniforms left in a cell block.",
-     "definitionFit": "The Gulag was the Soviet system of forced-labour prison camps."
+     "surface": "Prison uniform is left in the cell block.",
+     "definitionFit": "A gulag was a Soviet forced-labour camp, a type of prison."
     },
     "features": {
      "answerInScene": true,

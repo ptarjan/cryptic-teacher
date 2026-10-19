@@ -750,45 +750,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Change",
-       "note": "to change something is to alter it, so the word that follows is rearranged"
+       "text": "first",
+       "at": 22,
+       "note": "first puts home and gear before the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "home",
+       "at": 12,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "words": "gear",
+       "at": 17,
+       "gives": "COG",
+       "note": "a cog is a gear wheel"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "first",
-         "note": "says the next pair of pieces must be placed ahead of the rearranged letters"
+         "text": "Change",
+         "at": 0,
+         "note": "change means alter, so the letters of into are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "home",
-         "gives": "IN",
-         "note": "at home is in"
-        },
-        {
-         "words": "gear",
-         "gives": "COG",
-         "note": "a cog is a toothed wheel, a gear"
-        },
-        {
          "words": "into",
-         "note": "the letters of this word rearranged"
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone slips into their home clothes first so they can go out unrecognised.",
-     "walkthrough": "'Change into home gear' reads as getting into comfortable clothes; really 'Change' rearranges 'into', and 'home' and 'gear' are separate pieces.",
-     "definitionFit": "Going incognito means hiding your identity, so a person incognito is disguised."
+     "surface": "Changing into home clothes first to slip about unrecognised.",
+     "definitionFit": "Incognito means with one's identity concealed, as in travelling in disguise."
     },
     "features": {
      "answerInScene": true,
@@ -818,22 +821,31 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "FILIBUSTERER",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "says one piece goes inside the following word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "rejected",
-         "note": "something rejected is sent back, so the little word is read the other way round"
+         "at": 19,
+         "note": "rejected means sent back, so the word if is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "if",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 47,
+         "note": "in places the Guardian inside the jumbled letters"
         }
        ],
        "parts": [
@@ -842,37 +854,34 @@
          "indicators": [
           {
            "text": "mess",
-           "note": "a mess is a jumble, so the combined letters are rearranged"
+           "at": 59,
+           "note": "a mess is a jumble, so the letters of terrible are mixed up"
           }
          ],
          "parts": [
           {
-           "words": "if",
-           "note": "the little word turned round"
-          },
-          {
-           "words": "the Guardian",
-           "gives": "US",
-           "note": "a newspaper refers to itself as 'we', and this puzzle runs in the Guardian"
-          },
-          {
            "words": "terrible",
-           "note": "taken as written"
+           "at": 50
           }
          ]
+        },
+        {
+         "words": "the Guardian",
+         "at": 34,
+         "gives": "US",
+         "note": "the Guardian newspaper, setting the puzzle, refers to itself as us"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper is blamed for holding things up by landing in a dreadful mess.",
-     "walkthrough": "The Guardian, as the paper speaking of itself, is US; tuck it into 'terrible', jumble the lot, and put reversed 'if' in front.",
-     "definitionFit": "A filibusterer is a legislator who talks at great length to stall a vote, so they are a cause of delay."
+     "surface": "A newspaper caught in a dreadful muddle is the reason things are held up.",
+     "definitionFit": "A filibusterer obstructs a legislature with long speeches, causing deliberate delay."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Guardian"
     }
    }

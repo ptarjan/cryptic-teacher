@@ -299,42 +299,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "to take a different direction",
+       "at": 16,
+       "note": "set taking a different direction means the word set is turned round within the town's name"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "CONTEST",
-       "indicators": [
-        {
-         "text": "take a different direction",
-         "note": "going the other way means the word is read from its end back to its start"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Durham town",
-         "gives": "CONSETT",
-         "note": "Consett is a former steel town in County Durham"
-        }
-       ]
+       "words": "Durham town",
+       "at": 49,
+       "gives": "CONSETT",
+       "note": "Consett is a town in County Durham, north-east England"
       },
       {
-       "unchecked": true,
        "words": "set",
-       "note": "names the three letters already inside the town's name that are to be turned round"
+       "at": 12
+      },
+      {
+       "gives": "TES"
       }
      ]
     },
     "explanation": {
-     "surface": "A competition in a County Durham town is due to change course.",
-     "walkthrough": "CONSETT, a town in County Durham in north-east England, already contains SET; turn that SET round in place and you get CONTEST.",
-     "definitionFit": "A contest is a competition between rivals, a straightforward synonym."
+     "surface": "A competition set to move to a new location in a Durham town.",
+     "definitionFit": "A contest is a competition between rivals."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "set"
+     "misdirectedWord": "direction"
     }
    }
   },
@@ -397,45 +393,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NEGLIGIBLE",
-     "indicators": [
-      {
-       "text": "turned up",
-       "note": "in a down clue, turned up means the word runs upwards, from bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "NEGLIGIBLE",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "with one misprint",
-         "note": "a misprint is one wrong letter, so one letter is swapped for another"
+         "text": "turned up",
+         "at": 20,
+         "note": "in a down clue, turned up means read from bottom to top, reversed"
         }
        ],
        "parts": [
         {
          "words": "information",
+         "at": 8,
          "gives": "GEN",
          "note": "gen is British slang for information"
-        },
+        }
+       ]
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "with one misprint",
+         "at": 44,
+         "note": "one misprint means a single letter is wrongly printed, replaced by another"
+        }
+       ],
+       "parts": [
         {
          "words": "readable",
+         "at": 31,
          "gives": "LEGIBLE",
-         "note": "legible writing can be read"
+         "note": "legible means readable"
+        },
+        {
+         "gives": "E"
+        },
+        {
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some unimportant news has surfaced, readable except for one typo.",
-     "walkthrough": "The first E of LEGIBLE becomes an I. Gen is British slang for information, as in 'get the gen'.",
-     "definitionFit": "Something negligible is so small or unimportant it can be ignored, which is what trivial means."
+     "surface": "Insignificant details came to light, legible except for a typo.",
+     "walkthrough": "In LEGIBLE the first E is misprinted as I, giving LIGIBLE.",
+     "definitionFit": "Negligible means so small or unimportant as to be not worth considering."
     },
     "features": {
      "answerInScene": true,

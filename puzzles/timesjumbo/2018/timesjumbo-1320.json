@@ -2545,41 +2545,44 @@
      "indicators": [
       {
        "text": "holding",
-       "note": "to hold is to keep inside, so the insect surrounds the other parts"
+       "at": 20,
+       "note": "holding means the insect wraps round the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "insect",
-         "gives": "BEE",
-         "note": "a bee is an insect"
-        },
-        {
-         "words": "position",
-         "gives": "LIE",
-         "note": "lie means position, as in the lie of the land"
-        }
-       ]
+       "words": "insect",
+       "at": 13,
+       "gives": "BEE",
+       "note": "a bee is an insect"
       },
       {
-       "words": "velocity",
-       "gives": "V",
-       "note": "v is the physics symbol for velocity"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "position",
+         "at": 28,
+         "gives": "LIE",
+         "note": "lie means position, as in the lie of the land"
+        },
+        {
+         "words": "velocity",
+         "at": 41,
+         "gives": "V",
+         "note": "V is the symbol for velocity"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bird spots a bug while flying fast.",
-     "walkthrough": "'Swallow' looks like the bird but means accept as true.",
-     "definitionFit": "To swallow a story is to accept it credulously, which is to believe it."
+     "surface": "A swallow spots an insect while holding its position and speed.",
+     "walkthrough": "'Swallow' looks like the bird, but it is the verb meaning to accept a story.",
+     "definitionFit": "To swallow a story is to accept it as true, to credit it."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "Swallow"
     }
    }
@@ -3067,52 +3070,65 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "RURAL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "around",
-       "note": "around means surrounding, so the two letters enclose another"
+       "text": "after",
+       "at": 23,
+       "note": "after places these letters behind the sport"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "sport",
+       "at": 29,
+       "gives": "RU",
+       "note": "RU is rugby union"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 11,
+         "note": "around means run and length go either side of area"
+        }
+       ],
        "parts": [
         {
-         "words": "sport",
-         "gives": "RU",
-         "note": "RU is rugby union"
-        },
-        {
-         "words": "Run",
-         "gives": "R",
-         "note": "r is the cricket abbreviation for run"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Run",
+           "at": 0,
+           "gives": "R",
+           "note": "R, the cricket abbreviation for run"
+          },
+          {
+           "words": "length",
+           "at": 4,
+           "gives": "L",
+           "note": "L, abbreviation for length"
+          }
+         ]
         },
         {
          "words": "area",
+         "at": 18,
          "gives": "A",
-         "note": "a is the abbreviation for area"
-        },
-        {
-         "words": "length",
-         "gives": "L",
-         "note": "l is the abbreviation for length"
+         "note": "A, abbreviation for area"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cross-country runner covers ground after a match.",
-     "walkthrough": "'after sport' puts RU first; R and L then go round A.",
-     "definitionFit": "Rural means relating to the countryside, so it describes things found out in the country."
+     "surface": "A run of some length around an area after playing sport in the country.",
+     "definitionFit": "Rural describes things in or of the countryside rather than towns."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Run"
+     "aptDefinition": false
     }
    }
   },

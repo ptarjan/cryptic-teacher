@@ -687,43 +687,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THRIVE",
+     "op": "container",
      "indicators": [
       {
-       "text": "four-fifths of",
-       "note": "keeping four parts in five means dropping one letter from a five-letter word"
+       "text": "dividing",
+       "at": 8,
+       "note": "dividing means splitting the word apart, with the four put in the gap"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "dividing",
-         "note": "to divide something is to split it by going into it"
+         "text": "four-fifths of",
+         "at": 17,
+         "note": "four of the five letters are kept, the last one going"
         }
        ],
        "parts": [
         {
          "words": "one plus two",
-         "gives": "THRE",
-         "note": "one plus two is THREE, cut to its first four letters"
+         "at": 32,
+         "gives": "THREE",
+         "note": "one plus two makes three"
         },
         {
-         "words": "four",
-         "gives": "IV",
-         "note": "IV is four in Roman numerals"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "four",
+       "at": 48,
+       "gives": "IV",
+       "note": "IV is four in Roman numerals"
       }
      ]
     },
     "explanation": {
-     "surface": "An arithmetic puzzle: succeed at a sum involving fractions and division.",
-     "walkthrough": "The maths words are all instructions: the numeral splits the shortened number word.",
-     "definitionFit": "To flourish or prosper is to succeed and grow strongly, which is doing well in life."
+     "surface": "An arithmetic exercise: dividing fractions of a sum by four.",
+     "walkthrough": "The surface reads like a sum, but 'dividing ... by four' puts IV inside THRE.",
+     "definitionFit": "To thrive is to flourish or prosper."
     },
     "features": {
      "answerInScene": false,
