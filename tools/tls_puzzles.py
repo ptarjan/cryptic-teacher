@@ -313,8 +313,9 @@ def latest(log=print):
         log(f"TLS {n} not filed: {why}")
         return 1
     write_puzzle_file(puzzle_path(SERIES, n), puzzle, generator=GENERATOR)
-    from fetch_puzzle import reindex
-    reindex()
+    # No reindex here: recording one puzzle must not cost a whole-corpus pass
+    # (it ran a daily unit past its limit). The filers do not reindex; the index
+    # is untracked and rebuilt when the next unit's tree starts (ct_generated).
     print(puzzle["id"])
     return 0
 

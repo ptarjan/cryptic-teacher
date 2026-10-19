@@ -577,7 +577,9 @@ def main(argv):
         puzzle = latest()
         if not puzzle:
             return 3
-        reindex()
+        # No reindex here: recording one puzzle must not cost a whole-corpus pass
+        # (it ran a daily unit past its limit). The filers do not reindex; the index
+        # is untracked and rebuilt when the next unit's tree starts (ct_generated).
         print(puzzle["id"])
         return 0
     if not re.fullmatch(r"\d{6}", argv[0]):
