@@ -178,13 +178,49 @@ jobs:
       # way the browser does needs those shims. The glossary comes first
       # because --reindex restamps index.html, and a stamp is a hash of the file
       # it points at. Neither touches the network.
+      #
+      # Without a cache that is 2-4 minutes in every shard, re-making ~50k index
+      # rows whose puzzle files did not change. pages.yml saves the stores that
+      # make it incremental (the same paths, so the same cache version): each
+      # row is keyed on its file's git blob and the code that made it, and a
+      # shim is reused only when its row's deps match, so a stale restore is
+      # slower, never wrong. These shards only restore; pages.yml saves.
+      - name: Restore the row cache
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            .git/ct-rows.sqlite*
+            ~/.cache/cryptic-teacher/code_reach
+          key: row-cache-${{ github.sha }}
+          restore-keys: row-cache-
+      - name: Restore the puzzle shims
+        uses: actions/cache/restore@v5
+        with:
+          path: .shim-cache.tar
+          key: puzzle-shims-${{ github.sha }}
+          restore-keys: puzzle-shims-
+      - name: Unpack the puzzle shims
+        run: bash tools/cache_tar.sh unpack .shim-cache.tar
       - name: Build the index the tests read
         run: |
           python3 tools/build_abbreviations.py
           python3 tools/fetch_puzzle.py --reindex
+          python3 tools/prune_shims.py
       # Only a shard holding a script in ci_shards.js's PAGES builds the pages,
-      # a minute and a half each. The social cards are deliberately not drawn:
+      # ~2 minutes cold. The page store (build_seo_pages's fingerprint of the
+      # code and data a page reads) makes a warm build re-render only the pages
+      # whose inputs moved. The social cards are deliberately not drawn:
       # a page points at its own card only if the file is on disk.
+      - name: Restore the puzzle pages
+        if: steps.pick.outputs.pages == 'true'
+        uses: actions/cache/restore@v5
+        with:
+          path: .page-cache.tar
+          key: seo-pages-${{ github.sha }}
+          restore-keys: seo-pages-
+      - name: Unpack the puzzle pages
+        if: steps.pick.outputs.pages == 'true'
+        run: bash tools/cache_tar.sh unpack .page-cache.tar
       - name: Build the pages the tests read
         if: steps.pick.outputs.pages == 'true'
         run: python3 tools/build_seo_pages.py

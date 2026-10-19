@@ -45,6 +45,23 @@ expect("a test and the budgets", v.decide([("M", "tools/test_step_budgets.sh"),
                                             ("M", "README.md")]), "files")
 expect("a rule table", v.decide([("M", "tools/data/clue_types.json")]), "full", "clue_types.json")
 expect("the backlog", v.decide([("M", "tools/annotation_backlog.json")]), "full", "annotation_backlog.json")
+OLD = '{"_why": "x", "indicators.note": {"times-21965": 3, "times-1": 2}}'
+B = "tools/annotation_backlog.json"
+
+
+def backlog(old, new, extra=()):
+    return v.decide([("M", B), *extra], lambda p: old, lambda p: new)
+
+
+tight = '{"_why": "y", "indicators.note": {"times-21965": 1, "times-1": 2}}'
+gone = '{"_why": "x", "indicators.note": {"times-1": 2}}'
+expect("a tightened backlog with its puzzle", backlog(OLD, tight, [("M", P)]), "files")
+expect("a dropped entry with its puzzle", backlog(OLD, gone, [("M", P)]), "files")
+expect("a tightened backlog, puzzle unchanged", backlog(OLD, tight), "full", "times-21965")
+expect("a raised allowance", backlog(OLD, OLD.replace('"times-1": 2', '"times-1": 5'), [("M", P)]), "full", "annotation_backlog.json")
+expect("a new entry", backlog(OLD, OLD.replace('"times-1": 2', '"times-1": 2, "times-9": 1'), [("M", P)]), "full", "annotation_backlog.json")
+expect("a new field", backlog(OLD, OLD[:-1] + ', "other": {}}', [("M", P)]), "full", "annotation_backlog.json")
+expect("a backlog that is not json", backlog(OLD, "{", [("M", P)]), "full", "annotation_backlog.json")
 expect("the authored clues", v.decide([("M", "tools/data/authored_A001_clues.json")]), "full", "authored_A001_clues.json")
 expect("the workflow", v.decide([("M", ".github/workflows/pages.yml")]), "full", "pages.yml")
 expect("a reached module with no old text", v.decide([("M", "tools/validate_annotations.py")]), "full", "old text")

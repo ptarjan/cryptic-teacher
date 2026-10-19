@@ -21,6 +21,7 @@ reached module counts as read, an added or removed module that is reached is
 a full check, and anything that cannot be compared (a base file git cannot
 show) is a full check too.
 """
+import json
 import re
 import subprocess
 import sys
@@ -72,17 +73,53 @@ def named_files(modules):
     return names
 
 
-def decide(changes, base_text=None):
+BACKLOG = "tools/annotation_backlog.json"
+
+
+def backlog_tightened(old_text, new_text):
+    """The puzzle ids whose allowance the backlog lowered, or None when anything
+    else moved: a raised or new allowance, a field added or dropped, or text
+    that is not the file's shape. The file only ever shrinks (write_backlog), so
+    a change that lowers allowances can alter the answer only for the puzzles it
+    names; one that raises any can alter any."""
+    try:
+        old, new = json.loads(old_text), json.loads(new_text)
+        fields = {k for k in old if not k.startswith("_")}
+        if fields != {k for k in new if not k.startswith("_")}:
+            return None
+        lowered = set()
+        for f in fields:
+            for pid in set(old[f]) | set(new[f]):
+                a, b = old[f].get(pid, 0), new[f].get(pid, 0)
+                if b > a:
+                    return None
+                if b < a:
+                    lowered.add(pid)
+        return lowered
+    except (ValueError, AttributeError, TypeError):
+        return None
+
+
+def decide(changes, base_text=None, head_text=None):
     """("full", reason) or ("files", [puzzle paths]) for `changes`, a list of
     (git status letter, path). base_text(path) is the file as at the base
     (None when git cannot show it); it is only called for a modified tools/
-    module the check reaches."""
+    module the check reaches, or the backlog. head_text(path) is the file as it
+    stands (default: read from the tree)."""
     head = reached()
     modules = {m for m, _ in head}
     names = None
     check, edited = [], {}
+    lowered = None
     for st, path in changes:
         if path.startswith(UNREAD):
+            continue
+        if path == BACKLOG and st == "M" and base_text:
+            old = base_text(path)
+            new = head_text(path) if head_text else (ROOT / path).read_text(encoding="utf-8")
+            lowered = backlog_tightened(old, new) if old is not None else None
+            if lowered is None:
+                return "full", f"{path} changed, a file the check reads"
             continue
         if re.fullmatch(r"puzzles/[^/]+/[^/]+/[^/]+\.json", path):
             if st in ("A", "M"):
@@ -107,6 +144,12 @@ def decide(changes, base_text=None):
             names = named_files(modules)
         if Path(path).name in names:
             return "full", f"{path} changed, a file the check reads"
+    if lowered:
+        # A lowered allowance binds only a puzzle the commit also changed;
+        # otherwise nothing has checked that puzzle against it.
+        stems = {Path(p).stem for p in check}
+        if lowered - stems:
+            return "full", f"{BACKLOG} lowered the allowance of an unchanged puzzle: " + ", ".join(sorted(lowered - stems)[:3])
     if edited:
         before = reached(edited)
         after = head
