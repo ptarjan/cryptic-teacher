@@ -455,5 +455,15 @@ check("the unchecked_leaf detector counts the old tree and not the new",
       F._DETECTOR_RULES["unchecked_leaf"](rlt, {"wordplay": rlt, "_answer": "PETERLOO"}, rlc)
       and not F._DETECTOR_RULES["unchecked_leaf"](new, {"wordplay": new, "_answer": "PETERLOO"}, rlc))
 
+# literal_fodder: an anagram filed with its fodder's results is the clue's own words scrambled
+lfc = "Paint half of them in striped materials"
+lft = {"op": "anagram", "unchecked": True, "gives": "DISTEMPER", "indicators": [{"text": "materials", "at": 31}], "parts": [
+    {"op": "container", "indicators": [{"text": "in"}], "parts": [
+        {"words": "striped", "gives": "STRIPED"}, {"op": "last", "unchecked": True, "gives": "EM", "indicators": [{"text": "half of"}], "parts": [
+            {"unchecked": True, "words": "them", "gives": "EM", "select": "last"}]}]}]}
+new, used = F.repair_tree(lft, lfc, "DISTEMPER", {"unchecked_step": F.r_literal_fodder})
+check("an unchecked anagram over results becomes a checked one over the clue words",
+      used == ["unchecked_step"] and "unchecked" not in json.dumps(new) and "EM" not in json.dumps(new))
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
