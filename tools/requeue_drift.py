@@ -44,7 +44,7 @@ def rule_fields():
     out = {}
     for field in V.BACKLOG_MARKERS:
         rule = RULE_OF_FIELD.get(field, field.removeprefix("wordplay."))
-        if field.startswith("wordplay.") and rule in rules and rule != "unchecked_step":
+        if field.startswith("wordplay.") and rule in rules and rule != "unchecked_step" and rule not in Q.WARN_ONLY:
             out[field] = rule
     return out
 
