@@ -536,6 +536,7 @@ vlm._SLOTS[0] = None
 
 # The drainer claims after it holds a slot: with every slot taken the ask stays .json (never a waiting .json.work);
 # once a slot frees it is asked and answered.
+vlm.time.sleep = real_sleep  # line ~409's stub was never undone: waits below need real time
 import fcntl
 import threading
 urllib.request.urlopen = fake_ok
@@ -547,7 +548,12 @@ fcntl.flock(_held, fcntl.LOCK_EX)
 _got = []
 _t = threading.Thread(target=lambda: _got.append(vlm.drain_one()), daemon=True)
 _t.start()
-time.sleep(1.5)
+_mark = vlm._draining_dir() / str(os.getpid())
+for _ in range(100):  # real sleeps: the earlier sleep stubs are not restored
+    if _mark.exists():
+        break
+    real_sleep(0.05)
+real_sleep(0.5)  # and let it settle: still waiting, nothing claimed
 check("a drainer waiting for a slot has claimed nothing", (True, False, True),
       (_t.is_alive(), (vlm.spool_dir() / ("w" * 40 + vlm.CLAIMED)).exists(), (vlm.spool_dir() / ("w" * 40 + ".json")).exists()))
 check("... and is marked as waiting, to other processes' eyes only", True,
