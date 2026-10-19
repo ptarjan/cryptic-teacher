@@ -1751,46 +1751,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Walls of",
-       "note": "a building's walls are its outside, so take the chapel's outer letters"
+       "text": "trimmed",
+       "note": "the last letter is cut off"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "trimmed",
-         "note": "the last letter is cut off"
-        }
-       ],
+       "op": "outer",
+       "unchecked": true,
+       "gives": "CANDL",
        "parts": [
         {
-         "op": "outer",
          "unchecked": true,
+         "words": "Walls of chapel",
          "gives": "CANDL",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Walls of chapel",
-           "gives": "CANDL",
-           "select": "outer",
-           "note": "the walls are C and L, read literally as C AND L"
-          }
-         ]
-        },
-        {
-         "words": "best",
-         "gives": "ELITE",
-         "note": "the elite are the best; E trimmed"
+         "select": "outer",
+         "note": "the walls are C and L, read literally as C AND L"
         }
        ]
       },
       {
-       "gives": "E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Walls of",
+         "note": "a building's walls are its outside, so take the chapel's outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "best",
+         "gives": "ELITE",
+         "note": "the elite are the best; E trimmed"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
