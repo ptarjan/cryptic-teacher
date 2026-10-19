@@ -125,12 +125,14 @@ live = P.with_today(days, {"times": [5, 4, 3], "azed": [1, 1, 1]}, "2026-10-08")
 assert live["2026-10-08"] == {"azed": [None, None, 1, 1, 1, None, None], "times": [10, 3, 5, 4, 3, 110, 30]}, live["2026-10-08"]
 assert P.totals(live["2026-10-08"]) == [10, 3, 6, 5, 4, 110, 30]
 # The three queues: depths from one row, flows from the recorded nights.
-assert B.queue_depths([10, 3, 5, 4, 3, 110, 30]) == (0, 30, 2)
-assert B.queue_depths([100, 3, 5, 4, 3, 40, 30]) == (65, 30, 2)
-assert B.queue_depths([None, None, 1, 1, 1, None, None]) == (None, None, 0)
+assert B.queue_depths([10, 3, 5, 4, 3, 110, 30]) == (0, 75, 30, 2)
+assert B.queue_depths([100, 3, 5, 4, 3, 40, 30]) == (60, 5, 30, 2)
+assert B.queue_depths([None, None, 1, 1, 1, None, None]) == (None, None, None, 0)
 # Filed from a blog: filed 5,542 vs downloaded 319 must not read as to fetch.
-assert B.queue_depths([6000, 0, 5542, 0, 0, 319, 10]) == (448, 10, 5542)
-assert B.queue_depths([100, 0, 120, 0, 0, 5, 3]) == (0, 3, 120)   # never negative
+assert B.queue_depths([6000, 0, 5542, 0, 0, 319, 10]) == (448, 0, 10, 5542)
+assert B.queue_depths([100, 0, 120, 0, 0, 5, 3]) == (0, 0, 3, 120)   # never negative
+# Times: 29,668 known, 23,714 downloaded, 16,416 filed, 4,161 queued.
+assert B.queue_depths([29668, 0, 16416, 0, 0, 23714, 4161])[:3] == (5954, 3137, 4161)
 # A falling known count makes fetch's in negative, shown with its sign.
 fall = {"2026-10-01": {"blog": [100, 0, 50, 0, 0, 5, 2]}, "2026-10-03": {"blog": [96, 0, 54, 0, 0, 6, 2]}}
 ff = B.queue_flows(fall, 7)
@@ -147,7 +149,7 @@ assert B.flow_text((None, 2)) == "? / &minus;2"
 html = B.queue_table({"times": [100, 3, 5, 4, 3, 40, 30], "azed": [1, 1, 1, 1, 1, 1, 0], "x": [0, 0, 0, 0, 0, 0, 0]}, days)
 assert "Downloaded" not in html and "<th>To fetch</th>" in html and "All series" in html, html
 assert html.index("Times") < html.index("Azed") if "Azed" in html else True
-assert ">x<" not in html and "<td>65 " in html, html
+assert ">x<" not in html and "<td>60 " in html and "<th>Read failed</th>" in html, html
 
 pts = P.series_of(live, P.HINTED)
 assert P.daily(pts)[-1] == ("2026-10-08", 1), P.daily(pts)
