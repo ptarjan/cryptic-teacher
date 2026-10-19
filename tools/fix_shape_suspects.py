@@ -1844,7 +1844,51 @@ REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap":
            "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
 #: Repairs for validator rules (the queue's anaSynonym / anagramOfContainer rows), run by --rule.
-RULE_REPAIRS = {"anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
+def r_arity_ins(node, parent, ctx):
+    """arity_ins: an unchecked container that holds one charade (or one anagram / reversal /
+    cycling / deletion) of several parts, or 3+ parts. The parts are the held and the holder
+    run together: split them into a contiguous run (inner) and the rest (outer), the unary op
+    (if any) wrapping one group. Kept only when the whole tree gives the answer and exactly one
+    reading does; a charade's own indicators move to the container (one op per indicator)."""
+    if node.get("op") != "container" or not node.get("unchecked") or len(node.get("parts") or []) == 2:
+        return None
+    parts = node["parts"]
+    if len(parts) > 1 and len(parts) >= 3:
+        unary = None
+        items = parts
+    elif len(parts) == 1 and parts[0].get("op") and not parts[0].get("unchecked") \
+            and (parts[0]["op"] == "charade" or parts[0]["op"] in ("anagram", "reversal", "cycling", "deletion")):
+        unary = None if parts[0]["op"] == "charade" else parts[0]
+        items = parts[0]["parts"]
+    else:
+        return None
+    if len(items) < 2 or any(x.get("unchecked") for it in items for x, _ in walk(it)):
+        return None     # an unchecked piece has no letters: the answer cannot vouch for where it sits
+    base = {k: v for k, v in node.items() if k not in ("unchecked", "gives", "parts")}
+    if len(parts) == 1 and unary is None and parts[0].get("indicators"):
+        base["indicators"] = (base.get("indicators") or []) + copy.deepcopy(parts[0]["indicators"])
+    good = {}
+
+    def group(sub, wrap):
+        if wrap:
+            return {**copy.deepcopy(unary), "parts": copy.deepcopy(sub)}
+        return charade(copy.deepcopy(sub))
+    n = len(items)
+    for i in range(n):
+        for j in range(i, n):
+            inner_i, outer_i = items[i:j + 1], items[:i] + items[j + 1:]
+            if not outer_i:
+                continue
+            for wrap in ((None,) if unary is None else ("inner", "outer")):
+                inner = group(inner_i, wrap == "inner")
+                outer = group(outer_i, wrap == "outer")
+                new = {**base, "parts": [outer, inner]}
+                if _eval_swapped(node, parent, new, ctx):
+                    good[json.dumps(new, sort_keys=True)] = new
+    return next(iter(good.values())) if len(good) == 1 else None
+
+
+RULE_REPAIRS = {"arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
                 "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": r_pool_gap,
@@ -2357,6 +2401,7 @@ def do_rule_puzzle(pid):
 
 #: Queue rows that name a shape_suspects detector, not a validator rule: how --rule counts them.
 _DETECTOR_RULES = {"del_single": lambda wp, full, clue: V.del_single(wp),
+                   "arity_ins": lambda wp, full, clue: V.arity_ins(wp),
                    "ind_in_leaf": lambda wp, full, clue: V.ind_in_leaf(wp, clue)}
 
 

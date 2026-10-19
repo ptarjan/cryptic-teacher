@@ -151,8 +151,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SPIKY",
      "indicators": [
       {
        "text": "in",
@@ -161,36 +159,26 @@
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "the sky",
+       "gives": "SKY",
+       "note": "sky is the outer word"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "note": "almost means not quite all, so the final letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "the sky",
-         "gives": "S",
-         "note": "sky is the outer word"
+         "words": "pie",
+         "gives": "PIE",
+         "note": "pie without its last letter"
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "almost",
-           "note": "almost means not quite all, so the final letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "pie",
-           "gives": "PIE",
-           "note": "pie without its last letter"
-          },
-          {
-           "gives": "E"
-          }
-         ]
-        },
-        {
-         "words": "the sky",
-         "gives": "KY",
-         "note": "the rest of sky"
+         "gives": "E"
         }
        ]
       }

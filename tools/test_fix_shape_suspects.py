@@ -408,5 +408,22 @@ sht = {"op": "charade", "indicators": [{"text": "following", "at": 7}], "parts":
 new, used = F.repair_tree(sht, shc, "FEES", {"sharedIndicator": F.r_shared_charade})
 check("a charade indicator that is a leaf's words is dropped", used == ["sharedIndicator"] and "indicators" not in new)
 
+# arity_ins: an unchecked container over one anagram / charade of the held and the holder is split
+AI = {"arity_ins": F.r_arity_ins}
+aic = "Drink now mixed in separate container"
+ait = {"op": "container", "unchecked": True, "indicators": [{"text": "in", "at": 16}], "parts": [
+    {"op": "anagram", "indicators": [{"text": "mixed", "at": 9}], "parts": [
+        {"words": "separate", "at": 19, "gives": "SUND"}, {"words": "now", "at": 6}, {"words": "separate", "at": 19, "gives": "ER"}]}]}
+new, used = F.repair_tree(ait, aic, "SUNDOWNER", AI)
+check("an anagram of the held among the holder's pieces makes a two-part container",
+      used == ["arity_ins"] and len(new["parts"]) == 2 and not new.get("unchecked"))
+aic2 = "Very small car carrying case of old alcohol"
+ait2 = {"op": "container", "unchecked": True, "parts": [{"op": "charade", "indicators": [{"text": "carrying", "at": 15}], "parts": [
+    {"words": "Very", "at": 0, "gives": "V"}, {"op": "outer", "indicators": [{"text": "case of", "at": 24}], "parts": [{"words": "old", "at": 32, "gives": "OD"}]},
+    {"words": "small car", "at": 5, "gives": "KA"}]}]}
+new, used = F.repair_tree(ait2, aic2, "VODKA", AI)
+check("a charade of held and holder splits, its indicator moving to the container",
+      used == ["arity_ins"] and len(new["parts"]) == 2 and new["indicators"][0]["text"] == "carrying")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
