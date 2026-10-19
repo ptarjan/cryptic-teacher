@@ -3921,6 +3921,10 @@ def _verified_leaf(node):
     if len(parts) != 1 or "op" in parts[0]:
         return None
     leaf = parts[0]
+    if op == "charade" and len(wordplay.letters(leaf.get("gives"))) >= 3 and set(wordplay.letters(leaf.get("gives"))) <= set("NSEW") \
+            and wordplay.letters(leaf.get("gives")) == wordplay.letters(node.get("gives")) \
+            and re.search(r"\b(?:directions?|points?|compass|quarters?)\b", str(leaf.get("words")), re.I):
+        return leaf  # "directions" = SEWN: each letter is a compass point, in the order the indicator names (round 13)
     given = {wordplay.letters(x.get("gives")) for x in (node, leaf) if x.get("gives")}
     if len(given) != 1 or not (want := next(iter(given))):
         return None
@@ -3930,7 +3934,25 @@ def _verified_leaf(node):
         got = wordplay.values({"op": op, "parts": [{"words": leaf["words"], "select": op}]})
     except wordplay.WordplayError:
         return None
-    return leaf if want in got else None
+    if want in got:
+        return leaf
+    word = wordplay.letters(leaf["words"]).lower()
+    if len(str(leaf["words"]).split()) == 1:
+        # sweetheart = the heart of sweet (WOOED), mountaintop = top of mountain: the compound names the pick
+        # and the rest is the source word (round 13)
+        for k in _SELECT_COMPOUND.get(op, ()):
+            for rest in ((word[:-len(k)] if word.endswith(k) else None), (word[len(k):] if word.startswith(k) else None)):
+                if rest and len(rest) >= 3:
+                    try:
+                        if want in wordplay.values({"op": op, "parts": [{"words": rest, "select": op}]}):
+                            return leaf
+                    except wordplay.WordplayError:
+                        pass
+    return None
+
+
+_SELECT_COMPOUND = {"middle": ("heart", "centre", "center", "core", "middle"),
+                    "first": ("top", "head", "leader", "front"), "last": ("tail", "foot", "bottom")}
 
 
 def unverified_unchecked(tree, answer=None):
@@ -3974,6 +3996,15 @@ def arity_other(tree):
               or (op == "homophone" and k >= 3)
               or (op in ("reversal", "hidden", "cycling") + wordplay.SELECT and k != 1))
     return n
+
+
+def _not_a_rotation(node):
+    """An unchecked `cycling` step whose result is not its one part's letters rotated: a letter moved
+    to the front (HEARS -> RHEAS, times-28709 22d) is not cycling, and "unchecked" hid it (round 13)."""
+    part = node["parts"][0]
+    have, want = wordplay.letters(part.get("gives")), wordplay.letters(node.get("gives"))
+    return bool(isinstance(part, dict) and have and want and len(have) == len(want) and have != want
+                and want not in {have[k:] + have[:k] for k in range(len(have))})
 
 
 _DEL_ALL = re.compile(r"\b(both|each|every|cases|ends|edges|tops|heads|tails|boundar(?:y|ies)|borders|"
@@ -4155,7 +4186,8 @@ def folded_indicators(tree):
 def fake_parts(tree):
     """Substitutions whose replaced and replacement parts are wordless `gives`
     of 2+ letters directly after a substitution: the swap was made up to fill
-    the three parts, not read from the clue."""
+    the three parts, not read from the clue. Also an unchecked `cycling` that is
+    no rotation of its part: the step was named for what it is not."""
     n = 0
     for node in _walk(tree):
         parts = node.get("parts") or []
@@ -4163,6 +4195,9 @@ def fake_parts(tree):
                 and isinstance(parts[0], dict) and parts[0].get("op") == "substitution":
             n += all(isinstance(p, dict) and "op" not in p and "words" not in p
                      and len(p.get("gives") or "") >= 2 for p in parts[1:])
+        # an unchecked cycling that is no rotation (HEARS -> RHEAS moves one letter, times-28709 22d, round 13)
+        n += bool(node.get("op") == "cycling" and node.get("unchecked") and len(parts) == 1
+                  and isinstance(parts[0], dict) and _not_a_rotation(node))
     return n
 
 
@@ -4445,6 +4480,17 @@ def _indicator_roles():
     return json.loads(path.read_text()) if path.exists() else {}
 
 
+def _indicators_foreign(op, kind):
+    """Whether every indicator of `op` is a well-used word (ROLE_MIN_USES+) that the corpus files under
+    `kind` at most ROLE_LOOSE_OWN_MAX of the time."""
+    for i in op.get("indicators") or []:
+        counts = _role_counts(indicator_role_key(i.get("text")))
+        total = sum(counts.values())
+        if total < ROLE_MIN_USES or counts.get(kind, 0) > ROLE_LOOSE_OWN_MAX * total:
+            return False
+    return True
+
+
 def wrong_role_indicators(tree):
     """How many indicators on a checked op of a type (anagram, reversal, container,
     deletion, hidden, homophone, selection) whose lexicon word is owned by another type:
@@ -4492,6 +4538,22 @@ def wrong_role_indicators(tree):
                 total = sum(counts.values())
                 if total >= ROLE_MIN_USES and counts[max(counts, key=counts.get)] >= 0.9 * total:
                     charade_tops.add(max(counts, key=counts.get))
+    # the other direction (times-29578 26a UNSPORTSMANLIKE: charade<poorly>(ana<by>(..), IKE)): a charade
+    # carrying a word that is all one op's ("poorly" 97% anagram) while a checked op of that type in the tree
+    # has only indicators the corpus files under it under 10% ("by" is 6% anagram) -- the words trade places
+    for node in _walk(tree):
+        if node.get("op") != "charade" or node.get("unchecked"):
+            continue
+        for at, i in enumerate(node.get("indicators") or []):
+            counts = _role_counts(indicator_role_key(i.get("text")))
+            total = sum(counts.values())
+            if total < ROLE_MIN_USES:
+                continue
+            top = max(counts, key=counts.get)
+            if counts[top] >= 0.9 * total and top in ("anagram", "reversal") and any(
+                    _OP_LEXICON.get(o.get("op")) == top and o.get("indicators") and not o.get("unchecked")
+                    and _indicators_foreign(o, top) for o in nodes):
+                flagged.add((id(node), at))
     for a, own_a, top_a in swappable:
         if own_a in charade_tops and top_a not in charade_tops:
             flagged.add(a)
@@ -4525,7 +4587,9 @@ def selection_phrase_elsewhere(tree):
                for i in node.get("indicators") or [] if SELECTION_PHRASE.match(str(i.get("text") or "").strip()))
 
 
-EXTREMES_WORD = re.compile(r"\b(?:extremely|extremities|extremity|extreme|outer|edges?)\b", re.I)
+#: Both-ends words only: the singular "edge of", "extreme of", "in the extreme" name one end (round 13: RUNES,
+#: THOUGHT, OPTICAL, RASP were flagged for last<edge of>, first<edge of>, last<the other extreme of>).
+EXTREMES_WORD = re.compile(r"\b(?:extremely|extremities|outer|edges)\b", re.I)
 DELETION_LEAF_WORD = re.compile(
     r"\b(?:dropping|drops?|dropped|losing|loses?|lost|leaving|leaves|left|without|missing|shedding|"
     r"sheds?|removing|removed|ejecting|abandoning|dumping|skipping|omitting|lacking)\b", re.I)
@@ -4558,6 +4622,8 @@ def _deletion_word_in(words, gives=""):
         if not DELETION_LEAF_WORD.fullmatch(bare):
             continue
         nxt = re.sub(r"\W", "", ws[i + 1]).lower() if i + 1 < len(ws) else ""
+        if bare in ("lacking", "lacks") and (not nxt or nxt in ("in", "of")):
+            continue  # nothing follows to be taken out ("Sun quite lacking" = DARK), or "lacking in" = without (WILD): round 13
         if (bare in ("drop", "drops") and nxt == "of" and len(gives) > 1) or (bare in ("shed", "sheds", "shedding") and nxt == "light") \
                 or (bare in ("lacking", "lacks") and nxt in ("sense", "brains", "wit")) \
                 or (bare in AMBIGUOUS_DELETION and nxt in ("wing", "hand", "side", "bank", "field", "back", "luggage")):
@@ -4768,7 +4834,8 @@ def _attested():
 #: Standard one-letter readings the tables lack (round 10: PRMAN "Played" P, EYING "electronically" E-).
 _EXTRA_PAIRS = frozenset({("PLAYED", "P"), ("ELECTRONICALLY", "E"), ("ELECTRONIC", "E"),
                           ("KOSHER", "K"), ("LITTLE", "L"), ("QUALITY", "Q"),  # round 11
-                          ("FAILING", "F")})  # round 12 (a grade)
+                          ("FAILING", "F"),  # round 12 (a grade)
+                          ("ROUBLE", "R"), ("ROUBLES", "R")})  # round 13 (cryptic-22221 ARGENT)
 
 
 def _known_pair(words, gives):
@@ -5177,11 +5244,23 @@ def _folded_signal(node, alone=True):
     The known-pair reading is for a pick that stands alone: two picks of one op beside an indicator
     that serves both (Marsh, plants initially) leave the first with none."""
     ps = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+    if node.get("op") in ("container", "hidden"):
+        # roundabout = round + about (FE around RE), Something = some + thing (HINGIS hidden in "thing I s..."):
+        # a leaf word that opens or closes with the op's own well-used indicator (round 13)
+        kind = "container" if node["op"] == "container" else "hidden_word"
+        for p in ps:
+            ws = str(p.get("words") or "").split()
+            if "op" in p or not ws or (node["op"] == "container" and len(ws) != 1):
+                continue
+            edges = [wordplay.letters(ws[0]).upper()] + ([wordplay.letters(ws[-1]).upper()] if len(ws) > 1 else [])
+            if any(len(w) - len(k) >= 3 and (w.startswith(k) if i == 0 else w.endswith(k))
+                   for i, w in enumerate(edges) for k in _compound_indicator_keys(kind)):
+                return True
     if node.get("op") == "anagram":
         said = _anagram_indicator_letters()
         for p in ps:
             w, g = wordplay.letters(p.get("words")), wordplay.letters(p.get("gives"))
-            if "op" not in p and len(str(p.get("words") or "").split()) == 1 and len(g) >= 3 and w != g and any(
+            if "op" not in p and len(str(p.get("words") or "").split()) == 1 and len(g) >= 2 and w != g and any(
                     len(k) >= 3 and ((w.startswith(k) and w[len(k):] == g) or (w.endswith(k) and w[:-len(k)] == g))
                     for k in said):
                 return True
@@ -5222,6 +5301,13 @@ def _list_run(kids, ns):
     return True
 
 
+@functools.lru_cache(maxsize=None)
+def _compound_indicator_keys(kind):
+    """Lexicon indicators of type `kind` that are one word of 4-8 letters with 100+ uses: the ones that
+    can open or close a compound clue word (round, some) without being a stray syllable."""
+    return tuple(k for k, n in (_indicator_lexicon().get(kind) or {}).items() if 4 <= len(k) <= 8 and n >= 100)
+
+
 @functools.lru_cache(maxsize=1)
 def _anagram_indicator_letters():
     """The anagram indicator lexicon's keys as bare letters (MIXED), for a leaf that gives one."""
@@ -5235,18 +5321,24 @@ def shared_indicators(tree, clue=None):
     CRACKERS. Leaves in a cryptic definition are the clue, not claims. A word the clue
     itself says twice ("Ruin, ruin") may be both, so it is let go when `clue` is given."""
     flat = wordplay.letters(clue) if clue else ""
-    seen, texts, leaves, cut_words = {}, [], [], set()
+    seen, texts, leaves, cut_words, multiword = {}, [], [], set(), []
     said_ind = _anagram_indicator_letters()
     for node in _walk(tree):
         if node.get("op") == "cryptic":
             continue
         for i in node.get("indicators") or []:
             key = (wordplay.letters(i.get("text")), i.get("at"))
+            w = key[0].lower()
+            if len(str(i.get("text") or "").split()) == 1 and w not in _NOT_COMPOUND and any(
+                    len(w) - len(k) >= 3 and (w.startswith(k) or w.endswith(k)) for k in _FOLD_AFFIX.get(node.get("op"), ())):
+                cut_words.add(key[0])  # "fightback" = fight + back: the compound is the leaf (FIGHT -> WAR) and its indicator (round 13 RAW)
             if key[0] and flat.count(key[0]) < 2:
                 seen[key] = seen.get(key, 0) + 1
-                texts.append((key[0], i.get("at")))
+                texts.append((key[0], i.get("at"), str(i.get("text") or "").lower().split()))
         if "op" not in node and node.get("words") and "at" not in node:
             leaves.append(wordplay.letters(node["words"]))
+            if len(str(node["words"]).split()) >= 2 and len(wordplay.letters(node["words"])) >= 8:
+                multiword.append(str(node["words"]).lower().split())
             if node.get("gives") and wordplay.letters(node["gives"]) in said_ind \
                     and re.search(r"\breverse\b|\banswer's\b", str(node.get("note") or ""), re.I):
                 cut_words.add(wordplay.letters(node["words"]))  # reverse clue: the words give the indicator word (MIXED)
@@ -5266,7 +5358,12 @@ def shared_indicators(tree, clue=None):
                 cut_words |= {wordplay.letters(p.get("words")) for p in (node.get("parts") or [])[:1]
                               if isinstance(p, dict) and "op" not in p and len(wordplay.letters(p.get("gives"))) <= 2}
     n = sum(c - 1 for c in seen.values() if c > 1)
-    n += sum(1 for t, at in texts if at is None and t in leaves and t not in cut_words)
+    n += sum(1 for t, at, _ in texts if at is None and t in leaves and t not in cut_words)
+    # a leaf's whole multi-word clue words standing inside a longer indicator (azed-1946 17a TURNTURTLE:
+    # leaf "This instruction" and the reversal indicator "This instruction makes")
+    n += sum(1 for t, at, raw in texts if at is None and t not in cut_words and any(
+        re.search(r"(?:^|\s)%s(?:\s|$)" % re.escape(" ".join(l)), " ".join(raw)) and " ".join(l) != " ".join(raw)
+        and wordplay.letters(" ".join(l)) not in cut_words for l in multiword))
     return n
 
 
