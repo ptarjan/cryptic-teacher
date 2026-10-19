@@ -121,6 +121,15 @@ def _sanctioned_unchecked(lf, parent, ancestors=()):
     if (parent or {}).get("op") == "hidden" and not L(lf.get("gives")):
         g = L(parent.get("gives"))
         return bool(g) and g in L(lf.get("words"))
+    # a letterless leaf under a palindrome: its words are the answer, read both ways (PEEP "Look"
+    # with "both ways", round 10)
+    if str((parent or {}).get("op")).startswith("pal") and not L(lf.get("gives")):
+        return True
+    # a leaf whose words are the next leaves' words run together ("Classmate" over Class + mate):
+    # the compound is shown whole, the pieces carry the letters (FORMALLY, round 10)
+    sibs = [L(p.get("words")) for p in (parent or {}).get("parts") or [] if p is not lf and "op" not in p and p.get("words")]
+    if L(lf.get("words")) and L(lf.get("words")) in ("".join(sibs),):
+        return True
     if lf.get("select"):
         g, w = L(lf.get("gives")), L(lf.get("words"))
         it = iter(w)

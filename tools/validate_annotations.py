@@ -3967,13 +3967,20 @@ def arity_other(tree):
     n = 0
     for node in _unchecked_ops(tree):
         op, k = node["op"], len(node.get("parts") or [])
+        if op == "substitution":  # a bare link word among the parts is not one of the three
+            k -= sum(1 for p in node.get("parts") or [] if isinstance(p, dict) and "op" not in p
+                     and not p.get("gives") and wordplay.letters(p.get("words")) in _SUB_LINKS)
         n += ((op == "deletion" and k > 9) or (op == "substitution" and k != 3)
               or (op == "homophone" and k >= 3)
               or (op in ("reversal", "hidden", "cycling") + wordplay.SELECT and k != 1))
     return n
 
 
-_DEL_ALL = re.compile(r"\b(both|each|every|cases|ends|edges|tops|heads|tails)\b", re.I)
+_DEL_ALL = re.compile(r"\b(both|each|every|cases|ends|edges|tops|heads|tails|boundar(?:y|ies)|borders|"
+                      r"limits|margins|fringes|outskirts|extremities)\b", re.I)
+#: Link words a substitution may list among its parts beside the three it takes
+#: ("changing book to IF": [by] is the clue's link, not a part), round 10 (JUSTIFY).
+_SUB_LINKS = frozenset("BY FOR WITH TO IN OF AND FROM".split())
 
 
 def del_single(tree):
@@ -4638,10 +4645,16 @@ def _attested():
     return pairs, {ba.letters_of(w): v for w, v in usage.items()}
 
 
+#: Standard one-letter readings the tables lack (round 10: PRMAN "Played" P, EYING "electronically" E-).
+_EXTRA_PAIRS = frozenset({("PLAYED", "P"), ("ELECTRONICALLY", "E"), ("ELECTRONIC", "E")})
+
+
 def _known_pair(words, gives):
     """Whether (clue words, letters) is an abbreviation the table holds or a reading the
     usage lexicon has seen 3+ times (blocks.json keeps no rarer ones)."""
     pairs, usage = _attested()
+    if (re.sub(r"[^A-Z]", "", str(words).upper()), gives) in _EXTRA_PAIRS:
+        return True
     # "volume's" (V) and "uranium's" (U): the possessive is the clue's, not part of the word
     bare = re.sub(r"['’]s\b", "", str(words), flags=re.I)
     for text in (str(words), bare):
@@ -5012,6 +5025,11 @@ def shared_indicators(tree, clue=None):
             if node.get("gives") and wordplay.letters(node["gives"]) in said_ind \
                     and re.search(r"\breverse\b|\banswer's\b", str(node.get("note") or ""), re.I):
                 cut_words.add(wordplay.letters(node["words"]))  # reverse clue: the words give the indicator word (MIXED)
+        if str(node.get("op")).startswith("pal"):
+            # a palindrome is its own clue ("rising and falling" REFER, round 10): the indicator
+            # words are the leaf's, the one phrase read both ways
+            cut_words |= {wordplay.letters(p.get("words")) for p in node.get("parts") or []
+                          if isinstance(p, dict) and "op" not in p}
         if node.get("op") in ("deletion", "container", "substitution"):
             # "topless" over [topless]S names what goes; "onboard" over [onboard]SS is the
             # holder and says it holds: the one word is truthfully both
