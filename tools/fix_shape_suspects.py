@@ -1135,13 +1135,86 @@ def r_del_selection(node, parent, ctx):
     return new if old and now and old <= now else None
 
 
+def _diff_gone(v, want, ind=None):
+    """The one run of letters whose removal from v leaves want (None unless exactly one such string);
+    an end/head/middle word in the indicator narrows where the run may sit."""
+    m = len(v) - len(want)
+    if m < 1:
+        return None
+    tail, head = bool(ind and TAIL.search(ind)), bool(ind and HEAD.search(ind))
+    mid = bool(ind and MID.search(ind))
+    if tail + head + mid > 1:
+        return None
+    runs = set()
+    for j in range(len(v) - m + 1):
+        if v[:j] + v[j + m:] != want:
+            continue
+        if (tail and j + m != len(v)) or (head and j != 0) or (mid and (j == 0 or j + m == len(v))):
+            continue
+        runs.add(v[j:j + m])
+    if not runs and not (tail or head or mid) and m == 2 and v[1:-1] == want:
+        return v[0] + v[-1]     # unlimited / without clothing: both ends go
+    return runs.pop() if len(runs) == 1 else None
+
+
+def _flat_leaves(parts):
+    """Parts with plain charades opened out."""
+    out = []
+    for p in parts:
+        if p.get("op") == "charade" and not p.get("indicators") and "gives" not in p:
+            out += _flat_leaves(p.get("parts") or [])
+        else:
+            out.append(p)
+    return out
+
+
+def r_shared_indicator(node, parent, ctx):
+    """sharedIndicator, deletion: the indicator's own words are filed again as a leaf giving the
+    result (del<not opened>((PROOF + [not opened]ROOF), PROOF)). That leaf goes; the deletion is
+    the source minus the one run whose removal leaves the result (an end/head/middle indicator
+    word says where the run sits)."""
+    if node.get("op") != "deletion" or len(node.get("indicators") or []) != 1:
+        return None
+    ind = node["indicators"][0]
+    t = W.letters(ind.get("text"))
+    if not t:
+        return None
+    flat = _flat_leaves(node.get("parts") or [])
+    dup = [p for p in flat if leaf(p) and p.get("words") and W.letters(p["words"]) == t]
+    if len(dup) != 1 or not W.letters(dup[0].get("gives")):
+        return None
+    k = flat.index(dup[0])
+    want = W.letters(dup[0]["gives"])
+    gone_leaves = [p for p in flat if leaf(p) and not p.get("words")]    # the filed removal, restated below
+    pool = [p for p in flat if p is not dup[0] and p not in gone_leaves]
+    nb = [p for p in (flat[k - 1:k] if k else []) + flat[k + 1:k + 2] if p in pool]
+    if not nb:
+        return None
+    src = nb[0]       # the part next to the restated result
+    sv = vals(src)
+    if not sv or len(sv) != 1:
+        return None
+    gone = _diff_gone(next(iter(sv)), want, ind.get("text"))
+    if gone is None:
+        return None
+    cut = checked(node, parts=[copy.deepcopy(src), {"gives": gone}])
+    if not gives_ok(cut, want):
+        return None
+    around = [copy.deepcopy(p) if p is not src else cut for p in pool]
+    if len(pool) == 1:
+        return cut
+    new = charade(around)
+    return new if node.get("gives") is None or gives_ok(new, W.letters(node["gives"])) else None
+
+
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
            "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
 #: Repairs for validator rules (the queue's anaSynonym / anagramOfContainer rows), run by --rule.
 RULE_REPAIRS = {"anaSynonym": r_ana_synonym, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
-                "wrongRole": r_wrong_role, "delSelection": r_del_selection}
+                "wrongRole": r_wrong_role, "delSelection": r_del_selection,
+                "sharedIndicator": r_shared_indicator}
 
 
 def note_deletions(tree):
