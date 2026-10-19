@@ -191,6 +191,9 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                       "move<indicator>(fodder, MOVED), e.g. move<dropping>([England]ALBION, [ball]O)",
        "poolGap": "an anagram's fodder pieces have another op's words between them in the clue: the "
                   "piece belongs to the charade or insertion, not the anagram pool",
+       "tradedIndicator": "two ops carry each other's indicator word (an 'about' on the reversal and a "
+                          "'knocking back' on the container), or a hidden word carries a reversal's word: "
+                          "put each indicator word on the op of its own kind",
        "midWordLeaf": "a leaf gives a stretch of several clue words that starts or ends inside a word: "
                       "the cut is an op (del, first, last) with its indicator, not part of the leaf"}
 
@@ -225,6 +228,7 @@ def _validator_rules():
             "deletionScopeAnswer": lambda t, a, c: V.deletion_scope_answer(t, a.get("_answer") or None),
             "doubleIndicator": lambda t, a, c: V.double_indicators(t),
             "poolGap": lambda t, a, c: V.pool_gaps(t, c),
+            "tradedIndicator": lambda t, a, c: V.traded_indicators(t),
             "movedLetter": lambda t, a, c: V.moved_letters(t),
             "indInLeaf": lambda t, a, c: V.ind_in_leaf(t, c),
             # A step taken as filed that tools/clear_unchecked.py could not verify:
