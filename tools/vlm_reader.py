@@ -33,6 +33,7 @@ import json
 import os
 import random
 import socket
+import sys
 import tempfile
 import time
 import urllib.error
@@ -45,10 +46,10 @@ import desktop_hosts
 from ocr_clues import unhyphen
 
 TOOLS = Path(__file__).resolve().parent
-#: The desktop's VLM addresses, LAN first (tools/desktop_hosts.json); URL is
+#: The desktop's VLM addresses, tailnet first (tools/desktop_hosts.json); URL is
 #: the one in use: VLM_READER_URL if set (it alone, no fallback), else the
 #: first of URLS that answers (resolve()), the LAN one until then.
-URLS = list(desktop_hosts.VLM_URLS)
+URLS = sorted(desktop_hosts.VLM_URLS, key=lambda u: not desktop_hosts.tailnet(u.split("//")[1].rsplit(":", 1)[0]))
 URL = os.environ.get("VLM_READER_URL", URLS[0])
 #: Seconds every URL has to answer, all asked at once (resolve): the tailnet
 #: path goes quiet for seconds in bursts.
@@ -190,7 +191,7 @@ def _answers(url):
 
 def resolve():
     """The URL in use, found once a process: URL itself when it is not one of
-    URLS (an override), else the first of URLS (URL's first, then LAN before
+    URLS (an override), else the first of URLS (URL's first, then tailnet before
     tailnet) that answers, every one asked at once, which URL is then set to
     and kept until it stops answering (reachable then resolves again). A LAN
     address gone stale (DHCP) costs one short timeout in parallel with the
@@ -200,7 +201,7 @@ def resolve():
     if _RESOLVED[0] or not URL:
         return URL
     if URL in URLS:
-        found = _first_answering([URL] + sorted((u for u in _candidates() if u != URL), key=_on_tailnet))
+        found = _first_answering([URL] + sorted((u for u in _candidates() if u != URL), key=lambda u: not _on_tailnet(u)))
         if found:
             URL = found
             _RESOLVED[0] = True
@@ -213,7 +214,7 @@ def _candidates():
     """URLS, and while it is the json's own list, the VLM at any LAN address
     the desktop last reported (desktop_hosts.learned): a lease the json
     never listed is still found."""
-    if list(URLS) != list(desktop_hosts.VLM_URLS):
+    if sorted(URLS) != sorted(desktop_hosts.VLM_URLS):
         return list(URLS)
     return list(dict.fromkeys([*URLS, *(f"http://{a}:{desktop_hosts.VLM_PORT}" for a in desktop_hosts.learned())]))
 
@@ -423,6 +424,23 @@ def slot():
         time.sleep(random.uniform(0.2, 1.0))
 
 
+def _moved_to_other():
+    """After an ask to URL failed to connect or timed out: re-resolve once
+    over the other candidates (_first_answering), and when one answers make
+    it URL and return True. False for an override URL or when none answers,
+    so a lease flap costs seconds, not a read."""
+    global URL
+    if URL not in URLS:
+        return False
+    found = _first_answering(sorted((u for u in _candidates() if u != URL), key=lambda u: not _on_tailnet(u)))
+    if not found:
+        return False
+    sys.stderr.write(f"vlm_reader: {URL} stopped answering, now {found}\n")
+    URL = found
+    _RESOLVED[0] = True
+    return True
+
+
 def ask(img, prompt, max_tokens=1500):
     """The model's reply to `prompt` about a PIL image, cached."""
     return ask_png(png(img), prompt, max_tokens)
@@ -445,27 +463,36 @@ def ask_png(data, prompt, max_tokens=1500):
                 {"type": "image_url",
                  "image_url": {"url": "data:image/png;base64," + base64.b64encode(data).decode()}},
                 {"type": "text", "text": prompt}]}]}
-    req = urllib.request.Request(f"{URL}/v1/chat/completions", data=json.dumps(body).encode(),
-                                 headers={"Content-Type": "application/json", "User-Agent": "cryptic-teacher"})
-    try:
-        for tried in range(QUEUE_FULL_TRIES):
-            try:
-                with slot():
-                    reply = json.load(urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT * (1 + max(0, PIPELINE))))
-                break
-            except urllib.error.HTTPError as e:
-                _CAUSE[0] = cause_of(e)
-                # 429: llama-swap's queue is full (many reads ask at once). The
-                # server is up and busy, not down: wait for room and ask again.
-                if e.code not in RETRY_CODES or tried == QUEUE_FULL_TRIES - 1:
-                    raise
-                time.sleep(min(QUEUE_FULL_WAIT * (tried + 1), 60) * (0.5 + random.random()))
-    except OSError as e:
-        # Down mid-run (the desktop rebooted): the rest of the run reads without it.
-        _UP[MODEL] = False
-        _MISSED[0] = True
-        _CAUSE[0] = cause_of(e)
-        raise RuntimeError(f"VLM {MODEL} at {URL} failed ({_CAUSE[0]}): {e}") from e
+    def request():
+        return urllib.request.Request(f"{URL}/v1/chat/completions", data=json.dumps(body).encode(),
+                                      headers={"Content-Type": "application/json", "User-Agent": "cryptic-teacher"})
+    moved = False
+    while True:
+        req = request()
+        try:
+            for tried in range(QUEUE_FULL_TRIES):
+                try:
+                    with slot():
+                        reply = json.load(urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT * (1 + max(0, PIPELINE))))
+                    break
+                except urllib.error.HTTPError as e:
+                    _CAUSE[0] = cause_of(e)
+                    # 429: llama-swap's queue is full (many reads ask at once). The
+                    # server is up and busy, not down: wait for room and ask again.
+                    if e.code not in RETRY_CODES or tried == QUEUE_FULL_TRIES - 1:
+                        raise
+                    time.sleep(min(QUEUE_FULL_WAIT * (tried + 1), 60) * (0.5 + random.random()))
+            break
+        except OSError as e:
+            if not moved and not isinstance(e, urllib.error.HTTPError) and cause_of(e) in ("timeout", "refused", "URLError", "OSError", "gaierror") \
+                    and _moved_to_other():
+                moved = True  # the address found at startup went stale (DHCP lease flap): once more, there
+                continue
+            # Down mid-run (the desktop rebooted): the rest of the run reads without it.
+            _UP[MODEL] = False
+            _MISSED[0] = True
+            _CAUSE[0] = cause_of(e)
+            raise RuntimeError(f"VLM {MODEL} at {URL} failed ({_CAUSE[0]}): {e}") from e
     text = reply["choices"][0]["message"]["content"] or ""
     CACHE.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(".part")

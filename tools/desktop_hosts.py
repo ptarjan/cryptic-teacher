@@ -10,7 +10,8 @@ ssh, the ones answering now first.
 The desktop's LAN lease flaps (DHCP: .180 and .198 on 2026-10-14/15), so no
 static order is right for long: ranked(port) probes every address at once
 (an ssh banner for 22, a TCP connect otherwise), puts those that answered
-first (LAN before tailnet: the tailnet path goes silent in bursts) and
+first (LAN before tailnet: the tailnet path goes silent in bursts; callers that
+only probe, the VLM and the game-yield probe, pass tailnet_first) and
 keeps that order host-wide for TTL seconds. A caller whose address then
 fails calls forget(port), and the next ranked() probes afresh. When no LAN
 address answers ssh but the tailnet one does, the desktop is asked over the
@@ -122,10 +123,12 @@ def probe_all(addresses, port, timeout=None):
     return {a: got.get(a, False) for a in addresses}
 
 
-def order(addresses, alive):
-    """`addresses` with those in `alive` first, LAN before tailnet, each
+def order(addresses, alive, tailnet_first=False):
+    """`addresses` with those in `alive` first, LAN before tailnet (tailnet
+    before LAN with `tailnet_first`: the tailnet address is stable across the
+    KVM's wired/Wi-Fi switch, the LAN ones are not), each
     group in `addresses`' order."""
-    return sorted(addresses, key=lambda a: (a not in alive, tailnet(a)))
+    return sorted(addresses, key=lambda a: (a not in alive, tailnet(a) != tailnet_first))
 
 
 def learn(via, timeout=30):
@@ -156,12 +159,23 @@ def _ipv4(a):
         return False
 
 
-def ranked(port=22, fresh=False):
+def ranked(port=22, fresh=False, tailnet_first=False):
     """candidates() ranked for `port`, those answering now first (order),
     the ranking kept host-wide TTL seconds unless `fresh`. Every address is
     in it: a caller still tries the silent ones, last. With
     DESKTOP_HOSTS_STATIC set (the tests: no network), the json's order,
-    LAN first, unprobed."""
+    LAN first, unprobed. `tailnet_first` re-sorts that (answering ones still
+    first) with the tailnet address before the LAN ones."""
+    out = _ranked(port, fresh)
+    if not tailnet_first:
+        return out
+    if os.environ.get("DESKTOP_HOSTS_STATIC"):
+        return order(out, set(), True)
+    alive = set(((_load().get("ranked") or {}).get(str(port)) or {}).get("alive", []))
+    return order(out, alive, True)
+
+
+def _ranked(port, fresh):
     if os.environ.get("DESKTOP_HOSTS_STATIC"):
         return order(list(ADDRESSES), set())
     key = str(port)
@@ -194,14 +208,14 @@ def forget(port=22):
         _save(state)
 
 
-def remotes(user=USER, port=22):
+def remotes(user=USER, port=22, tailnet_first=False):
     """user@address for every ranked() address."""
-    return [f"{user}@{a}" for a in ranked(port)]
+    return [f"{user}@{a}" for a in ranked(port, tailnet_first=tailnet_first)]
 
 
 def vlm_urls():
     """The VLM's base URLs, ranked() for its port."""
-    return [f"http://{a}:{VLM_PORT}" for a in ranked(VLM_PORT)]
+    return [f"http://{a}:{VLM_PORT}" for a in ranked(VLM_PORT, tailnet_first=True)]
 
 
 if __name__ == "__main__":

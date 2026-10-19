@@ -100,6 +100,12 @@ check("after the flip the new address ranks first", "127.0.0.4", dh.ranked(port)
 dh.probe_all = lambda a, p, timeout=1.0: {x: True for x in a}
 dh.ADDRESSES = ("100.68.145.15", "192.0.2.180")
 check("both answer: LAN before tailnet", ["192.0.2.180", "100.68.145.15"], dh.ranked(99, fresh=True))
+check("both answer, tailnet_first (the VLM, the game-yield probe): tailnet before LAN", ["100.68.145.15", "192.0.2.180"],
+      dh.ranked(99, tailnet_first=True))
+dh.probe_all = lambda a, p, timeout=1.0: {x: x != "100.68.145.15" for x in a}
+check("tailnet_first: a silent tailnet address still ranks after the answering LAN one", ["192.0.2.180", "100.68.145.15"],
+      dh.ranked(98, fresh=True, tailnet_first=True))
+dh.probe_all = lambda a, p, timeout=1.0: {x: True for x in a}
 
 # Only the tailnet answers: the desktop is asked for its LAN address, which then ranks first.
 dh.ADDRESSES = ("192.0.2.198", "100.68.145.15")
