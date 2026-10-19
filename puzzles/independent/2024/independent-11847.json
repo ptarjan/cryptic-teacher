@@ -260,12 +260,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "THEWHO",
      "indicators": [
       {
        "text": "probing",
-       "note": "a probe pushes inside something, so one word is placed within another"
+       "at": 5,
+       "note": "the word for hacking pokes into the middle of the other letters"
       }
      ],
      "parts": [
@@ -274,27 +273,29 @@
        "indicators": [
         {
          "text": "new line-up of",
-         "note": "a new line-up puts the same members in a different order"
+         "at": 13,
+         "note": "the letters of hot are given a new arrangement, a line-up"
         }
        ],
        "parts": [
         {
-         "words": "Hack",
-         "gives": "HEW",
-         "note": "to hack is to hew"
-        },
-        {
          "words": "hot",
-         "note": "the letters of hot, reordered"
+         "at": 28
         }
        ]
+      },
+      {
+       "words": "Hack",
+       "at": 0,
+       "gives": "HEW",
+       "note": "to hew is to hack, as with an axe"
       }
      ]
     },
     "explanation": {
-     "surface": "A journalist digs into a band's latest line-up of hot talent.",
-     "walkthrough": "'Hack' looks like a journalist, but here it is the verb meaning chop.",
-     "definitionFit": "The Who are a famous English rock band from the 1960s, so the name is an example of a rock group."
+     "surface": "A journalist digs into the new line-up of a hot rock band.",
+     "walkthrough": "'Hack' reads as a journalist but is the verb, to chop; it goes inside the rearranged THO.",
+     "definitionFit": "The Who are an English rock band formed in the 1960s, known for 'My Generation'."
     },
     "features": {
      "answerInScene": true,
@@ -377,40 +378,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "flying around",
-       "note": "letters flying around are tossed about and land in a new order"
+       "text": "without",
+       "at": 34,
+       "note": "in its old sense of outside: the jumbled letters sit outside the department"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "without",
-         "note": "without in its old sense of outside means the letters surround something"
+         "text": "flying around",
+         "at": 20,
+         "note": "letters flying around are scattered into a new order"
         }
        ],
        "parts": [
         {
          "words": "planes",
-         "note": "the letters of planes, rearranged"
-        },
-        {
-         "words": "personnel",
-         "gives": "HR",
-         "note": "HR, human resources, is the personnel department"
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "personnel",
+       "at": 42,
+       "gives": "HR",
+       "note": "HR, human resources, is the personnel department"
       }
      ]
     },
     "explanation": {
-     "surface": "Pilotless aircraft circle overhead while shrapnel flies.",
-     "walkthrough": "HR sits inside a rearrangement of planes.",
-     "definitionFit": "Shrapnel is the fragments of metal thrown out by an exploding shell, so it is metal sent flying."
+     "surface": "Planes flying around with no crew on board are dropping fragments of metal.",
+     "walkthrough": "'without' means outside here, not lacking: the rearranged SAPNEL goes around the department.",
+     "definitionFit": "Shrapnel is the metal fragments flung out by an exploding shell or bomb."
     },
     "features": {
      "answerInScene": true,
@@ -989,55 +993,59 @@
      "indicators": [
       {
        "text": "boxing",
-       "note": "boxing something puts it in a box, so the other pieces are enclosed"
+       "at": 19,
+       "note": "the shortened word boxes in, encloses, the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-heartedly",
+         "at": 4,
+         "note": "half of the double E in the middle, the heart, is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "half-heartedly",
-           "note": "the heart of a word is its middle, and half of it is taken away"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Act",
-           "gives": "DEED",
-           "note": "a deed is an act"
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "Act",
+         "at": 0,
+         "gives": "DEED",
+         "note": "a deed is an act"
         },
         {
-         "words": "fighter",
-         "gives": "MIG",
-         "note": "a MiG is a Russian fighter jet"
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "old",
-       "gives": "O",
-       "note": "O is a common abbreviation for old"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fighter",
+         "at": 26,
+         "gives": "MIG",
+         "note": "the MiG is a Russian fighter plane"
+        },
+        {
+         "words": "old",
+         "at": 35,
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A half-hearted performance from a boxer in an ancient-style epic.",
-     "walkthrough": "The act word has two letters at its heart and loses one of them; 'fighter' is a warplane, not a boxer.",
-     "definitionFit": "Achilles was born of a sea-nymph and a mortal, so he was a demigod, half divine; the question mark marks him as an example."
+     "surface": "A boxer acts half-heartedly against an old opponent, like a sulking Achilles.",
+     "walkthrough": "DEED loses one of its central Es to give DED, which boxes MIG and O.",
+     "definitionFit": "Achilles was son of the sea nymph Thetis and a mortal, so half divine; the question mark marks the example."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "fighter"
+     "misdirectedWord": "boxing"
     }
    }
   },
