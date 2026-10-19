@@ -123,4 +123,18 @@ check("clue_leftovers names the count and the neighbour, not a reference",
       {"9-across": "the clue's count left in its text",
        "1-down": "another clue's count and number run into it"}, leftovers)
 
+# A reader's own number run into its clue (1948 Gale: "2 Foozle" for 22-down,
+# "100 times it is almighty" for 18-down): only up to one figure over the light's.
+check("a leaked clue number is taken off its clue", ["Foozle", "times it is almighty", "I have left the robber"],
+      [clue_repair.leaked_number("2 Foozle", "22-down"), clue_repair.leaked_number("100 times it is almighty", "18-down"),
+       clue_repair.leaked_number("2 1 have left the robber", "22-down").replace("1 have", "I have")])
+check("a clue opening with more figures than its number is left", "1999 and all that",
+      clue_repair.leaked_number("1999 and all that", "7-down"))
+import ocr_clues
+check("worn type's shared slips are put back to the lexicon word",
+      "Men order some get-up for these receptions, a grim era, extenuate",
+      ocr_clues.unworn("Men ordcr somo get-up for thesc rcccptions, a grim cra, cxtenuate"))
+check("a known word, a name and a word with no lexicon spelling are left", "Aladdin cf xyzzy",
+      ocr_clues.unworn("Aladdin cf xyzzy"))
+
 sys.exit(1 if fails else 0)

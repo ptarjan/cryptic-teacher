@@ -400,6 +400,18 @@ def mend_words(text, is_word=None, uses=None):
     return " ".join(out)
 
 
+def leaked_number(text, lid):
+    """`text`, one reading's clue for light `lid` ("22-down"), without the
+    figures of a number the reader ran into it: its own number misread or
+    doubled ("2 Foozle" for 22, "100 times it is almighty" for 18, "2 1 have
+    left"). Only up to one figure more than the light's number, before a
+    letter; a clue beginning with a cross-reference is left to its reading."""
+    m = re.match(r"\s*(\d{1,3})[ .]?\s*(?=[A-Za-z1])", text or "")
+    if not m or len(re.sub(r"\D", "", m.group(1))) > len(lid.split("-")[0]) + 1:
+        return text
+    return text[m.end():]
+
+
 def mend_text(text, enum=None, is_word=None, uses=None, words=True):
     """One clue's text with the slips of its own reading mended, each from
     the clue alone (see the section above). `enum`: the light's printed

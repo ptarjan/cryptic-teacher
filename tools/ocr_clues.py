@@ -644,8 +644,11 @@ SLIP_RATIO = 20
 SLIP_FLOOR = 8000
 
 
-#: The misreadings worn newsprint makes one way only: (printed, read).
-ONE_WAY = (("e", "c"), ("o", "c"))
+#: The misreadings worn newsprint makes one way only: (printed, read). 1940s
+#: Gale print: an e's eye fills in ("scaman", "somo", "cxtenuate").
+ONE_WAY = (("e", "c"), ("o", "c"), ("e", "o"), ("e", "x"))
+#: Most letters of one word worn() puts back together ("rcccptions").
+WORN_MAX = 4
 
 
 def misread(read, printed):
@@ -657,15 +660,39 @@ def misread(read, printed):
 
 
 def worn(word):
-    """The known word `word` (a non-word) is with one ONE_WAY letter worn,
-    SLIP_RATIO times commoner than any other it could be ("of" for No 3's
-    "cf"), else None."""
+    """The known word `word` (a non-word) is with up to WORN_MAX ONE_WAY
+    letters worn ("era" for "cra", "extenuate" for "cxtenuate"), SLIP_RATIO
+    times commoner than any other it could be ("of" for No 3's "cf"), else
+    None. Only a spelling the lexicon has is ever put back."""
     low = word.lower()
-    cands = sorted({v for i, ch in enumerate(low) for p, r in ONE_WAY if ch == r
-                    and known(v := low[:i] + p + low[i + 1:])}, key=lambda v: rank(v) or 10 ** 9)
+    if not low.isalpha() or len(low) < 3 or known(low):
+        return None
+    at = [i for i, ch in enumerate(low) if any(ch == r for _, r in ONE_WAY)]
+    if not at or len(at) > 12:
+        return None
+    forms = {low}
+    for i in at:
+        forms |= {f[:i] + p + f[i + 1:] for f in forms for p, r in ONE_WAY if f[i] == r}
+        if len(forms) > 400:
+            return None
+    cands = sorted((v for v in forms if v != low and sum(a != b for a, b in zip(v, low)) <= WORN_MAX
+                    and known(v)), key=lambda v: rank(v) or 10 ** 9)
     if not cands or (len(cands) > 1 and (rank(cands[0]) or 10 ** 9) * SLIP_RATIO >= (rank(cands[1]) or 10 ** 9)):
         return None
     return cands[0]
+
+
+def unworn(text):
+    """`text` with each word the lexicon lacks put back to the one known word
+    worn type made of it (worn()): the readers share "cra" for "era", so they
+    cannot out-vote it. A word beside an apostrophe or a digit is left."""
+    def fix(m):
+        w = m.group(0)
+        got = worn(w)
+        if got is None:
+            return w
+        return got.upper() if w.isupper() and len(w) > 1 else got.capitalize() if w[0].isupper() else got
+    return re.sub(r"(?<![\w'\u2019])[A-Za-z]{3,}(?![\w\u2019]|'(?!s\b))", fix, text or "")
 
 
 def common_slip(word):
