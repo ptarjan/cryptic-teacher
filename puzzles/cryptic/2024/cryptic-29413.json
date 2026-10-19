@@ -175,31 +175,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "cooked",
-       "note": "cooking transforms ingredients, so these letters are worked into a new order"
+       "text": "inside",
+       "at": 18,
+       "note": "the rearranged letters go inside the piece of furniture"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "item of furniture",
+       "at": 25,
+       "gives": "CHAIR",
+       "note": "a chair is an item of furniture"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "inside",
-         "note": "inside tells us the reworked letters go within another word"
+         "text": "cooked",
+         "at": 5,
+         "note": "cooked suggests the letters of meals are prepared into a new form"
         }
        ],
        "parts": [
         {
-         "words": "item of furniture",
-         "gives": "CHAIR",
-         "note": "a chair is a piece of furniture"
-        },
-        {
          "words": "meals",
-         "note": "the letters of meals rearranged"
+         "at": 12
         }
        ]
       }
@@ -207,9 +210,9 @@
     },
     "spelling": "CAMEL'S HAIR",
     "explanation": {
-     "surface": "An instruction to stash a cooked dinner inside a piece of furniture.",
-     "walkthrough": "'Hide' looks like a verb telling you to conceal the meals; it is the noun, the definition.",
-     "definitionFit": "Camel's hair is the animal's coat used as cloth, so loosely a hide or pelt of the camel."
+     "surface": "Someone stashes food they have made inside a piece of furniture.",
+     "walkthrough": "'Hide' looks like a verb, but it is the definition as a noun: an animal's skin or coat.",
+     "definitionFit": "Camel's hair is the soft fur of a camel, used for cloth and brushes, so it is an animal's coat."
     },
     "features": {
      "answerInScene": false,
@@ -523,35 +526,39 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "HEADLONG",
      "indicators": [
       {
        "text": "from this",
-       "note": "from this tells us the pain is made out of the answer by trading one part for a word of the same meaning"
+       "at": 24,
+       "note": "the answer is what remains when one ache inside the localised pain takes another meaning"
       }
      ],
      "parts": [
       {
        "words": "Localised pain",
+       "at": 0,
        "gives": "HEADACHE",
        "note": "a pain confined to one part of the body, above the neck"
       },
       {
+       "gives": "ACHE"
+      },
+      {
        "words": "ache",
+       "at": 19,
        "gives": "LONG",
        "note": "to ache for something is to long for it"
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor wondering whether a skin rash is to blame for a sore head.",
-     "walkthrough": "Work backwards: in the answer, swap LONG for its synonym ACHE and you get HEADACHE, the localised pain. 'rash' looks medical but is the adjective meaning reckless.",
-     "definitionFit": "Rushing in headlong means acting hastily without thought, which is what rash describes."
+     "surface": "A doctor muses that a pain in one spot, and an ache, came from this skin outbreak.",
+     "walkthrough": "In HEADACHE, the ACHE is swapped for LONG, its verb sense of yearning, leaving HEADLONG. 'Rash' looks like a skin complaint but is the adjective meaning reckless.",
+     "definitionFit": "Headlong describes acting hastily without thought, which is exactly what rash means."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "rash"
     }
@@ -758,37 +765,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "sadly",
-       "note": "sadly suggests things have gone badly wrong, so the following letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Tom",
+       "at": 0,
+       "gives": "BELL",
+       "note": "a tom is a large bell, like Great Tom of Christ Church, Oxford"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sadly",
+         "at": 4,
+         "note": "sadly suggests the letters are in a sorry, disordered state"
+        }
+       ],
        "parts": [
         {
-         "words": "Tom",
-         "gives": "BELL",
-         "note": "Great Tom is the famous bell at Christ Church, Oxford, so a tom can be a big bell"
+         "words": "has",
+         "at": 10
         },
         {
-         "words": "has ugly",
-         "note": "the letters of these two words rearranged"
+         "words": "ugly",
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Poor Tom is laughed at loudly for his looks.",
-     "walkthrough": "Tom reads as a man's name, but it is a bell, after Great Tom of Oxford.",
-     "definitionFit": "A belly laugh is a deep, hearty laugh, which is what a guffaw is."
+     "surface": "Someone named Tom unhappily owns some unattractive loud laughs.",
+     "walkthrough": "'Tom' looks like a man's name, but it is a big bell. YLAUGHS is the anagram of HAS UGLY.",
+     "definitionFit": "A belly laugh is a deep, hearty laugh, the same thing as a guffaw."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Tom"
     }

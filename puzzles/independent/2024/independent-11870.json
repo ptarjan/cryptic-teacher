@@ -1320,35 +1320,37 @@
      "op": "container",
      "indicators": [
       {
-       "text": "is protected by",
-       "note": "something protected is shielded on all sides, so it sits inside the other piece"
+       "text": "protected by",
+       "at": 9,
+       "note": "the other pieces are sheltered inside the soldier's abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Sergeant-Major",
-         "gives": "SM",
-         "note": "SM abbreviates Sergeant-Major"
-        },
-        {
-         "words": "Chief",
-         "gives": "CH",
-         "note": "CH is the abbreviation for chief"
-        }
-       ]
+       "words": "Sergeant-Major",
+       "at": 22,
+       "gives": "SM",
+       "note": "SM is the military abbreviation for Sergeant-Major"
       },
       {
-       "words": "is",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Chief",
+         "at": 0,
+         "gives": "CH"
+        },
+        {
+         "words": "is",
+         "at": 6
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An army commander is shielded by his sergeant-major in a gap in the defences.",
-     "definitionFit": "A schism is a split in a group, especially a church, so a breach between factions."
+     "surface": "A senior officer is kept safe by a Sergeant-Major during an attack on a wall.",
+     "definitionFit": "A schism is a split or rupture within a group, which is a breach in its unity."
     },
     "features": {
      "answerInScene": false,
@@ -1727,40 +1729,61 @@
        "indicators": [
         {
          "text": "in",
-         "note": "in places one piece inside the other"
+         "at": 5,
+         "note": "the abbreviation for time is placed in the country's abbreviation"
         }
        ],
        "parts": [
         {
          "words": "South Africa",
-         "gives": "SA",
-         "note": "SA is the abbreviation for South Africa"
+         "at": 8,
+         "gives": "SA"
         },
         {
          "words": "Time",
-         "gives": "T",
-         "note": "T stands for time"
+         "at": 0,
+         "gives": "T"
         }
        ]
       },
       {
        "words": "new",
-       "gives": "N",
-       "note": "N stands for new"
+       "at": 23,
+       "gives": "N"
       },
       {
-       "words": "different form of South Africa",
-       "gives": "ZA",
-       "note": "ZA is South Africa's international code, from Zuid-Afrika"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "different form of",
+         "at": 27,
+         "note": "the country has a second abbreviation, its international code ZA from the Dutch Zuid-Afrika, differing in its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "South Africa",
+         "at": 45,
+         "gives": "SA",
+         "note": "SA again, the usual abbreviation for South Africa"
+        },
+        {
+         "gives": "S"
+        },
+        {
+         "gives": "Z"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A poem's lines are marked with the time in South Africa, written two different ways.",
-     "definitionFit": "A stanza is a grouped set of lines forming a unit, often simply called a verse of a poem."
+     "surface": "A poet records a period in South Africa, and a fresh view of the country, in rhyme.",
+     "walkthrough": "'Different form of' tells you to use South Africa's other abbreviation, ZA, rather than SA again.",
+     "definitionFit": "A stanza is a group of lines forming one verse of a poem."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false
     }
    }

@@ -103,8 +103,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "rumoured",
-       "note": "what is rumoured is passed on by word of mouth"
+       "text": "after",
+       "at": 16,
+       "note": "the witch comes after the letter"
       }
      ],
      "parts": [
@@ -113,29 +114,32 @@
        "spelt": "T",
        "indicators": [
         {
-         "text": "after",
-         "note": "'after' puts the old woman later in the word than the tea, so she follows it"
+         "text": "rumoured",
+         "at": 26,
+         "note": "something rumoured is passed by word of mouth, so the word tea is taken as it is said"
         }
        ],
        "parts": [
         {
-         "words": "tea rumoured",
+         "words": "tea",
+         "at": 22,
          "gives": "TEA",
-         "note": "the drink said aloud is the letter's name"
+         "note": "the drink, which sounds like the letter T"
         }
        ]
       },
       {
        "words": "Scary old woman",
+       "at": 0,
        "gives": "WITCH",
-       "note": "the fairy-tale hag"
+       "note": "a witch is the classic frightening old woman"
       }
      ]
     },
     "explanation": {
-     "surface": "A frightening crone rooting through dustbins once tea is over, or so the neighbours say.",
-     "walkthrough": "Bins here are binoculars, not dustbins, and to twitch is to go birdwatching, especially chasing rare sightings; the question mark flags the pun.",
-     "definitionFit": "A birdwatching slang sense: twitchers chase rare birds, peering through binoculars, which birders call 'bins'."
+     "surface": "A frightening old crone, after her tea, is said to rummage in rubbish bins.",
+     "walkthrough": "'Bins' is slang for binoculars, not rubbish bins. To twitch is to go birdwatching, hunting rare sightings.",
+     "definitionFit": "Twitching is the British hobby of chasing rare birds, done by peering through binoculars."
     },
     "features": {
      "answerInScene": false,
@@ -271,48 +275,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "non-westerly",
-       "note": "'non-westerly' means without the western part, W, so that compass letter is dropped"
-      }
-     ],
      "parts": [
       {
        "words": "a",
-       "note": "as printed"
+       "at": 15
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "dappled",
-         "note": "dappling scatters light in patches, so the letters are scattered"
+         "at": 35,
+         "note": "dappled suggests the letters are scattered about in patches"
         }
        ],
        "parts": [
         {
-         "words": "non-westerly lawn",
-         "gives": "LAN",
-         "note": "LAWN without W"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "non-westerly",
+           "at": 17,
+           "note": "the letter for west is taken out of lawn"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lawn",
+           "at": 30
+          },
+          {
+           "gives": "W"
+          }
+         ]
         },
         {
          "words": "sun",
-         "note": "as printed, joins the fodder"
+         "at": 48
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Garden advice: these plants want a patch of grass in dappled sunshine.",
-     "walkthrough": "Only the lawn and sun are mixed; the opening A stays put at the front.",
-     "definitionFit": "A plain hypernym: annuals are plants that live out their whole cycle in a single year."
+     "surface": "Some flowers need a garden lawn mottled with sunlight.",
+     "definitionFit": "Annuals are plants that complete their life cycle within one year."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "dappled"
+     "aptDefinition": false
     }
    }
   },
@@ -338,54 +349,32 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "BEIRUT",
+     "spelt": "BEIRUT",
      "indicators": [
       {
-       "text": "attached to",
-       "note": "the root is joined onto the plant, as a root hangs from a beet"
+       "text": "reported",
+       "at": 34,
+       "note": "reported means the words are taken as they are said aloud"
       }
      ],
      "parts": [
       {
-       "words": "plant",
-       "gives": "BEET",
-       "note": "the vegetable plant"
-      },
-      {
-       "words": "Radical element",
-       "gives": "ROOT",
-       "note": "radical comes from Latin radix, a root"
-      },
-      {
-       "op": "homophone",
-       "spelt": "BEIRUT",
-       "indicators": [
-        {
-         "text": "reported",
-         "note": "what is reported is spoken, so the phrase is heard rather than spelt"
-        }
-       ],
-       "parts": [
-        {
-         "words": "reported",
-         "gives": "BEETROOT",
-         "note": "the red vegetable's name said aloud"
-        }
-       ]
+       "words": "Radical element attached to plant",
+       "at": 0,
+       "gives": "BAYROOT",
+       "note": "a root (the radical element of a plant) attached after bay, a laurel plant"
       }
      ]
     },
     "explanation": {
-     "surface": "A political extremist with ties to a factory, as told of a city in the region.",
-     "walkthrough": "'Radical element' reads like political extremists, but radical literally means of the root.",
-     "definitionFit": "Definition by category: the Lebanese capital is a city of the Middle East."
+     "surface": "A chemistry-sounding report of something bonded to a plant, set in a Levantine city.",
+     "walkthrough": "'Radical' and 'element' suggest chemistry, but a root is radical in its first sense. BAY ROOT said aloud gives the city's name.",
+     "definitionFit": "Beirut is the capital of Lebanon, on the eastern Mediterranean."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Radical"
+     "misdirectedWord": "element"
     }
    }
   },
@@ -768,26 +757,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "CANES",
      "indicators": [
       {
        "text": "half-hearted",
-       "note": "the heart of CANNES is NN; half of it, one N, goes"
+       "at": 6,
+       "note": "half of the doubled letter in the middle is lost"
       }
      ],
      "parts": [
       {
-       "words": "half-hearted film festival",
-       "gives": "CANES",
-       "note": "CANNES losing one of its two central Ns"
+       "words": "film festival",
+       "at": 19,
+       "gives": "CANNES",
+       "note": "Cannes hosts the most famous film festival"
+      },
+      {
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A lacklustre film festival that beats the rest.",
-     "walkthrough": "Cannes, the French Riviera town, hosts the famous film festival.",
-     "definitionFit": "A plain synonym, in the schoolroom sense of beating with a stick."
+     "surface": "A lukewarm report on the cinema event on the Riviera.",
+     "walkthrough": "CANNES has a double N at its heart; losing one halves it.",
+     "definitionFit": "To cane someone is to beat them with a stick, so canes means beats."
     },
     "features": {
      "answerInScene": false,
@@ -967,39 +959,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "false",
-       "note": "the letters of PRISON are not true to their order"
+       "text": "confining",
+       "at": 26,
+       "note": "the rearranged prison confines the commander within it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "confining"
+         "text": "false",
+         "at": 49,
+         "note": "false suggests the letters of prison are not in their true order"
         }
        ],
        "parts": [
         {
          "words": "prison",
-         "note": "PRISON rearranged"
-        },
-        {
-         "words": "commander",
-         "gives": "CO",
-         "note": "commanding officer"
+         "at": 55
         }
        ]
+      },
+      {
+       "words": "commander",
+       "at": 36,
+       "gives": "CO",
+       "note": "CO is the military abbreviation for commanding officer"
       }
      ]
     },
     "explanation": {
-     "surface": "A sting operation that traps a commanding officer in a fake jail.",
-     "walkthrough": "'Sting' suggests a police set-up; it is the literal sting in a tail.",
-     "definitionFit": "A cryptic-leaning description: the arachnid carries a venomous sting in its tail."
+     "surface": "A police sting operation locks up a commanding officer in a fake jail.",
+     "walkthrough": "'Sting' looks like a police operation but means the creature's venomous tail.",
+     "definitionFit": "A scorpion delivers a venomous sting from its tail, so it is responsible for stings."
     },
     "features": {
      "answerInScene": false,
@@ -1264,53 +1260,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "'in' puts the young goat inside the two onion letters, as food goes into a pan"
-      }
-     ],
      "parts": [
       {
        "words": "a",
-       "note": "as printed"
+       "at": 16
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "middle of",
-         "note": "keep the central letters of onions"
+         "text": "in",
+         "at": 32,
+         "note": "the young goat is placed in the central letters"
         }
        ],
        "parts": [
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "IO",
+         "indicators": [
+          {
+           "text": "middle of",
+           "at": 35,
+           "note": "only the two central letters of onions are taken"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "middle of onions",
-           "gives": "IO",
-           "select": "middle",
-           "note": "the two central letters of ONIONS"
+           "words": "onions",
+           "at": 45,
+           "note": "its middle two letters"
           }
          ]
         },
         {
          "words": "little butter",
+         "at": 18,
          "gives": "KID",
-         "note": "a young goat, a small animal that butts"
+         "note": "a kid is a young goat, an animal that butts"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cookery tip for tossing a knob of butter into the onions.",
-     "walkthrough": "'Butter' is not the dairy spread but something that butts, so a little one is a kid.",
-     "definitionFit": "A descriptive definition: the Japanese martial art is built on throws and holds."
+     "surface": "A recipe drops a small knob of butter among some onions.",
+     "walkthrough": "'Butter' looks like the spread, but it is one who butts: a goat.",
+     "definitionFit": "Aikido is a Japanese martial art built on throws and joint locks."
     },
     "features": {
      "answerInScene": false,
@@ -1663,34 +1658,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NEWAGE",
      "indicators": [
       {
-       "text": "reverse initial direction",
-       "note": "the first letter is a compass point, S, turned to its opposite, N"
+       "text": "to reverse initial direction",
+       "at": 33,
+       "note": "the opening compass point is swapped for its opposite, south becoming north"
       }
      ],
      "parts": [
       {
        "words": "refuse",
+       "at": 26,
        "gives": "SEWAGE",
-       "note": "waste"
+       "note": "sewage is waste or refuse"
       },
       {
-       "words": "reverse initial direction",
-       "gives": "NEWAGE",
-       "note": "the S of SEWAGE, south, flips to N, north"
+       "gives": "S"
+      },
+      {
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Modern travellers declining to turn back.",
-     "walkthrough": "New Age travellers are British nomads living in vans and buses. 'Refuse' looks like a verb but is the noun, waste.",
-     "definitionFit": "A fixed phrase: 'New Age travellers' is the British name for alternative-lifestyle nomads, so the answer is the kind."
+     "surface": "Wanderers decline to turn back the way they first headed.",
+     "walkthrough": "'Refuse' looks like a verb, but it is the noun for waste. S (south) at the start of SEWAGE becomes N (north).",
+     "definitionFit": "New Age travellers are a modern British movement of people living nomadically in vans."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "refuse"
     }
