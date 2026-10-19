@@ -1460,33 +1460,63 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "HOODWINKED",
-     "indicators": [
-      {
-       "text": "each needing change of character",
-       "note": "a change of character means one letter in each word is swapped for another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "good",
-       "note": "taken as written"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "each",
+         "at": 31,
+         "note": "each says the same letter change applies to the first word too, not only the second"
+        }
+       ],
+       "parts": [
+        {
+         "words": "good",
+         "at": 14,
+         "note": "taken as written"
+        },
+        {
+         "gives": "G"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       },
       {
-       "words": "wicked",
-       "note": "taken as written"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "needing change of character",
+         "at": 36,
+         "note": "the word must have one letter swapped for a different letter, a change of character"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wicked",
+         "at": 23,
+         "note": "taken as written"
+        },
+        {
+         "gives": "C"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Saints and sinners alike were taken in, and both need to reform.",
-     "walkthrough": "The G of good becomes H and the C of wicked becomes N; 'change of character' sounds like moral reform but means one letter.",
-     "definitionFit": "To hoodwink is to trick or fool someone, so hoodwinked means deceived."
+     "surface": "Everyone, good and wicked alike, needs to reform their ways.",
+     "walkthrough": "'Character' means a letter, not a personality: G becomes H in good, and C becomes N in wicked.",
+     "definitionFit": "Hoodwinked means tricked or fooled, so misled by someone."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "character"

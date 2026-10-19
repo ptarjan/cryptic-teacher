@@ -475,47 +475,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "BORING",
      "indicators": [
       {
        "text": "on",
-       "note": "in a down entry, sitting on something means being placed above it"
+       "at": 47,
+       "note": "on means followed by, as in a down answer"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "BORING",
        "indicators": [
         {
          "text": "changing direction",
-         "note": "compass points are directions, so one compass letter is swapped for another"
+         "at": 28,
+         "note": "changing direction swaps one compass point for another, south becoming north"
         }
        ],
        "parts": [
         {
          "words": "Prime Minister",
+         "at": 12,
          "gives": "BORIS",
-         "note": "Boris Johnson, UK Prime Minister 2019-22"
+         "note": "Boris Johnson was a UK Prime Minister"
         },
         {
-         "words": "government",
-         "gives": "G",
-         "note": "G is an abbreviation for government"
+         "gives": "S"
+        },
+        {
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "government",
+       "at": 50,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A dull prime minister performing a U-turn on government policy.",
-     "walkthrough": "BORIS swaps its S (south) for N (north), then G sits beneath. Boring is also an episode of The Young Ones.",
-     "definitionFit": "Something boring fails to interest or excite, which is exactly what an uninspiring thing does."
+     "surface": "A political jibe at a dull Prime Minister who makes a U-turn on government.",
+     "walkthrough": "In BORIS the S (south) changes to N (north).",
+     "definitionFit": "Something boring is dull and tedious, failing to excite interest."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "direction"
     }
@@ -739,36 +744,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEMOB",
-     "indicators": [
-      {
-       "text": "after half the characters leave",
-       "note": "when half the letters leave, only the other half is still present"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Depeche Mode",
-       "note": "the synth-pop band's name, from which each word keeps its opening half: DE from the first word, MO from the second"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Curtains for",
+         "at": 0,
+         "note": "curtains means the end, so the band's name is cut down"
+        },
+        {
+         "text": "after half the characters leave",
+         "at": 27,
+         "note": "losing characters means losing letters, leaving each word's first two only"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Depeche Mode",
+         "at": 13
+        },
+        {
+         "gives": "PECHEDE"
+        }
+       ]
       },
       {
        "words": "book",
-       "gives": "B",
-       "note": "B is the abbreviation for book"
+       "at": 61,
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "The end of Depeche Mode, with half the band gone and a book telling the story of the split.",
-     "walkthrough": "Each word of the band name loses its back half, Depeche said as two syllables, De-pesh. Demob is short for demobilise, releasing troops from service.",
-     "definitionFit": "To demob is to disband forces at the end of a war, so it means to break up a military unit."
+     "surface": "A music headline: Depeche Mode finished after members quit, a book telling of the split.",
+     "walkthrough": "Each word of the band name keeps its first two letters, DE and MO.",
+     "definitionFit": "To demob is to release soldiers from service, so to disband or break up a force."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Curtains"
+     "joke": "pun",
+     "misdirectedWord": "characters"
     }
    }
   },

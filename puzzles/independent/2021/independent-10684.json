@@ -43,47 +43,37 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BODEGA",
+     "op": "cycling",
      "indicators": [
       {
-       "text": "stopping",
-       "note": "something stopping a word plugs a gap inside it, so this letter sits within the other piece"
+       "text": "Cycling",
+       "at": 0,
+       "note": "cycling sends the front letter round to the back of the combined letters"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
-       "indicators": [
-        {
-         "text": "Cycling",
-         "note": "a cycle carries the front letter round to the back, so the word's opening letter moves to its end"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "home",
+         "at": 8,
+         "gives": "ABODE",
+         "note": "an abode is a home"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 14,
+           "note": "finally picks the last letter of stopping"
+          }
+         ],
          "parts": [
           {
-           "words": "home",
-           "gives": "ABODE",
-           "note": "an abode is a dwelling place"
-          },
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "finally",
-             "note": "finally points at the very end of the word that follows it, keeping only its closing letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "stopping",
-             "note": "the closing letter of the word"
-            }
-           ]
+           "words": "stopping",
+           "at": 22
           }
          ]
         }
@@ -92,9 +82,9 @@
      ]
     },
     "explanation": {
-     "surface": "Someone riding a bike home makes a last stop at a place selling wine.",
-     "walkthrough": "ABODE cycles to BODEA, and the G slips in before the final A to give BODEGA.",
-     "definitionFit": "A bodega is a Spanish wine shop or cellar, and in the US a small corner grocery store."
+     "surface": "On a cycle ride home, a last stop at a wine shop.",
+     "walkthrough": "ABODE plus G gives ABODEG; moving its first letter A to the end gives the answer.",
+     "definitionFit": "A bodega is a Spanish wine shop or cellar, and in the US a small corner grocery."
     },
     "features": {
      "answerInScene": true,
@@ -1075,48 +1065,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DIMLY",
      "indicators": [
       {
        "text": "to stop",
-       "note": "to stop a gap is to plug it, so these letters fill the middle of the other piece"
+       "at": 15,
+       "note": "to stop something is to plug it, so these letters go inside"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DIMLY",
+       "words": "doing jobs round the house",
+       "at": 23,
+       "gives": "DIY",
+       "note": "DIY, do-it-yourself, is doing home repairs yourself"
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
          "text": "gutted",
-         "note": "a gutted thing has had its insides removed, leaving only the outer letters"
+         "at": 8,
+         "note": "gutted removes the insides, leaving only the outer letters of Michael"
         }
        ],
        "parts": [
         {
-         "words": "doing jobs round the house",
-         "gives": "DIY",
-         "note": "do-it-yourself home repairs"
-        },
-        {
          "words": "Michael",
-         "note": "taken as written"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man named Michael has been disembowelled to halt his home improvements.",
-     "walkthrough": "DIY stands for do-it-yourself, the British term for amateur home repairs.",
-     "definitionFit": "Dimly means faintly or obscurely, the opposite of seeing or explaining something with clarity."
+     "surface": "Michael is upset at being made to quit his household chores.",
+     "walkthrough": "'Gutted' reads as disappointed, but it means emptied: Michael keeps only M and L.",
+     "definitionFit": "Something seen dimly is seen faintly or vaguely, the opposite of with clarity."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
      "misdirectedWord": "gutted"
     }
    }

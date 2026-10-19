@@ -1094,43 +1094,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNIVERSE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Mostly",
-       "note": "mostly means all but a little, so the final letter goes"
+       "text": "about",
+       "at": 25,
+       "note": "about means going around, so the current letter goes within"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means surrounding, so one piece is wrapped around another"
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means all but the last letter"
         }
        ],
        "parts": [
         {
          "words": "lacking knowledge",
-         "gives": "UNVERSE",
-         "note": "unversed means not knowledgeable; its last letter is dropped"
+         "at": 7,
+         "gives": "UNVERSED",
+         "note": "unversed means not knowledgeable or practised"
         },
         {
-         "words": "current",
-         "gives": "I",
-         "note": "I is the physics symbol for electric current"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "current",
+       "at": 31,
+       "gives": "I",
+       "note": "I is the symbol for electric current"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone ignorant about current affairs, the whole issue.",
-     "walkthrough": "'current matter' reads as topical affairs; current is electrical, and 'matter as a whole' is the definition.",
-     "definitionFit": "The universe is all existing matter and space considered together, the cosmos."
+     "surface": "Something largely ignorant about current affairs.",
+     "walkthrough": "'Matter' is physical stuff, not a topic.",
+     "definitionFit": "The universe is all existing matter and space considered together."
     },
     "features": {
      "answerInScene": false,
