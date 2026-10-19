@@ -874,16 +874,16 @@
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "stopping",
-         "note": "stopping a gap means plugging it, so this sits inside"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "container",
+         "indicators": [
+          {
+           "text": "stopping",
+           "note": "stopping a gap means plugging it, so this sits inside"
+          }
+         ],
          "parts": [
           {
            "words": "non-British",
@@ -891,26 +891,26 @@
            "note": "not UK, i.e. not British"
           },
           {
-           "words": "rule",
-           "gives": "LAW",
-           "note": "a law is a rule"
+           "op": "last",
+           "indicators": [
+            {
+             "text": "ultimately",
+             "note": "ultimately points to the final letter of the word before it"
+            }
+           ],
+           "parts": [
+            {
+             "words": "hero",
+             "note": "last letter of hero"
+            }
+           ]
           }
          ]
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "note": "ultimately points to the final letter of the word before it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "hero",
-           "note": "last letter of hero"
-          }
-         ]
+         "words": "rule",
+         "gives": "LAW",
+         "note": "a law is a rule"
         }
        ]
       }

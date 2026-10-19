@@ -625,6 +625,19 @@ def r_ana_of_container(node, parent, ctx):
     return _pick(node, parent, ctx, cands)
 
 
+def _inside_reading(node, tree, want):
+    """(letters, whole) container_inside_component reads `node` on: a container right under
+    reversals that are the whole tree is read on the answer turned back (an odd count of flips
+    reverses it), whole; any other node is read on the answer, whole only when it is the tree."""
+    top, flips = tree, 0
+    while top.get("op") == "reversal" and not top.get("unchecked") and len(top.get("parts") or []) == 1 \
+            and isinstance(top["parts"][0], dict):
+        top, flips = top["parts"][0], flips + 1
+    if flips and top is node:
+        return (want[::-1] if flips % 2 else want), True
+    return want, node is tree
+
+
 def r_container_inside(node, parent, ctx):
     """ins(charade(a, b, c), x) whose x can only go inside ONE piece (container_inside_component):
     the container moves into that piece, charade(a, ins(b, x), c). Its indicators and note go
@@ -632,7 +645,10 @@ def r_container_inside(node, parent, ctx):
     charade. _pick keeps it only when exactly one piece gives the simplest tree that still
     evaluates to the answer."""
     answer = ctx.get("answer")
-    if not answer or not V._container_inside(node, W.letters(answer), node is ctx["tree"]):
+    if not answer:
+        return None
+    want, whole = _inside_reading(node, ctx["tree"], W.letters(answer))
+    if not V._container_inside(node, want, whole):
         return None
     holder, ins = node["parts"]
     if holder.get("indicators") or "unchecked" in holder:
@@ -649,7 +665,10 @@ def r_container_inside(node, parent, ctx):
         new.update({x: y for x, y in node.items() if x == "gives"})
         new["op"], new["parts"] = "charade", parts
         cands.append(new)
-    return _pick(node, parent, ctx, cands)
+    # not _pick: with one letter beside the piece the two shapes tie on simplicity, yet the wide
+    # holder is the one the validator flags; what matters is that exactly one piece takes it
+    good = {json.dumps(c, sort_keys=True): c for c in cands if _eval_swapped(node, parent, c, ctx)}
+    return next(iter(good.values())) if len(good) == 1 else None
 
 
 def _holder_nest(outer):
