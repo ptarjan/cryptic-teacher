@@ -124,8 +124,7 @@
     "definitions": [
      {
       "text": "remains there",
-      "at": 100,
-      "note": "a cryptic pointer: the place where remains lie"
+      "at": 100
      }
     ],
     "wordplay": {
@@ -133,93 +132,102 @@
      "indicators": [
       {
        "text": "after",
-       "note": "coming after something means being placed later, so one chunk follows another"
+       "at": 88,
+       "note": "after puts the gate figure following the word for drunk"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "includes",
-         "note": "to include something is to take it in, so one piece sits inside another"
-        }
-       ],
+       "words": "drunk",
+       "at": 94,
+       "gives": "HIGH",
+       "note": "drunk means high"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
+         "words": "Number of people admitted",
+         "at": 0,
+         "gives": "GATE",
+         "note": "the gate is the number of spectators admitted to a match"
+        },
+        {
          "op": "container",
+         "indicators": [
+          {
+           "text": "includes",
+           "at": 65,
+           "note": "includes means the run of letters before it takes in the next piece"
+          }
+         ],
          "parts": [
           {
            "op": "charade",
            "parts": [
             {
-             "words": "drunk",
-             "gives": "HIGH",
-             "note": "high means intoxicated"
-            },
-            {
-             "words": "Number of people admitted",
-             "gives": "GATE",
-             "note": "a gate is the attendance at a sports match"
-            },
-            {
              "op": "outer",
              "indicators": [
               {
                "text": "empty",
-               "note": "an emptied word has lost its contents, so only its outside letters are kept"
+               "at": 29,
+               "note": "an empty carriage keeps only its outside letters, the middle cleared out"
               }
              ],
              "parts": [
               {
                "words": "carriage",
-               "note": "the outside letters of the word"
+               "at": 35,
+               "note": "the outer letters of carriage"
               }
              ]
+            },
+            {
+             "words": "Metropolitan",
+             "at": 47,
+             "gives": "MET",
+             "note": "MET is short for Metropolitan, as in the Met Police or Met Line"
+            },
+            {
+             "words": "Line",
+             "at": 60,
+             "gives": "RY",
+             "note": "RY, railway, is the crossword abbreviation for a line"
             }
            ]
           },
           {
-           "words": "Metropolitan",
-           "gives": "MET",
-           "note": "the word cut to its first three letters, the familiar short form, as in the Met Police"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first to",
-           "note": "the leading letter of the following word is the one taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "exit",
-           "note": "the opening letter of the word"
+           "op": "first",
+           "indicators": [
+            {
+             "text": "first to",
+             "at": 74,
+             "note": "first to picks out the opening letter of exit"
+            }
+           ],
+           "parts": [
+            {
+             "words": "exit",
+             "at": 83,
+             "note": "first letter of exit"
+            }
+           ]
           }
          ]
         }
        ]
-      },
-      {
-       "words": "Line",
-       "gives": "RY",
-       "note": "RY is the abbreviation for railway, a line"
       }
      ]
     },
     "explanation": {
-     "surface": "A rail-themed tale: an empty Metropolitan Line carriage takes on passengers, and something left behind by a drunk stays aboard.",
-     "walkthrough": "The Metropolitan Line is a London Underground line, which makes 'Number of people admitted' read as passengers; in fact a gate is a crowd figure at a game. This is the shared destination the asterisked clues need.",
-     "definitionFit": "A burial ground is the spot where the bodies of the dead are laid to rest, so it is where human remains stay."
+     "surface": "A tipsy passenger on a near-empty London Underground train ends up at a famous burial ground.",
+     "walkthrough": "CE (carriage emptied), MET and RY make CEMETRY, which 'includes' E to give CEMETERY. The definition is the answer to the puzzle's theme: the asterisked people all lie here, so their remains are there.",
+     "definitionFit": "A cemetery is where bodies are buried, so the north London burial ground is where the remains of the themed figures lie."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Number"
+     "misdirectedWord": "drunk"
     }
    }
   },
@@ -365,55 +373,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HALIFAX",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "enters",
+         "at": 12,
+         "note": "enters means the setter's letter goes inside the word half"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "enters",
-           "note": "to enter is to go inside, so one piece is placed within another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "half",
-           "note": "taken as written"
-          },
-          {
-           "words": "setter",
-           "gives": "I",
-           "note": "the setter refers to himself as I"
-          }
-         ]
+         "words": "half",
+         "at": 26,
+         "gives": "HALF",
+         "note": "taken as written"
         },
         {
+         "words": "setter",
+         "at": 5,
+         "gives": "I",
+         "note": "the setter refers to himself as I"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 19,
+         "note": "almost means the word for cut loses its final letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "cut",
-         "gives": "AX",
-         "note": "an axe is a cutting tool; its final letter goes"
+         "at": 31,
+         "gives": "AXE",
+         "note": "to axe something is to cut it"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crossword setter walks into a town well on the way to being drunk.",
-     "walkthrough": "'Half-cut' is British slang for tipsy and reads as one word, but it splits into 'half' and 'cut'. Halifax is a town in West Yorkshire.",
-     "definitionFit": "Halifax is a West Yorkshire market and mill town, home of the building society of that name."
+     "surface": "A crossword compiler turns up in some town slightly the worse for drink.",
+     "walkthrough": "'Half-cut' looks like British slang for tipsy, but it splits into HALF and a word for cut.",
+     "definitionFit": "Halifax is a town in West Yorkshire, England."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "half-cut"
@@ -514,63 +529,80 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ACCOLADES",
      "indicators": [
       {
        "text": "holding",
-       "note": "to hold something is to keep it inside, so one piece goes within another"
+       "at": 51,
+       "note": "holding means the outer letters wrap around the next piece"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ACCOLADES",
-       "indicators": [
-        {
-         "text": "detailed",
-         "note": "de-tailed means with the tail removed, so the last letter goes"
-        },
-        {
-         "text": "except for one",
-         "note": "everything except a single I, the Roman one, so that letter is removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "detailed",
+           "at": 7,
+           "note": "detailed means the tail, the last letter, is cut from the word"
+          }
+         ],
          "parts": [
           {
            "words": "excellent",
-           "gives": "AC",
-           "note": "ace means excellent; its last letter goes"
+           "at": 17,
+           "gives": "ACE",
+           "note": "ace means excellent"
           },
           {
-           "words": "company",
-           "gives": "CO",
-           "note": "CO is the usual abbreviation for company"
-          },
+           "gives": "E"
+          }
+         ]
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "except for",
+           "at": 36,
+           "note": "except for means the following letter is left out of the word"
+          }
+         ],
+         "parts": [
           {
            "words": "toilet",
-           "gives": "LADES",
-           "note": "the ladies is a women's toilet; one I removed"
+           "at": 27,
+           "gives": "LADIES",
+           "note": "the ladies is a women's toilet"
+          },
+          {
+           "words": "one",
+           "at": 47,
+           "gives": "I",
+           "note": "one is the Roman numeral I"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "company",
+       "at": 59,
+       "gives": "CO"
       }
      ]
     },
     "explanation": {
-     "surface": "A review hands out prizes, praising a lavatory in detail.",
-     "walkthrough": "'Detailed' reads as thorough, but it is de-tailed: remove the tail. 'One' is I, the Roman numeral, taken out of LADIES.",
-     "definitionFit": "Accolades are honours or tributes given in recognition of merit, so prizes and awards."
+     "surface": "A review praising a fine lavatory, but with one caveat, reads like an odd citation.",
+     "walkthrough": "'Detailed' here means docked of its tail, not described minutely; the ladies is British slang for a women's public toilet.",
+     "definitionFit": "Accolades are honours or tributes given in recognition of merit, so the noun matches awards."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "detailed"
     }
    }
@@ -601,89 +633,98 @@
    "annotation": {
     "definedByPreamble": true,
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHRISTINAROSSETTI",
+     "op": "charade",
      "indicators": [
       {
-       "text": "topless",
-       "note": "without a top means the opening letter is removed"
+       "text": "first",
+       "at": 28,
+       "note": "first means this half of the name comes before the other in the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "first",
-         "note": "this says which half of the two-word name is placed at the start"
+         "text": "ringing",
+         "at": 39,
+         "note": "ringing means the word for mate surrounds the next piece"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "mate",
+         "at": 34,
+         "gives": "CHINA",
+         "note": "china is rhyming slang for mate (china plate)"
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "ringing",
-           "note": "to ring something is to encircle it, so one piece goes round another"
+           "text": "topless",
+           "at": 47,
+           "note": "topless means the word loses its first letter"
           }
          ],
          "parts": [
           {
-           "words": "mate",
-           "gives": "CHINA",
-           "note": "china plate is rhyming slang for mate, a friend"
+           "words": "joint",
+           "at": 55,
+           "gives": "WRIST",
+           "note": "the wrist is a joint"
           },
           {
-           "words": "joint",
-           "gives": "RIST",
-           "note": "the wrist is a joint; its top letter goes"
+           "gives": "W"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 22,
+         "note": "about means these letters are muddled up"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "First of",
+           "at": 0,
+           "note": "First of picks the opening letter of tall"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tall",
+           "at": 9,
+           "note": "first letter of tall"
           }
          ]
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "about can mean round and around, so these letters are turned into a new order"
-          }
-         ],
-         "parts": [
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "First of",
-             "note": "only the leading letter of the next word is taken"
-            }
-           ],
-           "parts": [
-            {
-             "words": "tall",
-             "note": "the opening letter of the word"
-            }
-           ]
-          },
-          {
-           "words": "stories",
-           "note": "taken as written"
-          }
-         ]
+         "words": "stories",
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A yarn-spinner's opening tale about a ship's first mate and a dodgy smoke.",
-     "walkthrough": "Asterisked, so no definition. 'China' for mate is Cockney rhyming slang (china plate = mate); 'first' tells you the mate-and-joint half comes before the rearranged stories.",
-     "definitionFit": "The preamble supplies the meaning: the Victorian poet Christina Rossetti is buried in Highgate Cemetery."
+     "surface": "Someone spinning yarns about a ship's first mate and a dislocated joint.",
+     "walkthrough": "An asterisked clue with no definition: the poet Christina Rossetti is buried in Highgate Cemetery. China is rhyming slang (china plate = mate). T plus STORIES rearranged gives ROSSETTI.",
+     "definitionFit": "There is no definition; the Victorian poet is one of the people whose final resting place is the theme's cemetery."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "joint"
+     "misdirectedWord": "mate"
     }
    }
   },
@@ -839,43 +880,51 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ROOFRACK",
+     "op": "charade",
      "indicators": [
       {
-       "text": "after change of heart",
-       "note": "a changed heart means the middle letter is swapped for a different one"
+       "text": "and",
+       "at": 47,
+       "note": "and simply joins the jumper's word to the altered dress that follows it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "small jumper",
+       "at": 34,
+       "gives": "ROO",
+       "note": "a roo is a kangaroo, and a small one jumps"
+      },
+      {
+       "op": "substitution",
        "indicators": [
         {
-         "text": "and",
-         "note": "and simply adds one thing to the next"
+         "text": "after change of heart",
+         "at": 58,
+         "note": "change of heart means the middle letter of the word is swapped for another"
         }
        ],
        "parts": [
         {
-         "words": "small jumper",
-         "gives": "ROO",
-         "note": "roo is the short form of kangaroo, an animal that jumps"
+         "words": "dress",
+         "at": 51,
+         "gives": "FROCK",
+         "note": "a frock is a dress"
         },
         {
-         "words": "dress",
-         "gives": "FRACK",
-         "note": "a frock is a dress; its central O becomes A"
+         "gives": "O"
+        },
+        {
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Packing for a ski trip: a little sweater and a frock, and then second thoughts.",
-     "walkthrough": "'Small jumper' looks like a child's sweater (jumper is British for sweater), but here it is a shortened kangaroo.",
-     "definitionFit": "A rack fixed on top of a car carries bulky luggage such as skis on a journey."
+     "surface": "Packing for a ski trip, someone weighs up a jumper and a dress before changing their mind.",
+     "walkthrough": "'Small jumper' looks like clothing, but it is a young kangaroo. FROCK with its central O changed to A gives FRACK.",
+     "definitionFit": "A roof rack is a frame on top of a car used for carrying luggage such as skis on a journey."
     },
     "features": {
      "answerInScene": true,
@@ -1424,77 +1473,44 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SLIPWAYS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "turned",
-       "note": "turned upside down, one capital becomes a different capital"
+       "text": "by",
+       "at": 32,
+       "note": "by means set beside, so the next letters follow straight on"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "being in something means sitting inside it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "underwear",
-         "gives": "SLIPS",
-         "note": "petticoats, women's underwear"
-        },
-        {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "by",
-           "note": "by means next to, so one chunk is set beside another"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Morgan's",
-           "gives": "W",
-           "note": "its first letter M, upside down, looks like W"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "head",
-             "note": "the head of a word is its first letter"
-            },
-            {
-             "text": "bottom",
-             "note": "in a down entry, the bottom of a word is its last letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "lady",
-             "note": "the final letter of the word"
-            }
-           ]
-          }
-         ]
-        }
-       ]
+       "words": "in underwear",
+       "at": 51,
+       "gives": "SLIP",
+       "note": "a slip is an item of women's underwear, worn as the bottom is"
+      },
+      {
+       "words": "Morgan's head gets turned",
+       "at": 6,
+       "gives": "W",
+       "note": "the head of Morgan is M, and turned upside down it becomes W"
+      },
+      {
+       "words": "a",
+       "at": 35,
+       "gives": "A"
+      },
+      {
+       "words": "lady's bottom",
+       "at": 37,
+       "gives": "YS",
+       "note": "the bottom letter of lady, plus the 's"
       }
      ]
     },
     "explanation": {
-     "surface": "TV presenter Piers Morgan's head is turned by the sight of a woman's bottom in her lingerie.",
-     "walkthrough": "'Piers' looks like Piers Morgan's first name but is the definition. An M turned upside down becomes a W.",
-     "definitionFit": "Slipways are sloping ramps running into water for launching boats, structures like jetties or piers."
+     "surface": "TV presenter Piers Morgan is distracted by a woman's rear in her lingerie.",
+     "walkthrough": "'Piers' looks like Morgan's first name but is the definition. An M turned upside down reads as W.",
+     "definitionFit": "Slipways are ramps down into water for launching boats, structures much like piers or jetties at the shore."
     },
     "features": {
      "answerInScene": false,
@@ -1602,58 +1618,71 @@
     "definedByPreamble": true,
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MICHAELFARADAY",
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means sitting inside it"
+       "at": 29,
+       "note": "in means the setter's word and the brewed ale go inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "MICHAELFARADAY",
+       "op": "composite",
        "indicators": [
         {
-         "text": "brewed",
-         "note": "brewing mixes ingredients together, so the letters are stirred into a new order"
+         "text": "getting drunk",
+         "at": 44,
+         "note": "getting drunk means the letters are jumbled"
         },
         {
-         "text": "getting drunk",
-         "note": "someone drunk staggers about, so these letters lurch into a new arrangement"
+         "text": "away",
+         "at": 64,
+         "note": "away means the named letter is taken out of the jumble"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "MICHAELFARADAY",
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 32
+          },
+          {
+           "words": "farmyard",
+           "at": 34
+          }
+         ]
+        },
+        {
+         "words": "right",
+         "at": 58,
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Setter in Bavaria",
+         "at": 0,
+         "gives": "ICH",
+         "note": "ich is German for I, the setter speaking in Bavaria"
+        },
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "away",
-           "note": "something sent away is gone, so that letter is removed"
+           "text": "brewed",
+           "at": 18,
+           "note": "brewed means the word ale is stirred into a new order"
           }
          ],
          "parts": [
           {
-           "words": "Setter in Bavaria",
-           "gives": "ICH",
-           "note": "ich is German for I, the setter"
-          },
-          {
            "words": "ale",
-           "note": "taken as written"
-          },
-          {
-           "words": "a farmyard",
-           "note": "taken as written"
-          },
-          {
-           "words": "right",
-           "gives": "R",
-           "note": "R is the abbreviation for right"
+           "at": 25
           }
          ]
         }
@@ -1662,14 +1691,14 @@
      ]
     },
     "explanation": {
-     "surface": "A German setter's home-brewed beer leaves him tipsy in a farmyard.",
-     "walkthrough": "Asterisked, so no definition. Bavaria is a German state, so the setter's 'I' becomes ich; one R goes from 'a farmyard' before its letters are mixed around the rest.",
-     "definitionFit": "The preamble supplies the meaning: the scientist Michael Faraday is buried in Highgate Cemetery."
+     "surface": "A German brewer makes beer out in a farmyard and gets tipsy straight away.",
+     "walkthrough": "An asterisked clue with no definition: the scientist Michael Faraday is buried in Highgate Cemetery. The farmyard's jumble supplies the M that opens the name, so the German pronoun and brewed ale sit inside it.",
+     "definitionFit": "There is no definition; the physicist who studied electromagnetism is among those whose final resting place is the theme's cemetery."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "drunk"
+     "misdirectedWord": "Setter"
     }
    }
   },
