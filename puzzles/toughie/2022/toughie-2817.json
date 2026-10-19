@@ -820,48 +820,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RECITAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "something brief is cut short, so 'quote' as a word loses its last letter"
+       "text": "in",
+       "at": 14,
+       "note": "in means the shortened word goes inside the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "sincere",
+       "at": 17,
+       "gives": "REAL",
+       "note": "real feelings are sincere ones"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "the shortened quote goes inside the word for sincere"
+         "text": "briefly",
+         "at": 6,
+         "note": "briefly means cut short, losing the last letter"
         }
        ],
        "parts": [
         {
-         "words": "sincere",
-         "gives": "REAL",
-         "note": "sincere means genuine or real"
+         "words": "Quote",
+         "at": 0,
+         "gives": "CITE",
+         "note": "to cite is to quote"
         },
         {
-         "words": "Quote",
-         "gives": "CIT",
-         "note": "to quote is to cite, cut short"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An actor quotes a few lines during a heartfelt show.",
-     "walkthrough": "CITE loses its E and sits inside REAL.",
-     "definitionFit": "A recital is a concert or reading given by one or a few performers, a kind of performance."
+     "surface": "A short quotation is used in a heartfelt performance.",
+     "definitionFit": "A recital is a musical or poetic performance, often by a soloist."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Quote"
+     "misdirectedWord": "sincere"
     }
    }
   },

@@ -524,43 +524,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FLOORPLAN",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means most but not all, so the last letter of the following word goes"
+       "text": "filling",
+       "at": 44,
+       "note": "filling means the jumbled letters go inside the dessert"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "dessert",
+       "at": 11,
+       "gives": "FLAN",
+       "note": "a flan is an open tart served as a dessert"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "filling",
-         "note": "a filling sits inside a pastry case, so one piece goes within the other"
+         "text": "mixed",
+         "at": 38,
+         "note": "mixed means the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "dessert",
-         "gives": "FLAN",
-         "note": "a flan is an open tart served as a dessert"
-        },
-        {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "mixed",
-           "note": "mixed letters are stirred into a new order"
+           "text": "mostly",
+           "at": 24,
+           "note": "mostly means all but the last letter of the word"
           }
          ],
          "parts": [
           {
            "words": "poorly",
-           "gives": "POORL",
-           "note": "the word without its final letter"
+           "at": 31
+          },
+          {
+           "gives": "Y"
           }
          ]
         }
@@ -569,14 +573,13 @@
      ]
     },
     "explanation": {
-     "surface": "A dessert whose filling has been badly mixed, as described in a recipe diagram.",
-     "walkthrough": "'Poorly' looks like it modifies 'mixed', but it is the fodder; 'filling' reads as the dessert's contents but signals the insertion.",
-     "definitionFit": "A floor plan is a scale drawing of a building's layout seen from above, a kind of diagram."
+     "surface": "A sketch of a pudding whose filling has been badly mixed.",
+     "definitionFit": "A floor plan is a scale drawing of the layout of a building's rooms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "poorly"
+     "misdirectedWord": "filling"
     }
    }
   },

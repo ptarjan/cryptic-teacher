@@ -589,46 +589,53 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "EMBARRASSMENT",
-     "indicators": [
-      {
-       "text": "exchanged for",
-       "note": "one letter is swapped out and the following item put in its place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "to ban",
+       "at": 6,
        "gives": "EMBAR",
-       "note": "embar is an old verb meaning to bar or prohibit"
+       "note": "embar is an old verb meaning to prohibit or bar"
       },
       {
-       "words": "old clothing",
-       "gives": "RAIMENT",
-       "note": "raiment is an archaic word for clothes"
-      },
-      {
-       "words": "I",
-       "note": "the letter to be taken out"
-      },
-      {
-       "words": "two shillings",
-       "gives": "SS",
-       "note": "s is the abbreviation for a shilling, so two of them"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "exchanged for",
+         "at": 28,
+         "note": "the letter is swapped out and the shillings take its place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old clothing",
+         "at": 13,
+         "gives": "RAIMENT",
+         "note": "raiment is an archaic word for clothing"
+        },
+        {
+         "words": "I",
+         "at": 26,
+         "gives": "I"
+        },
+        {
+         "words": "two shillings",
+         "at": 42,
+         "gives": "SS",
+         "note": "S is the abbreviation for shilling, so two of them give two letters"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that it is disgraceful to outlaw vintage clothes over a trifling sum.",
-     "walkthrough": "The I in RAIMENT becomes SS, giving RASSMENT. A shilling was a pre-1971 British coin, abbreviated s.",
-     "definitionFit": "Embarrassment is the awkward feeling of disgrace or mortification, close to shame in sense."
+     "surface": "It is a disgrace to outlaw old garments in exchange for a little money.",
+     "definitionFit": "Embarrassment is the feeling of awkward shame or self-consciousness."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "shillings"
+     "misdirectedWord": "exchanged"
     }
    }
   },
@@ -1600,36 +1607,25 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNDERPANTS",
+     "op": "reverse",
+     "reading": "UNDER + PANTS",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "'nuder'",
-         "note": "the quoted word is the result; its letters rearranged spell the first part of the answer"
-        },
-        {
-         "words": "Wordplay for",
-         "gives": "PANTS",
-         "note": "the clue asks for a piece of wordplay, and this British slang word for rubbish is a standard signal to rearrange letters"
-        }
-       ]
+       "words": "Wordplay for 'nuder'",
+       "at": 0,
+       "note": "pants, slang for rubbish, is an anagram signal, so under then pants is a clue for nuder"
       }
      ]
     },
     "explanation": {
-     "surface": "A setter explains how to clue a racy word while hinting at undergarments.",
-     "walkthrough": "A reverse clue: read the answer itself as wordplay, with 'pants' as slang for 'rubbish', an anagram signal, so UNDER jumbled gives the quoted word.",
-     "definitionFit": "Underpants are the most elementary layer of underwear, worn beneath everything else."
+     "surface": "A setter explains how to clue a word meaning more naked, using underwear.",
+     "walkthrough": "This is a reverse clue: the answer, split in two, is itself a clue whose solution is 'nuder'.",
+     "definitionFit": "Underpants are a basic undergarment, the most elementary item of clothing."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "nuder"
+     "joke": "pun"
     }
    }
   },

@@ -179,42 +179,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "METHODICAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of a word means all but its last letter is used"
+       "text": "securing",
+       "at": 20,
+       "note": "securing means holding fast, so the check-up word holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "securing",
-         "note": "to secure something is to hold it fast, so one piece holds the others inside it"
-        }
-       ],
+       "words": "check-up",
+       "at": 11,
+       "gives": "MEDICAL",
+       "note": "a medical is a physical check-up"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 29,
+           "note": "most of a word is all but its last letter"
+          }
+         ],
          "parts": [
           {
-           "words": "check-up",
-           "gives": "MEDICAL",
-           "note": "a medical is a health check-up"
+           "words": "the",
+           "at": 37
           },
           {
-           "words": "the",
-           "gives": "TH",
-           "note": "the word the without its final letter"
+           "gives": "E"
           }
          ]
         },
         {
          "words": "oxygen",
+         "at": 41,
          "gives": "O",
          "note": "O is the chemical symbol for oxygen"
         }
@@ -223,12 +227,11 @@
      ]
     },
     "explanation": {
-     "surface": "A thorough health check-up that includes an oxygen measurement.",
-     "walkthrough": "'Most of the oxygen' reads as a quantity of gas, but 'most of' trims only the little word 'the'.",
-     "definitionFit": "Methodical describes working in an orderly, planned way, the same as systematic."
+     "surface": "A routine medical includes measuring most of the patient's oxygen.",
+     "definitionFit": "Methodical means orderly and following a set procedure, the same as systematic."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "check-up"
     }
