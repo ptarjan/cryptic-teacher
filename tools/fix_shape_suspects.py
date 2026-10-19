@@ -582,7 +582,8 @@ def _plain_charade(n):
 
 def _splices(new, parent):
     """1 when `new` is a plain charade going into a plain charade (repair_tree joins them)."""
-    return int(_plain_charade(new) and _plain_charade(parent))
+    # a charade directly under an anagram is flattened into the anagram's own parts (anagramCharade)
+    return int(_plain_charade(new) and (_plain_charade(parent) or (parent or {}).get("op") == "anagram"))
 
 
 def _pick(node, parent, ctx, cands):
@@ -1307,6 +1308,23 @@ def r_pool_gap(node, parent, ctx):
     return new
 
 
+def _at_named_end(node, new):
+    """Whether the deletion moved into `new`'s charade takes its letters from the end (start) of its
+    piece that the indicator names; False when the indicator names no single end."""
+    text = " ".join(str(i.get("text") or "") for i in node.get("indicators") or [])
+    end, head = bool(V._DEL_END.search(text)), bool(V._DEL_HEAD.search(text))
+    if end == head:
+        return False
+    for c in new.get("parts") or []:
+        if c.get("op") == "deletion":
+            try:
+                whole, cut = vals({"op": "charade", "parts": [c["parts"][0]]}), vals({"op": "charade", "parts": c["parts"][1:]})
+            except (W.WordplayError, IndexError, KeyError, TypeError, ValueError):
+                return False
+            return any((f.endswith(r) if end else f.startswith(r)) for f in whole or () for r in cut or ())
+    return False
+
+
 def r_deletion_inside(node, parent, ctx):
     """deletionInside: del(charade(a, b, c), x) whose x comes out of ONE piece (CON+SIDE+RABBLE less B,
     "half-hearted"): the deletion moves into that piece, charade(a, del(b, x), c), indicators with it
@@ -1319,7 +1337,7 @@ def r_deletion_inside(node, parent, ctx):
     if any(not isinstance(p, dict) for p in parts):
         return None
     holder = parts[0]
-    if holder.get("op") != "charade" or holder.get("indicators") or holder.get("unchecked"):
+    if holder.get("op") != "charade" or holder.get("unchecked"):
         return None
     comps = holder.get("parts") or []
     if len(comps) < 2:
@@ -1339,6 +1357,9 @@ def r_deletion_inside(node, parent, ctx):
             new["gives"] = node["gives"]
         cands.append(new)
     good = {json.dumps(c, sort_keys=True): c for c in cands if _eval_swapped(node, parent, c, ctx)}
+    if len(good) > 1:
+        # an indicator that names an end: only the piece whose own end (start) holds the letters
+        good = {k: c for k, c in good.items() if _at_named_end(node, c)}
     if len(good) != 1:
         return None
     new = next(iter(good.values()))
@@ -1353,7 +1374,7 @@ RULE_REPAIRS = {"anaSynonym": r_ana_synonym, "anagramOfContainer": r_ana_of_cont
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
                 "sharedIndicator": r_shared_indicator, "poolGap": r_pool_gap,
-                "deletionInside": r_deletion_inside}
+                "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside}
 
 
 def note_deletions(tree):
