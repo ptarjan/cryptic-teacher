@@ -306,20 +306,27 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "jumbled",
-       "note": "jumbled says the collected letters are mixed into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "sets",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "jumbled",
+         "at": 22,
+         "note": "jumbled says the letters of sets are mixed up into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sets",
+         "at": 17
+        }
+       ]
       },
       {
        "words": "time",
+       "at": 35,
        "gives": "ERA",
        "note": "an era is a period of time"
       },
@@ -328,21 +335,24 @@
        "indicators": [
         {
          "text": "finally",
-         "note": "finally takes the last letter of the word use"
+         "at": 49,
+         "note": "finally asks for only the closing letter of the word use"
         }
        ],
        "parts": [
         {
          "words": "use",
-         "note": "only its last letter is used"
+         "at": 44,
+         "note": "its last letter is E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tiles in a mosaic get jumbled up as the years pass and they wear.",
-     "definitionFit": "Tesserae are the small cubes of stone or glass a mosaic is built from."
+     "surface": "Someone describes how a mosaic's sets of tiles get jumbled over time and through use.",
+     "walkthrough": "'sets' reads as a noun for groups of tiles, but it is only the letters to be rearranged; 'with' and 'and' just join the pieces.",
+     "definitionFit": "Tesserae are the small square tiles or stones from which a mosaic picture is assembled."
     },
     "features": {
      "answerInScene": true,
@@ -567,55 +577,42 @@
      "indicators": [
       {
        "text": "turning up",
-       "note": "in a down clue turning up means reading from the bottom upwards"
+       "at": 14,
+       "note": "in a down answer, turning up means the hidden letters are read from bottom to top, backwards"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 25,
+         "note": "in says the answer's letters lie inside this run of words, so everything around them is discarded"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "in says the letters are found inside the run of words, keeping only the stretch that spans them"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Abaddon or",
-           "note": "only its last three letters are kept"
-          },
-          {
-           "gives": "ABADDO"
-          }
-         ]
+         "words": "Abaddon or the netherworld",
+         "at": 28,
+         "note": "taken as written; the is this clue's redundant word for the quotation, so it is discarded along with the letters outside the hidden run"
         },
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "netherworld",
-           "note": "only its first two letters are kept"
-          },
-          {
-           "gives": "THERWORLD"
-          }
-         ]
+         "gives": "ABADDOTHETHERWORLD",
+         "note": "the front of Abaddon, the redundant word the, and the tail of netherworld, all of which fall away"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crooked firm rising in hell.",
-     "walkthrough": "A hidden word read upwards across 'Abaddon or netherworld'. The is the seventh redundant word of the quotation, so skip it before reading the letters.",
-     "definitionFit": "Enron was the US energy firm whose accounting fraud led to its collapse in 2001."
+     "surface": "A crooked firm is pictured surfacing in hell, Abaddon being a biblical name for the underworld.",
+     "walkthrough": "'the' is this clue's redundant word for the quotation; without it NORNE sits across 'abaddoN OR NEtherworld', and 'turning up' reverses it.",
+     "definitionFit": "Enron was the American energy firm that collapsed in 2001 after massive accounting fraud, a byword for corporate dishonesty."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Abaddon"
     },
     "hiddenLetter": {
@@ -1326,25 +1323,23 @@
      "indicators": [
       {
        "text": "being withdrawn",
-       "note": "withdrawn means drawn out of the word irritated and drawn back, so the letters are taken from inside it and read in reverse"
+       "at": 39,
+       "note": "being withdrawn suggests drawing back, so the word is read in the opposite direction"
       }
      ],
      "parts": [
       {
-       "op": "hidden",
-       "parts": [
-        {
-         "words": "irritated",
-         "gives": "ATE",
-         "note": "the word whose middle holds the letters"
-        }
-       ]
+       "words": "irritated",
+       "at": 28,
+       "gives": "ATE",
+       "note": "ate can mean irritated or bothered, as in 'what's eating you?'; that the letters also sit reversed inside the word irritated is a coincidence"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone annoyed by an airport announcement pulls back from it.",
-     "definitionFit": "An ETA, estimated time of arrival, is one of the facts an airport shows for each flight."
+     "surface": "An annoyed traveller has airport information taken away from them.",
+     "walkthrough": "'Certain airport information' is a specific piece of data on the arrivals board; 'being withdrawn' turns ATE round.",
+     "definitionFit": "An ETA, estimated time of arrival, is the expected landing time shown on airport arrivals boards."
     },
     "features": {
      "answerInScene": true,
@@ -1751,44 +1746,30 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "used in",
+       "at": 10,
+       "note": "used in says the answer's letters lie inside this run of words, so everything around them is discarded"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "used in",
-         "note": "used in says the letters sit inside the words, keeping only the stretch that spans them"
-        }
-       ],
-       "parts": [
-        {
-         "words": "motto",
-         "note": "only its last two letters are kept"
-        },
-        {
-         "gives": "MOT"
-        }
-       ]
+       "words": "motto of Newcastle",
+       "at": 18,
+       "note": "taken as written; of is this clue's redundant word for the quotation, so it is discarded along with the letters outside the hidden run"
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "Newcastle",
-         "note": "only its first two letters are kept"
-        },
-        {
-         "gives": "WCASTLE"
-        }
-       ]
+       "gives": "MOTOFWCASTLE",
+       "note": "the front of motto, the redundant word of, and the tail of Newcastle, all of which fall away"
       }
      ]
     },
     "explanation": {
-     "surface": "A letter of the alphabet that appears in a football club's motto.",
-     "walkthrough": "A hidden word across 'motto Newcastle'. Of is the ninth redundant word, so skip it; the quotation's last word, cheese, is the theme of the altered answers.",
-     "definitionFit": "The tone of a place or event is its character or general feel."
+     "surface": "Someone notes the character expressed in the city motto of Newcastle.",
+     "walkthrough": "'of' is this clue's redundant word for the quotation; drop it and the letters sit across 'motTO NEwcastle'.",
+     "definitionFit": "Tone means the general character or quality of something, as in the tone of a place or a discussion."
     },
     "features": {
      "answerInScene": false,
