@@ -235,7 +235,8 @@ MISSING_RANK = 60000
 # (a foreign-language or heavily themed grid, e.g. an all-Latin Listener). There
 # the unknowns are the content, not a stray proper noun, so they count as rare.
 # Raising MISSING_RANK globally failed the SNITCH gate; this does not touch
-# puzzles with a minority of unlisted answers.
+# puzzles with a minority of unlisted answers, nor the SNITCH_SERIES, whose
+# gate sets must score exactly as they did before this rule.
 UNLISTED_MAJORITY_RANK = 286585
 #: rarity() averages this many of a puzzle's rarest answers.
 RAREST_ANSWERS = 3
@@ -528,7 +529,8 @@ def rarity(puz, rank):
             found.append((max((rank[w] for w in words if w in rank), default=0),
                            any(w not in rank for w in words)))
     unlisted = sum(1 for _, u in found if u)
-    miss = UNLISTED_MAJORITY_RANK if unlisted * 2 > len(found) else MISSING_RANK
+    majority = unlisted * 2 > len(found) and puz.get("series") not in SNITCH_SERIES
+    miss = UNLISTED_MAJORITY_RANK if majority else MISSING_RANK
     scores = [math.log10(max(max(r, miss) if u else r, 10)) for r, u in found]
     worst = sorted(scores)[-RAREST_ANSWERS:]
     return sum(worst) / len(worst) if worst else None
