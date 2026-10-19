@@ -6626,7 +6626,8 @@ REPEAT_IN_LEAF = "leaf holds a doubling word (twice, double, again) and gives a 
 HALF_IN_LEAF = "leaf holds half and gives half of another of its words, a halving selection folded into the leaf"
 SELECT_IND_ENDS_LEAF = "selection op whose letter-less leaf ends with the op's own indicator words"
 BEHEAD_IN_LEAF = "leaf holds a losing-head/tail phrase and gives the letters that are left"
-_REPEAT_WORDS = frozenset("twice doubled double repeated repeatedly again thrice redoubled".split())
+_REPEAT_WORDS = frozenset("twice doubled double repeated repeatedly again thrice redoubled doubling doubles "
+                          "repeating duplicated duplicating twofold".split())
 _STUTTER_WORDS = frozenset("stuttering stutter stutters stuttered stammering stammer stammers stammered".split())
 _BEHEAD = re.compile(r"\b(?:losing|lost|without|minus|lacking|missing|dropping|loses|shedding|ignoring|dismissing|"
                      r"removing|ditching|discarding|dumping)\s+"
@@ -6683,6 +6684,118 @@ def select_ind_ends_leaf(tree):
         for p in (q for q in node.get("parts") or [] if isinstance(q, dict) and "op" not in q and not q.get("gives")):
             words = re.findall(r"[a-z']+", str(p.get("words") or "").lower())
             n += any(iw and len(words) > len(iw) and words[-len(iw):] == iw for iw in inds)
+    return n
+
+
+SPLIT_WORD_LEAVES = "one word split into two leaves over the same clue words, with an insert between"
+MOVE_NOTE_LEAF = "leaf gives a non-word its note says has a letter moved, a move written as a leaf"
+FIRST_SIBLING_LEAVES = "a first-letters op picks one word while sibling leaves give the other words' initials"
+HIDDEN_IND_ABOVE = "hidden op with no indicator under an op whose indicator opens with a hidden-word marker"
+DELETION_NO_CUT = "deletion with one leaf part and no cut piece, the leaf a word one letter short"
+INITIALS_IN_LEAF = "leaf holds a first-letters word (primarily, initially) and gives the initials of its other words"
+_MOVE_NOTE = re.compile(r"\b(?:moved|shifted|transposed|relocated)\b", re.I)
+_INITIAL_NOTE = re.compile(r"\b(?:first|initial|opening|leading|head|top|start)\b", re.I)
+_HIDDEN_OPENERS = frozenset("having holding contains containing within in some part parts of showing displaying".split())
+
+
+def split_word_leaves(tree):
+    """A leaf and the first leaf of a sibling container/charade piece holding the very same clue words, whose
+    letters in tree order spell one word (r38 FN ELGAR: "Listener" giving EA, then R after the insert; the r39
+    sample EID, PIPED, NOSE, BEE): one word is split around an insert, so it is the container's outer piece
+    (container(EID, N)), not two leaves. Needs the lexicon."""
+    lex = _lexicon_letters()
+    if not lex:
+        return 0
+    n = 0
+    for node in _walk(tree):
+        if node.get("unchecked"):
+            continue
+        ps = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        for i, leaf in enumerate(ps):
+            if "op" in leaf or not leaf.get("words") or not leaf.get("gives") or leaf.get("unchecked"):
+                continue
+            for j, sub in enumerate(ps):
+                if j == i or sub.get("op") not in ("container", "charade"):
+                    continue
+                inner = sub
+                while isinstance(inner, dict) and "op" in inner:   # the outermost piece: down the first parts
+                    inner = next(iter(inner.get("parts") or []), None)
+                if not isinstance(inner, dict) or not inner.get("gives") or wordplay.letters(inner.get("words")) != wordplay.letters(leaf["words"]):
+                    continue
+                a, b = wordplay.letters(inner["gives"]).lower(), wordplay.letters(leaf["gives"]).lower()
+                joined = a + b if j < i else b + a
+                n += len(joined) >= 4 and joined in lex and not (a in lex and b in lex and len(a) > 1 and len(b) > 1)
+    return n
+
+
+def move_note_leaf(tree):
+    """Plain lettered leaves whose note says a letter was moved or shifted (r38 FN OLYMPIA: "Greasy" giving OLY,
+    "OILY, with its I moved down"): a move is move<indicator>(fodder, MOVED), not a leaf."""
+    lex = _lexicon_letters()
+    return sum(1 for node, words in _plain_leaves(tree) if lex and _MOVE_NOTE.search(str(node.get("note") or ""))
+               and len(wordplay.letters(node["gives"])) >= 3 and wordplay.letters(node["gives"]).lower() not in lex)
+
+
+def first_sibling_leaves(tree):
+    """Charades holding a first-letters op over one word beside two or more plain one-word leaves that give
+    their own initials (r38 FN CHEF: first<heads>(cooked) + H + E + F, every "heads" word its own leaf): one
+    first-letters indicator over the list is one multi-part op."""
+    n = 0
+    for node in _walk(tree):
+        if node.get("op") != "charade" or node.get("unchecked"):
+            continue
+        ps = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        firsts = [p for p in ps if p.get("op") == "first" and len(p.get("parts") or []) == 1 and not p.get("unchecked")]
+        bare = [p for p in ps if "op" not in p and p.get("words") and p.get("gives") and len(str(p["words"]).split()) == 1
+                and len(wordplay.letters(p["gives"])) == 1 and len(wordplay.letters(p["words"])) >= 3
+                and wordplay.letters(p["words"]).startswith(wordplay.letters(p["gives"]))
+                and _INITIAL_NOTE.search(str(p.get("note") or ""))]
+        n += bool(firsts) and len(bare) >= 2
+    return n
+
+
+def deletion_no_cut(tree):
+    """Deletions with one leaf part, no cut piece, whose leaf gives a non-word (r38 FN ROUBLES-type leaves, r39:
+    TER under half-term, ROUBLES for TROUBLES): the cut is folded into the leaf and the deletion names nothing;
+    write the real word and its cut, or the selection (middle, half) as its own op. r39 judged the unrestricted
+    form 7 of 40 fine, all real-word leaves; non-word leaves only here."""
+    lex = _lexicon_letters()
+    return sum(1 for node in _walk(tree) if lex and node.get("op") == "deletion" and len(node.get("parts") or []) == 1
+               and isinstance(node["parts"][0], dict) and "op" not in node["parts"][0]
+               and len(wordplay.letters(node["parts"][0].get("gives"))) >= 3
+               and wordplay.letters(node["parts"][0].get("gives")).lower() not in lex
+               and any(wordplay.letters(node["parts"][0]["gives"]).lower() + c in lex
+                       or c + wordplay.letters(node["parts"][0]["gives"]).lower() in lex for c in "abcdefghijklmnopqrstuvwxyz"))
+
+
+_POSITION_IND = frozenset("primarily initially originally firstly principally heads leaders fronts starts openers".split())
+_INITIALS_SKIP = frozenset("and with of the a an".split())
+
+
+def initials_in_leaf(tree):
+    """Plain leaves of 3+ words holding a first-letters word (primarily, initially, starts) beside the words whose
+    first letters they give (r38 FN PIZZAZZ: "zip and zing primarily" giving ZZ): the pick is first<primarily>
+    over those words, its own op."""
+    n = 0
+    for node, words in _plain_leaves(tree):
+        if len(words) < 3 or not _POSITION_IND & set(words):
+            continue
+        rest = [w for w in words if w not in _POSITION_IND and w not in _INITIALS_SKIP]
+        n += len(rest) >= 2 and wordplay.letters(node["gives"]).lower() == "".join(w[0] for w in rest)
+    return n
+
+
+def hidden_ind_above(tree):
+    """Hidden ops with no indicator of their own under an op whose indicator opens with a hidden-word marker
+    (r38 FN CINEMA: rev<having returned>(hidden(Blame Nicola))): the marker is the hidden op's indicator."""
+    n = 0
+    for node in _walk(tree):
+        if node.get("op") in (None, "hidden", "charade") or node.get("unchecked"):
+            continue
+        for ind in node.get("indicators") or []:
+            ws = re.findall(r"[a-z']+", str((ind or {}).get("text") or "").lower())
+            n += bool(ws) and ws[0] in _HIDDEN_OPENERS and any(
+                p.get("op") == "hidden" and not p.get("indicators") for p in node.get("parts") or [] if isinstance(p, dict))
     return n
 
 
@@ -7123,6 +7236,12 @@ def shape_warnings(tag, ann, clue=None, answer=None):
             (lambda: ana_literal_edge(tree, answer), ANA_LITERAL_EDGE, "set the word beside the anagram in a charade"),
             (lambda: del_wraps_charade(tree, clue), DEL_WRAPS_CHARADE, "cut inside the one piece the word acts on"),
             (lambda: repeat_in_leaf(tree), REPEAT_IN_LEAF, "the repeat is an op with its own indicator"),
+            (lambda: split_word_leaves(tree), SPLIT_WORD_LEAVES, "the word is the container's outer piece, one leaf"),
+            (lambda: move_note_leaf(tree), MOVE_NOTE_LEAF, "write move<indicator>(fodder, MOVED)"),
+            (lambda: first_sibling_leaves(tree), FIRST_SIBLING_LEAVES, "one first-letters indicator over the list is one multi-part op"),
+            (lambda: hidden_ind_above(tree), HIDDEN_IND_ABOVE, "the opening marker is the hidden op's indicator"),
+            (lambda: deletion_no_cut(tree), DELETION_NO_CUT, "give the whole word and cut it with a deletion"),
+            (lambda: initials_in_leaf(tree), INITIALS_IN_LEAF, "the pick is first<indicator> over those words"),
             (lambda: half_in_leaf(tree), HALF_IN_LEAF, "keep half the word with a halving selection"),
             (lambda: select_ind_ends_leaf(tree), SELECT_IND_ENDS_LEAF, "the leaf holds only the words that give its letters"),
             (lambda: behead_in_leaf(tree), BEHEAD_IN_LEAF, "the cut is a deletion with its own indicator"),
@@ -7722,6 +7841,12 @@ BACKLOG_MARKERS = {
     "wordplay.cutNoteLeaf": (CUT_NOTE_LEAF,),
     "wordplay.ownIndInLeaf": (OWN_IND_IN_LEAF,),
     "wordplay.repeatInLeaf": (REPEAT_IN_LEAF,),
+    "wordplay.splitWordLeaves": (SPLIT_WORD_LEAVES,),
+    "wordplay.moveNoteLeaf": (MOVE_NOTE_LEAF,),
+    "wordplay.firstSiblingLeaves": (FIRST_SIBLING_LEAVES,),
+    "wordplay.hiddenIndAbove": (HIDDEN_IND_ABOVE,),
+    "wordplay.deletionNoCut": (DELETION_NO_CUT,),
+    "wordplay.initialsInLeaf": (INITIALS_IN_LEAF,),
     "wordplay.halfInLeaf": (HALF_IN_LEAF,),
     "wordplay.selectIndEndsLeaf": (SELECT_IND_ENDS_LEAF,),
     "wordplay.beheadInLeaf": (BEHEAD_IN_LEAF,),
