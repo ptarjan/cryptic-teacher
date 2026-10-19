@@ -917,8 +917,13 @@ def windows(grid, third=None, margin=40, above=None, left=None, split=None, lead
     mid = gx0 + (gx1 - gx0) / 2 - 10 if split is None else split
     out = [(gx0 - margin, mid, gx1 + 15, gy1 - 5), (mid, gx1 + 15, gx1 + 15, gy1 - 5)]
     if lead:
-        x0, top, edge = lead
-        out = [(x0, edge, max(edge, gx0 - 5), top), (edge,) + out[0][1:]] + out[1:]
+        x0, top, edge, *inner = lead
+        # With an inner gutter (lead_split(): ACROSS and DOWN in two columns
+        # left of the grid), the lead is two columns, not one whose rows
+        # would glue an ACROSS line to the DOWN line beside it.
+        first = [(x0, inner[0], inner[0], top), (inner[0], edge, max(edge, gx0 - 5), top)] if inner \
+            else [(x0, edge, max(edge, gx0 - 5), top)]
+        out = first + [(edge,) + out[0][1:]] + out[1:]
     if third:
         out.append((gx1 + 15, gx1 + 15 + third[0], gx1 + 15 + third[0], third[1]))
     return out
@@ -985,7 +990,7 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
         for side, (x0, x1, right, top) in enumerate(wins):
             # The lead column's right edge is the next column's left: no
             # overhang.
-            over = reach if side or not lead else None
+            over = reach if side >= (len(lead) - 2 if lead else 0) or not lead else None
             part = [w for w in ws if x0 <= w[0] < x1 and top <= w[1] <= bottom and (
                 w[2] <= right or over and w[2] <= over and w[0] < gx1 - ACROSS_GUTTER)]
             if part:
@@ -1520,7 +1525,10 @@ def edge_candidates(img, grid, lead):
     """[x]: the gutters left and right of lead's x0 (crop_window), the
     window's other left edges when its own fails its check."""
     x0, top = lead
-    return crop_window.edge_candidates(img, (max(0, x0 - 400), top, grid[0], grid[3]), x0)
+    # Reach 500, not 300: a 1947 Times page with ACROSS and DOWN in two columns
+    # left of the grid has its lead edge at the gutter between them, and the
+    # ACROSS column's own left gutter is 350px further left (times-5369).
+    return crop_window.edge_candidates(img, (max(0, x0 - 600), top, grid[0], grid[3]), x0, reach=500)
 
 
 def far_edges(img, box, nominal):
@@ -1582,6 +1590,10 @@ def trimmed_lead(img, grid, lead):
     return (x0 + best - 2, top) if best else lead
 
 
+#: The share of the grid's width a lead window must reach to hold two columns.
+LEAD_TWO = 0.75
+
+
 def lead_split(lines, grid, lead, margin=40):
     """`lead` (lead_column()) with the x between it and the column under the
     grid: where the fewest words (`lines`, every reading's) under the grid
@@ -1589,7 +1601,15 @@ def lead_split(lines, grid, lead, margin=40):
     start, outdented) to just inside it."""
     gx0, _, gx1, gy1 = grid
     bottom = gy1 + 1.8 * (gx1 - gx0)
-    return lead + (gutter(lines, (gx0, bottom, gx1, bottom), gy1, gx0 - margin, gx0 + 10),)
+    edge = gutter(lines, (gx0, bottom, gx1, bottom), gy1, gx0 - margin, gx0 + 10)
+    # A window nearly as wide as the grid holds two columns (the 1947 Times:
+    # ACROSS, then DOWN, both left of the grid): split it where the fewest
+    # words of its height cross.
+    if edge - lead[0] >= LEAD_TWO * (gx1 - gx0):
+        mid = gutter(lines, (lead[0], gy1, edge, gy1), lead[1], lead[0] + 0.3 * (edge - lead[0]),
+                     lead[0] + 0.7 * (edge - lead[0]))
+        return lead + (edge, mid)
+    return lead + (edge,)
 
 
 def read_cache(cache_path):
