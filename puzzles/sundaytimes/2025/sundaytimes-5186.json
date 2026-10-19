@@ -464,37 +464,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INIMICAL",
-     "indicators": [
-      {
-       "text": "wrongly",
-       "note": "I CLAIM's letters are put in the wrong order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Batting",
+       "at": 0,
+       "gives": "IN",
+       "note": "a cricketer who is batting is in"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrongly",
+         "at": 10,
+         "note": "something done wrongly is done amiss, so these letters are set out in another order"
+        }
+       ],
        "parts": [
         {
-         "words": "Batting",
-         "gives": "IN",
-         "note": "a cricketer who is batting is IN"
+         "words": "I",
+         "at": 8
         },
         {
-         "words": "I wrongly claim",
-         "gives": "IMICAL",
-         "note": "anagram of I CLAIM"
+         "words": "claim",
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fielder objects that someone falsely claimed he was batting in a hostile way.",
-     "walkthrough": "In cricket the side batting is 'in'.",
-     "definitionFit": "A plain synonym, from Latin inimicus, enemy: an inimical attitude is unfriendly or opposed."
+     "surface": "A batsman protests that a claim against them was mistaken and aggressive.",
+     "walkthrough": "In cricket the side batting is 'in'; the anagram of I CLAIM gives IMICAL.",
+     "definitionFit": "Inimical is a formal synonym of unfriendly, describing something that works against you."
     },
     "features": {
      "answerInScene": false,
@@ -805,41 +808,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HARMONICA",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "HARK loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 7,
+         "note": "a word without its end has its last letter dropped, here the final K"
+        }
+       ],
        "parts": [
         {
          "words": "Listen",
-         "gives": "HAR",
-         "note": "HARK, listen, without its final K"
+         "at": 0,
+         "gives": "HARK",
+         "note": "hark is an old word meaning listen"
         },
         {
-         "words": "girl",
-         "gives": "MONICA",
-         "note": "a girl's name"
+         "gives": "K"
         }
        ]
+      },
+      {
+       "words": "girl's",
+       "at": 20,
+       "gives": "MONICA",
+       "note": "Monica is a girl's name; the 's reads as 'has' joining the pieces"
       }
      ]
     },
     "explanation": {
-     "surface": "Keep listening to a girl playing her instrument.",
-     "walkthrough": "The ’s stands for 'is', joining wordplay to definition.",
-     "definitionFit": "Definition by example: the mouth organ is one musical instrument among many."
+     "surface": "Someone is told to pay attention to the instrument a girl is playing.",
+     "walkthrough": "'Listen' is read as the old-fashioned command, and 'to' simply joins it to the girl.",
+     "definitionFit": "A harmonica is a small mouth organ, a musical instrument played by blowing."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Listen"
     }
    }
   },
@@ -1520,11 +1528,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OINTMENT",
      "indicators": [
       {
-       "text": "inspired by"
+       "text": "inspired by",
+       "at": 8,
+       "note": "inspired means breathed in, so the E is taken inside the other letters"
       }
      ],
      "parts": [
@@ -1533,28 +1541,33 @@
        "indicators": [
         {
          "text": "whipped",
-         "note": "MINT NOT is beaten into a new order"
+         "at": 29,
+         "note": "whipped cream is beaten about, so these letters are beaten into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Ecstasy",
-         "gives": "E",
-         "note": "E is slang for the drug ecstasy"
+         "words": "mint",
+         "at": 20
         },
         {
-         "words": "mint not whipped",
-         "gives": "OINTMNT",
-         "note": "anagram of MINT NOT"
+         "words": "not",
+         "at": 25
         }
        ]
+      },
+      {
+       "words": "Ecstasy",
+       "at": 0,
+       "gives": "E",
+       "note": "E is the usual short form of the drug ecstasy"
       }
      ]
     },
     "explanation": {
-     "surface": "Ecstasy comes from mint, not from whipped cream.",
-     "walkthrough": "Whipped cream looks like one dessert phrase; whipped is the anagram signal and cream alone is the definition.",
-     "definitionFit": "A cream in the medical sense, a soothing lotion rubbed on skin, not the dairy cream of the surface."
+     "surface": "A dessert flavoured with mint that uses ecstasy rather than whipped cream.",
+     "walkthrough": "'whipped cream' looks like a single phrase, but 'whipped' is the anagram signal and 'cream' is the definition, a medicinal one.",
+     "definitionFit": "An ointment is a medicinal cream rubbed onto the skin."
     },
     "features": {
      "answerInScene": false,

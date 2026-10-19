@@ -646,20 +646,45 @@
      }
     ],
     "wordplay": {
-     "op": "reverse",
-     "reading": "FIFTY FIFTY",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "capped",
+       "at": 32,
+       "note": "capped means written as capitals, and capital L is the Roman numeral for fifty, so each letter is read as that number"
+      }
+     ],
      "parts": [
       {
-       "words": "Liverpool's banks capped",
-       "at": 14,
-       "note": "the banks of Liverpool are its outer letters, L and L, written as capitals; read as Roman numerals each capital L is fifty"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "banks",
+         "at": 26,
+         "note": "the banks of a river are its edges, so only the outer letters of the city's name are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Liverpool's",
+         "at": 14,
+         "gives": "LIVERPOOL",
+         "note": "the city name Liverpool; the 's makes the banks its own"
+        }
+       ]
+      },
+      {
+       "gives": "LL"
+      },
+      {
+       "gives": "FIFTYFIFTY"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about money held in the banks of a Liverpool club.",
-     "walkthrough": "This is a reverse clue: write the answer as Roman numerals and you get L L, the first and last letters of Liverpool. 'capped' says they are capitals, as Roman numerals are.",
-     "definitionFit": "Fifty-fifty odds mean an equal chance either way, which bookmakers call even money or evens."
+     "surface": "A question whether Liverpool's banks have their bonuses capped at an even figure.",
+     "walkthrough": "The edges of LIVERPOOL are L and L; as capital letters, Roman numerals, each one is fifty.",
+     "definitionFit": "Fifty-fifty describes equal odds, the same as even money in betting."
     },
     "features": {
      "answerInScene": false,

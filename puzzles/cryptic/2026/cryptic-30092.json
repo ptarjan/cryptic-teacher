@@ -617,32 +617,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "troubled",
-       "note": "Troubled water is churned up and unsettled, and letters in that state have lost their order."
+       "text": "in",
+       "at": 7,
+       "note": "in means these letters go inside the others"
       }
      ],
      "parts": [
       {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "troubled",
+         "at": 20,
+         "note": "troubled means disturbed, so these letters are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stew",
+         "at": 10
+        },
+        {
+         "words": "for",
+         "at": 16
+        }
+       ]
+      },
+      {
        "words": "Planet",
+       "at": 0,
        "gives": "EARTH",
-       "note": "the planet we are standing on, spelled out in full"
-      },
-      {
-       "words": "stew",
-       "note": "the word goes into the mix at face value, all four letters"
-      },
-      {
-       "words": "for",
-       "note": "three more letters lifted straight off the page"
+       "note": "Earth is a planet"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Planet in stew' reads as an insertion, something dropped into the pot, and it is nothing of the kind: the planet's five letters are shuffled along with the rest.",
-     "definitionFit": "don’t expect it to get better! → FEAR THE WORST: the idiom is an instruction to brace for the bad outcome instead of hoping for a good one."
+     "surface": "Climate gloom: the planet is in a stew, troubled and beyond improving.",
+     "walkthrough": "'stew' looks like the anagram signal, but it is part of the fodder; 'troubled' is the signal.",
+     "definitionFit": "To fear the worst is the idiom for expecting the most pessimistic outcome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stew"
     }
    }
   },
