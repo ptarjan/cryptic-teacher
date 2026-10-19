@@ -548,36 +548,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AGREE",
-     "indicators": [
-      {
-       "text": "lot of",
-       "note": "a lot of something is most but not all of it, so the end is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 6,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lot of",
+         "at": 8,
+         "note": "a lot of something is most but not all of it, so the word for vice loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
+         "words": "vice",
+         "at": 15,
+         "gives": "GREED",
+         "note": "greed is one of the seven deadly sins, a vice"
         },
         {
-         "words": "vice",
-         "gives": "GREE",
-         "note": "greed is one of the seven deadly sins, a vice, cut short here"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A confession of having plenty of bad habits.",
-     "walkthrough": "'A lot of' reads as one phrase meaning much, but the A is kept as a letter and 'lot of' trims the vice.",
-     "definitionFit": "To admit a point in argument is to concede or accept it, which is one sense of agree."
+     "surface": "A confession that one indulges in plenty of wickedness.",
+     "walkthrough": "The phrase 'a lot of' does two jobs: its 'a' is taken as written, and 'lot of' trims the sin. Greed is one of the seven deadly sins.",
+     "definitionFit": "To admit a point is to concede or go along with it, a common verb synonym."
     },
     "features": {
      "answerInScene": false,
@@ -847,55 +851,50 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CLAMBERER",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Awful",
+       "at": 0,
+       "note": "awful suggests something badly made, so the remaining letters of career are jumbled"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "CLAMBERER",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Awful",
-         "note": "something awful is in a dreadful state, so the letters are thrown into disorder"
+         "text": "not",
+         "at": 14,
+         "note": "not a tells us to drop the letter A from career"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "CLAMBERER",
-         "indicators": [
-          {
-           "text": "not",
-           "note": "'not' says the following letter is left out"
-          }
-         ],
-         "parts": [
-          {
-           "words": "career",
-           "note": "taken as written"
-          },
-          {
-           "words": "a",
-           "note": "the letter removed"
-          }
-         ]
+         "words": "career",
+         "at": 6
+        },
+        {
+         "words": "a",
+         "at": 18,
+         "gives": "A"
         }
        ]
+      },
+      {
+       "gives": "LAMB",
+       "note": "the undefined theme word: William Lamb, Lord Melbourne, a British prime minister"
       }
      ]
     },
     "explanation": {
-     "surface": "A dreadful job, and not one for someone ambitious to get ahead.",
-     "walkthrough": "The unclued theme leader is Lord Melbourne, whose family name was Lamb; it sits inside the rearranged letters of the job.",
-     "definitionFit": "A clamberer scrambles upwards using hands and feet, so it is someone climbing towards a summit."
+     "surface": "A dismal working life, with no one making it to the summit.",
+     "walkthrough": "As the preamble says, a prime minister's name sits in the answer with no clue words for it: here William Lamb, Lord Melbourne. His surname joins the letters left once the A goes.",
+     "definitionFit": "A climber scrambling upward is literally someone making for the summit, an apt description."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "career"
     }
    }
