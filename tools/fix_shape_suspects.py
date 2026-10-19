@@ -761,9 +761,8 @@ def r_nested_container(node, parent, ctx):
     for k, c in enumerate(cands):
         if not inds:
             c.pop("indicators")
-        try:
-            W.evaluate(copy.deepcopy(c), answer)
-        except (W.WordplayError, IndexError, KeyError, TypeError, ValueError):
+        # the whole tree, not the node alone: the pair may sit under a reversal or inside a charade
+        if not _eval_swapped(node, parent, c, ctx):
             continue
         good.append(((simplicity(c), k), c))
     if not good:
@@ -1742,6 +1741,88 @@ def r_ind_in_leaf(node, parent, ctx):
     return None
 
 
+def _misplaced_keys(node):
+    """The indicators of charade `node` that V.misplaced_indicators flags, each tried alone."""
+    out = []
+    for i in node.get("indicators") or []:
+        probe = {k: v for k, v in node.items() if k != "indicators"}
+        probe["indicators"] = [i]
+        if V.misplaced_indicators(probe):
+            out.append(i)
+    return out
+
+
+def _lex_types(ind):
+    """The lexicon types that file the indicator's words 200+ times (what op it signals)."""
+    lex = V._indicator_lexicon()
+    key = " ".join(w for w in (W.letters(x) for x in str(ind.get("text") or "").split()) if w)
+    return {t for t, d in lex.items() if t != "charade" and d.get(key, 0) >= V.MISPLACED_MIN_USES}
+
+
+def _fits_charade(ind):
+    """Whether the indicator's words are fine on a charade (the lexicon, or an ordering/position word)."""
+    lex = V._indicator_lexicon()
+    key = " ".join(w for w in (W.letters(x) for x in str(ind.get("text") or "").split()) if w)
+    return bool(lex.get("charade", {}).get(key, 0)) or key.lower() in V.ORDERING_INDICATORS \
+        or key.lower() in V.POSITION_INDICATORS
+
+
+def r_misplaced_indicator(node, parent, ctx):
+    """misplacedIndicator: a charade carries a word the lexicon files only under another op. When
+    exactly one op inside it (its own descendant) is of that type, the word moves there: onto an op
+    with no indicator, or in a swap with an op whose word is fine on a charade (visa returned,
+    opened by: Smoke rising over fine = rev<rising>(smoke) with 'over' left to the charade). A
+    one-letter leaf of the charade that is the first/last letter of its own words is wrapped in
+    the selection the word names (Tory leader = first<leader>(Tory)). Kept only when the whole
+    tree still gives the answer and exactly one placement does."""
+    if node.get("op") != "charade" or node.get("unchecked") or not node.get("indicators"):
+        return None
+    bad = _misplaced_keys(node)
+    if len(bad) != 1 or len(node["indicators"]) != 1:
+        return None
+    ind = bad[0]
+    types = _lex_types(ind)
+    if not types:
+        return None
+    rest = [i for i in node["indicators"] if i is not ind]
+    base = {k: v for k, v in node.items() if k != "indicators"}
+    if rest:
+        base["indicators"] = rest
+    good = {}
+
+    def keep(new):
+        if not V.misplaced_indicators(new) and _eval_swapped(node, parent, new, ctx):
+            good[json.dumps(new, sort_keys=True)] = new
+    for d, _ in list(walk(node))[1:]:
+        if leaf(d) or V._OP_LEXICON.get(d.get("op")) not in types or d.get("unchecked"):
+            continue
+        new = copy.deepcopy(base)
+        target = next(x for x, _ in walk(new) if x.get("op") == d.get("op") and x.get("parts") == d.get("parts"))
+        have = d.get("indicators") or []
+        if not have:
+            target["indicators"] = [copy.deepcopy(ind)]
+            keep(new)
+        elif len(have) == 1 and _fits_charade(have[0]) and not rest:
+            target["indicators"] = [copy.deepcopy(ind)]
+            new["indicators"] = [copy.deepcopy(have[0])]
+            keep(new)
+    sel = [t for t in types if t == "letter_selection"]
+    for k, lf in enumerate(node.get("parts") or []):
+        if sel and leaf(lf) and lf.get("words") and lf.get("gives") and not lf.get("unchecked"):
+            g, w = W.letters(lf["gives"]), W.letters(lf["words"])
+            if len(g) != 1 or not w or ind.get("text") in lf["words"] or annotation.is_abbreviation(lf):
+                continue    # an abbreviation (company CO, son S) is a table entry, not a pick
+            for op, pick in (("first", w[0]), ("last", w[-1])):
+                if g == pick:
+                    new = copy.deepcopy(base)
+                    inner = {x: y for x, y in lf.items() if x != "gives"}
+                    new["parts"][k] = {"op": op, "indicators": [copy.deepcopy(ind)], "parts": [inner]}
+                    keep(new)
+    if not good:
+        return None
+    return next(iter(good.values())) if len(good) == 1 else None
+
+
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
            "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
@@ -1750,6 +1831,7 @@ RULE_REPAIRS = {"anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
                 "sharedIndicator": r_shared_indicator, "poolGap": r_pool_gap,
+                "misplacedIndicator": r_misplaced_indicator,
                 "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside,
                 "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c),
                 "del_single": r_del_single, "indInLeaf": r_ind_in_leaf, "ind_in_leaf": r_ind_in_leaf}
