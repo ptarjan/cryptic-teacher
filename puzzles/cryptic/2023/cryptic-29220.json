@@ -189,45 +189,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Unusual",
-       "note": "an unusual version departs from the normal order of the letters"
+       "text": "closes",
+       "at": 15,
+       "note": "closes means shuts round, so the rearranged letters enclose the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "closes",
-         "note": "to close something is to shut it in, so the outer letters wrap round the inner word"
+         "text": "Unusual",
+         "at": 0,
+         "note": "unusual means out of the ordinary, so the letters of change are reordered"
         }
        ],
        "parts": [
         {
          "words": "change",
-         "note": "these letters are rearranged"
-        },
-        {
-         "words": "free",
-         "gives": "OPEN",
-         "note": "open means free, unrestricted"
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "free",
+       "at": 22,
+       "gives": "OPEN",
+       "note": "open means free or unrestricted"
       }
      ]
     },
     "explanation": {
-     "surface": "An odd reform shuts down a free city.",
-     "walkthrough": "'Free city' looks like a historical phrase, but 'free' is wordplay and 'city' alone defines.",
-     "definitionFit": "Copenhagen is the capital city of Denmark."
+     "surface": "An odd shift shuts down a city that was free.",
+     "definitionFit": "Copenhagen is the Danish capital, a major Scandinavian city."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "closes"
+     "misdirectedWord": "free"
     }
    }
   },
@@ -756,37 +758,41 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one item placed inside another, the musical's name holding the song"
+       "at": 42,
+       "note": "in means placed within, so the next pieces go inside the musical"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "musical",
-         "gives": "CATS",
-         "note": "Cats is the Andrew Lloyd Webber musical"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "musical",
+       "at": 45,
+       "gives": "CATS",
+       "note": "Cats is the Andrew Lloyd Webber musical"
       },
       {
-       "words": "song for chorus",
-       "gives": "STROPHE",
-       "note": "a strophe is the section of an ode sung by the chorus in Greek drama"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 24,
+         "gives": "A"
+        },
+        {
+         "words": "song for chorus",
+         "at": 26,
+         "gives": "STROPHE",
+         "note": "a strophe is a stanza sung by the chorus in Greek drama"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The disappointing results of a choral number within a stage show.",
-     "definitionFit": "Catastrophes are disasters, events whose results are dreadfully unlucky for those involved."
+     "surface": "Things going wrong with a choral number in a stage show.",
+     "definitionFit": "Catastrophes are disasters, the worst possible results of events."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "chorus"
     }
@@ -964,40 +970,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "sick",
-       "note": "sick suggests being unwell or upset, so the preceding letters are disturbed and reordered"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "steed",
+       "at": 11,
+       "gives": "HORSE",
+       "note": "a steed is a horse"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sick",
+         "at": 26,
+         "note": "sick in the sense of unwell and disordered, so the letters of both and sea are reordered"
+        }
+       ],
        "parts": [
         {
-         "words": "steed",
-         "gives": "HORSE",
-         "note": "a steed is a horse"
+         "words": "both",
+         "at": 17
         },
         {
-         "words": "both sea",
-         "note": "these letters are rearranged"
+         "words": "sea",
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An animal and its rider are both seasick on a voyage.",
-     "walkthrough": "The hyphen in 'sea-sick' disguises a separate word: 'sick' works on the letters before it.",
-     "definitionFit": "The horseshoe bat is a bat named for its horseshoe-shaped nose leaf, and bats are mammals."
+     "surface": "A creature and its horse are both queasy at sea.",
+     "walkthrough": "'sea-sick' reads as one word, but it splits: 'sea' is fodder and 'sick' the signal.",
+     "definitionFit": "The horseshoe bat is a family of bats named for the horseshoe-shaped flap on their noses."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "sick"
+     "misdirectedWord": "both"
     }
    }
   },

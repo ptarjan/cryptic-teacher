@@ -419,7 +419,8 @@
      "indicators": [
       {
        "text": "around",
-       "note": "turning around faces the other way, so the whole string is read backwards"
+       "at": 44,
+       "note": "around tells us to turn the whole assembled string back to front"
       }
      ],
      "parts": [
@@ -428,51 +429,51 @@
        "indicators": [
         {
          "text": "carrying",
-         "note": "to carry something is to hold it, so one piece is held within another"
+         "at": 17,
+         "note": "IS carrying something holds it between its two letters"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "is",
+         "at": 14,
+         "gives": "IS"
+        },
+        {
+         "op": "charade",
          "parts": [
           {
-           "op": "container",
-           "parts": [
-            {
-             "words": "is",
-             "note": "taken as written, split to hold the rest"
-            },
-            {
-             "words": "a",
-             "note": "taken as written"
-            }
-           ]
+           "words": "a",
+           "at": 26,
+           "gives": "A"
           },
           {
            "words": "strange",
+           "at": 28,
            "gives": "RUM",
-           "note": "rum is British slang for odd or strange"
+           "note": "rum is an old British word for strange or odd"
+          },
+          {
+           "words": "article",
+           "at": 36,
+           "gives": "A",
+           "note": "A is the indefinite article"
           }
          ]
-        },
-        {
-         "words": "article",
-         "gives": "A",
-         "note": "a is the indefinite article"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fighter from Asia carries an odd object about with him.",
-     "walkthrough": "IS holds A RUM A to make IARUMAS, which then reads backwards. Rum meaning strange is old-fashioned British usage.",
-     "definitionFit": "The samurai were the hereditary military class of feudal Japan, serving lords as sword-bearing fighters."
+     "surface": "A fighter from Asia hauls a peculiar object about with him.",
+     "walkthrough": "'around' comes last and acts on everything built before it, so the reversal is of the whole word, not just the inner part.",
+     "definitionFit": "The samurai were the hereditary military class of feudal Japan, sworn to serve a lord."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "article"
+     "misdirectedWord": "strange"
     }
    }
   },

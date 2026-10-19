@@ -440,42 +440,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TARSI",
-     "indicators": [
-      {
-       "text": "shortened",
-       "note": "something shortened has lost its tail, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortened",
+         "at": 16,
+         "note": "shortened means the last letter is cut off"
+        }
+       ],
        "parts": [
         {
          "words": "sailor",
-         "gives": "TA",
-         "note": "TAR is a sailor; the last letter is dropped"
+         "at": 9,
+         "gives": "TAR",
+         "note": "tar is an old word for a sailor"
         },
         {
-         "words": "injury at work?",
-         "gives": "RSI",
-         "note": "repetitive strain injury, often caused by office work; the question mark flags the definition by example"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "injury at work?",
+       "at": 29,
+       "gives": "RSI",
+       "note": "RSI, repetitive strain injury, comes from repeated tasks at work"
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor's bones are damaged in a workplace accident.",
-     "walkthrough": "RSI stands for repetitive strain injury, typically from keyboard or assembly-line work.",
-     "definitionFit": "The tarsi are the small bones of the ankle, the plural of tarsus."
+     "surface": "A seaman's bones, his career cut short by a workplace accident.",
+     "walkthrough": "The question mark flags that 'injury at work' is a description of RSI rather than a dictionary synonym.",
+     "definitionFit": "The tarsi are the group of small bones in the ankle and foot."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "shortened"
+     "misdirectedWord": "injury"
     }
    }
   },
@@ -632,41 +636,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DIAGRAM",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "all but first of",
-       "note": "everything except the opening letter is kept, so the initial is dropped"
+       "text": "shifts",
+       "at": 34,
+       "note": "shifts means moves around, so the remaining letters are reordered"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "shifts",
-         "note": "shifting things moves them about into new positions"
+         "text": "all but first of",
+         "at": 8,
+         "note": "all but first of means drop the opening letter"
         }
        ],
        "parts": [
         {
          "words": "paradigm",
-         "gives": "ARADIGM",
-         "note": "the word without its initial P"
+         "at": 25
+        },
+        {
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sketch almost every aspect of a paradigm shift.",
-     "walkthrough": "'Paradigm shifts' looks like a set phrase, but 'shifts' is the signal to rearrange.",
-     "definitionFit": "A diagram is a simplified drawing showing the shape or structure of something, a sketch."
+     "surface": "A sketch of almost all of a change in thinking.",
+     "walkthrough": "'paradigm shifts' reads as one phrase, but 'shifts' is the signal to rearrange.",
+     "definitionFit": "A diagram is a simple drawing showing the outline of something."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "shifts"
     }
@@ -1209,51 +1215,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FATHEAD",
-     "indicators": [
-      {
-       "text": "finally scrubbed",
-       "note": "the end is wiped out, so the closing letter disappears"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finally scrubbed",
+         "at": 4,
+         "note": "finally scrubbed means the last letter is wiped out"
+        }
+       ],
        "parts": [
         {
          "words": "Dad",
-         "gives": "FATHE",
-         "note": "father without its last letter"
+         "at": 0,
+         "gives": "FATHER",
+         "note": "dad is father"
         },
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "emptied",
-           "note": "emptying a word removes its middle, keeping only the outside letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "and",
-           "note": "the first and last letters of the word"
-          }
-         ]
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "emptied",
+         "at": 25,
+         "note": "emptied means the middle is removed, leaving the outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and",
+         "at": 21,
+         "gives": "AD"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Father cleaned and then drained his mug.",
-     "walkthrough": "'Mug' looks like a drinking cup, but is British slang for a gullible fool.",
-     "definitionFit": "A mug is a dupe or idiot in British slang, and a fathead is likewise a stupid person."
+     "surface": "Father finally washed and drained his cup.",
+     "walkthrough": "'mug' suits the surface as a cup but is the definition in its slang sense of a fool.",
+     "definitionFit": "Mug and fathead are both informal words for a fool."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "mug"
     }
