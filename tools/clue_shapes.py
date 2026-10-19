@@ -63,7 +63,19 @@ SHORT = {"anagram": "ana", "reversal": "rev", "container": "ins", "deletion": "d
          "homophone": "sound", "spoonerism": "spoon", "substitution": "sub", "cycling": "cyc",
          "cryptic": "cdef", "rebus": "rebus", "composite": "comp", "reverse": "reverse", "palindrome": "pal", "first": "first", "last": "last", "middle": "mid",
          "outer": "outer", "alternate": "alt", "regular": "reg", "nth": "nth"}
-FODDER_OPS = {"anagram", "composite", "hidden", *wordplay.SELECT}
+GLOSS = {"anagram": "anagram: the fodder letters rearranged", "reversal": "reversal: the letters read backwards",
+         "container": "container: one part goes inside another", "deletion": "deletion: letters removed from a word",
+         "hidden": "hidden word: the answer sits inside the clue words",
+         "homophone": "homophone: sounds like the answer", "spoonerism": "spoonerism: initial sounds swapped",
+         "substitution": "substitution: one letter or part swapped for another", "cycling": "cycling: letters rotated",
+         "cryptic": "cryptic definition: the whole clue is one misleading definition",
+         "rebus": "rebus: a picture of letters", "composite": "composite anagram: one anagram shared across several fodders",
+         "reverse": "reverse clue: the wordplay and definition roles are flipped",
+         "palindrome": "palindrome: reads the same both ways", "first": "first letter(s) of the fodder",
+         "last": "last letter(s) of the fodder", "middle": "middle letter(s) of the fodder",
+         "outer": "outer letters of the fodder", "alternate": "alternate letters of the fodder",
+         "regular": "letters at a regular interval", "nth": "the nth letter of the fodder"}
+FODDER_OPS ={"anagram", "composite", "hidden", *wordplay.SELECT}
 UNJUDGED_FROM = 150   # a skeleton this common with no verdict is listed at the top
 TOP = 80
 TOP1 = 30    # tier-1 rows in the doc
@@ -399,10 +411,10 @@ def esc(s):
     return str(s).replace("|", "\\|").replace("\n", " ")
 
 
-def ex_line(e, width=150):
+def ex_line(e):
+    """One example in full: the clue, its solution and its whole tree. Never shortened."""
     cid, clue, sol, line = e
-    s = f"`{cid}` {clue} ({sol})" + (f" = `{line}`" if line else "")
-    return s if len(s) <= width * 2 else s[:width * 2] + "..."
+    return f"`{cid}` {clue} ({sol})" + (f" = `{line}`" if line else "")
 
 
 def rollup(c, v, pats, key):
@@ -458,13 +470,19 @@ def tier_sections(c, v, pats, w):
     w("")
     w("### Tier 1: mechanism sets")
     w("")
-    w("| # | mechanisms | clues | share | cumulative | tier-2 groups | skeletons | example |")
-    w("|---:|---|---:|---:|---:|---:|---:|---|")
+    w("| # | mechanisms | clues | share | cumulative | tier-2 groups | skeletons |")
+    w("|---:|---|---:|---:|---:|---:|---:|")
+    ex = []
     cum = 0
     for i, (k, e) in enumerate(sorted(t1.items(), key=lambda kv: -kv[1]["n"])[:TOP1], 1):
         cum += e["n"]
-        w(f"| {i} | {esc(k)} | {e['n']:,} | {pct(e['n'], n)} | {pct(cum, n)} | {len(e['t2']):,} | {e['skels']:,} | "
-          f"{esc(ex_line(e['top'][1][1][0], 55))} |")
+        w(f"| {i} | {esc(k)} | {e['n']:,} | {pct(e['n'], n)} | {pct(cum, n)} | {len(e['t2']):,} | {e['skels']:,} |")
+        ex.append(f"- {i}: {ex_line(e['top'][1][1][0])}")
+    w("")
+    w("Examples, by row number:")
+    w("")
+    for x in ex:
+        w(x)
     w("")
     if len(t1) > TOP1:
         w(f"{len(t1) - TOP1} smaller sets not shown.")
@@ -473,13 +491,20 @@ def tier_sections(c, v, pats, w):
     w("")
     w("`x` is any leaf. Skeletons is how many tier-3 skeletons fold into the tree.")
     w("")
-    w("| # | tree | clues | share | cumulative | skeletons | commonest skeleton | example |")
-    w("|---:|---|---:|---:|---:|---:|---|---|")
+    w("| # | tree | clues | share | cumulative | skeletons | commonest skeleton |")
+    w("|---:|---|---:|---:|---:|---:|---|")
+    ex = []
     cum = 0
     for i, (k, e) in enumerate(sorted(t2.items(), key=lambda kv: -kv[1]["n"])[:TOP2], 1):
         cum += e["n"]
         w(f"| {i} | `{esc(k)}` | {e['n']:,} | {pct(e['n'], n)} | {pct(cum, n)} | {e['skels']:,} | "
-          f"`{esc(e['top'][0])}` | {esc(ex_line(e['top'][1][1][0], 45))} |")
+          f"`{esc(e['top'][0])}` |")
+        ex.append(f"- {i}: {ex_line(e['top'][1][1][0])}")
+    w("")
+    w("Examples, by row number:")
+    w("")
+    for x in ex:
+        w(x)
     w("")
 
 
@@ -502,10 +527,16 @@ def build_doc(c, v):
       "**F** folded (`gives` is part of the words, or the words part of `gives`: a link word, indicator or "
       "selection swallowed by the leaf), **A** one or two letters from other words (abbreviation, symbol), "
       "**S** synonym or other `gives`, **B** bare letters with no clue words, **U** unchecked leaf. "
-      "`(a+b)` is a charade; `ana`, `ins` (container), `del`, `rev`, `hid`, `sound`, `spoon`, `sub`, `cyc`, `pal`, "
-      "`cdef` (cryptic definition), `rebus` (a picture of letters), `comp` (composite anagram), `reverse` (reverse clue), `first last mid outer alt reg nth` (letter selection) name the other ops; "
       "`?` after an op name means its node is unchecked. Definition key: `2d` is the number of "
       "definitions, then where each sits (S start, E end, W whole clue, M middle); `&lit` when andLit is set.")
+    w("")
+    w("Ops, as written in a skeleton:")
+    w("")
+    w("| written | meaning |")
+    w("|---|---|")
+    w("| `(a+b)` | charade: the parts placed one after another |")
+    for op, ab in SHORT.items():
+        w(f"| `{ab}` | {GLOSS[op]} |")
     w("")
     tier_sections(c, v, pats, w)
     # unjudged
@@ -518,7 +549,7 @@ def build_doc(c, v):
           "(listed by count; add a row to `shapes` or a pattern):")
         w("")
         for sk, r in unj[:40]:
-            w(f"- `{sk}` ({r[0]:,}): {ex_line(r[1][0], 90)}")
+            w(f"- `{sk}` ({r[0]:,}): {ex_line(r[1][0])}")
         if len(unj) > 40:
             w(f"- ... and {len(unj) - 40} more")
     else:
@@ -561,13 +592,19 @@ def build_doc(c, v):
     # families
     w("## Families")
     w("")
-    w("| family | clues | share | unchecked | unindicated | example |")
-    w("|---|---:|---:|---:|---:|---|")
+    w("| family | clues | share | unchecked | unindicated |")
+    w("|---|---:|---:|---:|---:|")
+    ex = []
     for name, f in sorted(c.fam.items(), key=lambda kv: -kv[1][0]):
         fv = v["families"].get(name, {})
         note = f" ({fv['note']})" if fv.get("note") else ""
-        w(f"| {esc(name)}{esc(note)} | {f[0]:,} | {pct(f[0], n)} | {f[3]:,} | {f[4]:,} | "
-          f"{esc(ex_line(f[1][0], 60))} |")
+        w(f"| {esc(name)}{esc(note)} | {f[0]:,} | {pct(f[0], n)} | {f[3]:,} | {f[4]:,} |")
+        ex.append(f"- {esc(name)}: {ex_line(f[1][0])}")
+    w("")
+    w("Examples, by family:")
+    w("")
+    for x in ex:
+        w(x)
     w("")
     w("Unchecked and unindicated count clues with at least one such node. Op combinations "
       "behind the compound families (clues):")
@@ -580,14 +617,20 @@ def build_doc(c, v):
     # top table
     w(f"## The {TOP} commonest skeletons (tier 3)")
     w("")
-    w("| # | clues | share | skeleton | commonest definitions | verdict | example |")
-    w("|---:|---:|---:|---|---|---|---|")
+    w("| # | clues | share | skeleton | commonest definitions | verdict |")
+    w("|---:|---:|---:|---|---|---|")
+    ex = []
     for i, (sk, r) in enumerate(ranked[:TOP], 1):
         row, _ = judge(sk, v, pats)
         verdict = (row["verdict"] if row else "none")
         defs = ", ".join(f"{k} {pct(x, r[0])}" for k, x in r[4].most_common(2))
-        w(f"| {i} | {r[0]:,} | {pct(r[0], n)} | `{esc(sk)}` | {esc(defs)} | {verdict} | "
-          f"{esc(ex_line(r[1][0], 55))} |")
+        w(f"| {i} | {r[0]:,} | {pct(r[0], n)} | `{esc(sk)}` | {esc(defs)} | {verdict} |")
+        ex.append(f"- {i}: {ex_line(r[1][0])}")
+    w("")
+    w("Examples, by row number:")
+    w("")
+    for x in ex:
+        w(x)
     w("")
     # judged rows of the top table, with their why
     notes = [(sk, judge(sk, v, pats)[0]) for sk, _ in ranked[:TOP]]
@@ -604,11 +647,18 @@ def build_doc(c, v):
     w("Clues containing the pair at least once, parent over child (a charade is an op here). "
       "Pairs that are rare or never occur are the ones to doubt.")
     w("")
-    w("| parent | child | clues | example |")
-    w("|---|---|---:|---|")
+    w("| parent | child | clues |")
+    w("|---|---|---:|")
+    ex = []
     prs = sorted(c.pairs.items(), key=lambda kv: -kv[1][0])
     for (a, b), (cnt, e) in prs[:45]:
-        w(f"| {SHORT.get(a, 'charade')} | {SHORT.get(b, 'charade')} | {cnt:,} | {esc(ex_line(e, 45))} |")
+        w(f"| {SHORT.get(a, 'charade')} | {SHORT.get(b, 'charade')} | {cnt:,} |")
+        ex.append(f"- {SHORT.get(a, 'charade')} over {SHORT.get(b, 'charade')}: {ex_line(e)}")
+    w("")
+    w("Examples, by pair:")
+    w("")
+    for x in ex:
+        w(x)
     w("")
     # distributions
     w("## Distributions")
