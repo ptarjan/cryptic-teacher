@@ -903,46 +903,60 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "CODE",
-     "indicators": [
-      {
-       "text": "puts new heart into",
-       "note": "a new heart means the middle letter is swapped for a different one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "police department",
-       "gives": "CID",
-       "note": "Criminal Investigation Department, the British detective branch"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "puts new heart into",
+         "at": 17,
+         "note": "the middle letter of the word is replaced by a different one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "police department",
+         "at": 37,
+         "gives": "CID",
+         "note": "the CID is the Criminal Investigation Department of the British police"
+        },
+        {
+         "gives": "I"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "end of",
-         "note": "the end of a word is its final letter"
+         "at": 62,
+         "note": "end of picks the last letter"
         }
        ],
        "parts": [
         {
          "words": "case",
-         "note": "the last letter of case"
+         "at": 69,
+         "note": "its last letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Inspector Morse revitalising a police department before wrapping up a case.",
-     "walkthrough": "The clue does not say what the new heart is; the I of CID becomes O, which the crossing letters confirm. 'Morse' tempts you towards the detective, but it is Morse code.",
-     "definitionFit": "Morse is a code of dots and dashes, so it is one example of a code."
+     "surface": "Inspector Morse livens up the detectives before closing a case.",
+     "walkthrough": "The I in CID is swapped for O, then E ends 'case'. 'Morse' looks like the TV detective, fitting the police story, but here is the signalling system.",
+     "definitionFit": "Morse is a code of dots and dashes used to send messages."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Morse"
     }
    }

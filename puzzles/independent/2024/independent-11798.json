@@ -375,7 +375,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "highly-spiced",
+      "text": "highly-spiced?",
       "at": 35
      }
     ],
@@ -384,49 +384,54 @@
      "indicators": [
       {
        "text": "tucking into",
-       "note": "tucking into something goes inside it, so these letters sit within the other word"
+       "at": 16,
+       "note": "tucking into means slipping inside, so these letters go into the fish"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "fish",
-         "gives": "FRY",
-         "note": "fry are young fish"
-        },
-        {
-         "words": "I",
-         "note": "taken as written"
-        }
-       ]
+       "words": "fish",
+       "at": 29,
+       "gives": "FRY",
+       "note": "fry are young fish"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "start to",
-         "note": "the start of a word is its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "eat",
-         "note": "the first letter of eat"
+         "words": "I",
+         "at": 0
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start to",
+           "at": 2,
+           "note": "start to picks the first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "eat",
+           "at": 11,
+           "note": "its first letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner begins a fish meal and wonders whether it is very spicy.",
-     "definitionFit": "Fiery food is hot with spice, burning the mouth like fire."
+     "surface": "Someone begins a meal by tucking into fish, wondering if it is spicy.",
+     "walkthrough": "I and E (the start of 'eat') are tucked into FRY.",
+     "definitionFit": "Hot spicy food is described as fiery, burning the mouth."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "eat"
+     "misdirectedWord": "tucking"
     }
    }
   },
@@ -670,47 +675,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIEGELORD",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means almost all of the word, so its last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "story",
+       "at": 9,
+       "gives": "LIE",
+       "note": "a story can be a lie"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "after reflection",
+         "at": 35,
+         "note": "reflection as in a mirror image, so the letters read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "story",
-         "gives": "LIE",
-         "note": "a lie is a made-up story"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "after reflection",
-           "note": "a reflection in a mirror flips things, so these words are read back to front"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "mostly",
+             "at": 16,
+             "note": "most of the word, so its last letter goes"
+            }
+           ],
            "parts": [
             {
              "words": "funny",
-             "gives": "DROL",
-             "note": "droll means funny; mostly drops its last letter"
+             "at": 23,
+             "gives": "DROLL",
+             "note": "droll means funny"
             },
             {
-             "words": "say",
-             "gives": "EG",
-             "note": "e.g. means 'for example', i.e. say"
+             "gives": "L"
             }
            ]
+          },
+          {
+           "words": "say",
+           "at": 30,
+           "gives": "EG",
+           "note": "e.g. means say, for example"
           }
          ]
         }
@@ -719,14 +730,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone thinks back on a tale that was mostly amusing, by way of example.",
-     "walkthrough": "Only the funny-plus-say part turns round; the story stays as it is at the front.",
-     "definitionFit": "A liege lord is a feudal overlord, the superior to whom a vassal owes service."
+     "surface": "A boss's tale, mostly amusing, perhaps, after some thought.",
+     "walkthrough": "'after reflection' turns both the shortened funny word and the 'say' abbreviation round together, so the 'say' piece ends up first.",
+     "definitionFit": "A liege lord is a feudal superior to whom vassals owe allegiance."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Superior"
+     "misdirectedWord": "reflection"
     }
    }
   },
@@ -1015,38 +1026,40 @@
    "annotation": {
     "definitions": [
      {
-      "text": "get annoyed",
-      "at": 43,
-      "note": "nettle means to annoy; the clue's phrase leans on the result, being nettled"
+      "text": "get annoyed?",
+      "at": 43
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NETTLE",
      "indicators": [
       {
        "text": "making change of direction",
-       "note": "a change of direction swaps one compass point for another in the word"
+       "at": 10,
+       "note": "one compass point is swapped for another, south becoming north"
       }
      ],
      "parts": [
       {
-       "words": "Decide",
+       "words": "Decide on",
+       "at": 0,
        "gives": "SETTLE",
-       "note": "to settle a matter is to decide it"
+       "note": "to settle on something is to decide on it"
       },
       {
-       "words": "change of direction",
+       "gives": "S",
+       "note": "S is south on the compass"
+      },
+      {
        "gives": "N",
-       "note": "south, S, is swapped for north, N"
+       "note": "N is north on the compass"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone resolves to do a U-turn and is irritated about it.",
-     "walkthrough": "S becomes N: the compass points south and north are the change of direction.",
-     "definitionFit": "To nettle is to irritate, from the sting of the plant; the question mark admits the stretch to being irritated."
+     "surface": "Changing your mind about a decision, and getting irritated about it.",
+     "walkthrough": "The 'change of direction' turns S (south) into N (north) in SETTLE.",
+     "definitionFit": "To nettle someone is to irritate them, so to get nettled is to get annoyed."
     },
     "features": {
      "answerInScene": false,
@@ -1181,36 +1194,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CURLEW",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "without an end means the word's last letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Scoundrel",
+       "at": 0,
+       "gives": "CUR",
+       "note": "a cur is a contemptible man"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 11,
+         "note": "without its end, so the last letter goes"
+        }
+       ],
        "parts": [
         {
-         "words": "Scoundrel",
-         "gives": "CUR",
-         "note": "a cur is a contemptible man"
+         "words": "lustful",
+         "at": 21,
+         "gives": "LEWD",
+         "note": "lewd means lustful"
         },
         {
-         "words": "lustful",
-         "gives": "LEW",
-         "note": "lewd means lustful; endlessly drops its last letter"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lecherous rogue who has someone in tears.",
-     "definitionFit": "The curlew is a wading bird known for its long, mournful, haunting call."
+     "surface": "A lecherous rogue sobs alongside someone.",
+     "walkthrough": "'endlessly' trims LEWD to LEW.",
+     "definitionFit": "The curlew is a wading bird known for its mournful, haunting call."
     },
     "features": {
      "answerInScene": false,
@@ -1745,53 +1763,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GUTENBERG",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "instinctive",
+       "at": 21,
+       "gives": "GUT",
+       "note": "a gut reaction is an instinctive one"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 48,
+         "note": "about says the shortened word goes around the letter for book"
+        }
+       ],
        "parts": [
         {
-         "words": "instinctive",
-         "gives": "GUT",
-         "note": "a gut reaction is an instinctive one"
-        },
-        {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "about",
-           "note": "about means surrounding, so the shortened word goes around the other letter"
+           "text": "mostly",
+           "at": 41,
+           "note": "most of the word, so its last letter goes"
           }
          ],
          "parts": [
           {
            "words": "vigour",
-           "gives": "ENERG",
-           "note": "energy is vigour; mostly drops its last letter"
+           "at": 33,
+           "gives": "ENERGY",
+           "note": "energy is vigour"
           },
           {
-           "words": "book",
-           "gives": "B",
-           "note": "B is the abbreviation for book"
+           "gives": "Y"
           }
          ]
+        },
+        {
+         "words": "book",
+         "at": 54,
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pioneering printer's drive is mostly about books.",
-     "walkthrough": "The 's stands for 'is', linking the printer to the wordplay.",
-     "definitionFit": "Johannes Gutenberg introduced movable-type printing to Europe in the 15th century, a landmark innovation."
+     "surface": "A pioneering printer's drive, mostly concerning books.",
+     "walkthrough": "'mostly' trims ENERGY to ENERG, which goes 'about' B. The 's in 'printer's' means 'is'.",
+     "definitionFit": "Johannes Gutenberg introduced movable-type printing to Europe, a pioneering technology."
     },
     "features": {
      "answerInScene": true,

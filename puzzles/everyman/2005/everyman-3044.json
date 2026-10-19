@@ -1062,47 +1062,54 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "RULINGS",
-     "indicators": [
-      {
-       "text": "good for East",
-       "note": "for means in place of, so one letter replaces another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "game",
+       "at": 13,
        "gives": "RU",
-       "note": "RU is rugby union"
+       "note": "RU is rugby union, a game"
       },
       {
-       "words": "more than one series",
-       "gives": "LINES",
-       "note": "a line is a series, and more than one makes it plural"
-      },
-      {
-       "words": "good",
-       "gives": "G",
-       "note": "G is the abbreviation for good"
-      },
-      {
-       "words": "East",
-       "gives": "E",
-       "note": "E is the abbreviation for East, which is swapped out"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 24,
+         "note": "for means in place of, so one letter stands in for the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "more than one series",
+         "at": 36,
+         "gives": "LINES",
+         "note": "lines are series, rows of things"
+        },
+        {
+         "words": "East",
+         "at": 28,
+         "gives": "E",
+         "note": "E is the compass abbreviation for East"
+        },
+        {
+         "words": "good",
+         "at": 19,
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Referees' decisions in a game across a series of matches.",
-     "walkthrough": "In LINES the E for East is replaced by G for good.",
-     "definitionFit": "Rulings are official decisions, such as those made by a judge or referee."
+     "surface": "Referees' calls in a match change one letter in several series.",
+     "walkthrough": "In LINES, G (good) takes the place of E (East), giving LINGS.",
+     "definitionFit": "Rulings are official decisions, as made by a judge or referee."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "game"
+     "misdirectedWord": "series"
     }
    }
   },
@@ -1231,56 +1238,67 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Broccoli",
+      "text": "Broccoli?",
       "at": 52
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CALABRESE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is dropped"
+       "text": "following",
+       "at": 26,
+       "note": "following says the rearranged letters come after the first letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "lead of",
+         "at": 36,
+         "note": "the lead of a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "lead of",
-           "note": "the lead is the front, so only the opening letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "'Cubby'",
-           "note": "first letter of Cubby"
-          }
-         ]
+         "words": "Cubby",
+         "at": 45,
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Deploy",
+         "at": 0,
+         "note": "deploy means arrange or set out, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "laser",
+         "at": 7
         },
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "Deploy",
-           "note": "to deploy is to arrange or spread out in a new formation"
+           "text": "almost",
+           "at": 19,
+           "note": "almost the whole word, so its last letter goes"
           }
          ],
          "parts": [
           {
-           "words": "laser",
-           "note": "taken as written for the mix"
+           "words": "beam",
+           "at": 13
           },
           {
-           "words": "beam",
-           "gives": "BEA",
-           "note": "beam with its last letter cut"
+           "gives": "M"
           }
          ]
         }
@@ -1289,9 +1307,9 @@
      ]
     },
     "explanation": {
-     "surface": "A laser-beam scene suits a Bond film produced by Albert 'Cubby' Broccoli.",
-     "walkthrough": "Cubby Broccoli produced the James Bond films, famous for laser beams; here Broccoli is simply the vegetable.",
-     "definitionFit": "Calabrese is a common green variety of broccoli, named after Calabria in Italy."
+     "surface": "A James Bond-style laser scene, with producer Cubby Broccoli in charge.",
+     "walkthrough": "C, then LASER and BEA ('almost' beam) rearranged ('Deploy'). Albert 'Cubby' Broccoli produced the Bond films, which suits lasers; here broccoli is the vegetable.",
+     "definitionFit": "Calabrese is a common variety of green sprouting broccoli."
     },
     "features": {
      "answerInScene": false,

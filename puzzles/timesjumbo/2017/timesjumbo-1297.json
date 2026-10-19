@@ -1308,61 +1308,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HACIENDA",
-     "indicators": [
-      {
-       "text": "Heartless",
-       "note": "with its heart removed the city keeps only its outer letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Heartless",
+         "at": 0,
+         "note": "taking the heart out of a word leaves only its first and last letters"
+        }
+       ],
        "parts": [
         {
          "words": "Havana",
-         "gives": "HA",
-         "note": "first and last letters only"
+         "at": 10,
+         "note": "its outer letters"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bringing",
+         "at": 23,
+         "note": "the spies are bringing the death word in with them, holding it"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "bringing",
-           "note": "the spies bring something inside with them"
-          },
-          {
-           "text": "inside",
-           "note": "inside places the death within the agency's letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "spies",
-           "gives": "CIA",
-           "note": "the CIA, the American spy agency"
-          },
-          {
-           "words": "death",
-           "gives": "END",
-           "note": "death is the end"
-          }
-         ]
+         "text": "inside",
+         "at": 38,
+         "note": "inside says the word for death goes within the word for spies"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spies",
+         "at": 17,
+         "gives": "CIA",
+         "note": "the CIA is the American spy agency"
+        },
+        {
+         "words": "death",
+         "at": 32,
+         "gives": "END",
+         "note": "an end is a death"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ruthless agents in Cuba bring murder to a country estate.",
-     "definitionFit": "A hacienda is a large estate or main dwelling on a plantation or ranch in Spanish-speaking countries."
+     "surface": "Cuban agents bring murder into a ranch house.",
+     "walkthrough": "Havana and spies suggest Cuban espionage, but the spies are the American agency, and the Cuban city only supplies its two end letters.",
+     "definitionFit": "A hacienda is a large estate or its main dwelling in Spanish-speaking countries."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Heartless"
+     "misdirectedWord": "Havana"
     }
    }
   },
@@ -2635,41 +2639,46 @@
      "indicators": [
       {
        "text": "admits",
-       "note": "to admit is to let in, so the relative takes the following pieces inside"
+       "at": 9,
+       "note": "admits means lets in, so the word for relative holds the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Relative",
-         "gives": "GRAN",
-         "note": "gran, grandmother"
-        },
-        {
-         "words": "unknown",
-         "gives": "Y",
-         "note": "y, an algebraic unknown"
-        }
-       ]
+       "words": "Relative",
+       "at": 0,
+       "gives": "GRAN",
+       "note": "a gran is a grandmother, a relative"
       },
       {
-       "words": "transgression",
-       "gives": "SIN",
-       "note": "a sin is a transgression"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "unknown",
+         "at": 16,
+         "gives": "Y",
+         "note": "in algebra x, y and z are unknowns, so Y"
+        },
+        {
+         "words": "transgression",
+         "at": 24,
+         "gives": "SIN",
+         "note": "a sin is a transgression"
+        }
+       ]
       }
      ]
     },
     "spelling": "GRAY'S INN",
     "explanation": {
-     "surface": "A relative confesses an unspecified wrongdoing in a gathering of lawyers.",
-     "definitionFit": "Gray's Inn is one of the four Inns of Court in London, the societies to which barristers belong."
+     "surface": "A family member owns up to a mysterious offence among lawyers.",
+     "walkthrough": "GRAN 'admits' Y and SIN. Gray's Inn is one of the four Inns of Court in London, to which every barrister belongs.",
+     "definitionFit": "The Inns of Court are the professional bodies of English barristers, and Gray's Inn is one of them."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "admits"
+     "aptDefinition": true,
+     "misdirectedWord": "Relative"
     }
    }
   },

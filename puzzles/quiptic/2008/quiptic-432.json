@@ -655,53 +655,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about can mean in a disordered state, so the following word is moved around"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "to the French",
+       "at": 15,
+       "gives": "AU",
+       "note": "au is French for 'to the'"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leading",
+         "at": 29,
+         "note": "leading picks the first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "to the French",
-         "gives": "AU",
-         "note": "au is French for to the"
-        },
+         "words": "trainer",
+         "at": 37,
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leading",
-           "note": "the leading letter is the one at the front, so only the opening of trainer counts"
-          }
-         ],
-         "parts": [
-          {
-           "words": "trainer",
-           "note": "first letter of trainer"
-          }
-         ]
-        },
+         "text": "about",
+         "at": 45,
+         "note": "about in the sense of all around, out of order, so the letters are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "horses",
-         "note": "horses rearranged"
+         "at": 51
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A letter writer sending news to a top French racehorse trainer about the horses.",
-     "definitionFit": "An authoress is a woman writer, an old-fashioned feminine form of author."
+     "surface": "A writer addresses a top racehorse trainer on the subject of horses.",
+     "walkthrough": "AU, T (the start of 'trainer') and HORESS (horses rearranged by 'about').",
+     "definitionFit": "An authoress is a female author, someone whose job is writing books."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "trainer"
+     "misdirectedWord": "about"
     }
    }
   },
@@ -1024,42 +1029,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "on the move",
-       "note": "something on the move is shifting about, so the letters shift into new places"
+       "text": "outside",
+       "at": 39,
+       "note": "outside says the scrambled letters sit around the remedy"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "outside",
-         "note": "outside means wrapping around, so the shifted letters go round the remedy"
+         "text": "on the move",
+         "at": 27,
+         "note": "letters on the move are shifted around into a new order"
         }
        ],
        "parts": [
         {
          "words": "boss",
-         "note": "boss rearranged"
-        },
-        {
-         "words": "the remedy",
-         "gives": "CURE",
-         "note": "a cure is a remedy"
+         "at": 22
         }
        ]
+      },
+      {
+       "words": "the remedy",
+       "at": 6,
+       "gives": "CURE",
+       "note": "a cure is the remedy"
       }
      ]
     },
     "explanation": {
-     "surface": "A manager walks around while keeping the treatment secret.",
-     "definitionFit": "To obscure something is to conceal it or make it hard to see."
+     "surface": "A cure is concealed while the boss is out and about.",
+     "walkthrough": "OBSS (boss rearranged, 'on the move') is placed 'outside' CURE: OBS(CURE)S.",
+     "definitionFit": "To obscure something is to conceal it or keep it from view."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "boss"
     }
@@ -1092,44 +1101,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "crushed",
-       "note": "crushing breaks something up, so the number's letters are broken and remade"
+       "text": "swallowed",
+       "at": 32,
+       "note": "the pills swallow the crushed letters, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "pills",
+       "at": 8,
+       "gives": "TABLETS",
+       "note": "tablets are pills"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "swallowed",
-         "note": "swallowed means taken inside, so the pills enclose the mixed-up number"
+         "text": "crushed",
+         "at": 20,
+         "note": "crushed letters are broken up and rearranged"
         }
        ],
        "parts": [
         {
-         "words": "pills",
-         "gives": "TABLETS",
-         "note": "tablets are pills"
-        },
-        {
          "words": "Nine",
-         "note": "nine rearranged"
+         "at": 15
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Questioning an athlete's drugs: nine tablets ground up and taken.",
-     "walkthrough": "The 's stands for 'is'; the crushed nine sits between TABLET and the final S.",
-     "definitionFit": "Table tennis, or ping-pong, is a game played with bats and a light ball across a net."
+     "surface": "A sporting question about pills: nine of them crushed and swallowed.",
+     "walkthrough": "ENNI (nine rearranged, 'crushed') is 'swallowed' by TABLETS. The 's in 'Sport's' stands for 'is'.",
+     "definitionFit": "Table tennis, or ping-pong, is a sport played with bats and a light ball across a table."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "pills"
     }
    }

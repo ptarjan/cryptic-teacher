@@ -46,37 +46,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MISCAST",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "almost means not quite all of it, so the final letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost the whole word, so its final letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "overlook",
-         "gives": "MIS",
-         "note": "to overlook is to miss, here cut short by one letter"
+         "at": 7,
+         "gives": "MISS",
+         "note": "to overlook something is to miss it"
         },
         {
-         "words": "model",
-         "gives": "CAST",
-         "note": "a cast is a model made in a mould"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "model",
+       "at": 16,
+       "gives": "CAST",
+       "note": "a cast is a model made in a mould"
       }
      ]
     },
     "explanation": {
-     "surface": "A casting director glosses over a model who has landed the wrong role.",
-     "walkthrough": "MISS loses its last S to become MIS; 'model' looks like the person being cast but is the noun CAST.",
-     "definitionFit": "An actor miscast has been handed a role that does not suit them, which is the wrong part."
+     "surface": "An actor nearly overlooked by a model maker is handed the wrong role.",
+     "walkthrough": "'Almost' trims MISS to MIS.",
+     "definitionFit": "An actor miscast has been assigned a role that does not suit them."
     },
     "features": {
      "answerInScene": true,
@@ -826,36 +830,39 @@
      "indicators": [
       {
        "text": "around",
-       "note": "going around something means encircling it, so one piece wraps the other"
+       "at": 19,
+       "note": "around says the word for crowd is placed round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "crowd",
-         "gives": "RING",
-         "note": "a ring is a gang or clique"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
-        }
-       ]
+       "words": "crowd",
+       "at": 13,
+       "gives": "RING",
+       "note": "a ring is a group or gang of people"
       },
       {
-       "words": "journalists",
-       "gives": "PRESS",
-       "note": "the press is journalists collectively"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "at": 26,
+         "gives": "E"
+        },
+        {
+         "words": "journalists",
+         "at": 34,
+         "gives": "PRESS",
+         "note": "the press collectively means journalists"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A throng jostling around English reporters while being held back.",
-     "walkthrough": "The crowd splits into two parts, its first letter before the reporters and its last three after.",
-     "definitionFit": "To repress feelings or people is to restrain or hold them down, a direct synonym."
+     "surface": "A mob gathers round English reporters, holding them back.",
+     "walkthrough": "'crowd' suggests the press itself, but the journalists are the press; the crowd is a ring, as in a gang or circle of people.",
+     "definitionFit": "Repressing feelings or information means restraining or holding them in check."
     },
     "features": {
      "answerInScene": true,
@@ -1111,56 +1118,61 @@
      "indicators": [
       {
        "text": "to stop",
-       "note": "a stopper plugs a gap from inside, so a piece is lodged within another"
+       "at": 34,
+       "note": "to stop something is to plug it, so these letters are put into the middle of the horse"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "rearing",
-           "note": "a rearing animal stands up on its hind legs, turning upward in a down clue"
-          }
-         ],
-         "parts": [
-          {
-           "words": "horse",
-           "gives": "ARAB",
-           "note": "an Arab is a breed of horse"
-          }
-         ]
-        },
-        {
-         "words": "is",
-         "note": "taken as printed"
-        }
-       ]
-      },
-      {
-       "op": "last",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "finally",
-         "note": "finally means at the end, so only the closing letter is kept"
+         "text": "rearing",
+         "at": 48,
+         "note": "a horse rearing stands up, and in a down clue that reads the word upwards, backwards"
         }
        ],
        "parts": [
         {
-         "words": "sent",
-         "note": "the last letter of the word"
+         "words": "horse",
+         "at": 42,
+         "gives": "ARAB",
+         "note": "an Arab is a breed of horse"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "is",
+         "at": 18
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 21,
+           "note": "finally picks the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sent",
+           "at": 29,
+           "note": "its last letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A groundsman stops a horse that is rearing, and gets sent away.",
-     "walkthrough": "'Grounds' suggests a sports field or estate; they are coffee grounds. IS and T go inside the reversed horse.",
-     "definitionFit": "A barista prepares espresso drinks in a café, so their job revolves around coffee."
+     "surface": "A groundsman is sent off at last to halt a horse rearing up.",
+     "walkthrough": "'rearing' turns ARAB into BARA, and IS plus T (the end of 'sent') plugs it. The 'grounds' are coffee grounds, not a sports field.",
+     "definitionFit": "A barista works with coffee, whose used beans are called grounds."
     },
     "features": {
      "answerInScene": false,

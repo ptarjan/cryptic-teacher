@@ -884,43 +884,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "ROWINGBOAT",
+     "spelt": "ROWINGBOAT",
      "indicators": [
       {
        "text": "to Spooner",
-       "note": "Spooner famously swapped the opening sounds of words, so the two sounds trade places"
+       "at": 41,
+       "note": "attributing the phrase to Spooner says the opening sounds of two words are swapped"
       }
      ],
      "parts": [
       {
        "words": "aircraft company",
+       "at": 10,
        "gives": "BOEING",
-       "note": "the American aircraft maker"
+       "note": "Boeing is the American aircraft maker"
       },
       {
-       "words": "sent a letter",
-       "gives": "WROTE",
-       "note": "one writes a letter"
-      },
-      {
-       "unchecked": true,
-       "words": "aircraft company sent a letter",
-       "gives": "ROWINGBOAT",
-       "soundsLike": "BOEING WROTE",
-       "note": "the opening sounds of the two words swap places"
+       "op": "homophone",
+       "spelt": "ROTE",
+       "parts": [
+        {
+         "words": "sent a letter",
+         "at": 27,
+         "gives": "WROTE",
+         "note": "to have sent a letter is to have wrote it: wrote, which sounds like rote"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plane manufacturer writes to someone called Spooner about haulage.",
-     "walkthrough": "The opening sounds B and R swap: Boeing wrote becomes rowing boat.",
-     "definitionFit": "A rowing boat is a small craft propelled by oars, a means of transport on water."
+     "surface": "A plane maker writes off to someone called Spooner about getting transport.",
+     "walkthrough": "Swap the opening sounds of BOEING and WROTE (said 'rote'): 'roe-ing boat', which is how ROWING BOAT is said.",
+     "definitionFit": "A boat propelled by oars is a means of transport across water."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "Transport"
     }
    }
@@ -1201,52 +1202,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KEEPTIME",
-     "indicators": [
-      {
-       "text": "hollow",
-       "note": "hollowing a word scoops out its middle, leaving only the outer letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "board",
+       "at": 19,
+       "gives": "KEEP",
+       "note": "board and keep both mean food and lodging, so board gives KEEP"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "hiding in",
+         "at": 29,
+         "note": "the letters of I'm are hidden away inside the hollowed word"
+        }
+       ],
        "parts": [
         {
-         "words": "board",
-         "gives": "KEEP",
-         "note": "keep is board and lodging, as in earning your keep"
-        },
-        {
-         "op": "container",
+         "op": "outer",
          "indicators": [
           {
-           "text": "hiding in",
-           "note": "something hiding in another sits inside it"
+           "text": "hollow",
+           "at": 39,
+           "note": "a hollow tree has had its insides removed, leaving only the outer letters of tree"
           }
          ],
          "parts": [
           {
            "words": "tree",
-           "gives": "TE",
-           "note": "with its inside removed"
-          },
-          {
-           "words": "I'm",
-           "note": "taken as written"
+           "at": 46,
+           "note": "the outer letters of tree"
           }
          ]
+        },
+        {
+         "words": "I'm",
+         "at": 25,
+         "gives": "IM",
+         "note": "I'm written without its apostrophe"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for sizing a plank you have stashed inside a hollow trunk.",
-     "walkthrough": "Keep, as in 'earn your keep', means food and lodging, which is what board means too.",
-     "definitionFit": "A clock that keeps time records the hours correctly; musicians keep time by holding the beat."
+     "surface": "A plank and a person lurking inside a hollow trunk, oddly connected to precise measurement.",
+     "walkthrough": "Board and keep are both old words for food and lodging. A hollow tree keeps only its shell, the two outer letters.",
+     "definitionFit": "To keep time is to mark or measure time accurately, as a clock or a drummer does."
     },
     "features": {
      "answerInScene": false,

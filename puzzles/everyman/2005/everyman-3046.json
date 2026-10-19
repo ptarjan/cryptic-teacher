@@ -683,47 +683,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LANCECORPORAL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "cut",
-       "note": "cutting a phrase trims its end, so the final letter is lost"
+       "text": "off",
+       "at": 28,
+       "note": "off in the sense of gone bad or wrong, signalling that the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "car",
+       "at": 7
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "off",
-         "note": "something gone off has gone wrong, so all the letters are rearranged"
+         "text": "cut",
+         "at": 16,
+         "note": "a cut word loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "car park",
-         "gives": "CARPAR",
-         "note": "car park with its last letter removed"
+         "words": "park",
+         "at": 11,
+         "note": "park without its last letter"
         },
         {
-         "words": "colonel",
-         "note": "taken as written, as anagram fodder"
+         "gives": "K"
         }
        ]
+      },
+      {
+       "words": "colonel",
+       "at": 20
       }
      ]
     },
     "explanation": {
-     "surface": "A junior soldier in a car park snubs his colonel.",
-     "walkthrough": "'cut' looks like snubbing, but it docks the K from car park.",
-     "definitionFit": "A lance corporal is the lowest rank of non-commissioned officer in the British Army."
+     "surface": "A non-commissioned officer in a car park cuts a colonel dead.",
+     "walkthrough": "'cut' trims park to PAR; CAR, PAR and COLONEL are then rearranged ('off').",
+     "definitionFit": "A lance corporal is the lowest-ranking non-commissioned officer in the British Army."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "misdirectedWord": "off"
     }
    }
   },
