@@ -17,6 +17,10 @@ tools/data/source_clue_wrong.json merge=json-keys filter=json-keys
 # A list of {"id": ...} rows, one per line, that every puzzle commit of a
 # re-annotation prunes (tools/own_rows.py): merged per id, no clean filter.
 tools/data/shape_reannotate.json merge=json-keys
+# The ratchet allowances, nested {field: {puzzle: count}}, which the daily jobs and
+# push_checked.sh --requeue-job both rewrite; a line merge conflicted (blog-facts
+# cf61487b14b), so it is merged per key like the tables above.
+tools/annotation_backlog.json merge=json-keys filter=json-keys
 
 # Puzzle files the daily update and the pre-reset burn can both annotate in one
 # night: merged entry by entry by `tools/json_merge.py --puzzle`, registered as
