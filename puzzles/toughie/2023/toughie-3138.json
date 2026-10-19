@@ -625,19 +625,47 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "covered by",
        "at": 22,
-       "note": "the new letter comes first, so in this across entry it covers the ocean's edges"
+       "note": "covered by means wrapped in, so the ocean's edges sit inside the new colour round noon"
       }
      ],
      "parts": [
       {
-       "words": "new",
-       "at": 33,
-       "gives": "N"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 33,
+         "gives": "N"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "round",
+           "at": 44,
+           "note": "round means surrounding, so the colour wraps around the noon letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "colour",
+           "at": 37,
+           "gives": "VIOLET",
+           "note": "violet is a colour"
+          },
+          {
+           "words": "noon",
+           "at": 50,
+           "gives": "N"
+          }
+         ]
+        }
+       ]
       },
       {
        "op": "outer",
@@ -645,51 +673,28 @@
         {
          "text": "edges",
          "at": 16,
-         "note": "only the outside letters of ocean are used"
+         "note": "the edges of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "Ocean",
+         "words": "Ocean's",
          "at": 8,
-         "note": "the first and last letters of ocean"
-        }
-       ]
-      },
-      {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "round",
-         "at": 44,
-         "note": "the colour goes round the letter for noon"
-        }
-       ],
-       "parts": [
-        {
-         "words": "colour",
-         "at": 37,
-         "gives": "VIOLET",
-         "note": "violet is a colour of the spectrum"
-        },
-        {
-         "words": "noon",
-         "at": 50,
-         "gives": "N"
+         "gives": "OCEAN",
+         "note": "the word ocean, whose edges are wanted"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A description of the Pacific Ocean's shores changing colour around midday.",
-     "walkthrough": "'Pacific' looks like the ocean's name, but it is the adjective meaning peaceable.",
-     "definitionFit": "Pacific means peaceful, and someone non-violent avoids force or aggression."
+     "surface": "A geography fact about the edges of the Pacific Ocean being covered by a new colour around midday.",
+     "walkthrough": "'Pacific' looks like the ocean's name but is the definition, meaning peaceable; the edges are covered by everything after them, going in just after the first letter.",
+     "definitionFit": "Pacific means peace-loving, and a nonviolent person or protest avoids force."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Pacific"
     }
    }

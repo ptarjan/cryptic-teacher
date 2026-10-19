@@ -108,63 +108,61 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 28,
+       "note": "in places the shortened message inside the handbag word"
+      }
+     ],
      "parts": [
       {
        "words": "handbag",
-       "gives": "CAB",
-       "note": "first part of CABAS, a Chambers word for a flat basket or lady's handbag"
+       "at": 31,
+       "gives": "CABAS",
+       "note": "a cabas is a flat basket or handbag, a Chambers word"
       },
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "the preceding material is placed inside the next item named, which wraps round it"
+         "text": "left",
+         "at": 23,
+         "note": "left means departed, so the royal initials named just before it are dropped from the message"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
-           "words": "handbag",
-           "gives": "AS",
-           "note": "the end of CABAS, which closes round the inserted letters"
+           "words": "A",
+           "at": 0,
+           "gives": "A"
           },
           {
-           "op": "deletion",
-           "indicators": [
-            {
-             "text": "ER's left",
-             "note": "the pair of letters spelling the Queen's cipher have departed, so they are dropped from the end of the word"
-            }
-           ],
-           "parts": [
-            {
-             "words": "written message",
-             "gives": "LETTER",
-             "note": "a letter is a written message"
-            },
-            {
-             "gives": "ER"
-            }
-           ]
+           "words": "written message",
+           "at": 2,
+           "gives": "LETTER",
+           "note": "a letter is a written message"
           }
          ]
         },
         {
-         "words": "A",
-         "note": "taken as written"
+         "words": "ER's",
+         "at": 18,
+         "gives": "ER",
+         "note": "ER, the Queen's initials, are the letters removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tucks a note into a handbag, though a reference to the Queen has been removed, and it somehow concerns opera.",
-     "walkthrough": "CABAS (handbag) wraps A plus LETTER with its ER removed, giving CAB-A-LETT-AS.",
-     "definitionFit": "A cabaletta is a short, simple aria with a repetitive rhythm, often the fast closing section of an operatic scene."
+     "surface": "The Queen leaves a written note inside her handbag.",
+     "walkthrough": "'ER's left' reads as the Queen having left something; it means ER has gone from the message. A cabas is an uncommon word for a handbag.",
+     "definitionFit": "A cabaletta is a short aria with a simple repeated rhythm, often the fast closing section of an operatic scene."
     },
     "features": {
      "answerInScene": false,
@@ -1313,44 +1311,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Briefly",
-       "note": "briefly says the word is cut to its short form, the standard one-letter abbreviation"
-      }
-     ],
      "parts": [
       {
-       "words": "left",
+       "words": "Briefly left",
+       "at": 0,
        "gives": "L",
-       "note": "L is the abbreviation for left"
+       "note": "L is the short form of left"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "ruined",
-         "note": "something ruined has been wrecked, so these letters are thrown into a new order"
+         "at": 24,
+         "note": "ruined means wrecked, so the letters of a sprog's are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "a sprog's",
-         "note": "taken as written; a sprog is British slang for a small child"
+         "words": "a",
+         "at": 14
+        },
+        {
+         "words": "sprog's",
+         "at": 16,
+         "note": "taken as written, its letters SPROGS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A child has just run off after wrecking part of the soft lawn.",
-     "walkthrough": "A sprog is British slang for a child, apt for a wrecked lawn.",
-     "definitionFit": "Lop-grass is soft brome, a grass found in lawns and meadows."
+     "surface": "Abandoned for a while, a child's ruined patch of soft lawn.",
+     "walkthrough": "A sprog is British slang for a small child; the answer is a Chambers word for a kind of grass.",
+     "definitionFit": "Lop-grass is a soft brome grass, one of the species that can turn up in turf."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ruined"
+     "misdirectedWord": "sprog's"
     }
    }
   },
@@ -1717,12 +1716,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ANGEL",
      "indicators": [
       {
        "text": "having got stuck into",
-       "note": "something stuck into another thing is lodged inside it"
+       "at": 18,
+       "note": "got stuck into means lodged inside, so NG goes inside the rearranged ale"
       }
      ],
      "parts": [
@@ -1731,38 +1729,33 @@
        "indicators": [
         {
          "text": "squiffy",
-         "note": "squiffy means tipsy, so the combined letters wobble out of order"
+         "at": 45,
+         "note": "squiffy means tipsy, so the letters of ale stagger into a new order"
         }
        ],
        "parts": [
         {
          "words": "ale",
-         "gives": "A",
-         "note": "start of ale, before the insertion"
-        },
-        {
-         "words": "no good",
-         "gives": "NG",
-         "note": "NG is the abbreviation for no good"
-        },
-        {
-         "words": "ale",
-         "gives": "LE",
-         "note": "end of ale, after the insertion"
+         "at": 40
         }
        ]
+      },
+      {
+       "words": "no good",
+       "at": 10,
+       "gives": "NG"
       }
      ]
     },
     "explanation": {
-     "surface": "A useless courier has been getting stuck into the beer and is now tipsy.",
-     "walkthrough": "Putting NG inside ALE gives a real word, which the drunkenness indicator then rearranges again.",
-     "definitionFit": "Angel comes from the Greek for messenger, and angels are God's messengers in scripture."
+     "surface": "A useless messenger has got stuck into the beer and is tipsy.",
+     "walkthrough": "Squiffy is British slang for slightly drunk, which suits the surface's beer but here signals a jumble.",
+     "definitionFit": "The Greek angelos means messenger, and angels are God's messengers in scripture."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Messenger"
+     "misdirectedWord": "squiffy"
     }
    }
   },
@@ -2007,60 +2000,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DESTRIER",
+     "op": "container",
      "indicators": [
       {
-       "text": "fidgety",
-       "note": "a fidgety person cannot keep still, so the letters of the next word shift about"
+       "text": "restrained by",
+       "at": 21,
+       "note": "restrained by means held in, so the French word sits inside the rearranged rider"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "DESTRIER",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "is restrained by",
-         "note": "something restrained is held in check within another thing, so it goes inside"
+         "text": "fidgety",
+         "at": 35,
+         "note": "fidgety means restless, so the letters of rider move about"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "rider",
-           "gives": "D",
-           "note": "start of the rearranged RIDER, opening round the insertion"
-          },
-          {
-           "words": "at Crécy is",
-           "gives": "EST",
-           "note": "est is French for is, Crécy being a battle site in France"
-          },
-          {
-           "words": "rider",
-           "gives": "RIER",
-           "note": "the rest of the rearranged RIDER"
-          }
-         ]
+         "words": "rider",
+         "at": 43
         }
        ]
+      },
+      {
+       "words": "at Crécy is",
+       "at": 9,
+       "gives": "EST",
+       "note": "est is French for is, as it would be said at Crécy in France"
       }
      ]
     },
     "explanation": {
-     "surface": "At the battle of Crécy a nervous knight keeps his warhorse in check.",
-     "walkthrough": "Crécy, the 1346 battle in France, signals a French word. The medieval surface matches the medieval answer.",
-     "definitionFit": "A destrier is a medieval knight's warhorse or charger, a large horse trained for battle."
+     "surface": "At the battle of Crécy a warhorse is held back by a restless rider.",
+     "walkthrough": "Crécy is a French battlefield, so 'at Crécy' asks for the French word, not a place.",
+     "definitionFit": "A destrier was a medieval knight's warhorse, the big charger used in battle."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Crécy"
+     "aptDefinition": false
     }
    }
   },
@@ -2140,57 +2120,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TESSELLATE",
      "indicators": [
       {
        "text": "including",
-       "note": "the first piece includes the next, holding it inside"
+       "at": 20,
+       "note": "including means holding within, so ELL goes inside the rearranged letters"
       }
      ],
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "TESSELLATE",
        "indicators": [
         {
          "text": "Ramshackle",
-         "note": "something ramshackle is falling apart, so the letters of the next word are rebuilt"
+         "at": 0,
+         "note": "ramshackle means tumbledown, so the letters of estate's are rebuilt in another order"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "estate's",
-           "gives": "TESS",
-           "note": "start of the rearranged letters of this word"
-          },
-          {
-           "words": "little more than a yard",
-           "gives": "ELL",
-           "note": "an ell is an old cloth measure of 45 inches, a little over a yard"
-          },
-          {
-           "words": "estate's",
-           "gives": "ATE",
-           "note": "end of the rearranged letters"
-          }
-         ]
+         "words": "estate's",
+         "at": 11,
+         "note": "taken as written, its letters ESTATES"
         }
        ]
+      },
+      {
+       "words": "little more than a yard",
+       "at": 30,
+       "gives": "ELL",
+       "note": "an ell is an old measure of 45 inches, a quarter more than a yard"
       }
      ]
     },
     "explanation": {
-     "surface": "A tumbledown estate with a small yard paved in mosaic tiles.",
-     "walkthrough": "'yard' suggests a garden, but here it is the unit of length.",
-     "definitionFit": "As an adjective tessellate means tessellated, laid out in a chequered pattern of small tiles like a mosaic."
+     "surface": "A tumbledown estate includes a patch only a little bigger than a yard.",
+     "walkthrough": "The 's of estate's is kept as a letter S in the anagram, and the yard is a length, not a garden.",
+     "definitionFit": "Tessellate as an adjective means chequered or laid out in small tiles, like a mosaic floor."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "yard"
     }

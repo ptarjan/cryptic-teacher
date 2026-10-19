@@ -116,64 +116,71 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "rogue",
-       "note": "a rogue element is out of order, so the letters of the next word go astray"
+       "text": "after",
+       "at": 13,
+       "note": "after puts the story's last letter behind the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "End of",
-         "note": "the end of a word is its final letter, taken to tack on at the close"
-        },
-        {
-         "text": "after",
-         "note": "after places the story's last letter behind everything else"
+         "text": "captured by",
+         "at": 31,
+         "note": "captured by means held inside, so the philosopher is held within the jumbled letters"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "captured by",
-           "note": "something captured is held inside its captor"
+           "text": "rogue",
+           "at": 43,
+           "note": "rogue means wayward, so the letters of Roman go astray"
           }
          ],
          "parts": [
           {
            "words": "Roman",
-           "note": "letters of the word Roman, to be rearranged"
-          },
-          {
-           "words": "philosopher",
-           "gives": "KANT",
-           "note": "Immanuel Kant, the German philosopher"
+           "at": 49
           }
          ]
         },
         {
-         "op": "last",
-         "parts": [
-          {
-           "words": "story",
-           "note": "the final letter of story"
-          }
-         ]
+         "words": "philosopher",
+         "at": 19,
+         "gives": "KANT",
+         "note": "Immanuel Kant was a German philosopher"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "End of",
+         "at": 0,
+         "note": "end of means the last letter of story"
+        }
+       ],
+       "parts": [
+        {
+         "words": "story",
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tale's ending tells of a thinker seized by a rascally Roman.",
-     "walkthrough": "'Roman general' reads as one phrase, but Roman is anagram fodder and general alone is the definition.",
-     "definitionFit": "Mark Antony was a Roman general, Caesar's ally and Cleopatra's lover, so he is an example of a general."
+     "surface": "The end of the tale comes after a philosopher is caught by a wayward Roman.",
+     "walkthrough": "'Roman general' looks like the definition, but Roman is the anagram fodder and general alone defines.",
+     "definitionFit": "Mark Antony was a Roman general, Caesar's ally and Cleopatra's lover."
     },
     "features": {
      "answerInScene": true,
@@ -1025,53 +1032,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEMITASSE",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "brief",
-       "note": "something brief is cut short, so the word loses its last letter"
+       "text": "Returning",
+       "at": 0,
+       "note": "returning means going back, so the brief essay and scheduled are read right to left"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "Returning",
-         "note": "returning means going back, so the letters are read from the end"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "brief",
+           "at": 10,
+           "note": "brief means cut short, so the last letter of essay goes"
+          }
+         ],
          "parts": [
           {
            "words": "essay",
-           "gives": "ESSA",
-           "note": "essay without its final letter"
+           "at": 16,
+           "note": "taken as written"
           },
           {
-           "words": "scheduled",
-           "gives": "TIMED",
-           "note": "something scheduled is timed"
+           "gives": "Y"
           }
          ]
+        },
+        {
+         "words": "scheduled",
+         "at": 23,
+         "gives": "TIMED",
+         "note": "timed means scheduled"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A student returns a short essay on time, with an espresso cup in hand.",
-     "walkthrough": "The whole run ESSA-TIMED is read backwards.",
-     "definitionFit": "A demitasse is a small coffee cup, literally French for half-cup, used for espresso."
+     "surface": "A short essay is sent back on schedule along with a coffee cup.",
+     "walkthrough": "'Returning' covers both the trimmed essay and the word for scheduled, so the whole string is read backwards at once.",
+     "definitionFit": "A demitasse is a small coffee cup of the kind used for strong black coffee."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Returning"
+     "aptDefinition": false
     }
    }
   },
