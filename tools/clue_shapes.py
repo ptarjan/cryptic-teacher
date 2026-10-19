@@ -198,6 +198,31 @@ def definition_key(ann, clue):
     return f"{len(defs)}d:{pos or '-'}" + ("&lit" if ann.get("andLit") or "W" in pos else "")
 
 
+# Example preference, best first: Times, then the mainstream dailies, then barred and specialist series.
+SERIES_PREFERENCE = ["times", "cryptic", "independent", "ftcryptic", "everyman", "quiptic", "sundaytimes", "toughie"]
+
+
+def example_rank(ex):
+    """Lower is better; ex[0] is "<series>-<number>#<n><dir>". Unlisted (barred, specialist) series rank last."""
+    s = ex[0].split("-")[0]
+    return SERIES_PREFERENCE.index(s) if s in SERIES_PREFERENCE else len(SERIES_PREFERENCE)
+
+
+def keep_examples(kept, ex, spread=True):
+    """Keep up to 3 best-ranked examples in `kept`; with `spread`, from different series where possible."""
+    s = ex[0].split("-")[0]
+    if len(kept) < 3:
+        if not spread or all(x[0].split("-")[0] != s for x in kept):
+            kept.append(ex)
+    else:
+        worst = max(range(3), key=lambda i: example_rank(kept[i]))
+        others = kept[:worst] + kept[worst + 1:]
+        if example_rank(ex) < example_rank(kept[worst]) and (
+                not spread or all(x[0].split("-")[0] != s for x in others)):
+            kept[worst] = ex
+    kept.sort(key=example_rank)
+
+
 class Census:
     def __init__(self):
         self.n = self.files = 0
@@ -229,9 +254,7 @@ class Census:
         ex = [cid, clue, entry.get("solution", ""), line]
         r = self.shapes.setdefault(sk, [0, [], 0, 0, collections.Counter(), collections.Counter()])
         r[0] += 1
-        if len(r[1]) < 3 and (len(r[1]) == 0 or all(x[0].split("-")[0] != series for x in r[1])
-                              or r[0] > 50 and len(r[1]) < 3):
-            r[1].append(ex)
+        keep_examples(r[1], ex, spread=r[0] <= 50)
         r[2] += int(bool(noind))
         r[3] += int(bool(unch))
         r[4][dk] += 1
@@ -239,8 +262,7 @@ class Census:
         fam = family(wp, len(defs), sk, depth, ncc)
         f = self.fam.setdefault(fam, [0, [], collections.Counter(), 0, 0])
         f[0] += 1
-        if len(f[1]) < 3:
-            f[1].append(ex)
+        keep_examples(f[1], ex, spread=False)
         f[2][series] += 1
         f[3] += int(bool(unch))
         f[4] += int(bool(noind))
@@ -258,6 +280,8 @@ class Census:
         for p in set(pairs):
             q = self.pairs.setdefault(p, [0, ex])
             q[0] += 1
+            if example_rank(ex) < example_rank(q[1]):
+                q[1] = ex
         for t in re.findall(r"[VFASBUD]", re.sub(r"[a-z?]+\(", "(", sk)):
             self.leaves[t] += 1
         self.defs[dk] += 1
@@ -402,7 +426,9 @@ def _mech(t, top=True):
         ops = [s for s in sub if s != "x"]
         if not ops:
             return "x"
-        return "+[" + ",".join(ops) + "]" if top else ops[0] if len(ops) == 1 else ",".join(ops)
+        if top:
+            return "(" + "+".join((["x"] if len(ops) < len(sub) else []) + ops) + ")"
+        return ops[0] if len(ops) == 1 else ",".join(ops)
     return f"{COARSE.get(name, name)}({','.join(sub)})"
 
 
@@ -468,7 +494,7 @@ def tier_sections(c, v, pats, w):
       f"{sel[1]}; a clue with more than {MANY} different ops is one group; `{ch} only` is a clue with no other op.")
     w("- **Tier 2, mechanism tree**: the op nesting, ops written by their abbreviation, with each leaf (any type) "
       f"written `x`, siblings sorted and deduplicated so order and arity vanish, a {ch} that is only leaves written "
-      f"`x`, and a {ch} of ops written `+[...]` at the top of the tree (a {ch} that merely builds one operand of an "
+      f"`x`, and a {ch} of ops written `(a+b)` style at the top of the tree, e.g. `(x+ins(x,x))` (a {ch} that merely builds one operand of an "
       f"op is dropped). `ins(ana(x),x)` (an {ana} put inside a {ins}) and `ana(ins(x))` (an {ana} of a {ins}) stay "
       f"distinct. A tree of more than {MAXOPS} op nodes is one group, `{MAXOPS + 1}+ ops`. Definition placement "
       "is dropped.")
@@ -492,6 +518,8 @@ def tier_sections(c, v, pats, w):
         cum += e["n"]
         w(f"| {i} | {esc(k)} | {e['n']:,} | {pct(e['n'], n)} | {pct(cum, n)} | {len(e['t2']):,} | {e['skels']:,} |")
         ex.append(f"- {i}: {ex_line(e['top'][1][1][0])}")
+    w("")
+    w("Examples throughout prefer Times clues, then the other mainstream dailies, then barred and specialist series.")
     w("")
     w("Examples, by row number:")
     w("")
@@ -545,12 +573,12 @@ def build_doc(c, v):
       "definitions, then where each sits (S start, E end, W whole clue, M middle); `&lit` when andLit is set.")
     w("")
     w("Ops: the name the tables and prose use, and how it is written in a skeleton or tree. "
-      f"The `+[...]` form is a {NAME['charade']} at the top of a tier-2 tree.")
+      f"A {NAME['charade']} is written `(a+b)` everywhere, in skeletons and in tier-2 trees alike.")
     w("")
     w("| name | written | meaning |")
     w("|---|---|---|")
     for op, (ab, name, gloss) in OPS.items():
-        w(f"| {name} | `{ab}`{' or `+[...]`' if op == 'charade' else ''} | {gloss} |")
+        w(f"| {name} | `{ab}` | {gloss} |")
     for ab, name, gloss in GROUPS.values():
         w(f"| {name} | `{ab}` | {gloss} |")
     w("")

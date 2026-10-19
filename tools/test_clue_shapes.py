@@ -77,9 +77,9 @@ for skel, t1, t2 in [
     ("ins(S,ana(V))", "anagram + container", "ins(ana(x),x)"),
     ("ins(ana(V),S)", "anagram + container", "ins(ana(x),x)"),
     ("ana(ins(S,A))", "anagram + container", "ana(ins(x))"),
-    ("(S+first(V)+S)", "letter selection", "+[select(x)]"),
+    ("(S+first(V)+S)", "letter selection", "(x+select(x))"),
     ("ins?(first(V),(S+S))", "container + letter selection", "ins(select(x),x)"),
-    ("(S+ins(S,A)+rev(S))", "container + reversal", "+[ins(x),rev(x)]"),
+    ("(S+ins(S,A)+rev(S))", "container + reversal", "(x+ins(x)+rev(x))"),
     ("rev(rev(rev(rev(A))))", "reversal", "4+ ops"),
 ]:
     assert cs.tier1(skel) == t1, (skel, cs.tier1(skel), t1)
