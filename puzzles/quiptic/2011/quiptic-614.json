@@ -43,37 +43,48 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "EXEMPT",
-     "indicators": [
-      {
-       "text": "swapping notes",
-       "note": "the musical notes A to G are letters, so one note-letter in the word is traded for another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "test",
-       "gives": "EXAM",
-       "note": "a test is an exam"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "swapping notes in",
+         "at": 11,
+         "note": "swapping notes means one musical note letter in the word is exchanged for another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "test",
+         "at": 29,
+         "gives": "EXAM",
+         "note": "an exam is a test"
+        },
+        {
+         "gives": "A"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "exercise",
+       "at": 34,
        "gives": "PT",
-       "note": "PT is physical training"
+       "note": "PT, physical training, is exercise"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone hunts for a way to get out of a test by passing notes around.",
-     "walkthrough": "The notes here are musical: A to G are both note names and letters, so one vowel in the test word is traded for another.",
-     "definitionFit": "To exempt someone is to excuse or release them from a duty, a synonym in its verb sense."
+     "surface": "An excuse is found to swap the musical notes in a practice test piece.",
+     "walkthrough": "A and E are both musical notes: EXAM with its A changed to E becomes EXEM.",
+     "definitionFit": "To exempt someone is to excuse them from a duty or requirement, so the verbs match."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "notes"
     }
    }
@@ -208,33 +219,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "playing",
-       "note": "playing with something moves it about, so these letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Photograph",
+       "at": 0,
+       "gives": "PIC",
+       "note": "a pic is a photograph"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "at": 16,
+         "note": "playing suggests letters moving about, so cool is rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Photograph",
-         "gives": "PIC",
-         "note": "pic is short for picture"
-        },
-        {
          "words": "cool",
-         "note": "the letters of cool rearranged"
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A photograph captures a laid-back musician playing the flute.",
-     "definitionFit": "A piccolo is a small flute pitched an octave higher, so it is an example of the instrument."
+     "surface": "A picture shows a laid-back musician performing on the flute.",
+     "definitionFit": "A piccolo is a small high-pitched instrument of the flute family."
     },
     "features": {
      "answerInScene": true,
@@ -438,65 +451,72 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the pieces sit inside the outer pair of letters"
+       "at": 47,
+       "note": "in puts the other pieces between the two point letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "point-to-point",
+       "at": 50,
+       "gives": "EE",
+       "note": "E for east is a compass point; two of them give the word's ends"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "point-to-point",
-         "gives": "EE",
-         "note": "two compass points, here east and east, form the outer shell"
-        },
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "lead cut",
-           "note": "the leading letter of the word is cut off"
+           "at": 21,
+           "note": "lead cut means the first letter is removed"
           }
          ],
          "parts": [
           {
            "words": "massive",
+           "at": 13,
            "gives": "HUGE",
-           "note": "massive means huge"
+           "note": "huge means massive"
           },
           {
            "gives": "H"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "indicators": [
+        },
         {
-         "text": "coming back",
-         "note": "coming back means the next word is read from right to left"
-        }
-       ],
-       "parts": [
-        {
-         "words": "home",
-         "gives": "IN",
-         "note": "at home is in"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "coming back",
+           "at": 30,
+           "note": "coming back means the word for home is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "home",
+           "at": 42,
+           "gives": "IN",
+           "note": "in means at home"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A princess on horseback takes a commanding lead, then loses it on the way home in a point-to-point race.",
-     "walkthrough": "A point-to-point is a British amateur horse race over jumps; here it means two compass points enclosing the rest.",
-     "definitionFit": "Princess Eugenie is a granddaughter of Queen Elizabeth II, a royal named by her title."
+     "surface": "A princess with a huge head start loses it heading home in a point-to-point race.",
+     "walkthrough": "A point-to-point is a British amateur horse race; here it means one compass point to another, E and E. HUGE loses H to give UGE, and IN reversed gives NI.",
+     "definitionFit": "Princess Eugenie is a granddaughter of Queen Elizabeth II, a member of the British royal family."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "point-to-point"
     }
    }
@@ -1002,37 +1022,56 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "between",
-       "note": "one piece sits between the two others, which surround it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "words": "Catch",
+       "at": 0,
+       "gives": "TRAP",
+       "note": "to trap is to catch"
+      },
+      {
        "op": "container",
+       "indicators": [
+        {
+         "text": "between",
+         "at": 17,
+         "note": "between puts the sleep letter between the two letters on either side"
+        }
+       ],
        "parts": [
         {
          "op": "charade",
          "parts": [
           {
-           "words": "Catch",
-           "gives": "TRAP",
-           "note": "to trap is to catch"
-          },
-          {
            "op": "last",
            "indicators": [
             {
              "text": "end of",
-             "note": "the end of a word is its final letter"
+             "at": 25,
+             "note": "end of means the last letter of matinee"
             }
            ],
            "parts": [
             {
              "words": "matinee",
-             "note": "the final letter of matinee"
+             "at": 32
+            }
+           ]
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "start of",
+             "at": 44,
+             "note": "start of means the first letter of evening"
+            }
+           ],
+           "parts": [
+            {
+             "words": "evening",
+             "at": 53
             }
            ]
           }
@@ -1040,31 +1079,17 @@
         },
         {
          "words": "some sleep",
+         "at": 6,
          "gives": "Z",
-         "note": "Z, as in catching some Zs, means sleep"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "start of",
-         "note": "the start of a word is its first letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "evening",
-         "note": "the first letter of evening"
+         "note": "Z is the cartoon symbol for sleep, one of the zzz"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A performer naps between the afternoon show and the evening circus performance.",
-     "definitionFit": "The trapeze is a swinging bar used by acrobats, and the act performed on it is a classic circus turn."
+     "surface": "Catching a nap between the afternoon show and the evening performance at the circus.",
+     "definitionFit": "The trapeze is a swinging bar on which acrobats perform aerial stunts at the circus."
     },
     "features": {
      "answerInScene": true,

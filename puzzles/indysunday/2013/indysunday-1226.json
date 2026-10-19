@@ -835,70 +835,78 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "OCCURRENCE",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "embraced by",
-       "note": "something embraced is held in another's arms, so it sits within the other letters"
+       "text": "finally to become",
+       "at": 46,
+       "note": "finally points at the last letter, which is to become another letter"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "OCCURRENCE",
+       "op": "container",
        "indicators": [
         {
-         "text": "finally to become",
-         "note": "the final letter changes into a different one, swapping its last letter"
+         "text": "embraced by",
+         "at": 23,
+         "note": "embraced by means held inside the other pieces"
         }
        ],
        "parts": [
         {
-         "words": "old",
-         "gives": "O",
-         "note": "O is the abbreviation for old"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "old",
+           "at": 35,
+           "gives": "O"
+          },
+          {
+           "words": "money",
+           "at": 39,
+           "gives": "CURRENCY",
+           "note": "currency is money"
+          }
+         ]
         },
         {
          "words": "Conservative",
-         "gives": "C",
-         "note": "C is the abbreviation for Conservative"
-        },
+         "at": 10,
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "gives": "Y"
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "money",
-         "gives": "CURRENCY",
-         "note": "currency is money"
-        },
+         "text": "leader of",
+         "at": 64,
+         "note": "leader of means the first letter of England"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader of",
-           "note": "the leader of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "England",
-           "note": "the opening letter"
-          }
-         ]
+         "words": "England",
+         "at": 74
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Tory, backed by old wealth, eventually rises to lead England.",
-     "walkthrough": "C sits inside O + CURRENCY, and the final Y is swapped for E: OCCURRENCY becomes OCCURRENCE.",
-     "definitionFit": "An occurrence is an event, something that happens; happening as a noun means the same."
+     "surface": "A Tory is welcomed by old money and eventually becomes the leader of England.",
+     "walkthrough": "C goes between O and CURRENCY to make OCCURRENCY; its final Y is then replaced by E, the first letter of England.",
+     "definitionFit": "An occurrence is an event or incident, something that happens; the noun matches 'happening'."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "leader"
+     "misdirectedWord": "Happening"
     }
    }
   },

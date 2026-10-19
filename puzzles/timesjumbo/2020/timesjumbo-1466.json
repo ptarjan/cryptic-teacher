@@ -1768,50 +1768,57 @@
      "indicators": [
       {
        "text": "all around",
-       "note": "all around means wrapping about the other pieces, enclosing them"
+       "at": 43,
+       "note": "all around means the word for clean goes round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "clean",
-         "gives": "DUST",
-         "note": "to dust is to clean"
-        },
-        {
-         "words": "one's",
-         "gives": "IS",
-         "note": "one is I, and the apostrophe-s gives IS"
-        }
-       ]
+       "words": "clean",
+       "at": 37,
+       "gives": "DUST",
+       "note": "to dust is to clean"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "removing",
-         "note": "removing takes one set of letters out of a word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "grot",
-         "note": "grot is British slang for rubbish"
+         "words": "one's",
+         "at": 9,
+         "gives": "IS",
+         "note": "I is one, so one's gives I plus S"
         },
         {
-         "words": "decay",
-         "gives": "ROT",
-         "note": "rot is decay"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "removing",
+           "at": 21,
+           "note": "removing means the word for decay is taken out of grot"
+          }
+         ],
+         "parts": [
+          {
+           "words": "grot",
+           "at": 15,
+           "note": "grot is British slang for rubbish or filth"
+          },
+          {
+           "words": "decay",
+           "at": 30,
+           "gives": "ROT",
+           "note": "rot is decay"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone hates grime, clearing away rot and scrubbing all around.",
-     "definitionFit": "Disgust is a strong feeling of revulsion, a near synonym of loathing."
+     "surface": "Someone hates their filth: once the rot is removed, it all gets a clean.",
+     "walkthrough": "Grot is British slang for filth, which suits the surface of someone tidying up.",
+     "definitionFit": "Disgust is a strong feeling of revulsion, a close synonym of loathing."
     },
     "features": {
      "answerInScene": true,
@@ -2511,38 +2518,44 @@
      "indicators": [
       {
        "text": "going in",
-       "note": "going in places one piece inside another"
+       "at": 30,
+       "note": "going in means these pieces are placed inside the chimney word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "chimney",
-         "gives": "LUM",
-         "note": "lum is Scottish and northern English for a chimney"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "chimney",
+       "at": 39,
+       "gives": "LUM",
+       "note": "lum is a Scottish and northern English word for chimney"
       },
       {
-       "words": "blaze",
-       "gives": "BURN",
-       "note": "to blaze is to burn"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 22,
+         "gives": "A"
+        },
+        {
+         "words": "blaze",
+         "at": 24,
+         "gives": "BURN",
+         "note": "to burn is to blaze"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A log supplier gets a fire going in the chimney.",
-     "definitionFit": "The laburnum is a tree, so it is a source of timber, providing wood."
+     "surface": "A firewood merchant gets a fire roaring in the chimney.",
+     "walkthrough": "'Wood supplier' suggests a timber merchant; it is a tree that supplies wood.",
+     "definitionFit": "The laburnum is a tree, so it supplies wood; its hard dark timber is prized for cabinetwork."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "supplier"
     }
    }
