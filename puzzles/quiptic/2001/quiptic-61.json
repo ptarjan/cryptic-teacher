@@ -683,58 +683,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ORGANISE",
+     "op": "container",
      "indicators": [
       {
-       "text": "headless",
-       "note": "a headless word has lost its first letter"
+       "text": "involved",
+       "at": 38,
+       "note": "involved means drawn into the middle of the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "involved",
-         "note": "something involved is taken inside, so one piece is wrapped by the other"
+         "text": "wild",
+         "at": 8,
+         "note": "wild suggests the letters of orgies run riot into a new order"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "wild",
-           "note": "wild means out of control, so the word after it is scrambled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "orgies",
-           "note": "taken as written, then rearranged"
-          }
-         ]
-        },
+         "words": "orgies",
+         "at": 13,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "headless",
+         "at": 25,
+         "note": "headless means the first letter of man is cut off"
+        }
+       ],
+       "parts": [
         {
          "words": "man",
-         "gives": "AN",
-         "note": "man without its first letter"
+         "at": 34,
+         "note": "taken as written"
+        },
+        {
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Plan some riotous parties with a beheaded man in the middle.",
-     "definitionFit": "To organise is to put things in order or set up an event, a synonym of arrange."
+     "surface": "Plan some wild parties where a man without a head gets mixed up in them.",
+     "walkthrough": "'with' only links; the beheaded man is what gets 'involved' among the rearranged letters.",
+     "definitionFit": "To organise something is to arrange it in an orderly way."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "headless"
+     "misdirectedWord": "orgies"
     }
    }
   },
@@ -845,49 +851,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPLENDOUR",
-     "indicators": [
-      {
-       "text": "losing heart",
-       "note": "losing its heart means the middle letter of the word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Southern",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing heart",
+         "at": 16,
+         "note": "losing heart means the middle letter of the word for friend goes"
+        }
+       ],
        "parts": [
         {
-         "words": "Southern",
-         "gives": "S",
-         "note": "S is the abbreviation for southern"
-        },
-        {
          "words": "friend",
-         "gives": "PL",
-         "note": "pal, a friend, with its central letter removed"
+         "at": 9,
+         "gives": "PAL",
+         "note": "a pal is a friend"
         },
         {
-         "words": "to destroy",
-         "gives": "END",
-         "note": "to end something is to finish or destroy it"
-        },
-        {
-         "words": "our",
-         "note": "taken as written"
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "to destroy",
+       "at": 34,
+       "gives": "END",
+       "note": "to end something can mean to destroy it"
+      },
+      {
+       "words": "our",
+       "at": 45,
+       "gives": "OUR"
       }
      ]
     },
     "explanation": {
-     "surface": "A dispirited Southern pal sets about wrecking our lavish lifestyle.",
-     "definitionFit": "Splendour is magnificence or lavish richness, close in meaning to opulence."
+     "surface": "A disheartened friend from the south sets about wrecking our lavish lifestyle.",
+     "walkthrough": "PAL without its middle A gives PL.",
+     "definitionFit": "Splendour is magnificence and lavish grandeur, the kind of opulence wealth brings."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "destroy"
     }
    }
   },

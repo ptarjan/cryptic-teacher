@@ -869,56 +869,61 @@
      "op": "container",
      "indicators": [
       {
-       "text": "keep",
-       "note": "to keep something is to hold it inside, so one piece is placed within another"
+       "text": "to keep",
+       "at": 6,
+       "note": "to keep means the word for agree holds the next letters inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Agree",
+       "at": 0,
+       "gives": "ASSENT",
+       "note": "to assent is to agree"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 41,
+         "note": "around signals the four framing letters are turned the other way"
+        }
+       ],
        "parts": [
         {
-         "words": "Agree",
-         "gives": "ASSENT",
-         "note": "to assent is to agree"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "around",
-           "note": "turned around means facing the other way, so the kept letters run backwards"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "op": "outer",
            "indicators": [
             {
              "text": "frames of",
-             "note": "a frame is the outer edge of a picture, so only the outside letters are kept"
+             "at": 14,
+             "note": "the frames of a word are its first and last letters, here of each painter's name"
             }
            ],
            "parts": [
             {
              "words": "Monet",
-             "note": "the first and last letters"
+             "at": 24,
+             "note": "taken as written"
             }
            ]
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "parts": [
-        {
-         "op": "outer",
-         "parts": [
+          },
           {
-           "words": "Rothko",
-           "note": "the first and last letters"
+           "op": "deletion",
+           "parts": [
+            {
+             "words": "Rothko",
+             "at": 34,
+             "note": "frames of applies to this name too, so only its outer letters stay"
+            },
+            {
+             "gives": "OTHK",
+             "note": "the inside of the second painter's name, stripped away to leave its frame"
+            }
+           ]
           }
          ]
         }
@@ -927,9 +932,9 @@
      ]
     },
     "explanation": {
-     "surface": "A gallery agrees to hang framed Monet and Rothko works in its collection.",
-     "walkthrough": "The two painters' frames are joined first and the pair is turned back as one unit before going inside.",
-     "definitionFit": "An assortment is a varied mixture of things gathered together, a miscellany."
+     "surface": "A gallery consents to retain framed Monet and Rothko canvases in its permanent collection.",
+     "walkthrough": "'frames' of a word are its first and last letters; 'around' turns the four collected letters back to front before they go in.",
+     "definitionFit": "An assortment is a mixed collection of different things."
     },
     "features": {
      "answerInScene": true,

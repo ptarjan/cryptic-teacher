@@ -985,51 +985,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AUTHORIAL",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "tearing",
-         "note": "something torn is pulled apart, so the letters fall into another order"
+         "at": 9,
+         "note": "tearing apart the letters of hair and out reshuffles them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hair",
+         "at": 28,
+         "note": "taken as written"
+        },
+        {
+         "words": "out",
+         "at": 33,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 17,
+         "note": "almost means the word all loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "all",
-         "gives": "AL",
-         "note": "the word minus its last letter"
+         "at": 24
         },
         {
-         "words": "hair",
-         "note": "taken as written"
-        },
-        {
-         "words": "out",
-         "note": "taken as written"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A frustrated novelist tearing out nearly all their hair.",
-     "walkthrough": "Writer's works as an adjective here, meaning belonging to a writer.",
-     "definitionFit": "Authorial means relating to an author, so it can replace a possessive like writer's."
+     "surface": "A frustrated writer is ripping out nearly every hair on their head.",
+     "walkthrough": "'tearing' rearranges HAIROUT into AUTHORI, and 'almost all' gives AL. 'Writer's' is possessive, matching the adjective.",
+     "definitionFit": "Authorial means belonging to or relating to an author."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "tearing"
+     "misdirectedWord": "out"
     }
    }
   },
@@ -1370,37 +1379,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PERRY",
-     "indicators": [
-      {
-       "text": "unopened",
-       "note": "something unopened has its opening missing, so the first letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0,
+       "gives": "PER",
+       "note": "per means a or each, as in fifty miles per hour"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unopened",
+         "at": 7,
+         "note": "unopened means the first letter of dry is removed"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "gives": "PER",
-         "note": "a, as in a pound a kilo, means per"
+         "words": "dry",
+         "at": 2,
+         "note": "taken as written"
         },
         {
-         "words": "dry",
-         "gives": "RY",
-         "note": "the word without its opening letter"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drinks list: a dry, still-sealed drink offered in place of cider.",
-     "walkthrough": "'A' is easy to read as a mere article; in prices like 'ten pence a kilo' it means per.",
-     "definitionFit": "Perry is a fermented drink made from pears, the pear counterpart of apple cider."
+     "surface": "A dry drink, still sealed, offered instead of cider.",
+     "walkthrough": "'A' looks like the article but stands for PER, and 'unopened' takes D from DRY, leaving RY.",
+     "definitionFit": "Perry is an alcoholic drink made from fermented pears, as cider is from apples."
     },
     "features": {
      "answerInScene": true,
@@ -1610,65 +1622,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "holding",
-       "note": "holding means grasping around, so one piece sits inside the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "container",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 19,
+         "note": "finally means the last letter of Bath"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "finally",
-             "note": "finally points to the end, so only the last letter is kept"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Bath",
-             "note": "the last letter of the city"
-            }
-           ]
-          },
-          {
-           "words": "pay attention to me",
-           "gives": "OI",
-           "note": "oi is a call for attention"
-          }
-         ]
-        },
-        {
-         "words": "election",
-         "gives": "POLL",
-         "note": "a poll is a vote, an election"
+         "words": "Bath",
+         "at": 14,
+         "note": "taken as written"
         }
        ]
       },
       {
-       "words": "twice",
-       "gives": "OI",
-       "note": "the attention call repeated"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "at": 53,
+         "note": "holding means the two shouts grip the election between them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pay attention to me twice",
+         "at": 27,
+         "gives": "OIOI",
+         "note": "oi is a shout meaning pay attention to me, given twice"
+        },
+        {
+         "words": "election",
+         "at": 61,
+         "gives": "POLL",
+         "note": "a poll is an election"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "People in Bath finally being urged to notice a candidate during an election.",
-     "walkthrough": "'Twice' doubles the attention cry, and the vote sits between the two cries.",
-     "definitionFit": "Hoi polloi is Greek for the many, used in English for the common people or masses."
+     "surface": "In Bath, someone keeps shouting for attention during an election.",
+     "walkthrough": "'Oi!' is the British shout for attention, so 'pay attention to me twice' is that shout said two times.",
+     "definitionFit": "Hoi polloi is Greek for 'the many', used for the common people or masses."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Bath"
+     "misdirectedWord": "election"
     }
    }
   },
