@@ -624,17 +624,17 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "covered by",
-       "at": 18,
-       "note": "the shortened word sits inside the commercial-and-journalist pair"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covered by",
+         "at": 18,
+         "note": "the shortened word sits inside the commercial-and-journalist pair"
+        }
+       ],
        "parts": [
         {
          "words": "commercial",
@@ -643,32 +643,32 @@
          "note": "an ad is a commercial"
         },
         {
-         "words": "journalist",
-         "at": 40,
-         "gives": "ED",
-         "note": "ED, the editor, is the stock crossword journalist"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 11,
+           "note": "most of the word, so the last letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "scent",
+           "at": 5,
+           "note": "taken as written"
+          },
+          {
+           "gives": "T"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "mostly",
-         "at": 11,
-         "note": "most of the word, so the last letter goes"
-        }
-       ],
-       "parts": [
-        {
-         "words": "scent",
-         "at": 5,
-         "note": "taken as written"
-        },
-        {
-         "gives": "T"
-        }
-       ]
+       "words": "journalist",
+       "at": 40,
+       "gives": "ED",
+       "note": "ED, the editor, is the stock crossword journalist"
       }
      ]
     },
