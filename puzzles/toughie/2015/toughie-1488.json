@@ -159,65 +159,71 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KIBBUTZ",
-     "indicators": [
-      {
-       "text": "Short",
-       "note": "something cut short has lost its end, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 12,
+         "note": "around means the shortened word is turned back to front"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "around",
-           "note": "turning around faces the opposite way, so the letters run backwards"
+           "text": "Short",
+           "at": 0,
+           "note": "short means the last letter is cut"
           }
          ],
          "parts": [
           {
            "words": "cycle",
-           "gives": "BIK",
-           "note": "BIKE is an informal word for a bicycle, here missing its last letter"
+           "at": 6,
+           "gives": "BIKE",
+           "note": "a bike is a cycle"
+          },
+          {
+           "gives": "E"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "BUTZ",
+       "indicators": [
         {
-         "op": "homophone",
-         "spelt": "BUTZ",
-         "indicators": [
-          {
-           "text": "overheard",
-           "note": "what is overheard is caught by ear, so we want a spelling of a spoken sound"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tree trunks — overheard Northern-style",
-           "gives": "BOOTS",
-           "note": "trunks of trees are butts; said with a Northern English vowel, butts rhymes with boots"
-          }
-         ]
+         "text": "overheard Northern-style",
+         "at": 33,
+         "note": "overheard means the word is heard, and the Northern touch voices the final hiss as a buzz"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tree trunks",
+         "at": 19,
+         "gives": "BUTTS",
+         "note": "butts are the stumps or lower trunks of trees"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A quick bike ride among the trees, with a Northern accent in earshot, set in a farming community.",
-     "walkthrough": "In the North of England the vowel in words like butts is pronounced like the oo in boots, which matches the second half of KIBBUTZ.",
-     "definitionFit": "A kibbutz is a collective settlement in Israel, traditionally based on farming, so it is an agricultural community."
+     "surface": "A short bike ride round tree stumps is heard in a Northern farming settlement.",
+     "walkthrough": "BIK reversed gives KIB; BUTTS spoken with a buzzing end gives BUTZ.",
+     "definitionFit": "A kibbutz is a collective farming settlement in Israel."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "trunks"
+     "misdirectedWord": "cycle"
     }
    }
   },

@@ -1123,35 +1123,38 @@
      "indicators": [
       {
        "text": "residing in",
-       "note": "someone residing in a place lives inside it"
+       "at": 17,
+       "note": "residing in means these letters live inside the next word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Split",
+       "at": 29,
+       "gives": "REND",
+       "note": "to rend is to split or tear"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Split",
-         "gives": "REND",
-         "note": "to rend is to tear apart"
+         "words": "A",
+         "at": 0
         },
         {
          "words": "cruciverbalist",
+         "at": 2,
          "gives": "ME",
          "note": "the setter, a crossword compiler, refers to himself as me"
         }
        ]
-      },
-      {
-       "words": "A",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A crossword setter living in the Croatian city of Split takes on a fresh name.",
-     "walkthrough": "'Split' looks like the Croatian city, but it is the verb for tearing.",
-     "definitionFit": "Someone renamed has been given a different name and so a new identity."
+     "surface": "A crossword setter living in the Croatian city of Split takes a fresh name.",
+     "walkthrough": "'Split' looks like the Croatian city; it is the verb.",
+     "definitionFit": "Renamed means called by a different name, so given a new identity."
     },
     "features": {
      "answerInScene": true,
@@ -1560,38 +1563,52 @@
      "indicators": [
       {
        "text": "clothing",
-       "note": "clothing wraps around a body, so one piece encloses the rest"
+       "at": 16,
+       "note": "clothing means wrapping round the following letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "miserable",
-         "gives": "DOUR",
-         "note": "dour means gloomy"
-        },
-        {
-         "words": "being worn by husband",
-         "gives": "HON",
-         "note": "something worn by a husband is on him: H, the abbreviation for husband, carrying ON"
-        }
-       ]
+       "words": "miserable",
+       "at": 6,
+       "gives": "DOUR",
+       "note": "dour means gloomy or miserable"
       },
       {
-       "words": "is",
-       "note": "taken as written"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "by",
+         "at": 39,
+         "note": "by means beside, so the word for being worn sits next to the husband's letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is",
+         "at": 25
+        },
+        {
+         "words": "husband",
+         "at": 42,
+         "gives": "H"
+        },
+        {
+         "words": "being worn",
+         "at": 28,
+         "gives": "ON",
+         "note": "clothes being worn are on"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man is humiliated by wearing drab clothes.",
-     "walkthrough": "Something worn by a husband is on him, so the husband's H comes first with ON after it; the gloomy word then wraps around the lot.",
-     "definitionFit": "Dishonour is disgrace or loss of respect, so it is a synonym of shame."
+     "surface": "A wretched outfit worn by a husband is a disgrace.",
+     "definitionFit": "Dishonour is disgrace or loss of respect, the same as shame."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "clothing"
     }

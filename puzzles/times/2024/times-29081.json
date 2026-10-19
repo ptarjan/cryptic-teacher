@@ -859,7 +859,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a writer of music?",
+      "text": "a writer of music",
       "at": 38
      }
     ],
@@ -867,37 +867,36 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "finally",
-       "note": "finally = at the end, so the word's end letter"
+       "text": "recollected",
+       "at": 23,
+       "note": "read as re-collected, gathered together again in a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Is",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "Cyril",
+       "at": 3,
+       "note": "taken as written"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "recollected",
-         "note": "re-collected = gathered again in a new order"
+         "text": "finally",
+         "at": 15,
+         "note": "finally picks the last letter of Scott"
         }
        ],
        "parts": [
         {
-         "words": "Is Cyril",
-         "note": "anagram fodder, 7 letters"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "T",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Scott finally",
-           "gives": "T",
-           "select": "last",
-           "note": "last letter of SCOTT"
-          }
-         ]
+         "words": "Scott",
+         "at": 9,
+         "note": "supplies its last letter"
         }
        ]
       }
@@ -905,13 +904,12 @@
     },
     "explanation": {
      "surface": "Is the composer Cyril Scott at last remembered as a musician?",
-     "walkthrough": "Cyril Scott was an English composer; the question mark admits that a lyricist writes the words for music, not the notes.",
-     "definitionFit": "A lyricist writes song words, so writes for music rather than the music itself."
+     "walkthrough": "IS, CYRIL and the T at the end of Scott are rearranged. Cyril Scott was a real English composer, which makes the surface plausible.",
+     "definitionFit": "A lyricist writes the words of songs, so a writer for music in the broad sense."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "recollected"
     }
    }
@@ -1007,41 +1005,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to be drawn in by",
-       "note": "the outer word takes in what goes before"
+       "text": "drawn in by",
+       "at": 15,
+       "note": "drawn in by means the preceding letters are taken inside the whisky"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "whisky",
-         "gives": "RYE",
-         "note": "rye = rye whiskey"
-        },
-        {
-         "words": "I",
-         "note": "used as it stands"
-        }
-       ]
+       "words": "whisky",
+       "at": 27,
+       "gives": "RYE",
+       "note": "rye is a whisky distilled from rye grain"
       },
       {
-       "words": "happen",
-       "gives": "BE",
-       "note": "to be = to happen, occur"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 0
+        },
+        {
+         "words": "happen to be",
+         "at": 2,
+         "gives": "BE",
+         "note": "be means exist or take place, i.e. happen to be"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner is lured in by a promise of whisky and a fine steak.",
-     "walkthrough": "RYE opens to take in I BE.",
-     "definitionFit": "Rib-eye is a prime cut of beef from the rib section."
+     "surface": "Someone finds themselves lured in by whisky and a good cut of beef.",
+     "walkthrough": "Rye is a whisky made chiefly from rye grain, common in North America.",
+     "definitionFit": "A rib eye is a prime cut taken from the rib section of beef, a premium steak."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "happen"
+     "misdirectedWord": "drawn"
     }
    }
   },
@@ -1636,45 +1637,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ATROCIOUS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bearing",
+       "at": 26,
+       "note": "bearing means carrying, so the rearranged letters hold the next piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "terrible",
-         "note": "terrible = badly done, so the letters are rearranged"
-        },
-        {
-         "text": "bearing",
-         "note": "carrying the next piece inside"
+         "at": 10,
+         "note": "terrible actors are badly mangled, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "actors",
-         "note": "ACTORS rearranged"
-        },
-        {
-         "words": "evidence of debt",
-         "gives": "IOU",
-         "note": "an IOU is a written promise to pay, going inside ATROC…S"
+         "at": 19,
+         "note": "taken as written, then rearranged"
         }
        ]
+      },
+      {
+       "words": "evidence of debt",
+       "at": 34,
+       "gives": "IOU",
+       "note": "an IOU is a written acknowledgement of a debt"
       }
      ]
     },
     "explanation": {
-     "surface": "A dreadful company of players carrying proof of what they owe.",
-     "walkthrough": "The repeated 'terrible' is split: the first is the definition, the second tells you to rearrange ACTORS.",
-     "definitionFit": "Atrocious means extremely bad."
+     "surface": "Dreadful performers are handed proof of what they owe.",
+     "walkthrough": "ACTORS rearranged gives ATROCS, which holds IOU.",
+     "definitionFit": "Atrocious means very bad or appalling, a stronger synonym for terrible."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "terrible"
+     "misdirectedWord": "bearing"
     }
    }
   },

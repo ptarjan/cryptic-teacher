@@ -3310,52 +3310,56 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ALIQUOT",
      "indicators": [
       {
        "text": "containing",
-       "note": "containing means holding the following within"
+       "at": 38,
+       "note": "containing means holding the next piece inside"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 17,
+         "gives": "A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 27,
+           "note": "originally picks the first letter of tumbler"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tumbler",
+           "at": 19,
+           "note": "supplies its first letter"
+          }
+         ]
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "reduced",
-         "note": "reduced means the word is cut short by its last letter"
+         "at": 49,
+         "note": "reduced means cut short, losing its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "drink",
-           "gives": "LIQUOR",
-           "note": "liquor is alcoholic drink"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "originally",
-             "note": "originally points to the first letter of the word before it"
-            }
-           ],
-           "parts": [
-            {
-             "words": "tumbler",
-             "note": "first letter of tumbler"
-            }
-           ]
-          }
-         ]
+         "words": "drink",
+         "at": 57,
+         "gives": "LIQUOR",
+         "note": "liquor is drink"
         },
         {
          "gives": "R"
@@ -3365,9 +3369,9 @@
      ]
     },
     "explanation": {
-     "surface": "Pouring a fair share of a reduced spirit into a glass.",
-     "walkthrough": "A and T enclose LIQUO(R).",
-     "definitionFit": "An aliquot is a portion that divides a whole exactly, so one of several equal parts or measures."
+     "surface": "An exact measure in a glass holding a little drink.",
+     "walkthrough": "A and T hold LIQUO.",
+     "definitionFit": "An aliquot is a portion that divides a whole exactly, an equal part or measure."
     },
     "features": {
      "answerInScene": true,
@@ -3526,31 +3530,53 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ATLANTA",
-     "indicators": [
-      {
-       "text": "abandoning south for north",
-       "note": "one letter is dropped and another put in its place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Finally",
-       "gives": "ATLAST",
-       "note": "at last means finally"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "abandoning",
+         "at": 8,
+         "note": "abandoning means letting the letter for south go from the phrase"
+        },
+        {
+         "text": "for",
+         "at": 25,
+         "note": "for means in exchange for, so north takes the place of what was dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Finally",
+         "at": 0,
+         "gives": "ATLAST",
+         "note": "at last means finally"
+        },
+        {
+         "words": "south",
+         "at": 19,
+         "gives": "S",
+         "note": "S is the compass abbreviation for south"
+        },
+        {
+         "words": "north",
+         "at": 29,
+         "gives": "N",
+         "note": "N is the compass abbreviation for north"
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 41
       }
      ]
     },
     "explanation": {
-     "surface": "Someone eventually leaves the South for the North, then a Southern city.",
-     "walkthrough": "The S in AT LAST becomes N.",
-     "definitionFit": "Atlanta is the capital of Georgia, in the American South."
+     "surface": "Finally heading north instead of south, someone reaches a city in the American South.",
+     "walkthrough": "AT LAST with its S changed to N gives ATLANT, then A.",
+     "definitionFit": "Atlanta is the capital of Georgia, in the southern United States."
     },
     "features": {
      "answerInScene": true,
