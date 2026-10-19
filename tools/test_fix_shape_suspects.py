@@ -596,5 +596,16 @@ check("the anagram moves onto the scrambled leaf and the synonym stands bare",
 new, used = F.repair_tree(swt, swc, "TEAPARTX", SW)
 check("a swap that does not give the answer is left alone", used == [])
 
+# half_cut (round 15): "not half" over DARING less ING is the first half of DARING (SIRDAR)
+hc = "Military commander given title of respect, bold, not half!"
+hct = {"op": "charade", "parts": [{"words": "title of respect", "gives": "SIR"}, {"op": "deletion", "indicators": [{"text": "not half"}], "parts": [
+    {"words": "bold", "gives": "DARING"}, {"gives": "ING"}]}]}
+new, used = F.repair_tree(hct, hc, "SIRDAR", {"half_cut": F.r_half_cut})
+check("a deletion of exactly half under 'not half' becomes first over the word",
+      used == ["half_cut"] and new["parts"][1]["op"] == "first" and new["parts"][1]["indicators"][0]["text"] == "not half")
+hct2 = {**hct, "parts": [hct["parts"][0], {**hct["parts"][1], "parts": [{"words": "bold", "gives": "DARING"}, {"gives": "NG"}]}]}
+new, used = F.repair_tree(hct2, hc, "SIRDARI", {"half_cut": F.r_half_cut})
+check("a cut that is not half is left alone", used == [])
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
