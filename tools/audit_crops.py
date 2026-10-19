@@ -15,12 +15,10 @@ import argparse
 import json
 import random
 import re
-import sys
 import tempfile
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import file_archive_org_puzzles as fa  # noqa: E402
+import file_archive_org_puzzles as fa
 
 FILED = Path(__file__).resolve().parent.parent / "puzzles" / "times"
 

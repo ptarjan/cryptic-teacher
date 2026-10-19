@@ -332,9 +332,9 @@ quiptic-619 11-across, "Fake folio made by a conservative is libellous" (10), so
 ```json
 {"11-across": {
   "def": "libellous",
-  "wp": "ana<Fake>([folio]F + [made] + [a]) + [conservative]TORY",
+  "wp": "ana<Fake>([folio]F + [made]) + [a] + [conservative]TORY",
   "notes": {"Fake": "something fake is invented or concocted, so these letters are reworked into a new arrangement", "made": "taken as written", "a": "taken as written", "conservative": "a Tory is a member of the UK Conservative Party"},
-  "explanation": {"surface": "A forged document produced by a Tory politician is defamatory.", "walkthrough": "'Fake' looks like an adjective describing the folio, but it is the anagram signal. Take F (folio), MADE and A to get FMADEA, and rearrange those letters to make DEFAMA. Tory is the everyday name for a member of Britain's Conservative Party.", "definitionFit": "Libel is written defamation, so a libellous statement is one that damages a reputation falsely."},
+  "explanation": {"surface": "A forged document produced by a Tory politician is defamatory.", "walkthrough": "'Fake' looks like an adjective describing the folio, but it is the anagram signal. Take F (folio) and MADE to get FMADE, and rearrange those letters to make DEFAM. Then add A, which the clue gives as it is, and TORY, the everyday name for a member of Britain's Conservative Party.", "definitionFit": "Libel is written defamation, so a libellous statement is one that damages a reputation falsely."},
   "features": {"answerInScene": true, "aptDefinition": false, "misdirectedWord": "Fake"}
 }}
 ```

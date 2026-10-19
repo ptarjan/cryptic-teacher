@@ -511,6 +511,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/book_units.py", "the books' units for tools/unit_queue.py: the next loan (one at a time, an hour after a refusal, three an hour), each due book's read, two at once"),
     ("tables everything else reads", "tools/book_queue.py", "which registered archive.org books have not been read yet, best first"),
     ("tables everything else reads", "tools/test_book_queue.sh", "does tools/book_queue.py still offer the right book to tools/acquire_books.sh?"),
+    ("tables everything else reads", "tools/test_plan_off_samba.py", "does planning answer from manifests and the pickle rather than scanning the media disk over samba?"),
     ("tables everything else reads", "tools/test_build_readme.sh", "does tools/build_readme.py still read the header of every file it is asked about?"),
     ("tables everything else reads", "tools/test_public_docs.py", "do the public docs name hosts by role (the OCR host, the GPU host, the data disk) rather than by a local path, home directory, LAN address or whose machine it is?"),
     ("tables everything else reads", "tools/test_doc_staleness.py", "do the hand-written docs, outside generated regions, stay free of live counts (\"about N puzzles\") and snapshot words (\"currently\", \"as of\") that go stale, with dated history exempt?"),
@@ -829,6 +830,9 @@ LAYOUT = [
     ("annotating", "tools/crop_window.py", "clue-column windows chosen from the page's own ink, and the check that a"),
     ("annotating", "tools/test_crop_window.py", "crop_window finds the gutters between columns of print from the ink"),
     ("annotating", "tools/det_solve.py", "a code-only (no model) cryptic solver prototype, built to answer \"can the corpus solve or validate clues?\""),
+    ("annotating", "tools/det_leaf_audit.py", "why does the corpus leaf table miss a held-out leaf?  python3 tools/det_leaf_audit.py [--show N]"),
+    ("annotating", "tools/det_synonyms.py", "the synonym dictionary of tools/det_solve.py: clue phrase -> {letters it can give: score}, from many sources"),
+    ("annotating", "tools/fetch_moby.py", "download the Moby Thesaurus II (public domain, Grady Ward) as data only: fetch_moby.py OUT_FILE [URL ...]"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

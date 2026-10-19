@@ -1792,6 +1792,9 @@ tools/book_queue.py                            which registered archive.org book
                                                read yet, best first
 tools/test_book_queue.sh                       does tools/book_queue.py still offer the right
                                                book to tools/acquire_books.sh?
+tools/test_plan_off_samba.py                   does planning answer from manifests and the
+                                               pickle rather than scanning the media disk over
+                                               samba?
 tools/test_build_readme.sh                     does tools/build_readme.py still read the header
                                                of every file it is asked about?
 tools/test_public_docs.py                      do the public docs name hosts by role (the OCR
@@ -3086,5 +3089,13 @@ tools/test_crop_window.py                      crop_window finds the gutters bet
 tools/det_solve.py                             a code-only (no model) cryptic solver prototype,
                                                built to answer "can the corpus solve or
                                                validate clues?"
+tools/det_leaf_audit.py                        why does the corpus leaf table miss a held-out
+                                               leaf?  python3 tools/det_leaf_audit.py [--show N]
+tools/det_synonyms.py                          the synonym dictionary of tools/det_solve.py:
+                                               clue phrase -> {letters it can give: score},
+                                               from many sources
+tools/fetch_moby.py                            download the Moby Thesaurus II (public domain,
+                                               Grady Ward) as data only: fetch_moby.py OUT_FILE
+                                               [URL ...]
 ```
 <!-- LAYOUT-END -->

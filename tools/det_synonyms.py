@@ -13,8 +13,8 @@ Sources, best first (the score is what the search adds for using that leaf):
   wn_near     members of similar_to / also_see / derivational / hypernym / hyponym neighbours (0.3)
   infl        any of the above on a stem, re-inflected (s, es, ed, ing, er, ly): that score minus 0.2
 
-The Moby file is downloaded by tools/fetch_moby.py into /data/home/.cache/detsolve/moby/<dir>/mthesaur.txt (data only,
-never executed) and compacted on demand into /data/home/.cache/detsolve/moby.json.gz (not committed).
+The Moby file is downloaded by tools/fetch_moby.py into downloads.MOBY/<dir>/mthesaur.txt (data only,
+never executed) and compacted on demand into ~/.cache/detsolve/moby.json.gz (not committed).
 """
 import collections
 import glob
@@ -24,8 +24,10 @@ import os
 import re
 from pathlib import Path
 
+import downloads
+
 CACHE = Path.home() / ".cache" / "detsolve"
-MOBY_GLOB = str(CACHE / "moby" / "*" / "mthesaur.txt")
+MOBY_GLOB = str(downloads.MOBY / "*" / "mthesaur.txt")
 MOBY_JSON = CACHE / "moby.json.gz"
 ORDER = ("corpus", "abbr", "corpus_rev", "def", "def_rev", "moby", "wn_direct", "codef", "variant", "wn_near", "infl")
 STRONG = ("corpus", "abbr")    # always offered to SOLVE; the rest only where these have nothing, a few per phrase

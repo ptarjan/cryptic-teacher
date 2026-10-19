@@ -71,6 +71,9 @@ NATION = ROOT / "nation"
 PRIVATE_EYE_WAYBACK = ROOT / "privateeye-wayback"
 # tools/cross_validate.py's per-source report, <source>.jsonl.
 CROSS_VALIDATE = ROOT / "cross-validate"
+# The Moby Thesaurus II, <dir>/mthesaur.txt, data only (tools/fetch_moby.py);
+# tools/det_synonyms.py compacts it into ~/.cache/detsolve/moby.json.gz.
+MOBY = ROOT / "moby"
 
 # Paths these folders were downloaded to before ROOT held them, each left a
 # symlink to its folder here for a job started on code that still names it.
@@ -79,6 +82,7 @@ OLD_PATHS = {
     Path.home() / ".cache" / "archive_org_editions": ARCHIVE_ORG,
     Path.home() / ".cache" / "trove": TROVE,
     Path.home() / ".cache" / "trove-clues": TROVE_CLUES,
+    Path.home() / ".cache" / "detsolve" / "moby": MOBY,
 }
 
 

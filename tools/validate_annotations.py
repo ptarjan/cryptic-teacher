@@ -4342,7 +4342,7 @@ def _recomputes(node):
             wordplay.evaluate(live, want)
             return True
         return bool(wordplay.values(live))
-    except Exception:  # noqa: BLE001 - any failure to compute leaves the step flagged
+    except Exception:  # any failure to compute leaves the step flagged
         return False
 
 
