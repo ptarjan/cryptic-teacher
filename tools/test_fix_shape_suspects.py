@@ -61,6 +61,24 @@ ok_tree = {"op": "container", "indicators": [{"text": "opened by"}], "parts": [
     {"words": "medic", "gives": "MO"}]}
 new, used = F.repair_tree(ok_tree, "visa returned, opened by medic", "ASIMOV", {"wrongRole": F.r_wrong_role})
 check("a tree with the words in place is left alone", used == [])
+# r_ind_trade: two ops each carrying the other's word (loose bar), nested or siblings, or one unknown word.
+trade = {"op": "container", "indicators": [{"text": "mad"}], "parts": [
+    {"op": "anagram", "indicators": [{"text": "about"}], "parts": [{"words": "Americans"}]},
+    {"words": "work", "gives": "GO"}]}
+new, used = F.repair_tree(trade, "Americans mad about work, as this lot are", "ERGOMANIACS", {"wrongRole": F.r_wrong_role})
+check("mad/about trade places (ERGOMANIACS)", used == ["wrongRole"] and new["indicators"][0]["text"] == "about"
+      and new["parts"][0]["indicators"][0]["text"] == "mad")
+sib = {"op": "charade", "parts": [
+    {"op": "reversal", "indicators": [{"text": "first to"}], "parts": [{"words": "Laid"}]},
+    {"op": "first", "indicators": [{"text": "back"}], "parts": [{"words": "English"}]}]}
+new, used = F.repair_tree(sib, "Laid back English", "DIALE", {"wrongRole": F.r_wrong_role})
+check("sibling ops trade first to/back (DIALECT)", used == ["wrongRole"] and new["parts"][0]["indicators"][0]["text"] == "back"
+      and new["parts"][1]["indicators"][0]["text"] == "first to")
+unk = {"op": "container", "indicators": [{"text": "Awfully"}], "parts": [
+    {"op": "anagram", "indicators": [{"text": "to have pocketed"}], "parts": [{"words": "sorry"}]}, {"words": "a", "gives": "A"}]}
+new, used = F.repair_tree(unk, "Awfully sorry to have pocketed a", "ROSARY", {"wrongRole": F.r_wrong_role})
+check("an unseen word trades with the anagram word (ROSARY)", used == ["wrongRole"] and new["indicators"][0]["text"] == "to have pocketed"
+      and new["parts"][0]["indicators"][0]["text"] == "Awfully")
 # delSelection: the indicator that names the source word splits into del<not> + first<beginning in>(Hull).
 hull = {"op": "deletion", "indicators": [{"text": "not beginning in Hull"}],
         "parts": [{"words": "river at Hull", "gives": "HUMBER"}, {"gives": "H"}]}
