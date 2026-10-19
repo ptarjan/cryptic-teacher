@@ -1355,6 +1355,55 @@ def r_pool_gap(node, parent, ctx):
     return new
 
 
+def _has_letters(p):
+    """A piece that is checked all the way down and gives letters of its own."""
+    if any(n.get("unchecked") for n, _ in walk(p)):
+        return False
+    v = vals(p)
+    return bool(v) and "" not in v
+
+
+def _eject_candidates(ana):
+    """(piece, inner anagram) for each fodder piece taken out of the pool (the rest kept, in order)."""
+    flat = _flat_fodder(ana)
+    if len(flat) < 2 or any(not isinstance(p, dict) for p in flat):
+        return
+    for k, piece in enumerate(flat):
+        if _has_letters(piece):
+            yield copy.deepcopy(piece), checked(ana, parts=[copy.deepcopy(p) for j, p in enumerate(flat) if j != k])
+
+
+def r_pool_eject(node, parent, ctx):
+    """poolGap, a piece in the anagram's pool that is really another op's: it leaves the pool and
+    goes beside the anagram (HE + ana(N, thing) -> HE + N + ana(thing)), or into the container
+    arm next to it (ins(ana(gold, a), P) -> ins(ana(gold), a+P)). Kept only when exactly one piece,
+    place and order gives the answer and the pool gap is gone."""
+    clue, answer = ctx["clue"], ctx.get("answer")
+    if not answer or not V.pool_gaps(ctx["tree"], clue):
+        return None
+    cands = []
+    if node.get("op") == "anagram":
+        if node.get("unchecked") or "gives" in node or not V.pool_gaps(node, clue) and not V.pool_gaps(ctx["tree"], clue):
+            return None
+        for piece, inner in _eject_candidates(node):
+            cands += [charade([inner, piece]), charade([piece, inner])]
+    elif node.get("op") in ("container", "insertion") and not node.get("unchecked") and len(node.get("parts") or []) == 2:
+        for j, ana in enumerate(node["parts"]):
+            if ana.get("op") != "anagram" or ana.get("unchecked") or "gives" in ana:
+                continue
+            sib = node["parts"][1 - j]
+            for piece, inner in _eject_candidates(ana):
+                for joined in (charade([piece, copy.deepcopy(sib)]), charade([copy.deepcopy(sib), piece])):
+                    ps = [copy.deepcopy(inner), joined] if j == 0 else [joined, copy.deepcopy(inner)]
+                    cands.append(checked(node, parts=ps))
+    before = V.pool_gaps(ctx["tree"], clue)
+    good = {}
+    for c in cands:
+        if _eval_swapped(node, parent, c, ctx) and V.pool_gaps(_whole(node, parent, c, ctx), clue) < before:
+            good[json.dumps(c, sort_keys=True)] = c
+    return next(iter(good.values())) if len(good) == 1 else None
+
+
 def _at_named_end(node, new):
     """Whether the deletion moved into `new`'s charade takes its letters from the end (start) of its
     piece that the indicator names; False when the indicator names no single end."""
@@ -1891,7 +1940,7 @@ def r_arity_ins(node, parent, ctx):
 RULE_REPAIRS = {"arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
-                "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": r_pool_gap,
+                "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": lambda n, p, c: r_pool_gap(n, p, c) or r_pool_eject(n, p, c),
                 "misplacedIndicator": r_misplaced_indicator,
                 "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside,
                 "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c),

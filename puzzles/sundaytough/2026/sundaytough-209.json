@@ -338,22 +338,37 @@
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "about",
-         "note": "the rearranged letters go around I"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Voters",
-         "note": "anagram fodder"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "about",
+           "note": "the rearranged letters go around I"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Voters",
+           "note": "anagram fodder"
+          }
+         ]
         },
         {
-         "words": "newspaper's back",
-         "gives": "R",
-         "note": "last letter of newspaper, also fodder"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "back",
+           "note": "the last letter of the word it picks from"
+          }
+         ],
+         "parts": [
+          {
+           "words": "newspaper",
+           "note": "last letter of newspaper, also fodder"
+          }
+         ]
         }
        ]
       },
