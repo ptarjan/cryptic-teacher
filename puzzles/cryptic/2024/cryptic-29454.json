@@ -507,42 +507,44 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "SINAI",
      "indicators": [
       {
        "text": "turned up",
-       "note": "in a down entry, turned up means read from bottom to top"
+       "at": 32,
+       "note": "in a down clue, turned up means the letters are read from the bottom, backwards"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SINAI",
        "indicators": [
         {
          "text": "without sleeves",
-         "note": "sleeves are the outer coverings, so stripping them removes both end letters"
+         "at": 16,
+         "note": "the sleeves are the outer edges, so the first and last letters of pianist go"
         }
        ],
        "parts": [
         {
          "words": "pianist",
-         "note": "taken as written"
+         "at": 8
+        },
+        {
+         "gives": "PT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pianist's sleeveless cape is turned up.",
-     "walkthrough": "'Cape' looks like a garment beside sleeves; it is a headland, the Sinai peninsula.",
-     "definitionFit": "Sinai is the peninsula of Egypt jutting into the Red Sea, loosely a cape or headland."
+     "surface": "A pianist wears a sleeveless cape that has been turned up.",
+     "walkthrough": "Removing the outer letters of PIANIST leaves IANIS, which reads upwards in the grid.",
+     "definitionFit": "Sinai is a peninsula, and a cape is a headland projecting into the sea."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Cape"
     }
    }
@@ -1167,20 +1169,41 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "FALLOWDEER",
-     "indicators": [
-      {
-       "text": "losing energy for a",
-       "note": "losing the energy letter in favour of a means one letter is swapped for another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Man",
-       "gives": "FELLOW",
-       "note": "a fellow is a man"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 4,
+         "note": "together with 'for', the energy is lost and swapped for the a"
+        },
+        {
+         "text": "for",
+         "at": 18,
+         "note": "one letter is exchanged for the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Man",
+         "at": 0,
+         "gives": "FELLOW",
+         "note": "a fellow is a man"
+        },
+        {
+         "words": "energy",
+         "at": 11,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        },
+        {
+         "words": "a",
+         "at": 22,
+         "gives": "A"
+        }
+       ]
       },
       {
        "op": "homophone",
@@ -1188,23 +1211,25 @@
        "indicators": [
         {
          "text": "we hear",
-         "note": "what we hear is the sound of a word, not its spelling"
+         "at": 33,
+         "note": "the word is spoken aloud and written as a different word with the same sound"
         }
        ],
        "parts": [
         {
          "words": "darling",
+         "at": 24,
          "gives": "DEAR",
-         "note": "a term of endearment"
+         "note": "dear is a term of endearment, like darling"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man stuck in a rut loses his energy and his darling.",
-     "walkthrough": "E (energy) becomes A in FELLOW. The rut is the deer's mating season, not a dull routine.",
-     "definitionFit": "Fallow deer are a species whose males rut, bellowing and fighting in the autumn breeding season."
+     "surface": "A man loses his energy for his sweetheart; we hear he is stuck in a rut.",
+     "walkthrough": "FELLOW swaps E for A to give FALLOW; DEAR spoken aloud gives DEER. The rut is the deer's mating season, not a dull routine.",
+     "definitionFit": "Male deer go into rut in autumn, the breeding season when stags compete for females."
     },
     "features": {
      "answerInScene": false,

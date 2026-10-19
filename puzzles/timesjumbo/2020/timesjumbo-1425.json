@@ -343,44 +343,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "suffering",
-       "note": "suffering means in a bad way, so the buccaneer's letters are thrown about"
+       "text": "splitting",
+       "at": 24,
+       "note": "the scrambled word goes into the share, splitting it in two"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "share",
+       "at": 34,
+       "gives": "RATION",
+       "note": "a ration is a fixed share or allowance"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "splitting",
-         "note": "splitting means cutting into, so the jumbled letters go inside the share"
+         "text": "suffering",
+         "at": 14,
+         "note": "something suffering is in a bad way, so the letters are disordered"
         }
        ],
        "parts": [
         {
-         "words": "share",
-         "gives": "RATION",
-         "note": "a ration is a fixed share"
-        },
-        {
          "words": "pirate",
-         "note": "these letters rearranged"
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wounded pirate breaks up the share-out of loot as he is shipped home.",
-     "definitionFit": "Repatriation is the return of someone to their own country."
+     "surface": "A pirate in distress breaks up the loot as he is sent back to his country.",
+     "definitionFit": "Repatriation is the return of a person to their native land."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "suffering"
+     "misdirectedWord": "share"
     }
    }
   },
@@ -677,39 +680,62 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SHILLYSHALLY",
-     "indicators": [
-      {
-       "text": "embracing",
-       "note": "embracing means hugging, so each part wraps around a Henry letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "foolish",
-       "gives": "SILLY",
-       "note": "silly means foolish"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "embracing",
+         "at": 27,
+         "note": "each word holds the letter for Henry inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "foolish",
+         "at": 14,
+         "gives": "SILLY",
+         "note": "silly means foolish"
+        },
+        {
+         "words": "Henry",
+         "at": 37,
+         "gives": "H",
+         "note": "H is the symbol for the henry, the unit of inductance"
+        }
+       ]
       },
       {
-       "words": "girl",
-       "gives": "SALLY",
-       "note": "a girl's name"
-      },
-      {
-       "words": "Henry more than once",
-       "gives": "HH",
-       "note": "H is the symbol for the henry, the unit of inductance, used twice"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "more than once",
+         "at": 43,
+         "note": "the embrace happens twice, so the second word takes the same letter inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl",
+         "at": 22,
+         "gives": "SALLY",
+         "note": "Sally is a girl's name"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A daft girl can't decide whether to hug Henry again.",
-     "definitionFit": "Shilly-shally means to dither, and as a noun it is hesitation or indecision."
+     "surface": "A foolish girl hugs Henry again and again.",
+     "walkthrough": "Henry gives H, which goes into both SILLY and SALLY because the embrace happens 'more than once'.",
+     "definitionFit": "Shilly-shally means dithering or vacillating, failing to make up one's mind."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Henry"
     }
@@ -1344,46 +1370,58 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ISOLATION",
-     "indicators": [
-      {
-       "text": "that has answer for universal",
-       "note": "having one thing for another means a swap, so one letter replaces another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "One",
+       "at": 0,
        "gives": "I",
-       "note": "the Roman numeral for one"
+       "note": "I is the Roman numeral one"
       },
       {
-       "words": "remedy",
-       "gives": "SOLUTION",
-       "note": "a solution is a remedy for a problem"
-      },
-      {
-       "words": "answer",
-       "gives": "A",
-       "note": "A is the abbreviation for answer"
-      },
-      {
-       "words": "universal",
-       "gives": "U",
-       "note": "U is the film-rating letter for universal"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "that has",
+         "at": 11,
+         "note": "together with 'for', the remedy takes one letter in place of another"
+        },
+        {
+         "text": "for",
+         "at": 27,
+         "note": "the answer's letter stands in place of the universal letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "remedy",
+         "at": 4,
+         "gives": "SOLUTION",
+         "note": "a solution is a remedy for a problem"
+        },
+        {
+         "words": "universal",
+         "at": 31,
+         "gives": "U",
+         "note": "U is the film certificate for universal"
+        },
+        {
+         "words": "answer",
+         "at": 20,
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cure for loneliness that answers to everyone.",
-     "definitionFit": "Isolation is the condition of being alone, cut off from others."
+     "surface": "A cure-all medicine that substitutes for being on one's own.",
+     "definitionFit": "Isolation and solitude both describe being alone, cut off from others."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "remedy"
+     "misdirectedWord": "universal"
     }
    }
   },
@@ -1695,56 +1733,56 @@
      "indicators": [
       {
        "text": "coming in to",
-       "note": "coming in means entering, so these letters go inside the sunbathing word"
+       "at": 27,
+       "note": "the letters enter the word for sunbathing, going inside it"
       }
      ],
      "parts": [
       {
        "words": "lie in the sun",
+       "at": 40,
        "gives": "BASK",
-       "note": "to bask is to lie in warmth"
+       "note": "to bask is to lie in warm sunshine"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "back",
-         "note": "going back means reversing, so the little word is read the other way"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "at": 11,
+           "note": "the clue says the word is comes back, so its letters are read in the opposite direction"
+          }
+         ],
          "parts": [
           {
-           "op": "container",
-           "parts": [
-            {
-             "words": "is",
-             "note": "taken as written"
-            },
-            {
-             "words": "large",
-             "gives": "L",
-             "note": "L is the abbreviation for large"
-            }
-           ]
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "the Roman numeral for one"
+           "words": "is",
+           "at": 8
           }
          ]
+        },
+        {
+         "words": "large",
+         "at": 17,
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
+        },
+        {
+         "words": "one",
+         "at": 23,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lizard returns, a big one, to sunbathe.",
-     "walkthrough": "Besides the mythical serpent, the basilisk is a real Central American lizard.",
-     "definitionFit": "The basilisk is a tropical American lizard, and also a fabled serpent whose gaze killed."
+     "surface": "A reptile returns, and a large one comes in to sunbathe.",
+     "walkthrough": "IS reversed by 'back' gives SI; SI + L + I goes into BASK.",
+     "definitionFit": "A basilisk is a mythical serpent that kills with a glance, and also a real tropical lizard."
     },
     "features": {
      "answerInScene": true,
@@ -2444,44 +2482,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "making upset",
-       "note": "an upset arrangement is knocked over and jumbled, so these letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "words": "farm animals",
+       "at": 8,
+       "gives": "PIGRAM",
+       "note": "a pig and a ram are two farm animals"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "making upset",
+         "at": 33,
+         "note": "the letters are upset, overturned into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
+         "words": "cat",
+         "at": 25
         },
         {
-         "words": "farm animals",
-         "gives": "PIGRAM",
-         "note": "a pig and a ram, two farm animals"
-        },
-        {
-         "words": "cat I'm",
-         "note": "these letters rearranged"
+         "words": "I'm",
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An English farmer's livestock are getting the cat in a state.",
-     "walkthrough": "'Briefly' is part of the definition, not an abbreviation signal: the wit is concise.",
-     "definitionFit": "An epigram is a short witty saying, so something epigrammatic is concise and clever."
+     "surface": "An English farmyard where the pigs and sheep upset the cat.",
+     "walkthrough": "CAT + IM rearranged by 'making upset' gives MATIC.",
+     "definitionFit": "Epigrammatic writing is concise and witty, like an epigram."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "briefly"
+     "aptDefinition": true,
+     "misdirectedWord": "upset"
     }
    }
   },
@@ -2683,50 +2727,54 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the ten pieces go inside the central letters"
+       "at": 19,
+       "note": "the two tens are placed inside the central letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "the middle of",
+         "at": 22,
+         "note": "the central two letters of cemetery"
+        }
+       ],
        "parts": [
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "the middle of",
-           "note": "the middle points to the central letters of the burial ground word only"
-          }
-         ],
-         "parts": [
-          {
-           "words": "cemetery",
-           "note": "the central two letters of cemetery"
-          }
-         ]
-        },
-        {
-         "words": "ten",
-         "gives": "X",
-         "note": "X is the Roman numeral for ten"
+         "words": "cemetery",
+         "at": 36
         }
        ]
       },
       {
-       "words": "ten",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ten",
+         "at": 8,
+         "gives": "X",
+         "note": "X is the Roman numeral ten"
+        },
+        {
+         "words": "ten",
+         "at": 15,
+         "gives": "TEN"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plot measuring ten by ten in the centre of a graveyard.",
-     "walkthrough": "'Ten by ten' supplies both the Roman numeral and the word itself side by side.",
-     "definitionFit": "Extent means the area or size that something covers."
+     "surface": "Measuring out a plot ten by ten in the centre of a graveyard.",
+     "walkthrough": "The first ten is the Roman numeral, the second the word itself; 'by' simply puts them side by side.",
+     "definitionFit": "Extent is the size or scope of something, the space it covers."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Area"
+     "misdirectedWord": "by"
     }
    }
   },
@@ -3263,35 +3311,38 @@
      "op": "container",
      "indicators": [
       {
-       "text": "is possessed by",
-       "note": "something possessed is held inside its owner, so the cunning letters sit within the worker"
+       "text": "possessed by",
+       "at": 21,
+       "note": "the worker holds the other letters, so they go inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "worker",
-         "gives": "ANT",
-         "note": "the worker ant"
-        },
-        {
-         "words": "cunning",
-         "gives": "ARCH",
-         "note": "arch means sly or knowing"
-        }
-       ]
+       "words": "worker",
+       "at": 34,
+       "gives": "ANT",
+       "note": "the worker ant is a crossword staple"
       },
       {
-       "words": "is",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cunning",
+         "at": 10,
+         "gives": "ARCH",
+         "note": "arch means sly or knowing, cunning"
+        },
+        {
+         "words": "is",
+         "at": 18
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A revolutionary's cunning has taken hold of a labourer.",
-     "definitionFit": "Bolshevik is used loosely for any revolutionary or subversive, much like the general term for one who rejects all government."
+     "surface": "A worker is taken over by a cunning revolutionary.",
+     "definitionFit": "Bolshevik is used loosely for any revolutionary who seeks to overthrow the established order."
     },
     "features": {
      "answerInScene": true,
