@@ -707,6 +707,7 @@ def _plan(papers, cache, reread, out, asked=None):
         scans += [(u["rank"], k, n, u) for n, u in enumerate(sc)]
         reads += [(u["rank"], k, n, u) for n, u in enumerate(rd)]
     scans, reads = hold_refusal_rereads(scans, reads, out)
+    scans, reads = hold_low_yield_eras(scans, reads, out)
     ended = time.monotonic()
     if out is not None and ended - began >= SLOW_PLAN:
         out.append(slow_plan_note(took, ended, began))
@@ -754,6 +755,48 @@ def hold_refusal_rereads(scans, reads, out=None):
         out.append(f"refusal rereads: held {len(held)} (and {before - len(scans)} scans only they needed) "
                    f"while never-read or never-scanned units remain; CT_REFUSAL_REREADS=1 restores them")
     return scans, reads
+
+
+#: Trove print years whose never-read articles file rarely: measured on
+#: trove-filed.jsonl (articles read, not skipped; filed = a puzzle id and no
+#: refusal), 1973-1989 file 306 of 4331 reads (7.1%; per year 1973 9%, 1974 3%,
+#: 1975 14%, 1976 4%, 1977 9%, 1978 0.5%, 1979 18%, 1980 14%, 1981 5%, 1982 1%,
+#: 1983 19%, 1984 6%, 1985-1989 0.6-17%), the rest "zones-not-fetched" and
+#: "no-grid". Every other year is above 20% (1972 39%, 1990 29%, 1992+ 32-54%);
+#: 1968 and 1971 dip on 63 and 46 reads but 1967-1970 average higher, so they stay.
+LOW_YIELD_YEARS = range(1973, 1990)
+
+
+def low_yield_eras_held():
+    return os.environ.get("CT_LOW_YIELD_ERAS", "") not in ("", "0")
+
+
+def low_yield_trove(unit):
+    return (unit["paper"] == "trove" and unit["reason"] in NEW_WORK
+            and unit.get("date", "")[:4].isdigit() and int(unit["date"][:4]) in LOW_YIELD_YEARS)
+
+
+def hold_low_yield_eras(scans, reads, out=None):
+    """(scans, reads) without the never-read Trove articles of LOW_YIELD_YEARS
+    while the plan holds any other never-read or never-scanned unit: they
+    spend the one-slot VLM on articles that mostly refuse. Once only they
+    are left they come back. CT_LOW_YIELD_ERAS=1 keeps them. One note says how many."""
+    held = [t for t in reads if low_yield_trove(t[3])]
+    if not held:
+        return scans, reads
+    if low_yield_eras_held():
+        if out is not None:
+            out.append(f"low-yield eras: {len(held)} kept (CT_LOW_YIELD_ERAS=1)")
+        return scans, reads
+    if not any(u["reason"] in NEW_WORK for _, _, _, u in scans + reads if not low_yield_trove(u)):
+        if out is not None:
+            out.append(f"low-yield eras: {len(held)} kept, no other never-read or never-scanned unit left")
+        return scans, reads
+    if out is not None:
+        out.append(f"low-yield eras: held {len(held)} never-read Trove articles of {LOW_YIELD_YEARS[0]}-{LOW_YIELD_YEARS[-1]} "
+                   f"(filing yield under 20%) while other never-read or never-scanned units remain; "
+                   f"CT_LOW_YIELD_ERAS=1 restores them")
+    return scans, [t for t in reads if t not in held]
 
 
 #: A plan of the papers that takes this many seconds says, in its notes, what each paper cost.

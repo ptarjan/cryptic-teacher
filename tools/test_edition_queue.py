@@ -207,6 +207,19 @@ check("held: cured-since and fix-landed reads go, annotation asked stays, and th
 sc_y, rd_y = eq.hold_refusal_rereads([], [tup(unit_c), tup(unit_t)])
 check("with no new unit left the refusal rereads come back", 2, len(rd_y))
 
+# ---- low-yield Trove years wait while other never-read units remain
+tv = lambda rel, date, reason="never read": tup({"paper": "trove", "rel": rel, "reason": reason, "date": date, "needs": []})
+_, rd_l = eq.hold_low_yield_eras([], [tv("a", "1980-01-01"), tv("b", "1990-01-01"), tv("c", "1972-12-31"),
+                                       tv("d", "1989-12-31"), tv("e", "1980-01-01", "inputs changed"), tup(unit_n)], notes_l := [])
+check("low-yield: 1973-1989 never-read Trove goes, other years/reasons/papers stay", ["b", "c", "e", "X/n"], [t[3]["rel"] for t in rd_l])
+check("low-yield: one note counts the held", True, len(notes_l) == 1 and "held 2" in notes_l[0])
+_, rd_m = eq.hold_low_yield_eras([], [tv("a", "1980-01-01")], notes_m := [])
+check("low-yield: with no other never-read unit they come back", 1, len(rd_m))
+os.environ["CT_LOW_YIELD_ERAS"] = "1"
+_, rd_o = eq.hold_low_yield_eras([], [tv("a", "1980-01-01"), tup(unit_n)])
+check("CT_LOW_YIELD_ERAS=1 keeps them", 2, len(rd_o))
+del os.environ["CT_LOW_YIELD_ERAS"]
+
 f.edition_dirs, f.input_hash = listing, hashes
 
 # ---- likely(): within a rank, the re-reads predicted to file a puzzle whole go first
