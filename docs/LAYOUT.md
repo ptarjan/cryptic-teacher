@@ -1656,12 +1656,19 @@ tools/data/indicator_roles.json                indicator word -> op type -> uses
                                                validate_annotations.wrong_role_indicators flags
                                                an indicator the corpus files under one other op
                                                and almost never under the op it sits on
+tools/data/indicator_kinds.json                indicator word -> kind of letter selection
+                                               (first, last, middle, outer, alternate, nth) or
+                                               deletion (head, tail, heart, outer, named) ->
+                                               uses, counted by build_indicator_roles.py; the
+                                               /indicators/ page splits those two types by it
 
 annotating
 tools/build_indicator_roles.py                 counts, for every indicator word used 20+ times,
-                                               how many times each op type carries it across
-                                               the published annotations, and writes
-                                               tools/data/indicator_roles.json
+                                               how many times each op type (and each selection
+                                               or deletion kind) carries it across the
+                                               published annotations, and writes
+                                               tools/data/indicator_roles.json and
+                                               indicator_kinds.json
 
 tables everything else reads
 tools/data/unclueable.json                     words rejected as answers, with reasons;
