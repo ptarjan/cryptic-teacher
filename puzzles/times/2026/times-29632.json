@@ -1990,19 +1990,29 @@
      "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "the country loses its last letter"
-      },
-      {
        "text": "recession",
        "note": "it is read backwards, receding"
       }
      ],
      "parts": [
       {
-       "words": "country's",
-       "gives": "FRANC",
-       "note": "FRANCE without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "note": "the country loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "country's",
+         "gives": "FRANCE",
+         "note": "FRANCE without its last letter"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "op": "reversal",

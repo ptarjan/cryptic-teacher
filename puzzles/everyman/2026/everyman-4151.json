@@ -1092,10 +1092,6 @@
      "op": "container",
      "indicators": [
       {
-       "text": "headless",
-       "note": "A headless word has lost the letter at its front, so the crawler named beside this arrives without its W."
-      },
-      {
        "text": "inside",
        "note": "What is inside sits within rather than alongside, so the trimmed piece is planted in the middle of the other."
       }
@@ -1107,9 +1103,22 @@
        "note": "to cut something up into small cubes is to dice it"
       },
       {
-       "words": "worm",
-       "gives": "ORM",
-       "note": "the wriggler minus the letter it starts with"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "headless",
+         "note": "A headless word has lost the letter at its front, so the crawler named beside this arrives without its W."
+        }
+       ],
+       "parts": [
+        {
+         "words": "worm",
+         "note": "the wriggler minus the letter it starts with"
+        },
+        {
+         "gives": "W"
+        }
+       ]
       }
      ]
     },

@@ -105,19 +105,29 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Topless",
-       "note": "in a down entry the top of a word is where it starts, so a topless one has lost its first letter"
-      },
-      {
        "text": "welcoming",
        "note": "to welcome someone is to take them inside, so the letters named next sit within this piece"
       }
      ],
      "parts": [
       {
-       "words": "beefcake",
-       "gives": "UNK",
-       "note": "a beefcake is a HUNK, and down the column its top letter comes away"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Topless",
+         "note": "in a down entry the top of a word is where it starts, so a topless one has lost its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beefcake",
+         "gives": "HUNK",
+         "note": "a beefcake is a HUNK, and down the column its top letter comes away"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       },
       {
        "words": "keen response",
@@ -553,19 +563,29 @@
      "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly the word but not all of it, so the final letter is left off"
-      },
-      {
        "text": "filled with",
        "note": "what is filled has something put inside it, so this piece opens up to take the letters named next"
       }
      ],
      "parts": [
       {
-       "words": "heart",
-       "gives": "CENTR",
-       "note": "the heart of a thing is its CENTRE, which gives up its last letter here"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "note": "mostly the word but not all of it, so the final letter is left off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heart",
+         "gives": "CENTRE",
+         "note": "the heart of a thing is its CENTRE, which gives up its last letter here"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "gold",
