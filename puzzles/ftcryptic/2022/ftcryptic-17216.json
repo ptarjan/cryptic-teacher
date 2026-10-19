@@ -53,41 +53,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIONCUB",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "something cut short has lost its tail, so the final letter of the next word goes"
+       "text": "through",
+       "note": "the pieces pass right through the middle of the abbreviation that follows, so it wraps around them"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "through",
-         "note": "the pieces pass right through the middle of the abbreviation that follows, so it wraps around them"
-        }
-       ],
+       "words": "library",
+       "gives": "LIB",
+       "note": "standard abbreviation for library"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "library",
-         "gives": "LIB",
-         "note": "standard abbreviation for library"
+         "words": "on",
+         "note": "taken as written"
         },
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "note": "something cut short has lost its tail, so the final letter of the next word goes"
+          }
+         ],
          "parts": [
           {
-           "words": "on",
-           "note": "taken as written"
+           "words": "cut",
+           "gives": "CUT",
+           "note": "the word with its last letter docked"
           },
           {
-           "words": "cut",
-           "gives": "CU",
-           "note": "the word with its last letter docked"
+           "gives": "T"
           }
          ]
         }
@@ -1635,49 +1636,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HEGEL",
+     "op": "container",
      "indicators": [
       {
-       "text": "in brief",
-       "note": "made brief, the word is cut short at its end"
+       "text": "to be innate",
+       "note": "innate means inborn, held inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to be innate",
-         "note": "innate means inborn, held inside"
+         "text": "in brief",
+         "note": "made brief, the word is cut short at its end"
         }
        ],
        "parts": [
         {
          "words": "held",
-         "gives": "HEL",
+         "gives": "HELD",
          "note": "the word shortened"
         },
         {
-         "op": "first",
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "GE",
+       "indicators": [
+        {
+         "text": "fundamentals of",
+         "note": "the fundamentals are the basics, the first letters"
+        }
+       ],
+       "parts": [
+        {
          "unchecked": true,
+         "words": "Geist and Essence",
          "gives": "GE",
-         "indicators": [
-          {
-           "text": "fundamentals of",
-           "note": "the fundamentals are the basics, the first letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Geist and Essence",
-           "gives": "GE",
-           "select": "first",
-           "note": "the two nouns' initials"
-          }
-         ]
+         "select": "first",
+         "note": "the two nouns' initials"
         }
        ]
       }

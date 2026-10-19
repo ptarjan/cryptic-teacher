@@ -320,5 +320,19 @@ new, used = F.repair_tree(us, ubs, "DETPCLUS", US)
 check("a bare container takes the unused container word beside its pieces",
       used == [] or new["parts"][1]["indicators"][0]["text"] == "hosting")
 
+# del_single: a deletion over a composite whose letters come out of one literal leaf filed already cut
+D1 = {"del_single": F.r_del_single}
+d1 = {"op": "deletion", "unchecked": True, "indicators": [{"text": "endless"}], "parts": [
+    {"op": "charade", "parts": [{"words": "Graduate's", "gives": "BAS"}, {"words": "mum", "gives": "MA"},
+                                {"words": "Tim", "gives": "TI"}]}]}
+new, used = F.repair_tree(d1, "Graduate's mum endless Tim", "BASMATI", D1)
+check("a cut leaf filed short moves the deletion onto it and the wrapper goes",
+      used == ["del_single"] and new["op"] == "charade" and new["parts"][2]["op"] == "deletion"
+      and new["parts"][2]["parts"][0]["gives"] == "TIM" and new["parts"][2]["parts"][1]["gives"] == "M")
+d2 = {"op": "deletion", "unchecked": True, "indicators": [{"text": "Short"}], "parts": [
+    {"op": "charade", "parts": [{"words": "talk", "gives": "RABBI"}, {"words": "x", "gives": "CAL"}]}]}
+new, used = F.repair_tree(d2, "Short talk x", "RABBICAL", D1)
+check("a synonym filed short (no literal whole word) is left for the model", used == [])
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

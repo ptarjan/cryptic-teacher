@@ -255,52 +255,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PUNNET",
-     "indicators": [
-      {
-       "text": "beheaded",
-       "note": "a word that is beheaded loses its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "unchecked": true,
+       "gives": "PUN",
+       "indicators": [
+        {
+         "text": "heads of",
+         "note": "the heads of words are their first letters"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
          "unchecked": true,
+         "words": "political undesirables: nobs",
          "gives": "PUN",
-         "indicators": [
-          {
-           "text": "heads of",
-           "note": "the heads of words are their first letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "political undesirables: nobs",
-           "gives": "PUN",
-           "select": "first",
-           "note": "first letters of these three words"
-          }
-         ]
-        },
+         "select": "first",
+         "note": "first letters of these three words"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "nobles",
-           "note": "also its first letter"
-          }
-         ]
-        },
+         "words": "nobles",
+         "note": "also its first letter"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "beheaded",
+         "note": "a word that is beheaded loses its first letter"
+        }
+       ],
+       "parts": [
         {
          "words": "get",
-         "gives": "ET",
+         "gives": "GET",
          "note": "the word with its head removed"
+        },
+        {
+         "gives": "G"
         }
        ]
       }

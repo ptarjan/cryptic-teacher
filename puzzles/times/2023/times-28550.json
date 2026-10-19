@@ -641,47 +641,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STARTER",
+     "op": "container",
      "indicators": [
       {
-       "text": "unfinished",
-       "note": "something left unfinished lacks its ending, so the last letter of that word is dropped"
+       "text": "outside",
+       "note": "being outside something means surrounding it, so these letters wrap around the dessert"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "outside",
-         "note": "being outside something means surrounding it, so these letters wrap around the dessert"
+         "text": "sent back",
+         "note": "sending something back returns it the way it came, so the letters run from right to left"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "sent back",
-           "note": "sending something back returns it the way it came, so the letters run from right to left"
+           "text": "unfinished",
+           "note": "something left unfinished lacks its ending, so the last letter of that word is dropped"
           }
          ],
          "parts": [
           {
            "words": "rest",
-           "gives": "RES",
+           "gives": "REST",
            "note": "the word rest with its final letter cut off"
+          },
+          {
+           "gives": "T"
           }
          ]
-        },
-        {
-         "words": "dessert",
-         "gives": "TART",
-         "note": "a tart is a sweet pastry served as dessert"
         }
        ]
+      },
+      {
+       "words": "dessert",
+       "gives": "TART",
+       "note": "a tart is a sweet pastry served as dessert"
       }
      ]
     },
@@ -1037,44 +1038,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BATHSHEBA",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "short means cut down, so the last letter of the preceding word is lost"
+       "text": "embracing",
+       "note": "to embrace is to wrap your arms around, so the bachelors surround the middle letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "embracing",
-         "note": "to embrace is to wrap your arms around, so the bachelors surround the middle letters"
-        }
-       ],
+       "words": "Two bachelors",
+       "gives": "BABA",
+       "note": "BA, Bachelor of Arts, twice"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Two bachelors",
-         "gives": "BABA",
-         "note": "BA, Bachelor of Arts, twice"
-        },
-        {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "note": "short means cut down, so the last letter of the preceding word is lost"
+          }
+         ],
          "parts": [
           {
            "words": "the",
-           "gives": "TH",
+           "gives": "THE",
            "note": "the without its last letter"
           },
           {
-           "words": "lady",
-           "gives": "SHE",
-           "note": "she refers to a woman"
+           "gives": "E"
           }
          ]
+        },
+        {
+         "words": "lady",
+         "gives": "SHE",
+         "note": "she refers to a woman"
         }
        ]
       }
