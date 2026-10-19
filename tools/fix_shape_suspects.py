@@ -1937,7 +1937,96 @@ def r_arity_ins(node, parent, ctx):
     return next(iter(good.values())) if len(good) == 1 else None
 
 
-RULE_REPAIRS = {"arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
+def r_removed_leaf(node, parent, ctx):
+    """unchecked_leaf: a one-part deletion over a charade holding a letterless unchecked leaf
+    (DEPORTMENT: del(charade(DEPORT, MEN, T?)) with "billions" never given letters). The leaf is
+    the removed part, not a charade piece: it leaves the charade and becomes the deletion's second
+    part, its `gives` the letters the rest of the charade has beyond the target (the deletion's own
+    `gives`, or the answer at the root). Kept only when those letters are one string and the whole
+    tree gives the answer."""
+    if node.get("op") != "deletion" or len(node.get("parts") or []) != 1:
+        return None
+    inner = node["parts"][0]
+    if inner.get("op") != "charade" or inner.get("unchecked") or "gives" in inner:
+        return None
+    gone = [p for p in inner.get("parts") or []
+            if leaf(p) and p.get("unchecked") and p.get("words") and not W.letters(p.get("gives"))]
+    if len(gone) != 1:
+        return None
+    lf = gone[0]
+    want = W.letters(node.get("gives")) or (W.letters(ctx.get("answer")) if parent is None else "")
+    rest = charade([copy.deepcopy(p) for p in inner["parts"] if p is not lf])
+    vs = vals(rest)
+    if not want or not vs or len(vs) != 1:
+        return None
+    v = next(iter(vs))
+    m = len(v) - len(want)
+    if m == 0 and v == want:
+        return _letters_back(node, parent, ctx, inner, lf)
+    if not 1 <= m <= 4:
+        return None
+    cuts = {v[j:j + m] for j in range(len(v) - m + 1) if v[:j] + v[j + m:] == want}
+    if len(cuts) != 1:
+        return None
+    new_leaf = {k: x for k, x in lf.items() if k != "unchecked"}
+    new_leaf["gives"] = cuts.pop()
+    return checked(node, parts=[rest, new_leaf])
+
+
+_ABBR = {}
+
+
+def _abbreviations(words):
+    """The letters the abbreviation tables read `words` as (king K, billions B, unknown X/Y/Z)."""
+    if not _ABBR:
+        pairs, _ = V._attested()
+        for k, g in pairs | set(V._EXTRA_PAIRS):
+            _ABBR.setdefault(k, set()).add(g)
+    key = re.sub(r"[^A-Z]", "", str(words).upper())
+    # a one-letter word ("I", "A") stands for itself
+    return _ABBR.get(key, set()) | ({key} if len(key) == 1 else set())
+
+
+def _letters_back(node, parent, ctx, inner, lf):
+    """The removed leaf's letters were never filed because the charade's leaf already shows the word
+    cut (Rant -> TRADE, with I removed from TIRADE): put the abbreviation's letters back into one
+    other leaf of the charade, where the result is a word of the lexicon, and let the deletion take
+    them out again. Kept only when exactly one leaf, place and reading does it."""
+    lex = V._lexicon_letters()
+    if not lex:
+        return None
+    found = {}
+    for q, _ in walk(inner):
+        if not leaf(q) or q is lf or not q.get("words") or not W.letters(q.get("gives")) or q.get("unchecked"):
+            continue
+        g = W.letters(q["gives"])
+        for x in _abbreviations(lf["words"]):
+            for i in range(len(g) + 1):
+                cand = g[:i] + x + g[i:]
+                if cand == g or cand.lower() not in lex or len(cand) < 4:
+                    continue
+                new_inner = copy.deepcopy(inner)
+                for nq, _ in walk(new_inner):
+                    if leaf(nq) and nq == q:
+                        nq["gives"] = cand
+                        nq["note"] = f"{nq['words']} gives {cand}, before the {x} goes"
+                        break
+                ps = [p for p in new_inner["parts"] if not (leaf(p) and p == lf)]
+                rest = charade(ps) if len(ps) != 1 else ps[0]
+                new_leaf = {k: v for k, v in lf.items() if k != "unchecked"}
+                new_leaf["gives"] = x
+                new = checked(node, parts=[rest, new_leaf])
+                if _eval_swapped(node, parent, new, ctx):
+                    found[json.dumps(new, sort_keys=True)] = (new, cand)
+    if len(found) > 1:
+        # several lexicon words fit (TIRADE, TRADIE): the one the annotation's own notes name
+        text = json.dumps(ctx["tree"]).lower()
+        named = {k: v for k, v in found.items() if re.search(r"\b%s\b" % v[1].lower(), text)}
+        found = named
+    return next(iter(found.values()))[0] if len(found) == 1 else None
+
+
+RULE_REPAIRS = {"unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
                 "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": lambda n, p, c: r_pool_gap(n, p, c) or r_pool_eject(n, p, c),
@@ -2449,7 +2538,8 @@ def do_rule_puzzle(pid):
 
 
 #: Queue rows that name a shape_suspects detector, not a validator rule: how --rule counts them.
-_DETECTOR_RULES = {"del_single": lambda wp, full, clue: V.del_single(wp),
+_DETECTOR_RULES = {"unchecked_leaf": lambda wp, full, clue: "unchecked_leaf" in hits(full, clue, full.get("_answer")),
+                   "del_single": lambda wp, full, clue: V.del_single(wp),
                    "arity_ins": lambda wp, full, clue: V.arity_ins(wp),
                    "ind_in_leaf": lambda wp, full, clue: V.ind_in_leaf(wp, clue)}
 
