@@ -307,39 +307,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "doubtful",
-       "note": "when something is doubtful it is uncertain and unsettled, so these letters are not in their final order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "bishop",
+       "at": 11,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      },
+      {
+       "words": "suitable",
+       "at": 18,
+       "gives": "APT",
+       "note": "apt means suitable"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "doubtful",
+         "at": 33,
+         "note": "doubtful letters are uncertain, so they are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "bishop",
-         "gives": "B",
-         "note": "B is the chess abbreviation for bishop"
-        },
-        {
-         "words": "suitable",
-         "gives": "APT",
-         "note": "apt means suitable"
-        },
-        {
          "words": "It's",
-         "note": "the three letters of the word rearranged"
+         "at": 28
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone wonders whether a bishop is right for a Protestant post and decides it is uncertain.",
-     "walkthrough": "The question mark makes 'It's doubtful' look like a comment on the bishop; it is the shuffled 'It's' that ends the word.",
-     "definitionFit": "A Baptist belongs to a Protestant denomination practising adult baptism by immersion, so it is one example of a Protestant."
+     "surface": "Someone asks whether a bishop would fit a Protestant role and doubts it.",
+     "walkthrough": "B and APT, then IST is IT'S rearranged ('doubtful').",
+     "definitionFit": "Baptists are a Protestant denomination practising adult baptism by immersion."
     },
     "features": {
      "answerInScene": true,
@@ -1486,47 +1489,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "formed",
-       "note": "formed means shaped into something new, so the letters before it are rearranged"
-      },
-      {
-       "text": "diseased",
-       "note": "diseased suggests something unhealthy and out of order, so those letters are rearranged too"
+       "text": "round",
+       "at": 22,
+       "note": "the newly formed word goes round the other rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "round",
-         "note": "round means going around the outside, so one piece wraps the other"
+         "text": "formed",
+         "at": 15,
+         "note": "the letters of ring are formed into a new word"
         }
        ],
        "parts": [
         {
          "words": "ring",
-         "note": "the four letters rearranged"
-        },
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "diseased",
+         "at": 28,
+         "note": "a diseased elm is in poor shape, so its letters are mixed up"
+        }
+       ],
+       "parts": [
         {
          "words": "elm",
-         "note": "the three letters rearranged"
+         "at": 37
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woodland spirit dances in a fairy ring around a sick elm tree.",
-     "definitionFit": "A gremlin is an imaginary mischievous creature blamed for mechanical faults, a kind of sprite or imp."
+     "surface": "A woodland fairy in a fairy ring around an elm killed by disease.",
+     "walkthrough": "'ring formed' reads like a fairy ring, but both words and the elm are anagram material: two separate jumbles, one around the other.",
+     "definitionFit": "A gremlin is an imaginary mischievous creature blamed for mechanical faults, a kind of imp."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ring"
+     "misdirectedWord": "formed"
     }
    }
   }

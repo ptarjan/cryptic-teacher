@@ -981,47 +981,54 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "CATALOGUE",
-     "indicators": [
-      {
-       "text": "to replace",
-       "note": "to replace something is to take its place, so one letter is swapped in for another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "About",
+       "at": 0,
        "gives": "C",
-       "note": "c is short for circa, about"
+       "note": "C is circa, Latin for about"
       },
       {
-       "words": "continuously changing",
-       "gives": "ANALOGUE",
-       "note": "an analogue signal varies continuously, unlike a digital one in steps"
-      },
-      {
-       "words": "a knight",
-       "gives": "N",
-       "note": "N is the chess notation for knight"
-      },
-      {
-       "words": "time",
-       "gives": "T",
-       "note": "T is the abbreviation for time"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "to replace",
+         "at": 11,
+         "note": "the letter for time takes the place of the letter for knight"
+        }
+       ],
+       "parts": [
+        {
+         "words": "continuously changing",
+         "at": 34,
+         "gives": "ANALOGUE",
+         "note": "analogue signals vary continuously, unlike digital ones"
+        },
+        {
+         "words": "a knight",
+         "at": 22,
+         "gives": "N",
+         "note": "N is the chess notation for a knight"
+        },
+        {
+         "words": "time",
+         "at": 6,
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A list that keeps changing, with time taking the place of a knight.",
-     "walkthrough": "'continuously changing' looks like an anagram signal, but it defines a word: analogue, as opposed to digital.",
-     "definitionFit": "A catalogue is a systematic list of items, such as goods for sale or books in a library."
+     "surface": "A list that keeps changing, with a knight replaced over time.",
+     "walkthrough": "'continuously changing' is not an anagram signal: it describes an analogue signal, as opposed to a digital one. N is the chess symbol for a knight.",
+     "definitionFit": "A catalogue is an itemised list of goods, books or records."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "changing"
+     "misdirectedWord": "knight"
     }
    }
   },
@@ -1046,54 +1053,77 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "AUSTRALIA",
+     "op": "container",
      "indicators": [
       {
-       "text": "one left going the wrong way",
-       "note": "the Roman one and the abbreviation for left already sit side by side in the word, and going the wrong way swaps them round"
+       "text": "touring",
+       "at": 18,
+       "note": "to tour is to go round, so the motorists' letters go round the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "AUSTRALIA",
-       "indicators": [
-        {
-         "text": "touring",
-         "note": "touring a place means going all around it, so the first part surrounds the rest"
-        }
-       ],
+       "words": "motorists",
+       "at": 8,
+       "gives": "AA",
+       "note": "the AA is the Automobile Association, the British motorists' organisation"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "motorists",
-         "gives": "AA",
-         "note": "the AA is the Automobile Association, the UK motoring organisation"
-        },
-        {
          "words": "American",
-         "gives": "US",
-         "note": "US is short for American"
+         "at": 26,
+         "gives": "US"
         },
         {
-         "words": "trail",
-         "note": "taken as written"
+         "op": "substitution",
+         "indicators": [
+          {
+           "text": "going the wrong way",
+           "at": 52,
+           "note": "the two letters run the wrong way, so they are switched round"
+          }
+         ],
+         "parts": [
+          {
+           "words": "trail",
+           "at": 35
+          },
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "one",
+             "at": 43,
+             "gives": "I",
+             "note": "one is I as a Roman numeral"
+            },
+            {
+             "words": "left",
+             "at": 47,
+             "gives": "L"
+            }
+           ]
+          },
+          {
+           "gives": "LI"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Drivers on a road trip across an American trail, but one turns left the wrong way.",
-     "walkthrough": "'one left going the wrong way' adds no letters: I (one) and L (left) are already inside the trail, so the instruction reverses them in place.",
-     "definitionFit": "Australia is a country, the only one that is also a whole continent."
+     "surface": "Motoring tourists drive an American trail and someone gets lost heading the wrong way.",
+     "walkthrough": "In TRAIL, I and L ('one left') are 'going the wrong way', making TRALI. US and TRALI are toured by AA, the Automobile Association.",
+     "definitionFit": "Australia is a nation that occupies a whole continent in the southern hemisphere."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "touring"
+     "misdirectedWord": "left"
     }
    }
   },

@@ -1103,51 +1103,55 @@
      "indicators": [
       {
        "text": "about",
-       "note": "the word for dithering goes about, around, the turned piece"
+       "at": 10,
+       "note": "the word for dithering goes about, around, the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Dithering",
+       "at": 0,
+       "gives": "TORN",
+       "note": "to be torn is to be undecided, dithering between choices"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Dithering",
-         "gives": "TORN",
-         "note": "torn between choices, unable to decide"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turning",
+           "at": 28,
+           "note": "turning round makes the word is face the other way, read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "is",
+           "at": 25
+          }
+         ]
         },
         {
          "words": "nothing",
+         "at": 16,
          "gives": "O",
-         "note": "O looks like zero"
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "turning",
-         "note": "turning round means the short phrase before it is read backwards"
-        }
-       ],
-       "parts": [
-        {
-         "words": "is",
-         "note": "taken as written"
+         "note": "O looks like zero, nothing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An indecisive person fretting about nothing, spinning and twisting.",
-     "walkthrough": "Nothing plus is is reversed as one piece and then placed inside the word for dithering.",
-     "definitionFit": "Torsion is the act of twisting, the strain produced by turning one end of something."
+     "surface": "Someone indecisive about doing nothing, tossing and turning.",
+     "walkthrough": "'turning and twisting' looks like one definition, but 'turning' reverses IS to SI; TORN goes 'about' SI and O.",
+     "definitionFit": "Torsion is the twisting of an object by forces turning its ends in opposite directions."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "turning"
+     "misdirectedWord": "Dithering"
     }
    }
   },
@@ -3260,43 +3264,47 @@
      "indicators": [
       {
        "text": "disrupting",
-       "note": "these letters break into the party word, sitting inside it"
+       "at": 28,
+       "note": "breaking into something, so these letters go inside the word for party"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "party",
-         "gives": "DO",
-         "note": "a do is a party"
-        },
-        {
-         "words": "is",
-         "note": "taken as written"
-        }
-       ]
+       "words": "party",
+       "at": 39,
+       "gives": "DO",
+       "note": "a do is a party"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "beginning to",
-         "note": "the beginning of the next word means its opening letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "close",
-         "note": "the opening letter of close"
+         "words": "is",
+         "at": 5
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "at": 8,
+           "note": "the beginning of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "close",
+           "at": 21
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nightclub about to shut, spoiling the party.",
+     "surface": "A nightclub is starting to shut, breaking up someone's party.",
+     "walkthrough": "IS and C (the 'beginning to' close) go 'disrupting' DO.",
      "definitionFit": "A disco is a nightclub where people dance to recorded pop music."
     },
     "features": {
@@ -3385,49 +3393,54 @@
      "indicators": [
       {
        "text": "about",
-       "note": "the shortened word goes about, around, the following pieces"
+       "at": 34,
+       "note": "the shortened word goes about, around, the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 27,
+         "note": "mostly means not quite all, so the final letter is cut"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means the phrase loses its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "in general",
-           "gives": "OVERALL",
-           "note": "overall means in general, taken as a whole"
-          },
-          {
-           "gives": "L"
-          }
-         ]
+         "words": "in general",
+         "at": 15,
+         "gives": "OVERALL",
+         "note": "overall means in general, taken as a whole"
         },
         {
-         "words": "European",
-         "gives": "E",
-         "note": "E is the abbreviation for European"
+         "gives": "L"
         }
        ]
       },
       {
-       "words": "proposal",
-       "gives": "MOTION",
-       "note": "a motion is a proposal put to a meeting"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "European",
+         "at": 40,
+         "gives": "E"
+        },
+        {
+         "words": "proposal",
+         "at": 49,
+         "gives": "MOTION",
+         "note": "a motion is a proposal put to a meeting"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A heated debate over a European motion, getting overheated.",
-     "definitionFit": "Overemotional means showing excessive feeling, so too passionate in a plain synonym."
+     "surface": "Someone reacting far too strongly to a European proposal.",
+     "walkthrough": "OVERALL ('in general') 'mostly' is OVERAL, which goes 'about' E and MOTION.",
+     "definitionFit": "Overemotional describes someone whose feelings are excessive and run away with them."
     },
     "features": {
      "answerInScene": true,

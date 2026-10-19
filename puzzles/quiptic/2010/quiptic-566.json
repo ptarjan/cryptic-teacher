@@ -1322,40 +1322,44 @@
      "indicators": [
       {
        "text": "Taking",
-       "note": "taking something in means holding it inside"
+       "at": 0,
+       "note": "the animal takes in the other letters, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "animal",
-         "gives": "HART",
-         "note": "a hart is a male deer"
-        },
-        {
-         "words": "five",
-         "gives": "V",
-         "note": "V is the Roman numeral five"
-        }
-       ]
+       "words": "animal",
+       "at": 22,
+       "gives": "HART",
+       "note": "a hart is a male deer"
       },
       {
-       "words": "bearings",
-       "gives": "ES",
-       "note": "E and S are the compass bearings east and south"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "five",
+         "at": 7,
+         "gives": "V",
+         "note": "V is five as a Roman numeral"
+        },
+        {
+         "words": "bearings",
+         "at": 12,
+         "gives": "ES",
+         "note": "E and S, east and south, are compass bearings"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A beast that has taken five compass readings ends up at a field of crops.",
-     "definitionFit": "A harvest is the gathered crop of a season, so the word names the crop itself."
+     "surface": "A deer taking five compass bearings is led to a field of crops.",
+     "walkthrough": "HART takes in V and E S.",
+     "definitionFit": "A harvest is the yield of a crop gathered in a season."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "bearings"
     }
    }
@@ -1781,39 +1785,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means moved around, so the letters before it are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 5,
+         "note": "about means around, out of order, so the letters of hear are turned about"
+        }
+       ],
        "parts": [
         {
          "words": "Hear",
-         "note": "the letters rearranged"
-        },
-        {
-         "words": "skill",
-         "gives": "ART",
-         "note": "art is skill, as in the art of persuasion"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "skill",
+       "at": 11,
+       "gives": "ART",
+       "note": "art means skill, as in the art of persuasion"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone learns about a pilot's flying ability.",
-     "walkthrough": "Amelia Earhart was the American pilot who first flew solo across the Atlantic as a woman.",
-     "definitionFit": "Amelia Earhart was a pioneering flyer, so she is an example of an aviator."
+     "surface": "Learning about a pilot's flying skill.",
+     "walkthrough": "EARH is HEAR rearranged ('about'), then ART.",
+     "definitionFit": "Amelia Earhart was the American pilot who was the first woman to fly solo across the Atlantic."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Hear"
+     "misdirectedWord": "skill"
     }
    }
   }
