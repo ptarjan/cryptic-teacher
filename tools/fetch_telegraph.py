@@ -630,9 +630,13 @@ def main(argv=None):
     ap.add_argument("--holes", type=lambda v: None if v == "all" else int(v), metavar="N|all", default=False,
                     help="fetch up to N puzzles the bucket has and puzzles/ lacks, oldest first")
     ap.add_argument("--reindex", action="store_true", help="rebuild the index after the walk")
-    ap.add_argument("--budget-seconds", type=float, help="start no fetch once this many seconds have passed")
+    ap.add_argument("--budget-seconds", type=float, help="start no fetch once this many seconds have passed since the run began")
     ap.add_argument("slugs", nargs="*", help="bucket slugs, e.g. cryptic-crossword-37195")
     args = ap.parse_args(argv)
+    # The budget is the whole run's wall clock, the calendars and the scan of
+    # puzzles/ included: they took ~12 minutes on 2026-10-19 and, uncounted,
+    # carried a 2400s budget to 3139s and past the unit's 60m limit.
+    start = time.monotonic()
     if args.slugs:
         for slug in args.slugs:
             if fetch(variant_of(slug), slug)[1]:
@@ -649,7 +653,8 @@ def main(argv=None):
           + ", ".join(f"{s} {n}" for s, n in sorted(by.items())))
     done = failed = 0
     setters = blog_setters()
-    start, walk = time.monotonic(), todo[:args.holes]
+    walk = todo[:args.holes]
+    print(f"setup took {time.monotonic() - start:.0f}s")
     for i, (series, number, day, variant, slug) in enumerate(walk):
         if args.budget_seconds is not None and time.monotonic() - start >= args.budget_seconds:
             print(f"budget of {args.budget_seconds:g}s spent: {len(walk) - i} left for the next run")
