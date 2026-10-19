@@ -10,7 +10,11 @@ set -euo pipefail
 trap 'echo "test_ci_checkout: failed at line $LINENO: $BASH_COMMAND" >&2' ERR
 cd "$(dirname "$0")/.."
 tmp=$(mktemp -d)
-trap 'rm -rf "$tmp"' EXIT
+# A detached auto-gc can still be writing into $tmp when the script ends, so
+# cleanup raced it and failed a passing run (39246802910): gc in the
+# foreground, and a cleanup that misses a file is not a test failure.
+export GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=gc.autoDetach GIT_CONFIG_VALUE_0=false
+trap 'rm -rf "$tmp" 2>/dev/null || true' EXIT
 wf=.github/workflows/pages.yml
 
 python3 - "$wf" "$tmp" <<'EOF'
