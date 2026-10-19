@@ -43,5 +43,24 @@ amb = tree("ABAB", [leaf("a", "AB"), leaf("b", "A"), leaf("c", "B")])
 new, used = F.repair_tree(amb, "a b c")
 check("an ambiguous nesting is skipped", used == [])
 
+# wrongRole: indicators on the wrong one of two nested ops (timesquick-1113 9a ASIMOV).
+swap = {"op": "container", "indicators": [{"text": "returned"}], "parts": [
+    {"op": "reversal", "indicators": [{"text": "opened by"}], "parts": [{"words": "visa", "gives": "VISA"}]},
+    {"words": "medic", "gives": "MO"}]}
+new, used = F.repair_tree(swap, "US writer's visa returned, opened by medic", "ASIMOV", {"wrongRole": F.r_wrong_role})
+check("returned/opened by trade places", used == ["wrongRole"] and new["indicators"][0]["text"] == "opened by"
+      and new["parts"][0]["indicators"][0]["text"] == "returned")
+# an op with no indicator takes its parent's word for its type (BUSHRANGER: ana<ignoring>(del(..))).
+down = {"op": "anagram", "indicators": [{"text": "ignoring"}], "parts": [
+    {"op": "deletion", "parts": [{"words": "a Reagan", "gives": "AREAGAN"}, {"words": "a", "gives": "A"}]}]}
+new, used = F.repair_tree(down, "ignoring a Reagan", "REAGAN", {"wrongRole": F.r_wrong_role})
+check("ignoring moves down to the deletion", used == ["wrongRole"] and "indicators" not in new
+      and new["parts"][0]["indicators"][0]["text"] == "ignoring")
+ok_tree = {"op": "container", "indicators": [{"text": "opened by"}], "parts": [
+    {"op": "reversal", "indicators": [{"text": "returned"}], "parts": [{"words": "visa", "gives": "VISA"}]},
+    {"words": "medic", "gives": "MO"}]}
+new, used = F.repair_tree(ok_tree, "visa returned, opened by medic", "ASIMOV", {"wrongRole": F.r_wrong_role})
+check("a tree with the words in place is left alone", used == [])
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
