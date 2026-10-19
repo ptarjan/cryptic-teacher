@@ -46,39 +46,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "terribly",
-       "note": "something done terribly is done badly and messily, so the letters come out jumbled"
+       "text": "boarding",
+       "at": 29,
+       "note": "the rearranged letters board the aircraft, getting inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "helicopter",
+       "at": 38,
+       "gives": "CHOPPER",
+       "note": "chopper is slang for a helicopter"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "boarding",
-         "note": "a passenger boarding a craft goes inside it, so one piece sits within the other"
+         "text": "terribly",
+         "at": 15,
+         "note": "terribly signals the letters of old are mixed up"
         }
        ],
        "parts": [
         {
-         "words": "helicopter",
-         "gives": "CHOPPER",
-         "note": "chopper is the informal word for a helicopter"
-        },
-        {
          "words": "old",
-         "note": "the three letters of old, rearranged"
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An elderly klutz climbs awkwardly aboard a helicopter.",
-     "definitionFit": "A clodhopper is a big-footed, lumbering oaf who trips over things, so it names an awkward individual."
+     "surface": "An old and very awkward person climbs into a helicopter.",
+     "walkthrough": "Chopper is everyday slang for a helicopter.",
+     "definitionFit": "A clodhopper is a heavy-footed, awkward oaf."
     },
     "features": {
      "answerInScene": true,
@@ -948,50 +952,53 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "something eating food takes it inside, so the piece is enclosed"
+       "at": 7,
+       "note": "the family eats, taking the food inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Family",
-         "gives": "KIN",
-         "note": "kin are relatives"
-        },
-        {
-         "words": "pigmeat",
-         "gives": "HAM",
-         "note": "ham is cured meat from a pig"
-        }
-       ]
+       "words": "Family",
+       "at": 0,
+       "gives": "KIN",
+       "note": "kin are family"
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "finally points to the last letter of the word after it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "suffers",
-         "note": "the last letter only"
+         "words": "pigmeat",
+         "at": 14,
+         "gives": "HAM",
+         "note": "ham is meat from a pig"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 22,
+           "note": "the final letter of suffers"
+          }
+         ],
+         "parts": [
+          {
+           "words": "suffers",
+           "at": 30
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A household tucks into pork and ends up with digestive trouble in Egypt.",
-     "walkthrough": "The surface hints at flatulence after a meal; the wind is a weather system.",
-     "definitionFit": "The khamsin is a hot, dry, dusty southerly that blows across Egypt in spring from the Sahara."
+     "surface": "A family eating pork ends up suffering from wind on holiday in Egypt.",
+     "definitionFit": "The khamsin is a hot, dusty, southerly wind that blows across Egypt in spring."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "wind"
     }

@@ -1022,42 +1022,45 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "FIJI",
-     "indicators": [
-      {
-       "text": "visiting",
-       "note": "visiting a place means going inside it, so these letters sit within others"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "islands",
-       "gives": "II",
-       "note": "I is the abbreviation for island, doubled for the plural"
-      },
-      {
        "words": "Female",
-       "gives": "F",
-       "note": "F is the abbreviation for female"
+       "at": 0,
+       "gives": "F"
       },
       {
-       "words": "judge",
-       "gives": "J",
-       "note": "J is the abbreviation for judge"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "visiting",
+         "at": 13,
+         "note": "the judge visits, going in among the islands"
+        }
+       ],
+       "parts": [
+        {
+         "words": "islands",
+         "at": 22,
+         "gives": "II",
+         "note": "I is the abbreviation for island, so two make islands"
+        },
+        {
+         "words": "judge",
+         "at": 7,
+         "gives": "J"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A female judge visits some islands in a Pacific nation.",
-     "walkthrough": "F and J together go inside the pair of Is.",
-     "definitionFit": "The archipelago nation in Melanesia, made up of over three hundred islands, is a sovereign country in the South Pacific."
+     "surface": "A woman judge visits islands in a Pacific nation.",
+     "definitionFit": "Fiji is an island republic in the South Pacific, a sovereign state."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "islands"
+     "aptDefinition": false
     }
    }
   },
@@ -1157,40 +1160,58 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "COCKAPOO",
      "indicators": [
       {
-       "text": "replaced by",
-       "note": "replaced by means one letter is swapped out for another"
+       "text": "with",
+       "at": 11,
+       "note": "with introduces the change made to the bird's name, the letter that is swapped"
       },
       {
-       "text": "finally",
-       "note": "finally picks the last letter of the word before it as the one to be swapped"
+       "text": "replaced by",
+       "at": 30,
+       "note": "one letter is swapped out for another in the bird's name"
       }
      ],
      "parts": [
       {
-       "words": "Noisy bird with crest",
+       "words": "Noisy bird",
+       "at": 0,
        "gives": "COCKATOO",
-       "note": "the cockatoo is a loud crested parrot"
+       "note": "the cockatoo is a loud, crested parrot"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 22,
+         "note": "the final letter of crest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crest",
+         "at": 16
+        }
+       ]
       },
       {
        "words": "quiet",
+       "at": 42,
        "gives": "P",
        "note": "p, piano, is the musical direction for quiet"
       }
      ]
     },
     "explanation": {
-     "surface": "A noisy crested bird is finally swapped for a quiet dog.",
-     "walkthrough": "The last letter of crest is T; swap the T in COCKATOO for P.",
-     "definitionFit": "A cross between a cocker spaniel and a poodle is a popular designer breed of pet."
+     "surface": "A loud crested parrot is swapped for a calm pet dog.",
+     "walkthrough": "In COCKATOO, the T (crest finally) is replaced by P (quiet).",
+     "definitionFit": "A cockapoo is a crossbreed of cocker spaniel and poodle, a popular pet dog."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "quiet"
+     "misdirectedWord": "crest"
     }
    }
   },

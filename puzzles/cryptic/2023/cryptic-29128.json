@@ -1619,72 +1619,80 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "LETHARGIC",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in places the jumbled letters inside the emptied vehicle"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "coming from the back",
-         "note": "coming from the back means read from the end towards the start"
+         "text": "in",
+         "at": 31,
+         "note": "the shuffled letters sit in the emptied vehicle name, so 'in' marks a container"
         }
        ],
        "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "empty",
+           "at": 34,
+           "note": "an empty Landcruiser has lost all its inside letters, leaving just its first and last"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Landcruiser",
+           "at": 40
+          }
+         ]
+        },
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "travelling",
-           "note": "travelling means moving about, so these letters move into a new order"
+           "at": 20,
+           "note": "letters that are travelling move about, so the word hate is rearranged"
           }
          ],
          "parts": [
           {
-           "op": "outer",
-           "indicators": [
-            {
-             "text": "empty",
-             "note": "empty means the middle has been removed, leaving only the outside letters"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Landcruiser",
-             "note": "first and last letters of Landcruiser"
-            }
-           ]
-          },
-          {
            "words": "hate",
-           "note": "taken as written"
-          },
-          {
-           "words": "smoke",
-           "gives": "CIG",
-           "note": "a cig is a cigarette, a smoke"
+           "at": 15
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "coming from the back",
+         "at": 63,
+         "note": "read from the back, the word for smoke is taken in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "smoke",
+         "at": 57,
+         "gives": "CIG",
+         "note": "a cig is a cigarette, something to smoke"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An unmotivated driver of a hated, empty Land Cruiser with smoke pouring from the exhaust.",
-     "walkthrough": "Drive here is energy, not motoring, and the Landcruiser is a vehicle emptied of its middle letters.",
-     "definitionFit": "Lethargic describes someone sluggish and lacking energy or motivation."
+     "surface": "A driver with no enthusiasm hates the journey in a stripped-down off-roader trailing exhaust fumes.",
+     "walkthrough": "'Wanting drive' reads like a car with no engine power, fitting the Landcruiser picture, but it is the definition: lacking energy.",
+     "definitionFit": "Lethargic describes someone sluggish and lacking energy, which is exactly being without drive or motivation."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "drive"
     }
    }

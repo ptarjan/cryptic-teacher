@@ -106,46 +106,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNCOUTH",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "without starter",
-       "note": "a meal without a starter loses its first course, so the opening letter goes"
+       "text": "To order",
+       "at": 0,
+       "note": "putting letters to order means arranging them anew"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "To order",
-         "note": "putting things to order arranges them, so these letters are sorted into a new sequence"
+         "text": "without starter",
+         "at": 19,
+         "note": "without its starter, lunch loses its first letter"
         }
        ],
        "parts": [
         {
          "words": "lunch",
-         "gives": "UNCH",
-         "note": "lunch with its first letter dropped"
+         "at": 9
         },
         {
-         "words": "out",
-         "note": "taken as written"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "out",
+       "at": 15
       }
      ]
     },
     "explanation": {
-     "surface": "Ordering a lunch to take away while skipping the first course is bad manners.",
-     "walkthrough": "'Starter' looks like part of the meal, but it means the first letter.",
-     "definitionFit": "Uncouth means lacking good manners or refinement, which is what boorish, impolite behaviour is."
+     "surface": "Ordering a takeaway lunch while skipping the first course is bad manners.",
+     "walkthrough": "UNCH (lunch without its first letter) plus OUT are rearranged together.",
+     "definitionFit": "Uncouth means lacking manners or refinement, which is to be rude."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "starter"
     }
    }
@@ -323,37 +326,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADULTS",
-     "indicators": [
-      {
-       "text": "loveless",
-       "note": "love is zero in tennis, shaped like the letter O, and lacking it removes that letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Nowadays",
+       "at": 0,
+       "gives": "AD",
+       "note": "AD, anno domini, marks the present era"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drunken",
+         "at": 9,
+         "note": "drunken letters stagger about, so they are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Nowadays",
-         "gives": "AD",
-         "note": "AD, anno domini, marks the present era"
-        },
-        {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "drunken",
-           "note": "drunk people stagger about, so the letters lurch into a different order"
+           "text": "loveless",
+           "at": 17,
+           "note": "without love, the letter O, which is love in tennis"
           }
          ],
          "parts": [
           {
            "words": "louts",
-           "gives": "LUTS",
-           "note": "louts with its O dropped"
+           "at": 26
+          },
+          {
+           "gives": "O"
           }
          ]
         }
@@ -362,14 +368,14 @@
      ]
     },
     "explanation": {
-     "surface": "A grumble that these days boozy, uncaring yobs count as mature people.",
-     "walkthrough": "Love means nil in tennis, so it stands for the letter O.",
-     "definitionFit": "Adults are fully grown people, the same thing as grown-ups in plain everyday language."
+     "surface": "These days, boozy yobs turn into responsible adults.",
+     "walkthrough": "AD stands for anno domini, the present era, which is why it serves for nowadays.",
+     "definitionFit": "Adults are people who have grown up, hence grown-ups."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "loveless"
+     "misdirectedWord": "Nowadays"
     }
    }
   },
@@ -672,23 +678,33 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MUDDLE",
      "indicators": [
       {
-       "text": "If I leave",
-       "note": "the letter I departs from the word for centre, leaving a gap to be filled"
+       "text": "If",
+       "at": 0,
+       "note": "if sets the condition of the swap, introducing the letter that is to go from the word"
+      },
+      {
+       "text": "leave",
+       "at": 5,
+       "note": "I leaving the word means its letter I goes out"
       },
       {
        "text": "to be replaced by",
-       "note": "the gap left behind is filled by a different letter instead"
+       "at": 18,
+       "note": "the departing letter has another put in its place"
       }
      ],
      "parts": [
       {
        "words": "Centre",
+       "at": 11,
        "gives": "MIDDLE",
        "note": "the middle is the centre"
+      },
+      {
+       "words": "I",
+       "at": 3
       },
       {
        "op": "homophone",
@@ -696,26 +712,27 @@
        "indicators": [
         {
          "text": "they say",
-         "note": "what people say is heard rather than read, so the word you counts for its sound"
+         "at": 41,
+         "note": "they say signals the word is heard rather than spelt"
         }
        ],
        "parts": [
         {
          "words": "you",
-         "gives": "YOU",
-         "note": "the letter U is pronounced like you"
+         "at": 36,
+         "note": "you sounds just like the letter U"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A threat: if I quit the centre and you take my place, disorder will follow.",
-     "walkthrough": "Swap the I of MIDDLE for U, the letter that sounds like 'you', to get MUDDLE.",
-     "definitionFit": "A muddle is a confused, disordered state of affairs, close in meaning to complete disorder."
+     "surface": "A political warning: if I quit the centre ground and you take over, expect chaos.",
+     "walkthrough": "In MIDDLE, the I is swapped for U, which sounds like 'you'.",
+     "definitionFit": "A muddle is a confused, disordered state, a mess or chaos."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Centre"
     }
@@ -839,46 +856,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXFOLIATE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "pointless",
-       "note": "a compass point such as E for east is dropped, removing one letter"
+       "text": "with",
+       "at": 9,
+       "note": "here the pieces are thrown in together and mixed, so with signals the combined letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "File",
+       "at": 0
+      },
+      {
+       "words": "toe",
+       "at": 5
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "File",
-         "note": "filing reshapes the material, so the letters are worked into new order"
+         "text": "pointless",
+         "at": 14,
+         "note": "pointless means without a compass point, so E for east is dropped"
         }
        ],
        "parts": [
         {
-         "words": "File",
-         "note": "taken as written, while also signalling the reshaping"
-        },
-        {
-         "words": "toe",
-         "note": "taken as written"
-        },
-        {
          "words": "axe",
-         "gives": "AX",
-         "note": "axe with its E, a compass point, removed"
+         "at": 24
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grisly pedicure: rasp a toe with a blunt axe and shed some skin.",
-     "walkthrough": "There is no separate shuffle signal; 'File' does double duty as letters and as the reshaping instruction.",
-     "definitionFit": "To exfoliate is to shed or scrub away dead outer layers from the skin's surface."
+     "surface": "A grisly pedicure: filing a toe with a blunt axe and losing skin.",
+     "walkthrough": "FILE + TOE + AX (axe with no E, a compass point) are rearranged together.",
+     "definitionFit": "To exfoliate is to shed or slough off dead surface layers of skin."
     },
     "features": {
      "answerInScene": true,
@@ -1112,45 +1131,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "stormy",
-       "note": "a storm throws things about, so these letters are tossed into a new order"
+       "text": "during",
+       "at": 24,
+       "note": "the rearranged letters come during the race, inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "the bike race",
+       "at": 31,
+       "gives": "TT",
+       "note": "the TT, Tourist Trophy, is the Isle of Man motorcycle race"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "during",
-         "note": "something happening during another event falls within it, so one piece sits inside the other"
+         "text": "stormy",
+         "at": 11,
+         "note": "stormy means turbulent, so the letters of rains are shaken up"
         }
        ],
        "parts": [
         {
-         "words": "the bike race",
-         "gives": "TT",
-         "note": "the TT, Tourist Trophy, is the Isle of Man motorcycle race"
-        },
-        {
          "words": "rains",
-         "note": "rains with its letters rearranged"
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bad weather hits the riders as they pass through during the motorbike race.",
-     "walkthrough": "The Isle of Man TT is a famous motorcycle road race held annually.",
-     "definitionFit": "Transit means the act of passing or travelling through, the same as passage in that sense."
+     "surface": "Heavy rain sweeps across the course during a motorcycle race.",
+     "walkthrough": "The TT is the Tourist Trophy motorbike race on the Isle of Man.",
+     "definitionFit": "Transit means passage, the act of passing or conveying from one place to another."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "stormy"
+     "misdirectedWord": "Passage"
     }
    }
   },
@@ -1175,40 +1197,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OPERATE",
-     "indicators": [
-      {
-       "text": "without aspiration",
-       "note": "aspiration is the breathy sound of a spoken H, so dropping it removes that letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without aspiration",
+         "at": 5,
+         "note": "aspiration is the H sound, so hope drops its H"
+        }
+       ],
        "parts": [
         {
          "words": "Hope",
-         "gives": "OPE",
-         "note": "hope with its opening H dropped"
+         "at": 0
         },
         {
-         "words": "be worthy",
-         "gives": "RATE",
-         "note": "to rate is to deserve, as in 'it rates a mention'"
+         "gives": "H"
         }
        ]
+      },
+      {
+       "words": "to be worthy of",
+       "at": 24,
+       "gives": "RATE",
+       "note": "to rate something is to deserve it"
       }
      ]
     },
     "explanation": {
-     "surface": "A rather earnest maxim about wishing to deserve one's job.",
-     "definitionFit": "To operate is to function or run, and a machine that works is one that operates."
+     "surface": "A worker hopes, without ambition, to be considered worthy of the job.",
+     "walkthrough": "'aspiration' looks like ambition, but in phonetics it is the breathy H sound.",
+     "definitionFit": "To operate is to function or run, as a machine does when it works."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "aspiration"
     }
    }
