@@ -1,16 +1,18 @@
 # Every test entry point in tools/ runs HERE.
 #
-# One run at a time per branch AND per path: the puzzle fast path (about a
-# minute) has a group of its own and never waits behind a full suite (17 to 22
-# minutes), and the full suite's jobs share another. The groups are on the
-# jobs, not the workflow, because which path a push takes is only known after
-# the scope job ran. `cancel-in-progress: false` never kills a running job, and
-# GitHub keeps only the newest PENDING job in a group, so a burst of pushes
-# costs two runs, not one per push. Each commit contains the ones before it, so
-# testing the newest covers every commit it replaced; what a group must never
-# do is cancel the RUNNING suite, or a steady stream of pushes would starve it
-# and nothing would ever finish. A matrix job's group names its shard, or its
-# ten shards would queue behind one another.
+# Only the puzzle fast path (about a minute) has a concurrency group: a newer
+# pending fast run replaces an older one, which is safe because it diffs back
+# to the last green run and so covers it. The full suite's jobs have NO group,
+# on purpose. GitHub cancels a PENDING job when a newer one joins its group,
+# whatever cancel-in-progress says, and a full run's later jobs (shards 17-33
+# minutes in, the cache job) wait behind the previous run's: with a group, the
+# burn's puzzle pushes every few minutes cancelled every full run before it
+# finished, no full pass ever landed, and every push stayed on the full path.
+# A full run now always runs to the end. What keeps full runs from piling up is
+# the scope job: a push whose diff since the last full pass (or a full run in
+# flight with no failed shard) is puzzle-only takes the fast path, so only code
+# pushes start a suite. The groups are on the jobs, not the workflow, because
+# which path a push takes is only known after the scope job ran.
 #
 # pages.yml has its own group, and even there a queued build dies the moment
 # the next push arrives, so a check must never live in pages.yml.
@@ -103,16 +105,26 @@ jobs:
           set -uo pipefail
           full() { echo "full suite: $1"; echo "mode=full" >> "$GITHUB_OUTPUT"; exit 0; }
           [ "$EVENT" = push ] && [ "$REF" = refs/heads/master ] || full "not a push to master"
-          runs=$(gh api "repos/$REPO/actions/workflows/tests.yml/runs?branch=master&event=push&status=success&per_page=30" \
-                   --jq '.workflow_runs[] | "\(.id) \(.head_sha)"') || full "could not list the green runs"
+          list() { gh api "repos/$REPO/actions/workflows/tests.yml/runs?branch=master&event=push&status=$1&per_page=$2" \
+                     --jq '.workflow_runs[] | "\(.id) \(.head_sha)"'; }
+          runs=$(list success 30) || full "could not list the green runs"
           [ -n "$runs" ] || full "no green run to diff against"
           base_pass=$(head -n 1 <<<"$runs" | cut -d' ' -f2)
+          # A full run still going counts as the base too, when its shards have
+          # started and none has failed: the code it carries is being tested by
+          # that run, so a puzzle push behind it need not repeat the suite (it
+          # would queue another 20 minutes). If that run goes red, it is red on
+          # its own commit and the next push finds the older green base again.
+          live=$(list in_progress 10) || full "could not list the running runs"
+          cands=$(printf '%s\n%s\n' "$live" "$runs" | awk -v me="$GITHUB_RUN_ID" 'NF && $1 < me' | sort -rn -k1,1)
           base_full=
           while read -r id sha; do
             n=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
-                  --jq '[.jobs[] | select((.name | startswith("tests ")) and .conclusion == "success")] | length') || full "could not read run $id"
+                  --jq '[.jobs[] | select(.name | startswith("tests "))] as $t
+                        | if ([$t[] | select(.conclusion == "failure" or .conclusion == "cancelled")] | length) > 0 then 0
+                          else [$t[] | select(.conclusion == "success" or .status == "in_progress")] | length end') || full "could not read run $id"
             if [ "$n" -gt 0 ]; then base_full=$sha; break; fi
-          done <<<"$runs"
+          done <<<"$cands"
           [ -n "$base_full" ] || full "no recent run that ran the shards"
           git fetch --no-tags --depth=1 --filter=blob:none origin "$base_full" "$base_pass" || full "could not fetch the bases"
           verdict=$(python3 tools/ci_scope.py decide "$base_full") || full "could not work out what changed"
@@ -202,9 +214,6 @@ jobs:
     name: generated files are current
     needs: scope
     if: needs.scope.outputs.mode == 'full'
-    concurrency:
-      group: tests-full-generated-${{ github.ref }}
-      cancel-in-progress: false
     runs-on: ubuntu-latest
     # Python over files already in the clone; the corpus check is most of it.
     timeout-minutes: 10
@@ -287,9 +296,6 @@ jobs:
     needs: scope
     if: needs.scope.outputs.mode == 'full'
     name: tests ${{ matrix.shard }}
-    concurrency:
-      group: tests-full-shard-${{ matrix.shard }}-${{ github.ref }}
-      cancel-in-progress: false
     runs-on: ubuntu-latest
     strategy:
       # Every shard runs to the end. A red shard must not hide a second one.
@@ -546,9 +552,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: [scope, test]
     if: always() && needs.scope.outputs.mode == 'full'
-    concurrency:
-      group: tests-full-cache-${{ github.ref }}
-      cancel-in-progress: false
     timeout-minutes: 10
     defaults:
       run:

@@ -1,12 +1,13 @@
 /* Every test in tools/ runs in tests.yml, exactly once, and the newest commit
    on every branch is always tested.
 
-   GitHub keeps only the newest PENDING run in a concurrency group and cancels
-   the rest, whatever cancel-in-progress says. tests.yml's jobs are grouped per branch
-   with cancel-in-progress false: a pending suite may be replaced by a newer
-   commit, which contains it, but a RUNNING suite is never killed, so a steady
-   stream of pushes cannot starve it. Ungrouped, every push would queue a whole
-   sharded suite and the backlog would starve the deploy of runners.
+   GitHub keeps only the newest PENDING job in a concurrency group and cancels
+   the rest, whatever cancel-in-progress says. A full suite's later jobs wait
+   behind the previous run's, so any group on them lets a steady stream of
+   pushes cancel every full run before it finishes (it happened: no full pass
+   for hours). tests.yml therefore groups only the puzzle fast path, whose
+   newest pending run covers the older; the full-suite jobs have no group and
+   always run to the end. The scope job keeps full runs from piling up.
 
    pages.yml's group exists so two deploys cannot race, and a check living
    there is still wrong: a broken test must never block a site deploy.
@@ -57,12 +58,8 @@ const testsBody = undecorated(read("tests.yml"));
 const groups = [...testsBody.matchAll(/^\s+group:\s*(.*)$/gm)].map((m) => m[1]);
 assert(!/^concurrency:/m.test(testsBody),
   "tests.yml has no workflow-level group: it would queue the fast path behind a full suite");
-assert(groups.length >= 4 && groups.every((g) => /\$\{\{\s*github\.ref\s*\}\}/.test(g)),
-  "every tests.yml job group is per branch (…${{ github.ref }}), so a PR cannot displace master's run: " + groups.join(" | "));
-assert(groups.some((g) => /^tests-fast-/.test(g)) && !groups.some((g) => /^tests-full-/.test(g) && g === groups.find((x) => /^tests-fast-/.test(x))),
-  "the puzzle fast path has a group of its own");
-assert(groups.some((g) => /tests-full-shard-\$\{\{\s*matrix\.shard\s*\}\}/.test(g)),
-  "a shard's group names the shard, or the ten shards would queue behind one another");
+assert(groups.length === 1 && /^tests-fast-.*\$\{\{\s*github\.ref\s*\}\}/.test(groups[0]),
+  "the only tests.yml group is the puzzle fast path's, per branch; a group on a full-suite job lets the next push cancel the pending run and starve the suite: " + groups.join(" | "));
 assert(!/cancel-in-progress:\s*true/.test(testsBody) && (testsBody.match(/^\s+cancel-in-progress:\s*false\s*$/gm) || []).length === groups.length,
   "every group says cancel-in-progress: false, so a running suite is never killed and pushes cannot starve it");
 /* --- and the deploy is in a group, so a check living there can still be cancelled --- */
