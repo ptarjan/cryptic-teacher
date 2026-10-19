@@ -704,4 +704,17 @@ check("one at the edge is not", 0, v.reversal_split(
 check("a cut word opening a leaf that gives less is counted (IDEA)", 1, v.cut_in_leaf(
     {"op": "charade", "parts": [lf("One", "I"), lf("short contract", "DEA")]}))
 check("a leaf giving all its words is not", 0, v.cut_in_leaf(lf("short story", "SHORTSTORY")))
+# round 25: wrong-scope detectors from the r23 false negatives
+GLEAM = {"op": "anagram", "indicators": [{"text": "breaks"}], "parts": [lf("Male", "MALE"), {"op": "first", "indicators": [{"text": "head"}], "parts": [lf("gymnast's", "G")]}]}
+check("a first-letter pick at the edge of an anagram that the answer shows outside is counted (GLEAM)", 1, v.ana_select_edge(GLEAM, "GLEAM"))
+PAPA = {"op": "deletion", "indicators": [{"text": "briefly"}], "parts": [{"op": "charade", "parts": [lf("Photographer", "PAPARAZZO"), lf("a", "A")]}, {"gives": "RAZZOA"}]}
+check("a deletion cutting across two charade pieces is counted (PAPA)", 1, v.del_straddle(PAPA))
+check("a deletion cutting the last piece alone is not", 0, v.del_straddle(
+    {"op": "deletion", "indicators": [{"text": "briefly"}], "parts": [{"op": "charade", "parts": [lf("Photographer", "PAPARAZZO"), lf("a", "A")]}, {"gives": "A"}]}))
+check("a two-word indicator whose word is also a leaf is counted (STOIC)", 1, v.ind_leaf_overlap(
+    {"op": "anagram", "indicators": [{"text": "is broken"}], "parts": [lf("cot", "COT"), lf("is", "IS")]}, "Long-suffering person reveals cot is broken"))
+check("a leaf opening with a link word that the rest alone gives is counted (SWAMI)", 1, v.link_in_leaf(
+    {"op": "charade", "parts": [lf("in Southwest", "SW"), lf("Do I exist", "AMI")]}))
+check("round 25: nonWordOperand is a warning only, the rest are gated", (True, False),
+      ("nonWordOperand" in shape_queue.WARN_ONLY, "nonWordOperand" in shape_queue.gated()))
 raise SystemExit(fails)

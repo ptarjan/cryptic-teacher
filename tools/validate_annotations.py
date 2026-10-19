@@ -3516,7 +3516,7 @@ def _pulled_edges(tree, node, j, k):
     return None
 
 
-def anagram_edge_pieces(tree, answer):
+def anagram_edge_pieces(tree, answer, stand=_stand_in_piece):
     """How many anagrams in `tree` hold, at the edge of their own fodder (first or last parts, in
     clue order), abbreviation / synonym / sub-operation pieces whose letters stand at that edge of
     the scramble's output: the tree still gives the answer with those pieces taken out of the
@@ -3535,7 +3535,7 @@ def anagram_edge_pieces(tree, answer):
         stack += parts
         if node.get("op") != "anagram" or node.get("unchecked") or len(parts) < 2 or len(parts) != len(node.get("parts")):
             continue
-        st = [_stand_in_piece(p) for p in parts]
+        st = [stand(p) for p in parts]
         lead = next((i for i, s in enumerate(st) if not s), len(st))
         trail = next((i for i, s in enumerate(reversed(st)) if not s), len(st))
         if lead >= len(st):
@@ -6194,6 +6194,240 @@ def cut_in_leaf(tree, clue=None):
     return n
 
 
+ANA_SELECT_EDGE = "anagram holds a first/last-letter pick at the edge of its fodder that the answer shows outside the scramble"
+NON_WORD_OPERAND = "deletion, substitution or homophone acts on a leaf that is no word"
+DEL_WIDE = "deletion lists several pieces before its indicator, so it cuts one piece, not the whole group"
+IND_LEAF_OVERLAP = "indicator phrase takes a word that a leaf also gives"
+ANA_DOUBLE_IND = "anagram carries two separate indicators"
+DEL_STRADDLE = "deletion over a charade removes letters from across two of its pieces"
+
+
+def _stand_in_or_select(p):
+    """An anagram fodder piece that is a stand-in or a first/last-letter pick."""
+    return (p.get("op") in wordplay.SELECT and not p.get("unchecked")) or _stand_in_piece(p)
+
+
+def ana_select_edge(tree, answer=None):
+    """Anagrams whose edge fodder is a letter pick (first(x), last(x)) that stays outside the scramble in the
+    answer (r23 FN: GLEAM = G + ana(MALE), BRUSCHETTA = ana(SCHUBERT + T) + A). Counts only what the
+    stand-in check (anaCharade) does not already count."""
+    base = max(0, anagram_edge_pieces(tree, answer, _stand_in_or_select) - anagram_edge_pieces(tree, answer))
+    return base or _select_edge_swapped(tree, answer)
+
+
+def _select_edge_swapped(tree, answer):
+    """1 when an anagram's one letter pick, first or last in the fodder, stands at the OTHER end of the
+    answer once taken out (r23 FN GLEAM: ana<breaks>(Male, first<head>(gymnast's)) is G + ana(MALE))."""
+    if not answer or not isinstance(tree, dict):
+        return 0
+    try:
+        wordplay.evaluate(copy.deepcopy(tree), answer)
+    except Exception:
+        return 0
+    for node in _walk(tree):
+        parts = node.get("parts") or []
+        if node.get("op") != "anagram" or node.get("unchecked") or len(parts) < 2 \
+                or not all(isinstance(p, dict) for p in parts):
+            continue
+        for idx in (0, len(parts) - 1):
+            if parts[idx].get("op") not in wordplay.SELECT or parts[idx].get("unchecked") \
+                    or any(q.get("op") in wordplay.SELECT for k, q in enumerate(parts) if k != idx):
+                continue
+            for front in (True, False):
+                t = copy.deepcopy(tree)
+                for cur in _walk(t):
+                    if cur.get("op") == "anagram" and cur.get("parts") == node.get("parts") \
+                            and cur.get("indicators") == node.get("indicators"):
+                        piece = cur["parts"].pop(idx)
+                        mid = {k: v for k, v in cur.items()}
+                        cur.clear()
+                        cur.update({"op": "charade", "parts": [piece, mid] if front else [mid, piece]})
+                        break
+                try:
+                    wordplay.evaluate(t, answer)
+                    return 1
+                except Exception:
+                    pass
+    return 0
+
+
+def del_straddle(tree):
+    """Deletions over a charade of lettered leaves whose removed letters run across a piece boundary at the
+    charade's start or end (r23 FN PAPA: del<briefly>(PAPARAZZO + a, RAZZOA); ORKNEY del<Ignore>(W + WORK, WW)):
+    the word cuts one piece, so the cut belongs inside the charade."""
+    n = 0
+    for node in _walk(tree):
+        ps = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        if node.get("op") != "deletion" or len(ps) != 2 or ps[0].get("op") != "charade" or "op" in ps[1] \
+                or ps[1].get("words") or not ps[1].get("gives"):
+            continue
+        pcs = [p for p in ps[0].get("parts") or [] if isinstance(p, dict)]
+        if len(pcs) < 2 or any("op" in p for p in pcs):
+            continue
+        gs = [wordplay.letters(p.get("gives") if p.get("gives") else p.get("words")) for p in pcs]
+        cut, full = wordplay.letters(ps[1]["gives"]), "".join(gs)
+        if cut and ((full.endswith(cut) and len(cut) > len(gs[-1]) and full != cut)
+                    or (full.startswith(cut) and len(cut) > len(gs[0]) and full != cut)):
+            n += 1
+    return n
+
+
+def non_word_operands(tree):
+    """Deletions, substitutions and homophones whose operand leaf gives letters that are no word and no
+    attested pair (r23 FN: sub(OXCOW), del(DICKEYE), sound(BOYCOT): two synonyms run together in one leaf,
+    so the cut or the sound acts on one of them). Needs the lexicon."""
+    lex = _lexicon_letters()
+    if not lex:
+        return 0
+    n = 0
+    for node in _walk(tree):
+        if node.get("op") not in ("deletion", "substitution", "homophone"):
+            continue
+        ps = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        for p in ps[:1] if node["op"] != "homophone" else ps:
+            g = wordplay.letters(p.get("gives")).lower()
+            if "op" in p or not p.get("words") or p.get("unchecked") or len(g) < 5 or g in lex \
+                    or p.get("select") or p.get("soundsLike") or re.search(r"\d", str(p["words"])):
+                continue
+            if not _known_pair(p["words"], wordplay.letters(p["gives"])):
+                n += 1
+    return n
+
+
+def del_wide(tree, clue):
+    """Deletions of 3+ parts whose indicator stands in the clue after two or more of their parts: the word
+    cuts the one piece next to it, and the earlier pieces are the parent's (r23 FN MOUSETRAP
+    ana<Spread>(del<lacking>(out, Parmesan, an)): OUT is no part of the cut)."""
+    if not clue:
+        return 0
+    low = clue.lower()
+    try:
+        tree = wordplay.locate(copy.deepcopy(tree), clue)
+    except Exception:
+        pass
+    n = 0
+    for node in _walk(tree):
+        ps = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        if node.get("op") != "deletion" or len(ps) < 3:
+            continue
+        inds = [i for i in node.get("indicators") or [] if isinstance(i, dict) and str(i.get("text") or "")]
+        if len(inds) != 1:
+            continue
+        t = str(inds[0]["text"])
+        at = inds[0]["at"] if isinstance(inds[0].get("at"), int) else low.find(t.lower())
+        spans = [(min(a for a, _ in s), max(b for _, b in s)) for s in (_subtree_spans(p, clue, low) for p in ps) if s]
+        if at >= 0 and len(spans) == len(ps) and sum(b <= at for _, b in spans) >= 2:
+            n += 1
+    return n
+
+
+def ind_leaf_overlap(tree, clue=None):
+    """A multi-word indicator one of whose words is also a whole leaf (r23 FN STOIC ana<is broken>(cot, is)):
+    the clue word serves as fodder and as indicator. Counted by occurrence when the clue is known."""
+    nodes = list(_walk(tree))
+    leafwords = collections.Counter(w for n in nodes if "op" not in n and n.get("words")
+                                    for w in [wordplay.letters(n["words"])] if len(w) >= 2 and " " not in str(n["words"]).strip())
+    said = collections.Counter(wordplay.letters(x) for x in (clue or "").split())
+    n = 0
+    for node in nodes:
+        for i in node.get("indicators") or []:
+            ws = [wordplay.letters(x) for x in str(i.get("text") or "").split()]
+            if len(ws) != 2:
+                continue  # longer phrases ("requiring electronic input") leave a gap the leaf may fill: 6 of 10 fine hits
+            for w in set(ws):
+                if w in leafwords and (not clue or said[w] < 2) and w not in ("a", "an", "the", "of", "to", "in", "it"):
+                    n += 1
+    return n
+
+
+SWAPPED_PAIR = "a parent op and its child op carry each other's indicator words"
+LINK_IN_LEAF = "leaf opens or closes with a link word and gives what the other words alone give"
+_LEAF_LINKS = frozenset("in of to for with and at on by from into".split())
+ANA_STAND_IN = "anagram scrambles an abbreviation or synonym beside the clue's own words"
+
+
+def _role_share(text, op):
+    """(share of the corpus's uses of indicator `text` filed under `op`'s type, total uses)."""
+    counts = _role_counts(indicator_role_key(text))
+    total = sum(counts.values())
+    return (counts.get(_OP_LEXICON.get(op), 0) / total if total else 0.0), total
+
+
+def swapped_pair(tree):
+    """A parent op and a direct child op of another type whose indicators are swapped: the parent's word
+    is almost never filed under its type but is the child's type's word at least 15% of the time, and the
+    child's word is the parent's type's (r23 FN DATIVE ins<twists>(DATE, rev<in>(VI)))."""
+    n = 0
+    for p in _walk(tree):
+        if p.get("op") not in _OP_LEXICON or p.get("unchecked"):
+            continue
+        for c in p.get("parts") or []:
+            if not isinstance(c, dict) or c.get("op") not in _OP_LEXICON or c.get("op") == p["op"] or c.get("unchecked"):
+                continue
+            pi = [i.get("text") for i in p.get("indicators") or [] if isinstance(i, dict) and i.get("text")]
+            ci = [i.get("text") for i in c.get("indicators") or [] if isinstance(i, dict) and i.get("text")]
+            if not pi or not ci:
+                continue
+            ok = all(_role_share(t, p["op"])[0] < 0.05 and _role_share(t, p["op"])[1] >= 10
+                     and _role_share(t, c["op"])[0] >= 0.15 for t in pi) \
+                and all(_role_share(t, c["op"])[0] < 0.05 and _role_share(t, c["op"])[1] >= 20
+                        and _role_share(t, p["op"])[0] >= 0.5 for t in ci)
+            n += ok
+    return n
+
+
+def link_in_leaf(tree):
+    """Leaves whose first or last clue word is a link word (in, of, to, with ...) when the remaining words
+    alone are a known pair for the same letters and the whole phrase is not (r23 FN SWAMI
+    [in Southwest]SW): the link word is the clue's join, not part of the leaf."""
+    n = 0
+    for node in _walk(tree):
+        ws = str(node.get("words") or "").split()
+        if "op" in node or len(ws) < 2 or not node.get("gives") or node.get("select") or node.get("soundsLike"):
+            continue
+        g = wordplay.letters(node["gives"])
+        if _known_pair(node["words"], g):
+            continue
+        for lead, rest, link in ((True, ws[1:], ws[0]), (False, ws[:-1], ws[-1])):
+            # a leading "to" is the infinitive of a verb leaf ("to shred" RIP, "to throw" SHY): 11 of 12 such hits were fine
+            if wordplay.letters(link).lower() in _LEAF_LINKS and not (lead and link.lower() == "to") \
+                    and _known_pair(" ".join(rest), g):
+                n += 1
+                break
+    return n
+
+
+def ana_stand_in(tree):
+    """Anagrams whose fodder mixes the clue's own words with a stand-in (abbreviation or synonym) leaf
+    (r23 FN POLICYMAKERS ana<broadcast>(K, ER, Olympics)): the stand-in is spelled into the answer, not
+    scrambled with the rest."""
+    n = 0
+    for outer in _walk(tree):
+        if outer.get("op") != "container":
+            continue  # only the anagram held by a container: judged, 11 of 11 such hits wrong; elsewhere 19 of 29 were fine (a mid-answer letter is fodder)
+        for node in (p for p in outer.get("parts") or [] if isinstance(p, dict)):
+            parts = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+            if node.get("op") != "anagram" or node.get("unchecked") or len(parts) < 2:
+                continue
+            st = [_stand_in_piece(p) and not p.get("select") for p in parts]
+            n += any(st) and not all(st) and any("op" not in p and not s for p, s in zip(parts, st))
+    return n
+
+
+def ana_double_indicator(tree):
+    """Anagrams with two indicators that are not touching halves of one phrase and both anagram words of
+    their own (r23 FN RUDIMENTAL ana<out><unusually>): one op, one indicator."""
+    n = 0
+    for node in _walk(tree):
+        if node.get("op") != "anagram":
+            continue
+        ins = [i for i in node.get("indicators") or [] if isinstance(i, dict)]
+        if len(ins) >= 2 and not all(_ind_adjacent(ins[k], ins[k + 1]) for k in range(len(ins) - 1)) \
+                and sum(_own_word("anagram", i.get("text")) for i in ins) >= 2:
+            n += 1
+    return n
+
+
 def _clue_words(text):
     """Lower-case word set of clue text, markup and parentheticals removed."""
     return set(re.findall(r"[a-z]+", re.sub(r"<[^>]*>|\([^)]*\)", " ", (text or "").lower())))
@@ -6434,6 +6668,18 @@ def shape_warnings(tag, ann, clue=None, answer=None):
         out.append(f"{tag}: {k} {REVERSAL_SPLIT}: it reverses the one piece it sits by")
     if k := cut_in_leaf(tree):
         out.append(f"{tag}: {k} {CUT_IN_LEAF}: the cut word is an op's indicator, the leaf holds the rest")
+    for fn, label, hint in (
+            (lambda: ana_select_edge(tree, answer), ANA_SELECT_EDGE, "set the pick beside the anagram in a charade"),
+            (lambda: non_word_operands(tree), NON_WORD_OPERAND, "give the op one word's letters; join the synonyms in a charade"),
+            (lambda: del_wide(tree, clue), DEL_WIDE, "the piece before the indicator is the one cut; the others belong to the parent"),
+            (lambda: ind_leaf_overlap(tree, clue), IND_LEAF_OVERLAP, "a clue word does one job"),
+            (lambda: ana_double_indicator(tree), ANA_DOUBLE_IND, "one op, one indicator"),
+            (lambda: del_straddle(tree), DEL_STRADDLE, "cut inside the one piece the word acts on"),
+            (lambda: swapped_pair(tree), SWAPPED_PAIR, "file each indicator on the op of its own kind"),
+            (lambda: link_in_leaf(tree), LINK_IN_LEAF, "the link word is the clue's join, not the leaf's"),
+            (lambda: ana_stand_in(tree), ANA_STAND_IN, "spell the stand-in beside the anagram")):
+        if k := fn():
+            out.append(f"{tag}: {k} {label}: {hint}")
     return out
 
 
@@ -7009,6 +7255,14 @@ BACKLOG_MARKERS = {
     "wordplay.poolGap": (POOL_GAP,),
     "wordplay.tradedIndicator": (TRADED_INDICATOR,),
     "wordplay.reversalSplit": (REVERSAL_SPLIT,),
+    "wordplay.anaSelectEdge": (ANA_SELECT_EDGE,),
+    "wordplay.delWide": (DEL_WIDE,),
+    "wordplay.indLeafOverlap": (IND_LEAF_OVERLAP,),
+    "wordplay.anaDoubleInd": (ANA_DOUBLE_IND,),
+    "wordplay.delStraddle": (DEL_STRADDLE,),
+    "wordplay.swappedPair": (SWAPPED_PAIR,),
+    "wordplay.linkInLeaf": (LINK_IN_LEAF,),
+    "wordplay.anaStandIn": (ANA_STAND_IN,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }

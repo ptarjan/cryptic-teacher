@@ -1937,6 +1937,62 @@ def r_ind_in_leaf(node, parent, ctx):
     return None
 
 
+def r_link_in_leaf(node, parent, ctx):
+    """linkInLeaf (r25): a leaf opening or closing with a link word (in, of, with, by ...) whose other
+    words alone give its letters ([in Southwest]SW): the leaf keeps the other words. Kept only when
+    the tree still gives the answer and no detector fires that did not."""
+    if not leaf(node) or not node.get("words") or not V.link_in_leaf(node):
+        return None
+    ws = node["words"].split()
+    g = W.letters(node["gives"])
+    for lead, rest, link in ((True, ws[1:], ws[0]), (False, ws[:-1], ws[-1])):
+        if W.letters(link).lower() in V._LEAF_LINKS and not (lead and link.lower() == "to") \
+                and V._known_pair(" ".join(rest), g):
+            new = dict(node)
+            new["words"] = " ".join(rest)
+            if lead and isinstance(node.get("at"), int):
+                new["at"] = node["at"] + len(ws[0]) + 1
+            if _eval_swapped(node, parent, new, ctx):
+                return new
+    return None
+
+
+def r_ind_leaf_overlap(node, parent, ctx):
+    """indLeafOverlap (r25): a two-word indicator whose word is also a whole leaf's words ("is beaten"
+    with a leaf "is"): the indicator keeps its other word. Kept only when the tree still gives the answer
+    and no detector fires that did not."""
+    inds = node.get("indicators") or []
+    leafwords = {W.letters(n["words"]) for n, _ in walk(ctx["tree"]) if leaf(n) and n.get("words") and " " not in n["words"].strip()}
+    for k, ind in enumerate(inds):
+        ws = str(ind.get("text") or "").split()
+        if len(ws) != 2:
+            continue
+        for keep, drop in ((1, 0), (0, 1)):
+            if W.letters(ws[drop]) in leafwords and W.letters(ws[keep]) not in leafwords:
+                new = copy.deepcopy(node)
+                new["indicators"][k]["text"] = ws[keep]
+                if isinstance(ind.get("at"), int):
+                    new["indicators"][k]["at"] = ind["at"] + (len(ws[0]) + 1 if keep == 1 else 0)
+                if _eval_swapped(node, parent, new, ctx):
+                    return new
+    return None
+
+
+def r_swapped_pair(node, parent, ctx):
+    """swappedPair (r25): a parent op and its child op of another type carry each other's indicators:
+    swap them back. Kept only when the tree still gives the answer and no detector fires that did not."""
+    if not V.swapped_pair({"op": node.get("op"), "indicators": node.get("indicators"), "parts": node.get("parts")}):
+        return None
+    for k, c in enumerate(node.get("parts") or []):
+        if not isinstance(c, dict) or "op" not in c:
+            continue
+        new = copy.deepcopy(node)
+        new["indicators"], new["parts"][k]["indicators"] = copy.deepcopy(c.get("indicators")), copy.deepcopy(node.get("indicators"))
+        if V.swapped_pair(new) == 0 and _eval_swapped(node, parent, new, ctx):
+            return new
+    return None
+
+
 def _misplaced_keys(node):
     """The indicators of charade `node` that V.misplaced_indicators flags, each tried alone."""
     out = []
@@ -2387,6 +2443,16 @@ def r_ana_pull(node, parent, ctx):
 
 
 def r_ana_edge(node, parent, ctx):
+    return _ana_edge_with(node, parent, ctx, V._stand_in_piece)
+
+
+def r_ana_select_edge(node, parent, ctx):
+    """anaSelectEdge: the same pull for a first/last-letter pick at the edge of the fodder, which may
+    stand at either end of the answer (G + ana(MALE) for ana(MALE, first(gymnast's)))."""
+    return _ana_edge_with(node, parent, ctx, V._stand_in_or_select, True)
+
+
+def _ana_edge_with(node, parent, ctx, stand, either_end=False):
     """anaCharade, any depth (Paul 10-19): an anagram whose first / last fodder parts are
     abbreviation or synonym leaves standing at that edge of the scramble's output (ana<unusual>(N +
     RIP SIGN) inside I + ..., where N opens the scramble) -> those parts come out and sit beside the
@@ -2397,7 +2463,7 @@ def r_ana_edge(node, parent, ctx):
     parts = node.get("parts") or []
     if len(parts) < 2 or any(not isinstance(p, dict) or p.get("unchecked") for p in parts):
         return None
-    st = [V._stand_in_piece(p) for p in parts]
+    st = [stand(p) for p in parts]
     lead = next((i for i, s in enumerate(st) if not s), len(st))
     trail = next((i for i, s in enumerate(reversed(st)) if not s), len(st))
     if lead >= len(st):
@@ -2409,9 +2475,11 @@ def r_ana_edge(node, parent, ctx):
                 continue
             ana = {key: v for key, v in node.items() if key not in ("parts", "unchecked", "gives")}
             ana["parts"] = copy.deepcopy(parts[j:len(parts) - k])
-            cand = {"op": "charade", "parts": copy.deepcopy(parts[:j]) + [ana] + copy.deepcopy(parts[len(parts) - k:])}
-            if _eval_swapped(node, parent, cand, ctx):
-                good[(j + k, json.dumps(cand, sort_keys=True))] = cand
+            pre, suf = copy.deepcopy(parts[:j]), copy.deepcopy(parts[len(parts) - k:])
+            for order in [pre + [ana] + suf] + ([suf + [ana] + pre] if either_end and not (pre and suf) else []):
+                cand = {"op": "charade", "parts": order}
+                if _eval_swapped(node, parent, cand, ctx):
+                    good[(j + k, json.dumps(cand, sort_keys=True))] = cand
     if not good:
         return None
     least = min(g[0] for g in good)
@@ -2617,7 +2685,8 @@ def r_arity_other(node, parent, ctx):
     return next(iter(good.values())) if len(good) == 1 else None
 
 
-RULE_REPAIRS = {"scrambledLeaf": r_scrambled_swap, "anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c), "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
+RULE_REPAIRS = {"scrambledLeaf": r_scrambled_swap, "anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c), "anaSelectEdge": r_ana_select_edge,
+                "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,

@@ -154,18 +154,8 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Rickety",
-       "note": "a rickety thing is shaky and falling apart, so the words that follow are broken up and rebuilt"
-      }
-     ],
+     "op": "charade",
      "parts": [
-      {
-       "words": "old car hit",
-       "note": "taken as written"
-      },
       {
        "op": "first",
        "indicators": [
@@ -178,6 +168,21 @@
         {
          "words": "college",
          "note": "the first letter of college"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Rickety",
+         "note": "a rickety thing is shaky and falling apart, so the words that follow are broken up and rebuilt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old car hit",
+         "note": "taken as written"
         }
        ]
       }
@@ -766,14 +771,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "collapsed",
-       "note": "something collapsed has fallen into a heap, so its letters land in new places"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "collapsed",
+         "note": "something collapsed has fallen into a heap, so its letters land in new places"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "note": "almost means not quite all, so the final letter of the next word is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "roulade",
+           "note": "taken as written"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      },
       {
        "op": "last",
        "indicators": [
@@ -787,24 +815,6 @@
          "words": "Berry's",
          "gives": "BERRY",
          "note": "final letter of Berry"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "almost",
-         "note": "almost means not quite all, so the final letter of the next word is dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "roulade",
-         "note": "taken as written"
-        },
-        {
-         "gives": "E"
         }
        ]
       }

@@ -924,19 +924,24 @@
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "around",
-         "at": 41,
-         "note": "around signals that the letters of fine things and the shop letter are moved about"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "fine things",
-         "at": 29,
-         "note": "the anagram fodder, used as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "around",
+           "at": 41,
+           "note": "around signals that the letters of fine things and the shop letter are moved about"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fine things",
+           "at": 29,
+           "note": "the anagram fodder, used as written"
+          }
+         ]
         },
         {
          "op": "first",
@@ -3738,32 +3743,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "needing refurbishment",
-       "note": "SURREY's letters are done up in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "middle",
        "indicators": [
         {
-         "text": "centre of"
+         "text": "centre of",
+         "note": "the middle letter of the word it picks from"
         }
        ],
        "parts": [
         {
-         "words": "centre of Farnham",
-         "gives": "FARNHAM",
+         "words": "Farnham",
          "note": "middle letter of Farnham"
         }
        ]
       },
       {
-       "words": "Surrey",
-       "note": "the letters to rearrange"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "needing refurbishment",
+         "note": "SURREY's letters are done up in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Surrey",
+         "note": "the letters to rearrange"
+        }
+       ]
       }
      ]
     },
