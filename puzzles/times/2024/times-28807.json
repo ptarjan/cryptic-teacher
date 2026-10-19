@@ -111,39 +111,42 @@
      "indicators": [
       {
        "text": "on the outside",
-       "note": "being on the outside means wrapping around the other pieces"
+       "at": 40,
+       "note": "on the outside says the first word wraps round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "old-fashioned",
+       "at": 26,
+       "gives": "DATED",
+       "note": "dated means out of date, old-fashioned"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "old-fashioned",
-         "gives": "DATED",
-         "note": "something dated is out of fashion"
+         "words": "editor",
+         "at": 8,
+         "gives": "ED"
         },
         {
          "words": "in charge",
-         "gives": "IC",
-         "note": "IC is the abbreviation for in charge"
+         "at": 15,
+         "gives": "IC"
         }
        ]
-      },
-      {
-       "words": "editor",
-       "gives": "ED",
-       "note": "ED is the abbreviation for editor"
       }
      ]
     },
     "explanation": {
-     "surface": "A conscientious, rather old-fashioned editor runs the show.",
-     "definitionFit": "Someone dedicated is committed and devoted to their work, close in sense to dutiful and conscientious."
+     "surface": "A conscientious editor in charge, outwardly a bit behind the times.",
+     "definitionFit": "A dedicated person is committed and conscientious, so diligent in their duties."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
     }
    }
   },
@@ -1120,52 +1123,59 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the earlier words inside the clothing word"
+       "at": 27,
+       "note": "in says the pieces are placed inside the clothing word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 39,
+         "note": "not means the named letter is left out"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "not right",
-           "note": "saying not right asks for the abbreviation for right to be removed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "attire",
-           "gives": "DRESS",
-           "note": "dress means clothing"
-          },
-          {
-           "gives": "R"
-          }
-         ]
+         "words": "attire",
+         "at": 30,
+         "gives": "DRESS",
+         "note": "dress means clothing, attire"
         },
         {
-         "words": "fashionable",
-         "gives": "IN",
-         "note": "what is in is in fashion"
+         "words": "right",
+         "at": 43,
+         "gives": "R"
         }
        ]
       },
       {
-       "words": "isn't",
-       "gives": "AINT",
-       "note": "ain't is the colloquial form of isn't"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "isn't",
+         "at": 9,
+         "gives": "AINT",
+         "note": "ain't is a colloquial form of isn't"
+        },
+        {
+         "words": "fashionable",
+         "at": 15,
+         "gives": "IN",
+         "note": "in means fashionable"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Being dainty is out of fashion, especially in clothes that are not right.",
-     "definitionFit": "Daintiness is the quality of being delicate and refined, so delicacy is a direct synonym."
+     "surface": "A dainty snack isn't trendy in clothing circles, not right at all.",
+     "definitionFit": "Delicacy here means fineness or elegance of form, the quality of being dainty."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Delicacy"
     }

@@ -50,62 +50,61 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MOUNTRUSHMORE",
      "indicators": [
       {
        "text": "entering",
-       "note": "the pieces go into the word for further, which then wraps around them"
+       "at": 33,
+       "note": "entering means going inside the word that follows"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MOUNTRUSHMORE",
-       "indicators": [
-        {
-         "text": "Largely",
-         "note": "largely means most but not all, so the word for dishonest loses its last letter"
-        }
-       ],
+       "words": "further",
+       "at": 42,
+       "gives": "MORE",
+       "note": "more means further or additional"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Largely",
+           "at": 0,
+           "note": "largely means most of, so the last letter is dropped"
+          }
+         ],
          "parts": [
           {
-           "words": "further",
-           "gives": "MO",
-           "note": "first half of MORE, meaning further"
-          },
-          {
            "words": "dishonest",
-           "gives": "UNTRU",
-           "note": "UNTRUE without its final letter"
+           "at": 8,
+           "gives": "UNTRUE",
+           "note": "untrue means false or dishonest"
           },
           {
-           "words": "idiot from USA",
-           "gives": "SHMO",
-           "note": "SHMO (or schmo) is American slang for a fool"
-          },
-          {
-           "words": "further",
-           "gives": "RE",
-           "note": "second half of MORE, meaning further"
+           "gives": "E"
           }
          ]
+        },
+        {
+         "words": "idiot from USA",
+         "at": 18,
+         "gives": "SHMO",
+         "note": "shmo is American slang for a fool"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A jibe at a mostly crooked American fool giving yet another speech from the White House.",
-     "walkthrough": "Shmo is US slang, so 'from USA' belongs to the idiot. The question mark flags the pun: the 'address' is a place, not a speech.",
-     "definitionFit": "Mount Rushmore in South Dakota bears carved heads of four US presidents, so it is a location they jointly occupy, playfully called their address."
+     "surface": "A dishonest American fool joins a further address by a president.",
+     "walkthrough": "The question mark marks a pun: not a speech but a place where presidents' heads are carved.",
+     "definitionFit": "The South Dakota mountain carved with four presidents' faces is jokingly a location, an address, of presidents."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "address"
@@ -362,40 +361,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "METHODIST",
+     "op": "charade",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the word for spirit drops its last letter"
+       "text": "led by",
+       "at": 23,
+       "note": "in a down clue, led by means the following piece comes after the earlier one"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 38,
+         "note": "mostly means nearly all, so the final letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "spirit",
-         "gives": "METH",
-         "note": "METHS, short for methylated spirits, minus its final letter"
+         "at": 30,
+         "gives": "METHS",
+         "note": "meths is methylated spirit"
         },
         {
-         "words": "lyric-writer",
-         "gives": "ODIST",
-         "note": "someone who writes odes, which are lyric poems"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "lyric-writer",
+       "at": 10,
+       "gives": "ODIST",
+       "note": "an odist is someone who writes odes, lyric poems"
       }
      ]
     },
     "explanation": {
-     "surface": "A hymn writer guided mainly by the Holy Spirit.",
-     "walkthrough": "Meths is the British name for methylated spirits. In a down clue, being led by something puts that thing first.",
-     "definitionFit": "A Methodist belongs to the Protestant denomination founded by John Wesley, so is one kind of Christian."
+     "surface": "A Christian songwriter who is drunk on spirits.",
+     "definitionFit": "A Methodist is a member of a Protestant church founded by John Wesley, so a kind of Christian."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "spirit"
     }
@@ -422,41 +431,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RITES",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Topless",
-       "note": "without its top, the word loses its first letter"
+       "text": "ruined",
+       "at": 15,
+       "note": "ruined means wrecked, so these letters are knocked out of order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "ruined",
-         "note": "something ruined has been wrecked, so its letters are thrown into disorder"
+         "text": "Topless",
+         "at": 0,
+         "note": "topless means without its top, so the first letter goes"
         }
        ],
        "parts": [
         {
          "words": "priest",
-         "gives": "RIEST",
-         "note": "priest without its first letter"
+         "at": 8
+        },
+        {
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A disgraced cleric is said to have spoiled marriage ceremonies.",
-     "definitionFit": "A wedding is one example of a religious ceremony, hence 'perhaps' marks the definition by example."
+     "surface": "A priest without his cassock spoils weddings.",
+     "definitionFit": "Weddings are religious ceremonies, examples of the formal ceremonies a church performs."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "Topless"
     }
    }
@@ -818,55 +830,44 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BAILSOUT",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the jumbled word within the word for temptation"
+       "at": 22,
+       "note": "in says the rearranged letters sit inside the other word"
       }
      ],
      "parts": [
       {
+       "words": "temptation",
+       "at": 25,
+       "gives": "BAIT",
+       "note": "bait is a lure, a temptation"
+      },
+      {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "BAILSOUT",
        "indicators": [
         {
          "text": "tortured",
-         "note": "tortured means twisted out of shape, so the letters are rearranged"
+         "at": 8,
+         "note": "tortured means twisted out of shape, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "temptation",
-           "gives": "BAI",
-           "note": "first part of BAIT, a lure or temptation"
-          },
-          {
-           "words": "soul",
-           "note": "the letters of soul rearranged"
-          },
-          {
-           "words": "temptation",
-           "gives": "T",
-           "note": "last letter of BAIT"
-          }
-         ]
+         "words": "soul",
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Saving a tormented spirit that has fallen to temptation.",
-     "definitionFit": "To bail someone out is an idiom for getting them out of trouble, so it means the same as saving them."
+     "surface": "A tormented spirit succumbs to temptation.",
+     "definitionFit": "To bail someone out is to get them out of trouble, which is to rescue them."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "tortured"
     }
@@ -899,51 +900,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BOBDYLAN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "missing final note",
-       "note": "the last letter of the band word is a musical note name, and it goes missing"
+       "text": "distressed",
+       "at": 7,
+       "note": "distressed means battered, so these letters are reshuffled"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "distressed",
-         "note": "distressed means battered or roughed up, so the letters are scrambled"
+         "text": "missing",
+         "at": 30,
+         "note": "missing means without, so the named letter is taken away"
         }
        ],
        "parts": [
         {
-         "words": "by",
-         "note": "taken as written"
+         "words": "by old band",
+         "at": 18
         },
         {
-         "words": "old",
-         "note": "taken as written"
-        },
-        {
-         "words": "band",
-         "gives": "BAN",
-         "note": "band without its last letter, D, which is a note"
+         "words": "final note",
+         "at": 38,
+         "gives": "D",
+         "note": "D is a musical note and the last letter of band"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vocalist upset at his former group for dropping the last note of a song.",
-     "walkthrough": "'By' looks like a link word but its letters are part of the anagram.",
-     "definitionFit": "Bob Dylan is the American singer-songwriter behind 'Blowin' in the Wind'."
+     "surface": "A singer upset by a former group losing its last song.",
+     "definitionFit": "Bob Dylan is the American singer-songwriter famous for folk and protest songs."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "by"
+     "misdirectedWord": "band"
     }
    }
   },
@@ -1084,45 +1081,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SUPERHERO",
+     "op": "charade",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means nearly all, so the word for star loses its last letter"
+       "text": "supported by",
+       "at": 25,
+       "note": "in a down clue, supported by means the other pieces go underneath"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 18,
+         "note": "mostly means almost all, so the last letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "star",
-         "gives": "SUPER",
-         "note": "SUPERB, meaning star or first-rate, without its last letter"
+         "at": 13,
+         "gives": "SUPERB",
+         "note": "a star performance is superb"
         },
         {
-         "words": "a woman's",
-         "gives": "HER",
-         "note": "the possessive pronoun for a woman"
-        },
-        {
-         "words": "love",
-         "gives": "O",
-         "note": "love is zero in tennis, which looks like O"
+         "gives": "B"
         }
        ]
+      },
+      {
+       "words": "a woman's",
+       "at": 38,
+       "gives": "HER",
+       "note": "her means belonging to a woman"
+      },
+      {
+       "words": "love",
+       "at": 48,
+       "gives": "O",
+       "note": "love is zero in tennis, the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "A mighty celebrity largely kept going by a woman's devotion.",
-     "walkthrough": "In a down clue, being supported by something puts that thing underneath.",
-     "definitionFit": "A superhero is a fictional figure with superhuman abilities, literally someone with great power."
+     "surface": "A celebrity mostly relies on a woman's affection.",
+     "definitionFit": "A comic-book hero with extraordinary abilities is someone of great strength and power."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "star"
     }
