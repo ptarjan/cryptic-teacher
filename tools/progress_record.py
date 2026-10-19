@@ -126,8 +126,41 @@ def backlog():
     return edition_backlog.counts()[0]
 
 
+def fetching(rows, papers=None):
+    """Where the Gale downloader is, from its plan() `rows` ((product, day,
+    ...) in the order it fetches): the first row's paper and year, how many
+    rows are left in that year of that paper, and whether it is working
+    back (dates falling). None with no row. `papers`: {product: name}."""
+    papers = papers or {}
+    if not rows:
+        return None
+    prod, first = rows[0][0], rows[0][1]
+    bucket = [r[1] for r in rows if r[0] == prod and r[1].year == first.year]
+    back = len(bucket) < 2 or bucket[0] >= bucket[1]
+    return {"paper": papers.get(prod, prod), "year": first.year, "left": len(bucket), "back": back}
+
+
+def gale_cursor(today):
+    """fetching() of the downloader's live plan, stamped `today`; None when
+    this host has no Gale state (the plan needs ~/.cache/gale_inbox)."""
+    try:
+        import gale_fetch
+        import gale_inbox
+        papers = {"TTDA": "The Times", "LSNR": "The Listener",
+                  **{p: o.folder for p, o in gale_inbox.OTHERS.items()}}
+        rows = gale_fetch.plan(gale_fetch.have_docs(), skip=0)
+    except Exception as e:  # no state, no disk: the last saved line stays
+        print(f"no Gale cursor recorded: {type(e).__name__}: {e}", file=sys.stderr)
+        return None
+    cur = fetching(rows, papers)
+    return cur and {"at": today, **cur}
+
+
 def record(today=None):
     today = today or datetime.date.today().isoformat()
+    cursor = gale_cursor(today)
+    if cursor:
+        progress.save_fetching(cursor)
     files = progress.file_counts((s, solved, hinted) for _, s, _, solved, hinted in corpus())
     days = progress.load()
     days[today] = progress.day_row(files, ledger_on(today), backlog())
