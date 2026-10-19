@@ -235,7 +235,19 @@ check("three deletions with one indicator are counted", 1, v.split_shared_indica
     {"op": "deletion", "parts": [{"words": "c", "gives": "EF"}, {"gives": "F"}]}]}))
 check("a leaf 'doubly' beside a leaf giving the same letters is counted", 1, v.repeat_in_leaf({"op": "charade", "parts": [
     {"words": "dope", "gives": "ASS"}, {"words": "doubly", "gives": "ASS"}]}))
+check("a deletion indicated by a movement word whose cut is no clue word is counted", 1, v.del_as_move({
+    "op": "deletion", "indicators": [{"text": "relocating"}], "parts": [{"words": "capital", "gives": "LONDON"}, {"gives": "N"}]}))
+check("a movement-word deletion cutting a clue word is not counted", 0, v.del_as_move({
+    "op": "deletion", "indicators": [{"text": "shifting"}], "parts": [{"words": "rival", "gives": "EVERTON"}, {"words": "ton", "gives": "TON"}]}))
+check("a leaf 'more than once' giving the pieces before it is counted", 1, v.repeat_in_leaf({"op": "charade", "parts": [
+    {"words": "a", "gives": "A"}, {"words": "kid", "gives": "GAR"}, {"words": "more than once", "gives": "AGAR"}]}))
+check("a reversal of a single substitution is not counted by reversal_split", 0, v.reversal_split({
+    "op": "reversal", "indicators": [{"text": "knocked back"}], "parts": [{"op": "substitution", "indicators": [{"text": "taking"}], "parts": [
+        {"words": "Unfortunately", "gives": "ALACK"}, {"words": "cold", "gives": "C"}, {"words": "oxygen", "gives": "O"}]}]},
+    "Unfortunately knocked back, taking oxygen for cold"))
 if v._lexicon_letters():
+    check("half of a synonym giving a non-word is counted", 1, v.half_in_leaf({"op": "charade", "parts": [
+        {"words": "half of train", "gives": "CHOO"}, {"words": "x", "gives": "X"}]}))
     check("a word split around an insert into two leaves is counted", 1, v.split_word_leaves({"op": "charade", "parts": [
         {"op": "container", "parts": [{"words": "cut", "gives": "HA"}, {"words": "stay", "gives": "YSTA"}]},
         {"words": "cut", "gives": "CK"}]}))
