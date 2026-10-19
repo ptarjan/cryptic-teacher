@@ -12,6 +12,14 @@ sys.path.insert(0, "tools")
 import apply_annotations as A, fetch_puzzle, provenance, reopen_answers as R
 from groups import entry_id
 
+# apply_annotations marks shape-queue rows tried (shape_queue.done); keep that off the
+# committed list by working on a temp copy.
+import shape_queue, shutil, tempfile
+from pathlib import Path
+_shape_tmp = tempfile.mkdtemp()
+shutil.copy(shape_queue.PATH, _shape_tmp)
+shape_queue.PATH = Path(_shape_tmp) / shape_queue.PATH.name
+
 fails = 0
 def check(name, ok):
     global fails
