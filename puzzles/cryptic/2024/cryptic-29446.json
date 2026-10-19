@@ -348,42 +348,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRADEOFFS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "finishing early",
-       "note": "a word finishing early stops before its last letter, which is dropped"
+       "text": "to get to work",
+       "at": 53,
+       "note": "getting letters to work means setting them working into a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to get to work",
-         "note": "the letters are put to work, set going and moved into a new order"
+         "text": "finishing early",
+         "at": 23,
+         "note": "finishing early means stopping before the last letter, so that letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "order",
-         "gives": "ORDE",
-         "note": "the word without its final letter"
+         "at": 41,
+         "note": "fodder, taken as written less its last letter"
         },
         {
-         "words": "staff",
-         "note": "taken as written"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "staff",
+       "at": 47,
+       "note": "anagram fodder, taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A boss cuts talks short and orders the staff back to work.",
-     "walkthrough": "'order' looks like the boss's command and 'finishing early' like the end of talks; in fact the word order is clipped and joined to staff for the rearrangement.",
-     "definitionFit": "A trade-off is a compromise in which one gain is accepted at the cost of another, the typical result of bargaining."
+     "surface": "Outcomes of talks: knock off early and tell the staff to start working.",
+     "walkthrough": "'finishing early' cuts ORDER to ORDE; 'to get to work' rearranges ORDE and STAFF.",
+     "definitionFit": "Trade-offs are compromises in which something is given up to gain something else, the typical result of bargaining."
     },
     "features": {
      "answerInScene": true,
@@ -525,43 +529,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HIRED",
+     "op": "charade",
      "indicators": [
       {
-       "text": "late starting",
-       "note": "a word whose start is late, gone, has lost its opening letter"
+       "text": "after",
+       "at": 32,
+       "note": "after means following, so the hour letter comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "an hour",
+       "at": 38,
+       "gives": "H",
+       "note": "H is the abbreviation for hour"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "after",
-         "note": "after places the next word behind the one for an hour"
+         "text": "late starting",
+         "at": 10,
+         "note": "late means former or gone, so the start of the word is gone"
         }
        ],
        "parts": [
         {
-         "words": "an hour",
-         "gives": "H",
-         "note": "h is the abbreviation for hour"
+         "words": "sacked",
+         "at": 25,
+         "gives": "FIRED",
+         "note": "to be fired is to be sacked"
         },
         {
-         "words": "sacked",
-         "gives": "IRED",
-         "note": "a synonym for sacked, losing its first letter"
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worker, late on the first day, hired and then fired within an hour.",
-     "walkthrough": "The synonym for sacked is FIRED; drop the F and put H in front.",
-     "definitionFit": "Hired means taken on for pay, the same as being in employment."
+     "surface": "A worker was taken on, turned up late, and was dismissed within the hour.",
+     "walkthrough": "'late starting' removes the first letter of FIRED, leaving IRED, which follows H.",
+     "definitionFit": "Hired means taken on for paid work, which is what being employed means."
     },
     "features": {
      "answerInScene": true,
@@ -622,48 +631,52 @@
    "annotation": {
     "definitions": [
      {
-      "text": "here",
-      "at": 41
+      "text": "Rest feet, twice beginning to drop off — here?",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SETTEE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "twice beginning to drop off",
-       "note": "the beginning goes twice, once from each of the two words"
+       "text": "off",
+       "at": 35,
+       "note": "off here means out of order, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "twice beginning to drop",
+         "at": 11,
+         "note": "two beginnings are dropped, so each word loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Rest",
-         "gives": "EST",
-         "note": "without its opening letter"
+         "words": "Rest feet",
+         "at": 0,
+         "note": "fodder, taken as written less two first letters"
         },
         {
-         "words": "feet",
-         "gives": "EET",
-         "note": "without its opening letter"
+         "gives": "RF"
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "Put your feet up and doze off: where to do it?",
-     "walkthrough": "After both first letters go, the six remaining letters must still be rearranged, and nothing in the clue signals that step; 'drop off' doubles as dozing, which is what one does on the answer.",
-     "definitionFit": "A settee is a sofa, the very place one rests one's feet and nods off."
+     "surface": "Put your feet up and you will keep nodding off on this piece of furniture.",
+     "walkthrough": "'twice beginning to drop' takes the first letters from both words, leaving EST and EET; 'off' rearranges them. The whole clue also describes where you might rest and fall asleep.",
+     "definitionFit": "A settee is a sofa, a natural place to put your feet up and doze."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "drop"
+     "misdirectedWord": "off"
     }
    }
   },
@@ -1147,40 +1160,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TRICYCLE",
      "indicators": [
       {
-       "text": "Near the end, ignored",
-       "note": "the letter next to last is the one near the end, and it is ignored"
+       "text": "Near the end",
+       "at": 0,
+       "note": "near the end points to the letter one before the last in each word"
       },
       {
-       "text": "transports you",
-       "note": "transports in the sense of carries away, removing the letter that sounds like you"
+       "text": "ignored",
+       "at": 14,
+       "note": "ignored letters are left out, so those letters are dropped"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "tricky",
-         "gives": "TRICY",
-         "note": "losing its next-to-last letter"
-        },
-        {
-         "words": "clue",
-         "gives": "CLE",
-         "note": "losing its U"
-        }
-       ]
+       "words": "tricky clue",
+       "at": 22,
+       "note": "fodder, taken as written less two letters"
+      },
+      {
+       "gives": "KU"
       }
      ]
     },
     "explanation": {
-     "surface": "Skip a hard clue near the end of the puzzle; this one will carry you along.",
-     "walkthrough": "'transports you' does double duty: it removes U (you) from clue, and describes the answer, which carries a rider.",
-     "definitionFit": "A tricycle is a three-wheeled pedal vehicle, so it carries a rider along."
+     "surface": "A solver skipped a hard clue near the end of the puzzle, but this one is a delight.",
+     "walkthrough": "Dropping the next-to-last letter of each word, K from tricky and U from clue, leaves the answer.",
+     "definitionFit": "A tricycle is a three-wheeled cycle that carries its rider along; 'this one' plays on the clue that tricks."
     },
     "features": {
      "answerInScene": false,

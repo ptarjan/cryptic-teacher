@@ -624,49 +624,62 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the statement and letter inside the court"
+       "at": 81,
+       "note": "in means placed within, so the other pieces go inside the abbreviation for court"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "court",
-         "gives": "CT",
-         "note": "CT is an abbreviation for court"
-        },
-        {
-         "words": "a false statement",
-         "gives": "LIE",
-         "note": "a lie is a false statement"
-        }
-       ]
+       "words": "court",
+       "at": 84,
+       "gives": "CT"
       },
       {
-       "op": "last",
+       "op": "charade",
        "indicators": [
         {
-         "text": "end of",
-         "note": "the end of a word is its last letter"
+         "text": "before",
+         "at": 59,
+         "note": "before means coming first, so the lie comes ahead of the letter"
         }
        ],
        "parts": [
         {
-         "words": "session",
-         "note": "its final letter"
+         "words": "to make a false statement",
+         "at": 33,
+         "gives": "LIE",
+         "note": "to lie is to make a false statement"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 66,
+           "note": "the end of a word is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "session",
+           "at": 73,
+           "note": "only its last letter is used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A barrister is paid by someone who goes on to lie in the closing stage of a court hearing.",
-     "definitionFit": "A client is the person who engages and pays a lawyer for professional services."
+     "surface": "A cynical view of a lawyer paid to tell lies just before a court hearing ends.",
+     "walkthrough": "The definition is a description: the person who pays a lawyer.",
+     "definitionFit": "A client is the customer who pays a professional such as a solicitor for services."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "lawyer"
     }
    }
   },
@@ -1663,69 +1676,75 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "raised",
-       "note": "in a down clue raised means read upwards, from bottom to top"
+       "text": "over",
+       "at": 31,
+       "note": "over here means covering, so the first piece goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "over",
-         "note": "over here means spread across and covering, so it straddles the next letters"
+         "text": "raised",
+         "at": 24,
+         "note": "in a down clue, raised means read upwards, so the letters are reversed"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 17,
+           "note": "almost means not quite all, so the last letter is dropped"
+          }
+         ],
          "parts": [
           {
-           "op": "deletion",
-           "indicators": [
-            {
-             "text": "almost",
-             "note": "almost means not quite all, so the last letter goes"
-            }
-           ],
-           "parts": [
-            {
-             "words": "them",
-             "note": "taken as written"
-            },
-            {
-             "gives": "M"
-            }
-           ]
+           "words": "them",
+           "at": 12,
+           "note": "fodder, taken as written less its last letter"
           },
           {
-           "words": "a",
-           "gives": "I",
-           "note": "a means one, I in Roman numerals"
+           "gives": "M"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 36,
+         "gives": "I",
+         "note": "a is one, the Roman numeral I"
         },
         {
          "words": "grand",
+         "at": 38,
          "gives": "G",
-         "note": "G is slang for a grand, a thousand"
+         "note": "G is slang for a grand, a thousand pounds"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some of them nearly lifted more than a thousand pounds.",
-     "walkthrough": "THEM loses its M; THE read upwards gives EHT, which goes round I and G.",
-     "definitionFit": "Eight is a whole number, so it is simply a number; the article A belongs to the definition."
+     "surface": "Some of them have nearly grown to a thousand.",
+     "walkthrough": "'almost' cuts THEM to THE, 'raised' turns it upward into EHT, and that goes over I and G.",
+     "definitionFit": "Eight is a cardinal number, one of the figures used in counting."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "raised"
+     "misdirectedWord": "grand"
     }
    }
   },

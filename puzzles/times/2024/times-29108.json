@@ -46,61 +46,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "COMEDY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "restricted by",
+       "at": 15,
+       "note": "being restricted by something means being hemmed in by it, so the show goes inside the outer letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "Returning",
-         "note": "coming back, so the word runs the other way"
-        },
-        {
          "text": "extremely",
-         "note": "at the extremes: just the first and last letters"
+         "at": 29,
+         "note": "the extremes of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "CY",
-         "indicators": [
-          {
-           "text": "restricted by",
-           "note": "the outside letters hem the show in"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "extremely corny",
-           "gives": "CY",
-           "select": "outer",
-           "note": "the outer letters of CornY"
-          }
-         ]
-        },
+         "words": "corny",
+         "at": 39,
+         "note": "only its outer letters are used"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "Returning show",
-         "gives": "OMED",
-         "note": "DEMO (a show, a demonstration) turned round"
+         "text": "Returning",
+         "at": 0,
+         "note": "returning means going back, so the word for show is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "show",
+         "at": 10,
+         "gives": "DEMO",
+         "note": "a demo is a show or demonstration"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tired old comedy show comes back on air, still weighed down by its corny jokes.",
-     "walkthrough": "OMED sits between C and Y, the two ends of 'corny'. The whole surface is about comedy, so the definition hides in plain sight at the end.",
-     "definitionFit": "Comedy is humour, the funny stuff itself."
+     "surface": "A reviewer complains that a revived show is weighed down by stale, obvious jokes.",
+     "walkthrough": "'Returning' turns DEMO into OMED, which sits between C and Y, the extremes of 'corny'.",
+     "definitionFit": "Comedy is the genre of entertainment built on humour, so the two words stand for each other."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "show"
+     "misdirectedWord": "Returning"
     }
    }
   },
@@ -892,50 +892,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "fabricated",
-       "note": "made up, so the letters are rearranged"
-      }
-     ],
      "parts": [
       {
-       "words": "Teacher fabricated",
-       "gives": "THECREA",
-       "note": "TEACHER rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fabricated",
+         "at": 8,
+         "note": "something fabricated is made up or constructed, so the letters of teacher are built into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Teacher",
+         "at": 0,
+         "note": "anagram fodder, taken as written"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "about",
-         "note": "turned round, so the word reads backwards"
+         "at": 27,
+         "note": "about here means turned around, so the word for rubbish is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "rubbish about",
-           "gives": "TOR",
-           "note": "ROT (rubbish) turned round"
-          }
-         ]
+         "words": "rubbish",
+         "at": 19,
+         "gives": "ROT",
+         "note": "rot is nonsense or rubbish"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher spreads made-up nonsense about God.",
-     "walkthrough": "'About' looks like it means 'concerning', which is how the surface reads it, but it reverses ROT.",
-     "definitionFit": "God is called the Creator, maker of heaven and earth."
+     "surface": "A teacher invents nonsense on the subject of God, perhaps in a religious studies lesson.",
+     "walkthrough": "'fabricated' rearranges TEACHER into THECREA; 'about' turns ROT around to give TOR.",
+     "definitionFit": "The Creator is a title for God as maker of the universe."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "fabricated"
     }
    }
   },
@@ -1350,49 +1353,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "very nearly",
-       "note": "almost all of the word: the last letter goes"
-      }
-     ],
      "parts": [
       {
-       "words": "Bond baddies",
-       "gives": "SPECTR",
-       "note": "SPECTRE, the villainous organisation in the James Bond films, losing its last letter"
-      },
-      {
-       "op": "nth",
-       "unchecked": true,
-       "gives": "A",
-       "n": 3,
+       "op": "deletion",
        "indicators": [
         {
-         "text": "just before the end",
-         "note": "the letter immediately before the last one"
+         "text": "very nearly",
+         "at": 33,
+         "note": "very nearly means almost all of it, so the final letter of the organisation's name is cut off"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "dead just before the end",
-         "gives": "A",
-         "select": 3,
-         "note": "the letter just before the final D of deAd"
+         "words": "Bond baddies",
+         "at": 20,
+         "gives": "SPECTRE",
+         "note": "SPECTRE is the criminal organisation in the James Bond stories"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 3,
+       "indicators": [
+        {
+         "text": "just before the end",
+         "at": 50,
+         "note": "the letter just before the end of a word is its penultimate one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dead",
+         "at": 45,
+         "note": "its third, penultimate letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bond villains are within a whisker of being killed just before the film's finale.",
-     "walkthrough": "'Very nearly dead' looks like one phrase about the baddies, but 'very nearly' clips SPECTRE and 'dead' is only mined for one letter.",
-     "definitionFit": "Spectra are bands of colour, like the rainbow from a prism."
+     "surface": "A film buff describes a lurid display put on by Bond villains who are all but finished off at the climax.",
+     "walkthrough": "'very nearly' leaves SPECTR from SPECTRE; 'just before the end' takes A, the penultimate letter of 'dead'. SPECTRE is the villains' organisation in James Bond novels and films.",
+     "definitionFit": "Spectra are bands of colour produced when light is split, so they are colourful arrays."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "dead"
     }
    }
@@ -1469,12 +1479,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ANTRA",
      "indicators": [
       {
-       "text": "in front of",
-       "note": "the front of the word: its first letter"
+       "text": "taken on by",
+       "at": 30,
+       "note": "being taken on by someone is being taken in by them, so the letter goes inside the other pieces"
       }
      ],
      "parts": [
@@ -1483,41 +1492,41 @@
        "parts": [
         {
          "words": "an",
-         "note": "taken as it stands"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "T",
-         "indicators": [
-          {
-           "text": "taken on by",
-           "note": "taken aboard, so it goes inside"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "front of Tate",
-           "gives": "T",
-           "select": "first",
-           "note": "the first letter of Tate"
-          }
-         ]
+         "at": 42,
+         "gives": "AN",
+         "note": "taken as written"
         },
         {
          "words": "esteemed artist",
+         "at": 45,
          "gives": "RA",
-         "note": "RA = Royal Academician, an honoured British artist"
+         "note": "RA stands for Royal Academician, an honoured artist"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "in front of",
+         "at": 13,
+         "note": "the front of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tate",
+         "at": 25,
+         "note": "only its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An esteemed artist is hired for empty spaces outside the Tate gallery.",
-     "walkthrough": "The Tate is a group of London art galleries, which suits the RA. Antra (singular antrum) are cavities, especially in bone.",
-     "definitionFit": "An antrum is an anatomical cavity, so antra are empty spaces."
+     "surface": "Gaps appear outside the Tate gallery after a celebrated painter is hired.",
+     "walkthrough": "T, the front of 'Tate', goes between AN and RA. An RA is a member of the Royal Academy of Arts, a top British art body.",
+     "definitionFit": "Antra are anatomical cavities, hollow spaces within bones or organs."
     },
     "features": {
      "answerInScene": false,
@@ -1860,47 +1869,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "at the end: the last letter"
+       "text": "invested in",
+       "at": 20,
+       "note": "money invested in something is put into it, so the letter goes inside the word for excellent"
       }
      ],
      "parts": [
       {
        "words": "excellent",
+       "at": 32,
        "gives": "CRACK",
-       "note": "crack = first-rate, as in crack troops"
+       "note": "crack means first-rate, as in a crack shot"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "D",
        "indicators": [
         {
-         "text": "invested in",
-         "note": "put inside, as money is put into something"
+         "text": "ultimately",
+         "at": 9,
+         "note": "ultimately means at the very end, so the final letter is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Deadhead ultimately",
-         "gives": "D",
-         "select": "last",
-         "note": "the last letter of DeadheaD, placed inside CRACK"
+         "words": "Deadhead",
+         "at": 0,
+         "note": "only its last letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Grateful Dead fan puts money into a fine record collection.",
-     "walkthrough": "A Deadhead is a fan of the Grateful Dead, which suits the music surface. The question mark admits a rack is where a selection of albums is kept.",
-     "definitionFit": "A CD rack holds a collection of albums on compact disc."
+     "surface": "A Grateful Dead fan, a Deadhead, finally puts money into a superb record collection.",
+     "walkthrough": "D, the last letter of 'Deadhead', goes inside CRACK. A Deadhead is a fan of the Grateful Dead.",
+     "definitionFit": "A CD rack is a stand holding a collection of compact discs; the question mark admits the stretch from rack to selection."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "invested"
+     "aptDefinition": true,
+     "misdirectedWord": "Deadhead"
     }
    }
   }

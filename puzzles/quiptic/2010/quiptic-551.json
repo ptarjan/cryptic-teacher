@@ -127,43 +127,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "alternative",
-       "note": "an alternative version of a word here is another arrangement of its letters"
-      },
-      {
-       "text": "ordered",
-       "note": "ordered means put in a new sequence, so these letters are rearranged"
+       "text": "before",
+       "at": 37,
+       "note": "before means coming first, so this piece leads"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "alternative",
+         "at": 25,
+         "note": "the alternative form of the word is taken here as its other direction, giving its letters back to front"
+        }
+       ],
        "parts": [
         {
          "words": "zero",
-         "gives": "LIN",
-         "note": "zero is nil, whose letters are rearranged"
-        },
+         "at": 20,
+         "gives": "NIL",
+         "note": "nil is zero"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ordered",
+         "at": 49,
+         "note": "ordered means arranged, so the letters of cuts are put in a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "cuts",
-         "note": "the letters of cuts, rearranged"
+         "at": 44,
+         "note": "anagram fodder, taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A medicine offers a no-option choice ahead of ordered cuts, like a health budget.",
-     "walkthrough": "Zero must first become NIL before its letters are rearranged.",
+     "surface": "A doctor offers a choice: take this medicine or face surgical cuts.",
+     "walkthrough": "The setter probably meant a rearrangement of NIL; reversing it gives the same LIN. 'ordered' turns CUTS into CTUS.",
      "definitionFit": "Linctus is a syrupy cough medicine, a kind of medication."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "alternative"
+     "misdirectedWord": "presents"
     }
    }
   },
@@ -960,45 +978,48 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BOYFRIEND",
      "indicators": [
       {
        "text": "in",
-       "note": "one piece placed in another sits inside it"
+       "at": 24,
+       "note": "in means placed within, so the rearranged letters go inside the word for relationship"
       }
      ],
      "parts": [
+      {
+       "words": "relationship",
+       "at": 27,
+       "gives": "BOND",
+       "note": "a bond is a close relationship"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "strangely",
-         "note": "strangely means in an odd way, so the word's letters come out oddly arranged"
+         "at": 8,
+         "note": "strangely signals that the letters of fiery appear in an odd order"
         }
        ],
        "parts": [
         {
          "words": "fiery",
-         "note": "the letters of fiery, rearranged"
-        },
-        {
-         "words": "relationship",
-         "gives": "BOND",
-         "note": "a bond is a relationship or tie between people"
+         "at": 18,
+         "note": "anagram fodder, taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A partner proves strangely fiery in a relationship.",
+     "surface": "A partner behaves oddly passionately within a relationship.",
+     "walkthrough": "'strangely' turns FIERY into YFRIE, which goes between BO and ND.",
      "definitionFit": "A boyfriend is a male romantic partner."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "relationship"
+     "misdirectedWord": "fiery"
     }
    }
   },
@@ -1293,34 +1314,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "arranged",
-       "note": "arranged means set out in some order, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Having nothing to do",
+       "at": 0,
+       "gives": "FREE",
+       "note": "being free means having no commitments"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "arranged",
+         "at": 26,
+         "note": "arranged means set out in order, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Having nothing to do",
-         "gives": "FREE",
-         "note": "with nothing to do, one is free"
+         "words": "as",
+         "at": 21,
+         "note": "anagram fodder, taken as written"
         },
         {
-         "words": "as I",
-         "note": "the letters of as and I, rearranged"
+         "words": "I",
+         "at": 24,
+         "note": "anagram fodder, taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "With nothing else to do, someone arranges flowers.",
-     "walkthrough": "'Arranged the flower' fits flower arranging; 'arranged' only works on the two words before it.",
-     "definitionFit": "The freesia is a fragrant flowering plant, so it is a flower."
+     "surface": "With time on my hands, I did the flower arranging.",
+     "walkthrough": "'arranged' looks like flower arranging, but it rearranges AS and I into SIA.",
+     "definitionFit": "A freesia is a fragrant African plant grown for its bright blooms."
     },
     "features": {
      "answerInScene": true,
@@ -1408,34 +1437,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "carried out suggests something taken apart and moved, so its letters are reworked"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Graduate",
+       "at": 0,
+       "gives": "BA",
+       "note": "BA, Bachelor of Arts, is a graduate"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 17,
+         "note": "out means wrong or disordered, so the letters of carried are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Graduate",
-         "gives": "BA",
-         "note": "a BA, Bachelor of Arts, is a graduate"
-        },
-        {
          "words": "carried",
-         "note": "the letters of carried, rearranged"
+         "at": 9,
+         "note": "anagram fodder, taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A graduate conducted the defence, perhaps of a thesis.",
-     "walkthrough": "'Carried out' reads as a phrasal verb meaning performed; split, 'carried' gives the letters and 'out' rearranges them.",
-     "definitionFit": "A barricade is a makeshift barrier set up to defend a position against attack."
+     "surface": "A graduate executed the defence strategy.",
+     "walkthrough": "'carried out' looks like a phrase meaning executed, but 'out' is the anagram signal on CARRIED.",
+     "definitionFit": "A barricade is a makeshift barrier set up as a defensive obstruction."
     },
     "features": {
      "answerInScene": false,

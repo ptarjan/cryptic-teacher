@@ -641,53 +641,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BYHOOKORBYCROOK",
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the first word goes around the rest"
+       "at": 6,
+       "note": "about means around, so the word for novel goes around the rest"
       }
      ],
      "parts": [
       {
+       "words": "Novel",
+       "at": 0,
+       "gives": "BOOK",
+       "note": "a novel is a book"
+      },
+      {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "BYHOOKORBYCROOK",
        "indicators": [
         {
          "text": "New",
-         "note": "new suggests a fresh form, so the letters that follow are rearranged"
+         "at": 12,
+         "note": "new signals that the letters are made into a fresh arrangement"
         }
        ],
        "parts": [
         {
+         "words": "York",
+         "at": 16,
+         "note": "anagram fodder, taken as written"
+        },
+        {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "BYHOOKORBYCROOK",
          "indicators": [
           {
            "text": "suppressed",
-           "note": "a suppressed thing is kept out, so that letter is dropped from the word before"
+           "at": 32,
+           "note": "suppressed means held back, so the letter I is left out of choirboy"
           }
          ],
          "parts": [
           {
-           "words": "Novel",
-           "gives": "BOOK",
-           "note": "a novel is a book"
-          },
-          {
-           "words": "York",
-           "note": "the city, used as letters"
-          },
-          {
            "words": "choirboy",
-           "note": "taken as written"
+           "at": 21,
+           "note": "fodder, taken as written less one letter"
           },
           {
            "words": "I",
-           "note": "the letter to be dropped from the choirboy"
+           "at": 30
           }
          ]
         }
@@ -696,9 +696,9 @@
      ]
     },
     "explanation": {
-     "surface": "A story about a New York chorister in which the narrator keeps quiet about himself.",
-     "walkthrough": "New York looks like one place, but New is the signal acting on York plus the choirboy minus his I; the novel then wraps around the result, split one letter in.",
-     "definitionFit": "By hook or by crook is an idiom for achieving something by whatever method it takes, fair or foul."
+     "surface": "A novel about a New York choirboy whose voice was silenced.",
+     "walkthrough": "'New York' looks like the city, but 'New' is the anagram signal, working on the city's name together with choirboy once 'suppressed' has removed its I.",
+     "definitionFit": "The idiom means achieving something by whatever method is available, fair or foul."
     },
     "features": {
      "answerInScene": false,
