@@ -162,6 +162,9 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
        "deletionInside": "a deletion over a charade takes letters from one piece (or takes a whole piece "
                          "the charade added): the indicator acts on that piece alone, so delete inside "
                          "the charade, del(piece, letters), and add no piece only to remove it",
+       "containerInside": "a container over a charade puts its piece in inside one piece of it: the "
+                          "indicator acts on that piece alone, so insert inside the charade, "
+                          "ins(piece, letters), not over the whole",
        "unindicatedBare": "an op has no indicator word of its own, or one indicator is filed for several "
                           "ops: give each op the clue word that signals it (a pair of first/last picks "
                           "may share one); if the clue gives none, the tree is not the solver's route",
@@ -188,13 +191,14 @@ def _validator_rules():
             "inDefinition": lambda t, a, c: V.in_definition(a),
             "leafFold": lambda t, a, c: V.leaf_folds(t),
             "anaCharade": lambda t, a, c: V.anagram_charades(t),
-            "nestedContainer": lambda t, a, c: V.nested_containers(t),
+            "nestedContainer": lambda t, a, c: V.nested_containers(t, a.get("_answer") or None),
             "anaSynonym": lambda t, a, c: V.anagram_synonyms(t, a, c),
             "misplacedIndicator": lambda t, a, c: V.misplaced_indicators(t),
             "bareInitial": lambda t, a, c: V.bare_initials(t),
             "deletionScope": lambda t, a, c: V.deletion_scope(t),
             "wrongRole": lambda t, a, c: V.wrong_role_indicators(t),
             "deletionInside": lambda t, a, c: V.deletion_inside_component(t, c, a.get("_answer") or None),
+            "containerInside": lambda t, a, c: V.container_inside_component(t, a.get("_answer") or None),
             "unindicatedBare": lambda t, a, c: V.unindicated_uncovered(t),
             "sharedIndicator": lambda t, a, c: V.shared_indicators(t, c),
             "halfLeaf": lambda t, a, c: V.half_leaves(t),

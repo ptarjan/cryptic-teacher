@@ -68,6 +68,7 @@ FIELDS = {
     "wordplay.deletionScope": lambda ann: V.deletion_scope(ann.get("wordplay")),
     "wordplay.wrongRole": lambda ann: V.wrong_role_indicators(ann.get("wordplay")),
     "wordplay.deletionInside": lambda ann, clue=None: V.deletion_inside_component(ann.get("wordplay"), clue),
+    "wordplay.containerInside": lambda ann: V.container_inside_component(ann.get("wordplay")),
 }
 #: Fields whose finding places words in the clue, so counts() hands them its text.
 NEEDS_CLUE = {"wordplay.deletionInside", "wordplay.anagramSynonym"}

@@ -373,6 +373,22 @@ for field in ("unindicatedBare", "sharedIndicator", "halfLeaf", "deletionScatter
               "bareInitial", "deletionScope", "wrongRole", "deletionInside", "nestedContainer","anagramSynonym", "misplacedIndicator", "scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
               "leafFold", "repeatedSelection", "singleLeaf", "bareInCharade", "anagramOfContainer"):
     check(f"wordplay.{field} is a ratchet field", True, f"wordplay.{field}" in v.BACKLOG_MARKERS)
+check("wordplay.containerInside is a ratchet field", True, "wordplay.containerInside" in v.BACKLOG_MARKERS)
+lag = {"op": "container", "indicators": [{"text": "kidnapping"}], "parts": [
+    {"op": "charade", "parts": [{"words": "criminal", "gives": "LAG"}, {"words": "killer", "gives": "ASP"}]},
+    {"words": "saint", "gives": "ST"}]}
+check("a piece put inside one piece of the holder is counted (LASTGASP)", 1, v.container_inside_component(lag, "LASTGASP"))
+check("with no answer it counts nothing", 0, v.container_inside_component(lag))
+seam = {**lag, "parts": [lag["parts"][0], {"words": "x", "gives": "T"}]}
+check("a piece that can go in at the join is not (LAGTASP is no answer, LAGTASP join)", 0,
+      v.container_inside_component(seam, "LAGTASP"))
+check("three daughters scrambled as DDD is literal, not a synonym", 0, v.anagram_synonyms(
+    {"op": "anagram", "parts": [{"words": "an emu"}, {"words": "three daughters", "gives": "DDD"}]}))
+check("two ends as ENDEND is literal too", 0, v.anagram_synonyms(
+    {"op": "anagram", "parts": [{"words": "two ends", "gives": "ENDEND"}, {"words": "have"}]}))
+check("a repeat word on a charade covers its exact copy", 0, v.unindicated_uncovered({"op": "charade", "indicators": [{"text": "repeatedly"}], "parts": [
+    {"op": "container", "indicators": [{"text": "by"}], "parts": [{"words": "a", "gives": "GIS"}, {"words": "b", "gives": "R"}]},
+    {"op": "container", "parts": [{"words": "a", "gives": "GIS"}, {"words": "b", "gives": "R"}]}]}))
 warn = v.shape_warnings("1A", {"wordplay": cc, "definitions": []})
 check("the ratchet refuses one more than a puzzle is allowed", 1,
       len(v.backlog_errors("x-1", warn, {"wordplay.charadeInCharade": {}})))
