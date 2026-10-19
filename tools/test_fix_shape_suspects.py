@@ -569,5 +569,19 @@ check("del<half>(ins(SN, PA)) becomes ins(SN, first<half>(pate))",
 new, used = F.repair_tree(hlt, hlc, "SPANX", HL)
 check("a tree that does not give the answer is left alone", used == [] and new["op"] == "deletion")
 
+# anaCharade: the fodder pieces already spell the answer; the piece that is the scramble of its own
+# words is the real fodder, the rest are charade pieces
+ACH = {"anaCharade": F.r_ana_charade}
+acc = "Light pates upset queen"
+act = {"op": "anagram", "unchecked": True, "gives": "TAPER", "indicators": [{"text": "upset", "at": 12}], "parts": [
+    {"op": "charade", "parts": [{"words": "pates", "at": 6, "gives": "TAPE"}, {"words": "queen", "at": 18, "gives": "R"}]}]}
+new, used = F.repair_tree(act, acc, "TAPER", ACH)
+check("TAPE from pates + R: the anagram is over pates alone, the queen beside it",
+      used == ["anaCharade"] and new["op"] == "charade" and new["parts"][0]["op"] == "anagram"
+      and new["parts"][0]["parts"][0]["words"] == "pates" and new["parts"][1]["gives"] == "R")
+act2 = {**act, "parts": [{"op": "charade", "parts": [{"words": "pates", "at": 6, "gives": "TAPX"}, {"words": "queen", "at": 18, "gives": "R"}]}]}
+new, used = F.repair_tree(act2, acc, "TAPXR", ACH)
+check("a piece that is no scramble of its words is left for the model", used == [])
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
