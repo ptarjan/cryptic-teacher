@@ -630,44 +630,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ABSOLVE",
-     "indicators": [
-      {
-       "text": "Only half",
-       "note": "keeping only half a word means dropping the other half"
-      },
-      {
-       "text": "not finishing",
-       "note": "something not finishing stops short, so its end is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Only half",
+         "at": 0,
+         "note": "only half of the word for competent is kept, its first two letters, the rest dropped"
+        }
+       ],
        "parts": [
         {
          "words": "competent",
-         "gives": "AB",
-         "note": "the first half of ABLE, meaning competent"
+         "at": 10,
+         "gives": "ABLE",
+         "note": "competent means able"
         },
         {
+         "gives": "LE"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not finishing",
+         "at": 26,
+         "note": "not finishing means the word loses its last letter, stopping short of the end"
+        }
+       ],
+       "parts": [
+        {
          "words": "you",
-         "gives": "SOLVE",
-         "note": "you, the reader, are the SOLVERS; their end is cut off"
+         "at": 21,
+         "gives": "SOLVER",
+         "note": "in crosswords 'you' is the person tackling the puzzle, the solver"
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who is only half competent and never finishes the job is full of excuses.",
-     "walkthrough": "Crossword setters often address the solver as 'you', so 'you' stands for SOLVERS, which loses its last two letters.",
-     "definitionFit": "To absolve someone is to free them from blame or guilt, which is to excuse or pardon them."
+     "surface": "Someone only half up to the job, who never finishes anything, may come up with an excuse.",
+     "walkthrough": "'You' is the solver, a common crossword convention; cut its last letter for SOLVE, after AB, the first half of ABLE. 'May offer' just links wordplay to definition.",
+     "definitionFit": "To absolve someone is to pardon or let them off, which is what excusing a person does."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "you"
     }
@@ -957,42 +972,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "POLICEINSPECTOR",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter goes"
+       "text": "fooling",
+       "at": 28,
+       "note": "fooling around with letters means they are played with and rearranged into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Nice",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "coppers",
+       "at": 5,
+       "note": "taken as written"
+      },
+      {
+       "words": "to",
+       "at": 13,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "fooling",
-         "note": "fooling about suggests messing around, so the letters are jumbled"
+         "text": "almost",
+         "at": 21,
+         "note": "almost means the word is cut short, losing its final letter"
         }
        ],
        "parts": [
         {
-         "words": "Nice coppers to",
-         "note": "taken as written"
+         "words": "lie",
+         "at": 16,
+         "note": "taken as written, losing its final E"
         },
         {
-         "words": "lie",
-         "gives": "LI",
-         "note": "the word minus its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Pleasant officers nearly get away with lying to their boss.",
-     "walkthrough": "'Nice' looks like the French city or simply pleasant; here its letters are just fodder.",
-     "definitionFit": "A police inspector ranks above constables and sergeants, so is a superior of the ordinary coppers."
+     "surface": "Pleasant policemen tell fibs, nearly managing to hoodwink the officer above them.",
+     "walkthrough": "'almost' trims LIE to LI; NICE, COPPERS, TO and LI are then rearranged by 'fooling'. 'Their' refers back to the coppers.",
+     "definitionFit": "An inspector is a police rank above constables and sergeants, so it is senior to ordinary officers."
     },
     "features": {
      "answerInScene": true,
