@@ -827,39 +827,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BACKGROUNDMUSIC",
      "indicators": [
       {
-       "text": "around"
-      },
-      {
-       "text": "about"
+       "text": "about",
+       "at": 14,
+       "note": "about means surrounding, so the down-to-earth word goes round the rest"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "BACKGROUNDMUSIC",
+       "words": "Down-to-earth",
+       "at": 0,
+       "gives": "BASIC",
+       "note": "basic means plain and simple, down-to-earth"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "spreading",
-         "note": "MUCK is spread out, its end CK moving round to the front of MU"
+         "text": "around",
+         "at": 35,
+         "note": "around says the rearranged muck goes around the soil word"
         }
        ],
        "parts": [
         {
-         "words": "Down-to-earth",
-         "gives": "BASIC",
-         "note": "basic means plain, down-to-earth"
-        },
-        {
-         "words": "muck",
-         "note": "as printed"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "spreading",
+           "at": 20,
+           "note": "spreading means the letters of muck are spread out and rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "muck",
+           "at": 30
+          }
+         ]
         },
         {
          "words": "soil",
+         "at": 42,
          "gives": "GROUND",
          "note": "ground is soil"
         }
@@ -868,9 +878,9 @@
      ]
     },
     "explanation": {
-     "surface": "An earthy gardener spreads manure over the soil.",
-     "walkthrough": "'Spreading muck around soil' reads as gardening; the muck is split in two with its back end moved to the front, and 'down-to-earth' means plain, not a place.",
-     "definitionFit": "Background music plays behind the action of many a film or stage scene."
+     "surface": "A down-to-earth gardener spreads muck around the soil.",
+     "walkthrough": "'spreading' splits the muck so that its two halves sit on either side of the soil, and the down-to-earth word then goes round the lot.",
+     "definitionFit": "Background music is incidental music played under the action of a film or play, behind many scenes."
     },
     "features": {
      "answerInScene": false,

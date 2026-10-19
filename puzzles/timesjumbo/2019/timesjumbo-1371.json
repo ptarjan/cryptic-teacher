@@ -2171,51 +2171,55 @@
      "indicators": [
       {
        "text": "holds",
-       "note": "holds means grips round, so the shortened host contains the others"
+       "at": 22,
+       "note": "holds says the shortened host word contains the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 14,
+         "note": "briefly means cutting the word short, losing its last letter"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "briefly",
-           "note": "briefly means the master of ceremonies word loses its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "host",
-           "gives": "EMCEE",
-           "note": "an MC or master of ceremonies"
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "host",
+         "at": 9,
+         "gives": "EMCEE",
+         "note": "an emcee, MC, is a host or master of ceremonies"
         },
         {
-         "words": "British",
-         "gives": "B",
-         "note": "standard abbreviation"
+         "gives": "E"
         }
        ]
       },
       {
-       "words": "artist",
-       "gives": "RA",
-       "note": "a Royal Academician"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "British",
+         "at": 28,
+         "gives": "B"
+        },
+        {
+         "words": "artist",
+         "at": 36,
+         "gives": "RA",
+         "note": "RA, Royal Academician, is the crossword's usual artist"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A scene in which a compère gives a British artist a quick hug.",
-     "walkthrough": "The whole clue describes the answer: a host briefly holding a guest is giving them a hug.",
-     "definitionFit": "An embrace is the act of holding someone in your arms, which is what the host does here."
+     "surface": "A question about a show host who briefly holds on to a British artist.",
+     "walkthrough": "An emcee is a compere; cut to EMCE, it takes B and RA inside. RA means a member of the Royal Academy.",
+     "definitionFit": "An embrace is a hug, a situation where one person holds another in their arms, as the host does."
     },
     "features": {
      "answerInScene": true,
@@ -3131,42 +3135,48 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 59,
+       "note": "for means in place of, so the council letters replace the a-and-time letters"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "FISCHER",
-       "indicators": [
-        {
-         "text": "for",
-         "note": "for means in place of, so the school body takes the place of two letters"
-        }
-       ],
+       "words": "mater and pater",
+       "at": 9,
+       "gives": "FATHER",
+       "note": "mater and pater are the old public-school words for mother and father; the parent used here is the pater, father"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "mater and pater",
-         "gives": "FATHER",
-         "note": "pater is Latin for one parent; the pair suggests a parent"
+         "words": "a",
+         "at": 63,
+         "gives": "A"
         },
         {
-         "words": "Independent Schools Council",
-         "gives": "ISC",
-         "note": "the initials"
+         "words": "time",
+         "at": 65,
+         "gives": "T"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "a time",
-       "note": "A and T, the pair replaced"
+       "words": "Independent Schools Council",
+       "at": 31,
+       "gives": "ISC",
+       "note": "ISC is the abbreviation for the Independent Schools Council"
       }
      ]
     },
     "explanation": {
-     "surface": "A proud boast that mum and dad, with the private-schools body, were champions once.",
-     "walkthrough": "In FATHER, ISC replaces A and T (time).",
-     "definitionFit": "Bobby Fischer was the American world chess champion who took the title from Spassky in 1972."
+     "surface": "A boast that one's parents sat on the Independent Schools Council for a while.",
+     "walkthrough": "In FATHER, AT (a + time) is swapped for ISC. Bobby Fischer was the American world chess champion of 1972.",
+     "definitionFit": "Bobby Fischer won the world chess championship in 1972, so the champion is named by his surname."
     },
     "features": {
      "answerInScene": false,
