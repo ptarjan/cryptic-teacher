@@ -105,6 +105,34 @@ def merge(o, a, b, path=""):
     return b
 
 
+def merge_allowances(o, a, b, path=""):
+    """merge() for tools/annotation_backlog.json (field -> puzzle -> allowance).
+    Where both sides moved one puzzle's allowance differently, the larger wins
+    (merge() would take the replayed side's): an allowance that is too high
+    only forgives, one that is too low turns CI red, and the file is lowered
+    by --tighten from a full run, which sets every allowance right again. A
+    side that merely stood still never overrides the other, as in merge()."""
+    if isinstance(a, int) and isinstance(b, int) and not isinstance(a, bool) \
+            and a != b and a != o and b != o:
+        return max(a, b)
+    if isinstance(a, dict) and isinstance(b, dict) and a != o and b != o and a != b:
+        base = o if isinstance(o, dict) else {}
+        out = {}
+        for k in list(a) + [k for k in b if k not in a]:
+            v = merge_allowances(base.get(k, MISSING), a.get(k, MISSING),
+                                 b.get(k, MISSING), f"{path}/{k}")
+            if v is not MISSING:
+                out[k] = v
+        if _sorted(list(a)) and _sorted(list(b)):
+            out = dict(sorted(out.items()))
+        return out
+    return merge(o, a, b, path)
+
+
+def is_backlog(held):
+    return "_why" in held and all(isinstance(v, dict) for k, v in held.items() if k != "_why")
+
+
 class Conflict(Exception):
     pass
 
@@ -286,7 +314,7 @@ def main(o_path, a_path, b_path):
     if not all(isinstance(x, dict) for x in (o, a, b)):
         print("json_merge: not a JSON object; leaving the conflict", file=sys.stderr)
         return 1
-    text = dump_lines(merge(o, a, b))
+    text = dump_lines((merge_allowances if is_backlog(a) and is_backlog(b) else merge)(o, a, b))
     with open(a_path, "w", encoding="utf-8") as f:
         f.write(text)
     return 0
