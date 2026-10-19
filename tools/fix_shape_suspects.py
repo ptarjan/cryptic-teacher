@@ -1266,7 +1266,8 @@ def main():
                     help="repair only the queued containerInside rows (--limit N samples; --apply writes puzzles)")
     a = ap.parse_args()
     if a.container_inside:
-        return run_container(a.apply, a.limit, a.seed, a.examples, a.jobs)
+        run_rule("containerInside", a.apply, a.examples, a.seed, a.limit, a.jobs)
+        return
     if a.rule:
         run_rule(a.rule, a.apply, a.examples, a.seed, a.limit, a.jobs)
         return

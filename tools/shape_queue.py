@@ -25,6 +25,7 @@ import fcntl
 import hashlib
 import json
 import os
+import re
 import sys
 import tempfile
 from pathlib import Path
@@ -126,7 +127,10 @@ def findings(entry, ann=None):
     rules = _validator_rules()
     clue = (entry.get("clue") or {}).get("text", "")
     ann = {**ann, "_answer": _answer(entry)}
-    return found + [f"{k}: {_why(k)}" for k in gated() if rules[k](wp, ann, clue)]
+    # One finding once: a validator rule whose detector (indInLeaf / ind_in_leaf) already fired is not repeated.
+    seen = {f.split(":")[0] for f in found}
+    snake = lambda k: re.sub(r"(?<!^)([A-Z])", r"_\1", k).lower()
+    return found + [f"{k}: {_why(k)}" for k in gated() if snake(k) not in seen and rules[k](wp, ann, clue)]
 
 
 def _why(rule):
