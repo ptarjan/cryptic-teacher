@@ -16,6 +16,7 @@ Needs a token with `deployments: read` (the workflows grant it) and, for
 """
 import json
 import subprocess
+from concurrent.futures import ThreadPoolExecutor
 import sys
 
 
@@ -26,12 +27,24 @@ def gh(path):
     return json.loads(out.stdout)
 
 
-def last_deployed(repo, look=8):
-    """The sha of the newest github-pages deployment with a success status, or ''."""
-    for dep in gh(f"repos/{repo}/deployments?environment=github-pages&per_page={look}"):
-        statuses = gh(f"repos/{repo}/deployments/{dep['id']}/statuses?per_page=10")
-        if any(s.get("state") == "success" for s in statuses):
-            return dep["sha"]
+def last_deployed(repo, look=60):
+    """The sha of the newest github-pages deployment with a success status, or ''.
+
+    Deploy-pages makes a deployment for every build that reaches its step,
+    including the ones a busier build then cancels, so a burst of pushes puts
+    a dozen without a success ahead of the live one (8 were not enough, run
+    39271238600): one status call each until the first success."""
+    deps = gh(f"repos/{repo}/deployments?environment=github-pages&per_page={look}")
+
+    def succeeded(dep):
+        return any(s.get("state") == "success"
+                   for s in gh(f"repos/{repo}/deployments/{dep['id']}/statuses?per_page=10"))
+
+    # All the status calls at once (a serial walk of 40 was ~50s), newest first.
+    with ThreadPoolExecutor(max_workers=16) as pool:
+        for dep, ok in zip(deps, pool.map(succeeded, deps)):
+            if ok:
+                return dep["sha"]
     return ""
 
 

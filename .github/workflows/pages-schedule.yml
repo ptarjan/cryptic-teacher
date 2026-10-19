@@ -71,7 +71,8 @@ jobs:
           head=$(gh api "repos/$REPO/commits/master" --jq .sha)
           # A build of this very commit already queued or running (a code push
           # builds on the push): a second one would deploy the same site again.
-          for status in queued in_progress; do
+          # A run waiting for the pages group reports "pending", not "queued".
+          for status in pending waiting queued in_progress; do
             while read -r id; do
               [ -n "$id" ] || continue
               coming=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
