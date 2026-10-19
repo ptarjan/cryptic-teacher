@@ -117,6 +117,17 @@ for tok, dead in (("tools/series.py", False), ("series.puzzle_id", False),
         sys.exit(f"FAIL the checker {'missed' if dead else 'flagged'} `{tok}`")
 
 fails = 0
+# Every ratchet field is explained in PUZZLE_FORMAT.md (an annotator meets it only as a
+# validator message, so an undocumented rule has no written meaning).
+_format = Path("docs/PUZZLE_FORMAT.md").read_text(encoding="utf-8")
+_validator = Path("tools/validate_annotations.py").read_text(encoding="utf-8")
+for key in sorted(ratchet - {"_why"}):
+    if f"`{key}`" not in _format:
+        print(f"FAIL docs/PUZZLE_FORMAT.md: backlog key `{key}` is not documented")
+        fails += 1
+    if f'"{key}":' not in _validator:
+        print(f"FAIL tools/validate_annotations.py: backlog key `{key}` has no message entry")
+        fails += 1
 for doc in DOCS:
     text = Path(doc).read_text(encoding="utf-8")
     # Blank fenced blocks line for line, so the reported line numbers hold.
