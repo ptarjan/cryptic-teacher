@@ -377,6 +377,50 @@ check("OMEGA with G swapped for RT is a verified substitution", [], v.unverified
 check("twentieth giving T is not a bare initial", 0, v.bare_initials(
     {"op": "charade", "parts": [{"words": "collection of data", "gives": "FILE"}, {"words": "twentieth", "gives": "T"}]}))
 
+# Round 11: three shapes that passed every rule (9 of 300 passing clues wrong).
+def lf(words, gives=None, **kw):
+    return {"words": words, **({"gives": gives} if gives else {}), **kw}
+needier = {"op": "reversal", "indicators": [{"text": "turned up"}, {"text": "elevated"}],
+           "parts": [{"op": "container", "indicators": [{"text": "in"}], "parts": [lf("check", "REIN"), lf("girl", "DEE")]}]}
+check("a reversal with two indicators is counted (NEEDIER)", 1, v.double_indicators(needier))
+check("one indicator is not", 0, v.double_indicators({**needier, "indicators": [{"text": "turned up"}]}))
+check("two touching halves of one phrase are not", 0, v.double_indicators(
+    {**needier, "indicators": [{"text": "turned", "at": 3}, {"text": "up", "at": 10}]}))
+check("a deletion with two indicators is counted (IRON)", 1, v.double_indicators(
+    {"op": "deletion", "indicators": [{"text": "'eadless"}, {"text": "without an aitch"}],
+     "parts": [lf("'orseman of legend", "CHIRON"), {"gives": "CH"}]}))
+check("an anagram with two indicators is left to the judges", 0, v.double_indicators(
+    {"op": "anagram", "indicators": [{"text": "off"}, {"text": "out"}], "parts": [lf("x")]}))
+earl = {"op": "hidden", "indicators": [{"text": "inside"}], "parts": [{"op": "middle", "parts": [lf("pearly", "EARL")]}]}
+check("a hidden word over a selection with no indicator is counted (EARL)", 1, v.double_indicators(earl))
+check("a selection with its own indicator is not", 0, v.double_indicators(
+    {**earl, "parts": [{**earl["parts"][0], "indicators": [{"text": "centre of"}]}]}))
+
+amer = {"op": "charade", "indicators": [{"text": "opened by"}], "parts": [
+    {"op": "anagram", "indicators": [{"text": "tangled"}], "parts": [lf("in camera"), lf("pressure", "P")]},
+    lf("that is", "IE")]}
+amer_clue = "Film tangled in camera that is opened by pressure"
+check("a pool piece placed beyond other ops' words is counted (AMERICANPIE)", 1, v.pool_gaps(amer, amer_clue))
+check("a pool of adjacent pieces is not", 0, v.pool_gaps(
+    {"op": "anagram", "indicators": [{"text": "tangled"}], "parts": [lf("in camera"), lf("pressure", "P")]},
+    "Film tangled in camera pressure"))
+check("the anagram's own indicator between its pieces is not", 0, v.pool_gaps(
+    {"op": "anagram", "indicators": [{"text": "wildly"}], "parts": [lf("in camera"), lf("pressure")]},
+    "in camera wildly pressure"))
+check("without the clue nothing is counted", 0, v.pool_gaps(amer, ""))
+
+surface = {"op": "deletion", "indicators": [{"text": "nearly"}], "parts": [
+    {"op": "charade", "parts": [lf("safe", "SURE"), lf("following", "F"), lf("powerful shot", "ACE")]}, {"gives": "E"}]}
+check("an end deletion whose answer-making letter is a middle piece's is counted (SURFACE)", 1,
+      v.deletion_scope_answer(surface, "SURFACE"))
+check("plain deletion_scope still passes it", 0, v.deletion_scope(surface))
+check("without the answer it is not counted", 0, v.deletion_scope_answer(surface, None))
+check("a cut that is at the end and makes the answer is not", 0, v.deletion_scope_answer(
+    {**surface, "parts": [{"op": "charade", "parts": [lf("safe", "SURF"), lf("powerful shot", "ACE")]}, {"gives": "E"}]}, "SURFAC"))
+for field in ("deletionScopeAnswer", "doubleIndicator", "poolGap"):
+    check(f"wordplay.{field} is a ratchet field", True, f"wordplay.{field}" in v.BACKLOG_MARKERS)
+check("the redo gate names them", {"deletionScopeAnswer", "doubleIndicator", "poolGap"} <= set(shape_queue._validator_rules()), True)
+
 for field in ("unindicatedBare", "sharedIndicator", "halfLeaf", "deletionScattered", "reversePhrase",
               "bareInitial", "deletionScope", "wrongRole", "deletionInside", "nestedContainer","anagramSynonym", "misplacedIndicator", "scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
               "leafFold", "repeatedSelection", "singleLeaf", "bareInCharade", "anagramOfContainer"):

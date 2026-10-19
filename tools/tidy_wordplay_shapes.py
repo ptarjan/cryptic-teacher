@@ -70,9 +70,12 @@ FIELDS = {
     "wordplay.deletionInside": lambda ann, clue=None: V.deletion_inside_component(ann.get("wordplay"), clue),
     "wordplay.containerInside": lambda ann: V.container_inside_component(ann.get("wordplay")),
     "wordplay.midWordLeaf": lambda ann: V.midword_leaves(ann.get("wordplay")),
+    "wordplay.deletionScopeAnswer": lambda ann: V.deletion_scope_answer(ann.get("wordplay"), ann.get("answer")),
+    "wordplay.doubleIndicator": lambda ann: V.double_indicators(ann.get("wordplay")),
+    "wordplay.poolGap": lambda ann, clue=None: V.pool_gaps(ann.get("wordplay"), clue),
 }
 #: Fields whose finding places words in the clue, so counts() hands them its text.
-NEEDS_CLUE = {"wordplay.deletionInside", "wordplay.anagramSynonym"}
+NEEDS_CLUE = {"wordplay.deletionInside", "wordplay.anagramSynonym", "wordplay.poolGap"}
 
 
 def _inner(p):
