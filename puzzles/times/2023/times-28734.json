@@ -151,56 +151,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLAINSMAN",
+     "op": "container",
      "indicators": [
       {
-       "text": "with no key",
-       "note": "musical keys are lettered A to G, so one such letter is dropped"
+       "text": "keeping",
+       "at": 22,
+       "note": "the shortened word holds the jumbled letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "keeping",
-         "note": "keeping means holding inside, so one part goes within the other"
+         "text": "with no key",
+         "at": 50,
+         "note": "the word loses the musical key letter it contains"
         }
        ],
        "parts": [
         {
          "words": "pen",
-         "gives": "PN",
-         "note": "pen loses its E, a musical key"
+         "at": 46,
+         "gives": "PEN",
+         "note": "taken as the word itself"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "wild",
-           "note": "wild means uncontrolled, so the letters run loose into a new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "animals",
-           "note": "taken as written"
-          }
-         ]
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wild",
+         "at": 30,
+         "note": "the letters of animals run loose in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "animals",
+         "at": 35
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An American apartment-dweller is keeping wild animals penned up.",
-     "walkthrough": "'Flat' tempts a solver toward apartments, but it means flat land: a plainsman lives on the prairie.",
-     "definitionFit": "A plainsman is an inhabitant of the plains, the great flat grasslands of the American West."
+     "surface": "An American on the prairie keeps savage beasts in an enclosure without a lock.",
+     "walkthrough": "E is a musical key, which is what 'with no key' removes. 'flat' reads as an apartment but means level land.",
+     "definitionFit": "A plainsman lives on the Great Plains, the flat prairie lands of North America."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "flat"

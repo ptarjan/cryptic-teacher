@@ -814,57 +814,65 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Remarkably",
-       "note": "something remarkable is out of the ordinary, so the letters fall into an unusual order"
+       "text": "sandwiches",
+       "at": 22,
+       "note": "the jumbled letters enclose the next piece like bread round a filling"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "sandwiches",
-         "note": "a sandwich holds a filling between slices, so one part is put inside the other"
+         "text": "Remarkably",
+         "at": 0,
+         "note": "the letters of rotten ham are in a remarkable new order"
         }
        ],
        "parts": [
         {
-         "words": "rotten ham",
-         "note": "the two words rearranged"
+         "words": "rotten",
+         "at": 11
         },
         {
-         "op": "homophone",
-         "spelt": "R",
-         "indicators": [
-          {
-           "text": "reportedly",
-           "note": "reported speech points to what is heard, so the word stands for a letter of the same sound"
-          }
-         ],
-         "parts": [
-          {
-           "words": "are",
-           "gives": "ARE",
-           "note": "the word is spoken just like the letter R"
-          }
-         ]
+         "words": "ham",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "R",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "at": 37,
+         "note": "as reported in speech, the word is taken by its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "are",
+         "at": 33,
+         "gives": "ARE",
+         "note": "said aloud, are sounds like the letter R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint about off ham in the sandwiches.",
-     "walkthrough": "'range' sounds like a kitchen stove beside the ham, but it is a mountain range.",
-     "definitionFit": "The Matterhorn is a famous peak in the Pennine Alps, one mountain in that range."
+     "surface": "Spoiled ham inside sandwiches is said to belong in a mountain range.",
+     "walkthrough": "'Remarkably' jumbles ROTTEN HAM; 'reportedly' turns 'are' into R, which the jumble 'sandwiches'.",
+     "definitionFit": "The Matterhorn is a peak in the Alps, one mountain in that range."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "range"
+     "misdirectedWord": "sandwiches"
     }
    }
   },
@@ -1151,46 +1159,50 @@
      "indicators": [
       {
        "text": "in",
-       "note": "these letters are placed inside the word that follows"
+       "at": 50,
+       "note": "the pieces go inside the copying word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Mirror",
-         "gives": "EMULATE",
-         "note": "to mirror someone is to copy or emulate them"
-        },
-        {
-         "words": "article",
-         "gives": "A",
-         "note": "A is the indefinite article"
-        }
-       ]
+       "words": "Mirror",
+       "at": 53,
+       "gives": "EMULATE",
+       "note": "to emulate someone is to copy or mirror them"
       },
       {
-       "op": "outer",
-       "indicators": [
-        {
-         "text": "discontented",
-         "note": "with its contents removed, only the shell of the word, its first and last letters, is left"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "sceptic",
-         "note": "just the outside letters"
+         "words": "article",
+         "at": 18,
+         "gives": "A",
+         "note": "A is the indefinite article"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "discontented",
+           "at": 29,
+           "note": "the word loses its contents, leaving its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sceptic",
+           "at": 42
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cynical columnist's piece in the Mirror tabloid takes someone down a peg.",
-     "walkthrough": "The Mirror is a British tabloid newspaper, so 'article' and 'Mirror' suggest journalism; Mirror is the verb copy.",
-     "definitionFit": "To emasculate is figuratively to weaken or take away strength, so it means to diminish the power of."
+     "surface": "A doubter's newspaper piece weakening someone's power, published in the Mirror tabloid.",
+     "walkthrough": "'Mirror' looks like the newspaper but is a verb. 'discontented' leaves SC from SCEPTIC.",
+     "definitionFit": "To emasculate is to weaken or deprive of force or effectiveness."
     },
     "features": {
      "answerInScene": false,

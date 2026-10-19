@@ -397,46 +397,51 @@
      "indicators": [
       {
        "text": "holding",
-       "note": "holding means the woman's name wraps around the other letters"
+       "at": 6,
+       "note": "the woman's name keeps the next piece within it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Woman",
-         "gives": "ANN",
-         "note": "Ann is a woman's name"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Woman",
+       "at": 0,
+       "gives": "ANN",
+       "note": "Ann is a woman's name"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "returned",
-         "note": "returned means sent back, so the words a record are read the other way"
+         "at": 23,
+         "note": "the record and its article are read back to front, as if sent back"
         }
        ],
        "parts": [
         {
-         "words": "record",
-         "gives": "LOG",
-         "note": "a log is a written record, as a ship's log"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 14,
+           "gives": "A"
+          },
+          {
+           "words": "record",
+           "at": 16,
+           "gives": "LOG",
+           "note": "a log is a record, as in a ship's log"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman bringing back a record from the African city of Luanda.",
-     "walkthrough": "Luanda is the capital of Angola; the question mark flags a definition by example.",
-     "definitionFit": "Someone or something from Luanda is from Angola's capital city, and so is Angolan."
+     "surface": "A woman bringing back a record from Angola's capital.",
+     "walkthrough": "The question mark flags Luanda as one example: anyone from Luanda is from Angola, though not every Angolan is from Luanda.",
+     "definitionFit": "Luanda is the capital of Angola, so someone from there is Angolan; the question mark flags the example."
     },
     "features": {
      "answerInScene": true,
@@ -1085,42 +1090,46 @@
      "indicators": [
       {
        "text": "caught in",
-       "note": "caught in means trapped inside the explosion"
+       "at": 17,
+       "note": "the two letters are trapped inside the word for an explosion"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "explosion",
-         "gives": "BLAST",
-         "note": "a blast is an explosion"
-        },
-        {
-         "words": "Advanced",
-         "gives": "A",
-         "note": "A is the abbreviation for advanced, as in A level"
-        }
-       ]
+       "words": "explosion",
+       "at": 27,
+       "gives": "BLAST",
+       "note": "a blast is an explosion"
       },
       {
-       "words": "learner",
-       "gives": "L",
-       "note": "L is the learner-driver plate"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Advanced",
+         "at": 0,
+         "gives": "A",
+         "note": "A is a common abbreviation for advanced, as in A level"
+        },
+        {
+         "words": "learner",
+         "at": 9,
+         "gives": "L",
+         "note": "L is the learner sign on a British car"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An advanced student caught in a blast is a serious business.",
-     "walkthrough": "Weighty matter suggests a serious issue but means literally heavy stuff.",
-     "definitionFit": "Ballast is heavy material carried low in a ship to keep it stable."
+     "surface": "A senior student gets caught up in a bang, which is a serious business.",
+     "walkthrough": "'caught in' puts AL inside BLAST, just after its first letter.",
+     "definitionFit": "Ballast is heavy material carried low in a ship to steady it, literally weighty stuff."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "weighty"
+     "misdirectedWord": "learner"
     }
    }
   },
