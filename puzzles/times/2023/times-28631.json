@@ -1123,54 +1123,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PROSPECTUS",
      "indicators": [
       {
        "text": "included in",
-       "note": "whatever is included in something is placed within it"
+       "at": 25,
+       "note": "included in means the shortened word sits inside the other pieces"
       }
      ],
      "parts": [
       {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "specialist",
+         "at": 37,
+         "gives": "PRO",
+         "note": "a pro is a professional, a specialist"
+        },
+        {
+         "words": "trade union's",
+         "at": 48,
+         "gives": "TUS",
+         "note": "TU is the abbreviation for trade union, plus the S of the possessive"
+        }
+       ]
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "PROSPECTUS",
        "indicators": [
         {
          "text": "briefly",
-         "note": "something said briefly is cut short, so the word is abbreviated"
+         "at": 17,
+         "note": "briefly means the word is cut short by its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "specialist",
-           "gives": "PRO",
-           "note": "a pro is a professional, an expert"
-          },
-          {
-           "words": "Technical detail",
-           "gives": "SPEC",
-           "note": "short for specification"
-          },
-          {
-           "words": "trade union's",
-           "gives": "TUS",
-           "note": "TU is the abbreviation for trade union, plus the S of the possessive"
-          }
-         ]
+         "words": "Technical detail",
+         "at": 0,
+         "gives": "SPECS",
+         "note": "specs are technical specifications"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A union for skilled workers puts a technical specification in its leaflet.",
-     "walkthrough": "'Specialist trade union' reads as one body; it splits into the expert and the union.",
-     "definitionFit": "A prospectus is a printed booklet advertising a school, university or share offer to prospective members."
+     "surface": "A union for specialists slips a little technical detail into its brochure.",
+     "definitionFit": "A prospectus is a printed booklet describing a school, company or share offer to prospective members."
     },
     "features": {
      "answerInScene": true,
@@ -1819,55 +1822,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PARENTAL",
      "indicators": [
       {
        "text": "broken apart by",
-       "note": "a thing broken apart by another has it wedged into the gap"
+       "at": 25,
+       "note": "broken apart by means the pieces are separated by a word placed between them"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "almost",
-         "note": "almost means not quite, so the last letter is cut off"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Father",
-           "gives": "PA",
-           "note": "pa is an informal word for father"
-          },
-          {
-           "words": "split",
-           "gives": "RENT",
-           "note": "a rent is a tear or split"
-          },
-          {
-           "words": "completely",
-           "gives": "ALL",
-           "note": "all means wholly"
-          }
-         ]
+         "words": "Father",
+         "at": 0,
+         "gives": "PA",
+         "note": "pa is an informal word for father"
         },
         {
-         "gives": "L"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 7,
+           "note": "almost means the word is taken short of its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "completely",
+           "at": 14,
+           "gives": "ALL",
+           "note": "completely means all"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "split",
+       "at": 41,
+       "gives": "RENT",
+       "note": "a rent is a split or tear"
       }
      ]
     },
     "explanation": {
-     "surface": "A father is utterly shattered by his separation from the children's mother.",
-     "walkthrough": "The question mark signals that 'from mother' is one example: what comes from a mother or father.",
-     "definitionFit": "Anything coming from a mother is, by example, of a mum or dad, relating to one who has children."
+     "surface": "A father is almost totally broken by a separation from the mother.",
+     "walkthrough": "'almost' trims ALL to AL, and PA + AL is 'broken apart by' RENT.",
+     "definitionFit": "Parental describes what comes from a parent; the question mark admits that a mother is only one example of a parent."
     },
     "features": {
      "answerInScene": true,

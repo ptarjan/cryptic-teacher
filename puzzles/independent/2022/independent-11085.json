@@ -1519,58 +1519,55 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "VAMPIREBAT",
      "indicators": [
       {
        "text": "stopping",
-       "note": "a stopper plugs a gap, so one piece is put inside another"
+       "at": 24,
+       "note": "stopping means the politician's letters plug a gap inside the trimmed phrase"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "VAMPIREBAT",
        "indicators": [
         {
          "text": "rejecting terms",
-         "note": "terms are ends, and rejecting them throws away the final letters"
+         "at": 46,
+         "note": "terms are ends, so each of the two words VAT and rebate loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "VAT rebate",
+         "at": 33
+        },
+        {
+         "gives": "TE"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Politician",
+         "at": 0,
+         "gives": "MP",
+         "note": "MP is a Member of Parliament"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 14,
+           "note": "initially means only the first letter of is is used"
+          }
+         ],
          "parts": [
           {
-           "words": "VAT",
-           "gives": "VA",
-           "note": "the word minus its last letter"
-          },
-          {
-           "words": "Politician",
-           "gives": "MP",
-           "note": "MP, Member of Parliament"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "initially",
-             "note": "initially means at the start, so only the opening letter is kept"
-            }
-           ],
-           "parts": [
-            {
-             "words": "is",
-             "note": "the first letter"
-            }
-           ]
-          },
-          {
-           "words": "rebate",
-           "gives": "REBAT",
-           "note": "the word minus its last letter"
+           "words": "is",
+           "at": 11
           }
          ]
         }
@@ -1579,12 +1576,12 @@
      ]
     },
     "explanation": {
-     "surface": "A politician blocks a tax refund and refuses the conditions; he is out for blood.",
-     "walkthrough": "'Terms' looks like conditions of a deal; here it means ends, so VAT and REBATE each lose their final letter.",
-     "definitionFit": "Vampire bats of Central and South America feed on the blood of animals, so they go out hunting it."
+     "surface": "A politician is blocking a tax rebate and refusing its conditions, which makes him a bloodsucker.",
+     "walkthrough": "'terms' looks like conditions of the rebate, but here it means the ends of the two words. VAT is Britain's sales tax.",
+     "definitionFit": "Vampire bats of Central and South America feed on the blood of other animals."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "terms"
     }

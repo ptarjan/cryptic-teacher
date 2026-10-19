@@ -453,12 +453,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SUPPLE",
      "indicators": [
       {
        "text": "in",
-       "note": "the pressure letter is placed inside the other piece"
+       "at": 17,
+       "note": "in means the letter goes inside the rearranged word"
       }
      ],
      "parts": [
@@ -467,31 +466,34 @@
        "indicators": [
         {
          "text": "fluctuating",
-         "note": "something fluctuating keeps changing, so the letters change their order"
+         "at": 20,
+         "note": "fluctuating means varying, so the letters of pulse are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "pressure",
-         "gives": "P",
-         "note": "P is the abbreviation for pressure"
-        },
-        {
          "words": "pulse",
-         "note": "the letters of pulse rearranged"
+         "at": 32
         }
        ]
+      },
+      {
+       "words": "pressure",
+       "at": 8,
+       "gives": "P",
+       "note": "P is the symbol for pressure in physics"
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor notes stretchy blood vessels and pressure in an irregular pulse.",
-     "definitionFit": "Supple means flexible and bending easily, much the same as elastic."
+     "surface": "A doctor notes stretchy pressure within an irregular pulse.",
+     "walkthrough": "'fluctuating' rearranges PULSE into SUPLE, and P goes 'in' after SUP.",
+     "definitionFit": "Supple means bending easily without breaking, so it is a synonym for flexible and springy."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pulse"
+     "misdirectedWord": "pressure"
     }
    }
   },
@@ -638,75 +640,56 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SCINTILLA",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "in",
-       "note": "the first part of the clue is placed inside the sea monster's name"
+       "text": "hiding",
+       "at": 24,
+       "note": "hiding means the new letters cover over that letter, taking its place"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "SCINTILLA",
+       "words": "Sea monster",
+       "at": 0,
+       "gives": "SCYLLA",
+       "note": "Scylla is the sea monster of Greek myth who faced Charybdis"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "hiding",
-         "note": "one thing hiding another covers it up and takes its place in the word"
+         "text": "last",
+         "at": 40,
+         "note": "last means only the final letter of argosy is taken"
         }
        ],
        "parts": [
         {
-         "words": "Sea monster",
-         "gives": "SCYLLA",
-         "note": "Scylla, the monster facing Charybdis in the Odyssey"
-        },
-        {
-         "words": "in",
-         "note": "taken as written"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "last",
-           "note": "the last of argosy's letters is the only one wanted"
-          }
-         ],
-         "parts": [
-          {
-           "words": "argosy's",
-           "gives": "ARGOSY",
-           "note": "final letter of argosy"
-          }
-         ]
+         "words": "argosy's",
+         "at": 31,
+         "gives": "ARGOSY",
+         "note": "the word argosy, its possessive 's set aside"
         }
        ]
+      },
+      {
+       "words": "in time one",
+       "at": 12,
+       "gives": "INTI",
+       "note": "in as written, T for time and I for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A sea monster in classical times swallows all but a trace of a great merchant ship.",
-     "walkthrough": "Scylla was the monster facing Charybdis in the Odyssey; an argosy is a large merchant ship, and only its final letter matters.",
-     "definitionFit": "A scintilla is a tiny amount or spark, so it means a mere trace of something."
+     "surface": "A sea monster lurks, an argosy's last trace hidden in time.",
+     "walkthrough": "IN + T + I 'hiding' the Y (the last letter of argosy) means they take its place in SCYLLA. An argosy is a large merchant ship.",
+     "definitionFit": "A scintilla is a tiny amount or the slightest hint of something, so it is a trace."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "argosy's"
+     "misdirectedWord": "hiding"
     }
    }
   },
@@ -1362,35 +1345,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PROPEL",
      "indicators": [
       {
-       "text": "with a different side indicator",
-       "note": "one side marker is swapped for its opposite"
+       "text": "with a different side indicator?",
+       "at": 15,
+       "note": "the indicator letter for one side, right, is changed for the letter for the other side, left"
       }
      ],
      "parts": [
       {
        "words": "fitting",
+       "at": 7,
        "gives": "PROPER",
-       "note": "proper means suitable, fitting"
+       "note": "proper means fitting or appropriate"
       },
       {
-       "words": "side indicator",
-       "gives": "L",
-       "note": "L for left replaces R for right"
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A boat launch needs the right fittings and a different light on its side.",
-     "walkthrough": "Right and left are the side indicators; the R at the end of PROPER becomes L.",
-     "definitionFit": "To propel is to drive or push forward, so a launch is a propelling."
+     "surface": "A rocket launch is fitted with a sideways indicator, as on a car.",
+     "walkthrough": "R and L are the side indicators, right and left; swapping the final R of PROPER for L gives the answer.",
+     "definitionFit": "To propel is to drive or push something forward, as one does in launching it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "indicator"
     }
    }

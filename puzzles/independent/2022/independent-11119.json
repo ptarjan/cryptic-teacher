@@ -43,13 +43,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SISAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "cut",
-       "note": "a word that is cut loses its tail, so its final letter goes"
+       "text": "catching",
+       "at": 36,
+       "note": "catching means the reversed letters hold the setter's letter within them"
       }
      ],
      "parts": [
@@ -58,39 +57,44 @@
        "indicators": [
         {
          "text": "spun",
-         "note": "something spun round faces the other way, so the shortened word is read backwards"
+         "at": 30,
+         "note": "spun means the shortened word is turned round to read backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "catching",
-           "note": "the turned word catches the setter, holding that piece inside itself"
+           "text": "cut",
+           "at": 22,
+           "note": "cut here means the word lasso is docked of its final letter"
           }
          ],
          "parts": [
           {
            "words": "lasso",
-           "gives": "LASS",
-           "note": "lasso without its last letter"
+           "at": 16
           },
           {
-           "words": "setter",
-           "gives": "I",
-           "note": "the setter refers to themself as I"
+           "gives": "O"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "setter",
+       "at": 45,
+       "gives": "I",
+       "note": "the setter refers to themself as I"
       }
      ]
     },
     "explanation": {
-     "surface": "A cowboy's rope is made by cutting and twisting a lasso, with the setter caught up in it.",
-     "walkthrough": "LASS reversed is SSAL, and the setter's I goes in after the first S to make SISAL.",
-     "definitionFit": "Sisal is a stiff plant fibre from an agave, traditionally twisted into rope and twine."
+     "surface": "A cowboy makes rope fibre by cutting and twisting a lasso, with the setter caught up in it.",
+     "walkthrough": "'cut' docks LASSO to LASS, 'spun' reverses that to SSAL, and 'catching' puts I (the setter) after the first S.",
+     "definitionFit": "Sisal is the stiff fibre from an agave plant, widely twisted into cord and twine."
     },
     "features": {
      "answerInScene": true,
@@ -755,55 +759,44 @@
      "indicators": [
       {
        "text": "within",
-       "note": "within places the kept letters inside the name of the city"
+       "at": 37,
+       "note": "within means those two letters go inside the city's name"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "fashionable Italian city",
-         "gives": "MILAN",
-         "note": "Milan is Italy's fashion capital"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "caps",
-           "note": "caps are the tops, so only the opening letter of each garment word is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "mohair",
-           "note": "the first letter of mohair"
-          }
-         ]
-        }
-       ]
+       "words": "fashionable Italian city",
+       "at": 44,
+       "gives": "MILAN",
+       "note": "Milan is Italy's fashion capital"
       },
       {
        "op": "first",
+       "indicators": [
+        {
+         "text": "caps",
+         "at": 32,
+         "note": "caps are the tops of things, so only the leading letters of knitwear and mohair are used"
+        }
+       ],
        "parts": [
         {
-         "words": "knitwear",
-         "note": "the first letter of knitwear"
+         "words": "knitwear and mohair",
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A courier brings knitwear and mohair hats into Milan's fashion world.",
-     "walkthrough": "'Delivers' suggests parcels of clothing rather than bottles of milk; Milan is the fashion capital of Italy.",
-     "definitionFit": "A milkman's job is a daily round bringing milk to people's doorsteps, so he is a deliverer."
+     "surface": "Knitwear and mohair caps sold in a stylish Italian city.",
+     "walkthrough": "'caps' applies to both knitwear and mohair, giving K and M.",
+     "definitionFit": "A milkman makes rounds bringing bottles of milk to doorsteps, so he is a deliverer."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "delivers"
+     "aptDefinition": false,
+     "misdirectedWord": "caps"
     }
    }
   },
