@@ -142,52 +142,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENERGY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "near",
-       "note": "near means almost, so the word stops just short of its last letter"
+       "text": "after",
+       "at": 18,
+       "note": "after places the rearranged word after the shortened one"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "near",
+         "at": 24,
+         "note": "near as in nearly or almost, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "death",
-         "gives": "EN",
-         "note": "death is the end; nearly the end loses its final letter"
+         "at": 29,
+         "gives": "END",
+         "note": "death is the end"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "perhaps",
-           "note": "perhaps hints at a possible variant, so the letters may be arranged differently"
-          }
-         ],
-         "parts": [
-          {
-           "words": "grey",
-           "note": "taken as written, then rearranged"
-          }
-         ]
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perhaps",
+         "at": 9,
+         "note": "perhaps hints that the word may be rearranged into another form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grey",
+         "at": 3
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Turning grey after a brush with death.",
-     "walkthrough": "'Near death' reads as one phrase but splits: 'death' gives the end, and 'near' trims it. 'After' puts the rearranged colour second.",
-     "definitionFit": "Go means vigour or drive, as in 'full of go', which is a synonym for energy."
+     "surface": "A grim thought: hair turning grey as death approaches.",
+     "walkthrough": "'Near death' reads as one phrase, but 'near' means almost and works on END to give EN.",
+     "definitionFit": "Go means vigour or energy, as in 'full of go'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Go"
+     "aptDefinition": true,
+     "misdirectedWord": "near"
     }
    }
   },

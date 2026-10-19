@@ -1099,43 +1099,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THIAMINE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "cut",
-       "note": "something cut is shortened, so its final letter goes"
+       "text": "out",
+       "at": 34,
+       "note": "out signals the letters are thrown out of order and rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "in",
+       "at": 18
+      },
+      {
+       "words": "the",
+       "at": 21
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "out",
-         "note": "out can mean disordered or out of place, so these letters are rearranged"
+         "text": "cut",
+         "at": 30,
+         "note": "cut means the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "in the main",
-         "gives": "INTHEMAI",
-         "note": "the phrase with its last letter removed"
+         "words": "main",
+         "at": 25
+        },
+        {
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An ingredient that has, for the most part, been dropped from a diet.",
-     "walkthrough": "'in the main' looks like it means mostly; it is the letters to use, shortened by one and then rearranged.",
-     "definitionFit": "Thiamine is vitamin B1, an essential nutrient that must be taken in through food."
+     "surface": "A diet advice line: something cut out of meals.",
+     "walkthrough": "Cut MAIN to MAI, then rearrange IN THE MAI.",
+     "definitionFit": "Thiamine is vitamin B1, a nutrient needed in the diet."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "main"
+     "misdirectedWord": "cut"
     }
    }
   },
@@ -1736,41 +1746,44 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "being outside something means surrounding it, so one piece wraps another"
+       "at": 5,
+       "note": "the first word goes outside the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Work",
-         "gives": "TOIL",
-         "note": "toil is hard work"
-        },
-        {
-         "words": "home",
-         "gives": "IN",
-         "note": "being in means being at home"
-        }
-       ]
+       "words": "Work",
+       "at": 0,
+       "gives": "TOIL",
+       "note": "toil means work"
       },
       {
-       "words": "fine",
-       "gives": "F",
-       "note": "F is the abbreviation for fine, as on pencil leads"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "home",
+         "at": 13,
+         "gives": "IN",
+         "note": "in means at home"
+        },
+        {
+         "words": "fine",
+         "at": 23,
+         "gives": "F",
+         "note": "F is the pencil-grade abbreviation for fine"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A builder's job outside the house involving thin metal sheets.",
-     "walkthrough": "'home' gives IN, as in staying in; F for fine is the pencil-grade abbreviation.",
-     "definitionFit": "Tinfoil is a thin flexible leaf of metal, now usually aluminium, used for wrapping food."
+     "surface": "Working outdoors with thin sheets of metal.",
+     "definitionFit": "Tinfoil is metal rolled into a thin sheet, used in kitchens for wrapping."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "fine"
+     "misdirectedWord": "home"
     }
    }
   },

@@ -810,49 +810,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "indicators": [
-      {
-       "text": "indeed",
-       "note": "read as two words, in deed, the first word puts the earlier pieces inside the second"
-      }
-     ],
      "parts": [
       {
-       "op": "container",
+       "words": "indeed",
+       "at": 34,
+       "gives": "DEED",
+       "note": "read as two words, in deed: the deed with the other letters in it"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "indeed",
-         "gives": "DEED",
-         "note": "the second half of the word, read as in deed"
+         "words": "Water creature",
+         "at": 0,
+         "gives": "HYDRA",
+         "note": "the Hydra was the many-headed water serpent of Greek myth"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "starting to",
-           "note": "the start of the next word means only its opening letter is used"
+           "at": 15,
+           "note": "the first letter of the word"
           }
          ],
          "parts": [
           {
            "words": "twitch",
-           "note": "the opening letter of the word"
+           "at": 27
           }
          ]
         }
        ]
-      },
-      {
-       "words": "Water creature",
-       "gives": "HYDRA",
-       "note": "the Hydra was a many-headed water serpent of Greek myth"
       }
      ]
     },
     "explanation": {
-     "surface": "A water creature twitches at the start, truly short of moisture.",
-     "walkthrough": "'indeed' splits into 'in deed': the creature and the T go inside DEED, making DE-HYDRAT-ED.",
-     "definitionFit": "Dehydrated means having lost or been deprived of water."
+     "surface": "A water creature twitches, and dries up.",
+     "walkthrough": "'indeed' looks like a word of emphasis but splits into 'in deed', which supplies both the container and its signal.",
+     "definitionFit": "Dehydrated means having lost its water, dried out."
     },
     "features": {
      "answerInScene": true,
@@ -1419,12 +1416,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "WASTEAWAY",
      "indicators": [
       {
        "text": "Drinking",
-       "note": "something drinking takes a liquid inside it, so one piece goes within the other"
+       "at": 0,
+       "note": "drinking takes the tea inside, so these letters go into the other two pieces"
       }
      ],
      "parts": [
@@ -1433,26 +1429,27 @@
        "parts": [
         {
          "words": "used to be",
+         "at": 13,
          "gives": "WAS",
-         "note": "was is the past of 'to be'"
-        },
-        {
-         "words": "tea",
-         "note": "taken as written"
+         "note": "was means used to be"
         },
         {
          "words": "method",
+         "at": 24,
          "gives": "WAY",
-         "note": "a way of doing something is a method"
+         "note": "a way is a method"
         }
        ]
+      },
+      {
+       "words": "tea",
+       "at": 9
       }
      ]
     },
     "explanation": {
-     "surface": "A dieter claims drinking tea was their way to slim down.",
-     "walkthrough": "The verb 'used to be' and 'method' sit either side of the tea, which goes inside them: WAS-TEA-WAY.",
-     "definitionFit": "To waste away is to grow thin and weak, losing weight through illness."
+     "surface": "Tea-drinking as a diet plan.",
+     "definitionFit": "To waste away is to grow thin and weak, losing flesh through illness."
     },
     "features": {
      "answerInScene": true,

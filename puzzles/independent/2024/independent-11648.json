@@ -798,52 +798,57 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the comparative word goes around the rest"
+       "at": 11,
+       "note": "the first word goes around the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Less happy",
+       "at": 0,
+       "gives": "SADDER",
+       "note": "sadder means less happy"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Less happy",
-         "gives": "SADDER",
-         "note": "sadder means less happy"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "climbing",
+           "at": 27,
+           "note": "in a down answer climbing reads the word upwards, backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cat, say",
+           "at": 17,
+           "gives": "PET",
+           "note": "a cat is an example of a pet"
+          }
+         ]
         },
         {
          "words": "large",
+         "at": 36,
          "gives": "L",
          "note": "L is the clothing-size abbreviation for large"
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "climbing",
-         "note": "in a down clue climbing means moving upwards, so the word reads bottom to top"
-        }
-       ],
-       "parts": [
-        {
-         "words": "cat, say",
-         "gives": "PET",
-         "note": "a cat is an example of a pet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is upset that the cat has climbed onto a big object in the shed.",
-     "walkthrough": "The cat climbing is the reversal signal; a cat clambering up a ladder also suits the picture.",
-     "definitionFit": "A stepladder is a folding portable ladder, the sort of thing typically kept in a garden shed."
+     "surface": "A sad cat that has climbed up something big kept in the shed.",
+     "walkthrough": "'cat, say' signals an example: a cat is one kind of household animal. 'climbing' works only because this is a down answer.",
+     "definitionFit": "A stepladder, a folding ladder, is kept in a garden shed along with other equipment."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "climbing"
+     "misdirectedWord": "cat"
     }
    }
   },
@@ -1452,41 +1457,50 @@
      "indicators": [
       {
        "text": "written in",
-       "note": "what is written in something is set inside it"
+       "at": 30,
+       "note": "the letters are put inside the pen, as if written in it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "pen",
-         "gives": "BIC",
-         "note": "Bic is a brand of ballpoint pen"
-        },
-        {
-         "words": "article, and",
-         "gives": "A",
-         "note": "a is the indefinite article; 'and' joins it to the next"
-        }
-       ]
+       "words": "pen",
+       "at": 41,
+       "gives": "BIC",
+       "note": "Bic is a well-known brand of ballpoint pen"
       },
       {
-       "words": "second",
-       "gives": "S",
-       "note": "S is the abbreviation for second"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "and",
+         "at": 18,
+         "note": "and joins the article and the second letter, setting them side by side as one unit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "article",
+         "at": 9,
+         "gives": "A",
+         "note": "a is the indefinite article"
+        },
+        {
+         "words": "second",
+         "at": 22,
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An ordinary piece of writing with a follow-up done in ink.",
-     "walkthrough": "A and S go inside BIC, the ballpoint pen brand.",
-     "definitionFit": "Basic and standard both describe the plain, default version of something, an adjective synonym."
+     "surface": "A standard item and a second one written in ink.",
+     "definitionFit": "Basic means fundamental or standard, the plain version without extras."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "article"
+     "misdirectedWord": "pen"
     }
    }
   },

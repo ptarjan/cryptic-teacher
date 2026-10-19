@@ -322,59 +322,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "POTHERBS",
      "indicators": [
       {
        "text": "into",
-       "note": "going into something means being placed inside it"
+       "at": 24,
+       "note": "one piece goes inside the other, the cycled word into the two central letters"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "POTHERBS",
+       "op": "middle",
        "indicators": [
         {
-         "text": "cycle",
-         "note": "to cycle a word is to move its first letter round to the back"
+         "text": "middle of",
+         "at": 29,
+         "note": "the two central letters of the eight-letter word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chepstow",
+         "at": 39
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "to cycle",
+         "at": 15,
+         "note": "the first letter is moved round to the end"
         }
        ],
        "parts": [
         {
          "words": "Make an effort",
+         "at": 0,
          "gives": "BOTHER",
-         "note": "to bother is to take the trouble"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "PS",
-         "indicators": [
-          {
-           "text": "middle of",
-           "note": "middle points to the central pair of letters in the place name"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Chepstow",
-           "gives": "PS",
-           "select": "middle",
-           "note": "the two central letters of the eight-letter town"
-          }
-         ]
+         "note": "to bother is to make an effort"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An exhortation to pedal into a Welsh town for some salad.",
-     "walkthrough": "'Cycle' suggests a bike ride; it moves a letter from front to back. Chepstow is a town in south Wales.",
-     "definitionFit": "Potherbs are leafy plants grown to be boiled in the pot, so greens; the question mark admits the definition is loose."
+     "surface": "A cyclist making an effort to ride into Chepstow, a Welsh border town, for some salad.",
+     "walkthrough": "'cycle' suggests a bike ride, but it means rotating the word's letters. Chepstow is a town in Wales.",
+     "definitionFit": "Potherbs are leafy plants grown for the cooking pot, such as spinach or kale."
     },
     "features": {
      "answerInScene": false,
@@ -681,45 +676,52 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DETACHED",
      "indicators": [
       {
        "text": "covers up",
-       "note": "covering something up puts a new layer in its place, so one set of letters is swapped in for another"
+       "at": 22,
+       "note": "covers up means one piece is hidden by putting another in its place"
       }
      ],
      "parts": [
       {
        "words": "Put off",
+       "at": 0,
        "gives": "DETERRED",
-       "note": "deterred means discouraged"
-      },
-      {
-       "words": "a",
-       "note": "taken as written"
-      },
-      {
-       "words": "church",
-       "gives": "CH",
-       "note": "CH is the usual abbreviation for church"
+       "note": "to be deterred is to be put off"
       },
       {
        "words": "sin",
+       "at": 32,
        "gives": "ERR",
        "note": "to err is to sin"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 13,
+         "gives": "A"
+        },
+        {
+         "words": "church",
+         "at": 15,
+         "gives": "CH"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone repelled by a church hushing up wrongdoing, viewed coolly.",
-     "walkthrough": "In DETERRED, the ERR is replaced by A CH, giving DETACHED.",
-     "definitionFit": "A clinical manner is cool and unemotional, as is a detached one."
+     "surface": "A church hushing up wrongdoing, and the cold attitude that goes with it.",
+     "walkthrough": "Replace ERR in DETERRED with A and CH to give DET-ACH-ED.",
+     "definitionFit": "Clinical means coolly objective, without emotion; detached means unemotionally aloof."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "covers"
+     "misdirectedWord": "clinical"
     }
    }
   },
@@ -744,29 +746,28 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "IREFUL",
+     "op": "deletion",
      "indicators": [
       {
        "text": "in prime locations",
-       "note": "prime locations are the positions numbered by prime numbers: second, third, fifth, seventh and on"
+       "at": 24,
+       "note": "only the letters standing at prime-numbered positions (2, 3, 5, 7, 11, 13) are kept, and the rest are discarded"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "airmen fly public",
-       "gives": "IREFUL",
-       "select": "prime",
-       "note": "letters 2, 3, 5, 7, 11 and 13 of the phrase"
+       "at": 6
+      },
+      {
+       "gives": "AMNLYPBIC"
       }
      ]
     },
     "explanation": {
-     "surface": "Furious pilots fly commercial flights to the best destinations.",
-     "walkthrough": "'Prime locations' reads like choice spots; it counts positions with prime numbers.",
-     "definitionFit": "Ireful is a literary adjective meaning full of ire, that is wrath."
+     "surface": "Pilots enraged at flying with members of the public.",
+     "walkthrough": "Number the letters of AIRMENFLYPUBLIC from 1; those at the prime positions 2, 3, 5, 7, 11 and 13 are I, R, E, F, U, L.",
+     "definitionFit": "Ireful is an old literary adjective meaning full of ire, wrathful."
     },
     "features": {
      "answerInScene": false,

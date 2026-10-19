@@ -117,37 +117,48 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EXOTICA",
      "indicators": [
       {
        "text": "in",
-       "note": "one piece is placed inside the other"
+       "at": 21,
+       "note": "one piece is placed inside the other, the announcement going into the paper"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "EXOTICA",
        "indicators": [
         {
-         "text": "Endless",
-         "note": "without its ends, the word loses both its first and its last letter"
-        },
-        {
          "text": "mostly",
-         "note": "mostly means not quite all, so the final letter is dropped"
+         "at": 30,
+         "note": "mostly means all but the last letter of the word is kept"
         }
        ],
        "parts": [
         {
          "words": "paper",
+         "at": 24,
          "gives": "EXAM",
-         "note": "an exam paper"
+         "note": "an exam paper, so paper gives EXAM"
         },
         {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Endless",
+         "at": 0,
+         "note": "without its ends, so both the first and last letters of the word are dropped"
+        }
+       ],
+       "parts": [
+        {
          "words": "announcement",
+         "at": 8,
          "gives": "NOTICE",
          "note": "a notice is a public announcement"
         }
@@ -156,9 +167,9 @@
      ]
     },
     "explanation": {
-     "surface": "A short notice in a newspaper exposes some strange goings-on.",
-     "walkthrough": "Two separate trims happen here: endless takes both ends off one word, while mostly takes only the tail off the other.",
-     "definitionFit": "Exotica is a plural noun for curious or foreign objects, things out of the ordinary."
+     "surface": "A newspaper item reveals something strange.",
+     "walkthrough": "'Endless' takes off both ends of the announcement, while 'mostly' drops only the last letter of the paper.",
+     "definitionFit": "Exotica are strange or foreign objects, things striking for their unfamiliarity."
     },
     "features": {
      "answerInScene": false,
@@ -1186,33 +1197,33 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HOMINID",
      "indicators": [
       {
        "text": "trousers",
-       "note": "trousers enclose the legs, so one piece wraps round the other"
+       "at": 46,
+       "note": "used as a verb: to trouser is to pocket, so one word takes the other inside it"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HOMINID",
+       "words": "concealed",
+       "at": 36,
+       "gives": "HID",
+       "note": "hid means concealed"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "without jacket",
-         "note": "with its jacket off, the word is stripped of its outside letters"
+         "at": 21,
+         "note": "a jacket is the outer covering, so the first and last letters are removed"
         }
        ],
        "parts": [
         {
-         "words": "concealed",
-         "gives": "HID",
-         "note": "hid means concealed"
-        },
-        {
          "words": "arriving",
+         "at": 12,
          "gives": "COMING",
          "note": "coming means arriving"
         }
@@ -1221,14 +1232,14 @@
      ]
     },
     "explanation": {
-     "surface": "A man turning up jacketless with something hidden in his trousers.",
-     "walkthrough": "Trousers is a verb here, meaning pockets or encloses; without jacket strips the outer letters.",
-     "definitionFit": "A hominid is any member of the great-ape family including humans, so man is one example, hence perhaps."
+     "surface": "A man turns up undressed, hiding his trousers.",
+     "walkthrough": "'Trousers' looks like clothing in this picture but is the verb meaning pocket: HID pockets OMIN, which is COMING without its outer letters.",
+     "definitionFit": "A hominid is any member of the family of great apes and humans, so a man is one example."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
      "misdirectedWord": "trousers"
     }
    }
