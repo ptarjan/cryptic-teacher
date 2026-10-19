@@ -207,6 +207,22 @@ check("held: cured-since and fix-landed reads go, annotation asked stays, and th
 sc_y, rd_y = eq.hold_refusal_rereads([], [tup(unit_c), tup(unit_t)])
 check("with no new unit left the refusal rereads come back", 2, len(rd_y))
 
+# ---- canary-proven refusal rereads skip the hold and go right after the never-read work
+gk = lambda rel, date, reason="refused no-reading-parses before its fix", paper="gale": tup(
+    {"paper": paper, "rel": rel, "reason": reason, "date": date, "needs": []})
+_, rd_p = eq.hold_refusal_rereads([], [tup(unit_n), gk("g61", "1961-05-01"), gk("g70", "1970-05-01"), gk("g05", "2005-03-02"),
+                                       gk("t61", "1961-05-01", paper="times"), tup(unit_c)], notes_p := [])
+check("canary: only gale no-reading-parses of 1960-66 and 2005-06 survive the hold", ["X/n", "g61", "g05"],
+      [t[3]["rel"] for t in rd_p])
+check("canary: one note counts the kept", 1, sum("canary-proven rereads: kept 2 (" in n for n in notes_p))
+os.environ["CT_NEWEST_FIRST"] = "gale"
+gu = lambda *a, **k: gk(*a, **k)[3]
+ordered = eq.by_urgency([(2, 0, 0, gu("g61", "1961-05-01")), (2, 0, 1, gu("g70", "1970-05-01")),
+                         (2, 1, 0, {**unit_c, "date": "2000-01-01"}), (1, 1, 1, {**unit_n, "date": "1990-01-01"}),
+                         (1, 0, 2, {**unit_n, "rel": "gnew", "paper": "gale", "date": "2001-01-01"})])
+check("canary: after the never-read work, ahead of other rereads", ["gnew", "X/n", "g61"], [u["rel"] for u in ordered][:3])
+del os.environ["CT_NEWEST_FIRST"]
+
 # ---- low-yield Trove years wait while other never-read units remain
 tv = lambda rel, date, reason="never read": tup({"paper": "trove", "rel": rel, "reason": reason, "date": date, "needs": []})
 _, rd_l = eq.hold_low_yield_eras([], [tv("a", "1980-01-01"), tv("b", "1990-01-01"), tv("c", "1972-12-31"),
