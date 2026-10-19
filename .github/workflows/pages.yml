@@ -13,7 +13,7 @@
 name: Build and deploy the site
 
 # A push that only added or edited puzzle files (tools/ci_scope.py, against the
-# commit the live site was last deployed from) runs the annotation check and
+# push's own parent) runs the annotation check and
 # nothing else: about a minute. Building and deploying the site is ~5 minutes of
 # work, so those puzzles go live from pages-schedule.yml, which dispatches this
 # workflow every 15 minutes when master has moved since the last deploy. Any
@@ -77,15 +77,23 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           EVENT: ${{ github.event_name }}
           REPO: ${{ github.repository }}
+          BEFORE: ${{ github.event.before }}
         run: |
           set -uo pipefail
           yes() { echo "deploys: $1"; echo "deploy=true" >> "$GITHUB_OUTPUT"; exit 0; }
           [ "$EVENT" = push ] || yes "a $EVENT run"
-          base=$(python3 tools/last_deploy.py "$REPO") || yes "no deployment to diff against"
-          git fetch --no-tags --depth=1 --filter=blob:none origin "$base" || yes "could not fetch $base"
-          verdict=$(python3 tools/ci_scope.py decide "$base") || yes "could not diff against $base"
+          # The base is the push's OWN parent, not the live deploy. The deploy
+          # is up to 15 minutes old, so against it every puzzle push after a
+          # code push still "contained code" and queued a full build in the
+          # pages group behind the running one (10-12 minutes instead of 1).
+          # A code push builds on its own push; if its build is replaced by a
+          # newer pending one, or the push was a burst, pages-schedule.yml
+          # deploys whatever master is ahead with, so nothing is lost.
+          case "$BEFORE" in *[1-9a-f]*) ;; *) yes "no parent to diff against" ;; esac
+          git fetch --no-tags --depth=1 --filter=blob:none origin "$BEFORE" || yes "could not fetch $BEFORE"
+          verdict=$(python3 tools/ci_scope.py decide "$BEFORE") || yes "could not diff against $BEFORE"
           [ "$verdict" = fast ] || yes "$verdict"
-          echo "puzzle-only push since the live site's $base: validate only, pages-schedule.yml deploys it"
+          echo "puzzle-only push since its parent $BEFORE: validate only, pages-schedule.yml deploys it"
           echo "deploy=false" >> "$GITHUB_OUTPUT"
 
   build:
