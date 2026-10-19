@@ -6465,7 +6465,7 @@ SELECT_PHRASE_IN_LEAF = "leaf opens with a letter-selection phrase and gives few
 HALVED_AS_DELETION ="halving ('half of', '50 per cent', 'bottom half') written as a plain deletion"
 SPLIT_SHARED_INDICATOR = "one indicator over two neighbouring same-kind ops, only one of them carrying it"
 _NOT_A_HALVING = re.compile(r"hearted|more than half|almost half", re.I)
-_HALVING = re.compile(r"\bhalf\b|\b(?:50|fifty)\s*(?:per\s*cent|%|percent)", re.I)
+_HALVING = re.compile(r"\bhalf\b|\b\d{1,2}\s*(?:per\s*cent|%|percent)", re.I)  # any percentage: r36 FN "60% of", "about 57%"
 
 
 def select_word_in_leaf(tree):
@@ -6627,9 +6627,12 @@ HALF_IN_LEAF = "leaf holds half and gives half of another of its words, a halvin
 SELECT_IND_ENDS_LEAF = "selection op whose letter-less leaf ends with the op's own indicator words"
 BEHEAD_IN_LEAF = "leaf holds a losing-head/tail phrase and gives the letters that are left"
 _REPEAT_WORDS = frozenset("twice doubled double repeated repeatedly again thrice redoubled".split())
-_BEHEAD = re.compile(r"\b(?:losing|lost|without|minus|lacking|missing|dropping|loses|shedding|ignoring)\s+"
+_STUTTER_WORDS = frozenset("stuttering stutter stutters stuttered stammering stammer stammers stammered".split())
+_BEHEAD = re.compile(r"\b(?:losing|lost|without|minus|lacking|missing|dropping|loses|shedding|ignoring|dismissing|"
+                     r"removing|ditching|discarding|dumping)\s+"
                      r"(?:its\s+|the\s+|his\s+|her\s+|their\s+)?(?:head|tail|top|bottom|leader|front|back|"
-                     r"first letter|last letter|initial|first|last)\b|\b(?:headless|tailless)\b", re.I)
+                     r"first letter|last letter|initial|first|last|foremost|leading|opening|ending|finish|tip|start|beginning)\b"
+                     r"|\b(?:headless|tailless)\b", re.I)
 
 
 def repeat_in_leaf(tree):
@@ -6640,7 +6643,18 @@ def repeat_in_leaf(tree):
     for node, words in _plain_leaves(tree):
         g = wordplay.letters(node["gives"])
         h = len(g) // 2
-        n += len(words) >= 2 and bool(_REPEAT_WORDS & set(words)) and len(g) >= 4 and len(g) % 2 == 0 and g[:h] == g[h:]
+        n += len(words) >= 2 and bool(_REPEAT_WORDS & set(words)) and len(g) >= 2 and len(g) % 2 == 0 and g[:h] == g[h:]
+        # r36 FN: "Stuttering" giving LALA, one stutter word whose letters double
+        n += len(words) == 1 and words[0] in _STUTTER_WORDS and len(g) >= 4 and len(g) % 2 == 0 and g[:h] == g[h:]
+    # r36 FN TUTU: a leaf "two" giving the same letters as the leaf beside it
+    for parent in _walk(tree):
+        parts = [p for p in parent.get("parts") or [] if isinstance(p, dict)]
+        for a, b in zip(parts, parts[1:]):
+            if any("op" in x or x.get("unchecked") or not x.get("gives") or not x.get("words") for x in (a, b)):
+                continue
+            wb = set(re.findall(r"[a-z']+", str(b["words"]).lower()))
+            n += (len(wordplay.letters(a["gives"])) >= 2 and wordplay.letters(a["gives"]) == wordplay.letters(b["gives"])
+                  and bool((_REPEAT_WORDS | {"two"}) & wb) and len(wb) == 1)
     return n
 
 
@@ -6680,6 +6694,15 @@ def behead_in_leaf(tree):
                if len(words) >= 2 and _BEHEAD.search(" ".join(words)) and len(wordplay.letters(node["gives"])) >= 2)
 
 
+_NOTE_CAPS = re.compile(r"\b[A-Z]{3,}\b")
+
+
+def _cut_from_note(g, note):
+    """Whether g (lower case) is the start or end of a capitalised word in the note, one or two letters shorter."""
+    return any(0 < len(t) - len(g) <= 2 and (t.lower().startswith(g) or t.lower().endswith(g))
+               for t in _NOTE_CAPS.findall(note))
+
+
 def cut_note_leaf(tree):
     """Leaves giving a non-word of 3+ letters whose note says it is a real word minus some letters
     (GAM "game losing its final E", STE "SITE without I", EARY "WEARY, leading W killed"; r28 FN: 5 misses):
@@ -6690,9 +6713,15 @@ def cut_note_leaf(tree):
     n = 0
     under_cut = {id(p) for node in _walk(tree) if node.get("op") in ("deletion", "move", "substitution")
                  for p in node.get("parts") or [] if isinstance(p, dict)}
-    for node, _ in _plain_leaves(tree):
+    for node, words in _plain_leaves(tree):
         g = wordplay.letters(node["gives"]).lower()
         note = str(node.get("note") or "")
+        if len(words) >= 2 and len(g) >= 2 and g in lex and id(node) not in under_cut and not node.get("select") \
+                and "'" not in note + str(node.get("words")) and not node.get("soundsLike") \
+                and (_CUT_NOTE.search(note) or _CUT_LETTER.search(note) or "cut short" in note) \
+                and _cut_from_note(g, note):
+            n += 1  # r36 FN: "Pope dismissing foremost" giving OPE, a word, but the note says POPE without the P
+            continue
         if len(g) >= 3 and g not in lex and id(node) not in under_cut and not node.get("select") \
                 and "'" not in note + str(node.get("words")) and "apostrophe" not in note.lower() \
                 and not node.get("soundsLike") \
