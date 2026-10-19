@@ -146,6 +146,10 @@ filed, and the expression cannot write one. The tree, in brief:
   `wordplay.reversePhrase` (reverse reading over a whole phrase of the clue).
   One more, `wordplay.midWordLeaf` (a leaf giving a stretch of several clue words that starts or
   ends inside a word: the cut is folded into the leaf with no op).
+  Three more: `wordplay.deletionScopeAnswer` (deletion over a charade whose indicator names an
+  end, but the letters that make the answer are not at it), `wordplay.doubleIndicator` (one op
+  carrying two indicators, or two ops stacked on one: one indicator per op) and `wordplay.poolGap`
+  (anagram fodder with another op's words between its pieces).
   Two more ratchets (`tools/lesson_checks.py`) have no rewrite: `wordplay.ddMissesWordplay`
   (two definitions and no wordplay, in a clue that hides the answer across words or holds
   its letters in a run of whole words: parse it) and `spelling.unsaid` (an answer with an
