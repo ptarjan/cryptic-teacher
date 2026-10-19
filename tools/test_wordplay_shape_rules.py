@@ -692,4 +692,16 @@ check("round 21: unindicatedBare is a warning, not a gated or ratcheted rule", (
       ("unindicatedBare" in shape_queue.gated(), "wordplay.unindicatedBare" in v.BACKLOG_MARKERS))
 check("round 21: azed and genius are exempt, times is not", (True, True, False),
       (shape_queue.exempt("azed-1734"), shape_queue.exempt("genius-100"), shape_queue.exempt("times-1")))
+# round 22: charadeOrder (DODGE), reversalSplit (DEGAS), cutInLeaf (IDEA)
+DODGE = {"op": "charade", "parts": [lf("party", "DO"), lf("Duke", "D"), {"op": "reversal", "indicators": [{"text": "flipped"}], "parts": [lf("for one", "EG")]}]}
+check("pieces joined against the clue's order are counted (DODGE)", 1, v.charade_out_of_order(DODGE, "Duke flipped for one party"))
+check("a joiner word between them is not (after)", 0, v.charade_out_of_order(
+    {"op": "charade", "parts": [lf("party", "DO"), lf("Duke", "D")]}, "Duke after party"))
+DEGAS = {"op": "reversal", "indicators": [{"text": "repelled"}], "parts": [{"op": "charade", "parts": [lf("flatulence", "SAG"), lf("editor", "ED")]}]}
+check("a reversal indicator between its pieces is counted (DEGAS)", 1, v.reversal_split(DEGAS, "Painter editor repelled with flatulence"))
+check("one at the edge is not", 0, v.reversal_split(
+    {"op": "reversal", "indicators": [{"text": "repelled"}], "parts": [lf("editor", "ED")]}, "Painter editor repelled with flatulence"))
+check("a cut word opening a leaf that gives less is counted (IDEA)", 1, v.cut_in_leaf(
+    {"op": "charade", "parts": [lf("One", "I"), lf("short contract", "DEA")]}))
+check("a leaf giving all its words is not", 0, v.cut_in_leaf(lf("short story", "SHORTSTORY")))
 raise SystemExit(fails)

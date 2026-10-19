@@ -238,6 +238,12 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
        "tradedIndicator": "two ops carry each other's indicator word (an 'about' on the reversal and a "
                           "'knocking back' on the container), or a hidden word carries a reversal's word: "
                           "put each indicator word on the op of its own kind",
+       "charadeOrder": "a charade joins its pieces in another order than the clue gives them, with no 'after' or "
+                       "'before' to say so: keep the clue's order or reverse the piece that moves",
+       "reversalSplit": "a reversal's indicator stands between the pieces it reverses: it reverses the one piece "
+                        "it sits by, so reverse that piece inside the charade or container",
+       "cutInLeaf": "a leaf opens with a cut word (short, half, first) and gives fewer letters than its other "
+                    "words: the cut is an op with its own indicator",
        "midWordLeaf": "a leaf gives a stretch of several clue words that starts or ends inside a word: "
                       "the cut is an op (del, first, last) with its indicator, not part of the leaf"}
 
@@ -273,6 +279,9 @@ def _validator_rules():
             "doubleIndicator": lambda t, a, c: V.double_indicators(t),
             "poolGap": lambda t, a, c: V.pool_gaps(t, c),
             "tradedIndicator": lambda t, a, c: V.traded_indicators(t),
+            "charadeOrder": lambda t, a, c: V.charade_out_of_order(t, c),
+            "reversalSplit": lambda t, a, c: V.reversal_split(t, c),
+            "cutInLeaf": lambda t, a, c: V.cut_in_leaf(t, c),
             "movedLetter": lambda t, a, c: V.moved_letters(t),
             "indInLeaf": lambda t, a, c: V.ind_in_leaf(t, c),
             # A step taken as filed that tools/clear_unchecked.py could not verify:

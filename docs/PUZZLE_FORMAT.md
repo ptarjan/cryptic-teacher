@@ -147,6 +147,9 @@ filed, and the expression cannot write one. The tree, in brief:
   One more, `wordplay.midWordLeaf` (a leaf giving a stretch of several clue words that starts or
   ends inside a word: the cut is folded into the leaf with no op).
   `wordplay.tradedIndicator` (two ops each carry the other's indicator word, or a hidden word carries a reversal's word).
+  `wordplay.charadeOrder` (a charade joins its pieces in another order than the clue gives them, with no word to say so),
+  `wordplay.reversalSplit` (a reversal's indicator stands between the pieces it reverses) and
+  `wordplay.cutInLeaf` (a leaf opens with a cut word such as short, half or first and gives fewer letters than its other words).
   `wordplay.movedLetter` (a deletion whose letter a sibling leaf gives again: use the move op).
   Round 21: wordplay.unindicatedBare, wordplay.bareInitial, wordplay.indFolded and wordplay.inDefinition
   are warnings only (`shape_queue.WARN_ONLY`): no redo is queued and the ratchet no longer counts them; and no
