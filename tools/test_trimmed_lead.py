@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# The 1945-49 Times' clue column stands right of a column of small ads, and
-# lead_column()'s window starts 100px into them: trimmed_lead() moves it to
-# the gutter, and leaves a window with only a number margin (1950s) alone.
+"""The 1945-49 Times' clue column stands right of a column of small ads, and
+lead_column()'s window starts 100px into them: trimmed_lead() moves it to
+the gutter, and leaves a window with only a number margin (1950s) alone.
+"""
 import os
 import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
