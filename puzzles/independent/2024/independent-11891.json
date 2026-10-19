@@ -832,45 +832,57 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "CLICKBAIT",
-     "indicators": [
-      {
-       "text": "found between",
-       "note": "found between places the middle pieces inside the two others"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "taste",
-       "gives": "LICK",
-       "note": "to lick is to taste"
-      },
-      {
-       "words": "sex",
-       "gives": "IT",
-       "note": "it is a familiar euphemism for sex"
-      },
-      {
        "words": "college",
-       "gives": "C",
-       "note": "standard abbreviation for college"
+       "at": 17,
+       "gives": "C"
       },
       {
-       "words": "graduate",
-       "gives": "BA",
-       "note": "a Bachelor of Arts"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "found between",
+         "at": 34,
+         "note": "found between means placed between the other two pieces"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "taste",
+           "at": 48,
+           "gives": "LICK",
+           "note": "to lick something is to taste it"
+          },
+          {
+           "words": "sex",
+           "at": 58,
+           "gives": "IT",
+           "note": "it is a slang word for sex"
+          }
+         ]
+        },
+        {
+         "words": "graduate",
+         "at": 25,
+         "gives": "BA",
+         "note": "a BA, a Bachelor of Arts, is a graduate"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A college graduate is found caught up in eye-catching links to food and sex.",
-     "walkthrough": "'It' is a long-standing euphemism for sex. 'links' sounds like connections between the things named, but it is the definition: web links.",
-     "definitionFit": "Clickbait is online content with teasing headlines designed to tempt people into following the link."
+     "surface": "Odd news about someone from college caught somewhere between flavour and passion.",
+     "walkthrough": "'links' looks like a golf course or chains, but here means web links; 'it' as slang for sex is a crossword staple.",
+     "definitionFit": "Clickbait is online content with teasing headlines designed to lure readers into following a link."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "links"
     }
@@ -1628,43 +1640,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "at sea",
-       "note": "at sea means confused and all over the place"
+       "text": "east of",
+       "at": 15,
+       "note": "in an across entry east is to the right, so the next piece follows"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "New York",
+       "at": 23,
+       "gives": "NY"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "at sea",
+         "at": 8,
+         "note": "at sea means confused, so the letters are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
-        },
-        {
-         "words": "New York",
-         "gives": "NY",
-         "note": "standard abbreviation for New York"
-        },
-        {
          "words": "night",
-         "note": "night with its letters jumbled"
+         "at": 2,
+         "note": "the anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A night out sailing off the coast of New York.",
-     "walkthrough": "'east of' puts the jumbled word after NY, as east is to the right on a map.",
-     "definitionFit": "Anything means whatever one item you like, any single example at all."
+     "surface": "An evening out on the ocean off the US east coast.",
+     "walkthrough": "In an across answer east means to the right, so the jumbled word follows the abbreviation.",
+     "definitionFit": "Anything means any single thing at all, whichever instance you choose."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "sea"
+     "misdirectedWord": "east"
     }
    }
   },

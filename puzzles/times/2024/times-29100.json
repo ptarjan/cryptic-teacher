@@ -96,35 +96,44 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "led by"
-      },
-      {
-       "text": "leader of",
-       "note": "the first letter of 'school'"
+       "text": "led by",
+       "at": 9,
+       "note": "led by means the other piece comes before"
       }
      ],
      "parts": [
       {
-       "words": "leader of school",
-       "gives": "S",
-       "note": "first letter of school"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader of",
+         "at": 16,
+         "note": "the leader of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "school",
+         "at": 26
+        }
+       ]
       },
       {
        "words": "Disorder",
+       "at": 0,
        "gives": "TUMBLE",
-       "note": "to tumble is to throw into disorder"
+       "note": "a tumble is a state of disorder or confusion"
       }
      ]
     },
     "explanation": {
-     "surface": "A school trip descends into chaos, with the head in charge.",
-     "walkthrough": "'School trip' looks like one phrase; the definition is 'trip' alone, a verb, and 'school' only lends its first letter.",
-     "definitionFit": "A plain synonym: catching your foot and lurching is both a trip and a stumble, the sense the school outing hides."
+     "surface": "Chaos erupts on a school outing, with the headteacher in charge.",
+     "walkthrough": "'trip' looks like a school excursion but is the verb, to stumble.",
+     "definitionFit": "To trip is to catch your foot and lose balance, the same as to stumble."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "trip"
     }
    }
@@ -416,36 +425,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TENERIFE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "dropping",
-       "note": "in a down answer, one E of TEEN drops lower in the word"
+       "text": "on",
+       "at": 24,
+       "note": "in a down entry, on means placed above the next piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "dropping an E",
+         "at": 10,
+         "note": "in a down entry one E drops a place lower in the word"
+        }
+       ],
        "parts": [
         {
-         "words": "Youngster dropping an E",
-         "gives": "TENE",
-         "note": "TEEN with its second E moved down to the end"
+         "words": "Youngster",
+         "at": 0,
+         "gives": "TEEN",
+         "note": "a teen is a young person"
         },
         {
-         "words": "teeming",
-         "gives": "RIFE",
-         "note": "rife = teeming"
+         "gives": "EN"
+        },
+        {
+         "gives": "NE"
         }
        ]
+      },
+      {
+       "words": "teeming",
+       "at": 27,
+       "gives": "RIFE",
+       "note": "rife means teeming or abundant"
       }
      ]
     },
     "explanation": {
-     "surface": "A teenager failing a grade while on a crowded holiday island.",
-     "walkthrough": "'Dropping an E' looks like deleting one, but the E only falls: in this down answer it moves from the middle of TEEN to the bottom.",
+     "surface": "A teenager loses an E-number while on a crowded Spanish holiday island.",
+     "walkthrough": "TEEN becomes TENE when its second E falls below the N.",
      "definitionFit": "Tenerife is the largest of Spain's Canary Islands."
     },
     "features": {
@@ -950,35 +973,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 48,
+       "note": "in here means sitting within the enclosure, so the sheep's letters go inside the pen's"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "enclosure",
-         "gives": "CAGE",
-         "note": "a cage is an enclosure"
-        },
-        {
-         "words": "mountain sheep, bouncing about",
-         "gives": "MOUFL",
-         "note": "MOUFLON with ON (about) bounced out"
-        }
-       ]
+       "words": "enclosure",
+       "at": 51,
+       "gives": "CAGE",
+       "note": "a cage is an enclosure"
       },
       {
-       "words": "a",
-       "note": "as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 15
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "bouncing",
+           "at": 33,
+           "note": "bouncing means throwing out, so a word is ejected"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mountain sheep",
+           "at": 17,
+           "gives": "MOUFLON",
+           "note": "the mouflon is a wild mountain sheep"
+          },
+          {
+           "words": "about",
+           "at": 42,
+           "gives": "ON",
+           "note": "on means about, concerning"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mountain sheep leaping about its pen, trying to hide.",
-     "walkthrough": "'Bouncing about' pictures a lively sheep; it means ON, as in 'on the subject', is bounced out. A mouflon is a wild mountain sheep.",
-     "definitionFit": "A plain synonym: disguising something to match its surroundings is a form of hiding it, as soldiers and animals do."
+     "surface": "A wild sheep hides by leaping about inside its pen.",
+     "walkthrough": "'bouncing about' looks like one phrase for leaping, but 'about' gives ON, which 'bouncing' throws out of the sheep's name.",
+     "definitionFit": "Camouflage is disguise that hides something by blending it into its surroundings."
     },
     "features": {
      "answerInScene": true,

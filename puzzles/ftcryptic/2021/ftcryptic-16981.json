@@ -763,47 +763,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "YOKOONO",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "most but not all, so the last letter is cut away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "casually greeting",
+       "at": 7,
+       "gives": "YO",
+       "note": "yo is an informal greeting"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 45,
+         "note": "mostly means all but the last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "casually greeting",
-         "gives": "YO",
-         "note": "yo is a slangy, informal hello"
-        },
-        {
          "words": "fellow artist Jeff",
-         "gives": "KOON",
-         "note": "Jeff Koons, the American artist known for balloon-dog sculptures, minus his final letter"
+         "at": 25,
+         "gives": "KOONS",
+         "note": "Jeff Koons is an American artist"
         },
         {
-         "words": "ordinary",
-         "gives": "O",
-         "note": "O is the abbreviation for ordinary"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "ordinary",
+       "at": 52,
+       "gives": "O"
       }
      ]
     },
     "explanation": {
-     "surface": "One artist says a casual hello to another, Jeff Koons, who is fairly unremarkable.",
-     "walkthrough": "Jeff Koons is the American artist behind the giant balloon-dog sculptures; drop his surname's last letter.",
-     "definitionFit": "Yoko Ono is a Japanese conceptual and performance artist, also known as John Lennon's widow."
+     "surface": "One artist breezily says hello to Jeff, another, who is fairly plain.",
+     "walkthrough": "KOONS loses its last letter.",
+     "definitionFit": "Yoko Ono is a Japanese conceptual artist and musician, widow of John Lennon."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "casually"
+     "misdirectedWord": "ordinary"
     }
    }
   },
@@ -1613,56 +1617,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WEARBLINKERS",
-     "indicators": [
-      {
-       "text": "half",
-       "note": "half of something is left once the rest is gone, so only part of the word stays"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Labour",
+         "at": 11,
+         "note": "to labour is to work, here working the letters into a new order"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "Labour",
-           "note": "to labour is to work, and worked material gets reshaped into a different form"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Blair",
-           "note": "taken as written"
-          },
-          {
-           "words": "New",
-           "note": "taken as written"
-          }
-         ]
+         "words": "Blair",
+         "at": 0,
+         "note": "part of the anagram fodder"
         },
         {
+         "words": "New",
+         "at": 7,
+         "note": "part of the anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 20,
+         "note": "half means only half of the word is kept, its second four letters"
+        }
+       ],
+       "parts": [
+        {
          "words": "crackers",
-         "gives": "KERS",
-         "note": "the second half of the word"
+         "at": 25,
+         "note": "the word that loses its first half"
+        },
+        {
+         "gives": "CRAC"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tony Blair, leader of New Labour, half mad, ignoring the wider view.",
-     "walkthrough": "'New Labour' looks like the party's name, but 'New' is fodder and 'Labour' the signal to rework it with 'Blair'. Blinkers are leather flaps that block a horse's side vision.",
-     "definitionFit": "Wearing blinkers is an idiom for having a narrow outlook and ignoring everything except what lies directly ahead."
+     "surface": "Tony Blair's New Labour project, half mad, as a way to ignore the wider view.",
+     "walkthrough": "'New Labour' reads as the party name, but 'Labour' rearranges BLAIR and NEW into WEARBLIN; KERS is the back half of CRACKERS.",
+     "definitionFit": "Blinkers stop a horse seeing to the side, so wearing them means having a narrow outlook."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Labour"
     }
    }

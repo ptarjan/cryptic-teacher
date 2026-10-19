@@ -699,53 +699,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INBRACKETS",
-     "indicators": [
-      {
-       "text": "Not bad",
-       "note": "food that has gone bad is 'off', so 'not bad' asks for that word to be taken away"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "words": "in",
+       "at": 22,
+       "gives": "IN"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "cast",
-         "note": "to cast is to throw, and thrown letters land in a new order"
+         "at": 17,
+         "note": "cast as in thrown or moulded anew, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Berkoff",
-         "gives": "BERK",
-         "note": "the surname Berkoff without its last three letters, which spell a word for bad"
-        },
-        {
-         "words": "in",
-         "note": "taken as written"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Not",
+           "at": 0,
+           "note": "not means the following word is taken away from the name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Berkoff",
+           "at": 9,
+           "note": "Steven Berkoff, the actor and playwright, as fodder"
+          },
+          {
+           "words": "bad",
+           "at": 4,
+           "gives": "OFF",
+           "note": "off means bad, as of food gone off"
+          }
+         ]
         },
         {
          "words": "plays",
+         "at": 25,
          "gives": "ACTS",
-         "note": "plays are performed, as acts are"
+         "note": "acts are parts of plays, and to act is to play"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A critic's verdict that Steven Berkoff, cast in some plays, was not bad.",
-     "walkthrough": "Steven Berkoff is a British actor and playwright. A berk is British slang for a fool. The definition is itself enclosed in parentheses.",
-     "definitionFit": "The words 'like this' are printed inside round parentheses, which is exactly what the answer describes."
+     "surface": "A verdict that Steven Berkoff's casting in some plays was decent.",
+     "walkthrough": "'Not bad' reads as mild praise, but bad means off, which leaves the actor's name. The definition describes its own parentheses.",
+     "definitionFit": "Words placed in brackets look like the definition does here, enclosed in parentheses."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "bad"
+     "misdirectedWord": "cast"
     }
    }
   },

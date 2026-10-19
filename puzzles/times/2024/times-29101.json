@@ -123,31 +123,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "COMET",
      "indicators": [
       {
        "text": "incomplete",
-       "note": "something incomplete lacks its finish, so the phrase loses its final letter"
+       "at": 39,
+       "note": "incomplete means the final letter of the phrase is missing"
       }
      ],
      "parts": [
       {
-       "words": "wake incomplete",
-       "gives": "COMET",
-       "note": "to wake is to COME TO; drop the final O"
+       "words": "wake",
+       "at": 34,
+       "gives": "COMETO",
+       "note": "to come to is to wake up"
+      },
+      {
+       "gives": "O"
       }
      ]
     },
     "explanation": {
-     "surface": "An astronomer describes a heavenly body trailing a tail and a broken wake.",
-     "walkthrough": "The tail is part of the definition, not an instruction to take a last letter; the deletion signal is 'incomplete', acting on COME TO.",
-     "definitionFit": "A definition by description: the tail of gas and dust is what marks out this body from other objects in the night sky."
+     "surface": "A heavenly body trails something behind it and leaves an unfinished trail in its wake.",
+     "walkthrough": "'wake' looks like the trail of a moving body; it is the verb, COME TO, cut short.",
+     "definitionFit": "A comet is an icy body orbiting the sun whose tail of gas and dust streams behind it."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "tail"
+     "aptDefinition": false,
+     "misdirectedWord": "wake"
     }
    }
   },
@@ -168,57 +171,70 @@
     "definitions": [
      {
       "text": "yearning",
-      "at": 43
+      "at": 43,
+      "note": "adjective here: longing, wistful"
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "reduction in",
-       "note": "a reduction makes a word smaller"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "No",
+       "at": 0
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "accommodating"
+         "text": "accommodating",
+         "at": 21,
+         "note": "accommodating means holding something inside"
         }
        ],
        "parts": [
         {
-         "words": "No",
-         "note": "taken as written"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "reduction in",
+           "at": 3,
+           "note": "a reduction cuts the word short, losing its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "jam",
+           "at": 16,
+           "gives": "STICK",
+           "note": "to jam is to stick"
+          },
+          {
+           "gives": "K"
+          }
+         ]
         },
         {
-         "words": "jam",
-         "gives": "STIC",
-         "note": "to jam is to STICK, reduced by its last letter"
-        }
-       ]
-      },
-      {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "large",
-         "gives": "LG",
-         "note": "LG is the abbreviation for large"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 35
+          },
+          {
+           "words": "large",
+           "at": 37,
+           "gives": "LG"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shopper insists on no discount on jam, with a big longing thrown in.",
-     "walkthrough": "'Jam' looks like preserve, but here it is the verb: when a drawer jams, it sticks.",
-     "definitionFit": "A plain synonym used as an adjective: a yearning look back at the past is a nostalgic one."
+     "surface": "A jam-making note: no boiling down, but room for a big pot.",
+     "walkthrough": "STIC (STICK cut short) holds A and LG.",
+     "definitionFit": "Nostalgic describes a wistful longing for the past, so it fits yearning used as an adjective."
     },
     "features": {
      "answerInScene": false,
@@ -517,40 +533,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Medley of",
-       "note": "a medley mixes things, so the letters of LEHAR are mixed"
+       "text": "interrupting",
+       "at": 30,
+       "note": "interrupting means breaking into the middle"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "interrupting",
-         "note": "an interruption breaks into the middle of something"
+         "text": "Medley of",
+         "at": 0,
+         "note": "a medley mixes tunes together, so the composer's name is mixed up"
         }
        ],
        "parts": [
         {
          "words": "Lehar",
-         "note": "anagram of LEHAR"
-        },
-        {
-         "words": "listeners",
-         "gives": "EARS",
-         "note": "ears are what listen"
+         "at": 10,
+         "note": "Franz Lehar, the operetta composer, as anagram fodder"
         }
        ]
+      },
+      {
+       "words": "listeners",
+       "at": 20,
+       "gives": "EARS",
+       "note": "ears are what listen"
       }
      ]
     },
     "explanation": {
-     "surface": "An orchestra's run-through of a Lehar medley is interrupted by the audience.",
-     "walkthrough": "Lehar was the composer of The Merry Widow, so 'medley' sounds like a musical term; it is the anagram signal.",
-     "definitionFit": "A plain synonym from the theatre: a practice performance before the real show."
+     "surface": "A medley of Franz Lehar tunes is broken up by audience members during a practice.",
+     "walkthrough": "'Medley of' rearranges LEHAR into REHAL, and EARS break into it.",
+     "definitionFit": "A rehearsal is a practice performance, also called a run-through."
     },
     "features": {
      "answerInScene": true,
@@ -699,46 +719,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CATFISH",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "at": 14,
+       "note": "to keep means to hold inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "ready",
+       "at": 8,
+       "gives": "CASH",
+       "note": "the ready is slang for cash"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to keep",
-         "note": "to keep something is to hold it"
-        },
-        {
          "text": "with training",
-         "note": "training reshapes a body, so the letters of FIT are reshaped"
+         "at": 26,
+         "note": "training reshapes something, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "ready",
-         "gives": "CASH",
-         "note": "ready money, or the readies, is cash"
-        },
-        {
          "words": "fit",
-         "note": "anagram of FIT"
+         "at": 22,
+         "note": "the anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A swimmer gets ready to keep fit through training.",
-     "walkthrough": "The swimmer sounds like an athlete in training; it is a fish.",
-     "definitionFit": "A definition by example: a catfish is one creature that swims, a whiskered fish."
+     "surface": "A swimmer is prepared to stay in shape by training.",
+     "walkthrough": "'ready' is British slang for money, CASH; it holds TFI, from 'fit' rearranged.",
+     "definitionFit": "A catfish is a whiskered fish, so a swimmer in crossword terms."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Swimmer"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ready"
     }
    }
   },
@@ -1112,46 +1135,53 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Almost",
-       "note": "almost the whole word is used, so ALL loses its last letter"
+       "text": "fancy",
+       "at": 30,
+       "note": "fancy as a verb, to adorn or elaborate, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "fancy",
-         "note": "fancy means elaborate or fanciful, so the letters are arranged freely"
+         "text": "Almost",
+         "at": 8,
+         "note": "almost means one letter short of the full word"
         }
        ],
        "parts": [
         {
-         "words": "Almost all",
-         "gives": "AL",
-         "note": "ALL, less one L"
+         "words": "all",
+         "at": 15,
+         "note": "the word that loses its last letter"
         },
         {
-         "words": "close",
-         "note": "taken as written"
-        },
-        {
-         "words": "I'd",
-         "note": "taken as written"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "close",
+       "at": 19,
+       "note": "part of the anagram fodder"
+      },
+      {
+       "words": "I'd",
+       "at": 26,
+       "note": "part of the anagram fodder"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone guesses a place is nearby, practically close, they fancy.",
-     "walkthrough": "'Close' next to 'Nearby' looks like a synonym to swap in; it is anagram fodder.",
-     "definitionFit": "A loose sense, flagged by the question mark: what is localised is kept to a small area close at hand."
+     "surface": "Someone asks whether it's nearby and guesses that nearly everything is close.",
+     "walkthrough": "AL (ALL cut short), CLOSE and ID are mixed by 'fancy'. The question mark flags a loose definition.",
+     "definitionFit": "Something localised is confined to one area, so is close at hand rather than widespread."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "close"
+     "aptDefinition": true,
+     "misdirectedWord": "fancy"
     }
    }
   },
@@ -1248,42 +1278,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DENTURE",
-     "indicators": [
-      {
-       "text": "change of heart",
-       "note": "the heart of a word is its middle, so the middle letters of TRUE are changed round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "study",
+       "at": 6,
+       "gives": "DEN",
+       "note": "a den is a study, a private room"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "to have change of heart",
+         "at": 18,
+         "note": "the heart of the word, its two middle letters, change order"
+        }
+       ],
        "parts": [
         {
-         "words": "study",
-         "gives": "DEN",
-         "note": "a den is a private study"
+         "words": "right",
+         "at": 12,
+         "gives": "TRUE",
+         "note": "true means right or correct"
         },
         {
-         "words": "right",
-         "gives": "TURE",
-         "note": "TRUE (right, correct) with its heart RU changed to UR"
+         "gives": "RU"
+        },
+        {
+         "gives": "UR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dental student studies teeth and has a change of heart.",
-     "walkthrough": "'Change of heart' is literal: the heart of TRUE is rearranged.",
-     "definitionFit": "A plain synonym in the collective sense: a denture is a set of false teeth."
+     "surface": "Research suggests the right thing is to reconsider your teeth.",
+     "walkthrough": "TRUE swaps its two middle letters to give TURE.",
+     "definitionFit": "A denture is a set of false teeth."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "heart"
     }
    }
