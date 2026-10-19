@@ -96,50 +96,64 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "REFUTAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "clothes",
+       "at": 23,
+       "note": "clothes is a verb here: the reversed word dresses the other piece by wrapping round it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "returning",
-         "note": "going back the way it came, so the word for after is read right to left"
-        },
-        {
-         "text": "clothes",
-         "note": "to clothe something is to wrap it up, so the reversed word goes around the fur"
-        },
-        {
-         "text": "mostly",
-         "note": "most but not all of the word, so FUR loses its last letter"
+         "at": 13,
+         "note": "returning means the word for after is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "after returning",
-         "gives": "RETAL",
-         "note": "after = later, read backwards"
+         "words": "after",
+         "at": 7,
+         "gives": "LATER",
+         "note": "after means later"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 31,
+         "note": "mostly means the last letter of the word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "made of divisive material",
+         "at": 38,
+         "gives": "FUR",
+         "note": "the stuff in question is fur, a material that divides opinion because of animal-welfare objections"
         },
         {
-         "words": "mostly made of divisive material",
-         "gives": "FU",
-         "note": "fur is a material that divides opinion; mostly leaves FU"
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A garment gets rejected because it is made of a controversial fabric.",
-     "walkthrough": "'Divisive material' is a cryptic way to describe fur, which many people object to wearing. Clothes is a verb here, not the garments.",
-     "definitionFit": "A plain synonym: a refutation, from refute, is a denial that a claim is true."
+     "surface": "A denial issued after a row over garments made from a controversial fabric.",
+     "walkthrough": "'clothes' is a verb: RETAL (LATER backwards, from 'returning') goes round FU, which is FUR with its last letter dropped ('mostly').",
+     "definitionFit": "A refutal is a refutation, the act of contradicting or rebutting a claim."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "clothes"
     }
    }
@@ -165,41 +179,47 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "going back means read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "moved",
-         "note": "the letters of GNU are shifted out of their places into a new order"
+         "at": 12,
+         "note": "moved means the letters of gnu are shifted into a new order"
         }
        ],
        "parts": [
         {
-         "words": "gnu moved",
-         "gives": "NGU",
-         "note": "the letters of GNU, rearranged"
-        },
+         "words": "gnu",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "back home",
-         "gives": "NI",
-         "note": "at home = in, reversed"
+         "text": "back",
+         "at": 18,
+         "note": "back means the word for home is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "home",
+         "at": 23,
+         "gives": "IN",
+         "note": "IN means at home"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wildebeest has been relocated and returned to its native place.",
-     "walkthrough": "The Nguni are a group of southern African peoples, including the Zulu and Xhosa; the word also serves as an adjective.",
-     "definitionFit": "A regional term: Nguni names a family of southern African peoples and languages, so it can stand for African."
+     "surface": "A wildebeest relocated to its native plains.",
+     "definitionFit": "The Nguni are a group of southern African peoples, including the Zulu and Xhosa."
     },
     "features": {
      "answerInScene": true,
@@ -530,51 +550,62 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "Most of",
-       "note": "most but not all, so CHARM loses its last letter"
-      },
-      {
-       "text": "discovered",
-       "note": "dis-covered, with its cover taken off, so the outside letters go"
+       "text": "by",
+       "at": 21,
+       "note": "by, meaning beside, sets the noble piece next to what comes before"
       }
      ],
      "parts": [
       {
-       "words": "trinket",
-       "gives": "CHAR",
-       "note": "a charm is a trinket, less its last letter"
-      },
-      {
-       "words": "left",
-       "gives": "L",
-       "note": "L = left"
-      },
-      {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "EROI",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "left by",
-         "note": "by means beside, so the next pieces follow on"
+         "text": "Most of",
+         "at": 0,
+         "note": "most of means the final letter of the trinket word is dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
+         "words": "trinket",
+         "at": 8,
+         "gives": "CHARM",
+         "note": "a charm is a small trinket worn on a bracelet"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "at": 16,
+       "gives": "L"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "discovered",
+         "at": 30,
+         "note": "discovered, with its cover taken off, means the outer letters are removed"
+        }
+       ],
+       "parts": [
+        {
          "words": "noble",
-         "gives": "EROI",
-         "select": "outer",
-         "note": "heroic = noble, without its outer H and C"
+         "at": 24,
+         "gives": "HEROIC",
+         "note": "heroic means noble in character"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small ornament left behind by an aristocrat turns up in a Belgian city.",
-     "walkthrough": "Noble is the adjective heroic, not a lord.",
-     "definitionFit": "A proper name: this is an industrial city in the Wallonia region of Belgium."
+     "surface": "A bauble left by an aristocrat turns up in a Belgian town.",
+     "walkthrough": "'noble' is an adjective here, HEROIC, not a peer; 'discovered' strips it to EROI.",
+     "definitionFit": "Charleroi is an industrial city in Wallonia, southern Belgium."
     },
     "features": {
      "answerInScene": false,
@@ -667,45 +698,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "awful",
-       "note": "something awful is a mess, so FERVOUR is scrambled"
+       "text": "biting",
+       "at": 30,
+       "note": "biting means the rearranged letters close round the soldier, holding him in their teeth"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "biting"
+         "text": "awful",
+         "at": 16,
+         "note": "awful signals that the letters of fervour are in a dreadful jumble"
         }
        ],
        "parts": [
         {
-         "words": "American soldier",
-         "gives": "GI",
-         "note": "a GI is a US soldier"
-        },
-        {
-         "words": "awful fervour",
-         "gives": "FRUVORE",
-         "note": "FERVOUR, rearranged"
+         "words": "fervour",
+         "at": 22
         }
        ]
+      },
+      {
+       "words": "American soldier",
+       "at": 37,
+       "gives": "GI",
+       "note": "GI is the usual term for an American soldier"
       }
      ]
     },
     "explanation": {
-     "surface": "A creature in a terrible frenzy sinks its teeth into an American soldier, like a vampire bat.",
-     "walkthrough": "The surface suggests a blood-sucking bat, but the definition is a fruit bat. 'Possibly' marks it as one example.",
-     "definitionFit": "Definition by example: fruit bats live on fruit, so they are fruit-eaters."
+     "surface": "A frenzied passion sinking its teeth into a US serviceman, like a vampire bat.",
+     "walkthrough": "FERVOUR is rearranged round GI. 'Bat possibly' is a definition by example: a fruit bat eats fruit.",
+     "definitionFit": "A frugivore is a fruit-eating animal, and fruit bats are a familiar example."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "biting"
+     "misdirectedWord": "Bat"
     }
    }
   },
@@ -906,29 +940,22 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "stuffed with"
-      }
-     ],
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "LAUN",
+       "op": "middle",
        "indicators": [
         {
          "text": "skinned",
-         "note": "a skinned thing has lost its outside, so FLAUNT loses its first and last letters"
+         "at": 9,
+         "note": "skinned means the outer letters, the skin, are peeled off"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Show off",
-         "gives": "LAUN",
-         "select": "outer",
-         "note": "to show off is to flaunt, without its outer letters"
+         "at": 0,
+         "gives": "FLAUNT",
+         "note": "to show off is to flaunt"
         }
        ]
       },
@@ -936,27 +963,33 @@
        "op": "container",
        "indicators": [
         {
-         "text": "essential piece of",
-         "note": "the essence of a thing is its core, so the middle letter of PEPPERY"
+         "text": "stuffed with",
+         "at": 22,
+         "note": "stuffed with means the fish holds the next letter inside it"
         }
        ],
        "parts": [
         {
          "words": "fish",
+         "at": 17,
          "gives": "CHAD",
-         "note": "chad is an old name for the shad, a fish"
+         "note": "a chad is a kind of fish, a young sea bream"
         },
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "P",
+         "indicators": [
+          {
+           "text": "essential piece of",
+           "at": 35,
+           "note": "the essential piece is the central letter of the word"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
            "words": "peppery",
+           "at": 54,
            "gives": "P",
-           "select": "middle",
-           "note": "the middle letter of PEPPERY"
+           "note": "its central letter"
           }
          ]
         }
@@ -965,9 +998,9 @@
      ]
     },
     "explanation": {
-     "surface": "A showy dish of skinned fish stuffed with peppery rocket, the salad leaf.",
-     "walkthrough": "Rocket reads as a salad leaf beside fish and pepper, but it is a spacecraft.",
-     "definitionFit": "A cryptic description: the platform from which a rocket is launched is where it is prepared."
+     "surface": "A cookery scene: skinned fish stuffed with a peppery salad leaf, rocket.",
+     "walkthrough": "'rocket' looks like the salad leaf, but it is the space vehicle. FLAUNT loses its outer letters; CHAD holds P.",
+     "definitionFit": "A launch pad is the platform from which a rocket is fired, so it is readied there."
     },
     "features": {
      "answerInScene": false,
@@ -1223,50 +1256,67 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LYSOL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 9,
+       "note": "outside means the students sit on either side of the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Students",
+       "at": 0,
+       "gives": "LL",
+       "note": "L is a learner driver, so two learners give LL"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "outside",
-         "note": "the students stand outside the rest, one at each end"
-        },
-        {
-         "text": "around",
-         "note": "turned around, so NOSY reads backwards"
-        },
-        {
          "text": "ignoring",
-         "note": "to ignore is to leave out, so N goes"
+         "at": 32,
+         "note": "ignoring means the letter for new is left out"
         }
        ],
        "parts": [
         {
-         "words": "Students",
-         "gives": "LL",
-         "note": "L is a learner driver, a student; two of them"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "around",
+           "at": 24,
+           "note": "around means the word for prying is turned backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "prying",
+           "at": 17,
+           "gives": "NOSY",
+           "note": "someone prying is nosy"
+          }
+         ]
         },
         {
-         "words": "prying around, ignoring new",
-         "gives": "YSO",
-         "note": "prying = nosy, reversed, without N for new"
+         "words": "new",
+         "at": 41,
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nosy students keep snooping round a cleaner who is not new.",
-     "walkthrough": "Cleaner looks like a person but is a product: a disinfectant brand.",
-     "definitionFit": "A brand name: this is a household disinfectant, so a cleaner."
+     "surface": "Nosy students snooping about, apart from the newcomer, near the cleaning cupboard.",
+     "walkthrough": "NOSY turned 'around' is YSON; 'ignoring new' drops N to leave YSO, which LL goes round.",
+     "definitionFit": "Lysol is a brand of disinfectant and household cleaning product."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cleaner"
+     "misdirectedWord": "Students"
     }
    }
   },
@@ -1291,60 +1341,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOBSTER",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at",
+       "at": 40,
+       "note": "at, meaning right up against, places the butcher's letter next to the shortened steak"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "chuck",
+       "at": 12,
+       "gives": "LOB",
+       "note": "to chuck is to lob, throw"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "40 per cent off",
-         "note": "a discount of 40 per cent takes two of the five letters off STEAK"
+         "at": 24,
+         "note": "forty per cent of a five-letter word is two letters, so two come off the end"
         }
        ],
        "parts": [
         {
-         "words": "chuck",
-         "gives": "LOB",
-         "note": "to chuck is to lob"
+         "words": "steak",
+         "at": 18
         },
         {
-         "words": "steak 40 per cent off",
-         "gives": "STE",
-         "note": "STEAK without its last two letters"
-        },
+         "gives": "AK"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "R",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "the final letter of butcher"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "at butcher finally",
-           "gives": "R",
-           "select": "last",
-           "note": "the last letter of BUTCHER"
-          }
-         ]
+         "text": "finally",
+         "at": 51,
+         "note": "finally means the last letter of butcher"
+        }
+       ],
+       "parts": [
+        {
+         "words": "butcher",
+         "at": 43
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A butcher's counter offering chuck steak at a 40 per cent discount, alongside seafood.",
-     "walkthrough": "Chuck steak is a cut of beef, but chuck is the verb lob.",
-     "definitionFit": "Definition by class: this clawed shellfish is a prized seafood."
+     "surface": "A shopping list: seafood, plus chuck steak discounted by the butcher.",
+     "walkthrough": "'chuck steak' reads as a cut of beef, but chuck is a verb, LOB. STEAK loses its last two letters.",
+     "definitionFit": "Lobster is a large marine crustacean prized as seafood."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "chuck"
     }
@@ -1493,62 +1548,69 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BRAINSTEM",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 25,
+       "note": "by, meaning next to, sets the machete letter after the shortened foot part"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Support",
+       "at": 0,
+       "gives": "BRA",
+       "note": "a bra is a supporting undergarment"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "cut",
-         "note": "cut short, so the part of the foot loses its last letter"
-        },
-        {
-         "text": "tip",
-         "note": "the tip of a blade is its point, here the first letter of machete"
+         "at": 21,
+         "note": "cut means the last letter is chopped off the word"
         }
        ],
        "parts": [
         {
-         "words": "Support",
-         "gives": "BRA",
-         "note": "a bra is a supporting undergarment"
-        },
-        {
          "words": "part of foot",
-         "gives": "INSTE",
-         "note": "the instep is the arched middle of the foot, less its last letter"
+         "at": 8,
+         "gives": "INSTEP",
+         "note": "the instep is the arched middle part of the foot"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "by",
-           "note": "the first letter of the word it picks from"
-          }
-         ],
-         "parts": [
-          {
-           "words": "machete's",
-           "gives": "MACHETETIP",
-           "note": "the first letter of MACHETE"
-          }
-         ]
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "tip",
+         "at": 38,
+         "note": "the tip of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "machete's",
+         "at": 28
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A supported foot slashed by the point of a machete.",
-     "walkthrough": "Cut reads as the machete's slash, but it trims the foot part short.",
-     "definitionFit": "A plain description: this link between brain and spinal cord controls breathing, so it is vital."
+     "surface": "A foot slashed by a blade, a serious injury to vital tissue.",
+     "walkthrough": "BRA, then INSTEP with its end cut off, then M from the tip of 'machete's'.",
+     "definitionFit": "The brainstem joins the brain to the spinal cord and controls breathing and heartbeat."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "misdirectedWord": "Support"
     }
    }
   },
@@ -1787,33 +1849,43 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "TRIAL",
+     "op": "deletion",
      "indicators": [
       {
        "text": "without",
-       "note": "without means lacking, so the letter for anaesthetic is taken away"
-      },
-      {
-       "text": "at first",
-       "note": "at first means the start, so the first letter of anaesthetic"
+       "at": 22,
+       "note": "without means the next letter is taken out"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "of cavity without anaesthetic at first",
-       "gives": "TRIAL",
-       "select": "first",
-       "note": "atrial means relating to an atrium, a chamber of the heart; A goes"
+       "words": "of cavity",
+       "at": 12,
+       "gives": "ATRIAL",
+       "note": "atrial means of an atrium, a chamber or cavity of the heart"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 42,
+         "note": "at first means the first letter of anaesthetic"
+        }
+       ],
+       "parts": [
+        {
+         "words": "anaesthetic",
+         "at": 30
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dental check-up of a tooth cavity carried out without anaesthetic.",
-     "walkthrough": "The surface points to a dentist, but 'of cavity' is an adjective: the atrium is a cavity of the heart.",
-     "definitionFit": "A plain synonym: a test or hearing, as in a court case, is an examination."
+     "surface": "A dental check of a hole in a tooth, done with no painkiller to start with.",
+     "walkthrough": "'of cavity' is the adjective ATRIAL, an atrium being a cavity of the heart; it loses its first A.",
+     "definitionFit": "A trial is a test or examination, as of a product or in court."
     },
     "features": {
      "answerInScene": false,
@@ -1896,53 +1968,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REGENCY",
-     "indicators": [
-      {
-       "text": "developing",
-       "note": "developing means changing form, so GREEN grows into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "developing",
+         "at": 18,
+         "note": "developing means the letters of green take on a new shape"
+        }
+       ],
        "parts": [
         {
-         "words": "developing Green",
-         "gives": "REGEN",
-         "note": "GREEN, rearranged"
-        },
+         "words": "Green",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "borders",
-           "note": "the borders of a thing are its edges, so the first and last letters of city"
-          }
-         ],
-         "parts": [
-          {
-           "words": "city's borders",
-           "gives": "CITY",
-           "note": "the first and last letters of CITY"
-          }
-         ]
+         "text": "borders",
+         "at": 42,
+         "note": "the borders of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "city's",
+         "at": 35,
+         "gives": "CITY",
+         "note": "the city's borders are its outer letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A temporary planning rule for developing the green belt around a city.",
-     "walkthrough": "The answer is rule by a regent while the monarch is a child or unable to reign.",
-     "definitionFit": "A historical term: rule by a stand-in for the monarch lasts only until the monarch can reign."
+     "surface": "A temporary authority takes charge of an expanding eco-friendly city's boundaries.",
+     "definitionFit": "A regency is government by a regent standing in for a monarch who is a minor or incapacitated."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "developing"
+     "misdirectedWord": "Green"
     }
    }
   },

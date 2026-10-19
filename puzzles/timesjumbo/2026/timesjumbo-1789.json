@@ -210,7 +210,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Pretended",
+      "text": "Pretended to be",
       "at": 0
      }
     ],
@@ -218,26 +218,58 @@
      "op": "charade",
      "parts": [
       {
-       "words": "missing, first off",
-       "gives": "OST",
-       "note": "LOST without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "first off",
+         "at": 25,
+         "note": "first off says the opening letter of the word for missing is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "missing",
+         "at": 16,
+         "gives": "LOST",
+         "note": "something missing is lost"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
-       "words": "showing good judgment, just the same",
-       "gives": "ENSIBLE",
-       "note": "SENSIBLE without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "just the same",
+         "at": 59,
+         "note": "just the same means the same treatment, first letter off, applies to the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "showing good judgment",
+         "at": 36,
+         "gives": "SENSIBLE",
+         "note": "someone showing good judgment is sensible"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone faked being lost, which showed good sense after all.",
-     "walkthrough": "'Just the same' reads as 'nevertheless'; it is an instruction to repeat 'first off' on the second word.",
-     "definitionFit": "Ostensible means professed or apparent rather than real, as a pretended reason is."
+     "surface": "Someone faked going missing, which was in fact a shrewd move all the same.",
+     "walkthrough": "'just the same' repeats 'first off' on the second piece: LOST loses L and SENSIBLE loses S.",
+     "definitionFit": "Something ostensible is apparent or professed, presented as being so without necessarily being genuine."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "same"
+     "misdirectedWord": "missing"
     }
    }
   },
@@ -329,7 +361,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "includes"
+       "text": "includes",
+       "at": 23,
+       "note": "includes means the shortened policy word holds the next pieces inside it"
       }
      ],
      "parts": [
@@ -337,48 +371,55 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "ignoring"
+         "text": "ignoring",
+         "at": 8,
+         "note": "ignoring means the word for home is left out of the policy word"
         }
        ],
        "parts": [
         {
          "words": "Policy",
+         "at": 0,
          "gives": "INSURANCE",
-         "note": "an insurance policy"
+         "note": "an insurance policy, so policy gives INSURANCE"
         },
         {
          "words": "home",
+         "at": 17,
          "gives": "IN",
-         "note": "in = at home; removed from the front to leave SURANCE"
+         "note": "IN means at home"
         }
        ]
       },
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
          "words": "covering",
+         "at": 32,
          "gives": "VEIL",
-         "note": "a veil covers the face"
+         "note": "a veil is a covering"
         },
         {
          "words": "large",
+         "at": 41,
          "gives": "L",
-         "note": "l = large, as on clothing sizes"
+         "note": "L is the clothing-size abbreviation for large"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An insurance policy that excludes the home still covers large items.",
-     "walkthrough": "The surface is pure insurance jargon: home, covering, large. 'Watch' is the sense of keeping a close eye on someone.",
-     "definitionFit": "Surveillance is close observation of a suspect, keeping watch."
+     "surface": "An insurance policy that leaves out the house but covers a large watch.",
+     "walkthrough": "INSURANCE without IN (at home) leaves SURANCE, which takes in VEIL and L.",
+     "definitionFit": "Surveillance is close observation, keeping watch over someone or something."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "covering"
+     "joke": "pun",
+     "misdirectedWord": "watch"
     }
    }
   },
@@ -2056,54 +2097,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "moving left"
-      }
-     ],
      "parts": [
       {
        "words": "Irish",
-       "gives": "IR",
-       "note": "Ir = Irish"
+       "at": 0,
+       "gives": "IR"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "holds",
-         "note": "the altered rebel holds the channels inside it"
+         "at": 32,
+         "note": "holds means the reworked rebel word contains the news word inside it"
         }
        ],
        "parts": [
         {
          "op": "anagram",
+         "indicators": [
+          {
+           "text": "moving left",
+           "at": 20,
+           "note": "moving left says the L of the rebel word shifts one place leftward"
+          }
+         ],
          "parts": [
           {
            "words": "revolutionary",
+           "at": 6,
            "gives": "REBEL",
-           "note": "a rebel is a revolutionary; with L moved left it is REBLE"
+           "note": "a revolutionary is a rebel"
           }
          ]
         },
         {
          "words": "news channels",
+         "at": 38,
          "gives": "MEDIA",
-         "note": "the media carry the news; held as RE(MEDIA)BLE"
+         "note": "the media are the channels that carry news"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Irish rebel shifts his politics leftwards and captures the newspapers, a hopeless cause.",
-     "walkthrough": "'Moving left' reads as a political shift; it moves the letter L one step to the left.",
-     "definitionFit": "Irremediable means impossible to cure or put right."
+     "surface": "An Irish rebel shifting to the left takes over news outlets and is past saving.",
+     "walkthrough": "'moving left' is not a political shift: the letter L itself slides one place earlier in the rebel word, giving REBLE, before the news channels go in.",
+     "definitionFit": "Irremediable means incapable of being remedied or put right, so past saving."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "left"
     }
    }

@@ -241,7 +241,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Breach of trust",
+      "text": "Breach",
       "at": 0
      }
     ],
@@ -249,13 +249,15 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "at last",
-       "note": "at last points to the final letter of 'at'"
+       "text": "after exchange",
+       "at": 45,
+       "note": "after exchange means the two pieces swap places, the sport coming before the clean word"
       }
      ],
      "parts": [
       {
        "words": "sport",
+       "at": 39,
        "gives": "RU",
        "note": "RU is rugby union"
       },
@@ -263,12 +265,15 @@
        "op": "container",
        "indicators": [
         {
-         "text": "entering"
+         "text": "entering",
+         "at": 24,
+         "note": "entering means the letter goes inside the clean word"
         }
        ],
        "parts": [
         {
          "words": "clean",
+         "at": 33,
          "gives": "PURE",
          "note": "pure means clean"
         },
@@ -276,13 +281,15 @@
          "op": "last",
          "indicators": [
           {
-           "text": "after exchange"
+           "text": "at last",
+           "at": 16,
+           "note": "at last means the final letter of trust"
           }
          ],
          "parts": [
           {
-           "words": "at last",
-           "note": "last letter of aT, placed after the P of PURE"
+           "words": "of trust",
+           "at": 7
           }
          ]
         }
@@ -291,12 +298,12 @@
      ]
     },
     "explanation": {
-     "surface": "Trust is broken when a sport once thought clean turns out to be dirty.",
-     "walkthrough": "The surface reads 'after exchange' as a doping scandal after a transfer; it is an instruction to swap the order of the two words before them. RU for rugby union is a crossword staple.",
-     "definitionFit": "A rupture is a breach, as in a rupture of trust between two parties."
+     "surface": "A breach of confidence finally pollutes a clean sport after a transfer deal.",
+     "walkthrough": "Clean sport would read PURE RU; 'after exchange' swaps the two, and T goes into PURE.",
+     "definitionFit": "A rupture is a break or breach, as in a relationship or a pipe."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "exchange"
     }
@@ -1404,40 +1411,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "false",
-       "note": "a false version is not the real arrangement, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Serial",
-       "note": "anagram fodder"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "false",
+         "at": 24,
+         "note": "false signals the letters of serial are not in their true order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Serial",
+         "at": 0
+        }
+       ]
       },
       {
        "op": "nth",
        "n": 2,
+       "indicators": [
+        {
+         "text": "second",
+         "at": 16,
+         "note": "second means the second letter of killer's"
+        }
+       ],
        "parts": [
         {
-         "words": "killer's second",
-         "gives": "KILLERSECOND",
-         "note": "the second letter of kIller"
+         "words": "killer's",
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A serial killer's second passport gives a false nationality.",
-     "walkthrough": "'Killer's second' looks like an accomplice; it is the second letter of killer.",
-     "definitionFit": "A definition by class: Israeli is one example of a nationality, as a passport would record it."
+     "surface": "A serial killer's second identity is a fake nationality.",
+     "definitionFit": "Israeli is the nationality of a citizen of Israel."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "second"
+     "misdirectedWord": "killer's"
     }
    }
   },
@@ -1472,25 +1490,48 @@
      "parts": [
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "revealing",
+         "at": 19,
+         "note": "revealing, in this down clue, shows the kept letters read upwards, from bottom to top"
+        }
+       ],
        "parts": [
         {
-         "words": "half of girdle",
-         "gives": "GIR",
-         "note": "the first three of the six letters of girdle"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half of",
+           "at": 29,
+           "note": "half of means only the first half of girdle is kept, the rest dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "girdle",
+           "at": 37,
+           "note": "a girdle is a corset; its first half is kept"
+          },
+          {
+           "gives": "DLE"
+          }
+         ]
         }
        ]
       },
       {
-       "words": "suggestively revealing",
+       "words": "suggestively",
+       "at": 6,
        "gives": "UP",
-       "note": "the answer only suggests its wordplay: the direction word that turns the half-girdle round in a down entry is written into it"
+       "note": "suggestively stands for the upward direction word that, in a down light, would signal the reading backwards; the answer spells that signal out"
       }
      ]
     },
     "explanation": {
-     "surface": "A dress is cut so as to show a glimpse of underwear.",
-     "walkthrough": "This is a reverse clue: the answer is itself the instruction. In a down entry, RIG going up reads GIR, half of girdle; the question mark owns up to the trick.",
-     "definitionFit": "A phrasal verb: to rig someone up, like rigging them out, is to dress or kit them out."
+     "surface": "A saucy hint of a corset seen from underneath.",
+     "walkthrough": "In a down light, UP is a signal to read letters backwards; here the answer contains that signal, so the first half of 'girdle' written UP is the answer.",
+     "definitionFit": "To rig up is to dress or kit out, as in rigged up in costume."
     },
     "features": {
      "answerInScene": true,

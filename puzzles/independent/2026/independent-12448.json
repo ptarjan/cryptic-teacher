@@ -778,38 +778,42 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "tip",
-       "note": "The tip of a word is the letter at its far end, the point it finishes on."
-      }
-     ],
      "parts": [
       {
        "words": "One who wangles",
+       "at": 0,
        "gives": "FIDDLER",
-       "note": "To fiddle something is to wangle it by a little quiet cheating."
+       "note": "a fiddler is someone who wangles or cheats"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "Here 'in' is a placing instruction rather than scene-setting: the letter goes inside the word that follows."
+         "at": 35,
+         "note": "in means the passenger letter sits inside the taxi"
         }
        ],
        "parts": [
         {
          "words": "taxi",
+         "at": 38,
          "gives": "CAB",
-         "note": "A taxi is a cab."
+         "note": "a cab is a taxi"
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "tip from",
+           "at": 16,
+           "note": "the tip from a word here is its end letter"
+          }
+         ],
          "parts": [
           {
            "words": "passenger",
-           "note": "The letter this word finishes on."
+           "at": 25
           }
          ]
         }
@@ -818,8 +822,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "'Tip from passenger' reads as coins handed over at the end of a ride, which is the picture the setter is selling; in the parse a tip is one letter.",
-     "definitionFit": "A fiddler crab is the small shore crab whose one huge claw looks like a fiddle being bowed, so the definition names its class."
+     "surface": "A cheat skimming a tip from a cab passenger is called an animal.",
+     "walkthrough": "'tip' suggests a gratuity, but it is the end letter of passenger.",
+     "definitionFit": "A fiddler crab is a small crab, the male having one greatly enlarged claw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tip"
     }
    }
   },
@@ -1009,39 +1019,48 @@
      "parts": [
       {
        "words": "party",
+       "at": 8,
        "gives": "DO",
-       "note": "A do is a party — an office do, a birthday do."
+       "note": "a do is a party"
+      },
+      {
+       "words": "with",
+       "at": 14,
+       "gives": "W"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "top",
-         "note": "The top of a written word is where it begins, so only its opening letter is wanted."
+         "at": 31,
+         "note": "the top of a word in a down clue is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "with",
-         "note": "W is the standard shorthand for with, as in 'w/ milk'."
+         "words": "Nollywood's",
+         "at": 19
         }
        ]
       },
       {
-       "words": "Nollywood's",
-       "gives": "N",
-       "note": "The opening letter of the name given here."
-      },
-      {
        "words": "actors",
+       "at": 35,
        "gives": "CAST",
-       "note": "The cast of a film is its actors."
+       "note": "the cast is the set of actors in a production"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Nollywood is Nigeria's film industry, the third of the -ollywoods after Hollywood and Bollywood; the clue wants nothing from it but the letter it starts with.",
-     "definitionFit": "Someone downcast has low spirits and lowered eyes, which is the quiet, flattened mood the definition asks for."
+     "surface": "A low-key party attended by the leading stars of Nigerian cinema.",
+     "walkthrough": "Nollywood is the Nigerian film industry.",
+     "definitionFit": "Downcast means low in spirits, dejected or subdued."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Subdued"
     }
    }
   },
