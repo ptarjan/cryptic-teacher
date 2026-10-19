@@ -1428,43 +1428,171 @@ def _mine_for_op(ind, op):
     return True
 
 
+#: With False, r_unindicated_move reads fits as it first did (corpus-owned words only, one holder word per op).
+UNINDICATED_WIDE = True
+
+
+def _lexicon_owns(ind, op):
+    """Whether the indicator lexicon (tools/data/lexicons/indicators.json) lists the indicator's words for
+    the type of op node `op` (at least 3 uses, three times as many as under any other type)."""
+    kind = V._OP_LEXICON.get(op.get("op"))
+    lex = V._indicator_lexicon()
+    key = V.indicator_role_key(ind.get("text"))
+    mine = (lex.get(kind) or {}).get(key, 0)
+    if not kind or mine < 3 or any(mine < 3 * (t.get(key) or 0) for k, t in lex.items() if k != kind):
+        return False
+    text = ind.get("text") or ""
+    if op["op"] == "first":
+        return bool(HEAD.search(text)) and not TAIL.search(text)
+    if op["op"] == "last":
+        return bool(TAIL.search(text)) and not HEAD.search(text)
+    return True
+
+
+def _unindicated_fits(node, op, wide):
+    """The (holder, indicator) pairs whose indicator could belong to bare op `op`: filed on a charade, on
+    an op of another type, or beside a second indicator of one op."""
+    fits, held = [], False
+    for h, _ in walk(node):
+        if h is op or h.get("unchecked"):
+            continue
+        hk = V._OP_LEXICON.get(h.get("op"))
+        for i in h.get("indicators") or []:
+            owned = _role_owner(i) == hk or (wide and hk and _lexicon_owns(i, h))
+            if not (h.get("op") == "charade" or (hk and not owned) or len(h["indicators"]) > 1):
+                continue
+            held = True
+            if _mine_for_op(i, op) or (wide and _lexicon_owns(i, op)):
+                fits.append((h, i))
+    return fits, held
+
+
+def _owner_any(ind):
+    """The op type the corpus or the indicator lexicon files an indicator's words under, else None."""
+    own = _role_owner(ind)
+    if own:
+        return own
+    lex = V._indicator_lexicon()
+    key = V.indicator_role_key(ind.get("text"))
+    top = max(lex, key=lambda k: (lex[k].get(key) or 0) if k in V._OP_LEXICON.values() else -1, default=None)
+    n = (lex.get(top) or {}).get(key, 0)
+    rest = max([(t.get(key) or 0) for k, t in lex.items() if k != top] or [0])
+    return top if n >= 3 and n >= 3 * rest else None
+
+
+def _op_spans(op):
+    return [(x["at"], x["at"] + len(x["words"])) for x, _ in walk(op) if leaf(x) and x.get("words")
+            and isinstance(x.get("at"), int)]
+
+
+def _unindicated_swap(node, ctx, base, role):
+    """A charade's indicator owned by the type of op X, where X carries only a word nothing files under any
+    type, and a bare op B stands right beside that word: the charade's word goes to X, X's word to B
+    (charade<at the outset>(first<hosted>(g), ins(long, uncle's)) -> first<at the outset>, ins<hosted>).
+    Only one X and one B; the validator must then count fewer bare ops."""
+    clue = ctx["clue"]
+    bare = [op for op, _ in walk(node)
+            if not (op.get("unchecked") or id(op) in ctx["under_unchecked"] or op.get("indicators")
+                    or op.get("op") not in V.NEEDS_INDICATOR or not V._OP_LEXICON.get(op.get("op")))]
+    if not bare:
+        return None
+    for h, _ in walk(node):
+        if h.get("op") != "charade":
+            continue
+        for i in list(h.get("indicators") or []):
+            xs = [x for x, _ in walk(node) if x is not h and not x.get("unchecked") and x.get("indicators")
+                  and V._OP_LEXICON.get(x.get("op")) and (_mine_for_op(i, x) or _lexicon_owns(i, x))
+                  and all(not _owner_any(j) for j in x["indicators"]) and len(x["indicators"]) == 1]
+            if len(xs) != 1:
+                continue
+            x = xs[0]
+            j = x["indicators"][0]
+            if not isinstance(j.get("at"), int):
+                continue
+            beside = [b for b in bare if b is not x and any(
+                (not clue[e:j["at"]].strip(" ,;") and e <= j["at"]) or
+                (not clue[j["at"] + len(j["text"]):s].strip(" ,;") and s >= j["at"] + len(j["text"]))
+                for s, e in _op_spans(b))]
+            if len(beside) != 1:
+                continue
+            b = beside[0]
+            h["indicators"].remove(i)
+            if not h["indicators"]:
+                h.pop("indicators")
+            x["indicators"], b["indicators"] = [i], [j]
+            if V.unindicated_uncovered(node) < base and V.wrong_role_indicators(node) <= role:
+                return node
+            b.pop("indicators")
+            x["indicators"] = [j]
+            h.setdefault("indicators", []).append(i)
+    return None
+
+
 def r_unindicated_move(node, parent, ctx):
-    """unindicatedBare: a checked op with no indicator while a word the corpus files under its type sits
-    on another node that does not need it (a charade, or an op of a different type): the word moves
-    to the bare op (charade<guards>(DET, ins(PLUS, C)) is charade(DET, ins<guards>(PLUS, C));
-    ins<final bit of>(CIA, last(..)) gives last<final bit of>). One word per bare op, only when exactly
-    one such word fits it, and only when the validator then counts fewer bare ops and no more wrong-role
-    indicators. Run once, at the root; the driver's evaluate gate does the rest."""
+    """unindicatedBare: a checked op with no indicator while a word the corpus files under its type (or
+    the indicator lexicon lists for it) sits on another node that does not need it (a charade, or an op of
+    a different type): the word moves to the bare op (charade<guards>(DET, ins(PLUS, C)) is
+    charade(DET, ins<guards>(PLUS, C)); ins<final bit of>(CIA, last(..)) gives last<final bit of>).
+    One word per bare op. A bare op takes the word only when it is the one op that word fits, or when the
+    other bare ops' words, matched one-to-one, leave it that word alone (two bare ops with two misfiled
+    words); and only when the validator then counts fewer bare ops and no more wrong-role indicators.
+    Run once, at the root; the driver's evaluate gate does the rest. ctx["declines"], when present,
+    collects (reason) per bare op left bare: no_holder (no indicator filed on a node that could spare it),
+    not_this_type (such words, none fits), ambiguous (several fit, or two ops want one word), validator."""
     if parent is not None:
         return None
     base, role = V.unindicated_uncovered(node), V.wrong_role_indicators(node)
     if not base:
         return None
-    for op, _ in walk(node):
-        if op.get("unchecked") or id(op) in ctx["under_unchecked"] or op.get("indicators") \
-                or op.get("op") not in V.NEEDS_INDICATOR or not V._OP_LEXICON.get(op.get("op")):
-            continue
-        fits = []
-        for h, _ in walk(node):
-            if h is op or h.get("unchecked"):
+    log = ctx.get("declines")
+    wide = UNINDICATED_WIDE
+    bare = [op for op, _ in walk(node)
+            if not (op.get("unchecked") or id(op) in ctx["under_unchecked"] or op.get("indicators")
+                    or op.get("op") not in V.NEEDS_INDICATOR or not V._OP_LEXICON.get(op.get("op")))]
+    fits = {id(op): _unindicated_fits(node, op, wide) for op in bare}
+    cand = {id(op): list(f[0]) for op, f in zip(bare, fits.values())}
+    taken, pick = set(), {}
+    while True:
+        moved = False
+        for op in bare:
+            if id(op) in pick:
                 continue
-            hk = V._OP_LEXICON.get(h.get("op"))
-            for i in h.get("indicators") or []:
-                if _mine_for_op(i, op) and (h.get("op") == "charade" or (hk and _role_owner(i) != hk)
-                                            or len(h["indicators"]) > 1):
-                    fits.append((h, i))
-        if len(fits) != 1:
+            c = [x for x in cand[id(op)] if id(x[1]) not in taken]
+            if len(c) != 1:
+                continue
+            # two ops each left with this one word: neither is placed
+            if any(o2 is not op and id(o2) not in pick and
+                   [y for y in cand[id(o2)] if id(y[1]) not in taken] == c for o2 in bare):
+                continue
+            pick[id(op)] = c[0]
+            taken.add(id(c[0][1]))
+            moved = True
+        if not moved or not wide:
+            break
+    done = False
+    for op in bare:
+        if id(op) not in pick:
+            if log is not None:
+                f, held = fits[id(op)]
+                log.append("ambiguous" if f else ("not_this_type" if held else "no_holder"))
             continue
-        h, i = fits[0]
+        h, i = pick[id(op)]
+        if i not in (h.get("indicators") or []):
+            continue
         h["indicators"].remove(i)
         op["indicators"] = [i]
         if not h["indicators"]:
             h.pop("indicators")
         if V.unindicated_uncovered(node) < base and V.wrong_role_indicators(node) <= role:
-            return node
+            base, role, done = V.unindicated_uncovered(node), V.wrong_role_indicators(node), True
+            continue
         op.pop("indicators")
         h.setdefault("indicators", []).append(i)
-    return None
+        if log is not None:
+            log.append("validator")
+    if not done and wide:
+        return _unindicated_swap(node, ctx, base, role)
+    return node if done else None
 
 
 def _claimed(tree, clue):

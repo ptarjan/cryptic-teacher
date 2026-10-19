@@ -351,5 +351,17 @@ asx = {"op": "anagram", "indicators": [{"text": "Somehow"}], "parts": [{"words":
 new, used = F.repair_tree(asx, "Somehow warn Harry", "LANWHAR", AS)
 check("a tree that cannot reach the answer is left alone", used == [])
 
+# unindicatedBare, widened: a swap through a charade (the charade's word goes to the op that needs it, that op's
+# unknown word to the bare op beside it) and a first/last head word the lexicon lists
+swc = "Awkward, grand and long initially uncle's hosted"
+swt = {"op": "charade", "indicators": [{"text": "initially", "at": 24}], "parts": [
+    {"op": "first", "indicators": [{"text": "hosted", "at": 42}], "parts": [{"words": "grand", "at": 9, "gives": "G"}]},
+    {"op": "container", "parts": [{"words": "long", "at": 19, "gives": "ACHE"}, {"words": "uncle's", "at": 34, "gives": "U"}]}]}
+new, used = F.repair_tree(swt, swc, "GACHEU", UB)
+check("a charade's word and a mismatched word swap into place by elimination",
+      used == ["unindicatedBare"] and "indicators" not in new
+      and new["parts"][0]["indicators"][0]["text"] == "initially"
+      and new["parts"][1]["indicators"][0]["text"] == "hosted")
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
