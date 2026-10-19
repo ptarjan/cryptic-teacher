@@ -6114,6 +6114,8 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
             commit(held_at, old, verdict)
         return
     where = ("out", puzzle["id"]) if dest else held_at
+    if dest:  # not complete(): it files to --out, not the corpus; the log line says so
+        verdict["unfiled"] = len(puzzle["entries"]) - filled(puzzle)[0]
     target = path(where, series, puzzles)
     better = target.exists() and improves(puzzle, target)
     old = json.loads(target.read_text()) if target.exists() and not better else None
