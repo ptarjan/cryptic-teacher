@@ -492,13 +492,148 @@ def r_leaf_check(node, parent, ctx):
     return {"op": ops[0], "indicators": [{"text": sel, "at": node["at"] + si}], "parts": [src]}
 
 
+def simplicity(tree):
+    """Canonical-form key among letter-equal trees (Paul: the simplest is canonical): the fewest
+    ops, then each op acting on the fewest letters (the sum, over ops, of the letters of the
+    leaves under it). Lower is simpler."""
+    ops, letters = 0, 0
+    for n, _ in walk(tree):
+        if not leaf(n):
+            ops += 1
+            letters += sum(len(W.leaf_letters(x)) for x, _ in walk(n) if leaf(x))
+    return ops, letters
+
+
+def _eval_swapped(node, parent, new, ctx):
+    """Whether the whole tree still gives the answer with `node` replaced by `new`."""
+    answer = ctx.get("answer")
+    if not answer:
+        return False
+    try:
+        W.evaluate(_whole(node, parent, new, ctx), answer)
+        return True
+    except (W.WordplayError, IndexError, KeyError, TypeError, ValueError, W._NeedTarget):
+        return False
+
+
+def _whole(node, parent, new, ctx):
+    """A copy of the whole tree with `node` replaced by `new` (a plain charade going into a
+    plain charade is joined to it, as repair_tree does)."""
+    if parent is None:
+        return copy.deepcopy(new)
+    i = [id(x) for x in parent["parts"]].index(id(node))
+    saved = list(parent["parts"])
+    try:
+        if _splices(new, parent):
+            parent["parts"][i:i + 1] = new["parts"]
+        else:
+            parent["parts"][i] = new
+        return copy.deepcopy(ctx["tree"])
+    finally:
+        parent["parts"][:] = saved
+
+
+def _flat_fodder(node):
+    """The parts of an anagram, an indicator-free charade among them opened out."""
+    out = []
+    for p in node.get("parts") or []:
+        if p.get("op") == "charade" and not p.get("indicators") and not p.get("unchecked"):
+            out += p["parts"]
+        else:
+            out.append(p)
+    return out
+
+
+def _is_stand_in(p):
+    """A leaf that gives other letters than its own words (a synonym), not a doubling."""
+    if not leaf(p) or not p.get("words") or p.get("select"):
+        return False
+    g, w = W.letters(p.get("gives")), W.letters(p["words"])
+    return len(g) >= 2 and g != w and not V._doubled(p) and not V._near_literal(p)
+
+
+def _ana_candidates(node):
+    """Rewrites of an anagram whose fodder holds synonyms: the synonyms charaded on, the
+    anagram of the clue's own words kept (every order of the pieces); [] if none."""
+    if node.get("op") != "anagram":
+        return []
+    flat = _flat_fodder(node)
+    syn = [p for p in flat if _is_stand_in(p)]
+    rest = [p for p in flat if not _is_stand_in(p)]
+    if not syn or not rest or len(syn) > 3:
+        return []
+    if any(leaf(p) and p.get("gives") and W.letters(p["gives"]) != W.letters(p.get("words"))
+           for p in rest):
+        return []       # a part giving other letters that is not a synonym: not mechanical
+    core = checked(node, parts=copy.deepcopy(rest))
+    out = []
+    import itertools
+    for perm in itertools.permutations([*copy.deepcopy(syn), core]):
+        out.append(charade(list(perm)))
+    return out
+
+
+def _plain_charade(n):
+    return bool(n) and n.get("op") == "charade" and not n.get("indicators") and not n.get("unchecked") \
+        and "gives" not in n
+
+
+def _splices(new, parent):
+    """1 when `new` is a plain charade going into a plain charade (repair_tree joins them)."""
+    return int(_plain_charade(new) and _plain_charade(parent))
+
+
+def _pick(node, parent, ctx, cands):
+    """The simplest of the candidates that keep the answer; None unless it is simpler than
+    `node` and the only one of that simplicity."""
+    good = [c for c in cands if _eval_swapped(node, parent, c, ctx)]
+    if not good:
+        return None
+    def key(c):      # the whole tree's key, so a joined charade is not counted twice
+        return simplicity(_whole(node, parent, c, ctx))
+    best = min(key(c) for c in good)
+    top = {json.dumps(c, sort_keys=True): c for c in good if key(c) == best}
+    if len(top) != 1 or best >= simplicity(ctx["tree"]):
+        return None
+    return next(iter(top.values()))
+
+
+def r_ana_synonym(node, parent, ctx):
+    """A synonym scrambled with the fodder: only the clue's own words are anagrammed, the
+    synonym is charaded on at the end the answer's letters give."""
+    return _pick(node, parent, ctx, _ana_candidates(node))
+
+
+def r_ana_of_container(node, parent, ctx):
+    """ana(ins(a, b)): the anagram sits inside the container, over one arm (its synonyms
+    charaded beside it); the other arm stays as it was."""
+    if node.get("op") != "anagram" or len(node.get("parts") or []) != 1:
+        return None
+    c = node["parts"][0]
+    if c.get("op") != "container" or len(c.get("parts") or []) != 2 or c.get("unchecked"):
+        return None
+    cands = []
+    for i in (0, 1):
+        arm = c["parts"][i]
+        base = {k: v for k, v in node.items() if k not in ("unchecked", "gives")}
+        ana = {**copy.deepcopy(base), "parts": [copy.deepcopy(arm)]}
+        for inner in [ana, *_ana_candidates(ana)]:
+            parts = copy.deepcopy(c["parts"])
+            parts[i] = inner
+            cands.append(checked(c, parts=parts))
+    return _pick(node, parent, ctx, cands)
+
+
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
            "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
+#: Repairs for validator rules (the queue's anaSynonym / anagramOfContainer rows), run by --rule.
+RULE_REPAIRS = {"anaSynonym": r_ana_synonym, "anagramOfContainer": r_ana_of_container}
 
 
-def repair_tree(tree, clue):
+def repair_tree(tree, clue, answer=None, repairs=None):
     """(new tree, [repair names]) after applying repairs to a fixpoint (bottom-up)."""
+    repairs = repairs or REPAIRS
     tree = copy.deepcopy(tree)
     had_at = any("at" in x for n, _ in walk(tree) for x in [n, *(n.get("indicators") or [])])
     try:
@@ -507,13 +642,13 @@ def repair_tree(tree, clue):
     except W.WordplayError:
         pass
     used = []
-    ctx = {"clue": clue}
+    ctx = {"clue": clue, "answer": answer}
     for _ in range(12):
         ctx["under_unchecked"] = under_unchecked(tree)
         ctx["tree"] = tree
         changed = False
         for n, parent in reversed(list(walk(tree))):
-            for name, fn in REPAIRS.items():
+            for name, fn in repairs.items():
                 try:
                     new = fn(n, parent, ctx)
                 except (W.WordplayError, IndexError, KeyError, TypeError, ValueError):
@@ -523,7 +658,11 @@ def repair_tree(tree, clue):
                 if parent is None:
                     tree = new
                 else:
-                    parent["parts"][[id(x) for x in parent["parts"]].index(id(n))] = new
+                    i = [id(x) for x in parent["parts"]].index(id(n))
+                    if name in RULE_REPAIRS and _splices(new, parent):
+                        parent["parts"][i:i + 1] = new["parts"]
+                    else:
+                        parent["parts"][i] = new
                 used.append(name)
                 changed = True
                 break
@@ -813,8 +952,116 @@ def run(apply, n_examples, seed, limit=None, jobs=4, ledger=None, only=None):
               + (f"; still: {', '.join(x['new'])}" if x["new"] else ""))
 
 
+def do_rule_puzzle(pid):
+    """--rule: one puzzle's queued rows of the rule; (stat, examples)."""
+    by_pid, paths, allowed, apply, rule = _JOB
+    stat, examples = collections.Counter(), []
+    path = paths.get(pid)
+    if path is None:
+        stat["no_file"] += len(by_pid[pid])
+        return stat, examples
+    import shape_queue
+    puzzle = json.loads(path.read_text(encoding="utf-8"))
+    count = shape_queue._validator_rules()[rule]
+    fixes = []
+    for k, e in enumerate(puzzle.get("entries") or []):
+        if shape_queue.clue_key(e) not in by_pid[pid]:
+            continue
+        ann = e.get("annotation")
+        if not ann or not isinstance(ann.get("wordplay"), dict):
+            continue
+        stat["rows"] += 1
+        clue = (e.get("clue") or {}).get("text", "")
+        answer = shape_queue._answer(e)
+        wp = ann["wordplay"]
+        full = {**ann, "_answer": answer}
+        if not count(wp, full, clue):
+            stat["already_clear"] += 1
+            continue
+        try:
+            new_tree, used = repair_tree(wp, clue, answer, {rule: RULE_REPAIRS[rule]})
+        except (W.WordplayError, IndexError, KeyError, TypeError, ValueError, RecursionError):
+            stat["error"] += 1
+            continue
+        if not used:
+            stat["no_repair"] += 1
+            continue
+        try:
+            W.evaluate(copy.deepcopy(new_tree), answer)
+            norm, _ = W.normalize(new_tree, clue, answer)
+            new_tree = norm
+        except (W.WordplayError, IndexError, KeyError, TypeError, ValueError):
+            stat["rejected_evaluate"] += 1
+            continue
+        new_ann = {**ann, "wordplay": new_tree}
+        old_h, new_h = hits(ann, clue, answer), hits(new_ann, clue, answer)
+        if not set(new_h) <= set(old_h) or unchecked(new_tree) > unchecked(wp) \
+                or shape_counts(new_ann) - shape_counts(ann):
+            stat["rejected_gate"] += 1
+            continue
+        left = bool(count(new_tree, {**new_ann, "_answer": answer}, clue))
+        fixes.append((k, new_ann, {"id": f"{pid}#{shape_queue.clue_key(e)}", "clue": clue, "answer": answer,
+                                   "before": cs.compact(wp), "after": cs.compact(new_tree), "left": left}))
+    kept = []
+    if fixes:
+        base = puzzle_errors(puzzle, path, allowed)
+
+        def ok(fs):
+            trial = copy.deepcopy(puzzle)
+            for k, new_ann, _ in fs:
+                trial["entries"][k]["annotation"] = new_ann
+            return puzzle_errors(trial, path, allowed, committed=puzzle) <= base
+        if ok(fixes):
+            kept = fixes
+        else:
+            for f in fixes:
+                if ok(kept + [f]):
+                    kept.append(f)
+        stat["rejected_validator"] += len(fixes) - len(kept)
+    for _, _, x in kept:
+        stat["fixed_still_flagged" if x["left"] else "fixed_clear"] += 1
+        examples.append(x)
+    if kept and apply:
+        for k, new_ann, _ in kept:
+            puzzle["entries"][k]["annotation"] = new_ann
+        part = path.parent / f".{path.name}.part"
+        part.write_text(json.dumps(puzzle, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+        os.replace(part, path)
+        stat["puzzles_written"] += 1
+    return stat, examples
+
+
+def run_rule(rule, apply, n_examples, seed, limit, jobs):
+    """Repair the queued rows of a validator rule (shape_reannotate.json rows naming `rule`)."""
+    global _JOB
+    import shape_queue
+    rows = [r for r in json.loads(shape_queue.PATH.read_text()) if rule in r.get("reason", "")]
+    if limit:
+        random.seed(seed)
+        rows = random.sample(rows, limit)
+    by_pid = collections.defaultdict(set)
+    for r in rows:
+        pid, _, clue = r["id"].partition("#")
+        by_pid[pid].add(clue)
+    paths = puzzle_paths.find_many(sorted(by_pid))
+    _JOB = (by_pid, paths, V.load_backlog(), apply, rule)
+    pids = sorted(by_pid)
+    stat, examples = collections.Counter(), []
+    pool = multiprocessing.get_context("fork").Pool(jobs) if jobs > 1 else None
+    for s, ex in (pool.imap(do_rule_puzzle, pids, 8) if pool else map(do_rule_puzzle, pids)):
+        stat.update(s)
+        examples += ex
+    print(f"{rule}: {len(rows)} queued rows in {len(pids)} puzzles; "
+          + ", ".join(f"{k} {v}" for k, v in sorted(stat.items())))
+    random.seed(seed)
+    for x in random.sample(examples, min(n_examples, len(examples))):
+        print(f"\n{x['id']} | {x['clue']} | {x['answer']}" + ("  [still flagged]" if x["left"] else ""))
+        print(f"  before: {x['before']}")
+        print(f"  after:  {x['after']}")
+
+
 def main():
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap =argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--apply", action="store_true", help="write the repaired puzzles (see How to apply)")
     ap.add_argument("--examples", type=int, default=15)
     ap.add_argument("--seed", type=int, default=1)
@@ -822,7 +1069,13 @@ def main():
     ap.add_argument("--jobs", type=int, default=4, help="worker processes (default 4)")
     ap.add_argument("--ledger", help="jsonl of finished puzzles: a re-run with the same suspects file resumes after them")
     ap.add_argument("--only", help="only suspects whose first detector is this one (e.g. arity_ins)")
+    ap.add_argument("--rule", choices=sorted(RULE_REPAIRS),
+                    help="repair the queued rows of this validator rule instead of the suspects "
+                         "(tools/data/shape_reannotate.json is not touched: run prune_shape_queue.py --write after)")
     a = ap.parse_args()
+    if a.rule:
+        run_rule(a.rule, a.apply, a.examples, a.seed, a.limit, a.jobs)
+        return
     run(a.apply, a.examples, a.seed, a.limit, a.jobs, a.ledger, a.only)
 
 
