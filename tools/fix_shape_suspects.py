@@ -75,6 +75,7 @@ import argparse
 import collections
 import copy
 import hashlib
+import itertools
 import json
 import multiprocessing
 import os
@@ -2049,7 +2050,70 @@ def r_literal_fodder(node, parent, ctx):
     return new if _eval_swapped(node, None, new, ctx) else None
 
 
-RULE_REPAIRS = {"unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
+def _runs(n, k):
+    """Every way to cut range(n) into k contiguous non-empty runs, as lists of (lo, hi)."""
+    if k == 1:
+        yield [(0, n)]
+        return
+    for c in range(1, n - k + 2):
+        for rest in _runs(n - c, k - 1):
+            yield [(0, c)] + [(a + c, b + c) for a, b in rest]
+
+
+def _arity_cands(node):
+    """Rewrites of an unchecked unary op or substitution that holds too many parts: each a list
+    of charade pieces, the op acting on one run of the parts (or three runs, for a substitution)."""
+    op, parts = node.get("op"), node.get("parts") or []
+    if not node.get("unchecked") or len(parts) < 2 or any(x.get("unchecked") for p in parts for x, _ in walk(p)):
+        return
+    base = {k: v for k, v in node.items() if k not in ("unchecked", "gives", "parts")}
+
+    def group(run):
+        return copy.deepcopy(run[0]) if len(run) == 1 else charade(copy.deepcopy(run))
+    n = len(parts)
+    if op in UNARY:
+        for i in range(n):
+            for j in range(i, n):
+                yield copy.deepcopy(parts[:i]) + [{**base, "parts": [group(parts[i:j + 1])]}] + copy.deepcopy(parts[j + 1:])
+    elif op == "substitution" and n >= 4:
+        for a in range(n - 2):
+            for b in range(a + 3, n + 1):
+                for cuts in _runs(b - a, 3):
+                    runs = [parts[a + lo:a + hi] for lo, hi in cuts]
+                    for order in itertools.permutations(range(3)):
+                        sub = {**base, "parts": [group(runs[o]) for o in order]}
+                        yield copy.deepcopy(parts[:a]) + [sub] + copy.deepcopy(parts[b:])
+
+
+def r_arity_other(node, parent, ctx):
+    """arity_other: an unchecked unary op (reversal, cycling, hidden, a letter pick) or a
+    substitution filed with more parts than it takes. The op acts on one run of its parts and
+    the rest are charade pieces beside it (rev(A, LIFE) -> A + rev(LIFE); a 4-part sub -> the
+    three it takes, in whichever order, with the leftover parts before or after). A container
+    holding one such op (ins(cyc(CALYPSO, APE))) splits the pieces into outer and inner as well.
+    Kept only when the whole tree gives the answer and exactly one reading does."""
+    good = {}
+    if node.get("op") == "container" and node.get("unchecked") and len(node.get("parts") or []) == 1:
+        base = {k: v for k, v in node.items() if k not in ("unchecked", "gives", "parts")}
+        for items in _arity_cands(node["parts"][0]):
+            for i in range(len(items)):
+                for j in range(i, len(items)):
+                    outer = items[:i] + items[j + 1:]
+                    if not outer:
+                        continue
+                    new = {**base, "parts": [charade(copy.deepcopy(outer)), charade(copy.deepcopy(items[i:j + 1]))]}
+                    if _eval_swapped(node, parent, new, ctx):
+                        good[json.dumps(new, sort_keys=True)] = new
+    else:
+        for items in _arity_cands(node):
+            new = charade(items)
+            if _eval_swapped(node, parent, new, ctx):
+                good[json.dumps(new, sort_keys=True)] = new
+    return next(iter(good.values())) if len(good) == 1 else None
+
+
+RULE_REPAIRS = {"arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
+                "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
                 "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": lambda n, p, c: r_pool_gap(n, p, c) or r_pool_eject(n, p, c),
@@ -2564,6 +2628,7 @@ def do_rule_puzzle(pid):
 _DETECTOR_RULES = {"unchecked_leaf": lambda wp, full, clue: "unchecked_leaf" in hits(full, clue, full.get("_answer")),
                    "del_single": lambda wp, full, clue: V.del_single(wp),
                    "arity_ins": lambda wp, full, clue: V.arity_ins(wp),
+                   "arity_other": lambda wp, full, clue: V.arity_other(wp),
                    "ind_in_leaf": lambda wp, full, clue: V.ind_in_leaf(wp, clue)}
 
 

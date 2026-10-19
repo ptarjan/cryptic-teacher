@@ -465,5 +465,27 @@ new, used = F.repair_tree(lft, lfc, "DISTEMPER", {"unchecked_step": F.r_literal_
 check("an unchecked anagram over results becomes a checked one over the clue words",
       used == ["unchecked_step"] and "unchecked" not in json.dumps(new) and "EM" not in json.dumps(new))
 
+# arity_other: a 4-part substitution is the three it takes plus a leftover charade piece; a
+# container over a many-part cycling splits the pieces into holder and held
+AO = {"arity_other": F.r_arity_other}
+aoc = "Quiet Rev's partner for hard drink"
+aot = {"op": "substitution", "unchecked": True, "indicators": [{"text": "for", "at": 20}], "parts": [
+    {"words": "Keen", "at": 0, "gives": "SHREWD"}, {"words": "hard", "at": 24, "gives": "H"},
+    {"words": "about", "at": 8, "gives": "C"}, {"words": "running water", "at": 30, "gives": "RIVER"}]}
+new, used = F.repair_tree(aot, aoc, "SCREWDRIVER", AO)
+check("a 4-part sub becomes a 3-part sub beside the leftover piece",
+      used == ["arity_other"] and new["op"] == "charade" and len(new["parts"][0]["parts"]) == 3
+      and "unchecked" not in json.dumps(new))
+new, used = F.repair_tree(aot, aoc, "SCREWDRIVERX", AO)
+check("a reading that misses the answer is left alone", used == [] and new.get("unchecked"))
+aoc2 = "Dance, lifting bottom in mock revelation"
+aot2 = {"op": "container", "unchecked": True, "indicators": [{"text": "in", "at": 22}], "parts": [
+    {"op": "cycling", "unchecked": True, "indicators": [{"text": "lifting bottom", "at": 7}], "parts": [
+        {"words": "Dance", "at": 0, "gives": "CALYPSO"}, {"words": "mock", "at": 25, "gives": "APE"}]}]}
+new, used = F.repair_tree(aot2, aoc2, "APOCALYPSE", AO)
+check("a container over a many-part cycling holds the cycled piece in the other",
+      used == ["arity_other"] and [p.get("gives") for p in new["parts"]][0] == "APE"
+      and new["parts"][1]["op"] == "cycling" and "unchecked" not in json.dumps(new))
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
