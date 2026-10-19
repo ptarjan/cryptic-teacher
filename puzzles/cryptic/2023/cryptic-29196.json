@@ -1410,38 +1410,31 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "ATOM",
      "indicators": [
       {
        "text": "of",
-       "note": "a part of the following word is taken, with 'part' doing double duty"
+       "at": 15,
+       "note": "the answer is taken from within the following word, as a piece of it"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "anatomy",
+       "at": 18,
        "gives": "ATOM",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "anatomy",
-         "gives": "ATOM",
-         "select": "middle",
-         "note": "the letters run inside this word"
-        }
-       ]
+       "note": "the word that contains the answer"
       }
      ]
     },
     "explanation": {
      "surface": "A tiny portion of the body's structure.",
-     "definitionFit": "An atom is the smallest unit of an element, a proverbially tiny particle."
+     "walkthrough": "The answer sits inside the word anatomy.",
+     "definitionFit": "An atom is the smallest particle of an element, a tiny component of matter."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "anatomy"
     }
    }
   },

@@ -572,59 +572,67 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "COALFACE",
      "indicators": [
       {
        "text": "wearing",
-       "note": "whoever is wearing a garment is inside it, so these letters go within the coat"
+       "at": 13,
+       "note": "the letters for large and female are dressed in, surrounded by the outer letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "short",
-         "note": "something short is cut down, so the final letter of the garment is dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 21,
+           "note": "the coat is short, missing its last letter"
+          }
+         ],
          "parts": [
           {
            "words": "coat",
-           "note": "taken as written before it is trimmed"
+           "at": 27,
+           "gives": "COAT",
+           "note": "the word to be shortened"
           },
           {
-           "words": "Large",
-           "gives": "L",
-           "note": "L is the clothing-size abbreviation for large"
-          },
-          {
-           "words": "female",
-           "gives": "F",
-           "note": "F abbreviates female"
-          },
-          {
-           "words": "one",
-           "gives": "ACE",
-           "note": "an ace is the one in a pack of cards"
+           "gives": "T"
           }
          ]
         },
         {
-         "gives": "T"
+         "words": "one",
+         "at": 33,
+         "gives": "ACE",
+         "note": "an ace is a one in cards"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Large",
+         "at": 0,
+         "gives": "L"
+        },
+        {
+         "words": "female",
+         "at": 6,
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A big woman in a cropped coat shows a seam that has been cut, like a tailoring mishap.",
-     "walkthrough": "Seam and cut suggest dressmaking, but they belong to mining: a seam is a layer of coal and the miners cut it.",
-     "definitionFit": "A coalface is the exposed surface of a coal seam where miners work to extract it."
+     "surface": "A big woman in a short jacket, one with a cut seam showing.",
+     "walkthrough": "'seam' and 'coat' suggest sewing, but the seam is a layer of coal.",
+     "definitionFit": "A coalface is the exposed surface of a coal seam where miners cut the coal."
     },
     "features": {
      "answerInScene": false,
@@ -1463,41 +1471,34 @@
      "indicators": [
       {
        "text": "parting",
-       "note": "parting means splitting open, so these letters push in and divide the next word"
+       "at": 27,
+       "note": "the two letters split the word for strain apart"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "strain",
-         "gives": "FILTER",
-         "note": "to strain a liquid is to filter it"
-        },
-        {
-         "words": "husband",
-         "gives": "H",
-         "note": "H abbreviates husband"
-        }
-       ]
+       "words": "strain",
+       "at": 43,
+       "gives": "FILTER",
+       "note": "to strain is to filter"
       },
       {
-       "words": "and I",
-       "gives": "I",
-       "note": "I taken as written, joined to the husband"
+       "words": "husband and I",
+       "at": 13,
+       "gives": "HI",
+       "note": "H is the abbreviation for husband, joined by I as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A couple split up under the strain of increasingly crude behaviour.",
-     "walkthrough": "Parting and strain suggest a marriage breaking down; strain is a verb for sieving.",
-     "definitionFit": "Filthy can mean obscene or smutty, so its comparative filthier means more obscene."
+     "surface": "A couple separating, with strain making things nastier.",
+     "walkthrough": "H and I part FILTER: FILT-HI-ER.",
+     "definitionFit": "Filthier means dirtier, used here in the sense of more lewd or crude."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "strain"
+     "misdirectedWord": "parting"
     }
    }
   },
@@ -1630,51 +1631,57 @@
      "indicators": [
       {
        "text": "to feed",
-       "note": "to feed something is to put food into it, so these letters go inside"
+       "at": 12,
+       "note": "the letters for adult and right are fed into the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "from",
+         "at": 27,
+         "note": "metres are taken from the word magic"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "from",
-           "note": "taking one thing from another removes it, so the unit letter leaves the word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "magic",
-           "note": "taken as written before a letter leaves"
-          },
-          {
-           "words": "metres",
-           "gives": "M",
-           "note": "m is the symbol for metres"
-          }
-         ]
+         "words": "magic",
+         "at": 32,
+         "gives": "MAGIC",
+         "note": "the word to lose a letter"
         },
         {
-         "words": "Adult",
-         "gives": "A",
-         "note": "A is the film-rating abbreviation for adult"
+         "words": "metres",
+         "at": 20,
+         "gives": "M",
+         "note": "M is the abbreviation for metres"
         }
        ]
       },
       {
-       "words": "right",
-       "gives": "R",
-       "note": "R abbreviates right"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Adult",
+         "at": 0,
+         "gives": "A",
+         "note": "A is the film-rating abbreviation for adult"
+        },
+        {
+         "words": "right",
+         "at": 6,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Is it right to feed an adult magic mushrooms?",
-     "walkthrough": "Magic mushroom reads as one phrase, but magic is fodder and mushroom alone is the definition; the question mark marks a definition by example.",
-     "definitionFit": "An agaric is a gilled fungus of the kind including the fly agaric, the classic toadstool mushroom."
+     "surface": "A magic mushroom with adult content.",
+     "walkthrough": "MAGIC loses M to give AGIC, then A and R go in: AG-AR-IC. The question mark marks mushroom as an example.",
+     "definitionFit": "Agaric is the family of gilled fungi, including the fly agaric toadstool."
     },
     "features": {
      "answerInScene": true,

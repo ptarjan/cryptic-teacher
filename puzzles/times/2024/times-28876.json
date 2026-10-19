@@ -533,49 +533,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ATTENDEE",
+     "op": "container",
      "indicators": [
       {
-       "text": "brief",
-       "note": "something brief is cut short, so the final letter goes"
+       "text": "about",
+       "at": 8,
+       "note": "the word for worried goes round the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Worried",
+       "at": 0,
+       "gives": "ATE",
+       "note": "ate, as in 'what's eating you', means worried"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means round the outside, so one piece wraps another"
+         "text": "brief",
+         "at": 14,
+         "note": "brief means cut short, losing its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Worried",
-         "gives": "ATE",
-         "note": "worried, as in what's eating you"
+         "words": "to offer",
+         "at": 20,
+         "gives": "TENDER",
+         "note": "to tender is to offer"
         },
         {
-         "words": "to offer",
-         "gives": "TENDE",
-         "note": "to tender is to offer, with its last letter dropped"
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is anxious about a short gift for a party guest.",
-     "walkthrough": "'Present' looks like a gift but means being there. ATE for worried comes from 'eaten up with worry'.",
-     "definitionFit": "An attendee is a person who goes to a meeting or event, someone who is there in person."
+     "surface": "Anxious about a lawyer's brief to make an offer.",
+     "walkthrough": "'brief' looks like a lawyer's brief but signals shortening.",
+     "definitionFit": "An attendee is someone who attends, a person at an event."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "present"
+     "misdirectedWord": "brief"
     }
    }
   },
@@ -1061,42 +1065,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EGGON",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "for one",
+       "at": 5,
+       "gives": "EG",
+       "note": "EG, for example, is what 'for one' means"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 13,
+         "note": "most of the word, its last letter dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "for one",
-         "gives": "EG",
-         "note": "e.g., for example"
+         "words": "departed",
+         "at": 20,
+         "gives": "GONE",
+         "note": "gone means departed"
         },
         {
-         "words": "departed",
-         "gives": "GON",
-         "note": "gone, minus its final letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spur that has largely gone missing.",
-     "walkthrough": "'For one' is the crossword shorthand for 'for example', EG.",
-     "definitionFit": "To spur someone is to urge them on, and egging someone on means encouraging them in the same way."
+     "surface": "A goad for someone almost gone.",
+     "walkthrough": "EG plus GON (GONE mostly).",
+     "definitionFit": "To egg on is to urge or encourage someone, as a spur does."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "for"
+     "misdirectedWord": "departed"
     }
    }
   },
@@ -1116,58 +1124,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "puppet",
-      "at": 32,
-      "note": "used adjectivally, as in a puppet ruler"
+      "text": "puppet?",
+      "at": 32
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOMINAL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
+       "text": "on",
+       "at": 21,
+       "note": "in a down clue the first pieces sit on top of the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Lack of",
+       "at": 0,
+       "gives": "NO",
+       "note": "no means lack of, as in 'no money'"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "on",
-         "note": "in a down clue, one piece set on another comes after it"
+         "text": "mostly",
+         "at": 13,
+         "note": "most of the word, its last letter dropped"
         }
        ],
        "parts": [
         {
-         "words": "Lack of",
-         "gives": "NO",
-         "note": "no means a lack of"
-        },
-        {
          "words": "fur",
-         "gives": "MIN",
-         "note": "mink, the fur, without its last letter"
+         "at": 8,
+         "gives": "MINK",
+         "note": "mink is a fur"
         },
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "large",
-         "gives": "L",
-         "note": "L is the clothing-size abbreviation for large"
+         "gives": "K"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 24,
+       "gives": "A"
+      },
+      {
+       "words": "large",
+       "at": 26,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A big glove puppet that has lost most of its fluffy covering.",
-     "walkthrough": "'Puppet' reads as a toy, but it is used like an adjective, as in a puppet government; the question mark flags the stretch.",
-     "definitionFit": "A puppet leader holds a title without real power, and nominal means existing in name only."
+     "surface": "A big puppet that has lost most of its fur.",
+     "walkthrough": "NO, MIN (MINK mostly), A, L. The question mark flags that a puppet is only one example.",
+     "definitionFit": "A nominal ruler holds a title without power, just as a puppet leader does."
     },
     "features": {
      "answerInScene": false,

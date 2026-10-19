@@ -733,24 +733,32 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "EUROTUNNEL",
-     "indicators": [
-      {
-       "text": "including",
-       "note": "one item is held inside another when it is included in it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "EUROTUNNEL",
        "indicators": [
         {
          "text": "abroad",
-         "note": "abroad can mean all over the place, scattered, so the letters are spread into a new order"
+         "at": 6,
+         "note": "abroad suggests the letters are scattered widely"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Route",
+         "at": 0,
+         "note": "the fodder letters"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "including",
+         "at": 29,
+         "note": "the French word and line letters hold the end letters inside them"
         }
        ],
        "parts": [
@@ -758,38 +766,32 @@
          "op": "charade",
          "parts": [
           {
-           "words": "Route",
-           "note": "the letters of route rearranged"
-          },
-          {
            "words": "a French",
+           "at": 15,
            "gives": "UN",
-           "note": "un is French for a"
-          },
-          {
-           "op": "last",
-           "unchecked": true,
-           "gives": "NE",
-           "indicators": [
-            {
-             "text": "terminals",
-             "note": "terminals are end points, so only the end letters of the following words count"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "London and France",
-             "gives": "NE",
-             "select": "last",
-             "note": "the final letters of London and France"
-            }
-           ]
+           "note": "UN is French for a"
           },
           {
            "words": "line",
-           "gives": "L",
-           "note": "L is the abbreviation for line"
+           "at": 24,
+           "gives": "L"
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "terminals in",
+           "at": 39,
+           "note": "the terminal, final, letter of each place name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "London and France",
+           "at": 52,
+           "note": "the two places whose last letters are taken"
           }
          ]
         }
@@ -799,9 +801,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A route overseas: a French line linking terminals in London and France.",
-     "walkthrough": "The whole clue is both the wordplay and a description of the Channel rail link; UN and L hold the end letters of London and France.",
-     "definitionFit": "The Eurotunnel is the rail tunnel under the Channel joining England with France."
+     "surface": "A cross-Channel rail link with stations in both capitals' countries.",
+     "walkthrough": "EUROT (an anagram of ROUTE from 'abroad') then UN and L holding N and E, the last letters of London and France.",
+     "definitionFit": "The Channel Tunnel rail link runs between Britain and France, ending in London and Paris."
     },
     "features": {
      "answerInScene": true,
