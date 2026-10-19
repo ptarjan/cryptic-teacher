@@ -260,69 +260,70 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "introducing",
-       "note": "the first piece introduces what follows, coming before it"
+       "text": "about",
+       "at": 37,
+       "note": "about means going round, so the outer pieces surround the other"
       }
      ],
      "parts": [
       {
-       "op": "first",
+       "op": "charade",
        "indicators": [
         {
-         "text": "Leader in",
-         "note": "the leader of a word is its first letter"
+         "text": "introducing",
+         "at": 19,
+         "note": "introducing means coming first, before the following pieces"
         }
        ],
        "parts": [
         {
-         "words": "Congress",
-         "note": "the first letter of Congress"
-        }
-       ]
-      },
-      {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "about",
-         "note": "about means going round, so the law phrase wraps around the cigarette substance"
-        }
-       ],
-       "parts": [
-        {
-         "op": "container",
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Leader in",
+           "at": 0,
+           "note": "leader means the first letter of Congress"
+          }
+         ],
          "parts": [
           {
-           "words": "law",
-           "gives": "ACT",
-           "note": "an act is a law passed by a legislature"
-          },
-          {
-           "words": "cigarette problem",
-           "gives": "TAR",
-           "note": "tar is the harmful residue in cigarette smoke"
+           "words": "Congress",
+           "at": 10
           }
          ]
         },
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 31,
+         "gives": "A"
+        },
+        {
+         "words": "law",
+         "at": 33,
+         "gives": "ACT",
+         "note": "an act is a law passed by a legislature"
         }
        ]
+      },
+      {
+       "words": "cigarette problem",
+       "at": 43,
+       "gives": "TAR",
+       "note": "tar is the harmful residue in cigarette smoke"
       }
      ]
     },
     "explanation": {
-     "surface": "A congressional leader brings in a law on the problem of smoking, which then fails.",
-     "walkthrough": "'Problem' tempts as the eye-disease definition, but it belongs to the cigarette; the definition is 'fall', as in waterfall.",
+     "surface": "Politics: a congressional leader brings in a law on smoking harm.",
+     "walkthrough": "'problem' plus 'fall' hints at both senses of the answer, an eye problem and a waterfall; here only the waterfall is the definition.",
      "definitionFit": "A cataract is a large, steep waterfall, so a fall of water."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "fall"
     }
    }
@@ -348,37 +349,51 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DEMOCRATIC",
-     "indicators": [
-      {
-       "text": "being taken over",
-       "note": "in a down clue, taken over means flipped upside down, so the stated half reads from bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "protest",
+       "at": 20,
        "gives": "DEMO",
-       "note": "a demo is a demonstration, a public protest"
+       "note": "a demo is a protest march"
       },
       {
-       "words": "50% of Arctic",
-       "gives": "ARCTIC",
-       "note": "the word whose first half, three letters of six, is turned round"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "50% of",
+         "at": 28,
+         "note": "50% of says only half the word, its first three letters, is affected"
+        },
+        {
+         "text": "being taken over",
+         "at": 42,
+         "note": "taken over means turned over, so that half reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Arctic",
+         "at": 35
+        },
+        {
+         "gives": "ARC"
+        },
+        {
+         "gives": "CRA"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Senators protest about part of the Arctic being taken over.",
-     "walkthrough": "Only the first half of Arctic is turned; the second half stays as it is.",
-     "definitionFit": "Democratic senators are members of the US Democratic Party, one of the two big parties in the Senate."
+     "surface": "Senators protesting about an Arctic region being seized.",
+     "definitionFit": "Members of the US Democratic Party in the Senate are Democratic senators, so the label fits some of them."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "protest"
+     "misdirectedWord": "taken"
     }
    }
   },

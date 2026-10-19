@@ -1331,43 +1331,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ORIEL",
+     "op": "container",
      "indicators": [
       {
-       "text": "unclosed",
-       "note": "something left unclosed has no end, so its final letter is dropped"
+       "text": "in",
+       "at": 15,
+       "note": "in means placed inside the trimmed airport name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "one thing being in another means it sits inside it, so one piece goes within the other"
+         "text": "unclosed",
+         "at": 27,
+         "note": "unclosed means the word's last letter, its close, is removed"
         }
        ],
        "parts": [
         {
          "words": "airport",
-         "gives": "ORL",
-         "note": "Orly is a Paris airport; lose its last letter"
+         "at": 18,
+         "gives": "ORLY",
+         "note": "Orly is a Paris airport"
         },
         {
-         "words": "that is",
-         "gives": "IE",
-         "note": "ie is the abbreviation of id est, that is"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "words": "that is",
+       "at": 7,
+       "gives": "IE",
+       "note": "i.e. is the abbreviation of id est, that is"
       }
      ]
     },
     "explanation": {
-     "surface": "A window in an airport terminal has been left open.",
-     "walkthrough": "Orly, a Paris airport, loses its final letter, and IE goes inside what is left.",
-     "definitionFit": "An oriel is a bay window projecting from an upper storey of a building."
+     "surface": "A window that is in an airport and left open.",
+     "walkthrough": "'unclosed' suggests an open window, but it cuts the end off the airport.",
+     "definitionFit": "An oriel is a bay window projecting from an upper storey."
     },
     "features": {
      "answerInScene": true,

@@ -943,50 +943,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SACREBLEU",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter of the surname is cut off"
+       "text": "stumbles",
+       "at": 36,
+       "note": "stumbling is losing one's footing, so the letters are tumbled"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "as",
+       "at": 16
+      },
+      {
+       "words": "Bruce",
+       "at": 19,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "stumbles",
-         "note": "someone who stumbles loses their footing, so the letters fall into a new arrangement"
+         "text": "almost",
+         "at": 29,
+         "note": "almost means Lee loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "as",
-         "note": "taken as written"
-        },
-        {
-         "words": "Bruce",
-         "note": "taken as written"
-        },
-        {
          "words": "Lee",
-         "gives": "LE",
-         "note": "the name without its last letter"
+         "at": 25,
+         "note": "taken as written before the cut"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Frenchman shouts in alarm as the martial-arts star Bruce Lee trips over.",
-     "definitionFit": "Sacrebleu is a stereotypical French oath of surprise, an exclamation English writers put in French characters' mouths."
+     "surface": "A French bystander exclaims as the martial-arts star Bruce Lee nearly trips.",
+     "definitionFit": "Sacrebleu is a stock French exclamation of surprise or annoyance, like 'good heavens'."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd"
+     "joke": "absurd",
+     "misdirectedWord": "stumbles"
     }
    }
   },
@@ -1680,34 +1685,35 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "MANGE",
+     "op": "deletion",
      "indicators": [
       {
        "text": "in",
-       "note": "in points to the inside, so the central letters are kept once German is written out a second time"
+       "at": 21,
+       "note": "in means the letters sit inside the run of letters, spanning the join"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "German written out twice",
-       "gives": "MANGE",
-       "select": "middle",
-       "note": "write the word twice, back to back, and take the central five letters across the join"
+       "at": 24,
+       "gives": "GERMANGERMAN",
+       "note": "the word German set down two times in a row, as one unbroken string"
+      },
+      {
+       "gives": "GERRMAN"
       }
      ]
     },
     "explanation": {
-     "surface": "A tetchy grumble about a German document copied twice.",
-     "walkthrough": "The answer straddles the join in GERMANGERMAN.",
-     "definitionFit": "Mange is a skin disease of animals caused by mites, which makes the skin itch badly."
+     "surface": "An itchy ailment hiding in a German word, with a playful question mark.",
+     "walkthrough": "Write GERMANGERMAN: the answer straddles the join.",
+     "definitionFit": "Mange is a skin disease of animals, caused by mites, that causes itching and hair loss."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "written"
+     "misdirectedWord": "German"
     }
    }
   },
