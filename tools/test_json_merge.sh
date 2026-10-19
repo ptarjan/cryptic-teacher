@@ -167,6 +167,18 @@ for t in $(cd "$ROOT/tools" && python3 -c 'import puzzle_rows; print(*puzzle_row
     "$(git -C "$ROOT" check-attr merge -- "tools/data/$t.json" | awk '{print $NF}')" json-keys
 done
 
+# annotation_backlog.json (field -> puzzle -> count) was once unregistered, so two
+# writers touching one field conflicted as text (blog-facts cf61487b14b).
+check "tools/annotation_backlog.json is merged per key" \
+  "$(git -C "$ROOT" check-attr merge -- tools/annotation_backlog.json | awk '{print $NF}')" json-keys
+bl=$(mktemp -d)
+echo '{"f": {"a": 1, "b": 2}}' > "$bl/o"; echo '{"f": {"a": 1, "b": 2, "c": 3}}' > "$bl/a"
+echo '{"f": {"a": 1, "b": 1, "d": 4}}' > "$bl/b"
+python3 "$ROOT/tools/json_merge.py" "$bl/o" "$bl/a" "$bl/b" 2>/dev/null
+check "both sides editing one backlog field merge per puzzle" \
+  "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1])))' "$bl/a")" \
+  "{'f': {'a': 1, 'b': 1, 'c': 3, 'd': 4}}"
+
 # What is committed: every json-keys file in its one-line-per-key layout, which
 # is what lets the merge and the filter be no-ops on it.
 for f in $(sed -n 's/^\([^#][^ ]*\) .*merge=json-keys.*filter=json-keys.*/\1/p' "$ROOT/.gitattributes"); do
