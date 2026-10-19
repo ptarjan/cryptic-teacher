@@ -527,6 +527,12 @@ def _scan_there(data, rel):
         finally:
             missing, _WATCH[:] = _WATCH[1], [None, []]
         gc.collect()  # closes the leaves' files, which Windows will not delete open
+        # band_words reads its cache without testing for it first, so a title
+        # reading the Mac has not cached opens a missing file; scan_request
+        # sends every cached reading of the edition, so that is a miss on the
+        # Mac too, not a file it failed to send.
+        titles = str(crops / "titles") + os.sep
+        missing = [m for m in missing if not m.startswith(titles)]
         if missing:
             raise FileNotFoundError("opened files it was not sent: " + ", ".join(sorted(set(missing))[:5]))
         return found, changed(crops, sent)
