@@ -438,40 +438,43 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' places something inside"
+       "at": 23,
+       "note": "in means these letters go inside the wind word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "wind",
-         "gives": "EASTERLY",
-         "note": "an easterly is a wind from the east"
-        },
-        {
-         "words": "I",
-         "note": "I stays I"
-        }
-       ]
+       "words": "wind",
+       "at": 26,
+       "gives": "EASTERLY",
+       "note": "an easterly is a wind from the east"
       },
       {
-       "words": "left",
-       "gives": "L",
-       "note": "L = left, joining I inside the wind"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 16,
+         "gives": "I"
+        },
+        {
+         "words": "left",
+         "at": 18,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A flower of the season, battered by a gale.",
-     "walkthrough": "'Seasonal' points at Easter, the festival at which white lilies decorate churches.",
-     "definitionFit": "The Easter lily is a white trumpet lily associated with the Easter season, hence seasonal."
+     "surface": "A spring flower is left out in the wind.",
+     "walkthrough": "I and L go between EASTERL and Y.",
+     "definitionFit": "The Easter lily is a white lily that flowers around Easter, so it is a seasonal flower."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "left"
+     "aptDefinition": true,
+     "misdirectedWord": "wind"
     }
    }
   },
@@ -838,56 +841,56 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
        "text": "After",
-       "note": "'after' means following, so the pub piece comes after the numerals"
+       "at": 0,
+       "note": "after means the rest of the wordplay follows these numerals"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "1:50",
+       "at": 6,
+       "gives": "IL",
+       "note": "1 is I and 50 is L in Roman numerals"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "'in' places something inside, so the American goes inside the pub"
+         "at": 29,
+         "note": "in means the soldier goes inside the pub word"
         }
        ],
        "parts": [
         {
-         "words": "1",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
-        },
-        {
-         "words": "50",
-         "gives": "L",
-         "note": "L is the Roman numeral fifty"
-        },
-        {
          "words": "pub",
+         "at": 32,
          "gives": "LOCAL",
-         "note": "a local is one's nearby pub"
+         "note": "a local is a nearby pub"
+        },
+        {
+         "words": "serving American",
+         "at": 12,
+         "gives": "GI",
+         "note": "a GI is an American soldier, someone serving"
         }
        ]
-      },
-      {
-       "words": "serving American",
-       "gives": "GI",
-       "note": "a GI is an American serviceman, set inside the pub"
       }
      ]
     },
     "explanation": {
-     "surface": "Staying in the pub serving an American after ten to two is indefensible.",
-     "walkthrough": "'1:50' looks like a time of day, but you read it as the Roman numerals 1 and 50.",
-     "definitionFit": "A plain synonym: an illogical position has no sound reasoning, so it cannot be justified."
+     "surface": "At ten to two, an American soldier in a pub behaves without reason.",
+     "walkthrough": "1:50 looks like a time; read as Roman numerals it gives I and L.",
+     "definitionFit": "Something illogical lacks sound reasoning, so it cannot be justified."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "serving"
+     "misdirectedWord": "1:50"
     }
    }
   },
@@ -1089,34 +1092,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Wrongly",
-       "note": "something done wrongly is done amiss, so the letters come out in the wrong order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Wrongly",
+         "at": 0,
+         "note": "wrongly means the letters of claimed are in the wrong order"
+        }
+       ],
        "parts": [
         {
          "words": "claimed",
-         "note": "anagram of the seven letters"
-        },
-        {
-         "words": "way to use digit",
-         "gives": "POINT",
-         "note": "you point with a finger, a digit"
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "way to use digit",
+       "at": 16,
+       "gives": "POINT",
+       "note": "you can point with a finger, a digit"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone claiming, wrongly, the right way to use a finger.",
-     "walkthrough": "'Digit' means a finger in the wordplay, then 'them' in the definition switches it to numerical digits.",
-     "definitionFit": "A decimal point sits between two digits, separating whole numbers from fractions."
+     "surface": "Someone falsely says how to use a finger.",
+     "walkthrough": "'digit' means a finger in the wordplay and a number in the definition, where 'them' refers back to digits.",
+     "definitionFit": "A decimal point sits between the whole-number digits and the fractional digits of a number."
     },
     "features": {
      "answerInScene": false,

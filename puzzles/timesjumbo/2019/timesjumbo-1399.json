@@ -268,38 +268,42 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the word for speechless goes round the other letters"
+       "at": 11,
+       "note": "about means the speechless word goes around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Speechless",
-         "gives": "MUTE",
-         "note": "unable to speak"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Speechless",
+       "at": 0,
+       "gives": "MUTE",
+       "note": "mute means speechless"
       },
       {
-       "words": "temperature",
-       "gives": "T",
-       "note": "T is the abbreviation for temperature"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 17,
+         "gives": "A"
+        },
+        {
+         "words": "temperature",
+         "at": 19,
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone struck dumb by a change in temperature.",
-     "definitionFit": "To mutate is to alter in form or nature, typically genetically, so it means to change."
+     "surface": "Someone says nothing about a shift in temperature.",
+     "definitionFit": "To mutate is to alter in form, a verb synonym of change."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "temperature"
     }
    }
   },
@@ -1959,31 +1963,26 @@
    "annotation": {
     "definitions": [
      {
-      "text": "mechanic",
+      "text": "mechanic?",
       "at": 48
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "covers",
-       "note": "in a down clue, covering means sitting on top of the next piece"
-      }
-     ],
      "parts": [
       {
        "op": "middle",
        "indicators": [
         {
          "text": "Insides of",
-         "note": "insides means the inner letters, with the outer ones discarded"
+         "at": 0,
+         "note": "insides of means each of the words parts and list loses its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "parts",
-         "note": "the inner letters of parts"
+         "at": 11
         }
        ]
       },
@@ -1992,24 +1991,25 @@
        "parts": [
         {
          "words": "list",
-         "note": "the inner letters of list"
+         "at": 17
         }
        ]
       },
       {
-       "words": "article",
+       "words": "covers article",
+       "at": 22,
        "gives": "AN",
-       "note": "the indefinite article"
+       "note": "AN is the indefinite article; covers says the letters before it sit on top of it in this down clue"
       }
      ]
     },
     "explanation": {
-     "surface": "A mechanic consulting a parts list.",
-     "walkthrough": "Mechanic is the old noun for a manual worker, as in Shakespeare's rude mechanicals.",
-     "definitionFit": "An artisan is a skilled manual worker, and mechanic once meant exactly that kind of craftsman."
+     "surface": "The inside of a parts list includes an article that a mechanic needs.",
+     "walkthrough": "'Insides of' works on both parts and list; in a down clue the pieces that cover the article sit above it, so they come first.",
+     "definitionFit": "An artisan is a skilled manual worker; mechanic in an old sense means a craftsman, hence the question mark."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "mechanic"
     }
@@ -2138,45 +2138,46 @@
      "indicators": [
       {
        "text": "covers",
-       "note": "covers means wraps around, so the word for obsolete encloses the rest"
+       "at": 25,
+       "note": "covers means the obsolete word wraps around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "obsolete",
+       "at": 16,
+       "gives": "DATED",
+       "note": "dated means out of date, obsolete"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "obsolete",
-           "gives": "DATED",
-           "note": "out of date"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "the Roman numeral one"
-          }
-         ]
+         "words": "one",
+         "at": 32,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
         },
         {
          "words": "circuit",
+         "at": 36,
          "gives": "LAP",
-         "note": "a lap of a track"
+         "note": "a lap is one circuit of a track"
+        },
+        {
+         "words": "I had",
+         "at": 44,
+         "gives": "ID",
+         "note": "I'd is the contraction of I had"
         }
        ]
-      },
-      {
-       "words": "I had",
-       "gives": "ID",
-       "note": "I'd is short for I had"
       }
      ]
     },
     "explanation": {
-     "surface": "An old circuit race car, broken down and outdated.",
-     "definitionFit": "Dilapidated describes a building or thing in ruinous disrepair, fallen apart from neglect."
+     "surface": "Something old and worn out wraps one circuit that someone completed.",
+     "walkthrough": "'Broken-down and obsolete' reads like one double description, but only the first part is the definition; obsolete starts the wordplay.",
+     "definitionFit": "Something dilapidated is in disrepair, falling apart through neglect."
     },
     "features": {
      "answerInScene": false,
@@ -3498,51 +3499,71 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "outside",
-       "note": "outside means set beyond, so the reversed sailor stands on the far side of the unit"
+       "at": 47,
+       "note": "outside means the other pieces sit on either side of the unit word"
       }
      ],
      "parts": [
       {
-       "words": "former mate",
-       "gives": "EX",
-       "note": "an ex is a former partner"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "former mate",
+         "at": 6,
+         "gives": "EX",
+         "note": "an ex is a former partner"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "returning",
+           "at": 37,
+           "note": "returning means E and the sailor word are read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "English",
+             "at": 22,
+             "gives": "E"
+            },
+            {
+             "words": "sailor",
+             "at": 30,
+             "gives": "TAR",
+             "note": "a tar is a sailor"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "unit",
+       "at": 55,
        "gives": "ONE",
-       "note": "one is the unit number"
-      },
-      {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "returning",
-         "note": "returning means going back, so the English sailor pair is read backwards"
-        }
-       ],
-       "parts": [
-        {
-         "words": "English sailor",
-         "gives": "ETAR",
-         "note": "E for English and a tar is a sailor"
-        }
-       ]
+       "note": "one is a unit"
       }
      ]
     },
     "explanation": {
-     "surface": "A former shipmate and an English sailor coming back to clear the decks.",
-     "walkthrough": "'Outside unit' places the reversed sailor on the outer side of ONE, after it, not around it.",
-     "definitionFit": "To exonerate is to clear someone of blame or a charge, declaring them free of guilt."
+     "surface": "Someone's ex and an English sailor are cleared, with a military unit somewhere outside.",
+     "walkthrough": "'returning' turns only the English sailor, and the unit sits inside the whole string, between the former mate and the turned sailor.",
+     "definitionFit": "To exonerate someone is to free them from blame, to clear their name."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "mate"
+     "misdirectedWord": "unit"
     }
    }
   }

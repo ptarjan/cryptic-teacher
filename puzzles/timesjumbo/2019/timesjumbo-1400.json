@@ -1598,35 +1598,39 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the first pieces inside the word for decline"
+       "at": 32,
+       "note": "in means these letters go inside the word for decline"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "decline",
-         "gives": "FADE",
-         "note": "to fade is to decline gradually"
-        },
-        {
-         "words": "America",
-         "gives": "US",
-         "note": "US is the abbreviation for the United States"
-        }
-       ]
+       "words": "decline",
+       "at": 35,
+       "gives": "FADE",
+       "note": "to fade is to decline"
       },
       {
-       "words": "badly",
-       "gives": "ILL",
-       "note": "ill means poorly or badly"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "America",
+         "at": 18,
+         "gives": "US",
+         "note": "US is the United States, America"
+        },
+        {
+         "words": "badly",
+         "at": 26,
+         "gives": "ILL",
+         "note": "ill means badly, as in ill-treated"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political attack depicting America as faltering.",
-     "definitionFit": "A fusillade is a rapid volley of gunfire, as is a naval broadside, and figuratively an outburst of criticism."
+     "surface": "A critical attack shows America doing badly as it declines.",
+     "definitionFit": "A fusillade is a burst of gunfire, like a ship's broadside of guns fired together."
     },
     "features": {
      "answerInScene": false,
@@ -2336,44 +2340,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ESSAYISTS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Incomplete",
-       "note": "incomplete means missing a piece, so the last letter is dropped"
+       "text": "unstable",
+       "at": 24,
+       "note": "unstable means the letters are not fixed and get rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "unstable",
-         "note": "something unstable will not hold its arrangement, so the letters shift"
+         "text": "Incomplete",
+         "at": 0,
+         "note": "incomplete means the word system loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "system",
-         "gives": "SYSTE",
-         "note": "the word less its final letter"
+         "at": 11
         },
         {
-         "words": "is as",
-         "note": "taken as written"
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "is",
+       "at": 18
+      },
+      {
+       "words": "as",
+       "at": 21
       }
      ]
     },
     "explanation": {
-     "surface": "Writers complaining that an unfinished system is shaky.",
-     "definitionFit": "Essayists are authors of short prose compositions on particular subjects."
+     "surface": "A broken system is as shaky for writers as for anyone.",
+     "walkthrough": "SYSTE (system without its last letter) with IS and AS is rearranged.",
+     "definitionFit": "Essayists are authors of essays, a kind of writer."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "system"
     }
@@ -3085,51 +3096,51 @@
      "indicators": [
       {
        "text": "covering",
-       "note": "covering means wrapped around, so the spelt-out letter encloses the rest"
+       "at": 31,
+       "note": "covering means the letter word wraps around the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "letter",
+       "at": 40,
+       "gives": "TEE",
+       "note": "tee is the spelt-out name of the letter T"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "letter",
-           "gives": "TEE",
-           "note": "tee is the letter T spelt out"
-          },
-          {
-           "words": "article",
-           "gives": "A",
-           "note": "a is the indefinite article"
-          }
-         ]
+         "words": "article",
+         "at": 8,
+         "gives": "A",
+         "note": "A is the indefinite article"
         },
         {
          "words": "by",
+         "at": 16,
          "gives": "X",
-         "note": "x is the multiplication sign, read as 'by', as in 3 by 4"
+         "note": "X means by, as in times, in multiplication"
+        },
+        {
+         "words": "father",
+         "at": 19,
+         "gives": "FR",
+         "note": "FR is the abbreviation for Father, a priest's title"
         }
        ]
-      },
-      {
-       "words": "father",
-       "gives": "FR",
-       "note": "Fr is the abbreviation for Father, a priest"
       }
      ]
     },
     "explanation": {
-     "surface": "A priest's article sent off with a cover letter.",
-     "walkthrough": "'Unrated' means not subject to rates, the old British local property tax.",
-     "definitionFit": "Something unrated escapes the rates, a local property tax, so it is exempt from paying."
+     "surface": "A piece written alongside a father, sent with a covering letter.",
+     "walkthrough": "'covering letter' suggests a note sent with a document, but here the letter is spelt out as a word and does the covering.",
+     "definitionFit": "Something tax-free is not subject to rates or duties, so it is unrated."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "covering"
+     "misdirectedWord": "letter"
     }
    }
   },

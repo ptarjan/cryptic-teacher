@@ -808,47 +808,52 @@
      "indicators": [
       {
        "text": "receiving",
-       "note": "a word receiving others takes them inside itself"
+       "at": 7,
+       "note": "receiving means the look word takes the other pieces into its middle"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "look",
-         "gives": "GANDER",
-         "note": "a gander is a look, as in 'take a gander'"
-        },
-        {
-         "words": "ball",
-         "gives": "O",
-         "note": "the letter O is ball-shaped"
-        }
-       ]
+       "words": "look",
+       "at": 40,
+       "gives": "GANDER",
+       "note": "to have a gander is to take a look"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "turned",
-         "note": "something turned is facing the other way, so read backwards"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "like this",
-         "gives": "SO",
-         "note": "'do it so' means like this"
+         "words": "ball",
+         "at": 17,
+         "gives": "O",
+         "note": "O is shaped like a ball"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turned",
+           "at": 22,
+           "note": "turned means the word for 'like this' is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "like this",
+           "at": 29,
+           "gives": "SO",
+           "note": "'so' can mean like this, in this way"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wide player takes the ball, turns this way, and looks up.",
-     "walkthrough": "'Winger' suggests a footballer on the wing; it is anything with wings, here a bird.",
-     "definitionFit": "The goosander is a large diving duck, a bird and so a creature with wings."
+     "surface": "A footballer on the wing collects a ball that has spun like this, and someone is told to look.",
+     "walkthrough": "'Winger' suggests a footballer, but any bird is a winger in crosswords; 'like this' is the sense of 'so' in 'do it so'.",
+     "definitionFit": "A goosander is a diving duck, and any bird can be called a winger in crosswords."
     },
     "features": {
      "answerInScene": false,
@@ -1039,45 +1044,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "could be",
-       "note": "'could be' suggests a possible rearrangement of the letters"
+       "text": "in",
+       "at": 3,
+       "note": "in means the rearranged letters sit within the truck word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "truck",
+       "at": 6,
+       "gives": "UTE",
+       "note": "a ute is a utility truck, especially in Australia"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "one piece placed in another sits inside it"
+         "text": "could be",
+         "at": 14,
+         "note": "could be signals that the letters of rain can be rearranged into something else"
         }
        ],
        "parts": [
         {
-         "words": "truck",
-         "gives": "UTE",
-         "note": "a ute is a utility vehicle, Australian for a pickup truck"
-        },
-        {
          "words": "rain",
-         "note": "these letters are rearranged"
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller needs the toilet in the truck, or is it just rain?",
-     "walkthrough": "'Go' is the euphemism, as in 'need to go'.",
-     "definitionFit": "To go is a colloquial euphemism for relieving oneself, and urinate is the plain word."
+     "surface": "Someone is told to get in the truck because it looks as though rain is on the way.",
+     "walkthrough": "'Go' looks like an instruction to set off, but it is the euphemism; a ute is the Australian name for a pickup truck.",
+     "definitionFit": "To go is a familiar euphemism for relieving oneself, passing water."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "Go"
     }
    }
@@ -1173,55 +1181,60 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to punch",
+       "at": 10,
+       "note": "to punch means these letters are driven into the middle of the others"
+      }
+     ],
      "parts": [
       {
-       "words": "sick",
-       "gives": "ILL",
-       "note": "unwell"
-      },
-      {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "punch",
-         "note": "to punch is to pierce, so these letters go through and sit inside"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "sex",
-           "gives": "IT",
-           "note": "'it' is a coy word for sex"
-          },
-          {
-           "words": "about",
-           "gives": "C",
-           "note": "C for circa, about"
-          }
-         ]
+         "words": "sick",
+         "at": 19,
+         "gives": "ILL",
+         "note": "ill means sick"
         },
         {
+         "words": "sex",
+         "at": 24,
+         "gives": "IT",
+         "note": "IT is an old slang word for sex appeal or sex"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "One",
+         "at": 0,
          "gives": "I",
-         "note": "Roman numeral for one"
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "about",
+         "at": 4,
+         "gives": "C",
+         "note": "C stands for circa, Latin for about"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone thumps a perverted sex offender.",
-     "walkthrough": "'Criminal' looks like a noun; it is the adjective, meaning unlawful. The one and about go between sick and sex.",
-     "definitionFit": "Illicit means forbidden by law, which is what a criminal act is."
+     "surface": "Someone is about to hit a sick sex offender.",
+     "walkthrough": "'sex criminal' reads as one phrase, but sex is a wordplay piece and criminal alone is the definition.",
+     "definitionFit": "Something illicit is unlawful, forbidden by law, so criminal is a fair adjective synonym."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "criminal"
+     "misdirectedWord": "punch"
     }
    }
   },
