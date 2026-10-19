@@ -718,4 +718,7 @@ check("a leaf opening with a link word that the rest alone gives is counted (SWA
     {"op": "charade", "parts": [lf("in Southwest", "SW"), lf("Do I exist", "AMI")]}))
 check("round 25: nonWordOperand is a warning only, the rest are gated", (True, False),
       ("nonWordOperand" in shape_queue.WARN_ONLY, "nonWordOperand" in shape_queue.gated()))
+check("a warning-only rule never fails a puzzle, whatever its allowance", ([], True),
+      (v.backlog_errors("x-1", [v.BARE_INITIAL, v.IND_FOLDED], {"wordplay.bareInitial": {}, "wordplay.indFolded": {}}),
+       bool(v.backlog_errors("x-1", [v.SINGLE_LEAF], {"wordplay.singleLeaf": {}}))))
 raise SystemExit(fails)
