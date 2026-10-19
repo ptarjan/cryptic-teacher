@@ -77,10 +77,10 @@ def survey_all(paths):
 def drift(surveyed, allowed, fields, everything=()):
     """{field: {puzzle: [clue keys]}} for each puzzle past its allowance in a requeueable field.
     A field in `everything` is a grandfathered one (--all): every puzzle with a hit counts, over
-    its allowance or not."""
+    its allowance or not, and a field with no allowance list yet gets one (a new rule)."""
     return {f: {stem: flagged[f] for stem, flagged, _ in surveyed
                 if len(flagged.get(f, ())) > (0 if f in everything else allowed.get(f, {}).get(stem, 0))}
-            for f in fields if f in allowed}
+            for f in fields if f in allowed or f in everything}
 
 
 def requeue(over, fields, rows):
@@ -130,7 +130,7 @@ def main():
     data = json.loads(V.BACKLOG_PATH.read_text())
     for field, puzzles in over.items():
         for stem, keys in puzzles.items():
-            data[field][stem] = len(keys)
+            data.setdefault(field, {})[stem] = len(keys)
         data[field] = dict(sorted(data[field].items(), key=V._sort_key))
     V.BACKLOG_PATH.write_text(json.dumps(data, indent=1) + "\n")
     print(f"requeue_drift: queued {added} clue(s), raised the allowances of {sum(map(len, over.values()))} puzzle-field(s)")
