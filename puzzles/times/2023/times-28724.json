@@ -162,48 +162,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CAMEL",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the word loses its final letter"
+       "text": "in",
+       "at": 35,
+       "note": "in means the shortened word is placed inside the state's abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "the Golden State",
+       "at": 38,
+       "gives": "CAL",
+       "note": "California, nicknamed the Golden State, abbreviates to CAL"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "'in' places the shortened word inside the abbreviation for the state"
+         "text": "mostly",
+         "at": 16,
+         "note": "mostly means the word loses its final letter, keeping most of it"
         }
        ],
        "parts": [
         {
-         "words": "the Golden State",
-         "gives": "CAL",
-         "note": "California, the Golden State, is abbreviated Cal"
+         "words": "encountered",
+         "at": 23,
+         "gives": "MET",
+         "note": "to have encountered someone is to have met them"
         },
         {
-         "words": "encountered",
-         "gives": "ME",
-         "note": "met, cut short by its last letter"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pack animal one might rarely meet in California.",
-     "walkthrough": "MET loses its T and goes inside CAL.",
-     "definitionFit": "Camels are used to carry loads across deserts, a classic working animal."
+     "surface": "A wry suggestion that pack animals turn up mostly in California.",
+     "walkthrough": "'mostly' trims MET to ME, and 'in' puts that inside CAL, the old abbreviation for California, the Golden State.",
+     "definitionFit": "The camel is the classic desert pack animal, used for carrying loads."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "encountered"
+     "misdirectedWord": "mostly"
     }
    }
   },
@@ -954,12 +959,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RELENTING",
      "indicators": [
       {
        "text": "drinking",
-       "note": "what drinks takes something inside itself"
+       "at": 28,
+       "note": "drinking means the outer letters take the fast word inside them"
       }
      ],
      "parts": [
@@ -968,40 +972,43 @@
        "parts": [
         {
          "words": "about",
+         "at": 10,
          "gives": "RE",
-         "note": "re means concerning"
+         "note": "re means about or concerning, as in a letter heading"
         },
         {
          "op": "anagram",
          "indicators": [
           {
            "text": "sadly",
-           "note": "sadly suggests things going badly wrong, so the letters fall out of order"
+           "at": 21,
+           "note": "sadly suggests the letters of gin are in a sorry, disordered state"
           }
          ],
          "parts": [
           {
-           "words": "fast",
-           "gives": "LENT",
-           "note": "the Christian season of fasting"
-          },
-          {
            "words": "gin",
-           "note": "taken as written, to be rearranged"
+           "at": 16
           }
          ]
         }
        ]
+      },
+      {
+       "words": "fast",
+       "at": 37,
+       "gives": "LENT",
+       "note": "Lent is the Christian season of fasting"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone abandoning a fast by drinking gin, a sad lapse.",
-     "walkthrough": "'Fast' is not speed but abstaining from food, the forty days before Easter.",
-     "definitionFit": "Relenting means softening or yielding, abandoning a harsh position."
+     "surface": "Someone yielding in a dispute about gin while sorrowfully taking a drink despite fasting.",
+     "walkthrough": "'about' gives a piece of its own here rather than signalling a container; the container signal is 'drinking', and the fast is the Christian season before Easter.",
+     "definitionFit": "To relent is to soften and yield, so relenting is a synonym for giving in."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "fast"
     }

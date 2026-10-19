@@ -130,44 +130,44 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AUTHENTIC",
      "indicators": [
       {
        "text": "boring",
-       "note": "boring means drilling into, so one piece goes inside the other"
+       "at": 30,
+       "note": "boring means drilling into, so the trimmed name goes inside the prank word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "AUTHENTIC",
+       "words": "prank",
+       "at": 37,
+       "gives": "ANTIC",
+       "note": "an antic is a playful trick or caper"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "uncovered",
-         "note": "uncovered means stripped of its outer layer, so the first and last letters go"
+         "at": 20,
+         "note": "uncovered means the word's outer letters, its covers, are removed"
         }
        ],
        "parts": [
         {
          "words": "Protestant",
+         "at": 9,
          "gives": "LUTHER",
-         "note": "Martin Luther, the founding Protestant reformer"
-        },
-        {
-         "words": "prank",
-         "gives": "ANTIC",
-         "note": "an antic is a playful trick"
+         "note": "Martin Luther, founder of the Protestant Reformation"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An early Protestant reformer drilled through some practical joke.",
-     "walkthrough": "'Boring' looks like dull, but it means drilling into. 'Uncovered' strips the reformer's name of its first and last letters before it goes in.",
-     "definitionFit": "Something authentic is genuine, the real original rather than a copy."
+     "surface": "An early Protestant, exposed, drilling into a practical joke.",
+     "walkthrough": "'uncovered' strips LUTHER to UTHE, and 'boring' sends that into ANTIC.",
+     "definitionFit": "Something authentic is genuine, the original rather than a copy."
     },
     "features": {
      "answerInScene": false,
@@ -1215,58 +1215,64 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the selected letter inside the following pieces"
+       "at": 27,
+       "note": "in means the risk letter goes inside the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
+        {
+         "words": "one",
+         "at": 30,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
         {
          "op": "homophone",
          "spelt": "IDIUM",
          "indicators": [
           {
            "text": "on the radio",
-           "note": "broadcast speech is heard rather than read, so a word is spelt by its sound"
+           "at": 41,
+           "note": "on the radio means as heard spoken, so the phrase word is replaced by a sound-alike"
           }
          ],
          "parts": [
           {
            "words": "phrase",
+           "at": 34,
            "gives": "IDIOM",
-           "note": "an idiom is a set phrase"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "at first",
-           "note": "at first points to the opening letter of the word before it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "risk",
-           "note": "its opening letter"
+           "note": "an idiom is a fixed phrase"
           }
          ]
         }
        ]
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "Roman numeral one"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 17,
+         "note": "at first means only the opening letter of risk is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "risk",
+         "at": 11,
+         "note": "its first letter supplies R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A risky ingredient in a phrase spoken on air.",
-     "walkthrough": "The letter from risk sits between the numeral and the sound-alike of idiom.",
-     "definitionFit": "Iridium is a dense metallic chemical element, number 77 in the periodic table."
+     "surface": "A broadcaster's phrase carries an element of risk.",
+     "walkthrough": "IDIOM said aloud gives IDIUM; with I in front, 'in' places R (first of risk) after that I.",
+     "definitionFit": "Iridium is a dense metallic chemical element of the platinum group."
     },
     "features": {
      "answerInScene": false,

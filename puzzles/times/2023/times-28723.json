@@ -119,48 +119,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOUVEAU",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "briefly asks for a word cut short, losing its final letter"
+       "text": "covering",
+       "at": 44,
+       "note": "covering means the shortened word wraps round the eye part"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "covering",
-         "note": "covering means wrapping around, so the shortened word goes either side of the other piece"
+         "text": "briefly",
+         "at": 36,
+         "note": "briefly means the word is cut short by its last letter"
         }
        ],
        "parts": [
         {
          "words": "word maybe describing an object",
-         "gives": "NOU",
-         "note": "a noun names an object; shortened by its last letter"
+         "at": 4,
+         "gives": "NOUN",
+         "note": "a noun is a word naming a thing or object"
         },
         {
-         "words": "part of the eye",
-         "gives": "UVEA",
-         "note": "the uvea is the pigmented middle layer of the eye"
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "part of the eye",
+       "at": 53,
+       "gives": "UVEA",
+       "note": "the uvea is the pigmented middle layer of the eye"
       }
      ]
     },
     "explanation": {
-     "surface": "A grammar lesson pairing a new term with an anatomy note about the eye.",
-     "walkthrough": "The truncated word splits after its second letter so the eye part fits inside.",
-     "definitionFit": "Nouveau is the French adjective borrowed into English for recent or newly arrived, as in nouveau riche."
+     "surface": "A grammar-flavoured description of some word wrapped over a bit of eye anatomy.",
+     "walkthrough": "The 'object' is grammatical: the word maybe describing it is the part of speech naming things, and 'briefly' trims that word alone.",
+     "definitionFit": "Nouveau is French for new, used in English as in nouveau riche."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "word"
+     "misdirectedWord": "object"
     }
    }
   },
@@ -402,48 +407,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHARABANC",
+     "op": "container",
      "indicators": [
       {
-       "text": "Short",
-       "note": "short asks for the word to be trimmed of its final letter"
+       "text": "to acquire",
+       "at": 18,
+       "note": "to acquire means the shortened word takes the horse inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to acquire",
-         "note": "acquiring something means taking it in, so the horse goes inside"
+         "text": "Short",
+         "at": 0,
+         "note": "short means the word lacks its final letter"
         }
        ],
        "parts": [
         {
          "words": "opportunity",
-         "gives": "CHANC",
-         "note": "chance, cut short"
+         "at": 6,
+         "gives": "CHANCE",
+         "note": "a chance is an opportunity"
         },
         {
-         "words": "horse",
-         "gives": "ARAB",
-         "note": "an Arab is a breed of horse"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "horse",
+       "at": 29,
+       "gives": "ARAB",
+       "note": "an Arab is a breed of horse"
       }
      ]
     },
     "explanation": {
-     "surface": "A brief chance to buy a horse and the carriage it could draw.",
-     "walkthrough": "'it' in the definition refers back to the horse: a charabanc was once horse-drawn.",
-     "definitionFit": "A charabanc is an open long-bodied coach, originally horse-drawn, used for outings."
+     "surface": "A brief chance to get a horse and something for it to draw.",
+     "walkthrough": "The definition leans on the horse in the wordplay: a charabanc was once horse-drawn.",
+     "definitionFit": "A charabanc is an open coach for excursions, originally horse-drawn before motor versions."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "opportunity"
+     "aptDefinition": true
     }
    }
   },
@@ -818,50 +827,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "QUESADILLA",
-     "indicators": [
-      {
-       "text": "Endless",
-       "note": "endless means without its end, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Endless",
+         "at": 0,
+         "note": "endless means the final letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "search",
-         "gives": "QUES",
-         "note": "quest, losing its last letter"
+         "at": 8,
+         "gives": "QUEST",
+         "note": "a quest is a search"
         },
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "pickle",
-         "gives": "DILL",
-         "note": "dill is a pickled cucumber, short for dill pickle"
-        },
-        {
-         "words": "ace",
-         "gives": "A",
-         "note": "A is the card abbreviation for ace"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 22,
+       "gives": "A"
+      },
+      {
+       "words": "pickle",
+       "at": 24,
+       "gives": "DILL",
+       "note": "a dill is a pickled cucumber"
+      },
+      {
+       "words": "ace",
+       "at": 44,
+       "gives": "A",
+       "note": "A is the card abbreviation for ace"
       }
      ]
     },
     "explanation": {
-     "surface": "A never-ending hunt for a pickle to serve alongside a great Mexican meal.",
-     "definitionFit": "A quesadilla is a tortilla folded around melted cheese, a Mexican snack."
+     "surface": "Giving up on a hunt to grab a pickle to go with a Mexican meal.",
+     "definitionFit": "A quesadilla is a tortilla folded over cheese and grilled, a staple of Mexican cooking."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ace"
+     "misdirectedWord": "pickle"
     }
    }
   },
@@ -1039,47 +1054,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STOICAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means all but a little, so the last letter goes"
-      },
-      {
-       "text": "the majority of",
-       "note": "the majority means more than half but not all, so the final letter is dropped"
+       "text": "covers",
+       "at": 34,
+       "note": "covers means the first shortened word goes round the second"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "covers",
-         "note": "covering something means wrapping around it"
+         "text": "mostly",
+         "at": 27,
+         "note": "mostly means the last letter of the word is dropped"
         }
        ],
        "parts": [
         {
          "words": "measurement system",
-         "gives": "SCAL",
-         "note": "a scale is a system of measurement; cut short"
+         "at": 8,
+         "gives": "SCALE",
+         "note": "a scale is a system of measurement, such as a temperature scale"
         },
         {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "the majority of",
+         "at": 41,
+         "note": "the majority of means all but the final letter is kept"
+        }
+       ],
+       "parts": [
+        {
          "words": "work",
-         "gives": "TOI",
-         "note": "toil is hard work; cut short"
+         "at": 57,
+         "gives": "TOIL",
+         "note": "toil is hard work"
+        },
+        {
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hospital patient's measuring system mostly covers most of the work involved.",
-     "walkthrough": "'Patient' looks like a noun for someone in hospital but is the adjective.",
-     "definitionFit": "Being stoical means enduring hardship without complaint, a synonym for patient."
+     "surface": "A tolerant system of measures that takes in most of some labour.",
+     "walkthrough": "'mostly' gives SCAL, 'the majority of' gives TOI, and 'covers' puts SCAL round TOI.",
+     "definitionFit": "A stoical person endures hardship without complaint, as a patient person does."
     },
     "features": {
      "answerInScene": false,

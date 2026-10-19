@@ -1114,69 +1114,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 43,
+       "note": "in means the initials go inside the defeat word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "op": "container",
-         "parts": [
-          {
-           "words": "defeat",
-           "gives": "LOSS",
-           "note": "a loss is a defeat"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "first of all",
-             "note": "take the first letter of all the next three words"
-            }
-           ],
-           "parts": [
-            {
-             "words": "wayward",
-             "note": "first letter"
-            }
-           ]
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "miles",
-           "note": "first letter"
-          }
-         ]
-        }
-       ]
+       "words": "defeat",
+       "at": 46,
+       "gives": "LOSS",
+       "note": "a loss is a defeat"
       },
       {
        "op": "first",
+       "indicators": [
+        {
+         "text": "first of all",
+         "at": 9,
+         "note": "first of all means the opening letter of each following word is taken"
+        }
+       ],
        "parts": [
         {
-         "words": "away",
-         "note": "first letter"
+         "words": "wayward: miles away",
+         "at": 23,
+         "note": "their first letters give W, M and A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tennis report: a wayward serve, miles out, costing the match.",
-     "walkthrough": "'Miles away' reads as a phrase about distance; each word only gives its first letter.",
-     "definitionFit": "Definition by example: a simple Catholic Mass said without music is a church service."
+     "surface": "A church service gone astray, the miles of road to it lost.",
+     "walkthrough": "'first of all' takes the initials of 'wayward miles away', and 'in' puts them inside LOSS.",
+     "definitionFit": "A low mass is a simplified Catholic mass said without music, a religious service."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Service"
+     "misdirectedWord": "wayward"
     }
    }
   },
@@ -1204,45 +1181,51 @@
      "op": "container",
      "indicators": [
       {
-       "text": "stuck in"
+       "text": "stuck in",
+       "at": 29,
+       "note": "stuck in means the letters are lodged inside the teeth word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "teeth",
-         "gives": "TINES",
-         "note": "tines are the prongs, teeth, of a fork"
-        },
-        {
-         "words": "a",
-         "note": "as printed"
-        }
-       ]
+       "words": "teeth",
+       "at": 38,
+       "gives": "TINES",
+       "note": "tines are the prongs or teeth of a fork"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "a tiny bit of",
-         "note": "a tiny bit of gristle is its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "gristle",
-         "note": "first letter"
+         "words": "a",
+         "at": 7,
+         "gives": "A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "tiny bit of",
+           "at": 9,
+           "note": "a tiny bit of gristle is just its first letter, the smallest piece"
+          }
+         ],
+         "parts": [
+          {
+           "words": "gristle",
+           "at": 21,
+           "note": "its first letter supplies G"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner with gristle from the stew stuck in their teeth.",
-     "walkthrough": "The teeth are a fork's, not a mouth's.",
-     "definitionFit": "Definition by class: North African dishes slow-cooked in a conical pot are stews."
+     "surface": "Eating stews and finding a shred of gristle wedged between your teeth.",
+     "walkthrough": "'teeth' are not in a mouth here but on a fork: the prongs that hold the stuck letters.",
+     "definitionFit": "A tagine is a North African slow-cooked stew, named after its conical pot."
     },
     "features": {
      "answerInScene": true,

@@ -128,29 +128,28 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "HOOHA",
+     "op": "deletion",
      "indicators": [
       {
        "text": "only prime locations are needed",
-       "note": "only the letters at prime-numbered positions (second, third, fifth and so on) are kept"
+       "at": 28,
+       "note": "only the letters at prime-numbered positions (2nd, 3rd, 5th, 7th, 11th) are kept; the rest are removed"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "photo shoot as",
-       "gives": "HOOHA",
-       "select": "prime",
-       "note": "letters 2, 3, 5, 7 and 11 of these three words"
+       "at": 13
+      },
+      {
+       "gives": "PTSOOTS"
       }
      ]
     },
     "explanation": {
-     "surface": "A fuss at a photo shoot where only the best spots will do.",
-     "walkthrough": "Prime locations sounds like choice sites for the shoot, but it means the prime-numbered letter positions.",
-     "definitionFit": "A hoo-ha is an informal word for a noisy fuss or uproar."
+     "surface": "A fuss at a photoshoot where only the best spots will do.",
+     "walkthrough": "'prime locations' sounds like choice sites; it means letters at prime-number positions in 'photo shoot as': 2, 3, 5, 7 and 11.",
+     "definitionFit": "A hoo-ha is a noisy fuss or uproar."
     },
     "features": {
      "answerInScene": true,
@@ -251,33 +250,36 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "KICKSTART",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner was famous for swapping the opening sounds of two words"
+       "at": 19,
+       "note": "Spooner's signals swapping the opening sounds of the two words, after Reverend Spooner"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Secure vehicle",
-       "gives": "KICKSTART",
-       "soundsLike": "STICK CART",
-       "note": "to stick is to secure, and a cart is a vehicle; swap the opening sounds"
+       "words": "Secure",
+       "at": 0,
+       "gives": "STICK",
+       "note": "to stick something is to fix or secure it"
+      },
+      {
+       "words": "vehicle",
+       "at": 7,
+       "gives": "KART",
+       "note": "a kart is a small racing vehicle"
       }
      ]
     },
     "explanation": {
-     "surface": "Fixing a vehicle in place, as if ready for a journey.",
-     "walkthrough": "Trip is the definition in its switch sense: to trip a mechanism is to set it going, as a kick-start does.",
-     "definitionFit": "To trip something is to activate or set it off, which is what a kick-start does to an engine or a process."
+     "surface": "Fixing a vehicle ready for an outing.",
+     "walkthrough": "Swapping ST and K in STICK KART gives KICK START. The definition is figurative: tripping a switch, or a kick-start, gets something going; the question mark admits the stretch.",
+     "definitionFit": "To kickstart something is to set it going suddenly, as tripping a switch or mechanism does."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "trip"
     }
    }
@@ -372,52 +374,55 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "HALLOFRESIDENCE",
      "indicators": [
       {
        "text": "Dodgy",
-       "note": "something dodgy is unreliable or crooked, so the letters are put into a crooked order"
+       "at": 0,
+       "note": "dodgy means unreliable or shifty, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "HALLOFRESIDENCE",
        "indicators": [
         {
          "text": "making",
-         "note": "making one thing into another means one letter of fine is swapped for a different one"
+         "at": 23,
+         "note": "making means one letter is turned into another, the European letter becoming the college letter"
         }
        ],
        "parts": [
         {
-         "words": "leaseholder",
-         "note": "taken as written"
-        },
-        {
-         "words": "fine",
-         "note": "taken as written, before its E is swapped"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "leaseholder",
+           "at": 6
+          },
+          {
+           "words": "fine",
+           "at": 18
+          }
+         ]
         },
         {
          "words": "European",
-         "gives": "E",
-         "note": "E is the abbreviation for European"
+         "at": 30,
+         "gives": "E"
         },
         {
          "words": "college",
-         "gives": "C",
-         "note": "C is an abbreviation for college"
+         "at": 39,
+         "gives": "C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crooked landlord's penalty turns a continental college into student digs.",
-     "walkthrough": "The E of FINE becomes C (European made into college) and the result is mixed up with LEASEHOLDER.",
-     "definitionFit": "A hall of residence is a university building providing accommodation for students."
+     "surface": "A shady property owner takes a fine for turning European college students into tenants.",
+     "walkthrough": "'making European college' swaps one E in LEASEHOLDER plus FINE for C; 'Dodgy' then shuffles all fifteen letters.",
+     "definitionFit": "A hall of residence is university accommodation where students board."
     },
     "features": {
      "answerInScene": true,
@@ -704,37 +709,54 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ALLOCATED",
-     "indicators": [
-      {
-       "text": "both cycling different amounts",
-       "note": "cycling moves letters from the front of each word round to the back, by a different number for each"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "pub",
-       "gives": "LOCAL",
-       "note": "a local is one's regular pub; move three letters to the end"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "both cycling",
+         "at": 37,
+         "note": "both cycling means each word has letters moved round from its front to its back"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pub",
+         "at": 10,
+         "gives": "LOCAL",
+         "note": "a local is one's regular neighbourhood pub"
+        }
+       ]
       },
       {
-       "words": "time to meet",
-       "gives": "DATE",
-       "note": "a date is an arranged time to meet; move one letter to the end"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "different amounts",
+         "at": 50,
+         "note": "different amounts means this word cycles by a different number of letters from the pub word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time to meet",
+         "at": 18,
+         "gives": "DATE",
+         "note": "a date is a time arranged to meet"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pub and time reserved for meeting after a bike ride of differing distances.",
-     "walkthrough": "A local is British for one's neighbourhood pub. LOCAL becomes ALLOC and DATE becomes ATED.",
-     "definitionFit": "Allocated and earmarked both mean set aside or assigned for a particular purpose."
+     "surface": "A pub booked and a meeting time fixed, after both parties had cycled different distances.",
+     "walkthrough": "'both cycling different amounts' moves LOC from the front of LOCAL to make ALLOC, and D from the front of DATE to make ATED.",
+     "definitionFit": "To allocate is to assign or set aside, so allocated means set aside for a purpose."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "cycling"
     }
    }

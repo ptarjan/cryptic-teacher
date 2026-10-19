@@ -56,39 +56,41 @@
      "indicators": [
       {
        "text": "rings",
-       "note": "to ring something is to encircle it, so the first word's letters go round the next ones"
+       "at": 6,
+       "note": "rings means the crime word surrounds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Crime",
-         "gives": "OFFENCE",
-         "note": "a crime is an offence"
-        },
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "standard abbreviation for left"
-        }
-       ]
+       "words": "Crime",
+       "at": 0,
+       "gives": "OFFENCE",
+       "note": "an offence is a crime"
       },
       {
-       "words": "in charge",
-       "gives": "IC",
-       "note": "i/c is the usual abbreviation for in charge"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "left",
+         "at": 12,
+         "gives": "L"
+        },
+        {
+         "words": "in charge",
+         "at": 17,
+         "gives": "IC"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A criminal ring stays in control while its members get high.",
-     "walkthrough": "An off-licence is a British shop licensed to sell alcohol for drinking elsewhere; i/c is the standard shorthand for in charge.",
-     "definitionFit": "An off-licence is a liquor store, the place where you buy alcoholic drinks to take away."
+     "surface": "A criminal gang, left running things, getting hold of drink and drugs.",
+     "walkthrough": "'rings' looks like a noun, as in crime rings; it is a verb: OFFENCE rings L and IC. An off-licence is a British shop selling alcohol to take away.",
+     "definitionFit": "An off-licence is a shop licensed to sell alcoholic drinks for consumption elsewhere."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "rings"
     }
@@ -906,49 +908,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "QUEASY",
-     "indicators": [
-      {
-       "text": "taking",
-       "note": "taking something in means holding it inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "QUEASY",
+       "op": "container",
        "indicators": [
         {
-         "text": "drops everything",
-         "note": "dropping means letting go, so a word for everything is removed"
+         "text": "taking",
+         "at": 15,
+         "note": "taking means the as word takes the drug letter inside it"
         }
        ],
        "parts": [
         {
          "words": "as",
+         "at": 12,
          "gives": "QUA",
-         "note": "qua means in the capacity of, as"
+         "note": "qua is Latin for as, in the capacity of"
         },
         {
          "words": "drug",
+         "at": 22,
          "gives": "E",
-         "note": "E is ecstasy"
-        },
+         "note": "E is the abbreviation for the drug ecstasy"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "drops",
+         "at": 34,
+         "note": "drops means the word lets go of the letters for everything"
+        }
+       ],
+       "parts": [
         {
          "words": "Sally",
-         "note": "taken as written"
+         "at": 28
+        },
+        {
+         "words": "everything",
+         "at": 40,
+         "gives": "ALL",
+         "note": "all means everything"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sally has been on drugs and feels sick, so she gives up all her habits.",
-     "walkthrough": "QUA is Latin-derived 'as'; SALLY loses ALL, a synonym of everything.",
-     "definitionFit": "Queasy describes nausea, the sick sensation of being about to vomit."
+     "surface": "Sally feels sick after taking a drug and abandons everything.",
+     "walkthrough": "'Sally' looks like a person; she is just the word, which 'drops' ALL to leave SY. 'as' is the Latin qua.",
+     "definitionFit": "Queasy means nauseous, on the point of being sick."
     },
     "features": {
      "answerInScene": true,
@@ -1173,46 +1186,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EMPORIA",
      "indicators": [
       {
        "text": "borders",
-       "note": "to border something is to surround it on each side"
+       "at": 32,
+       "note": "borders means the trimmed word goes round the parking letter"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EMPORIA",
+       "op": "middle",
        "indicators": [
         {
          "text": "with scrubbed exterior",
-         "note": "scrubbing off the exterior strips the outer letters away"
+         "at": 9,
+         "note": "scrubbed exterior means the outside letters, first and last, are wiped off"
         }
        ],
        "parts": [
         {
          "words": "Monument",
+         "at": 0,
          "gives": "MEMORIAL",
          "note": "a memorial is a monument"
-        },
-        {
-         "words": "parking",
-         "gives": "P",
-         "note": "P is the parking sign"
         }
        ]
+      },
+      {
+       "words": "parking",
+       "at": 40,
+       "gives": "P",
+       "note": "P is the road-sign abbreviation for parking"
       }
      ]
     },
     "explanation": {
-     "surface": "A monument is cleaned and hemmed in by a car park near the shops.",
-     "definitionFit": "Emporia is a plural of emporium, a large store, so it means shops."
+     "surface": "A monument scrubbed clean, bordered by a car park for shoppers.",
+     "walkthrough": "'scrubbed exterior' leaves EMORIA from MEMORIAL, and that 'borders' P.",
+     "definitionFit": "Emporia is the plural of emporium, a large store or marketplace."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "borders"
     }
