@@ -74,5 +74,22 @@ check("a letter the word does not give is left alone",
       F.repair_tree(wrong, "Brown river at Hull (not beginning in Hull)", "UMBER",
                     {"delSelection": F.r_del_selection})[1] == [])
 
+# delSelection, two ends: "off with Tony's beginning and end" with bare T and Y is two selections.
+bush = {"op": "deletion", "indicators": [{"text": "off with Tony's beginning and end", "at": 10}],
+        "parts": [{"op": "charade", "parts": [{"words": "Bet", "gives": "BET"}, {"words": "Dubya", "gives": "DUBYA"}]},
+                  {"gives": "T"}, {"gives": "Y"}]}
+clue5 = "Bet Dubya off with Tony's beginning and end"
+new, used = F.repair_tree(bush, clue5, "BEDAUB", {"delSelection": F.r_del_selection})
+check("off with Tony's beginning and end splits into del + first + last",
+      used == ["delSelection"] and new["indicators"][0]["text"] == "off with"
+      and [p.get("op") for p in new["parts"]] == ["charade", "first", "last"]
+      and new["parts"][1]["indicators"][0]["text"] == "beginning" and new["parts"][2]["indicators"][0]["text"] == "end")
+check("ends the word does not have are left alone",
+      F.repair_tree({**bush, "parts": [bush["parts"][0], {"gives": "T"}, {"gives": "N"}]}, clue5, "BEDAUB",
+                    {"delSelection": F.r_del_selection})[1] == [])
+check("two first-type selectors are left alone",
+      F.repair_tree({**bush, "indicators": [{"text": "off with Tony's beginning and start", "at": 10}]},
+                    "Bet Dubya off with Tony's beginning and start", "BEDAUB", {"delSelection": F.r_del_selection})[1] == [])
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

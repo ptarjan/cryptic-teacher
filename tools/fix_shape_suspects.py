@@ -815,6 +815,68 @@ SEL_LAST = ("end", "last", "tail", "finish", "close")
 _SEL_PHRASE = re.compile(r"\b(" + "|".join(SEL_FIRST + SEL_LAST) + r")(\s+(?:of|in|at))?\s+([A-Za-z]+)(?:'s)?(?=\W|$)", re.I)
 
 
+_SELW = "|".join(SEL_FIRST + SEL_LAST)
+_SEL_PAIR = [re.compile(r"\b(?P<s1>%s)\s+(?:and|&)\s+(?P<s2>%s)(?P<prep>\s+(?:of|in|at))\s+(?P<w>[A-Za-z]+)(?P<poss>'s)?(?=\W|$)" % (_SELW, _SELW), re.I),
+             re.compile(r"\b(?P<w>[A-Za-z]+)(?P<poss>'s)\s+(?P<s1>%s)\s+(?:and|&)\s+(?P<s2>%s)(?=\W|$)" % (_SELW, _SELW), re.I)]
+
+
+def _del_selection_pair(node, ctx):
+    """Two letters taken off one clue word's two ends by one indicator: 'off with Tony's beginning
+    and end' with T and Y is del<off with>(x, first<beginning>(Tony's), last<end>(Tony's)).
+    The removed letters are two bare leaves, or one bare two-letter leaf; one selector must be a
+    first-type word and the other a last-type, in the order the clue gives them."""
+    inds = node.get("indicators") or []
+    parts = node.get("parts") or []
+    if len(inds) != 1 or len(parts) < 2 or node.get("unchecked"):
+        return None
+    rem = parts[1:]
+    if any("op" in r or "words" in r for r in rem) or len(W.letters("".join(r.get("gives") or "" for r in rem))) != 2:
+        return None
+    ind = inds[0]
+    t, base = ind.get("text") or "", ind.get("at")
+    if base is None:
+        return None
+    for rx in _SEL_PAIR:
+        m = rx.search(t)
+        if not m:
+            continue
+        s1, s2 = m.group("s1").lower(), m.group("s2").lower()
+        if (s1 in SEL_FIRST) == (s2 in SEL_FIRST):
+            continue
+        word = m.group("w")
+        w = W.letters(word)
+        if len(w) < 3 or sorted(W.letters("".join(r.get("gives") or "" for r in rem))) != sorted(w[0] + w[-1]):
+            continue
+        wat = base + m.start("w")
+        span = word + (m.group("poss") or "")
+        if ctx["clue"][wat:wat + len(span)] != span:
+            continue
+        pre, post = t[:m.start()].strip(), t[m.end():].strip()
+        if bool(pre) == bool(post):
+            continue
+        s1at, s2at = base + m.start("s1"), base + m.start("s2")
+        # a "of/in/at" belongs to the selector next to it
+        s2text = m.group("s2") + (m.group("prep") if "prep" in rx.groupindex and m.group("prep") else "")
+        picks = []
+        for sel, text, at in ((s1, m.group("s1"), s1at), (s2, s2text, s2at)):
+            op = "first" if sel in SEL_FIRST else "last"
+            picks.append({"op": op, "indicators": [{"text": text, "at": at,
+                          "note": f"the {'first' if op == 'first' else 'last'} letter of the word is the one picked"}],
+                          "parts": [{"words": span, "at": wat, "gives": word.upper(),
+                                     "note": "the clue word, taken as written"}]})
+        if pre:
+            d_text, d_at = pre, base + t.index(pre)
+        else:
+            d_text, d_at = post, base + t.index(post, m.end())
+        new = copy.deepcopy(node)
+        new["indicators"] = [{**ind, "text": d_text, "at": d_at,
+                              "note": "takes the picked letters out of the other part"}]
+        new["parts"] = [parts[0]] + picks
+        old, now = vals(node), vals(new)
+        return new if old and now and old <= now else None
+    return None
+
+
 def r_del_selection(node, parent, ctx):
     """A deletion whose one indicator also names the letters it removes: 'not beginning in
     Hull' with a bare H. Each indicator is its own op: del<not>(x, first<beginning in>(Hull)).
@@ -823,6 +885,8 @@ def r_del_selection(node, parent, ctx):
     one side of the phrase (before or after) is left over for the deletion."""
     inds = node.get("indicators") or []
     parts = node.get("parts") or []
+    if node.get("op") == "deletion" and len(parts) in (2, 3) and _del_selection_pair(node, ctx):
+        return _del_selection_pair(node, ctx)
     if node.get("op") != "deletion" or len(inds) != 1 or len(parts) != 2 or node.get("unchecked"):
         return None
     rem = parts[1]
