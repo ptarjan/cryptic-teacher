@@ -70,22 +70,24 @@ assert cs.leaf_type({"gives": "IE"}, "deletion") == "B"
 for skel, t1, t2 in [
     ("(A+S)", "charade only", "x"),
     ("(S+S+S)", "charade only", "x"),
-    ("ana(V)", "ana", "ana(x)"),
-    ("ana((V+V))", "ana", "ana(x)"),
+    ("ana(V)", "anagram", "ana(x)"),
+    ("ana((V+V))", "anagram", "ana(x)"),
     ("DD", "double definition", "DD"),
-    ("cdef(V,V)", "cdef", "cdef(x)"),
-    ("ins(S,ana(V))", "ana + ins", "ins(ana(x),x)"),
-    ("ins(ana(V),S)", "ana + ins", "ins(ana(x),x)"),
-    ("ana(ins(S,A))", "ana + ins", "ana(ins(x))"),
-    ("(S+first(V)+S)", "select", "+[select(x)]"),
-    ("ins?(first(V),(S+S))", "ins + select", "ins(select(x),x)"),
-    ("(S+ins(S,A)+rev(S))", "ins + rev", "+[ins(x),rev(x)]"),
-    ("rev(rev(rev(rev(A))))", "rev", "4+ ops"),
+    ("cdef(V,V)", "cryptic definition", "cdef(x)"),
+    ("ins(S,ana(V))", "anagram + container", "ins(ana(x),x)"),
+    ("ins(ana(V),S)", "anagram + container", "ins(ana(x),x)"),
+    ("ana(ins(S,A))", "anagram + container", "ana(ins(x))"),
+    ("(S+first(V)+S)", "letter selection", "+[select(x)]"),
+    ("ins?(first(V),(S+S))", "container + letter selection", "ins(select(x),x)"),
+    ("(S+ins(S,A)+rev(S))", "container + reversal", "+[ins(x),rev(x)]"),
+    ("rev(rev(rev(rev(A))))", "reversal", "4+ ops"),
 ]:
     assert cs.tier1(skel) == t1, (skel, cs.tier1(skel), t1)
     assert cs.tier2(skel) == t2, (skel, cs.tier2(skel), t2)
 assert cs.tier2("ins(S,ana(V))") != cs.tier2("ana(ins(S,S))")
 assert cs.tier1("ana(rev(del(ins(S,A))))").startswith("4+")
+# every name the doc prints comes from the one OPS table
+assert cs.SHORT["anagram"] == "ana" and cs.NAME["charade"] == "charade" and cs.BYABBR["ins"] == "container"
 
 doc = cs.DOC
 if doc.exists():
