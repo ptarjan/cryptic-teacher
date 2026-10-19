@@ -624,11 +624,39 @@ def r_ana_of_container(node, parent, ctx):
     return _pick(node, parent, ctx, cands)
 
 
+def r_container_inside(node, parent, ctx):
+    """ins(charade(a, b, c), x) whose x can only go inside ONE piece (container_inside_component):
+    the container moves into that piece, charade(a, ins(b, x), c). Its indicators and note go
+    with it (the container is what they signal); the charade's filed letters stay on the
+    charade. _pick keeps it only when exactly one piece gives the simplest tree that still
+    evaluates to the answer."""
+    answer = ctx.get("answer")
+    if not answer or not V._container_inside(node, W.letters(answer), node is ctx["tree"]):
+        return None
+    holder, ins = node["parts"]
+    if holder.get("indicators") or "unchecked" in holder:
+        return None
+    cands = []
+    for k, c in enumerate(holder["parts"]):
+        inner = {**{x: y for x, y in node.items() if x not in ("parts", "gives")},
+                 "parts": [copy.deepcopy(c), copy.deepcopy(ins)]}
+        if not vals(inner):
+            continue
+        parts = copy.deepcopy(holder["parts"])
+        parts[k] = inner
+        new = {x: y for x, y in holder.items() if x != "parts"}
+        new.update({x: y for x, y in node.items() if x == "gives"})
+        new["op"], new["parts"] = "charade", parts
+        cands.append(new)
+    return _pick(node, parent, ctx, cands)
+
+
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
            "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
 #: Repairs for validator rules (the queue's anaSynonym / anagramOfContainer rows), run by --rule.
-RULE_REPAIRS = {"anaSynonym": r_ana_synonym, "anagramOfContainer": r_ana_of_container}
+RULE_REPAIRS = {"anaSynonym": r_ana_synonym, "anagramOfContainer": r_ana_of_container,
+                "containerInside": r_container_inside}
 
 
 def repair_tree(tree, clue, answer=None, repairs=None):
@@ -1072,7 +1100,11 @@ def main():
     ap.add_argument("--rule", choices=sorted(RULE_REPAIRS),
                     help="repair the queued rows of this validator rule instead of the suspects "
                          "(tools/data/shape_reannotate.json is not touched: run prune_shape_queue.py --write after)")
+    ap.add_argument("--container-inside", action="store_true",
+                    help="repair only the queued containerInside rows (--limit N samples; --apply writes puzzles)")
     a = ap.parse_args()
+    if a.container_inside:
+        return run_container(a.apply, a.limit, a.seed, a.examples, a.jobs)
     if a.rule:
         run_rule(a.rule, a.apply, a.examples, a.seed, a.limit, a.jobs)
         return

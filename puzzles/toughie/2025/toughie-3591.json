@@ -1548,16 +1548,16 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "swallowing",
-       "note": "something swallowed is taken inside, so one letter goes within the other pieces"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "swallowing",
+         "note": "something swallowed is taken inside, so one letter goes within the other pieces"
+        }
+       ],
        "parts": [
         {
          "words": "drink",
@@ -1565,26 +1565,26 @@
          "note": "to sup is to drink"
         },
         {
-         "words": "finished",
-         "gives": "ENDED",
-         "note": "ended means finished"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "note": "the last of a word is its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "spirits",
+           "note": "the closing letter of the word"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "last of",
-         "note": "the last of a word is its final letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "spirits",
-         "note": "the closing letter of the word"
-        }
-       ]
+       "words": "finished",
+       "gives": "ENDED",
+       "note": "ended means finished"
       }
      ]
     },

@@ -56,17 +56,17 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "hiding",
-       "at": 43,
-       "note": "hiding means keeping something tucked away inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "hiding",
+         "at": 43,
+         "note": "hiding means keeping something tucked away inside"
+        }
+       ],
        "parts": [
         {
          "words": "carries",
@@ -75,33 +75,33 @@
          "note": "to cart is to carry, so carries is carts"
         },
         {
-         "words": "beers",
-         "at": 37,
-         "gives": "ALES",
-         "note": "ales are beers"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 50,
+           "note": "short means the word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "volume",
+           "at": 56,
+           "gives": "BOOK",
+           "note": "a volume is a book"
+          },
+          {
+           "gives": "K"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "short",
-         "at": 50,
-         "note": "short means the word loses its final letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "volume",
-         "at": 56,
-         "gives": "BOOK",
-         "note": "a volume is a book"
-        },
-        {
-         "gives": "K"
-        }
-       ]
+       "words": "beers",
+       "at": 37,
+       "gives": "ALES",
+       "note": "ales are beers"
       }
      ]
     },
