@@ -1532,53 +1532,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THIRSTED",
+     "op": "container",
      "indicators": [
       {
-       "text": "half of",
-       "note": "only half survives, so the rest of the word is cut away"
+       "text": "During",
+       "at": 0,
+       "note": "During means the following letters sit inside the word for interval"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "During",
-         "note": "during means in the course of, so a piece falls inside another"
-        }
-       ],
+       "words": "interval",
+       "at": 7,
+       "gives": "THIRD",
+       "note": "a third is a musical interval"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half of",
+           "at": 16,
+           "note": "half of means only one half of the word cast is kept, the front half dropped"
+          }
+         ],
          "parts": [
           {
-           "words": "interval",
-           "gives": "THIRD",
-           "note": "in music a third is an interval between notes"
+           "words": "cast",
+           "at": 24
           },
           {
-           "words": "cast",
-           "gives": "ST",
-           "note": "its second half"
+           "gives": "CA"
           }
          ]
         },
         {
          "words": "note",
+         "at": 30,
          "gives": "E",
-         "note": "a musical note"
+         "note": "E is a musical note"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "During the theatre interval half the cast needed a drink.",
-     "walkthrough": "'Interval' suggests the break at the theatre, but it is the musical gap called a third.",
-     "definitionFit": "To thirst is to crave liquid, so having thirsted means you were in need of something to drink."
+     "surface": "Someone at the theatre, halfway through the show, was gasping for a drink in the interval.",
+     "walkthrough": "'interval' tempts as the theatre break, but here it is musical; 'half of' keeps the back half of cast.",
+     "definitionFit": "To have thirsted is to have craved liquid, so it matches having needed a drink."
     },
     "features": {
      "answerInScene": true,
