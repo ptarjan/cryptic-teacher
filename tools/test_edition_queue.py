@@ -1699,9 +1699,12 @@ os.environ.pop("CT_VLM_WAITING")
 # The VLM stage: vlm_drainer answers spooled asks (the server stubbed) into the cache while no read blocks,
 # and a spooled read's asks stop being pending.
 import threading as _th
+import tempfile as _tf
 import urllib.request as _ur
 _cache, _slots, _pipe, _real, _gate = vlm_reader.CACHE, vlm_reader._SLOTS[0], vlm_reader.PIPELINE, _ur.urlopen, eq.vlm_gate_reader
 vlm_reader.CACHE = T / "vlm-stage"
+(T / "vlm-stage-tmp").mkdir(exist_ok=True)
+_tempdir, _tf.tempdir = _tf.tempdir, str(T / "vlm-stage-tmp")  # the host's real slot locks are held by live askers
 vlm_reader._SLOTS[0], vlm_reader.PIPELINE = 1, 0
 _ur.urlopen = lambda req, timeout=None: io.BytesIO(json.dumps({"choices": [{"message": {"content": "A"}}]}).encode())
 eq.vlm_gate_reader = lambda: True
@@ -1716,10 +1719,19 @@ for _ in range(100):
         break
     time.sleep(0.1)
 _stop.set()
+time.sleep(1)  # its threads end before the real cache is back
 check("the drainer answers every spooled ask into the cache", (0, True),
       (len(vlm_reader.spooled()), all((vlm_reader.CACHE / f"{k}.txt").exists() for k in _keys)))
 vlm_reader.CACHE, vlm_reader._SLOTS[0], vlm_reader.PIPELINE, _ur.urlopen, eq.vlm_gate_reader = _cache, _slots, _pipe, _real, _gate
 vlm_reader.busy = _busy
+_tf.tempdir = _tempdir
+# A unit deferred by spooled asks says so; a real VLM outage keeps its words.
+_cause = vlm_reader._CAUSE[0]
+vlm_reader._CAUSE[0] = "spooled"
+check("a spooled deferral is logged as spooled, not down", "deferred, 0 VLM asks spooled", eq.vlm_deferral(RuntimeError("x")))
+vlm_reader._CAUSE[0] = "refused"
+check("a real VLM outage is logged as down", "deferred, the VLM is down (boom)", eq.vlm_deferral(RuntimeError("boom")))
+vlm_reader._CAUSE[0] = _cause
 os.environ["CT_PSI_PATH"] = str(T / "no-psi")
 os.environ.pop("CT_MEMINFO")
 

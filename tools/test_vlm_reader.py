@@ -36,6 +36,8 @@ def check(what, want, got):
 
 T = tmp
 vlm.CACHE = T / "vlm"
+(T / "slot-tmp").mkdir(exist_ok=True)
+tempfile.tempdir = str(T / "slot-tmp")  # the host's real slot locks may be held by live askers
 # A fake desktop, never the real one: two LAN leases and a tailnet address
 # from the documentation ranges (RFC 5737), whatever tools/desktop_hosts.json
 # lists, and no ssh to ask whether it is busy.
@@ -531,6 +533,116 @@ check("a failed drain leaves the ask queued", (None, True), (vlm.drain_one(), vl
 urllib.request.urlopen = real
 vlm._MISSED[0] = False
 vlm._SLOTS[0] = None
+
+# The drainer claims after it holds a slot: with every slot taken the ask stays .json (never a waiting .json.work);
+# once a slot frees it is asked and answered.
+import fcntl
+import threading
+urllib.request.urlopen = fake_ok
+vlm.drain_one()  # the failed drain's leftover
+check("the spool is empty before the slot test", [], vlm.spooled())
+vlm.put_spool("w" * 40, b"wx", "p", 10)
+_held = open(Path(tempfile.gettempdir()) / "vlm_reader.slot.0.lock", "w")
+fcntl.flock(_held, fcntl.LOCK_EX)
+_got = []
+_t = threading.Thread(target=lambda: _got.append(vlm.drain_one()), daemon=True)
+_t.start()
+time.sleep(1.5)
+check("a drainer waiting for a slot has claimed nothing", (True, False, True),
+      (_t.is_alive(), (vlm.spool_dir() / ("w" * 40 + vlm.CLAIMED)).exists(), (vlm.spool_dir() / ("w" * 40 + ".json")).exists()))
+check("... and is marked as waiting, to other processes' eyes only", True,
+      (vlm._draining_dir() / str(os.getpid())).exists())
+fcntl.flock(_held, fcntl.LOCK_UN)
+_held.close()
+_t.join(10)
+check("the freed slot lets it ask and answer", (["w" * 40], False), (_got, vlm.pending("w" * 40)))
+check("the waiting mark ends with the wait", False, (vlm._draining_dir() / str(os.getpid())).exists())
+
+# Direct askers hold off while another live process's drainer waits (a stale pid's mark is removed).
+vlm._draining_dir().mkdir(parents=True, exist_ok=True)
+(vlm._draining_dir() / "999999999").touch()
+check("a dead drainer's mark does not hold anyone off", (False, False), (vlm.drainer_waiting(), (vlm._draining_dir() / "999999999").exists()))
+(vlm._draining_dir() / str(os.getppid())).touch()
+check("a live other process's waiting drainer is seen", True, vlm.drainer_waiting())
+_slept = []
+_real_sleep = vlm.time.sleep
+def _fake_sleep(sec):
+    _slept.append(sec)
+    (vlm._draining_dir() / str(os.getppid())).unlink(missing_ok=True)  # the drainer got its slot
+vlm.time.sleep = _fake_sleep
+with vlm.slot():
+    pass
+vlm.time.sleep = _real_sleep
+check("a direct ask backs off once, then takes the slot", (1, True), (len(_slept), 1.0 <= _slept[0] <= 3.0))
+with vlm.slot(priority=True):
+    check("the drainer does not wait on its own mark", False, vlm.drainer_waiting())
+
+# A stale claim of a dead drainer is queued again at the next drainer's start.
+vlm.put_spool("s" * 40, b"sx", "p", 10)
+(vlm.spool_dir() / ("s" * 40 + ".json")).rename(vlm.spool_dir() / ("s" * 40 + vlm.CLAIMED))
+vlm.requeue_claimed()
+check("a dead drainer's claim is queued again", (True, False), ((vlm.spool_dir() / ("s" * 40 + ".json")).exists(), (vlm.spool_dir() / ("s" * 40 + vlm.CLAIMED)).exists()))
+(vlm.spool_dir() / ("s" * 40 + ".json")).unlink()
+
+# Head of line: an entry already answered or without its png is dropped, a failing one goes to the back.
+vlm.CACHE.mkdir(parents=True, exist_ok=True)
+for _k in vlm.spooled():
+    vlm.drain_one()
+vlm.put_spool("a" * 40, b"ax", "p", 10)
+os.utime(vlm.spool_dir() / ("a" * 40 + ".json"), (1, 1))
+(vlm.spool_dir() / ("a" * 40 + ".png")).unlink()  # orphan json, oldest
+vlm.put_spool("b" * 40, b"bx", "p", 10)
+os.utime(vlm.spool_dir() / ("b" * 40 + ".json"), (2, 2))
+(vlm.CACHE / ("b" * 40 + ".txt")).write_text("done")  # answered already
+vlm.put_spool("c" * 40, b"cx", "p", 10)
+check("orphan and answered entries do not block the next", "c" * 40, vlm.drain_one())
+check("... and both are dropped", [], vlm.spooled())
+vlm.put_spool("b" * 40, b"bx", "p", 10)
+check("a cached key is not spooled", [], vlm.spooled())
+vlm.put_spool("d" * 40, b"dx", "p", 10)
+os.utime(vlm.spool_dir() / ("d" * 40 + ".json"), (1, 1))
+vlm.put_spool("e" * 40, b"ex", "p", 10)
+(vlm.spool_dir() / ("e" * 40 + ".json")).rename(vlm.spool_dir() / ("e" * 40 + vlm.CLAIMED))
+vlm.put_spool("e" * 40, b"ex", "p", 10)
+check("a claimed key is not spooled again", False, (vlm.spool_dir() / ("e" * 40 + ".json")).exists())
+(vlm.spool_dir() / ("e" * 40 + vlm.CLAIMED)).unlink()
+urllib.request.urlopen = fake_500
+vlm.drain_one()
+check("a failed ask goes to the back", True, (vlm.spool_dir() / ("d" * 40 + ".json")).stat().st_mtime > 100)
+urllib.request.urlopen = fake_ok
+
+# Draining finishes the oldest read's asks before the next read's, though they were spooled interleaved.
+for _k in vlm.spooled():
+    vlm.drain_one()
+for _i, (_k, _pid) in enumerate([("1" * 40, 11), ("2" * 40, 22), ("3" * 40, 11), ("4" * 40, 22)]):
+    vlm.put_spool(_k, b"g%d" % _i, "p", 10)
+    _j = vlm.spool_dir() / (_k + ".json")
+    _j.write_text(json.dumps({"prompt": "p", "max_tokens": 10, "pid": _pid, "at": 0}))
+    os.utime(_j, (10 + _i, 10 + _i))
+check("the oldest read's asks drain together", ["1" * 40, "3" * 40, "2" * 40, "4" * 40], [vlm.drain_one() for _ in range(4)])
+
+# A read whose ask another read spooled first waits on it: spooled_by finds it (the queue sees "spooled", not "VLM down").
+vlm.put_spool("m" * 40, b"mx", "p", 10)
+_j = vlm.spool_dir() / ("m" * 40 + ".json")
+_j.write_text(json.dumps({"prompt": "p", "max_tokens": 10, "pid": 424242, "at": 0}))
+vlm.put_spool("m" * 40, b"mx", "p", 10)
+check("a second read of a spooled ask waits on it", (["m" * 40], ["m" * 40]), (vlm.spooled_by(os.getpid()), vlm.spooled_by(424242)))
+vlm.drain_one()
+check("... and the wait ends with the answer", (0, 0), (len(vlm.spooled()), len(list(vlm.spool_dir().glob("m" * 40 + ".wait.*")))))
+
+# A spooled read's guard says so, not "went down".
+vlm._MISSED[0] = True
+vlm._CAUSE[0] = "spooled"
+os.environ[vlm.DEFER_ENV] = "1"
+try:
+    vlm.guard("a row")
+    _msg = ""
+except vlm.Down as e:
+    _msg = str(e)
+check("a spooled guard names the spool", (True, False), ("spooled" in _msg, "went down" in _msg))
+os.environ.pop(vlm.DEFER_ENV)
+vlm._MISSED[0] = False
+vlm._CAUSE[0] = ""
 
 if fails:
     print("test_vlm_reader: failed")

@@ -177,6 +177,14 @@ def titled():
     return importlib.util.find_spec("setproctitle") is not None
 
 
+def vlm_deferral(e):
+    """The log words for a unit deferred by VLM error `e`: its asks spooled, or the VLM down."""
+    import vlm_reader
+    if vlm_reader.cause() == "spooled":
+        return f"deferred, {len(vlm_reader.spooled_by(os.getpid()))} VLM asks spooled"
+    return f"deferred, the VLM is down ({e})"
+
+
 def unit_status(unit, run):
     """In the unit's own process: name it after `unit`, run() it and return
     its exit status (EXITS; 1 for an error, logged; "deferred" when its
@@ -201,7 +209,7 @@ def unit_status(unit, run):
         return 1
     except Exception as e:  # any raise: the unit's end is its exit status, logged
         if scan_queue.vlm_down(e):
-            print(f"{unit['kind']} {unit['rel']}: deferred, the VLM is down ({e})", file=sys.stderr, flush=True)
+            print(f"{unit['kind']} {unit['rel']}: {vlm_deferral(e)}", file=sys.stderr, flush=True)
             return edition_commit.EXITS["vlm"]
         scan_queue.failure((unit["rel"],), e)
         return 1
@@ -371,7 +379,7 @@ if _snapshot is not None and _spec.get("brief"):
     except Exception as e:  # any raise: the unit's end is its exit status, logged
         import scan_queue
         if scan_queue.vlm_down(e):
-            print(f"read {_spec['unit']['rel']}: deferred, the VLM is down ({e})", file=sys.stderr, flush=True)
+            print(f"read {_spec['unit']['rel']}: {vlm_deferral(e)}", file=sys.stderr, flush=True)
             sys.exit(edition_commit.EXITS["vlm"])
         scan_queue.failure((_spec["unit"]["rel"],), e)
         sys.exit(1)
@@ -1886,6 +1894,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 losses[key_of(unit)] = losses.get(key_of(unit), 0) + 1
             if rc == EXITS["vlm"]:
                 spooled_by = vlm_reader.spooled_by(pid)
+                spooled_end = bool(spooled_by)
                 if spooled_by:
                     spool_wait[key_of(unit)] = set(spooled_by)  # started again once the drainer has answered them
                 else:
@@ -1906,7 +1915,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     7: "not started: the disk is full",
                     EXITS["deferred"]: "deferred (the desktop is busy)",
                     EXITS["lost"]: "deferred (the desktop was lost)",
-                    EXITS["vlm"]: "deferred (the VLM is down)"}.get(rc, f"failed (rc={rc})")
+                    EXITS["vlm"]: "deferred (spooled)" if rc == EXITS["vlm"] and spooled_end else "deferred (the VLM is down)"}.get(rc, f"failed (rc={rc})")
             if unit["kind"] == "fetch":
                 src = unit["paper"]
                 outages[src] = outages[src] + 1 if rc == 5 else 0

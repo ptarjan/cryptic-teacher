@@ -35,6 +35,7 @@ import random
 import socket
 import sys
 import tempfile
+import threading
 import time
 import urllib.error
 import urllib.parse
@@ -110,6 +111,8 @@ def guard(what):
     it wanted (missed): `what` (a puzzle write, a ledger row) would record a
     read made without it."""
     if _MISSED[0] and os.environ.get(DEFER_ENV):
+        if _CAUSE[0] == "spooled":
+            raise Down(f"{len(spooled_by(os.getpid()))} VLM asks spooled for the drainer; {what} not written")
         raise Down(f"VLM {MODEL} at {URL} went down mid-read ({_CAUSE[0] or 'unknown'}); {what} not written")
 
 
@@ -409,22 +412,81 @@ def slots():
     return _SLOTS[0]
 
 
+#: Drainer threads waiting for a slot leave a file named for their pid in the temp dir's
+#: vlm_reader.draining/: direct askers (slot() without priority) hold off while a live
+#: other process has one, so spooled asks are not starved by reads asking directly.
+_DRAINING = [0]
+_DRAINING_LOCK = threading.Lock()
+
+
+def _draining_dir():
+    return Path(tempfile.gettempdir()) / "vlm_reader.draining"
+
+
+def drainer_waiting():
+    """Whether a live process other than this one has a drainer thread waiting for a slot."""
+    try:
+        files = list(_draining_dir().iterdir())
+    except OSError:
+        return False
+    found = False
+    for f in files:
+        if not f.name.isdigit() or not _alive(int(f.name)):
+            f.unlink(missing_ok=True)
+        elif int(f.name) != os.getpid():
+            found = True
+    return found
+
+
 @contextlib.contextmanager
-def slot():
+def _draining():
+    mark = _draining_dir() / str(os.getpid())
+    with _DRAINING_LOCK:
+        _DRAINING[0] += 1
+        try:
+            mark.parent.mkdir(parents=True, exist_ok=True)
+            mark.touch()
+        except OSError:
+            pass
+    try:
+        yield
+    finally:
+        with _DRAINING_LOCK:
+            _DRAINING[0] -= 1
+            if not _DRAINING[0]:
+                mark.unlink(missing_ok=True)
+
+
+@contextlib.contextmanager
+def slot(priority=False):
     """Hold one of slots() host-wide lock files for one request. Waiting here is
-    queueing, not the server being down: it never marks anything missed."""
+    queueing, not the server being down: it never marks anything missed. `priority`
+    (the drainer): marks itself as waiting; without it, polling holds off while
+    another process's drainer waits."""
     import fcntl  # POSIX only: the desktop (Windows) imports this module without using the lock
     n = slots() + max(0, PIPELINE)
-    while True:
-        for i in range(n):
-            with open(Path(tempfile.gettempdir()) / f"vlm_reader.slot.{i}.lock", "w") as f:
+    ctx = _draining() if priority else contextlib.nullcontext()
+    with ctx:
+        while True:
+            if not priority and drainer_waiting():
+                time.sleep(random.uniform(1.0, 3.0))
+                continue
+            for i in range(n):
+                f = open(Path(tempfile.gettempdir()) / f"vlm_reader.slot.{i}.lock", "w")
                 try:
                     fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
                 except BlockingIOError:
+                    f.close()
                     continue
-                yield
-                return
-        time.sleep(random.uniform(0.2, 1.0))
+                break
+            else:
+                time.sleep(random.uniform(0.2, 1.0))
+                continue
+            break
+    try:  # the marker is gone: the slot is held until the request ends
+        yield
+    finally:
+        f.close()
 
 
 #: A process with an ask under way (waiting for a slot, or in flight) leaves a file
@@ -553,7 +615,12 @@ def put_spool(key, data, prompt, max_tokens):
     """Queue the ask `key` for the drainer (png first, the json that marks it last)."""
     d = spool_dir()
     d.mkdir(parents=True, exist_ok=True)
+    if (CACHE / f"{key}.txt").exists():
+        return
     if (d / f"{key}.json").exists() or (d / f"{key}{CLAIMED}").exists():
+        # Another read's ask: this one waits on it too (spooled_by finds it by this mark), so
+        # its read ends spooled, not "the VLM is down".
+        (d / f"{key}.wait.{os.getpid()}").touch()
         return
     (d / f"{key}.png").write_bytes(data)
     tmp = d / f"{key}.tmp"
@@ -588,7 +655,7 @@ def spooled_by(pid):
     out = []
     for k in spooled():
         try:
-            if json.loads(_entry(k).read_text()).get("pid") == pid:
+            if json.loads(_entry(k).read_text()).get("pid") == pid or (spool_dir() / f"{k}.wait.{pid}").exists():
                 out.append(k)
         except (OSError, ValueError, AttributeError):
             pass
@@ -602,37 +669,77 @@ def requeue_claimed():
         f.rename(f.with_name(f.name[:-len(CLAIMED)] + ".json"))
 
 
+def _clear_waits(d, key):
+    for w in d.glob(f"{key}.wait.*"):
+        w.unlink(missing_ok=True)
+
+
+def _by_read(files):
+    """`files` (oldest first) regrouped by the asking process, the read nearest done first
+    (fewest asks left, then oldest), all its asks together: reads complete one at a time,
+    not all at once."""
+    groups = {}
+    for f in files:
+        try:
+            pid = json.loads(f.read_text()).get("pid")
+        except (OSError, ValueError, AttributeError):
+            pid = None
+        groups.setdefault(pid if pid is not None else f.name, []).append(f)
+    return [f for g in sorted(groups.values(), key=len) for f in g]  # stable: oldest first among equals
+
+
 def drain_one():
     """Ask the server the oldest queued spooled ask and cache its answer; its key, or None
     when none is queued or the ask failed (it stays queued). Threads may call it together:
     a claim is an atomic rename."""
     d = spool_dir()
-    try:
-        queued = sorted(d.glob("*.json"), key=lambda f: f.stat().st_mtime)
-    except OSError:
+    if not any(d.glob("*.json")):
         return None
-    for f in queued:
-        claim = f.with_name(f.name[:-len(".json")] + CLAIMED)
+    # The slot first, the claim second: a claimed ask is always being asked, never waiting
+    # (a .json.work that waited was lost with a dead drainer and hid from the others).
+    with slot(priority=True):
         try:
-            f.rename(claim)
+            queued = _by_read(sorted(d.glob("*.json"), key=lambda f: f.stat().st_mtime))
         except OSError:
-            continue  # another thread has it
-        key = f.name[:-len(".json")]
-        try:
-            got = json.loads(claim.read_text())
-            ask_png((d / f"{key}.png").read_bytes(), got["prompt"], got["max_tokens"], spool=False)
-        except (RuntimeError, OSError, ValueError, KeyError):
-            claim.rename(f)
             return None
-        claim.unlink(missing_ok=True)
-        (d / f"{key}.png").unlink(missing_ok=True)
-        return key
+        for f in queued:
+            claim = f.with_name(f.name[:-len(".json")] + CLAIMED)
+            try:
+                f.rename(claim)
+            except OSError:
+                continue  # another thread has it
+            key = f.name[:-len(".json")]
+            png = d / f"{key}.png"
+            if (CACHE / f"{key}.txt").exists() or not png.exists():
+                # Answered already (a read spooled it again while it was asked), or its png is gone:
+                # nothing to ask, and it must not block the entries behind it.
+                if not (CACHE / f"{key}.txt").exists():
+                    sys.stderr.write(f"vlm_reader: dropped spooled ask {key[:8]}: no png\n")
+                claim.unlink(missing_ok=True)
+                png.unlink(missing_ok=True)
+                _clear_waits(d, key)
+                continue
+            try:
+                got = json.loads(claim.read_text())
+                ask_png(png.read_bytes(), got["prompt"], got["max_tokens"], spool=False, held=True)
+            except (RuntimeError, OSError, ValueError, KeyError):
+                try:
+                    claim.rename(f)
+                    os.utime(f)  # to the back of the queue: one bad entry does not block the rest
+                except OSError:
+                    pass
+                return None
+            claim.unlink(missing_ok=True)
+            png.unlink(missing_ok=True)
+            _clear_waits(d, key)
+            return key
     return None
 
 
-def ask_png(data, prompt, max_tokens=1500, spool=None):
+def ask_png(data, prompt, max_tokens=1500, spool=None, held=False):
     """ask() of the image whose png() is `data`. `spool` (default: env SPOOL_ENV set, not "0"):
-    an ask not cached is queued for drain_one and Spooled raised, not asked."""
+    an ask not cached is queued for drain_one and Spooled raised, not asked. `held`: the caller
+    holds a slot() already (drain_one)."""
     key = ask_key(data, prompt)
     path = CACHE / f"{key}.txt"
     if path.exists():
@@ -648,6 +755,8 @@ def ask_png(data, prompt, max_tokens=1500, spool=None):
         spool = os.environ.get(SPOOL_ENV, "0") not in ("", "0")
     if spool:
         put_spool(key, data, prompt, max_tokens)
+        if path.exists():  # answered meanwhile
+            return path.read_text()
         _MISSED[0] = True
         _CAUSE[0] = "spooled"
         raise Spooled(f"VLM ask {key[:8]} spooled for the drainer")
@@ -665,7 +774,7 @@ def ask_png(data, prompt, max_tokens=1500, spool=None):
         try:
             for tried in range(QUEUE_FULL_TRIES):
                 try:
-                    with asking(), slot():
+                    with asking(), (contextlib.nullcontext() if held else slot()):
                         reply = json.load(urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT * (1 + max(0, PIPELINE))))
                     break
                 except urllib.error.HTTPError as e:
