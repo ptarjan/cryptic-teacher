@@ -177,4 +177,23 @@ check("half-hearted is not a halving deletion", 0, v.halved_as_deletion({"op": "
     {"text": "half-hearted"}], "parts": [{"words": "mob", "gives": "RABBLE"}, {"gives": "B"}]}))
 check("half of is", 1, v.halved_as_deletion({"op": "deletion", "indicators": [
     {"text": "half of"}], "parts": [{"words": "mob", "gives": "RABBLE"}, {"gives": "BLE"}]}))
+# r33: tuning on the r32 misses
+reawaken = {"op": "anagram", "indicators": [{"text": "Break"}], "parts": [
+    {"words": "a"}, {"words": "new", "gives": "N"}, {"words": "weaker"}]}
+check("a lone abbreviation letter the answer shows at its end is counted", 1, v.ana_lone_edge(reawaken, "REAWAKEN"))
+midway = {"op": "anagram", "indicators": [{"text": "Break"}], "parts": [{"words": "sat"}, {"words": "new", "gives": "N"}, {"words": "tea"}]}
+check("a lone letter that cannot sit outside (mid-answer) is not", 0, v.ana_lone_edge(midway, "TEANAST"))
+zero = {"op": "charade", "parts": [{"words": "Love", "gives": "ZERO"}, {"op": "anagram", "indicators": [{"text": "reforming"}], "parts": [
+    {"words": "to"}, {"words": "cleaner"}]}]}
+check("a clue word as written at the fodder's edge, shown unscrambled in the answer, is counted", 1, v.ana_literal_edge(zero, "ZEROTOLERANCE"))
+moved_to_front = {"op": "anagram", "indicators": [{"text": "struggling"}], "parts": [{"words": "onward"}, {"words": "we"}]}
+check("a literal piece that moves to the front of the answer is genuine fodder", 0, v.ana_literal_edge(moved_to_front, "WEONWARD"))
+twerking = {"op": "deletion", "indicators": [{"text": "getting end away"}], "parts": [
+    {"op": "charade", "parts": [{"words": "Plonker", "gives": "TWERP"}, {"words": "what Charles would be", "gives": "KING"}]}, {"gives": "P"}]}
+clue = "Plonker getting end away - what Charles would be (agitating arse)"
+check("a deletion over a charade whose indicator sits between the pieces is counted", 1, v.del_wraps_charade(twerking, clue))
+check("the indicator after the charade is not", 0, v.del_wraps_charade(twerking, "Plonker what Charles would be getting end away"))
+check("a nth pick a deletion cuts and re-adds is a move", 1, v.moved_letters({"op": "charade", "parts": [
+    {"op": "nth", "n": 5, "indicators": [{"text": "fifth of"}], "parts": [{"words": "sonnets"}]},
+    {"op": "deletion", "indicators": [{"text": "moving"}], "parts": [{"words": "Greek island", "gives": "CRETE"}, {"gives": "E"}]}]}))
 raise SystemExit(fails)

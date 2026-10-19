@@ -274,6 +274,12 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                       "word and show the cut as a deletion op with its indicator",
        "selectorAsCut": "a deletion removes a leaf made of a first/last-letter word (leader, City's first): write the "
                         "removed letter as a first/last pick with its own indicator",
+       "anaLoneEdge": "an anagram scrambles a single letter that the answer shows at its start or end: a lone letter "
+                      "that can sit outside the anagram must, so set it beside the anagram in a charade",
+       "anaLiteralEdge": "an anagram holds a clue word as written at the edge of its fodder, and the answer shows it "
+                         "unscrambled at its edge: set the word beside the anagram in a charade",
+       "delWrapsCharade": "a deletion wraps a charade though its indicator stands between the charade's pieces: it cuts "
+                          "the one piece next to it, so put the deletion on that piece inside the charade",
        "ownIndInLeaf": "an op's own indicator words also sit inside its leaf (French way back under rev<back>): "
                        "the leaf holds only the words that give its letters",
        "splitSharedIndicator": "two neighbouring same-kind ops share one indicator, only one carrying it: write "
@@ -333,6 +339,9 @@ def _validator_rules():
             "cutNoteLeaf": lambda t, a, c: V.cut_note_leaf(t),
             "ownIndInLeaf": lambda t, a, c: V.own_ind_in_leaf(t),
             "selectorAsCut": lambda t, a, c: V.selector_as_cut(t),
+            "anaLoneEdge": lambda t, a, c: V.ana_lone_edge(t, a.get("_answer") or None),
+            "anaLiteralEdge": lambda t, a, c: V.ana_literal_edge(t, a.get("_answer") or None),
+            "delWrapsCharade": lambda t, a, c: V.del_wraps_charade(t, c),
             "movedLetter": lambda t, a, c: V.moved_letters(t),
             "indInLeaf": lambda t, a, c: V.ind_in_leaf(t, c),
             # A step taken as filed that tools/clear_unchecked.py could not verify:

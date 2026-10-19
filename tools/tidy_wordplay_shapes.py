@@ -94,10 +94,14 @@ FIELDS = {
     "wordplay.cutNoteLeaf": lambda ann: V.cut_note_leaf(ann.get("wordplay")),
     "wordplay.ownIndInLeaf": lambda ann: V.own_ind_in_leaf(ann.get("wordplay")),
     "wordplay.selectorAsCut": lambda ann: V.selector_as_cut(ann.get("wordplay")),
+    "wordplay.anaLoneEdge": lambda ann: V.ana_lone_edge(ann.get("wordplay"), ann.get("answer")),
+    "wordplay.anaLiteralEdge": lambda ann: V.ana_literal_edge(ann.get("wordplay"), ann.get("answer")),
+    "wordplay.delWrapsCharade": lambda ann, clue=None: V.del_wraps_charade(ann.get("wordplay"), clue),
 }
 #: Fields whose finding places words in the clue, so counts() hands them its text.
 NEEDS_CLUE = {"wordplay.deletionInside", "wordplay.anagramSynonym", "wordplay.poolGap",
-              "wordplay.charadeOrder", "wordplay.reversalSplit", "wordplay.delWide", "wordplay.indLeafOverlap"}
+              "wordplay.charadeOrder", "wordplay.reversalSplit", "wordplay.delWide", "wordplay.indLeafOverlap",
+              "wordplay.delWrapsCharade"}
 
 
 def _inner(p):
