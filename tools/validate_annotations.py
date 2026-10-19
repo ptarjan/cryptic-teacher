@@ -4626,6 +4626,9 @@ def anagram_synonyms(tree, ann=None, clue=None):
     unclaimed word is the letter the real parse moves or drops. A leaf that gives its words
     twice over (IT -> ITIT) is a literal doubling, not a synonym."""
     n = 0
+    # Round 22c: with the answer known only a synonym at its edge counts (G + ana(FIRE)); a piece mid-answer
+    # scrambled with the rest is fodder (14 of 40 judged hits fine, all mid-answer; 10 of 10 edge hits errors).
+    ans = wordplay.letters((ann or {}).get("_answer") or "")
     for node in _walk(tree):
         if node.get("op") != "anagram":
             continue  # unchecked steps count: toughie-3430 3d files its stand-in unchecked
@@ -4639,6 +4642,8 @@ def anagram_synonyms(tree, ann=None, clue=None):
                                     and not _doubled(q) and not _near_literal(q) and not _phrase_letters(q)
                                     and not _repeats_sibling(q, pool)
                                     and not q.get("select")
+                                    and (not ans or ans.startswith(wordplay.letters(q["gives"]))
+                                         or ans.endswith(wordplay.letters(q["gives"])))
                                     and (p is not node or _stand_in(q)))
         n += bool(clue) and _lone_stand_in(node) and bool(_loose_words(ann, clue))
     return n
@@ -6068,6 +6073,8 @@ def reversal_split(tree, clue):
     for node in _walk(tree):
         if node.get("op") != "reversal" or node.get("unchecked"):
             continue
+        if any(m.get("op") in ("hidden", "alternate") for m in _walk(node) if m is not node):
+            continue  # round 22c: 8 of 9 judged-fine hits reversed a hidden or alternate-letters pick, one stretch of the clue
         spans = [s for p in node.get("parts") or [] if isinstance(p, dict) and (s := _extent(p, clue, low))]
         if not spans:
             continue
@@ -6086,6 +6093,22 @@ CUT_WORDS = frozenset("short shorter shortly half briefly brief first last lower
                       "endless headless topless beheaded curtailed cut clipped docked reduced".split())
 
 
+CUT_SUFFIXED = frozenset("endless headless topless beheaded curtailed cut clipped docked reduced".split())
+
+
+def _cut_phrase(words):
+    """Whether a leaf's opening words say a cut rather than name a thing: a cut word followed by "of"
+    ("half of", "first part of"), a "-less"/clipped word, or "half" that is no half-dozen."""
+    for i, w in enumerate(words[:2]):
+        if w not in CUT_WORDS:
+            continue
+        if w in CUT_SUFFIXED or "of" in words[i + 1:i + 4]:
+            return True
+        if w == "half" and "dozen" not in words and words[i + 1:i + 2] != ["a"]:
+            return True
+    return False
+
+
 def cut_in_leaf(tree, clue=None):
     """Leaves whose first words are a cut indicator ("short contract" giving DEA, "your lower half" giving UR,
     "First of branches" giving BRANCHES) that give fewer letters than the words after it: the cut is an op.
@@ -6097,6 +6120,8 @@ def cut_in_leaf(tree, clue=None):
         words = re.findall(r"[a-z']+", str(node["words"]).lower())
         if len(words) < 2 or words[0] not in CUT_WORDS | {"your", "a", "the"} or not any(w in CUT_WORDS for w in words[:2]):
             continue
+        if not _cut_phrase(words):
+            continue  # round 22c: "short film", "last month", "half-dozen" are synonyms (14 of 40 judged hits fine); "half of", "endless", "first part of" are cuts
         if len(re.sub(r"[^A-Z]", "", str(node["gives"]))) < sum(len(w) for w in words[1:]):
             n += 1
     return n
@@ -6283,7 +6308,7 @@ def shape_warnings(tag, ann, clue=None, answer=None):
         out.append(f"{tag}: {k} {NESTED_CONTAINER}: pieces that go in the same holder together are a "
                    f"charade (ins(AB E, U + S)); a piece in a piece in a third is "
                    f"ins(third, ins(second, first))")
-    if k := anagram_synonyms(tree, ann, clue):
+    if k := anagram_synonyms(tree, {**(ann or {}), "_answer": answer}, clue):
         out.append(f"{tag}: {k} {ANAGRAM_SYNONYM}: only the clue's own words are scrambled; "
                    f"the synonym joins the anagram's result in a charade")
     if k := misplaced_indicators(tree):
@@ -6915,7 +6940,6 @@ BACKLOG_MARKERS = {
     "wordplay.movedLetter": (MOVED_LETTER,),
     "wordplay.poolGap": (POOL_GAP,),
     "wordplay.tradedIndicator": (TRADED_INDICATOR,),
-    "wordplay.charadeOrder": (CHARADE_ORDER,),
     "wordplay.reversalSplit": (REVERSAL_SPLIT,),
     "wordplay.cutInLeaf": (CUT_IN_LEAF,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
