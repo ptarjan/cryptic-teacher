@@ -334,41 +334,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CONK",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost the whole word, so its last letter goes"
+       "text": "back",
+       "at": 17,
+       "note": "back here means turned around, so the letters run backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "back",
-         "note": "going back means running the other way, so the letters are read from the end"
+         "text": "almost",
+         "at": 6,
+         "note": "almost means not quite all, so the final letter goes"
         }
        ],
        "parts": [
         {
          "words": "hit",
-         "gives": "KNOC",
-         "note": "KNOCK, a hit, 'almost': last letter dropped"
+         "at": 13,
+         "gives": "KNOCK",
+         "note": "to knock is to hit"
+        },
+        {
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boxer's blow is nearly returned in kind.",
-     "walkthrough": "The same word does two jobs: the first 'Hit' is the definition, the second is the word to trim and turn round.",
-     "definitionFit": "An informal synonym: to conk someone is to hit them, usually on the head."
+     "surface": "A boxer lands a blow, then nearly lands one in return.",
+     "walkthrough": "KNOCK loses its last K to give KNOC, which reads backwards to give the answer.",
+     "definitionFit": "Conk is slang for striking someone, especially on the head."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false
     }
    }
@@ -848,46 +852,46 @@
      "indicators": [
       {
        "text": "in it",
-       "note": "'in it' puts the preceding letters inside the clue word just given"
+       "at": 74,
+       "note": "the pieces go inside the word for clue"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "clue",
+       "at": 38,
+       "gives": "HINT",
+       "note": "a hint is a clue"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "clue",
-           "gives": "HINT",
-           "note": "a hint is a clue"
-          },
-          {
-           "words": "nothing",
-           "gives": "O",
-           "note": "O = zero"
-          }
-         ]
+         "words": "nothing",
+         "at": 45,
+         "gives": "O",
+         "note": "O looks like zero, nothing"
         },
         {
          "words": "concerning",
+         "at": 53,
          "gives": "OF",
-         "note": "of = concerning, about"
+         "note": "of can mean about or concerning"
+        },
+        {
+         "words": "promotion",
+         "at": 64,
+         "gives": "PR",
+         "note": "PR, public relations, is promotion"
         }
        ]
-      },
-      {
-       "words": "promotion",
-       "gives": "PR",
-       "note": "PR, public relations, is promotion"
       }
      ]
     },
     "explanation": {
-     "surface": "Hunting for proof that a journalist was on the scene.",
-     "walkthrough": "'Hack' reads as a journalist, but it is an ordinary riding horse, and 'say' marks it as an example.",
-     "definitionFit": "A descriptive definition: a hoofprint is the mark proving a horse, such as a hack, passed that way."
+     "surface": "A journalist hunting for evidence of a promotion scandal.",
+     "walkthrough": "'Hack' reads as a journalist, but here it is a horse, and the definition describes a hoof mark left behind.",
+     "definitionFit": "A hoofprint is the mark a horse leaves, proof that a hack, a riding horse, passed by."
     },
     "features": {
      "answerInScene": false,
@@ -1645,48 +1649,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRENDIEST",
+     "op": "container",
      "indicators": [
       {
-       "text": "not closed",
-       "note": "'not closed' leaves the city's name open at the end, dropping its final E"
+       "text": "in",
+       "at": 29,
+       "note": "the border goes inside the shortened city"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "'in' puts the border inside the shortened city"
+         "text": "that's not closed",
+         "at": 45,
+         "note": "not closed means left open at the end, so the final letter goes"
         }
        ],
        "parts": [
         {
          "words": "Italian city",
-         "gives": "TRIEST",
-         "note": "TRIESTE with its last letter removed"
+         "at": 32,
+         "gives": "TRIESTE",
+         "note": "Trieste is a port in northeast Italy"
         },
         {
-         "words": "border",
-         "gives": "END",
-         "note": "an end is a border or edge"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "border",
+       "at": 22,
+       "gives": "END",
+       "note": "an end is a border or edge"
       }
      ]
     },
     "explanation": {
-     "surface": "Crossing an open border into Italy's liveliest city.",
-     "walkthrough": "'Not closed' is a neat way to say the last letter is missing: the word is left open at its end.",
-     "definitionFit": "'Happening' is informal for fashionable, so the most happening is the trendiest."
+     "surface": "The trendiest thing is seeing a boundary in an open Italian city.",
+     "walkthrough": "'Not closed' means the city is left open at its end, so it loses its final letter before the border goes in.",
+     "definitionFit": "Trendiest means most fashionable, the hottest thing around, which is what happening means in slang."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "closed"
+     "aptDefinition": true,
+     "misdirectedWord": "happening"
     }
    }
   }

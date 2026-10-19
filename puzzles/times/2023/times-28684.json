@@ -383,12 +383,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NADIR",
      "indicators": [
       {
        "text": "overwhelmed by",
-       "note": "being overwhelmed means being engulfed, so one piece goes inside the other"
+       "at": 22,
+       "note": "being overwhelmed means being swamped, so delta sits inside the other letters"
       }
      ],
      "parts": [
@@ -397,29 +396,32 @@
        "indicators": [
         {
          "text": "pouring",
-         "note": "pouring suggests a stream tumbling and splashing about, so the letters flow into a new order"
+         "at": 37,
+         "note": "pouring rain is in motion, so the letters flow into a new order"
         }
        ],
        "parts": [
         {
-         "words": "delta",
-         "gives": "D",
-         "note": "D is delta in the NATO alphabet"
-        },
-        {
          "words": "rain",
-         "note": "the letters of rain rearranged"
+         "at": 45
         }
        ]
+      },
+      {
+       "words": "delta",
+       "at": 16,
+       "gives": "D",
+       "note": "D is delta in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A river delta at its lowest ebb, flooded by heavy rain.",
-     "definitionFit": "The nadir is the point directly below an observer, figuratively the worst or lowest moment."
+     "surface": "A river delta at its lowest point is flooded by heavy rain.",
+     "walkthrough": "'Pouring' reads as describing the rain but is the signal to rearrange it; delta then sits inside.",
+     "definitionFit": "The nadir is the lowest point of anything, opposite the zenith."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "delta"
     }
@@ -580,41 +582,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ATONEFELLSWOOP",
-     "indicators": [
-      {
-       "text": "with return of last three",
-       "note": "a return sends something back, so the final three letters of that word run backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Make good",
+       "at": 0,
        "gives": "ATONE",
-       "note": "to atone is to make amends, or make good"
+       "note": "to atone is to make amends, to make good"
       },
       {
-       "words": "men",
-       "gives": "FELLOWS",
-       "note": "fellows are men"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "with return of last three",
+         "at": 15,
+         "note": "only the final three letters of the word are turned back, the rest left as they are"
+        }
+       ],
+       "parts": [
+        {
+         "words": "men",
+         "at": 10,
+         "gives": "FELLOWS",
+         "note": "fellows are men"
+        },
+        {
+         "gives": "OWS"
+        },
+        {
+         "gives": "SWO"
+        }
+       ]
       },
       {
        "words": "work",
+       "at": 42,
        "gives": "OP",
-       "note": "op is short for opus, a musical work"
+       "note": "OP is short for opus, a work"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to reform men and set them to work at once.",
-     "definitionFit": "The idiom, from Macbeth, means all at once in a single sudden action."
+     "surface": "Instructions to compensate staff and get to work quickly.",
+     "walkthrough": "The last three of FELLOWS, OWS, are turned to SWO, giving FELLSWO.",
+     "definitionFit": "At one fell swoop is an idiom from Macbeth meaning all at once, in a single sudden action."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "return"
+     "misdirectedWord": "good"
     }
    }
   },

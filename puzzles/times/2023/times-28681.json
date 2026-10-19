@@ -274,50 +274,52 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SOLITARY",
      "indicators": [
       {
        "text": "in",
-       "note": "in places one piece inside another"
+       "at": 25,
+       "note": "the reworked letters sit inside the two outer letters of the city"
       }
      ],
      "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outskirts of",
+         "at": 28,
+         "note": "the outskirts are the edges, so the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sydney",
+         "at": 41
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "working",
-         "note": "something working is in operation, so the letters are put to work in a fresh order"
+         "at": 17,
+         "note": "the letters are worked over into a new order"
         }
        ],
        "parts": [
         {
          "words": "tailor",
-         "note": "the six letters rearranged"
-        },
-        {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "outskirts of",
-           "note": "the outskirts of a word are its two edges, so only its first and last letters count"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Sydney",
-           "note": "first and last letters of the city name"
-          }
-         ]
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shy tailor running his business on the edge of Sydney.",
-     "definitionFit": "Someone solitary lives alone and avoids company, which is what reclusive describes."
+     "surface": "A shy tailor running a shop on the edge of Sydney.",
+     "walkthrough": "The surface pictures a tailor at work, but 'working' is the signal to rearrange him; the outskirts of Sydney are its first and last letters.",
+     "definitionFit": "Solitary means living alone, avoiding company, as a recluse does."
     },
     "features": {
      "answerInScene": true,
@@ -1163,65 +1165,70 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places pieces inside another"
+       "at": 31,
+       "note": "the letters go inside the shortened garment"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 34,
+         "note": "short means cut short, so the last letter goes"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "short",
-           "note": "something short is cut down, so the word loses its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "dress",
-           "gives": "FROCK",
-           "note": "a frock is a dress"
-          },
-          {
-           "gives": "K"
-          }
-         ]
+         "words": "dress",
+         "at": 40,
+         "gives": "FROCK",
+         "note": "a frock is a dress"
         },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "op": "first",
          "indicators": [
           {
            "text": "initially",
-           "note": "initially means at the start, so only the first letter of the next word counts"
+           "at": 12,
+           "note": "initially picks the first letter"
           }
          ],
          "parts": [
           {
            "words": "like",
-           "note": "first letter of the word"
+           "at": 22
           }
          ]
+        },
+        {
+         "words": "one",
+         "at": 27,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
         }
        ]
-      },
-      {
-       "words": "one",
-       "gives": "I",
-       "note": "the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone dancing about wildly in a miniskirt.",
-     "walkthrough": "'Cut capers' is an idiom for leaping about playfully; 'short dress' paints a miniskirt but means the word frock docked.",
-     "definitionFit": "To frolic is to play about high-spiritedly, which is what cutting capers means."
+     "surface": "Someone prances about in a mini dress.",
+     "walkthrough": "'Cut capers' sounds like trimming something, but it is an old idiom for leaping about playfully.",
+     "definitionFit": "To frolic is to play about merrily, the same as to cut capers, an idiom for dancing about."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "short"
+     "aptDefinition": true,
+     "misdirectedWord": "Cut"
     }
    }
   },
