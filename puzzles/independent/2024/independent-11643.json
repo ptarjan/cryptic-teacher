@@ -941,54 +941,57 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the earlier pieces inside the following word"
+       "at": 21,
+       "note": "these letters go inside the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not lead",
+         "at": 30,
+         "note": "the leading letter of the word for role is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "not lead",
-           "note": "without its lead the word loses its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "role",
-           "gives": "PART",
-           "note": "a part is a role in a play"
-          },
-          {
-           "gives": "P"
-          }
-         ]
+         "words": "role",
+         "at": 24,
+         "gives": "PART",
+         "note": "an actor's part is a role"
         },
         {
-         "words": "is",
-         "note": "taken as written"
+         "gives": "P"
         }
        ]
       },
       {
-       "words": "tenor",
-       "gives": "T",
-       "note": "T is the abbreviation for tenor"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "tenor",
+         "at": 11,
+         "gives": "T"
+        },
+        {
+         "words": "is",
+         "at": 18,
+         "gives": "IS"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A singer, the tenor, is cast in a supporting role rather than as the lead.",
-     "walkthrough": "'Not lead' sounds like a supporting role on stage, but it removes the first letter of the word for role.",
-     "definitionFit": "An artist can be any performer, as in a recording artist or variety artiste."
+     "surface": "A tenor is cast in a role, though not the lead part.",
+     "walkthrough": "'Not lead' sounds like a supporting role in the surface, but it drops the first letter.",
+     "definitionFit": "An artist can be any performer, as in a recording artist or variety artist."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "lead"
     }
    }
@@ -1261,47 +1264,56 @@
      "op": "container",
      "indicators": [
       {
+       "text": "to have",
+       "at": 10,
+       "note": "the word for gathering has the following letters within it"
+      },
+      {
        "text": "on board",
-       "note": "having things on board means carrying them inside"
+       "at": 42,
+       "note": "the letters are taken on board, carried inside the gathering"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Gathering",
-         "gives": "BEE",
-         "note": "a bee is a social gathering, as in a sewing bee"
-        },
-        {
-         "words": "silver",
-         "gives": "AG",
-         "note": "Ag is the chemical symbol for silver"
-        }
-       ]
+       "words": "Gathering",
+       "at": 0,
+       "gives": "BEE",
+       "note": "a bee is a social gathering, as in a sewing bee"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially points to the opening letter of the next word"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "loaded",
-         "note": "the first letter of loaded"
+         "words": "silver",
+         "at": 18,
+         "gives": "AG",
+         "note": "Ag is the chemical symbol for silver"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 25,
+           "note": "only the opening letter of loaded is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "loaded",
+           "at": 35,
+           "note": "first letter only"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Treasure is loaded aboard a celebrated vessel, with silver first.",
-     "walkthrough": "'Loaded on board' looks like cargo, but only the first letter of loaded is used. HMS Beagle carried Charles Darwin on his voyage.",
-     "definitionFit": "HMS Beagle is the ship on which Darwin sailed round the world, making it a famous ship."
+     "surface": "A gathering of people watch silver being loaded on board a famous ship.",
+     "definitionFit": "HMS Beagle was the vessel that carried Charles Darwin on his voyage of discovery."
     },
     "features": {
      "answerInScene": true,

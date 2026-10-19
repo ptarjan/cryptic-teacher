@@ -738,51 +738,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FLAMBEAU",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "For the most part",
-       "note": "most but not all of the next word is kept, so its last letter goes"
+       "text": "replaced",
+       "at": 29,
+       "note": "the letters are placed again, in a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "replaced",
-         "note": "letters that are replaced are put back in different positions"
+         "text": "For the most part",
+         "at": 0,
+         "note": "most of the word full is kept, one of its letters lost"
         }
        ],
        "parts": [
         {
          "words": "full",
-         "gives": "FUL",
-         "note": "the word with its final letter cut"
+         "at": 19
         },
         {
-         "words": "beam",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "beam",
+       "at": 24
+      },
+      {
+       "words": "a",
+       "at": 43
       }
      ]
     },
     "explanation": {
-     "surface": "A driver mostly has headlights on full beam, but swaps them for a flashlight.",
-     "walkthrough": "'Full beam' pairs naturally with 'torch', but the torch is the definition and the beam is anagram fodder.",
-     "definitionFit": "A flambeau is a flaming torch, especially one made of several thick wicks."
+     "surface": "A driver switches full beam for a torch for most of the journey.",
+     "walkthrough": "FULL without one L gives FUL; with BEAM and A, those letters are rearranged.",
+     "definitionFit": "A flambeau is a flaming torch, typically made of several thick wicks dipped in wax."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "replaced"
+     "misdirectedWord": "beam"
     }
    }
   },
@@ -860,51 +862,51 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NYLON",
      "indicators": [
       {
        "text": "without",
-       "note": "in its old sense of outside, the remaining letters sit around another"
+       "at": 19,
+       "note": "without here means outside, so the remaining letters sit outside the letter for left"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "NYLON",
        "indicators": [
         {
          "text": "leaving",
-         "note": "letters that leave a word are removed from it"
+         "at": 7,
+         "note": "the letters A and E depart from the word anyone"
         }
        ],
        "parts": [
         {
          "words": "Anyone",
-         "note": "taken as written"
+         "at": 0
         },
         {
          "words": "A&E",
-         "note": "these two letters are the ones removed"
-        },
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "standard abbreviation"
+         "at": 15,
+         "gives": "AE",
+         "note": "the two letters A and E, as in the hospital department"
         }
        ]
+      },
+      {
+       "words": "left",
+       "at": 27,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Did anyone leave the hospital emergency department without the left one of a pair of stockings?",
-     "walkthrough": "A&E is the British hospital casualty department. The question mark marks the definition as a loose one: stockings are often called nylons.",
-     "definitionFit": "Nylons are women's stockings made from the synthetic fibre, so a single stocking can be called a nylon."
+     "surface": "Anyone leaving A&E without their left stocking?",
+     "walkthrough": "'Without' means outside, not lacking: ANYONE minus A and E gives NYON, which goes round L. The question mark marks a definition by example.",
+     "definitionFit": "Nylon is the synthetic fibre stockings are made from, and nylons are stockings."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "without"
     }
    }
@@ -1422,22 +1424,22 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "KOALA",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "visiting",
-       "note": "a visitor goes inside the place being visited"
+       "text": "from the south",
+       "at": 51,
+       "note": "in a down clue reading from the south means reading upwards, backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "from the south",
-         "note": "in a down clue, reading from the south means bottom to top"
+         "text": "visiting",
+         "at": 35,
+         "note": "the visitor goes inside, between the other letters"
         }
        ],
        "parts": [
@@ -1446,32 +1448,36 @@
          "parts": [
           {
            "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "Asian native",
-           "gives": "LAO",
-           "note": "a Lao is a person from Laos"
+           "at": 44,
+           "gives": "A"
           },
           {
            "words": "king",
+           "at": 46,
            "gives": "K",
-           "note": "chess abbreviation"
+           "note": "K is the chess abbreviation for king"
           }
          ]
+        },
+        {
+         "words": "Asian native",
+         "at": 22,
+         "gives": "LAO",
+         "note": "a Lao is a native of Laos"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A native Australian and someone from Asia call on a monarch coming up from the south.",
+     "surface": "An Australian creature and an Asian one call on a king from down south.",
+     "walkthrough": "LAO goes between A and K to give ALAOK, which is read upwards.",
      "definitionFit": "The koala is a tree-dwelling marsupial found only in Australia."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "king"
+     "misdirectedWord": "visiting"
     }
    }
   },

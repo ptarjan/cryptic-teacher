@@ -1200,21 +1200,39 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "WHODUNIT",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the jumbled letters inside the outer pair"
+       "at": 26,
+       "note": "the rearranged letters sit inside the outer letters"
       }
      ],
      "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremes of",
+         "at": 29,
+         "note": "only the first and last letters of wonderment are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wonderment",
+         "at": 41,
+         "gives": "WT",
+         "note": "first and last letters only"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "Harry",
-         "note": "to harry is to harass and disturb, so the remaining letters are jumbled"
+         "at": 0,
+         "note": "to harry is to harass, so the letters are pushed around into a new order"
         }
        ],
        "parts": [
@@ -1223,41 +1241,20 @@
          "indicators": [
           {
            "text": "leaving",
-           "note": "leaving means departing, so the one letter departs from the name"
+           "at": 14,
+           "note": "the letter for one departs from the word Houdini"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Houdini",
-             "note": "the escape artist's name, taken as written"
-            },
-            {
-             "words": "one",
-             "gives": "I",
-             "note": "I is the Roman numeral one"
-            },
-            {
-             "op": "outer",
-             "indicators": [
-              {
-               "text": "extremes of",
-               "note": "the extremes of a word are its first and last letters"
-              }
-             ],
-             "parts": [
-              {
-               "words": "wonderment",
-               "note": "the first and last letters of wonderment"
-              }
-             ]
-            }
-           ]
+           "words": "Houdini",
+           "at": 6
           },
           {
-           "gives": "II"
+           "words": "one",
+           "at": 22,
+           "gives": "I",
+           "note": "I is the Roman numeral one"
           }
          ]
         }
@@ -1266,14 +1263,13 @@
      ]
     },
     "explanation": {
-     "surface": "Harry Houdini, the escapologist, leaves an audience full of wonder and puzzlement.",
-     "walkthrough": "Harry looks like Houdini's first name, which it was; here it is the instruction to jumble.",
-     "definitionFit": "A whodunit is a detective story built around the puzzle of who committed a crime, a mystery novel."
+     "surface": "Harry Houdini departs, leaving his audience full of wonderment and mystery.",
+     "walkthrough": "'Harry' looks like Houdini's first name, but it is the anagram signal.",
+     "definitionFit": "A whodunit is a detective story, a mystery whose puzzle is who committed the crime."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Harry"
     }
    }
@@ -1762,52 +1758,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "THESAURUS",
      "indicators": [
       {
        "text": "dons",
-       "note": "to don is to put on, as clothing, so the sign wraps around the other letters"
+       "at": 24,
+       "note": "to don is to put on, so the sign wears the shortened word inside it"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "sign",
+       "at": 29,
+       "gives": "TAURUS",
+       "note": "Taurus is a sign of the zodiac"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "Giving away tips",
-         "note": "giving away the tips means losing both end letters of the word"
+         "at": 0,
+         "note": "the word these loses both its tips, first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "these",
-           "note": "taken as written"
-          },
-          {
-           "words": "sign",
-           "gives": "TAURUS",
-           "note": "Taurus is a sign of the zodiac"
-          }
-         ]
-        },
-        {
-         "gives": "ET"
+         "words": "these",
+         "at": 18,
+         "note": "only its inner letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "University lecturers reveal secrets as they sign a book.",
-     "walkthrough": "Dons look like academics here, and tips like hints; dons is the verb meaning puts on.",
-     "definitionFit": "A thesaurus is a reference book listing words grouped by similar meaning."
+     "surface": "These university dons give away tips about a sign in a book.",
+     "walkthrough": "'Dons' looks like university teachers, but it is the verb meaning puts on.",
+     "definitionFit": "A thesaurus is a reference book listing words grouped by meaning, with synonyms."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "dons"
     }

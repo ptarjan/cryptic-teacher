@@ -102,46 +102,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MONKEYBUSINESS",
-     "indicators": [
-      {
-       "text": "a bit of",
-       "note": "only a bit of the word is wanted, so its tail is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Holy man",
+       "at": 0,
+       "gives": "MONK",
+       "note": "a monk is a man in holy orders"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a bit of an",
+         "at": 13,
+         "note": "only a bit of the following word is used, one of its letters dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Holy man",
-         "gives": "MONK",
-         "note": "a monk is a man in holy orders"
+         "words": "eye",
+         "at": 25
         },
         {
-         "words": "an eye",
-         "gives": "EY",
-         "note": "the word eye with its last letter cut off"
-        },
-        {
-         "words": "trading",
-         "gives": "BUSINESS",
-         "note": "trading or commerce is business"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "trading",
+       "at": 33,
+       "gives": "BUSINESS",
+       "note": "trading is business, commerce"
       }
      ]
     },
     "explanation": {
-     "surface": "A holy man keeps half an eye on some dodgy dealing.",
-     "definitionFit": "Monkey business is an idiom for mischief or underhand behaviour, the same as shenanigans."
+     "surface": "A holy man keeps one eye on the trading floor while getting up to mischief.",
+     "walkthrough": "Only part of 'eye' is wanted, its last letter falling away so that it joins the holy man to make an animal.",
+     "definitionFit": "Monkey business is an idiom for mischievous or underhand behaviour, exactly what shenanigans are."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "eye"
+     "misdirectedWord": "trading"
     }
    }
   },
@@ -262,67 +266,82 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GASTRIC",
+     "op": "charade",
      "indicators": [
       {
-       "text": "partial",
-       "note": "only part of the following word is used, so its end is dropped"
+       "text": "leads to",
+       "at": 21,
+       "note": "the first part comes before what follows, leading into it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 8,
+         "note": "the arsenic symbol sits inside the emptied gut"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "outer",
          "indicators": [
           {
-           "text": "in",
-           "note": "one item is placed inside another"
+           "text": "empty",
+           "at": 11,
+           "note": "emptying a word removes its insides, keeping only the outer letters of gut"
           }
          ],
          "parts": [
           {
-           "op": "outer",
-           "indicators": [
-            {
-             "text": "empty",
-             "note": "an empty word has its insides removed, leaving only its outer pair"
-            }
-           ],
-           "parts": [
-            {
-             "words": "gut",
-             "note": "first and last letters of gut"
-            }
-           ]
-          },
-          {
-           "words": "Arsenic",
-           "gives": "AS",
-           "note": "As is the chemical symbol for arsenic"
+           "words": "gut",
+           "at": 17,
+           "gives": "GT",
+           "note": "only its first and last letters are used"
           }
          ]
         },
         {
+         "words": "Arsenic",
+         "at": 0,
+         "gives": "AS",
+         "note": "As is the chemical symbol for arsenic"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "partial",
+         "at": 30,
+         "note": "only part of the word rictus is used, its ending dropped"
+        }
+       ],
+       "parts": [
+        {
          "words": "rictus",
-         "gives": "RIC",
-         "note": "the first three letters of rictus"
+         "at": 38,
+         "note": "a rictus is a fixed grin; only its first three letters are kept"
+        },
+        {
+         "gives": "TUS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Poison in an empty belly brings on a grimace.",
-     "definitionFit": "Gastric is the adjective relating to the stomach, from the Greek word for belly."
+     "surface": "A poisoning victim's grimace is blamed on arsenic in an empty stomach.",
+     "walkthrough": "'Gut' and 'stomach' look like one idea twice over, but the gut is only fodder: the definition is the adjective at the end.",
+     "definitionFit": "Gastric is the adjective for anything relating to the stomach, as in gastric juices."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Arsenic"
+     "misdirectedWord": "partial"
     }
    }
   },
