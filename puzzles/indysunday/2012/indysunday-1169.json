@@ -531,34 +531,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "at sea",
-       "note": "being at sea means confused and all over the place, so these letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Hands are found on this",
+       "at": 0,
+       "gives": "WATCH",
+       "note": "a watch has hands, so this describes a watch"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "at sea",
+         "at": 34,
+         "note": "at sea means confused, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Hands are found on this",
-         "gives": "WATCH",
-         "note": "a cryptic description: a timepiece has hour and minute hands"
-        },
-        {
          "words": "fine brig",
-         "note": "these eight letters rearranged"
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sailors on a smart ship at sea taking on lookout duty.",
-     "walkthrough": "'Hands' sounds like a ship's crew, matching the brig, but they are the hands of a clock face.",
-     "definitionFit": "A watching brief is a lawyer's instruction to observe a case for an interested party, so it is a duty to keep an eye on things."
+     "surface": "Crew hands on a fine ship at sea being given a lookout duty.",
+     "walkthrough": "'Hands' suggests sailors on the brig but means the hands of a watch. FINE BRIG rearranged gives INGBRIEF.",
+     "definitionFit": "A watching brief is a lawyer's instruction to observe a case on someone's behalf, a duty to monitor."
     },
     "features": {
      "answerInScene": false,
@@ -1634,49 +1636,55 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one thing in another is placed inside it"
+       "at": 26,
+       "note": "in places the pieces inside the paper's abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "paper",
-         "gives": "FT",
-         "note": "the FT is the Financial Times"
-        },
-        {
-         "words": "A",
-         "note": "taken as written"
-        }
-       ]
+       "words": "paper",
+       "at": 29,
+       "gives": "FT",
+       "note": "FT is the Financial Times newspaper"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "ignored",
-         "note": "something ignored is left out, so that word is removed"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "lucky charm",
-         "gives": "TALISMAN",
-         "note": "a talisman is an object thought to bring luck"
+         "words": "A",
+         "at": 0
         },
         {
-         "words": "man",
-         "note": "taken as written"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "ignored",
+           "at": 18,
+           "note": "ignored means this word is left out of the charm"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lucky charm",
+           "at": 2,
+           "gives": "TALISMAN",
+           "note": "a talisman is a lucky charm"
+          },
+          {
+           "words": "man",
+           "at": 14,
+           "gives": "MAN",
+           "note": "the word man taken as written"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lucky mascot overlooked in the newspaper; he just takes what comes.",
-     "walkthrough": "The FT, the pink Financial Times, is the paper; 'man ignored' strips those three letters from the end of the charm.",
+     "surface": "A lucky charm left out of a newspaper story about a resigned man.",
+     "walkthrough": "'man ignored' looks like a person being snubbed, but it tells you to drop those three letters from the charm.",
      "definitionFit": "A fatalist believes events are predetermined and so resigns himself to whatever happens."
     },
     "features": {

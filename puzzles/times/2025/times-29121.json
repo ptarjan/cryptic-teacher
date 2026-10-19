@@ -665,12 +665,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the word loses its last letter"
-      },
-      {
        "text": "first",
-       "note": "first puts the reversed word at the front, before the other piece"
+       "at": 49,
+       "note": "first puts the reversed piece ahead of the rest"
       }
      ],
      "parts": [
@@ -679,28 +676,46 @@
        "indicators": [
         {
          "text": "backed",
-         "note": "backed means sent backwards, so the word is read from its end"
+         "at": 30,
+         "note": "backed means turned backwards"
         }
        ],
        "parts": [
         {
          "words": "corporation",
+         "at": 37,
          "gives": "POT",
-         "note": "a corporation is jocular British slang for a pot belly"
+         "note": "corporation is an old jocular word for a pot belly, a pot"
         }
        ]
       },
       {
-       "words": "crazy",
-       "gives": "BANANA",
-       "note": "BANANAS, crazy, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 9,
+         "note": "mostly means all but the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crazy",
+         "at": 16,
+         "gives": "BANANAS",
+         "note": "bananas is slang for crazy"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crazy boss wants the company to come first.",
-     "walkthrough": "Corporation reads as the company; it is old slang for a large paunch.",
-     "definitionFit": "An idiom: the top banana is the most important person in an organisation."
+     "surface": "A chief who is half mad and wants the company to come first.",
+     "walkthrough": "'corporation' suggests a business but means a paunch, POT, which reversed gives TOP. BANANAS loses its S.",
+     "definitionFit": "Top banana is slang for the most important person in an organisation, the boss."
     },
     "features": {
      "answerInScene": true,
@@ -1030,50 +1045,48 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "turning over",
-       "note": "something turned over is flipped end to end, so the name is read backwards"
-      }
-     ],
      "parts": [
       {
-       "words": "France's top",
+       "words": "France's",
+       "at": 13,
        "gives": "F",
-       "note": "first letter of France"
+       "note": "F is the international vehicle registration letter for France"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "top",
-         "note": "the top of a word in a down clue is its first letter"
+         "text": "turning over",
+         "at": 36,
+         "note": "turning over means the name is reversed"
         }
        ],
        "parts": [
         {
-         "words": "couturier",
+         "words": "top couturier",
+         "at": 22,
          "gives": "DIOR",
-         "note": "Christian Dior, the fashion designer"
+         "note": "Christian Dior was a leading French fashion designer"
         }
        ]
       },
       {
        "words": "his cash",
+       "at": 49,
        "gives": "EUR",
-       "note": "EUR = euro, the Frenchman's currency"
+       "note": "the couturier is French, so his cash is the euro, abbreviated EUR"
       }
      ]
     },
     "explanation": {
-     "surface": "A leading French fashion designer is snooty as he counts his takings.",
-     "walkthrough": "France's top reads as a leading French figure, but it is simply the letter F.",
-     "definitionFit": "A borrowing from French for coldness of manner, used in English much as aloofness is."
+     "surface": "A haughty French designer counting his money.",
+     "walkthrough": "Christian Dior was the top French couturier, and as a Frenchman his cash is the euro.",
+     "definitionFit": "Froideur is a borrowing from French meaning a cold, distant manner, i.e. coolness or reserve."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "top"
+     "misdirectedWord": "turning"
     }
    }
   },
@@ -1102,36 +1115,39 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the letters are in the town, placed inside its name"
+       "at": 31,
+       "note": "in puts these letters inside the town name"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Cheshire town",
-         "gives": "SALE",
-         "note": "Sale is a town in Cheshire, a county in north-west England"
-        },
-        {
-         "words": "Oscar",
-         "gives": "O",
-         "note": "O is Oscar in the phonetic alphabet"
-        }
-       ]
+       "words": "Cheshire town",
+       "at": 34,
+       "gives": "SALE",
+       "note": "Sale is a town historically in Cheshire, near Manchester"
       },
       {
-       "words": "married",
-       "gives": "M",
-       "note": "M = married"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Oscar",
+         "at": 17,
+         "gives": "O",
+         "note": "O is Oscar in the NATO phonetic alphabet"
+        },
+        {
+         "words": "married",
+         "at": 23,
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dancer called Oscar marries in a north of England town.",
-     "walkthrough": "Oscar also hints at Oscar Wilde, who wrote a play about this dancer, but here it is just a letter.",
-     "definitionFit": "A definition by example: the biblical figure whose dance of the seven veils won her John the Baptist's head."
+     "surface": "Oscar Wilde, who wrote about a seductive dancer, marrying in a north-west English town.",
+     "walkthrough": "Oscar Wilde wrote the play Salome, which makes 'Oscar' look like the writer, but it only gives O.",
+     "definitionFit": "Salome danced before Herod, the dance of the seven veils, and won the head of John the Baptist."
     },
     "features": {
      "answerInScene": true,
@@ -1171,41 +1187,44 @@
      "indicators": [
       {
        "text": "circles",
-       "note": "to circle something is to go right round it, so the spy encloses the other letters"
+       "at": 24,
+       "note": "circles means surrounds, so the spy word goes round the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "spy",
-         "gives": "MOLE",
-         "note": "a mole is a spy inside an organisation"
-        },
-        {
-         "words": "British",
-         "gives": "BR",
-         "note": "BR = British"
-        }
-       ]
+       "words": "spy",
+       "at": 20,
+       "gives": "MOLE",
+       "note": "a mole is a spy planted inside an organisation"
       },
       {
-       "words": "upper-class",
-       "gives": "U",
-       "note": "U = upper-class, as in U and non-U"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "British",
+         "at": 0,
+         "gives": "BR"
+        },
+        {
+         "words": "upper-class",
+         "at": 8,
+         "gives": "U",
+         "note": "U is the label for upper-class usage"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A posh British spy keeps watch on a gang of criminals.",
-     "walkthrough": "Circles is the verb: the spy surrounds the other letters.",
-     "definitionFit": "Order here is a system of government, and rule by a lawless crowd is a criminal one."
+     "surface": "A posh British spy surrounding a gang of crooks.",
+     "walkthrough": "U for upper-class comes from the old U and non-U distinction in British speech.",
+     "definitionFit": "Mob rule is control by a lawless crowd rather than by law, an order imposed by lawbreakers."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "circles"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
     }
    }
   },
@@ -1390,64 +1409,69 @@
    "annotation": {
     "definitions": [
      {
-      "text": "the silly goose!",
+      "text": "the silly goose",
       "at": 68
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "across",
-       "note": "the liar lies across the letter, stretched over it on both sides"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "surrounding",
-         "note": "the region surrounds the city, enclosing its letters"
+         "text": "across",
+         "at": 10,
+         "note": "across means stretched over, so the liar word goes round the size letter"
         }
        ],
        "parts": [
         {
          "words": "One lying",
+         "at": 0,
          "gives": "FIBBER",
-         "note": "a fibber tells lies"
+         "note": "a fibber is someone who tells lies"
         },
         {
          "words": "large",
-         "gives": "L",
-         "note": "L = large; it goes inside FIBBER"
+         "at": 17,
+         "gives": "L"
         }
        ]
       },
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "surrounding",
+         "at": 42,
+         "note": "surrounding means the region word goes around the city"
+        }
+       ],
        "parts": [
         {
          "words": "mountainous region",
+         "at": 23,
          "gives": "TIBET",
-         "note": "Tibet, the Himalayan plateau"
+         "note": "Tibet is a mountainous region of Asia"
         },
         {
          "words": "city of rock",
+         "at": 54,
          "gives": "GIB",
-         "note": "Gib = Gibraltar, the Rock; it goes inside TIBET"
+         "note": "Gib is short for Gibraltar, known as the Rock"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone scolds a daft traveller who has been fibbing about a mountain trip.",
-     "walkthrough": "Gibraltar is known as the Rock, and Gib is its short name.",
-     "definitionFit": "A plain synonym: a flighty, frivolous, chattering person is a silly goose."
+     "surface": "A liar travelling across a mountain region and round Gibraltar, an absurd figure.",
+     "walkthrough": "The Rock is the nickname of Gibraltar, often shortened to Gib.",
+     "definitionFit": "A flibbertigibbet is a frivolous, flighty, gossipy person, a scatterbrain or silly goose."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "rock"
     }
