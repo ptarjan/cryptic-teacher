@@ -355,69 +355,71 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "head of",
-       "note": "the head is the top, so take the first letter of maths"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "about"
+         "text": "about",
+         "at": 24,
+         "note": "about means the word for sound out goes around the last letter"
         }
        ],
        "parts": [
         {
          "words": "Sound out",
+         "at": 0,
          "gives": "PROBE",
          "note": "to probe is to sound out"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "M",
+         "op": "last",
          "indicators": [
           {
            "text": "ultimately",
-           "note": "ultimately means in the end, so take the last letter of equivocal"
+           "at": 30,
+           "note": "ultimately picks the last letter of equivocal"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "head of maths",
-           "gives": "M",
-           "select": "first",
-           "note": "first letter of maths"
+           "words": "equivocal",
+           "at": 41,
+           "note": "last letter of equivocal"
           }
          ]
         }
        ]
       },
       {
-       "op": "last",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 10,
+         "note": "head of takes the first letter of maths"
+        }
+       ],
        "parts": [
         {
-         "words": "ultimately equivocal",
-         "note": "last letter of equivocal"
+         "words": "maths",
+         "at": 18,
+         "note": "first letter of maths"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tests the senior maths teacher on an ambiguous calculation.",
-     "walkthrough": "Head of maths reads as a senior teacher, but it is only an M, and 'sum' with a question mark is a classroom exercise, not addition.",
-     "definitionFit": "A sum set in class is a problem; the question mark admits a sum is only one kind."
+     "surface": "A maths teacher sounds out an ambiguous calculation.",
+     "walkthrough": "L goes inside PROBE, and M follows.",
+     "definitionFit": "A sum set in a maths lesson is a problem to solve; the question mark marks this as an example."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "head"
+     "aptDefinition": true,
+     "misdirectedWord": "Sound"
     }
    }
   },
@@ -608,52 +610,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "meeting",
-       "note": "things that meet come together"
+       "text": "in",
+       "at": 33,
+       "note": "the old, wife and maiden letters sit in the word for bar"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "bar",
+       "at": 36,
+       "gives": "BAN",
+       "note": "to ban is to bar"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
-         "text": "in"
+         "text": "meeting",
+         "at": 18,
+         "note": "meeting puts the maiden letter right alongside the wife letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "bar",
-           "gives": "BAN",
-           "note": "to bar is to ban"
-          },
-          {
-           "words": "maiden",
-           "gives": "M",
-           "note": "M for maiden, an over with no runs in cricket scoring"
-          }
-         ]
+         "words": "old",
+         "at": 9,
+         "gives": "O"
         },
         {
          "words": "wife",
-         "gives": "W",
-         "note": "standard abbreviation"
+         "at": 13,
+         "gives": "W"
+        },
+        {
+         "words": "maiden",
+         "at": 26,
+         "gives": "M",
+         "note": "M is the cricket abbreviation for maiden, an over with no runs"
         }
        ]
-      },
-      {
-       "words": "old",
-       "gives": "O",
-       "note": "standard abbreviation"
       }
      ]
     },
     "explanation": {
-     "surface": "In The Archers radio soap, an old wife meets a young woman in the pub.",
-     "walkthrough": "Archer's with a capital suggests the BBC soap The Archers, but it is just the definition plus 'is', and bar is not the pub but a verb.",
-     "definitionFit": "Bowman is the older plain-English word for an archer, one who shoots with a bow."
+     "surface": "An archer's former wife meets a young woman in a pub.",
+     "walkthrough": "'bar' suggests a pub, but here it is the verb ban.",
+     "definitionFit": "A bowman shoots with a bow, so he is an archer."
     },
     "features": {
      "answerInScene": false,
@@ -812,58 +814,45 @@
      "indicators": [
       {
        "text": "adapted",
-       "note": "the letters of drama are adapted"
+       "at": 14,
+       "note": "adapted means the letters are reworked, as a play is adapted"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "drama",
+       "at": 22
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "takes the first letter of recasting"
+         "at": 29,
+         "note": "initially takes the first letter of recasting"
         }
        ],
        "parts": [
         {
-         "words": "drama",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "R",
-         "indicators": [
-          {
-           "text": "recasting",
-           "note": "casting Ariel again rearranges the name"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "initially recasting",
-           "gives": "R",
-           "select": "first",
-           "note": "first letter of recasting"
-          }
-         ]
-        },
-        {
-         "words": "Ariel",
-         "note": "anagram fodder"
+         "words": "recasting",
+         "at": 39,
+         "note": "first letter of recasting"
         }
        ]
+      },
+      {
+       "words": "Ariel",
+       "at": 49
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor stages a new version of a play and first replaces the actor playing Ariel, the spirit in The Tempest.",
-     "walkthrough": "Recasting does double work: its R joins the fodder, and the word itself tells you to shuffle Ariel.",
-     "definitionFit": "A rank title: the rear admiral is the lowest of the navy's admirals, so a naval officer by example."
+     "surface": "A director adapts a play and starts by recasting Ariel, the spirit in The Tempest.",
+     "walkthrough": "'recasting' looks like the anagram signal, but only its first letter, R, is used. DRAMA, R and ARIEL are rearranged together.",
+     "definitionFit": "A rear admiral is a senior naval rank, just below vice admiral."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "recasting"
     }
@@ -1056,7 +1045,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Aim of Bill",
+      "text": "Aim of Bill's",
       "at": 0
      }
     ],
@@ -1064,47 +1053,54 @@
      "op": "container",
      "indicators": [
       {
-       "text": "followed by",
-       "note": "what is followed has something coming after it, so the deed comes first and the chaps after"
+       "text": "in",
+       "at": 37,
+       "note": "the deed and chaps pieces sit in the hospital department"
       }
      ],
      "parts": [
       {
        "words": "hospital department",
+       "at": 40,
        "gives": "ENT",
-       "note": "ear, nose and throat"
+       "note": "ENT is the ear, nose and throat department"
       },
       {
        "op": "charade",
        "indicators": [
         {
-         "text": "in"
+         "text": "followed by",
+         "at": 19,
+         "note": "followed by puts the chaps after the deed"
         }
        ],
        "parts": [
         {
          "words": "deed",
+         "at": 14,
          "gives": "ACT",
-         "note": "a deed is an act"
+         "note": "an act is a deed"
         },
         {
          "words": "chaps",
+         "at": 31,
          "gives": "MEN",
-         "note": "chaps = men"
+         "note": "men are chaps"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bill wants to be the man who does the deed and then meets his mates in a hospital ward.",
-     "walkthrough": "Bill reads as a man's name because it opens the possessive; it is a parliamentary bill, whose aim is to become law.",
-     "definitionFit": "A bill in parliament aims to become law, and its enactment is that goal achieved."
+     "surface": "A man named Bill does a deed and is followed by chaps into a hospital department.",
+     "walkthrough": "'Bill' looks like a person; it is a parliamentary bill, a draft law.",
+     "definitionFit": "A parliamentary bill aims to become law through enactment, its passing into statute."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Bill"
+     "joke": "pun",
+     "misdirectedWord": "Bill's"
     }
    }
   },
@@ -1129,58 +1125,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TATTLER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounded by",
+       "at": 20,
+       "note": "surrounded by means the shortened prime minister sits inside the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
        "indicators": [
         {
-         "text": "endlessly",
-         "note": "cuts the last letter from ATTLEE"
-        },
-        {
          "text": "regularly",
-         "note": "takes every other letter of stark"
+         "at": 34,
+         "note": "regularly takes every other letter of stark"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "TR",
-         "indicators": [
-          {
-           "text": "surrounded by"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "regularly stark",
-           "gives": "TR",
-           "select": "alternate",
-           "note": "s-T-a-R-k, the even letters"
-          }
-         ]
+         "words": "stark",
+         "at": 44,
+         "note": "alternate letters of stark"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 10,
+         "note": "endlessly drops the last letter of the prime minister's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Former PM",
+         "at": 0,
+         "gives": "ATTLEE",
+         "note": "Clement Attlee was British Prime Minister 1945-51"
         },
         {
-         "words": "Former PM endlessly",
-         "gives": "ATTLE",
-         "note": "Clement Attlee, British prime minister 1945-51, minus his last E"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A former prime minister is hemmed in by blunt rumour-mongering.",
-     "walkthrough": "Stark looks like an adjective for the gossip, but regularly reduces it to two letters.",
-     "definitionFit": "A tattler is a gossip, someone who tells tales."
+     "surface": "An ex-premier is endlessly hemmed in by blunt tittle-tattle.",
+     "walkthrough": "Clement Attlee led Britain's post-war Labour government; the even letters of stark are the ones kept.",
+     "definitionFit": "A tattler is a person who tattles, spreading chatter about others, so a gossip."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false
     }
    }
