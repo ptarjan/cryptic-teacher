@@ -2273,6 +2273,15 @@ INDICATOR_KINDS = {
                        "Words like <em>without</em> and <em>losing</em> are used for several "
                        "kinds of cut, so only words used mostly this way are listed."),
 }
+# The h3 under a family's h2 for each kind.
+KIND_TITLES = {
+    "first_letters": "First letters", "last_letters": "Last letters",
+    "middle_letters": "Middle letters", "outer_letters": "Outer letters",
+    "alternate_letters": "Alternate letters", "nth_letter": "Nth letter",
+    "head_deletion": "Head", "tail_deletion": "Tail", "heart_deletion": "Heart",
+    "outer_deletion": "Outer", "named_deletion": "Named piece",
+}
+assert set(KIND_TITLES) == set(INDICATOR_KINDS)
 # The page lists a kind after its parent, in the order above.
 _ordered = {}
 for _t, _blurb in INDICATOR_TYPES.items():
@@ -2432,6 +2441,9 @@ def indicators_page(found):
                          "Add each to INDICATOR_TYPES in tools/build_seo_pages.py.")
     # A kind's words are already in its parent's list: counted once.
     counted = [t for t in types if t not in INDICATOR_KINDS]
+    families = counted
+    kinds_of = {t: [k for k in types if k in INDICATOR_KINDS and INDICATOR_KINDS[k][0] == t]
+                for t in families}
     total = sum(len(lex[t]) for t in counted)
     linked = sum(1 for t in counted for k in lex[t] if (t, k) in found)
 
@@ -2465,20 +2477,43 @@ def indicators_page(found):
         "<em>about</em> is a container, but it can also mean an anagram. "
         f"{linked:,} of the words are links to a real clue that uses them.</p>",
         "<p>Jump to: " + build_abbreviations.LIST_SEP.join(
-            f'<a href="#{t}">{type_label(t)}</a>' for t in types) + "</p>",
+            f'<a href="#{t}">{type_label(t)}</a>' + (
+                " (" + ", ".join(f'<a href="#{k}">{KIND_TITLES[k].lower()}</a>' for k in kinds_of[t])
+                + ")" if kinds_of[t] else "")
+            for t in families) + "</p>",
     ]
-    for t in types:
-        ranked = ranked_indicators(t)
+    def words(t, ranked, lesson=None, heading=None):
+        """An optional h3 and lesson, then the ranked Most used line and All N toggle."""
         top, rest = ranked[:15], ranked[15:]
-        body += [f'<h2 id="{t}">{type_label(t).capitalize()}</h2>',
-                 f"<p>{INDICATOR_TYPES[t]}</p>",
-                 "<p><strong>Most used:</strong> "
-                 + build_abbreviations.LIST_SEP.join(item(t, k, n) for k, n in top) + "</p>"]
+        out = []
+        if heading:
+            out.append(f'<h3 id="{heading[0]}">{heading[1]}</h3>')
+        if lesson:
+            out.append(f"<p>{lesson}</p>")
+        out.append("<p><strong>Most used:</strong> "
+                   + build_abbreviations.LIST_SEP.join(item(t, k, n) for k, n in top) + "</p>")
         if rest:
-            body += [f"<details><summary>All {len(ranked):,}</summary>",
-                     "<p>" + build_abbreviations.LIST_SEP.join(item(t, k, n) for k, n in rest) + "</p>",
-                     "</details>"]
-    body += [f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">New to cryptics? '
+            out += [f"<details><summary>All {len(ranked):,}</summary>",
+                    "<p>" + build_abbreviations.LIST_SEP.join(item(t, k, n) for k, n in rest) + "</p>",
+                    "</details>"]
+        return out
+
+    for t in families:
+        body += [f'<h2 id="{t}">{type_label(t).capitalize()}</h2>',
+                 f"<p>{INDICATOR_TYPES[t]}</p>"]
+        subs = kinds_of[t]
+        if not subs:
+            body += words(t, ranked_indicators(t))
+            continue
+        used = set()
+        for kind in subs:
+            used |= set(lex[kind])
+            body += words(kind, ranked_indicators(kind), INDICATOR_TYPES[kind],
+                          (kind, KIND_TITLES[kind]))
+        other = [(k, n) for k, n in ranked_indicators(t) if k not in used]
+        if other:
+            body += words(t, other, None, (f"{t}-other", "Other"))
+    body +=[f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">New to cryptics? '
              f'Learn how the clues work &rarr;</a></p>', "</main>"]
     return head(title, desc, canonical, ld(page_ld) + ld(breadcrumb_ld(crumbs))) \
         + "\n".join(body) + "\n" + FOOTER
