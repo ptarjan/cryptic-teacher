@@ -232,47 +232,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "missing",
-       "note": "something missing is absent, so those letters are taken away from the word before"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "second",
+         "note": "the second letter alone of the preceding word is wanted"
+        }
+       ],
        "parts": [
         {
-         "op": "nth",
-         "n": 2,
-         "indicators": [
-          {
-           "text": "second",
-           "note": "the second letter alone of the preceding word is wanted"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Chestnut's",
-           "note": "second letter of chestnut"
-          }
-         ]
-        },
-        {
-         "words": "in",
-         "note": "taken as written"
-        },
-        {
-         "words": "race",
-         "gives": "DERBY",
-         "note": "the Derby is a famous horse race"
+         "words": "Chestnut's",
+         "note": "second letter of chestnut"
         }
        ]
       },
       {
-       "words": "by",
-       "note": "the letters removed"
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "note": "something missing is absent, so those letters are taken away from the word before"
+        }
+       ],
+       "parts": [
+        {
+         "words": "race",
+         "gives": "DERBY",
+         "note": "the Derby is a famous horse race"
+        },
+        {
+         "words": "by",
+         "note": "the letters removed"
+        }
+       ]
       }
      ]
     },
