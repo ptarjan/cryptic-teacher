@@ -876,46 +876,50 @@
      "indicators": [
       {
        "text": "protecting",
-       "note": "something protecting another wraps round it as a shield"
+       "at": 7,
+       "note": "protecting tells us the word for patent wraps round the firm and the first letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Patent",
-         "gives": "OVERT",
-         "note": "patent means obvious, open"
-        },
-        {
-         "words": "firm",
-         "gives": "CO",
-         "note": "Co is the abbreviation for company"
-        }
-       ]
+       "words": "Patent",
+       "at": 0,
+       "gives": "OVERT",
+       "note": "patent means obvious or open, which is overt"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "origin of",
-         "note": "the origin is where something begins, so only the first letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Apple",
-         "note": "the first letter of the word"
+         "words": "firm",
+         "at": 18,
+         "gives": "CO",
+         "note": "CO is the abbreviation for company, a firm"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "origin of",
+           "at": 25,
+           "note": "origin is the beginning, so just the first letter of Apple"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Apple",
+           "at": 35
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A patent protects the firm behind the Apple Mac computer.",
-     "walkthrough": "'Apple Mac' suggests computers; a mac is a mackintosh raincoat.",
-     "definitionFit": "A mac, short for mackintosh, is a waterproof coat worn over other clothes, so it is a kind of overcoat."
+     "surface": "A patent shields a company's new design: is this how the Apple Mac began?",
+     "walkthrough": "'Apple Mac' points to computers, but a mac here is a mackintosh raincoat; the question mark flags the definition by example.",
+     "definitionFit": "A mac, short for mackintosh, is a raincoat, a type of coat worn over other clothes."
     },
     "features": {
      "answerInScene": false,
@@ -1139,43 +1143,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASPIRE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "initially avoided",
-       "note": "the first letter is the one avoided, so it is left off"
+       "text": "may become",
+       "at": 26,
+       "note": "may become tells us the remaining letters can turn into another word by rearrangement"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "may become",
-         "note": "becoming something else means a change of form, so the letters are reordered"
+         "text": "initially avoided",
+         "at": 8,
+         "note": "initially avoided tells us the first letter of despair is left out"
         }
        ],
        "parts": [
         {
          "words": "Despair",
-         "gives": "ESPAIR",
-         "note": "the word without its first letter"
+         "at": 0
+        },
+        {
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "If you steer clear of despair at the outset, it may turn into hope.",
-     "walkthrough": "The surface is a neat motivational saying, and the answer is the verb, as in 'aspire to greatness'.",
-     "definitionFit": "To aspire is to set one's hopes on achieving something, so it matches hope as a verb."
+     "surface": "If you steer clear of despair at the outset, it might turn into hope.",
+     "walkthrough": "'initially avoided' drops D from DESPAIR, leaving ESPAIR, which 'may become' rearranges.",
+     "definitionFit": "To aspire is to long for or set one's heart on something, which is what it means to hope."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Despair"
+     "aptDefinition": false
     }
    }
   },
@@ -1397,53 +1402,59 @@
      "indicators": [
       {
        "text": "cans",
-       "note": "cans as a verb means puts into a tin, so the pieces are enclosed"
+       "at": 34,
+       "note": "cans as a verb means contains, so the tin symbol holds the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "tin",
-         "gives": "SN",
-         "note": "Sn is the chemical symbol for tin"
-        },
-        {
-         "words": "to",
-         "note": "taken as written"
-        }
-       ]
+       "words": "tin",
+       "at": 30,
+       "gives": "SN",
+       "note": "Sn is the chemical symbol for tin"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "without opening",
-         "note": "lacking its opening means the first letter is missing"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "beer",
-         "gives": "ALE",
-         "note": "ale is beer"
+         "words": "to",
+         "at": 6,
+         "gives": "TO"
         },
         {
-         "gives": "A"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "without opening",
+           "at": 14,
+           "note": "without opening tells us the word for beer loses its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "beer",
+           "at": 9,
+           "gives": "ALE",
+           "note": "ale is a kind of beer"
+          },
+          {
+           "gives": "A"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody has taken to drinking beer straight from a can without opening it.",
-     "walkthrough": "'Cans' looks like a noun but is the verb, to seal in a tin.",
-     "definitionFit": "Stolen means taken unlawfully, so it can replace taken as a past participle."
+     "surface": "Someone helps themselves to beer, skipping the business of opening tins of it.",
+     "walkthrough": "'without opening' turns ALE into LE; TO + LE is canned by SN.",
+     "definitionFit": "Stolen means taken without permission, so stolen goods are things taken."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "cans"
     }
    }

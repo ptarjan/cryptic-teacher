@@ -941,55 +941,58 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "TRADESWOMAN",
      "indicators": [
       {
        "text": "back",
-       "note": "back says read everything built so far from the end to the start"
+       "at": 41,
+       "note": "back tells us the whole string built so far is read in the reverse direction"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "TRADESWOMAN",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in puts one piece inside the other"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "TRADESWOMAN",
+         "words": "North American",
+         "at": 0,
+         "gives": "NA"
+        },
+        {
+         "words": "cut",
+         "at": 15,
+         "gives": "MOW",
+         "note": "to mow is to cut grass"
+        },
+        {
+         "op": "container",
          "indicators": [
           {
-           "text": "bare",
-           "note": "bare means stripped, so the word that follows loses its outer letters"
+           "text": "in",
+           "at": 31,
+           "note": "in tells us the stripped cedars go within the abbreviation for street"
           }
          ],
          "parts": [
           {
-           "words": "North American",
-           "gives": "NA",
-           "note": "the abbreviation for North American"
-          },
-          {
-           "words": "cut",
-           "gives": "MOW",
-           "note": "to mow grass is to cut it"
-          },
-          {
            "words": "street",
-           "gives": "ST",
-           "note": "St is the abbreviation for street"
+           "at": 34,
+           "gives": "ST"
           },
           {
-           "words": "cedars",
-           "note": "taken as written, then stripped"
+           "op": "middle",
+           "indicators": [
+            {
+             "text": "bare",
+             "at": 19,
+             "note": "bare means stripped of its covering, so cedars loses its outer letters"
+            }
+           ],
+           "parts": [
+            {
+             "words": "cedars",
+             "at": 24
+            }
+           ]
           }
          ]
         }
@@ -998,9 +1001,9 @@
      ]
     },
     "explanation": {
-     "surface": "An American lumberjack fells cedars beside a street at the back of a shop.",
-     "walkthrough": "'Back' applies to everything before it, not just the street. In Britain a tradesman is traditionally a shopkeeper rather than a builder.",
-     "definitionFit": "In British usage a tradesman or tradeswoman is a retailer, someone keeping a shop and selling goods."
+     "surface": "A North American lumberjack cuts cedars bare beside a street, all for the sake of a shopkeeper.",
+     "walkthrough": "'bare' strips the outer letters of cedars and 'in' sets what is left inside the street abbreviation; 'back' then reverses the whole string, not just the street.",
+     "definitionFit": "A tradeswoman is a woman engaged in trade, such as one running a shop: a female shopkeeper."
     },
     "features": {
      "answerInScene": false,

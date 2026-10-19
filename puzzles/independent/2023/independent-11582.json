@@ -297,41 +297,43 @@
      "indicators": [
       {
        "text": "cutting through",
-       "note": "something cutting through another lies inside it, splitting it in two"
+       "at": 33,
+       "note": "cutting through tells us the letters for i and pages break into the word for uninteresting, the 'that' of the clue"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "uninteresting",
-         "gives": "DRY",
-         "note": "dry means dull or uninteresting"
-        },
-        {
-         "words": "i's",
-         "gives": "I",
-         "note": "the letter i itself, possessive dropped"
-        }
-       ]
+       "words": "uninteresting",
+       "at": 8,
+       "gives": "DRY",
+       "note": "dry describes something dull and uninteresting"
       },
       {
-       "words": "pages",
-       "gives": "PP",
-       "note": "pp is the abbreviation for pages"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "i's",
+         "at": 23,
+         "gives": "I",
+         "note": "the letter i itself"
+        },
+        {
+         "words": "pages",
+         "at": 27,
+         "gives": "PP"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A jibe at the i newspaper: its pages are so weak and dull.",
-     "walkthrough": "The i is a British newspaper, sister paper of the Independent, which makes the surface a joke at its expense; 'that' points back to the dull word.",
-     "definitionFit": "Drippy is informal for weak, sentimental and ineffectual, so a close synonym of feeble."
+     "surface": "A reader complains that the pages of the i newspaper are feeble and dull.",
+     "walkthrough": "The i is a British newspaper, but here it is just the letter I; I + PP goes 'cutting through' DRY.",
+     "definitionFit": "Drippy is informal for weak, sentimental and ineffectual, which matches feeble."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "i's"
     }
    }
@@ -363,58 +365,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MONTREUX",
-     "indicators": [
-      {
-       "text": "vacantly",
-       "note": "vacantly means emptied, so the middle of the word is removed and only its ends stay"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "blocking",
+         "at": 25,
+         "note": "blocking tells us the emptied not sits in the middle of the word for additional"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "words": "additional",
+         "at": 34,
+         "gives": "MORE",
+         "note": "more means additional or extra"
+        },
+        {
+         "op": "outer",
          "indicators": [
           {
-           "text": "blocking",
-           "note": "something blocking a passage sits inside it, so one piece goes within another"
+           "text": "vacantly",
+           "at": 16,
+           "note": "vacantly tells us not is emptied of its middle, keeping only its ends"
           }
          ],
          "parts": [
           {
-           "words": "additional",
-           "gives": "MORE",
-           "note": "more means additional"
-          },
-          {
            "words": "not",
-           "gives": "NT",
-           "note": "the word not with its middle letter emptied out"
+           "at": 12
           }
          ]
-        },
-        {
-         "words": "university",
-         "gives": "U",
-         "note": "U is the abbreviation for university"
-        },
-        {
-         "words": "Times",
-         "gives": "X",
-         "note": "x is the multiplication sign, read as times"
         }
        ]
+      },
+      {
+       "words": "university",
+       "at": 45,
+       "gives": "U"
+      },
+      {
+       "words": "Times",
+       "at": 59,
+       "gives": "X",
+       "note": "X is the multiplication sign, times"
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper headline about a Swiss city refusing a new university.",
-     "walkthrough": "'Times' at the end looks like a newspaper's name signing off, but it is the multiplication sign.",
-     "definitionFit": "Montreux is a resort town on Lake Geneva in Switzerland, famous for its jazz festival."
+     "surface": "A newspaper headline about a Swiss city and an extra university.",
+     "walkthrough": "'vacantly' empties not of its middle, and that pair is 'blocking' the word for additional. Times is the multiplication sign, not the newspaper.",
+     "definitionFit": "Montreux is a town on Lake Geneva in Switzerland, famous for its jazz festival."
     },
     "features": {
      "answerInScene": true,
@@ -577,61 +580,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "YORKSHIREMAN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Heading away from",
-       "note": "the heading of a word is its first letter, and away from says that letter goes"
+       "text": "different",
+       "at": 54,
+       "note": "different signals that the gathered letters are made into a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "different",
-         "note": "different letters arranged differently gives a new word from the same stock"
+         "text": "Heading away from",
+         "at": 0,
+         "note": "heading away from means the head, the first letter, of Thirsk departs"
         }
        ],
        "parts": [
         {
          "words": "Thirsk",
-         "gives": "HIRSK",
-         "note": "Thirsk losing its first letter"
+         "at": 18
         },
         {
-         "words": "one",
-         "note": "taken as written"
-        },
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 25
+      },
+      {
+       "words": "may",
+       "at": 29
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "words": "may",
-         "note": "taken as written"
-        },
+         "text": "ultimately",
+         "at": 33,
+         "note": "ultimately points to the last letter of encounter only"
+        }
+       ],
+       "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "note": "ultimately means at the end, so only the final letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "encounter",
-           "note": "last letter of encounter"
-          }
-         ]
+         "words": "encounter",
+         "at": 44
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller leaving a market town notices people there are not like the setter.",
-     "walkthrough": "Thirsk is a market town in North Yorkshire, which ties the surface to the answer; the question mark flags that 'me' is the setter.",
-     "definitionFit": "The setter claims Yorkshire roots, so a man from that English county is a person like the setter."
+     "surface": "Leaving Thirsk, a traveller may meet someone very unlike the setter.",
+     "walkthrough": "'Heading away from' leaves HIRSK; with ONE, MAY and R ('ultimately' encounter), 'different' rearranges them. Thirsk is a Yorkshire market town, and Phi, the setter, is a Yorkshireman.",
+     "definitionFit": "The setter refers to himself; a Yorkshireman is a man from the English county of Yorkshire, as Phi is."
     },
     "features": {
      "answerInScene": true,
@@ -661,56 +667,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COERCION",
-     "indicators": [
-      {
-       "text": "losing lead",
-       "note": "the lead is the front, and losing it drops the first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Playing",
+         "at": 0,
+         "note": "playing signals the letters are put into play and moved around"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "Playing",
-           "note": "playing suggests the letters are in play and moving about into a new order"
+           "text": "losing lead",
+           "at": 16,
+           "note": "losing lead tells us the first letter of soccer is dropped"
           }
          ],
          "parts": [
           {
            "words": "soccer",
-           "gives": "OCCER",
-           "note": "soccer without its first letter"
+           "at": 8
           },
           {
-           "words": "one",
-           "gives": "I",
-           "note": "the Roman numeral for one"
+           "gives": "S"
           }
          ]
-        },
-        {
-         "words": "subject to",
-         "gives": "ON",
-         "note": "on can mean subject to, as in on probation"
         }
        ]
+      },
+      {
+       "words": "one's",
+       "at": 29,
+       "gives": "I",
+       "note": "one is the Roman numeral I; the 's is a link"
+      },
+      {
+       "words": "subject to",
+       "at": 35,
+       "gives": "ON",
+       "note": "on, as in on medication, means subject to"
       }
      ]
     },
     "explanation": {
-     "surface": "A footballer who has lost the lead feels the pressure building.",
-     "walkthrough": "'subject to pressure' looks like one phrase; split it, since 'subject to' is wordplay and only 'pressure' defines.",
-     "definitionFit": "Coercion is forcing someone to act by threats or force, the kind of pressure applied to make a person comply."
+     "surface": "A footballer playing without a leading role is under pressure.",
+     "walkthrough": "'losing lead' cuts SOCCER to OCCER, which 'Playing' rearranges to COERC.",
+     "definitionFit": "Coercion is forcing someone to act by threats or force, a form of pressure."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "lead"
     }
@@ -737,36 +747,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ESHER",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "French are",
+       "at": 13,
+       "gives": "ES",
+       "note": "es is French for (you) are, from the verb etre"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 24,
+         "note": "almost tells us here is taken short of its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "French are",
-         "gives": "ES",
-         "note": "es is French for 'are', as in tu es"
+         "words": "here",
+         "at": 31
         },
         {
-         "words": "here",
-         "gives": "HER",
-         "note": "here missing its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "French visitors announce they have nearly reached a town in Surrey.",
-     "definitionFit": "Esher is a commuter town in Surrey, a county just south-west of London."
+     "surface": "A French visitor arriving in a Surrey town is almost here.",
+     "walkthrough": "Esher is a commuter town in the English county of Surrey; 'almost' cuts HERE to HER.",
+     "definitionFit": "Esher is a town in Surrey, just south-west of London."
     },
     "features": {
      "answerInScene": true,
@@ -843,48 +856,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPICY",
+     "op": "container",
      "indicators": [
       {
-       "text": "departing",
-       "note": "something departing leaves, so those letters are taken out"
+       "text": "retained by",
+       "at": 13,
+       "note": "retained by tells us the photo is kept inside what is left of sexy"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "retained by",
-         "note": "retained by means held inside, so one piece sits within the other"
+         "text": "departing",
+         "at": 43,
+         "note": "departing tells us the former lover leaves the word sexy"
         }
        ],
        "parts": [
         {
-         "words": "sexy former lover",
-         "gives": "SY",
-         "note": "sexy with ex, a former lover, removed"
+         "words": "sexy",
+         "at": 25
         },
         {
-         "words": "photo",
-         "gives": "PIC",
-         "note": "pic is short for picture or photo"
+         "words": "former lover",
+         "at": 30,
+         "gives": "EX",
+         "note": "an ex is a former partner"
         }
        ]
+      },
+      {
+       "words": "photo",
+       "at": 7,
+       "gives": "PIC",
+       "note": "pic is short for picture, a photo"
       }
      ]
     },
     "explanation": {
-     "surface": "A saucy snapshot is kept by an attractive ex who has now left.",
-     "walkthrough": "'former lover' is the usual crossword ex, and it is those letters that depart from sexy.",
-     "definitionFit": "Spicy can describe a story or joke that is mildly indecent, which is what risqué means."
+     "surface": "An ex walks out but keeps hold of a racy photograph.",
+     "walkthrough": "'departing' takes EX from SEXY to leave SY, and PIC is 'retained by' it.",
+     "definitionFit": "Spicy can mean slightly indecent or racy, a close match for risqué."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "former"
+     "aptDefinition": false
     }
    }
   },
@@ -1156,56 +1174,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EVICTING",
+     "op": "container",
      "indicators": [
       {
-       "text": "endless",
-       "note": "endless means without an end, so the final letter is cut off"
+       "text": "to involve",
+       "at": 18,
+       "note": "to involve tells us the abbreviation for say goes round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "to involve",
-         "note": "to involve means to take in, so the outer word wraps round the others"
-        }
-       ],
+       "words": "say",
+       "at": 13,
+       "gives": "EG",
+       "note": "eg, for example, is what say means here"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "say",
-         "gives": "EG",
-         "note": "e.g. means for example, say"
-        },
-        {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 29,
+           "note": "endless tells us the word for crime loses its final letter"
+          }
+         ],
          "parts": [
           {
            "words": "crime",
-           "gives": "VIC",
-           "note": "vice, wrongdoing, without its last letter"
+           "at": 37,
+           "gives": "VICE",
+           "note": "vice is criminal or immoral activity"
           },
           {
-           "words": "money",
-           "gives": "TIN",
-           "note": "tin is British slang for money"
+           "gives": "E"
           }
          ]
+        },
+        {
+         "words": "money",
+         "at": 47,
+         "gives": "TIN",
+         "note": "tin is old British slang for money"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A report on how bad money and crime keep spreading.",
-     "walkthrough": "'and' seems to join two items for the container, but it links the two inner pieces, which sit side by side inside EG.",
-     "definitionFit": "Evicting a tenant means turning them out of a property by legal process."
+     "surface": "A landlord throws out tenants, say, for being mixed up in crime and money.",
+     "walkthrough": "'say' is the example abbreviation, which is made 'to involve' the shortened crime and the money. Tin is British slang for money.",
+     "definitionFit": "Evicting is expelling tenants from property, which is turning them out."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "say"
     }
@@ -1233,57 +1257,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "too many officers?",
-      "at": 51
+      "text": "involving too many officers?",
+      "at": 41
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TOPHEAVY",
+     "op": "container",
      "indicators": [
       {
-       "text": "not initially",
-       "note": "not initially means the first letter is left out"
+       "text": "in",
+       "at": 5,
+       "note": "in tells us the word for work goes within the shortened military phrase"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in places one piece inside another"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "the",
-           "note": "taken as written"
-          },
-          {
-           "words": "military force",
-           "gives": "AVY",
-           "note": "the navy, a fighting service, without its first letter"
-          }
-         ]
+         "words": "the",
+         "at": 8,
+         "gives": "THE"
         },
         {
-         "words": "Work",
-         "gives": "OP",
-         "note": "op is short for opus, a work"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not initially",
+           "at": 27,
+           "note": "not initially tells us navy loses its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "military force",
+           "at": 12,
+           "gives": "NAVY",
+           "note": "the navy is a military force"
+          },
+          {
+           "gives": "N"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Work",
+       "at": 0,
+       "gives": "OP",
+       "note": "op, short for opus, is a work"
       }
      ]
     },
     "explanation": {
-     "surface": "Questioning whether a branch of the services has more chiefs than troops.",
-     "walkthrough": "OP goes in after the first letter of THEAVY.",
-     "definitionFit": "An organisation is top-heavy when it has too many managers for the staff below, the question mark flagging the military example."
+     "surface": "Working in a military service whose ranks are overloaded with officers.",
+     "walkthrough": "'not initially' strips the first letter from the force, and the work goes 'in' just after the opening letter of 'the'.",
+     "definitionFit": "An organisation that is top-heavy has too many senior staff for its base, as with an excess of officers."
     },
     "features": {
      "answerInScene": true,

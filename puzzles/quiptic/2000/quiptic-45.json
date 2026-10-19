@@ -535,12 +535,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "IMPLACABLE",
      "indicators": [
       {
        "text": "inside",
-       "note": "inside tells us one piece goes within the other pieces"
+       "at": 17,
+       "note": "inside tells us the shuffled clamp goes within the other pieces, between I and the word for can"
       }
      ],
      "parts": [
@@ -549,36 +548,39 @@
        "parts": [
         {
          "words": "I",
-         "note": "taken as written"
+         "at": 0,
+         "gives": "I"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "turn",
-           "note": "to turn something is to twist it into a new shape, so the letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "clamp",
-           "note": "fodder to be rearranged"
-          },
-          {
-           "words": "can",
-           "gives": "ABLE",
-           "note": "if you can, you are able"
-          }
-         ]
+         "words": "can",
+         "at": 2,
+         "gives": "ABLE",
+         "note": "to be able is to can do something, so can gives ABLE"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "turn",
+         "at": 6,
+         "note": "turn tells us to rework the letters of clamp into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clamp",
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "However firmly a clamp is fixed, someone insists they can turn it.",
-     "walkthrough": "I and ABLE (for can) are split apart to take the rearranged letters between them.",
-     "definitionFit": "Implacable means unable to be appeased or moved, so relentless and unyielding."
+     "surface": "Someone boasts they can twist a clamp around, however stubborn it is.",
+     "walkthrough": "'turn' rearranges the clamp, and 'inside' sends the result between the I and the word for can, so the I opens the answer. 'however' only links wordplay to definition.",
+     "definitionFit": "An implacable person cannot be appeased or moved, which is exactly what unyielding describes."
     },
     "features": {
      "answerInScene": false,
