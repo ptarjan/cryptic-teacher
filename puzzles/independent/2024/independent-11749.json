@@ -478,49 +478,63 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "FRUITION",
      "indicators": [
       {
-       "text": "for",
-       "note": "one thing for another means it takes the other's place, so one letter is swapped out"
-      },
-      {
-       "text": "to begin with",
-       "note": "to begin with says the swap happens at the first matching place in the word"
+       "text": "for a",
+       "at": 31,
+       "note": "for a means one thing stands in place of another, it taking the slot"
       }
      ],
      "parts": [
       {
-       "words": "father",
-       "gives": "FR",
-       "note": "Fr is the abbreviation for Father, as for a priest"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "father",
+         "at": 13,
+         "gives": "FR",
+         "note": "Fr is the abbreviation for Father, a priest's title"
+        },
+        {
+         "words": "joining",
+         "at": 20,
+         "gives": "UNION",
+         "note": "a union is a joining together"
+        }
+       ]
       },
       {
-       "words": "joining",
-       "gives": "UNION",
-       "note": "a union is a joining together"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "to begin with",
+         "at": 43,
+         "note": "to begin with picks the first letter of night"
+        }
+       ],
+       "parts": [
+        {
+         "words": "night",
+         "at": 37
+        }
+       ]
       },
       {
        "words": "it",
-       "note": "taken as written"
-      },
-      {
-       "words": "a night",
-       "gives": "N",
-       "note": "N is an abbreviation for night; this is the letter swapped out"
+       "at": 28,
+       "gives": "IT"
       }
      ]
     },
     "explanation": {
-     "surface": "A father enjoying the time he has for a night out.",
-     "walkthrough": "'For' is the swap signal: only the first N of the joining word is replaced, the second stays.",
-     "definitionFit": "Fruition is an old word for enjoyment or pleasure in possessing something, before its usual sense of fulfilment."
+     "surface": "A father enjoying it when he joins in for a night out at the start.",
+     "walkthrough": "Only the N that begins the union's second syllable is swapped, the one that stands for night; the final N stays.",
+     "definitionFit": "Fruition can mean the pleasure of possessing something, an old sense close to enjoyment."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "night"
+     "misdirectedWord": "joining"
     }
    }
   },
@@ -667,41 +681,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AVALANCHE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "No time",
-       "note": "no time means the letter for time, T, is dropped from the word it applies to"
+       "text": "manoeuvres",
+       "at": 23,
+       "note": "manoeuvres says the letters are moved around into new positions"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "manoeuvres",
-         "note": "manoeuvres are movements and repositionings, so the letters are moved into new places"
+         "text": "No",
+         "at": 0,
+         "note": "no means the following letter is left out"
         }
        ],
        "parts": [
         {
          "words": "teach",
-         "gives": "EACH",
-         "note": "the word with its T for time removed"
+         "at": 11
         },
         {
-         "words": "naval",
-         "note": "taken as written"
+         "words": "time",
+         "at": 3,
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "naval",
+       "at": 17
       }
      ]
     },
     "explanation": {
-     "surface": "There's no time to teach sailors how to manoeuvre during a flood.",
-     "definitionFit": "An avalanche is figuratively an overwhelming flood or deluge of something, such as letters or complaints."
+     "surface": "A trainer with no time to teach naval manoeuvres.",
+     "walkthrough": "TEACH without T is EACH, and 'manoeuvres' rearranges EACH and NAVAL.",
+     "definitionFit": "An avalanche is an overwhelming rush, so a flood of anything can be called one."
     },
     "features": {
      "answerInScene": false,

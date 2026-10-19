@@ -2479,60 +2479,66 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SOUBRETTE",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "about means placed around, so the nasty word encloses that letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SOUBRETTE",
+       "op": "container",
        "indicators": [
         {
-         "text": "needing the edges knocked off",
-         "note": "with edges knocked off the character word loses both its first and last letters"
+         "text": "about",
+         "at": 12,
+         "note": "about means the word sour goes around the next piece"
         }
        ],
        "parts": [
+        {
+         "words": "nasty",
+         "at": 6,
+         "gives": "SOUR",
+         "note": "sour means nasty or unpleasant"
+        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "initially",
-           "note": "initially asks for only the first letter of boy"
+           "at": 22,
+           "note": "initially picks the first letter of boy"
           }
          ],
          "parts": [
           {
            "words": "boy",
-           "note": "the first letter of boy"
+           "at": 18
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "words": "nasty",
-         "gives": "SOUR",
-         "note": "sour means unpleasant, nasty"
-        },
+         "text": "needing the edges knocked off",
+         "at": 43,
+         "note": "having its edges knocked off means the word loses its first and last letters"
+        }
+       ],
+       "parts": [
         {
          "words": "character",
+         "at": 33,
          "gives": "LETTER",
-         "note": "a character is a letter of the alphabet"
+         "note": "a letter is a character of the alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nasty flirt approaches a lad, a rough character who needs polishing.",
-     "walkthrough": "'Edges knocked off' sounds like refinement of manners; it trims the word at both ends.",
-     "definitionFit": "A soubrette is a coquettish maid in comedy or opera, a pert, flirtatious young woman."
+     "surface": "A nasty flirt who toys with a boy, and whose rough edges need smoothing.",
+     "walkthrough": "'Flirt' reads like a verb at first, but it is a noun naming the stage role.",
+     "definitionFit": "A soubrette is a coquettish maidservant role in comedy or opera, so the word stands for a flirtatious young woman."
     },
     "features": {
      "answerInScene": true,

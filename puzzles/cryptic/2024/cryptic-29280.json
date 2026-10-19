@@ -144,41 +144,45 @@
      "indicators": [
       {
        "text": "to limit",
-       "note": "to limit something is to hem it in, so the first word encloses the others"
+       "at": 6,
+       "note": "to limit means the word nod encloses the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Agree",
-         "gives": "NOD",
-         "note": "a nod signals agreement"
-        },
-        {
-         "words": "consumption",
-         "gives": "TB",
-         "note": "consumption is the old name for tuberculosis, TB"
-        }
-       ]
+       "words": "Agree",
+       "at": 0,
+       "gives": "NOD",
+       "note": "to nod is to agree"
       },
       {
-       "words": "a",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "consumption",
+         "at": 15,
+         "gives": "TB",
+         "note": "TB, tuberculosis, was once called consumption"
+        },
+        {
+         "words": "a",
+         "at": 36,
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone agrees to drink less and is fined for it.",
-     "walkthrough": "'A fine' looks like a penalty; 'a' is a letter of the wordplay and 'fine' means okay.",
-     "definitionFit": "Saying something is not bad is understated British approval, meaning it is fine or quite good."
+     "surface": "Someone agrees to cut back their drinking and gets fined for it.",
+     "walkthrough": "'consumption' looks like drinking; it is the old name for TB. 'a fine' looks like a penalty, but fine here means all right.",
+     "definitionFit": "Saying something is not bad is an understated way of calling it fine or quite good."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "fine"
+     "misdirectedWord": "consumption"
     }
    }
   },
@@ -981,34 +985,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "flawed",
-       "note": "a flawed word is faulty, so its letters are put right by rearranging them"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Parliament",
+       "at": 0,
+       "gives": "DIET",
+       "note": "a diet is a legislative assembly, as in Japan's"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flawed",
+         "at": 17,
+         "note": "flawed says the letters of cites are faulty in their order and need rearranging"
+        }
+       ],
        "parts": [
         {
-         "words": "Parliament",
-         "gives": "DIET",
-         "note": "a diet is a legislative assembly, as in Japan's"
-        },
-        {
          "words": "cites",
-         "note": "the letters of cites rearranged"
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Parliament quotes a dodgy study of good and bad governments.",
-     "walkthrough": "Regimes look political to match Parliament; they are eating regimens.",
-     "definitionFit": "Dietetics is the science of nutrition, assessing which eating plans are healthy and which are not."
+     "surface": "A parliament citing a faulty study of which political regimes are good or bad.",
+     "walkthrough": "'regimes' looks like governments, fitting Parliament; here it means eating plans.",
+     "definitionFit": "Dietetics is the science of nutrition, assessing which eating plans are healthy and which harmful."
     },
     "features": {
      "answerInScene": false,

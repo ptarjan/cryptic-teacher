@@ -313,56 +313,62 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LANTERN",
      "indicators": [
       {
        "text": "for",
-       "note": "one thing given for another is a swap, so one letter stands in place of another"
+       "at": 29,
+       "note": "for means one letter stands in place of another"
       }
      ],
      "parts": [
       {
-       "words": "Left",
-       "gives": "L",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Left",
+         "at": 0,
+         "gives": "L"
+        },
+        {
+         "words": "behind",
+         "at": 5,
+         "gives": "ASTERN",
+         "note": "astern means behind, towards the back of a ship"
+        }
+       ]
       },
       {
-       "words": "behind",
-       "gives": "ASTERN",
-       "note": "astern means at the back of a ship"
+       "words": "sun",
+       "at": 33,
+       "gives": "S"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "end of",
-         "note": "'end of' keeps only the last letter of 'extension'"
+         "at": 12,
+         "note": "end of picks the last letter of extension"
         }
        ],
        "parts": [
         {
          "words": "extension",
-         "note": "last letter of extension"
+         "at": 19
         }
        ]
-      },
-      {
-       "words": "sun",
-       "gives": "S",
-       "note": "S is the abbreviation for sun"
       }
      ]
     },
     "explanation": {
-     "surface": "An extension's far end is left with a sun lamp in it.",
-     "walkthrough": "The N replaces the S of the word for behind.",
+     "surface": "A sun lamp left after an extension cable's end came away.",
+     "walkthrough": "L and ASTERN make LASTERN; the N ending extension replaces the S for sun.",
      "definitionFit": "A lantern is a portable lamp with a protective case around the light."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sun"
+     "misdirectedWord": "behind"
     }
    }
   },
@@ -632,49 +638,53 @@
      "indicators": [
       {
        "text": "eats",
-       "note": "what is eaten goes inside, so the cat word swallows the rest"
+       "at": 4,
+       "note": "eats means the word lynx takes the next pieces inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Cat",
-         "gives": "LYNX",
-         "note": "a lynx is a wild cat"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Cat",
+       "at": 0,
+       "gives": "LYNX",
+       "note": "a lynx is a wild cat"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "head",
-         "note": "the head of a word is its front, so only its opening letter is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "rat's",
-         "note": "opening letter of rat"
+         "words": "a",
+         "at": 9,
+         "gives": "A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head",
+           "at": 17,
+           "note": "head picks the first letter of rat's"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rat's",
+           "at": 11
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cat devours a rat's head, which then lodges in its throat.",
-     "definitionFit": "The larynx, or voice box, is an organ in the airway between the throat and the windpipe."
+     "surface": "A cat devours a rat's head and part of its windpipe.",
+     "walkthrough": "A and R go inside LYNX.",
+     "definitionFit": "The larynx, or voice box, sits at the top of the windpipe in the airway."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "head"
+     "aptDefinition": false
     }
    }
   },

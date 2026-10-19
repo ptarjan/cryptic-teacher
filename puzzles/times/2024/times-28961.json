@@ -1270,45 +1270,54 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "about",
-       "note": "about means close beside, so the pieces stand next to each other"
+       "at": 43,
+       "note": "about means the joined words go around the next letter"
       }
      ],
      "parts": [
       {
-       "words": "Cut down",
-       "gives": "REAP",
-       "note": "to reap a crop is to cut it down"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Cut down",
+         "at": 26,
+         "gives": "REAP",
+         "note": "to reap a crop is to cut it down"
+        },
+        {
+         "words": "unction",
+         "at": 35,
+         "gives": "OINTMENT",
+         "note": "unction is anointing with oil, or the ointment used"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "head of",
-         "note": "the head of a word is its opening, so only its first letter is used"
+         "at": 49,
+         "note": "head of picks the first letter of Personnel"
         }
        ],
        "parts": [
         {
          "words": "Personnel",
-         "note": "the opening letter of the word"
+         "at": 57
         }
        ]
-      },
-      {
-       "words": "unction",
-       "gives": "OINTMENT",
-       "note": "unction is anointing oil or salve"
       }
      ]
     },
     "explanation": {
-     "surface": "A sacked worker wonders how to get the old post back after the HR head trimmed their perks.",
-     "walkthrough": "'Cut down' is harvesting, not reducing. The question mark flags a definition by description.",
-     "definitionFit": "Being named again to a former post is how someone gets back a position once held, so the process is a route back."
+     "surface": "A question about how to get an old job back, after harsh cuts and an oily approach to the personnel chief.",
+     "walkthrough": "The definition's question mark flags a whimsical reading: a reappointment is how you get your old job back.",
+     "definitionFit": "A reappointment puts someone back in a post they held before, so it is how a former job is regained."
     },
     "features": {
      "answerInScene": true,
@@ -1461,46 +1470,36 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHEMIST",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite complete, so the final character is dropped"
+       "text": "charges",
+       "at": 34,
+       "note": "charges means the letters are loaded into the other word, as a gun is charged"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "charges",
-         "note": "to charge something is to load or fill it, so one piece is packed inside the other"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Treasury",
-         "gives": "CHEST",
-         "note": "a chest is a store of funds, a treasury"
-        },
-        {
-         "words": "Government security agency",
-         "gives": "MI",
-         "note": "MI5 is Britain's domestic security service"
-        }
-       ]
+       "words": "Treasury",
+       "at": 42,
+       "gives": "CHEST",
+       "note": "a chest is a treasury, a store of funds"
+      },
+      {
+       "words": "Government security agency almost",
+       "at": 0,
+       "gives": "MI",
+       "note": "MI5 is the UK security service; almost all of it leaves MI"
       }
      ]
     },
     "explanation": {
-     "surface": "The spy agency nearly brings charges against a government boffin at the Treasury.",
-     "walkthrough": "'Charges' looks like accusations, but it is the verb for loading. MI5 is the British domestic intelligence service.",
-     "definitionFit": "A chemist is someone who studies substances and their reactions, one kind of researcher in the physical sciences."
+     "surface": "A security agency nearly loads up the Treasury with costs.",
+     "walkthrough": "MI5 is Britain's domestic security service; 'almost' drops the 5, and MI is charged into CHEST.",
+     "definitionFit": "A chemist is a scientist specialising in chemistry."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "charges"
     }

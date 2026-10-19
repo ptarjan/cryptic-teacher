@@ -137,43 +137,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEAFEN",
+     "op": "container",
      "indicators": [
       {
-       "text": "mainly",
-       "note": "mainly means most of the word, so its last letter is dropped"
+       "text": "receives",
+       "at": 16,
+       "note": "receives means the word dean takes the next piece inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Senior academic",
+       "at": 0,
+       "gives": "DEAN",
+       "note": "a dean is a senior university academic"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "receives",
-         "note": "a word that receives something takes it inside itself"
+         "text": "mainly",
+         "at": 29,
+         "note": "mainly means most of the word, so its last letter goes"
         }
        ],
        "parts": [
         {
-         "words": "Senior academic",
-         "gives": "DEAN",
-         "note": "a dean heads a university faculty"
+         "words": "pay",
+         "at": 25,
+         "gives": "FEE",
+         "note": "a fee is a payment"
         },
         {
-         "words": "pay",
-         "gives": "FE",
-         "note": "a fee is a payment; mainly drops its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A senior professor takes a payoff to wind up a university department.",
-     "walkthrough": "The surface's 'faculty' is a university department; the definition's faculty is the sense of hearing.",
-     "definitionFit": "To deafen is to destroy someone's hearing, and hearing is one of the bodily faculties or senses."
+     "surface": "A dean takes a cut of the pay in order to slim down the teaching staff.",
+     "walkthrough": "'faculty' looks like university staff, fitting the dean; here it is the faculty of hearing. 'mainly' cuts FEE to FE, which DEAN receives.",
+     "definitionFit": "To deafen someone is to deprive them of hearing, one of the body's senses or faculties."
     },
     "features": {
      "answerInScene": false,
@@ -742,42 +747,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INPROGRESS",
+     "op": "container",
      "indicators": [
       {
-       "text": "mainly",
-       "note": "mainly means most of the word, so its last letter is dropped"
+       "text": "blocking",
+       "at": 24,
+       "note": "blocking means the shortened word sits in the middle of the other, like an obstruction"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "means of access",
+       "at": 33,
+       "gives": "INGRESS",
+       "note": "ingress is a way in or the right of entry"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "blocking",
-         "note": "something blocking a passage sits inside it"
+         "text": "mainly",
+         "at": 17,
+         "note": "mainly means most of the word, so its final letter goes"
         }
        ],
        "parts": [
         {
-         "words": "means of access",
-         "gives": "INGRESS",
-         "note": "ingress is a way in"
+         "words": "support",
+         "at": 9,
+         "gives": "PROP",
+         "note": "a prop is a support"
         },
         {
-         "words": "support",
-         "gives": "PRO",
-         "note": "a prop supports; mainly drops its last letter"
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Continuing backing that mostly obstructs an entrance.",
-     "definitionFit": "Work in progress is still under way, which is exactly what ongoing means."
+     "surface": "A support that is still being built is mostly blocking the entrance.",
+     "walkthrough": "'means of access' reads like an ordinary phrase; it is a single formal word for a way in.",
+     "definitionFit": "Something in progress is currently under way, which is what on-going means."
     },
     "features": {
      "answerInScene": false,
@@ -1029,58 +1040,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALLERGIC",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter goes"
+       "text": "being choked by",
+       "at": 25,
+       "note": "being choked by means the short piece is held tight inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "being choked by",
-         "note": "something choked by another is gripped inside it"
+         "text": "fresh",
+         "at": 41,
+         "note": "fresh says the letters of garlic are made anew in a different order"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "fresh",
-           "note": "fresh suggests something made anew, so the letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "garlic",
-           "note": "letters to be rearranged"
-          }
-         ]
-        },
+         "words": "garlic",
+         "at": 47
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 18,
+         "note": "almost means the word loses its last letter"
+        }
+       ],
+       "parts": [
         {
          "words": "on",
-         "gives": "LE",
-         "note": "on is the leg side in cricket; almost drops the G"
+         "at": 15,
+         "gives": "LEG",
+         "note": "the on side in cricket is also called the leg side, so on gives leg"
+        },
+        {
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone nearly gags on fresh garlic and has a bad reaction.",
-     "walkthrough": "In cricket the on side is also called the leg side, so 'on' gives LEG.",
-     "definitionFit": "Being allergic means one's body reacts badly to a substance."
+     "surface": "Someone reacting badly after nearly choking on fresh garlic.",
+     "walkthrough": "In cricket the on side and the leg side are the same half of the field, so on can stand for leg.",
+     "definitionFit": "An allergic person has a bad bodily reaction to some substance, such as a food."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "on"
+     "misdirectedWord": "fresh"
     }
    }
   },
@@ -1582,46 +1598,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PRISON",
+     "op": "container",
      "indicators": [
       {
-       "text": "Almost",
-       "note": "almost means not quite all, so the last letter goes"
+       "text": "to accept",
+       "at": 15,
+       "note": "to accept means the shortened word takes the next piece into it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to accept",
-         "note": "accepting something takes it in"
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means the word loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "willing",
-         "gives": "PRON",
-         "note": "prone means inclined or willing; almost drops the E"
+         "at": 7,
+         "gives": "PRONE",
+         "note": "prone means inclined or willing to do something"
         },
         {
-         "words": "one's",
-         "gives": "IS",
-         "note": "I is one, and 's stands for is"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "one's",
+       "at": 25,
+       "gives": "IS",
+       "note": "one is I, so one's is I'S, giving IS"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is nearly ready to admit they are being held.",
-     "definitionFit": "A prison is the place where a captive is held, so it is where one is captive."
+     "surface": "A captive who is nearly ready to accept their fate.",
+     "walkthrough": "'Almost' cuts PRONE to PRON, which accepts IS.",
+     "definitionFit": "A prison is the place where a captive is held, so the definition describes where the answer's inmates are."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "willing"
     }
    }
