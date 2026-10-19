@@ -400,5 +400,13 @@ new, used = F.repair_tree(mpt2, mpc2, "TOTD", MP)
 check("a one-letter leaf under the charade's pick word is wrapped in first", used == ["misplacedIndicator"]
       and new["parts"][1]["op"] == "first")
 
+# sharedIndicator, charade: the charade's word is also a leaf's words, so the charade drops it
+shc = "Notice following raised charges"
+sht = {"op": "charade", "indicators": [{"text": "following", "at": 7}], "parts": [
+    {"words": "following", "at": 7, "gives": "F"},
+    {"op": "reversal", "indicators": [{"text": "raised", "at": 17}], "parts": [{"words": "Notice", "at": 0, "gives": "SEE"}]}]}
+new, used = F.repair_tree(sht, shc, "FEES", {"sharedIndicator": F.r_shared_charade})
+check("a charade indicator that is a leaf's words is dropped", used == ["sharedIndicator"] and "indicators" not in new)
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

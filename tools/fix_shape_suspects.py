@@ -1823,6 +1823,23 @@ def r_misplaced_indicator(node, parent, ctx):
     return next(iter(good.values())) if len(good) == 1 else None
 
 
+def r_shared_charade(node, parent, ctx):
+    """sharedIndicator, charade: an indicator filed on a charade whose words are also a leaf's clue
+    words in it ([over]RE + [Fell]LAPSED with 'over' on the charade as well). A charade needs no
+    indicator, so the word stays with the leaf that gives letters for it and leaves the charade."""
+    if node.get("op") != "charade" or node.get("unchecked") or not node.get("indicators"):
+        return None
+    words = {W.letters(p["words"]) for p in node.get("parts") or []
+             if isinstance(p, dict) and leaf(p) and p.get("words") and p.get("gives")}
+    keep = [i for i in node["indicators"] if W.letters(i.get("text")) not in words]
+    if len(keep) == len(node["indicators"]):
+        return None
+    new = {k: v for k, v in node.items() if k != "indicators"}
+    if keep:
+        new["indicators"] = keep
+    return new if _eval_swapped(node, parent, new, ctx) else None
+
+
 REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
            "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
@@ -1830,7 +1847,7 @@ REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap":
 RULE_REPAIRS = {"anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
-                "sharedIndicator": r_shared_indicator, "poolGap": r_pool_gap,
+                "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": r_pool_gap,
                 "misplacedIndicator": r_misplaced_indicator,
                 "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside,
                 "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c),
