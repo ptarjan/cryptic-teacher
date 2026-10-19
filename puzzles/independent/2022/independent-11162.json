@@ -1108,61 +1108,64 @@
      "indicators": [
       {
        "text": "in which",
-       "note": "something found within another is placed inside it"
+       "at": 29,
+       "note": "in which tells you the next pieces go inside the word for wood"
+      },
+      {
+       "text": "is hidden",
+       "at": 47,
+       "note": "something hidden is tucked away within, confirming the insertion"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "is hidden",
-         "note": "whatever is hidden is tucked away inside something else"
+         "text": "heading off",
+         "at": 8,
+         "note": "heading off means the first letter is cut from the word"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "heading off",
-           "note": "losing its head means the first letter is removed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "wood",
-           "gives": "TIMBER",
-           "note": "timber is wood"
-          },
-          {
-           "gives": "T"
-          }
-         ]
+         "words": "wood",
+         "at": 24,
+         "gives": "TIMBER",
+         "note": "timber is wood"
         },
         {
-         "words": "Bass",
-         "gives": "B",
-         "note": "B is the abbreviation for bass in music"
+         "gives": "T"
         }
        ]
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "the Roman numeral"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 38,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "Bass",
+         "at": 42,
+         "gives": "B",
+         "note": "B is the abbreviation for bass in music"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drinker sets off to the woods where a bottle of Bass beer is stashed.",
-     "walkthrough": "TIMBER loses its T to give IMBER, then B and I go inside it. Bass is also a British beer brand, which fits the drinker's scene.",
-     "definitionFit": "An imbiber is someone who drinks, especially alcohol, from the verb imbibe."
+     "surface": "A drinker hides a bottle of Bass beer in a wood.",
+     "walkthrough": "Bass is a famous British beer brand, a nod to the drinker; here it is the music abbreviation.",
+     "definitionFit": "An imbiber is someone who drinks, usually alcohol."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Bass"
     }
    }
@@ -1303,63 +1306,71 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AUBRIETIA",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means nearly all, so the final letter is dropped"
+       "text": "in",
+       "at": 40,
+       "note": "in means placed inside, so the jumble goes within the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "a piece placed in another sits inside it"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "awkwardly",
-           "note": "done awkwardly means clumsily jumbled, so the letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "bit of land",
-           "gives": "AIT",
-           "note": "an ait is a small island in a river, a crossword favourite"
-          }
-         ]
+         "words": "a",
+         "at": 43,
+         "gives": "A"
         },
         {
          "op": "reversal",
          "indicators": [
           {
-           "text": "turned over",
-           "note": "turning something over flips it, so its letters run the other way"
+           "text": "that's turned over",
+           "at": 57,
+           "note": "turned over means flipped, so the word for the island is read backwards"
           }
          ],
          "parts": [
           {
-           "op": "anagram",
-           "parts": [
-            {
-             "words": "buried",
-             "gives": "BURIE",
-             "note": "buried missing its last letter"
-            }
-           ]
+           "words": "bit of land",
+           "at": 45,
+           "gives": "AIT",
+           "note": "an ait is a small island in a river"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awkwardly",
+         "at": 30,
+         "note": "awkwardly means clumsily, so the shortened word's letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 16,
+           "note": "almost means not quite all, so the last letter of buried is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "buried",
+           "at": 23,
+           "gives": "BURIED",
+           "note": "the word buried"
+          },
+          {
+           "gives": "D"
           }
          ]
         }
@@ -1368,14 +1379,14 @@
      ]
     },
     "explanation": {
-     "surface": "A garden plant carelessly half-buried in a plot of freshly dug soil.",
-     "walkthrough": "'Bit of land that's turned over' reads as dug earth, but it is a river islet written backwards, with the jumbled letters placed inside.",
-     "definitionFit": "Aubrietia is a low trailing perennial with purple or pink spring blooms, common on garden walls and rockeries."
+     "surface": "A flowering plant is buried clumsily in a patch of dug-over soil.",
+     "walkthrough": "An ait (also eyot) is a small island in a river, a word seen mostly in crosswords and Thames place names.",
+     "definitionFit": "Aubrietia is a low trailing plant with purple or pink flowers, grown on walls and rockeries."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "turned"
+     "misdirectedWord": "land"
     }
    }
   },

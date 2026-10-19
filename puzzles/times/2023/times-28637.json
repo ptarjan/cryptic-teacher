@@ -496,43 +496,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOSALAMOS",
+     "op": "container",
      "indicators": [
       {
-       "text": "chopped",
-       "note": "chopping cuts a bit off the end, so the last letter is dropped"
+       "text": "found in",
+       "at": 33,
+       "note": "found in means placed inside, so the sausage goes within the other word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "lavatories",
+       "at": 42,
+       "gives": "LOOS",
+       "note": "loos is British slang for lavatories"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "found in",
-         "note": "whatever is found in something lies inside it, so one piece sits within another"
+         "text": "chopped",
+         "at": 17,
+         "note": "chopped means cut short, so the sausage loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "lavatories",
-         "gives": "LOOS",
-         "note": "loo is British slang for a toilet"
+         "words": "sausage",
+         "at": 25,
+         "gives": "SALAMI",
+         "note": "salami is a cured Italian sausage"
         },
         {
-         "words": "sausage",
-         "gives": "SALAM",
-         "note": "salami, a spiced sausage, without its final I"
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Terrorists building explosives have hidden sliced salami in the toilets.",
-     "walkthrough": "The trimmed sausage goes into the middle of the loos.",
-     "definitionFit": "Los Alamos in New Mexico is the laboratory where the first atomic bombs were designed and built."
+     "surface": "Chopped-up sausage turns up in toilets.",
+     "walkthrough": "Loos is everyday British slang for toilets; chopping a word usually cuts off its end.",
+     "definitionFit": "Los Alamos, New Mexico, is where the first atomic bombs were designed and built in the Manhattan Project."
     },
     "features": {
      "answerInScene": false,
@@ -563,37 +568,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PASCAL",
-     "indicators": [
-      {
-       "text": "Short",
-       "note": "something short lacks its full length, so the word loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "old man",
+       "at": 16,
+       "gives": "PA",
+       "note": "pa is an informal word for father, one's old man"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "short means cut off before the end, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "old man",
-         "gives": "PA",
-         "note": "pa is a familiar word for father"
+         "words": "film",
+         "at": 6,
+         "gives": "SCALE",
+         "note": "a scale is a thin film or layer, as on a kettle"
         },
         {
-         "words": "film",
-         "gives": "SCAL",
-         "note": "a scale is a thin film or flake, here missing its final E"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A brief documentary about an elderly French mathematician.",
-     "walkthrough": "'Film' suggests cinema, but here it is a thin layer, like the scale inside a kettle.",
-     "definitionFit": "Blaise Pascal was the seventeenth-century French mathematician and philosopher behind Pascal's triangle."
+     "surface": "A brief film made with an elderly man about the mathematician Blaise.",
+     "walkthrough": "'film' is not a movie but a thin coating, a scale; shortened it is SCAL.",
+     "definitionFit": "Blaise Pascal was a seventeenth-century French mathematician and philosopher."
     },
     "features": {
      "answerInScene": true,
@@ -1024,41 +1033,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INDECENT",
-     "indicators": [
-      {
-       "text": "always the first to go",
-       "note": "the opening letter of each word goes every time, so each loses its front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "always the first to go",
+         "at": 20,
+         "note": "always means each time, so both words lose their opening letter"
+        }
+       ],
        "parts": [
         {
          "words": "Skin",
-         "gives": "IND",
-         "note": "rind, the skin of fruit, without its first letter"
+         "at": 0,
+         "gives": "RIND",
+         "note": "rind is the tough skin of fruit or cheese"
         },
         {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
          "words": "current",
-         "gives": "ECENT",
-         "note": "recent, meaning current, without its first letter"
+         "at": 11,
+         "gives": "RECENT",
+         "note": "recent means current, of the present time"
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Skin that has been in an electric current turns blue first.",
-     "walkthrough": "'Current' tempts toward electricity abbreviations like AC or I; here it just means recent. 'Always' tells you the first-letter removal applies to both words.",
-     "definitionFit": "Blue jokes or films are smutty, obscene or risqué, so blue is a synonym here."
+     "surface": "Skin and current electricity, with the first going blue.",
+     "walkthrough": "'always' applies the deletion to both words: RIND loses its R to give IND, and RECENT loses its R to give ECENT.",
+     "definitionFit": "Blue humour is smutty or rude, so a blue joke is an indecent one."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "current"
     }
    }

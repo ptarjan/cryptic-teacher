@@ -1504,41 +1504,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "JAZZ",
-     "indicators": [
-      {
-       "text": "not top",
-       "note": "'not' here means without, so the named word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "For Kraftwerk, Yes",
+       "at": 0,
+       "gives": "JA",
+       "note": "Kraftwerk are a German band, and ja is German for yes"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 30,
+         "note": "not removes what follows it, so the word top is taken out of the band name"
+        }
+       ],
        "parts": [
         {
-         "words": "For Kraftwerk, Yes",
-         "gives": "JA",
-         "note": "Kraftwerk are a German band, and ja is German for yes"
+         "words": "ZZ Top",
+         "at": 23,
+         "note": "the name of the American rock band ZZ Top"
         },
         {
-         "words": "ZZ Top",
-         "gives": "ZZ",
-         "note": "the band's name with its second word taken away"
+         "words": "top",
+         "at": 34,
+         "gives": "TOP",
+         "note": "the letters TOP to be removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A list of rock bands, Kraftwerk, Yes and ZZ Top, all declared not the best music.",
-     "walkthrough": "Yes and ZZ Top look like a third and fourth band; Kraftwerk being German signals that 'Yes' should be put into German.",
-     "definitionFit": "Jazz is a genre of music, so the definition is a general category and the answer an example of it."
+     "surface": "A boast about Kraftwerk, Yes and ZZ Top, all bands, but not top-class music.",
+     "walkthrough": "Yes is a progressive rock band, but here it is the word yes said by a German band: JA. ZZ Top without TOP leaves ZZ.",
+     "definitionFit": "Jazz is a genre of music born in New Orleans, built on improvisation and swing."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Yes"
     }
    }
