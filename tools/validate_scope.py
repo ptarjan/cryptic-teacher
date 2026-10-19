@@ -79,6 +79,26 @@ def named_files(modules):
 
 
 BACKLOG = "tools/annotation_backlog.json"
+#: Per-entry tables keyed "<puzzle id>/<entry id>" (tools/puzzle_rows.py
+#: ENTRY_TABLES): a row only ever speaks about its own puzzle (the validator
+#: and the blog checks look one up by that key), so an added or edited row is
+#: an input of that puzzle's check alone. Burn commits file them beside the
+#: puzzle they describe and used to force the full suite and a full check.
+ENTRY_TABLES = tuple(f"tools/data/{n}.json" for n in
+                     ("source_clue_wrong", "source_answer_wrong", "setter_error", "blog_disagree"))
+
+
+def entry_rows_moved(old_text, new_text):
+    """The puzzle ids whose rows an edit of an entry table added or changed,
+    or None when a row was removed or either text is not the table's shape
+    (removing a row can change the answer for a puzzle nobody re-checks)."""
+    try:
+        old, new = json.loads(old_text), json.loads(new_text)
+        if not isinstance(old, dict) or not isinstance(new, dict) or set(old) - set(new):
+            return None
+        return {k.split("/", 1)[0] for k, v in new.items() if old.get(k) != v}
+    except (ValueError, TypeError):
+        return None
 
 
 def backlog_tightened(old_text, new_text):
@@ -116,8 +136,17 @@ def decide(changes, base_text=None, head_text=None):
     names = None
     check, edited = [], {}
     lowered = None
+    rows = set()
     for st, path in changes:
         if path.startswith(UNREAD) or path in QUEUE_STATE:
+            continue
+        if path in ENTRY_TABLES and st == "M" and base_text:
+            old = base_text(path)
+            new = head_text(path) if head_text else (ROOT / path).read_text(encoding="utf-8")
+            moved = entry_rows_moved(old, new) if old is not None else None
+            if moved is None:
+                return "full", f"{path} lost a row or changed shape"
+            rows |= moved
             continue
         if path == BACKLOG and st == "M" and base_text:
             old = base_text(path)
@@ -155,6 +184,10 @@ def decide(changes, base_text=None, head_text=None):
         stems = {Path(p).stem for p in check}
         if lowered - stems:
             return "full", f"{BACKLOG} lowered the allowance of an unchanged puzzle: " + ", ".join(sorted(lowered - stems)[:3])
+    if rows - {Path(p).stem for p in check}:
+        # A row for a puzzle this commit did not change: nothing has checked
+        # that puzzle against it.
+        return "full", "an entry table row names an unchanged puzzle: " + ", ".join(sorted(rows - {Path(p).stem for p in check})[:3])
     if edited:
         before = reached(edited)
         after = head

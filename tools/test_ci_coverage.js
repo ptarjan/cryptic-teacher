@@ -2,7 +2,7 @@
    on every branch is always tested.
 
    GitHub keeps only the newest PENDING run in a concurrency group and cancels
-   the rest, whatever cancel-in-progress says. tests.yml is grouped per branch
+   the rest, whatever cancel-in-progress says. tests.yml's jobs are grouped per branch
    with cancel-in-progress false: a pending suite may be replaced by a newer
    commit, which contains it, but a RUNNING suite is never killed, so a steady
    stream of pushes cannot starve it. Ungrouped, every push would queue a whole
@@ -49,12 +49,22 @@ assert(workflows.includes("tests.yml") && workflows.includes("pages.yml"),
 
 const grouped = (f) => /^\s*concurrency\s*:/m.test(undecorated(read(f)));
 
-/* --- the test workflow never kills a running suite, and branches do not share a queue --- */
+/* --- the test workflow never kills a running suite, and branches do not share a queue ---
+   The groups are on the jobs: the puzzle fast path has its own, so it never
+   waits behind a running full suite, and every full-suite job (each shard's
+   own) is grouped per branch. */
 const testsBody = undecorated(read("tests.yml"));
-assert(/^concurrency:\s*\n\s+group:.*\$\{\{\s*github\.ref\s*\}\}/m.test(testsBody),
-  "tests.yml is grouped per branch (group: …${{ github.ref }}), so a PR cannot displace master's run");
-assert(/^\s+cancel-in-progress:\s*false\s*$/m.test(testsBody),
-  "tests.yml says cancel-in-progress: false, so a running suite is never killed and pushes cannot starve it");
+const groups = [...testsBody.matchAll(/^\s+group:\s*(.*)$/gm)].map((m) => m[1]);
+assert(!/^concurrency:/m.test(testsBody),
+  "tests.yml has no workflow-level group: it would queue the fast path behind a full suite");
+assert(groups.length >= 4 && groups.every((g) => /\$\{\{\s*github\.ref\s*\}\}/.test(g)),
+  "every tests.yml job group is per branch (…${{ github.ref }}), so a PR cannot displace master's run: " + groups.join(" | "));
+assert(groups.some((g) => /^tests-fast-/.test(g)) && !groups.some((g) => /^tests-full-/.test(g) && g === groups.find((x) => /^tests-fast-/.test(x))),
+  "the puzzle fast path has a group of its own");
+assert(groups.some((g) => /tests-full-shard-\$\{\{\s*matrix\.shard\s*\}\}/.test(g)),
+  "a shard's group names the shard, or the ten shards would queue behind one another");
+assert(!/cancel-in-progress:\s*true/.test(testsBody) && (testsBody.match(/^\s+cancel-in-progress:\s*false\s*$/gm) || []).length === groups.length,
+  "every group says cancel-in-progress: false, so a running suite is never killed and pushes cannot starve it");
 /* --- and the deploy is in a group, so a check living there can still be cancelled --- */
 assert(grouped("pages.yml"),
   "pages.yml still declares a concurrency group, which is what makes a check " +

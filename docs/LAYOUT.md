@@ -1028,6 +1028,13 @@ tools/e2e_analytics.py                         drives a real browser through a s
                                                every event lands in KV
 tools/wait_for_deploy.py                       blocks until Pages is serving the pushed commit,
                                                so nobody is told to reload early
+tools/last_deploy.py                           the commit the live site was last deployed from,
+                                               read off the github-pages deployments (one gh
+                                               call); pages.yml's scope job and build path diff
+                                               against it, and pages-schedule.yml's 15-minute
+                                               clock asks it whether master has moved (--moved)
+                                               before it dispatches a build of the puzzle-only
+                                               pushes
 tools/test_wait_for_deploy.py                  proves that check reads the live page before it
                                                calls a deploy failed, and finds its expected
                                                hashes in the assets rather than in an

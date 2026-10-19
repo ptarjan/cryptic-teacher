@@ -42,8 +42,16 @@ def decide(changes, base_text=None, head_text=None):
     """("fast", None) or ("full", reason) for `changes`, [(status, path)]."""
     stems = set()
     backlog = None
+    rows = set()
     for st, path in changes:
-        if PUZZLE.fullmatch(path):
+        if path in validate_scope.ENTRY_TABLES and st == "M" and base_text:
+            old = base_text(path)
+            new = head_text(path) if head_text else (ROOT / path).read_text(encoding="utf-8")
+            moved = validate_scope.entry_rows_moved(old, new) if old is not None else None
+            if moved is None:
+                return "full", f"{path} lost a row or changed shape"
+            rows |= moved
+        elif PUZZLE.fullmatch(path):
             if st not in ("A", "M"):
                 return "full", f"{st} {path}"
             stems.add(Path(path).stem)
@@ -54,6 +62,9 @@ def decide(changes, base_text=None, head_text=None):
             backlog = (base_text(path), head_text(path) if head_text else (ROOT / path).read_text(encoding="utf-8"))
         else:
             return "full", f"{st} {path}"
+    if rows - stems:
+        # A row for a puzzle this push did not change binds a puzzle nobody re-checked.
+        return "full", "an entry table row names an unchanged puzzle: " + ", ".join(sorted(rows - stems)[:3])
     if backlog:
         old, new = backlog
         lowered = validate_scope.backlog_tightened(old, new) if old is not None else None
