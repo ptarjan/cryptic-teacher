@@ -658,35 +658,44 @@
      "indicators": [
       {
        "text": "about",
-       "note": "the tale goes around the letter"
-      },
-      {
-       "text": "leader of",
-       "note": "the leader is the first letter"
+       "at": 5,
+       "note": "the tale is placed around the militant letter"
       }
      ],
      "parts": [
       {
        "words": "Tale",
+       "at": 0,
        "gives": "STORY",
        "note": "a story is a tale"
       },
       {
-       "words": "leader of militants",
-       "gives": "M",
-       "note": "first letter of militants"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader of",
+         "at": 11,
+         "note": "the leader is the first letter of militants"
+        }
+       ],
+       "parts": [
+        {
+         "words": "militants",
+         "at": 21
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A story about a rebel commander whose followers keep erupting.",
-     "walkthrough": "The comma splits the clue: the definition is the adjective phrase at the end, not the militants.",
-     "definitionFit": "Extended sense: weather full of storms lends its word to a relationship full of angry outbursts."
+     "surface": "An account of a militant leader prone to furious rages.",
+     "walkthrough": "'leader' is not a person here but the first letter of the word.",
+     "definitionFit": "A stormy temperament or meeting is turbulent, marked by fits of rage."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "militants"
+     "misdirectedWord": "leader"
     }
    }
   },

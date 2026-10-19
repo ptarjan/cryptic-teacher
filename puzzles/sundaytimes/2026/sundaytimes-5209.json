@@ -1203,49 +1203,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "rearing",
-       "note": "in a down clue, rearing up turns the word upside down"
-      }
-     ],
      "parts": [
       {
        "words": "A",
-       "note": "the word itself"
+       "at": 0
       },
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
          "text": "around",
-         "note": "the reversed word goes round the next piece"
+         "at": 16,
+         "note": "the reversed horse goes around the letter for one"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "rearing",
+           "at": 8,
+           "note": "in a down clue rearing means rising up, so the horse's letters read upwards, backwards"
+          }
+         ],
          "parts": [
           {
            "words": "horse",
+           "at": 2,
            "gives": "NAG",
            "note": "a nag is an old horse"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I is the Roman numeral"
           }
          ]
+        },
+        {
+         "words": "one",
+         "at": 23,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A horse rears up over a rider yet again.",
-     "walkthrough": "\"Rearing\" is what a horse does, which hides that it reverses NAG.",
-     "definitionFit": "A plain synonym: to do something again is to do it once more."
+     "surface": "A horse rears up yet again around somebody.",
+     "walkthrough": "NAG reversed is GAN; put I inside to get GAIN after A.",
+     "definitionFit": "Again means one more time, a straightforward synonym for repeating something."
     },
     "features": {
      "answerInScene": false,

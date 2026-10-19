@@ -1421,57 +1421,64 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "sources of",
-         "note": "a source is where something starts, so take first letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "A",
-         "note": "used as written"
-        }
-       ]
+       "words": "A",
+       "at": 0
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "to block",
-         "note": "something that blocks a passage sits in the middle of it, so the call sits inside the word for popular"
+         "at": 7,
+         "note": "the call is set inside, blocking up the middle of the popular word"
         }
        ],
        "parts": [
         {
          "words": "popular",
+         "at": 16,
          "gives": "POP",
          "note": "pop is short for popular"
         },
         {
          "words": "call",
+         "at": 2,
          "gives": "CRY",
          "note": "a cry is a call"
         }
        ]
       },
       {
-       "words": "historical analysis",
-       "gives": "HA",
-       "note": "their first letters"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "sources of",
+         "at": 24,
+         "note": "the source of each word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "historical",
+         "at": 35
+        },
+        {
+         "words": "analysis",
+         "at": 46
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Scholars calling for a ban on popular history books.",
-     "walkthrough": "'Block' reads as a ban in the surface, but it is an instruction to sit inside.",
-     "definitionFit": "Descriptive definition: the Apocrypha are books left out of the accepted biblical canon."
+     "surface": "A cry goes up to block popular historical sources in disputed texts.",
+     "walkthrough": "'sources of' takes the opening letter of each of the two words after it.",
+     "definitionFit": "The Apocrypha are biblical books excluded from the accepted canon of scripture."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "block"
+     "misdirectedWord": "call"
     }
    }
   },
@@ -1911,48 +1918,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Not entirely",
+       "at": 28,
+       "note": "only a stretch of the phrase is used, lying within its words"
+      }
+     ],
      "parts": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "Not entirely",
-         "note": "what is not entirely there is only partly there, so the answer is part of the words"
-        }
-       ],
-       "parts": [
-        {
-         "words": "screwed",
-         "gives": "D",
-         "note": "the last letter of screweD"
-        }
-       ]
-      },
-      {
-       "words": "up",
-       "note": "the whole word"
-      },
-      {
-       "op": "hidden",
-       "parts": [
-        {
-         "words": "everything",
-         "gives": "E",
-         "note": "the first letter of Everything"
-        }
-       ]
+       "words": "screwed up everything",
+       "at": 5,
+       "gives": "DUPE"
       }
      ]
     },
     "explanation": {
-     "surface": "An idiot who messed up almost everything.",
-     "walkthrough": "The answer runs across three words, which is why 'not entirely' covers the whole phrase.",
-     "definitionFit": "Plain synonym: to dupe someone is to fool them, and a dupe is someone fooled."
+     "surface": "Someone who has made a complete mess of things, more or less.",
+     "walkthrough": "'screwed up' looks like a reversal signal, but the letters lie forwards across the three words.",
+     "definitionFit": "To dupe someone is to fool or trick them."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "screwed"
     }
    }
   },
@@ -2609,8 +2599,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "Various",
-       "note": "various means assorted, so the letters come in an assorted order"
+       "text": "by",
+       "at": 16,
+       "note": "by means next to, so the pieces sit side by side"
       }
      ],
      "parts": [
@@ -2618,32 +2609,36 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "by",
-         "note": "one thing by another sits beside it"
+         "text": "Various",
+         "at": 0,
+         "note": "letters arranged in various ways, so a new order"
         }
        ],
        "parts": [
         {
          "words": "letters",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "a",
-         "note": "used as written"
+         "at": 8,
+         "note": "taken as written"
         }
        ]
       },
       {
+       "words": "a",
+       "at": 19,
+       "gives": "A"
+      },
+      {
        "words": "politician",
+       "at": 21,
        "gives": "MP",
-       "note": "Member of Parliament"
+       "note": "MP is a Member of Parliament"
       }
      ]
     },
     "explanation": {
-     "surface": "An MP whose assorted letters are meant to enlighten.",
-     "walkthrough": "The word 'letters' is both what the surface is about and the anagram fodder itself.",
-     "definitionFit": "Definition by class: a street lamp is one source of light."
+     "surface": "A politician bombarded with all sorts of letters sees the light.",
+     "walkthrough": "'letters' looks like correspondence, but the word itself is the raw material.",
+     "definitionFit": "A street lamp lights a road at night, a source of light."
     },
     "features": {
      "answerInScene": false,
