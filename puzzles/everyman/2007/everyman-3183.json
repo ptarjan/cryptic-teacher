@@ -939,51 +939,57 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the searching parties wrap round the rest"
+       "at": 31,
+       "note": "the quests sit about, i.e. around, what follows"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "searching parties",
-         "gives": "QUESTS",
-         "note": "quests are searches, here people sent on them"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral for one"
-        }
-       ]
+       "words": "searching parties",
+       "at": 13,
+       "gives": "QUESTS",
+       "note": "quests are searches or expeditions"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "short",
-         "note": "short means cut off, so the last letter is dropped"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "one",
-         "note": "taken as written, then shortened"
+         "at": 37,
+         "gives": "I",
+         "note": "the Roman numeral I is one"
         },
         {
-         "gives": "E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 42,
+           "note": "short means the word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "one",
+           "at": 48,
+           "gives": "ONE",
+           "note": "the word one, cut short"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Search teams quiz a suspect, one who is a bit short.",
-     "definitionFit": "To question someone is to interrogate them; both are third-person verbs."
+     "surface": "Search parties grilling one person, then another who is a bit short.",
+     "definitionFit": "To question someone is to interrogate them; the verb has the same third-person form."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "parties"
     }
@@ -1020,46 +1026,51 @@
      "indicators": [
       {
        "text": "inside",
-       "note": "inside places the turned piece within the other word"
+       "at": 50,
+       "note": "inside places the turned piece within the word for amazes"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "amazes",
-         "gives": "STAGGERS",
-         "note": "to stagger is to astonish"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "amazes",
+       "at": 31,
+       "gives": "STAGGERS",
+       "note": "to stagger someone is to amaze them"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "back",
-         "note": "going back means reading from the end towards the start"
+         "at": 45,
+         "note": "back means the words a star are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "star",
-         "gives": "NAME",
-         "note": "a big name is a star"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 38,
+           "gives": "A"
+          },
+          {
+           "words": "star",
+           "at": 40,
+           "gives": "NAME",
+           "note": "a big name is a star"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A theatre crew amazes a star backstage.",
-     "walkthrough": "'Back' and 'inside' sit together and read like 'backstage'; they are two separate signals.",
-     "definitionFit": "Stage managers run the backstage side of a production, so they are theatre staff, plural."
+     "surface": "Theatre staff are bowled over by a star returning to the stage.",
+     "walkthrough": "Star suggests a leading actor, but here it is a big name, and the a comes along with it before the turn.",
+     "definitionFit": "Stage managers run the backstage side of a production, so they are plural theatre staff."
     },
     "features": {
      "answerInScene": true,
