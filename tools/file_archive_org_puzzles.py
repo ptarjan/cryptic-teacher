@@ -3561,7 +3561,7 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: {cause: ISO time}: an edition a title of which was refused for `cause`
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
-REREAD_REFUSED = {"not-a-grid": "2026-10-19T02:26:00+00:00", "no-reading-parses": "2026-10-19T01:44:00+00:00",
+REREAD_REFUSED = {"not-a-grid": "2026-10-19T02:29:00+00:00", "no-reading-parses": "2026-10-19T01:44:00+00:00",
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00",
                   # The crashes since fixed: the 6144 MB RLIMIT_AS bad_alloc (launcher's CT_UNIT_MEMORY_MB),
                   # an unreadable band_words cache, trove_solution_ocr's unloaded word list.
