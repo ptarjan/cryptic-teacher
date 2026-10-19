@@ -1548,50 +1548,56 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece wraps the others"
+       "at": 19,
+       "note": "about means surrounding, so the petition word goes round the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "petition",
-         "gives": "PRESS",
-         "note": "to press is to urge or petition"
-        },
-        {
-         "words": "ten",
-         "gives": "IO",
-         "note": "10 written as the letters I and O"
-        }
-       ]
+       "words": "petition",
+       "at": 10,
+       "gives": "PRESS",
+       "note": "to press is to urge or petition someone"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "initially means at the start, so only the opening letter is used"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "reformers",
-         "note": "the opening letter"
+         "words": "ten",
+         "at": 25,
+         "gives": "IO",
+         "note": "IO looks like the digits 1 and 0, so it gives ten"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 39,
+           "note": "initially points at the first letter of reformers"
+          }
+         ],
+         "parts": [
+          {
+           "words": "reformers",
+           "at": 29,
+           "note": "first letter of reformers"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nun lobbying for ten reformers.",
-     "definitionFit": "A prioress is the nun in charge of a priory, a senior religious sister."
+     "surface": "A nun goes to lobby on behalf of ten would-be reformers.",
+     "walkthrough": "IO for ten is a crossword convention: the letters look like the figure 10.",
+     "definitionFit": "A prioress is a nun in charge of a priory, and nuns are addressed as Sister."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "petition"
+     "misdirectedWord": "reformers"
     }
    }
   }

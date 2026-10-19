@@ -816,39 +816,42 @@
      "indicators": [
       {
        "text": "accepts",
-       "note": "to accept something is to take it in, so the island's name receives the other words inside it"
+       "at": 17,
+       "note": "accepts means takes in, so the island word holds the next two pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Caribbean Island",
-         "gives": "ANTIGUA",
-         "note": "Antigua is an island in the Caribbean"
-        },
-        {
-         "words": "mistake",
-         "gives": "ERR",
-         "note": "to err is to make a mistake"
-        }
-       ]
+       "words": "Caribbean Island",
+       "at": 0,
+       "gives": "ANTIGUA",
+       "note": "Antigua is an island in the Caribbean"
       },
       {
-       "words": "sick",
-       "gives": "ILL",
-       "note": "ill means sick"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "mistake",
+         "at": 25,
+         "gives": "ERR",
+         "note": "to err is to make a mistake"
+        },
+        {
+         "words": "sick",
+         "at": 34,
+         "gives": "ILL",
+         "note": "ill means sick"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Caribbean island owning up to an error, tired of being opposed by guerrilla fighters.",
-     "walkthrough": "'sick of' reads as fed up with, but 'sick' gives ILL and 'of' only links to the definition.",
-     "definitionFit": "Antiguerrilla describes action directed against guerrillas, irregular fighters also called partisans."
+     "surface": "An island nation admits an error, tired of resistance to guerrilla fighters.",
+     "definitionFit": "Anti-guerrilla describes action against irregular partisan fighters, the force combating guerrilla war."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "sick"
     }

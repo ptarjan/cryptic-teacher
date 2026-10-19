@@ -1194,47 +1194,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BLOATER",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "when headless",
-       "note": "with no head means the opening letter is cut off"
+       "text": "cooked",
+       "at": 42,
+       "note": "cooked means altered or prepared, so the letters are reworked into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "cooked",
-         "note": "cooking turns ingredients into something else, so the letters are reworked"
+         "text": "when headless",
+         "at": 24,
+         "note": "when headless means once the first letter is cut off storable"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "TORABLE",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "storable",
-           "gives": "TORABLE",
-           "select": "first",
-           "note": "the word storable with its head removed"
-          }
-         ]
+         "words": "storable",
+         "at": 15
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Smoked fish that keeps well once its head is off and it is cooked.",
-     "walkthrough": "A bloater is a salted, smoked whole herring, a traditional British dish.",
-     "definitionFit": "A bloater is a herring cured by salting and light smoking, a smoked fish."
+     "surface": "Smoked fish keeps well once its head is removed and it is cooked.",
+     "walkthrough": "'headless' leaves TORABLE, and 'cooked' rearranges those letters.",
+     "definitionFit": "A bloater is a herring that has been cured whole by salting and smoking."
     },
     "features": {
      "answerInScene": true,
@@ -1385,35 +1378,25 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "EMMET",
      "indicators": [
       {
        "text": "Some of",
-       "note": "only some of the letters of the following words are used, running on unbroken"
+       "at": 0,
+       "note": "some of says the answer is a part of the following words, running across them"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "EMMET",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "them met",
-         "gives": "EMMET",
-         "select": "middle",
-         "note": "the letters straddle the two words"
-        }
-       ]
+       "words": "them met",
+       "at": 8,
+       "gives": "EMMET"
       }
      ]
     },
     "explanation": {
-     "surface": "A few of the group bumped into a visitor to Cornwall.",
-     "walkthrough": "Cornwall is the county at England's far south-west tip; locals there call tourists by this dialect word for ant.",
-     "definitionFit": "Emmet is Cornish slang for a holidaymaker, from the old word for an ant."
+     "surface": "A few of the people met a holidaymaker in Cornwall.",
+     "walkthrough": "Emmet is Cornish dialect for an ant, applied to tourists; Cornwall is a holiday county in south-west England.",
+     "definitionFit": "In Cornish slang an emmet, literally an ant, is a visiting holidaymaker swarming the beaches."
     },
     "features": {
      "answerInScene": true,

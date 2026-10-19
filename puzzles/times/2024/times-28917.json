@@ -394,37 +394,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EUGENIC",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means most but not all, so the name loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 5,
+         "note": "mostly means not quite all, so the chap's name loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "Chap",
-         "gives": "EUGEN",
-         "note": "Eugene is a man's name, with its last letter dropped"
+         "at": 0,
+         "gives": "EUGENE",
+         "note": "Eugene is a man's name, a chap"
         },
         {
-         "words": "in charge",
-         "gives": "IC",
-         "note": "IC is the standard abbreviation for in charge"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "in charge",
+       "at": 12,
+       "gives": "IC"
       }
      ]
     },
     "explanation": {
-     "surface": "A man who largely manages the business of building up a firm's inventory.",
-     "walkthrough": "'Stock' sounds like shop goods or shares, but here it means breeding lines or heredity.",
-     "definitionFit": "Eugenic refers to the discredited idea of improving a population's hereditary qualities through selective breeding."
+     "surface": "A man who mostly runs a herd-improvement programme.",
+     "definitionFit": "Eugenic means relating to eugenics, the discredited idea of improving a breeding population by selection."
     },
     "features": {
      "answerInScene": false,
@@ -559,42 +561,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GLOBULIN",
-     "indicators": [
-      {
-       "text": "a lot of",
-       "note": "a lot of something is most of it, so the word is cut short by its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Good",
+       "at": 0,
+       "gives": "G"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "containing",
+         "at": 19,
+         "note": "containing means holding inside, so the joint of meat holds the shortened roughage"
+        }
+       ],
        "parts": [
         {
-         "words": "Good",
-         "gives": "G",
-         "note": "G is the abbreviation for good"
+         "words": "joint of meat",
+         "at": 5,
+         "gives": "LOIN",
+         "note": "loin is a joint of meat cut from the back"
         },
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "containing",
-           "note": "containing means holding inside, so one piece wraps around another"
+           "text": "a lot of",
+           "at": 30,
+           "note": "a lot of means most but not all, so the last letter of the roughage word goes"
           }
          ],
          "parts": [
           {
-           "words": "joint of meat",
-           "gives": "LOIN",
-           "note": "a loin is a cut of meat from the back"
+           "words": "roughage",
+           "at": 39,
+           "gives": "BULK",
+           "note": "bulk is dietary fibre, roughage"
           },
           {
-           "words": "roughage",
-           "gives": "BUL",
-           "note": "bulk is dietary roughage, missing its last letter"
+           "gives": "K"
           }
          ]
         }
@@ -603,14 +610,13 @@
      ]
     },
     "explanation": {
-     "surface": "A healthy cut of meat with plenty of fibre and protein in it.",
-     "walkthrough": "The surface reads as a list of nutrients, but only 'protein' is the definition; 'and' merely links it to the wordplay.",
-     "definitionFit": "Globulins are a family of proteins found in blood plasma and in eggs, so the word names a type."
+     "surface": "A fine cut of meat with plenty of fibre makes a protein-rich meal.",
+     "definitionFit": "Globulins are a family of globular proteins found in blood plasma, milk and plant seeds."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "roughage"
+     "misdirectedWord": "joint"
     }
    }
   },
