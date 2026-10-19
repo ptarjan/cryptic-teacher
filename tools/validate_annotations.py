@@ -3488,8 +3488,75 @@ UNCHECKED_STEP = "unchecked wordplay step"
 ANAGRAM_CHARADE = "charade directly under an anagram"
 
 
-def anagram_charades(tree):
-    """How many charades sit directly under an anagram anywhere in `tree`."""
+def _stand_in_piece(p):
+    """A fodder piece that is not the clue's own words scrambled: an abbreviation or synonym
+    leaf (a selection like first(x) is a common legitimate fodder letter, so not one)."""
+    if "op" in p:
+        return False
+    g, w = wordplay.letters(p.get("gives")), wordplay.letters(p.get("words"))
+    return bool(p.get("select") or p.get("soundsLike") or (g and g != w and sorted(g) != sorted(w)))
+
+
+def _pulled_edges(tree, node, j, k):
+    """A copy of `tree` with the first j and last k parts of anagram `node` taken out of it and
+    set beside it in a charade (the answer's edge letters standing outside the scramble)."""
+    t = copy.deepcopy(tree)
+    stack = [(t, None, 0)]
+    while stack:
+        cur, par, i = stack.pop()
+        if cur.get("op") == "anagram" and cur.get("parts") == node.get("parts") and cur.get("indicators") == node.get("indicators"):
+            mid = {key: v for key, v in cur.items() if key != "parts"}
+            mid["parts"] = cur["parts"][j:len(cur["parts"]) - k]
+            new = {"op": "charade", "parts": cur["parts"][:j] + [mid] + cur["parts"][len(cur["parts"]) - k:]}
+            if par is None:
+                return new
+            par["parts"][i] = new
+            return t
+        stack += [(p, cur, x) for x, p in enumerate(cur.get("parts") or []) if isinstance(p, dict)]
+    return None
+
+
+def anagram_edge_pieces(tree, answer):
+    """How many anagrams in `tree` hold, at the edge of their own fodder (first or last parts, in
+    clue order), abbreviation / synonym / sub-operation pieces whose letters stand at that edge of
+    the scramble's output: the tree still gives the answer with those pieces taken out of the
+    anagram and set beside it. (Paul 10-19: a letter correctly placed outside the anagram should
+    not be in it.) Needs the answer."""
+    if not answer or not isinstance(tree, dict):
+        return 0
+    try:
+        wordplay.evaluate(copy.deepcopy(tree), answer)
+    except Exception:
+        return 0
+    found, stack = 0, [tree]
+    while stack:
+        node = stack.pop()
+        parts = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        stack += parts
+        if node.get("op") != "anagram" or node.get("unchecked") or len(parts) < 2 or len(parts) != len(node.get("parts")):
+            continue
+        st = [_stand_in_piece(p) for p in parts]
+        lead = next((i for i, s in enumerate(st) if not s), len(st))
+        trail = next((i for i, s in enumerate(reversed(st)) if not s), len(st))
+        if lead >= len(st):
+            continue
+        done = False
+        for j in range(lead + 1):
+            for k in range(trail + 1):
+                if j + k and j + k < len(parts) and not done:
+                    cand = _pulled_edges(tree, node, j, k)
+                    try:
+                        wordplay.evaluate(cand, answer)
+                        done = True
+                    except Exception:
+                        pass
+        found += done
+    return found
+
+
+def anagram_charades(tree, answer=None):
+    """How many charades sit directly under an anagram anywhere in `tree`, plus (given the
+    answer) how many anagrams fold an edge piece of the answer into their fodder."""
     n, stack = 0, [tree] if isinstance(tree, dict) else []
     while stack:
         node = stack.pop()
@@ -3497,7 +3564,7 @@ def anagram_charades(tree):
         if node.get("op") == "anagram":
             n += sum(p.get("op") == "charade" for p in parts)
         stack += parts
-    return n
+    return n + anagram_edge_pieces(tree, answer)
 #: Wordplay tree shapes that parse() cannot write or that say something the clue
 #: does not. Each is a finding with its own ratchet field (below): a puzzle keeps
 #: the clues it already has (tools/tidy_wordplay_shapes.py rewrote every one that
@@ -6601,11 +6668,12 @@ def tree_view(puzzle):
             warnings.append(f"{_tag_of(puzzle, where)}: {n} {UNCHECKED_STEP}(s), taken as filed "
                             f"from the old blocks; write the step as an expression the "
                             f"evaluator checks (tools/wordplay.py)")
-        if k := anagram_charades(ann.get("wordplay")):
+        if k := anagram_charades(ann.get("wordplay"), held.get("solution") or None):
             warnings.append(f"{_tag_of(puzzle, where)}: {k} {ANAGRAM_CHARADE}: an anagram's "
                             f"fodder is one pool of letters, so its pieces are its own parts "
                             f"(ana(x + y)); a word that only joins them is a link word, and an "
-                            f"anagram indicator goes on ana<...>")
+                            f"anagram indicator goes on ana<...>; a letter piece at the answer's edge "
+                            f"belongs outside it (I + N + ana(RIP SIGN)), not scrambled in")
         warnings += shape_warnings(_tag_of(puzzle, where), ann, (held.get("clue") or {}).get("text"), held.get("solution") or None)
         warnings += lesson_warnings(_tag_of(puzzle, where), ann, held)
         warnings += follow_warnings(_tag_of(puzzle, where), ann, held, puzzle)

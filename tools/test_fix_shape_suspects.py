@@ -8,6 +8,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import fix_shape_suspects as F
+import validate_annotations as V
 
 fails = 0
 def check(name, ok):
@@ -599,6 +600,16 @@ check("neither end spelling the answer leaves the clue for the model", used == [
 new, used = F.repair_tree(apt2, apc, "RIFER", AP)
 check("a trailing piece goes after the anagram", used == ["anaCharade"] and new["parts"][1].get("gives") == "R"
       and new["parts"][0]["op"] == "anagram")
+
+# anaCharade, any depth (r24): quiptic-1157#15a, N folded into the anagram beside I
+aec = "Setter's new and unusual RIP sign is thought-provoking"
+aet = {"op": "charade", "parts": [{"words": "Setter's", "at": 0, "gives": "I"}, {"op": "anagram", "indicators": [{"text": "unusual", "at": 18}], "parts": [
+    {"words": "new", "at": 9, "gives": "N"}, {"words": "RIP sign", "at": 26}]}]}
+new, used = F.repair_tree(aet, aec, "INSPIRING", {"anaCharade": F.r_ana_edge})
+check("N comes out of the anagram, joined into the charade: I + N + ana(RIP sign)",
+      used == ["anaCharade"] and [p.get("gives") or p["op"] for p in new["parts"]] == ["I", "N", "anagram"]
+      and new["parts"][2]["parts"][0]["words"] == "RIP sign")
+check("the validator counts it before and not after", V.anagram_charades(aet, "INSPIRING") == 1 and V.anagram_charades(new, "INSPIRING") == 0)
 
 # scrambledLeaf: the anagram word sits over the synonym while the scrambled result sits on the other leaf
 SW = {"scrambledLeaf": F.r_scrambled_swap}

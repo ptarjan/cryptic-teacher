@@ -260,7 +260,7 @@ def _validator_rules():
             "bareInCharade": lambda t, a, c: V.bare_in_charade(t, a),
             "inDefinition": lambda t, a, c: V.in_definition(a, c),
             "leafFold": lambda t, a, c: V.leaf_folds(t),
-            "anaCharade": lambda t, a, c: V.anagram_charades(t),
+            "anaCharade": lambda t, a, c: V.anagram_charades(t, a.get("_answer") or None),
             "nestedContainer": lambda t, a, c: V.nested_containers(t, a.get("_answer") or None),
             "anaSynonym": lambda t, a, c: V.anagram_synonyms(t, a, c),
             "misplacedIndicator": lambda t, a, c: V.misplaced_indicators(t),
