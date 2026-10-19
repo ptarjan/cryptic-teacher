@@ -583,5 +583,18 @@ act2 = {**act, "parts": [{"op": "charade", "parts": [{"words": "pates", "at": 6,
 new, used = F.repair_tree(act2, acc, "TAPXR", ACH)
 check("a piece that is no scramble of its words is left for the model", used == [])
 
+# scrambledLeaf: the anagram word sits over the synonym while the scrambled result sits on the other leaf
+SW = {"scrambledLeaf": F.r_scrambled_swap}
+swc = "Celebration over treaty drafted in Pennsylvania"
+swt = {"op": "container", "indicators": [{"text": "in", "at": 35}], "parts": [
+    {"words": "treaty", "at": 17, "gives": "TEARTY"},
+    {"op": "anagram", "indicators": [{"text": "drafted", "at": 24}], "parts": [{"words": "Pennsylvania", "at": 38, "gives": "PA"}]}]}
+new, used = F.repair_tree(swt, swc, "TEAPARTY", SW)
+check("the anagram moves onto the scrambled leaf and the synonym stands bare",
+      used == ["scrambledLeaf"] and new["parts"][0]["op"] == "anagram" and "gives" not in new["parts"][0]["parts"][0]
+      and new["parts"][1].get("gives") == "PA")
+new, used = F.repair_tree(swt, swc, "TEAPARTX", SW)
+check("a swap that does not give the answer is left alone", used == [])
+
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
