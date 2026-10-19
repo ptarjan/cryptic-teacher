@@ -26,13 +26,11 @@ import math
 import os
 import random
 import re
-import sys
 import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
-import det_synonyms  # noqa: E402  (the synonym dictionary: sources, ranking, leaf coverage)
+import det_synonyms  # the synonym dictionary: sources, ranking, leaf coverage
 CACHE = Path.home() / ".cache" / "detsolve"
 SERIES = ("times", "sundaytimes", "timesjumbo", "timesquick", "timesclub")
 LINK = {"and", "with", "then", "by", "to", "for", "of", "on", "in", "from", "is", "has", "gets", "get", "given",
@@ -774,7 +772,7 @@ def report(results):
     print("mean secs/clue", sum(r["secs"] for r in results) / max(len(results), 1))
 
 
-R30 = Path("/data/home/.cache/fpfn_20261019_r30")
+R30 = CACHE.parent / "fpfn_20261019_r30"
 
 
 def r30_misses():

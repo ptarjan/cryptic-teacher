@@ -13,12 +13,9 @@ For the 500 held-out Times test clues (same sample and hold-out as `det_solve.py
 import argparse
 import collections
 import re
-import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import det_solve as D  # noqa: E402
-import det_synonyms  # noqa: E402
+import det_solve as D
+import det_synonyms
 
 SEL = D.SELECT_KINDS
 

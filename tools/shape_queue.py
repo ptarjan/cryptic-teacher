@@ -21,7 +21,6 @@ The row changes ship in the puzzle's own commit (tools/own_rows.py), so a
 pruned row reaches master with the tree that settled it, and a discarded run
 puts its rows back."""
 import contextlib
-import fcntl
 import hashlib
 import json
 import os
@@ -479,6 +478,7 @@ def locked():
     """Exclusive lock for a read-modify-write of the list. The lock is a file of
     its own, not PATH, because write() replaces PATH's inode."""
     lock = Path(tempfile.gettempdir()) / f"ct-shape-queue-{hashlib.sha1(str(PATH).encode()).hexdigest()[:12]}.lock"
+    import fcntl  # POSIX-only, imported where used: the desktop OCR code imports this module and runs on Windows
     with open(lock, "w") as f:
         fcntl.flock(f, fcntl.LOCK_EX)
         yield

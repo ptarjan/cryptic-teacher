@@ -665,7 +665,7 @@ def worn(word):
     times commoner than any other it could be ("of" for No 3's "cf"), else
     None. Only a spelling the lexicon has is ever put back."""
     low = word.lower()
-    if not low.isalpha() or len(low) < 3 or known(low):
+    if not low.isalpha() or len(low) < 2 or known(low):
         return None
     at = [i for i, ch in enumerate(low) if any(ch == r for _, r in ONE_WAY)]
     if not at or len(at) > 12:
