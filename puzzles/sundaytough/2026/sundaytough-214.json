@@ -44,32 +44,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MCKELLEN",
+     "spelt": "MCKELLEN",
      "indicators": [
       {
        "text": "for Spooner's",
-       "note": "Reverend Spooner swapped the opening sounds of words, so his version of a phrase is a spoonerism"
+       "at": 11,
+       "note": "Spooner swapped the opening sounds of words, so the two words found are exchanged at their starts"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Stew fruit",
-       "gives": "MCKELLEN",
-       "soundsLike": "MOOK KELLON",
-       "note": "stew = COOK, fruit = MELON; swap the opening sounds of COOK MELON"
+       "words": "Stew",
+       "at": 0,
+       "gives": "COOK",
+       "note": "to stew is to cook"
+      },
+      {
+       "op": "homophone",
+       "spelt": "MELLEN",
+       "parts": [
+        {
+         "words": "fruit",
+         "at": 5,
+         "gives": "MELON",
+         "note": "the melon is a fruit"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe note about stewing fruit, oddly tied to a stage actor.",
-     "walkthrough": "The swap is approximate: MOOK KELLON only roughly matches how the name is said.",
-     "definitionFit": "A definition by example: Sir Ian McKellen trained in Shakespeare and classical theatre long before playing Gandalf."
+     "surface": "Someone stews a fruit, offered up for a stage performer.",
+     "walkthrough": "Swapping the opening sounds of COOK MELON gives roughly 'Mook Kellon', which is close to the actor's name; the blog calls it a loose Spoonerism.",
+     "definitionFit": "Sir Ian McKellen is an English actor with a long Shakespearean stage career, hence classically trained."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Stew"
     }
    }
@@ -95,64 +107,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "unfortunately",
-       "note": "what is left of the pistol comes out badly arranged"
+       "at": 21,
+       "note": "unfortunately signals the letters are shuffled into an unlucky new order"
+      },
+      {
+       "text": "abandoning",
+       "at": 35,
+       "note": "abandoning tells us some letters are left behind out of the fodder"
+      },
+      {
+       "text": "rogue",
+       "at": 53,
+       "note": "rogue means wayward, so the letters of hit on may be in any order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "abandoning",
-         "note": "the pistol's letters give up the named group"
-        }
-       ],
-       "parts": [
-        {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "rogue",
-           "note": "HIT ON goes astray, so its letters appear in a different order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "machine pistol",
-           "note": "the starting letters"
-          },
-          {
-           "words": "hit on",
-           "gives": "HINTO",
-           "note": "these five letters are removed, in the order they sit in MACHINE PISTOL"
-          },
-          {
-           "words": "machine pistol",
-           "gives": "MACEPISL",
-           "note": "what remains after HIN and TO go, ready to be rearranged"
-          }
-         ]
-        },
-        {
-         "gives": "MACHINEPISTOLHINTO"
-        }
-       ]
+       "words": "machine pistol",
+       "at": 5
+      },
+      {
+       "words": "hit on",
+       "at": 46,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone loses a gun, having given up on a hit against a crook.",
-     "walkthrough": "Two rearrangements stack here: the letters of HIT ON are taken out of MACHINE PISTOL, and the eight survivors are then rearranged.",
-     "definitionFit": "A plain synonym: to lose your keys is to put them somewhere you cannot find."
+     "surface": "A gunman loses a machine pistol after failing to hit a villain.",
+     "walkthrough": "Take the letters of HIT ON out of MACHINE PISTOL and rearrange the eight that remain.",
+     "definitionFit": "To misplace something is to put it somewhere forgotten, which amounts to losing it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "hit"
+     "misdirectedWord": "rogue"
     }
    }
   },
@@ -225,60 +218,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LIGURIA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "in means the second group of letters sits within the first"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "LIGURIA",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "climbing",
+         "at": 26,
+         "note": "in a down clue climbing means the word reads upwards, from bottom to top"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "Exposed",
-           "note": "a figure stripped of its outer letters"
-          },
-          {
-           "text": "in",
-           "note": "the stripped figure goes inside"
-          },
-          {
-           "text": "climbing",
-           "note": "in a down clue, climbing means read from the bottom up"
-          }
-         ],
-         "parts": [
-          {
-           "words": "trouble",
-           "gives": "L",
-           "note": "to ail = to trouble; AIL upwards is LIA, split round the figure"
-          },
-          {
-           "words": "figure",
-           "gives": "IGUR",
-           "note": "fIGURe without its outer letters"
-          },
-          {
-           "words": "trouble",
-           "gives": "IA",
-           "note": "the rest of LIA"
-          }
-         ]
+         "words": "trouble",
+         "at": 18,
+         "gives": "AIL",
+         "note": "to trouble is to ail"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Exposed",
+         "at": 0,
+         "note": "exposed means stripped of its outer covering, so the first and last letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "figure",
+         "at": 8,
+         "note": "figure without its outer letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nude statue stuck in trouble on a coastal climb.",
-     "walkthrough": "'Exposed' suggests nakedness, but here it means peeled: FIGURE loses its first and last letters.",
-     "definitionFit": "A definition by example: Liguria is the strip of Italian coast around Genoa."
+     "surface": "A figure is caught exposed while in trouble climbing along a coast.",
+     "walkthrough": "'Exposed' reads like a description of the figure, but it strips the word's outer letters; 'climbing' works because this is a down clue.",
+     "definitionFit": "Liguria is the region of north-west Italy along the Mediterranean, including Genoa and the Riviera."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Exposed"
     }
@@ -899,64 +891,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "moving",
-       "note": "the remaining letters shift into a new order"
+       "at": 8,
+       "note": "moving suggests the letters shift about into a new order"
+      },
+      {
+       "text": "removed",
+       "at": 55,
+       "note": "removed tells us a set of letters is taken out of the fodder"
+      },
+      {
+       "text": "once mutated",
+       "at": 33,
+       "note": "once mutated means after being changed in form, so the plant's letters may come in any order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "removed",
-         "note": "the wisteria letters are taken out"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "once mutated",
-           "note": "WISTERIA's letters are in a different order in the waste, as if it had been changed earlier"
-          }
-         ],
-         "parts": [
-          {
-           "words": "radioactive waste",
-           "note": "the starting sixteen letters"
-          },
-          {
-           "words": "wisteria",
-           "gives": "RIIWSTEA",
-           "note": "these eight letters are taken out"
-          },
-          {
-           "words": "radioactive waste",
-           "gives": "DOACVATE",
-           "note": "the eight letters left, ready to rearrange"
-          }
-         ]
+         "words": "radioactive",
+         "at": 15
         },
         {
-         "gives": "RADIOACTIVEWASTERIIWSTEA"
+         "words": "waste",
+         "at": 27
         }
        ]
+      },
+      {
+       "words": "wisteria",
+       "at": 46,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A campaigner proposing to shift nuclear waste after it mutated a garden plant.",
-     "walkthrough": "The removed letters are an anagram of WISTERIA, hence 'once mutated'; the survivors are then rearranged.",
-     "definitionFit": "A verb sense: to argue publicly for a plan is to put it forward, to propose it."
+     "surface": "Nuclear waste is said to have mutated a climbing plant, now dug out.",
+     "walkthrough": "Strike the letters of WISTERIA from RADIOACTIVE WASTE and rearrange the rest; 'once' just joins the two halves.",
+     "definitionFit": "To advocate a plan is to recommend it publicly, which is to put it forward or propose it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "mutated"
     }
    }
@@ -1097,51 +1078,60 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ESPOUSAL",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "pursuing",
+       "at": 30,
+       "note": "pursuing means coming after, so this part follows the first"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "contract rivals",
+       "at": 39,
+       "gives": "ES",
+       "note": "in contract bridge East and South sit at adjacent seats and are opponents"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "the old American goes inside the word for china"
-        },
-        {
-         "text": "pursuing",
-         "note": "this part comes after the bridge players"
+         "at": 21,
+         "note": "in means these letters sit within the word for a friend"
         }
        ],
        "parts": [
         {
-         "words": "contract rivals",
-         "gives": "ES",
-         "note": "in contract bridge, East and South are opponents"
-        },
-        {
          "words": "China",
-         "gives": "P",
-         "note": "china = mate, from rhyming slang china plate; PAL split round the American"
+         "at": 24,
+         "gives": "PAL",
+         "note": "china is rhyming slang for mate (china plate), so a pal"
         },
         {
-         "words": "old American",
-         "gives": "OUS",
-         "note": "O = old, US = American"
-        },
-        {
-         "words": "China",
-         "gives": "AL",
-         "note": "the rest of PAL"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "old",
+           "at": 8,
+           "gives": "O"
+          },
+          {
+           "words": "American",
+           "at": 12,
+           "gives": "US"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Support for an old American in China who is chasing rival firms for a deal.",
-     "walkthrough": "Cockney rhyming slang gives china plate = mate. Bridge players sit as North, South, East and West, and E and S are on opposing sides.",
-     "definitionFit": "A noun sense: to espouse a cause is to back it, and the noun is that support."
+     "surface": "An elderly American in China is chasing business rivals.",
+     "walkthrough": "China plate is rhyming slang for mate, hence PAL; ES are two opposing seats at a bridge table.",
+     "definitionFit": "Espousal is the adoption or support of a cause, so it is a synonym of backing."
     },
     "features": {
      "answerInScene": false,
@@ -1441,67 +1431,67 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DIAZEPAM",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 20,
+       "note": "following means this part comes after the other"
+      }
+     ],
      "parts": [
       {
        "op": "container",
-       "unchecked": true,
-       "gives": "DIAZEPAM",
+       "indicators": [
+        {
+         "text": "entering",
+         "at": 34,
+         "note": "entering means the numeral goes into the word for stupor"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "reviewed",
-           "note": "the chart is looked at again from the other end"
-          },
-          {
-           "text": "following",
-           "note": "the chart comes after the rest"
-          },
-          {
-           "text": "entering",
-           "note": "one goes into the word for stupor"
-          }
-         ],
-         "parts": [
-          {
-           "words": "stupor",
-           "gives": "D",
-           "note": "a DAZE is a stupor, split round the one"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I = one"
-          },
-          {
-           "words": "stupor",
-           "gives": "AZE",
-           "note": "the rest of DAZE"
-          },
-          {
-           "words": "chart",
-           "gives": "PAM",
-           "note": "a MAP is a chart, reviewed"
-          }
-         ]
+         "words": "stupor",
+         "at": 43,
+         "gives": "DAZE",
+         "note": "a stupor is a daze"
+        },
+        {
+         "words": "one",
+         "at": 30,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reviewed",
+         "at": 11,
+         "note": "reviewed is taken as re-viewed, looked at the other way, so read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chart",
+         "at": 5,
+         "gives": "MAP",
+         "note": "a chart is a map"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drug chart checked after a patient falls into a stupor.",
-     "walkthrough": "The clue names the chart first, but 'following' puts it at the end.",
-     "definitionFit": "A definition by example: diazepam, sold as Valium, is a sedative drug."
+     "surface": "A patient's drug chart is checked again after someone slips into a stupor.",
+     "definitionFit": "Diazepam, sold as Valium, is a sedative medicine prescribed for anxiety."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "chart"
+     "misdirectedWord": "reviewed"
     }
    }
   },
@@ -1816,46 +1806,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SCYTHE",
      "indicators": [
       {
        "text": "put aside for",
-       "note": "one letter is set aside and another takes its place"
+       "at": 27,
+       "note": "put aside for means one letter is set aside and another takes its place"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "hurt",
-         "gives": "SC",
-         "note": "to scathe = to harm; SCATHE with its A (article) set aside"
-        },
-        {
-         "words": "year",
-         "gives": "Y",
-         "note": "Y = year, in place of the A"
-        },
-        {
-         "words": "hurt",
-         "gives": "THE",
-         "note": "the rest of SCATHE"
-        },
-        {
-         "unchecked": true,
-         "words": "article",
-         "note": "the article A, which is taken out of SCATHE"
-        }
-       ]
+       "words": "hurt",
+       "at": 12,
+       "gives": "SCATHE",
+       "note": "scathe is an old word meaning to hurt or harm"
+      },
+      {
+       "words": "article",
+       "at": 19,
+       "gives": "A",
+       "note": "A is the indefinite article"
+      },
+      {
+       "words": "year",
+       "at": 41,
+       "gives": "Y"
       }
      ]
     },
     "explanation": {
-     "surface": "A blade that did harm, with a newspaper piece shelved for a year.",
-     "walkthrough": "'Article' suggests a piece of writing; it is the grammatical article A.",
-     "definitionFit": "A definition by example: the long curved mowing blade on a pole is a classic bladed tool."
+     "surface": "Someone hurt by a sharp tool sets the article aside for a year.",
+     "walkthrough": "SCATHE is archaic for harm, the root of 'unscathed'.",
+     "definitionFit": "A scythe is a long curved blade on a pole, used for cutting grass by hand."
     },
     "features": {
      "answerInScene": false,

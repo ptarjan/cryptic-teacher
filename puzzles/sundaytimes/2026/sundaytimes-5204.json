@@ -533,45 +533,55 @@
      "indicators": [
       {
        "text": "running",
-       "note": "the letters run about into a new order"
+       "at": 23,
+       "note": "running suggests something in motion and in disorder, so the fodder letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "kid",
+       "at": 6
+      },
+      {
+       "words": "hurt",
+       "at": 10
+      },
+      {
+       "words": "his",
+       "at": 15
+      },
+      {
+       "words": "leg",
+       "at": 19
+      },
+      {
+       "op": "last",
        "indicators": [
         {
          "text": "back from",
-         "note": "the back of cricket is its final letter"
+         "at": 31,
+         "note": "the back of a word is its final letter, here the end of cricket"
         }
        ],
        "parts": [
         {
-         "words": "kid hurt his leg",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "back from cricket",
-           "note": "last letter of cricket"
-          }
-         ]
+         "words": "cricket",
+         "at": 41,
+         "note": "last letter of cricket"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lovely child injured his leg while running between the wickets at cricket.",
-     "walkthrough": "'Sweet' looks like it describes the kid, but it is the definition. Turkish delight is a jelly confection dusted in sugar.",
-     "definitionFit": "Turkish delight is a sweet made of flavoured jelly dusted with icing sugar."
+     "surface": "A child's leg is hurt while he runs back from a cricket match.",
+     "walkthrough": "'back from cricket' gives the T, which joins KIDHURTHISLEG; 'running' then rearranges all fourteen letters.",
+     "definitionFit": "Turkish delight is a confection of gel dusted with sugar, so it counts as a sweet."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Sweet"
+     "misdirectedWord": "running"
     }
    }
   },
@@ -1215,31 +1225,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "parts"
+       "text": "parts",
+       "at": 37,
+       "note": "parts is read as a verb: the outer word is split open to take the other letters"
       }
      ],
      "parts": [
       {
        "words": "bare bottom",
+       "at": 7,
        "gives": "MOON",
-       "note": "to moon is to show your bare bottom"
+       "note": "to moon is to show one's bare bottom, so bare bottom gives MOON"
       },
       {
-       "words": "one lacking tail",
-       "gives": "RHE",
-       "note": "'one' is another bird, a RHEA, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking tail",
+         "at": 24,
+         "note": "lacking its tail means the final letter of the word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 20,
+         "gives": "RHEA",
+         "note": "one refers back to a bird: the rhea, a large flightless bird"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bird with a bald rump, missing some of its tail feathers.",
-     "walkthrough": "'One' points back to 'Bird', meaning another bird: the rhea, a big flightless South American bird. 'Tail parts' reads as feathers but is two instructions.",
-     "definitionFit": "The moorhen is a common dark waterbird with a red bill."
+     "surface": "A bird is described as having a bare rump, short of some tail feathers.",
+     "walkthrough": "'one' stands for another bird, the RHEA; without its tail it is RHE, which splits MOON (to moon is to bare your bottom).",
+     "definitionFit": "The moorhen is a common waterbird of ponds and rivers, related to the coot."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "parts"
     }
    }

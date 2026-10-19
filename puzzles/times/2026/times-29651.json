@@ -219,47 +219,39 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "head covered by",
+       "at": 13,
+       "note": "the opening letter is covered over by another letter, which replaces it"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "ELECTRUM",
-       "indicators": [
-        {
-         "text": "covered by",
-         "note": "the first letter is covered over by another"
-        }
-       ],
-       "parts": [
-        {
-         "words": "pick",
-         "gives": "PLECTRUM",
-         "note": "a plectrum is a guitar pick"
-        },
-        {
-         "words": "earth",
-         "gives": "E",
-         "note": "E = earth, as on an electric plug"
-        }
-       ]
+       "words": "pick",
+       "at": 6,
+       "gives": "PLECTRUM",
+       "note": "a plectrum is the pick used to pluck a guitar"
       },
       {
-       "unchecked": true,
-       "words": "'s head covered by",
-       "note": "the head of PLECTRUM, P, is covered over by E"
+       "gives": "P"
+      },
+      {
+       "words": "earth",
+       "at": 29,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A miner's pickaxe with its head buried in the soil as it digs for metal.",
-     "walkthrough": "'Pick' looks like a miner's tool, but it is the plectrum a guitarist plucks with. Replace its first letter P with E.",
-     "definitionFit": "Electrum is a natural alloy of gold and silver, a metal."
+     "surface": "A miner's pick has its head buried in soil.",
+     "walkthrough": "'pick' looks like a digging tool; it is the guitarist's PLECTRUM, whose head letter is replaced by E.",
+     "definitionFit": "Electrum is a natural alloy of gold and silver, used for the earliest coins."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "pick"
     }
    }
@@ -328,49 +320,52 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without leaders",
+       "at": 44,
+       "note": "without leaders means each word loses its first letter"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "OP",
-       "indicators": [
-        {
-         "text": "without leaders",
-         "note": "each of the three words loses its leading letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
          "words": "better",
-         "gives": "OP",
-         "select": "first",
-         "note": "TOP, to better someone, without its leader T"
+         "at": 24,
+         "gives": "TOP",
+         "note": "to better something is to top it"
+        },
+        {
+         "words": "country",
+         "at": 31,
+         "gives": "DENMARK",
+         "note": "Denmark is a country"
+        },
+        {
+         "words": "but",
+         "at": 40,
+         "gives": "YET",
+         "note": "but can mean yet"
         }
        ]
       },
       {
-       "words": "country",
-       "gives": "ENMARK",
-       "note": "DENMARK without its leader D"
-      },
-      {
-       "words": "but",
-       "gives": "ET",
-       "note": "YET, meaning but, without its leader Y"
+       "gives": "TDY"
       }
      ]
     },
     "explanation": {
-     "surface": "A free-trade manifesto: a better country would come from doing without its leaders.",
-     "walkthrough": "'Better' is the verb to top, not a comparative, and 'but' must be read as yet. All three lose their first letters.",
-     "definitionFit": "Free traders want an open market, one without tariffs or barriers."
+     "surface": "Free traders want a better country, though without its politicians.",
+     "walkthrough": "Each of TOP, DENMARK and YET loses its first letter: OP, ENMARK, ET.",
+     "definitionFit": "An open market is one without tariffs or trade barriers, which is the goal of free-trade advocates."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "better"
+     "aptDefinition": true,
+     "misdirectedWord": "leaders"
     }
    }
   },
