@@ -663,37 +663,36 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "to accept"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "extremely",
-         "note": "the two extremes of 'idiotic', I and C"
+         "text": "to accept",
+         "at": 22,
+         "note": "to accept means the staff word takes the other letters inside it"
         }
        ],
        "parts": [
         {
          "words": "staff",
+         "at": 16,
          "gives": "POLE",
          "note": "a staff is a pole or stick"
         },
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "IC",
+         "indicators": [
+          {
+           "text": "extremely",
+           "at": 32,
+           "note": "extremely means only the first and last letters of idiotic"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "extremely idiotic",
-           "gives": "IC",
-           "select": "outer",
-           "note": "the outer letters of idiotic"
+           "words": "idiotic",
+           "at": 42
           }
          ]
         }
@@ -701,20 +700,20 @@
       },
       {
        "words": "post",
+       "at": 50,
        "gives": "STATION",
-       "note": "a post or station is a place of duty"
+       "note": "a station is a post, a place where one is assigned to serve"
       }
      ]
     },
     "explanation": {
-     "surface": "An employer forces staff to take on a pointless job.",
-     "walkthrough": "'Force workplace staff' reads as bullying employees, but 'Force workplace' is the definition: the police force works there.",
-     "definitionFit": "A police station is where members of the police force are based."
+     "surface": "An order to staff to accept a ridiculous job posting.",
+     "walkthrough": "'Force' reads as a verb ordering the staff about, but it is the police force, part of the definition.",
+     "definitionFit": "A police station is where officers of the force are based and do their jobs."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Force"
     }
    }
@@ -741,46 +740,52 @@
     ],
     "wordplay": {
      "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 6,
+       "note": "around means the range word goes round the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Range",
+       "at": 0,
+       "gives": "REACH",
+       "note": "reach is range, the distance one can extend to"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Range",
-         "gives": "REACH",
-         "note": "a weapon's reach is its range"
+         "words": "East",
+         "at": 13,
+         "gives": "E"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "around"
-          },
-          {
            "text": "capital",
-           "note": "the capital letter of Timor"
+           "at": 26,
+           "note": "the capital of a word is its first, capital letter"
           }
          ],
          "parts": [
           {
-           "words": "East",
-           "note": "E = East"
+           "words": "Timor's",
+           "at": 18
           }
          ]
         }
        ]
-      },
-      {
-       "words": "Timor's capital",
-       "gives": "T",
-       "note": "the first letter of Timor"
       }
      ]
     },
     "explanation": {
-     "surface": "A range of hills sits round the capital of East Timor.",
-     "walkthrough": "'East Timor's capital' reads as Dili; it is only E plus Timor's first letter. ET goes in after the R of REACH.",
-     "definitionFit": "A plain synonym: the prefix re- means again and teaching is training, so the word is training a second time."
+     "surface": "A mountain range encircling Dili, the capital of East Timor.",
+     "walkthrough": "'East Timor' looks like the country, but East gives E and Timor's capital gives T; they go inside REACH.",
+     "definitionFit": "To reteach is to instruct someone a second time, and to train is to instruct."
     },
     "features": {
      "answerInScene": false,
@@ -980,40 +985,41 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "NEWTONIAN",
+     "indicators": [
+      {
+       "text": "Curiously",
+       "at": 0,
+       "note": "curiously signals that the letters are in an odd, unexpected order"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "NEWTONIAN",
        "indicators": [
         {
-         "text": "Curiously",
-         "note": "the letters are arranged oddly"
-        },
-        {
-         "text": "less"
+         "text": "less",
+         "at": 22,
+         "note": "less means minus, so the letter for good is taken out"
         }
        ],
        "parts": [
         {
          "words": "wanting one",
-         "note": "the letters of the words themselves"
+         "at": 10
         },
         {
          "words": "good",
-         "gives": "G",
-         "note": "G = good, removed before the rearranging"
+         "at": 27,
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Oddly lacking a good qualification to be a mechanic.",
-     "walkthrough": "The surface is about a car mechanic's certificate; the mechanics are Newton's laws of motion, and 'Newtonian' qualifies them as an adjective.",
-     "definitionFit": "Newtonian mechanics is classical physics, so the word qualifies 'mechanics'."
+     "surface": "Someone oddly short of a good qualification to become a mechanic.",
+     "walkthrough": "WANTING ONE without G leaves WANTINONE, which is rearranged. The mechanics are physics, not car repairers.",
+     "definitionFit": "Newtonian mechanics is classical physics based on Newton's laws of motion, so the adjective qualifies that branch of physics."
     },
     "features": {
      "answerInScene": false,
@@ -1398,41 +1404,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "carrying"
+       "text": "carrying",
+       "at": 7,
+       "note": "carrying means the stand word holds the other letters within it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Stand",
-         "gives": "STALL",
-         "note": "a stall is a market stand"
-        },
-        {
-         "words": "a single",
-         "gives": "ONE",
-         "note": "a single is one"
-        }
-       ]
+       "words": "Stand",
+       "at": 0,
+       "gives": "STALL",
+       "note": "a stall is a stand, as at a market"
       },
       {
-       "words": "wide",
-       "gives": "W",
-       "note": "W = wide, the cricket scoring abbreviation for a ball bowled out of the batter's reach"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a single",
+         "at": 16,
+         "gives": "ONE",
+         "note": "a single means one"
+        },
+        {
+         "words": "wide",
+         "at": 25,
+         "gives": "W",
+         "note": "W is the cricket abbreviation for a wide, a ball bowled out of the batter's reach"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A market stand is loaded with one broad picnic basket.",
-     "walkthrough": "'Hamper' sits in the picture as a basket; it is the verb, to obstruct.",
-     "definitionFit": "To stonewall is to obstruct by stalling or refusing to cooperate, so to hamper."
+     "surface": "A market stand displaying one wide picnic hamper.",
+     "walkthrough": "'hamper' looks like a basket, but it is the verb meaning to obstruct.",
+     "definitionFit": "To stonewall is to obstruct by delaying or refusing to cooperate, which hinders progress."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "hamper"
     }
    }

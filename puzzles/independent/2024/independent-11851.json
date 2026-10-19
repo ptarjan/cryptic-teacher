@@ -926,57 +926,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AUTOREPLY",
+     "op": "container",
      "indicators": [
       {
-       "text": "Heartless",
-       "note": "without a heart means the middle of the word is taken out"
+       "text": "during",
+       "at": 14,
+       "note": "during means the shortened pal sits within the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "during",
-         "note": "during places one piece within the span of the other"
+         "text": "circulated",
+         "at": 30,
+         "note": "circulated suggests letters going round into a new arrangement"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "circulated",
-           "note": "things circulated are passed around and mixed up, so these letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "year out",
-           "note": "taken as written, as anagram fodder"
-          }
-         ]
-        },
+         "words": "year out",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Heartless",
+         "at": 0,
+         "note": "heartless means the middle letter of pal is removed"
+        }
+       ],
+       "parts": [
         {
          "words": "pal",
-         "gives": "PL",
-         "note": "the word pal minus its middle letter"
+         "at": 10
+        },
+        {
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A friend away for a gap year sent round a cold, impersonal message.",
-     "definitionFit": "An autoreply is an automatically generated response such as an out-of-office message, sent without personal input."
+     "surface": "A cold friend on a gap year sends round a form email.",
+     "walkthrough": "PL (pal without its heart) goes into AUTOREY, the rearrangement of YEAR OUT.",
+     "definitionFit": "An autoreply is an automatic response message, sent without any personal touch from the recipient."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Heartless"
+     "misdirectedWord": "circulated"
     }
    }
   },

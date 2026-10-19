@@ -922,47 +922,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AEOLIAN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "incomplete",
-       "note": "incomplete means the word loses its last letter"
+       "text": "could become",
+       "at": 26,
+       "note": "could become signals that these letters can be rearranged into something new"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "One",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "could become",
-         "note": "could become suggests the letters may turn into a different arrangement"
+         "text": "incomplete",
+         "at": 9,
+         "note": "incomplete means the word alias loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "One",
-         "note": "taken as written"
+         "words": "alias",
+         "at": 20
         },
         {
-         "words": "alias",
-         "gives": "ALIA",
-         "note": "alias without its final letter"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone using a half-finished false name might turn into a windbag.",
-     "walkthrough": "One is used whole as letters, not as the numeral or A.",
-     "definitionFit": "Aeolus was the Greek god of winds, so Aeolian means of or produced by the wind, hence windy."
+     "surface": "Someone with a half-finished false name might turn out to be full of hot air.",
+     "walkthrough": "ALIAS without its last letter is ALIA; ONE plus ALIA is rearranged.",
+     "definitionFit": "Aeolian means relating to or produced by the wind, after Aeolus, Greek god of the winds."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "One"
+     "misdirectedWord": "windy"
     }
    }
   },
@@ -1364,45 +1366,52 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TARDIER",
      "indicators": [
       {
        "text": "for",
-       "note": "for means one item is put in place of another"
+       "at": 43,
+       "note": "for means the new letters stand in for the island letters, replacing them"
       }
      ],
      "parts": [
       {
        "words": "time traveller",
+       "at": 14,
        "gives": "TARDIS",
-       "note": "the TARDIS is Doctor Who's time machine"
-      },
-      {
-       "words": "that is",
-       "gives": "IE",
-       "note": "ie is the abbreviation for id est, that is"
-      },
-      {
-       "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right"
+       "note": "the TARDIS is the time-travelling police box in the TV series Doctor Who"
       },
       {
        "words": "island",
-       "gives": "IS",
-       "note": "Is is the abbreviation for island"
+       "at": 47,
+       "gives": "IS"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "that is",
+         "at": 29,
+         "gives": "IE",
+         "note": "i.e. is the abbreviation of id est, 'that is'"
+        },
+        {
+         "words": "right",
+         "at": 37,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A time traveller arrives late and gets directions to an island.",
-     "walkthrough": "The TARDIS is the time machine in the BBC series Doctor Who; its final IS (island) is swapped for IE plus R.",
-     "definitionFit": "Tardy means late, so the comparative tardier describes someone arriving later, hence less punctual."
+     "surface": "A time traveller, of all people, turning up late is an ironic picture.",
+     "walkthrough": "The TARDIS is the time machine in the British TV series Doctor Who. IS at its end is replaced by IE plus R.",
+     "definitionFit": "Tardier is the comparative of tardy, meaning late, so it describes someone arriving later than expected."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "traveller"
     }
    }

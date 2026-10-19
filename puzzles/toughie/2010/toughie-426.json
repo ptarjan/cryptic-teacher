@@ -623,57 +623,64 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "TWISTY",
-     "indicators": [
-      {
-       "text": "overpowering",
-       "note": "to overpower someone is to take their place by force, so one piece ousts another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "match",
-       "gives": "TEST",
-       "note": "a Test is an international cricket match"
-      },
-      {
-       "words": "West Indies",
-       "gives": "WI",
-       "note": "WI is the standard abbreviation for the West Indies"
-      },
-      {
-       "words": "English",
-       "gives": "E",
-       "note": "E is the abbreviation for English"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "overpowering",
+         "at": 28,
+         "note": "overpowering means the West Indies letters overthrow and take the place of English"
+        }
+       ],
+       "parts": [
+        {
+         "words": "match",
+         "at": 9,
+         "gives": "TEST",
+         "note": "a Test is an international cricket match"
+        },
+        {
+         "words": "English",
+         "at": 41,
+         "gives": "E"
+        },
+        {
+         "words": "West Indies",
+         "at": 16,
+         "gives": "WI",
+         "note": "WI is the standard abbreviation for the West Indies cricket team"
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "finally",
-         "note": "finally points to the last letter of the word before it"
+         "at": 56,
+         "note": "finally means the final letter of county is used"
         }
        ],
        "parts": [
         {
          "words": "county",
-         "note": "the last letter of county"
+         "at": 49
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A winding Test match in which the West Indies beat a county side.",
-     "walkthrough": "WI replaces the E of TEST to give TWIST, then Y is added.",
-     "definitionFit": "Tortuous describes something full of bends and turns, like a winding road."
+     "surface": "A twisting cricket Test in which the West Indies beat England.",
+     "walkthrough": "In TEST, WI replaces E to make TWIST, then Y, the last letter of county, is added.",
+     "definitionFit": "Twisty means full of twists and turns, winding, which is what tortuous means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "overpowering"
+     "misdirectedWord": "match"
     }
    }
   },
@@ -1197,49 +1204,54 @@
      "indicators": [
       {
        "text": "over",
-       "note": "over means covering, so the meal wraps round the other pieces"
+       "at": 19,
+       "note": "over means the shortened meal covers the other letters, enclosing them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 12,
+         "note": "almost means the last letter of the meal is dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "almost",
-           "note": "almost means not quite all, so the last letter goes"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Midday meal",
-           "gives": "LUNCH",
-           "note": "lunch is the midday meal"
-          },
-          {
-           "gives": "H"
-          }
-         ]
+         "words": "Midday meal",
+         "at": 0,
+         "gives": "LUNCH",
+         "note": "lunch is the midday meal"
         },
         {
-         "words": "at",
-         "note": "taken as written"
+         "gives": "H"
         }
        ]
       },
       {
-       "words": "one",
-       "gives": "I",
-       "note": "I is the Roman numeral one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "at",
+         "at": 24,
+         "gives": "AT"
+        },
+        {
+         "words": "one",
+         "at": 27,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Lunch is nearly finished at one o'clock, with fruitcake on the menu.",
-     "walkthrough": "LUNC wraps round AT I to give LUNATIC; 'fruitcake' looks like dessert but is slang for a crazy person.",
-     "definitionFit": "A fruitcake in slang is an eccentric or crazy person, the same as a madman."
+     "surface": "Lunch nearly over, at one o'clock, with fruitcake for dessert.",
+     "walkthrough": "'fruitcake' looks like dessert but is slang for a crazy person. LUNC, lunch almost, goes round AT and I.",
+     "definitionFit": "Fruitcake is informal slang for an eccentric or mad person, just like lunatic."
     },
     "features": {
      "answerInScene": false,

@@ -456,34 +456,57 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PORKIES",
      "indicators": [
       {
-       "text": "narrated by Spooner",
-       "note": "Reverend Spooner swapped the opening sounds of words, so these two words have their first sounds exchanged"
+       "text": "by Spooner",
+       "at": 46,
+       "note": "by Spooner means the opening sounds of the two words are swapped, as Rev. Spooner famously did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "essential vegetables",
-       "gives": "PORKIES",
-       "soundsLike": "CORE PEAS",
-       "note": "core for essential, peas for vegetables; swapping the opening sounds gives pore keys"
+       "op": "homophone",
+       "spelt": "KOR",
+       "indicators": [
+        {
+         "text": "narrated",
+         "at": 37,
+         "note": "narrated means the words are spoken, so their sounds rather than spellings are swapped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "essential",
+         "at": 16,
+         "gives": "CORE",
+         "note": "the core is the essential part, said aloud with a hard K sound"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "PIES",
+       "parts": [
+        {
+         "words": "vegetables",
+         "at": 26,
+         "gives": "PEAS",
+         "note": "peas are vegetables; the sound after its P, said aloud, is respelt to match the slang word"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ordinary stories about the key vegetables, as told by a famously muddled clergyman.",
-     "walkthrough": "Porkies is British rhyming slang: porky pies rhymes with lies.",
-     "definitionFit": "Porkies are lies in British slang, and lies are tales; 'common' marks the word as colloquial."
+     "surface": "Folk tales about essential vegetables, told by someone tongue-tied.",
+     "walkthrough": "'core peas' swapped gives 'pore keys'. Porkies are lies, from Cockney rhyming slang: pork pies = lies.",
+     "definitionFit": "Porkies is informal British slang for lies, the common fibs of everyday speech."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "essential"
+     "misdirectedWord": "tales"
     }
    }
   },
@@ -518,56 +541,62 @@
      "indicators": [
       {
        "text": "entering",
-       "note": "entering means going inside, so these pieces are put within the next word"
+       "at": 30,
+       "note": "entering means these pieces go into the gigs word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "live music events",
+       "at": 39,
+       "gives": "GIGS",
+       "note": "gigs are live music performances"
+      },
+      {
+       "op": "charade",
        "parts": [
-        {
-         "words": "live music events",
-         "gives": "GIGS",
-         "note": "gigs are live music performances"
-        },
         {
          "op": "outer",
          "indicators": [
           {
            "text": "Vacuous",
-           "note": "vacuous means empty, so the middle of the word is emptied out leaving its outside"
+           "at": 0,
+           "note": "vacuous means empty, so only the outer letters of nightclubbers remain"
           }
          ],
          "parts": [
           {
            "words": "nightclubbers",
-           "note": "the first and last letters only"
+           "at": 8
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "indicators": [
+        },
         {
-         "text": "up",
-         "note": "in a down entry, up means the word is written from bottom to top"
-        }
-       ],
-       "parts": [
-        {
-         "words": "zip",
-         "gives": "NIL",
-         "note": "zip is slang for nothing"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "up",
+           "at": 26,
+           "note": "up in a down clue means the word is read from bottom to top, backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "zip",
+           "at": 22,
+           "gives": "NIL",
+           "note": "zip means nothing, nil"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Clubbers zip up their coats before going into gigs, holding iced drinks.",
-     "definitionFit": "A gin sling is a long cocktail of gin, sweetened and served cold."
+     "surface": "Clubbers zip up their coats and head into gigs for cold drinks.",
+     "walkthrough": "'zip up' looks like fastening a coat, but zip is nothing and up turns it round in this down clue.",
+     "definitionFit": "A gin sling is a cocktail of gin, sweetened water and lemon, served chilled."
     },
     "features": {
      "answerInScene": true,
@@ -597,44 +626,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "appalling",
-       "note": "something appalling is in a terrible state, so these letters are knocked into a new order"
+       "text": "clothing",
+       "at": 28,
+       "note": "clothing means the rearranged letters dress, enclosing, the infection"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "clothing",
-         "note": "to clothe is to wrap around, so the reworked letters enclose another piece"
+         "text": "appalling",
+         "at": 12,
+         "note": "appalling suggests the letters are in a terrible state, rearranged"
         }
        ],
        "parts": [
         {
          "words": "denim",
-         "note": "its letters rearranged"
-        },
-        {
-         "words": "infection",
-         "gives": "UTI",
-         "note": "UTI is the abbreviation for urinary tract infection"
+         "at": 22
         }
        ]
+      },
+      {
+       "words": "infection",
+       "at": 37,
+       "gives": "UTI",
+       "note": "UTI is a urinary tract infection"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone disgusted at ghastly jeans carrying an infection.",
-     "walkthrough": "'Revolted' reads as disgusted, but the definition is the other sense: rose up in rebellion.",
-     "definitionFit": "To mutiny is to rebel against authority, so mutinied is the past tense meaning rose in revolt."
+     "surface": "Someone sickened by awful denim clothing that has caused an infection.",
+     "walkthrough": "'Revolted' looks like disgusted, which the appalling clothing encourages, but it means rebelled.",
+     "definitionFit": "Mutinied means rebelled against authority, as sailors did against a ship's captain."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Revolted"
     }
@@ -888,45 +920,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "ground",
-       "note": "ground up means crushed and broken, so the letters are reformed"
+       "text": "in",
+       "at": 12,
+       "note": "in means the final event goes inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one piece inside the reworked letters"
+         "text": "ground",
+         "at": 22,
+         "note": "ground means crushed or milled, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "soccer",
-         "note": "its letters rearranged"
-        },
-        {
-         "words": "Final event",
-         "gives": "END",
-         "note": "the end is the final event"
+         "at": 15
         }
        ]
+      },
+      {
+       "words": "Final event",
+       "at": 0,
+       "gives": "END",
+       "note": "the end is the final event"
       }
      ]
     },
     "explanation": {
-     "surface": "The last match at the football stadium is reaching a thrilling climax.",
-     "walkthrough": "'Ground' looks like the stadium, but it is the past tense of grind and signals the anagram.",
-     "definitionFit": "A crescendo is a gradual increase in loudness or intensity, rising to a climax."
+     "surface": "The last match at a football stadium builds up to a dramatic conclusion.",
+     "walkthrough": "'ground' looks like a stadium, but it means crushed, a signal to rearrange.",
+     "definitionFit": "A crescendo is a gradual increase in loudness or intensity rising toward a climax."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "ground"
     }
    }
@@ -952,40 +986,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "derelict",
-       "note": "something derelict is in ruins, so the letters are wrecked and rebuilt"
+       "text": "surrounds",
+       "at": 12,
+       "note": "surrounds means the sound goes around the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Sound of 17",
+       "at": 0,
+       "gives": "BAA",
+       "note": "17 is a sheep's name, and baa is the noise a sheep makes"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "surrounds",
-         "note": "to surround is to go all round, so the first piece wraps the next"
+         "text": "derelict",
+         "at": 22,
+         "note": "derelict means run-down and broken, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Sound of 17",
-         "gives": "BAA",
-         "note": "17 down is ANIMALS, and this is the bleat of one of them"
-        },
-        {
          "words": "street",
-         "note": "its letters rearranged"
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Animal noises echo around a run-down street in a London neighbourhood.",
-     "walkthrough": "Battersea is on the south bank of the Thames, home to a famous power station and dogs' home.",
-     "definitionFit": "Battersea is a district in the borough of Wandsworth, south of the River Thames in London."
+     "surface": "A sheep bleats in a derelict street in south London.",
+     "walkthrough": "17 is a sheep, and its sound is its bleat, not a homophone. Battersea is an area of south London, known for its power station.",
+     "definitionFit": "Battersea is an area on the south bank of the Thames in the London Borough of Wandsworth."
     },
     "features": {
      "answerInScene": true,
