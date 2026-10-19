@@ -157,7 +157,8 @@ def read_line(rel, verdicts):
     """The log line of an edition's read, ending with its VLM asks (vlm_reader.vlm_note)."""
     import vlm_reader
     return f"read {rel}: " + ("; ".join(
-        f"{v['number']} " + ("wrote " + v["id"] if v.get("wrote") else
+        f"{v['number']} " + ("wrote " + v["id"] + (f" (incomplete: {v['unfiled']} blank, unfiled)" if v.get("unfiled") is not None else "")
+                             if v.get("wrote") else
                              v.get("skip") or v.get("refused") or v.get("refusedWrite")
                              or ("write failed: " + v["writeFailed"] if v.get("writeFailed") else None)
                              or v.get("id") or "read")[:60]
