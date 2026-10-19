@@ -823,6 +823,7 @@ LAYOUT = [
     ("annotating", "tools/test_drop_restores_hint.py", "a failed redo of a clue that already had a committed hint gets that hint back from drop_failed_clues.py; only never-hinted clues are blanked"),
     ("annotating", "tools/test_redo_unchanged.py", "a re-annotation scoped to some clues writes only those, and a redo of the same tree and letters in other words leaves the old hint as it was"),
     ("annotating", "tools/test_batch_subject.sh", "a batch commit's subject names only the puzzles whose file the commit changes (164738e46f2 listed 20 ids and changed just the queue file)"),
+    ("annotating", "tools/test_trimmed_lead.py", "the 1945-49 Times' clue column stands right of a column of small ads, and"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

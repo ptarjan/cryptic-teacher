@@ -3068,5 +3068,7 @@ tools/test_redo_unchanged.py                   a re-annotation scoped to some cl
 tools/test_batch_subject.sh                    a batch commit's subject names only the puzzles
                                                whose file the commit changes (164738e46f2
                                                listed 20 ids and changed just the queue file)
+tools/test_trimmed_lead.py                     the 1945-49 Times' clue column stands right of a
+                                               column of small ads, and
 ```
 <!-- LAYOUT-END -->
