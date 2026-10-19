@@ -765,34 +765,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "unusual",
-       "note": "an unusual arrangement is a non-standard one, so all these letters are reordered"
+       "text": "round",
+       "at": 4,
+       "note": "round means surrounding, so these letters go round the rest"
       }
      ],
      "parts": [
       {
        "words": "Tap",
+       "at": 0,
        "gives": "COCK",
-       "note": "a cock is a tap or valve, as in stopcock"
+       "note": "a cock is a tap or valve"
       },
       {
-       "words": "key",
-       "gives": "E",
-       "note": "E is one of the musical keys A to G"
-      },
-      {
-       "words": "musical",
-       "note": "taken as written"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 14,
+         "note": "in places the key letter inside the jumbled letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "unusual",
+           "at": 17,
+           "note": "unusual signals the letters of musical are put in a different order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "musical",
+           "at": 25
+          }
+         ]
+        },
+        {
+         "words": "key",
+         "at": 10,
+         "gives": "E",
+         "note": "E is a musical key"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Tap a key on a strange clock that plays music.",
-     "walkthrough": "'Musical timepiece' looks like the definition, but the musical word is raw material. The tap, the key and the word all go into one big rearrangement.",
-     "definitionFit": "A caesium clock is the atomic clock that keeps world standard time, by counting oscillations of caesium atoms."
+     "surface": "Fitting a tap and key into an odd musical clock.",
+     "walkthrough": "musical rearranged with E inside gives AESIUMCL, which goes inside COCK after its first C.",
+     "definitionFit": "A caesium clock is an atomic clock, the most accurate kind of timepiece."
     },
     "features": {
      "answerInScene": false,

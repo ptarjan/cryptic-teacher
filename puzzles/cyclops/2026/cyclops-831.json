@@ -470,8 +470,9 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "leader",
-       "note": "The leader of a word is the letter at its head, which fixes which letter the clue is about to lose."
+       "text": "spreads",
+       "at": 7,
+       "note": "letters that spread out are scattered and laid down in a new order"
       }
      ],
      "parts": [
@@ -479,31 +480,15 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "spreads",
-         "note": "What spreads goes off in all directions, and letters sent in all directions do not stay in the order given."
+         "text": "leader is kicked out",
+         "at": 23,
+         "note": "the leader of the word is its first letter, which is thrown out here"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "is kicked out",
-           "note": "Being kicked out is being thrown clear altogether, so that letter takes no part in what is left."
-          }
-         ],
-         "parts": [
-          {
-           "words": "anytime",
-           "gives": "NYTIME",
-           "note": "anytime once its opening letter has gone, the six that get shuffled"
-          },
-          {
-           "words": "leader",
-           "gives": "A",
-           "note": "the front letter of anytime, the one thrown out"
-          }
-         ]
+         "words": "anytime",
+         "at": 15
         },
         {
          "gives": "A"
@@ -513,14 +498,14 @@
      ]
     },
     "explanation": {
-     "surface": "Spite breaking out whenever a leader is thrown out of office.",
-     "walkthrough": "'Anytime' is a word here rather than a stretch of time, and 'leader' is its A rather than any person. The sacking in the surface is the deletion the wordplay wants.",
-     "definitionFit": "Enmity is settled ill will between people, malice seen as a standing state rather than a passing impulse."
+     "surface": "Spite and ill will can flare up at any moment.",
+     "walkthrough": "'leader is kicked out' drops the A that starts anytime, leaving NYTIME, and 'spreads' rearranges those six letters.",
+     "definitionFit": "Enmity is hostility or ill will, a close synonym for malice."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leader"
+     "misdirectedWord": "spreads"
     }
    }
   },
@@ -549,46 +534,53 @@
      "indicators": [
       {
        "text": "to import",
-       "note": "To import is to bring something in from outside, so what follows is carried inside the word before it."
+       "at": 24,
+       "note": "to import is to bring something inside, so the other letters go into this word"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "crude",
-         "note": "Crude means unrefined, and unrefined letters have not yet been put into their proper order."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Trump backers",
-         "gives": "MAGA",
-         "note": "MAGA, from Make America Great Again, is what Trump's supporters wear and call themselves"
-        },
-        {
-         "words": "northern",
-         "gives": "N",
-         "note": "n is the standard short form for northern"
-        }
-       ]
+       "words": "Trump backers",
+       "at": 10,
+       "gives": "MAGA",
+       "note": "MAGA, from the slogan Make America Great Again, names Trump's supporters"
       },
       {
-       "words": "oil",
-       "gives": "OLI",
-       "note": "the three letters of oil in another order"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "northern",
+         "at": 34,
+         "gives": "N"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "crude",
+           "at": 43,
+           "note": "crude oil is unrefined, so the letters of oil are taken in a rough, rearranged form"
+          }
+         ],
+         "parts": [
+          {
+           "words": "oil",
+           "at": 49
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Bush getting Trump's base to bring in crude oil from the north.",
-     "walkthrough": "'Bush' is a shrub and is planted first so that a president comes to mind instead. 'Crude oil' is the neat part: crude is the shuffling word and half the surface's cargo at once.",
-     "definitionFit": "The magnolia is a flowering shrub or small tree, so bush is the general class the answer belongs to."
+     "surface": "A political tale: George Bush or a Trump-supporting movement pushing to bring in Canadian crude.",
+     "walkthrough": "Bush looks like the president but is a plant. MAGA is the Make America Great Again movement behind Trump.",
+     "definitionFit": "A magnolia is a flowering shrub or small tree, so it can be called a bush."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Bush"
     }
