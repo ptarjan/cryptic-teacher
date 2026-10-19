@@ -5579,22 +5579,38 @@ def _accounted_words(ann, leaves=True):
     return got
 
 
-def restore_dropped_connectives(old, new, clue):
-    """Put back, as link words, the connectives ("for", "to", "and") a redo of an annotated
-    clue left out of every leaf, indicator, definition and link word that the old tree
-    accounted for. dropped_words refused ~1,200 redo lines in 48h (576 sessions); a
-    connective that stands for an equals sign is the one loss with a mechanical fix.
-    Changes `new` in place; returns the words added."""
-    if not (old or {}).get("wordplay") or not (new or {}).get("wordplay"):
-        return []
+def _old_roles(old, words):
+    """For each word in `words`, how the annotation `old` used it, as a phrase for
+    the dropped_words message: "leaf 'x y'", "indicator on charade", "definition"."""
+    roles = {w: [] for w in words}
+    for n in _walk((old or {}).get("wordplay")):
+        if "op" not in n:
+            for w in words & _clue_words(n.get("words")):
+                roles[w].append(f"in leaf [{n.get('words')}]")
+        for i in n.get("indicators") or []:
+            text = i.get("text") if isinstance(i, dict) else i
+            for w in words & _clue_words(text):
+                roles[w].append(f"in the {n.get('op')} indicator '{text}'")
+    for d in (old or {}).get("definitions") or []:
+        for w in words & _clue_words(d.get("text")):
+            roles[w].append("in the definition")
+    return {w: "; ".join(dict.fromkeys(r)) or "in the old wordplay" for w, r in roles.items()}
+
+
+def forgiven_dropped_words(old, new, clue):
+    """The clue words a redo `new` of the annotated clue `old` may leave out of every
+    leaf, indicator and definition: link words, which the stored annotation never
+    carries (annotation.view() derives them as the clue's uncovered gaps, and the
+    schema refuses a stored `linkWords`). They are the connectives ("for", "to", "and")
+    and any other measured link word that only an old LEAF held ("use", "one", "once":
+    the new tree gives the same letters without it). A word the old tree used as an
+    indicator ("displayed") is not forgiven unless it is a connective.
+    dropped_words refused ~1,200 redo lines in 48h (576 sessions), and the earlier fix,
+    adding the word to the new `linkWords`, was itself refused by the schema (284
+    sessions; the model's own `linkWords` is stripped as derived)."""
     lost = (_accounted_words(old) - _accounted_words(new)) & _clue_words(clue)
-    lost = (lost & CONNECTIVE_WORDS & link_vocabulary()) - (CONNECTIVE_WORDS - _accounted_words(old, leaves="real"))
-    ordered = [w for w in re.findall(r"[a-z]+", re.sub(r"<[^>]*>|\([^)]*\)", " ", (clue or "").lower()))
-               if w in lost]
-    added = list(dict.fromkeys(ordered))
-    if added:
-        new["linkWords"] = list(new.get("linkWords") or []) + added
-    return added
+    leaf_only = _accounted_words(old) - _accounted_words(old, leaves=False)
+    return lost & (CONNECTIVE_WORDS | leaf_only) & link_vocabulary()
 
 
 def redo_regressions(old, new, clue):
@@ -5626,11 +5642,14 @@ def redo_regressions(old, new, clue):
         # the re-annotation exists to remove) may go; as an indicator, definition
         # or link word it still has to stay.
         lost -= CONNECTIVE_WORDS - _accounted_words(old, leaves="real")
+        lost -= forgiven_dropped_words(old, new, clue)
         if lost:
-            out.append("dropped_words: " + ", ".join(sorted(lost)) + " were in the old wordplay "
-                       "(a leaf or an indicator) and are in no leaf, indicator, definition or link word now. "
-                       "Add each to the same leaf's `words`/an indicator again if it did work there, "
-                       "or to \"linkWords\": [...] if it only joins wordplay to definition")
+            roles = _old_roles(old, lost)
+            out.append("dropped_words: " + ", ".join(f"{w} ({roles[w]})" for w in sorted(lost))
+                       + " are in no leaf, indicator or definition of the new annotation. Write each back "
+                       "where it did work: inside a leaf `[words]` of `wp`, as the `<indicator>` of an op, "
+                       "or in `def`. Do not add `linkWords`: it is worked out from `wp` and is dropped "
+                       "before the check, so it changes nothing here")
         old_wp = old["wordplay"]
         if wp and wp.get("op") == "cryptic" and old_wp.get("op") not in (None, "cryptic"):
             out.append("downgraded: the old wordplay was a real tree and the new one is a bare cryptic op")

@@ -554,12 +554,6 @@ def apply(path, annotations, by=None, only=None):
             if new is not None:
                 keep_spelling(new, entry, was)
             found = []
-            if new is not None and entry.get("annotation"):
-                back = validate_annotations.restore_dropped_connectives(
-                    entry["annotation"], new, entry["clue"].get("text", ""))
-                if back:
-                    print(f"apply_annotations: {entry_id(entry)}: the old hint's {', '.join(back)} "
-                          f"are in no leaf or indicator now; added to linkWords")
             if new is not None and entry_id(entry) in relisted:
                 detected = shape_queue.findings(entry, new)
                 found = detected + shape_queue.regressions(entry, new)
