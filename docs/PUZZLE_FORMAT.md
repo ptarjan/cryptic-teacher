@@ -144,6 +144,8 @@ filed, and the expression cannot write one. The tree, in brief:
   (indicator words claimed twice), `wordplay.halfLeaf` (leaf giving half of its word with no op
   carrying the half), `wordplay.deletionScattered` (one "half" deletion over several words) and
   `wordplay.reversePhrase` (reverse reading over a whole phrase of the clue).
+  One more, `wordplay.midWordLeaf` (a leaf giving a stretch of several clue words that starts or
+  ends inside a word: the cut is folded into the leaf with no op).
   Two more ratchets (`tools/lesson_checks.py`) have no rewrite: `wordplay.ddMissesWordplay`
   (two definitions and no wordplay, in a clue that hides the answer across words or holds
   its letters in a run of whole words: parse it) and `spelling.unsaid` (an answer with an

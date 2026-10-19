@@ -322,7 +322,15 @@ def mids(*inds):
     return {"op": "charade", "parts": [{"op": "middle", **({"indicators": [{"text": t}]} if t else {}),
                                         "parts": [{"words": w, "gives": g}]}
                                        for t, w, g in zip(inds, ("giving", "chord", "flat"), ("VI", "O", "LA"))]}
-check("one indicator over three middles leaves two unmarked", 2, v.unindicated_uncovered(mids("essentially", None, None)))
+check("one indicator over a run of three middles is a list", 0, v.unindicated_uncovered(mids("essentially", None, None)))
+far = mids("essentially", None, None)
+for k, (at, p) in enumerate(zip((40, 47, 53), far["parts"])):
+    p["parts"][0]["at"] = at
+far["parts"][0]["indicators"][0]["at"] = 0
+check("but an indicator far from the run it is said to cover is not (VIOLA)", 2, v.unindicated_uncovered(far))
+check("a midword leaf (THED from the day) is counted", 1, v.midword_leaves(
+    {"op": "charade", "parts": [{"words": "the day", "gives": "THED"}, {"words": "x", "gives": "Y"}]}))
+check("a stretch on word edges is not", 0, v.midword_leaves({"op": "charade", "parts": [{"words": "up the road", "gives": "THEROAD"}]}))
 check("an indicator on each is fine", 0, v.unindicated_uncovered(mids("essentially", "heart of", "inside")))
 check("an adjacent pair of one selection may share one", 0, v.unindicated_uncovered(
     {"op": "charade", "parts": [{"op": "first", "indicators": [{"text": "tops"}], "parts": [{"words": "so", "gives": "S"}]},
