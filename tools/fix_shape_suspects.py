@@ -612,14 +612,18 @@ def _ana_split_candidates(node):
     rest = [p for p in flat if not _is_stand_in(p)]
     if not syn or not rest or len(syn) + len(rest) > 6:
         return []
-    if any(leaf(p) and p.get("gives") and W.letters(p["gives"]) != W.letters(p.get("words"))
-           for p in rest) or any(not leaf(p) or p.get("select") for p in rest):
-        return []       # a part giving other letters that is not a synonym: not mechanical
+    if any(not leaf(p) or p.get("select") for p in rest):
+        return []       # a nested op in the fodder: not mechanical
+    # a leaf giving other letters (an abbreviation) was never the anagram's: it stays literal
+    fixed = [p for p in rest if p.get("gives") and W.letters(p["gives"]) != W.letters(p.get("words"))]
+    free = [p for p in rest if p not in fixed]
+    if not free:
+        return []
     import itertools
     out = []
-    for mask in range(1, 2 ** len(rest)):
-        scr = [p for i, p in enumerate(rest) if mask >> i & 1]
-        lit = [p for i, p in enumerate(rest) if not mask >> i & 1]
+    for mask in range(1, 2 ** len(free)):
+        scr = [p for i, p in enumerate(free) if mask >> i & 1]
+        lit = [p for i, p in enumerate(free) if not mask >> i & 1] + fixed
         core = checked(node, parts=copy.deepcopy(scr))
         for perm in itertools.permutations([*copy.deepcopy(syn), *copy.deepcopy(lit), core]):
             out.append(charade(list(perm)))
