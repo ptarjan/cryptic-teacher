@@ -1178,13 +1178,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNINTENDED",
+     "op": "container",
      "indicators": [
       {
-       "text": "caught short",
-       "note": "caught short means left lacking, so the word loses its end"
+       "text": "caught",
+       "at": 50,
+       "note": "the rearranged letters have caught the shortened company name, holding it inside"
       }
      ],
      "parts": [
@@ -1192,33 +1191,51 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "shake-up",
-         "note": "a shake-up throws everything into a new order"
+         "text": "for shake-up",
+         "at": 22,
+         "note": "a word due for a shake-up is about to be reorganised, so its letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "due",
-         "note": "taken as written"
-        },
+         "at": 18,
+         "note": "taken as written, the letters to be rearranged"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 57,
+         "note": "short means the company name is cut off before its final letter"
+        }
+       ],
+       "parts": [
         {
          "words": "games company",
-         "gives": "NINTEND",
-         "note": "Nintendo, the Japanese video-game maker, without its last letter"
+         "at": 36,
+         "gives": "NINTENDO",
+         "note": "Nintendo is the Japanese video-games company"
+        },
+        {
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A games firm, needing a reorganisation, is left short of cash without a plan.",
-     "walkthrough": "'Due' is part of the letters to shuffle, not a statement about timing.",
-     "definitionFit": "Something unintended happens without anyone meaning or planning it to."
+     "surface": "A games firm, needing a shake-up, is caught off guard without a plan.",
+     "walkthrough": "'Due for shake-up' reads like company news, but 'for shake-up' is the anagram signal on due.",
+     "definitionFit": "Something unintended happened without being meant or planned, so it was accidental."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "due"
+     "misdirectedWord": "short"
     }
    }
   },
@@ -1645,36 +1662,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "UNTIE",
+     "op": "substitution",
      "indicators": [
       {
        "text": "in reverse",
-       "note": "in reverse means running backwards, so the letters turn round"
+       "at": 16,
+       "note": "the word it inside the couple word is turned backwards where it stands"
       }
      ],
      "parts": [
       {
-       "words": "\"Couple\"",
+       "words": "Couple",
+       "at": 1,
        "gives": "UNITE",
-       "note": "to couple is to join together"
+       "note": "to couple is to join or unite"
       },
       {
        "words": "it",
-       "note": "taken as written"
+       "at": 13,
+       "gives": "IT",
+       "note": "taken as written, the two letters that are turned round"
+      },
+      {
+       "gives": "TI"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A grammar note: the word 'couple' contains its own opposite if you turn part of it round.",
-     "walkthrough": "Turn the IT inside the joining word round; the whole clue also defines the result, since to undo a coupling is the reverse of coupling.",
-     "definitionFit": "To untie is to undo a knot or fastening, the opposite action to joining two things."
+     "surface": "A cryptic note that the word for couple contains a reversal.",
+     "walkthrough": "The whole clue does double duty: the answer is also the opposite of coupling, which is why it is an &lit.",
+     "definitionFit": "To untie is to undo or separate things that were joined, the opposite of coupling them."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Couple"
     }
    }
   },

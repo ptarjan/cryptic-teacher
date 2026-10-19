@@ -1175,42 +1175,55 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "WINNER",
-     "indicators": [
-      {
-       "text": "after heart transplant",
-       "note": "a heart transplant swaps out the central letter for a new one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
          "text": "finally",
-         "note": "finally points to the last letter of the surname before it"
+         "at": 15,
+         "note": "finally means take the last letter of Meldrew"
         }
        ],
        "parts": [
         {
          "words": "Meldrew",
-         "note": "the surname's last letter"
+         "at": 7,
+         "note": "last letter of Meldrew"
         }
        ]
       },
       {
-       "words": "put in the ground",
-       "gives": "INTER",
-       "note": "to inter is to bury"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "after heart transplant",
+         "at": 41,
+         "note": "the bury word is taken after its heart, the central letter, has been transplanted, replaced by another letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "put in the ground",
+         "at": 23,
+         "gives": "INTER",
+         "note": "to inter is to bury, to put in the ground"
+        },
+        {
+         "gives": "T"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sitcom grump Victor Meldrew is finally buried after a heart operation.",
-     "walkthrough": "W plus INTER gives WINTER; replacing INTER's heart, the T, with an N gives WINNER. Victor Meldrew is the hero of the BBC sitcom One Foot in the Grave, the long answer at 27.",
-     "definitionFit": "A victor is whoever wins a contest, so the two nouns are synonyms."
+     "surface": "Victor Meldrew, the grumpy sitcom pensioner, is finally buried after heart surgery.",
+     "walkthrough": "Victor Meldrew is the irascible hero of the BBC sitcom One Foot in the Grave; here 'Victor' is the definition, not part of his name.",
+     "definitionFit": "A victor is the one who wins a contest, a winner."
     },
     "features": {
      "answerInScene": false,
@@ -1244,22 +1257,22 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "AGO",
+       "op": "deletion",
        "indicators": [
         {
          "text": "prime locations",
-         "note": "prime locations are the prime-numbered positions: the second, third and fifth letters"
+         "at": 29,
+         "note": "the prime positions are the second, third and fifth, so only those letters of lagoon are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "lagoon's",
-         "gives": "AGO",
-         "select": "prime",
-         "note": "letters two, three and five of the word"
+         "at": 20,
+         "note": "lagoon, keeping only the letters in prime-numbered positions"
+        },
+        {
+         "gives": "LONS"
         }
        ]
       },
@@ -1268,26 +1281,29 @@
        "indicators": [
         {
          "text": "chaotic",
-         "note": "chaotic means in disorder, so the letters are jumbled"
+         "at": 49,
+         "note": "chaotic letters are in disorder, so the letters of are are rearranged"
         }
        ],
        "parts": [
         {
          "words": "are",
-         "note": "taken as written"
+         "at": 45,
+         "note": "taken as written, the letters to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Prime waterfront spots by a lagoon are a mess for traders.",
-     "walkthrough": "'Prime locations' reads like estate-agent talk, but it means positions numbered 2, 3 and 5.",
-     "definitionFit": "Agorae is a plural of agora, the open public square used as a market in ancient Greek cities."
+     "surface": "Ancient trading places on a lagoon's best spots are in disarray.",
+     "walkthrough": "'Prime locations' reads as estate-agent talk, but it means the prime-numbered positions in the lake word: the second, third and fifth.",
+     "definitionFit": "Agorae were the public squares of ancient Greek cities, used as markets and meeting places."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "prime"
     }
    }

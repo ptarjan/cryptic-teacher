@@ -422,36 +422,38 @@
      "indicators": [
       {
        "text": "bores",
-       "note": "something that bores drills into another thing, so it ends up inside it"
+       "at": 8,
+       "note": "the Liberal letter bores into the other words, ending up inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
          "words": "want",
+         "at": 14,
          "gives": "NEED",
          "note": "to want is to need"
         },
         {
          "words": "journalist",
+         "at": 19,
          "gives": "ED",
-         "note": "editor"
+         "note": "ED is short for editor, the crossword journalist"
         }
        ]
       },
       {
        "words": "Liberal",
-       "gives": "L",
-       "note": "standard abbreviation"
+       "at": 0,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Tedious Lib Dems want a reporter's phone tapped.",
-     "walkthrough": "'Bugged' looks like phone-tapping but means annoyed.",
-     "definitionFit": "To needle someone is to irritate them, so needled and bugged both mean annoyed."
+     "surface": "A Liberal politician digs into a reporter's wants and finds the phone was bugged.",
+     "definitionFit": "To be needled is to be irritated or annoyed, the same as being bugged."
     },
     "features": {
      "answerInScene": false,
@@ -1298,46 +1300,51 @@
      "indicators": [
       {
        "text": "pens",
-       "note": "to pen something is to enclose it, as livestock in a fold"
+       "at": 29,
+       "note": "the emptied university pens the other letters, enclosing them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "cleared out",
+         "at": 17,
+         "note": "cleared out means the inside of university is emptied, leaving its two ends"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "cleared out",
-           "note": "a word cleared out has its insides emptied, leaving just the outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "university",
-           "note": "the first and last letters"
-          }
-         ]
-        },
-        {
-         "words": "books",
-         "gives": "NT",
-         "note": "New Testament, a set of books of the Bible"
+         "words": "university",
+         "at": 6,
+         "note": "first and last letters of university"
         }
        ]
       },
       {
-       "words": "papers",
-       "gives": "ID",
-       "note": "identity documents"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "books",
+         "at": 34,
+         "gives": "NT",
+         "note": "NT is the New Testament, books of the Bible"
+        },
+        {
+         "words": "papers",
+         "at": 44,
+         "gives": "ID",
+         "note": "ID means identity papers"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A disorganised university emptied out its pens, books and papers.",
-     "walkthrough": "'Pens' looks like one of a list of stationery but is the enclosing verb.",
-     "definitionFit": "Messy and untidy are straightforward synonyms describing disorder."
+     "surface": "A cluttered university, cleared out, fences in its books and papers.",
+     "walkthrough": "UY (university with its middle gone) pens NT + ID.",
+     "definitionFit": "Untidy describes something disordered or cluttered, which is the same as being messy."
     },
     "features": {
      "answerInScene": true,
@@ -1484,61 +1491,64 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ENDORSEMENT",
      "indicators": [
       {
        "text": "in",
-       "note": "the word in places the riders inside the other word"
+       "at": 7,
+       "note": "the dropped-h riders go in the cycled word, inside it"
       }
      ],
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "ENDORSEMENT",
        "indicators": [
         {
          "text": "to cycle",
-         "note": "to cycle letters is to move one from the front round to the back"
+         "at": 23,
+         "note": "to cycle the word tend is to move its first letter round to the end"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "ENDORSEMENT",
-         "indicators": [
-          {
-           "text": "Hackney",
-           "note": "Hackney is in the East End, where the Cockney accent drops the h"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Riders",
-           "gives": "HORSEMEN",
-           "note": "riders on horseback"
-          },
-          {
-           "words": "tend",
-           "note": "taken as written"
-          }
-         ]
+         "words": "tend",
+         "at": 18,
+         "note": "taken as written, before its first letter moves"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Hackney",
+         "at": 10,
+         "note": "Hackney is in East London, where a Cockney accent drops the letter h"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Riders",
+         "at": 0,
+         "gives": "HORSEMEN",
+         "note": "horsemen are riders"
+        },
+        {
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cyclists in east London tend to ride their bikes to win approval.",
-     "walkthrough": "Dropping the h from horsemen gives the Cockney 'orsemen; moving the T of tend to the back gives ENDT, which wraps around them.",
-     "definitionFit": "An endorsement is a statement of support or sanction, a form of approval."
+     "surface": "Horse riders in Hackney tend to take up cycling, which earns approval.",
+     "walkthrough": "'Hackney' suggests the hackney horse, but it signals the Cockney habit of dropping the h from the riders.",
+     "definitionFit": "An endorsement is a public statement of support or approval."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cycle"
+     "joke": "pun",
+     "misdirectedWord": "Hackney"
     }
    }
   },

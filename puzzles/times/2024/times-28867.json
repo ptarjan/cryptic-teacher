@@ -53,43 +53,45 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BENCHPRESS",
      "indicators": [
       {
        "text": "covering",
-       "note": "the two outer pieces wrap around and hide whatever sits between them"
+       "at": 15,
+       "note": "the British and papers letters cover the shortened name, surrounding it"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "British",
+         "at": 0,
+         "gives": "B"
+        },
+        {
+         "words": "papers",
+         "at": 8,
+         "gives": "PRESS",
+         "note": "the press means the newspapers"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "heartless",
-         "note": "losing its heart means the middle letter of the politician's first name is dropped"
+         "at": 40,
+         "note": "heartless means the middle letter of Enoch is removed"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "British",
-           "gives": "B",
-           "note": "B is the standard abbreviation for British"
-          },
-          {
-           "words": "Powell perhaps",
-           "gives": "ENOCH",
-           "note": "Enoch Powell was a British Conservative politician of the 1960s"
-          },
-          {
-           "words": "papers",
-           "gives": "PRESS",
-           "note": "the papers collectively are the press"
-          }
-         ]
+         "words": "Powell perhaps",
+         "at": 24,
+         "gives": "ENOCH",
+         "note": "Enoch Powell was a British politician, so Enoch is an example of a Powell"
         },
         {
          "gives": "O"
@@ -99,14 +101,13 @@
      ]
     },
     "explanation": {
-     "surface": "Newspapers report on a politician while someone does a joyless workout.",
-     "walkthrough": "Powell is a first-name example: Enoch, minus its central O, sits between B and PRESS.",
-     "definitionFit": "A bench press is a weightlifting movement done lying on a flat bench, pushing a barbell upward."
+     "surface": "The British newspapers cover Powell in a cold, heartless way.",
+     "definitionFit": "The bench press is a weightlifting exercise done lying on a bench and pushing a bar upwards."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Powell"
+     "misdirectedWord": "exercise"
     }
    }
   },

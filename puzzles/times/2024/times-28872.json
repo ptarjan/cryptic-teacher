@@ -986,43 +986,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RESEARCH",
      "indicators": [
       {
        "text": "in",
-       "note": "in places one piece inside the other pieces around it"
+       "at": 20,
+       "note": "the shortened group word goes in among the other letters, between them"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "on",
+         "at": 23,
+         "gives": "RE",
+         "note": "re means on, concerning, as in a business letter"
+        },
+        {
+         "words": "mischievous",
+         "at": 26,
+         "gives": "ARCH",
+         "note": "arch means playfully mischievous, as an arch look"
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "Almost all of",
-         "note": "almost all means everything but the final letter is kept"
+         "at": 0,
+         "note": "almost all of a word means its last letter is dropped, so set loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "on",
-           "gives": "RE",
-           "note": "re means on or concerning"
-          },
-          {
-           "words": "group",
-           "gives": "SET",
-           "note": "a set is a group of things"
-          },
-          {
-           "words": "mischievous",
-           "gives": "ARCH",
-           "note": "arch means playfully mischievous"
-          }
-         ]
+         "words": "group",
+         "at": 14,
+         "gives": "SET",
+         "note": "a set is a group"
         },
         {
          "gives": "T"
@@ -1032,14 +1035,14 @@
      ]
     },
     "explanation": {
-     "surface": "Nearly every member of a group joins in a naughty prank.",
-     "walkthrough": "Arch in the sense of knowingly playful is commoner in crosswords than in speech.",
-     "definitionFit": "Research is systematic investigation, studying a subject to find out new facts."
+     "surface": "Most of a gang is involved in a naughty piece of scholarship.",
+     "walkthrough": "Arch here is the adjective for knowing, playful mischief, as in an arch smile.",
+     "definitionFit": "Research is careful investigation or study of a subject."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "on"
+     "misdirectedWord": "mischievous"
     }
    }
   },
@@ -1295,38 +1298,51 @@
     "definitions": [
      {
       "text": "attention seeker",
-      "at": 35
+      "at": 35,
+      "note": "a call such as yoo-hoo seeks someone's attention"
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "YOOHOO",
+     "spelt": "YOOHOO",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner's names the clergyman famous for swapping the opening sounds of words"
+       "at": 0,
+       "note": "Spooner swapped the opening sounds of words, so the starts of the two question words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "question of identity",
-       "gives": "YOOHOO",
-       "soundsLike": "WHO YOU",
-       "note": "who are you is the question asking someone's identity; swapping the first sounds gives the call"
+       "op": "homophone",
+       "spelt": "HOO",
+       "parts": [
+        {
+         "words": "question",
+         "at": 10,
+         "gives": "WHO",
+         "note": "the question asking who someone is begins with who, pronounced hoo"
+        }
+       ]
+      },
+      {
+       "words": "of identity",
+       "at": 19,
+       "gives": "YOU",
+       "note": "the question of identity is who are you, ending with you"
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner asks who someone is, in search of someone craving attention.",
-     "definitionFit": "Yoo-hoo is a call used to catch someone's notice, so it seeks their attention."
+     "surface": "A question about who someone is, for a person who craves the limelight.",
+     "walkthrough": "WHO YOU, the question of identity, said with its opening sounds swapped becomes YOO HOO.",
+     "definitionFit": "Yoo-hoo is a call used to attract someone's notice, so it seeks attention."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "identity"
+     "joke": "pun",
+     "misdirectedWord": "seeker"
     }
    }
   },
