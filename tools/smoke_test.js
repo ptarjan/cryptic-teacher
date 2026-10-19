@@ -6045,8 +6045,15 @@ global.realSetTimeout(() => {
     "being told costs what it has always cost: " + registry["scorebar"].innerHTML);
 
   // Right costs nothing. That is the whole reason to have a go.
+  // The rung names the real family, which for a rare one (rebus, reverse clue)
+  // is not a chip: it is folded into its `picker` family and answered by that
+  // chip. So the chip to tap is the one the grader accepts, which is the named
+  // family itself whenever that is a chip.
   const free = open();
-  registry["gc-" + choices().get(right)].onclick();
+  const rightChip = choices().has(right) ? right : Object.keys(verdicts).find((k) => verdicts[k]);
+  assert(rightChip, "some chip is graded right for the family the rung names (" + right + "): "
+    + JSON.stringify(verdicts));
+  registry["gc-" + choices().get(rightChip)].onclick();
   html = registry["hint-body"].innerHTML;
   assert(html.includes("guess-verdict right"), "the right family is graded right: " + html);
   // The entrance is spent on the draw that first shows the verdict. The panel is
