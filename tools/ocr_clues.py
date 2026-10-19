@@ -4073,17 +4073,28 @@ def vlm_pick(texts, laid, blank, parse, pick):
     """(laid, blank) with each clue reconcile() filed blank read by the VLM
     (tools/vlm_reader.py): `pick(light, candidates)` is its text for the
     clue, shown every reading's text for it (the VLM's own column reading
-    among them), or None."""
+    among them), or None. A pick the desktop's spool queued (vlm_reader.Spooled)
+    does not stop the rest: every blank clue is spooled in this one pass, then the
+    first Spooled is raised (the read defers once, not once per blank clue)."""
+    from vlm_reader import Spooled
     laid, blank = dict(laid), dict(blank)
+    spooled = None
     for lid in list(blank):
         cands = candidates(texts, lid, parse)
         if not cands:
             continue
-        got = trimmed(held(clean(strip_count(pick(lid, cands) or "")), cands), lid)
+        try:
+            asked = pick(lid, cands)
+        except Spooled as e:
+            spooled = spooled or e
+            continue
+        got = trimmed(held(clean(strip_count(asked or "")), cands), lid)
         if not tokens(got) or merged(got):
             continue
         laid[lid] = (got, laid[lid][1], laid[lid][2])
         del blank[lid]
+    if spooled:
+        raise spooled
     return laid, blank
 
 

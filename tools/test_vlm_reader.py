@@ -527,6 +527,26 @@ check("the drained asks are answered and gone", (0, 3), (len(vlm.spooled()), len
 os.environ[vlm.SPOOL_ENV] = "1"
 check("the read that spooled them now hits the cache", (["spoolt"] * 3, 3), (vlm.read_all(cols), len(asked)))
 os.environ.pop(vlm.SPOOL_ENV)
+# A page with 3 blank clues spools all 3 picks in one read (not one per rerun), then defers once.
+import ocr_clues
+os.environ[vlm.SPOOL_ENV] = "1"
+vlm._MISSED[0] = False
+page = Image.new("L", (400, 300), 77)
+pk_texts = {"a": "ACROSS\n1 Stop thief (4)\n4 Odd one (3)\nDOWN\n2 Kettle (3)", "b": "ACROSS\n1 Stop chief (4)\n4 Odd won (3)\nDOWN\n2 Kettlo (3)"}
+pk_blank = {"1-across": "readings differ", "4-across": "readings differ", "2-down": "readings differ"}
+pk_laid = {k: ("", "3", None) for k in pk_blank}
+before_n = len(vlm.spooled())
+try:
+    ocr_clues.vlm_pick(pk_texts, pk_laid, pk_blank, f.parse, lambda lid, cands: vlm.pick_in(page, lid, cands))
+    pk_raised = False
+except vlm.Spooled:
+    pk_raised = True
+check("three blank clues spool three picks in one read, which then defers", (True, 3, True),
+      (pk_raised, len(vlm.spooled()) - before_n, vlm.missed()))
+while vlm.drain_one():
+    pass
+os.environ.pop(vlm.SPOOL_ENV)
+vlm._MISSED[0] = False
 urllib.request.urlopen = fake_500
 vlm.put_spool("k" * 40, b"x", "p", 10)
 check("a failed drain leaves the ask queued", (None, True), (vlm.drain_one(), vlm.pending("k" * 40)))
