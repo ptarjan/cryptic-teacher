@@ -98,6 +98,10 @@ filed, and the expression cannot write one. The tree, in brief:
   counts them (`wordplay.anagramCharade` in `tools/annotation_backlog.json`)
   so a puzzle keeps only those `tools/flatten_anagram_fodder.py` left as
   filed (a join with an indicator of its own, or one under an unchecked step).
+  Fodder is only what moves: a piece the answer already starts or ends with
+  stands outside as a charade sibling (`G + ana<troubled>(FIRE)` = GRIEF, not
+  `ana<troubled>(G + FIRE)`); `tools/fix_shape_suspects.py --rule anaCharade`
+  pulls those out mechanically.
   view() reads the fodder's letters off the parts in clue order (the tiles the
   ring deals), and the blocks follow the parts.
 - **Shape rules.** A tree that parses and evaluates can still say something the
