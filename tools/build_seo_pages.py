@@ -2233,18 +2233,83 @@ ROLE_MIN_USES, ROLE_MIN_SHARE = 20, 0.5
 INDICATOR_TYPES.update(ROLE_INDICATOR_TYPES)
 assert set(INDICATOR_TYPES) <= set(clue_types.NAMES)
 
+# The kinds of letter selection and deletion, from tools/data/indicator_kinds.json
+# (tools/build_indicator_roles.py): {page section: (parent type, kind key, label,
+# lesson)}. They are not clue types, so each has a label of its own and sits
+# on the page after its parent; a clue links to one when its indicator is
+# that parent's and the corpus files the word under that kind.
+INDICATOR_KINDS = {
+    "first_letters": ("letter_selection", "letter_selection:first", "first-letter",
+                      "Take the first letter of each word. <em>Initially</em>, <em>at first</em> "
+                      "and <em>leader of</em> point at the start."),
+    "last_letters": ("letter_selection", "letter_selection:last", "last-letter",
+                     "Take the last letter. <em>Finally</em>, <em>ultimately</em> and "
+                     "<em>end of</em> point at the finish."),
+    "middle_letters": ("letter_selection", "letter_selection:middle", "middle-letter",
+                       "Take the letter or letters in the middle. <em>Heart of</em>, "
+                       "<em>centre of</em> and <em>core of</em> point inside."),
+    "outer_letters": ("letter_selection", "letter_selection:outer", "outer-letter",
+                      "Take the first and last letters. <em>Extremely</em>, <em>case of</em> "
+                      "and <em>on vacation</em> point at both ends."),
+    "alternate_letters": ("letter_selection", "letter_selection:alternate", "alternate-letter",
+                          "Take every other letter. <em>Regularly</em>, <em>oddly</em> and "
+                          "<em>periodically</em> say to skip one, then take one."),
+    "nth_letter": ("letter_selection", "letter_selection:nth", "numbered-letter",
+                   "Take the letter at a stated place, such as the second or the fifth. "
+                   "These words name where."),
+    "head_deletion": ("deletion", "deletion:head", "head-deletion",
+                      "Drop the first letter. <em>Headless</em>, <em>topless</em> and "
+                      "<em>beheaded</em> take the start off."),
+    "tail_deletion": ("deletion", "deletion:tail", "tail-deletion",
+                      "Drop the last letter. <em>Mostly</em>, <em>almost</em> and "
+                      "<em>short</em> take the end off."),
+    "heart_deletion": ("deletion", "deletion:heart", "heart-deletion",
+                       "Drop the middle letter or letters. <em>Heartless</em>, "
+                       "<em>gutted</em> and <em>disheartened</em> take the centre out."),
+    "outer_deletion": ("deletion", "deletion:outer", "outer-deletion",
+                       "Drop the first and last letters, leaving the inside."),
+    "named_deletion": ("deletion", "deletion:named", "named-letter deletion",
+                       "Take out a named piece wherever it sits, as <em>loveless</em> takes out LOVE. "
+                       "Words like <em>without</em> and <em>losing</em> are used for several "
+                       "kinds of cut, so only words used mostly this way are listed."),
+}
+# The page lists a kind after its parent, in the order above.
+_ordered = {}
+for _t, _blurb in INDICATOR_TYPES.items():
+    _ordered[_t] = _blurb
+    _ordered.update({k: v[3] for k, v in INDICATOR_KINDS.items() if v[0] == _t})
+INDICATOR_TYPES = _ordered
+
+
+def type_label(t):
+    """A page section's name: a clue type's label, or a kind's."""
+    return INDICATOR_KINDS[t][2] if t in INDICATOR_KINDS else clue_types.label(t)
+
 
 @functools.cache
 def role_lexicon():
-    """{type: {key: clues}} for ROLE_INDICATOR_TYPES: each word goes under the
-    one op the annotated corpus files it under most (one op per indicator),
-    where that is at least ROLE_MIN_USES uses and ROLE_MIN_SHARE of its uses."""
-    roles = json.loads((ROOT / "tools" / "data" / "indicator_roles.json").read_text(encoding="utf-8"))
-    out = {t: {} for t in ROLE_INDICATOR_TYPES}
+    """{type: {KEY: clues}} for ROLE_INDICATOR_TYPES and INDICATOR_KINDS: each
+    word goes under the one op the annotated corpus files it under most (one op
+    per indicator), where that is at least ROLE_MIN_USES uses and ROLE_MIN_SHARE
+    of its uses. A kind is the one the word is filed under most within its op,
+    on the same bar (its uses, and ROLE_MIN_SHARE of the word's uses of that op).
+    Keys are indicators.json's (capitals), so a clue's indicator matches."""
+    data = ROOT / "tools" / "data"
+    roles = json.loads((data / "indicator_roles.json").read_text(encoding="utf-8"))
+    kinds = json.loads((data / "indicator_kinds.json").read_text(encoding="utf-8"))
+    out = {t: {} for t in (*ROLE_INDICATOR_TYPES, *INDICATOR_KINDS)}
+    kind_page = {v[1]: t for t, v in INDICATOR_KINDS.items()}
     for word, counts in roles.items():
         top = max(counts, key=counts.get)
-        if top in out and counts[top] >= ROLE_MIN_USES and counts[top] >= ROLE_MIN_SHARE * sum(counts.values()):
-            out[top][word.lower()] = counts[top]
+        if not (counts[top] >= ROLE_MIN_USES and counts[top] >= ROLE_MIN_SHARE * sum(counts.values())):
+            continue
+        if top in ROLE_INDICATOR_TYPES:
+            out[top][word] = counts[top]
+        mine = {k: n for k, n in kinds.get(word, {}).items() if k.partition(":")[0] == top}
+        if mine:
+            best = max(mine, key=mine.get)
+            if best in kind_page and mine[best] >= ROLE_MIN_USES and mine[best] >= ROLE_MIN_SHARE * sum(mine.values()):
+                out[kind_page[best]][word] = mine[best]
     return out
 
 
@@ -2291,9 +2356,18 @@ def indicator_found(cands, found=None, lexicon=None):
     """{(type, key): (rank, puzzle id, entry id)} for indicator_candidates()
     matched against indicators.json, best first into a copy of `found`."""
     found = dict(found or {})
-    lex = indicator_lexicon() if lexicon is None else lexicon
+    roles = role_lexicon() if lexicon is None else {}
+    # The types only our own annotations name (substitution, cycling, palindrome)
+    # match against the corpus's counts of their words.
+    lex = {**indicator_lexicon(), **{t: roles[t] for t in ROLE_INDICATOR_TYPES}} if lexicon is None else lexicon
     for ours, depth, day, pid, eid, inds in cands:
-        for (t, key), exact in clue_pairs(lex, inds).items():
+        pairs = dict(clue_pairs(lex, inds))
+        # A selection or deletion indicator also counts under its word's kind.
+        for (t, key), exact in list(pairs.items()):
+            for kind, (parent, _, _, _) in INDICATOR_KINDS.items():
+                if parent == t and key in roles.get(kind, ()):
+                    pairs[(kind, key)] = exact
+        for (t, key), exact in pairs.items():
             rank = (ours, exact, depth, day)
             if (t, key) not in found or found[(t, key)][0] < rank:
                 found[(t, key)] = (rank, pid, eid)
@@ -2302,8 +2376,11 @@ def indicator_found(cands, found=None, lexicon=None):
 
 @functools.cache
 def indicator_lexicon_hash():
-    """What a stored page's indicator candidates were matched against."""
-    return page_cache.file_hash(INDICATORS)
+    """What a stored page's indicator candidates were matched against: the
+    lexicon and the corpus's counts of each word's role and kind."""
+    data = ROOT / "tools" / "data"
+    return "+".join(str(page_cache.file_hash(p)) for p in
+                    (INDICATORS, data / "indicator_roles.json", data / "indicator_kinds.json"))
 
 
 def ranked_indicators(t):
@@ -2353,8 +2430,10 @@ def indicators_page(found):
         raise SystemExit(f"{INDICATORS.relative_to(ROOT)} has indicator types the "
                          f"/indicators/ page does not explain: {', '.join(unknown)}. "
                          "Add each to INDICATOR_TYPES in tools/build_seo_pages.py.")
-    total = sum(len(lex[t]) for t in types)
-    linked = sum(1 for t in types for k in lex[t] if (t, k) in found)
+    # A kind's words are already in its parent's list: counted once.
+    counted = [t for t in types if t not in INDICATOR_KINDS]
+    total = sum(len(lex[t]) for t in counted)
+    linked = sum(1 for t in counted for k in lex[t] if (t, k) in found)
 
     def item(t, k, n):
         label = esc(indicator_label(k))
@@ -2386,17 +2465,17 @@ def indicators_page(found):
         "<em>about</em> is a container, but it can also mean an anagram. "
         f"{linked:,} of the words are links to a real clue that uses them.</p>",
         "<p>Jump to: " + build_abbreviations.LIST_SEP.join(
-            f'<a href="#{t}">{clue_types.label(t)}</a>' for t in types) + "</p>",
+            f'<a href="#{t}">{type_label(t)}</a>' for t in types) + "</p>",
     ]
     for t in types:
         ranked = ranked_indicators(t)
         top, rest = ranked[:15], ranked[15:]
-        body += [f'<h2 id="{t}">{clue_types.label(t).capitalize()} indicators</h2>',
+        body += [f'<h2 id="{t}">{type_label(t).capitalize()} indicators</h2>',
                  f"<p>{INDICATOR_TYPES[t]}</p>",
                  "<p><strong>Most used:</strong> "
                  + build_abbreviations.LIST_SEP.join(item(t, k, n) for k, n in top) + "</p>"]
         if rest:
-            body += [f"<details><summary>All {len(ranked):,} {clue_types.label(t)} indicators</summary>",
+            body += [f"<details><summary>All {len(ranked):,} {type_label(t)} indicators</summary>",
                      "<p>" + build_abbreviations.LIST_SEP.join(item(t, k, n) for k, n in rest) + "</p>",
                      "</details>"]
     body += [f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">New to cryptics? '
