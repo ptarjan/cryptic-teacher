@@ -1633,25 +1633,30 @@ def day_ticks(start, last, width):
     return ticks[::-1]
 
 
-def line_points(days, key):
+def line_points(days, key, recorded=None):
     """[(day, total)] for one running-totals line: filed and hinted from
     progress.funnel_series, the scans on disk and the unread backlog as
     recorded (progress.series_of), so each has a slope of its own."""
-    if key == L_SCANS:
-        return progress.series_of(days, progress.DOWNLOADED)
-    if key == L_UNREAD:
-        return progress.series_of(days, progress.QUEUED)
+    if key in (L_SCANS, L_UNREAD):
+        phase = progress.DOWNLOADED if key == L_SCANS else progress.QUEUED
+        pts = progress.series_of(days, phase)
+        if recorded is not None:
+            # with_today() carries the newest recorded count onto a day whose
+            # row is not written yet; drawn, that is a flat last segment.
+            counted = {d for d, v in progress.series_of(recorded, phase)}
+            pts = [p for p in pts if p[0] in counted]
+        return pts
     return progress.funnel_series(days, key)
 
 
-def cumulative_chart(days, full=False):
+def cumulative_chart(days, full=False, recorded=None):
     """Scans on disk, scans not read, filed and hinted's running totals, one
     line each over the days it was counted; a line counted on one day
     only has no line yet. The axis starts where the lines start to move
     (chart_start) unless `full`; returns (svg, trimmed). The end labels' margin
     is measured from their own text, so a longer number never runs off the side."""
     lines = {st: pts for st in (L_SCANS, L_UNREAD, S_FILED, S_HINTED)
-             if len(pts := line_points(days, st)) > 1}
+             if len(pts := line_points(days, st, recorded)) > 1}
     if not lines:
         return "", False
     first = datetime.fromisoformat(next(iter(days)))
@@ -1922,7 +1927,7 @@ def progress_page(idx, today=None, now=None):
     table = ('<table class="progress-table"><tr><th>Stage</th><th>Puzzles</th><th>Of known</th>'
              '<th>7-day pace</th><th class="wide">30-day pace</th><th>All known in</th></tr>'
              + "".join(rows) + "</table>")
-    recent, trimmed = cumulative_chart(days)
+    recent, trimmed = cumulative_chart(days, recorded=recorded)
     title = "Progress: every puzzle, downloaded, solved and hinted"
     desc = (f"How far Cryptic Teacher has got: {stages[S_DOWNLOADED]:,} of the {known:,} cryptic "
             f"crosswords known to exist downloaded, {stages[S_SOLVED]:,} solved and "
@@ -1978,7 +1983,7 @@ def progress_page(idx, today=None, now=None):
                fetching_note(progress.load_fetching())) if queued is not None else ()),
             "<h2>Running totals</h2>", recent,
             *((f"<details><summary>All time, from {short_day(next(iter(days)))}</summary>",
-               cumulative_chart(days, full=True)[0], "</details>") if trimmed else ()),
+               cumulative_chart(days, full=True, recorded=recorded)[0], "</details>") if trimmed else ()),
             "<h2>A day at a time</h2>",
             *(rate_chart(days, st) for st in (S_FILED, S_HINTED)),
             "<h2>By series</h2>", series_chart(days[today], set(listings(idx))),
