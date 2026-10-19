@@ -6010,6 +6010,98 @@ def pool_gaps(tree, clue):
     return n
 
 
+def _located(tree, clue):
+    """`tree` with every span placed in `clue` (a stored tree carries no offsets); as filed on a failure."""
+    try:
+        return wordplay.locate(copy.deepcopy(tree), clue)
+    except Exception:
+        return tree
+
+
+def _extent(node, clue, low):
+    """(start, end) of everything under `node` in the clue, or None when the clue shows none of it."""
+    spans = _subtree_spans(node, clue, low)
+    return (min(a for a, _ in spans), max(b for _, b in spans)) if spans else None
+
+
+CHARADE_ORDER = "charade whose pieces sit in the clue in another order than it joins them"
+#: Words that let a charade's pieces come out in a different order than the clue gives them.
+ORDER_FLIPPERS = re.compile(
+    r"\b(after|before|behind|following|follows?|followers?|followed|below|beneath|under|above|atop|ahead|preceding|"
+    r"precedes|preceded|leading|leads?|leaders?|goes|going|put|puts|coming|comes?|by|in|inside|within|provided|"
+    r"to the|at the end|at end|end of|start of|on|over|supporting|heading|heads|tops|capping|beyond|past|"
+    r"at the back|at the front|then|next|and then|finally|ending|finishing|starting|opening)\b", re.I)
+
+
+def charade_out_of_order(tree, clue):
+    """Charades with no indicator whose pieces are joined in another order than the clue gives them,
+    and no word between them to say so (ftcryptic DODGE "Duke flipped for one party": DO + D + EG
+    reversed, where the clue's order is D, EG, DO; SPIRE, PARADIDDLE). Round 22: 6 of 38 judged misses."""
+    if not clue:
+        return 0
+    low = clue.lower()
+    tree = _located(tree, clue)
+    n = 0
+    for node in _walk(tree):
+        if node.get("op") != "charade" or node.get("indicators"):
+            continue
+        spans = [s for p in node.get("parts") or [] if isinstance(p, dict) and (s := _extent(p, clue, low))]
+        if len(spans) < 2 or all(spans[i + 1][0] >= spans[i][0] for i in range(len(spans) - 1)):
+            continue
+        if not ORDER_FLIPPERS.search(clue[min(a for a, _ in spans):max(b for _, b in spans)]):
+            n += 1
+    return n
+
+
+REVERSAL_SPLIT = "reversal whose indicator sits between two of the pieces it reverses"
+
+
+def reversal_split(tree, clue):
+    """Reversals over several pieces with their indicator word standing between those pieces in the clue:
+    the indicator acts on the piece beside it (mephisto DEGAS "editor repelled with flatulence" reverses
+    ED alone; LILAC, NOTHALF, ELAPSES). Round 22: 5 of 38 judged misses."""
+    if not clue:
+        return 0
+    low = clue.lower()
+    tree = _located(tree, clue)
+    n = 0
+    for node in _walk(tree):
+        if node.get("op") != "reversal" or node.get("unchecked"):
+            continue
+        spans = [s for p in node.get("parts") or [] if isinstance(p, dict) and (s := _extent(p, clue, low))]
+        if not spans:
+            continue
+        lo, hi = min(a for a, _ in spans), max(b for _, b in spans)
+        for ind in node.get("indicators") or []:
+            text = str(ind.get("text") or "") if isinstance(ind, dict) else ""
+            at = ind.get("at") if isinstance(ind.get("at"), int) else low.find(text.lower())
+            if text and at >= 0 and lo < at and at + len(text) < hi:
+                n += 1
+                break
+    return n
+
+
+CUT_IN_LEAF = "leaf opens with a cut word (short, half, first) and gives fewer letters than its other words"
+CUT_WORDS = frozenset("short shorter shortly half briefly brief first last lower upper heart centre initially ends "
+                      "endless headless topless beheaded curtailed cut clipped docked reduced".split())
+
+
+def cut_in_leaf(tree, clue=None):
+    """Leaves whose first words are a cut indicator ("short contract" giving DEA, "your lower half" giving UR,
+    "First of branches" giving BRANCHES) that give fewer letters than the words after it: the cut is an op.
+    Round 22: 3 of 38 judged misses."""
+    n = 0
+    for node in _walk(tree):
+        if "words" not in node or "op" in node or node.get("unchecked") or not node.get("gives"):
+            continue
+        words = re.findall(r"[a-z']+", str(node["words"]).lower())
+        if len(words) < 2 or words[0] not in CUT_WORDS | {"your", "a", "the"} or not any(w in CUT_WORDS for w in words[:2]):
+            continue
+        if len(re.sub(r"[^A-Z]", "", str(node["gives"]))) < sum(len(w) for w in words[1:]):
+            n += 1
+    return n
+
+
 def _clue_words(text):
     """Lower-case word set of clue text, markup and parentheticals removed."""
     return set(re.findall(r"[a-z]+", re.sub(r"<[^>]*>|\([^)]*\)", " ", (text or "").lower())))
@@ -6244,6 +6336,12 @@ def shape_warnings(tag, ann, clue=None, answer=None):
                    f"gives part of a word")
     if k := traded_indicators(tree):
         out.append(f"{tag}: {k} {TRADED_INDICATOR}: file each indicator word on the op of its own kind")
+    if k := charade_out_of_order(tree, clue):
+        out.append(f"{tag}: {k} {CHARADE_ORDER}: keep the clue's order, or reverse the piece that moves")
+    if k := reversal_split(tree, clue):
+        out.append(f"{tag}: {k} {REVERSAL_SPLIT}: it reverses the one piece it sits by")
+    if k := cut_in_leaf(tree):
+        out.append(f"{tag}: {k} {CUT_IN_LEAF}: the cut word is an op's indicator, the leaf holds the rest")
     return out
 
 
@@ -6817,6 +6915,9 @@ BACKLOG_MARKERS = {
     "wordplay.movedLetter": (MOVED_LETTER,),
     "wordplay.poolGap": (POOL_GAP,),
     "wordplay.tradedIndicator": (TRADED_INDICATOR,),
+    "wordplay.charadeOrder": (CHARADE_ORDER,),
+    "wordplay.reversalSplit": (REVERSAL_SPLIT,),
+    "wordplay.cutInLeaf": (CUT_IN_LEAF,),
     "wordplay.ddMissesWordplay": (lesson_checks.DD_MISSES_WORDPLAY,),
     "spelling.unsaid": (lesson_checks.SPELLING_UNSAID,),
 }

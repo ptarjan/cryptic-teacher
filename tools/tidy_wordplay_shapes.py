@@ -75,9 +75,13 @@ FIELDS = {
     "wordplay.movedLetter": lambda ann: V.moved_letters(ann.get("wordplay")),
     "wordplay.poolGap": lambda ann, clue=None: V.pool_gaps(ann.get("wordplay"), clue),
     "wordplay.tradedIndicator": lambda ann: V.traded_indicators(ann.get("wordplay")),
+    "wordplay.charadeOrder": lambda ann, clue=None: V.charade_out_of_order(ann.get("wordplay"), clue),
+    "wordplay.reversalSplit": lambda ann, clue=None: V.reversal_split(ann.get("wordplay"), clue),
+    "wordplay.cutInLeaf": lambda ann: V.cut_in_leaf(ann.get("wordplay")),
 }
 #: Fields whose finding places words in the clue, so counts() hands them its text.
-NEEDS_CLUE = {"wordplay.deletionInside", "wordplay.anagramSynonym", "wordplay.poolGap"}
+NEEDS_CLUE = {"wordplay.deletionInside", "wordplay.anagramSynonym", "wordplay.poolGap",
+              "wordplay.charadeOrder", "wordplay.reversalSplit"}
 
 
 def _inner(p):
