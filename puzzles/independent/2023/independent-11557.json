@@ -50,40 +50,40 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BROWNSAUCE",
      "indicators": [
       {
        "text": "is hosting",
-       "note": "a host has guests inside, so the surname's stand-in wraps round the other letters"
+       "at": 60,
+       "note": "hosting means having guests inside, so the name surrounds these letters"
       }
      ],
      "parts": [
       {
+       "words": "Willis",
+       "at": 53,
+       "gives": "BRUCE",
+       "note": "Bruce Willis is the Hollywood actor"
+      },
+      {
        "op": "charade",
        "parts": [
         {
-         "words": "Willis",
-         "gives": "BR",
-         "note": "first part of Bruce, as in the actor Bruce Willis"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "OW",
+         "op": "deletion",
          "indicators": [
           {
            "text": "second half of",
-           "note": "the back half of a word is kept and the front half dropped"
+           "at": 7,
+           "note": "the second half of the word is kept and the first half dropped"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "show",
-           "gives": "OW",
-           "select": "last",
-           "note": "the last two of its four letters"
+           "at": 22,
+           "note": "taken as written, keeping its second half"
+          },
+          {
+           "gives": "SH"
           }
          ]
         },
@@ -92,52 +92,31 @@
          "indicators": [
           {
            "text": "ultimately",
-           "note": "ultimately means at the end, so only the final letter of each following word counts: keen, as and Emma"
+           "at": 29,
+           "note": "ultimately means at the end, so each word gives its last letter"
           }
          ],
          "parts": [
           {
-           "words": "keen",
-           "note": "final letter"
+           "words": "keen as Emma",
+           "at": 40,
+           "note": "their last letters are used"
           }
          ]
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "as",
-           "note": "final letter"
-          }
-         ]
-        },
-        {
-         "op": "last",
-         "parts": [
-          {
-           "words": "Emma",
-           "note": "final letter"
-          }
-         ]
-        },
-        {
-         "words": "Willis",
-         "gives": "UCE",
-         "note": "rest of Bruce, wrapping round the letters collected"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A TV review gushing that the second half of a show hosted by presenter Emma Willis was a treat.",
-     "walkthrough": "Emma Willis is a real TV presenter, but here 'Emma' only gives its last letter and 'Willis' stands for Bruce Willis, so BRUCE hosts OW+N+S+A to make BROWN SAUCE.",
-     "definitionFit": "Brown sauce is a tangy bottled condiment, and a relish is any such savoury accompaniment served with food."
+     "surface": "A TV-show snippet: the presenter Emma Willis keenly hosts the second half of her show.",
+     "walkthrough": "Emma Willis is a British TV presenter, so 'Emma Willis' reads as one name, but Willis is Bruce Willis. Brown sauce is a British tangy condiment.",
+     "definitionFit": "Brown sauce is a spicy table condiment, so it is a relish served with food."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Willis"
+     "misdirectedWord": "Emma"
     }
    }
   },

@@ -224,48 +224,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GATES",
+     "op": "container",
      "indicators": [
       {
-       "text": "Most of",
-       "note": "most of a word means all but its final letter, so the last one is dropped"
+       "text": "about",
+       "at": 19,
+       "note": "about means surrounding, so the talk goes round these letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Talk's",
+       "at": 12,
+       "gives": "GAS",
+       "note": "gas is empty chatter, talk; the 's stands for is"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "the talk word goes around, about, the shortened conference name"
+         "text": "Most of",
+         "at": 0,
+         "note": "most of means all but the last letter"
         }
        ],
        "parts": [
         {
-         "words": "Talk",
-         "gives": "GAS",
-         "note": "gas is idle chatter"
+         "words": "TED",
+         "at": 8,
+         "note": "taken as written"
         },
         {
-         "words": "TED",
-         "gives": "TE",
-         "note": "the conference name loses its last letter"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A TED Talk about a tech pioneer.",
-     "walkthrough": "The 's is read as 'is': talk is about most of TED. TED is a famous conference series of short lectures.",
-     "definitionFit": "Bill Gates co-founded Microsoft and is one of the best-known pioneers of personal computing."
+     "surface": "A description of what a TED talk is mostly about: a computing pioneer.",
+     "walkthrough": "'TED Talk' looks like one phrase, the famous lecture series, but the two words do separate jobs.",
+     "definitionFit": "Bill Gates, co-founder of Microsoft, is a pioneer of personal computing software."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Talk"
+     "misdirectedWord": "Talk's"
     }
    }
   },
@@ -1163,47 +1167,51 @@
      "indicators": [
       {
        "text": "keeping",
-       "note": "keeping means holding inside, so the school abbreviation goes around the rest"
+       "at": 16,
+       "note": "keeping means holding inside, so the school surrounds these letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "school",
-         "gives": "SCH",
-         "note": "standard abbreviation"
-        },
-        {
-         "words": "Queen's partner",
-         "gives": "TOM",
-         "note": "a queen is a female cat, and its mate is a tom"
-        }
-       ]
+       "words": "school",
+       "at": 9,
+       "gives": "SCH"
       },
       {
-       "op": "nth",
-       "n": 2,
-       "indicators": [
-        {
-         "text": "second from",
-         "note": "second from a word means its second letter is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "last",
-         "note": "the second letter"
+         "words": "Queen's partner",
+         "at": 24,
+         "gives": "TOM",
+         "note": "a queen is a female cat and a tom its male partner"
+        },
+        {
+         "op": "nth",
+         "n": 2,
+         "indicators": [
+          {
+           "text": "second from",
+           "at": 40,
+           "note": "second from means the second letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "last",
+           "at": 52,
+           "note": "its second letter is used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A school putting up with the Queen's consort as a late arrival.",
-     "walkthrough": "'Queen's partner' suggests a king or prince consort; in the cat world, it is a tom.",
-     "definitionFit": "To stomach something is to put up with or endure it, an idiomatic verb synonym."
+     "surface": "A school stands by the Queen's consort, ranked second from bottom.",
+     "walkthrough": "'Queen's partner' suggests a royal consort, but a queen is a female cat; 'second from last' looks like a ranking, but it is the second letter of 'last'.",
+     "definitionFit": "To stomach something is to put up with or endure it, tolerating it."
     },
     "features": {
      "answerInScene": false,

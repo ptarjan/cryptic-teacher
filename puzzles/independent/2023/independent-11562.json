@@ -1587,40 +1587,41 @@
      "indicators": [
       {
        "text": "infiltrating",
-       "note": "infiltrating means getting inside a group secretly, so these letters are placed within"
+       "at": 29,
+       "note": "infiltrating means getting inside, so these letters go into the group"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "religious group",
-         "gives": "SECT",
-         "note": "a sect is a religious group"
-        },
-        {
-         "words": "American",
-         "gives": "US",
-         "note": "US for American"
-        }
-       ]
+       "words": "religious group",
+       "at": 42,
+       "gives": "SECT",
+       "note": "a sect is a religious group"
       },
       {
-       "words": "Pastor",
-       "gives": "P",
-       "note": "P is an abbreviation for pastor"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "at": 13,
+         "gives": "US"
+        },
+        {
+         "words": "Pastor",
+         "at": 22,
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dubious American preacher has wormed his way into a cult.",
-     "definitionFit": "Suspect as an adjective means open to doubt, so questionable."
+     "surface": "An American pastor worming his way into a religious group looks dubious.",
+     "definitionFit": "Something suspect is open to doubt, untrustworthy, so it is questionable."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Questionable"
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -1649,47 +1650,51 @@
      "indicators": [
       {
        "text": "beset by",
-       "note": "beset by means surrounded by, so the earlier pieces sit inside"
+       "at": 21,
+       "note": "beset by means surrounded by, so the depression goes round these letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "recurrent",
+         "at": 30,
+         "note": "recurrent here means running back, so the word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "recurrent",
-           "note": "recurrent means running back, so the hollow word is read backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "depression",
-           "gives": "DENT",
-           "note": "a dent is a depression in a surface"
-          }
-         ]
-        },
-        {
-         "words": "at home",
-         "gives": "IN",
-         "note": "in means at home"
+         "words": "depression",
+         "at": 40,
+         "gives": "DENT",
+         "note": "a dent is a small depression"
         }
        ]
       },
       {
-       "words": "wife",
-       "gives": "W",
-       "note": "W is the abbreviation for wife"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "wife",
+         "at": 7,
+         "gives": "W"
+        },
+        {
+         "words": "at home",
+         "at": 12,
+         "gives": "IN",
+         "note": "in means at home"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man married a woman who stays home but keeps suffering bouts of depression.",
-     "walkthrough": "Depression seems to be the mood, but it is a hollow in a surface.",
-     "definitionFit": "Twinned means paired or linked together, as towns are twinned, so joined."
+     "surface": "A man married his wife and stayed at home, plagued by repeated bouts of depression.",
+     "walkthrough": "'recurrent' usually means happening again; here it means running back, so the depression is read in reverse before it surrounds the rest.",
+     "definitionFit": "Twinned means paired or linked closely together, as joined towns are, so it fits joined."
     },
     "features": {
      "answerInScene": false,

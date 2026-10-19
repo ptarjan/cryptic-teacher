@@ -517,47 +517,51 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "KIBBLE",
-     "indicators": [
-      {
-       "text": "Not the first",
-       "note": "not the first means the opening letter is swapped out for another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 18,
+         "note": "ultimately means at the end, so only the last letter of livestock is used"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "note": "'ultimately' keeps only the last letter of 'livestock'"
-          }
-         ],
-         "parts": [
-          {
-           "words": "livestock",
-           "note": "the final letter of livestock"
-          }
-         ]
-        },
+         "words": "livestock",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not the first",
+         "at": 38,
+         "note": "not the first means the opening letter is dropped"
+        }
+       ],
+       "parts": [
         {
          "words": "pick at",
-         "gives": "IBBLE",
-         "note": "to pick at is to nibble, here without its first letter"
+         "at": 29,
+         "gives": "NIBBLE",
+         "note": "to nibble is to pick at food"
+        },
+        {
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Do farm animals peck at their feed pellets? Not first in line, anyway.",
-     "walkthrough": "The opening N of nibble is replaced by the K at the end of livestock.",
-     "definitionFit": "Kibble is coarsely ground meal formed into pellets, used as pet or animal food."
+     "surface": "A question of whether farm animals finally get to peck at their feed pellets.",
+     "walkthrough": "'Not the first' applies to the verb for 'pick at', and the last letter of 'livestock' takes the dropped letter's place at the front.",
+     "definitionFit": "Kibble is dry pet food in the form of small ground pellets."
     },
     "features": {
      "answerInScene": true,
@@ -740,55 +744,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NITWIT",
-     "indicators": [
-      {
-       "text": "with end broken off",
-       "note": "breaking the end off a word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "NITWIT",
        "indicators": [
         {
          "text": "returning",
-         "note": "returning means going back, so the word is read from right to left"
+         "at": 6,
+         "note": "returning means coming back, so the word is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "container",
-           "gives": "NIT",
-           "note": "a tin is a container"
-          },
-          {
-           "words": "with",
-           "gives": "WIT",
-           "note": "with, minus its last letter"
-          }
-         ]
+         "words": "container",
+         "at": 16,
+         "gives": "TIN",
+         "note": "a tin is a container"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "end broken off",
+         "at": 31,
+         "note": "with its end broken off, the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "with",
+         "at": 26,
+         "gives": "WITH",
+         "note": "taken as written, less its last letter"
+        },
+        {
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone bringing back a jar whose rim has snapped off.",
-     "walkthrough": "A wally is British slang for a silly person.",
-     "definitionFit": "Both words mean a foolish, stupid person."
+     "surface": "A fool brings back a container whose end has been snapped off.",
+     "walkthrough": "'with' looks like a link word, but it is the word cut short to WIT. A wally is British slang for a fool.",
+     "definitionFit": "Wally is British slang for a silly, foolish person, and a nitwit is exactly that."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Wally"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "with"
     }
    }
   },
@@ -967,37 +974,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "ruined",
-       "note": "ruined means wrecked, so the letters are broken up and rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Revolutionary",
+       "at": 0,
+       "gives": "CHE",
+       "note": "Che Guevara is the archetypal revolutionary"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ruined",
+         "at": 20,
+         "note": "ruined means wrecked, so the letters of stunt are broken up and rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Revolutionary",
-         "gives": "CHE",
-         "note": "Che Guevara is the crossword's stock revolutionary"
-        },
-        {
          "words": "stunt",
-         "note": "the letters of stunt rearranged"
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rebel's ruined stunt becomes a worn-out gag.",
-     "definitionFit": "A chestnut is a stale, much-repeated joke or story."
+     "surface": "A revolutionary's publicity stunt was spoiled by a stale gag.",
+     "definitionFit": "A chestnut is a stale joke or story told so often it has grown tiresome."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
     }
    }
   },
@@ -1254,45 +1264,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "desperately",
-       "note": "acting desperately means wildly and out of order, so the letters are scrambled"
+       "text": "outside",
+       "at": 39,
+       "note": "the rearranged letters sit outside, around the other letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "outside",
-         "note": "outside means wrapping round something else"
+         "text": "desperately",
+         "at": 27,
+         "note": "praying desperately suggests frantic disorder, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "praying",
-         "note": "the letters of praying rearranged"
-        },
-        {
-         "words": "hospital",
-         "gives": "H",
-         "note": "H is the hospital sign"
+         "at": 19
         }
        ]
+      },
+      {
+       "words": "hospital",
+       "at": 47,
+       "gives": "H",
+       "note": "H is the map abbreviation for hospital"
       }
      ]
     },
     "explanation": {
-     "surface": "An old rustic praying hard outside the hospital.",
-     "walkthrough": "'Countryman' means a native of a country, not someone rural.",
-     "definitionFit": "A Phrygian was a native of Phrygia, an ancient kingdom of Asia Minor."
+     "surface": "An old man from ancient times prays frantically outside a hospital.",
+     "definitionFit": "A Phrygian was a native of Phrygia, an ancient country of Asia Minor."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "countryman"
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },

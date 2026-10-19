@@ -1086,47 +1086,59 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "EQUALLY",
-     "indicators": [
-      {
-       "text": "changing direction",
-       "note": "changing direction swaps one compass point for another in the word for a gust"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "strong gust",
-       "gives": "SQUALL",
-       "note": "a squall is a sudden violent wind; its S (south) becomes E (east)"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "changing direction",
+         "at": 15,
+         "note": "changing direction swaps one compass point for another, south becoming east"
+        }
+       ],
+       "parts": [
+        {
+         "words": "strong gust",
+         "at": 3,
+         "gives": "SQUALL",
+         "note": "a squall is a sudden strong gust of wind"
+        },
+        {
+         "gives": "S"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "head for",
-         "note": "head for means the leading letter of the next word"
+         "at": 35,
+         "note": "the head of a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "yacht",
-         "note": "the opening letter of yacht"
+         "at": 44
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor notes that a gust has veered round as it heads for a yacht.",
-     "walkthrough": "'As' looks like a mere joining word, but it is the definition: as tall as means equally tall.",
-     "definitionFit": "In comparisons, as means to the same degree, which is what equally expresses."
+     "surface": "A sailing scene: a fierce gust swings round as a yacht heads into it.",
+     "walkthrough": "S and E are compass directions, so 'changing direction' swaps the S of SQUALL for E.",
+     "definitionFit": "As in 'as tall as' expresses equal degree, so equally can replace it in comparisons."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "As"
+     "misdirectedWord": "head"
     }
    }
   },
