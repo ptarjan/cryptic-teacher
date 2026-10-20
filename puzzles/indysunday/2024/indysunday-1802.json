@@ -595,43 +595,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "gets"
-      },
-      {
-       "text": "brought up",
-       "note": "in a down clue, H GRUB is read upwards"
+       "text": "gets",
+       "at": 7,
+       "note": "gets means the editor acquires what follows, placed after it in order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Editor",
+       "at": 0,
+       "gives": "ED"
+      },
+      {
+       "words": "hot",
+       "at": 12,
+       "gives": "IN",
+       "note": "in means hot, fashionable"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought up",
+         "at": 27,
+         "note": "in a down clue, brought up means the letters are read upwards, reversed"
+        }
+       ],
        "parts": [
         {
-         "words": "hotel food",
-         "gives": "HGRUB",
-         "note": "H (hotel, NATO alphabet) + GRUB (food), reversed"
-        },
-        {
-         "words": "hot",
-         "gives": "NI",
-         "note": "hot = fashionable = in"
-        },
-        {
-         "words": "Editor",
-         "gives": "DE",
-         "note": "ED = editor"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "hotel",
+           "at": 16,
+           "gives": "H",
+           "note": "H is hotel in the NATO phonetic alphabet"
+          },
+          {
+           "words": "food",
+           "at": 22,
+           "gives": "GRUB",
+           "note": "grub is slang for food"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper editor served a hot hotel meal in the capital.",
-     "walkthrough": "'Hot' sits beside 'hotel' as if describing the food, but it stands alone as IN, meaning trendy.",
-     "definitionFit": "A definition by category: Edinburgh is Scotland's seat of government, one capital among many."
+     "surface": "An editor gets warm hotel meals served up in the city.",
+     "walkthrough": "'brought up' reverses H plus GRUB into BURGH.",
+     "definitionFit": "Edinburgh is the capital city of Scotland."
     },
     "features": {
      "answerInScene": true,
@@ -1160,15 +1178,30 @@
         {
          "text": "about",
          "at": 30,
-         "note": "the two offensive words sit around the each letters"
+         "note": "about means the doubled offensive goes round the letters for each"
         }
        ],
        "parts": [
         {
-         "words": "doubly offensive",
-         "at": 13,
-         "gives": "TETTET",
-         "note": "the Tet Offensive of 1968 in the Vietnam War; doubly gives it twice"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "doubly",
+           "at": 13,
+           "note": "doubly means the word for the offensive is written twice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "offensive",
+           "at": 20,
+           "gives": "TET",
+           "note": "the Tet Offensive was a 1968 campaign in the Vietnam War"
+          },
+          {
+           "gives": "TET"
+          }
+         ]
         },
         {
          "words": "each",
@@ -1183,7 +1216,7 @@
         {
          "text": "leader",
          "at": 44,
-         "note": "a leader is the first letter, here of EU"
+         "note": "leader means the first letter of EU"
         }
        ],
        "parts": [
@@ -1197,12 +1230,12 @@
     },
     "spelling": "TÊTE À TÊTE",
     "explanation": {
-     "surface": "A talk that turns rude twice about every European Union head.",
-     "walkthrough": "The 1968 offensive in the Vietnam War was named after the Vietnamese lunar new year festival, during which it was launched.",
-     "definitionFit": "A tête-à-tête is a private, intimate chat between two people, from the French for head to head."
+     "surface": "A doubly rude remark about every European official.",
+     "walkthrough": "'about' puts EA inside TETTET, and E comes from 'EU leader'.",
+     "definitionFit": "A tête-à-tête is a private conversation between two people, French for head to head."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "offensive"
     }
@@ -1624,45 +1657,58 @@
    "annotation": {
     "definitions": [
      {
-      "text": "as Hoskins?",
-      "at": 39,
-      "note": "an adjective phrase describing the setter's style: bawdy, as Hoskins is"
+      "text": "as Hoskins",
+      "at": 39
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "stealing"
-      },
-      {
-       "text": "heartless",
-       "note": "removes the middle letter of BADDY"
+       "text": "stealing",
+       "at": 5,
+       "note": "stealing means the wife letter is slipped in, stealing into the villain"
       }
      ],
      "parts": [
       {
-       "words": "villain",
-       "gives": "BADY",
-       "note": "baddy = villain, without its central D"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 29,
+         "note": "heartless means the villain word loses its central letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "villain",
+         "at": 14,
+         "gives": "BADDY",
+         "note": "a baddy is a villain"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       },
       {
        "words": "Wife",
-       "gives": "W",
-       "note": "W = wife, placed inside BADY"
+       "at": 0,
+       "gives": "W"
       }
      ]
     },
     "explanation": {
-     "surface": "A heartless cad running off with someone's wife, likened to the setter.",
-     "walkthrough": "The setter owns up again: Hoskins puzzles are famously rude, as 1 across and 22 down in this one show.",
-     "definitionFit": "Hoskins's crosswords are known for their smut, so bawdy describes them."
+     "surface": "A wife-stealing rogue with no heart, much like this very setter?",
+     "walkthrough": "Hoskins is the setter, known for saucy clues, so the definition is a joke at his own expense.",
+     "definitionFit": "Bawdy means humorously indecent, describing ribald humour this setter is known for."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "villain"
+     "joke": "pun",
+     "misdirectedWord": "Hoskins"
     }
    }
   },

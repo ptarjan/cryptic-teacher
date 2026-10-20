@@ -965,25 +965,36 @@
      "parts": [
       {
        "words": "Parisian who",
+       "at": 0,
        "gives": "QUI",
-       "note": "qui is French for who"
+       "note": "qui is French for who, as a Parisian would say"
       },
       {
-       "words": "half chewed",
-       "gives": "CHE",
-       "note": "first half of CHEwed"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 13,
+         "note": "half means only the first half of the word chewed is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chewed",
+         "at": 18
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Parisian who has eaten half of the flan.",
-     "walkthrough": "'Parisian' asks for the French word, as crossword setters use a city to signal a language.",
-     "definitionFit": "A quiche is a savoury flan: pastry with a filling of egg and cream."
+     "surface": "A Frenchman who only half chewed his tart.",
+     "definitionFit": "A quiche is a savoury open tart, a kind of flan with an egg filling."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "chewed"
+     "misdirectedWord": "Parisian"
     }
    }
   },
@@ -1174,23 +1185,39 @@
      "parts": [
       {
        "words": "runs",
+       "at": 10,
        "gives": "R",
-       "note": "R = runs, in cricket scoring"
+       "note": "R is the cricket abbreviation for runs"
       },
       {
-       "words": "fashion magazine when leader absent",
-       "gives": "OGUE",
-       "note": "VOGUE without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "when leader absent",
+         "at": 32,
+         "note": "leader absent means the magazine name loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fashion magazine",
+         "at": 15,
+         "gives": "VOGUE",
+         "note": "Vogue is a fashion magazine"
+        },
+        {
+         "gives": "V"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wrongdoer takes over a fashion magazine while its editor is away.",
-     "walkthrough": "'Leader' suggests an editor, but it just means the first letter.",
-     "definitionFit": "A rogue is a dishonest or mischievous person, a miscreant."
+     "surface": "A villain runs a fashion title while its editor is away.",
+     "definitionFit": "A rogue is a dishonest or mischievous person, a scoundrel."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "leader"
     }

@@ -43,55 +43,25 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "first",
+     "indicators": [
+      {
+       "text": "primarily",
+       "at": 51,
+       "note": "primarily means taking each word's first letter, its primary one"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "primarily",
-         "note": "take each word's primary, i.e. first, letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Chubby",
-         "note": "first letter"
-        }
-       ]
-      },
-      {
-       "words": "harpist",
-       "gives": "H",
-       "note": "first letter"
-      },
-      {
-       "words": "Edenic",
-       "gives": "E",
-       "note": "first letter"
-      },
-      {
-       "words": "resident",
-       "gives": "R",
-       "note": "first letter"
-      },
-      {
-       "words": "unearthly",
-       "gives": "U",
-       "note": "first letter"
-      },
-      {
-       "words": "being",
-       "gives": "B",
-       "note": "first letter"
+       "words": "Chubby harpist, Edenic resident — unearthly being",
+       "at": 0
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A portrait of a plump little angel strumming a harp in paradise.",
-     "walkthrough": "The whole clue does double duty: read straight it describes a cherub, and its six first letters spell one.",
-     "definitionFit": "A cherub is the chubby winged angel of paintings, often shown with a harp in heaven."
+     "surface": "A description of a plump, harp-playing heavenly creature.",
+     "definitionFit": "A cherub is an angelic being, pictured as a plump winged child, often with a harp."
     },
     "features": {
      "answerInScene": true,
@@ -385,40 +355,63 @@
      "indicators": [
       {
        "text": "supporting",
-       "note": "in a down answer, what supports sits underneath"
+       "at": 21,
+       "note": "in a down clue, supporting means placed beneath what comes before"
       }
      ],
      "parts": [
       {
        "words": "N.",
-       "note": "N = north(ern)"
+       "at": 32,
+       "gives": "N",
+       "note": "N. is the abbreviation for north or northern"
       },
       {
-       "words": "African capital — not about",
-       "gives": "AIRO",
-       "note": "CAIRO without C (circa = about)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 53,
+         "note": "not means the word for about is removed from the capital"
+        }
+       ],
+       "parts": [
+        {
+         "words": "African capital",
+         "at": 35,
+         "gives": "CAIRO",
+         "note": "Cairo is the capital of Egypt"
+        },
+        {
+         "words": "about",
+         "at": 57,
+         "gives": "C",
+         "note": "C is short for circa, about"
+        }
+       ]
       },
       {
        "words": "Book",
-       "gives": "B",
-       "note": "B = book"
+       "at": 0,
+       "gives": "B"
       },
       {
        "words": "the writer",
+       "at": 10,
        "gives": "I",
-       "note": "the writer refers to the setter: I"
+       "note": "the writer refers to the setter, who is I"
       }
      ]
     },
     "explanation": {
-     "surface": "A travel writer propping up a book about North African capitals.",
-     "walkthrough": "The answer is built bottom-up: B and I 'support' N and AIRO from below in the down light.",
-     "definitionFit": "A city named by its country: Kenya's capital and largest city."
+     "surface": "A book, with the author underneath, lands in a North African capital but misses an East African one.",
+     "walkthrough": "'N. African capital' reads as one place in the surface, but the N. stands alone and the capital is Egypt's.",
+     "definitionFit": "Nairobi is the capital and largest city of Kenya."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "capital"
     }
    }
   },
@@ -1294,25 +1287,36 @@
      "indicators": [
       {
        "text": "Merry",
-       "note": "tipsy and unsteady, so the letters reel about"
-      },
-      {
-       "text": "after skipping starter",
-       "note": "BROKEN loses its first letter"
+       "at": 0,
+       "note": "merry, meaning tipsy, suggests the letters reel about, rearranged"
       }
      ],
      "parts": [
       {
-       "words": "broken",
-       "gives": "ROKEN",
-       "note": "BROKEN without its first letter B"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after skipping starter",
+         "at": 6,
+         "note": "after skipping starter means the word broken is taken once its first letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "broken",
+         "at": 30
+        },
+        {
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cheerful diner who skipped the first course breaking bread on a Nordic trip.",
-     "walkthrough": "'Bread' is slang for money, so the definition is a currency. 'Merry' starts the clue looking like a mood; it tells you to rearrange.",
-     "definitionFit": "The krone is the currency of Denmark and Norway, and bread is slang for money."
+     "surface": "A cheerful diner, having missed the first course, breaks bread Nordic-style.",
+     "walkthrough": "'skipping starter' turns BROKEN into ROKEN, which 'Merry' rearranges. Bread is slang for money.",
+     "definitionFit": "Bread is slang for money, and the krone is the currency of Denmark and Norway."
     },
     "features": {
      "answerInScene": false,
