@@ -592,54 +592,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ATAVENTURE",
-     "indicators": [
-      {
-       "text": "form",
-       "note": "a new form is a new shape, so these letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ATAVENTURE",
        "indicators": [
         {
          "text": "Some",
-         "note": "only some of a word is wanted, so part of it is dropped"
+         "at": 0,
+         "note": "only some of the word is used: the start of it, with its ending dropped"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "reversion",
-           "gives": "ATAV",
-           "note": "atavism, reversion to an ancestral type, losing its last three letters"
-          },
-          {
-           "words": "neuter",
-           "note": "the six letters to rearrange"
-          }
-         ]
+         "words": "reversion",
+         "at": 5,
+         "gives": "ATAVISM",
+         "note": "atavism is reversion to an ancestral type"
+        },
+        {
+         "gives": "ISM"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "form",
+         "at": 25,
+         "note": "to form something is to shape it anew, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "neuter",
+         "at": 18,
+         "note": "used as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Talk of returning to a sexless state, attempted just in case it works.",
-     "walkthrough": "'Reversion' must be read as atavism, the biological throwback to an ancestor, and only its start is used.",
-     "definitionFit": "The archaic phrase means at random or by chance, like doing something on the off chance it succeeds."
+     "surface": "A biology note about creatures reverting to a sexless state, perhaps by chance.",
+     "walkthrough": "ATAVISM means reversion to an earlier type; 'Some' of it is ATAV, losing ISM. 'form' rearranges NEUTER into ENTURE.",
+     "definitionFit": "The archaic idiom 'at a venture' means at random, without planning, hence by chance."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "neuter"
+     "misdirectedWord": "reversion"
     }
    }
   },
@@ -849,37 +852,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EMPLANE",
-     "indicators": [
-      {
-       "text": "starting",
-       "note": "only the starting part is wanted, so the rest of the word goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "starting",
+         "at": 6,
+         "note": "only the starting part of the word for the ruler is kept, its later letters dropped"
+        }
+       ],
        "parts": [
         {
          "words": "Ruler",
-         "gives": "EMP",
-         "note": "the opening of emperor"
+         "at": 0,
+         "gives": "EMPEROR",
+         "note": "an emperor is a ruler"
         },
         {
-         "words": "road",
-         "gives": "LANE",
-         "note": "a lane is a narrow road"
+         "gives": "EROR"
         }
        ]
+      },
+      {
+       "words": "road",
+       "at": 18,
+       "gives": "LANE",
+       "note": "a lane is a narrow road"
       }
      ]
     },
     "explanation": {
-     "surface": "A head of state sets off along a road on the way to the airport.",
-     "walkthrough": "Only the first three letters of the ruler are kept.",
-     "definitionFit": "To emplane is to board an aircraft, the step a passenger takes before flying off."
+     "surface": "A monarch sets off along a road before taking a flight.",
+     "walkthrough": "'Ruler' looks like a measuring stick, but it is a monarch, and 'starting' asks for only the first three letters of the title.",
+     "definitionFit": "To emplane is to board an aircraft, the step a traveller takes before flying."
     },
     "features": {
      "answerInScene": true,
