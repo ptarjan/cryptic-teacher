@@ -987,51 +987,62 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AMENDMENT",
      "indicators": [
       {
        "text": "interrupting",
-       "note": "to interrupt is to break into, so pieces go inside another"
+       "at": 8,
+       "note": "the men break into the run of letters, cutting it apart"
       }
      ],
      "parts": [
       {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "ADT",
+       "op": "container",
        "indicators": [
         {
-         "text": "occasional",
-         "note": "occasional means now and then, so only every other letter is used"
+         "text": "Two",
+         "at": 0,
+         "note": "two copies of the same word are each put in, one after the other"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "audit",
-         "gives": "ADT",
-         "select": "alternate",
-         "note": "the first, third and fifth letters"
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "occasional",
+           "at": 21,
+           "note": "taking letters only now and then means every other one"
+          }
+         ],
+         "parts": [
+          {
+           "words": "audit",
+           "at": 32
+          }
+         ]
+        },
+        {
+         "words": "men",
+         "at": 4,
+         "gives": "MEN",
+         "note": "taken as written"
         }
        ]
       },
       {
-       "words": "Two men",
-       "gives": "MENMEN",
-       "note": "men written twice"
+       "gives": "MEN"
       }
      ]
     },
     "explanation": {
-     "surface": "Two people disrupt an irregular inspection of the accounts, hoping to alter it.",
-     "walkthrough": "Each MEN goes in a separate gap between the three kept letters, rather than both together.",
-     "definitionFit": "An amendment is an alteration, especially a formal one made to a document or law."
+     "surface": "A pair of staff members barge into a sporadic inspection of the accounts so that something is altered.",
+     "walkthrough": "'Occasional' takes alternate letters of AUDIT: A, D, T. One MEN goes after the A and the other after the D.",
+     "definitionFit": "An amendment is an alteration, especially to a law or document."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "occasional"
+     "misdirectedWord": "audit"
     }
    }
   },
@@ -1342,43 +1353,47 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TODAY",
+     "op": "substitution",
      "indicators": [
       {
        "text": "sending",
-       "note": "to send something off is to dispatch it, here in the opposite direction"
-      },
-      {
-       "text": "back",
-       "note": "sending something back returns it the way it came, so the letters face the other way"
+       "at": 6,
+       "note": "the bill is sent in a new direction within the word, replacing its old order"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "TODAY",
+       "words": "Creep",
+       "at": 0,
+       "gives": "TOADY",
+       "note": "a toady is a sycophant or creep"
+      },
+      {
+       "gives": "AD"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 19,
+         "note": "sent back means turned round to read the other way"
+        }
+       ],
        "parts": [
         {
-         "words": "Creep",
-         "gives": "TOADY",
-         "note": "a toady is a sycophant, a creep"
-        },
-        {
          "words": "bill",
+         "at": 14,
          "gives": "AD",
-         "note": "an ad is an advertisement, also called a bill or poster"
+         "note": "an ad is an advertisement, a bill posted up"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sycophant returns an invoice in exchange for a gift.",
-     "walkthrough": "Only the two letters inside the creep are turned round, not the whole word. 'present' looks like a gift but means now.",
-     "definitionFit": "Today stands for the current era or this very day, the time that is happening now."
+     "surface": "A sycophant returns a bill as a gift.",
+     "definitionFit": "Today means the present time, as in 'the world of today'."
     },
     "features": {
      "answerInScene": false,

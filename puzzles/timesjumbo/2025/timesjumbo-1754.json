@@ -56,46 +56,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "New",
-       "note": "a new version of the word, so its letters are rearranged"
+       "text": "breaks",
+       "at": 9,
+       "note": "the rearranged word breaks into the pale word, splitting it apart"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "very pale",
+       "at": 16,
+       "gives": "ASHEN",
+       "note": "ashen means extremely pale, as from shock"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "breaks",
-         "note": "the rearranged letters break into the other word, sitting inside it"
+         "text": "New",
+         "at": 0,
+         "note": "a new version of a word is a remade arrangement of its letters"
         }
        ],
        "parts": [
         {
-         "words": "New dawn",
-         "gives": "ANDW",
-         "note": "DAWN rearranged, sitting between AS and HEN"
-        },
-        {
-         "words": "very pale",
-         "gives": "ASHEN",
-         "note": "ashen = very pale, grey-faced; it is split open"
+         "words": "dawn",
+         "at": 4
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A new day breaks, grey and pale, as it will in the fullness of time.",
-     "walkthrough": "'New dawn breaks' reads as a sunrise; 'New' works on DAWN, and 'breaks' pushes the result into ASHEN.",
-     "definitionFit": "An idiom: 'as and when' means at whatever time something happens, which is in due course."
+     "surface": "A fresh morning sky lightens a washed-out landscape, at the proper time.",
+     "definitionFit": "As and when is an idiom meaning at whatever later moment something becomes appropriate."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "breaks"
+     "misdirectedWord": "dawn"
     }
    }
   },
@@ -303,41 +304,51 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "HAVANA",
-     "indicators": [
-      {
-       "text": "for",
-       "note": "'for' in the sense of 'in exchange for': A is swapped in and E goes out"
-      },
-      {
-       "text": "found in",
-       "note": "the swap happens inside the word for port"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "port",
-       "gives": "HAVEN",
-       "note": "a haven is a harbour, a port"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 7,
+         "note": "one letter standing in for another, so the answer letter replaces the European one"
+        },
+        {
+         "text": "found in",
+         "at": 20,
+         "note": "the swap is found in, made within, the harbour word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "port",
+         "at": 29,
+         "gives": "HAVEN",
+         "note": "a haven is a harbour or port"
+        },
+        {
+         "words": "European",
+         "at": 11,
+         "gives": "E"
+        },
+        {
+         "words": "Answer",
+         "at": 0,
+         "gives": "A"
+        }
+       ]
       },
       {
-       "words": "Answer for European",
-       "gives": "HAVAN",
-       "note": "A (answer) replaces E (European) in HAVEN"
-      },
-      {
-       "words": "and a",
-       "gives": "A",
-       "note": "the A as written, added on"
+       "words": "a",
+       "at": 38
       }
      ]
     },
     "explanation": {
-     "surface": "A reply offered in place of a European, found in a harbour with a cigar.",
-     "walkthrough": "A = answer and E = European are standard abbreviations. The answer is also a port city, which makes 'port' look like the definition.",
-     "definitionFit": "A Havana is a cigar from Cuba, named after its capital."
+     "surface": "A sailor buys a cigar in a harbour town, swapping one thing for another.",
+     "walkthrough": "Change the E of HAVEN to A, then add the clue's 'a'. The surface suggests Havana the port, which is a nice double bluff.",
+     "definitionFit": "A Havana is a cigar made in Cuba, named after its capital city."
     },
     "features": {
      "answerInScene": true,
@@ -2581,41 +2592,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CUTTYSARK",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "shaved",
+       "at": 8,
+       "gives": "CUT",
+       "note": "to cut hair is to shave or trim it"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "last bit of",
-         "note": "the last bit of a word is its final letter, the only one taken"
+         "text": "off",
+         "at": 39,
+         "note": "off in the sense of out of order or awry, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "shaved",
-         "gives": "CUT",
-         "note": "shaved = cut"
+         "words": "Katy's",
+         "at": 15,
+         "gives": "KATYS",
+         "note": "taken as written, the apostrophe ignored"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "TYSARK",
          "indicators": [
           {
-           "text": "off",
-           "note": "gone wrong, so the letters are rearranged"
+           "text": "last bit of",
+           "at": 22,
+           "note": "the final letter of the next word is taken"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Katy's last bit of hair",
-           "gives": "TYSARK",
-           "select": "last",
-           "note": "KATYS plus R, the last letter of hair, rearranged"
+           "words": "hair",
+           "at": 34
           }
          ]
         }
@@ -2624,9 +2637,9 @@
      ]
     },
     "explanation": {
-     "surface": "A pair of clippers shaved off the last of Katy's hair.",
-     "walkthrough": "'Clipper' looks like hair clippers; it is a fast sailing ship. The Cutty Sark is the tea clipper preserved at Greenwich, London.",
-     "definitionFit": "The Cutty Sark is a famous 19th-century tea clipper."
+     "surface": "Katy has had a haircut and a little more has come off.",
+     "walkthrough": "CUT, then KATYS plus R (end of 'hair') rearranged by 'off' into TYSARK.",
+     "definitionFit": "The Cutty Sark is a famous nineteenth-century tea clipper, now preserved at Greenwich in London."
     },
     "features": {
      "answerInScene": false,
