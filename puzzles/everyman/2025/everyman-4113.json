@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -144,7 +145,8 @@
      "indicators": [
       {
        "text": "foolishly",
-       "note": "Doing a job foolishly is doing it without order or sense, so the letters beside it will not stay as they were given."
+       "at": 21,
+       "note": "foolishly means the remaining letters are scrambled"
       }
      ],
      "parts": [
@@ -153,41 +155,34 @@
        "indicators": [
         {
          "text": "Losing",
-         "note": "What you lose you no longer have, so the letter named next drops out of the word before anything else is done to it."
+         "at": 0,
+         "note": "losing means the letter for independence is dropped"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "independence",
-           "gives": "I",
-           "note": "I is the standing short form of independence, the letter beside a candidate who stands for no party"
-          },
-          {
-           "words": "electing",
-           "gives": "ELECTNG",
-           "note": "seven letters of the word with the i already taken out, taken as they stand before the shuffle"
-          }
-         ]
+         "words": "electing",
+         "at": 31
         },
         {
-         "gives": "I"
+         "words": "independence",
+         "at": 7,
+         "gives": "I",
+         "note": "I is the abbreviation for independence or independent"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An election going badly once independence has gone.",
-     "walkthrough": "'Losing independence' reads as the political disaster of the surface and is one letter leaving the raw material. That letter has to go before the shuffle, not after, or the count comes out at eight.",
-     "definitionFit": "To neglect a duty is to pass it by, leaving it undone rather than refusing it outright."
+     "surface": "A voter foolishly choosing to give up independence.",
+     "walkthrough": "ELECTING without its I is ELECTNG, rearranged.",
+     "definitionFit": "To let something pass by without attention is to fail to look after it, or disregard it."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "independence"
+     "aptDefinition": false,
+     "misdirectedWord": "electing"
     }
    }
   },

@@ -1479,39 +1479,46 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "having",
+       "at": 22,
+       "note": "having means the monk is followed by the next piece"
+      }
+     ],
      "parts": [
       {
        "words": "monk",
+       "at": 17,
        "gives": "FR",
-       "note": "Fr. is short for Friar or Frater, a monk's title"
+       "note": "Fr is short for friar or brother, a title of a monk"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "cut",
-         "note": "cut as in cutting a pack of cards, which rearranges the order"
+         "at": 52,
+         "note": "cut, as in shuffling cards, signals the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "nth",
-         "unchecked": true,
-         "gives": "TONS",
-         "n": 4,
+         "op": "deletion",
          "indicators": [
           {
            "text": "more than half",
-           "note": "more than half keeps the greater part of the word, its opening four of seven letters"
+           "at": 29,
+           "note": "more than half keeps four of the word's seven letters, dropping its tail"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "tonsure",
-           "gives": "TONS",
-           "select": 4,
-           "note": "the first four letters of the word"
+           "at": 44
+          },
+          {
+           "gives": "URE"
           }
          ]
         }
@@ -1520,9 +1527,9 @@
      ]
     },
     "explanation": {
-     "surface": "A monk half-shaved resists something head-on.",
-     "walkthrough": "The selection keeps the first four letters, more than half of seven, before they are mixed.",
-     "definitionFit": "To front something is to face or confront it head-on, so fronts means directly opposes."
+     "surface": "A monk has more than half his hair shaved in a tonsure.",
+     "walkthrough": "Cut works as in cutting a pack of cards, which mixes them; four letters of a seven-letter word is more than half.",
+     "definitionFit": "To front someone is to confront or face them head-on, so the verb means standing opposite."
     },
     "features": {
      "answerInScene": false,
