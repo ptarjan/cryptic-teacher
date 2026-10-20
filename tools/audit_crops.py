@@ -39,7 +39,8 @@ def audit_page(d):
     hit = found["puzzles"][0]
     verdict, puzzle = fa.read_page(d, found, hit, {}, False)
     row = {"refused": bool(verdict.get("refused")), "poor": fa.crop_window.poor(verdict),
-           "moved": verdict.get("cropFrom") == "gutter"}
+           "moved": verdict.get("cropFrom") == "gutter",
+           "blank": len(verdict.get("blank") or ())}
     truth = filed_clues(d.name[:4], verdict.get("number", hit["number"]))
     if truth and puzzle:
         got = {f"{x['number']}-{x['direction']}": (x["clue"] or {}).get("text", "") for x in puzzle["entries"]}
@@ -56,7 +57,7 @@ def main():
     args = ap.parse_args()
     fa.CROPS = Path(tempfile.mkdtemp(prefix="audit-crops-"))
     rng = random.Random(args.seed)
-    print(f"{'item':32} pages  pass  moved  refused  agree")
+    print(f"{'item':32} pages  pass  moved  refused  blank  agree")
     for item in args.items:
         eds = sorted(p for p in (fa.CACHE / item).iterdir() if p.is_dir())
         rows = []
@@ -67,7 +68,7 @@ def main():
                 rows.append({"refused": True, "poor": True, "moved": False, "error": repr(e)[:60]})
         ag, of = sum(r.get("agree", 0) for r in rows), sum(r.get("of", 0) for r in rows)
         print(f"{item:32} {len(rows):5} {sum(not r['poor'] for r in rows):5} {sum(r['moved'] for r in rows):6} "
-              f"{sum(r['refused'] for r in rows):8}  {f'{ag}/{of}' if of else '-'}", flush=True)
+              f"{sum(r['refused'] for r in rows):8} {sum(r.get('blank', 0) for r in rows):6}  {f'{ag}/{of}' if of else '-'}", flush=True)
 
 
 if __name__ == "__main__":

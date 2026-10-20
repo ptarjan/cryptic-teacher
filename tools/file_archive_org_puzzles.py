@@ -876,7 +876,68 @@ def gutter(lines, grid, top, lo=None, hi=None):
 RIGHT_REACH = 30
 
 
-def windows(grid, third=None, margin=40, above=None, left=None, split=None, lead=None, right=None):
+#: The 1945-49 Times prints its last clues in a strip between the title and
+#: the grid (1945-07-12: 26 and 27 down; 1945-08-10: 20, 21, 23, 24, 27 down):
+#: every window began at the grid's foot or the title's foot, left of the grid,
+#: and read none of it. The strip lies over the grid, from the title's foot
+#: (STRIP_TITLE px up, the title box is a little tall) to the grid's top,
+#: and is at least STRIP_MIN px high (anything less is paper between them).
+STRIP_YEARS = ("1945", "1950")
+STRIP_TITLE, STRIP_MIN, STRIP_INK, STRIP_RULE = 2, 30, 0.02, 0.6
+#: Its columns split at a run of STRIP_GUTTER pixel columns holding next to no ink
+#: (a rule between them does not break it), STRIP_EDGE from either end of it.
+STRIP_GUTTER, STRIP_EDGE = 20, 60
+
+
+def strip_over(img, grid, title, year):
+    """(top, bottom, [x between columns]) of the clue strip over a 1945-49
+    Times grid, or None when the page has none: the band from the title's foot
+    to the grid's top is inked like text and at least STRIP_MIN px high."""
+    if not STRIP_YEARS[0] <= year < STRIP_YEARS[1]:
+        return None
+    import numpy as np
+    gx0, gy0, gx1, _ = grid
+    top, bottom = title[3] - STRIP_TITLE, gy0 - 3
+    if bottom - top < STRIP_MIN or bottom - top > 0.25 * (gx1 - gx0):
+        return None
+    ink = np.asarray(img.crop((gx0 - 5, top, gx1 + 15, bottom)).convert("L")) < 128
+    if ink.mean() < STRIP_INK:
+        return None
+    share = ink.mean(axis=0)
+    blank = share < 0.03
+    runs, i = [], 0
+    while i < len(blank):
+        if not blank[i]:
+            i += 1
+            continue
+        j = i
+        while j < len(blank) and blank[j]:
+            j += 1
+        if runs and i - runs[-1][1] <= 5:
+            runs[-1][1] = j
+        else:
+            runs.append([i, j])
+        i = j
+    # A gutter holds the rule printed between the columns (a short clue's
+    # line end leaves a blank as wide); failing a rule, only a wide blank is one.
+    inner = [(lo, hi) for lo, hi in runs if STRIP_EDGE <= (lo + hi) // 2 <= len(blank) - STRIP_EDGE]
+    ruled = [(lo, hi) for lo, hi in inner if hi - lo >= STRIP_GUTTER and (share[lo:hi] > STRIP_RULE).any()]
+    cuts = [gx0 - 5 + (lo + hi) // 2 for lo, hi in ruled or [r for r in inner if r[1] - r[0] >= 2 * STRIP_GUTTER]]
+    return top, bottom, cuts
+
+
+def windows(grid, third=None, margin=40, above=None, left=None, split=None, lead=None, right=None, strip=None):
+    """windows_of() and, under the grid, the columns of the strip over it
+    (`strip`, strip_over()) last, each with its own foot: a fifth element."""
+    out = windows_of(grid, third, margin, above, left, split, lead, right)
+    if strip and not (right or left or above):
+        top, bottom, cuts = strip
+        edges = [grid[0] - 5] + list(cuts) + [grid[2] + 15]
+        out = out + [(a, b, b, top, bottom) for a, b in zip(edges, edges[1:])]
+    return out
+
+
+def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, lead=None, right=None):
     """[(x0, x1, right edge, top)] of each clue column: a word whose left edge
     is in [x0, x1), right edge at most the right edge and top at least the
     top is in it. The two columns under the grid, and with `third`, (width,
@@ -972,7 +1033,7 @@ def split_across(ws, gutters, height=None):
     return out
 
 
-def columns(lines, grid, third=None, margin=40, above=None, left=None, split=None, lead=None, right=None):
+def columns(lines, grid, third=None, margin=40, above=None, left=None, split=None, lead=None, right=None, strip=None):
     """The clue columns under the grid (and with `third`, right of it; with
     `above`, over it; with `left`, left of it; with `lead`, first one left of
     it; see windows()): [[(y0, y1, x0,
@@ -980,22 +1041,29 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
     stop."""
     gx0, gy0, gx1, gy1 = grid
     bottom = gy0 - 3 if above else right[2] if right else left[2] if left else gy1 + 1.8 * (gx1 - gx0)
-    wins = windows(grid, third, margin, above, left, split, lead, right)
+    wins = windows(grid, third, margin, above, left, split, lead, right, strip)
+    main = [w for w in wins if len(w) == 4]
     reach = gx1 + RIGHT_REACH if above is None and not left and not right and not isinstance(split, tuple) else None
     cols = [[] for _ in wins]
     heights = sorted(w[3] - w[1] for ws in lines for w in ws)
     height = heights[len(heights) // 2] if heights else None
     for ws in lines:
-        ws = split_across(ws, [w[1] for w in wins[:-1]], height)
-        for side, (x0, x1, right, top) in enumerate(wins):
+        ws = split_across(ws, [w[1] for w in main[:-1]], height)
+        if len(main) < len(wins):
+            # The strip's rows: read across its gutters, cut like the others.
+            gaps = [w[1] for w in wins[len(main):-1]]
+            ws = [w for w in ws if not strip[0] <= w[1] <= strip[1]] + \
+                split_across([w for w in ws if strip[0] <= w[1] <= strip[1]], gaps, height)
+        for side, (x0, x1, right, top, *foot) in enumerate(wins):
+            foot = foot[0] if foot else bottom
             # The lead column's right edge is the next column's left: no
             # overhang.
-            over = reach if side >= (len(lead) - 2 if lead else 0) or not lead else None
-            part = [w for w in ws if x0 <= w[0] < x1 and top <= w[1] <= bottom and (
+            over = reach if (side >= (len(lead) - 2 if lead else 0) or not lead) and side < len(main) else None
+            part = [w for w in ws if x0 <= w[0] < x1 and top <= w[1] <= foot and (
                 w[2] <= right or over and w[2] <= over and w[0] < gx1 - ACROSS_GUTTER)]
             if part:
                 text = " ".join(w[4] for w in part)
-                if side + 1 < len(wins) and min(w[0] for w in part) < x1 - ACROSS_GUTTER \
+                if side + 1 < len(main) and min(w[0] for w in part) < x1 - ACROSS_GUTTER \
                         and max(w[2] for w in part) > x1 + ACROSS_GUTTER:
                     # A line printed across both columns, not a clue's ("Prize
                     # Crossword in The Times tomorrow", "The solution to the
@@ -4094,11 +4162,13 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts):
                 bottom = gbox[3] + int(1.8 * gw)
                 alts.extend(("under", x) for x in crop_window.edge_candidates(
                     img, (gbox[0], gbox[3], gbox[2], min(img.height, bottom)), split, reach=int(UNDER_SPAN * gw))[1:])
-        cols = {"djvu": columns(lines, gbox, third, m, above, left, split, lead, right)}
+        # The 1945-49 Times' last clues in a strip between title and grid.
+        strip = strip_over(img, gbox, hit["box"], d.name[:4]) if paper.key == "gale" and top is None else None
+        cols = {"djvu": columns(lines, gbox, third, m, above, left, split, lead, right, strip)}
         for which in READERS:
-            cols[which] = columns(rapid[which], gbox, third, m, above, left, split, lead, right)
+            cols[which] = columns(rapid[which], gbox, third, m, above, left, split, lead, right, strip)
         texts = {k: column_text(c) for k, c in cols.items()}
-        wins = windows(gbox, third, m, above, left, split, lead, right)
+        wins = windows(gbox, third, m, above, left, split, lead, right, strip)
     # The desktop's VLM, when it answers, is one more reading (the 1930
     # page's, vlm_four's above).
     if not paper.four and vlm_on and vlm.wanted():
