@@ -3105,7 +3105,32 @@ def r_del_one_piece(node, parent, ctx):
     return new
 
 
-RULE_REPAIRS = {"delOnePiece": r_del_one_piece, "cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
+def r_nested_same_op(node, parent, ctx):
+    """nestedSameOp: del(del(X, a), b) where only one of the two deletions carries an indicator: one indicator is
+    one op, and a deletion takes several cuts, so it becomes del<ind>(X, a, b). Only deletions (a container takes
+    two parts, a reversal one, so those have no unique flat form). Kept only when the tree still gives the answer
+    and the validator's rule no longer fires."""
+    parts = node.get("parts") or []
+    if node.get("op") != "deletion" or node.get("unchecked") or not ctx.get("answer") or len(parts) < 2 \
+            or any(not isinstance(p, dict) for p in parts):
+        return None
+    inner = parts[0]
+    if inner.get("op") != "deletion" or inner.get("unchecked") or bool(inner.get("indicators")) == bool(node.get("indicators")):
+        return None
+    if any(p.get("op") for p in parts[1:]) or any(p.get("op") for p in (inner.get("parts") or [])[1:]):
+        return None
+    new = {x: copy.deepcopy(y) for x, y in node.items() if x not in ("parts", "gives", "indicators")}
+    inds = node.get("indicators") or inner.get("indicators")
+    new["indicators"] = copy.deepcopy(inds)
+    new["parts"] = copy.deepcopy(inner["parts"]) + copy.deepcopy(parts[1:])
+    if node.get("gives") is not None:
+        new["gives"] = node["gives"]
+    if len(new["parts"]) > 9 or not _eval_swapped(node, parent, new, ctx) or V.nested_same_op(new) > V.nested_same_op(node) - 1:
+        return None
+    return new
+
+
+RULE_REPAIRS = {"nestedSameOp": r_nested_same_op, "delOnePiece": r_del_one_piece,"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
                 "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c), "anaSelectEdge": r_ana_select_edge,
                 "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
