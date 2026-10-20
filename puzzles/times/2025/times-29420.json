@@ -310,12 +310,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "uplifted",
-       "note": "in a down clue, lifted up means read bottom to top"
-      },
-      {
-       "text": "first to leave",
-       "note": "the character's first letter goes"
+       "text": "about",
+       "at": 17,
+       "note": "about means the first piece goes around the second"
       }
      ],
      "parts": [
@@ -323,33 +320,51 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "about",
-         "note": "the reversed word goes around the other piece"
+         "text": "uplifted",
+         "at": 8,
+         "note": "uplifted in a down clue means written upwards, backwards"
         }
        ],
        "parts": [
         {
          "words": "Feeling",
+         "at": 0,
          "gives": "AIR",
-         "note": "an air = a feeling or impression, as in 'an air of mystery'"
+         "note": "an air is a feeling or impression"
         }
        ]
       },
       {
-       "words": "austere character",
-       "gives": "URITAN",
-       "note": "PURITAN, a stern moralist, without its first letter P"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "first to leave",
+         "at": 42,
+         "note": "the first letter departs from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "austere character",
+         "at": 23,
+         "gives": "PURITAN",
+         "note": "a puritan is a person of austere morals"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A reader feels uplifted by a severe figure in a novel's setting.",
-     "walkthrough": "Ruritania is the invented Central European kingdom of Anthony Hope's novel The Prisoner of Zenda.",
-     "definitionFit": "Ruritania is the fictional country where The Prisoner of Zenda is set."
+     "surface": "An elated mood around a strict person, then the first one leaves.",
+     "walkthrough": "'Uplifted' in a down clue means written bottom to top; 'about' then wraps that around the shortened puritan.",
+     "definitionFit": "Ruritania is the fictional kingdom where Anthony Hope set The Prisoner of Zenda."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "Feeling"
     }
    }
@@ -1134,7 +1149,8 @@
      "indicators": [
       {
        "text": "aroused",
-       "note": "the letters are stirred up into a new order"
+       "at": 25,
+       "note": "aroused means stirred up, so the letters are mixed"
       }
      ],
      "parts": [
@@ -1143,31 +1159,32 @@
        "indicators": [
         {
          "text": "Contents of",
-         "note": "take what is inside 'Italian', without its outer letters"
+         "at": 0,
+         "note": "the contents of a word are everything inside its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "Italian",
-         "gives": "ITALIAN",
-         "note": "ITALIAN without its first and last letters"
+         "at": 12,
+         "note": "Italian without its outer letters"
         }
        ]
       },
       {
        "words": "song",
-       "note": "as printed"
+       "at": 20
       }
      ]
     },
     "explanation": {
-     "surface": "An Italian ballad stirs up bittersweet recollections.",
-     "walkthrough": "'Contents of Italian song' looks like the lyrics; 'contents' applies to 'Italian' alone, and 'song' goes in whole.",
-     "definitionFit": "Nostalgia is a wistful longing for the past, made of poignant memories."
+     "surface": "The words of an Italian song stirred up wistful recollections.",
+     "walkthrough": "'Italian song' reads as one thing, but the song supplies its own letters to the mix.",
+     "definitionFit": "Nostalgia is a sentimental longing for the past, the bittersweet feeling of looking back."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Contents"
     }
    }
@@ -1900,30 +1917,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "losing heart",
-       "note": "the middle letter of ELITE goes"
-      },
-      {
-       "text": "in"
+       "text": "in",
+       "at": 35,
+       "note": "in means the second piece goes inside the first"
       }
      ],
      "parts": [
       {
        "words": "scrap",
+       "at": 38,
        "gives": "SHRED",
        "note": "a shred is a scrap"
       },
       {
-       "words": "select group",
-       "gives": "ELTE",
-       "note": "an elite is a select group; ELITE without its middle I"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing heart",
+         "at": 22,
+         "note": "losing heart means the central letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "select group",
+         "at": 9,
+         "gives": "ELITE",
+         "note": "an elite is a select group"
+        },
+        {
+         "gives": "I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An exclusive group is shown a film and loses spirit in a fight.",
-     "walkthrough": "'Scrap' suggests a fight; it means a fragment, SHRED.",
-     "definitionFit": "A plain synonym: a spot screened from wind or view is protected by the screen."
+     "surface": "A privileged clique, discouraged, takes part in a fight.",
+     "walkthrough": "'Scrap' suggests a fight; it is a shred, a fragment.",
+     "definitionFit": "Sheltered means shielded or protected, as by a screen."
     },
     "features": {
      "answerInScene": false,
