@@ -1151,14 +1151,16 @@
        "indicators": [
         {
          "text": "last",
-         "note": "the last of something is its final letter"
+         "at": 9,
+         "note": "picks the final letter of Gracie"
         }
        ],
        "parts": [
         {
          "words": "Gracie's",
+         "at": 0,
          "gives": "GRACIE",
-         "note": "final letter of the name"
+         "note": "the name Gracie, whose final letter is wanted"
         }
        ]
       },
@@ -1167,43 +1169,47 @@
        "indicators": [
         {
          "text": "taken from",
-         "note": "what is taken from a word is removed from it"
+         "at": 25,
+         "note": "means these letters are removed from the variety word"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "Variety",
-           "gives": "VAUDEVILLE",
-           "note": "vaudeville is variety entertainment"
-          },
-          {
-           "words": "five",
-           "gives": "V",
-           "note": "V is the Roman numeral for five"
-          }
-         ]
+         "words": "Variety",
+         "at": 36,
+         "gives": "VAUDEVILLE",
+         "note": "vaudeville is variety entertainment"
         },
         {
-         "words": "lines",
-         "gives": "LL",
-         "note": "L is the abbreviation for line, doubled for the plural"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "five",
+           "at": 14,
+           "gives": "V",
+           "note": "V is the Roman numeral five"
+          },
+          {
+           "words": "lines",
+           "at": 19,
+           "gives": "LL",
+           "note": "L is the abbreviation for line, so LL is lines"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Gracie Fields's final variety show takes away a few lines and shows great spirit.",
-     "walkthrough": "Gracie Fields was a British music-hall star, which makes variety read as her stage career; here it is the theatrical word, minus the Roman five and two lines.",
-     "definitionFit": "Eau de vie, French for water of life, is a clear brandy distilled from fermented fruit, a type of strong liquor."
+     "surface": "Gracie Fields's last stage show gives a performer a lift with a drink.",
+     "walkthrough": "Variety here is the old stage entertainment, not diversity; the spirit's French name means water of life.",
+     "definitionFit": "Eau de vie is French for brandy, a clear distilled fruit spirit."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "lines"
+     "misdirectedWord": "Variety"
     }
    }
   },

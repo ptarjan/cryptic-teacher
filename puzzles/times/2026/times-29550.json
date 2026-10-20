@@ -483,47 +483,40 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "observing each part's body",
+       "at": 21,
+       "note": "the body of each word is all but its ends, so take the middle letters of each"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "observing each part's body",
-         "note": "take the body, the inside, of each word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Best",
-         "note": "the inside of B-ES-T"
-        }
-       ]
+       "words": "Best",
+       "at": 0
       },
       {
        "words": "opera",
-       "gives": "PER",
-       "note": "the inside of O-PER-A"
+       "at": 5
       },
       {
        "words": "wants",
-       "gives": "ANT",
-       "note": "the inside of W-ANT-S"
+       "at": 11
       },
       {
        "words": "you",
-       "gives": "O",
-       "note": "the inside of Y-O-U"
+       "at": 17
       }
      ]
     },
     "explanation": {
-     "surface": "A singer is told the best operas need attention to every part of the performer's body language.",
-     "walkthrough": "'Body language' reads as one phrase, but 'body' belongs to the wordplay: the bodies of four words, stripped of their first and last letters.",
-     "definitionFit": "A plain example: Esperanto is an invented tongue, built in the 1880s for international use."
+     "surface": "A top opera calls for you to watch the performers' gestures and posture.",
+     "walkthrough": "'body language' looks like a phrase, but 'body' belongs to the indicator: ES, PER, ANT and O are the middles.",
+     "definitionFit": "Esperanto is the constructed international tongue devised by Zamenhof in the 1880s."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "body"
     }
@@ -770,21 +763,56 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Butler in fiction, not quite",
-       "gives": "RHET",
-       "note": "RHETT Butler of Gone with the Wind, minus his last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 19,
+         "note": "drops the last letter of the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Butler in fiction",
+         "at": 0,
+         "gives": "RHETT",
+         "note": "Rhett Butler is the hero of Gone with the Wind"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
-       "words": "17, disregarding duke's",
-       "gives": "ORIC",
-       "note": "DORIC (the answer to 17 across) without D for duke"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "disregarding",
+         "at": 33,
+         "note": "ignoring the duke letter, which is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "17",
+         "at": 29,
+         "gives": "DORIC",
+         "note": "the answer to 17 is Doric"
+        },
+        {
+         "words": "duke's",
+         "at": 46,
+         "gives": "D",
+         "note": "D is the abbreviation for duke"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A butler in a novel, not yet seventeen, ignores a duke's pompous talk.",
-     "walkthrough": "'Butler' suggests a servant like Jeeves; it is Rhett Butler's surname. D = duke is a standard abbreviation.",
-     "definitionFit": "Rhetoric can mean inflated, showy language, i.e. bombast."
+     "surface": "A fictional butler, almost classical, ignores a duke's pompous speech.",
+     "walkthrough": "RHETT loses a T and DORIC, the answer to 17, loses D, giving RHET and ORIC.",
+     "definitionFit": "Rhetoric can mean inflated, showy language, much like pompous bombast."
     },
     "features": {
      "answerInScene": false,
@@ -1410,20 +1438,36 @@
      "parts": [
       {
        "words": "arsenic",
+       "at": 5,
        "gives": "AS",
        "note": "As is the chemical symbol for arsenic"
       },
       {
-       "words": "in that case, unopened",
-       "gives": "HEN",
-       "note": "THEN (in that case) without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unopened",
+         "at": 27,
+         "note": "without its opening, so the first letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in that case",
+         "at": 13,
+         "gives": "THEN",
+         "note": "then means in that case"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grey poison is found in a case that has never been opened.",
-     "walkthrough": "'In that case' looks like a place to find the arsenic, but it is THEN, as in 'then we'll go'.",
-     "definitionFit": "Ashen means pale grey, the colour of ash."
+     "surface": "Arsenic in a sealed case turns someone pale.",
+     "definitionFit": "Ashen means pale grey like ash, as of a face drained of colour."
     },
     "features": {
      "answerInScene": true,

@@ -58,19 +58,23 @@
       {
        "text": "cryptic",
        "at": 29,
-       "note": "cryptic means puzzling or obscure, so the gathered letters are scrambled"
+       "note": "something cryptic is puzzling or obscure, so these letters are jumbled"
       }
      ],
      "parts": [
       {
-       "words": "Pay twice",
-       "at": 0,
-       "gives": "PAYPAY",
-       "note": "the word pay written out two times"
+       "words": "Pay",
+       "at": 0
       },
       {
        "words": "when",
        "at": 10
+      },
+      {
+       "words": "twice",
+       "at": 4,
+       "gives": "PAY",
+       "note": "the word pay is used a second time"
       },
       {
        "op": "deletion",
@@ -78,13 +82,14 @@
         {
          "text": "cut short",
          "at": 19,
-         "note": "cut short means docked of its final letter, so rep loses its end"
+         "note": "the word rep loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "rep",
-         "at": 15
+         "at": 15,
+         "gives": "REP"
         },
         {
          "gives": "P"
@@ -94,9 +99,9 @@
      ]
     },
     "explanation": {
-     "surface": "A sales rep, paid double but laid off, sends a puzzling seasonal message.",
-     "walkthrough": "'cut short' trims REP to RE; PAY, PAY, WHEN and RE then make the twelve letters that 'cryptic' rearranges.",
-     "definitionFit": "Happy New Year is the customary greeting exchanged at the turn of the year."
+     "surface": "A salesman whose pay is doubled while his hours are cut offers a mysterious greeting.",
+     "walkthrough": "PAYPAY, WHEN and RE are jumbled together into the greeting.",
+     "definitionFit": "Happy New Year is the customary salutation exchanged at the start of January."
     },
     "features": {
      "answerInScene": false,
@@ -191,46 +196,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "at": 3,
+       "note": "the As depart from the words for typical and pensioner"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "leaving",
-         "note": "whatever is leaving departs, so those letters are taken away"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "typical",
+         "at": 11,
          "gives": "PAR",
-         "note": "par is the normal or average standard"
+         "note": "par means the normal, typical level"
         },
         {
-         "gives": "A"
+         "words": "pensioner",
+         "at": 19,
+         "gives": "OAP",
+         "note": "OAP is old-age pensioner"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "pensioner",
-         "gives": "OAP",
-         "note": "OAP is old-age pensioner"
-        },
-        {
-         "gives": "A"
-        }
-       ]
+       "words": "As",
+       "at": 0,
+       "gives": "AA",
+       "note": "the plural of the letter A, so two As"
       }
      ]
     },
     "explanation": {
-     "surface": "An elderly person stays put while others leave.",
-     "walkthrough": "PAR and OAP make PAROAP; 'As' is the plural of the letter A, and taking out both As leaves PROP.",
-     "definitionFit": "A stay is a support or brace holding something up, which is what a prop does."
+     "surface": "Since a typical retiree is moving out, someone is told to remain.",
+     "walkthrough": "PAR and OAP each lose an A, leaving PR and OP.",
+     "definitionFit": "A prop is a support, and a stay is likewise a brace or support holding something up."
     },
     "features": {
      "answerInScene": false,
@@ -939,53 +942,50 @@
      "indicators": [
       {
        "text": "inspires",
-       "note": "to inspire is literally to breathe in, so one piece takes another inside"
+       "at": 23,
+       "note": "breathes in, so the shortened son takes the exclamation inside"
       }
      ],
      "parts": [
       {
-       "words": "son",
-       "gives": "SN",
-       "note": "the word minus O"
-      },
-      {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "spurning",
+         "at": 8,
+         "note": "rejecting the love letter, so it is removed from son"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "spurning",
-           "note": "to spurn is to reject, so that letter is thrown out"
-          }
-         ],
-         "parts": [
-          {
-           "words": "My",
-           "gives": "COR",
-           "note": "'Cor!' and 'My!' are both exclamations of surprise"
-          },
-          {
-           "gives": "O"
-          }
-         ]
+         "words": "son",
+         "at": 3,
+         "gives": "SON",
+         "note": "taken as written"
         },
         {
          "words": "love",
+         "at": 17,
          "gives": "O",
-         "note": "love is zero in tennis, shaped like O"
+         "note": "love is zero in tennis, the letter O"
         }
        ]
+      },
+      {
+       "words": "My",
+       "at": 0,
+       "gives": "COR",
+       "note": "cor is a British exclamation of surprise, like my!"
       }
      ]
     },
     "explanation": {
-     "surface": "A parent laments that their boy, rejecting romance, provokes disdain.",
-     "walkthrough": "'My' looks like the possessive but is the exclamation, matched by the British 'Cor!'.",
-     "definitionFit": "Scorn is a feeling of disdain towards something worthless, a synonym of contempt."
+     "surface": "A boy rejecting affection provokes disdain.",
+     "walkthrough": "SON without O is SN, which takes in COR. Cor and my are both exclamations of surprise.",
+     "definitionFit": "Scorn is open disdain or derision, a direct synonym for contempt."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "My"
     }

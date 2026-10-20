@@ -168,29 +168,46 @@
      "indicators": [
       {
        "text": "having secured",
-       "note": "To secure something is to hold it fast inside you, so what is named next is kept within these letters."
+       "at": 25,
+       "note": "the shortened detective holds the second letter inside"
       }
      ],
      "parts": [
       {
-       "words": "Detective receiving cut",
-       "gives": "DIC",
-       "note": "a dick is a detective in old crime slang, and the cut takes its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "receiving cut",
+         "at": 10,
+         "note": "the detective word is cut short, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Detective",
+         "at": 0,
+         "gives": "DICK",
+         "note": "a dick is slang for a detective"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       },
       {
        "words": "second",
-       "gives": "S",
-       "note": "s = second, the letter written after a count of them"
+       "at": 40,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A detective on the take, pocketing his share after coming second in something.",
-     "walkthrough": "'Dick' for a detective is Chandler-era slang and still crossword currency. 'Cut' is the shortening here rather than a share of the money the surface suggests.",
-     "definitionFit": "A disc is the round object data is written on to — a CD, or the platter spinning inside a hard drive."
+     "surface": "A detective is wounded but still holds onto a crucial piece of evidence.",
+     "walkthrough": "'Receiving cut' sounds like the detective is wounded; it means the word loses its tail. Dick is old American slang for a private eye.",
+     "definitionFit": "A disc, such as a CD or hard disk platter, is a medium for storing computer data."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cut"
     }
@@ -576,43 +593,47 @@
       {
        "text": "interrupts",
        "at": 15,
-       "note": "to interrupt is to break into, so the letters for one go inside the band's name, each at its own break"
+       "note": "the letters for one break into the band's name, splitting it"
       }
      ],
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 4,
+         "note": "the one letter breaks into the band's name more than once, here a second time"
+        }
+       ],
        "parts": [
         {
          "words": "Australian band",
          "at": 26,
          "gives": "ACDC",
-         "note": "AC/DC is the famous Australian hard-rock band"
+         "note": "AC/DC is an Australian hard rock band"
         },
         {
          "words": "One",
          "at": 0,
          "gives": "I",
-         "note": "I is the Roman numeral for one"
+         "note": "one is the Roman numeral I"
         }
        ]
       },
       {
-       "words": "repeatedly",
-       "at": 4,
-       "gives": "I",
-       "note": "repeatedly supplies the one a second time, another I"
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps barging in on a rock band's gig, provoking a sharp reaction.",
-     "walkthrough": "I 'interrupts' ACDC once, making ACDIC, and 'repeatedly' adds a second I after the first C.",
-     "definitionFit": "An acidic substance produces a sour, sharp taste on the tongue; the question mark marks the loose descriptive definition."
+     "surface": "Someone keeps cutting in on an Australian rock group and gets a curt reply.",
+     "walkthrough": "The definition is playful, hence the question mark: something acid produces a sharp, stinging reaction, on the tongue or in conversation.",
+     "definitionFit": "Acidic substances taste sour and sting, and an acidic remark is cutting, so both provoke a tart reaction."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "band"
     }
    }
@@ -694,53 +715,69 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
        "text": "after",
-       "note": "What comes after something stands behind it, so in an across entry the scoundrel's letters follow the ones he is put after."
-      },
-      {
-       "text": "a lot of",
-       "note": "A lot of a thing is most of it and not all, so the word turns up without its final letter."
-      },
-      {
-       "text": "returned",
-       "note": "Something returned comes back the way it went, so those letters are read from the end."
+       "at": 11,
+       "note": "says the scoundrel piece follows the reversed piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "at": 39,
+         "note": "the shortened comedy word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "in charge",
-         "gives": "CI",
-         "note": "i/c is in charge, as in the officer i/c stores"
-        },
-        {
-         "words": "Scoundrel",
-         "gives": "TAR",
-         "note": "a rat is a scoundrel, the sort who betrays his friends"
-        },
-        {
-         "words": "funny stuff",
-         "gives": "COMED",
-         "note": "funny stuff is COMEDY, most of which is COMED, written back to front"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "a lot of",
+           "at": 17,
+           "note": "most of the word, so the last letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "funny stuff",
+           "at": 26,
+           "gives": "COMEDY",
+           "note": "comedy is funny material"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Scoundrel",
+       "at": 0,
+       "gives": "RAT",
+       "note": "a rat is a scoundrel"
+      },
+      {
+       "words": "in charge",
+       "at": 48,
+       "gives": "IC"
       }
      ]
     },
     "explanation": {
-     "surface": "A villain back from a comedy turn and now running some kind of government.",
-     "walkthrough": "The comma after 'Scoundrel' is the only sign it belongs behind the rest rather than in front of it. 'In charge' is i/c, two letters off an army noticeboard.",
-     "definitionFit": "Democratic describes whatever belongs to a democracy, which is one sort of government among monarchies and dictatorships."
+     "surface": "A rogue, after much comedy, comes back to run a government.",
+     "definitionFit": "Democratic describes a system of government in which the people elect their rulers."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "returned"
+     "misdirectedWord": "Scoundrel"
     }
    }
   },
@@ -994,59 +1031,65 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "off",
-       "note": "A day off is a day taken out of the week, so the letter named before it goes missing."
-      }
-     ],
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "dodging",
-         "note": "To dodge a thing is to keep clear of it altogether, so that letter never appears."
+         "text": "off",
+         "at": 20,
+         "note": "the time letter goes off, away from the visitor word"
         }
        ],
        "parts": [
         {
          "words": "Visitor",
+         "at": 0,
          "gives": "GUEST",
          "note": "a guest is a visitor"
         },
         {
          "words": "time",
-         "gives": "T",
-         "note": "t = time, the letter taken off"
+         "at": 15,
+         "gives": "T"
         }
        ]
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "dodging",
+         "at": 32,
+         "note": "she's avoids the husband letter, so it is removed"
+        }
+       ],
        "parts": [
         {
          "words": "she's",
-         "note": "she's, the two words run together"
+         "at": 26,
+         "gives": "SHES",
+         "note": "the word she's, taken as written without the apostrophe"
         },
         {
-         "words": "husband",
+         "words": "husband's",
+         "at": 40,
          "gives": "H",
-         "note": "h = husband, as on a form"
+         "note": "H is the abbreviation for husband"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A visitor with an afternoon free, keeping out of the husband's way.",
-     "walkthrough": "Both halves lose one letter to a standard abbreviation, t for time and h for husband, and spotting the second is the work. The dash is punctuation, not instruction.",
-     "definitionFit": "A guess is a suggestion put forward without certainty, which is why the question mark softens the definition."
+     "surface": "A visitor takes time off while a woman avoids her husband's proposals.",
+     "walkthrough": "GUEST minus T is GUES; SHE'S minus H is SES.",
+     "definitionFit": "Guesses are tentative suggestions or estimates offered without certainty."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "off"
+     "misdirectedWord": "Visitor"
     }
    }
   },
