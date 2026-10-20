@@ -43,8 +43,11 @@ def plan(ledger, now):
            timeout=30, every=3600),
     ]
 PY
-# This host's own load must not gate the ticks under test.
-export CT_LOAD_PER_CORE=1e9 CT_MEM_FLOOR=1 CT_BURN_STATE="$tmp/no-burn"
+# This host's own load must not gate the ticks under test: a CI shard runs
+# smoke tests beside this one and can leave under a unit's 600 MB free.
+printf 'MemAvailable:   67108864 kB\n' >"$tmp/meminfo"
+printf 'some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n' >"$tmp/psi"
+export CT_LOAD_PER_CORE=1e9 CT_MEM_FLOOR=1 CT_BURN_STATE="$tmp/no-burn" CT_MEMINFO="$tmp/meminfo" CT_PSI_PATH="$tmp/psi"
 q() { python3 tools/unit_queue.py "$@"; }
 UNIT_MORE="$tmp/more" python3 -c 'import sys; sys.path.insert(0, "tools"); import unit_queue; unit_queue.backlog_left()'
 [ -e "$tmp/more" ] || { echo "FAIL: backlog_left() did not mark \$UNIT_MORE"; exit 1; }
