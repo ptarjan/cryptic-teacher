@@ -737,45 +737,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "assembled",
-       "note": "assembled means put together, so the letters are built into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "middle",
        "indicators": [
         {
          "text": "interior",
-         "note": "the interior is the middle, so only the central letter is kept"
+         "at": 12,
+         "note": "the interior of a word is its middle letter"
         }
        ],
        "parts": [
         {
          "words": "jet's",
+         "at": 6,
          "gives": "JET",
-         "note": "the middle letter of jet"
+         "note": "the word jet, whose middle letter is wanted"
         }
        ]
       },
       {
-       "words": "in the plane",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "assembled",
+         "at": 21,
+         "note": "assembled means put together, so these letters are rearranged into a new whole"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in the plane",
+         "at": 31,
+         "note": "taken as written as fodder"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The cabin of a jumbo jet being built inside an aircraft.",
-     "walkthrough": "'Jumbo jet' looks like one phrase; split it, and Jumbo is the definition.",
-     "definitionFit": "Elephantine means huge, like an elephant, and jumbo is likewise an adjective for something very large."
+     "surface": "The inside of a jumbo jet being put together in the aircraft.",
+     "walkthrough": "'Jumbo jet' reads as one phrase, but Jumbo alone is the definition. E, the middle of JET, comes before the jumble of IN THE PLANE.",
+     "definitionFit": "Elephantine means huge, and jumbo, named after a famous elephant, is an adjective for very large."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Jumbo"
+     "misdirectedWord": "jet's"
     }
    }
   },
@@ -1191,47 +1200,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "REINDEER",
+     "indicators": [
+      {
+       "text": "sounding",
+       "at": 23,
+       "note": "sounding tells us the words are taken as heard aloud"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "REIN",
-       "indicators": [
-        {
-         "text": "sounding",
-         "note": "'sounding' means as heard, so the spoken form is what counts"
-        }
-       ],
-       "parts": [
-        {
-         "words": "pelt",
-         "gives": "RAIN",
-         "note": "to pelt down is to rain heavily"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "DEER",
-       "parts": [
-        {
-         "words": "expensive",
-         "gives": "DEAR",
-         "note": "dear means costly"
-        }
-       ]
+       "words": "pelt, expensive",
+       "at": 7,
+       "gives": "RAINDEAR",
+       "note": "to pelt is to rain hard, and dear means costly: RAIN DEAR"
       }
      ]
     },
     "explanation": {
-     "surface": "An animal skin that sounds costly, like a luxury fur.",
-     "walkthrough": "'Pelt' suggests a hide, matching 'Animal', but it is the verb for heavy rain.",
-     "definitionFit": "A reindeer is an Arctic member of the deer family, so it is a kind of animal."
+     "surface": "An animal's costly skin, sounding as if priced high.",
+     "walkthrough": "'pelt' looks like an animal skin but means pour down: RAIN DEAR spoken sounds like REINDEER.",
+     "definitionFit": "A reindeer is an Arctic deer, an example of an animal."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "pelt"
     }
    }

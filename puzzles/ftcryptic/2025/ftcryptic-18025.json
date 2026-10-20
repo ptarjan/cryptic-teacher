@@ -200,41 +200,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "overlapping",
-       "note": "when two words overlap they share a letter where they meet, so that shared letter is written only once"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "overlapping",
+         "at": 4,
+         "note": "overlapping means the two signs share a letter where they meet, so one copy of it is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "Two",
+         "at": 0,
          "gives": "LIBRA",
-         "note": "the first of the two star signs, the scales"
+         "note": "the first of the two star signs is Libra"
         },
         {
-         "words": "signs",
-         "gives": "ARIES",
-         "note": "the second star sign, the ram"
+         "gives": "A"
         }
        ]
       },
       {
-       "gives": "A"
+       "words": "signs",
+       "at": 16,
+       "gives": "ARIES",
+       "note": "the second star sign is Aries"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone spots two zodiac signs on display at shops that lend things.",
-     "walkthrough": "LIBRA ends with A and ARIES begins with it, so the two signs share that A when overlapped.",
-     "definitionFit": "Public libraries lend books to borrowers, so they are outlets for lending."
+     "surface": "Two signs overlap at the entrance to a shop that lends things.",
+     "walkthrough": "LIBRA ends with A and ARIES begins with it; 'overlapping' lets them share that A.",
+     "definitionFit": "Libraries lend books to members, so they are outlets where lending takes place."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "signs"
     }

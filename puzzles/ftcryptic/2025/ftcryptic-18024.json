@@ -106,7 +106,8 @@
        "indicators": [
         {
          "text": "badly",
-         "note": "letters arranged badly are in the wrong order and must be reordered"
+         "at": 17,
+         "note": "badly means the remaining letters come out in a mangled order"
         }
        ],
        "parts": [
@@ -115,28 +116,15 @@
          "indicators": [
           {
            "text": "Start off",
-           "note": "with its start off, the word loses its first letter"
+           "at": 0,
+           "note": "start off means the first letter of Friday is removed"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Friday",
-             "note": "taken as written, losing its first letter before rearranging"
-            },
-            {
-             "words": "expert's",
-             "gives": "PRO",
-             "note": "a pro is an expert; the 's is 'has'"
-            },
-            {
-             "words": "died",
-             "gives": "D",
-             "note": "D is the abbreviation for died"
-            }
-           ]
+           "words": "Friday",
+           "at": 10,
+           "note": "Friday without its F leaves RIDAY"
           },
           {
            "gives": "F"
@@ -146,25 +134,40 @@
        ]
       },
       {
+       "words": "expert's",
+       "at": 24,
+       "gives": "PRO",
+       "note": "a pro is an expert"
+      },
+      {
+       "words": "died",
+       "at": 33,
+       "gives": "D",
+       "note": "D is the genealogy abbreviation for died"
+      },
+      {
        "op": "anagram",
        "indicators": [
         {
          "text": "knocked",
-         "note": "something knocked about is battered out of shape, so the letters are shuffled"
+         "at": 45,
+         "note": "knocked means battered about, so the letters of cuts are rearranged"
         }
        ],
        "parts": [
         {
          "words": "cuts",
-         "note": "taken as written, then rearranged"
+         "at": 53,
+         "note": "taken as written as fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bad Friday: an expert dies after taking budget cuts to milk and cheese.",
-     "definitionFit": "Dairy products are foods made from milk, such as cheese, butter and yoghurt."
+     "surface": "A dairy-counter tale: a bad start to Friday after an expert's death and some cuts.",
+     "walkthrough": "RIDAY, jumbled, gives DAIRY; then PRO, D and UCTS from the jumbled CUTS.",
+     "definitionFit": "Milk, cheese and similar foods made from milk are examples of dairy products."
     },
     "features": {
      "answerInScene": true,
