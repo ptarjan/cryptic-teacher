@@ -799,67 +799,69 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Strange",
-       "note": "the remaining letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "not working"
+         "text": "Strange",
+         "at": 0,
+         "note": "'Strange' signals that the remaining letters of person come out in an odd order"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "sometimes",
-           "note": "only some of the letters are used, every other one"
+           "text": "not",
+           "at": 16,
+           "note": "'not working' tells us the word for working is removed from person"
           }
          ],
          "parts": [
           {
            "words": "person",
-           "note": "the word itself, before anything is taken away"
+           "at": 8
           },
           {
-           "words": "not working",
+           "words": "working",
+           "at": 20,
            "gives": "ON",
-           "note": "a machine that is working is on; \"not\" says these two letters are taken away, leaving PERS"
-          },
-          {
-           "op": "alternate",
-           "parts": [
-            {
-             "words": "ceases to",
-             "note": "second, fourth, sixth and eighth letters"
-            }
-           ]
+           "note": "on means working, as a machine that is on"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "gives": "ONON"
+         "text": "sometimes",
+         "at": 29,
+         "note": "'sometimes' picks letters now and then, the alternate letters of ceases to"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ceases to",
+         "at": 39
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An odd unemployed person who occasionally gives up drinking.",
-     "walkthrough": "\"Ceases to drink\" reads as giving up alcohol, but the words split: \"ceases to\" is fodder and \"drink\" alone is the definition.",
-     "definitionFit": "An espresso is a strong black coffee, a drink."
+     "surface": "An odd, unemployed person occasionally stops drinking.",
+     "walkthrough": "'(not working)' removes ON from PERSON, leaving PERS to be rearranged as ESPR; 'sometimes' takes every other letter of 'ceases to', giving ESSO.",
+     "definitionFit": "Espresso is strong black coffee forced through ground beans and served in small cups."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ceases"
+     "misdirectedWord": "sometimes"
     }
    }
   },

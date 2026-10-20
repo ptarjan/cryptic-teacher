@@ -1596,30 +1596,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "move",
      "indicators": [
       {
-       "text": "Top and tail",
-       "note": "the first and last letters change ends, rearranging the word"
+       "text": "and reassemble",
+       "at": 19,
+       "note": "'reassemble' says the letters are put back together in a new order, the last one moving to the front"
       }
      ],
      "parts": [
       {
-       "words": "fruit",
-       "gives": "PEAR",
-       "note": "a pear is a fruit"
+       "op": "move",
+       "indicators": [
+        {
+         "text": "Top and tail",
+         "at": 0,
+         "note": "'Top and tail' points at the first and last letters of the fruit, which trade places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruit",
+         "at": 13,
+         "gives": "PEAR",
+         "note": "a pear is a fruit"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Prepare fruit by trimming its ends, then put it together ready for picking.",
-     "walkthrough": "'Top and tail' is a kitchen phrase for trimming both ends, but here those two letters swap places.",
-     "definitionFit": "To reap is to cut and gather a crop, which is to harvest it."
+     "surface": "Kitchen advice for harvest time: trim the fruit and put it back together.",
+     "walkthrough": "Here 'Top and tail' does not mean trim: the first and last letters of PEAR trade places, P going to the end and R to the front.",
+     "definitionFit": "To reap is to cut and gather a crop, which is what harvesting means as a verb."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Top"
+     "misdirectedWord": "tail"
     }
    }
   },

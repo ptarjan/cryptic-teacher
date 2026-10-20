@@ -725,72 +725,60 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "sandwiches",
+       "at": 7,
+       "note": "'sandwiches' says the word for turkey is split to enclose the rest, like bread round a filling"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "interchanged",
-         "note": "read as two parts, the word itself says 'inter' and then 'changed', so those first five letters are rearranged"
-        }
-       ],
+       "words": "Turkey",
+       "at": 0,
+       "gives": "MUG",
+       "note": "a turkey is slang for a fool or dupe, and so is a mug"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Turkey",
-         "gives": "MU",
-         "note": "first part of mug, as a turkey is a fool"
-        },
-        {
-         "op": "container",
+         "op": "first",
          "indicators": [
           {
-           "text": "sandwiches",
-           "note": "a sandwich's bread wraps round a filling, so the turkey word goes either side"
+           "text": "starter of",
+           "at": 36,
+           "note": "the starter of a word is its first letter, here of tofu"
           }
          ],
          "parts": [
           {
-           "words": "interchanged",
-           "gives": "TERIN",
-           "note": "the 'inter' at the front of the word, rearranged"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "starter of",
-             "note": "a starter comes first, so only the opening letter is wanted"
-            }
-           ],
-           "parts": [
-            {
-             "words": "tofu",
-             "note": "first letter of tofu"
-            }
-           ]
+           "words": "tofu",
+           "at": 47
           }
          ]
+        },
+        {
+         "words": "interchanged",
+         "at": 18,
+         "gives": "TERIN",
+         "note": "read as 'inter changed': the letters of inter, rearranged"
         }
        ]
-      },
-      {
-       "words": "Turkey",
-       "gives": "G",
-       "note": "the end of mug"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone grumbling quietly because their turkey sandwich was swapped for a tofu one.",
-     "walkthrough": "Paul splits 'interchanged' into INTER plus 'changed', its own anagram signal. A turkey is a fool or dupe, as is a mug.",
-     "definitionFit": "To mutter is to speak low and indistinctly, typically while grumbling, so muttering is complaining quietly."
+     "surface": "Turkey sandwiches are swapped for tofu ones, and someone grumbles quietly about it.",
+     "walkthrough": "'interchanged' must be split as 'inter changed', the word inter with its letters jumbled. Turkey and mug are both slang for a fool.",
+     "definitionFit": "Muttering is speaking in a low, indistinct voice, often grumbling, so it is complaining quietly."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "interchanged"
+     "misdirectedWord": "Turkey"
     }
    }
   },
