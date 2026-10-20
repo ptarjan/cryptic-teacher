@@ -1238,34 +1238,30 @@
      "indicators": [
       {
        "text": "infiltrating",
-       "note": "infiltrating means getting inside, so these letters go within the next word"
+       "at": 24,
+       "note": "infiltrating means getting inside, so the shortened team goes within the group"
       }
      ],
      "parts": [
+      {
+       "words": "group",
+       "at": 37,
+       "gives": "SET",
+       "note": "a set is a group of things"
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "briefly",
-         "note": "briefly means cut short, so the last letter of the word is dropped"
+         "at": 16,
+         "note": "briefly means cut short, so the last letter of crew is dropped"
         }
        ],
        "parts": [
         {
-         "words": "group",
-         "gives": "SECT",
-         "note": "a sect is a religious or political group"
-        },
-        {
-         "gives": "C"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
          "words": "team",
+         "at": 11,
          "gives": "CREW",
          "note": "a crew is a team of workers"
         },
@@ -1277,12 +1273,14 @@
      ]
     },
     "explanation": {
-     "surface": "A squad of spies working undercover to infiltrate a cell.",
-     "definitionFit": "Undercover operations are carried out in secret, hidden from those being watched."
+     "surface": "A small undercover team gets inside an organisation as spies.",
+     "walkthrough": "'Undercover' looks like it describes the team of spies, but it is the definition.",
+     "definitionFit": "Something undercover is done covertly, hidden from others, which is what secret means."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "team"
     }
    }
   },

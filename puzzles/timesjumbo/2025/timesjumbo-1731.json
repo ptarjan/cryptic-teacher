@@ -979,20 +979,39 @@
      "parts": [
       {
        "words": "California",
+       "at": 0,
        "gives": "CA",
-       "note": "CA is the US state abbreviation"
+       "note": "CA is the postal abbreviation for California"
       },
       {
-       "words": "sailor missing at",
-       "gives": "MELOT",
-       "note": "a matelot is a sailor, with AT removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 18,
+         "note": "missing means lacking, so the word at is removed from the sailor"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sailor",
+         "at": 11,
+         "gives": "MATELOT",
+         "note": "matelot is British slang for a sailor"
+        },
+        {
+         "words": "at",
+         "at": 26,
+         "gives": "AT"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Californian sailor fails to turn up at Arthur's Seat, the hill above Edinburgh.",
-     "walkthrough": "Arthur's Seat is an Edinburgh hill, so the question mark flags a pun: Camelot was King Arthur's seat of court. Matelot is British slang for sailor.",
-     "definitionFit": "Camelot was the legendary castle and court from which King Arthur ruled."
+     "surface": "A Californian sailor fails to turn up at a famous Edinburgh hill.",
+     "walkthrough": "Arthur's Seat is a hill in Edinburgh, but here it means King Arthur's court.",
+     "definitionFit": "Camelot was the legendary castle where King Arthur held his court, his seat of power."
     },
     "features": {
      "answerInScene": false,
@@ -1075,44 +1094,47 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "overturning"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "air conditioning",
+       "at": 10,
+       "gives": "AC"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "overturning",
+         "at": 32,
+         "note": "overturning flips the geek word so it reads backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "shelf",
-         "gives": "EGDEL",
-         "note": "a ledge is a shelf"
-        },
-        {
          "words": "geek",
+         "at": 27,
          "gives": "WONK",
-         "note": "a wonk is a geek, reversed"
-        },
-        {
-         "words": "air conditioning",
-         "gives": "CA",
-         "note": "AC = air conditioning"
+         "note": "a wonk is a studious geek"
         }
        ]
+      },
+      {
+       "words": "shelf",
+       "at": 44,
+       "gives": "LEDGE",
+       "note": "a ledge is a narrow shelf"
       }
      ]
     },
     "explanation": {
-     "surface": "A nerd tips over a shelf while fixing the air conditioning.",
-     "walkthrough": "A wonk is a studious geek, a word more common in American English (a policy wonk).",
-     "definitionFit": "A plain synonym in the sense of admitting or accepting, as in recognising someone's rights."
+     "surface": "A nerd flips an air conditioner off a shelf and is noticed.",
+     "definitionFit": "To acknowledge someone is to recognise or accept their presence or status."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "overturning"
+     "misdirectedWord": "geek"
     }
    }
   },
@@ -1429,20 +1451,49 @@
      "parts": [
       {
        "words": "old",
-       "gives": "O",
-       "note": "o = old"
+       "at": 9,
+       "gives": "O"
       },
       {
-       "words": "sponges perhaps abandoned by front of loo",
-       "gives": "CEANS",
-       "note": "sponges = cleans, without L, the first letter of loo"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoned by",
+         "at": 29,
+         "note": "abandoned by means left without, so the loo's first letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sponges perhaps",
+         "at": 13,
+         "gives": "CLEANS",
+         "note": "to sponge is one way something cleans"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "front of",
+           "at": 42,
+           "note": "front of picks out the first letter of loo"
+          }
+         ],
+         "parts": [
+          {
+           "words": "loo",
+           "at": 51
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Heaps of ancient bath sponges left behind by the toilet.",
-     "walkthrough": "'Sponges' reads as a plural noun; it is a verb, cleans. 'Loads of' is the definition with its link: oceans of time.",
-     "definitionFit": "Oceans, informally, means loads, as in oceans of room."
+     "surface": "Old sponges are left behind in a toilet.",
+     "walkthrough": "'Loads' looks like a verb, but oceans of something means loads of it.",
+     "definitionFit": "Oceans of something is an informal idiom for a vast quantity, like loads."
     },
     "features": {
      "answerInScene": false,
@@ -1520,43 +1571,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "upcoming",
-       "note": "in a down answer CUTS reads upwards"
-      },
-      {
-       "text": "supports"
+       "text": "supports",
+       "at": 16,
+       "note": "supports, in a down clue, puts the company beneath the other piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upcoming",
+         "at": 25,
+         "note": "upcoming, in a down clue, means the reductions word reads upwards, from bottom to top"
+        }
+       ],
        "parts": [
         {
-         "words": "company",
-         "gives": "OC",
-         "note": "Co. = company"
-        },
-        {
          "words": "reductions",
+         "at": 34,
          "gives": "CUTS",
-         "note": "cuts are reductions, reversed"
+         "note": "cuts are reductions"
         }
        ]
+      },
+      {
+       "words": "company",
+       "at": 8,
+       "gives": "CO"
       }
      ]
     },
     "explanation": {
-     "surface": "A plastering firm backs the spending cuts that are on the way.",
-     "walkthrough": "'Upcoming' looks like 'imminent'; in a down clue it means coming up the column.",
-     "definitionFit": "Stucco is a plaster used to coat walls."
+     "surface": "A firm backs future spending cuts.",
+     "definitionFit": "Stucco is a fine plaster used to coat walls or make mouldings."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "upcoming"
+     "misdirectedWord": "Plaster"
     }
    }
   },
@@ -1945,31 +2001,49 @@
      "indicators": [
       {
        "text": "after",
-       "note": "what comes after something follows it in time"
+       "at": 41,
+       "note": "after places the shortened artist behind the beginning"
       }
      ],
      "parts": [
       {
        "words": "dawn",
+       "at": 47,
        "gives": "ADVENT",
-       "note": "an advent is an arrival or dawn of something"
+       "note": "advent is an arrival or beginning, a dawn"
       },
       {
-       "words": "artist failing to get going",
-       "gives": "URER",
-       "note": "Albrecht Dürer, the German artist, minus his first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "failing to get going",
+         "at": 20,
+         "note": "failing to get going means the artist's name loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "artist",
+         "at": 13,
+         "gives": "DURER",
+         "note": "Albrecht Dürer was a German Renaissance artist"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A daring type of painter who can't start work after daybreak.",
-     "walkthrough": "'Bold sort of artist' seems one phrase; the definition stops at 'sort', and 'of' is the link.",
-     "definitionFit": "An adventurer is a bold person who seeks risky experiences."
+     "surface": "A daring type of painter never gets started after daybreak.",
+     "walkthrough": "'Sort of artist' reads as one phrase, but 'Bold sort' is the definition and the artist is Dürer.",
+     "definitionFit": "An adventurer is a daring person who seeks risky experiences."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "dawn"
+     "misdirectedWord": "sort"
     }
    }
   },
@@ -3221,30 +3295,26 @@
      "indicators": [
       {
        "text": "Some",
-       "note": "only part of the words is used"
-      },
-      {
-       "text": "preserves",
-       "note": "the phrase keeps the answer inside it"
+       "at": 0,
+       "note": "some means a part of the following words gives the answer"
       }
      ],
      "parts": [
       {
        "words": "money preserves",
-       "gives": "YPRES",
-       "note": "the letters run from the last letter of money into the first four of preserves"
+       "at": 5
       }
      ]
     },
     "explanation": {
-     "surface": "A little cash protects a historic battlefield.",
-     "walkthrough": "'Preserves' does double duty, lending letters and signalling that the answer is kept inside.",
-     "definitionFit": "Ypres in Belgium was the site of several First World War battles."
+     "surface": "A fund keeps the place of a battle intact.",
+     "walkthrough": "Ypres in Belgium saw major First World War battles.",
+     "definitionFit": "Ypres, in Flanders, was the scene of several bloody battles in the First World War."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "preserves"
+     "misdirectedWord": "Some"
     }
    }
   },
@@ -3336,47 +3406,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "westbound",
-       "note": "in an across answer RUE reads right to left"
-      },
-      {
-       "text": "by"
+       "text": "by",
+       "at": 18,
+       "note": "by means beside, so the reversed road follows the mat"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 4
+      },
+      {
+       "words": "floor cover",
+       "at": 6,
+       "gives": "MAT",
+       "note": "a mat is a floor covering"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "westbound",
+         "at": 21,
+         "note": "westbound, in an across clue, means the road word runs right to left"
+        }
+       ],
        "parts": [
         {
          "words": "French road",
+         "at": 31,
          "gives": "RUE",
-         "note": "rue is French for street, reversed"
-        },
-        {
-         "words": "floor cover",
-         "gives": "TAM",
-         "note": "a mat covers a floor"
-        },
-        {
-         "words": "a",
-         "gives": "A",
-         "note": "taken as it is"
+         "note": "rue is French for a street or road"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions to put down a rug beside a French road heading west.",
-     "walkthrough": "'Lay' reads as a verb, to put down; it is an adjective meaning non-professional, as in a lay preacher.",
-     "definitionFit": "Lay and amateur both describe someone without professional training."
+     "surface": "Put a rug down next to a French road heading west.",
+     "walkthrough": "'Lay' looks like a verb, but it is the adjective meaning non-professional.",
+     "definitionFit": "Lay means non-professional or non-expert, as an amateur is."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Lay"
     }
    }

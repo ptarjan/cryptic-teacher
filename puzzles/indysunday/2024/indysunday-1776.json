@@ -578,28 +578,20 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "move",
      "indicators": [
       {
        "text": "is demoted",
        "at": 37,
-       "note": "to be demoted is to be moved down a rank; in a down clue the letter slides lower in the word"
+       "note": "in a down answer, being demoted sends the letter lower, to the end of the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "parody",
-         "at": 8,
-         "gives": "SENDUP",
-         "note": "a send-up is a parody, a mocking imitation"
-        },
-        {
-         "gives": "S"
-        }
-       ]
+       "words": "parody",
+       "at": 8,
+       "gives": "SENDUP",
+       "note": "a send-up is a parody or spoof"
       },
       {
        "op": "last",
@@ -607,23 +599,22 @@
         {
          "text": "last of",
          "at": 19,
-         "note": "only the final letter of employees is used"
+         "note": "last of picks out the final letter of employees"
         }
        ],
        "parts": [
         {
          "words": "employees",
-         "at": 27,
-         "note": "the final letter of the word employees"
+         "at": 27
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A satire results when the lowest-ranked worker gets pushed further down.",
-     "walkthrough": "'is demoted' works because this is a down clue: the letter that heads the parody word slips lower in the column, landing after its first three letters.",
-     "definitionFit": "To end up as something is to become it eventually, as in 'he ends up a teacher'."
+     "surface": "A satire is staged as the most junior worker is moved down a grade.",
+     "walkthrough": "The S at the top of SENDUP drops down beneath the rest.",
+     "definitionFit": "To end up is to finish in some state eventually, which is to become it."
     },
     "features": {
      "answerInScene": false,
@@ -1217,14 +1208,7 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Cook",
-       "at": 0,
-       "note": "to cook something is to alter or fiddle it, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "first",
@@ -1232,35 +1216,55 @@
         {
          "text": "starts to",
          "at": 5,
-         "note": "the starts are the first letters of appreciate and making"
+         "note": "starts to signals taking the opening letter of each of the two words appreciate and making"
         }
        ],
        "parts": [
         {
-         "words": "appreciate making",
-         "at": 15,
-         "note": "their first letters are A and M"
+         "words": "appreciate",
+         "at": 15
         }
        ]
       },
       {
-       "words": "a",
-       "at": 33
-      },
-      {
-       "words": "nice",
-       "at": 35
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Cook",
+         "at": 0,
+         "note": "to cook figures is to falsify them, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "making",
+           "at": 26
+          }
+         ]
+        },
+        {
+         "words": "a",
+         "at": 33
+        },
+        {
+         "words": "nice",
+         "at": 35
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cook begins to enjoy making a tasty pasty.",
-     "walkthrough": "'pasty' looks like the baked pie of the surface, but it is the adjective for pale.",
-     "definitionFit": "Pasty as an adjective means pale and unhealthy-looking, which is how an anaemic person appears."
+     "surface": "A chef learns to appreciate making a tasty pasty.",
+     "walkthrough": "'Pasty' looks like the Cornish pie a cook might make, but it is the adjective meaning pale.",
+     "definitionFit": "Someone anaemic has a pale, sickly complexion from lack of blood, as a pasty face does."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "pasty"
     }
