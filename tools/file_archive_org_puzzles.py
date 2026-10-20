@@ -1725,19 +1725,34 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None,
     if right:
         box = (gx1 + 5, max(0, gy0 - RIGHT_RISE), right[0], min(img.height, right[1]))
     cached = read_cache(cache_path)
+    others = []
     if cached is not None:
         if isinstance(cached, list):
             return [[tuple(w)] for w in cached]
-        if tuple(cached["box"]) == box:
-            return [[tuple(w)] for w in cached["words"]]
+        try:
+            if tuple(cached["box"]) == box:
+                return [[tuple(w)] for w in cached["words"]]
+            # A page read from several windows (read_page's alts) keeps each
+            # window's reading: one box per file made every re-run read the
+            # windows again, each overwriting the last.
+            for o in cached.get("more", ()):
+                if tuple(o["box"]) == box:
+                    return [[tuple(w)] for w in o["words"]]
+            others = [{"box": cached["box"], "words": cached["words"]}, *cached.get("more", ())][:MORE_WINDOWS]
+        except (KeyError, TypeError):
+            others = []  # an unreadable cache is a miss
     crop = img.crop(box)
     if lead:
         # The grid inside the crop is blanked: its numbers are no clue's.
         crop.paste("white", (gx0 - box[0], gy0 - box[1], gx1 - box[0], gy1 - box[1]))
     words = [(x0 + box[0], y0 + box[1], x1 + box[0], y1 + box[1], t)
              for x0, y0, x1, y1, t in read_words(crop, which)]
-    write_cache(cache_path, {"box": box, "words": words})
+    write_cache(cache_path, {"box": box, "words": words, **({"more": others} if others else {})})
     return [[w] for w in words]
+
+
+#: How many other windows' readings a reader's cache file keeps besides the last.
+MORE_WINDOWS = 8
 
 
 def glued_a(line):
