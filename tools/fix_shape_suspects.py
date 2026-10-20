@@ -1937,6 +1937,117 @@ def r_ind_in_leaf(node, parent, ctx):
     return None
 
 
+def _tokens(words):
+    return [(m.start(), m.end(), m.group().lower()) for m in re.finditer(r"[A-Za-z0-9']+", words)]
+
+
+def r_own_ind_leaf(node, parent, ctx):
+    """selectWordInLeaf / ownIndInLeaf: a leaf under an op opens (any op but an anagram) or ends (any op)
+    with the op's own indicator words and holds more ("bit of breakfast" under first<bit of>, "French way
+    back" under rev<back>): the leaf keeps only the words after (before) them. A literal leaf stays
+    literal; a synonym leaf keeps its filed letters. Kept only when the whole tree still evaluates to
+    the answer (the validator gate in run_rule then judges the rest)."""
+    if not leaf(node) or not node.get("words") or parent is None or "op" not in parent or parent["op"] == "anagram" \
+            or parent.get("unchecked") or not ctx.get("answer"):
+        return None
+    toks = _tokens(node["words"])
+    for ind in parent.get("indicators") or []:
+        iw = [t for _, _, t in _tokens(str(ind.get("text") or ""))]
+        if not iw or len(toks) <= len(iw):
+            continue
+        at_start = [t for _, _, t in toks[:len(iw)]] == iw
+        at_end = [t for _, _, t in toks[-len(iw):]] == iw
+        if at_start and parent["op"] not in W.SELECT:
+            cut = (toks[len(iw)][0], len(node["words"]))
+        elif at_start:
+            cut = (toks[len(iw)][0], len(node["words"]))
+        elif at_end:
+            cut = (0, toks[-len(iw) - 1][1])
+        else:
+            continue
+        words = node["words"][cut[0]:cut[1]]
+        text = words.strip(" ,;:.!?—–-\"“”‘(){}[]")
+        if not W.letters(text):
+            continue
+        lead = len(words) - len(words.lstrip(" ,;:.!?—–-\"“”‘(){}[]"))
+        literal = not node.get("gives") or W.letters(node["gives"]) == W.letters(node["words"])
+        new = {k: v for k, v in node.items() if k not in ("gives", "unchecked")} if literal else dict(node)
+        new["words"] = text
+        if node.get("at") is not None:
+            new["at"] = node["at"] + cut[0] + lead
+        if _eval_swapped(node, parent, new, ctx):
+            return new
+    return None
+
+
+def r_trunc_leaf(node, parent, ctx):
+    """truncInLeaf: a leaf holds a truncation word at its edge (mostly, almost, ...) and gives its word one
+    letter short. The whole word is known (the leaf's own clue words, or a one-off capitalised word of the
+    right length in its note that the filed letters cut): the leaf becomes del<mostly>([words]WHOLE, C).
+    A synonym whose whole word is nowhere in the leaf stays for the model."""
+    if not leaf(node) or not node.get("words") or not node.get("gives") or node.get("unchecked") \
+            or not ctx.get("answer"):
+        return None
+    toks = _tokens(node["words"])
+    low = " ".join(t for _, _, t in toks)
+    ind = None
+    for phrase in sorted(V._TRUNC_PHRASES, key=len, reverse=True):
+        for a, b in ((0, len(phrase.split())), (len(toks) - len(phrase.split()), len(toks))):
+            if len(toks) > b - a and " ".join(t for _, _, t in toks[a:b]) == phrase:
+                ind = (a, b)
+        if ind:
+            break
+    if not ind:
+        for a, b in ((0, 1), (len(toks) - 1, len(toks))):
+            if len(toks) > 1 and toks[a][2] in V._TRUNC_WORDS:
+                ind = (a, b)
+                break
+    if not ind:
+        return None
+    a, b = ind
+    ia, ib = toks[a][0], toks[b - 1][1]
+    rest = (node["words"][ib:] if a == 0 else node["words"][:ia])
+    rest_tok = [t for _, _, t in _tokens(rest)]
+    if not rest_tok or (rest_tok[0] if a == 0 else rest_tok[-1]) in ("with", "the", "end", "its", "his", "her", "a", "an", "of"):
+        return None   # "fritter with the end | cut off": the cut phrase is wider than the matched words
+    x = rest.strip(" ,;:.!?—–-\"“”‘(){}[]")
+    g = W.letters(node["gives"])
+    cands = set()
+    lit = W.letters(x)
+    if len(lit) == len(g) + 1:
+        cands.add(lit)
+    for m in re.findall(r"[A-Z][A-Za-z]+", str(node.get("note") or "")):
+        if len(m) == len(g) + 1:
+            cands.add(m.upper())
+    kinds = {}
+    for c in cands:
+        if c.upper().startswith(g.upper()):
+            kinds[c.upper()] = c.upper()[len(g):]
+        elif c.upper().endswith(g.upper()):
+            kinds[c.upper()] = c.upper()[0]
+    if len(kinds) != 1:
+        return None
+    whole, gone = next(iter(kinds.items()))
+    xlead = len(rest) - len(rest.lstrip(" ,;:.!?—–-\"“”‘(){}[]"))
+    base = node.get("at")
+    xat = None if base is None else base + (ib if a == 0 else 0) + xlead
+    note = str(node.get("note") or "")
+    keep_note = note and not V._CUT_NOTE.search(note) and not V._LETTER_REMOVED.search(note) and not V._BRIEFLY_CUT.search(note)
+    held = {"words": x, "gives": whole}
+    if xat is not None:
+        held["at"] = xat
+    held["note"] = note if keep_note else (f"{whole} is the word '{x}' itself" if lit == whole
+                                           else f"{whole} is what '{x}' stands for")
+    itext = node["words"][ia:ib]
+    ind_node = {"text": itext, "note": f"'{itext}' cuts a letter off"}
+    if base is not None:
+        ind_node["at"] = base + ia
+    new = {"op": "deletion", "indicators": [ind_node], "parts": [held, {"gives": gone}]}
+    if _eval_swapped(node, parent, new, ctx):
+        return new
+    return None
+
+
 def r_link_in_leaf(node, parent, ctx):
     """linkInLeaf (r25): a leaf opening or closing with a link word (in, of, with, by ...) whose other
     words alone give its letters ([in Southwest]SW): the leaf keeps the other words. Kept only when
@@ -2694,7 +2805,8 @@ RULE_REPAIRS = {"scrambledLeaf": r_scrambled_swap, "anaCharade": lambda n, p, c:
                 "misplacedIndicator": r_misplaced_indicator,
                 "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside, "deletionScopeAnswer": r_deletion_inside,
                 "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c),
-                "del_single": r_del_single, "indInLeaf": r_ind_in_leaf, "ind_in_leaf": r_ind_in_leaf}
+                "del_single": r_del_single, "indInLeaf": r_ind_in_leaf, "ind_in_leaf": r_ind_in_leaf,
+                "selectWordInLeaf": r_own_ind_leaf, "ownIndInLeaf": r_own_ind_leaf, "truncInLeaf": r_trunc_leaf}
 
 
 def note_deletions(tree):
@@ -3250,6 +3362,20 @@ def run_rule(rule, apply, n_examples, seed, limit, jobs, ids=None):
         print(f"  after:  {x['after']}")
 
 
+def commit_batches(rule, per=500):
+    """--commit: git-commit the puzzle files this run changed, `per` puzzles to a commit."""
+    import subprocess
+    root = Path(__file__).resolve().parent.parent
+    files = subprocess.run(["git", "diff", "--name-only", "--", "puzzles"], cwd=root, capture_output=True,
+                           text=True, check=True).stdout.split()
+    for i in range(0, len(files), per):
+        chunk = files[i:i + per]
+        subprocess.run(["git", "add", "--", *chunk], cwd=root, check=True)
+        subprocess.run(["git", "commit", "-q", "-m", f"Repair {rule}: {len(chunk)} puzzles mechanically\n\n"
+                        "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"], cwd=root, check=True)
+    print(f"committed {len(files)} puzzles in {-(-len(files) // per)} commits")
+
+
 def main():
     ap =argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--apply", action="store_true", help="write the repaired puzzles (see How to apply)")
@@ -3263,6 +3389,7 @@ def main():
                     help="repair the queued rows of this validator rule instead of the suspects "
                          "(tools/data/shape_reannotate.json is not touched: run prune_shape_queue.py --write after)")
     ap.add_argument("--ids", help="with --rule delSelection: file of '<puzzle>#<clue>' ids to try (e.g. 5d, 30a)")
+    ap.add_argument("--commit", action="store_true", help="with --rule --apply: commit the changed puzzles, 500 to a commit")
     ap.add_argument("--container-inside", action="store_true",
                     help="repair only the queued containerInside rows (--limit N samples; --apply writes puzzles)")
     a = ap.parse_args()
@@ -3271,6 +3398,8 @@ def main():
         return
     if a.rule:
         run_rule(a.rule, a.apply, a.examples, a.seed, a.limit, a.jobs, a.ids)
+        if a.commit:
+            commit_batches(a.rule)
         return
     run(a.apply, a.examples, a.seed, a.limit, a.jobs, a.ledger, a.only)
 
