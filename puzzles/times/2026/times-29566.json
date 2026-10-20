@@ -1127,20 +1127,37 @@
      "parts": [
       {
        "words": "Monkey",
+       "at": 0,
        "gives": "IMP",
-       "note": "a little monkey = an imp, a mischievous child"
+       "note": "an imp, like a little monkey, is a mischievous child"
       },
       {
-       "words": "unfortunately killing last",
-       "gives": "ALA",
-       "note": "ALAS without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "killing last",
+         "at": 21,
+         "note": "killing last means the final letter of the word for unfortunately is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unfortunately",
+         "at": 7,
+         "gives": "ALAS",
+         "note": "alas is an exclamation meaning unfortunately"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A monkey, sadly, kills an antelope.",
-     "walkthrough": "'Monkey' looks like the animal; it is a naughty child, as in 'you little monkey'.",
-     "definitionFit": "A definition by example: a graceful African antelope noted for its leaps."
+     "surface": "A monkey has sadly killed a deer-like animal.",
+     "walkthrough": "'Monkey' is a playful child, IMP; then ALAS without its last letter.",
+     "definitionFit": "The impala is a graceful African antelope known for its leaping."
     },
     "features": {
      "answerInScene": true,
@@ -1308,30 +1325,44 @@
      "indicators": [
       {
        "text": "surrounding",
-       "note": "the pub goes round the next part"
-      },
-      {
-       "text": "out of",
-       "note": "the letters of place are removed"
+       "at": 15,
+       "note": "surrounding means the word for pub goes around the rest"
       }
      ],
      "parts": [
       {
        "words": "pub",
+       "at": 11,
        "gives": "BAR",
-       "note": "a bar = a pub"
+       "note": "a bar is a pub"
       },
       {
-       "words": "plaza out of place",
-       "gives": "AZA",
-       "note": "PLAZA without PL, the abbreviation for place; goes inside B…AR"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out of",
+         "at": 33,
+         "note": "out of means the letters for place leave the word plaza"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plaza",
+         "at": 27
+        },
+        {
+         "words": "place",
+         "at": 40,
+         "gives": "PL"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A market and a pub around a square that seems out of place.",
-     "walkthrough": "'Out of place' looks like one idiom; it means take PL, short for place (as in street names), out of PLAZA.",
-     "definitionFit": "A plain synonym, especially for a Middle Eastern covered market."
+     "surface": "A market and pub stand around a square that looks out of place.",
+     "walkthrough": "'out of place' reads as one phrase meaning misplaced, but 'place' is its usual abbreviation and 'out of' removes it.",
+     "definitionFit": "A bazaar is a market, originally an oriental marketplace of stalls and shops."
     },
     "features": {
      "answerInScene": true,

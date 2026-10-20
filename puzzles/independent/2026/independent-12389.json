@@ -254,31 +254,50 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "Don't start",
-       "note": "An instruction not to start means the word hands itself over without the letter it opens on."
-      },
-      {
        "text": "after",
-       "note": "After places the docked word behind the letter already laid down, rather than in front of it."
+       "at": 22,
+       "note": "after places the shortened chuckling behind the letter for dead"
       }
      ],
      "parts": [
       {
        "words": "passing of dead",
+       "at": 28,
        "gives": "D",
-       "note": "d is the standard short form for dead or died, and 'passing' is the euphemism carrying it in."
+       "note": "D is the standard abbreviation for dead or died, marking a death on family trees"
       },
       {
-       "words": "chuckling",
-       "gives": "AUGHTER",
-       "note": "Chuckling is laughter, handed over minus the letter it begins with."
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Don't start",
+         "at": 0,
+         "note": "Don't start says the word for chuckling loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chuckling",
+         "at": 12,
+         "gives": "LAUGHTER",
+         "note": "chuckling is laughter"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who cannot keep a straight face at a family funeral.",
-     "walkthrough": "The surface is a bereavement and the definition is the one cold word in it: 'relative' does plain family duty while everything around it mourns.",
-     "definitionFit": "'Relative' is the general word for a member of a family, and a daughter is one of them — the definition names the category, the answer an instance."
+     "surface": "Mourners trying not to giggle after a relative has died.",
+     "walkthrough": "'passing of dead' is a single letter, the genealogists' mark of a death; 'relative' is the definition, not part of the funeral scene.",
+     "definitionFit": "A daughter is a female child, so she is a family relation of her parents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "passing"
     }
    }
   },
@@ -1182,35 +1201,20 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "move",
      "indicators": [
       {
-       "text": "down",
-       "at": 42,
-       "note": "in a down clue, down means the letter is put back lower in the word than where it was"
+       "text": "sent down",
+       "at": 37,
+       "note": "sent down, in a down clue, moves that letter lower in the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "sent",
-         "at": 37,
-         "note": "sent here means sent away from its place, so that letter is lifted out of the word for school monitor"
-        }
-       ],
-       "parts": [
-        {
-         "words": "school monitor",
-         "at": 7,
-         "gives": "PREFECT",
-         "note": "a prefect is a senior pupil given authority over others, a school monitor"
-        },
-        {
-         "gives": "R"
-        }
-       ]
+       "words": "school monitor",
+       "at": 7,
+       "gives": "PREFECT",
+       "note": "a prefect is a senior pupil who helps keep order in a school"
       },
       {
        "op": "first",
@@ -1218,28 +1222,27 @@
         {
          "text": "head",
          "at": 32,
-         "note": "head means the first letter of Roedean's"
+         "note": "head means the first letter of Roedean"
         }
        ],
        "parts": [
         {
          "words": "Roedean's",
          "at": 22,
-         "note": "the word whose first letter is taken; Roedean is an English girls' boarding school"
+         "note": "Roedean is a girls' boarding school in Sussex, England"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prefect at Roedean, a posh English girls' school, is expelled by the headmistress.",
-     "walkthrough": "'Polish' looks like the nationality, but it is the verb. In PREFECT, the R (the head of Roedean's) is 'sent down' two places to give the answer; 'sent down' also means expelled from school.",
-     "definitionFit": "To perfect something is to refine it until it is flawless, which is to polish it."
+     "surface": "A Polish senior pupil at Roedean, the English girls' school, is expelled.",
+     "walkthrough": "In PREFECT the R ('Roedean's head') is 'sent down' a place, giving PERFECT. Polish is the verb, not the nationality.",
+     "definitionFit": "To perfect a skill or piece of writing is to refine it until flawless, which is to polish it."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "Polish"
     }
    }

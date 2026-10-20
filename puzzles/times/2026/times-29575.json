@@ -1255,28 +1255,44 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Speech dropping intro",
-       "gives": "RATION",
-       "note": "ORATION (speech) without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping intro",
+         "at": 7,
+         "note": "dropping its intro tells us the word for speech loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Speech",
+         "at": 0,
+         "gives": "ORATION",
+         "note": "an oration is a formal speech"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "as printed"
+       "at": 23
       },
       {
        "words": "line",
-       "gives": "L",
-       "note": "L = line"
+       "at": 25,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A speaker cuts the opening of a speech and gives a sensible line.",
-     "walkthrough": "'Intro' means the first letter only, so ORATION loses just its O.",
-     "definitionFit": "A plain synonym: a rational being can think logically, which is what being endowed with reason means."
+     "surface": "A talk that skips its introduction and proceeds along one sensible line.",
+     "walkthrough": "ORATION, with 'dropping intro' taking off its first letter O, leaves RATION; then A as written and L for line.",
+     "definitionFit": "A rational being is one possessing the faculty of logical thought, which is what being endowed with reason means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "intro"
     }

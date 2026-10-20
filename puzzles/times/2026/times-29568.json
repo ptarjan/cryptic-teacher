@@ -414,31 +414,48 @@
      "indicators": [
       {
        "text": "claimed by",
-       "note": "the two Ns are taken into the unidentified man's name"
+       "at": 11,
+       "note": "claimed by puts the doubled letter inside the placeholder name"
       }
      ],
      "parts": [
       {
        "words": "unidentified male",
+       "at": 22,
        "gives": "JOHNDOE",
-       "note": "John Doe, the placeholder name for an unknown man"
+       "note": "John Doe is the US legal name for an unidentified man"
       },
       {
-       "words": "Name twice",
-       "gives": "NN",
-       "note": "N for name, twice"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 5,
+         "note": "twice means the letter for name appears two times"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Name",
+         "at": 0,
+         "gives": "N"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An anonymous poet whose name gets claimed by two people.",
-     "walkthrough": "JOHN DO(NN)E. John Doe is the American legal name for an unidentified man.",
-     "definitionFit": "John Donne was a seventeenth-century English metaphysical poet."
+     "surface": "An anonymous man stakes a claim to a name twice over.",
+     "walkthrough": "JOHN DOE is the American placeholder for an unknown man; NN goes inside it.",
+     "definitionFit": "John Donne was the English metaphysical poet and churchman of the early seventeenth century."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Name"
+     "misdirectedWord": "claimed"
     }
    }
   },
