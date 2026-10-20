@@ -71,14 +71,16 @@ def edge_candidates(img, box, nominal, reach=300, limit=3, side="both"):
     return [nominal] + near[:limit]
 
 
-def poor(verdict):
+def poor(verdict, image_ok=False):
     """True when a read_page verdict shows its crop did not hold the clue
     columns: refused as unreadable, no grid-fitting list, or too few of the
-    grid's lights filled."""
+    grid's lights filled. `image_ok`: imageDisagrees (the grid image against
+    the readings, which another clue window rarely changes) alone is not
+    poor, so a VLM pass does not re-ask page after page for it."""
     if verdict.get("refused"):
         return verdict.get("cause") in ("no-reading-parses",)
     lights = verdict.get("lights") or 0
-    if verdict.get("imageDisagrees") or not lights:
+    if (verdict.get("imageDisagrees") and not image_ok) or not lights:
         return True
     return verdict.get("agreed", 0) < FILLED * lights or len(verdict.get("blank") or ()) > BLANK * lights
 

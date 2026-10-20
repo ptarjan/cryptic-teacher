@@ -4100,11 +4100,11 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
         v.pop("_laid", None)
         if vlm.unanswered() != waiting:
             return v, p
-        if not crop_window.poor(v):
+        if not crop_window.poor(v, image_ok=vlm_for is not False):
             v["cropFrom"] = "gutter"
             return v, p
     verdict, puzzle = _read_page(d, found, hit, solutions, vlm_for, None, alts)
-    if not alts or not crop_window.poor(verdict) or vlm.unanswered() != waiting:
+    if not alts or not crop_window.poor(verdict, image_ok=vlm_for is not False) or vlm.unanswered() != waiting:
         verdict.pop("_laid", None)
         return verdict, puzzle
     best = (crop_window.score(verdict, puzzle), verdict, puzzle)
@@ -4124,7 +4124,7 @@ def read_page(d, found, hit, solutions, vlm_for=False, first=None):
             break  # this window's asks are spooled: the read defers; the windows after it wait
         if crop_window.score(v, p) > best[0]:
             best = (crop_window.score(v, p), v, p)
-        if not crop_window.poor(v):
+        if not crop_window.poor(v, image_ok=vlm_for is not False):
             settled = alt
             break
     for v in (verdict, best[1]):
