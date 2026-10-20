@@ -1324,25 +1324,45 @@
      "parts": [
       {
        "words": "king",
+       "at": 9,
        "gives": "K",
-       "note": "K = king, in chess"
+       "note": "K is the chess and card abbreviation for king"
       },
       {
-       "words": "maid abandoned by mother",
-       "gives": "ID",
-       "note": "MAID without MA, a word for mother"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoned by",
+         "at": 23,
+         "note": "the maid is left behind by her mother, so those letters drop out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "maid",
+         "at": 18,
+         "gives": "MAID",
+         "note": "taken as written, before its first two letters go"
+        },
+        {
+         "words": "mother",
+         "at": 36,
+         "gives": "MA",
+         "note": "MA is an informal word for mother"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A child born to a king and a servant, left behind by its mother.",
-     "walkthrough": "The surface is a royal scandal; 'mother' is simply MA, to be removed.",
-     "definitionFit": "Informal synonym: a kid is a young goat, and by extension any youngster."
+     "surface": "A royal child born to the king and a maid, then deserted by its mother.",
+     "walkthrough": "The surface reads as a mother deserting a baby; cryptically it is her letters that leave the maid.",
+     "definitionFit": "A kid is an informal word for a youngster, especially a son or daughter."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "mother"
+     "misdirectedWord": "abandoned"
     }
    }
   },

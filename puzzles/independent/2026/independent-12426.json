@@ -1487,16 +1487,18 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Pilots",
-      "at": 0
+      "text": "Pilots'",
+      "at": 0,
+      "note": "the possessive plural is read as the plain plural noun"
      }
     ],
     "wordplay": {
      "op": "deletion",
      "indicators": [
       {
-       "text": "ignoring",
-       "note": "the leader of a word is the letter at its head, and ignoring it means beginning at the second"
+       "text": "ignoring leader",
+       "at": 20,
+       "note": "the first letter at the front of the word is left out"
       }
      ],
      "parts": [
@@ -1505,32 +1507,38 @@
        "indicators": [
         {
          "text": "not",
-         "note": "'not' cancels whatever follows it, so the letter that word stands for is taken away"
+         "at": 38,
+         "note": "not means the good letter is excluded from the word"
         }
        ],
        "parts": [
         {
          "words": "map readers",
+         "at": 8,
          "gives": "NAVIGATORS",
-         "note": "the ones who read the maps are the navigators"
+         "note": "navigators read maps to guide a journey"
         },
         {
-         "words": "leader",
-         "gives": "N",
-         "note": "the letter leading NAVIGATORS is its N"
+         "words": "good",
+         "at": 42,
+         "gives": "G"
         }
        ]
       },
       {
-       "words": "good",
-       "gives": "G",
-       "note": "G is the standard abbreviation for good"
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The dash does a lot of quiet work: it makes 'not good' read as a judgement on the map readers rather than as a second instruction to drop a letter.",
-     "definitionFit": "An aviator is one who flies an aircraft, the older and grander word for the job, so 'Pilots' is the everyday plural synonym."
+     "surface": "Pilots' navigators skip the first stage and do badly.",
+     "walkthrough": "NAVIGATORS loses its G ('not good') and then its first letter ('ignoring leader').",
+     "definitionFit": "Aviators are people who fly aircraft, the same thing as pilots."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
     }
    }
   },

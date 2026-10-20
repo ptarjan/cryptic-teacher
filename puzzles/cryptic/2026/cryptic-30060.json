@@ -1015,38 +1015,40 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "core part of",
+       "at": 7,
+       "note": "the core is the centre, so the middle two letters of each word are taken"
+      }
+     ],
      "parts": [
       {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "core part of",
-         "note": "A core is what sits at the centre once the outside has gone, so each word here gives up only its centre."
-        }
-       ],
-       "parts": [
-        {
-         "words": "unsafe",
-         "note": "unSAfe: the middle pair, once two letters go from each end"
-        }
-       ]
+       "words": "unsafe",
+       "at": 20,
+       "note": "its middle letters are used"
       },
       {
        "words": "carnal",
-       "gives": "RN",
-       "note": "caRNal is treated the same way, its middle pair being RN"
+       "at": 27,
+       "note": "its middle letters are used"
       },
       {
        "words": "diet",
-       "gives": "IE",
-       "note": "dIEt is shorter but built alike — one letter off each end leaves the middle pair"
+       "at": 34,
+       "note": "its middle letters are used"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface warns you off a risky diet; the answer is the most ordinary lunch there is. Reading 'core' as an instruction rather than description is the whole step.",
-     "definitionFit": "Snack → SARNIE: sarnie is British slang for a sandwich, the shortening northerners use, and a sandwich is the standard light bite."
+     "surface": "A snack lies at the heart of an unhealthy, indulgent diet.",
+     "definitionFit": "Sarnie is British slang for a sandwich, a light snack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carnal"
     }
    }
   },
@@ -1462,19 +1464,42 @@
      "parts": [
       {
        "words": "force",
+       "at": 12,
        "gives": "F",
-       "note": "F is the physicist's symbol for force, as in F = ma"
+       "note": "F is the physics abbreviation for force"
       },
       {
-       "words": "cold war sides abandoned leaders",
-       "gives": "ASTEST",
-       "note": "the two sides in the cold war were East and West; each drops its leading letter, leaving AST and EST"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoned leaders",
+         "at": 38,
+         "note": "the opening letters of both sides are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cold war sides",
+         "at": 23,
+         "gives": "EASTWEST",
+         "note": "the two sides in the Cold War were East and West"
+        },
+        {
+         "gives": "EW"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The whole surface is a history lesson, and nothing in it looks like an instruction until you notice that the cold war had exactly two sides to name.",
-     "definitionFit": "Most secure → FASTEST: fast in its older sense means firmly fixed — hold fast, stuck fast — so the most firmly fixed of all is the fastest."
+     "surface": "Which side was safest when the Cold War powers lost their leaders?",
+     "walkthrough": "EAST and WEST each lose their leader, giving AST and EST.",
+     "definitionFit": "Fastest can mean most firmly fixed, as in holding fast, so most secure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cold"
     }
    }
   }

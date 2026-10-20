@@ -1355,38 +1355,52 @@
     "definitions": [
      {
       "text": "iron?",
-      "at": 30
+      "at": 30,
+      "note": "the question mark shows iron is one example of the answer"
      }
     ],
     "wordplay": {
      "op": "anagram",
      "indicators": [
       {
-       "text": "starting late",
-       "note": "a word that starts late has missed its start, so the first letter goes"
-      },
-      {
        "text": "forged",
-       "note": "metal that is forged is hammered into a new shape, so the letters are rearranged"
+       "at": 23,
+       "note": "forging works metal into new shapes, so the letters are reworked"
       }
      ],
      "parts": [
       {
-       "words": "Steelmen",
-       "gives": "TEELMEN",
-       "note": "STEELMEN loses its first letter S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "starting late",
+         "at": 9,
+         "note": "a late start means the word's first letter is missed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Steelmen",
+         "at": 0,
+         "gives": "STEELMEN",
+         "note": "the word as written, before its first letter goes"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Steelworkers who clocked on late hammered out some iron.",
-     "walkthrough": "The question mark shows iron is an example: it is one element among many.",
-     "definitionFit": "Definition by example: iron sits in the periodic table, chemical symbol Fe."
+     "surface": "Steelworkers who clocked on late made some iron.",
+     "walkthrough": "STEELMEN loses its first letter, S, and 'forged' rearranges TEELMEN.",
+     "definitionFit": "Iron is a chemical element, so it is an example; the question mark signals the definition by example."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "iron"
+     "misdirectedWord": "forged"
     }
    }
   },

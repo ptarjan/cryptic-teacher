@@ -1101,41 +1101,56 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "twice",
+       "at": 35,
+       "note": "twice means the Spain letter is written two times"
+      }
+     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "rearranged",
-         "note": "to rearrange is to put in a different order"
+         "at": 9,
+         "note": "the letters of date are put in a new order"
         }
        ],
        "parts": [
         {
          "words": "date",
-         "note": "taken as written"
-        },
-        {
-         "words": "in",
-         "note": "taken as written"
+         "at": 20,
+         "note": "anagram fodder as written"
         }
        ]
       },
       {
-       "words": "Spain, twice",
-       "gives": "EE",
-       "note": "E is the international vehicle code for Spain (España), used twice"
+       "words": "in",
+       "at": 25,
+       "note": "taken as written"
+      },
+      {
+       "words": "Spain",
+       "at": 28,
+       "gives": "E",
+       "note": "E is the international vehicle code for Spain"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "An inmate's release date is moved around while in Spain.",
-     "walkthrough": "Only the four letters of 'date' are rearranged; the rest is added in order.",
-     "definitionFit": "A detainee is a person held in custody, often without trial, which makes them a prisoner."
+     "surface": "A prisoner keeps rescheduling a date in Spain.",
+     "walkthrough": "DATE rearranged gives DETA, then IN, then E twice.",
+     "definitionFit": "A detainee is someone held in custody, a prisoner."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "date"
     }
    }
   },
@@ -1686,7 +1701,8 @@
      "indicators": [
       {
        "text": "rebuild",
-       "note": "to rebuild is to put the parts together again in a new form"
+       "at": 57,
+       "note": "rebuilding puts the remaining letters into a new structure"
       }
      ],
      "parts": [
@@ -1695,38 +1711,33 @@
        "indicators": [
         {
          "text": "removed from",
-         "note": "what is removed is taken out, so letters are lost"
+         "at": 34,
+         "note": "the church letters are taken out of the word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "church",
-           "gives": "CH",
-           "note": "CH is the abbreviation for church"
-          },
-          {
-           "words": "Chennai's",
-           "note": "the city's name with its possessive S"
-          }
-         ]
+         "words": "Chennai's",
+         "at": 47,
+         "gives": "CHENNAIS",
+         "note": "the city name plus the S of its possessive ending"
         },
         {
-         "gives": "CHCH"
+         "words": "church",
+         "at": 27,
+         "gives": "CH"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A church in Chennai is rebuilt in a red-brown colour.",
-     "walkthrough": "Chennai, formerly Madras, is an Indian city; its possessive S is part of the fodder.",
-     "definitionFit": "Sienna is an earth pigment containing iron oxide, raw sienna being yellow-brown and burnt sienna reddish-brown."
+     "surface": "A paint colour taken from a church demolished in the rebuilding of an Indian city.",
+     "walkthrough": "CHENNAIS minus CH leaves ENNAIS, which 'rebuild' rearranges. Chennai is the Indian city once called Madras.",
+     "definitionFit": "Sienna is an earth pigment, named after Siena, used as a brownish-orange paint."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "church"
     }

@@ -1222,25 +1222,21 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "finally",
-       "note": "finally picks out the last letter of 'bent'"
-      }
-     ],
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
-         "text": "endlessly",
-         "note": "endlessly cuts the last letter off RUNNING"
+         "text": "finally",
+         "at": 6,
+         "note": "finally points to the last letter of bent"
         }
        ],
        "parts": [
         {
          "words": "bent",
-         "note": "last letter of bent"
+         "at": 14,
+         "note": "its last letter is used"
         }
        ]
       },
@@ -1248,31 +1244,50 @@
        "op": "container",
        "indicators": [
         {
-         "text": "round"
+         "text": "round",
+         "at": 37,
+         "note": "round means the shortened word goes around the next letter"
         }
        ],
        "parts": [
         {
-         "words": "racing",
-         "gives": "RUNNIN",
-         "note": "RUNNING without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endlessly",
+           "at": 27,
+           "note": "endlessly means the last letter of the word is cut off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "racing",
+           "at": 20,
+           "gives": "RUNNING",
+           "note": "running means racing"
+          },
+          {
+           "gives": "G"
+          }
+         ]
         },
         {
          "words": "circuit",
+         "at": 43,
          "gives": "O",
-         "note": "a circuit is a loop, O"
+         "note": "a circuit is a loop, shaped like the letter O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A report of a buckled part on a racing car doing endless laps.",
-     "walkthrough": "'Pivot' is the definition, not the source of the first letter; T comes from 'bent'.",
-     "definitionFit": "A trunnion is a pin or pivot, like those on which a cannon barrel tilts."
+     "surface": "A cyclist ends up bent from racing around a circuit without stopping.",
+     "walkthrough": "RUNNING loses its G to give RUNNIN, which goes round O; T comes first.",
+     "definitionFit": "A trunnion is a pin or projection on which something such as a cannon pivots."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Pivot"
     }
