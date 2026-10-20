@@ -82,7 +82,7 @@
       {
        "text": "in",
        "at": 36,
-       "note": "in puts the letter for ace inside the reversed letters"
+       "note": "in places the ace between the two reversed pieces"
       }
      ],
      "parts": [
@@ -92,15 +92,33 @@
         {
          "text": "turned over",
          "at": 20,
-         "note": "turned over means flipped, so the doubled letters are read backwards in this down entry"
+         "note": "turned over means flipped, so the letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "Setter's repeatedly",
-         "at": 0,
-         "gives": "IMIM",
-         "note": "the setter's means I am, contracted to IM, and repeatedly writes it twice"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "at": 9,
+           "note": "repeatedly says the setter piece is used twice over"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Setter's",
+           "at": 0,
+           "gives": "IM",
+           "note": "the setter speaking is I, so setter's is I'm"
+          },
+          {
+           "words": "Setter's",
+           "at": 0,
+           "gives": "IM",
+           "note": "the same I'm, used a second time"
+          }
+         ]
         }
        ]
       },
@@ -108,14 +126,14 @@
        "words": "ace",
        "at": 32,
        "gives": "A",
-       "note": "A is the abbreviation for ace on playing cards"
+       "note": "A is the abbreviation for an ace in cards"
       }
      ]
     },
     "explanation": {
-     "surface": "A crossword setter keeps flipping an ace in an American city.",
-     "walkthrough": "'Setter's repeatedly' is IM written twice; 'turned over' reads it backwards as MIMI, and A for ace goes 'in' the middle.",
-     "definitionFit": "Miami is a large city in Florida, in the south-east of the United States."
+     "surface": "The setter keeps flipping an ace while visiting an American city.",
+     "walkthrough": "The setter speaking of themself is I, so setter's is I'm; the ace then sits in the middle of the doubled, reversed result.",
+     "definitionFit": "Miami is a large city on the coast of Florida, in the United States."
     },
     "features": {
      "answerInScene": false,
@@ -1646,38 +1664,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "returning",
-       "note": "Something returning comes back the way it went, so the name is read from its far end."
-      },
-      {
        "text": "after",
-       "note": "It fixes the order: the reversed name goes behind the two letters, so the exercise comes first."
+       "at": 31,
+       "note": "after puts the reversed hero behind the exercise"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "exercise",
+       "at": 37,
+       "gives": "PE",
+       "note": "PE is physical education, exercise at school"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 21,
+         "note": "returning means going back, so the hero's name is read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "Swiss folk hero",
+         "at": 5,
          "gives": "TELL",
-         "note": "The apple-shooting hero of Swiss legend is Tell, and his name is turned round."
-        },
-        {
-         "words": "exercise",
-         "gives": "EP",
-         "note": "PE is physical education, the school timetable's exercise lesson."
+         "note": "William Tell is the Swiss folk hero who shot an apple from his son's head"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "William Tell shot an apple off his son's head, so 'Shot' as the definition keeps the surface picture running right to the end.",
-     "definitionFit": "A pellet is a small shot fired from an air rifle or a shotgun, so 'Shot' names the projectile itself."
+     "surface": "William Tell, the Swiss archer, comes back after a workout.",
+     "walkthrough": "William Tell, the legendary crossbowman, is the Swiss folk hero.",
+     "definitionFit": "A pellet is a small piece of lead shot fired from an air gun or shotgun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shot"
     }
    }
   }

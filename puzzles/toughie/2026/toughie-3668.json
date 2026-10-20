@@ -323,7 +323,8 @@
      "indicators": [
       {
        "text": "about",
-       "note": "going round something, so one piece encloses the rest"
+       "at": 23,
+       "note": "the reversed quote goes round the next letters, so about signals one piece wrapped around another"
       }
      ],
      "parts": [
@@ -332,53 +333,57 @@
        "indicators": [
         {
          "text": "recalled",
-         "note": "called back, so the letters return the way they came"
+         "at": 14,
+         "note": "recalled read as called back, so the word for quote is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "quote",
-           "gives": "CITE",
-           "note": "to cite is to quote"
-          },
-          {
-           "words": "chapter",
-           "gives": "C",
-           "note": "C is the abbreviation for chapter"
-          }
-         ]
+         "words": "quote",
+         "at": 8,
+         "gives": "CITE",
+         "note": "to quote is to cite"
         }
        ]
       },
       {
-       "op": "alternate",
-       "indicators": [
-        {
-         "text": "oddly lacking",
-         "note": "without its odd letters, so only the even-placed ones remain"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "fluency",
-         "note": "the second, fourth and sixth letters"
+         "words": "chapter",
+         "at": 29,
+         "gives": "C"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "oddly lacking",
+           "at": 37,
+           "note": "lacking the odd-placed letters of fluency leaves only its even-placed ones"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fluency",
+           "at": 51,
+           "note": "the second, fourth and sixth letters of this word are kept"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A varied speech lacks fluency in one chapter.",
-     "walkthrough": "'Oddly lacking' does not mean take the odd letters: it means drop them, so the even ones stay. The reversed quote is split open to hold the rest.",
-     "definitionFit": "Eclectic means drawing on a wide range of sources, so varied and mixed in style."
+     "surface": "A speaker with a diverse range of quotations is criticised for halting, unfluent delivery.",
+     "walkthrough": "'about' looks like the C for circa, but here it is the container signal; 'oddly lacking' keeps the even letters only.",
+     "definitionFit": "Eclectic tastes draw on many varied sources, so the word is a synonym of diverse or wide-ranging."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "oddly"
+     "misdirectedWord": "recalled"
     }
    }
   },

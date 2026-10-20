@@ -989,32 +989,50 @@
        "indicators": [
         {
          "text": "changed",
-         "note": "a brute that has changed is rearranged, so its letters are shuffled"
+         "at": 6,
+         "note": "changed means altered, so the letters of brute are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Brute",
-         "note": "anagram fodder, five letters"
+         "at": 0,
+         "note": "its letters are rearranged"
         }
        ]
       },
       {
-       "words": "bulk of story",
-       "gives": "TAL",
-       "note": "TALE without its final letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "bulk of",
+         "at": 14,
+         "note": "the bulk is most but not all, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "story",
+         "at": 22,
+         "gives": "TALE",
+         "note": "a tale is a story"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A thug changes most of his account when making a formal denial.",
-     "walkthrough": "The anagram of the brute already gives the verb REBUT, which is a helpful signpost toward the noun.",
-     "definitionFit": "A rebuttal is an argument answering and contradicting another claim, which is a counter-statement."
+     "surface": "A brute who has changed his ways features in most of a story.",
+     "walkthrough": "'changed' rearranges BRUTE to REBUT, and 'bulk of' cuts TALE to TAL.",
+     "definitionFit": "A rebuttal is a reply that contradicts or refutes an argument, a counter-argument."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "bulk"
+     "misdirectedWord": "Brute"
     }
    }
   },
@@ -1053,23 +1071,39 @@
      "parts": [
       {
        "words": "Intelligence-wise",
+       "at": 0,
        "gives": "UPTOP",
-       "note": "British idiom: someone with not much up top lacks brains, so 'up top' refers to intellect"
+       "note": "up top is slang for in the head, so with regard to brains"
       },
       {
-       "words": "are mostly",
-       "gives": "AR",
-       "note": "ARE without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 23,
+         "note": "mostly means most but not all, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "are",
+         "at": 19,
+         "note": "its letters, less the last"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A verdict that someone's brainpower is, for the most part, adequate.",
-     "walkthrough": "'Up top' is British slang for in the head, so 'intelligence-wise' means up top; the surface misleads by making it sound like an assessment.",
-     "definitionFit": "Up to par comes from golf, meaning meeting the expected standard, so it is an idiom for acceptable."
+     "surface": "As far as brains go, they are mostly fine.",
+     "walkthrough": "UP TOP means in the head (as in 'not much up top'); 'mostly' trims ARE to AR.",
+     "definitionFit": "Up to par means meeting the expected standard, an idiom from golf for being acceptable."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Intelligence-wise"
     }

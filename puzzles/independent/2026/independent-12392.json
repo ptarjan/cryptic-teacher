@@ -835,39 +835,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "recalled",
-       "note": "Recalled goods are sent straight back the way they came, and so are these two letters."
-      },
-      {
        "text": "pursuing",
-       "note": "Anything in pursuit comes along behind, so the youngster's letters follow rather than lead."
+       "at": 10,
+       "note": "pursuing means following, so the youngster comes after"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "at": 24,
+         "note": "recalled means called back, so the work is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Youngster",
-         "gives": "NEET",
-         "note": "A youngster of that age is a teen."
-        },
-        {
          "words": "work",
+         "at": 19,
          "gives": "OP",
-         "note": "Work is OP, the composer's opus, sent back on itself."
+         "note": "op, short for opus, is a work"
         }
        ]
+      },
+      {
+       "words": "Youngster",
+       "at": 0,
+       "gives": "TEEN",
+       "note": "a teen is a youngster"
       }
      ]
     },
     "explanation": {
-     "surface": "A youngster trails along behind a job that has been called back.",
-     "walkthrough": "OP for 'work' is the composer's opus, printed on every concert programme, and it is one of the abbreviations that repays learning once.",
-     "definitionFit": "Poteen is Irish moonshine, distilled at home from barley or potatoes and illegal precisely because no duty is paid on it."
+     "surface": "A teenager follows up on some work that has been called in again, and makes moonshine.",
+     "walkthrough": "'recalled' turns OP into PO, followed by TEEN.",
+     "definitionFit": "Poteen is Irish moonshine, a strong spirit traditionally distilled illicitly from potatoes or grain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
     }
    }
   },
@@ -887,7 +898,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "road transport",
+      "text": "road transport?",
       "at": 56
      }
     ],
@@ -895,44 +906,65 @@
      "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
          "text": "involved",
-         "note": "Letters involved in something are mixed into it, so these two join the pool instead of standing apart."
-        },
-        {
-         "text": "excitedly",
-         "note": "Doing something excitedly means doing it in a rush and out of order, which is what becomes of the letters."
+         "at": 19,
+         "note": "involved means wrapped up inside, so the two letters go inside the rearranged word"
         }
        ],
        "parts": [
         {
-         "words": "Charlie",
-         "gives": "C",
-         "note": "Charlie is C in the NATO alphabet."
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "excitedly",
+           "at": 29,
+           "note": "excitedly means in an agitated way, so the letters of develop are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "develop",
+           "at": 39,
+           "note": "its letters are rearranged"
+          }
+         ]
         },
         {
-         "words": "I",
-         "note": "The letter the speaker stands for."
-        },
-        {
-         "words": "develop",
-         "note": "anagram fodder, seven letters"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Charlie",
+           "at": 5,
+           "gives": "C",
+           "note": "C is Charlie in the NATO alphabet"
+          },
+          {
+           "words": "I",
+           "at": 17
+          }
+         ]
         }
        ]
       },
       {
        "words": "European",
-       "gives": "E",
-       "note": "E is the standard abbreviation for European."
+       "at": 47,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "With Charlie and me caught up in it, a European road scheme develops fast.",
-     "walkthrough": "'Involved' looks like part of the story about Charlie and me, and it is really the instruction that pulls two stray letters into the mix.",
-     "definitionFit": "A velocipede is the early pedal cycle that ran on roads, so the definition names one example of road transport rather than the class."
+     "surface": "Charlie and I get excited about developing a European road vehicle.",
+     "walkthrough": "The question mark admits that an old bicycle is a whimsical example of road transport.",
+     "definitionFit": "A velocipede is an early bicycle; the question mark admits it is a quaint kind of road vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "develop"
     }
    }
   },

@@ -424,26 +424,44 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "almost",
-       "note": "A word given almost in full is a word one letter short, so the bird loses its tail before anything else happens."
-      },
-      {
        "text": "turned over",
-       "note": "Turned over is upside down, and in a down entry that means the letters are read from the bottom of the column upwards."
+       "at": 35,
+       "note": "turned over means flipped end to end, so the shortened bird is read backwards"
       }
      ],
      "parts": [
       {
-       "words": "waterbird",
-       "gives": "GREB",
-       "note": "a grebe is a diving waterbird, here minus its final letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 28,
+         "note": "almost means not quite the whole word, so its final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "waterbird's",
+         "at": 16,
+         "gives": "GREBE",
+         "note": "a grebe is a diving waterbird; the 's is read as is"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A waterbird on a cold lake, all but tipped upside down by something floating there.",
-     "walkthrough": "The definition stays deliberately vague — a floating object, not ice — so nothing sends you north until the letters are already in place.",
-     "definitionFit": "A berg is an iceberg, the floating object shipping fears; English borrowed the German word for mountain and kept only half of it."
+     "surface": "A bird on a lake has nearly capsized beside some floating thing.",
+     "walkthrough": "'almost' cuts GREBE to GREB, and 'turned over' reverses that.",
+     "definitionFit": "A berg, short for iceberg, is a mass of ice drifting in the sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
     }
    }
   },
