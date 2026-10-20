@@ -154,42 +154,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ROGUE",
-     "indicators": [
-      {
-       "text": "to do away with top",
-       "note": "to do away with the top of a word is to kill off its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Right",
+       "at": 0,
+       "gives": "R"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to do away with top",
+         "at": 14,
+         "note": "remove the first letter, the top of a down entry"
+        }
+       ],
        "parts": [
         {
-         "words": "Right",
-         "gives": "R",
-         "note": "R = right"
+         "words": "fashion",
+         "at": 6,
+         "gives": "VOGUE",
+         "note": "vogue is the current fashion"
         },
         {
-         "words": "fashion",
-         "gives": "OGUE",
-         "note": "VOGUE, fashion, without its first letter V"
+         "gives": "V"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A villain plots the right way to assassinate a leader.",
-     "walkthrough": "'To do away with top' reads as murder in the surface, fitting a villain, but it only beheads the fashion word.",
-     "definitionFit": "Plain synonym: a rogue is a dishonest scoundrel, a villain."
+     "surface": "Right-thinking fashion seeks to get rid of a big name.",
+     "definitionFit": "A rogue is a dishonest scoundrel, a rascal."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "top"
+     "misdirectedWord": "fashion"
     }
    }
   },
@@ -1213,61 +1215,56 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "VODKA",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 15,
+       "note": "the car holds the other letters inside"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "Very",
+         "at": 0,
+         "gives": "V"
+        },
+        {
+         "words": "small car",
+         "at": 5,
+         "gives": "KA",
+         "note": "the Ford Ka is a small car"
+        }
+       ]
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "carrying",
-         "note": "to carry something is to hold it, so the outer pieces hold the inner one"
+         "text": "case of",
+         "at": 24,
+         "note": "the outer letters, the shell of the word"
         }
        ],
        "parts": [
         {
-         "words": "Very",
-         "gives": "V",
-         "note": "V = very"
-        },
-        {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "OD",
-         "indicators": [
-          {
-           "text": "case of",
-           "note": "the case of a word is its outside, the first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "case of old",
-           "gives": "OD",
-           "select": "outer",
-           "note": "outer letters of OlD"
-          }
-         ]
-        },
-        {
-         "words": "small car",
-         "gives": "KA",
-         "note": "the Ford Ka, a small car"
+         "words": "old",
+         "at": 32
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tiny car smuggling an old crate of spirits.",
-     "walkthrough": "'Very small' reads as one phrase but splits: V for very, then the small car.",
-     "definitionFit": "Definition by example: vodka is one kind of alcoholic spirit."
+     "surface": "A tiny car holds a case of old liquor.",
+     "definitionFit": "Vodka is a clear spirit distilled from grain or potatoes."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Very"
+     "misdirectedWord": "case"
     }
    }
   },
@@ -1640,57 +1637,60 @@
      "indicators": [
       {
        "text": "to acquire",
-       "note": "to acquire is to take in, so the word takes the other pieces inside it"
+       "at": 10,
+       "note": "the rush word takes in the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "rushed",
+       "at": 3,
+       "gives": "TORE",
+       "note": "tore means rushed"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
          "text": "by",
-         "note": "by means beside, so the two pieces sit next to each other"
+         "at": 29,
+         "note": "the February letter sits next to the present word"
         }
        ],
        "parts": [
-        {
-         "words": "rushed",
-         "gives": "TORE",
-         "note": "tore = rushed"
-        },
         {
          "words": "present",
+         "at": 21,
          "gives": "HERE",
-         "note": "here = present, as in a roll call"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "indicators": [
+         "note": "here means present"
+        },
         {
-         "text": "first of",
-         "note": "the first of a word is its opening letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "February",
-         "note": "first letter of February"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first of",
+           "at": 32,
+           "note": "the first letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "February",
+           "at": 41
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone hurried out to buy a gift before February began.",
-     "walkthrough": "'Present' looks like a gift, the obvious reading after 'rushed to acquire'; it means in attendance.",
-     "definitionFit": "Plain synonym: 'so' and 'therefore' both introduce a consequence."
+     "surface": "Someone hurried to buy a gift before the start of February.",
+     "definitionFit": "Therefore means consequently, for that reason."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "present"
     }
    }
