@@ -3819,10 +3819,14 @@ def prints_clue(text, mine):
     return len(mine) >= RUN_LETTERS and mine in words_of(text)
 
 
-def columns_with(cols, lights):
+def columns_with(cols, lights, all_if_lost=False):
     """The indexes of the clue columns that hold a number of `lights`
-    ("N-across"), or None when a number is in no column's lines (then every
-    column is read). `cols`: each reading's columns() output."""
+    ("N-across"): a number in no column's lines is not asked for (every
+    column read for it cost a full page of asks, and a clue outside the
+    crop, or one no reading has a line for, is in none of the crops the VLM is
+    shown), so the set may be empty. `all_if_lost`: None instead (then every
+    column is read) when a number is in no column. `cols`: each reading's
+    columns() output."""
     want = {int(lid.split("-")[0]) for lid in lights}
     got, seen = set(), set()
     width = max((len(c) for c in cols), default=0)
@@ -3832,7 +3836,7 @@ def columns_with(cols, lights):
             if int(m.group(1)) in want:
                 got.add(i)
                 seen.add(int(m.group(1)))
-    return got if seen >= want else None
+    return None if all_if_lost and not seen >= want else got
 
 
 def read_puzzle(d, found, hit, solutions, ocr_first=True):
@@ -4062,7 +4066,7 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts):
         if vlm_on and vlm.wanted():
             try:
                 texts["vlm"] = vlm_four(img, list(cols.values()),
-                                        columns_with(list(cols.values()), vlm_for) if vlm_for else None)
+                                        columns_with(list(cols.values()), vlm_for, True) if vlm_for else None)
             except RuntimeError:
                 pass
         texts = {k: counted(spaced(t), g) for k, t in texts.items()}
@@ -4100,9 +4104,11 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts):
     if not paper.four and vlm_on and vlm.wanted():
         try:
             only = columns_with(list(cols.values()), vlm_for) if vlm_for else None
+            # No weak light in any column: nothing for the VLM to read.
             asked = "\n".join(vlm.read_all([vlm.crop(img, box) for i, box in enumerate(vlm.boxes(img, wins, list(cols.values())))
-                                            if box and (only is None or i in only)]))
-            texts["vlm"] = "\n".join(numbered_heading(t) or t for t in asked.splitlines())
+                                            if box and (only is None or i in only)])) if only is None or only else None
+            if asked is not None:
+                texts["vlm"] = "\n".join(numbered_heading(t) or t for t in asked.splitlines())
         except RuntimeError:
             pass  # gone mid-run: read as without it; run() files it to be read again
     # The Canberra Times reprint of the same puzzle is another copy of the
