@@ -670,6 +670,24 @@ os.environ.pop(vlm.DEFER_ENV)
 vlm._MISSED[0] = False
 vlm._CAUSE[0] = ""
 
+# CT_VLM_DRYRUN: a cached ask answers, an uncached one is counted, not sent or spooled.
+_img = f.Image.new("RGB", (30, 20), "white") if hasattr(f, "Image") else __import__("PIL.Image").Image.new("RGB", (30, 20), "white")
+_data = vlm.png(_img)
+_hit = vlm.ask_key(_data, "p1")
+vlm.CACHE.mkdir(parents=True, exist_ok=True)
+(vlm.CACHE / f"{_hit}.txt").write_text("cached answer")
+_spool_before = vlm.spooled()
+os.environ[vlm.DRYRUN_ENV] = "1"
+try:
+    _got = (vlm.ask_png(_data, "p1"), vlm.ask_png(_data, "p2"), vlm.ask_png(_data, "p2"), vlm.reachable())
+finally:
+    os.environ.pop(vlm.DRYRUN_ENV)
+_t = vlm.dryrun_tally()
+check("dry run: cached answers, uncached is empty and True reachable", ("cached answer", "", "", True), _got)
+check("dry run: one uncached ask noted once with its size", (1, [30, 20], vlm.spooled()), (len(_t["asks"]), _t["asks"][0]["size"], _spool_before))
+check("dry run: nothing cached for the uncached ask", False, (vlm.CACHE / f"{vlm.ask_key(_data, 'p2')}.txt").exists())
+check("dry run off by default", False, vlm.dryrun())
+
 if fails:
     print("test_vlm_reader: failed")
     sys.exit(1)
