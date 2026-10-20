@@ -909,6 +909,16 @@ pool_checkpoint() {
 #   $3   1 to re-plan the queue's order at every checkpoint
 # Returns non-zero when the run should stop: the deadline, or after_wave said so.
 # Either way no new run starts and the ones in flight finish and are handled.
+# Each burn checkpoint measures its own annotate cost (Paul 10-20, "hill climb on the
+# cost"): one ledger row for the window since the last, and the wake rule over the
+# ledger (tools/annotate_ledger.py). Code only, no model call. Detached, niced and
+# time-boxed so it can neither hold the pool nor fail the burn.
+ledger_tick() {
+  [ "$DRY_RUN" = 1 ] && return 0
+  ( setsid nice -n 19 timeout 600 python3 "$REPO/tools/annotate_ledger.py" record \
+      </dev/null >>"${CT_MAIN_CHECKOUT:-$REPO}/.prereset.log" 2>&1 & ) 2>/dev/null || true
+}
+
 run_pool() {
   local stop=0
   if [ "$POOL_RESUMING" = 1 ]; then
@@ -930,6 +940,7 @@ run_pool() {
        [ $(( ${EPOCHREALTIME/[.,]/} - POOL_SYNCED_US )) -ge $(( POOL_SYNC_SECS * 1000000 )) ]; then
       sync_wave
       POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
+      ledger_tick
     fi
     [ "$stop" = 0 ] && [ "$RELOAD_ASKED" = 1 ] && reload_burn
     # A sync that brought new shell code, here or in after_wave's drain.
@@ -1658,4 +1669,5 @@ fi
 # remainder.
 python3 tools/validate_annotations.py 2>&1 | grep -i "backlog" || true
 
+ledger_tick
 echo "=== done $(date '+%H:%M') ==="

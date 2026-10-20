@@ -415,6 +415,8 @@ LAYOUT = [
     ("finding out whether any of it is working", "tools/suggest_demand.py", "asks Google autocomplete which puzzle numbers people search for, for the puzzles no page of ours ranks for yet"),
     ("finding out whether any of it is working", "tools/turn_cost.py", "how many turns an annotation session takes, from the transcripts — logged nightly so the figure can’t go stale unnoticed"),
     ("finding out whether any of it is working", "tools/annotate_audit.py", "ranks what annotation runs spend turns on — first-check failures by check, refused tool calls, cost and turn trend — from the transcripts; daily, and wakes the room with one fix target, rotating past items woken in the last 7 days"),
+    ("finding out whether any of it is working", "tools/annotate_ledger.py", "the burn's own cost meter: each checkpoint appends a row (sessions, $/clue, turns/clue, top causes) to ~/.cache/annotate_cost_ledger.jsonl and queues one quiet wake to the room when $/clue drifts up or a new cause is #1"),
+    ("finding out whether any of it is working", "tools/test_annotate_ledger.py", "tests tools/annotate_ledger.py: fake ledger rows give wake and no-wake decisions (regression, new top cause, cooldown, target)"),
     ("finding out whether any of it is working", "tools/annotate_audit.sh", "the scheduled entry: runs the audit from a worktree at origin/master"),
     ("finding out whether any of it is working", "tools/test_annotate_audit.py", "tests tools/annotate_audit.py: rule naming from the validator's AST, and that each run picks one fix target, rotating down the ranking on cooldown"),
     ("finding out whether any of it is working", "tools/make_hint_packets.js", "blind solve-packets, to grade a hint by whether it gets a solver unstuck"),
