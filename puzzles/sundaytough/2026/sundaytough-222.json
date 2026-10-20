@@ -119,51 +119,70 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "quits"
+       "text": "in support of",
+       "at": 28,
+       "note": "in a down clue, a piece in support of another sits below it"
       }
      ],
      "parts": [
       {
        "words": "prime",
+       "at": 42,
        "gives": "FIVE",
        "note": "five is a prime number"
       },
       {
        "words": "Former vice-president",
+       "at": 0,
        "gives": "PENCE",
-       "note": "Mike Pence, US vice-president 2017-2021"
+       "note": "Mike Pence was US vice-president from 2017 to 2021"
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "in support of",
-         "note": "in a down clue, supporting means sitting underneath"
+         "text": "quits",
+         "at": 69,
+         "note": "quits means the named letter leaves the word for gore"
         }
        ],
        "parts": [
         {
          "words": "Gore",
+         "at": 22,
          "gives": "PIERCE",
-         "note": "to gore is to pierce with a horn; it loses its R to become PIECE"
+         "note": "to gore is to pierce with a horn or tusk"
         },
         {
-         "words": "minister, ultimately",
-         "gives": "R",
-         "note": "last letter of minister, which quits PIERCE"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 58,
+           "note": "ultimately points to the very last letter of the word that follows"
+          }
+         ],
+         "parts": [
+          {
+           "words": "minister",
+           "at": 48,
+           "gives": "MINISTER",
+           "note": "the word minister supplies its end letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political roll call: Al Gore backing a prime minister before bowing out for a while.",
-     "walkthrough": "'Gore' looks like Al Gore beside 'vice-president', but the vice-president is Pence and gore is a verb. 'Prime minister' splits: prime is a number, minister supplies one letter.",
-     "definitionFit": "A bit is a coin, as in a threepenny bit, and a five pence piece is a British coin."
+     "surface": "A former US vice-president, Al Gore, backs a prime minister before quitting for a while.",
+     "walkthrough": "'Former vice-president Gore' is a red herring for Al Gore: Pence is the vice-president and gore the verb. Remove R, the last letter of minister, from PIERCE to get PIECE.",
+     "definitionFit": "The fivepence piece is a small British coin, and 'bit' is an old word for a coin of small value."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Gore"
     }
    }

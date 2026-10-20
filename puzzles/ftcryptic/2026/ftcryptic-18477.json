@@ -1265,20 +1265,37 @@
      "parts": [
       {
        "words": "round",
+       "at": 5,
        "gives": "O",
-       "note": "O is round in shape"
+       "note": "a round shape resembles the letter O"
       },
       {
-       "words": "Manx cat",
-       "gives": "PUS",
-       "note": "PUSS without its tail"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Manx",
+         "at": 16,
+         "note": "a Manx cat has no tail, so the final letter is docked from the word for cat"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cat",
+         "at": 21,
+         "gives": "PUSS",
+         "note": "puss is a familiar word for a cat"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question about making a circuit alongside a tailless cat from the Isle of Man.",
-     "walkthrough": "Manx cats have no tail, a favourite crossword way of saying drop the last letter.",
-     "definitionFit": "An opus is a work, especially a musical composition."
+     "surface": "A puzzled query about what to do with a tailless cat from the Isle of Man.",
+     "walkthrough": "The Manx breed of cat is famous for lacking a tail, so 'Manx' tells you to cut the end off PUSS.",
+     "definitionFit": "An opus is a musical or literary composition, a piece of creative work."
     },
     "features": {
      "answerInScene": false,
@@ -1325,31 +1342,35 @@
      "op": "container",
      "indicators": [
       {
-       "text": "preserved",
-       "note": "food preserved in a can is inside it"
+       "text": "?",
+       "at": 46,
+       "note": "the question mark flags the pun: being preserved means being canned, so the collection is placed inside the tin"
       }
      ],
      "parts": [
       {
        "words": "preserved",
+       "at": 37,
        "gives": "CAN",
-       "note": "to can food is to preserve it"
+       "note": "preserved goods are canned, so the word gives can, and the question mark signals that the collection is itself being put in one"
       },
       {
        "words": "literary collection",
+       "at": 17,
        "gives": "ANA",
-       "note": "ana = a collection of sayings or anecdotes"
+       "note": "ana is a collection of sayings or anecdotes about a person"
       }
      ]
     },
     "explanation": {
-     "surface": "A historian asks whether an old region's library has survived.",
-     "walkthrough": "'Preserved' does two jobs: it says the collection is canned, and the tin itself supplies the outer letters.",
-     "definitionFit": "Canaan was the ancient land between the Jordan and the Mediterranean."
+     "surface": "A query whether an ancient land's writings were kept safe.",
+     "walkthrough": "'preserved?' does double duty: being preserved is being canned, so the literary collection sits inside the tin.",
+     "definitionFit": "Canaan was the biblical land along the eastern Mediterranean, an area of antiquity."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "preserved"
     }
    }

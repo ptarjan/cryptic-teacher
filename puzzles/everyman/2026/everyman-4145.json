@@ -440,39 +440,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "wasted",
-       "note": "Wasted means drunk to the point of falling about, and letters in that state will not stay standing in the order they were handed to you."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
          "text": "Last of",
-         "note": "Asking for the last of a thing takes only its final letter, here the one that closes the hyphenated adjective."
+         "at": 0,
+         "note": "last of picks out the final letter of the word"
         }
        ],
        "parts": [
         {
          "words": "ill-gotten",
-         "gives": "ILLGOTTEN",
-         "note": "the closing letter of the hyphenated word"
+         "at": 8,
+         "gives": "ILLGOTTEN"
         }
        ]
       },
       {
-       "words": "wonga Diana",
-       "note": "wonga is British slang for cash, money; the princess supplies the other five letters"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wasted",
+         "at": 31,
+         "note": "wasted suggests the letters squandered and ruined, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wonga",
+         "at": 19
+        },
+        {
+         "words": "Diana",
+         "at": 25
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Ill-gotten wonga' is such a complete picture of dodgy cash that it takes some doing to see only its final letter is wanted, and that most of the fodder is a name.",
-     "definitionFit": "from time to time → NOW AND AGAIN: both are idioms for occasionally, something recurring at irregular intervals rather than on any schedule."
+     "surface": "Diana fritters away her dodgy cash every so often.",
+     "walkthrough": "Wonga is British slang for money.",
+     "definitionFit": "Now and again means occasionally, at irregular intervals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wasted"
     }
    }
   },
@@ -500,25 +517,32 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "in East End"
+       "text": "in East End",
+       "at": 10,
+       "note": "Cockneys from London's East End traditionally drop their initial aitches, so the opening H goes"
       }
      ],
      "parts": [
       {
        "words": "to ride free",
+       "at": 23,
        "gives": "HITCH",
-       "note": "to hitch a lift is to thumb a ride you do not pay for"
+       "note": "to hitch is to hitchhike, getting a lift for nothing"
       },
       {
-       "words": "East End",
-       "gives": "H",
-       "note": "the aitch the Cockney accent leaves off, and the letter that goes"
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Free' belongs with 'ride' rather than with the yearning: the phrase to find is the unpaid lift, and the East End then gets at its first letter.",
-     "definitionFit": "Yearning → ITCH: the figurative sense, an itch to travel — a restless craving you cannot leave alone — rather than anything happening on the skin."
+     "surface": "A Cockney longs for a free ride.",
+     "walkthrough": "The East End is the traditional Cockney district of London, and Cockney speech drops H at the start of words.",
+     "definitionFit": "An itch is a restless desire or craving for something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "East"
     }
    }
   },

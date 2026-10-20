@@ -1233,21 +1233,37 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Maybe Trump snubbed",
-       "gives": "MELANI",
-       "note": "MELANIA, one Trump, without her last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "snubbed",
+         "at": 12,
+         "note": "snubbed is read as snub-nosed, cut short, so the end letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Maybe Trump",
+         "at": 0,
+         "gives": "MELANIA",
+         "note": "Melania Trump is one example of a Trump"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       },
       {
        "words": "new",
-       "gives": "N",
-       "note": "standard abbreviation"
+       "at": 20,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A Trump cold-shouldering a new fake-tan product.",
-     "walkthrough": "'Maybe Trump' means one member of the family, Melania, not Donald.",
-     "definitionFit": "Melanin is the skin pigment that darkens as you tan."
+     "surface": "Someone named Trump is snubbed by a new tanning product.",
+     "walkthrough": "'Maybe' signals an example: Melania is one Trump. Cut her name short to MELANI and add N.",
+     "definitionFit": "Melanin is the skin pigment whose production increases when skin tans in sunlight."
     },
     "features": {
      "answerInScene": true,
@@ -1446,31 +1462,48 @@
      "indicators": [
       {
        "text": "to lead",
-       "note": "the capital's letters go at the front, ahead of the trends"
+       "at": 41,
+       "note": "to lead means the first piece goes in front of the next"
       }
      ],
      "parts": [
       {
-       "words": "capital, powerless",
-       "gives": "ARIS",
-       "note": "PARIS without P, power"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "powerless",
+         "at": 31,
+         "note": "powerless means without P, the physics symbol for power, so that letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "capital",
+         "at": 22,
+         "gives": "PARIS",
+         "note": "Paris is the capital of France"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       },
       {
        "words": "trends",
+       "at": 49,
        "gives": "TIDES",
-       "note": "the tide of opinion is its trend"
+       "note": "tides are trends or currents of opinion"
       }
      ]
     },
     "explanation": {
-     "surface": "A Greek statesman in a capital city, with no power to set the fashion.",
-     "walkthrough": "'To lead' tells you ARIS comes first. Aristides 'the Just' was an Athenian statesman and general of the fifth century BC.",
-     "definitionFit": "Aristides was a leading statesman of ancient Athens."
+     "surface": "An Athenian politician in the capital, losing power, is left to set fashions.",
+     "definitionFit": "Aristides the Just was a celebrated politician and general of ancient Athens."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "capital"
+     "misdirectedWord": "powerless"
     }
    }
   },

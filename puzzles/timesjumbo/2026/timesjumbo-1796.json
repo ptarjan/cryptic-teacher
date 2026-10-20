@@ -558,56 +558,60 @@
      "op": "charade",
      "parts": [
       {
-       "words": "7",
-       "gives": "EVEN",
-       "note": "SEVEN without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but first",
+         "at": 10,
+         "note": "but first means except for the first letter, which is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "7",
+         "at": 5,
+         "gives": "SEVEN",
+         "note": "seven written as a word"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "but first",
-         "note": "'but' in its old sense of 'except': the first SEVEN comes without its first letter"
+         "text": "having added",
+         "at": 20,
+         "note": "having added means the time letter is put into the second number"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "having added",
-           "note": "the second SEVEN has something added into it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "-7",
-           "gives": "STEVEN",
-           "note": "SEVEN with T inside: S(T)EVEN"
-          },
-          {
-           "gives": "T"
-          }
-         ]
+         "words": "7",
+         "at": 7,
+         "gives": "SEVEN",
+         "note": "the second seven, also written as a word"
         },
         {
          "words": "time",
-         "gives": "T",
-         "note": "t = time"
+         "at": 33,
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A match finishes seven-all, but only after extra time is played.",
-     "walkthrough": "The numbers are words to be spelt out, not scores: SEVEN twice, trimmed and then padded.",
-     "definitionFit": "Even-steven means level, with neither side ahead, as in a tied game."
+     "surface": "A game ends level at seven-all, though one side scored first in added time.",
+     "walkthrough": "'7-7' reads as a scoreline, but each 7 is the number written out as a word; 'but first' means leaving off the first letter.",
+     "definitionFit": "Even-steven is an informal phrase for level or equal, as in a drawn contest."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "7-7"
+     "misdirectedWord": "time"
     }
    }
   },
@@ -732,50 +736,52 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "raised",
-       "note": "in a down clue, raising a word lifts it so it reads bottom to top, turning NO round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "firm",
+       "at": 15,
+       "gives": "CO",
+       "note": "CO is the abbreviation for company, a firm"
+      },
+      {
+       "words": "teetotaller",
+       "at": 20,
+       "gives": "TT",
+       "note": "TT, for tee-total, describes someone who never drinks"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 36,
+         "note": "raised, in a down clue, means the word is read upwards, from bottom to top"
+        }
+       ],
        "parts": [
         {
-         "words": "alcoholic drink",
-         "gives": "NIG",
-         "note": "gin, the spirit"
-        },
-        {
          "words": "No",
-         "gives": "NO",
-         "note": "NO turned upside down"
-        },
-        {
-         "words": "teetotaller",
-         "gives": "TT",
-         "note": "TT = teetotal"
-        },
-        {
-         "words": "firm",
-         "gives": "OC",
-         "note": "Co. = company, firm"
+         "at": 33,
+         "gives": "NO"
         }
        ]
+      },
+      {
+       "words": "alcoholic drink",
+       "at": 43,
+       "gives": "GIN",
+       "note": "gin is an alcoholic spirit"
       }
      ]
     },
     "explanation": {
-     "surface": "What sets a firm non-drinker apart? Refusing the gin that others lift.",
-     "walkthrough": "The question mark hides that 'What separates' is the whole definition: a cotton gin separates fibre from seed.",
-     "definitionFit": "A cotton gin is a machine that separates cotton fibres from their seeds."
+     "surface": "A teetotal businessman asks what separates him from others, refusing a raised glass.",
+     "definitionFit": "A cotton gin is the machine that separates cotton fibres from their seeds."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "separates"
     }
    }
@@ -2191,33 +2197,65 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "twice",
-       "note": "twice means two times, so the trimmed word is written two times over"
-      }
-     ],
      "parts": [
       {
-       "words": "almost got",
-       "gives": "GOGO",
-       "note": "GOT without its last letter is GO, taken twice"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 18,
+         "note": "almost means the word is cut short of its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "got",
+         "at": 25,
+         "gives": "GOT",
+         "note": "taken as written, then cut short"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 12,
+         "note": "twice says the shortened word is given a second time, so the same letters follow again"
+        }
+       ],
+       "parts": [
+        {
+         "words": "got",
+         "at": 25,
+         "gives": "GOT"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "words": "reindeer",
+       "at": 29,
        "gives": "DANCER",
-       "note": "Dancer, one of Santa's reindeer"
+       "note": "Dancer is one of Santa's reindeer"
       }
      ]
     },
     "explanation": {
-     "surface": "A performer who nearly caught a reindeer twice.",
-     "walkthrough": "Dancer is one of Santa's reindeer, with Dasher, Prancer and Vixen.",
-     "definitionFit": "A go-go dancer entertains at clubs by dancing energetically."
+     "surface": "An entertainer twice nearly caught one of Santa's reindeer.",
+     "walkthrough": "'twice' applies to the whole of 'almost got', so the shortened word appears two times in a row.",
+     "definitionFit": "A go-go dancer is a nightclub performer, employed to entertain."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "reindeer"
     }
    }
@@ -2531,54 +2569,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "returned",
-       "note": "something returned is sent back the way it came, so the word reads backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "hot",
+       "at": 4,
+       "gives": "IN",
+       "note": "in means fashionable, hot"
+      },
+      {
+       "words": "brandy, perhaps",
+       "at": 8,
+       "gives": "TOT",
+       "note": "a tot is a small measure of spirits, brandy being one example"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "at": 29,
+         "note": "returned means the word for what is read the other way round"
+        }
+       ],
        "parts": [
         {
-         "words": "profit",
-         "gives": "NIAG",
-         "note": "gain = profit"
-        },
-        {
-         "words": "pub",
-         "gives": "RAB",
-         "note": "a bar = a pub"
-        },
-        {
          "words": "what",
+         "at": 24,
          "gives": "EH",
-         "note": "EH? = what?, reversed"
-        },
-        {
-         "words": "brandy, perhaps",
-         "gives": "TOT",
-         "note": "a tot = a small measure of spirits"
-        },
-        {
-         "words": "hot",
-         "gives": "NI",
-         "note": "hot = fashionable, in"
+         "note": "eh? is a way to ask what?"
         }
        ]
+      },
+      {
+       "words": "pub",
+       "at": 38,
+       "gives": "BAR",
+       "note": "a bar is a drinking place, a pub"
+      },
+      {
+       "words": "profit",
+       "at": 45,
+       "gives": "GAIN",
+       "note": "gain means profit"
       }
      ]
     },
     "explanation": {
-     "surface": "Warm brandy was the thing that turned the pub around into profit.",
-     "walkthrough": "'Too hot' is a trap: 'Too' alone is the definition, and 'hot' starts the wordplay. EH? is how the British say 'what?'",
-     "definitionFit": "Into the bargain means in addition, as well, too."
+     "surface": "Brandy that is too hot returns the pub to profit.",
+     "walkthrough": "'Too' looks like part of the surface about heat, but it is the definition, meaning also.",
+     "definitionFit": "Into the bargain is an idiom meaning as well, in addition, which is the sense of 'too'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Too"
     }
    }
@@ -2613,26 +2657,42 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Heartless robber",
-       "gives": "THEF",
-       "note": "THIEF without its middle letter I"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Heartless",
+         "at": 0,
+         "note": "heartless means the middle letter is removed from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "robber",
+         "at": 10,
+         "gives": "THIEF",
+         "note": "a thief is a robber"
+        },
+        {
+         "gives": "I"
+        }
+       ]
       },
       {
        "words": "hits",
+       "at": 17,
        "gives": "LICKS",
-       "note": "licks = blows, as in 'a lick of the belt'"
+       "note": "licks are blows or hits"
       }
      ]
     },
     "explanation": {
-     "surface": "A cold-hearted thief turns up in a film.",
-     "walkthrough": "'The flicks' is British slang for the cinema, from flickering film.",
-     "definitionFit": "The flicks is informal British for the cinema, where movies are shown."
+     "surface": "A cruel robber strikes the place where a film is being shot.",
+     "definitionFit": "The flicks is informal British for the cinema, where one goes to watch films."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "hits"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "location"
     }
    }
   },
@@ -3199,25 +3259,42 @@
      "parts": [
       {
        "words": "chapter",
-       "gives": "C",
-       "note": "c = chapter"
+       "at": 18,
+       "gives": "C"
       },
       {
-       "words": "delighted absent editor",
-       "gives": "AMUS",
-       "note": "AMUSED without ED, editor"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "absent",
+         "at": 36,
+         "note": "absent means the editor's letters are missing from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "delighted",
+         "at": 26,
+         "gives": "AMUSED",
+         "note": "amused means pleased or delighted"
+        },
+        {
+         "words": "editor",
+         "at": 43,
+         "gives": "ED"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French writer's chapter pleased an editor who wasn't there.",
-     "walkthrough": "The 's is 'is'. Albert Camus wrote The Outsider.",
-     "definitionFit": "Albert Camus was a French novelist, author of The Outsider and The Plague."
+     "surface": "A chapter by a French author delighted readers despite the editor's absence.",
+     "definitionFit": "Albert Camus was a French writer whose novels include The Outsider and The Plague."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "delighted"
+     "misdirectedWord": "chapter"
     }
    }
   },
@@ -3544,41 +3621,60 @@
      "op": "charade",
      "parts": [
       {
-       "words": "doctor largely",
-       "gives": "TREA",
-       "note": "to doctor = to treat, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "largely",
+         "at": 13,
+         "note": "largely means most of the word, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doctor",
+         "at": 6,
+         "gives": "TREAT",
+         "note": "to treat is to give medical care, to doctor"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "wearing"
+         "text": "wearing",
+         "at": 33,
+         "note": "wearing means the fur goes round the other piece like a coat"
         }
        ],
        "parts": [
         {
          "words": "fur",
+         "at": 41,
          "gives": "SABLE",
-         "note": "sable, a dark fur"
+         "note": "sable is the fur of a small Asian mammal"
         },
         {
          "words": "attached to",
+         "at": 21,
          "gives": "ON",
-         "note": "on = attached to, as in 'a lid on a jar'; it goes after the first letter of the fur"
+         "note": "on means attached to, as a label is on a parcel"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fake doctor, mostly fond of wearing furs.",
-     "walkthrough": "'Doctor' looks like a noun; it is the verb, to treat.",
-     "definitionFit": "Treasonable acts are false to one's country, disloyal."
+     "surface": "A dishonest doctor is linked to someone dressed in fur.",
+     "definitionFit": "Treasonable conduct is disloyal or traitorous, being false to one's country."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "doctor"
+     "misdirectedWord": "False"
     }
    }
   },

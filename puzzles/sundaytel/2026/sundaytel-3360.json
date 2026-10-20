@@ -463,21 +463,36 @@
      "op": "charade",
      "parts": [
       {
-       "words": "most of red",
-       "gives": "RE",
-       "note": "RED without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 8,
+         "note": "most of a word means all but its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "red",
+         "at": 16,
+         "gives": "RED"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       },
       {
        "words": "meat",
+       "at": 20,
        "gives": "VEAL",
-       "note": "veal = calf meat"
+       "note": "veal is meat from a calf"
       }
      ]
     },
     "explanation": {
-     "surface": "Lifting the cover off a plate of mostly red meat.",
-     "walkthrough": "'Red meat' reads as one phrase, but the colour and the meat are separate pieces, and ironically this meat is pale.",
-     "definitionFit": "A plain synonym: to lay bare or make visible, as when lifting a lid."
+     "surface": "A cook exposes the bulk of a piece of red meat.",
+     "definitionFit": "To reveal something is to expose or disclose it, the same as uncovering it."
     },
     "features": {
      "answerInScene": false,
