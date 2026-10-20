@@ -914,32 +914,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "terrible",
-       "note": "something terrible is badly done, so the letters come out in a mangled order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "A",
-       "note": "taken as written"
+       "at": 0
       },
       {
-       "words": "drama",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terrible",
+         "at": 2,
+         "note": "something terrible is in a bad state, so the letters of the next word are thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drama",
+         "at": 11
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Spanish navy's defeat was a terrible theatrical event.",
-     "walkthrough": "The fodder is the article plus the noun, every letter used.",
-     "definitionFit": "The Armada was the Spanish naval force sent against England in 1588; the word also means any great fleet of warships."
+     "surface": "A dreadful piece of theatre prepared for a Spanish naval force.",
+     "walkthrough": "Keep A as it is and add RMADA, the letters of DRAMA rearranged.",
+     "definitionFit": "The Spanish Armada was the fleet sent against England in 1588; the word also means any war fleet."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drama"
     }
    }
   },

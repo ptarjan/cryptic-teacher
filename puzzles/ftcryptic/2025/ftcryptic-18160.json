@@ -721,47 +721,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "turned",
-       "note": "turned round means facing the other way, so the joined pieces read backwards"
+       "text": "on",
+       "at": 26,
+       "note": "on means placed after, so the reversed word follows A"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "American",
+       "at": 29,
+       "gives": "A"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "on",
-         "note": "'on' means next to, so the American abbreviation is joined after 'model'"
+         "text": "turned",
+         "at": 19,
+         "note": "turned means reversed, so the word for model is written backwards"
         }
        ],
        "parts": [
         {
          "words": "model",
+         "at": 13,
          "gives": "POSE",
-         "note": "to model is to pose for an artist"
-        },
-        {
-         "words": "American",
-         "gives": "A",
-         "note": "a = American, standard abbreviation"
+         "note": "to model is to pose"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A celebrated Greek fashion model has fallen for an American.",
-     "walkthrough": "'Turned on' looks like a phrasal verb about attraction; it splits into a reversal indicator and a joining word.",
-     "definitionFit": "Aesop was the ancient Greek storyteller credited with the well-known collection of animal fables."
+     "surface": "A well-known Greek model turned against an American.",
+     "walkthrough": "POSE reversed is ESOP.",
+     "definitionFit": "Aesop was the ancient Greek storyteller of the fables."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "turned"
+     "misdirectedWord": "model"
     }
    }
   },
@@ -1096,30 +1098,47 @@
      "parts": [
       {
        "words": "against",
+       "at": 9,
        "gives": "V",
-       "note": "v = versus, against"
+       "note": "V, from versus, means against"
       },
       {
        "words": "the Spanish",
+       "at": 17,
        "gives": "EL",
-       "note": "el is 'the' in Spanish"
+       "note": "el is Spanish for the"
       },
       {
-       "words": "crown twice abridged",
-       "gives": "CRO",
-       "note": "CROWN loses its last two letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "twice abridged",
+         "at": 35,
+         "note": "twice abridged means shortened two times, losing two final letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crown",
+         "at": 29,
+         "gives": "CROWN"
+        },
+        {
+         "gives": "WN"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A document opposing the Spanish monarchy, cut down twice by the censors.",
-     "walkthrough": "V for versus is the standard abbreviation for 'against', as in sport and law cases.",
-     "definitionFit": "Velcro is a trademarked hook-and-loop fastening fabric, a particular kind of material."
+     "surface": "Fabric opposed to the Spanish monarchy, cut down twice.",
+     "walkthrough": "CROWN loses its last two letters to CRO.",
+     "definitionFit": "Velcro is a hook-and-loop fastening fabric."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Material"
+     "misdirectedWord": "crown"
     }
    }
   },
@@ -1861,7 +1880,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "cinema?",
+      "text": "cinema",
       "at": 34
      }
     ],
@@ -1870,26 +1889,44 @@
      "indicators": [
       {
        "text": "in front of",
-       "note": "one piece in front of another comes first, so the talk precedes the word for 'home'"
+       "at": 17,
+       "note": "in front of means the first piece comes before home"
       }
      ],
      "parts": [
       {
-       "words": "A lot of blether",
-       "gives": "DRIVE",
-       "note": "DRIVEL, nonsense talk, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of means most but not all, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "blether",
+         "at": 9,
+         "gives": "DRIVEL",
+         "note": "blether is Scots for drivel, foolish talk"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
        "words": "home",
+       "at": 29,
        "gives": "IN",
-       "note": "in = at home"
+       "note": "in means at home"
       }
      ]
     },
     "explanation": {
-     "surface": "Lots of chatter in front of the home cinema screen.",
-     "walkthrough": "Blether is Scots and northern British for foolish talk, the same as drivel. The question mark flags that a drive-in is one kind of cinema.",
-     "definitionFit": "A drive-in is an open-air cinema where the audience watches films from their parked cars."
+     "surface": "Much nonsense talk before a home cinema system?",
+     "walkthrough": "DRIVEL loses its last letter; 'home cinema' looks like one phrase, but home is IN.",
+     "definitionFit": "A drive-in is an open-air cinema where films are watched from cars."
     },
     "features": {
      "answerInScene": true,

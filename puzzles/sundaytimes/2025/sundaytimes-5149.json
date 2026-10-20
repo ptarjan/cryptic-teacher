@@ -975,26 +975,38 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "ousting the leader",
-       "note": "the first letter, M, is thrown out"
-      },
-      {
        "text": "at sea",
-       "note": "at sea means confused, so the letters are jumbled"
+       "at": 36,
+       "note": "at sea means confused, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "mutineers",
-       "gives": "UTINEERS",
-       "note": "MUTINEERS loses its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ousting the leader",
+         "at": 17,
+         "note": "ousting the leader means throwing out the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mutineers",
+         "at": 7,
+         "gives": "MUTINEERS"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Starving sailors mutiny and throw their captain overboard.",
-     "walkthrough": "The surface is a mutiny on the high seas, where ousting the leader means the captain; in the wordplay the leader is just the letter M.",
-     "definitionFit": "A literary synonym: hungry or greedy, from the Latin for being hungry."
+     "surface": "Starving rebels on a ship throw out their captain.",
+     "walkthrough": "MUTINEERS without its M leaves UTINEERS to rearrange.",
+     "definitionFit": "Esurient is a literary word for greedy or ravenous."
     },
     "features": {
      "answerInScene": false,
@@ -1081,44 +1093,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "raising",
-       "note": "in a down clue, raising lifts the letters so they read bottom to top"
-      },
-      {
-       "text": "to the top",
-       "note": "the letters go up to the top of the entry, reading upwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raising",
+         "at": 13,
+         "note": "raising in a down answer means reading upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work",
+         "at": 8,
+         "gives": "OP",
+         "note": "op, short for opus, is a work"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to the top",
+         "at": 26,
+         "note": "taken to the top means read upwards in the column, so reversed"
+        }
+       ],
        "parts": [
         {
          "words": "name",
+         "at": 21,
          "gives": "CITE",
-         "note": "to cite is to name, as in citing an example"
-        },
-        {
-         "words": "work",
-         "gives": "OP",
-         "note": "op = opus, a work"
+         "note": "to cite is to name"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A songwriter's work puts a name in the headline.",
-     "walkthrough": "The two pieces sit one after the other and the whole string is read upwards, so the work ends up on top.",
-     "definitionFit": "A plain synonym: expressive in the manner of verse or song."
+     "surface": "A poetic piece lifts a name up to the top.",
+     "walkthrough": "OP raised is PO; CITE taken up becomes ETIC.",
+     "definitionFit": "Poetic means having the quality of poetry, expressive and lyrical."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "raising"
+     "misdirectedWord": "name"
     }
    }
   },

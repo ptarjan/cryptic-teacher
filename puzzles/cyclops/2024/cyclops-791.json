@@ -1532,45 +1532,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "all but",
-       "note": "all but means nearly all, so the word loses one letter, its last"
-      }
-     ],
      "parts": [
       {
        "words": "one",
+       "at": 17,
        "gives": "A",
-       "note": "a = one"
+       "note": "a means one"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "flips",
-         "note": "the remaining letters flip round"
+         "at": 36,
+         "note": "flips means turns over, so the shortened word is reversed"
         }
        ],
        "parts": [
         {
-         "words": "Gnome",
-         "gives": "GNOM",
-         "note": "Gnome without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "all but",
+           "at": 28,
+           "note": "all but means everything except the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Gnome",
+           "at": 22,
+           "gives": "GNOME"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Private Eye's Lord Gnome turns somersaults.",
-     "walkthrough": "Lord Gnome is Private Eye's fictional proprietor.",
-     "definitionFit": "A plain synonym for the preposition: to stand among a crowd is to be surrounded by it."
+     "surface": "A Private Eye editor nearly loses his temper in the midst of things.",
+     "walkthrough": "GNOME without its last letter is GNOM, which flips to MONG. Lord Gnome is Private Eye's fictional proprietor.",
+     "definitionFit": "Among means surrounded by, as in the midst of a group."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "one"
+     "misdirectedWord": "flips"
     }
    }
   },

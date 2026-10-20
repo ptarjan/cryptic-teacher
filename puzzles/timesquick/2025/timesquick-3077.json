@@ -150,31 +150,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to ignore outsiders",
-       "note": "Ignoring a word's outsiders means leaving off its first and last letters."
-      },
-      {
        "text": "in",
-       "note": "One thing in another sits inside it."
+       "at": 26,
+       "note": "in means the inner letters go inside the shelter word"
       }
      ],
      "parts": [
       {
        "words": "shelter",
+       "at": 29,
        "gives": "TENT",
        "note": "a tent is a shelter"
       },
       {
-       "words": "Sorry",
-       "gives": "ORR",
-       "note": "SORRY without its first and last letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "to ignore outsiders",
+         "at": 6,
+         "note": "ignoring outsiders means dropping the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sorry",
+         "at": 0
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Apologising for leaving people out in the rain while you shelter.",
-     "walkthrough": "'Sorry' reads as an apology in the surface; here it is just letter material.",
-     "definitionFit": "A torrent is a violent, heavy flow, and it is used of rain coming down in sheets."
+     "surface": "An apology for not letting outsiders under cover in heavy rain.",
+     "walkthrough": "'Sorry' looks like an apology but only its inner letters are used.",
+     "definitionFit": "A torrent of rain is a heavy downpour."
     },
     "features": {
      "answerInScene": true,
@@ -634,30 +643,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Not entirely",
-       "note": "Not entirely means not all of it, so READY-MADE loses its last letter."
-      },
-      {
        "text": "resort",
-       "note": "To re-sort is to sort again, so the remaining letters are rearranged."
+       "at": 41,
+       "note": "resort read as re-sort, sort again, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "ready-made",
-       "gives": "READYMAD",
-       "note": "READYMADE without its final E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not entirely",
+         "at": 27,
+         "note": "not entirely means one letter short, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ready-made",
+         "at": 15,
+         "gives": "READYMADE"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hoping a wish comes true off the shelf, though a holiday resort is needed.",
-     "walkthrough": "'Resort' looks like a holiday destination; read it as re-sort, to sort again.",
-     "definitionFit": "A daydream is a pleasant fantasy, often of something wished for."
+     "surface": "Hoping for something nice off the shelf, but needing a holiday place too.",
+     "walkthrough": "READYMADE loses its last E; 're-sort' those eight letters.",
+     "definitionFit": "A daydream is a pleasant fantasy, a kind of idle wishful thinking."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "resort"
     }
