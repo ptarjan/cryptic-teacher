@@ -348,6 +348,16 @@ dw = {"op": "deletion", "indicators": [{"text": "throwing"}], "parts": [
 new, used = F.repair_tree(dw, "Throwing couple of rights, initially fear", "FIST", DI)
 check("a cut that is a whole added piece is left for the model", used == [])
 
+# delOnePiece: del(charade(MELODY, RAM), Y) cuts the one piece holding the letters
+DOP = {"delOnePiece": F.r_del_one_piece}
+dop = {"op": "deletion", "indicators": [{"text": "no end of"}], "parts": [
+    {"op": "charade", "parts": [{"words": "tune", "gives": "MELODY"}, {"words": "ram", "gives": "RAM"}]},
+    {"gives": "Y"}]}
+new, used = F.repair_tree(dop, "Tune ram, no end of", "MELODRAM", DOP)
+check("del over MELODY+RAM less Y becomes del(MELODY, Y) + RAM",
+      used == ["delOnePiece"] and new["op"] == "charade" and new["parts"][0]["op"] == "deletion"
+      and new["parts"][0]["indicators"][0]["text"] == "no end of" and new["parts"][1]["gives"] == "RAM")
+
 # deletionScope: the same move; an end word picks the piece whose end holds the letters, an anagram flattens
 DS = {"deletionScope": F.r_deletion_inside}
 ds = {"op": "deletion", "indicators": [{"text": "Almost"}], "parts": [
