@@ -544,56 +544,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "backward",
-       "note": "going backward means the synonym is written from its last letter to its first"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending",
+         "at": 14,
+         "note": "ending asks for the last letter of the word"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ending",
-           "note": "the ending of a word is its final letter, so only the last letter of the possessive word is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Office's",
-           "gives": "OFFICE",
-           "note": "the last letter of Office"
-          }
-         ]
-        },
-        {
-         "words": "tumble",
-         "gives": "SPILL",
-         "note": "a tumble is a spill, a fall"
-        },
-        {
-         "words": "Excellent",
-         "gives": "E",
-         "note": "E is a school grade meaning excellent in some American grading schemes"
+         "words": "Office's",
+         "at": 5,
+         "gives": "OFFICE",
+         "note": "the word office, in its possessive form"
         }
        ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backward",
+         "at": 26,
+         "note": "backward means the word for a tumble is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tumble",
+         "at": 35,
+         "gives": "SPILL",
+         "note": "a spill is a fall or tumble"
+        }
+       ]
+      },
+      {
+       "words": "Excellent",
+       "at": 43,
+       "gives": "E",
+       "note": "E is a common grade abbreviation for excellent"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about what follows when the President's office ends with someone taking a fall.",
-     "walkthrough": "'Oval Office' reads as one place, but Oval is the definition and Office only supplies a letter. The reversed SPILL sits between two Es to give ELLIPSE.",
-     "definitionFit": "An ellipse is the geometric name for a regular oval shape, a flattened circle."
+     "surface": "Whether the White House's Oval Office has finished with a backward tumble, judged excellent.",
+     "walkthrough": "'Oval Office' reads as one name, but 'Oval' is the definition; E ends office, SPILL reversed is LLIPS, then E.",
+     "definitionFit": "An ellipse is a regular oval shape, a flattened circle."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Oval"
+     "misdirectedWord": "Office's"
     }
    }
   },

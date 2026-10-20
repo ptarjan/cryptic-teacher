@@ -683,21 +683,35 @@
      "op": "charade",
      "parts": [
       {
-       "words": "European country reduced by half?",
-       "gives": "GRE",
-       "note": "GREECE cut to its first half"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "reduced by half",
+         "at": 17,
+         "note": "reduced by half keeps only the first three of the six letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "European country",
+         "at": 0,
+         "gives": "GREECE",
+         "note": "Greece is a European country"
+        }
+       ]
       },
       {
        "words": "This means nothing to American",
+       "at": 34,
        "gives": "NADA",
        "note": "nada is American slang for nothing"
       }
      ]
     },
     "explanation": {
-     "surface": "A shrinking European country, and a word meaning nothing to an American state.",
-     "walkthrough": "'American state' looks like one phrase; 'to American' belongs to NADA, and 'state' alone is the definition.",
-     "definitionFit": "State in the sense of sovereign nation: Grenada is an island nation in the Caribbean."
+     "surface": "A puzzled American shrugs at a halved European nation.",
+     "walkthrough": "GRE from Greece and NADA, slang Americans use for 'nothing', make the name of a Caribbean island nation.",
+     "definitionFit": "Grenada is an independent island nation in the Caribbean, a sovereign country."
     },
     "features": {
      "answerInScene": false,
@@ -1515,9 +1529,25 @@
      "op": "charade",
      "parts": [
       {
-       "words": "fashion designer cut short",
-       "gives": "DIO",
-       "note": "DIOR without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 21,
+         "note": "cut short says the name loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fashion designer",
+         "at": 4,
+         "gives": "DIOR",
+         "note": "Christian Dior was a French fashion designer"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
        "op": "homophone",
@@ -1525,23 +1555,25 @@
        "indicators": [
         {
          "text": "to audience",
-         "note": "said to an audience, so what matters is the sound, not the spelling"
+         "at": 39,
+         "note": "to audience means as the words would be heard by listeners"
         }
        ],
        "parts": [
         {
          "words": "notices",
+         "at": 31,
          "gives": "SEES",
-         "note": "notices = sees"
+         "note": "to see is to notice, so he sees means he notices"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Go and look at a fashion designer who is abruptly handing out announcements to a crowd.",
-     "walkthrough": "'See' opens the clue looking like a command; it is a noun, a bishop's area of authority.",
-     "definitionFit": "A bishop's see is the district he governs, which is his diocese."
+     "surface": "A view of a couturier's abridged announcements to the public.",
+     "walkthrough": "'See' looks like a verb, but it is a bishop's see. DIOR cut short is DIO, and SEES, said aloud, gives CESE.",
+     "definitionFit": "A diocese is the district under a bishop's authority, which is also called his see."
     },
     "features": {
      "answerInScene": false,

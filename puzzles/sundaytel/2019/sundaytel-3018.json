@@ -394,7 +394,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "child's right",
+      "text": "child's right!",
       "at": 35
      }
     ],
@@ -403,43 +403,44 @@
      "indicators": [
       {
        "text": "wrong",
-       "note": "letters that have gone wrong are out of order and must be rearranged"
+       "at": 27,
+       "note": "something wrong is out of order, so these letters are muddled into a new arrangement"
       }
      ],
      "parts": [
       {
        "words": "Auntie",
-       "note": "taken as written"
+       "at": 0,
+       "note": "taken as written for the anagram"
       },
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "not half",
-         "note": "not half means only half the word survives, so the rest is dropped"
+         "at": 18,
+         "note": "not half says the word loses half of itself, so only its first three letters stay"
         }
        ],
        "parts": [
         {
          "words": "doctor",
-         "note": "taken as written, then cut back to its first three letters"
-        },
-        {
-         "gives": "TOR"
+         "at": 11,
+         "note": "the word doctor, of which only the front half is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A relative and a medic are told off by a youngster who insists on being schooled.",
-     "walkthrough": "'Doctor' tempts as the anagram signal, but here it is fodder, halved to DOC.",
-     "definitionFit": "Schooling is widely held to be an entitlement of every young person, so education is a child's right."
+     "surface": "A cry that an aunt and a doctor are not wrong at all: a youngster has a proper claim.",
+     "walkthrough": "'Auntie' looks like the BBC's nickname, but it is plain anagram fodder. 'not half' keeps DOC from doctor; AUNTIE plus DOC, rearranged ('wrong'), gives the answer.",
+     "definitionFit": "Schooling is widely held to be something every young person is entitled to, a basic human entitlement."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "doctor"
+     "misdirectedWord": "Auntie"
     }
    }
   },
@@ -1314,49 +1315,54 @@
        "indicators": [
         {
          "text": "Manx",
-         "note": "a Manx cat is born without a tail, so the last letter is removed"
+         "at": 8,
+         "note": "a Manx cat has no tail, so the word for the animal loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Pair of",
-         "gives": "CAT",
-         "note": "the first of the pair: a cat, cut to two letters"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "Pair of",
+           "at": 0,
+           "note": "pair of says the tailless cat appears twice, side by side"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cats",
+           "at": 13,
+           "gives": "CAT",
+           "note": "a cat; two of them are wanted"
+          },
+          {
+           "gives": "CAT"
+          }
+         ]
         },
         {
-         "gives": "T"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "cats",
-         "gives": "CAT",
-         "note": "the second of the pair, also cut to two letters"
-        },
-        {
-         "gives": "T"
+         "gives": "TT"
         }
        ]
       },
       {
        "words": "love",
+       "at": 18,
        "gives": "O",
-       "note": "love is zero in tennis, shaped like O"
+       "note": "love is nil in tennis, the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "Two tailless cats from the Isle of Man adore a tree in the tropics.",
-     "walkthrough": "A Manx cat, from the Isle of Man, has no tail, so each CAT loses its last letter.",
-     "definitionFit": "The cacao is the tropical tree whose seeds give cocoa and chocolate."
+     "surface": "Two tailless Isle of Man cats are fond of a tree in the tropics.",
+     "walkthrough": "Manx cats are the tailless breed from the Isle of Man, so each CAT loses its T to give CA, and 'Pair of' calls for two of them: CACA, then O for love.",
+     "definitionFit": "The cacao is the tropical evergreen whose seeds yield cocoa and chocolate."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "love"
+     "misdirectedWord": "Manx"
     }
    }
   },
