@@ -666,39 +666,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "In opposite directions",
-       "note": "two opposite compass points, south and north, go one on each side"
+       "text": "In",
+       "at": 0,
+       "note": "In places the metalware between the two opposite compass letters"
       }
      ],
      "parts": [
       {
-       "words": "In opposite",
-       "gives": "S",
-       "note": "S = south, one direction"
+       "words": "opposite directions",
+       "at": 3,
+       "gives": "SN",
+       "note": "south and north are opposite compass points, S and N"
       },
       {
        "words": "lacquered metalware",
+       "at": 24,
        "gives": "TOLE",
-       "note": "tole is lacquered or painted tin ware"
-      },
-      {
-       "words": "directions",
-       "gives": "N",
-       "note": "N = north, the opposite direction"
+       "note": "tole is enamelled or lacquered tinware"
       }
      ]
     },
     "explanation": {
-     "surface": "Lacquered trays are carried off in two directions at once.",
-     "walkthrough": "Tole is a decorative-craft word worth knowing: painted tin trays and boxes.",
-     "definitionFit": "A plain synonym: stolen goods have been taken without permission."
+     "surface": "Japanned tin goods have been carried off in both directions.",
+     "walkthrough": "The opening 'In' is the container signal, not a link: TOLE goes in S...N.",
+     "definitionFit": "Something stolen has been taken unlawfully, so the past participles match."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "directions"
     }
    }
   },
@@ -985,49 +984,64 @@
      "parts": [
       {
        "words": "very",
-       "gives": "V",
-       "note": "v = very"
+       "at": 34,
+       "gives": "V"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "upset",
-         "note": "an upset suitor is thrown into disorder, so his letters are rearranged"
+         "text": "seen in",
+         "at": 26,
+         "note": "seen in puts that letter inside the jumbled suitor"
         }
        ],
        "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "upset",
+           "at": 39,
+           "note": "upset means overturned, so the letters of suitor are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "suitor",
+           "at": 45
+          }
+         ]
+        },
         {
          "op": "first",
          "indicators": [
           {
            "text": "first",
-           "note": "'first' takes the opening letter of expression"
+           "at": 20,
+           "note": "first picks the opening letter of expression"
           }
          ],
          "parts": [
           {
            "words": "expression's",
-           "note": "first letter of expression"
+           "at": 7
           }
          ]
-        },
-        {
-         "words": "suitor",
-         "note": "anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rejected suitor wears a glassy, blank expression.",
-     "walkthrough": "The E joins the suitor's letters before they are mixed, and V stands in front of the result.",
-     "definitionFit": "A plain synonym: vitreous, from Latin vitrum, glass, means glassy."
+     "surface": "A rejected suitor wears a glazed expression.",
+     "walkthrough": "The 's in 'expression's' is just possessive: the first letter goes into the jumbled suitor after its third letter.",
+     "definitionFit": "Vitreous describes something like glass in appearance or texture, as in vitreous enamel."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "expression's"
     }
    }
   },

@@ -529,52 +529,71 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "PERMANENTMAGNET",
-     "indicators": [
-      {
-       "text": "inside",
-       "note": "the selected letters are placed within something else"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "For each",
+       "at": 0,
        "gives": "PER",
-       "note": "per means for each"
+       "note": "per means for each, as in miles per hour"
       },
       {
-       "words": "artist successively",
-       "gives": "MANETMANET",
-       "note": "the French painter Manet, taken twice in a row"
-      },
-      {
-       "op": "last",
-       "unchecked": true,
-       "gives": "NG",
+       "op": "move",
        "indicators": [
         {
-         "text": "final pieces of",
-         "note": "the closing pieces of a word are its last letters"
+         "text": "putting",
+         "at": 29,
+         "note": "putting sends the very last of those closing letters on into the second copy of the artist's name"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "painting",
-         "gives": "NG",
-         "select": "last",
-         "note": "the last two letters of the word"
+         "op": "container",
+         "indicators": [
+          {
+           "text": "inside",
+           "at": 62,
+           "note": "inside places the closing letters of painting within the doubled artist's name"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "artist",
+             "at": 9,
+             "gives": "MANET",
+             "note": "Édouard Manet, the French painter"
+            },
+            {
+             "words": "successively",
+             "at": 16,
+             "gives": "MANET",
+             "note": "the artist is used twice in a row, giving a second Manet"
+            }
+           ]
+          },
+          {
+           "words": "final pieces of painting",
+           "at": 37,
+           "gives": "NG",
+           "note": "the final pieces of painting are its last two letters"
+          }
+         ]
+        },
+        {
+         "gives": "G",
+         "note": "the very last letter of painting, which goes on into the second artist"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Each artist in turn adds the final touches of a painting inside a steel drawer.",
-     "walkthrough": "The two closing letters go one into each Manet: N into the first, G into the second, each before the final E-T. A drawer here is something that draws, not furniture.",
-     "definitionFit": "A drawer is anything that pulls, and this lasting magnet attracts steel to itself."
+     "surface": "An artist works on a steel drawer, finishing the painting piece by piece.",
+     "walkthrough": "MANET appears twice in succession; N goes inside the first (MANENT) and G inside the second (MAGNET), the end letters of 'painting' in order.",
+     "definitionFit": "A permanent magnet draws iron and steel towards it; it is a drawer in the sense of one that attracts."
     },
     "features": {
      "answerInScene": false,

@@ -488,28 +488,23 @@
     "definitions": [
      {
       "text": "Solved",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: worked out, resolved"
+     },
+     {
+      "text": "a clue for part of the West Country",
+      "at": 7,
+      "meaning": "second meaning, cryptic: the phrase read as a clue, out signalling a rearrangement of sorted, gives Dorset, an English county"
      }
     ],
-    "wordplay": {
-     "op": "reverse",
-     "reading": "SORTED + OUT",
-     "parts": [
-      {
-       "words": "a clue for part of the West Country",
-       "at": 7,
-       "note": "Dorset is a county in south-west England; the answer, read as a clue, rearranges six of its letters to make this county"
-      }
-     ]
-    },
     "explanation": {
-     "surface": "A crossword solver reports having solved a clue about a West Country county.",
-     "walkthrough": "The answer itself is a little clue: OUT is an anagram signal, and the letters of SORTED rearranged spell DORSET, a county in England's West Country.",
-     "definitionFit": "A problem that has been sorted out has been resolved or fixed, the same as solved."
+     "walkthrough": "The second half reads the answer as a clue: OUT is an anagram signal and SORTED rearranges to DORSET, a county in south-west England.",
+     "definitionFit": "Sorted out is a phrasal verb meaning resolved or fixed, so a problem sorted out is one that is solved."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "clue"
     }
    }
@@ -645,25 +640,25 @@
     ],
     "wordplay": {
      "op": "reverse",
-     "reading": "IN BRED",
+     "reading": "IN + BRED",
      "parts": [
       {
-       "words": "Where one would go to get food",
-       "at": 0,
-       "note": "one is the letter A; slipped between the R and E of a five-letter word meaning raised, it makes BREAD, a food"
+       "words": "food",
+       "at": 26,
+       "note": "read the answer as an instruction: put one (A) in the word bred and it becomes bread, a food"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks where to go for something to eat, on behalf of a local.",
-     "walkthrough": "Read 'one' as the letter A: placed in BRED it makes BREAD, so the answer is the place it would go.",
-     "definitionFit": "Inbred qualities are innate, present from birth, which is one meaning of native."
+     "surface": "A foraging question: where would you head to find something to eat, as a local?",
+     "walkthrough": "'one' is A here, and the answer is read as the spot where that A goes to turn a word into a loaf.",
+     "definitionFit": "Inbred qualities are innate, present from birth, which is a sense of native as in native wit."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "one"
+     "misdirectedWord": "food"
     }
    }
   },
@@ -1221,51 +1216,75 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Leader of",
-       "note": "the leader of a word is its first letter"
-      },
-      {
        "text": "holding",
-       "note": "to hold something is to keep it inside"
+       "at": 33,
+       "note": "holding means the shortened time wraps around the reversed miners"
       }
      ],
      "parts": [
       {
-       "words": "thieves is out of time",
-       "gives": "IME",
-       "note": "TIME without T, the first letter of thieves"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "is out of",
+         "at": 18,
+         "note": "is out of says the thieves' leader leaves the word time"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time",
+         "at": 28,
+         "gives": "TIME",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Leader of",
+           "at": 0,
+           "note": "the leader of thieves is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "thieves",
+           "at": 10
+          }
+         ]
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "is out of",
-         "note": "something that is out of a word has left it, so T comes out of TIME"
-        },
-        {
          "text": "up",
-         "note": "a down entry read going up runs backwards"
+         "at": 41,
+         "note": "in a down answer up means the miners' letters are read from bottom to top, backwards"
         }
        ],
        "parts": [
         {
          "words": "miners",
+         "at": 44,
          "gives": "NUM",
-         "note": "the NUM is Britain's National Union of Mineworkers"
+         "note": "the NUM, the UK's National Union of Mineworkers"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gang boss who has served his time kidnapping miners, and can now fend off any attack.",
-     "walkthrough": "'Out of time' reads as a leader whose time is up, but it means T is dropped from TIME. The miners are the National Union of Mineworkers, the British miners' union.",
-     "definitionFit": "A plain synonym: something immune, like a body against a disease, resists attacks on it."
+     "surface": "A ringleader of a gang is out of jail time after holding up miners.",
+     "walkthrough": "The NUM is Britain's National Union of Mineworkers. 'holding up' looks like a robbery, but 'holding' is the container and 'up' the reversal in this down clue.",
+     "definitionFit": "Immune means protected against infection or attack, so it describes someone resisting attacks."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "time"
+     "misdirectedWord": "holding"
     }
    }
   },

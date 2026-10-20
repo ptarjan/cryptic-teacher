@@ -402,52 +402,61 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "sit between",
-       "note": "whatever sits between neighbours is slotted into the gap in the line-up"
-      }
-     ],
      "parts": [
       {
        "words": "United",
+       "at": 40,
        "gives": "U",
-       "note": "U is the standard abbreviation in football team names"
+       "note": "U is the abbreviation for United in team names"
       },
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "remarkably",
-         "note": "done remarkably, in an unusual way, so the letters end up in a surprising new order"
+         "text": "sit between",
+         "at": 28,
+         "note": "the two compass points sit between letters of the rearranged words"
         }
        ],
        "parts": [
         {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "remarkably",
+           "at": 58,
+           "note": "remarkably suggests the letters of and Spurs are arranged in an unusual way"
+          }
+         ],
+         "parts": [
+          {
+           "words": "and",
+           "at": 47
+          },
+          {
+           "words": "Spurs",
+           "at": 51
+          }
+         ]
+        },
+        {
          "words": "two points",
+         "at": 17,
          "gives": "SE",
-         "note": "south and east, two compass points"
-        },
-        {
-         "words": "and",
-         "note": "taken as written"
-        },
-        {
-         "words": "Spurs",
-         "note": "taken as written"
+         "note": "S and E, two compass points"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An unbeaten team sits two points clear between Manchester United and Tottenham Hotspur in the league.",
-     "walkthrough": "The 'and' of 'United and Spurs' is part of the fodder, not a joining word. Spurs is the nickname of Tottenham Hotspur, a London football club.",
-     "definitionFit": "Something never bettered or outdone by anything else has, figuratively, never been beaten."
+     "surface": "A football report: unbeaten, two points separate Manchester United and Tottenham.",
+     "walkthrough": "Spurs is the nickname of Tottenham Hotspur, an English football club; 'and' looks like a link but belongs to the rearranged letters.",
+     "definitionFit": "A record unsurpassed has never been bettered, so it has suffered no defeats."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "points"
     }
    }
