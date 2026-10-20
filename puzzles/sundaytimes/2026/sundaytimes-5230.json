@@ -1197,31 +1197,49 @@
      "op": "container",
      "indicators": [
       {
-       "text": "will catch"
+       "text": "will catch",
+       "at": 28,
+       "note": "catch means hold inside, so one part goes within the other"
       }
      ],
      "parts": [
       {
-       "words": "Having missed first, others",
-       "gives": "EST",
-       "note": "REST (others) without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Having missed first",
+         "at": 0,
+         "note": "the word lacks its first letter, the one it missed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "others",
+         "at": 21,
+         "gives": "REST",
+         "note": "the rest means the others"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
        "words": "my",
+       "at": 39,
        "gives": "COR",
-       "note": "cor! is a British exclamation of surprise, like my!; it goes inside ES_T"
+       "note": "cor is an exclamation of surprise, like my!"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who missed the first train frets the next will be caught by everyone else.",
-     "walkthrough": "'Train' is the noun for a retinue, not a railway service. Cor and my are both exclamations, so each can stand in for the other: ES(COR)T.",
-     "definitionFit": "An escort is a train of attendants accompanying someone."
+     "surface": "Someone who missed the first train hopes the others will catch theirs.",
+     "walkthrough": "REST loses its first letter to give EST, and that 'will catch' COR, an exclamation like 'my!'. Train here is a noun.",
+     "definitionFit": "A train is a retinue of attendants, which is the same as an escort accompanying someone."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "train"
     }
    }
