@@ -2480,8 +2480,12 @@ colB = [(0, 10, 60, 110, "6 Fish in the sea (5)")]
 colC = [(0, 10, 120, 170, "DOWN"), (12, 22, 120, 170, "2 Cow in a field (5)")]
 check("the columns holding the weak lights' numbers are the ones read",
       {1}, f.columns_with([[colA, colB, colC]], ["6-across"]))
-check("a number in no column's lines sends every column to the VLM", None,
+check("a number in no column's lines asks no column for it", set(),
       f.columns_with([[colA, colB, colC]], ["9-down"]))
+check("a lost number does not widen the ask to every column", {1},
+      f.columns_with([[colA, colB, colC]], ["6-across", "9-down"]))
+check("the 1930 page still reads every column for a lost number", None,
+      f.columns_with([[colA, colB, colC]], ["9-down"], True))
 asked = []
 def fake_page(d, found, hit, sols, vlm_for=False):
     asked.append(vlm_for)
