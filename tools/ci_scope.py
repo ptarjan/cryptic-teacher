@@ -35,6 +35,9 @@ PUZZLE = re.compile(r"puzzles/[^/]+/[^/]+/[^/]+\.json")
 #: test's code key).
 QUEUE_STATE = validate_scope.QUEUE_STATE
 BACKLOG = validate_scope.BACKLOG
+#: Derived report the daily job rewrites (tools/blog_compare.py's output). Only
+#: build_readme.py's prose names it; no test or validator reads the file.
+DERIVED_DATA = {"tools/data/blog_compare.json"}
 MAX_FILES = 1500
 
 
@@ -55,7 +58,7 @@ def decide(changes, base_text=None, head_text=None):
             if st not in ("A", "M"):
                 return "full", f"{st} {path}"
             stems.add(Path(path).stem)
-        elif path in QUEUE_STATE:
+        elif path in QUEUE_STATE or path in DERIVED_DATA:
             if st not in ("A", "M"):
                 return "full", f"{st} {path}"
         elif path == BACKLOG and st == "M" and base_text:

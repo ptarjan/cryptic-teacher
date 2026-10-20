@@ -115,14 +115,29 @@ jobs:
           # that run, so a puzzle push behind it need not repeat the suite (it
           # would queue another 20 minutes). If that run goes red, it is red on
           # its own commit and the next push finds the older green base again.
-          live=$(list in_progress 10) || full "could not list the running runs"
-          cands=$(printf '%s\n%s\n' "$live" "$runs" | awk -v me="$GITHUB_RUN_ID" 'NF && $1 < me' | sort -rn -k1,1)
+          #
+          # A run still QUEUED for a runner counts too (its jobs may not even
+          # exist yet, or its scope job has not finished). A pending run either
+          # runs the suite on its commit's code, or goes fast because that code
+          # equals an already-tested base, so either way the code at that commit
+          # is covered; if it goes red, it is red on its own commit. Leaving
+          # queued runs out sent every puzzle push behind a non-puzzle push
+          # (the daily blog-facts commit, say) down the full path while that
+          # push's own run waited for a runner, and those piled up and starved
+          # the queue. By the same argument a finished run whose scope chose the
+          # fast path (fast job ran, shards skipped) is a fine base.
+          live=$( { list in_progress 10; list queued 20; list waiting 10; list pending 10; list requested 10; } 2>/dev/null) || full "could not list the running runs"
+          cands=$(printf '%s\n%s\n' "$live" "$runs" | awk -v me="$GITHUB_RUN_ID" 'NF && $1 < me' | sort -rn -k1,1 | uniq)
           base_full=
           while read -r id sha; do
             n=$(gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
                   --jq '[.jobs[] | select(.name | startswith("tests "))] as $t
+                        | [.jobs[] | select(.name == "scope of the push")] as $s
+                        | [.jobs[] | select(.name == "puzzle fast path" and (.conclusion == "success" or .status != "completed"))] as $f
                         | if ([$t[] | select(.conclusion == "failure" or .conclusion == "cancelled")] | length) > 0 then 0
-                          else [$t[] | select(.conclusion == "success" or .status == "in_progress")] | length end') || full "could not read run $id"
+                          else ([$t[] | select(.conclusion == "success" or .status != "completed")] | length)
+                               + ($f | length)
+                               + (if ($s | length) == 0 or ($s[0].status != "completed") then 1 else 0 end) end') || full "could not read run $id"
             if [ "$n" -gt 0 ]; then base_full=$sha; break; fi
           done <<<"$cands"
           [ -n "$base_full" ] || full "no recent run that ran the shards"
