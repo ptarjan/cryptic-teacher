@@ -800,20 +800,20 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "the word for 'go' is read backwards"
+       "text": "to capture",
+       "note": "the reversed word takes the pawn inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "to capture",
-         "note": "the reversed word takes the pawn inside it"
+         "text": "back",
+         "note": "the word for 'go' is read backwards"
         }
        ],
        "parts": [
@@ -821,13 +821,13 @@
          "words": "go",
          "gives": "DEPART",
          "note": "to go = to depart"
-        },
-        {
-         "words": "pawn",
-         "gives": "P",
-         "note": "P = pawn in chess notation"
         }
        ]
+      },
+      {
+       "words": "pawn",
+       "gives": "P",
+       "note": "P = pawn in chess notation"
       }
      ]
     },
@@ -1048,27 +1048,22 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "in a down clue, 'up' means read from bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "injecting"
+        }
+       ],
        "parts": [
         {
-         "words": "force",
-         "gives": "F",
-         "note": "F = force, the physics symbol"
-        },
-        {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "injecting"
+           "text": "up",
+           "note": "in a down clue, 'up' means read from bottom to top"
           }
          ],
          "parts": [
@@ -1076,15 +1071,20 @@
            "words": "shoots",
            "gives": "FIRES",
            "note": "to shoot a gun = to fire it"
-          },
-          {
-           "words": "heroin",
-           "gives": "H",
-           "note": "H = heroin, drug slang"
           }
          ]
+        },
+        {
+         "words": "heroin",
+         "gives": "H",
+         "note": "H = heroin, drug slang"
         }
        ]
+      },
+      {
+       "words": "force",
+       "gives": "F",
+       "note": "F = force, the physics symbol"
       }
      ]
     },

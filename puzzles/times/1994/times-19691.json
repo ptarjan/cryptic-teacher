@@ -1322,23 +1322,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "rejecting",
-       "note": "rejecting means throwing back, so the assembled letters are read the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leading",
+         "note": "leading means coming first, so only the opening letter of article is wanted"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "words": "article",
+         "note": "the opening letter of article"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means surrounding, so the paper goes around the German's first letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "about",
-           "note": "about means surrounding, so the paper goes around the German's first letter"
+           "text": "rejecting",
+           "note": "rejecting means throwing back, so the assembled letters are read the other way"
           }
          ],
          "parts": [
@@ -1346,21 +1361,6 @@
            "words": "Paper",
            "gives": "SUN",
            "note": "The Sun is a British tabloid newspaper"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "leader",
-             "note": "a leader goes in front, so only the opening letter of German is wanted"
-            }
-           ],
-           "parts": [
-            {
-             "words": "German",
-             "note": "the opening letter of German"
-            }
-           ]
           }
          ]
         },
@@ -1368,14 +1368,14 @@
          "op": "first",
          "indicators": [
           {
-           "text": "leading",
-           "note": "leading means coming first, so only the opening letter of article is wanted"
+           "text": "leader",
+           "note": "a leader goes in front, so only the opening letter of German is wanted"
           }
          ],
          "parts": [
           {
-           "words": "article",
-           "note": "the opening letter of article"
+           "words": "German",
+           "note": "the opening letter of German"
           }
          ]
         }
