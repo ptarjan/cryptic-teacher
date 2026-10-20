@@ -3917,6 +3917,10 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
         return read_page(d, found, hit, solutions, None)
     verdict, puzzle = read_page(d, found, hit, solutions, False)
     weak = verdict.pop("_weak", None)
+    window = verdict.pop("_alt", None)
+    # The VLM is shown the window the readers settled on, not the layout's
+    # again (read_page's `first`); passed only when there is one.
+    ask_with = {"first": window} if window is not None else {}
     if puzzle is None:
         if verdict.get("cause") == "no-reading-parses" or "pending" in verdict:
             if held_settled(d, verdict):
@@ -3933,7 +3937,7 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     if held_settled(d, verdict):
         return verdict, puzzle
     only = None if (verdict.get("grid") != "image" or "imageDisagrees" in verdict) else weak
-    return read_page(d, found, hit, solutions, only if only is None else sorted(only))
+    return read_page(d, found, hit, solutions, only if only is None else sorted(only), **ask_with)
 
 
 #: Editions (dir names) the VLM is asked about even for a puzzle already held:
@@ -3993,27 +3997,52 @@ def clues_may_be_right(paper, d):
     return not (paper.key == "gale" and d.name[:4] < "2014")
 
 
-def read_page(d, found, hit, solutions, vlm_for=False):
+def read_page(d, found, hit, solutions, vlm_for=False, first=None):
     """read_puzzle's one read: `vlm_for` False asks the VLM nothing; None
     asks it every column; a list of lights, the columns holding them.
 
     A crop that did not hold the clue columns (crop_window.poor(): refused
     unreadable, no grid-fitting list, lights left blank) is read again from
     the other gutters near the window's left edge, and the best reading
-    stands: the window is right by its own check, not by the layout's offset."""
+    stands: the window is right by its own check, not by the layout's offset.
+
+    `first` is the window (an alt) the scan's readers alone settled on
+    (the "_alt" of their read, read_puzzle's): the VLM pass tries it before
+    anything else. An FT page whose layout window was poor cost the VLM a
+    full page of asks there (3 reads and 2 picks) before the window it
+    could have been shown at once (5 more), and the alternatives tried in
+    that order still stand if `first` is poor too."""
     alts = []
+    if first is not None:
+        v, p = _read_page(d, found, hit, solutions, vlm_for, first, None)
+        if not crop_window.poor(v):
+            v["cropFrom"] = "gutter"
+            return v, p
     verdict, puzzle = _read_page(d, found, hit, solutions, vlm_for, None, alts)
     if not alts or not crop_window.poor(verdict):
         return verdict, puzzle
     best = (crop_window.score(verdict, puzzle), verdict, puzzle)
+    settled = None
     for alt in alts:
+        if alt == first:
+            continue
+        # Every light filled, none blank: no other window can score higher
+        # (a tie keeps the earlier), so the VLM is not shown more of them.
+        if vlm_for is not False and best[2] is not None and best[0] == (1, best[1].get("lights") or -1):
+            break
         v, p = _read_page(d, found, hit, solutions, vlm_for, alt, None)
         if crop_window.score(v, p) > best[0]:
             best = (crop_window.score(v, p), v, p)
         if not crop_window.poor(v):
+            settled = alt
             break
     if best[1] is not verdict:
         best[1]["cropFrom"] = "gutter"
+    # The readers' own pass notes the window that held the columns (not
+    # necessarily the best scored: the layout's may score higher while the
+    # readers disagree with the grid), for the VLM pass to try first.
+    if vlm_for is False and settled is not None:
+        best[1]["_alt"] = settled
     return best[1], best[2]
 
 

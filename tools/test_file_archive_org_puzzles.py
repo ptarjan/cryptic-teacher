@@ -2506,6 +2506,47 @@ check("a page with a weak clue is read again with the VLM on that clue's columns
 asked.clear()
 f.read_puzzle(None, None, None, None, ocr_first=False)
 check("ocr_first=False asks the VLM for every column, as before", [None], asked)
+# The window the readers alone settled on is the one the VLM is shown first.
+firsts = []
+def fake_alt_page(d, found, hit, sols, vlm_for=False, first=None):
+    firsts.append((vlm_for, first))
+    return ({"number": 1, "grid": "image", "_weak": {"6-across"}, "_alt": ("plain", None)} if vlm_for is False else {"number": 1, "grid": "image"}), {"id": "x"}
+f.read_page = fake_alt_page
+f.read_puzzle(None, None, None, None)
+check("the VLM pass is handed the window the readers settled on", [(False, None), (["6-across"], ("plain", None))], firsts)
+f.read_page = real_page
+tried = []
+real_inner = f._read_page
+def fake_inner(d, found, hit, sols, vlm_for, alt, alts):
+    tried.append(alt)
+    if alts is not None:
+        alts.extend([("lead", 1), ("plain", None)])
+    good = alt == ("plain", None)
+    return {"number": 1, "lights": 10, "agreed": 10 if good else 0, "blank": {}}, {"id": "x"}
+f._read_page = fake_inner
+v, p = f.read_page(None, None, None, None, ["6-across"], ("plain", None))
+check("a first window that reads well is the only one the VLM is asked about", ([("plain", None)], "gutter"), (tried, v.get("cropFrom")))
+tried.clear()
+v, p = f.read_page(None, None, None, None, ["6-across"], ("lead", 1))
+check("a poor first window falls back to the layout's, then the other windows",
+      [("lead", 1), None, ("plain", None)], tried)
+tried.clear()
+v, p = f.read_page(None, None, None, None, False)
+check("the readers' own pass keeps the window it settled on for the VLM pass", [None, ("lead", 1), ("plain", None)], tried)
+check("and notes it", ("plain", None), v.get("_alt"))
+def fake_full(d, found, hit, sols, vlm_for, alt, alts):
+    tried.append(alt)
+    if alts is not None:
+        alts.extend([("lead", 1), ("plain", None)])
+    return {"number": 1, "lights": 10, "agreed": 10, "blank": {}, "imageDisagrees": "x"}, {"id": "x"}
+f._read_page = fake_full
+tried.clear()
+f.read_page(None, None, None, None, ["6-across"])
+check("a poor window that fills every light with none blank ends the VLM's search", [None], tried)
+tried.clear()
+f.read_page(None, None, None, None, False)
+check("the readers' own pass still tries the other windows", [None, ("lead", 1), ("plain", None)], tried)
+f._read_page = real_inner
 def fake_refused(d, found, hit, sols, vlm_for=False):
     asked.append(vlm_for)
     return {"number": 1, "cause": "not-a-grid"}, None
