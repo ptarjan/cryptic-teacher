@@ -306,39 +306,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "adopting"
+       "text": "adopting",
+       "at": 12,
+       "note": "adopting means taking in, so the island holds the two letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "island",
-         "gives": "IS",
-         "note": "Is = island, the map abbreviation"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "N = new"
-        }
-       ]
+       "words": "island",
+       "at": 5,
+       "gives": "IS"
       },
       {
-       "words": "name",
-       "gives": "N",
-       "note": "N = name"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 21,
+         "gives": "N"
+        },
+        {
+         "words": "name",
+         "at": 25,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An island that has decided to take a new name, and now keeps people out.",
-     "walkthrough": "'Bars' looks like a verb meaning prevents; it is the plural noun for pubs.",
-     "definitionFit": "A loose synonym: places serving drink, with the plural noun hiding behind the verb sense of preventing."
+     "surface": "Drinking places on an island taking on a fresh name.",
+     "walkthrough": "N and N go inside IS.",
+     "definitionFit": "Inns are pubs or taverns, places with bars serving drink."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Bars"
     }
@@ -1201,31 +1203,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "accepting"
+       "text": "accepting",
+       "at": 31,
+       "note": "accepting means taking in, so the trimmed word for French holds the unit"
       }
      ],
      "parts": [
       {
-       "words": "French not initially",
-       "gives": "ALLIC",
-       "note": "GALLIC (French) without its G"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not initially",
+         "at": 17,
+         "note": "not initially means the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "French",
+         "at": 10,
+         "gives": "GALLIC",
+         "note": "Gallic means French"
+        },
+        {
+         "gives": "G"
+        }
+       ]
       },
       {
        "words": "quantity of work",
+       "at": 41,
        "gives": "ERG",
        "note": "the erg is a unit of work in physics"
       }
      ]
     },
     "explanation": {
-     "surface": "A touchy Frenchman reluctant to take on any work.",
-     "walkthrough": "'Sensitive French' looks like a description of a person; the definition is 'Sensitive' alone.",
-     "definitionFit": "Allergic means sensitive to a substance, reacting badly to it."
+     "surface": "A touchy French person who won't at first take on a heavy workload.",
+     "walkthrough": "GALLIC without G is ALLIC, which takes in ERG.",
+     "definitionFit": "Allergic means having an adverse reaction to a substance, being hypersensitive to it."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "French"
+     "misdirectedWord": "quantity"
     }
    }
   },

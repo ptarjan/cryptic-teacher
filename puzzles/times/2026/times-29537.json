@@ -563,29 +563,45 @@
      "indicators": [
       {
        "text": "changes",
-       "note": "the letters change their order"
+       "at": 26,
+       "note": "changes means the combined letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Abrupt Times",
-       "gives": "TIME",
-       "note": "TIMES cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Abrupt",
+         "at": 0,
+         "note": "abrupt means cut short, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Times",
+         "at": 7,
+         "gives": "TIMES"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
        "words": "editor",
-       "note": "taken as printed"
+       "at": 13
       },
       {
        "words": "undo",
-       "note": "taken as printed"
+       "at": 21
       }
      ]
     },
     "explanation": {
-     "surface": "A brusque Times editor orders changes to be undone in the paper's own masthead.",
-     "walkthrough": "The Times masthead carries the royal coat of arms, whose motto is Dieu et mon droit (God and my right). 'Undo' is fodder, not an instruction.",
-     "definitionFit": "The motto on the royal arms at the top of The Times front page is Dieu et mon droit, literally text on its masthead."
+     "surface": "A curt editor of The Times reverses changes to the paper's masthead.",
+     "walkthrough": "TIMES cut short is TIME; TIME plus EDITOR plus UNDO is rearranged. The Times masthead carries the royal arms with the motto Dieu et mon droit.",
+     "definitionFit": "The royal coat of arms on The Times masthead bears the French motto, meaning God and my right."
     },
     "features": {
      "answerInScene": true,
@@ -1171,25 +1187,45 @@
      "parts": [
       {
        "words": "Who's looking at this",
+       "at": 0,
        "gives": "YOU",
        "note": "the person reading the clue is you"
       },
       {
-       "words": "African nation, ignoring one",
-       "gives": "NGER",
-       "note": "NIGER without I (one)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring",
+         "at": 38,
+         "note": "ignoring means the letter for one is left out of the nation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "African nation",
+         "at": 22,
+         "gives": "NIGER",
+         "note": "Niger is a country in West Africa"
+        },
+        {
+         "words": "one",
+         "at": 47,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question about who is studying a certain African country, passing over a newer state.",
-     "walkthrough": "'Who's looking at this' addresses the solver directly: the answer is YOU. Niger is the West African country.",
-     "definitionFit": "A plain comparative synonym: of lesser age means brought into being at a later date."
+     "surface": "A question to whoever is reading about an African country and a newer state.",
+     "walkthrough": "The reader is YOU; NIGER without I is NGER.",
+     "definitionFit": "Something younger has existed for less time, so it was brought into being more recently."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "created"
+     "misdirectedWord": "nation"
     }
    }
   },

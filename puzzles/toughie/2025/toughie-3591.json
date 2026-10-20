@@ -700,50 +700,55 @@
      "indicators": [
       {
        "text": "leaving",
-       "note": "whatever is leaving departs, so those letters drop out of the word"
+       "at": 25,
+       "note": "leaving means these letters go out of the word for from empire"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "from empire",
-         "gives": "IMPERIAL",
-         "note": "imperial means belonging to or coming from an empire"
-        },
-        {
-         "words": "I'm",
-         "note": "taken as written"
-        }
-       ]
+       "words": "from empire",
+       "at": 7,
+       "gives": "IMPERIAL",
+       "note": "imperial means of or from an empire"
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "head of",
-         "note": "only the leading letter of the following word goes too"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "army",
-         "note": "the leading letter of the word"
+         "words": "I'm",
+         "at": 21,
+         "gives": "IM",
+         "note": "taken as written, the letters of I'm"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head of",
+           "at": 38,
+           "note": "head of picks the first letter of the word army"
+          }
+         ],
+         "parts": [
+          {
+           "words": "army",
+           "at": 46
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone flees an imperial threat, taking the army's commander with them.",
-     "walkthrough": "'From empire' must be turned into the adjective IMPERIAL before anything can leave it; 'too' says the army's head goes as well.",
-     "definitionFit": "Peril is a straightforward synonym for serious risk or jeopardy, meaning exposure to harm."
+     "surface": "A colonial official flees danger, and the army chief goes too.",
+     "walkthrough": "From IMPERIAL take IM and A ('head of army'), leaving PERIL.",
+     "definitionFit": "Peril is serious risk of harm, a synonym for danger."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "head"
+     "misdirectedWord": "empire"
     }
    }
   },
@@ -1624,42 +1629,53 @@
      "op": "container",
      "indicators": [
       {
-       "text": "separately interrupting",
-       "note": "to interrupt is to break into, and separately means at different points"
+       "text": "interrupting",
+       "at": 29,
+       "note": "interrupting means breaking into the middle of the word for wrong"
       }
      ],
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "separately",
+         "at": 18,
+         "note": "separately says each letter breaks into the word for wrong on its own, at its own place"
+        }
+       ],
        "parts": [
         {
          "words": "wrong",
+         "at": 42,
          "gives": "SIN",
          "note": "a sin is a wrong"
         },
         {
-         "words": "Oscar",
-         "gives": "O",
-         "note": "Oscar is O in the NATO alphabet"
+         "words": "Charlie",
+         "at": 0,
+         "gives": "C",
+         "note": "C is Charlie in the NATO phonetic alphabet"
         }
        ]
       },
       {
-       "words": "Charlie",
-       "gives": "C",
-       "note": "Charlie is C in the NATO alphabet"
+       "words": "Oscar",
+       "at": 12,
+       "gives": "O",
+       "note": "O is Oscar in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "Two men each interrupting a naughty child.",
-     "walkthrough": "C goes after S and O after I in SIN: S C I O N.",
-     "definitionFit": "A scion is a descendant or heir of a family, especially a notable one, so a son or daughter."
+     "surface": "Two men keep cutting in on a naughty kid.",
+     "walkthrough": "C goes after the S of SIN and O after its I, giving S-C-I-O-N.",
+     "definitionFit": "A scion is a descendant or offspring of a family, so it means child."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "wrong"
+     "misdirectedWord": "Charlie"
     }
    }
   },

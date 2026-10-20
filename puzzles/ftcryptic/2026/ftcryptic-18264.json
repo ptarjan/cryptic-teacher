@@ -266,42 +266,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter of the following word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "fast",
-         "gives": "LENT",
-         "note": "Lent is the Christian period of fasting before Easter"
-        },
-        {
-         "words": "unhealthy",
-         "gives": "ILL",
-         "note": "ill means unwell or sickly"
-        }
-       ]
+       "words": "fast",
+       "at": 9,
+       "gives": "LENT",
+       "note": "Lent is the Christian season of fasting"
       },
       {
-       "gives": "L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 15,
+         "note": "almost means the word is cut by its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unhealthy",
+         "at": 22,
+         "gives": "ILL",
+         "note": "ill means unhealthy"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worried patient reports a racing heartbeat that is not quite healthy.",
-     "walkthrough": "'Pulse' looks like a heartbeat, which the surface backs up with 'fast' and 'unhealthy', but it means an edible seed. ILL loses its last letter to IL.",
-     "definitionFit": "Pulses are the dried edible seeds of legumes such as beans, peas and chickpeas, and the lentil is one example."
+     "surface": "A racing heartbeat suggests someone is close to sickness.",
+     "walkthrough": "'Pulse' sounds like a heartbeat but is the edible-seed sense. ILL minus its last letter is IL.",
+     "definitionFit": "A lentil is a legume seed, and pulses are the edible seeds of such plants."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Pulse"
     }
