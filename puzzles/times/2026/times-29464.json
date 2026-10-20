@@ -437,39 +437,50 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Back in",
-       "note": "the back of a word is its last letter"
-      }
-     ],
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
-         "text": "curtailed",
-         "note": "cut off at the tail: drop the last letter"
+         "text": "Back in",
+         "at": 0,
+         "note": "the back of the word is its last letter"
         }
        ],
        "parts": [
         {
          "words": "Wetherspoons",
-         "note": "last letter of Wetherspoons"
+         "at": 8
         }
        ]
       },
       {
-       "words": "groom",
-       "gives": "PREE",
-       "note": "PREEN without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curtailed",
+         "at": 28,
+         "note": "curtailed means the tail, the last letter, is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "groom",
+         "at": 22,
+         "gives": "PREEN",
+         "note": "to preen is to groom oneself"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bridegroom cut short in a cheap pub during a drinking session.",
-     "walkthrough": "Wetherspoons is a chain of cheap British pubs. Groom is the verb, to preen, not a bridegroom.",
-     "definitionFit": "A spree is a spell of unrestrained indulgence, like a binge."
+     "surface": "In a pub chain, a bridegroom's short drinking session turns into a binge.",
+     "walkthrough": "Wetherspoons is a British chain of cheap pubs, which sets the drinking scene.",
+     "definitionFit": "A spree is a spell of unrestrained activity, especially drinking or spending, which is what a binge is."
     },
     "features": {
      "answerInScene": true,

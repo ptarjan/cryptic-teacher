@@ -1401,42 +1401,68 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "'back' means in reverse, so I TAN is read backwards"
-      },
-      {
-       "text": "after leaving",
-       "note": "ONUS once United has left it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 7,
+         "note": "back says the two words I and beat are read in the opposite direction"
+        }
+       ],
        "parts": [
         {
-         "words": "responsibility after leaving United",
-         "gives": "SNO",
-         "note": "ONUS without U (United)"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "I",
+           "at": 0
+          },
+          {
+           "words": "beat",
+           "at": 2,
+           "gives": "TAN",
+           "note": "to tan someone is to beat them"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after leaving",
+         "at": 27,
+         "note": "after leaving says the word for responsibility is used once the United abbreviation has left it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "responsibility",
+         "at": 12,
+         "gives": "ONUS",
+         "note": "onus means responsibility or burden"
         },
         {
-         "words": "I beat",
-         "gives": "ITAN",
-         "note": "I + TAN (beat), reversed"
+         "words": "United",
+         "at": 41,
+         "gives": "U",
+         "note": "U is the common abbreviation for United, as in football team names"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A leader shirks responsibility after pulling out of the United States.",
-     "walkthrough": "'United States' reads as one country, but 'United' is the letter removed and 'States' alone is the definition. To tan someone is to beat them.",
-     "definitionFit": "A plain synonym: a state in the political sense is a nation, a country with its own government."
+     "surface": "Someone returns to blows after the United States drops its duty.",
+     "walkthrough": "'United States' looks like one phrase, but 'United' belongs to the wordplay and the definition is 'States' alone.",
+     "definitionFit": "Nations and states are synonyms: both mean sovereign countries with their own governments."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "United"
     }
