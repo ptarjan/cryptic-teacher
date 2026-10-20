@@ -4004,6 +4004,14 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
                 return verdict, puzzle
             return read_page(d, found, hit, solutions, None)  # the VLM's page
         return verdict, puzzle
+    twin = held_copy(d, verdict, puzzle)
+    if twin:
+        # The readers' own list is a held puzzle's already: the write refuses it as a copy
+        # whatever the VLM adds (the 10-20 log: 28 reads, 95 asks "page served the clues of
+        # book-...", every one filed by the readers' complete list before the asks).
+        verdict["vlmSkipped"] = f"the readers' clues are {twin}'s: a copy is refused whatever the VLM reads"
+        verdict["vlmAsks"] = 0
+        return verdict, puzzle
     if weak is None:
         if held_settled(d, verdict):
             return verdict, puzzle
@@ -4015,6 +4023,28 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
         return verdict, puzzle
     only = None if (verdict.get("grid") != "image" or "imageDisagrees" in verdict) else weak
     return read_page(d, found, hit, solutions, only if only is None else sorted(only), **ask_with)
+
+
+def held_copy(d, verdict, puzzle):
+    """The id of the held puzzle whose clues the readers' own list for a NEW puzzle (its number
+    not held) already repeats, else None: fetch_puzzle.check_not_copy refuses the write of such
+    a page, so no ask can change its fate. Only when the readers' clues that match are at
+    least the share THRESHOLD of every light, so the final list (a VLM pick only fills a
+    blank) shares as much."""
+    if puzzle is None or d is None or d.name in _KEEP_VLM["names"] or verdict.get("number") is None:
+        return None
+    try:
+        from fetch_puzzle import clue_index, clue_keys
+        import clue_index as ci
+        if verdict["number"] in held_dates(paper_of(d).series):
+            return None
+        entries = len(puzzle.get("entries") or ())
+        for other, shared, _, _ in clue_index().matches(puzzle["id"], clue_keys(puzzle)):
+            if entries and shared >= ci.THRESHOLD * entries:
+                return other
+    except Exception:  # no index here: the VLM is asked as before
+        return None
+    return None
 
 
 #: Editions (dir names) the VLM is asked about even for a puzzle already held:
