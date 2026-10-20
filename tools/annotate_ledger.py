@@ -125,6 +125,11 @@ def should_wake(rows, since_commit, state, now):
     if top and top != state.get("top"):
         return (f"cause #1 is now `{top}`, was `{state.get('top')}` at the previous wake"), \
             {"cur": cur, "best": best}
+    if since_commit and state.get("commit") != since_commit:
+        # Hill climb: each annotate-code change gets measured, and while the cost is
+        # still over target the next cause is worked on, even with no regression.
+        return (f"${cur:.3f}/clue is still over the ${TARGET} target {ROLL} runs after the "
+                f"last annotate-code commit"), {"cur": cur, "best": best}
     return None, f"${cur:.3f}/clue within 10% of best ${best:.3f}; #1 cause unchanged"
 
 
@@ -173,7 +178,7 @@ def decide(dry_run=False, now=None):
     top = (since[-1].get("top_causes") or [{}])[0].get("key")
     STATE.parent.mkdir(parents=True, exist_ok=True)
     STATE.write_text(json.dumps({"woken": now.isoformat(timespec="seconds"), "top": top,
-                                 "reason": reason}, indent=1) + "\n")
+                                 "reason": reason, "commit": commit[1]}, indent=1) + "\n")
     print(f"annotate ledger: woke the room ({reason})")
     return 0
 

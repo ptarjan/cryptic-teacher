@@ -33,8 +33,11 @@ check(L.should_wake(flat[:2], None, quiet, now)[0], None, "under 3 rows: quiet")
 
 worse = [row(i, 0.030) for i in range(1, 4)] + [row(i, 0.040) for i in range(4, 7)]
 check(L.should_wake(worse, None, quiet, now)[0] is not None, True, "rolling 33% over best: wake")
-check(L.should_wake(worse, (T0 + datetime.timedelta(hours=3.5)).isoformat(), quiet, now)[0], None,
+fix = (T0 + datetime.timedelta(hours=3.5)).isoformat()
+check(L.should_wake(worse, fix, dict(quiet, commit=fix), now)[0], None,
       "rows before the last annotate-code commit do not set the best level")
+check(L.should_wake(worse, fix, quiet, now)[0] is not None, True,
+      "still over target 3 rows after a new annotate-code commit: wake for the next cause")
 
 mild = [row(i, 0.040) for i in range(1, 4)] + [row(i, 0.043) for i in range(4, 7)]
 check(L.should_wake(mild, None, quiet, now)[0], None, "7.5% over best: quiet")
