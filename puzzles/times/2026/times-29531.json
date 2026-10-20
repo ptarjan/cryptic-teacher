@@ -156,26 +156,41 @@
      "parts": [
       {
        "words": "Old queen",
+       "at": 0,
        "gives": "ANNE",
-       "note": "Queen Anne, British monarch 1702-14"
+       "note": "Anne was Queen of Great Britain from 1702 to 1714"
       },
       {
-       "words": "given the chop wanting head",
-       "gives": "XED",
-       "note": "given the chop = AXED, minus its first letter A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wanting head",
+         "at": 25,
+         "note": "wanting head means lacking its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "given the chop",
+         "at": 10,
+         "gives": "AXED",
+         "note": "axed means given the chop, dismissed or cut"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old queen beheaded, the head still needing to be stuck back on.",
-     "walkthrough": "The surface is all executions, but the chop and the head are both working at letter level: the head that goes is the A of AXED.",
-     "definitionFit": "Something annexed has been added or attached, stuck on to something larger."
+     "surface": "A historical queen beheaded, with her head then stuck back on.",
+     "definitionFit": "Annexed means added or attached to something larger, so stuck on."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "head"
+     "misdirectedWord": "chop"
     }
    }
   },
@@ -1530,52 +1545,60 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "deleting",
+       "at": 16,
+       "note": "deleting says these letters are struck out of the combined words, in the order given"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "deleting",
-         "note": "the letters I, T and B are deleted"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Emend",
+         "at": 0,
          "gives": "EDIT",
-         "note": "to emend a text is to edit it"
+         "note": "to edit is to emend a text"
         },
         {
-         "gives": "IT"
+         "words": "good book",
+         "at": 6,
+         "gives": "BIBLE",
+         "note": "the Good Book is the Bible"
         }
        ]
       },
       {
-       "op": "deletion",
+       "op": "charade",
        "parts": [
         {
-         "words": "good book",
-         "gives": "BIBLE",
-         "note": "the Good Book is the Bible"
+         "words": "one",
+         "at": 25,
+         "gives": "I",
+         "note": "one is I as a Roman numeral"
         },
         {
-         "gives": "B"
+         "words": "TB",
+         "at": 29,
+         "note": "taken as the two letters written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An editor emending a medical book, cutting a passage on TB, or consumption.",
-     "walkthrough": "Consumption is an old name for TB, so the surface pairs them; in the definition it just means eating.",
-     "definitionFit": "Something edible is fit for consumption, safe to eat."
+     "surface": "An instruction to correct a religious text by cutting a reference to tuberculosis, for people to read.",
+     "walkthrough": "From EDITBIBLE strike out I, then T, then B, in that order, leaving ED and IBLE.",
+     "definitionFit": "Something edible is fit to be eaten, suitable for consumption."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "consumption"
+     "misdirectedWord": "TB"
     }
    }
   },

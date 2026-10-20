@@ -622,8 +622,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "houses",
-       "note": "to house something is to give it a home inside"
+       "text": "by",
+       "at": 41,
+       "note": "by puts the two parts side by side"
       }
      ],
      "parts": [
@@ -631,39 +632,57 @@
        "op": "container",
        "indicators": [
         {
-         "text": "by",
-         "note": "the pieces sit side by side"
+         "text": "houses",
+         "at": 55,
+         "note": "houses means the tree holds the large letter inside"
         }
        ],
        "parts": [
         {
          "words": "tree",
+         "at": 50,
          "gives": "FIR",
-         "note": "the fir is a conifer; it houses L"
+         "note": "a fir is a tree"
         },
         {
          "words": "large",
+         "at": 44,
          "gives": "L",
-         "note": "l = large, as on clothing labels"
+         "note": "L is the clothing abbreviation for large"
         }
        ]
       },
       {
-       "words": "unopened post",
-       "gives": "TATION",
-       "note": "a post is a station, as in a police post; minus its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unopened",
+         "at": 27,
+         "note": "unopened says the post loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "post",
+         "at": 36,
+         "gives": "STATION",
+         "note": "a station is a post, as in a duty station"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone collecting mail from a box beside a big tree.",
-     "walkthrough": "'Pick up' is the chat-up sense, not collecting post. The definition is a noun phrase, so read it as 'an attempt, perhaps, to pick someone up'.",
-     "definitionFit": "Flirtation can be an attempt to attract someone, the aim of a pick-up."
+     "surface": "An instruction to collect the post from a big tree house before it's opened.",
+     "walkthrough": "FIR houses L to give FLIR; STATION without its first letter gives TATION.",
+     "definitionFit": "Flirtation is playful romantic attention, an attempt to attract or chat someone up."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "post"
     }
    }
@@ -967,28 +986,41 @@
      "indicators": [
       {
        "text": "in preparation",
-       "note": "letters in preparation are being worked into a new form"
+       "at": 25,
+       "note": "in preparation suggests the letters being made ready and reworked"
       }
      ],
      "parts": [
       {
-       "words": "Internally survey",
-       "gives": "URVE",
-       "note": "survey without its first and last letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Internally",
+         "at": 0,
+         "note": "internally keeps only the inside of the word, dropping its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "survey",
+         "at": 11,
+         "note": "inner letters of survey"
+        }
+       ]
       },
       {
        "words": "dozens",
-       "note": "anagram fodder, with URVE"
+       "at": 18,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions to survey dozens of items internally before a meeting.",
-     "walkthrough": "Strip survey to URVE, add DOZENS, and rearrange all ten letters.",
-     "definitionFit": "A plain synonym borrowed from French: a rendezvous is a meeting arranged for a set time and place."
+     "surface": "Surveying the dozens of items being got ready for a meeting.",
+     "definitionFit": "A rendezvous is an arranged meeting at an agreed time and place."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "survey"
     }

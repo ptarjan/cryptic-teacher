@@ -338,7 +338,8 @@
      "indicators": [
       {
        "text": "Served up",
-       "note": "in a down clue, served up means presented upwards, so the word runs bottom to top"
+       "at": 0,
+       "note": "in a down clue, served up means the letters are brought upwards, read bottom to top"
       }
      ],
      "parts": [
@@ -347,39 +348,34 @@
        "indicators": [
         {
          "text": "just missing",
-         "note": "the king falls away, leaving the rest"
+         "at": 18,
+         "note": "just missing says the king's letter is absent from the ghost"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "spirit",
-           "gives": "SPOOK",
-           "note": "a spook is a ghost; turned upwards it reads KOOPS"
-          },
-          {
-           "words": "missing king",
-           "gives": "OOPS",
-           "note": "KOOPS loses K, the chess abbreviation for king"
-          }
-         ]
+         "words": "spirit",
+         "at": 10,
+         "gives": "SPOOK",
+         "note": "a spook is a ghost or spirit"
         },
         {
-         "gives": "KOOPS"
+         "words": "king",
+         "at": 31,
+         "gives": "K",
+         "note": "K is the chess abbreviation for king"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A waiter who serves the spirits apologises for having just missed the king.",
-     "walkthrough": "'Spirit' next to 'served up' suggests a drink poured; it is a ghost.",
-     "definitionFit": "Oops is the exclamation of a person owning up to a small blunder, much like sorry."
+     "surface": "A barman apologises after serving a spirit that wasn't quite the king of drinks.",
+     "walkthrough": "SPOOK without its K is SPOO, which reads upwards in the grid.",
+     "definitionFit": "Oops is an exclamation of apology or dismay after a small mistake."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "spirit"
     }
@@ -1194,8 +1190,7 @@
     "definitions": [
      {
       "text": "literary work",
-      "at": 40,
-      "note": "a pentameter is a line of verse, a loose sense of work"
+      "at": 40
      }
     ],
     "wordplay": {
@@ -1203,30 +1198,48 @@
      "parts": [
       {
        "words": "Write",
+       "at": 0,
        "gives": "PEN",
        "note": "to pen is to write"
       },
       {
        "words": "uninspiring",
+       "at": 6,
        "gives": "TAME",
-       "note": "tame = dull, uninspiring"
+       "note": "tame means dull or uninspiring"
       },
       {
-       "words": "incomplete ending",
-       "gives": "TER",
-       "note": "TERM, an end, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "incomplete",
+         "at": 18,
+         "note": "incomplete says the word for ending is cut short by its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ending",
+         "at": 29,
+         "gives": "TERM",
+         "note": "a term is an end or limit, as in a pregnancy reaching term"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to an author to write a dull, unfinished ending for a novel.",
-     "walkthrough": "'Ending for' reads as the close of the book; ending gives TERM, and 'for' only links to the definition.",
-     "definitionFit": "A pentameter is a line of verse with five metrical feet, the stuff of literary work."
+     "surface": "Advice to an author: compose a dull, unfinished ending for a book.",
+     "walkthrough": "TERM, meaning a limit or end, loses its last letter to give TER.",
+     "definitionFit": "Pentameter is the line of five metrical feet used in much English verse, so it serves literary work."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ending"
+     "misdirectedWord": "Write"
     }
    }
   },

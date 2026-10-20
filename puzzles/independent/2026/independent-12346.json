@@ -1202,20 +1202,38 @@
      "parts": [
       {
        "words": "Hotel",
+       "at": 0,
        "gives": "H",
-       "note": "H in the NATO alphabet"
+       "note": "H is Hotel in the NATO phonetic alphabet"
       },
       {
-       "words": "ordered bachelor to leave",
-       "gives": "IDDEN",
-       "note": "BIDDEN (ordered) minus B for bachelor"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to leave",
+         "at": 23,
+         "note": "the bachelor's letter is told to leave the word for ordered, dropping out of it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ordered",
+         "at": 6,
+         "gives": "BIDDEN",
+         "note": "ordered, as in told to do something, means bidden"
+        },
+        {
+         "words": "bachelor",
+         "at": 14,
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hotel instructs a single man to slip away without being noticed.",
-     "walkthrough": "'Ordered' looks like an anagram indicator; here it is BIDDEN, as in 'do as you are bidden'.",
-     "definitionFit": "A plain synonym: what is concealed from view goes unseen."
+     "surface": "A hotel guest instructs a single man to slip away without being noticed.",
+     "definitionFit": "Something hidden is concealed from view, so it goes unseen."
     },
     "features": {
      "answerInScene": true,
