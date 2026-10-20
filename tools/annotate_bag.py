@@ -24,6 +24,7 @@ bag has ONE view and ONE annotations file:
 import contextlib
 import io
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -113,6 +114,38 @@ def run_one(pid):
     return rc, text, state
 
 
+LINE_CAP = 700
+WARN_RE = re.compile(r"^(\s*)(warn|ERROR): (\d+[AD]): (.*)$")
+BOILER = ("Fix ALL of these in one edit of", "Any line you cannot act on:", "apply_annotations: ")
+
+
+def compact(text):
+    """A failing report with the repeats folded: the per-puzzle advice lines (the bag's
+    footer says them once) dropped, one [check] message that hits many clues printed
+    once with its clue ids, and any line capped at LINE_CAP characters."""
+    out, groups = [], {}
+    for line in text.splitlines():
+        if line.startswith(BOILER) or re.match(r"^\S+: \d+/\d+ annotated — OK$", line):
+            continue
+        m = WARN_RE.match(line)
+        if m:
+            key = (m[2], re.sub(r"\d+", "#", m[4]))
+            if key not in groups:
+                groups[key] = [m[4], []]
+                out.append(key)
+            groups[key][1].append(m[3])
+            continue
+        out.append(line[:LINE_CAP] + (" …" if len(line) > LINE_CAP else ""))
+    lines = []
+    for item in out:
+        if isinstance(item, tuple):
+            msg, ids = groups[item]
+            lines.append(f"  {item[0]} [{', '.join(ids)}]: {msg[:LINE_CAP]}")
+        else:
+            lines.append(item)
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
+
+
 def check(path):
     path = Path(path)
     first = path.stem.removeprefix("_ann_bag_")
@@ -133,7 +166,7 @@ def check(path):
                                                 encoding="utf-8")
         rc, text, state = run_one(pid)
         if state == "failing":
-            print(f"--- {pid}\n{text}\n")
+            print(f"--- {pid}\n{compact(text)}\n")
             failing.append(pid)
             worst = max(worst, rc or 1)
         else:
@@ -141,10 +174,13 @@ def check(path):
             print(f"{pid}: {state}")
     done_path(first).write_text("\n".join(sorted(done)) + "\n")
     if failing:
-        print(f"{len(failing)} to fix in tools/{path.name}, one edit for all, then run this "
-              f"command again: {', '.join(failing)}. Where a report above names _ann_<id>.json "
-              f"or --patch, that is the puzzle's part of tools/{path.name}: edit it there. "
-              f"The others are done and not re-run.")
+        print(f"{len(done)} puzzles clean, {len(failing)} to fix in tools/{path.name}: "
+              f"{', '.join(failing)}. Use Edit on only the failing clues' entries (never Write "
+              f"the whole file), all in one go, then run this command again. Where a report "
+              f"names _ann_<id>.json or --patch, that is the puzzle's part of tools/{path.name}. "
+              f"A line you cannot act on: `python3 tools/validate_annotations.py --explain "
+              f"<[check_name]>` (print it once, do not cat it to a file). The clean ones are "
+              f"not re-run.")
     else:
         import annotate_check
         print(f"all {len(done)} puzzles checked.")
