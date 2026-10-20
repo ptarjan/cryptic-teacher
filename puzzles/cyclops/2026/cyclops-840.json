@@ -598,7 +598,8 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the abbreviation inside the jumbled letters"
+       "at": 22,
+       "note": "the Conservative letter goes inside the rearranged letters"
       }
      ],
      "parts": [
@@ -607,60 +608,62 @@
        "indicators": [
         {
          "text": "skewed",
-         "note": "something skewed is knocked out of true, so the letters lose their original order"
+         "at": 25,
+         "note": "skewed means distorted, so the letters are rearranged"
         }
        ],
        "parts": [
+        {
+         "words": "national",
+         "at": 32,
+         "note": "taken as written as part of the mix"
+        },
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "out",
-           "note": "out means the named letter is taken away from the mixture"
+           "at": 61,
+           "note": "out tells you the left letter is removed"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Conservative",
-             "gives": "C",
-             "note": "C is the standard abbreviation for Conservative"
-            },
-            {
-             "words": "national poll",
-             "note": "taken as written"
-            },
-            {
-             "words": "idiot's",
-             "note": "taken as written, the apostrophe ignored"
-            }
-           ]
+           "words": "poll",
+           "at": 41,
+           "gives": "POLL",
+           "note": "taken as written before one L goes"
           },
           {
-           "gives": "LL"
+           "words": "left",
+           "at": 56,
+           "gives": "L"
           }
          ]
+        },
+        {
+         "words": "idiot's",
+         "at": 48,
+         "note": "taken as written, its letters in the mix"
         }
        ]
       },
       {
-       "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left; one L is removed"
+       "words": "Conservative",
+       "at": 9,
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "A Tory complains that a rigged national poll is unfair, idiots being ignored while Reform rakes in millions.",
-     "walkthrough": "Mix NATIONAL POLL with IDIOTS, drop one L, and set C among the letters. Reform UK, Nigel Farage's party, has been funded by multi-million-pound gifts from wealthy backers.",
-     "definitionFit": "Money given to a party is a political donation, and Reform UK has received millions of pounds in such gifts."
+     "surface": "A Private Eye jibe: a Tory sneaks into a rigged poll while Reform's millions come under scrutiny.",
+     "walkthrough": "'Left out' reads as the idiot being excluded, but it removes a letter. Reform UK is a right-wing British party whose large donations made news.",
+     "definitionFit": "Political donations are the gifts of money a party receives, which in this party's case run to millions."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "poll"
+     "misdirectedWord": "left"
     }
    }
   },
@@ -1523,51 +1526,62 @@
      "indicators": [
       {
        "text": "squeezed by",
-       "note": "squeezed by puts the jumbled letters inside the word that follows"
+       "at": 37,
+       "note": "something squeezed by a word is held inside it"
       }
      ],
      "parts": [
       {
        "words": "mate",
+       "at": 49,
        "gives": "PAL",
        "note": "a pal is a mate, a friend"
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "bollocks",
-         "note": "bollocks is British slang for nonsense, so these letters are made a mess of"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "op": "first",
          "indicators": [
           {
            "text": "Start to",
+           "at": 0,
            "note": "the start of a word is its first letter"
           }
          ],
          "parts": [
           {
            "words": "admit",
-           "note": "first letter of admit"
+           "at": 9,
+           "note": "taken as written before its first letter is picked"
           }
          ]
         },
         {
-         "words": "large",
-         "note": "taken as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "bollocks",
+           "at": 28,
+           "note": "bollocks is slang for nonsense, so the next word is jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "large",
+           "at": 22,
+           "note": "taken as written before it is jumbled"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crude tale of a man owning up to large testicles being squeezed by his friend.",
-     "walkthrough": "'bollocks' reads as testicles in the surface; it is the British slang for nonsense, signalling a jumble.",
-     "definitionFit": "A paralegal is a trained assistant who does legal work for solicitors without being one."
+     "surface": "A crude Private Eye image of a mate grabbing someone, passed off as an aid to lawyers.",
+     "walkthrough": "'Bollocks' looks like the object of 'having large', but it is slang for rubbish and so signals rearranging the word before it.",
+     "definitionFit": "A paralegal is a trained assistant who supports solicitors and barristers with legal work."
     },
     "features": {
      "answerInScene": false,

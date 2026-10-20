@@ -501,20 +501,55 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Cake-burner not finishing",
-       "gives": "ALFRE",
-       "note": "King Alfred, who in the old English story was left to watch a peasant woman's cakes and let them char, minus his last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not finishing",
+         "at": 12,
+         "note": "not finishing means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cake-burner",
+         "at": 0,
+         "gives": "ALFRED",
+         "note": "King Alfred the Great is said to have burned the cakes"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       },
       {
-       "words": "half of scones",
-       "gives": "SCO",
-       "note": "the first three of its six letters"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 26,
+         "note": "half of a six-letter word is three letters, here its front half"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scones",
+         "at": 34,
+         "gives": "SCONES",
+         "note": "taken as written before it is halved"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Cakes and scones keep one baking scene running from end to end, and only the first of them is about a person at all — the second is in the clue for three letters.",
-     "definitionFit": "Al fresco means out in the open air, from the Italian, and eating outdoors is exactly what a picnic is."
+     "surface": "Someone who burns the cakes doesn't finish half the scones at a picnic.",
+     "walkthrough": "ALFRED loses D to give ALFRE; SCO is half of scones. Alfred the Great, an English king, is said to have let a woman's cakes burn.",
+     "definitionFit": "Al fresco means in the open air, which is how a picnic is eaten."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cake-burner"
     }
    }
   },
@@ -1003,46 +1038,32 @@
        "words": "self-catering",
        "at": 23,
        "gives": "SC",
-       "note": "S/C is the abbreviation used in holiday listings for self-catering"
+       "note": "SC is the abbreviation for self-catering in holiday listings"
       },
       {
-       "op": "deletion",
+       "op": "outer",
        "indicators": [
         {
          "text": "50% reduced",
          "at": 52,
-         "note": "50% reduced means each word is cut to half its length, the end of room and the start of bill going"
+         "note": "cutting half away from the joined words keeps their two outside pairs"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "room",
-           "at": 37,
-           "gives": "ROOM",
-           "note": "the word room, losing half its letters"
-          },
-          {
-           "words": "bill",
-           "at": 47,
-           "gives": "BILL",
-           "note": "the word bill, losing half its letters"
-          }
-         ]
-        },
-        {
-         "gives": "OMBI"
+         "words": "room with bill",
+         "at": 37,
+         "gives": "ROOMBILL",
+         "note": "room and bill run together, the middle trimmed out"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A holidaymaker in a self-catering flat checks how much the half-price bill comes to on their phone.",
-     "walkthrough": "Halving keeps RO from room and LL from bill.",
-     "definitionFit": "To scroll is to move through the content on a phone screen with a finger, a common way of using one."
+     "surface": "Someone thumbs a phone to find a cheap self-catering room at half price.",
+     "walkthrough": "Halving room and bill leaves RO and LL, after SC.",
+     "definitionFit": "To scroll is to move the content up or down a phone's screen with a swipe."
     },
     "features": {
      "answerInScene": true,

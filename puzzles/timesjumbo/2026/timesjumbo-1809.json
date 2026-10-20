@@ -375,7 +375,7 @@
       {
        "text": "including",
        "at": 27,
-       "note": "including means taking in, so the doubled piece holds the letter for advanced"
+       "note": "including means the advanced letter goes inside"
       }
      ],
      "parts": [
@@ -388,7 +388,7 @@
           {
            "text": "in",
            "at": 5,
-           "note": "time in support means the letter for time goes inside the word for support"
+           "note": "the time letter goes inside the support word"
           }
          ],
          "parts": [
@@ -396,7 +396,7 @@
            "words": "support",
            "at": 8,
            "gives": "TEE",
-           "note": "a tee is the peg supporting a golf ball"
+           "note": "a tee supports a golf ball"
           },
           {
            "words": "Time",
@@ -406,26 +406,37 @@
          ]
         },
         {
-         "words": "repeatedly",
-         "at": 16,
-         "gives": "TETE",
-         "note": "repeatedly calls for the time-in-support piece to be written out a second time"
+         "op": "container",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "at": 16,
+           "note": "repeatedly says the same time-in-support step is done a second time"
+          }
+         ],
+         "parts": [
+          {
+           "gives": "TEE"
+          },
+          {
+           "gives": "T"
+          }
+         ]
         }
        ]
       },
       {
        "words": "advanced",
        "at": 37,
-       "gives": "A",
-       "note": "A is the abbreviation for advanced, as in A level"
+       "gives": "A"
       }
      ]
     },
     "spelling": "TÊTE-À-TÊTE",
     "explanation": {
-     "surface": "A golfer keeps putting the ball on its peg over and over during a forward-looking talk.",
-     "walkthrough": "'support' is a golf tee, not a prop. 'repeatedly' asks for the time-in-support piece twice, and the pair is 'including' the letter for advanced between them.",
-     "definitionFit": "A tête-à-tête is a private conversation between two people, literally 'head to head' in French."
+     "surface": "Time spent backing someone again and again leads to a serious talk.",
+     "walkthrough": "'Support' suggests backing a person, but here it is the golfer's peg; the same step is made twice before A goes in the middle.",
+     "definitionFit": "A tête-à-tête, French for head-to-head, is a private conversation between two people."
     },
     "features": {
      "answerInScene": false,
@@ -1705,7 +1716,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 22,
+       "note": "about means around, so the love letter goes inside"
       }
      ],
      "parts": [
@@ -1714,32 +1727,50 @@
        "parts": [
         {
          "words": "Say",
+         "at": 0,
          "gives": "EG",
-         "note": "eg = for example, say"
+         "note": "EG, for example, is what 'say' means"
         },
         {
-         "words": "a lot of nonsense",
-         "gives": "TRIP",
-         "note": "TRIPE, nonsense, without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "a lot of",
+           "at": 4,
+           "note": "a lot of a word is all of it but its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nonsense",
+           "at": 13,
+           "gives": "TRIPE",
+           "note": "tripe is nonsense"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
       },
       {
        "words": "love",
+       "at": 28,
        "gives": "O",
-       "note": "love = nil = O, as in tennis"
+       "note": "O is love, nil in tennis scoring"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone talking rubbish about love, just to feel good about themselves.",
-     "walkthrough": "The two outer pieces wrap round love, so O lands in the middle.",
-     "definitionFit": "An ego trip is something done to boost your own self-importance."
+     "surface": "Talking a lot of rubbish about love does wonders for one's self-image.",
+     "walkthrough": "'Say' is the usual crossword signal for 'for example', and love is nil in tennis.",
+     "definitionFit": "An ego trip is something done mainly to make yourself feel important, a lift to one's vanity."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "love"
+     "misdirectedWord": "Say"
     }
    }
   },
@@ -2129,25 +2160,41 @@
      "parts": [
       {
        "words": "Temperature",
-       "gives": "T",
-       "note": "T = temperature"
+       "at": 0,
+       "gives": "T"
       },
       {
-       "words": "OK, but not at first",
-       "gives": "IGHT",
-       "note": "RIGHT (OK) without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not at first",
+         "at": 20,
+         "note": "not at first means the opening letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "OK",
+         "at": 12,
+         "gives": "RIGHT",
+         "note": "right, as in 'all right', means OK"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The room temperature is fine, though it didn't feel cosy at first.",
-     "walkthrough": "OK gives RIGHT, which then loses its R.",
-     "definitionFit": "A plain synonym: a snug fit and a tight fit both leave no room."
+     "surface": "The temperature is fine, though at first it doesn't feel cosy.",
+     "walkthrough": "'OK' reads as a comment on the weather, but it stands for the word meaning correct.",
+     "definitionFit": "Tight means fitting closely, as snug clothing does."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Temperature"
+     "misdirectedWord": "OK"
     }
    }
   },
@@ -3493,21 +3540,38 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Simple cut",
-       "gives": "MER",
-       "note": "MERE (simple) without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 7,
+         "note": "cut means the final letter is lopped off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Simple",
+         "at": 0,
+         "gives": "MERE",
+         "note": "mere means simple, nothing more than"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "The thing",
+       "at": 12,
        "gives": "IT",
-       "note": "it = the thing"
+       "note": "it stands for the thing"
       }
      ]
     },
     "explanation": {
-     "surface": "Is a simple haircut worth anything?",
-     "walkthrough": "The question mark after 'cut' makes it look like a haircut; it cuts MERE.",
-     "definitionFit": "A plain synonym: merit and value both mean worth."
+     "surface": "A plain haircut, the speaker insists, has real worth.",
+     "walkthrough": "'Cut' looks like a noun (a simple haircut), but it is the instruction to trim the word before it.",
+     "definitionFit": "Merit is worth or excellence, the quality of deserving praise."
     },
     "features": {
      "answerInScene": false,

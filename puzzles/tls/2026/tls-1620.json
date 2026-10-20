@@ -55,25 +55,38 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Half of Blithe",
-       "at": 0,
-       "gives": "THE",
-       "note": "the second half of the six-letter word Blithe"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Half of",
+         "at": 0,
+         "note": "half of a six-letter word is three letters, here its back half"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Blithe",
+         "at": 8,
+         "gives": "BLITHE",
+         "note": "taken as written before it is halved"
+        }
+       ]
       },
       {
-       "op": "last",
+       "op": "nth",
+       "n": 6,
        "indicators": [
         {
          "text": "ultimately",
          "at": 22,
-         "note": "ultimately points to the final letter of Spirit"
+         "note": "ultimately points to the final letter of the word"
         }
        ],
        "parts": [
         {
          "words": "Spirit",
          "at": 15,
-         "note": "its last letter is all that is used"
+         "note": "taken as written before its last letter is picked"
         }
        ]
       },
@@ -83,28 +96,28 @@
         {
          "text": "written over",
          "at": 36,
-         "note": "is is written around, over the top of, the setter's word for themself"
+         "note": "a word written over another covers it, so it goes round the other"
         }
        ],
        "parts": [
         {
          "words": "is",
-         "at": 33,
-         "note": "taken as written"
+         "at": 33
         },
         {
          "words": "this writer's",
          "at": 49,
          "gives": "ME",
-         "note": "the setter refers to themself as this writer, so ME; the 's is a link"
+         "note": "this writer is the setter, me; the 's is 'is' joining to the definition"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer pens a review of Noël Coward's Blithe Spirit for their newspaper, at least half of it.",
-     "definitionFit": "The Times is a long-established London daily newspaper, so it is an example of a paper."
+     "surface": "Half of Noel Coward's play Blithe Spirit is reviewed in the writer's own paper.",
+     "walkthrough": "Blithe Spirit is a Noel Coward comedy, but here the title is split into two separate words. The TLS was founded as the Times's literary supplement.",
+     "definitionFit": "The Times is a long-established British daily newspaper."
     },
     "features": {
      "answerInScene": true,
@@ -1762,14 +1775,7 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "frightfully",
-       "at": 47,
-       "note": "frightfully suggests a terrible mess, so these letters are reworked"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "middle",
@@ -1777,36 +1783,47 @@
         {
          "text": "at heart",
          "at": 34,
-         "note": "at heart takes the centre letter of music"
+         "note": "the heart of a word is its central letter"
         }
        ],
        "parts": [
         {
          "words": "music",
          "at": 27,
-         "note": "a five-letter word whose centre letter is used"
+         "note": "taken as written before its middle letter is picked"
         }
        ]
       },
       {
        "words": "is",
-       "at": 44,
-       "note": "taken as written"
+       "at": 44
       },
       {
-       "words": "pushy",
-       "at": 59,
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "frightfully",
+         "at": 47,
+         "note": "frightfully suggests the letters are thrown into disorder, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pushy",
+         "at": 59,
+         "note": "taken as written as part of the mix"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man forever pushing rock music on people is dreadfully pushy.",
-     "walkthrough": "Rock music reads as a genre; rock belongs to the definition, and music only gives its middle letter.",
-     "definitionFit": "In Greek myth Sisyphus was condemned to roll a boulder uphill for ever, only to see it roll back down."
+     "surface": "Rock music, at its core, is horribly in-your-face.",
+     "walkthrough": "'Rock music' looks like one phrase, but rock ends the definition and music starts the wordplay.",
+     "definitionFit": "In Greek myth Sisyphus was condemned to roll a boulder uphill for ever, only for it to roll back each time."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "rock"

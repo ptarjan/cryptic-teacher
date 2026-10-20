@@ -164,15 +164,31 @@
      "op": "charade",
      "parts": [
       {
-       "words": "isn't bringing up name",
-       "at": 12,
-       "gives": "INST",
-       "note": "in the word isn't, the N for name is moved up one place to sit before the S"
+       "op": "move",
+       "indicators": [
+        {
+         "text": "bringing up",
+         "at": 18,
+         "note": "in a down clue, bringing a letter up moves it higher, earlier in the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "isn't",
+         "at": 12,
+         "gives": "ISNT",
+         "note": "the letters of isn't, without the apostrophe"
+        },
+        {
+         "words": "name",
+         "at": 30,
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "in",
-       "at": 35,
-       "note": "taken as written"
+       "at": 35
       },
       {
        "words": "court",
@@ -182,13 +198,14 @@
      ]
     },
     "explanation": {
-     "surface": "A judge's intuition that is not mentioned in the courtroom.",
-     "walkthrough": "In a down answer, 'bringing up' moves the N for name higher, so isn't becomes INST.",
-     "definitionFit": "Instinct is an intuitive feeling not based on reasoning, popularly called a sixth sense."
+     "surface": "A judge insists intuition has no place when a name is raised in court.",
+     "walkthrough": "'Court' suggests a law court, and it does supply its usual abbreviation; 'bringing up' works because in a down answer earlier letters sit higher.",
+     "definitionFit": "Instinct is a gut feeling that works without reasoning, often called a sixth sense."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bringing"
     }
    }
   },
@@ -572,81 +589,26 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "first",
+     "indicators": [
+      {
+       "text": "to begin with",
+       "at": 49,
+       "note": "to begin with points to the opening letter of each word in turn"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "to begin with",
-         "at": 49,
-         "note": "only the opening letter of each of these six words is taken"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Editor",
-         "at": 0,
-         "note": "first letter of each of the six words, starting here"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
-        {
-         "words": "routinely",
-         "at": 7,
-         "note": "its first letter"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
-        {
-         "words": "rectifies",
-         "at": 17,
-         "note": "its first letter"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
-        {
-         "words": "all",
-         "at": 27,
-         "note": "its first letter"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
-        {
-         "words": "these",
-         "at": 31,
-         "note": "its first letter"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "parts": [
-        {
-         "words": "aberrations",
-         "at": 37,
-         "note": "its first letter"
-        }
-       ]
+       "words": "Editor routinely rectifies all these aberrations",
+       "at": 0
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "An editor's job is to correct the mistakes in a text.",
-     "definitionFit": "Errata are listed mistakes in a printed work, which an editor sets right."
+     "surface": "An editor's job is to correct every one of these slips.",
+     "walkthrough": "The first letters of the six words spell the answer, and the whole clue describes it too.",
+     "definitionFit": "Errata are the listed mistakes in a printed work, which an editor corrects."
     },
     "features": {
      "answerInScene": true,

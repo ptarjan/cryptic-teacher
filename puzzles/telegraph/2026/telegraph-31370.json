@@ -984,10 +984,22 @@
      "op": "charade",
      "parts": [
       {
-       "words": "beer, just a half",
-       "at": 6,
-       "gives": "BE",
-       "note": "only the first half of the word beer"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "just a half",
+         "at": 12,
+         "note": "half of a four-letter word is two letters, here its front pair"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer",
+         "at": 6,
+         "gives": "BEER",
+         "note": "taken as written before it is halved"
+        }
+       ]
       },
       {
        "op": "outer",
@@ -995,23 +1007,23 @@
         {
          "text": "drained",
          "at": 35,
-         "note": "the word is drained of its contents, leaving just its outer letters"
+         "note": "drained means emptied of its contents, leaving only the outside letters"
         }
        ],
        "parts": [
         {
          "words": "virtually",
          "at": 25,
-         "note": "outer letters used"
+         "note": "taken as written before it is emptied"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drinker downs a half of beer until the glass is almost empty.",
-     "walkthrough": "Bevy (also bevvy) is British slang for an alcoholic drink.",
-     "definitionFit": "In British slang a bevy is a drink, especially of beer, from 'beverage'."
+     "surface": "A drinker manages only half a pint of beer, nearly finishing it.",
+     "walkthrough": "'Half' sounds like ordering half a pint, but it takes BE from beer; emptied, virtually leaves VY.",
+     "definitionFit": "Bevy, from 'beverage', is British slang for an alcoholic drink, especially beer."
     },
     "features": {
      "answerInScene": true,
