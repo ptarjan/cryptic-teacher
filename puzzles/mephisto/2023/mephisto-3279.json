@@ -305,64 +305,46 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "processed",
+       "at": 10,
+       "note": "processed means worked over and rearranged, so the letters of need and the answer together are reshuffled"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "charade",
        "parts": [
         {
          "words": "a red",
+         "at": 24,
          "note": "taken as written"
         },
         {
-         "gives": "ED"
+         "words": "lichen",
+         "at": 32,
+         "note": "taken as written"
         }
        ]
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "processed",
-         "note": "processing works material over into a new form, so the letters together are rearranged"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "lichen",
-             "note": "taken as written"
-            },
-            {
-             "words": "Need",
-             "note": "taken as written; these letters are removed"
-            }
-           ]
-          },
-          {
-           "gives": "ENNEED"
-          }
-         ]
-        }
-       ]
+       "words": "Need",
+       "at": 0
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A dyer asks whether a lichen is needed to make a red colour.",
-     "walkthrough": "A compound anagram: the answer plus NEED, rearranged, gives A RED LICHEN, so remove NEED from those letters and rearrange the rest. The whole clue doubles as a description of the dye-lichen.",
-     "definitionFit": "Archil (orchil) is a lichen of the Roccella kind from which a red-violet dye is made."
+     "surface": "A dyer wonders whether a lichen must be treated to yield a red colouring.",
+     "walkthrough": "A composite anagram: NEED plus the answer ('this') rearranged gives A RED LICHEN. The whole clue also describes the plant, a lichen processed to make a red-violet dye.",
+     "definitionFit": "Archil (orchil) is a lichen of the Roccella kind, and also the purple-red dye extracted from it."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "processed"
+     "aptDefinition": true,
+     "misdirectedWord": "Need"
     }
    }
   },
@@ -665,8 +647,14 @@
      "op": "container",
      "indicators": [
       {
+       "text": "in",
+       "at": 14,
+       "note": "in says the self-letter goes inside the scrambled drive-in letters"
+      },
+      {
        "text": "about",
-       "note": "lying about something means surrounding it, so the jumble goes round the abbreviation"
+       "at": 37,
+       "note": "about means going round, so the scrambled letters surround the Norman piece"
       }
      ],
      "parts": [
@@ -675,38 +663,51 @@
        "indicators": [
         {
          "text": "Psycho",
-         "note": "a psycho is mentally deranged, so the letters are thrown into disorder"
+         "at": 29,
+         "note": "psycho means crazy, so the letters of a drive-in are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "oneself",
-         "gives": "I",
-         "note": "the first-person pronoun for oneself"
+         "words": "a",
+         "at": 17
         },
         {
-         "words": "a drive-in",
+         "words": "drive-in",
+         "at": 19,
          "note": "taken as written"
         }
        ]
       },
       {
-       "words": "Norman",
-       "gives": "NOR",
-       "note": "Nor. is the dictionary abbreviation for Norman"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "oneself",
+         "at": 6,
+         "gives": "I",
+         "note": "oneself is I, the speaker referring to themselves"
+        },
+        {
+         "words": "Norman",
+         "at": 43,
+         "gives": "NOR",
+         "note": "NOR is the dictionary abbreviation for Norman"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Settling down at a drive-in cinema to watch Psycho, the film about Norman Bates.",
-     "walkthrough": "Psycho is Hitchcock's film about Norman Bates, which makes the surface apt. The I goes into the jumble of A DRIVE-IN, which also contains NOR.",
-     "definitionFit": "Plonk is cheap everyday wine, and vin ordinaire is French for ordinary table wine."
+     "surface": "Someone at a drive-in cinema watches Hitchcock's Psycho, whose killer is Norman Bates.",
+     "walkthrough": "The anagram of A DRIVE-IN gives V DINAIRE around I + NOR. Psycho and Norman look like the film and its character; one is the anagram signal, the other an abbreviation.",
+     "definitionFit": "Vin ordinaire is cheap everyday table wine, and plonk is British slang for exactly that kind of wine."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "Plonk"
+     "misdirectedWord": "Psycho"
     }
    }
   },

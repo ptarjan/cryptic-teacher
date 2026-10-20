@@ -1383,39 +1383,47 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "not half",
-       "note": "not half means half of the following word is taken away"
+       "text": "not",
+       "at": 21,
+       "note": "not means without, so the following letters are removed"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "opera",
-         "gives": "PARSIFAL",
-         "note": "Parsifal is Wagner's last opera"
-        },
-        {
-         "words": "fa-la-la",
-         "note": "a nonsense refrain in song; half of it is its first three letters"
-        }
-       ]
+       "words": "opera",
+       "at": 14,
+       "gives": "PARSIFAL",
+       "note": "Parsifal is Wagner's last opera"
       },
       {
-       "gives": "FALFALALA"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 25,
+         "note": "half takes the front half of the refrain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fa-la-la",
+         "at": 30,
+         "gives": "FALALA",
+         "note": "taken as written, without hyphens"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Persian in India sings opera without the full fa-la-la refrain.",
-     "walkthrough": "Half of fa-la-la, FAL, comes off the end of the opera's name.",
-     "definitionFit": "A Parsi is an Indian Zoroastrian descended from Persians who settled there, so a local of Persian origin."
+     "surface": "A local Persian opera that cuts out half its singing refrains.",
+     "walkthrough": "Half of FALALA is FAL, taken out of PARSIFAL.",
+     "definitionFit": "Parsis are Zoroastrians of Persian descent living in India, so a Persian of the locality."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "fa-la-la"
+     "aptDefinition": false,
+     "misdirectedWord": "opera"
     }
    }
   },

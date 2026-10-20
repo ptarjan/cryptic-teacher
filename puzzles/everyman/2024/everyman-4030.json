@@ -1355,26 +1355,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
      "indicators": [
       {
-       "text": "on",
-       "at": 12,
-       "note": "on means coming next, so the writing word follows the love letter"
+       "text": "moving",
+       "at": 47,
+       "note": "moving means the named letter shifts to a new place in the string"
       }
      ],
      "parts": [
       {
-       "words": "Love",
-       "at": 0,
-       "gives": "O",
-       "note": "love is zero in tennis, which looks like O"
-      },
-      {
-       "words": "writes",
-       "at": 5,
-       "gives": "PENS",
-       "note": "to pen is to write, so pens means writes"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Love",
+         "at": 0,
+         "gives": "O",
+         "note": "love is zero in tennis, shaped like O"
+        },
+        {
+         "words": "writes",
+         "at": 5,
+         "gives": "PENS",
+         "note": "pens means writes"
+        },
+        {
+         "words": "Greek island",
+         "at": 15,
+         "gives": "CRETE",
+         "note": "Crete is the largest Greek island"
+        }
+       ]
       },
       {
        "op": "nth",
@@ -1383,44 +1394,22 @@
         {
          "text": "fifth of",
          "at": 30,
-         "note": "fifth of means the fifth letter of the following word"
+         "note": "fifth of picks the letter in fifth place of the following word"
         }
        ],
        "parts": [
         {
          "words": "sonnets",
-         "at": 39,
-         "note": "the fifth letter of sonnets is E"
-        }
-       ]
-      },
-      {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "moving",
-         "at": 47,
-         "note": "moving means shifting position, so the matching letter leaves its place in the island and goes ahead of it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Greek island",
-         "at": 15,
-         "gives": "CRETE",
-         "note": "Crete is the largest Greek island"
-        },
-        {
-         "gives": "E"
+         "at": 39
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lover writes poems on a Greek island, with everyone smugly aware of it.",
-     "walkthrough": "'moving' says the E is shifted: the last E of CRETE moves to the front, giving ECRET. 'don't we know it!' is a clue for something everyone already knows.",
-     "definitionFit": "An open secret is supposedly confidential but in fact widely known, which is what the exclamation implies."
+     "surface": "A lover writes poems on a Greek island, with sonnets stirring emotions everyone knows about.",
+     "walkthrough": "The definition is an ironic exclamation: an open secret is exactly what everyone already knows.",
+     "definitionFit": "An open secret is something supposedly confidential that everybody already knows, which the exclamation expresses."
     },
     "features": {
      "answerInScene": false,
