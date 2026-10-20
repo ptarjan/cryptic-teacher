@@ -223,50 +223,59 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "in",
-       "note": "in places that letter between the record and the book as they are joined end to end"
+       "at": 20,
+       "note": "the letter goes inside, between record and book"
       }
      ],
      "parts": [
       {
-       "words": "record",
-       "gives": "EP",
-       "note": "an EP is an extended-play record"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "record",
+         "at": 23,
+         "gives": "EP",
+         "note": "an EP is an extended-play record"
+        },
+        {
+         "words": "book",
+         "at": 30,
+         "gives": "TOME",
+         "note": "a tome is a large book"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "First part of",
-         "note": "first part of keeps only the opening letter of the next word"
+         "at": 0,
+         "note": "only the opening letter of index is used"
         }
        ],
        "parts": [
         {
          "words": "index",
-         "note": "the first letter of index"
+         "at": 14
         }
        ]
-      },
-      {
-       "words": "book",
-       "gives": "TOME",
-       "note": "a tome is a large book"
       }
      ]
     },
     "explanation": {
-     "surface": "Looking up the start of the index in a book of records.",
-     "walkthrough": "'For example' reads as a phrase, but 'for' is only a link and 'example' is the definition.",
-     "definitionFit": "An epitome is a perfect example or embodiment of a type, the ideal instance of it."
+     "surface": "Looking at the opening of the index in a record book, for instance.",
+     "walkthrough": "'For example' looks like one phrase; 'example' alone is the definition and 'for' links.",
+     "definitionFit": "The epitome of something is a perfect instance or embodiment of it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "example"
+     "misdirectedWord": "record"
     }
    }
   },
@@ -861,53 +870,55 @@
      {
       "text": "Quickly",
       "at": 0,
-      "note": "an adverb defining a participle used informally of speed"
+      "note": "shifting is used for moving fast, as in 'that car was really shifting'"
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
+       "text": "injecting",
+       "at": 8,
+       "note": "the pain is given an injection of the drug letter"
+      },
+      {
        "text": "in",
-       "note": "in places the little word if within the word for pain"
+       "at": 28,
+       "note": "if is also put in the pain, right after the drug letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "injecting",
-         "note": "injecting the drug pushes it inside the result of the first step"
-        }
-       ],
+       "words": "pain",
+       "at": 31,
+       "gives": "STING",
+       "note": "a sting is a sharp pain"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "pain",
-         "gives": "STING",
-         "note": "a sting is a sharp pain"
+         "words": "heroin",
+         "at": 18,
+         "gives": "H",
+         "note": "H is slang for heroin"
         },
         {
          "words": "if",
-         "note": "taken as written"
+         "at": 25
         }
        ]
-      },
-      {
-       "words": "heroin",
-       "gives": "H",
-       "note": "H is drug slang for heroin"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone in agony rapidly shoots up heroin.",
-     "walkthrough": "Two insertions happen in turn, the second into the result of the first. 'Shifting' is informal British for moving fast, as in 'that car is really shifting'.",
-     "definitionFit": "Colloquially a fast vehicle is said to be shifting, going rapidly, which matches quickly in sense."
+     "surface": "Someone in pain is hurriedly injecting heroin, if that helps.",
+     "walkthrough": "'Shifting' in British informal use means moving at speed, so it stands for 'Quickly' as in 'that car is really shifting'.",
+     "definitionFit": "In informal British use someone shifting is going at a great rate, moving fast."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "injecting"
     }
    }

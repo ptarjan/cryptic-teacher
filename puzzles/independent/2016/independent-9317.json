@@ -404,68 +404,62 @@
     "definitions": [
      {
       "text": "My",
-      "at": 0
+      "at": 0,
+      "note": "an exclamation of surprise, as in 'My, what a mess!'"
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GORBLIMEY",
      "indicators": [
       {
-       "text": "round"
+       "text": "round",
+       "at": 21,
+       "note": "the journey and the Brit together go round the next piece, holding it between them"
       }
      ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "journey",
+         "at": 3,
+         "gives": "GO",
+         "note": "to go is to journey"
+        },
+        {
+         "words": "Brit",
+         "at": 16,
+         "gives": "LIMEY",
+         "note": "a limey is slang, chiefly American, for a Briton"
+        }
+       ]
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "with",
-         "note": "the journey word is set beside the Brit word"
+         "text": "centre of",
+         "at": 27,
+         "note": "the central letters of the six-letter Torbay are taken"
         }
        ],
        "parts": [
         {
-         "words": "journey",
-         "gives": "GO",
-         "note": "a go can be a trip or journey"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "RB",
-         "indicators": [
-          {
-           "text": "centre of"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Torbay",
-           "gives": "RB",
-           "select": "middle",
-           "note": "the two middle letters of TORBAY"
-          }
-         ]
-        },
-        {
-         "words": "Brit",
-         "gives": "LIMEY",
-         "note": "limey is American slang for a British person"
+         "words": "Torbay",
+         "at": 37
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A British holidaymaker describing a trip to the Devon resort of Torbay.",
-     "walkthrough": "'My' looks like a possessive but is the exclamation 'My!'; Torbay is a seaside area in Devon, England.",
-     "definitionFit": "Gorblimey is a Cockney exclamation of surprise, as is 'My!'."
+     "surface": "Someone describes a trip with a fellow Briton around the middle of the Devon resort Torbay.",
+     "walkthrough": "'My' looks like a possessive but is the exclamation. Torbay is a seaside area in Devon, and 'limey' is an American nickname for a Briton, from the limes once given to British sailors.",
+     "definitionFit": "Both are interjections of astonishment; gorblimey is a Cockney corruption of 'God blind me'."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "My"
     }
@@ -618,53 +612,59 @@
     "definitions": [
      {
       "text": "one claims",
-      "at": 60
+      "at": 60,
+      "note": "an expositor is someone who sets out and asserts a case"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXPOSITOR",
+     "op": "container",
      "indicators": [
       {
-       "text": "loses capital",
-       "note": "losing its capital, DEPOSITOR drops its first letter"
+       "text": "investing",
+       "at": 34,
+       "note": "the shortened customer is invested with, i.e. wrapped round, the unknown amount"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "investing",
-         "note": "to invest is also to surround"
+         "text": "loses capital",
+         "at": 14,
+         "note": "capital means the first letter, which the bank customer drops"
         }
        ],
        "parts": [
         {
          "words": "Bank customer",
-         "gives": "EPOSITOR",
-         "note": "DEPOSITOR without its first letter"
+         "at": 0,
+         "gives": "DEPOSITOR",
+         "note": "a depositor puts money into a bank"
         },
         {
-         "words": "unknown amount",
-         "gives": "X",
-         "note": "X = an unknown in algebra"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "unknown amount",
+       "at": 44,
+       "gives": "X",
+       "note": "X is the algebraic symbol for an unknown quantity"
       }
      ]
     },
     "explanation": {
-     "surface": "A bank customer who lost money on an investment is now making a claim.",
-     "walkthrough": "Banking words all round hide the mechanics: 'capital' is the first letter and 'investing' means surrounding. The definition is a loose phrase: an expositor sets out, or claims, a case.",
-     "definitionFit": "An expositor is one who expounds a case, putting forward its claims."
+     "surface": "A bank customer is losing money after putting an unknown sum into investments.",
+     "walkthrough": "'Capital' and 'investing' look like finance, but capital is the first letter and investing means enclosing: DEPOSITOR loses D to give EPOSITOR, and X goes inside after the E.",
+     "definitionFit": "An expositor is an expounder, a person who puts forward and explains a position."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "capital"
+     "misdirectedWord": "investing"
     }
    }
   },

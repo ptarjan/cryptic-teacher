@@ -556,47 +556,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PROBLEMS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Almost",
-       "note": "almost all means one short, so the final letter is lost"
+       "text": "after",
+       "at": 41,
+       "note": "the reversed letters come after the publicist"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "publicist",
+       "at": 47,
+       "gives": "PR",
+       "note": "PR stands for public relations, the publicist's trade"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 31,
+         "note": "returning means the pair is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "publicist",
-         "gives": "PR",
-         "note": "PR, public relations, is the publicist's trade"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "returning",
-           "note": "going back the way it came, so the letters read right to left"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "Almost",
+             "at": 0,
+             "note": "the word is cut short, losing its last letter"
+            }
+           ],
            "parts": [
             {
              "words": "detect",
-             "gives": "SMEL",
-             "note": "smell, meaning to sense, missing its last letter"
+             "at": 7,
+             "gives": "SMELL",
+             "note": "to smell something out is to detect it"
             },
             {
-             "words": "unpleasant aroma",
-             "gives": "BO",
-             "note": "BO is body odour"
+             "gives": "L"
             }
            ]
+          },
+          {
+           "words": "unpleasant aroma",
+           "at": 14,
+           "gives": "BO",
+           "note": "BO is body odour"
           }
          ]
         }
@@ -605,14 +618,14 @@
      ]
     },
     "explanation": {
-     "surface": "A PR person's nose sniffs out trouble and lays it bare.",
-     "walkthrough": "Both the shortened sense and the body odour turn round together and follow the publicist.",
-     "definitionFit": "Problems and difficulties are straightforward synonyms for troubles needing to be overcome."
+     "surface": "A spin doctor uncovers trouble after nearly sniffing out a bad smell.",
+     "walkthrough": "'Returning' covers both the shortened detect word and the bad smell, read backwards together; 'exposes' only links the wordplay to the definition.",
+     "definitionFit": "Problems are difficulties, troubles that need dealing with."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "publicist"
+     "misdirectedWord": "exposes"
     }
    }
   },
@@ -1854,38 +1867,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ETCETERA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "misses two starts",
-       "note": "missing the opening letters means each word loses its first"
+       "text": "misbehaving",
+       "at": 30,
+       "note": "misbehaving means acting wildly, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "misbehaving",
-         "note": "behaving badly, out of order, so the letters go astray"
+         "text": "misses two starts",
+         "at": 12,
+         "note": "the first letters of both words are left out"
         }
        ],
        "parts": [
         {
          "words": "Pace setter",
-         "gives": "ACEETTER",
-         "note": "each word without its opening letter"
+         "at": 0
+        },
+        {
+         "gives": "PS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A race pacemaker fluffs two starts and generally misbehaves.",
-     "walkthrough": "The 'two starts' are the opening letters of both words, not two false starts in a race.",
-     "definitionFit": "Et cetera is Latin meaning 'and the rest', used to show a list continues similarly."
+     "surface": "A race pacemaker messes up the first two starts and keeps going.",
+     "walkthrough": "Dropping P and S leaves ACE ETTER, which rearranges into the answer.",
+     "definitionFit": "Et cetera is Latin for 'and the rest', meaning and other things of the same kind."
     },
     "features": {
      "answerInScene": false,

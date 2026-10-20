@@ -1004,32 +1004,46 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "DELI",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "invested in",
-       "note": "something invested in a thing is placed inside it, so only the interior letters are kept"
+       "text": "that's invested in",
+       "at": 6,
+       "note": "invested in means clothed by the word, sitting inside it"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "modelling in America",
-       "gives": "DELI",
-       "select": "middle",
-       "note": "the American spelling has a single L, and its middle four letters are kept"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in America",
+         "at": 35,
+         "note": "in America asks for the US spelling, which has a single L in the middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "modelling",
+         "at": 25
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "gives": "MONG"
       }
      ]
     },
     "explanation": {
-     "surface": "A shop that has put money into the US fashion industry.",
-     "walkthrough": "'in America' asks for the US spelling with one L; the British spelling with two would not work, which is why the setter adds it.",
-     "definitionFit": "A deli, short for delicatessen, is a shop selling cooked meats and fine foods, so a type of store."
+     "surface": "A query about a shop that has put money into the US modelling business.",
+     "walkthrough": "The British 'modelling' has two Ls and hides nothing; 'in America' asks for the US spelling MODELING, which contains the answer.",
+     "definitionFit": "A deli, short for delicatessen, is a shop selling cooked meats, cheeses and prepared foods."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "invested"
     }

@@ -94,48 +94,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "YIPPEE",
+     "op": "container",
      "indicators": [
       {
-       "text": "not the first or last",
-       "note": "losing the first and the last means both end letters of the word are dropped"
+       "text": "must restrain",
+       "at": 4,
+       "note": "the you word holds the following letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "You",
+       "at": 0,
+       "gives": "YE",
+       "note": "ye is an old form of you"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "must restrain",
-         "note": "to restrain is to hold something in, so one word wraps round the other"
+         "text": "not the first or last",
+         "at": 30,
+         "note": "the first and last letters are dropped"
         }
        ],
        "parts": [
         {
-         "words": "You",
-         "gives": "YE",
-         "note": "ye is the old form of you"
-        },
-        {
          "words": "little kid",
-         "gives": "IPPE",
-         "note": "a nipper is a little child; its outer letters are dropped"
+         "at": 18,
+         "gives": "NIPPER",
+         "note": "a nipper is a small child"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A parent restraining a toddler who is shouting excitedly.",
-     "walkthrough": "Nipper is British slang for a small child; 'You' is the archaic ye, which does the restraining.",
-     "definitionFit": "Yippee is an exclamation people cry out when delighted or thrilled about something."
+     "surface": "A parent is told to hold back a small child who keeps yelling.",
+     "walkthrough": "NIPPER without its ends is IPPE, which sits between Y and E.",
+     "definitionFit": "Yippee is an exclamation of delight or excitement."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "restrain"
+     "misdirectedWord": "kid"
     }
    }
   },
@@ -1256,40 +1258,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HERNIA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not good",
-       "note": "good is abbreviated to a single letter, which is to be dropped"
+       "text": "It's awful",
+       "at": 18,
+       "note": "awful means in a terrible state, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "awful",
-         "note": "something awful is in a terrible mess, so the letters are jumbled"
+         "text": "not",
+         "at": 8,
+         "note": "not means without, so the letter for good is removed"
         }
        ],
        "parts": [
         {
          "words": "Hearing",
-         "gives": "HEARIN",
-         "note": "the G for good is taken away"
+         "at": 0
+        },
+        {
+         "words": "good",
+         "at": 12,
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A patient complains that poor hearing is a dreadful ailment.",
-     "definitionFit": "A hernia is a medical condition in which an organ pushes through the wall of muscle containing it."
+     "surface": "A patient complains that poor hearing is a dreadful affliction.",
+     "walkthrough": "HEARING without G is HEARIN, which rearranges to the answer.",
+     "definitionFit": "A hernia is a rupture where an organ pushes through the muscle wall, a medical ailment."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Hearing"
     }
