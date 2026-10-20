@@ -520,9 +520,12 @@ from groups import entry_id
 from puzzle_paths import find, puzzle_files
 row_cache.STORE = sys.argv[1] + "/rows.sqlite"
 ids = sorted({p.stem for p in puzzle_files("times")[:3] + puzzle_files("guardian")[:2]} | {"times-999999999"})
-l.OUT = Path(sys.argv[1]) / "out"
-l.OUT.mkdir()
-(l.OUT / "x.json").write_text("{\n" + ",\n".join(json.dumps(i) + ": {\"entries\": {}}" for i in ids) + "\n}\n")
+import blog_store
+sides = Path(sys.argv[1]) / "out"
+sides.mkdir()
+for i in ids:  # one fake sidecar a puzzle, in a temp dir (blog_store.files is pointed at it)
+    (sides / (i + blog_store.SUFFIX)).write_text(json.dumps({"entries": {}}) + "\n")
+blog_store.files = lambda series=None: {p.name[:-len(blog_store.SUFFIX)]: p for p in sorted(sides.iterdir())}
 def old():
     for pid in ids:
         path = find(pid)

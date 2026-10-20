@@ -1189,7 +1189,10 @@ shelve_code_edits() {
 # a long-lived tree rebuilt them from the inputs it started with, and committing
 # them reverted what origin pushed since (ac3108cc360 held 7 such files as of
 # 12:31, clobber_guard refused it and every sync failed, 10-19). A run may write
-# them for its own reading; they are never published from here.
+# them for its own reading; they are never published from here. The blog facts
+# are now the puzzles/*/*/*.blog sidecars (tools/blog_store.py), outside the
+# tools/data/ that publish_shared_data adds, so they are never published here
+# either; tools/data/blog_facts/ holds only inputs.sha256.
 OWNED_BY_ORIGIN=(tools/data/blog_compare.json tools/data/blog_facts/ tools/data/lexicons/)
 publish_shared_data() {
   [ "$DRY_RUN" = 1 ] && return 0
