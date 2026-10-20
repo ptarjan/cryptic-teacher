@@ -104,42 +104,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "First pair of",
-       "note": "take the first two letters of 'questions'"
+       "text": "in",
+       "at": 24,
+       "note": "in means the letters are placed inside the other word"
       }
      ],
      "parts": [
       {
        "words": "National Curriculum assessment",
+       "at": 27,
        "gives": "SATS",
-       "note": "SATs are the national tests given in English schools"
+       "note": "SATs are the national tests of the English National Curriculum"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "QU",
        "indicators": [
         {
-         "text": "in",
-         "note": "one thing sitting in another is surrounded by it"
+         "text": "First pair of",
+         "at": 0,
+         "note": "first pair of means the first two letters of the word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "questions",
-         "gives": "QU",
-         "select": "first",
-         "note": "the first two letters of 'questions'"
+         "at": 14,
+         "note": "first two letters of questions"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A school test whose first two questions are about exercises.",
-     "walkthrough": "SATs are the national tests given to children in English schools under the National Curriculum. QU goes in after the S.",
-     "definitionFit": "Squats are a common leg exercise."
+     "surface": "The opening two questions of a school test turn out to be physical exercises.",
+     "walkthrough": "SATs are the standard tests taken by schoolchildren in England.",
+     "definitionFit": "Squats are a strength exercise of bending the knees and rising again, an example of the class."
     },
     "features": {
      "answerInScene": false,
@@ -347,46 +346,31 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ASANAS",
      "indicators": [
       {
        "text": "Endlessly",
-       "note": "each word loses its last letter"
+       "at": 0,
+       "note": "endlessly means each word loses its last letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "ask",
-         "gives": "AS",
-         "note": "ASK without its end"
-        },
-        {
-         "words": "and",
-         "gives": "AN",
-         "note": "AND without its end"
-        },
-        {
-         "words": "ask",
-         "gives": "AS",
-         "note": "ASK without its end"
-        }
-       ]
+       "words": "ask and ask",
+       "at": 10
+      },
+      {
+       "gives": "KDK"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps asking and asking for yoga poses.",
-     "walkthrough": "'Endlessly' applies to all three words, not just the first.",
-     "definitionFit": "Asana is the Sanskrit word for a seated or held posture, so yoga positions is a plain translation."
+     "surface": "Keep pestering for yoga poses.",
+     "walkthrough": "Each of ask, and, ask drops its final letter: AS, AN, AS.",
+     "definitionFit": "Asanas are the postures held in hatha yoga, so the poses of the practice."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Endlessly"
+     "aptDefinition": false
     }
    }
   },
@@ -526,42 +510,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCHMALTZ",
-     "indicators": [
-      {
-       "text": "avoiding",
-       "note": "the word's head, its first letter, stays away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "school",
+       "at": 18,
+       "gives": "SC",
+       "note": "Sc is an abbreviation for school"
+      },
+      {
+       "words": "head",
+       "at": 25,
+       "gives": "HM",
+       "note": "HM is headmaster or headmistress, the head of a school"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "avoiding",
+         "at": 30,
+         "note": "avoiding means without the first letter, which is shunned"
+        }
+       ],
        "parts": [
         {
-         "words": "school",
-         "gives": "SCH",
-         "note": "SCH is a standard abbreviation of school"
-        },
-        {
-         "words": "head",
-         "gives": "M",
-         "note": "head = master, abbreviated M; 'head' is doing double duty"
-        },
-        {
          "words": "dance",
-         "gives": "ALTZ",
-         "note": "WALTZ without its first letter"
+         "at": 39,
+         "gives": "WALTZ",
+         "note": "the waltz is a ballroom dance"
+        },
+        {
+         "gives": "W"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A school's headteacher staying away from the sentimental school dance.",
-     "walkthrough": "The M is the loose spot: solvers at the time read 'head' as master (M) as well as the deletion signal. SCH + M + (W)ALTZ.",
-     "definitionFit": "Schmaltz is excessive sentimentality, especially in music or film."
+     "surface": "The mawkishness of a headteacher who refuses to dance.",
+     "definitionFit": "Schmaltz is Yiddish for chicken fat and by extension excessive, gushing sentiment in art or music."
     },
     "features": {
      "answerInScene": true,
@@ -1106,40 +1094,44 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most of the word: the last letter goes"
+       "text": "unfortunately",
+       "at": 46,
+       "note": "unfortunately means things go wrong, so the letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "America",
+       "at": 23
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "unfortunately",
-         "note": "the letters meet an unlucky jumbling"
+         "text": "mostly",
+         "at": 31,
+         "note": "mostly means all but the last letter"
         }
        ],
        "parts": [
         {
-         "words": "America",
-         "note": "as printed"
+         "words": "decays",
+         "at": 38
         },
         {
-         "words": "decays",
-         "gives": "DECAY",
-         "note": "DECAYS without its last letter"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A year of study in America goes to ruin.",
-     "walkthrough": "'In America' looks like the setting, but AMERICA is fodder.",
-     "definitionFit": "The academic year is the yearly period of school or university teaching."
+     "surface": "Things in the United States are, sadly, mostly falling apart.",
+     "walkthrough": "DECAYS loses its S to give DECAY, rearranged with AMERICA.",
+     "definitionFit": "The academic year is the yearly cycle of terms in schools and universities, running from autumn to summer."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "America"
     }

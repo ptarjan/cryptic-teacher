@@ -781,40 +781,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "production of",
-       "note": "a production is a staging, something newly put together, so the letters are reassembled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "short of",
-         "note": "to be short of a thing is to be without it, so that letter never joins the pile"
+         "text": "production of",
+         "at": 6,
+         "note": "a production of something puts it together in a new form, here reshuffling letters"
         }
        ],
        "parts": [
         {
-         "words": "Aida short of an alto",
-         "gives": "AID",
-         "note": "alto is A, and AIDA without one of them leaves AID"
-        },
-        {
-         "words": "soprano",
-         "gives": "S",
-         "note": "S is soprano on a choral score"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short of an",
+           "at": 25,
+           "note": "short of an means lacking one of the letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Aida",
+           "at": 20
+          },
+          {
+           "words": "alto",
+           "at": 37,
+           "gives": "A",
+           "note": "A is the abbreviation for alto in choral music"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "soprano",
+       "at": 46,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Voices are abbreviations in a crossword: A for alto, S for soprano, T for tenor, B for bass. All four turn up constantly.",
-     "definitionFit": "A dais is the raised platform a speaker stands on, so 'stage' means the low wooden thing rather than the theatre around it."
+     "surface": "A staging of Verdi's opera Aida that lacks an alto and a soprano.",
+     "walkthrough": "'Stage production' looks like one phrase, but Stage is the definition; removing an A from AIDA leaves AID, rearranged as DAI.",
+     "definitionFit": "A dais is a raised platform for a speaker, so a stage in the sense of a platform."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "production"
     }
    }
   },
@@ -1660,8 +1678,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "gathered mob",
-      "at": 16
+      "text": "mob",
+      "at": 25
      }
     ],
     "wordplay": {
@@ -1669,21 +1687,28 @@
      "spelt": "HERD",
      "indicators": [
       {
-       "text": "Became aware of",
-       "note": "you become aware of a thing by ear as well as by eye, and a word met by ear can be written down more than one way"
+       "text": "gathered",
+       "at": 16,
+       "note": "gathered, as in picked up by ear, signals the word is taken as it sounds"
       }
      ],
      "parts": [
       {
        "words": "Became aware of",
+       "at": 0,
        "gives": "HEARD",
-       "note": "to become aware of something is to have heard it, and that word is a homophone of the noun for a group of animals gathered together"
+       "note": "heard means became aware of, learned"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "There is no 'we hear' or 'aloud' anywhere, because the fodder says it itself: becoming aware of something is hearing it, and hearing is the instruction.",
-     "definitionFit": "A herd is cattle standing together, so 'mob' names it by the crowd it makes — the word Australians use of kangaroos as well."
+     "surface": "Someone noticed a crowd assembling.",
+     "definitionFit": "A herd is a large crowd of people, used disparagingly, so it is a synonym of mob."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gathered"
     }
    }
   },

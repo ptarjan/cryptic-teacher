@@ -756,7 +756,8 @@
      "indicators": [
       {
        "text": "out",
-       "note": "Here it means out of its proper arrangement, not outdoors — the letters have left their places."
+       "at": 8,
+       "note": "out signals the remaining letters are put out of order, rearranged"
       }
      ],
      "parts": [
@@ -764,36 +765,35 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "eject",
-         "note": "To eject is to throw somebody out of a place, so the letter named beside it leaves the word."
+         "text": "to eject",
+         "at": 12,
+         "note": "to eject means to throw one letter out of the phrase"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Pull it",
-           "gives": "PULIT",
-           "note": "PULL IT once an L has gone — five letters to rearrange"
-          },
-          {
-           "words": "large",
-           "gives": "L",
-           "note": "L is the clothing-size abbreviation for large, and it is the letter thrown out"
-          }
-         ]
+         "words": "Pull it",
+         "at": 0
         },
         {
-         "gives": "L"
+         "words": "large",
+         "at": 21,
+         "gives": "L",
+         "note": "L is the standard abbreviation for large, as on clothing labels"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The whole clue reads as advice about lifting bulbs in autumn, which is why the anagram hides so well: nothing in it sounds addressed to a solver.",
-     "definitionFit": "Gardeners call the plants they grow from bulbs 'bulbs', so the word names a tulip by example, the way 'Alsatian' names a dog."
+     "surface": "An instruction to yank a big bulb out of the ground.",
+     "walkthrough": "'to eject large' takes one L out of PULLIT, leaving PULIT, and 'out' rearranges those letters.",
+     "definitionFit": "A tulip grows from a bulb, and gardeners call the plant itself a bulb, an example of the class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pull"
     }
    }
   },
@@ -1396,57 +1396,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "snack",
+      "text": "snack?",
       "at": 51
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "ejecting",
-       "note": "To eject is to throw somebody out of a place, so the letter named beside it leaves the word."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "starter",
-         "note": "A starter is what comes first, and the first thing in a word is the letter it begins with."
+         "text": "after ejecting",
+         "at": 16,
+         "note": "after ejecting means once a letter has been thrown out of the word"
         }
        ],
        "parts": [
         {
          "words": "Shut your mouth",
-         "gives": "SUSH",
-         "note": "SHUSH means shut your mouth, here with an H taken out of it"
+         "at": 0,
+         "gives": "SHUSH",
+         "note": "shush! is an order to be quiet, to shut your mouth"
         },
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "hot",
-           "note": "H is the letter on a hot tap, and it is the one ejected"
-          }
-         ]
-        },
-        {
-         "words": "Italian",
-         "gives": "I",
-         "note": "the opening letter of ITALIAN"
+         "words": "hot",
+         "at": 31,
+         "gives": "H",
+         "note": "H is the abbreviation for hot, as on taps"
         }
        ]
       },
       {
-       "gives": "H"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starter",
+         "at": 43,
+         "note": "starter means the first letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Italian",
+         "at": 35,
+         "note": "first letter of Italian"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The Italian starter is the trap: you reach for antipasto, and all the setter wants is the letter the word begins with.",
-     "definitionFit": "Sushi comes in small hand-sized pieces eaten between meals as readily as at one, so it fits the loose sense of the word."
+     "surface": "Someone rudely told to be quiet once they've spat out a spicy Italian appetiser.",
+     "walkthrough": "Removing one H from SHUSH leaves SUSH; the I that starts 'Italian' completes it. The question mark marks sushi as only an example of a snack.",
+     "definitionFit": "Sushi, small portions of rice with fish, is commonly eaten as a light bite, so it counts as an example of a snack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Italian"
     }
    }
   },

@@ -151,45 +151,41 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "in a down clue, up means read from the bottom, so the letters run backwards"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "with",
-         "note": "with puts the two pieces side by side"
+         "text": "up",
+         "at": 7,
+         "note": "in a down clue, up means the word is read from the bottom upwards"
         }
        ],
        "parts": [
         {
          "words": "What's",
+         "at": 0,
          "gives": "EH",
-         "note": "EH is 'what?', said when you did not hear"
+         "note": "eh? is a way of asking what's that"
         }
        ]
       },
       {
        "words": "greeting",
+       "at": 15,
        "gives": "AVE",
-       "note": "ave is the Latin greeting 'hail'"
+       "note": "ave is a Latin greeting, hail"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzled question about what is going on with a greeting that has been thrown.",
-     "walkthrough": "'What’s up' reads as one question, but it splits: 'What' is EH, and 'up' turns it over in this down entry.",
-     "definitionFit": "A plain synonym as a verb: both mean to throw with effort, as with a line or a stone."
+     "surface": "Someone asking what's going on with a cast saying hello.",
+     "definitionFit": "To heave is to throw something heavy, so it is a synonym of cast as a verb."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "up"
+     "misdirectedWord": "cast"
     }
    }
   },
@@ -1347,31 +1343,54 @@
      "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "the last letter is dropped"
-      },
-      {
        "text": "cutting",
-       "note": "the shortened word cuts into the other piece"
+       "at": 27,
+       "note": "cutting means slicing into, so these letters go inside the others"
       }
      ],
      "parts": [
       {
-       "words": "a great deal",
-       "gives": "ALOT",
-       "note": "a lot is a great deal"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 35
+        },
+        {
+         "words": "great deal",
+         "at": 37,
+         "gives": "LOT",
+         "note": "a lot means a great deal"
+        }
+       ]
       },
       {
-       "words": "paradise",
-       "gives": "UTOPI",
-       "note": "utopia is a paradise, without its last A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 20,
+         "note": "almost means the last letter is left off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "paradise",
+         "at": 10,
+         "gives": "UTOPIA",
+         "note": "Utopia is an ideal place, a paradise"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man named George, in heaven, nearly ruining a big business deal.",
-     "walkthrough": "'George' is pilots' slang for the automatic pilot, so the name looks like a person but is the definition.",
-     "definitionFit": "George is an old nickname for an aircraft's autopilot."
+     "surface": "A man called George enjoying a near-paradise that costs him a fortune.",
+     "walkthrough": "'George' looks like a man's name; it is old RAF slang for an aircraft's automatic pilot.",
+     "definitionFit": "Pilots nicknamed the automatic flight control George, so the autopilot is called that in slang."
     },
     "features": {
      "answerInScene": false,
