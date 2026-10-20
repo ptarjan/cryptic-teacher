@@ -1737,7 +1737,9 @@ log.unlink(missing_ok=True)
 err = io.StringIO()
 with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
-check("spool on, spool full: no read starts", (False, 1), (log.exists(), err.getvalue().count("vlm-bound")))
+check("spool on, spool full: reads still start (a read needing an ask defers itself)", (3, 0),
+      (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("vlm-bound")))
+check("the queue's cap is the reader's", True, eq.vlm_spool_max() == vlm_reader.vlm_spool_max() == 10)
 _own.unlink(missing_ok=True)
 vlm_reader.spooled = _sp
 os.environ.pop("CT_VLM_SPOOL_MAX")

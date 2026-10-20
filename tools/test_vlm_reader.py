@@ -656,6 +656,39 @@ check("a second read of a spooled ask waits on it", (["m" * 40], ["m" * 40]), (v
 vlm.drain_one()
 check("... and the wait ends with the answer", (0, 0), (len(vlm.spooled()), len(list(vlm.spool_dir().glob("m" * 40 + ".wait.*")))))
 
+# A full spool (spooled() at vlm_spool_max()): a new ask is not spooled, the read defers with cause "spool full"
+# and leaves its mark; an ask already pending still counts as spooled.
+os.environ["CT_VLM_SPOOL_MAX_FILE"] = "/nonexistent/vlm_spool_max"
+os.environ["CT_VLM_SPOOL_MAX"] = "1"
+vlm._MISSED[0] = False
+vlm.put_spool("p" * 40, b"px", "p", 10)
+_full_data = b"full-ask-png"
+_before = (len(vlm.spooled()), len(asked))
+try:
+    vlm.ask_png(_full_data, "p", 10, spool=True)
+    _full_raised = False
+except vlm.Spooled as e:
+    _full_raised = "spool full" in str(e)
+check("a full spool: the new ask is neither spooled nor asked, and the cause says so",
+      (True, _before, "spool full", True, True),
+      (_full_raised, (len(vlm.spooled()), len(asked)), vlm.cause(), vlm.missed(), vlm.full_mark(os.getpid()).exists()))
+check("... and its png is not kept", False, (vlm.spool_dir() / (vlm.ask_key(_full_data, "p") + ".png")).exists())
+vlm.full_mark(os.getpid()).unlink()
+vlm._MISSED[0] = False
+os.environ["CT_VLM_SPOOL_MAX"] = "5"
+try:
+    vlm.ask_png(_full_data, "p", 10, spool=True)
+except vlm.Spooled:
+    pass
+check("below the cap the ask is spooled again", True, vlm.pending(vlm.ask_key(_full_data, "p")))
+for _k in vlm.spooled():
+    vlm.drain_one()
+vlm.full_mark(os.getpid()).unlink(missing_ok=True)
+os.environ.pop("CT_VLM_SPOOL_MAX")
+os.environ.pop("CT_VLM_SPOOL_MAX_FILE")
+vlm._MISSED[0] = False
+vlm._CAUSE[0] = ""
+
 # A spooled read's guard says so, not "went down".
 vlm._MISSED[0] = True
 vlm._CAUSE[0] = "spooled"
