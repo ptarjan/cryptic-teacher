@@ -929,54 +929,63 @@
      "parts": [
       {
        "words": "popular",
+       "at": 10,
        "gives": "IN",
-       "note": "what is in is fashionable, popular"
+       "note": "in means popular or fashionable"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "surrounded",
-         "note": "to surround is to enclose, so one piece goes round another"
+         "at": 28,
+         "note": "the word for suspicion surrounded the rest, so its letters go round them"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "ground",
-           "note": "something ground has been crushed up, so its letters are broken and remixed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "suspicion",
-           "gives": "SUS",
-           "note": "sus is British slang for suspicion"
-          },
-          {
-           "words": "burial",
-           "note": "the letters of the word rearranged"
-          }
-         ]
+         "words": "suspicion",
+         "at": 18,
+         "gives": "SUS",
+         "note": "sus is British slang for suspicion"
         },
         {
-         "words": "old",
-         "gives": "O",
-         "note": "O is the abbreviation for old"
+         "op": "charade",
+         "parts": [
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "ground",
+             "at": 50,
+             "note": "ground as in crushed or broken up, so the letters are rearranged"
+            }
+           ],
+           "parts": [
+            {
+             "words": "burial",
+             "at": 43
+            }
+           ]
+          },
+          {
+           "words": "old",
+           "at": 39,
+           "gives": "O"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grim, widespread suspicion surrounding an ancient cemetery.",
-     "walkthrough": "'Burial ground' reads as cemetery, but 'ground' is the anagram signal; the shuffled word follows O inside SUS.",
-     "definitionFit": "Insalubrious means not conducive to health, the negative of salubrious, so it plainly matches unhealthy."
+     "surface": "Popular suspicion fell on an old graveyard as a health hazard.",
+     "walkthrough": "'ground' looks like part of 'burial ground', but it is the anagram signal acting on 'burial' alone.",
+     "definitionFit": "Insalubrious means not wholesome or harmful to health, a formal synonym."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "ground"
     }

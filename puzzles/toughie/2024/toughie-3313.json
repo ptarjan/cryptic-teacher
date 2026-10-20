@@ -496,32 +496,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "INTEGER",
-     "indicators": [
-      {
-       "text": "from the south",
-       "note": "in a down clue, reading from the south means going upwards, from the bottom"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "one",
+       "at": 7,
        "gives": "I",
-       "note": "I is the Roman numeral one"
+       "note": "I is the Roman numeral for one"
       },
       {
-       "words": "governor",
-       "gives": "REGENT",
-       "note": "a regent governs on behalf of a monarch"
+       "op": "move",
+       "indicators": [
+        {
+         "text": "promoting",
+         "at": 35,
+         "note": "promoting the letter means moving it higher up the down entry"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "from the south",
+           "at": 20,
+           "note": "in a down answer, read from the south means read upwards, so the word runs backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "governor",
+           "at": 11,
+           "gives": "REGENT",
+           "note": "a regent governs on a monarch's behalf"
+          }
+         ]
+        },
+        {
+         "words": "north",
+         "at": 45,
+         "gives": "N",
+         "note": "N is the compass abbreviation for north"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political report: the number one governor comes from the south and promotes a northerner.",
-     "walkthrough": "After the word for governor is read upwards, 'promoting north' moves its N (north) up one place, to the front.",
-     "definitionFit": "An integer is a whole number, with no fractional part."
+     "surface": "A single governor from the south is promoting the north.",
+     "walkthrough": "'Number one' looks like a single phrase meaning the best, but 'Number' alone is the definition and 'one' starts the wordplay.",
+     "definitionFit": "An integer is a whole number, so it is a kind of number."
     },
     "features": {
      "answerInScene": false,
@@ -681,46 +705,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ELLINGTON",
+     "op": "container",
      "indicators": [
       {
-       "text": "uninitiated",
-       "note": "without its initial, so the word loses its first letter"
+       "text": "admitting",
+       "at": 25,
+       "note": "the singer's name admits, or lets in, the shortened affair"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "John possibly",
+       "at": 11,
+       "gives": "ELTON",
+       "note": "Elton is the first name of one famous John, so 'possibly' marks an example"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "admitting",
-         "note": "admitting someone lets them in, so the singer's name surrounds what follows"
+         "text": "uninitiated",
+         "at": 35,
+         "note": "uninitiated means without its initial, so the first letter goes"
         }
        ],
        "parts": [
         {
-         "words": "John possibly",
-         "gives": "ELTON",
-         "note": "Elton John, the singer; 'possibly' says John is one example"
+         "words": "affair",
+         "at": 47,
+         "gives": "FLING",
+         "note": "a fling is a brief affair"
         },
         {
-         "words": "affair",
-         "gives": "LING",
-         "note": "a fling is a brief affair; it loses its first letter"
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gossip item: a famous bandleader called John admits to an affair with an inexperienced partner.",
-     "walkthrough": "'John possibly' points to a surname, not a first name: Elton is one John.",
-     "definitionFit": "Duke Ellington was a celebrated American jazz bandleader and composer."
+     "surface": "A bandleader called John is having an affair with a novice.",
+     "walkthrough": "Duke Ellington led his jazz orchestra for about fifty years.",
+     "definitionFit": "Duke Ellington was the jazz composer and pianist who led his own orchestra, a famous bandleader."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "John"
     }
@@ -1243,43 +1272,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REPRISAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "not working",
-       "note": "working can be expressed as on, and 'not' that means those letters are removed"
+       "text": "to claim",
+       "at": 11,
+       "note": "the word for legitimate claims, or takes hold of, the shortened jail inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Legitimate",
+       "at": 0,
+       "gives": "REAL",
+       "note": "legitimate means real, genuine"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to claim",
-         "note": "to claim something is to take hold of it, so the first word holds the second"
+         "text": "not working",
+         "at": 25,
+         "note": "on means working, so not working removes it"
         }
        ],
        "parts": [
         {
-         "words": "Legitimate",
-         "gives": "REAL",
-         "note": "something legitimate is genuine, real"
+         "words": "jail",
+         "at": 20,
+         "gives": "PRISON",
+         "note": "a prison is a jail"
         },
         {
-         "words": "jail",
-         "gives": "PRIS",
-         "note": "prison, with ON (working) dropped"
+         "gives": "ON"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone lawfully claims a jail is failing, as an act of revenge.",
-     "walkthrough": "On means working, as a machine that is on; taking it from the jail word leaves PRIS.",
-     "definitionFit": "A reprisal is retaliation, an act of revenge in return for an injury."
+     "surface": "Someone claims a legitimate grievance against a jail that is out of action.",
+     "walkthrough": "'as' only links the wordplay to the definition.",
+     "definitionFit": "A reprisal is retaliation against an enemy for an injury suffered."
     },
     "features": {
      "answerInScene": false,
@@ -1805,42 +1839,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OVERRULE",
-     "indicators": [
-      {
-       "text": "taking time out",
-       "note": "taking something out removes it, and time is the letter T"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "taking",
+         "at": 37,
+         "note": "taking time out means removing the time letter from the word for public"
+        },
+        {
+         "text": "out",
+         "at": 49,
+         "note": "out completes the phrase taking ... out, which signals a removal"
+        }
+       ],
        "parts": [
         {
          "words": "public",
-         "gives": "OVER",
-         "note": "overt means public; T, time, is removed"
+         "at": 23,
+         "gives": "OVERT",
+         "note": "overt means open, public"
         },
         {
-         "words": "order",
-         "gives": "RULE",
-         "note": "a rule is an order or regulation"
+         "words": "time",
+         "at": 44,
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "order",
+       "at": 30,
+       "gives": "RULE",
+       "note": "a rule is an order or instruction"
       }
      ]
     },
     "explanation": {
-     "surface": "Football's video referee could impose public order by stopping the clock.",
-     "walkthrough": "VAR is the Video Assistant Referee in football, who reviews and can reverse on-field decisions.",
-     "definitionFit": "To overrule is to reverse a decision by superior authority, which the video referee may cause."
+     "surface": "A pundit muses on how the video referee might deal with crowd disorder while the clock is stopped.",
+     "walkthrough": "VAR is football's video assistant referee, who reviews the on-field referee's calls.",
+     "definitionFit": "The video assistant referee can overturn an on-field decision, which is to set it aside with authority."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "order"
+     "misdirectedWord": "public"
     }
    }
   },

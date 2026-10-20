@@ -259,31 +259,46 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ACTS",
      "indicators": [
       {
-       "text": "removing head of",
-       "note": "the head of a word is its first letter, and removing it cuts that letter off"
+       "text": "removing",
+       "at": 26,
+       "note": "removing takes the tip letter away from the word for agreements"
       }
      ],
      "parts": [
       {
-       "words": "Things agreed informally: removing head of penis",
-       "gives": "ACTS",
-       "note": "PACTS, informal agreements, losing P, the first letter of penis"
+       "words": "Things agreed informally",
+       "at": 0,
+       "gives": "PACTS",
+       "note": "pacts are agreements, here informal ones"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 35,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "penis",
+         "at": 43
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lurid sentence about an informal agreement and a circumcision.",
-     "walkthrough": "The head of the word penis is just its first letter, P, taken off PACTS.",
-     "definitionFit": "A plain synonym: to act is to take action rather than sit still."
+     "surface": "Cyclops reports on informal agreements reached over a circumcision.",
+     "walkthrough": "Remove P, the first letter of 'penis', from PACTS.",
+     "definitionFit": "To act is to take action, so acts means performs or does something."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "head"
     }
    }
