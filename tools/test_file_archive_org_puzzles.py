@@ -1288,6 +1288,21 @@ one weave about f7j."""
 check("DOWN lost: put back where the numbers fall from 27 to 3",
       "(7J- .\nDOWN\n3 Norfolk town lo register as !",
       "\n".join(ftp.heads(times_13679.splitlines())[11:14]))
+# FT 1985-03-27: the DOWN list opens on "way (3, 2)" (1-down's number and first line lost) and
+# "scattered (3, 6)" (13-down's) stands between 10 and 15: the list parses, each tail a clue with no
+# number, instead of every light of the reading lost with it.
+ft_lost = ftp.clues("""way (3, 2)
+2 and 15: They deceive the
+pupils (7, 9)
+10 Ex-prime minister badly led
+by the clergy (9)
+scattered (3, 6)
+15 See 2 down
+17 Rude tot (7)""")
+check("a clue tail with its number lost parses as a clue of no number",
+      [(set(), "way"), ({2}, "and 15: They deceive the pupils"), ({10}, "Ex-prime minister badly led by the clergy"),
+       (set(), "scattered"), ({15}, "See 2 down"), ({17}, "Rude tot")],
+      [(c["tokens"][0], " ".join(c["text"].split())) for c in ft_lost[0]])
 # 1984-01-02, RapidOCR: the grid's crop took ACROSS; DOWN is there.
 times_16324 = """1 Meaningless sounds occur in nis
 brig. perhaps (9).
