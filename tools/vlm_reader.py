@@ -81,6 +81,15 @@ DEFER_ENV = "CT_VLM_DEFER"
 #: Whether this process wanted the model and went without it: wanted() found
 #: it unreachable, or an ask failed or yielded mid-read. Never cleared.
 _MISSED = [False]
+#: How many asks this process left unanswered for the drainer (spooled, or refused as the
+#: spool was full): each ends its read deferred. A reader that sees it move between two
+#: steps knows the answers it judged the first by are not all in, and the read will run
+#: again once they are: unanswered().
+_UNANSWERED = [0]
+
+
+def unanswered():
+    return _UNANSWERED[0]
 
 
 class Down(RuntimeError):
@@ -834,12 +843,14 @@ def ask_png(data, prompt, max_tokens=1500, spool=None, held=False):
                 pass
             _MISSED[0] = True
             _CAUSE[0] = "spool full"
+            _UNANSWERED[0] += 1
             raise Spooled(f"VLM ask {key[:8]} not spooled: VLM spool full")
         put_spool(key, data, prompt, max_tokens)
         if path.exists():  # answered meanwhile
             return path.read_text()
         _MISSED[0] = True
         _CAUSE[0] = "spooled"
+        _UNANSWERED[0] += 1
         raise Spooled(f"VLM ask {key[:8]} spooled for the drainer")
     body = {"model": MODEL, "temperature": 0, "max_tokens": max_tokens,
             "messages": [{"role": "user", "content": [

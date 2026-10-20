@@ -2557,6 +2557,19 @@ check("a poor window that fills every light with none blank ends the VLM's searc
 tried.clear()
 f.read_page(None, None, None, None, False)
 check("the readers' own pass still tries the other windows", [None, ("lead", 1), ("plain", None)], tried)
+def fake_spooling(d, found, hit, sols, vlm_for, alt, alts):
+    tried.append(alt)
+    if alts is not None:
+        alts.extend([("lead", 1), ("plain", None)])
+    f.vlm._UNANSWERED[0] += 1  # a pick or column read spooled for the drainer: its blanks are unanswered
+    return {"number": 1, "lights": 10, "agreed": 0, "blank": {}}, {"id": "x"}
+f._read_page = fake_spooling
+tried.clear()
+f.read_page(None, None, None, None, ["6-across"])
+check("a window with asks spooled is not followed by the other windows' asks", [None], tried)
+tried.clear()
+f.read_page(None, None, None, None, ["6-across"], ("plain", None))
+check("nor is the first window the readers settled on", [("plain", None)], tried)
 f._read_page = real_inner
 def fake_refused(d, found, hit, sols, vlm_for=False):
     asked.append(vlm_for)
