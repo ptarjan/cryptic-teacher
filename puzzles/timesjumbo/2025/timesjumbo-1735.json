@@ -2915,30 +2915,42 @@
      "indicators": [
       {
        "text": "Organised",
-       "note": "the letters are organised anew"
-      },
-      {
-       "text": "after removal of last",
-       "note": "ARMISTICE loses its last letter, E"
+       "at": 0,
+       "note": "organised means put into a new arrangement, so the letters are reordered"
       }
      ],
      "parts": [
       {
-       "words": "armistice",
-       "gives": "ARMISTIC",
-       "note": "armistice without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after removal of last",
+         "at": 20,
+         "note": "after removal of last means the final letter of armistice is dropped first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "armistice",
+         "at": 10,
+         "note": "taken as written"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A truce is arranged once the last sword is put away.",
-     "walkthrough": "'Last blade' reads as a final weapon; 'last' is part of the deletion and 'blade' alone is the definition.",
-     "definitionFit": "A definition by example: the curved sword of the Middle East, named by its single-edged cutting steel."
+     "surface": "A truce is arranged once the final weapon is taken away.",
+     "walkthrough": "Dropping the last letter of ARMISTICE leaves ARMISTIC, which 'Organised' rearranges.",
+     "definitionFit": "A scimitar is a curved oriental sword with a single cutting edge."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "last"
+     "misdirectedWord": "Organised"
     }
    }
   },

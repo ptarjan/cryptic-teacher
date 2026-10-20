@@ -899,37 +899,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Kinky",
-       "note": "something kinky is twisted, so the letters are rearranged"
-      },
-      {
        "text": "involved",
-       "note": "involved means drawn into the mix, so these letters join the jumble too"
+       "at": 20,
+       "note": "involved means the word for sex is wrapped inside the jumbled letters"
       }
      ],
      "parts": [
       {
-       "words": "'Estuary'",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Kinky",
+         "at": 0,
+         "note": "kinky means twisted, so the letters of estuary are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Estuary",
+         "at": 7,
+         "note": "taken as written"
+        }
+       ]
       },
       {
        "words": "sex",
+       "at": 16,
        "gives": "IT",
-       "note": "it is a coy word for sex"
+       "note": "it is slang for sex or sex appeal"
       }
      ]
     },
     "explanation": {
-     "surface": "Racy goings-on by the estuary led to cutbacks.",
-     "walkthrough": "'It' as sex is a crossword staple. The quotation marks around the fodder hint it is a word to play with.",
-     "definitionFit": "Tightening one's belt is the idiom for spending less, which is what government cuts impose."
+     "surface": "Private Eye imagines Thames Estuary goings-on involving kinky sex amid cutbacks.",
+     "walkthrough": "The quotation marks around Estuary flag the word itself as fodder. Using it for sex is old slang, as in 'It girl'.",
+     "definitionFit": "Austerity is government cost-cutting, the fiscal equivalent of tightening one's belt."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Kinky"
     }
    }
@@ -1082,51 +1093,41 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "having",
-       "note": "having means possessing something extra, so one more piece is attached"
-      }
-     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "possibly",
-         "note": "possibly signals an alternative version, so the letters take another order"
+         "at": 9,
+         "note": "possibly signals another arrangement of the letters"
         }
        ],
        "parts": [
+        {
+         "words": "So",
+         "at": 0,
+         "note": "taken as written"
+        },
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "forgets",
-           "note": "forgetting something leaves it out, so letters are dropped"
+           "at": 18,
+           "note": "forgets means the name letter is left out of Biden"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "So",
-             "note": "taken as written"
-            },
-            {
-             "words": "Biden",
-             "note": "taken as written"
-            },
-            {
-             "words": "name",
-             "gives": "N",
-             "note": "N is the abbreviation for name"
-            }
-           ]
+           "words": "Biden",
+           "at": 3,
+           "note": "taken as written"
           },
           {
-           "gives": "NN"
+           "words": "name",
+           "at": 26,
+           "gives": "N"
           }
          ]
         }
@@ -1134,20 +1135,21 @@
       },
       {
        "words": "yen",
+       "at": 39,
        "gives": "Y",
-       "note": "Y is the symbol for the Japanese currency"
+       "note": "Y is the abbreviation for the Japanese yen"
       }
      ]
     },
     "explanation": {
-     "surface": "A dig at Joe Biden's memory: he forgets names and longs to defy orders.",
-     "walkthrough": "The name is dropped before the remaining letters are rearranged. 'Yen' reads as a longing but is the Japanese currency.",
-     "definitionFit": "To fail to follow an order or instruction deliberately is to refuse obedience, a straight synonym."
+     "surface": "A satirical jab at an elderly president forgetting names and wanting to defy orders.",
+     "walkthrough": "'forgets' drops N from BIDEN to leave BIDE; 'possibly' rearranges SO and BIDE, and Y for yen ends it.",
+     "definitionFit": "To disobey is to refuse to follow an order or instruction."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "yen"
+     "misdirectedWord": "forgets"
     }
    }
   },
