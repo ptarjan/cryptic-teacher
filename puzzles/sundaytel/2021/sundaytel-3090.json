@@ -142,18 +142,33 @@
      }
     ],
     "wordplay": {
-     "words": "Twice cook",
-     "gives": "DODO",
-     "note": "to do is to cook, as in 'do the potatoes', and twice means it appears two times"
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Twice",
+       "at": 0,
+       "note": "twice tells us the word for cook is written two times"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cook",
+       "at": 6,
+       "gives": "DO",
+       "note": "to do food is to cook it, as in done to a turn"
+      },
+      {
+       "gives": "DO"
+      }
+     ]
     },
     "explanation": {
-     "surface": "Instructions to cook an ancient bird twice over, perhaps because it is tough.",
-     "definitionFit": "The dodo was a flightless bird of Mauritius, extinct since the 1600s, so very old indeed."
+     "surface": "An instruction to cook an ancient bird twice over.",
+     "definitionFit": "The dodo is an extinct flightless bird of Mauritius, the byword for something long gone."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "absurd",
+     "aptDefinition": false,
      "misdirectedWord": "cook"
     }
    }
@@ -480,33 +495,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "recollected",
-       "note": "read as re-collected, gathered up again in a new arrangement"
+       "text": "beside",
+       "at": 13,
+       "note": "beside tells us the abbreviation for left sits next to the other letters"
       }
      ],
      "parts": [
       {
-       "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
-      },
-      {
-       "words": "fiend",
-       "note": "taken as written"
-      },
-      {
        "words": "I",
-       "note": "taken as written"
+       "at": 27
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "recollected",
+         "at": 29,
+         "note": "recollected read as re-collected, gathered again in a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fiend",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "at": 8,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone remembers a pagan being left with a demon.",
-     "walkthrough": "'recollected' looks like remembering; split as re-collected it signals rearranging.",
-     "definitionFit": "An infidel is an unbeliever in a given religion, as a heathen is."
+     "surface": "A pagan left alone with a devil, as I remember it.",
+     "walkthrough": "'recollected' looks like remembered but splits as re-collected, gathered up again in a new order.",
+     "definitionFit": "An infidel is someone who does not hold the religion in question, much as a heathen or unbeliever."
     },
     "features": {
      "answerInScene": true,

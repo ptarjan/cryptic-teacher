@@ -156,26 +156,54 @@
      "parts": [
       {
        "words": "Old",
-       "gives": "O",
-       "note": "O = old"
+       "at": 0,
+       "gives": "O"
       },
       {
-       "words": "cat, losing it",
-       "gives": "GRESS",
-       "note": "TIGRESS without IT"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 9,
+         "note": "losing tells us letters are taken out of the cat word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cat",
+         "at": 4,
+         "gives": "TIGRESS",
+         "note": "a tigress is a female big cat"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turned",
+           "at": 20,
+           "note": "turned means the word it is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "it",
+           "at": 16
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An ageing cat lost its temper and became a man-eater.",
-     "walkthrough": "'Losing it' looks like the cat flying into a rage; here it tells you to remove the letters I and T from TIGRESS.",
-     "definitionFit": "In folklore an ogre's diet is people, and the female of the kind is a man-eater in the literal sense."
+     "surface": "An elderly cat that loses its edge turns into a killer.",
+     "walkthrough": "IT turned is TI, which is taken from the front of TIGRESS to leave GRESS.",
+     "definitionFit": "An ogress is a female ogre, a giant of folk tales who devours people."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "it"
+     "misdirectedWord": "cat"
     }
    }
   },
@@ -1507,39 +1535,42 @@
      "indicators": [
       {
        "text": "less",
-       "note": "less means minus, so the letter that follows is subtracted"
+       "at": 17,
+       "note": "less tells us a letter is subtracted from the flower"
       }
      ],
      "parts": [
       {
        "words": "bloomer",
+       "at": 8,
        "gives": "BUTTERCUP",
-       "note": "a bloomer is a flower; this one is yellow"
+       "note": "a buttercup is a flower, something that blooms"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "on top",
-         "note": "in an across clue the top of a word is its first letter"
+         "at": 29,
+         "note": "on top points to the first letter of cooked, the one at the head"
         }
        ],
        "parts": [
         {
-         "words": "cooked on top",
-         "note": "first letter of COOKED; removed"
+         "words": "cooked",
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A loaf of bread, underbaked, with a flatter top.",
-     "walkthrough": "A bloomer is also a British loaf, which is why 'cooked' fits the surface; here it is a flowering plant.",
-     "definitionFit": "An idiom: to lay on praise so as to win a favour, smoothing someone as butter smooths bread."
+     "surface": "A baker's note on a loaf of bread that is less well done on top.",
+     "walkthrough": "A bloomer is also a British loaf, which makes it look like baking; here it is a flower.",
+     "definitionFit": "To butter someone up is an idiom for praising them insincerely to win favour."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "bloomer"

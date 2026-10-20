@@ -953,24 +953,42 @@
      "parts": [
       {
        "words": "French main",
+       "at": 0,
        "gives": "MER",
        "note": "the main is the sea, which is mer in French"
       },
       {
-       "words": "Opening unopened",
-       "gives": "LOT",
-       "note": "an opening is a SLOT; without its first letter, LOT"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unopened",
+         "at": 21,
+         "note": "unopened means the first letter, the opening one, is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Opening",
+         "at": 13,
+         "gives": "SLOT",
+         "note": "a slot is an opening"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French main course, and a bottle of wine left uncorked.",
-     "walkthrough": "'Main' looks like a main course; it is the old word for the open sea.",
-     "definitionFit": "A definition by example: Merlot is one red grape variety and its wine."
+     "surface": "Someone opens an unopened bottle with a French main course.",
+     "walkthrough": "'French main' suggests a main course, but main here is the sea.",
+     "definitionFit": "Merlot is a red grape variety and the red wine made from it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "main"
     }
    }

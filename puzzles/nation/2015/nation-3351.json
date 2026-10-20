@@ -1299,31 +1299,43 @@
      "indicators": [
       {
        "text": "removing",
-       "note": "removing means a letter is taken out of the word"
+       "at": 7,
+       "note": "removing tells us a letter is taken out of the fish"
       }
      ],
      "parts": [
       {
        "words": "fish",
+       "at": 34,
        "gives": "STURGEON",
-       "note": "the sturgeon is a large fish, source of caviar"
+       "note": "a sturgeon is a large fish, source of caviar"
       },
       {
-       "words": "part of tail",
-       "gives": "T",
-       "note": "a letter of the word tail, its first"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "part of",
+         "at": 16,
+         "note": "part of here picks the first letter of tail"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tail",
+         "at": 24
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vet cutting off a piece of a fish's tail.",
-     "walkthrough": "'part of tail' is a single letter of tail, which is taken from the fish's name.",
-     "definitionFit": "A surgeon is a medical doctor who performs operations."
+     "surface": "A doctor cutting away part of a fish's tail.",
+     "definitionFit": "A surgeon is a medical practitioner who operates, a kind of doctor."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "tail"
+     "misdirectedWord": "Doctor"
     }
    }
   },

@@ -306,26 +306,44 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Stuffy male brought out",
-       "gives": "PRI",
-       "note": "PRIM (stuffy) with M for male removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brought out",
+         "at": 12,
+         "note": "brought out tells us the letter for male is taken out of the stuffy word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Stuffy",
+         "at": 0,
+         "gives": "PRIM",
+         "note": "prim means stuffy, prudish"
+        },
+        {
+         "words": "male",
+         "at": 7,
+         "gives": "M"
+        }
+       ]
       },
       {
        "words": "soldiers",
+       "at": 29,
        "gives": "OR",
-       "note": "OR = other ranks, ordinary soldiers"
+       "note": "OR, other ranks, are ordinary soldiers"
       }
      ]
     },
     "explanation": {
-     "surface": "A pompous man is escorted from the room with troops leading the way.",
-     "walkthrough": "'Preceding' looks like it places the soldiers in front, but it is the definition, and OR goes last.",
-     "definitionFit": "A plain synonym: a prior engagement is one that comes earlier, as in 'the preceding week'."
+     "surface": "A pompous man is escorted out with troops leading the way.",
+     "definitionFit": "Prior means coming earlier in time or order, as in a prior engagement."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "preceding"
+     "misdirectedWord": "Stuffy"
     }
    }
   },
@@ -517,25 +535,43 @@
      "parts": [
       {
        "words": "Formerly",
+       "at": 0,
        "gives": "EX",
-       "note": "ex = former"
+       "note": "ex means formerly, as in ex-wife"
       },
       {
-       "words": "damned without right",
-       "gives": "CUSED",
-       "note": "CURSED (damned) minus R for right"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 16,
+         "note": "without tells us the letter for right is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "damned",
+         "at": 9,
+         "gives": "CURSED",
+         "note": "cursed means damned"
+        },
+        {
+         "words": "right",
+         "at": 24,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone once condemned, and without justice, has since been pardoned.",
-     "walkthrough": "'Right' is a letter to lose, not a moral point; the definition sits at the end after 'and'.",
-     "definitionFit": "A plain synonym: a pupil let off a punishment has been forgiven, or pardoned."
+     "surface": "Someone once condemned is, but for the right, let off.",
+     "definitionFit": "Excused means let off or forgiven, freed from blame like someone pardoned."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "right"
+     "misdirectedWord": "damned"
     }
    }
   },
@@ -568,30 +604,29 @@
         {
          "text": "mixed",
          "at": 8,
-         "note": "mixed means the letters of I do it and the extra letter are stirred together into a new order"
+         "note": "mixed tells us the letters of I do it are stirred into a new order"
         }
        ],
        "parts": [
         {
          "words": "I do it",
          "at": 0
-        },
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "dash of",
-           "at": 19,
-           "note": "a dash of something is just a small amount of it, here its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "icing",
-           "at": 27,
-           "note": "the first letter of icing"
-          }
-         ]
+         "text": "dash of",
+         "at": 19,
+         "note": "a dash of means just a little, here the first letter of icing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "icing",
+         "at": 27
         }
        ]
       },
@@ -599,14 +634,14 @@
        "words": "cold",
        "at": 34,
        "gives": "C",
-       "note": "C is the standard abbreviation for cold, as on a tap"
+       "note": "C is the abbreviation for cold, as on taps"
       }
      ]
     },
     "explanation": {
-     "surface": "A baker admits to botching a cake: a mix, a bit of icing, and the thing came out cold and undercooked.",
-     "walkthrough": "'(cold and half-baked)' looks like an aside about the cake, but it holds the last piece and the definition. 'dash of' takes I from icing, and 'mixed' rearranges IDOIT plus I into IDIOTI.",
-     "definitionFit": "A half-baked idea is foolish and poorly thought out, which is what idiotic describes."
+     "surface": "A baker's recipe note: mix, add a dash of icing, keep it cold, half-bake.",
+     "walkthrough": "'half-baked' fits the kitchen picture but means foolish here.",
+     "definitionFit": "Half-baked describes an ill-thought-out, foolish idea, which is what idiotic means."
     },
     "features": {
      "answerInScene": false,
