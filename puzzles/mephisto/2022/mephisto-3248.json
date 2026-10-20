@@ -800,55 +800,70 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HIERONYMUS",
-     "indicators": [
-      {
-       "text": "Fancy",
-       "note": "fancy as a verb means to imagine, inventing a new arrangement of the letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HIERONYMUS",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "excluded",
-         "note": "something excluded is left out, so those letters are removed"
+         "text": "Fancy",
+         "at": 0,
+         "note": "fancy here means elaborate or fanciful, so the letters are worked into a new arrangement"
         }
        ],
        "parts": [
         {
-         "words": "Siemens",
-         "gives": "S",
-         "note": "S is the symbol for the siemens, the unit of electrical conductance"
+         "words": "in",
+         "at": 14
         },
         {
-         "words": "in your home",
-         "note": "taken as written"
+         "words": "your",
+         "at": 17,
+         "note": "taken as written for the mix"
         },
         {
-         "words": "nothing",
-         "gives": "O",
-         "note": "O looks like zero, nothing"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "excluded",
+           "at": 36,
+           "note": "excluded means left out, so the letter is removed from the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "home",
+           "at": 22,
+           "note": "the word as written, losing a letter"
+          },
+          {
+           "words": "nothing",
+           "at": 28,
+           "gives": "O",
+           "note": "O is nothing, the figure zero"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Siemens",
+       "at": 6,
+       "gives": "S",
+       "note": "S is the SI symbol for the siemens, a unit of conductance"
       }
      ]
     },
     "explanation": {
-     "surface": "An ad asks whether you'd like a Siemens appliance at home, or its rival brand Bosch.",
-     "walkthrough": "Siemens and Bosch look like rival German appliance makers; Bosch is the painter Hieronymus Bosch.",
-     "definitionFit": "Hieronymus was the first name of Bosch, the Dutch painter of fantastical scenes."
+     "surface": "An appliance question: would you fancy a Siemens at home, or perhaps a Bosch?",
+     "walkthrough": "Siemens and Bosch look like rival appliance makers; Siemens is really the electrical unit, and it stays out of the mix as the final letter.",
+     "definitionFit": "Hieronymus Bosch was the Dutch painter known for his crowded, fantastical scenes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Bosch"
+     "misdirectedWord": "Siemens"
     }
    }
   },
