@@ -2579,7 +2579,7 @@ def guardian_expected_number(day):
 #: "No. 8,650 Set by DANTE" in the 1990s, "F.T. CROSSWORD" over "PUZZLE
 #: No. 5,613" in the 1980s, "CROSSWORD PUZZLE No. 2,766" on one line in
 #: the 1970s.
-FT_TITLE = re.compile(r"^\W*(?:[a-z.]+\s+){0,2}cross\s?word(?:\s+puzzle)?\b\W*(.*)$", re.IGNORECASE)
+FT_TITLE = re.compile(r"^\W*(?:[a-z.]+\s+){0,2}(?:cross\s?word(?:\s+puzzle)?|cross\s+puzzle)\b\W*(.*)$", re.IGNORECASE)
 FT_NUMBER = re.compile(r"^\W*(?:puzzle\s+)?no\W{0,2}\s*(\d[,.?^]?\d{3})\b(.*)$", re.IGNORECASE)
 #: How many leading words of a line ft_headings drops to find a numbered
 #: title: the OCR runs the next column's last word into the title's line
@@ -4619,6 +4619,20 @@ CORPUS_KEYS.update({old: {paper: pins[2]} for paper, pins in _LINES_FIX.items() 
 # The keys before the band cache fix stand where the lines fix leaves their paper's scans.
 CORPUS_KEYS.update({old: {paper: _LINES_FIX[paper][2]} for paper, pins in _BAND_CACHE_FIX.items()
                     if paper in _LINES_FIX for old in pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before FT_TITLE read
+#: "FT CROSS PUZZLE No. 6,319" (the 1987 weekday title, "WORD" lost to the
+#: print) as a title: the FT's and the Gale FT's scans of every other page
+#: find the same, so they stand under their old keys. The 1987 editions the
+#: fetcher gave new leaves (FT_UNIT_TRUST_BACKS) are due by their files.
+_TITLE_FIX = {
+    "ft": ("873f163269afb857", "04fb1bafc559cf02", "f8fa782027006f36"),
+    "galeft": ("2aa5bda7ccc446d2", "b5b783223398fc74", "b91e60f0bf486bd0"),
+}
+for _paper, _pins in _TITLE_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 
 
 def current_keys(paper):

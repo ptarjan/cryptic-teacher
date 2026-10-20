@@ -161,7 +161,10 @@ PRIOR_LEAVES = 2
 #: Items whose editions also fetch the leaves FT_UNIT_TRUST_BACKS counts from
 #: the back (leaf = leaves - 1 - back): the 1987 FT's weekday crossword page.
 FT_UNIT_TRUST_BACKS_ITEMS = ("FinancialTimes1987UKEnglish",)
-FT_UNIT_TRUST_BACKS = (10, 11)
+FT_UNIT_TRUST_BACKS = (9, 10, 11, 12)
+#: A back count this high is hand-set (FT_UNIT_TRUST_BACKS), not voted: all of
+#: them are prior, beside the PRIOR_LEAVES commonest voted.
+HAND_SET = 10 ** 6
 #: An item holding one edition alone (the 1930 Times: an item an issue) has no
 #: other editions to count: prior_leaves counts the editions of this many
 #: items nearest it by date whose names match its own up to the date.
@@ -886,7 +889,7 @@ def load_done_manifest(out):
             made = tuple(t - o for t, o in zip(total(item), counts_of([rel])))
             if item in FT_UNIT_TRUST_BACKS_ITEMS:
                 for back in FT_UNIT_TRUST_BACKS:
-                    made[1][back] += 10 ** 6
+                    made[1][back] += HAND_SET
             return made
         m = ITEM_DATED.fullmatch(item)
         day = m and iso_day(m[2])
@@ -1099,7 +1102,7 @@ def _crossword_leaves(edition_dir):
         # is table noise, so no sibling counts it as titled and the commonest
         # leaves from the back were the Saturday back pages.
         for back in FT_UNIT_TRUST_BACKS:
-            counts[1][back] += 10 ** 6
+            counts[1][back] += HAND_SET
     return counts
 
 
@@ -1140,8 +1143,10 @@ def prior_leaves(edition_dir, count):
 def _prior_leaves(counts, count):
     """prior_leaves off crossword_leaves' `counts`."""
     _, backs, _ = counts
+    voted = collections.Counter({n: k for n, k in backs.items() if k < HAND_SET})
     leaves = {count - 1} | _common_leaves(counts, count) \
-        | {count - 1 - n for n, _ in backs.most_common(PRIOR_LEAVES)}
+        | {count - 1 - n for n, _ in voted.most_common(PRIOR_LEAVES)} \
+        | {count - 1 - n for n, k in backs.items() if k >= HAND_SET}
     return sorted(n for n in leaves if 0 <= n < count)
 
 
