@@ -450,34 +450,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "by",
-       "note": "the pop star stands next to, here below, the trimmed word"
-      }
-     ],
      "parts": [
       {
-       "words": "Fuzz trimmed on top",
-       "gives": "LUR",
-       "note": "BLUR (a fuzz) minus its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "trimmed on top",
+         "at": 5,
+         "note": "trimmed on top means the first letter, at the top of a down word, is cut"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fuzz",
+         "at": 0,
+         "gives": "BLUR",
+         "note": "a blur is a fuzz, an indistinct image"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       },
       {
        "words": "pop star",
+       "at": 23,
        "gives": "CHER",
-       "note": "the singer Cher"
+       "note": "Cher is the American pop singer"
       }
      ]
     },
     "explanation": {
-     "surface": "A police officer and a singer somehow producing an angry greyhound.",
-     "walkthrough": "'Fuzz' looks like slang for the police, and 'cross' like an adjective for angry; fuzz is a blur, and cross is the noun for a crossbreed.",
-     "definitionFit": "A lurcher is a crossbred dog, typically greyhound crossed with a collie or terrier."
+     "surface": "The police are cut down to size by a celebrity, producing a hybrid dog.",
+     "walkthrough": "'Fuzz' suggests the police (British slang) but here means a blur; 'by' and 'makes' are links.",
+     "definitionFit": "A lurcher is a dog bred by crossing a greyhound or other sighthound with a working breed."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "Fuzz"
     }
    }
