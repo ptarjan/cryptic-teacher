@@ -2382,12 +2382,28 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 // words that carry it, gives: the answer}. The rung holds its letters back, the whole answer, and shows
 // the carrier with the run in capitals, the note our own hidden words carry;
 // and the question in front of it never names the letters either.
+// Blog facts live one sidecar a puzzle: puzzles/<series>/<year>/<id>.blog, keyed by id.
+function blogSidecars() {
+  const rows = {};
+  const base = path.join(ROOT, "puzzles");
+  for (const s of fs.readdirSync(base).sort()) {
+    const sd = path.join(base, s);
+    if (!fs.statSync(sd).isDirectory()) continue;
+    for (const y of fs.readdirSync(sd).sort()) {
+      const yd = path.join(sd, y);
+      if (!fs.statSync(yd).isDirectory()) continue;
+      for (const n of fs.readdirSync(yd).sort()) {
+        if (n.endsWith(".blog")) rows[n.slice(0, -5)] = JSON.parse(fs.readFileSync(path.join(yd, n), "utf8"));
+      }
+    }
+  }
+  return rows;
+}
 {
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
-  const factsDir = path.join(ROOT, "tools/data/blog_facts");
   let target = null;
-  for (const f of fs.readdirSync(factsDir).filter((n) => n.endsWith(".json")).sort()) {
-    const rows = JSON.parse(fs.readFileSync(path.join(factsDir, f), "utf8"));
+  for (const f of [0]) {
+    const rows = blogSidecars();
     for (const [pid, rec] of Object.entries(rows)) {
       const file = pp.find(pid);
       if (!file) continue;
@@ -2429,10 +2445,9 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 // rung shows it "said aloud" and, the block being the whole answer, not the answer.
 {
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
-  const factsDir = path.join(ROOT, "tools/data/blog_facts");
   let target = null;
-  for (const f of fs.readdirSync(factsDir).filter((n) => n.endsWith(".json")).sort()) {
-    const rows = JSON.parse(fs.readFileSync(path.join(factsDir, f), "utf8"));
+  for (const f of [0]) {
+    const rows = blogSidecars();
     for (const [pid, rec] of Object.entries(rows)) {
       const hit = Object.entries(rec.entries).find(([, fa]) => JSON.stringify(fa.type) === '["homophone"]'
         && (fa.blocks || []).length === 1 && /^[A-Z]+$/.test(fa.blocks[0].soundsLike || ""));

@@ -29,6 +29,8 @@ import validate_scope
 ROOT = Path(__file__).resolve().parent.parent
 #: A puzzle file: puzzles/<series>/<year>/<id>.json (the shape validate_scope uses).
 PUZZLE = re.compile(r"puzzles/[^/]+/[^/]+/[^/]+\.json")
+#: A puzzle's blog facts (tools/blog_store.py): puzzle data, checked with its puzzle.
+SIDECAR = re.compile(r"puzzles/[^/]+/[^/]+/[^/]+\.blog")
 #: Work-queue state the burn jobs rewrite thousands of times a day. No test
 #: reads the real file (they run against fixtures; tools/test_ci_scope.py pins
 #: the list against ci_cache.js, which excludes the same files from the smoke
@@ -54,8 +56,9 @@ def decide(changes, base_text=None, head_text=None):
             if moved is None:
                 return "full", f"{path} lost a row or changed shape"
             rows |= moved
-        elif PUZZLE.fullmatch(path):
-            if st not in ("A", "M"):
+        elif PUZZLE.fullmatch(path) or SIDECAR.fullmatch(path):
+            # A sidecar deleted with its facts is a fast-path change too; a puzzle's removal is not.
+            if st not in ("A", "M") and not (st == "D" and SIDECAR.fullmatch(path)):
                 return "full", f"{st} {path}"
             stems.add(Path(path).stem)
         elif path in QUEUE_STATE or path in DERIVED_DATA:
@@ -80,7 +83,8 @@ def decide(changes, base_text=None, head_text=None):
 
 
 def puzzle_files(changes):
-    return sorted(p for st, p in changes if st in ("A", "M") and PUZZLE.fullmatch(p))
+    return sorted({p if PUZZLE.fullmatch(p) else p[:-len(".blog")] + ".json" for st, p in changes
+                   if st in ("A", "M") and (PUZZLE.fullmatch(p) or SIDECAR.fullmatch(p))})
 
 
 def main(argv):

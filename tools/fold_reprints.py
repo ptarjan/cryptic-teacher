@@ -122,24 +122,19 @@ def rekey(pairs):
     va.BACKLOG_PATH.write_text(json.dumps(
         {k: v if k == "_why" else dict(sorted(v.items(), key=va._sort_key))
          for k, v in backlog.items()}, indent=1) + "\n")
-    by_file = {}
-    for path in bf.OUT.glob("*.json"):
-        by_file[path] = dict(bf.file_rows(path))
-    moved, touched = {}, set()
-    for path, rows in by_file.items():
-        for old in [k for k in rows if k in pairs]:
-            moved[pairs[old]] = rows.pop(old)
-            touched.add(path)
+    import blog_store
+    import puzzle_paths
+    held = blog_store.files()
+    moved = {}
+    for old, new in pairs.items():
+        if old in held:
+            moved[new] = blog_store.read(held[old])
+            held[old].unlink()
     for new, row in moved.items():
-        path = bf.OUT / f"{series_meta.parse_id(new)[0]}.json"
-        by_file.setdefault(path, {})[new] = row
-        touched.add(path)
-    for path in touched:
-        rows = by_file[path]
-        if rows:
-            bf.rewrite_rows(path, sorted(rows.items()))
-        else:
-            path.unlink()
+        target = puzzle_paths.find(new)
+        if target is None:
+            sys.exit(f"fold_reprints: no puzzle file for {new}, which blog facts moved to")
+        blog_store.put(blog_store.sidecar_of(target), blog_store.encode(row))
 
 
 def unique_keys(pairs):

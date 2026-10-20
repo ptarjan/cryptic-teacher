@@ -191,16 +191,15 @@ check("a file beside the corpus is not", puzzle_paths.in_corpus(tmp / "rows.sqli
 # blog facts, so every id in a file must be of that file's series.
 import difficulty
 import series as series_meta
-for f in sorted(difficulty.BLOG_FACTS.glob("*.json")):
-    with f.open("rb") as fh:
-        strays = {pid for line in fh if line.startswith(b'"')
-                  and series_meta.parse_id(pid := line[1:line.index(b'"', 1)].decode())[0] != f.stem}
-    check(f"ids of another series in {f.name}", sorted(strays)[:3], [])
+import blog_store
+strays = [pid for pid, f in blog_store.files().items()
+          if series_meta.parse_id(pid)[0] != f.parent.parent.name]
+check("sidecars in another series' folder", sorted(strays)[:3], [])
 
 # Every tools/data path the cached functions reach must be in their keys:
 # blog facts and ninas (folders) through deps(); every file (books, lexicon,
 # wordnet...) is hashed into the key by row_cache.data_files() itself.
-KEYED = {("fetch_puzzle", "BLOG_FACTS"), ("puzzle_tags", "NINAS"), ("difficulty", "BLOG_FACTS")}
+KEYED = {("puzzle_tags", "NINAS")}
 for module, roots in [("fetch_puzzle", {"index_row", "index_row_deps"}),
                       ("difficulty", {"history_row", "history_row_deps"}),
                       ("difficulty", {"clue_row", "clue_row_deps", "_load_clue_inputs"}),

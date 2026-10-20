@@ -5,7 +5,7 @@
     python3 tools/puzzle_schema.py cryptic-30066 times-29001
 
 The same file's $defs/blogFacts is the shape of each row of
-tools/data/blog_facts/<series>.json, checked by the no-argument run too.
+puzzles/<series>/<year>/<id>.blog, checked by the no-argument run too.
 
 Key order is the schema's: every object's keys come in its `properties`
 order, so two files with the same content are the same bytes and a reader
@@ -404,7 +404,6 @@ def check_enums():
     return problems
 
 
-BLOG_FACTS = TOOLS / "data" / "blog_facts"
 # A puzzle held as its clues alone (tools/clues_only.py): its own shape.
 CLUES_ONLY = "#/$defs/cluesOnly"
 
@@ -417,15 +416,16 @@ def validate_clues_only(record):
 
 
 def validate_blog_facts(row):
-    """Every way one puzzle's row of tools/data/blog_facts/ departs from $defs/blogFacts."""
+    """Every way one puzzle's sidecar row (puzzles/.../<id>.blog) departs from $defs/blogFacts."""
     out = []
     _check(row, {"$ref": "#/$defs/blogFacts"}, "$", out)
     return out
 
 
 def _check_blog_file(path):
-    rows = json.loads(Path(path).read_text(encoding="utf-8"))
-    return Path(path).name, {pid: p for pid, row in rows.items() if (p := validate_blog_facts(row))}
+    row = json.loads(Path(path).read_text(encoding="utf-8"))
+    name = Path(path).name.removesuffix(".blog")
+    return name, {name: p} if (p := validate_blog_facts(row)) else {}
 
 
 def _check_file(path):
@@ -459,8 +459,8 @@ def main(argv):
             if problems:
                 failed += 1
                 print(f"clues-only {path.stem}: " + "; ".join(problems[:5]))
-        blog_files = [] if argv or clue_paths else sorted(map(str, BLOG_FACTS.glob("*.json")))
-        for name, bad in pool.map(_check_blog_file, blog_files):
+        blog_files = [] if argv or clue_paths else [str(p) for p in __import__("blog_store").files().values()]
+        for name, bad in pool.map(_check_blog_file, blog_files, chunksize=64):
             for pid, problems in bad.items():
                 failed += 1
                 print(f"{name} {pid}: " + "; ".join(problems[:5]))

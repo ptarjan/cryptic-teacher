@@ -187,11 +187,10 @@ def _check(item):
 
 def scan():
     from blog_facts import BLOGS
-    from blog_facts import OUT as FACTS
+    import blog_store
     url_pids = {}
-    for f in FACTS.glob("*.json"):
-        for pid, rec in json.loads(f.read_text(encoding="utf-8")).items():
-            url_pids.setdefault(rec["url"], []).append(pid)
+    for pid, rec in blog_store.rows():
+        url_pids.setdefault(rec["url"], []).append(pid)
     items = []
     for root, _ in BLOGS.values():
         items += [(str(p), str(root / "comments" / p.name)) for p in (root / "posts").glob("*.json")]

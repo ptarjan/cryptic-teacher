@@ -94,7 +94,7 @@ SEARCH_HEARTBEAT = 30
 SEARCH_SILENCE = 4 * SEARCH_HEARTBEAT
 SEARCH_TIMEOUT = EDITION_TIMEOUT
 #: tools/data's directories no reader opens, left off the desktop (160 MB).
-UNSHIPPED = ("tools/data/blog_facts/", "tools/data/yt_solvers/")
+UNSHIPPED = ("tools/data/blog_facts/", "tools/data/yt_solvers/")  # puzzles/ is not shipped
 #: The list of shipped files, in the desktop's directory, written last.
 MANIFEST = "tools/shipped.txt"
 #: Seconds before a process that lost the desktop, its BACKOFF tries spent, tries it again.

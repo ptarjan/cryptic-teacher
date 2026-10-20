@@ -161,6 +161,13 @@ def decide(changes, base_text=None, head_text=None):
             elif st != "D":
                 return "full", f"{st} {path}"
             continue
+        if re.fullmatch(r"puzzles/[^/]+/[^/]+/[^/]+\.blog", path):
+            # A puzzle's blog facts (tools/blog_store.py): its puzzle is checked again.
+            if st in ("A", "M"):
+                check.append(path[:-len(".blog")] + ".json")
+            elif st != "D":
+                return "full", f"{st} {path}"
+            continue
         if path == WORKFLOW:
             return "full", f"{path} changed"
         m = re.fullmatch(r"tools/([^/]+)\.py", path)

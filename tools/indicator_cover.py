@@ -23,6 +23,7 @@ import os
 import tempfile
 from pathlib import Path
 
+import blog_store
 import indicator_keys
 import puzzle_schema
 from annotation import OP_TYPE, _walk, definition_indicator_type
@@ -31,7 +32,6 @@ from indicator_keys import clue_pairs
 
 ROOT = Path(__file__).resolve().parent.parent
 INDICATORS = ROOT / "tools" / "data" / "lexicons" / "indicators.json"
-BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
 
 
 def entry_pairs(lex, indicators):
@@ -98,20 +98,20 @@ def blog_pairs(lex, wanted):
     """{puzzle id: (type, key) pairs its blog facts give} for the puzzles in `wanted`."""
     stamp = [hashlib.sha1(json.dumps(lex, sort_keys=True).encode()
                           + Path(indicator_keys.__file__).read_bytes()).hexdigest()] \
-        + [[p.name, p.stat().st_mtime_ns, p.stat().st_size] for p in sorted(BLOG_FACTS.glob("*.json"))]
+        + [hashlib.sha1(repr([[n, p.stat().st_mtime_ns, p.stat().st_size]
+                              for n, p in blog_store.files().items()]).encode()).hexdigest()]
     try:
         cached = json.loads(BLOG_CACHE.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         cached = {}
     if cached.get("stamp") != stamp:
         every = {}
-        for path in sorted(BLOG_FACTS.glob("*.json")):
-            for pid, post in json.loads(path.read_text(encoding="utf-8")).items():
-                got = set()
-                for facts in (post.get("entries") or {}).values():
-                    got |= entry_pairs(lex, facts.get("indicators"))
-                if got:
-                    every[pid] = sorted(got)
+        for pid, post in blog_store.rows():
+            got = set()
+            for facts in (post.get("entries") or {}).values():
+                got |= entry_pairs(lex, facts.get("indicators"))
+            if got:
+                every[pid] = sorted(got)
         cached = {"stamp": stamp, "pairs": every}
         tmp = BLOG_CACHE.with_suffix(f".{os.getpid()}")
         tmp.write_text(json.dumps(cached), encoding="utf-8")

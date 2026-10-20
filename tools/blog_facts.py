@@ -1773,7 +1773,7 @@ def _work(args):
 
 def published(pid, blog, url, facts):
     """What `facts`, the join of puzzle `pid` to `url`, ship as: its line of
-    tools/data/blog_facts/<series>.json and its line of the leads file, each
+    its sidecar and its line of the leads file, each
     None where it has none. bigdave44's stand-in puzzles ship neither."""
     if pid.startswith("bd:"):
         return None, None
@@ -2264,37 +2264,6 @@ def row_line(pid, row):
         ensure_ascii=False)
 
 
-def file_rows(path):
-    """(puzzle id, row) off a rewrite_rows file, one line at a time, in its order."""
-    dec = json.JSONDecoder()
-    with path.open(encoding="utf-8") as f:
-        for line in f:
-            line = line.rstrip("\n").rstrip(",")
-            if line in ("{", "}", ""):
-                continue
-            pid, end = dec.raw_decode(line)
-            if line[end:end + 2] != ": ":
-                sys.exit(f"{path} is not one puzzle a line: rerun tools/blog_facts.py, which writes it so")
-            yield pid, json.loads(line[end + 2:])
-
-
-def rewrite_rows(path, rows):
-    """Write `rows`, (puzzle id, row) in id order, to `path` as a
-    tools/data/blog_facts/<series>.json file: one puzzle per line (row_line) in
-    id order, written a line at a time; `rows` may read the file it replaces."""
-    tmp = path.with_suffix(".tmp")
-    with tmp.open("w", encoding="utf-8") as f:
-        f.write("{\n")
-        last = None
-        for pid, row in rows:
-            if last is not None and pid <= last:
-                sys.exit(f"{path}: {pid} follows {last}; facts files hold puzzles in id order")
-            f.write((",\n" if last is not None else "") + row_line(pid, row))
-            last = pid
-        f.write("\n}\n")
-    tmp.replace(path)
-
-
 def fact_from_json(entry):
     """fact_json's inverse: a clue's facts off a file, as they are held while parsing."""
     names = {v: k for k, v in FILE_FIELDS.items()}
@@ -2317,20 +2286,24 @@ def clues_of(pid):
 
 def write(best, series, spool):
     """Lay out the published lines `spool` holds for `best`, extract's joins:
-    tools/data/blog_facts/<series>.json as rewrite_rows does, and the leads file."""
+    one sidecar a puzzle (tools/blog_store.py; only those whose bytes moved are
+    rewritten, those that lost their facts deleted), and the leads file."""
+    import blog_store
     OUT.mkdir(parents=True, exist_ok=True)
-    by_series = collections.defaultdict(list)
-    for pid, r in sorted(best.items()):
-        if r["line"]:
-            by_series[series[pid]].append(r["line"])
-    for old in OUT.glob("*.json"):
-        if old.stem not in by_series:
-            old.unlink()
     # One puzzle a line, so letter_facts.Leads can parse a puzzle's only when it is asked for.
     _write_lines(LEADS, (r["leads"] for _, r in sorted(best.items()) if r["leads"]), spool)
-    for s, lines in sorted(by_series.items()):
-        _write_lines(OUT / f"{s}.json", lines, spool)
-    return sum(len(v) for v in by_series.values())
+    n = 0
+
+    def bodies():
+        nonlocal n
+        for pid, r in sorted(best.items()):
+            if r["line"]:
+                n += 1
+                yield pid, blog_store.body_of_line(spool.get(r["line"]))
+
+    written, deleted, unfiled = blog_store.sync(bodies())
+    print(f"blog facts: {written} sidecars written, {deleted} deleted, {unfiled} for puzzles not held", file=sys.stderr)
+    return n
 
 
 def _write_lines(path, keys, spool):
