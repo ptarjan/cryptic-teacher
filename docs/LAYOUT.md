@@ -1442,6 +1442,14 @@ tools/annotate_audit.py                        ranks what annotation runs spend 
                                                transcripts; daily, and wakes the room with one
                                                fix target, rotating past items woken in the
                                                last 7 days
+tools/annotate_ledger.py                       the burn's own cost meter: each checkpoint
+                                               appends a row (sessions, $/clue, turns/clue, top
+                                               causes) to ~/.cache/annotate_cost_ledger.jsonl
+                                               and queues one quiet wake to the room when
+                                               $/clue drifts up or a new cause is #1
+tools/test_annotate_ledger.py                  tests tools/annotate_ledger.py: fake ledger rows
+                                               give wake and no-wake decisions (regression, new
+                                               top cause, cooldown, target)
 tools/annotate_audit.sh                        the scheduled entry: runs the audit from a
                                                worktree at origin/master
 tools/test_annotate_audit.py                   tests tools/annotate_audit.py: rule naming from
@@ -2079,6 +2087,10 @@ tools/test_no_doubled_paper.py                 does any series' page say the sam
                                                series name; and each title leads with the paper
                                                and the number as searched ("Guardian Cryptic
                                                30111 answers"), no thousands comma
+tools/test_strip_over.py                       does file_archive_org_puzzles.py find the clue
+                                               strip printed between the title and the grid on
+                                               1945-49 Gale Times pages, split it into columns
+                                               and read only its own words into them?
 tools/test_vlm_reader.py                       does tools/vlm_reader.py stay out of the way
                                                when the GPU host's VLM does not answer, cache
                                                what it asks, crop each clue column alone, and
