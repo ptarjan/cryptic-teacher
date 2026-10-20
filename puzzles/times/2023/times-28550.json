@@ -210,53 +210,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OLDDELHI",
-     "indicators": [
-      {
-       "text": "to not open",
-       "note": "a word that does not open has lost its opening, so its first letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to not open",
+         "at": 6,
+         "note": "not opening means losing the first letter"
+        }
+       ],
        "parts": [
         {
          "words": "Brave",
-         "gives": "OLD",
-         "note": "bold, meaning brave, without its first letter"
+         "at": 0,
+         "gives": "BOLD",
+         "note": "bold means brave"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "outside",
-           "note": "the shop being outside something means it wraps around it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "shop",
-           "gives": "DELI",
-           "note": "a deli is a delicatessen shop"
-          },
-          {
-           "words": "hotel",
-           "gives": "H",
-           "note": "H is hotel in the NATO phonetic alphabet"
-          }
-         ]
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 23,
+         "note": "the shop goes outside, so it wraps around the hotel letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shop",
+         "at": 18,
+         "gives": "DELI",
+         "note": "a deli is a delicatessen, a food shop"
+        },
+        {
+         "words": "hotel",
+         "at": 31,
+         "gives": "H",
+         "note": "H is Hotel in the radio alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bold decision not to open a shop beside a hotel in some urban district.",
-     "walkthrough": "'Brave' is first turned into a synonym, and it is that synonym which loses its opening letter.",
-     "definitionFit": "Old Delhi is the historic walled district of the Indian capital, so it is part of a city."
+     "surface": "A courageous trader keeps a shop shut beside a hotel somewhere in town.",
+     "walkthrough": "'Brave' and 'shop' read as a bold shopkeeper but are separate pieces; Old Delhi is the walled historic quarter of India's capital.",
+     "definitionFit": "Old Delhi is the historic walled district of India's capital, next to New Delhi."
     },
     "features": {
      "answerInScene": true,
@@ -719,42 +725,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OBESE",
-     "indicators": [
-      {
-       "text": "to be reduced",
-       "note": "reducing something makes it shorter, so the last letter of that word is trimmed away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "award",
+       "at": 11,
+       "gives": "OBE",
+       "note": "the OBE is a British honour, Officer of the Order of the British Empire"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to be reduced",
+         "at": 21,
+         "note": "reduced means cut short, so set loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "award",
-         "gives": "OBE",
-         "note": "the OBE is a British honour, the Order of the British Empire"
+         "words": "set",
+         "at": 17,
+         "gives": "SET",
+         "note": "the word that is shortened"
         },
         {
-         "words": "set",
-         "gives": "SE",
-         "note": "the word set missing its final letter"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An honour whose value or presentation is about to be scaled down.",
-     "walkthrough": "The OBE (Officer of the Order of the British Empire) is an honour awarded by the British monarch.",
-     "definitionFit": "Obese describes someone extremely overweight, so very large in body size."
+     "surface": "A big prize is due to be cut down.",
+     "walkthrough": "The OBE is a British honour awarded by the monarch; 'to be reduced' trims the final letter of set.",
+     "definitionFit": "Obese describes someone extremely overweight, so very fat or large."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "set"
+     "misdirectedWord": "award"
     }
    }
   },
@@ -1218,63 +1228,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEPORTMENT",
+     "op": "container",
      "indicators": [
       {
-       "text": "lost",
-       "note": "something lost has gone missing, so the billions are taken away from that word"
+       "text": "in",
+       "at": 20,
+       "note": "in signals that the left side and chaps sit inside the shortened debt"
       }
      ],
      "parts": [
       {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lost",
+         "at": 43,
+         "note": "lost means removed, so the billions letter goes from debt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "debt",
+         "at": 23,
+         "gives": "DEBT",
+         "note": "the word that loses a letter"
+        },
+        {
+         "words": "billions",
+         "at": 34,
+         "gives": "B"
+        }
+       ]
+      },
+      {
        "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "being in something means sitting inside it, so the left chaps are put within the debt"
-          }
-         ],
-         "parts": [
-          {
-           "words": "debt",
-           "gives": "DET",
-           "note": "debt without its B"
-          },
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "left",
-             "gives": "PORT",
-             "note": "port is the left side of a ship"
-            },
-            {
-             "words": "chaps",
-             "gives": "MEN",
-             "note": "chaps are men"
-            }
-           ]
-          }
-         ]
+         "words": "left",
+         "at": 9,
+         "gives": "PORT",
+         "note": "port is the left side of a ship"
         },
         {
-         "unchecked": true,
-         "words": "billions",
-         "note": "B is the abbreviation for billions, the letter removed"
+         "words": "chaps",
+         "at": 14,
+         "gives": "MEN",
+         "note": "chaps are men"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Men abandoned in debt after a fortune has disappeared.",
-     "walkthrough": "'Carriage' suggests a vehicle but means bearing. PORTMEN goes inside DEBT once its B (billions) is gone.",
-     "definitionFit": "Carriage can mean the way a person holds their body, which is their deportment or posture."
+     "surface": "Men, abandoned and in debt, have lost billions.",
+     "walkthrough": "'Carriage' suggests a vehicle but means how one holds oneself; 'lost' removes the billions abbreviation from debt before the other pieces go in.",
+     "definitionFit": "Carriage here means bearing, the way a person holds themselves, as does deportment."
     },
     "features": {
      "answerInScene": false,

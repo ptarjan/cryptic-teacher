@@ -352,47 +352,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ATONIC",
+     "op": "container",
      "indicators": [
       {
-       "text": "Almost",
-       "note": "almost means not quite all, so the phrase loses its final letter"
+       "text": "arrests",
+       "at": 19,
+       "note": "arrests means holds, so the shortened phrase holds the one inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "arrests",
-         "note": "arresting someone takes them into custody, so one piece is held inside another"
+         "text": "Almost",
+         "at": 0,
+         "note": "almost means not quite all, so the last letter goes"
         }
        ],
        "parts": [
         {
          "words": "immediately",
-         "gives": "ATONC",
-         "note": "at once, short of its last letter"
+         "at": 7,
+         "gives": "ATONCE",
+         "note": "at once means immediately"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 27,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "Police instantly detain someone who looks perfectly relaxed.",
-     "definitionFit": "In phonetics an atonic syllable carries no accent, so it is spoken unstressed."
+     "surface": "The police arrest someone almost straight away.",
+     "walkthrough": "AT ONCE minus its last letter is ATONC, holding I.",
+     "definitionFit": "In phonetics an atonic syllable is unaccented, carrying no stress."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "stress"
     }
    }
@@ -418,47 +423,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IMMACULATE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Heading off",
-       "note": "taking the head off a word removes its first letter"
+       "text": "inside",
+       "at": 25,
+       "note": "the coat goes inside the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "inside",
-         "note": "inside places one piece within the other"
+         "text": "Heading off",
+         "at": 0,
+         "note": "heading off means losing the first letter"
         }
        ],
        "parts": [
         {
          "words": "put on",
-         "gives": "IMULATE",
-         "note": "to put on is to simulate or fake, here without its first letter"
+         "at": 13,
+         "gives": "SIMULATE",
+         "note": "to put on a feeling is to simulate or fake it"
         },
         {
-         "words": "coat",
-         "gives": "MAC",
-         "note": "a mac is a raincoat, short for mackintosh"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "coat",
+       "at": 20,
+       "gives": "MAC",
+       "note": "a mac is a raincoat, short for mackintosh"
       }
      ]
     },
     "explanation": {
-     "surface": "Set off, slip your jacket on inside, and you look spotless.",
-     "definitionFit": "Immaculate means spotless or without a single blemish, so free of any dirt or stain."
+     "surface": "Put your coat on before setting off: it's spotless.",
+     "walkthrough": "'put on' means to fake, and 'Heading off' removes that word's first letter before the coat goes inside.",
+     "definitionFit": "Immaculate means spotless, without a mark of dirt."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Heading"
+     "misdirectedWord": "put"
     }
    }
   },
@@ -860,54 +871,72 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BOOKCLUB",
-     "indicators": [
-      {
-       "text": "new",
-       "note": "new suggests something remade, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "BOOKCLUB",
+       "words": "barrack",
+       "at": 19,
+       "gives": "BOO",
+       "note": "to barrack is to jeer, British and Australian usage"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "replacement for",
-         "note": "one thing stepping in for another means one letter is swapped out for a different one"
+         "text": "new",
+         "at": 27,
+         "note": "new signals the letters are made into a fresh arrangement"
         }
        ],
        "parts": [
         {
-         "words": "barrack",
-         "gives": "BOO",
-         "note": "to barrack is to jeer, and boo is the jeer"
-        },
-        {
-         "words": "left-back",
-         "gives": "BLACK",
-         "note": "Tyler Blackett, a left-back who joined Reading from Manchester United, clipped to his first five letters"
-        },
-        {
-         "words": "United's",
-         "gives": "U",
-         "note": "U is the standard abbreviation for United"
-        },
-        {
-         "op": "first",
+         "op": "substitution",
          "indicators": [
           {
-           "text": "originally",
-           "note": "originally points to how the word begins, its opening letter"
+           "text": "replacement for",
+           "at": 51,
+           "note": "replacement for means one letter is put in place of another"
           }
          ],
          "parts": [
           {
-           "words": "Ashley",
-           "note": "the first letter of Ashley, the one that is replaced"
+           "op": "charade",
+           "parts": [
+            {
+             "words": "left",
+             "at": 31,
+             "gives": "L"
+            },
+            {
+             "words": "back",
+             "at": 36,
+             "gives": "BACK",
+             "note": "taken as a word"
+            }
+           ]
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "originally",
+             "at": 74,
+             "note": "originally means the first letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Ashley",
+             "at": 67,
+             "note": "the name whose first letter is taken"
+            }
+           ]
+          },
+          {
+           "words": "United's",
+           "at": 42,
+           "gives": "U",
+           "note": "U is the abbreviation for United in football team names"
           }
          ]
         }
@@ -916,9 +945,9 @@
      ]
     },
     "explanation": {
-     "surface": "Fans of Reading FC jeer their latest full-back signing, who came in to replace an England defender.",
-     "walkthrough": "Uncertain parse: the topical football reference is unclear. Reading FC's Tyler Blackett is the likeliest left-back; swapping U for A in BLACK and rearranging gives the remaining letters. 'Reading' looks like the club but means literature.",
-     "definitionFit": "A group that meets to discuss books encourages and sustains the habit of literature, so its members back the act of perusing novels."
+     "surface": "Reading FC fans jeer a new left-back, United's stand-in for Ashley Cole.",
+     "walkthrough": "'Reading' is the football club in the surface but means reading books. Ashley Cole was a famous England left-back; here only Ashley's initial is swapped out before the shuffle.",
+     "definitionFit": "A book club is a group of people who meet to discuss books, so they support reading."
     },
     "features": {
      "answerInScene": false,
@@ -1001,47 +1030,39 @@
      "parts": [
       {
        "words": "upriver",
+       "at": 18,
        "gives": "OP",
-       "note": "the Po, Italy's longest river, turned upwards"
+       "note": "the Po is an Italian river; in a down clue, going up reads it backwards"
       },
       {
-       "op": "reversal",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "upriver",
-         "note": "in a down clue, going up the river means reading its name from the bottom upwards"
+         "text": "hacking",
+         "at": 26,
+         "note": "hacking means chopping roughly, so these letters are cut up and rearranged"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "hacking",
-           "note": "hacking chops something about, so these letters are cut up and rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "at tree",
-           "note": "the six letters of these two words rearranged"
-          }
-         ]
+         "words": "at tree",
+         "at": 34,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The legendary American lumberjack, perhaps, travelling up a river and chopping at a tree.",
-     "walkthrough": "Paul Bunyan, a giant lumberjack of American folklore, is also the title of Benjamin Britten's first work for the stage, with words by W. H. Auden.",
-     "definitionFit": "Britten and Auden called their Paul Bunyan a choral operetta, a light musical stage work, so it is an example."
+     "surface": "The legendary lumberjack chops at a tree upstream.",
+     "walkthrough": "Paul Bunyan is the folk-tale lumberjack, but here is Britten's stage work about him. PO reversed, then AT TREE rearranged.",
+     "definitionFit": "Benjamin Britten's Paul Bunyan is a light opera with spoken dialogue, an example of the genre."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Paul"
+     "misdirectedWord": "Bunyan"
     }
    }
   },
@@ -1561,37 +1582,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EDDO",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "not limited",
-       "note": "with its limits gone, a word loses its outer letters at each end"
+       "text": "to rear",
+       "at": 25,
+       "note": "to rear is to rise up, so in a down clue the letters are read upwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "middle",
        "indicators": [
         {
-         "text": "to rear",
-         "note": "in a down clue, rearing up means standing on end, so the letters climb upwards"
+         "text": "not limited",
+         "at": 13,
+         "note": "not limited means without its limits, the end letters"
         }
        ],
        "parts": [
         {
          "words": "fodder",
-         "gives": "ODDE",
-         "note": "fodder without its first and last letters"
+         "at": 6,
+         "note": "the word whose ends are cut"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Animal feed that isn't kept just for raising livestock.",
-     "definitionFit": "The eddo is a tropical taro, grown for its edible starchy corms."
+     "surface": "Plant feed for animals that is not just for raising them.",
+     "walkthrough": "FODDER without its ends is ODDE; 'to rear' turns it around.",
+     "definitionFit": "Eddo is a tropical plant related to taro, grown for its edible corms."
     },
     "features": {
      "answerInScene": true,
@@ -1627,37 +1649,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ICEDTEA",
+     "op": "composite",
      "indicators": [
       {
-       "text": "runs out",
-       "note": "R is the cricket abbreviation for runs, and out means it is dropped"
+       "text": "out",
+       "at": 16,
+       "note": "out means taken away, so the runs letter is removed from the mix"
+      },
+      {
+       "text": "badly",
+       "at": 31,
+       "note": "badly signals the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "badly",
-         "note": "badly done means messed up, so these letters are jumbled"
-        }
-       ],
-       "parts": [
-        {
-         "words": "I catered",
-         "gives": "ICATEED",
-         "note": "these letters without the R"
-        }
-       ]
+       "words": "I catered",
+       "at": 21,
+       "note": "taken as written"
+      },
+      {
+       "words": "runs",
+       "at": 11,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
       }
      ]
     },
     "explanation": {
-     "surface": "A caterer confesses that the chilled beverages ran out because the party was poorly planned.",
-     "definitionFit": "Chilled tea served over cubes of frozen water is a cooled beverage."
+     "surface": "The cold drinks have run out because of my poor catering.",
+     "walkthrough": "Take R out of I CATERED to leave ICATEED, then rearrange.",
+     "definitionFit": "Iced tea is tea chilled and served cold, a refreshing beverage."
     },
     "features": {
      "answerInScene": true,

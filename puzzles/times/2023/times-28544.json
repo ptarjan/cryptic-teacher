@@ -369,57 +369,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OVID",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "without ends means the word loses both its first and last letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 22,
+         "note": "endlessly means without its end letters, leaving the middle"
+        }
+       ],
        "parts": [
         {
          "words": "love",
-         "gives": "OV",
-         "note": "love with its outer letters removed"
+         "at": 17,
+         "note": "the word whose ends are cut"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 43,
+         "note": "at first means the first letter of each of the next two words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in",
+         "at": 33,
+         "note": "the word whose first letter is taken"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "ID",
-         "indicators": [
-          {
-           "text": "at first",
-           "note": "at first points to the opening letter of each of the words before it"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "in detail",
-           "gives": "ID",
-           "select": "first",
-           "note": "the opening letters of in and detail"
-          }
-         ]
+         "words": "detail",
+         "at": 36,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tribute to a poet who wrote about love at length and in great detail.",
-     "walkthrough": "'One who wrote of love' looks like the whole definition, and it fits the poet of the Ars Amatoria, but love is also the fodder.",
-     "definitionFit": "Ovid was the Roman poet, author of the Metamorphoses and the Art of Love, so he is a writer."
+     "surface": "A writer described love in great detail.",
+     "walkthrough": "LOVE loses its ends to give OV; the first letters of 'in detail' give ID.",
+     "definitionFit": "Ovid was the Roman poet who wrote the Ars Amatoria and Amores, so a famous writer on love."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "endlessly"
+     "misdirectedWord": "love"
     }
    }
   },
@@ -674,7 +675,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "How obscure coteries all stray, ultimately?",
+      "text": "How obscure",
       "at": 0
      }
     ],
@@ -686,42 +687,39 @@
        "indicators": [
         {
          "text": "stray",
-         "note": "to stray is to wander off course, so these letters drift into a new order"
+         "at": 25,
+         "note": "to stray is to wander, so these letters wander into a new order"
         }
        ],
        "parts": [
         {
-         "words": "coteries all",
+         "words": "coteries",
+         "at": 12,
          "note": "taken as written"
         }
        ]
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "ultimately",
-         "note": "ultimately means in the end, so only the last letter of the word is kept"
-        }
-       ],
-       "parts": [
-        {
-         "words": "stray",
-         "note": "the final letter of stray"
-        }
-       ]
+       "words": "all",
+       "at": 21,
+       "note": "taken as written"
+      },
+      {
+       "words": "ultimately",
+       "at": 32,
+       "gives": "Y",
+       "note": "ultimately points to a final letter: the last letter of stray, just before it"
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A question about the obscure manner in which exclusive cliques eventually drift apart.",
-     "walkthrough": "Stray works twice: as the anagram signal and, through ultimately, as the source of the last letter. The whole clue then describes how secretive coteries behave.",
-     "definitionFit": "Esoterically means in a way understood only by a small inner circle, which is how a clique keeps things obscure."
+     "surface": "How do exclusive cliques all eventually go off the rails?",
+     "walkthrough": "'stray' does double duty: it signals the shuffle, and its own final letter, pointed to by 'ultimately', ends the answer.",
+     "definitionFit": "Esoterically means in a way intelligible only to a select few, hence obscurely."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "stray"
     }
    }

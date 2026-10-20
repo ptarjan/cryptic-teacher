@@ -1017,52 +1017,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRANSFER",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "disheartened",
-       "note": "losing its heart means the middle letters of the word go"
+       "text": "about",
+       "at": 26,
+       "note": "about signals that the letters are moved around into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Errant",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "disheartened",
+         "at": 13,
+         "note": "disheartened means losing the heart, so only the outer letters of fools are kept"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "about suggests turning things around, so the letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Errant",
-           "note": "taken as written"
-          }
-         ]
-        },
-        {
          "words": "fools",
-         "gives": "FS",
-         "note": "only the outside letters remain once the middle goes"
+         "at": 7,
+         "note": "the word whose outer letters are kept"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Wayward idiots feeling glum over a relocation.",
-     "walkthrough": "'Errant' looks like an anagram signal but is the fodder; 'about' does the shuffling.",
-     "definitionFit": "To transfer is to shift something from one place, job or owner to another."
+     "surface": "Wayward idiots, losing heart, wander about.",
+     "walkthrough": "'disheartened' keeps F and S from fools; ERRANT plus FS are rearranged.",
+     "definitionFit": "To transfer something is to shift it from one place to another, a synonym of relocate."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Errant"
+     "misdirectedWord": "about"
     }
    }
   },
@@ -1145,63 +1141,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GENTLENESS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Reduced",
-       "note": "reduced means made shorter, so the word loses its last letter"
+       "text": "spoiled",
+       "at": 15,
+       "note": "spoiled signals the letters are wrecked and rearranged"
+      },
+      {
+       "text": "new edition of",
+       "at": 23,
+       "note": "a new edition reworks a text, so these letters are put in a fresh order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Reduced",
+         "at": 0,
+         "note": "reduced means cut short, so length loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "spoiled",
-           "note": "something spoiled has been messed up, so those letters are scrambled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "length",
-           "gives": "LENGT",
-           "note": "the word with its final letter cut"
-          }
-         ]
+         "words": "length",
+         "at": 8,
+         "note": "the word that is shortened"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "new edition of",
-           "note": "a new edition rearranges the material, so these letters are reordered"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Sense",
-           "note": "taken as written"
-          }
-         ]
+         "gives": "H"
         }
        ]
+      },
+      {
+       "words": "Sense",
+       "at": 38,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A shortened, botched reissue of Jane Austen's novel.",
-     "walkthrough": "The novel's title is split: 'Sense' is fodder and 'Sensibility' is the definition, with 'and' between them.",
-     "definitionFit": "Sensibility means delicate feeling and tenderness, close to softness of manner and kindly mildness."
+     "surface": "A cut-down, badly done new version of Jane Austen's novel.",
+     "walkthrough": "'Reduced' trims the final letter of length. The novel's title is split: 'Sense' is fodder and 'Sensibility' the definition, with 'and' a link.",
+     "definitionFit": "Sensibility means delicacy of feeling, close in sense to a mild, tender manner."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Sensibility"
     }
    }
@@ -1512,43 +1500,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SUSPENSE",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
+       "text": "captures",
+       "at": 21,
+       "note": "the shortened poet captures, that is holds inside, the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "captures",
-         "note": "to capture is to hold within, so the other piece goes inside"
+         "text": "almost",
+         "at": 14,
+         "note": "almost means not quite all, so the poet's name loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "poet",
-         "gives": "SPENSE",
-         "note": "Edmund Spenser, author of The Faerie Queene, minus his last letter"
+         "at": 9,
+         "gives": "SPENSER",
+         "note": "Edmund Spenser wrote The Faerie Queene"
         },
         {
-         "words": "American",
-         "gives": "US",
-         "note": "US for the United States"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "American",
+       "at": 0,
+       "gives": "US"
       }
      ]
     },
     "explanation": {
-     "surface": "A US poet nearly sums up a mood of doubt.",
-     "walkthrough": "'American poet' suggests one American writer, but the poet is the English Spenser and 'American' is a separate piece.",
-     "definitionFit": "Suspense is the anxious uncertainty felt while waiting for something to be decided or revealed."
+     "surface": "An American poet nearly takes something prisoner.",
+     "walkthrough": "Edmund Spenser wrote The Faerie Queene; 'almost' drops his name's final letter before it captures the American abbreviation.",
+     "definitionFit": "Suspense is anxious waiting to learn an outcome, a tense feeling of not knowing."
     },
     "features": {
      "answerInScene": false,

@@ -962,52 +962,51 @@
      "indicators": [
       {
        "text": "bad",
-       "note": "something bad has gone wrong, so the letters are scrambled"
+       "at": 20,
+       "note": "bad signals that these letters are spoiled into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 8,
+         "note": "mostly means most of it, so the last letter of doner is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
+         "words": "doner",
+         "at": 2,
+         "note": "the kebab word whose letters are used"
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly keeps all but the final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "doner",
-           "note": "taken as written before trimming"
-          },
-          {
-           "gives": "R"
-          }
-         ]
-        },
-        {
-         "words": "very",
-         "note": "taken as written"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "very",
+       "at": 15,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A doner kebab is mostly awful, and it still needs cooking.",
-     "walkthrough": "'Very' sits between 'mostly' and 'bad' as if an adverb, but it is part of the letters to rearrange.",
-     "definitionFit": "Oven-ready food is prepared and needs only to be cooked."
+     "surface": "Is a doner kebab terrible? It merely needs to be cooked.",
+     "walkthrough": "A plus DONE (doner without its last letter) plus VERY are mixed together.",
+     "definitionFit": "Supermarket food sold oven-ready is prepared so that it only has to be heated through."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "very"
+     "misdirectedWord": "bad"
     }
    }
   },

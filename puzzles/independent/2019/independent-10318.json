@@ -230,29 +230,29 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OIL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Half of",
-       "note": "half means only part is kept, so the second half of the word is discarded"
+       "text": "made into",
+       "at": 15,
+       "note": "made into signals the kept letters are reshaped into something new"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "first",
        "indicators": [
         {
-         "text": "made into",
-         "note": "to be made into something is to be converted, so the letters are rebuilt in a new form"
+         "text": "Half of",
+         "at": 0,
+         "note": "half of means only the first three of its six letters are kept"
         }
        ],
        "parts": [
         {
          "words": "olives",
-         "gives": "OLI",
-         "note": "the word with its last three letters deleted, keeping the first half"
+         "at": 8,
+         "note": "the word halved"
         }
        ]
       }
@@ -260,9 +260,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A question about what half the olive harvest ends up as.",
-     "walkthrough": "The whole clue is both the wordplay and the definition: a large share of olives is pressed to make this product.",
-     "definitionFit": "Olive oil is pressed from olives, so much of the crop is literally made into it."
+     "surface": "Wondering whether some of the olives are pressed for this product.",
+     "walkthrough": "The first half of olives is OLI, rearranged; the whole clue also describes the answer, since olives are pressed for it.",
+     "definitionFit": "Olive oil is pressed from the fruit, so olives are what the liquid is made from."
     },
     "features": {
      "answerInScene": true,
@@ -292,58 +292,50 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "KATHMANDU",
      "indicators": [
       {
        "text": "coming aboard",
-       "note": "whoever comes aboard ends up inside the vessel, so one piece goes within another"
+       "at": 12,
+       "note": "coming aboard means getting inside the boat, so these letters go inside the others"
       }
      ],
      "parts": [
       {
-       "words": "boat",
-       "gives": "CAT",
-       "note": "short for catamaran"
-      },
-      {
-       "words": "guy",
-       "gives": "MAN",
-       "note": "a guy is a man"
-      },
-      {
-       "words": "party",
-       "gives": "DO",
-       "note": "a do is a party"
-      },
-      {
        "op": "homophone",
-       "spelt": "KATHMANDU",
+       "spelt": "KATHDU",
        "indicators": [
         {
          "text": "say",
-         "note": "say asks us to go by the spoken form rather than the spelling"
+         "at": 38,
+         "note": "say signals that the words are heard rather than read, so only the sound is kept"
         }
        ],
        "parts": [
         {
          "words": "boat party",
-         "gives": "CATMANDO",
-         "note": "the combined pieces spoken aloud match the city's name"
+         "at": 26,
+         "gives": "CATDO",
+         "note": "a cat is a catamaran, a type of boat, and a do is a party"
         }
        ]
+      },
+      {
+       "words": "guy",
+       "at": 8,
+       "gives": "MAN",
+       "note": "a guy is a man"
       }
      ]
     },
     "explanation": {
-     "surface": "A man joins a party on a boat.",
-     "walkthrough": "The Nepali capital is commonly pronounced 'cat-man-doo', so its unusual spelling hides three ordinary words; a cat is a catamaran.",
-     "definitionFit": "Kathmandu is the capital city of Nepal, so it is an example of a capital."
+     "surface": "A man joins a party being held on a boat.",
+     "walkthrough": "A cat is a catamaran; the boat and the party, spoken, give the sound of the city's outer parts, and the guy comes aboard between them.",
+     "definitionFit": "Kathmandu is the capital city of Nepal."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Capital"
+     "misdirectedWord": "guy"
     }
    }
   },
@@ -663,36 +655,47 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TOWELETTE",
      "indicators": [
       {
        "text": "deleting endings",
-       "note": "deleting endings instructs us to drop the final letter of each word"
+       "at": 48,
+       "note": "deleting endings means both words lose their last letters"
       }
      ],
      "parts": [
       {
        "op": "charade",
+       "indicators": [
+        {
+         "text": "that begins",
+         "at": 12,
+         "note": "that begins says the column word comes before the next piece"
+        }
+       ],
        "parts": [
         {
          "words": "column",
-         "gives": "TOWE",
-         "note": "a tower is a column, less its last letter"
+         "at": 5,
+         "gives": "TOWER",
+         "note": "a tower is a tall column-like structure"
         },
         {
          "words": "written correspondence",
-         "gives": "LETTE",
-         "note": "a letter, less its last letter"
+         "at": 24,
+         "gives": "LETTER",
+         "note": "a letter is written correspondence"
         }
        ]
+      },
+      {
+       "gives": "RR"
       }
      ]
     },
     "explanation": {
-     "surface": "Instructions for wiping a column of text that opens a letter, trimming its line endings.",
-     "walkthrough": "'That begins' tells us the first piece comes before the second; both lose their final R.",
-     "definitionFit": "A towelette is a small moist paper cloth used for cleaning, the kind of disposable wipe sold in packets."
+     "surface": "Clean the pillar that starts off a written exchange, minus the final words.",
+     "walkthrough": "TOWER and LETTER each lose their final letter, giving TOWE and LETTE.",
+     "definitionFit": "A towelette is a small moist paper cloth for cleaning the hands or face."
     },
     "features": {
      "answerInScene": false,

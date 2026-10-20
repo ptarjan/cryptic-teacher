@@ -211,47 +211,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIZARD",
+     "op": "container",
      "indicators": [
       {
-       "text": "made thinner",
-       "note": "making something thinner trims its sides, so the word loses its outside letters"
+       "text": "clothing",
+       "at": 32,
+       "note": "clothing means wrapped around, so the fat goes around the thinned size"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "fat",
+       "at": 28,
+       "gives": "LARD",
+       "note": "lard is pig fat"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "clothing",
-         "note": "fat clothing something wraps around it, so one piece goes inside the other"
+         "text": "made thinner",
+         "at": 46,
+         "note": "made thinner means trimmed at both sides, so only the middle letters of size are kept"
         }
        ],
        "parts": [
         {
-         "words": "fat",
-         "gives": "LARD",
-         "note": "lard is pig fat"
-        },
-        {
-         "op": "middle",
-         "parts": [
-          {
-           "words": "size",
-           "note": "the word size without its first and last letters"
-          }
-         ]
+         "words": "size",
+         "at": 41,
+         "note": "the word slimmed down"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small man on a diet weighs himself on the scales and drops a clothing size.",
-     "walkthrough": "The scales look like bathroom scales for a slimmer; they are reptile skin.",
-     "definitionFit": "A lizard is a small reptile covered in scaly skin, playfully called a little chap."
+     "surface": "A small man who weighs himself has a large dress size, slimmed down.",
+     "walkthrough": "'scales' suggests weighing but means a reptile's skin; 'made thinner' trims both ends of size.",
+     "definitionFit": "A lizard is a small reptile, its body covered in scales."
     },
     "features": {
      "answerInScene": false,
@@ -1198,32 +1195,50 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BLERIOT",
      "indicators": [
       {
        "text": "swapping sides",
-       "note": "sides are left and right, so the letters for left and right change places"
+       "at": 13,
+       "note": "sides are left and right, so the letters for those two swap places"
       }
      ],
      "parts": [
       {
-       "words": "British",
-       "gives": "BR",
-       "note": "BR is short for British"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "by",
+         "at": 46,
+         "note": "by means next to, so one piece is placed beside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "British",
+         "at": 37,
+         "gives": "BR"
+        },
+        {
+         "words": "George",
+         "at": 49,
+         "gives": "ELIOT",
+         "note": "George Eliot was the pen name of the novelist Mary Ann Evans"
+        }
+       ]
       },
       {
-       "words": "George",
-       "gives": "ELIOT",
-       "note": "George Eliot, the Victorian novelist"
+       "gives": "RELI"
+      },
+      {
+       "gives": "LERI"
       }
      ]
     },
     "spelling": "BLÉRIOT",
     "explanation": {
-     "surface": "A French airman who changed allegiance would be British, by George!",
-     "walkthrough": "BR plus ELIOT makes BRELIOT; swap its L and R. 'By George' looks like an exclamation of surprise.",
-     "definitionFit": "Louis Blériot was the French aviator who made the first aeroplane flight across the English Channel in 1909."
+     "surface": "A French aviator who changed sides would be British, goodness!",
+     "walkthrough": "'by George!' looks like an oath but names the novelist George Eliot. 'swapping sides' means the letters for left and right change places.",
+     "definitionFit": "Louis Blériot was the French aviator who first flew across the English Channel, in 1909."
     },
     "features": {
      "answerInScene": true,
