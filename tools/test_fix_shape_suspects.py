@@ -362,6 +362,20 @@ nso2 = {"op": "container", "indicators": [{"text": "in"}], "parts": [
     {"words": "c", "gives": "C"}]}
 check("a nested container has no unique flat form", F.repair_tree(nso2, "a b in c", "ABCA", NSO)[1] == [])
 
+DWC = {"delWrapsCharade": F.r_del_wraps_charade}
+dwc = {"op": "reversal", "indicators": [{"text": "backing"}], "parts": [{"op": "deletion", "indicators": [{"text": "Manx"}], "parts": [
+    {"op": "charade", "parts": [{"words": "vermin", "gives": "RATS"}, {"words": "concerning", "gives": "RE"},
+                                {"words": "cat", "gives": "PUSS"}]}, {"gives": "S"}]}]}
+new, used = F.repair_tree(dwc, "Legend backing vermin concerning Manx cat", "SUPERSTAR", DWC)
+check("del<Manx> over RATS+RE+PUSS cuts PUSS, the piece beside it",
+      used == ["delWrapsCharade"] and new["parts"][0]["op"] == "charade"
+      and new["parts"][0]["parts"][2]["op"] == "deletion" and new["parts"][0]["parts"][2]["indicators"][0]["text"] == "Manx")
+dwc2 = {"op": "deletion", "indicators": [{"text": "caught"}], "parts": [
+    {"op": "charade", "parts": [{"words": "vacation", "gives": "LEAVE"}, {"words": "stinging creature", "gives": "BEE"}]},
+    {"gives": "E"}]}
+check("a cut that lies in two pieces beside the indicator is left for the model",
+      F.repair_tree(dwc2, "stinging creature caught vacation", "LEAVEBE", DWC)[1] == [])
+
 DOP = {"delOnePiece": F.r_del_one_piece}
 dop = {"op": "deletion", "indicators": [{"text": "no end of"}], "parts": [
     {"op": "charade", "parts": [{"words": "tune", "gives": "MELODY"}, {"words": "ram", "gives": "RAM"}]},

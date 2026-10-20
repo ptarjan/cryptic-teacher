@@ -3130,7 +3130,51 @@ def r_nested_same_op(node, parent, ctx):
     return new
 
 
-RULE_REPAIRS = {"nestedSameOp": r_nested_same_op, "delOnePiece": r_del_one_piece,"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
+def r_del_wraps_charade(node, parent, ctx):
+    """delWrapsCharade: del<ind>(charade(a, b, ...), X) of plain leaves whose indicator stands in the clue between
+    two pieces: it cuts the piece touching it (PUSS 'Manx' cat: rev(RATS + RE + del<Manx>(PUSS, S))). The piece is
+    the one holding X whose clue words sit right against the indicator (only blanks or punctuation between); kept
+    only when exactly one such piece exists, the whole tree still gives the answer and the rule no longer fires."""
+    clue = ctx.get("clue") or ""
+    if V.del_wraps_charade(node, clue) != 1 or node.get("op") != "deletion" or not ctx.get("answer"):
+        return None
+    parts = node["parts"]
+    comps = parts[0]["parts"]
+    cut = W.letters(parts[1]["gives"])
+    ind = node["indicators"][0]
+    low = clue.lower()
+    t = str(ind["text"])
+    a0 = ind["at"] if isinstance(ind.get("at"), int) else low.find(t.lower())
+    b0 = a0 + len(t)
+    near = []
+    for k, c in enumerate(comps):
+        g = W.letters(c.get("gives") or c.get("words"))
+        if not (len(g) > len(cut) and cut in g):
+            continue
+        sp = V._subtree_spans(c, clue, low)
+        if not sp:
+            continue
+        lo, hi = min(a for a, _ in sp), max(b for _, b in sp)
+        gap = clue[hi:a0] if hi <= a0 else clue[b0:lo] if lo >= b0 else None
+        if gap is not None and not W.letters(gap):
+            near.append(k)
+    if len(near) != 1:
+        return None
+    k = near[0]
+    inner = {x: y for x, y in node.items() if x not in ("parts", "gives")}
+    inner["parts"] = [copy.deepcopy(comps[k]), copy.deepcopy(parts[1])]
+    pieces = copy.deepcopy(comps)
+    pieces[k] = inner
+    new = {x: y for x, y in parts[0].items() if x not in ("parts", "gives")}
+    new["op"], new["parts"] = "charade", pieces
+    if node.get("gives") is not None:
+        new["gives"] = node["gives"]
+    if not _eval_swapped(node, parent, new, ctx) or V.del_wraps_charade(new, clue):
+        return None
+    return new
+
+
+RULE_REPAIRS = {"delWrapsCharade": r_del_wraps_charade, "nestedSameOp": r_nested_same_op, "delOnePiece": r_del_one_piece,"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
                 "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c), "anaSelectEdge": r_ana_select_edge,
                 "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
