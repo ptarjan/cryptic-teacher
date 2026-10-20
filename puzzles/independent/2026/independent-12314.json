@@ -841,56 +841,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXTRICATE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 37,
+       "note": "what remains goes around the next pieces, holding them inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "I'm leaving",
-         "note": "the letters I and M leave EXTRA TIME"
+         "text": "leaving",
+         "at": 4,
+         "note": "the letters of 'I'm' are leaving, so they drop out of the longer phrase"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "around"
-          }
-         ],
-         "parts": [
-          {
-           "words": "additional part of match",
-           "gives": "EXTRATE",
-           "note": "EXTRA TIME without I and M"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I = one"
-          }
-         ]
+         "words": "additional part of match",
+         "at": 12,
+         "gives": "EXTRATIME",
+         "note": "extra time is the additional period added to a football match"
+        },
+        {
+         "words": "I'm",
+         "at": 0,
+         "gives": "IM",
+         "note": "the letters of 'I'm' as written"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 44,
+         "gives": "I",
+         "note": "the Roman numeral for one is I"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "C",
          "indicators": [
           {
            "text": "heading for",
-           "note": "a word's heading is what stands at its top"
+           "at": 49,
+           "note": "the heading of a word is its first letter"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "car",
+           "at": 61,
            "gives": "C",
-           "select": "first",
-           "note": "first letter of car"
+           "note": "its first letter"
           }
          ]
         }
@@ -899,9 +906,9 @@
      ]
     },
     "explanation": {
-     "surface": "A footballer quits during extra time, driving off to escape the stadium.",
-     "walkthrough": "Extra time is the added period played after a drawn football match.",
-     "definitionFit": "A synonym: freeing yourself from a tangle, trap or awkward situation means getting out of it."
+     "surface": "A footballer wants out of the extra time, with a car waiting to whisk them away.",
+     "walkthrough": "Removing I and M from EXTRA TIME leaves EXTRATE; 'around' wraps that round I (one) and C (heading for car).",
+     "definitionFit": "To extricate is to free someone or something from a tangle or difficulty, letting them escape it."
     },
     "features": {
      "answerInScene": false,
@@ -1348,57 +1355,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GRAMME",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
        "indicators": [
         {
          "text": "End of",
-         "note": "a word's end is its final letter"
+         "at": 0,
+         "note": "the end of a word is its final letter"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
+         "words": "leg",
+         "at": 7,
          "gives": "G",
-         "indicators": [
-          {
-           "text": "incomplete",
-           "note": "RAMMED loses its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "leg",
-           "gives": "G",
-           "select": "last",
-           "note": "last letter of leg"
-          }
-         ]
-        },
+         "note": "its last letter"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "incomplete",
+         "at": 18,
+         "note": "the word is left incomplete by losing its final letter"
+        }
+       ],
+       "parts": [
         {
          "words": "struck",
-         "gives": "RAMME",
-         "note": "RAMMED without its D"
+         "at": 11,
+         "gives": "RAMMED",
+         "note": "to ram is to strike hard, so struck is rammed"
+        },
+        {
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier's leg is hit, leaving a unit short.",
-     "walkthrough": "'Incomplete unit' looks like one phrase; 'incomplete' actually trims 'struck'.",
-     "definitionFit": "A definition by category: the metric measure of mass, one thousandth of a kilogram."
+     "surface": "An injured footballer's leg was hit, and a unit of the team is left short.",
+     "walkthrough": "'incomplete' drops the last letter of RAMMED to leave RAMME.",
+     "definitionFit": "A gramme is the metric measure of mass, one thousandth of a kilogram."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "unit"
+     "misdirectedWord": "leg"
     }
    }
   },
