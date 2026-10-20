@@ -258,45 +258,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "turning up",
-       "note": "in a down answer, the word is read upwards"
-      },
-      {
        "text": "after",
-       "note": "family comes after the blow"
+       "at": 27,
+       "note": "after places the reversed family word behind the word for blow"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "blow",
+       "at": 34,
+       "gives": "BEAT",
+       "note": "a beat is a blow, a strike"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "at": 16,
+         "note": "in a down clue, turning up means the letters read from the bottom upwards"
+        }
+       ],
        "parts": [
         {
          "words": "family",
+         "at": 9,
          "gives": "KIN",
-         "note": "KIN = family, turned upwards"
-        },
-        {
-         "words": "\"blow\"",
-         "gives": "TAEB",
-         "note": "to beat is to strike a blow"
+         "note": "kin means family, relatives"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bohemian's relatives turn up after someone has had a blow.",
-     "walkthrough": "The quotation marks around 'blow' hint at slang for a drug, fitting a bohemian, but the word only means a hit.",
-     "definitionFit": "A near-synonym: the 1950s Beat Generation drop-outs were the bohemians of their day, rejecting conventional dress and careers."
+     "surface": "An unconventional relative appearing just after a punch is thrown.",
+     "walkthrough": "'Bohemian' is the definition, not the Czech region; KIN turned upwards gives NIK.",
+     "definitionFit": "A beatnik was a 1950s nonconformist, an unconventional artistic type living a Bohemian life."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "blow"
+     "misdirectedWord": "Bohemian"
     }
    }
   },
@@ -1133,54 +1138,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "to be upset",
-       "note": "in a down answer, upset means turned upside down"
+       "text": "about",
+       "at": 25,
+       "note": "about means around, so the reversed letters surround the small letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 19,
+         "note": "upset in a down clue means turned upside down, so the letters read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "I",
-         "note": "as printed"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "about"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "so",
-           "gives": "SIC",
-           "note": "sic is Latin for thus, so"
+           "words": "I",
+           "at": 0
           },
           {
-           "words": "small",
-           "gives": "S",
-           "note": "S = small"
+           "words": "so",
+           "at": 2,
+           "gives": "SIC",
+           "note": "sic is Latin for thus or so, used in quotations"
+          },
+          {
+           "words": "managed",
+           "at": 5,
+           "gives": "RAN",
+           "note": "ran means managed, as in ran a business"
           }
          ]
-        },
-        {
-         "words": "managed",
-         "gives": "RAN",
-         "note": "ran = managed, as in ran a shop"
         }
        ]
+      },
+      {
+       "words": "small",
+       "at": 31,
+       "gives": "S",
+       "note": "S is the abbreviation for small, as on clothing labels"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone contrives to be upset about some small flowers.",
-     "walkthrough": "The Latin word editors print in brackets to mean 'thus written' is the one that stands for 'so'; the whole string is then turned upside down.",
-     "definitionFit": "Narcissi is the plural of narcissus, the daffodil family of flowers."
+     "surface": "Someone frets about having been so upset by some little flowers.",
+     "walkthrough": "I, SIC and RAN reversed give NARCISI, which goes about S.",
+     "definitionFit": "Narcissi is the plural of narcissus, the genus of daffodils and similar spring blooms."
     },
     "features": {
      "answerInScene": true,
@@ -1768,34 +1779,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "desperate",
-       "note": "the remaining letters are in a desperate jumble"
+       "at": 34,
+       "note": "desperate means wild or frantic, so the letters are mixed up"
       },
       {
        "text": "without",
-       "note": "the letters of PLAN are taken out"
+       "at": 57,
+       "note": "without means the letters of plan are taken out of the fodder"
       }
      ],
      "parts": [
       {
-       "words": "Appalachians without plan",
-       "gives": "APACHIAS",
-       "note": "APPALACHIANS minus P, L, A, N"
+       "words": "Appalachians",
+       "at": 44
+      },
+      {
+       "words": "plan",
+       "at": 65
       }
      ]
     },
     "explanation": {
-     "surface": "Hopeless hikers in the Appalachians, with no plan, lose contact.",
-     "walkthrough": "Aphasia is loss of the ability to use or understand language, usually after brain damage.",
-     "definitionFit": "Aphasiac describes someone with aphasia, who has lost language ability."
+     "surface": "Mountain folk in a frantic state because they have no plan.",
+     "walkthrough": "APPALACHIANS loses P, L, A and N; the remaining eight letters are rearranged.",
+     "definitionFit": "Aphasiac describes someone with aphasia, an inability to use or understand language from brain damage."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "communication"
+     "misdirectedWord": "desperate"
     }
    }
   }

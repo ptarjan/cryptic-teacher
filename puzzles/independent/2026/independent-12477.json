@@ -155,36 +155,41 @@
      "indicators": [
       {
        "text": "guards",
-       "note": "to guard is to surround protectively, so the drink goes around the other letters"
+       "at": 12,
+       "note": "guards means surrounds, so the beer holds the other letters"
       }
      ],
      "parts": [
       {
        "words": "Maybe stout",
+       "at": 0,
        "gives": "BEER",
-       "note": "stout is an example of beer, signalled by 'Maybe'"
+       "note": "stout is a kind of dark beer, hence 'Maybe'"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "revolutionary",
-         "note": "a revolution turns something round, so the following short words are read backwards"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "drug",
+         "at": 39,
+         "gives": "E",
+         "note": "E is slang for the drug ecstasy"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "revolutionary",
+           "at": 25,
+           "note": "revolutionary means turned round, so the word for given is read backwards"
+          }
+         ],
          "parts": [
           {
            "words": "given",
+           "at": 19,
            "gives": "IF",
-           "note": "'given' as in 'given that', a condition, like if"
-          },
-          {
-           "words": "drug",
-           "gives": "E",
-           "note": "E is slang for the drug ecstasy"
+           "note": "if means given that, provided"
           }
          ]
         }
@@ -193,9 +198,9 @@
      ]
     },
     "explanation": {
-     "surface": "Someone drinks stout and takes a radical drug in the hope of bulking up.",
-     "walkthrough": "'given' is the conditional sense, as in 'given that', and it is reversed along with the drug before being guarded.",
-     "definitionFit": "Beefy is an informal word for brawny and well built, and the comparative form means more strongly built."
+     "surface": "A dark ale with a drug added, promising to bulk someone up.",
+     "walkthrough": "'Maybe' flags stout as just one kind of beer; 'revolutionary' turns only the word for given, not the drug.",
+     "definitionFit": "Beefier is the comparative of beefy, meaning brawny and well built."
     },
     "features": {
      "answerInScene": true,
@@ -231,79 +236,78 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "claiming",
-       "at": 26,
-       "note": "claiming means taking hold of, so the party letter is held between the two halves"
+       "text": "Without source",
+       "at": 0,
+       "note": "without its source means each copy of the word for fop loses its first letter"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "container",
        "indicators": [
         {
-         "text": "twice",
-         "at": 20,
-         "note": "twice means the loss of the source happens to both copies of the fop word"
+         "text": "claiming",
+         "at": 26,
+         "note": "claiming means taking in, so the doubled word holds the party letter"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
+         "op": "charade",
          "indicators": [
           {
-           "text": "Without source",
-           "at": 0,
-           "note": "the source of a word is where it starts, so each copy loses its first letter"
+           "text": "twice",
+           "at": 20,
+           "note": "twice says the shortened word appears two times"
           }
          ],
          "parts": [
           {
            "words": "fop",
            "at": 16,
-           "gives": "DANDYDANDY",
-           "note": "a dandy is a fop, written here two times over because the clue says twice"
+           "gives": "DANDY",
+           "note": "a dandy is a fop, a man vain about his clothes"
           },
           {
-           "gives": "D"
+           "gives": "DANDY"
           }
          ]
         },
         {
-         "gives": "D"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 43,
+           "note": "the leader of party's is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "party's",
+           "at": 35
+          }
+         ]
         }
        ]
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "leader",
-         "at": 43,
-         "note": "the leader of a word is its first letter, here of party's"
-        }
-       ],
-       "parts": [
-        {
-         "words": "party's",
-         "at": 35,
-         "note": "supplies its opening letter"
-        }
-       ]
+       "gives": "DD"
       }
      ]
     },
     "explanation": {
-     "surface": "A beheaded dandy, doubled, seizing a party leader sounds like a satire on the BBC.",
-     "walkthrough": "'Without source' takes the D off the first DANDY, giving ANDYDANDY, and 'twice' does it again for ANDYANDY; 'claiming' sets the P from 'party's leader' between them. Andy Pandy was a children's puppet on BBC television from 1950.",
-     "definitionFit": "Andy Pandy is the string puppet in a blue-and-white suit from a classic British children's TV show."
+     "surface": "A beheaded dandy repeatedly grabs the party chief, apparently on children's television.",
+     "walkthrough": "Andy Pandy is a puppet from a BBC children's programme first shown in 1950. The fop is written twice round the party letter, and each copy loses its source.",
+     "definitionFit": "Andy Pandy is the name of a puppet character from classic British children's television."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "party's"
+     "misdirectedWord": "source"
     }
    }
   },

@@ -712,25 +712,43 @@
      "parts": [
       {
        "words": "Street",
-       "gives": "ST",
-       "note": "St is the address abbreviation"
+       "at": 0,
+       "gives": "ST"
       },
       {
-       "words": "sound, not a",
-       "gives": "UDIO",
-       "note": "audio = sound, minus its A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 17,
+         "note": "not tells us the letter A is to be left out of the word for sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sound",
+         "at": 10,
+         "gives": "AUDIO",
+         "note": "audio means sound, as in audio equipment"
+        },
+        {
+         "words": "a",
+         "at": 21,
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A road known for its music, with no room for television.",
-     "walkthrough": "'Not a TV room' reads as a denial, but 'not a' belongs to the wordplay and 'TV room' stands alone as the definition.",
-     "definitionFit": "A specific sense: the room where programmes are filmed and broadcast, as in 'back to the studio'."
+     "surface": "A street famous for its sound, though not a place for television.",
+     "walkthrough": "The surface suggests a street famous for music; 'not a' drops only the opening letter of the sound word, not both vowels.",
+     "definitionFit": "A studio is the room where television programmes are recorded or broadcast."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "not"
+     "misdirectedWord": "sound"
     }
    }
   },

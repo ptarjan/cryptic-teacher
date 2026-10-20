@@ -477,43 +477,51 @@
        "indicators": [
         {
          "text": "Discovered",
-         "note": "dis-covered means with its cover removed, so the outer letters are stripped away"
+         "at": 0,
+         "note": "dis-covered: with its cover, the outer letters, taken off"
         }
        ],
        "parts": [
         {
          "words": "Lille",
-         "note": "the city name without its first and last letters"
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "hospital",
+       "at": 17,
+       "gives": "H",
+       "note": "H is the abbreviation for hospital, as on road signs"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "treated",
-         "note": "something treated has been processed or worked on, so the letters are reworked"
+         "at": 26,
+         "note": "treated means processed or worked on, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "hospital",
-         "gives": "H",
-         "note": "H is the map and road-sign abbreviation for hospital"
-        },
-        {
-         "words": "late husband",
-         "gives": "LATEH",
-         "note": "late as written plus H for husband"
+         "words": "late",
+         "at": 34
         }
        ]
+      },
+      {
+       "words": "husband's",
+       "at": 39,
+       "gives": "H",
+       "note": "H is the abbreviation for husband"
       }
      ]
     },
     "explanation": {
-     "surface": "A French hospital in Lille cared for a deceased husband who had been ill.",
-     "walkthrough": "Lille is a city in northern France; 'Discovered' means uncovered, not found.",
-     "definitionFit": "Ill health is a general state of being unwell, the same as sickness."
+     "surface": "A trip to a hospital in the French city of Lille where a husband's late illness was treated.",
+     "walkthrough": "'Discovered' means not found but dis-covered, its outer letters stripped; 'late' is anagram fodder, not a dead husband.",
+     "definitionFit": "Ill health is poor physical condition, a general state of sickness."
     },
     "features": {
      "answerInScene": true,
@@ -823,47 +831,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "Abandoning",
-       "note": "abandoning means leaving behind, so that letter is taken out of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Abandoning",
+         "at": 0,
+         "note": "abandoning means leaving behind, so the letter for son is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "son",
-         "gives": "S",
-         "note": "s is the genealogical abbreviation for son"
-        },
-        {
          "words": "Italian gentleman",
+         "at": 16,
          "gives": "SIGNORE",
-         "note": "signore is the Italian for sir or gentleman"
+         "note": "signore is the Italian word for a gentleman, like Mr"
         },
         {
-         "words": "departs",
-         "gives": "D",
-         "note": "d is the timetable abbreviation for departs"
+         "words": "son",
+         "at": 11,
+         "gives": "S"
         }
        ]
       },
       {
-       "gives": "SS"
+       "words": "departs",
+       "at": 34,
+       "gives": "D",
+       "note": "D is the timetable abbreviation for departs"
       }
      ]
     },
     "explanation": {
-     "surface": "An Italian man leaves his son and slips away without anyone seeing.",
-     "definitionFit": "Something ignored has been disregarded, passed over without attention, so it went unnoticed."
+     "surface": "An Italian man leaves his son and slips away without being seen.",
+     "walkthrough": "The comma makes 'Abandoning son' sound like a father deserting his child; it only drops a letter from the Italian title.",
+     "definitionFit": "Something ignored has been disregarded, so it goes unheeded."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Abandoning"
+     "misdirectedWord": "departs"
     }
    }
   },

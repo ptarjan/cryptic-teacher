@@ -1149,31 +1149,49 @@
      "indicators": [
       {
        "text": "on",
-       "note": "in a down clue, a piece that is on another sits on top of it"
+       "at": 8,
+       "note": "in a down clue the first piece sits on top of the second"
       }
      ],
      "parts": [
       {
        "words": "Embargo",
+       "at": 0,
        "gives": "BAN",
-       "note": "an embargo is a ban"
+       "note": "an embargo is a ban on trade"
       },
       {
-       "words": "domesticated, tailless",
-       "gives": "TAM",
-       "note": "TAME without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "tailless",
+         "at": 25,
+         "note": "tailless means the last letter of the word for domesticated is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "domesticated",
+         "at": 11,
+         "gives": "TAME",
+         "note": "a domesticated animal is tame"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ban placed on keeping a certain chicken without its tail feathers.",
-     "walkthrough": "'Tailless chicken' reads as one bird, but 'tailless' belongs to 'domesticated' and 'chicken' stands alone.",
-     "definitionFit": "By example: a small breed of domestic fowl."
+     "surface": "A ban imposed on a farmyard bird that is tame and has lost its tail.",
+     "walkthrough": "'tailless' takes the E off TAME, leaving TAM under BAN.",
+     "definitionFit": "A bantam is a small breed of domestic fowl, a type of hen."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "tailless"
+     "misdirectedWord": "Embargo"
     }
    }
   },
