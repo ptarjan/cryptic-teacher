@@ -50,16 +50,16 @@ assert(workflows.includes("tests.yml") && workflows.includes("pages.yml"),
 
 const grouped = (f) => /^\s*concurrency\s*:/m.test(undecorated(read(f)));
 
-/* --- the test workflow never kills a running suite, and branches do not share a queue ---
-   The groups are on the jobs: the puzzle fast path has its own, so it never
-   waits behind a running full suite, and every full-suite job (each shard's
-   own) is grouped per branch. */
+/* --- the test workflow never cancels a run ---
+   No job has a group: GitHub cancels a PENDING run when a newer one joins its
+   group, and a cancelled run shows as a red X. A superseded run instead gets
+   mode=skip from the scope job and concludes green. */
 const testsBody = undecorated(read("tests.yml"));
 const groups = [...testsBody.matchAll(/^\s+group:\s*(.*)$/gm)].map((m) => m[1]);
 assert(!/^concurrency:/m.test(testsBody),
   "tests.yml has no workflow-level group: it would queue the fast path behind a full suite");
-assert(groups.length === 1 && /^tests-fast-.*\$\{\{\s*github\.ref\s*\}\}/.test(groups[0]),
-  "the only tests.yml group is the puzzle fast path's, per branch; a group on a full-suite job lets the next push cancel the pending run and starve the suite: " + groups.join(" | "));
+assert(groups.length === 0,
+  "tests.yml has no concurrency group: a group lets the next push cancel the pending run, which shows as a red X: " + groups.join(" | "));
 assert(!/cancel-in-progress:\s*true/.test(testsBody) && (testsBody.match(/^\s+cancel-in-progress:\s*false\s*$/gm) || []).length === groups.length,
   "every group says cancel-in-progress: false, so a running suite is never killed and pushes cannot starve it");
 /* --- and the deploy is in a group, so a check living there can still be cancelled --- */
