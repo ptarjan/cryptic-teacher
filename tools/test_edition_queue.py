@@ -235,6 +235,10 @@ ordered = eq.by_urgency([(2, 0, 0, gu("g61", "1961-05-01")), (2, 0, 1, gu("g70",
                          (2, 1, 0, {**unit_c, "date": "2000-01-01"}), (1, 1, 1, {**unit_n, "date": "1990-01-01"}),
                          (1, 0, 2, {**unit_n, "rel": "gnew", "paper": "gale", "date": "2001-01-01"})])
 check("canary: after the never-read work, ahead of other rereads", ["gnew", "X/n", "g61"], [u["rel"] for u in ordered][:3])
+check("canary: alternates with other papers' never-read work", ["gnew", "X/n", "g61", "X/m"],
+      [u["rel"] for u in eq.by_urgency([(2, 0, 0, gu("g61", "1961-05-01")), (1, 1, 1, {**unit_n, "date": "1990-01-01"}),
+                                        (1, 1, 2, {**unit_n, "rel": "X/m", "date": "1989-01-01"}),
+                                        (1, 0, 2, {**unit_n, "rel": "gnew", "paper": "gale", "date": "2001-01-01"})])])
 del os.environ["CT_NEWEST_FIRST"]
 
 # ---- low-yield Trove years wait while other never-read units remain
