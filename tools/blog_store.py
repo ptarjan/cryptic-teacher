@@ -29,7 +29,7 @@ def body_of_line(line):
 
 
 def encode(row):
-    from blog_facts import order  # the schema's key order, so a file is the same bytes whoever writes it
+    from puzzle_schema import order  # the schema's key order, so a file is the same bytes whoever writes it
     return json.dumps(order({**row, "entries": dict(sorted(row["entries"].items()))}, "#/$defs/blogFacts"),
                       ensure_ascii=False) + "\n"
 
