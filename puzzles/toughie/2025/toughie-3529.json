@@ -1421,27 +1421,27 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
      "indicators": [
+      {
+       "text": "moves",
+       "at": 45,
+       "note": "moves says one letter shifts position within the string"
+      },
       {
        "text": "to the front",
        "at": 57,
-       "note": "to the front means the moved letter now leads the whole word"
+       "note": "to the front says where the shifted letter goes: the start"
       }
      ],
      "parts": [
-      {
-       "words": "right",
-       "at": 51,
-       "gives": "R"
-      },
       {
        "op": "charade",
        "indicators": [
         {
          "text": "after",
          "at": 31,
-         "note": "after means the fruits come after the alumnus in the answer"
+         "note": "after places the fruits behind the former pupil in the string"
         }
        ],
        "parts": [
@@ -1449,42 +1449,31 @@
          "words": "alumnus",
          "at": 37,
          "gives": "OB",
-         "note": "OB stands for old boy, a former pupil or alumnus"
+         "note": "OB, old boy, is a former pupil"
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "moves",
-           "at": 45,
-           "note": "the letter that moves leaves its original position in the fruits"
-          }
-         ],
-         "parts": [
-          {
-           "words": "fruits",
-           "at": 24,
-           "gives": "BERRIES",
-           "note": "berries are small fruits"
-          },
-          {
-           "gives": "R"
-          }
-         ]
+         "words": "fruits",
+         "at": 24,
+         "gives": "BERRIES",
+         "note": "berries are small fruits"
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 51,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "An old student follows some fruit-picking, then the right-hand one goes up front: a sequence of raids.",
-     "walkthrough": "OB (old boy) followed by BERRIES gives OBBERRIES; 'moves' takes the first R out of the berries and 'to the front' puts it at the start.",
-     "definitionFit": "Robberies are acts of theft, each one an instance of plundering someone's property."
+     "surface": "A former pupil helps himself to fruit, then slips to the front of the queue.",
+     "definitionFit": "Robberies are acts of theft, each an instance of plundering property."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "fruits"
+     "misdirectedWord": "right"
     }
    }
   },

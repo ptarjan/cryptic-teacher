@@ -487,42 +487,43 @@
      "parts": [
       {
        "words": "horse",
+       "at": 12,
        "gives": "MOUNT",
-       "note": "a mount is a horse you ride"
+       "note": "a mount is a horse for riding"
       },
       {
-       "words": "top-class condition",
+       "words": "in top-class condition",
+       "at": 18,
        "gives": "AI",
-       "note": "A1 = top-class, with the 1 read as the letter I"
+       "note": "A1 means first-rate, written here as the letters AI"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "heading for",
-         "note": "the heading of a word is its first letter"
+         "at": 41,
+         "note": "heading for means just the first letter of the next word"
         }
        ],
        "parts": [
         {
-         "words": "heading for Newmarket",
-         "gives": "NEWMARKET",
-         "note": "first letter of NEWMARKET"
+         "words": "Newmarket",
+         "at": 53
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Ben has a horse in peak condition heading for the racecourse at Newmarket.",
-     "walkthrough": "Ben is not a man but a Scottish word for a mountain, as in Ben Nevis; 'maybe' marks it as an example. Newmarket is the centre of English horse racing.",
-     "definitionFit": "A definition by example: ben is the Scots word for a peak, so any Ben is one instance of the answer."
+     "surface": "Ben's racehorse is in peak shape and heading off to Newmarket.",
+     "walkthrough": "Newmarket is England's horseracing town; Ben is a Scottish word for a mountain, as in Ben Nevis.",
+     "definitionFit": "Ben is the Scottish word for a mountain peak, as in Ben Nevis."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Ben"
+     "misdirectedWord": "Ben's"
     }
    }
   },
@@ -943,28 +944,43 @@
      "parts": [
       {
        "words": "European Commission",
-       "gives": "EC",
-       "note": "EC = European Commission"
+       "at": 0,
+       "gives": "EC"
       },
       {
        "words": "man",
+       "at": 20,
        "gives": "HE",
-       "note": "he = a man"
+       "note": "he stands for a man"
       },
       {
-       "words": "alone uncovered",
-       "gives": "LON",
-       "note": "ALONE without its first and last letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 30,
+         "note": "uncovered means the outer letters are stripped off the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alone",
+         "at": 24,
+         "gives": "ALONE"
+        },
+        {
+         "gives": "AE"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lone official at the European Commission, exposed within the organisation's hierarchy.",
-     "walkthrough": "Setters often use 'uncovered' to strip both outer letters, not just the first.",
-     "definitionFit": "Originally a military term for a stepped troop formation, now used for any tier of a hierarchy, as in the upper echelons."
+     "surface": "A lone official at the European Commission is exposed, rank and all.",
+     "definitionFit": "An echelon is a level or grade within a hierarchy such as an army or company."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "uncovered"
     }

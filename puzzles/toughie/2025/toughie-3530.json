@@ -1425,46 +1425,48 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "With no",
+       "at": 0,
+       "note": "with no means the knights are taken away from the two words"
+      },
+      {
+       "text": "remaining",
+       "at": 16,
+       "note": "remaining describes the letters left over once the knights go"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "With no knights remaining",
-         "note": "the knights are removed entirely, so each word is left without them"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "revolution",
+         "at": 27,
          "gives": "TURN",
-         "note": "a revolution is a turn"
+         "note": "a turn is one revolution"
         },
         {
-         "gives": "N"
+         "words": "split",
+         "at": 38,
+         "gives": "RENT",
+         "note": "a rent is a split or tear"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "split",
-         "gives": "RENT",
-         "note": "a rent is a split or tear"
-        },
-        {
-         "gives": "N"
-        }
-       ]
+       "words": "knights",
+       "at": 8,
+       "gives": "NN",
+       "note": "N is the chess notation for a knight; two knights, one from each word"
       }
      ]
     },
     "explanation": {
-     "surface": "After a revolution, no knights remain and the castle is divided.",
-     "walkthrough": "N is the chess notation for knight; both words lose it.",
-     "definitionFit": "A turret is a small tower projecting from the walls of a castle, so it is one component of that building."
+     "surface": "Once the knights are gone, an uprising divides the castle.",
+     "definitionFit": "A turret is a small tower set on a castle wall or corner."
     },
     "features": {
      "answerInScene": true,
@@ -1668,55 +1670,45 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "importing",
-       "note": "to import is to bring in, so one part is placed inside the other"
+       "text": "from the East",
+       "at": 39,
+       "note": "in an across clue, from the East means reading right to left"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "from the East",
-         "note": "in an across answer, going from the east is reading right to left"
+         "text": "importing",
+         "at": 19,
+         "note": "importing means the paired words bring the next pieces inside them"
         }
        ],
        "parts": [
         {
          "words": "likes",
-         "gives": "AS",
-         "note": "as means like; likes gives two of them"
-        }
-       ]
-      },
-      {
-       "op": "container",
-       "parts": [
-        {
-         "words": "likes",
-         "gives": "AS",
-         "note": "the second of the pair"
+         "at": 13,
+         "gives": "ASAS",
+         "note": "as means like, and the plural likes gives it twice"
         },
         {
-         "op": "reversal",
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "dead",
-             "gives": "SO",
-             "note": "dead as in dead good, meaning so or very"
-            },
-            {
-             "words": "fish",
-             "gives": "GAR",
-             "note": "the gar is a long-snouted fish"
-            }
-           ]
+           "words": "dead",
+           "at": 29,
+           "gives": "SO",
+           "note": "dead means absolutely (dead right), and so is slang for very or absolutely"
+          },
+          {
+           "words": "fish",
+           "at": 34,
+           "gives": "GAR",
+           "note": "the gar is a long-snouted fish"
           }
          ]
         }
@@ -1725,12 +1717,11 @@
      ]
     },
     "explanation": {
-     "surface": "A Spanish city buys in dead fish from the Orient.",
-     "walkthrough": "'Likes' is the plural of the word for 'like', so it supplies AS twice, one each side.",
-     "definitionFit": "Saragossa is the English spelling of Zaragoza, the capital of Aragon in north-eastern Spain."
+     "surface": "A city in Spain enjoys bringing in dead fish from Asia.",
+     "definitionFit": "Saragossa (Zaragoza) is a city in north-east Spain, capital of Aragon."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "likes"
     }

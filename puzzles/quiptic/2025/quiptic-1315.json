@@ -109,29 +109,47 @@
      "parts": [
       {
        "words": "in",
-       "note": "used as itself"
+       "at": 5
       },
       {
        "words": "food shop",
+       "at": 8,
        "gives": "DELI",
-       "note": "a deli is a delicatessen"
+       "note": "a deli, delicatessen, is a food shop"
       },
       {
-       "words": "provide grub not right",
-       "gives": "CATE",
-       "note": "CATER (provide grub) without R"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 32,
+         "note": "not means the letter for right is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "provide grub",
+         "at": 19,
+         "gives": "CATER",
+         "note": "to cater is to provide food"
+        },
+        {
+         "words": "right",
+         "at": 36,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone behaves badly in a delicatessen while the kitchen serves the wrong food.",
-     "walkthrough": "'in' looks like a link placing the rudeness in a shop, but it is the first two letters of the answer.",
-     "definitionFit": "Indelicate means coarse or tactless, which is to say rude."
+     "surface": "A customer in a food shop complains about the meal provided.",
+     "definitionFit": "Indelicate means lacking tact or refinement, coarse or improper in manner."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "in"
+     "misdirectedWord": "Rude"
     }
    }
   },

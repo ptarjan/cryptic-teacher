@@ -534,26 +534,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "infiltrating"
+       "text": "infiltrating",
+       "at": 20,
+       "note": "infiltrating means the cut name gets inside the compass letters"
       }
      ],
      "parts": [
       {
        "words": "South East",
-       "gives": "SE",
-       "note": "S and E, the compass-point abbreviations for south and east"
+       "at": 33,
+       "gives": "SE"
       },
       {
-       "words": "Patel not finished",
-       "gives": "PRIT",
-       "note": "PRITI Patel without her last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not finished",
+         "at": 7,
+         "note": "not finished means the last letter of the first name is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Patel",
+         "at": 1,
+         "gives": "PRITI",
+         "note": "Priti Patel is a British Conservative politician and former Home Secretary"
+        },
+        {
+         "gives": "I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The satirical Gnome, Private Eye's mock proprietor, reports Priti Patel seeping into the South East.",
-     "walkthrough": "Priti Patel is a Conservative politician and former Home Secretary; Lord Gnome is Private Eye's fictional owner, so the quotation looks like his byline.",
-     "definitionFit": "A sprite is a fairy or elf, the same order of small creature as a gnome."
+     "surface": "Private Eye's proprietor Lord Gnome reports on a politician's unfinished infiltration of the South East.",
+     "walkthrough": "Lord Gnome is Private Eye's fictional proprietor, so the clue reads as one of his headlines.",
+     "definitionFit": "A sprite is a fairy or elf, the same kind of small supernatural being as a gnome."
     },
     "features": {
      "answerInScene": false,
@@ -783,52 +801,57 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "comes up",
-       "note": "in a down entry, RAG read upwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "raving",
-         "note": "a raving jumble of letters"
+         "text": "comes up",
+         "at": 16,
+         "note": "comes up means in a down clue the word is read upwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "not Independent",
-           "note": "the I for Independent is taken out"
-          }
-         ],
-         "parts": [
-          {
-           "words": "newspaper",
-           "gives": "GAR",
-           "note": "a rag is a disreputable newspaper, reversed"
-          },
-          {
-           "words": "nut again",
-           "gives": "NUTAGAN",
-           "note": "anagram fodder: NUT plus AGAIN minus I"
-          }
-         ]
+         "words": "newspaper",
+         "at": 6,
+         "gives": "RAG",
+         "note": "rag is slang for a newspaper"
+        }
+       ]
+      },
+      {
+       "op": "composite",
+       "indicators": [
+        {
+         "text": "raving",
+         "at": 30,
+         "note": "raving means mad, wild, so the letters are jumbled"
+        },
+        {
+         "text": "not",
+         "at": 48,
+         "note": "not means the Independent letter is excluded from the jumble"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nut again",
+         "at": 37
+        },
+        {
+         "words": "Independent",
+         "at": 52,
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A big newspaper runs another story on a raving crank, but the Independent stays out of it.",
-     "walkthrough": "'Large newspaper' wants to be a broadsheet; Large is the definition and the paper is a rag. I = Independent is a standard abbreviation.",
-     "definitionFit": "Gargantuan means enormous, after Rabelais's giant Gargantua."
+     "surface": "A paper is mocked for printing a raving crank's claims yet again.",
+     "definitionFit": "Gargantuan, from Rabelais's giant Gargantua, means enormous."
     },
     "features": {
      "answerInScene": false,
