@@ -173,42 +173,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "interrupted more than once by",
-       "note": "the snooper is broken into at two places"
+       "text": "interrupted",
+       "at": 8,
+       "note": "being interrupted by a letter means having it break into the word"
       }
      ],
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "more than once",
+         "at": 20,
+         "note": "the interruption happens twice, so a second copy goes in"
+        }
+       ],
        "parts": [
         {
          "words": "Snooper",
+         "at": 0,
          "gives": "NOSER",
-         "note": "a noser pokes their nose into things"
+         "note": "a noser is one who noses about, a snooper"
         },
         {
          "words": "one",
+         "at": 38,
          "gives": "I",
-         "note": "one = I, the Roman numeral, first time"
+         "note": "I is the Roman numeral for one"
         }
        ]
       },
       {
        "words": "one",
-       "gives": "I",
-       "note": "the same I again, as 'more than once' allows"
+       "at": 38,
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone louder keeps butting in on an eavesdropper.",
-     "walkthrough": "'More than once' licenses using I twice: once after NO and again after S.",
-     "definitionFit": "Vociferous means loud and insistent, so the comparative is a plain synonym for making more noise."
+     "surface": "A busybody keeps being cut off by someone louder.",
+     "walkthrough": "The snooper is one who noses about; a single I breaks into it in two places, once after the O and once after the S.",
+     "definitionFit": "Someone vociferous is loud and clamorous, so being more vociferous means making more noise."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "one"
+     "misdirectedWord": "Snooper"
     }
    }
   },
@@ -1471,40 +1481,42 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "knocked back",
-       "note": "the drink is turned back to front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "river",
+       "at": 22,
+       "gives": "CAM",
+       "note": "the Cam is the river through Cambridge"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "knocked back",
+         "at": 6,
+         "note": "knocked back means turned backwards here, as well as hinting at drinking"
+        }
+       ],
        "parts": [
         {
          "words": "Drink",
+         "at": 0,
          "gives": "SUP",
-         "note": "SUP, to drink, turned round"
-        },
-        {
-         "words": "river",
-         "gives": "MAC",
-         "note": "the Cam flows through Cambridge"
+         "note": "to sup is to drink"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Undergraduates downing drinks by the river.",
-     "walkthrough": "'Knocked back' is drinking slang but here turns SUP round; 'by' puts it after the river.",
-     "definitionFit": "A descriptive definition: a university's grounds, with its halls and lecture buildings, are where students both sleep and study."
+     "surface": "Students down drinks by the river near their college.",
+     "walkthrough": "'knocked back' looks like drinking, but it signals SUP reversed to PUS.",
+     "definitionFit": "A campus is the grounds of a university, where students are housed and study."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "knocked"
     }
    }

@@ -1344,31 +1344,49 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about = round the outside of, so the panic's letters surround the rest"
+       "at": 6,
+       "note": "the panic word goes round the other letters"
       }
      ],
      "parts": [
       {
        "words": "Panic",
+       "at": 0,
        "gives": "SCARE",
-       "note": "a scare = a panic; it goes around the rest"
+       "note": "a scare is a panic"
       },
       {
-       "words": "a lot of good",
-       "gives": "KIN",
-       "note": "KIND (good) without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 12,
+         "note": "a lot of means most of it, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "good",
+         "at": 21,
+         "gives": "KIND",
+         "note": "kind means good-hearted"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Alarm over how much good some make-up really does.",
-     "walkthrough": "'Panic about' looks like a phrase meaning to fret over; 'about' is the container instruction.",
-     "definitionFit": "Skincare is a cosmetic use, the looking after of one's complexion."
+     "surface": "A fright over much of the good done by make-up.",
+     "walkthrough": "'good' is read as the adjective meaning kind-hearted, and 'a lot of' keeps all but its final letter.",
+     "definitionFit": "Skincare is the use of creams and lotions to keep skin healthy, a cosmetic practice."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "good"
     }
    }
   },
@@ -1513,7 +1531,7 @@
       {
        "text": "carried by",
        "at": 12,
-       "note": "carried by means held inside, so the barrel's letters go within the reversed setter letters"
+       "note": "something carried by another piece is held inside it"
       }
      ],
      "parts": [
@@ -1523,15 +1541,33 @@
         {
          "text": "retired",
          "at": 23,
-         "note": "retired means withdrawn or gone back, so the letters are read backwards"
+         "note": "retired means withdrawn or gone back, so the letters are reversed"
         }
        ],
        "parts": [
         {
-         "words": "setter repeatedly",
-         "at": 31,
-         "gives": "MEME",
-         "note": "the setter refers to themself as me, and repeatedly gives it twice"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "at": 38,
+           "note": "the reversed pronoun is given a second time"
+          }
+         ],
+         "parts": [
+          {
+           "words": "setter",
+           "at": 31,
+           "gives": "ME",
+           "note": "the crossword setter refers to themselves as me"
+          },
+          {
+           "words": "setter",
+           "at": 31,
+           "gives": "ME",
+           "note": "the setter's me again, for the second copy"
+          }
+         ]
         }
        ]
       },
@@ -1539,14 +1575,14 @@
        "words": "barrel",
        "at": 5,
        "gives": "BL",
-       "note": "BL is a standard abbreviation for barrel"
+       "note": "BL is an abbreviation for barrel"
       }
      ]
     },
     "explanation": {
-     "surface": "A cask mark keeps getting moved by a setter who has stopped working.",
-     "walkthrough": "The setter is 'me', the compiler speaking, and 'repeatedly' doubles it. 'retired' turns the pair round, and the barrel is 'carried by' the result, sitting between the two halves.",
-     "definitionFit": "An emblem is a symbol or badge, a sign that serves as a mark of identity."
+     "surface": "A barrel is borne along by a crossword setter who has retired again and again.",
+     "walkthrough": "Setters often call themselves 'me'; here that pronoun appears twice and is read backwards, with the barrel abbreviation held between the two copies.",
+     "definitionFit": "An emblem is a symbol or badge, a distinguishing mark."
     },
     "features": {
      "answerInScene": false,
