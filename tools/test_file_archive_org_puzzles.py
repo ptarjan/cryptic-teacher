@@ -1714,6 +1714,10 @@ check("a title behind a word the OCR ran in from the next column; box from the t
 check("a comma the OCR reads as ? or ^", [3034, 4780],
       [n for t in ("F.T. CROSSWORD PUZZLE No. 3?034 r", "F.T. CROSSWORD PUZZLE No. 4^780")
        for n, _, _ in f.ft_headings([line(t, 291, 2180)])[0]])
+check("1987 weekday title with WORD lost to the print", [6319],
+      [n for n, _, _ in f.ft_headings([line("FT  CROSS PUZZLE No. 6,319", 291, 2180)])[0]])
+check("a lone \"cross\" and a number is no title", [],
+      f.ft_headings([line("cross No. 6,319", 291, 2180)])[0])
 check("a no-crossword notice over the solution's number is no title", [],
       f.ft_headings([line("No crossword appears in today's", 586, 3307), line("puzzle. No 5,355, will be pub-", 586, 3399)])[0])
 check("prose with a crossword in it and no number is no title", [],

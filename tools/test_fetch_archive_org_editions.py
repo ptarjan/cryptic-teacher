@@ -66,8 +66,8 @@ check("prior leaves: the last, and the siblings' crossword leaves front and back
 check("a sibling's Concise page is no prior", 5 not in prior)
 ft87 = tempfile.mkdtemp() + "/FinancialTimes1987UKEnglish"
 os.makedirs(f"{ft87}/1987-01-06_1")
-check("1987 FT: the leaves 12 and 11 from the end are prior (the unit trust page)",
-      {22, 23} <= set(fa.prior_leaves(f"{ft87}/1987-01-06_1", 34)))
+check("1987 FT: the leaves 10 to 13 from the end are prior (the unit trust page)",
+      {21, 22, 23, 24} <= set(fa.prior_leaves(f"{ft87}/1987-01-06_1", 34)))
 check("other items' priors are untouched", 22 not in fa.prior_leaves(f"{item}/1980-04-16_2", 34))
 page = lambda t: (100, 200, t)
 blank =[page("news " * 60)] * 28
