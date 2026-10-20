@@ -553,24 +553,42 @@
      "parts": [
       {
        "words": "Very short",
+       "at": 0,
        "gives": "MINI",
-       "note": "mini = very short, as in a miniskirt"
+       "note": "mini means very short, as in a miniskirt"
       },
       {
-       "words": "severe cut",
-       "gives": "STER",
-       "note": "STERN (severe) cut of its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 22,
+         "note": "cut means shortened, so the severe word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "severe",
+         "at": 15,
+         "gives": "STERN",
+         "note": "stern means severe"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A barber's order: a very short, severe haircut for the priest.",
-     "walkthrough": "'Severe cut' reads as a harsh haircut; 'cut' is an instruction to clip STERN.",
-     "definitionFit": "A minister is a member of the clergy, a priest or pastor."
+     "surface": "A priest gets an extreme short haircut.",
+     "walkthrough": "'Very short and severe cut' reads like a haircut, but MINI is one piece and STERN cut short is the other.",
+     "definitionFit": "A minister is a member of the clergy, especially in Protestant churches."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "cut"
     }
    }

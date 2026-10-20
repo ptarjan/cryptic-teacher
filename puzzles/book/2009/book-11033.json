@@ -578,56 +578,61 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "sent back",
+       "at": 28,
+       "note": "sent back means turned around, so the whole is read backwards"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "sent back",
-         "note": "sending something back returns it the way it came, so the letters are read in the opposite direction"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "op": "container",
          "indicators": [
           {
            "text": "keeping",
-           "note": "to keep something is to hold it inside, so the first word wraps around the second"
+           "at": 9,
+           "note": "keeping means holding, so the hot letter goes inside after the I"
           }
          ],
          "parts": [
           {
            "words": "I'm",
+           "at": 5,
            "gives": "IAM",
-           "note": "I'm expanded to I am"
+           "note": "I'm is short for I am"
           },
           {
            "words": "hot",
+           "at": 17,
            "gives": "H",
-           "note": "H is the abbreviation for hot, as on a tap"
+           "note": "H is the tap abbreviation for hot"
           }
          ]
+        },
+        {
+         "words": "twice",
+         "at": 22,
+         "gives": "IHAM",
+         "note": "twice asks for the I'm-keeping-hot piece a second time"
         }
        ]
-      },
-      {
-       "words": "twice",
-       "gives": "MAHI",
-       "note": "twice means the finished chunk is written out a second time"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone keeps their fish warm but it keeps being returned to the kitchen.",
-     "walkthrough": "I AM holding H gives IHAM; turned round that is MAHI, and doing it twice gives MAHI-MAHI.",
-     "definitionFit": "The mahi-mahi, also called dorado or dolphinfish, is a large ocean game fish common on restaurant menus."
+     "surface": "Someone keeps a dish warm but has it returned twice.",
+     "walkthrough": "I AM holding H gives IHAM; twice gives IHAMIHAM, and sent back that reads as the fish's doubled name.",
+     "definitionFit": "Mahi-mahi is a large tropical game fish, also called dolphinfish or dorado."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sent"
+     "misdirectedWord": "hot"
     }
    }
   },

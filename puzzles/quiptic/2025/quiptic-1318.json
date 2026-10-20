@@ -288,7 +288,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "maximum pace",
+      "text": "maximum pace?",
       "at": 38
      }
     ],
@@ -297,30 +297,45 @@
      "indicators": [
       {
        "text": "about",
-       "note": "the letters are moved about"
+       "at": 24,
+       "note": "about means scattered around, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "A lot of sheepdogs",
-       "gives": "SHEEPDOG",
-       "note": "SHEEPDOGS without its final S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of means most but not all, so the dogs' word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sheepdogs",
+         "at": 9
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
        "words": "flit",
-       "note": "added to the fodder, 12 letters in all"
+       "at": 19
       }
      ]
     },
     "explanation": {
-     "surface": "Sheepdogs darting around a field at top speed.",
-     "walkthrough": "The question mark admits the definition is loose: the speed of light is the top speed in physics.",
-     "definitionFit": "Nothing can travel faster than the speed of light, so it is the maximum pace."
+     "surface": "Collies dart around a field at top speed.",
+     "walkthrough": "SHEEPDOG (most of sheepdogs) plus FLIT, rearranged.",
+     "definitionFit": "Nothing can travel faster than light, so its velocity is the ultimate speed limit."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "sheepdogs"
+     "misdirectedWord": "flit"
     }
    }
   },

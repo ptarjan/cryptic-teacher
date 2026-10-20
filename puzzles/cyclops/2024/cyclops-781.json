@@ -1542,25 +1542,43 @@
      "parts": [
       {
        "words": "old politician",
+       "at": 6,
        "gives": "LIB",
-       "note": "LIB = Liberal, a party that became the Liberal Democrats"
+       "note": "LIB is short for a Liberal, a member of the old Liberal Party"
       },
       {
-       "words": "gooey stuff? Not good",
-       "gives": "EL",
-       "note": "GEL, gooey stuff, without G for good"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not",
+         "at": 39,
+         "note": "not good says the good letter is dropped from the gooey word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gooey stuff",
+         "at": 26,
+         "gives": "GEL",
+         "note": "gel is a gooey substance"
+        },
+        {
+         "words": "good",
+         "at": 43,
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mudslinging campaign against an old politician, pelting him with goo.",
-     "walkthrough": "'Smear' plays on the goo in the surface; here it is a defamatory attack.",
-     "definitionFit": "A libel is a published smear on someone's reputation."
+     "surface": "A dirty-tricks campaign covering a former politician in slime.",
+     "walkthrough": "The Liberals were the old British party before the Liberal Democrats.",
+     "definitionFit": "A libel is a false published statement damaging someone's reputation, a written slur."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Smear"
     }
    }

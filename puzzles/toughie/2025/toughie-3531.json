@@ -44,13 +44,6 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "after",
-       "at": 41,
-       "note": "the word for stopped working, short of its moved letter, is placed after the current"
-      }
-     ],
      "parts": [
       {
        "op": "last",
@@ -58,30 +51,23 @@
         {
          "text": "ultimately",
          "at": 14,
-         "note": "ultimately points to the final letter of Forces"
+         "note": "ultimately points to the final letter of the word forces"
         }
        ],
        "parts": [
         {
          "words": "Forces",
-         "at": 7,
-         "note": "its last letter"
+         "at": 7
         }
        ]
       },
       {
-       "words": "current",
-       "at": 47,
-       "gives": "I",
-       "note": "I is the symbol for electric current"
-      },
-      {
-       "op": "deletion",
+       "op": "move",
        "indicators": [
         {
          "text": "advances",
          "at": 55,
-         "note": "the current in the word for stopped working moves forward out of its place to the front, so it is taken out where it sat"
+         "note": "advances says the current letter moves forward in the word for stopped working"
         }
        ],
        "parts": [
@@ -89,24 +75,27 @@
          "words": "stopped working",
          "at": 25,
          "gives": "DIED",
-         "note": "a machine that has stopped working has died"
+         "note": "died means stopped working, as a battery or engine dies"
         },
         {
-         "gives": "I"
+         "words": "current",
+         "at": 47,
+         "gives": "I",
+         "note": "I is the physics symbol for current"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A war report: the Allied Forces finally ground to a halt after the latest push.",
-     "walkthrough": "'Allied Forces' reads as one military phrase, but the definition ends at Allied. 'advances' is not a military push: it moves the current symbol forward within the word for stopped working.",
-     "definitionFit": "Someone who has sided with another has taken their part, so is allied with them."
+     "surface": "The Allied armies ground to a halt after electricity came through.",
+     "walkthrough": "DIED with its I moved one place forward becomes IDED.",
+     "definitionFit": "To have sided with someone is to have taken their part, joining forces with them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "current"
+     "misdirectedWord": "Forces"
     }
    }
   },
@@ -320,42 +309,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "circulated",
-       "note": "things circulated are moved around, so the letters are mixed into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
          "text": "term in",
-         "note": "a term is an end point, so the end of the following word supplies one letter"
+         "at": 12,
+         "note": "a term is a limit or end, so the end in the word saint is its final letter"
         }
        ],
        "parts": [
         {
          "words": "Saint",
-         "note": "the final letter of Saint"
+         "at": 20
         }
        ]
       },
       {
-       "words": "Martins",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "circulated",
+         "at": 34,
+         "note": "circulated means sent around, so the letters of the name are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Martins",
+         "at": 26
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A term report from St Martin's school is passed round.",
-     "walkthrough": "'Term' looks like a school term; it means the end of Saint.",
-     "definitionFit": "To transmit news is to pass it on or broadcast it, as a report does."
+     "surface": "A report passed round the staff of St Martin's art college during term.",
+     "walkthrough": "The final T of Saint, then MARTINS rearranged.",
+     "definitionFit": "To transmit is to broadcast or send out a message, so to put it about."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "term"
     }

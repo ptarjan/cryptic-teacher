@@ -1188,20 +1188,38 @@
      "parts": [
       {
        "words": "Doctor",
-       "gives": "DR",
-       "note": "Dr = doctor"
+       "at": 0,
+       "gives": "DR"
       },
       {
-       "words": "highly talented but not good",
-       "gives": "IFTED",
-       "note": "GIFTED without G (good)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 28,
+         "note": "not good tells us to lose the good letter from the talented word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "highly talented",
+         "at": 8,
+         "gives": "GIFTED",
+         "note": "gifted means highly talented"
+        },
+        {
+         "words": "good",
+         "at": 32,
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gifted but flawed doctor never put down roots anywhere.",
-     "walkthrough": "G for good is a standard abbreviation, so 'not good' takes the G out of GIFTED.",
-     "definitionFit": "Someone who drifted moved from place to place and failed to settle."
+     "surface": "A brilliant but unpleasant doctor never managed to put down roots.",
+     "walkthrough": "'But not good' looks like a judgement of the doctor's character; it removes G from GIFTED, leaving IFTED.",
+     "definitionFit": "To drift is to wander aimlessly without settling anywhere, like a boat moved by the current."
     },
     "features": {
      "answerInScene": false,
