@@ -454,35 +454,51 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
-       "text": "patrolling",
-       "note": "patrolling means moving all round an area, so one piece is enclosed by the other"
+       "text": "repeatedly",
+       "at": 15,
+       "note": "repeatedly says the agency's letters come twice"
       }
      ],
      "parts": [
       {
-       "words": "Federal agents repeatedly",
-       "gives": "DEADEA",
-       "note": "the DEA is the US Drug Enforcement Administration, written twice"
+       "words": "Federal agents",
+       "at": 0,
+       "gives": "DEA",
+       "note": "the DEA is the US Drug Enforcement Administration"
       },
       {
-       "words": "southern",
-       "gives": "S",
-       "note": "S is the abbreviation for southern"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "patrolling",
+         "at": 26,
+         "note": "patrolling means going around an area, so the agents surround the letter for southern"
+        }
+       ],
+       "parts": [
+        {
+         "gives": "DEA"
+        },
+        {
+         "words": "southern",
+         "at": 37,
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "American agents repeatedly patrolling a lake in the south.",
-     "walkthrough": "Federal agents tempts toward FBI or G-men; the doubled agency is the drug enforcement one.",
-     "definitionFit": "This salt lake between Israel and Jordan is the lowest point on land, so salty that swimmers float."
+     "surface": "US drug agents keep patrolling a southern lake.",
+     "definitionFit": "The Dead Sea is a salt lake bordering Israel and Jordan."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "repeatedly"
+     "misdirectedWord": "Federal"
     }
    }
   },

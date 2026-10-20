@@ -1343,7 +1343,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Explorer's",
+      "text": "Explorer",
       "at": 0
      }
     ],
@@ -1352,24 +1352,23 @@
      "parts": [
       {
        "words": "maiden",
+       "at": 11,
        "gives": "M",
        "note": "M is the cricket abbreviation for a maiden over"
       },
       {
-       "op": "deletion",
+       "op": "last",
        "indicators": [
         {
          "text": "cut by 50%",
-         "note": "cutting something by half removes half its length, so only part of the word survives"
+         "at": 25,
+         "note": "cut by half leaves only the last three of the six letters of voyage"
         }
        ],
        "parts": [
         {
          "words": "voyage",
-         "note": "taken as written; its first half is dropped"
-        },
-        {
-         "gives": "VOY"
+         "at": 18
         }
        ]
       },
@@ -1378,38 +1377,42 @@
        "indicators": [
         {
          "text": "turned",
-         "note": "something turned faces the other way, so the word reads backwards"
+         "at": 46,
+         "note": "turned means reversed, so the word for everyone is read backwards"
         }
        ],
        "parts": [
         {
          "words": "everyone",
+         "at": 37,
          "gives": "ALL",
-         "note": "everyone is all"
+         "note": "everyone means all"
         }
        ]
       },
       {
-       "op": "last",
+       "op": "nth",
+       "n": 6,
        "indicators": [
         {
          "text": "back to",
-         "note": "the back of a word is its end, so only its last letter is used"
+         "at": 53,
+         "note": "the back of a word is its final letter, here the sixth and last letter of Lisbon"
         }
        ],
        "parts": [
         {
          "words": "Lisbon",
-         "note": "the last letter of Lisbon"
+         "at": 61
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An explorer's first voyage was halved and everyone sailed back to Lisbon.",
-     "walkthrough": "The definition reads as 'Explorer is'. In cricket a maiden is an over with no runs, abbreviated M.",
-     "definitionFit": "Ferdinand Magellan was the Portuguese navigator whose expedition first sailed around the world."
+     "surface": "A sailor's first voyage is halved, everyone heading back to Lisbon.",
+     "walkthrough": "'maiden voyage' reads as one phrase, but maiden is just M, and halving VOYAGE keeps its back half AGE.",
+     "definitionFit": "Ferdinand Magellan was a Portuguese navigator who led the first voyage round the world."
     },
     "features": {
      "answerInScene": true,

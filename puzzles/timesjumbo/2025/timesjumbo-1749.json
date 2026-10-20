@@ -1172,29 +1172,62 @@
      "parts": [
       {
        "words": "in",
-       "note": "the word itself"
+       "at": 19,
+       "gives": "IN"
       },
       {
-       "words": "After July briefly",
-       "gives": "AUG",
-       "note": "the month after July, abbreviated"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 11,
+         "note": "briefly says the month is shortened to its usual abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "After July",
+         "at": 0,
+         "gives": "AUGUST",
+         "note": "August is the month after July"
+        },
+        {
+         "gives": "UST"
+        }
+       ]
       },
       {
-       "words": "the country cutting introduction",
-       "gives": "URAL",
-       "note": "RURAL (of the country) without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cutting introduction",
+         "at": 34,
+         "note": "cutting introduction removes the opening letter of the word for the country"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the country",
+         "at": 22,
+         "gives": "RURAL",
+         "note": "rural describes the country, the countryside"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An address delivered in the countryside in August, trimmed of its opening.",
-     "walkthrough": "The lone 'in' goes first in the answer although 'After July' leads the clue. 'The country' stands for the adjective, of the countryside.",
-     "definitionFit": "Used as a noun, it is the address given by someone taking office, such as a US president, an important speech."
+     "surface": "After July, a leader in the countryside gives a major address without preamble.",
+     "walkthrough": "AUGUST shortened is AUG, and RURAL without its first letter is URAL.",
+     "definitionFit": "An inaugural is a speech given at an inauguration, a significant opening address."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "country"
+     "misdirectedWord": "introduction"
     }
    }
   },

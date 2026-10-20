@@ -444,48 +444,69 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "novel",
-       "note": "novel means new, so the letters are made into something new"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "One",
-       "gives": "I",
-       "note": "the Roman numeral for one"
-      },
-      {
-       "words": "Hardy",
-       "note": "taken as written"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 4,
+         "note": "in says the I goes inside the rearranged letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "novel",
+           "at": 13,
+           "note": "novel means new, so the letters of hardy are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Hardy",
+           "at": 7
+          }
+         ]
+        },
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "heading to",
-         "note": "the heading of a word is the letter at its top"
+         "at": 19,
+         "note": "heading to takes the first letter of imbibe"
         }
        ],
        "parts": [
         {
          "words": "imbibe",
-         "note": "the opening letter of imbibe"
+         "at": 30
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A character in a Thomas Hardy novel takes to drinking from jugs.",
-     "walkthrough": "Hardy novel suggests a book title, but novel is the anagram signal working on the surname.",
-     "definitionFit": "A hydria was an ancient Greek water jar with three handles; the Greek plural form names several such jugs."
+     "surface": "A character in a Thomas Hardy novel takes to drinking jugs of something.",
+     "walkthrough": "'novel' looks like a Hardy book, but it is the anagram signal: HARDY becomes HYDRA, I goes in to give HYDRIA, then I is added.",
+     "definitionFit": "Hydriai are ancient Greek water jars, so they are pitchers in the jug sense."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "novel"
     }
    }
