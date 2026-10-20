@@ -505,26 +505,57 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Choose short",
-       "gives": "PIC",
-       "note": "PICK without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 7,
+         "note": "the word falls short of its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Choose",
+         "at": 0,
+         "gives": "PICK",
+         "note": "to pick is to choose"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       },
       {
-       "words": "cut fine",
-       "gives": "NIC",
-       "note": "NICK (a cut), trimmed of its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 13,
+         "note": "cut back, the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fine",
+         "at": 17,
+         "gives": "NICE",
+         "note": "nice means fine"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone opts for a snappy haircut before a day out.",
-     "walkthrough": "'Short cut' reads as a route or a haircut; break it after 'short' and each half gives a clipped word.",
-     "definitionFit": "A definition by example: a picnic is a particular kind of outing, with food eaten outdoors."
+     "surface": "Pick a short haircut that will look good for a day out.",
+     "definitionFit": "A picnic is an outing with a meal eaten outdoors."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "short"
+     "misdirectedWord": "cut"
     }
    }
   },

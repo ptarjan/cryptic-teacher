@@ -808,20 +808,36 @@
      "parts": [
       {
        "words": "ending in prayer",
+       "at": 8,
        "gives": "AMEN",
-       "note": "amen is the word that ends a prayer"
+       "note": "amen is the word that closes a prayer"
       },
       {
-       "words": "shame originally unobserved",
-       "gives": "ITY",
-       "note": "PITY (a shame) without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "originally unobserved",
+         "at": 32,
+         "note": "the original, opening letter of the word for shame goes unseen, so it is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shame",
+         "at": 26,
+         "gives": "PITY",
+         "note": "'it's a shame' is 'it's a pity'"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A church service finishes with prayer, and a disgrace passes unnoticed.",
-     "walkthrough": "'Service' and 'prayer' paint a church scene, but the service is a facility; shame is pity, as in 'what a shame'.",
-     "definitionFit": "A plain synonym in the facilities sense: a pool or a bus route is an amenity, a service laid on for residents."
+     "surface": "A church service closes with prayer, and the shame of something goes unnoticed at first.",
+     "definitionFit": "An amenity is a useful facility or service provided for residents or guests."
     },
     "features": {
      "answerInScene": false,

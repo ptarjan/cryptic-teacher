@@ -475,29 +475,47 @@
      "parts": [
       {
        "words": "exam",
+       "at": 5,
        "gives": "TEST",
-       "note": "an exam is a test"
+       "note": "a test is an exam"
       },
       {
-       "words": "abruptly change",
-       "gives": "AMEN",
-       "note": "change = AMEND, cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abruptly",
+         "at": 10,
+         "note": "cut off abruptly, the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "change",
+         "at": 19,
+         "gives": "AMEND",
+         "note": "to amend is to change"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       },
       {
        "words": "time",
-       "gives": "T",
-       "note": "T = time"
+       "at": 26,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Wondering whether an exam's timing will be moved at short notice.",
-     "walkthrough": "\"Will\" opens the clue like an auxiliary verb asking a question; it is the noun, a last will and testament.",
-     "definitionFit": "A testament is a will, the document disposing of a person's property after death."
+     "surface": "Will a test suddenly alter the clock?",
+     "walkthrough": "'Will' looks like a future verb, but it is the legal document.",
+     "definitionFit": "A last will and testament is the legal document disposing of property after death."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Will"
     }
    }

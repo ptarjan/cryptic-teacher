@@ -976,40 +976,58 @@
      "op": "charade",
      "parts": [
       {
-       "words": "loveless marriage",
-       "gives": "UNIN",
-       "note": "UNION without O"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "loveless",
+         "at": 27,
+         "note": "love is O, zero in tennis, which the word loses"
+        }
+       ],
+       "parts": [
+        {
+         "words": "marriage",
+         "at": 36,
+         "gives": "UNION",
+         "note": "a union is a marriage"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "trapped in",
-         "note": "one piece is held inside another"
+         "at": 16,
+         "note": "the R is held trapped inside the spying word"
         }
        ],
        "parts": [
         {
          "words": "worked for CIA",
+         "at": 45,
          "gives": "SPIED",
-         "note": "a CIA agent spies"
+         "note": "a CIA agent spied"
         },
         {
          "words": "Republican",
-         "gives": "R",
-         "note": "R = Republican, placed inside SPIED"
+         "at": 5,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boring politician stuck in a cold marriage turns out to have been a spy.",
-     "walkthrough": "'Loveless' reads as a cold relationship; it strips the O out, since love is zero in tennis scoring.",
-     "definitionFit": "Uninspired means lacking spark, which is dull."
+     "surface": "A dreary Republican stuck in a failing marriage was once a CIA agent.",
+     "walkthrough": "UNION without O gives UNIN; SPIED traps R to give SPIRED.",
+     "definitionFit": "Uninspired describes something lacking imagination, hence dull."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "loveless"
     }

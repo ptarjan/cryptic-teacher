@@ -278,7 +278,7 @@
       {
        "text": "concealing",
        "at": 11,
-       "note": "the ointment conceals the half name, holding it inside"
+       "note": "the ointment word hides the other piece inside it"
       }
      ],
      "parts": [
@@ -286,24 +286,36 @@
        "words": "Ointment's",
        "at": 0,
        "gives": "LOTIONS",
-       "note": "a lotion is a soothing ointment, and the possessive 's supplies the final S"
+       "note": "lotions are ointments; the 's makes it plural"
       },
       {
-       "words": "half of Carl's",
-       "at": 22,
-       "gives": "CA",
-       "note": "the first half of the name Carl is its first two letters"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 22,
+         "note": "only the first half of the name is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Carl's",
+         "at": 30,
+         "gives": "CARL",
+         "note": "the name Carl, whose first two letters are wanted"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cream that covers up a man's skin blemishes.",
-     "walkthrough": "'spots' reads as pimples hidden by cream, but it is the definition in the sense of places. CA goes inside LOTIONS after LO.",
-     "definitionFit": "Spots can mean places or sites, as in a good spot for a picnic."
+     "surface": "A tube of cream hides some of Carl's pimples.",
+     "walkthrough": "'half of' Carl gives CA, which LOTIONS conceals: LO-CA-TIONS.",
+     "definitionFit": "Spots in the sense of places or sites; locations are places."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "spots"
     }

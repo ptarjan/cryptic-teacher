@@ -157,40 +157,59 @@
      "op": "container",
      "indicators": [
       {
-       "text": "wrapped up"
+       "text": "wrapped up",
+       "at": 32,
+       "note": "the shortened story wraps the other letter inside"
       }
      ],
      "parts": [
       {
-       "words": "incomplete story",
-       "gives": "YAR",
-       "note": "a story is a yarn; incomplete, it loses the N"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "incomplete",
+         "at": 13,
+         "note": "the story falls short, losing its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "story's",
+         "at": 24,
+         "gives": "YARN",
+         "note": "a yarn is a story"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "End of",
-         "note": "the end of tale is its final letter"
+         "at": 0,
+         "note": "the end of a word is its final letter, so only the closing letter of tale is used"
         }
        ],
        "parts": [
         {
          "words": "tale",
-         "note": "the last letter of talE"
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A storyteller who stops before the ending and just declares the thing finished, full stop.",
-     "walkthrough": "The dash and exclamation mark make 'period!' look like an exasperated full stop; it is the definition, a length of time.",
-     "definitionFit": "Definition by class: twelve months is one particular period of time among many."
+     "surface": "The end of a tale wraps up an unfinished story, full stop.",
+     "walkthrough": "'period!' looks like a full stop, but it is a span of time.",
+     "definitionFit": "A year is a period of twelve months."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "period"
     }

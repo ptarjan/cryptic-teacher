@@ -1016,43 +1016,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "lifting",
-       "note": "in a down clue, the word is read upwards"
-      },
-      {
-       "text": "leader overlooked",
-       "note": "the first letter is left out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "lifting",
+         "at": 19,
+         "note": "in a down clue lifting the word raises it, so it reads from the bottom up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "corporation",
+         "at": 27,
+         "gives": "TUM",
+         "note": "a corporation is a jocular word for a pot belly, a tum"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leader overlooked",
+         "at": 55,
+         "note": "the leading letter of the word for excellence is ignored and left out"
+        }
+       ],
        "parts": [
         {
          "words": "excellence",
-         "gives": "YTILAU",
-         "note": "QUALITY without its first letter"
+         "at": 44,
+         "gives": "QUALITY",
+         "note": "quality means excellence"
         },
         {
-         "words": "corporation",
-         "gives": "TUM",
-         "note": "a corporation is jokingly a pot belly, a TUM, read upwards"
+         "gives": "Q"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Business jargon about a rising corporation depending on excellence under a neglectful boss.",
-     "walkthrough": "'Corporation' is old slang for a large belly, so the business picture is a decoy.",
-     "definitionFit": "A near synonym: a relationship of mutual dependence is one where each side relies on the other."
+     "surface": "A business's reliance on others is raised, while the leader of excellence goes ignored.",
+     "walkthrough": "A corporation is slang for a paunch, TUM; lifted in a down clue it gives MUT. QUALITY without its leader Q gives UALITY.",
+     "definitionFit": "Mutuality is the state of sharing or depending on one another reciprocally."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "corporation"
     }
    }
@@ -1519,30 +1534,49 @@
      "op": "container",
      "indicators": [
       {
-       "text": "covers"
+       "text": "covers",
+       "at": 16,
+       "note": "the shortened monkey wraps around the other letter, covering it"
       }
      ],
      "parts": [
       {
-       "words": "Tailless monkey",
-       "gives": "BABOO",
-       "note": "a BABOON is a monkey; lose the N and split round the metres"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Tailless",
+         "at": 0,
+         "note": "without its tail, the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "monkey",
+         "at": 9,
+         "gives": "BABOON",
+         "note": "a baboon is a large monkey"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "metres",
+       "at": 23,
        "gives": "M",
-       "note": "M = metres"
+       "note": "M is the standard abbreviation for metres"
       }
      ]
     },
     "explanation": {
-     "surface": "A monkey without a tail stretching metres to reach the grass.",
-     "walkthrough": "'Grass' sounds like a lawn, but botanically the giant woody plant belongs to the grass family, so the definition is fair.",
-     "definitionFit": "A botanical fact: this tall woody plant is a member of the grass family."
+     "surface": "A monkey with no tail drapes itself over some distance to reach the grass.",
+     "walkthrough": "'Tailless' cuts BABOON to BABOO, which 'covers' M: BA-M-BOO.",
+     "definitionFit": "Bamboo is a giant woody plant belonging to the grass family."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Tailless"
     }
    }
