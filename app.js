@@ -3930,6 +3930,10 @@
   // that already hands over the fodder. The ring adds no letter the solver
   // hasn't bought; it only takes away the order.
   let ring = null;  // { key, order, struck } — one clue's worth, cleared by key
+  // The entryKey of the clue whose free wheel is open, or null. Free means the
+  // wheel is offered on EVERY clue and costs nothing: a button on anagrams only
+  // would give the clue type away, and the blocks rung above is what charges.
+  let freeWheel = null;
 
   // Deal an order that is neither the fodder as written nor the answer as
   // spelled. Landing on either would make a shuffle look broken, and landing on
@@ -4018,8 +4022,8 @@
     // An altered entry's letter i is not its answer's letter i.
     if (!e || !e.solution || jigsaw || e.alteration) return pins;
     const ann = annOf(e);
-    if (!ann || ringKey(ann) !== key) return pins;
-    const sol = String(e.solution).toUpperCase().replace(/[^A-Z]/g, "");
+    if (key.startsWith("free|") ? key !== "free|" + entryKey(e) : (!ann || ringKey(ann) !== key)) return pins;
+    const sol =String(e.solution).toUpperCase().replace(/[^A-Z]/g, "");
     if (sol.split("").sort().join("") !== letters.slice().sort().join("")) return pins;
     const taken = {};
     entryCells(e).forEach((c, i) => {
@@ -4056,6 +4060,22 @@
       const forbidden = [fodder, ann.answer, (ringAnagram(ann) || {}).gives];
       ring = { key, letters, forbidden, order: dealRing(letters, forbidden), struck: {} };
     }
+    return ringDraw(ann, key);
+  }
+
+  // The free wheel: the same ring, opened empty on any clue. Nothing is dealt
+  // because nothing is known — the solver types what they think the fodder is,
+  // and `forbidden` is empty since there is no fodder or answer to steer a
+  // shuffle away from. The key says "free" so ringPins knows there is no
+  // annotation to compare against, only the clue it was opened on.
+  function freeRingHTML(e, ann) {
+    const key = "free|" + entryKey(e);
+    if (!ring || ring.key !== key) ring = { key, letters: [], forbidden: [], order: [], struck: {} };
+    return ringDraw(ann, key) + (ring.letters.length ? ""
+      : `<p class="muted">Type the letters you think are the anagram.</p>`);
+  }
+
+  function ringDraw(ann, key) {
     // Letters and order are read off `ring` from here on, not off the fresh
     // fodder split above: typing into the ring (addRingLetter/removeLastRingLetter)
     // edits `ring.letters` directly, and a re-render must draw what is there now,
@@ -6232,6 +6252,11 @@
         nextSpec.push({ fill: true, text: FILL_LABEL });
       }
     }
+    // The free wheel sits under whatever the ladder has shown. Not drawn while
+    // the paid ring is on screen: two rings would share one set of letters and
+    // one #ana-shuffle id, and the paid one already does the job.
+    const wheelOpen = freeWheel === key && !solved && !bodyHTML.includes("anagram-ring");
+    if (wheelOpen) bodyHTML += freeRingHTML(e, ann);
     // Written last, because whether its words are targets is decided by whether a
     // question ended up being asked. A linked clue is the exception and keeps the
     // second copy: the words being asked about are this entry's own clue, and the
@@ -6289,9 +6314,22 @@
     const canReveal = canCheck() && !solved;
     const escapeHTML = (canReveal
       ? `<button id="hx-letter" class="ghost small">Stuck? Reveal one letter</button> ` : "")
+      // On every unsolved clue, whatever its type, and not a hint: it holds
+      // only what the solver types into it.
+      + (solved ? "" : `<button id="hx-wheel" class="ghost small" aria-pressed="${wheelOpen}">${
+          wheelOpen ? "Hide letter wheel" : "Letter wheel"}</button> `)
       + reportHTML() + blogLinkHTML(e, ann);
     if (setHTML(escape, escapeHTML)) {
       if (canReveal) $("hx-letter").onclick = revealLetter;
+      const hw = $("hx-wheel");
+      if (hw) hw.onclick = () => {
+        freeWheel = wheelOpen ? null : key;
+        // Focus first so the ring's focus outline is on the first draw and
+        // the solver can type straight away, as a tap on the disc does.
+        const ak = $("ana-kbd");
+        if (freeWheel && ak) focusHidden(ak);
+        renderHintPanel();
+      };
       bindReport();
     }
 
