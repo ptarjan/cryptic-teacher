@@ -467,6 +467,11 @@ tools/blog_facts.py                            joins each cached blog write-up t
                                                that check against the answer — never the blog's
                                                prose; the nightly reruns it only when an input
                                                moved
+tools/blog_store.py                            reads and writes the blog facts one sidecar a
+                                               puzzle (puzzles/<series>/<year>/<id>.blog, a
+                                               suffix no *.json glob matches): the rows of a
+                                               series or of one puzzle, the digest of them, and
+                                               the sync that writes only the sidecars that moved
 tools/letter_facts.py                          adds a clue type the blog left out where the
                                                letters leave one reading and that reading's
                                                class matched the blogs' own types at least 97%
@@ -1731,13 +1736,16 @@ tools/data/clue_types.json                     the clue types and the nine famil
                                                tools show; the seven commoner families are the
                                                type picker's buttons, and a rarer one names the
                                                `picker` family it folds into
-tools/data/blog_facts/                         per series, the blog facts tools/blog_facts.py
-                                               read off the write-ups, each clue in the
-                                               annotation's keys and shapes ($defs/blogFacts in
-                                               puzzle.schema.json), with the site's hints and
-                                               the validator's definition and block checks
-                                               reading them; inputs.sha256 is the digest of
-                                               what they were written from
+tools/data/blog_facts/                         inputs.sha256, the digest of what the blog facts
+                                               were written from; the facts themselves are one
+                                               sidecar a puzzle,
+                                               puzzles/<series>/<year>/<id>.blog
+                                               (tools/blog_store.py), the blog facts
+                                               tools/blog_facts.py read off the write-ups, each
+                                               clue in the annotation's keys and shapes
+                                               ($defs/blogFacts in puzzle.schema.json), with
+                                               the site's hints and the validator's definition
+                                               and block checks reading them
 tools/data/snitch.json                         the SNITCH's rating of every Times and Sunday
                                                Times puzzle it has rated, written nightly by
                                                tools/fetch_snitch.py; tools/difficulty.py
