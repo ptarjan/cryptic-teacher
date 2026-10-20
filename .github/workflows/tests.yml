@@ -89,8 +89,12 @@ jobs:
       - uses: actions/checkout@v5
         with:
           filter: blob:none
+          # Non-cone: the scope reads only tools/*.py and pages.yml. A cone
+          # `tools` pulled tools/data (~210 MB of blobs, ~45 s).
+          sparse-checkout-cone-mode: false
           sparse-checkout: |
-            tools
+            /tools/*.py
+            /.github/workflows/pages.yml
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -196,9 +200,14 @@ jobs:
       - uses: actions/checkout@v5
         with:
           filter: blob:none
+          # Non-cone, tools/data less blog_facts (~160 MB, one file a series) and
+          # yt_solvers: the changed puzzles' series files are added below.
+          sparse-checkout-cone-mode: false
           sparse-checkout: |
-            tools
-            .github
+            /tools/
+            !/tools/data/blog_facts/
+            !/tools/data/yt_solvers/
+            /.github/
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -219,7 +228,10 @@ jobs:
           python3 tools/ci_scope.py files "$BASE_PASS" > "$RUNNER_TEMP/changed.txt"
           echo "$(wc -l < "$RUNNER_TEMP/changed.txt") puzzle(s) changed since the last green run"
           if [ -s "$RUNNER_TEMP/changed.txt" ]; then
-            sed 's|/[^/]*$||' "$RUNNER_TEMP/changed.txt" | sort -u | xargs git sparse-checkout add
+            # Non-cone patterns: each folder, and its series' blog-facts file.
+            { sed 's|/[^/]*$|/|; s|^|/|' "$RUNNER_TEMP/changed.txt"
+              cut -d/ -f2 "$RUNNER_TEMP/changed.txt" | sed 's|^|/tools/data/blog_facts/|; s|$|.json|'
+            } | sort -u | xargs git sparse-checkout add
           fi
       - name: Puzzle schema
         run: |
