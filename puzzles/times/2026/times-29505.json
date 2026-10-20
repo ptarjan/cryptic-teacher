@@ -101,36 +101,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "introduced"
+       "text": "introduced",
+       "at": 61,
+       "note": "introduced means these pieces are put into the word for wasted"
       }
      ],
      "parts": [
       {
        "words": "wasted",
+       "at": 16,
        "gives": "LOST",
-       "note": "wasted time is lost time"
+       "note": "time wasted is time lost"
       },
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
          "words": "measure of current",
+         "at": 32,
          "gives": "AMP",
          "note": "the amp is the unit of electric current"
         },
         {
          "words": "power",
+         "at": 55,
          "gives": "P",
-         "note": "P = power, as in physics formulae"
+         "note": "P is the physics symbol for power"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An electrician complains that a wasteful light needs more current and power.",
-     "walkthrough": "The electrical words all look like they belong to the definition, but only 'Source of light' does; current and power are building bricks.",
-     "definitionFit": "Definition by function: the post carries the street lamp, so the whole thing is loosely where the light comes from."
+     "surface": "A wasted light source that needs a current reading and power added, as an electrician might say.",
+     "walkthrough": "'introduced' sends both the current unit and the power symbol into the word for wasted, just after its first letter.",
+     "definitionFit": "A lamppost holds a street lamp, so it is a source of light."
     },
     "features": {
      "answerInScene": true,
@@ -511,30 +516,44 @@
      "parts": [
       {
        "words": "Study",
+       "at": 0,
        "gives": "CON",
-       "note": "to con is to study closely"
+       "note": "to con is to study or learn by heart"
       },
       {
-       "words": "more than half of traffic",
-       "gives": "TRAF",
-       "note": "first four of seven letters"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "more than half of",
+         "at": 6,
+         "note": "more than half of a seven-letter word means its first four letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "traffic",
+         "at": 24,
+         "note": "the first four of its letters are used"
+        }
+       ]
       },
       {
        "words": "minimum levels",
+       "at": 34,
        "gives": "LOWS",
-       "note": "lows = minimum levels, as in record lows"
+       "note": "lows are minimum levels, as in record lows"
       }
      ]
     },
     "explanation": {
-     "surface": "A report studies traffic slowing to a crawl near roadworks.",
-     "walkthrough": "A contraflow is the British arrangement where traffic is moved onto the opposite carriageway to pass roadworks.",
-     "definitionFit": "Contraflows are traffic arrangements set up to get vehicles round roadworks."
+     "surface": "Studying how traffic slows to a minimum around roadworks.",
+     "walkthrough": "'more than half of' keeps TRAF, four of the seven letters of traffic.",
+     "definitionFit": "A contraflow puts traffic going both ways on one carriageway, a temporary arrangement around road repairs."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "traffic"
+     "aptDefinition": true,
+     "misdirectedWord": "Study"
     }
    }
   },
@@ -1246,53 +1265,51 @@
      "indicators": [
       {
        "text": "during",
-       "note": "something happening during another is within its span, so IT sits inside the word"
+       "at": 13,
+       "note": "it comes during the other word, so it is placed inside it"
       }
      ],
      "parts": [
-      {
-       "words": "tender",
-       "gives": "ENTLE",
-       "note": "GENTLE = tender, minus G"
-      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "being expended",
-         "note": "money expended is spent and gone"
+         "at": 34,
+         "note": "money that is spent is gone, so the thousand dollars leave the word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "it",
-           "note": "it, as printed"
-          },
-          {
-           "words": "$1000",
-           "gives": "G",
-           "note": "G = grand, a thousand dollars; removed"
-          }
-         ]
+         "words": "tender",
+         "at": 20,
+         "gives": "GENTLE",
+         "note": "gentle means tender"
         },
         {
-         "gives": "G"
+         "words": "$1000",
+         "at": 28,
+         "gives": "G",
+         "note": "G is a grand, slang for a thousand dollars"
         }
        ]
+      },
+      {
+       "words": "it",
+       "at": 10,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone approves a bid in which a thousand dollars is spent.",
-     "walkthrough": "'Tender' tempts as a bid, which fits the money; it is actually the adjective, GENTLE.",
-     "definitionFit": "A plain synonym: both mean granting someone a right to do or have something."
+     "surface": "Signing off a tender while a thousand dollars gets spent, like a dodgy procurement deal.",
+     "walkthrough": "'tender' looks like a bid, but it is the adjective meaning soft and kind; a grand, slang for a thousand dollars, is the letter G.",
+     "definitionFit": "To entitle someone is to give them a right or permission, which is to authorise them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "tender"
     }
    }

@@ -274,21 +274,38 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Finish off beer",
-       "gives": "PIL",
-       "note": "PILS, a lager, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Finish off",
+         "at": 0,
+         "note": "to finish off here means take off the finish, so the final letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer",
+         "at": 11,
+         "gives": "PILS",
+         "note": "pils is a pale lager, short for pilsner"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
        "words": "beet",
+       "at": 21,
        "gives": "CHARD",
-       "note": "chard is a leaf beet"
+       "note": "chard is a leafy beet"
       }
      ]
     },
     "explanation": {
-     "surface": "A menu instruction: drink up your beer alongside beetroot and fish.",
-     "walkthrough": "Finish off reads as drink up, but it removes the end of PILS, a pilsner lager.",
-     "definitionFit": "A definition by example: the pilchard, an adult sardine, is one species of fish."
+     "surface": "A meal: drink up the beer, then have beetroot and fish.",
+     "walkthrough": "Chard is a kind of beet grown for its leaves.",
+     "definitionFit": "The pilchard is a small oily sea fish of the herring family."
     },
     "features": {
      "answerInScene": true,

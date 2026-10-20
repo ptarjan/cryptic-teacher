@@ -42,7 +42,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Beginning to feel the pinch?",
+      "text": "Beginning to feel the pinch",
       "at": 0
      }
     ],
@@ -54,13 +54,14 @@
        "indicators": [
         {
          "text": "minimal",
-         "note": "the smallest possible amount of a word is just its opening letter"
+         "at": 53,
+         "note": "a minimal amount of tonic is just its first letter"
         }
        ],
        "parts": [
         {
          "words": "tonic",
-         "note": "the first letter of tonic"
+         "at": 61
         }
        ]
       },
@@ -69,32 +70,41 @@
        "indicators": [
         {
          "text": "Mix",
-         "note": "to mix things is to stir them together, so the letters that follow get jumbled"
+         "at": 29,
+         "note": "to mix drinks is to stir the ingredients together, so these letters are jumbled into a new order"
         }
        ],
        "parts": [
         {
          "words": "the",
+         "at": 33,
          "note": "taken as written"
         },
         {
-         "words": "double gin",
-         "gives": "GINGIN",
-         "note": "gin written twice, since a double is two measures"
+         "words": "double",
+         "at": 37,
+         "gives": "GIN",
+         "note": "a double gin is two measures, so double supplies a second copy of the gin that follows"
+        },
+        {
+         "words": "gin",
+         "at": 44,
+         "gives": "GIN",
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone feeling the pinch stretches a drink: a double gin with barely any tonic.",
-     "walkthrough": "The ten letters of THE, GIN, GIN and T are mixed to give TIGHTENING.",
-     "definitionFit": "When money gets tight, belts are tightened, and a person starting to feel financial pressure is tightening their spending."
+     "surface": "A bar order: a double gin with barely a splash of tonic, perhaps for someone starting to feel the pinch.",
+     "walkthrough": "The splash of tonic opens the answer unmixed; 'Mix' works only on the, gin and its double.",
+     "definitionFit": "When money gets tighter you start to feel the pinch; the word describes that squeeze as it begins."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Mix"
+     "misdirectedWord": "double"
     }
    }
   },
@@ -196,34 +206,34 @@
      "parts": [
       {
        "words": "less than",
+       "at": 25,
        "gives": "BELOW",
        "note": "below means less than"
       },
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "60% of",
-         "note": "sixty per cent of a five-letter word is its first three letters, so the last two are dropped"
+         "at": 35,
+         "note": "sixty per cent of a five-letter word is its first three letters"
         }
        ],
        "parts": [
         {
          "words": "capital",
+         "at": 42,
          "gives": "PARIS",
          "note": "Paris is the capital of France"
-        },
-        {
-         "gives": "IS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bargain purchase that needs less than sixty per cent of the money invested.",
-     "walkthrough": "'Capital' looks like money in this financial surface, but it is a capital city: three fifths of PARIS is PAR.",
-     "definitionFit": "A share trading below its nominal or face value is said to be at a discount to it."
+     "surface": "A financial note on shares sold cheaply, needing less than sixty per cent of the capital put up.",
+     "walkthrough": "'60% of' keeps three of the five letters of PARIS, the capital chosen here.",
+     "definitionFit": "Shares trading below par sell for less than their face value, which is a discount."
     },
     "features": {
      "answerInScene": true,
