@@ -40,6 +40,21 @@ check("fields a clue never needs are dropped", "dimensions" not in block and "an
 check("a view with no annotateOnly lists every entry",
       len(annotate_bag.due_lines({"entries": view["entries"]})) == 5)
 
+kblock = annotate_bag.puzzle_block("t-1", {**view, "keepWords": {"5-down": "mixed rhubarb"}})
+check("redo keep-words line is shown", "keep these words in the new tree unless wrong: 5-down: mixed rhubarb" in kblock)
+check("no keepWords, no line", "keep these words" not in block)
+
+old = {"definitions": [{"text": "dish"}],
+       "wordplay": {"op": "anagram", "indicators": [{"text": "mixed"}],
+                    "parts": [{"words": "rhubarb", "gives": "RHUBARB"}]}}
+keep = annotate_check.validate_annotations.redo_keep_words(old, "Mixed rhubarb and dish (5)")
+check("keep words are the gate's lost words, in clue order", "mixed" in keep and "rhubarb" in keep)
+new = {"definitions": [{"text": "dish"}],
+       "wordplay": {"op": "anagram", "indicators": [{"text": "mixed"}],
+                    "parts": [{"words": "rhubarb", "gives": "RHUBARB"}]}}
+check("keeping them passes the gate",
+      not annotate_check.validate_annotations.redo_lost_words(old, new, "Mixed rhubarb and dish (5)"))
+
 # check(): one file split per puzzle, clean ones one line, failing ones reported, clean not re-run
 calls = []
 outs = {"a": ("annotate_check a: clean, index refreshed — done", 0),

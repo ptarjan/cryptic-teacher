@@ -75,6 +75,10 @@ def puzzle_block(pid, view):
         why = {c: r.split("tree (", 1)[-1].split("): parse", 1)[0] for c, r in flagged.items()}
         out.append("flagged (hint on file has a wrongly shaped wp tree; write a new wp that "
                    "fixes the fault named): " + "; ".join(f"{c}: {r}" for c, r in why.items()))
+    keep = view.get("keepWords")
+    if keep:  # the words the redo gate refuses to lose (annotate_check.keep_words)
+        out.append("keep these words in the new tree unless wrong: "
+                   + "; ".join(f"{c}: {w}" for c, w in keep.items()))
     for k in ("draftAnnotations", "existingAnnotations", "grid", "scan"):
         if view.get(k):
             out.append(f"{k}: {json.dumps(view[k], ensure_ascii=False, separators=(',', ':'))}")
