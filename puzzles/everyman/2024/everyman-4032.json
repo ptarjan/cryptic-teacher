@@ -639,35 +639,63 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "pair of",
+       "at": 11,
+       "note": "pair of means the idiot word appears twice in a row"
+      }
+     ],
      "parts": [
       {
-       "words": "pair of idiots",
-       "gives": "ASSASS",
-       "note": "two asses"
+       "words": "idiots",
+       "at": 19,
+       "gives": "ASS",
+       "note": "an ass is an idiot"
+      },
+      {
+       "gives": "ASS"
       },
       {
        "words": "in",
-       "note": "used as it stands"
+       "at": 26
       },
       {
        "words": "a",
-       "note": "used as it stands"
+       "at": 29
       },
       {
-       "words": "trial that ends abruptly",
-       "gives": "TES",
-       "note": "TEST without its last T"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ends abruptly",
+         "at": 42,
+         "note": "ends abruptly means the word for trial loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trial",
+         "at": 31,
+         "gives": "TEST",
+         "note": "a test is a trial"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A news report of two fools being sent off in a trial cut short.",
-     "walkthrough": "Dispatches looks like a noun, news reports, but is a verb meaning kills. 'In a' reads as linking words and is wordplay taken straight.",
-     "definitionFit": "To dispatch someone is to kill them, as an assassin does."
+     "surface": "Two fools are taken to court and their case is cut short.",
+     "walkthrough": "'Dispatches' looks like sending off messages, but it means killing; the idiots are donkeys, a common insult.",
+     "definitionFit": "To dispatch someone can mean to kill them, and to assassinate is to murder a prominent person."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Dispatches"
     }
    }

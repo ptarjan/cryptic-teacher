@@ -702,31 +702,52 @@
      "indicators": [
       {
        "text": "to admit",
-       "note": "to admit is to let in, so the criminals take the charges inside"
+       "at": 19,
+       "note": "to admit means to let something inside, so the word for criminals holds the rest"
       }
      ],
      "parts": [
       {
        "words": "criminals",
+       "at": 9,
        "gives": "CONS",
-       "note": "cons = convicts"
+       "note": "cons are convicts, criminals"
       },
       {
-       "words": "charges, saving one energy",
-       "gives": "FES",
-       "note": "FEES (charges) minus one E (energy)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "saving one",
+         "at": 37,
+         "note": "saving means except, so one of the letters is spared from the word for charges"
+        }
+       ],
+       "parts": [
+        {
+         "words": "charges",
+         "at": 28,
+         "gives": "FEES",
+         "note": "fees are charges"
+        },
+        {
+         "words": "energy",
+         "at": 48,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Criminals owning up to the charges against them while trying to spare their energy.",
-     "walkthrough": "'Admit charges' is the courtroom phrase, but here admit means let in, and the charges are fees. FEES has two E's and loses only one.",
-     "definitionFit": "To tell all is to disclose everything, which is what someone does when they confess."
+     "surface": "Criminals are told to own up to the charges, with a little energy saved.",
+     "walkthrough": "'saving' is used in its old sense of except, and 'one' matters: only one of the two energy letters goes.",
+     "definitionFit": "To confess is to own up and reveal everything, the idiom of telling all."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "admit"
+     "aptDefinition": true,
+     "misdirectedWord": "saving"
     }
    }
   },

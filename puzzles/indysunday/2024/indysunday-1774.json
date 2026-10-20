@@ -1691,29 +1691,40 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Unfinished",
-       "note": "something unfinished lacks its end, so the final letter goes"
-      },
-      {
        "text": "collection",
-       "note": "a collection gathers things up in any order, so the letters are regrouped"
+       "at": 18,
+       "note": "a collection gathers letters together in a new heap, signalling a rearrangement"
       }
      ],
      "parts": [
       {
-       "words": "silver",
-       "gives": "SILVE",
-       "note": "the metal without its final letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Unfinished",
+         "at": 0,
+         "note": "unfinished means the word silver loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "silver",
+         "at": 11
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An incomplete silver set made for a star of the fifties and sixties, like a disc award.",
-     "walkthrough": "The King of rock and roll had his heyday in the 1950s and 60s, and the surface's silver suggests his record awards.",
-     "definitionFit": "A definition by example: Presley is the defining pop icon of those two decades."
+     "surface": "An incomplete set of silverware is offered for a famous star of the past.",
+     "walkthrough": "'Unfinished' trims SILVER to SILVE; 'collection' rearranges those letters.",
+     "definitionFit": "Elvis Presley was the rock and roll star whose fame peaked in the fifties and sixties."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "collection"
     }

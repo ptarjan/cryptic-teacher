@@ -1165,31 +1165,44 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "Cockney",
-       "note": "Cockneys drop their Hs, so HARD becomes 'ARD"
-      },
-      {
        "text": "from the East End",
-       "note": "read starting from the east end, the right-hand end of an across entry"
+       "at": 24,
+       "note": "from the East End means read from the right-hand end, backwards in an across entry"
       }
      ],
      "parts": [
       {
-       "words": "tough guy",
-       "gives": "ARDNUT",
-       "note": "HARD NUT, a tough guy, with the H dropped"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cockney",
+         "at": 6,
+         "note": "a Cockney drops the H at the start of words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tough guy",
+         "at": 14,
+         "gives": "HARDNUT",
+         "note": "a hard nut is a tough guy"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plain-spoken Cockney hard man from London's East End.",
-     "walkthrough": "Plain looks like an adjective for the Cockney, but it is the noun, a flat treeless land. The East End is the Cockney heartland of London.",
-     "definitionFit": "Tundra is the vast treeless plain of the Arctic."
+     "surface": "A plain-speaking Cockney hard man from London's East End.",
+     "walkthrough": "Drop the H as a Cockney would to get ARD NUT, then read it backwards. The East End is the traditional Cockney area of London.",
+     "definitionFit": "Tundra is a vast treeless Arctic plain with frozen subsoil."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Plain"
+     "misdirectedWord": "East"
     }
    }
   },
@@ -1493,29 +1506,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "New",
-       "note": "a new menu is a rearranged one"
-      },
-      {
-       "text": "affected",
-       "note": "the motel it sits in is disturbed too"
+       "text": "in",
+       "at": 9,
+       "note": "in means the reworked menu sits inside the reworked motel"
       }
      ],
      "parts": [
       {
-       "words": "menu in motel",
-       "gives": "MENUMOTEL",
-       "note": "anagram fodder, 9 letters"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "affected",
+         "at": 18,
+         "note": "affected means the letters of motel are altered into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "motel",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "New",
+         "at": 0,
+         "note": "new means the letters of menu are made over in a fresh order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "menu",
+         "at": 4
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A new menu at a motel has changed its takings.",
-     "walkthrough": "Both words are scrambled together; the menu sitting in the motel is just the surface picture.",
-     "definitionFit": "An emolument is a salary or fee, a form of income."
+     "surface": "A new menu at the motel has an effect on its earnings.",
+     "walkthrough": "Two separate jumbles are at work: one of menu and one of motel, with the first set inside the second.",
+     "definitionFit": "An emolument is a salary, fee or other payment received for work."
     },
     "features": {
      "answerInScene": true,
