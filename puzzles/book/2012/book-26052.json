@@ -198,59 +198,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "oddly",
        "at": 13,
-       "note": "the letters left of Canada geese are put together in an odd way"
+       "note": "behaving oddly, the letters end up in a strange new order"
+      },
+      {
+       "text": "missing",
+       "at": 35,
+       "note": "the named letters are taken away from the bird words before rearranging"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "Canada geese",
+       "at": 0
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "missing",
-         "at": 35,
-         "note": "the cold and deserted letters are left out of the words Canada geese"
+         "text": "deserted",
+         "at": 25,
+         "note": "a deserted word is emptied of its middle, keeping only its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "Canada geese",
-           "at": 0,
-           "note": "taken as written, the letters to be thinned out and mixed"
-          },
-          {
-           "words": "cold",
-           "at": 19,
-           "gives": "C"
-          }
-         ]
-        },
-        {
-         "words": "deserted",
-         "at": 25,
-         "gives": "D",
-         "note": "D is the abbreviation for deserted in cricket and military records"
+         "words": "cold",
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Wild geese from Canada end up, oddly, in a warm southern climate.",
-     "walkthrough": "Oddly looks like a call for odd letters; it is the signal to rearrange.",
-     "definitionFit": "The Aegean Sea is the arm of the Mediterranean between Greece and Turkey, a sunny region."
+     "surface": "Canada geese, strangely cold and abandoned, are absent from a warm southern region.",
+     "walkthrough": "'deserted' empties COLD to CD; 'missing' takes C and D from CANADA GEESE, and 'oddly' rearranges the nine letters left.",
+     "definitionFit": "The Aegean is the arm of the Mediterranean between Greece and Turkey, a region of that sea."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "oddly"
+     "misdirectedWord": "deserted"
     }
    }
   },

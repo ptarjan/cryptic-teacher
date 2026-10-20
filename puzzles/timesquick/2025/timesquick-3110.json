@@ -525,41 +525,59 @@
      "indicators": [
       {
        "text": "eating",
-       "note": "what eats something takes it inside, so the shortened parasite surrounds the letter"
+       "at": 16,
+       "note": "the shortened parasite takes the other letter inside it, as if eating it"
       }
      ],
      "parts": [
       {
-       "words": "Parasite mostly",
-       "gives": "LOUS",
-       "note": "a louse is a parasitic insect, cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 9,
+         "note": "most of the word is kept, its final letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Parasite",
+         "at": 0,
+         "gives": "LOUSE",
+         "note": "a louse is a parasitic insect"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "head of",
-         "note": "the head of a word is its first letter"
+         "at": 23,
+         "note": "the first letter of the word is taken"
         }
        ],
        "parts": [
         {
          "words": "the",
-         "note": "the opening letter of 'the'"
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pest nibbling at the top of a pond flower.",
-     "walkthrough": "LOUSE drops its E and swallows T after its second letter.",
-     "definitionFit": "The sacred Asian aquatic plant with broad floating leaves is a kind of water lily in common usage."
+     "surface": "A parasite is mostly munching the top of a water lily.",
+     "walkthrough": "'mostly' cuts LOUSE to LOUS; 'eating' puts T, the 'head of the', inside.",
+     "definitionFit": "The lotus is an aquatic plant often called the sacred water lily."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "head"
+     "misdirectedWord": "eating"
     }
    }
   },

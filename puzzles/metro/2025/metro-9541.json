@@ -820,31 +820,49 @@
      "indicators": [
       {
        "text": "after",
-       "note": "'after' puts what precedes it later in the answer, following the mutt"
+       "at": 34,
+       "note": "the shortened flying word follows the dog"
       }
      ],
      "parts": [
       {
        "words": "mutt",
+       "at": 40,
        "gives": "CUR",
        "note": "a cur is a mongrel dog"
       },
       {
-       "words": "took wing, heading off",
-       "gives": "LEW",
-       "note": "FLEW without its F"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 22,
+         "note": "the word loses its first letter, its head"
+        }
+       ],
+       "parts": [
+        {
+         "words": "took wing",
+         "at": 11,
+         "gives": "FLEW",
+         "note": "flew means took to the air"
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A seabird flies off as a dog chases it along the beach.",
-     "walkthrough": "Though the dog comes last in the clue, 'after' puts its letters first.",
-     "definitionFit": "A definition by class: a long-billed wader of shores and estuaries."
+     "surface": "A shoreline bird took flight, heading off away from a mongrel.",
+     "walkthrough": "'took wing' looks like part of the bird's story, but it is the verb that loses its first letter before following the dog.",
+     "definitionFit": "The curlew is a long-billed wading bird of shores and estuaries."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "heading"
+     "misdirectedWord": "mutt"
     }
    }
   },

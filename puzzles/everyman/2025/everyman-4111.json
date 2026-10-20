@@ -857,29 +857,40 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "losing head",
-       "note": "The head of a word is the letter it begins with, and losing it drops that letter before anything else is done."
-      },
-      {
        "text": "wobbling",
-       "note": "A thing wobbling will not stay where it is put, and letters that will not stay put are not to be left in the order given."
+       "at": 22,
+       "note": "wobbling suggests something unsteady, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Cringes",
-       "gives": "RINGES",
-       "note": "CRINGES without its opening C, the six letters that then get shaken up"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing head",
+         "at": 9,
+         "note": "the first letter of the word is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cringes",
+         "at": 0
+        },
+        {
+         "gives": "C"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody flinching and unsteady on their feet, being told to pack it in.",
-     "walkthrough": "The head comes off before the shuffle starts, which is why no C turns up in the answer. 'Give up' here means handing in a post rather than being beaten, and the answer is the verb for it.",
-     "definitionFit": "To resign is to give up a job or a position, the voluntary kind of stopping that 'give up' also carries."
+     "surface": "Someone flinches, totters, and is urged to quit.",
+     "walkthrough": "'losing head' drops the C of CRINGES to leave RINGES; 'wobbling' rearranges those letters.",
+     "definitionFit": "To resign is to give up a post or to surrender, as in resigning a chess game."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Cringes"
     }
