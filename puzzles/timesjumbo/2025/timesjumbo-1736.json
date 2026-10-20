@@ -781,31 +781,50 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DIBBER",
      "indicators": [
       {
-       "text": "its wrapper the wrong way round",
-       "note": "the wrapper is the outer pair of letters; swap them end for end"
+       "text": "the wrong way round",
+       "at": 37,
+       "note": "the wrong way round completes the swap so the outside letters change places"
       }
      ],
      "parts": [
       {
-       "words": "with ridges",
-       "gives": "RIBBED",
-       "note": "ribbed = having ridges"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "its wrapper",
+         "at": 25,
+         "note": "its wrapper is the outer pair of letters, the last of which is swapped first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "with ridges",
+         "at": 12,
+         "gives": "RIBBED",
+         "note": "ribbed means having ridges"
+        },
+        {
+         "gives": "D"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
-       "words": "its wrapper the wrong way round",
-       "gives": "DIBBER",
-       "note": "RIBBED with its outer R and D swapped"
+       "gives": "R"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A ridged garden tool that came in its packaging back to front.",
-     "walkthrough": "Only the outside letters change places; the middle IBBE stays put.",
-     "definitionFit": "A dibber is a pointed garden tool for making holes to plant seedlings."
+     "surface": "A ridged gardening implement with its packaging put on back to front.",
+     "walkthrough": "Take RIBBED, swap its outer letters R and D round, and the inner IBBE stays put.",
+     "definitionFit": "A dibber is a pointed hand implement for making holes in soil to plant seeds or bulbs."
     },
     "features": {
      "answerInScene": true,
@@ -1928,46 +1947,52 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GERTCHA",
+     "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "GERTCHA",
+       "op": "reversal",
        "indicators": [
         {
          "text": "set up",
-         "note": "in a down clue, set up means written bottom to top"
-        },
-        {
-         "text": "cycling",
-         "note": "letters move round from the front to the back of the word"
+         "at": 3,
+         "note": "in a down clue, set up means written upwards, so read backwards"
         }
        ],
        "parts": [
         {
          "words": "Eg",
-         "note": "the letters E and G"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 10,
+         "note": "cycling moves letters round from the front of the word to the back"
+        }
+       ],
+       "parts": [
         {
          "words": "chart",
-         "note": "cycled so that CH goes round to the back: RTCHA"
+         "at": 18,
+         "note": "taken as written before cycling"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chart being wheeled round and someone being told to clear off.",
-     "walkthrough": "Gertcha is London Cockney slang: 'get out of here!', a dismissive exclamation.",
-     "definitionFit": "Gertcha is a Cockney rendering of 'get out of it', meaning clear off."
+     "surface": "An instruction to put a cycling chart in place, then a curt dismissal.",
+     "walkthrough": "CHA moves from the front of CHART to the end to give RTCHA. Gertcha is Cockney slang for go away.",
+     "definitionFit": "Gertcha is a London slang exclamation telling someone to clear off, a version of get away with you."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Eg"
+     "misdirectedWord": "cycling"
     }
    }
   },
@@ -2936,60 +2961,73 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ROBOTIC",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 42,
+       "note": "the reversed letters go about, round, the zero"
+      }
+     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "endlessly",
-         "note": "each word loses its end letter"
-        },
-        {
-         "text": "about"
+         "text": "reflected",
+         "at": 32,
+         "note": "reflected means seen in a mirror, so read backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "reflected",
-           "note": "seen in a mirror, so read backwards"
+           "text": "endlessly",
+           "at": 22,
+           "note": "endlessly means each word loses its final letter"
           }
          ],
          "parts": [
           {
-           "words": "City",
-           "gives": "CIT",
-           "note": "CITY without its end"
+           "op": "charade",
+           "parts": [
+            {
+             "words": "City",
+             "at": 12,
+             "note": "fodder taken as written"
+            },
+            {
+             "words": "bore",
+             "at": 17,
+             "note": "fodder taken as written"
+            }
+           ]
           },
           {
-           "words": "nothing",
-           "gives": "O",
-           "note": "O = nothing, zero"
-          },
-          {
-           "words": "bore",
-           "gives": "BOR",
-           "note": "BORE without its end"
+           "gives": "YE"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "nothing",
+       "at": 48,
+       "gives": "O",
+       "note": "O looks like zero, nothing"
       }
      ]
     },
     "explanation": {
-     "surface": "A dull City banker with nothing to say, forever reflecting on it.",
-     "walkthrough": "'The City' is London's financial district, so 'City bore' is a tedious banker. 'Endlessly' trims both words.",
-     "definitionFit": "Robotic means mechanical and without emotion."
+     "surface": "A dull financier from the City, endlessly mulling over nothing.",
+     "walkthrough": "CIT and BOR, reversed, give ROBTIC, which is wrapped round O after ROB.",
+     "definitionFit": "Robotic means mechanical and lacking human feeling, like a machine."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "reflected"
+     "misdirectedWord": "City"
     }
    }
   },
@@ -3520,57 +3558,58 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Outside"
+       "text": "Outside",
+       "at": 0,
+       "note": "the word for pound goes outside, around the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "front of",
-         "note": "the front of a word is its opening, so only the first letter is used"
-        }
-       ],
+       "words": "pound",
+       "at": 38,
+       "gives": "NICKER",
+       "note": "nicker is British slang for a pound sterling"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "pound",
-         "gives": "NICKER",
-         "note": "nicker is British slang for a pound sterling"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "front of",
+           "at": 8,
+           "note": "the front of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "theatre",
+           "at": 17,
+           "note": "first letter T"
+          }
+         ]
         },
         {
          "words": "sleuth",
+         "at": 30,
          "gives": "PI",
-         "note": "a PI is a private investigator"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "T",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "theatre",
-         "gives": "T",
-         "select": "first",
-         "note": "first letter of theatre"
+         "note": "PI is a private investigator, a sleuth"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A detective loitering outside a theatre, hammering on the door.",
-     "walkthrough": "'Pound knocker' reads as someone hammering on a door; 'knocker' is a critic and 'pound' is money.",
-     "definitionFit": "A nitpicker is a petty critic, a knocker of small faults."
+     "surface": "A critic standing outside a theatre with a detective, knocking.",
+     "walkthrough": "A knocker here is a critic who knocks, i.e. finds fault.",
+     "definitionFit": "A nitpicker is a petty fault-finder, someone who knocks things by criticising tiny details."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "pound"
+     "misdirectedWord": "knocker"
     }
    }
   },
@@ -3602,73 +3641,81 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Hint of",
-       "note": "a hint of a word is its first letter"
-      }
-     ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "the letter goes inside the other words"
-        }
-       ],
-       "parts": [
-        {
-         "words": "small",
-         "note": "S = small"
-        }
-       ]
+       "words": "small",
+       "at": 17,
+       "gives": "S",
+       "note": "S is the clothing-size abbreviation for small"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "about",
-         "note": "the word turns about, reading backwards"
+         "text": "in",
+         "at": 14,
+         "note": "the hinted letter is put in the tiny word"
         }
        ],
        "parts": [
         {
          "words": "very small",
+         "at": 24,
          "gives": "WEENY",
-         "note": "weeny = tiny; the E goes in before its Y"
+         "note": "weeny means tiny"
         },
         {
-         "words": "error",
-         "gives": "E",
-         "note": "first letter of error"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Hint of",
+           "at": 0,
+           "note": "a hint of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "error",
+           "at": 8,
+           "note": "first letter E"
+          }
+         ]
         }
        ]
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 42,
+         "note": "about means turned round, so read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "point",
+         "at": 36,
          "gives": "DOT",
          "note": "a dot is a point"
         }
        ]
       },
       {
-       "words": "duke",
+       "words": "duke's",
+       "at": 48,
        "gives": "D",
-       "note": "D = duke"
+       "note": "D is the abbreviation for duke"
       }
      ]
     },
     "explanation": {
-     "surface": "A proofreader spotting one tiny slip about a duke's murderer.",
-     "walkthrough": "E sits inside S+WEENY, splitting it as SWEEN-E-Y. The brackets are part of the wordplay, not an aside.",
-     "definitionFit": "Sweeney Todd is the murderous barber of Fleet Street in Victorian legend."
+     "surface": "A tiny slip in a minuscule detail concerning a nobleman's murderer.",
+     "walkthrough": "Sweeney Todd is the demon barber of Fleet Street; the bracketed (very small) is not an aside but its own piece of wordplay.",
+     "definitionFit": "Sweeney Todd is the murderous barber of Victorian penny-dreadful legend, a famous fictional murderer."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "point"
     }

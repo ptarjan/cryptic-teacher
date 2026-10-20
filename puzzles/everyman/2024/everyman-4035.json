@@ -1165,48 +1165,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "starters of",
-       "note": "take the first letters of the next two words"
-      }
-     ],
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
-         "text": "cut short",
-         "note": "something cut short loses its end, so the final T of NUIT is trimmed off"
+         "text": "starters of",
+         "at": 20,
+         "note": "the starters of the two words are their first letters"
         }
        ],
        "parts": [
         {
          "words": "escargots",
-         "note": "first letter"
+         "at": 32,
+         "note": "first letter E"
+        },
+        {
+         "words": "nightly",
+         "at": 42,
+         "note": "first letter N"
         }
        ]
       },
       {
-       "words": "nightly",
-       "gives": "N",
-       "note": "first letter"
-      },
-      {
-       "words": "night in Paris",
-       "gives": "NUI",
-       "note": "nuit is French for night; cut short to NUI"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 66,
+         "note": "cut short means the last letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "night in Paris",
+         "at": 51,
+         "gives": "NUIT",
+         "note": "NUIT is French for night"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner in Paris grows sick of snails served every night.",
-     "walkthrough": "The italics mark 'in Paris' as the French cue. Ennui is itself a French loan word for weary boredom.",
-     "definitionFit": "A French loan word for weary dissatisfaction, the mood of someone fed up with everything."
+     "surface": "Someone tired of eating snails every evening on a trip to Paris.",
+     "definitionFit": "Ennui is listless boredom, the mood of someone weary and dissatisfied with everything."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "escargots"
     }
    }
   },

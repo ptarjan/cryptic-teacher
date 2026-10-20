@@ -856,30 +856,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "dropping",
-       "note": "in this down answer the R of RAMEN drops from the top to the bottom"
-      },
-      {
-       "text": "on"
+       "text": "on",
+       "at": 27,
+       "note": "in a down clue, one piece on another sits above it"
       }
      ],
      "parts": [
       {
-       "words": "Noodle dish dropping right",
-       "gives": "AMENR",
-       "note": "RAMEN with its R (right) moved down to the end"
+       "op": "move",
+       "indicators": [
+        {
+         "text": "dropping",
+         "at": 12,
+         "note": "in a down clue the right letter drops, moving lower in the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Noodle dish",
+         "at": 0,
+         "gives": "RAMEN",
+         "note": "ramen is a Japanese noodle soup"
+        },
+        {
+         "words": "right",
+         "at": 21,
+         "gives": "R"
+        }
+       ]
       },
       {
        "words": "American",
-       "gives": "A",
-       "note": "A = American"
+       "at": 30,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A bowl of noodles that has lost its dressing is offered to a US deity.",
-     "walkthrough": "'Dropping' usually means losing a letter; here the R drops down the column to the end instead.",
-     "definitionFit": "Amen-Ra is the ancient Egyptian king of the gods, Amun fused with the sun god Ra."
+     "surface": "A noodle dish loses something just before an American deity is mentioned.",
+     "walkthrough": "In a down entry, dropping a letter means moving it lower, so R goes from top to bottom; Amen-Ra is the Egyptian god.",
+     "definitionFit": "Amen-Ra was the ancient Egyptian king of the gods, a fusion of Amun and the sun deity Ra."
     },
     "features": {
      "answerInScene": false,
@@ -1574,42 +1590,48 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "SHE loses its last letter"
+       "text": "dancing",
+       "at": 22,
+       "note": "dancing letters move about, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "dancing",
-         "note": "dancers move all over the floor, so the letters move out of their order"
+         "text": "briefly",
+         "at": 4,
+         "note": "briefly means the word is shortened by its last letter"
         }
        ],
        "parts": [
         {
          "words": "She",
-         "gives": "SH",
-         "note": "SHE cut short"
+         "at": 0,
+         "note": "fodder taken as written"
         },
         {
-         "words": "appeared",
-         "note": "anagram fodder"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "appeared",
+       "at": 12,
+       "note": "fodder taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman makes a short guest appearance, dancing, and shows off her figure.",
-     "walkthrough": "'Briefly appeared' suggests a cameo; 'briefly' only clips SHE.",
-     "definitionFit": "A pear-shaped figure is wider at the hips than the shoulders."
+     "surface": "A woman made a short appearance, dancing with a shapely partner.",
+     "walkthrough": "SHE is cut to SH, which joins APPEARED for 'dancing'.",
+     "definitionFit": "A pear-shaped body is wider at the hips than the shoulders, describing a particular kind of physique."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "briefly"
+     "aptDefinition": true,
+     "misdirectedWord": "figure"
     }
    }
   },
@@ -3381,26 +3403,31 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OTHER",
      "indicators": [
       {
        "text": "skips",
-       "note": "to skip Mass is not to attend it, so M is not there in MOTHER"
+       "at": 20,
+       "note": "the relative skips, leaves out, the mass letter"
       }
      ],
      "parts": [
       {
-       "words": "relative skips Mass",
-       "gives": "OTHER",
-       "note": "a mother is a relative; drop M, for mass"
+       "words": "relative",
+       "at": 11,
+       "gives": "MOTHER",
+       "note": "a mother is a relative"
+      },
+      {
+       "words": "Mass",
+       "at": 26,
+       "gives": "M",
+       "note": "M is the symbol for mass"
       }
      ]
     },
     "explanation": {
-     "surface": "Another family member misses church.",
-     "walkthrough": "'Mass' looks like the church service; it is M, the physics symbol for mass.",
-     "definitionFit": "Other means additional, as in 'any other business'."
+     "surface": "A family member misses church on Sunday.",
+     "definitionFit": "Other can mean further or extra, as in one other thing, so it means additional."
     },
     "features": {
      "answerInScene": false,
@@ -3436,45 +3463,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TSHIRTS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "the shortened word goes in the reversed abbreviation"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "Mostly",
-         "note": "SHIRTY loses its last letter"
-        },
-        {
-         "text": "in",
-         "note": "one thing in another is enclosed by it"
-        },
-        {
          "text": "reflective",
-         "note": "a reflection shows things back to front, as a mirror does"
+         "at": 23,
+         "note": "reflective suggests a mirror image, so read backwards"
         }
        ],
        "parts": [
         {
          "words": "street",
-         "gives": "TS",
-         "note": "St. = street, reversed"
-        },
+         "at": 34,
+         "gives": "ST"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means all but the last letter"
+        }
+       ],
+       "parts": [
         {
          "words": "bad-tempered",
-         "gives": "SHIRT",
-         "note": "shirty = bad-tempered in British slang, minus Y"
+         "at": 7,
+         "gives": "SHIRTY",
+         "note": "shirty is British slang for annoyed or bad-tempered"
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Grumpy people wearing hi-vis street gear.",
-     "walkthrough": "'Reflective' suggests hi-vis clothing; it means mirrored. Shirty is British slang for irritable.",
-     "definitionFit": "Definition by category: T-shirts, named for their T shape when laid flat, are one everyday kind of clothes."
+     "surface": "Grumpy people in high-visibility gear on a road.",
+     "definitionFit": "T-shirts are casual collarless short-sleeved tops, items of everyday wear."
     },
     "features": {
      "answerInScene": true,
