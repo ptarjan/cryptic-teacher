@@ -1506,12 +1506,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "cockney",
-       "note": "a Cockney, a working-class Londoner, drops the aitch at the front of a word, so 'hard' is written without its first letter"
-      },
-      {
        "text": "turned around",
-       "note": "an across entry turned around is read from its far end back to the start"
+       "at": 22,
+       "note": "turned around so the tough word and the fanatic together read right to left"
       }
      ],
      "parts": [
@@ -1519,22 +1516,45 @@
        "op": "charade",
        "parts": [
         {
-         "words": "Tough",
-         "gives": "ARD",
-         "note": "tough is hard, minus the aitch, and that too is read from its end"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "cockney",
+           "at": 6,
+           "note": "a cockney speaker drops the H at the start of words"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Tough",
+           "at": 0,
+           "gives": "HARD",
+           "note": "hard means tough"
+          },
+          {
+           "gives": "H"
+          }
+         ]
         },
         {
          "words": "fanatic",
+         "at": 14,
          "gives": "NUT",
-         "note": "a fanatic is a nut, and the word is read here from its end"
+         "note": "a nut is an enthusiast or fanatic"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A hard nut is the tough customer the surface is describing, and the pair only work once the aitch has gone and the whole thing is read the other way.",
-     "definitionFit": "desolate region -> TUNDRA: the treeless Arctic plain where the ground never thaws, so the definition describes exactly the kind of place it is."
+     "surface": "A hard-bitten Londoner who is a fanatic turns up somewhere bleak.",
+     "walkthrough": "A cockney Londoner drops initial aitches, so 'Tough' loses its H; 'turned around' then reverses that and the fanatic together, not the fanatic alone.",
+     "definitionFit": "Tundra is the treeless, frozen Arctic plain, a bleak and empty landscape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fanatic"
     }
    }
   },

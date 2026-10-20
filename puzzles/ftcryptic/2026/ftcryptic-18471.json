@@ -641,31 +641,41 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "topless",
-       "note": "the word loses its top, its first letter"
-      },
-      {
        "text": "dances",
-       "note": "the remaining letters dance into a new order"
+       "at": 34,
+       "note": "the remaining letters dance around into a new order"
       }
      ],
      "parts": [
       {
-       "words": "foreign",
-       "gives": "OREIGN",
-       "note": "FOREIGN without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 18,
+         "note": "with its top removed, the first letter of the word goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "foreign",
+         "at": 26
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prude averts their eyes from topless dancers abroad.",
-     "walkthrough": "'Foreign dances' looks like the thing refused, but 'foreign' is the fodder and 'dances' the instruction to rearrange it.",
-     "definitionFit": "A plain synonym: deliberately paying something no attention."
+     "surface": "A prudish refusal to watch exotic dancers performing without tops.",
+     "walkthrough": "'topless' takes F from FOREIGN, leaving OREIGN; 'dances' rearranges it.",
+     "definitionFit": "To ignore something is to pay no attention to it, deliberately refusing to notice it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "dances"
     }
    }
@@ -1397,7 +1407,7 @@
       {
        "text": "Suspect",
        "at": 0,
-       "note": "suspect means dodgy, so the letters are rearranged"
+       "note": "suspect as an adjective means doubtful or dodgy, so the letters are rearranged"
       }
      ],
      "parts": [
@@ -1407,36 +1417,32 @@
         {
          "text": "evacuated",
          "at": 8,
-         "note": "evacuated means emptied, leaving only the outer letters"
+         "note": "emptied out, so only the outside letters of the city's name stay"
         }
        ],
        "parts": [
         {
          "words": "Leningrad",
          "at": 18,
-         "note": "the word whose first and last letters are kept"
+         "note": "first and last letters of Leningrad"
         }
        ]
       },
       {
-       "words": "a",
+       "words": "a year",
        "at": 28
-      },
-      {
-       "words": "year",
-       "at": 30,
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A suspicious person evacuated Leningrad a year earlier.",
-     "definitionFit": "Already means by or before a stated moment, as in 'he had already left'."
+     "surface": "A historical note about a suspect fleeing besieged Leningrad a year earlier.",
+     "walkthrough": "'evacuated' leaves LD from Leningrad; with A YEAR, 'Suspect' rearranges those seven letters.",
+     "definitionFit": "Already means by this time or previously, earlier than the moment being spoken of."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Suspect"
+     "misdirectedWord": "evacuated"
     }
    }
   },

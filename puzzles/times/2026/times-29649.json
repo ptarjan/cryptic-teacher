@@ -50,31 +50,44 @@
      "indicators": [
       {
        "text": "dismissing",
-       "note": "to dismiss someone is to send them out of the room"
+       "at": 20,
+       "note": "dismissing means a letter is sent away from the phrase"
       }
      ],
      "parts": [
       {
        "words": "Continues the book",
+       "at": 0,
        "gives": "READSON",
        "note": "to read on is to continue a book"
       },
       {
-       "words": "detective's first",
-       "gives": "D",
-       "note": "first letter of detective, taken out of READS ON"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 43,
+         "note": "the opening letter of the word just before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "detective's",
+         "at": 31,
+         "note": "first letter of detective"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A reader keeps going with a whodunnit, still hunting for the killer's motive.",
-     "walkthrough": "The possessive and 'first' look like part of a crime-fiction sentence; together they only pick out the D to be removed.",
-     "definitionFit": "Plain synonym: the reason behind an act is its motive."
+     "surface": "A reader presses on with a mystery after losing interest in the lead sleuth's motive.",
+     "definitionFit": "A reason for an act is its motive, the cause or grounds behind it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "detective"
+     "misdirectedWord": "detective's"
     }
    }
   },
@@ -430,35 +443,50 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "overture lost",
-       "note": "an overture is the opening of a piece, so losing it means the first letter goes"
-      },
-      {
        "text": "to support",
-       "note": "in a down clue a support sits underneath"
+       "at": 13,
+       "note": "in a down clue one piece supports another from below"
       }
      ],
      "parts": [
       {
-       "words": "Vaughan Williams, say",
-       "gives": "ALPH",
-       "note": "RALPH Vaughan Williams, the English composer, minus his first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "overture lost",
+         "at": 53,
+         "note": "with its overture lost, the opening letter of the composer's first name goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Vaughan Williams, say",
+         "at": 24,
+         "gives": "RALPH",
+         "note": "Ralph Vaughan Williams was an English composer"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
        "words": "help",
+       "at": 8,
        "gives": "ABET",
        "note": "to abet is to help"
       }
      ]
     },
     "explanation": {
-     "surface": "A letter writer offers help to the composer Vaughan Williams after one of his overtures went missing.",
-     "walkthrough": "'Say' marks Vaughan Williams as an example of a Ralph. Overture sounds musical, fitting the composer, but only means the R.",
-     "definitionFit": "Collective sense: the alphabet is the full set of letters."
+     "surface": "Letters of support for a composer whose overture has gone missing.",
+     "walkthrough": "Ralph Vaughan Williams was an English composer; RALPH minus R is ALPH, with ABET underneath.",
+     "definitionFit": "The alphabet is the full set of letters used to write a language."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "overture"
     }
    }
@@ -765,31 +793,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 6,
+       "note": "around, so the shortened city goes within the word for speak"
       }
      ],
      "parts": [
       {
        "words": "Speak",
+       "at": 0,
        "gives": "SAY",
-       "note": "to say is to speak, the outer piece"
+       "note": "to say is to speak"
       },
       {
-       "words": "Irish city, but not northern",
-       "gives": "LISBUR",
-       "note": "LISBURN, a city in Northern Ireland, minus N"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not",
+         "at": 24,
+         "note": "except for, so the next letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Irish city",
+         "at": 12,
+         "gives": "LISBURN",
+         "note": "Lisburn is a city in Northern Ireland"
+        },
+        {
+         "words": "northern",
+         "at": 32,
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone talks about an Irish city but insists it is not a northern one.",
-     "walkthrough": "The joke is that Lisburn is in Northern Ireland; 'not northern' only drops its final N. Salisbury is a cathedral city in Wiltshire, England.",
-     "definitionFit": "Proper name: Salisbury is an English cathedral city."
+     "surface": "A traveller talks about one Irish city while dismissing a northern one.",
+     "walkthrough": "Lisburn is a city in County Antrim, Northern Ireland; the 'northern city' at the end is the definition, the English cathedral city.",
+     "definitionFit": "Salisbury is a cathedral city in Wiltshire in southern England."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "northern"
+     "misdirectedWord": "Speak"
     }
    }
   },
@@ -809,7 +858,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Universal principle",
+      "text": "Universal principle?",
       "at": 0
      }
     ],
@@ -817,31 +866,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 29,
+       "note": "the zero goes inside the shortened word"
       }
      ],
      "parts": [
       {
-       "words": "principle abandoned by leader",
-       "gives": "AXIM",
-       "note": "a maxim is a principle; minus M"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoned by leader",
+         "at": 42,
+         "note": "the word's leader, its first letter, leaves it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "principle",
+         "at": 32,
+         "gives": "MAXIM",
+         "note": "a maxim is a principle or rule of conduct"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       },
       {
        "words": "Nothing",
+       "at": 21,
        "gives": "O",
-       "note": "O = nothing, zero"
+       "note": "O is zero, nothing"
       }
      ]
     },
     "explanation": {
-     "surface": "A universal principle is questioned: a party leader has given up on principle entirely.",
-     "walkthrough": "'Principle' is written twice, once in the definition and once as MAXIM. 'Leader' reads as a politician; it is the first letter.",
-     "definitionFit": "Plain synonym: an axiom is a principle accepted as universally true."
+     "surface": "A philosophical question about a principle whose leader walked away.",
+     "walkthrough": "MAXIM loses M to give AXIM, then O goes in.",
+     "definitionFit": "An axiom is a self-evident truth accepted everywhere, a premise that needs no proof."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "leader"
+     "aptDefinition": true,
+     "misdirectedWord": "Nothing"
     }
    }
   },
@@ -1423,28 +1491,52 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 38,
+       "note": "beside, so the pieces sit next to each other"
+      }
+     ],
      "parts": [
       {
-       "words": "exhibiting paltriness reduced",
-       "gives": "MEA",
-       "note": "MEAN (showing stinginess) minus N"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 30,
+         "note": "cut down, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "exhibiting paltriness",
+         "at": 8,
+         "gives": "MEAN",
+         "note": "something mean shows paltriness, smallness"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "cunning",
+       "at": 41,
        "gives": "SLY",
-       "note": "sly = cunning"
+       "note": "sly means cunning"
       }
      ]
     },
     "explanation": {
-     "surface": "Something paltry, made even more so by crafty trimming.",
-     "walkthrough": "Mean here is the stingy sense, and 'paltriness' echoes the definition on purpose.",
-     "definitionFit": "Informal synonym: measly means contemptibly small, as in a measly tip."
+     "surface": "A grudging observation that someone's stinginess is tempered by craftiness.",
+     "walkthrough": "MEAN shortened to MEA goes beside SLY.",
+     "definitionFit": "Measly means contemptibly small or meagre, as in a measly tip."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "reduced"
+     "misdirectedWord": "exhibiting"
     }
    }
   },
@@ -1473,26 +1565,44 @@
      "indicators": [
       {
        "text": "covering",
-       "note": "a cover goes over and around"
+       "at": 17,
+       "note": "the shortened word wraps around the letter for large"
       }
      ],
      "parts": [
       {
-       "words": "A lot of rubbish",
-       "gives": "PANT",
-       "note": "PANTS, British slang for rubbish, minus S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "most of the word, so its last letter is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rubbish",
+         "at": 9,
+         "gives": "PANTS",
+         "note": "pants is British slang for rubbish, nonsense"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
        "words": "large",
+       "at": 26,
        "gives": "L",
-       "note": "L = large, as on clothing labels"
+       "note": "L is the clothing-size abbreviation for large"
       }
      ]
     },
     "explanation": {
-     "surface": "A heap of rubbish is covering something big in the garden.",
-     "walkthrough": "In British slang 'pants' means rubbish or nonsense.",
-     "definitionFit": "By example: a plant is the typical thing growing in a garden."
+     "surface": "A heap of rubbish has been dumped over a big thing in the garden.",
+     "walkthrough": "'pants' is British slang for rubbish; PANT goes round L.",
+     "definitionFit": "A plant is something growing in a garden bed, such as a shrub or flower."
     },
     "features": {
      "answerInScene": true,

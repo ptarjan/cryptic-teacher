@@ -1275,7 +1275,8 @@
      "indicators": [
       {
        "text": "back",
-       "note": "the hidden letters are read backwards"
+       "at": 30,
+       "note": "the run found is read backwards"
       }
      ],
      "parts": [
@@ -1284,23 +1285,24 @@
        "indicators": [
         {
          "text": "some",
-         "note": "only part of the words is taken"
+         "at": 5,
+         "note": "only some letters of the two words that follow are used, sitting within them"
         }
        ],
        "parts": [
         {
          "words": "hairdresser trimmed",
-         "gives": "SSERT",
-         "note": "hairdreSSER Trimmed"
+         "at": 10,
+         "note": "the run spans the end of the first word and the start of the second"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hairdresser cutting back some hair.",
-     "walkthrough": "The whole surface is a salon visit, and 'trimmed' looks like the deletion instruction; it only supplies the T.",
-     "definitionFit": "A plain synonym: a long lock of hair."
+     "surface": "A salon scene: a hairdresser has trimmed someone's hair at the back.",
+     "walkthrough": "'trimmed' looks like a truncation signal, but it only lends its T; the reversed run sits in 'hairdresser trimmed'.",
+     "definitionFit": "A tress is a long lock of a person's hair."
     },
     "features": {
      "answerInScene": true,

@@ -790,20 +790,39 @@
      "parts": [
       {
        "words": "Station",
-       "gives": "STA",
-       "note": "Sta. is the abbreviation for station"
+       "at": 0,
+       "gives": "STA"
       },
       {
-       "words": "stopping without one",
-       "gives": "MPEDING",
-       "note": "IMPEDING (stopping) minus I (one)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 17,
+         "note": "lacking, so the next letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stopping",
+         "at": 8,
+         "gives": "IMPEDING",
+         "note": "impeding means obstructing, stopping"
+        },
+        {
+         "words": "one",
+         "at": 25,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A train that halts at a station with nobody in charge of it.",
-     "walkthrough": "'In charge' reads as being in command; the definition means taking part in a charge, like cattle rushing forward together.",
-     "definitionFit": "Stampeding animals are charging headlong en masse, so they are in a charge."
+     "surface": "A station shut down with nobody in charge.",
+     "walkthrough": "'being in charge' looks like authority, but it means rushing in a mass charge.",
+     "definitionFit": "A stampeding herd charges together in panic, so it is literally engaged in a charge."
     },
     "features": {
      "answerInScene": false,
@@ -1502,25 +1521,37 @@
      "parts": [
       {
        "words": "Republican",
-       "gives": "R",
-       "note": "R = Republican"
+       "at": 24,
+       "gives": "R"
       },
       {
-       "words": "sycophants uncovered",
-       "gives": "OADIE",
-       "note": "TOADIES minus T and S"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 46,
+         "note": "with its covers, the outside letters, removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sycophants",
+         "at": 35,
+         "gives": "TOADIES",
+         "note": "toadies are fawning flatterers"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Exposing a clique of flatterers around a Republican politician.",
-     "walkthrough": "'Group' belongs to the definition, the band a roadie works for, not to the political scene.",
-     "definitionFit": "A roadie supports a touring band, or group, by carrying and setting up its equipment."
+     "surface": "A politician's backer surrounded by fawning party flatterers who have been exposed.",
+     "walkthrough": "A roadie supports a band on tour, so 'group' here means a band.",
+     "definitionFit": "A roadie is a crew member who sets up equipment for a touring band."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "group"
     }
    }
@@ -3114,37 +3145,58 @@
        "op": "container",
        "indicators": [
         {
-         "text": "in"
+         "text": "in",
+         "at": 5,
+         "note": "the food goes inside the shortened country"
         }
        ],
        "parts": [
         {
-         "words": "most of African country",
-         "gives": "KENY",
-         "note": "KENYA minus its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 8,
+           "note": "all but the last letter of the country"
+          }
+         ],
+         "parts": [
+          {
+           "words": "African country",
+           "at": 16,
+           "gives": "KENYA",
+           "note": "Kenya is in East Africa"
+          },
+          {
+           "gives": "A"
+          }
+         ]
         },
         {
          "words": "Food",
+         "at": 0,
          "gives": "TUCK",
-         "note": "tuck is British slang for food, especially snacks at school"
+         "note": "tuck is British slang for food, especially snacks"
         }
        ]
       },
       {
        "words": "low",
+       "at": 33,
        "gives": "BLUE",
-       "note": "to feel blue is to feel low"
+       "note": "blue means sad, low"
       },
       {
        "words": "weed",
+       "at": 37,
        "gives": "GRASS",
-       "note": "weed and grass are both slang for cannabis"
+       "note": "grass is slang for cannabis, weed"
       }
      ]
     },
     "explanation": {
-     "surface": "Food shortages in most of an African country, where a lowly weed is used to feed livestock.",
-     "walkthrough": "'Weed' and 'plant' pull toward gardening; weed here is cannabis, which is also called grass.",
+     "surface": "A tale of food shortages in Kenya, a downcast mood and weeds grown as cattle feed.",
+     "walkthrough": "'tuck' is British slang for food, especially sweets at boarding school; 'low' here is the mood, not height.",
      "definitionFit": "Kentucky bluegrass is a meadow grass widely grown for pasture and hay."
     },
     "features": {
