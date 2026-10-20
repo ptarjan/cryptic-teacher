@@ -4107,6 +4107,34 @@ def held(text, cands):
     return out + text[k:]
 
 
+#: How alike (difflib ratio, counts apart) the VLM's column reading and another
+#: reader's must be for the VLM's text to be laid with no pick asked.
+SETTLE_SIMILAR = 0.9
+
+
+def settled_by_vlm(texts, lid, parse, cands):
+    """The VLM's own column reading of clue `lid` when a pick would only
+    confirm it: another reader's clue is within SETTLE_SIMILAR of it with the
+    same word count, and the VLM's words hold up against every reading
+    (held(): no word suspect() flags that no reader has known). None otherwise
+    (the pick is asked). An OCR slip of a letter or two is what kept the two
+    from agreeing outright; the VLM's reading is the one that is not worn."""
+    import difflib
+    vlm_cands = candidates({"vlm": texts.get("vlm", "")}, lid, parse) if texts.get("vlm", "").strip() else []
+    if not vlm_cands:
+        return None
+    mine = strip_count(vlm_cands[0]).strip()
+    if not mine or len(tokens(mine)) < 2:
+        return None
+    others = [strip_count(c) for c in candidates({k: t for k, t in texts.items() if k != "vlm"}, lid, parse)]
+    for o in others:
+        if len(tokens(o)) == len(tokens(mine)) and \
+                difflib.SequenceMatcher(None, mine.lower(), o.lower()).ratio() >= SETTLE_SIMILAR:
+            if held(mine, cands) and re.sub(r"\W+", "", held(mine, cands).lower()) == re.sub(r"\W+", "", mine.lower()):
+                return mine
+    return None
+
+
 def vlm_pick(texts, laid, blank, parse, pick):
     """(laid, blank) with each clue reconcile() filed blank read by the VLM
     (tools/vlm_reader.py): `pick(light, candidates)` is its text for the
@@ -4121,6 +4149,13 @@ def vlm_pick(texts, laid, blank, parse, pick):
         cands = candidates(texts, lid, parse)
         if not cands:
             continue
+        own = settled_by_vlm(texts, lid, parse, cands)
+        if own is not None:
+            got = trimmed(held(clean(strip_count(own)), cands), lid)
+            if tokens(got) and not merged(got):
+                laid[lid] = (got, laid[lid][1], laid[lid][2])
+                del blank[lid]
+                continue
         try:
             asked = pick(lid, cands)
         except Spooled as e:
