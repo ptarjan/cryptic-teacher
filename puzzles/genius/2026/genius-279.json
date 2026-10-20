@@ -582,54 +582,58 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "INGRAIN",
-     "indicators": [
-      {
-       "text": "section of",
-       "note": "a section is a slice cut from within the words that follow, crossing their join"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "IN",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "section of",
+         "at": 4,
+         "note": "a section is a slice cut across the join of main and grandstand, so the head of one and the tail of the other are dropped"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
          "words": "main",
-         "gives": "IN",
-         "select": "last",
-         "note": "the tail end of the word, where the section begins"
+         "at": 15,
+         "gives": "MAIN",
+         "note": "only its tail end survives, where the section begins"
+        },
+        {
+         "gives": "MA"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "GRAN",
+       "op": "container",
        "parts": [
         {
-         "unchecked": true,
-         "words": "grandstand",
-         "gives": "GRAN",
-         "select": "first",
-         "note": "the front of the word, where the section stops"
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "grandstand",
+           "at": 20,
+           "gives": "GRANDSTAND",
+           "note": "only its front survives, where the section stops"
+          },
+          {
+           "gives": "DSTAND"
+          }
+         ]
+        },
+        {
+         "gives": "I",
+         "note": "the letter the wordplay omits, as the preamble warns, restored inside"
         }
        ]
-      },
-      {
-       "gives": "I",
-       "note": "the letter the wordplay omits, as the preamble warns"
       }
      ]
     },
     "explanation": {
-     "surface": "Repairing part of the stadium's main stand.",
-     "walkthrough": "The hidden letters INGRAN lack an I; that omitted letter is the second of FIBONACCI in the across message.",
-     "definitionFit": "To ingrain a habit or belief is to fix it firmly and deeply in someone's mind."
+     "surface": "Someone is fixing or securing a part of a stadium's main stand.",
+     "walkthrough": "'section of' cuts INGRAN across the join of 'main grandstand'; as the preamble warns, this wordplay is one letter short, and the omitted I goes back in before the final N.",
+     "definitionFit": "To ingrain a habit or belief is to fix it firmly and deeply, so the verbs are synonyms."
     },
     "features": {
      "answerInScene": false,
@@ -1238,62 +1242,72 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "CLAMBAKE",
      "indicators": [
       {
        "text": "rising",
-       "note": "in a down light, rising means read from bottom to top, backwards"
+       "at": 25,
+       "note": "in a down clue something rising is read from bottom to top, so the run goes backwards"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "EKA",
-       "indicators": [
-        {
-         "text": "restricts",
-         "note": "the place names restrict, or confine, the wanted run within their letters"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "Topeka",
-         "gives": "EKA",
-         "select": "last",
-         "note": "the tail end of the city name"
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "BALC",
-       "parts": [
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "restricts",
+           "at": 15,
+           "note": "the two place words confine the wanted run across their join, so the head of Topeka and the tail of balcony are dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Topeka",
+           "at": 0,
+           "gives": "TOPEKA",
+           "note": "the Kansas state capital; only its tail end survives"
+          },
+          {
+           "gives": "TOP"
+          }
+         ]
+        },
         {
-         "unchecked": true,
-         "words": "balcony",
-         "gives": "BALC",
-         "select": "first",
-         "note": "the front of the word"
+         "op": "container",
+         "parts": [
+          {
+           "op": "deletion",
+           "parts": [
+            {
+             "words": "balcony",
+             "at": 7,
+             "gives": "BALCONY",
+             "note": "only the front of the word survives"
+            },
+            {
+             "gives": "ONY"
+            }
+           ]
+          },
+          {
+           "gives": "M",
+           "note": "the letter the wordplay omits, as the preamble warns, restored inside"
+          }
+         ]
         }
        ]
-      },
-      {
-       "gives": "M",
-       "note": "the letter the wordplay omits, as the preamble warns"
       }
      ]
     },
     "explanation": {
-     "surface": "A party gathers on a Kansas balcony.",
-     "walkthrough": "The hidden letters reversed give CLABAKE; the omitted M is the sixth letter of the down message. Topeka is the capital of Kansas.",
-     "definitionFit": "A clambake is a New England beach party where clams and other seafood are baked or steamed."
+     "surface": "A balcony in Topeka, Kansas, limits a party that is getting going.",
+     "walkthrough": "'restricts' picks out EKABALC across 'Topeka balcony'; with the omitted M the preamble warns of restored it reads EKABMALC, and 'rising' turns that round.",
+     "definitionFit": "A clambake is a seaside social gathering in New England where clams are cooked, so it is an American kind of party."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "restricts"
     }
@@ -1511,58 +1525,63 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "RAINSTORM",
-     "indicators": [
-      {
-       "text": "every so often",
-       "note": "now and then along the city name, so only alternate letters are kept"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Raced",
-       "gives": "RAN",
-       "note": "ran means raced"
-      },
-      {
-       "words": "south",
-       "gives": "S",
-       "note": "S is the compass abbreviation"
-      },
-      {
-       "words": "to",
-       "note": "taken as written"
-      },
-      {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "RM",
+       "op": "container",
        "parts": [
         {
-         "unchecked": true,
-         "words": "Rome",
-         "gives": "RM",
-         "select": "alternate",
-         "note": "the first and third letters"
+         "words": "Raced",
+         "at": 0,
+         "gives": "RAN",
+         "note": "raced means ran"
+        },
+        {
+         "gives": "I",
+         "note": "the letter the wordplay omits, as the preamble warns, restored inside"
         }
        ]
       },
       {
-       "gives": "I",
-       "note": "the letter the wordplay omits, as the preamble warns"
+       "words": "south",
+       "at": 6,
+       "gives": "S",
+       "note": "S is the compass abbreviation for south"
+      },
+      {
+       "words": "to",
+       "at": 12,
+       "gives": "TO",
+       "note": "taken as written"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "every so often",
+         "at": 20,
+         "note": "taking a letter every so often means alternate letters of Rome, its first and third"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rome",
+         "at": 15,
+         "note": "the alternate letters of the city name"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sped south to Rome, stopping now and then in the rain.",
-     "walkthrough": "RAN S TO RM lacks an I; that omitted letter ends FIBONACCI in the across message.",
-     "definitionFit": "A rainstorm is a heavy fall of rain with wind, a spell of wet weather."
+     "surface": "Someone dashed southward to Rome through a downpour.",
+     "walkthrough": "The preamble warns that most clues' wordplay is a letter short: these parts give RANSTORM, and the omitted I goes back in as the third letter.",
+     "definitionFit": "A rainstorm is a heavy fall of rain with wind, a clear example of wet weather."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Raced"
     }
    }
   },
