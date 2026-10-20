@@ -151,26 +151,45 @@
      "op": "charade",
      "parts": [
       {
-       "words": "rapper lost one thousand",
-       "gives": "EMINE",
-       "note": "EMINEM without one M (Roman numeral for a thousand)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lost",
+         "at": 14,
+         "note": "lost means the rapper's name drops a letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rapper",
+         "at": 7,
+         "gives": "EMINEM",
+         "note": "Eminem is an American rapper"
+        },
+        {
+         "words": "one thousand",
+         "at": 19,
+         "gives": "M",
+         "note": "M is the Roman numeral for a thousand"
+        }
+       ]
       },
       {
        "words": "books",
+       "at": 32,
        "gives": "NT",
-       "note": "NT = New Testament, a set of books"
+       "note": "NT is the New Testament, a collection of books"
       }
      ]
     },
     "explanation": {
-     "surface": "A well-known rapper has lost a thousand books.",
-     "walkthrough": "'Famous' looks like it describes the rapper, but it is the definition; Eminem is the rapper and M is the Roman thousand.",
-     "definitionFit": "A plain synonym: an eminent person stands out in their field and is well known for it."
+     "surface": "A famous rapper lost a thousand books.",
+     "definitionFit": "Eminent means distinguished and well known, which is famous."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Famous"
+     "misdirectedWord": "books"
     }
    }
   },

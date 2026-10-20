@@ -96,7 +96,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "unpolished",
+      "text": "unpolished?",
       "at": 35
      }
     ],
@@ -105,30 +105,43 @@
      "parts": [
       {
        "words": "Note",
+       "at": 0,
        "gives": "G",
        "note": "G is a musical note"
       },
       {
        "words": "gold",
+       "at": 5,
        "gives": "AU",
-       "note": "Au is the chemical symbol for gold"
+       "note": "AU is the chemical symbol for gold"
       },
       {
-       "words": "chests, reduced by half",
-       "gives": "CHE",
-       "note": "CHESTS is six letters; its first three survive"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "reduced by half",
+         "at": 18,
+         "note": "reduced by half means only the first three of the six letters of chests are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chests",
+         "at": 10,
+         "note": "its first half is CHE"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone notes that the gold chests have been halved and look rough.",
-     "walkthrough": "The question mark hints that 'unpolished' is about manners, not metal.",
-     "definitionFit": "A plain synonym borrowed from French, where gauche means left-handed, hence clumsy and socially unpolished."
+     "surface": "A musical note about gold in treasure chests that have lost half their contents.",
+     "walkthrough": "The question mark flags that 'unpolished' is meant of manners, not metal or furniture.",
+     "definitionFit": "Gauche means socially awkward or lacking grace, so unpolished in manner."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "unpolished"
     }
    }
@@ -213,7 +226,7 @@
        "words": "secretary",
        "at": 19,
        "gives": "PA",
-       "note": "a PA is a personal assistant"
+       "note": "PA stands for personal assistant, a secretary"
       },
       {
        "op": "reversal",
@@ -221,23 +234,38 @@
         {
          "text": "served up",
          "at": 29,
-         "note": "in a down clue, served up means read upwards, so these letters reverse"
+         "note": "served up, in a down clue, means the letters are read from bottom to top"
         }
        ],
        "parts": [
         {
-         "words": "at home repeatedly",
-         "at": 39,
-         "gives": "ININ",
-         "note": "in means at home, given twice"
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "at": 47,
+           "note": "repeatedly means the at-home word is given twice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "at home",
+           "at": 39,
+           "gives": "IN",
+           "note": "in means at home"
+          },
+          {
+           "gives": "IN"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A secretary keeps bringing grilled snacks up to the boss at home.",
-     "definitionFit": "Panini are Italian pressed sandwiches, usually toasted on a griddle."
+     "surface": "An assistant brings out toasted sandwiches at home again and again.",
+     "definitionFit": "Panini are Italian bread rolls pressed and toasted, a type of hot sandwich."
     },
     "features": {
      "answerInScene": true,

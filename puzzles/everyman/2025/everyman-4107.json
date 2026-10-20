@@ -622,7 +622,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "where it was caught",
+      "text": "where it was caught?",
       "at": 42
      }
     ],
@@ -631,25 +631,47 @@
      "parts": [
       {
        "words": "Consumes",
+       "at": 0,
        "gives": "DOWNS",
-       "note": "to down a drink or a pie is to consume it"
+       "note": "downs means swallows, consumes"
       },
       {
        "words": "in the north, the",
+       "at": 10,
        "gives": "T",
-       "note": "northern English speech clips 'the' right down to a bare t', as in 't'pub'"
+       "note": "in northern English dialect 'the' is shortened to t'"
       },
       {
-       "words": "headless fish",
-       "gives": "REAM",
-       "note": "a bream is a freshwater fish, and the letter at its head comes off"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "headless",
+         "at": 28,
+         "note": "headless means the first letter of the fish is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fish",
+         "at": 37,
+         "gives": "BREAM",
+         "note": "a bream is a freshwater fish"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A northerner eating a fish at the very spot on the river where it was landed.",
-     "walkthrough": "The comma after 'north' hides the join: 'the' belongs to the dialect wordplay, not to 'the headless fish'. The definition then covers the whole picture of a fish carried along the water.",
-     "definitionFit": "DOWNSTREAM means further along in the direction a river flows, so 'where it was caught?' points at a spot below wherever the speaker is standing."
+     "surface": "An angler eats in the north the fish caught on a river.",
+     "definitionFit": "A fish carried by a river's current is caught further along, below where it entered, on the lower reaches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Consumes"
     }
    }
   },
@@ -1145,50 +1167,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Someone in Kachera — holy, primarily",
+      "text": "Someone in Kachera — holy, primarily?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "first",
+     "indicators": [
+      {
+       "text": "primarily",
+       "at": 27,
+       "note": "primarily means the first letter of each of the four words before it"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "primarily",
-         "note": "'primarily' means first of all, so each word gives up nothing but the letter it begins with."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Someone",
-         "note": "the opening letter of the word, taken because of the instruction at the end"
-        }
-       ]
+       "words": "Someone",
+       "at": 0,
+       "note": "first letter S"
       },
       {
        "words": "in",
-       "gives": "I",
-       "note": "the opening letter of this small word, which is fodder rather than joinery"
+       "at": 8,
+       "note": "first letter I"
       },
       {
        "words": "Kachera",
-       "gives": "K",
-       "note": "the opening letter of a word for the cotton undergarment worn as one of the Five Ks"
+       "at": 11,
+       "note": "first letter K"
       },
       {
        "words": "holy",
-       "gives": "H",
-       "note": "the opening letter of the last word in the run"
+       "at": 21,
+       "note": "first letter H"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Asking who it is that wears a kachera, and whether they are a religious sort.",
-     "walkthrough": "The clue spells the answer and describes it with the very same words. The kachera is one of the Five Ks, the articles of faith an initiated member of that religion wears at all times.",
-     "definitionFit": "Read straight through, the whole clue describes a SIKH: an initiated member of the faith wears the kachera, and the faith is a religious one."
+     "surface": "A devout person wearing a kachera, the undergarment worn by baptised Sikhs.",
+     "walkthrough": "The kachera is one of the five articles of faith, so the whole clue also describes the answer.",
+     "definitionFit": "Members of this faith wear the kachera, a cotton undergarment, as one of the Five Ks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
     }
    }
   },
@@ -1214,29 +1237,50 @@
    "annotation": {
     "definitions": [
      {
-      "text": "that's not actually there",
-      "at": 37
+      "text": "not actually there",
+      "at": 44
      }
     ],
     "wordplay": {
      "op": "charade",
      "parts": [
       {
-       "words": "Encourage — not entirely",
-       "gives": "INSPIR",
-       "note": "to inspire somebody is to encourage them, and the word is stopped one letter short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not entirely",
+         "at": 12,
+         "note": "not entirely means the encourage word is not given in full, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Encourage",
+         "at": 0,
+         "gives": "INSPIRE",
+         "note": "to inspire someone is to encourage them"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "tech",
+       "at": 32,
        "gives": "IT",
-       "note": "IT is information technology"
+       "note": "IT, information technology, is tech"
       }
      ]
     },
     "explanation": {
-     "surface": "Egging somebody on, though only partly, and doing it with gadgetry that isn't really there.",
-     "walkthrough": "The dashes make 'not entirely' read as a qualification on the encouragement, when it is the instruction to dock a letter. Being somewhere in spirit is being present and absent at once.",
-     "definitionFit": "IN SPIRIT is the idiom for being present in feeling but not in body, so 'that's not actually there' is precisely the absence it describes."
+     "surface": "Half-hearted encouragement for gadgets that are only virtual.",
+     "definitionFit": "To be with someone in spirit means to be thinking of them while absent in person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tech"
     }
    }
   },
@@ -1403,12 +1447,19 @@
       {
        "text": "defending",
        "at": 35,
-       "note": "the paired letters surround and protect the next piece"
+       "note": "defending means the doubled pair surrounds the letters from bull, as guards protect"
       }
      ],
      "parts": [
       {
        "op": "charade",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 28,
+         "note": "twice means the setter's word for himself is written two times"
+        }
+       ],
        "parts": [
         {
          "op": "reversal",
@@ -1416,7 +1467,7 @@
           {
            "text": "backsliding",
            "at": 16,
-           "note": "sliding backwards means reading the letters in reverse"
+           "note": "backsliding means the doubled setter word is read backwards"
           }
          ],
          "parts": [
@@ -1424,15 +1475,20 @@
            "words": "Everyman's",
            "at": 5,
            "gives": "ME",
-           "note": "the setter Everyman is me, so the setter's own word for himself is ME"
+           "note": "the setter Everyman refers to himself as me"
           }
          ]
         },
         {
-         "words": "twice",
-         "at": 28,
-         "gives": "EM",
-         "note": "the reversed setter's letters appear a second time"
+         "op": "reversal",
+         "parts": [
+          {
+           "words": "Everyman's",
+           "at": 5,
+           "gives": "ME",
+           "note": "the setter's word for himself, me, taken a second time because of twice"
+          }
+         ]
         }
        ]
       },
@@ -1442,28 +1498,27 @@
         {
          "text": "regularly",
          "at": 50,
-         "note": "regularly means at even intervals, so take every other letter of bull"
+         "note": "regularly takes alternate letters of bull, starting with the first"
         }
        ],
        "parts": [
         {
          "words": "bull",
          "at": 45,
-         "note": "its first and third letters"
+         "note": "its alternate letters are B and L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sign that Everyman has twice lapsed while sticking up for some nonsense.",
-     "walkthrough": "In crosswords a setter calls himself ME. 'backsliding' gives EM, used 'twice', and the pair is 'defending' BL, picked 'regularly' from bull.",
-     "definitionFit": "An emblem is a symbol or badge that stands for something, so a sign."
+     "surface": "A sign that the setter is backsliding, protecting a bull.",
+     "definitionFit": "An emblem is a symbol or badge representing something, which is a sign."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "bull"
+     "misdirectedWord": "Sign"
     }
    }
   }

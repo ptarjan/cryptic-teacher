@@ -102,26 +102,42 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Nameless groups",
-       "gives": "CLAS",
-       "note": "CLANS (groups) with its N (name) removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Nameless",
+         "at": 0,
+         "note": "Nameless means the abbreviation N for name is removed from the word for groups"
+        }
+       ],
+       "parts": [
+        {
+         "words": "groups",
+         "at": 9,
+         "gives": "CLANS",
+         "note": "clans are family groups"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       },
       {
        "words": "like this",
+       "at": 16,
        "gives": "SIC",
-       "note": "sic is Latin for thus, used to mean 'written like this'"
+       "note": "sic is Latin for thus, used to mean 'like this'"
       }
      ]
     },
     "explanation": {
-     "surface": "Anonymous groups of people are said to resemble a particular race.",
-     "walkthrough": "N is a standard abbreviation for name. 'Race' reads as a people, but it is a horse race.",
-     "definitionFit": "The Classics are the five big British flat races for three-year-olds, such as the Derby, so one of them is a classic."
+     "surface": "Anonymous groups describe a race in this manner.",
+     "walkthrough": "'Race' is not ethnicity here but a horse race.",
+     "definitionFit": "The Classics are the five major British flat horse races, such as the Derby, so a classic is a race."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "race"
     }
    }
@@ -396,7 +412,7 @@
         {
          "text": "cycling",
          "at": 15,
-         "note": "cycling means the letters rotate, so the first letter of the valley moves to the end"
+         "note": "cycling means the first letter of the valley word goes round to the end"
         }
        ],
        "parts": [
@@ -409,17 +425,27 @@
        ]
       },
       {
-       "words": "half of this",
-       "at": 28,
-       "gives": "TH",
-       "note": "the first two of the four letters of this"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 28,
+         "note": "half of means the first two of the four letters of this"
+        }
+       ],
+       "parts": [
+        {
+         "words": "this",
+         "at": 36,
+         "note": "its first half is TH"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cyclist gauges a valley with part of the route.",
-     "walkthrough": "'cycling' moves the G of GLEN to the end.",
-     "definitionFit": "Length is a dimension, the extent of something from end to end, a quantity measured."
+     "surface": "A survey of a valley by bicycle, alongside part of something else.",
+     "definitionFit": "Length is a dimension, a measurement of how long something is."
     },
     "features": {
      "answerInScene": false,
@@ -736,26 +762,44 @@
      "indicators": [
       {
        "text": "after",
-       "note": "the shortened word comes after the letter for first-class"
+       "at": 9,
+       "note": "after says the trimmed lawn word follows the first-class letter"
       }
      ],
      "parts": [
       {
        "words": "first-class",
+       "at": 15,
        "gives": "A",
-       "note": "A is first class, as in A1 or grade A"
+       "note": "A means first-class, as in A1 or an A grade"
       },
       {
-       "words": "Lawn cut",
-       "gives": "GREE",
-       "note": "GREEN (a lawn) without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 5,
+         "note": "cut means the lawn word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lawn",
+         "at": 0,
+         "gives": "GREEN",
+         "note": "a green is a stretch of lawn, as for bowls"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mowing the lawn before a top-level match.",
-     "walkthrough": "The cricket or tennis picture fits 'first-class match', but 'match' is a verb meaning tally.",
-     "definitionFit": "Two accounts that match agree with each other."
+     "surface": "A trimmed lawn ready for a top-quality fixture.",
+     "walkthrough": "'Match' looks like a sports fixture after 'first-class' and 'lawn', but it is a verb.",
+     "definitionFit": "To agree is to correspond or tally, which is what things that match do."
     },
     "features": {
      "answerInScene": false,
@@ -1581,33 +1625,55 @@
        "indicators": [
         {
          "text": "fringing",
-         "note": "the word for stone forms a fringe on both sides of the small word"
+         "at": 6,
+         "note": "fringing means the stone abbreviation forms a border around the small word"
         }
        ],
        "parts": [
         {
          "words": "Stone",
+         "at": 0,
          "gives": "ST",
-         "note": "st is the abbreviation for stone, the British unit of weight"
+         "note": "ST is the abbreviation for stone, the weight"
         },
         {
          "words": "small",
+         "at": 15,
          "gives": "WEE",
-         "note": "wee is Scottish for small; it goes between S and T"
+         "note": "wee is Scottish for small"
         }
        ]
       },
       {
-       "words": "fireside lacking a hot",
-       "gives": "HEART",
-       "note": "HEARTH (fireside) without an H (hot)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 30,
+         "note": "lacking means the fireside word goes without a letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fireside",
+         "at": 21,
+         "gives": "HEARTH",
+         "note": "the hearth is the floor of a fireplace, the fireside"
+        },
+        {
+         "words": "a hot",
+         "at": 38,
+         "gives": "H",
+         "note": "H is the abbreviation for hot, as on taps"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hearthstone fire that has gone out, with no hot flame left.",
-     "walkthrough": "'Flame' seems to belong with the fire; it means a lover. 'A hot' is one H.",
-     "definitionFit": "An old flame is a former sweetheart; a flame is a lover."
+     "surface": "A stone surround to a little fireplace that has no hot flame.",
+     "walkthrough": "'Flame' looks like part of the fireside picture, but it means an old flame, a lover.",
+     "definitionFit": "A flame, as in old flame, is a lover or romantic partner, which a sweetheart is."
     },
     "features": {
      "answerInScene": false,
