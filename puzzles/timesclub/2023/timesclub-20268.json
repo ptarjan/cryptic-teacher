@@ -533,14 +533,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "leaving",
-       "note": "a letter that is leaving departs from the word that follows"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "note": "a letter that is leaving departs from the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "initial",
+         "gives": "FIRST",
+         "note": "the initial one is the first"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "ultimately points to the last letter of the word before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hooker",
+           "note": "the final letter of hooker"
+          }
+         ]
+        }
+       ]
+      },
       {
        "op": "deletion",
        "indicators": [
@@ -551,37 +576,12 @@
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "initial",
-           "gives": "FIRST",
-           "note": "the initial one is the first"
-          },
-          {
-           "words": "scrum",
-           "gives": "MELEE",
-           "note": "a melee is a confused scrum of people"
-          }
-         ]
+         "words": "scrum",
+         "gives": "MELEE",
+         "note": "a melee is a confused scrum of people"
         },
         {
          "gives": "E"
-        }
-       ]
-      },
-      {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "ultimately",
-         "note": "ultimately points to the last letter of the word before it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "hooker",
-         "note": "the final letter of hooker"
         }
        ]
       }
