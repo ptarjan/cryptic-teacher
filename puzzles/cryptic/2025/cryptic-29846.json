@@ -47,19 +47,35 @@
      "parts": [
       {
        "words": "A",
-       "note": "used as printed"
+       "at": 0,
+       "gives": "A"
       },
       {
-       "words": "fancy thing leader demolished",
-       "gives": "LLUSION",
-       "note": "a fancy thing is an ILLUSION; without its first letter it is LLUSION"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leader demolished",
+         "at": 14,
+         "note": "the leader of a word is its first letter, and it is knocked off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fancy thing",
+         "at": 2,
+         "gives": "ILLUSION",
+         "note": "an illusion is something fancied, not real"
+        },
+        {
+         "gives": "I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone mentions, in passing, a fancy building whose owner has been pulled down from power.",
-     "walkthrough": "'Fancy' is a noun here (a flight of the imagination), so 'fancy thing' is an illusion, not an ornate object.",
-     "definitionFit": "An allusion is a passing reference to something not named outright."
+     "surface": "A fanciful notion of a demolished leader is mentioned in passing.",
+     "definitionFit": "An allusion is an indirect mention, a reference made in passing."
     },
     "features": {
      "answerInScene": false,
@@ -524,26 +540,42 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Nameless tribe",
-       "gives": "CLA",
-       "note": "a tribe is a CLAN; without N (name) it is CLA"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Nameless",
+         "at": 0,
+         "note": "nameless means without a name, and N is the standard abbreviation for name, so that letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tribe",
+         "at": 9,
+         "gives": "CLAN",
+         "note": "a clan is a tribe"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       },
       {
-       "words": "employ",
+       "words": "to employ",
+       "at": 15,
        "gives": "USE",
-       "note": "to employ is to use"
+       "note": "to use is to employ"
       }
      ]
     },
     "explanation": {
-     "surface": "An unknown tribe that communicates in very few words.",
-     "walkthrough": "N for name is a standard abbreviation, so 'nameless' tells you to drop an N.",
-     "definitionFit": "A clause is a short group of words, part of a sentence or document."
+     "surface": "An anonymous tribe hires someone to write a few words.",
+     "definitionFit": "A clause is a short run of words in a sentence or a provision in a document."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Nameless"
+     "misdirectedWord": "employ"
     }
    }
   },
@@ -1043,31 +1075,50 @@
      "indicators": [
       {
        "text": "over",
-       "note": "in a down answer, one piece placed over another comes first"
+       "at": 23,
+       "note": "in a down answer one piece placed over another comes first, above it"
       }
      ],
      "parts": [
       {
-       "words": "Piece of land not good",
-       "gives": "ARDEN",
-       "note": "a GARDEN is a piece of land; without G it is ARDEN"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 14,
+         "note": "not good means without the letter for good"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Piece of land",
+         "at": 0,
+         "gives": "GARDEN",
+         "note": "a garden is a piece of land"
+        },
+        {
+         "words": "good",
+         "at": 18,
+         "gives": "G"
+        }
+       ]
       },
       {
        "words": "time",
-       "gives": "T",
-       "note": "T, the abbreviation for time"
+       "at": 28,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A patch of land left fallow over a summer that was far too hot.",
-     "walkthrough": "'Maybe' flags that the definition is an example: ardent literally means burning.",
-     "definitionFit": "Ardent means burning or glowing, and figuratively fervent or passionate, so possibly too hot."
+     "surface": "A plot of land left untended over time gets scorched.",
+     "walkthrough": "'too hot' sounds like weather, but the answer is the figurative heat of passion.",
+     "definitionFit": "Ardent means burning with passion, so it can describe something too hot, hence 'maybe'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "good"
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
     }
    }
   },
@@ -1198,30 +1249,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "somehow",
-       "note": "the remaining letters come together in some other way"
+       "at": 5,
+       "note": "somehow suggests the letters are rearranged in some way"
+      },
+      {
+       "text": "not",
+       "at": 28,
+       "note": "not with the letters named means those letters are left out of the pool"
       }
      ],
      "parts": [
       {
-       "words": "in good taste, not OTT",
-       "gives": "INGODASE",
-       "note": "IN GOOD TASTE minus O, T, T"
+       "words": "in good taste",
+       "at": 13,
+       "note": "taken as written"
+      },
+      {
+       "words": "OTT",
+       "at": 32,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A city with tasteful style that never goes over the top.",
-     "walkthrough": "OTT (over the top) reads as a comment on taste, but its letters are what gets removed.",
-     "definitionFit": "A definition by example: it is a large port city in southern California."
+     "surface": "A city is somehow stylish without being over the top.",
+     "walkthrough": "Remove O, T, T from IN GOOD TASTE and rearrange the remaining eight letters.",
+     "definitionFit": "San Diego is a large Californian port city near the Mexican border."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "OTT"
+     "misdirectedWord": "taste"
     }
    }
   },

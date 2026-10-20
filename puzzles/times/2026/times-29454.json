@@ -826,31 +826,50 @@
      "op": "container",
      "indicators": [
       {
-       "text": "catching"
+       "text": "catching",
+       "at": 5,
+       "note": "one word catching another holds it inside, so the first word wraps the second"
       }
      ],
      "parts": [
       {
        "words": "Just",
+       "at": 0,
        "gives": "ONLY",
-       "note": "just = only; it wraps round THEF"
+       "note": "just means only, as in just one"
       },
       {
-       "words": "heartless robber",
-       "gives": "THEF",
-       "note": "THIEF without its central I"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 14,
+         "note": "a word without its heart has its central letter removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "robber",
+         "at": 24,
+         "gives": "THIEF",
+         "note": "a thief is a robber"
+        },
+        {
+         "gives": "I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Police just managing to nab a callous robber while he is on the move.",
-     "walkthrough": "'Heartless' suggests cruelty; it means the robber loses his middle letter.",
-     "definitionFit": "Doing something on the fly means doing it while in motion or busy with something else."
+     "surface": "A judge decides a robber was just caught red-handed while busy at work.",
+     "walkthrough": "'Just' looks like an adjective for fair, but it is the adverb meaning merely.",
+     "definitionFit": "Doing something on the fly means doing it in the course of other activity, without stopping to plan."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "heartless"
+     "misdirectedWord": "Just"
     }
    }
   },
@@ -1140,40 +1159,44 @@
      "parts": [
       {
        "words": "sanctimonious",
+       "at": 5,
        "gives": "PI",
-       "note": "pi is informal for pious, sanctimonious"
+       "note": "pi is informal British for sanctimonious, short for pious"
       },
       {
        "op": "middle",
        "indicators": [
         {
          "text": "contents of",
-         "note": "what is inside: the words minus their first and last letters"
+         "at": 19,
+         "note": "the contents of a word are everything inside its outer letters, applied to both words that follow"
         }
        ],
        "parts": [
         {
          "words": "proud",
-         "note": "PROUD without its outer letters"
+         "at": 31,
+         "note": "the inside of proud, without its first and last letters"
+        },
+        {
+         "words": "letter",
+         "at": 37,
+         "note": "the inside of letter, without its first and last letters"
         }
        ]
-      },
-      {
-       "words": "letter",
-       "gives": "ETTE",
-       "note": "LETTER without its outer letters"
       }
      ]
     },
     "explanation": {
-     "surface": "Spin doctors wrapping a pious message inside an arrogant letter.",
-     "walkthrough": "'Contents of' covers both words that follow: each gives up its inside.",
-     "definitionFit": "A definition by example: the ballet dancer's full turn on one foot is a kind of spin."
+     "surface": "Someone smug spins a proud letter to make themselves look good.",
+     "walkthrough": "One indicator, 'contents of', takes the insides of both proud and letter.",
+     "definitionFit": "A pirouette is a ballet dancer's full turn on one foot, a kind of spin."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "letter"
+     "joke": "pun",
+     "misdirectedWord": "Spin"
     }
    }
   },
@@ -1612,25 +1635,40 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Hostile force failing to end",
-       "gives": "ENEM",
-       "note": "the enemy is a hostile force; minus the Y"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "failing to end",
+         "at": 14,
+         "note": "a word failing to end loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hostile force",
+         "at": 0,
+         "gives": "ENEMY",
+         "note": "the enemy is a hostile force in war"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "the word itself"
+       "at": 29,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A hostile army unable to complete a purge of its ranks.",
-     "walkthrough": "'Purge' sounds political; here it is bodily.",
-     "definitionFit": "A definition by function: flushing liquid into the bowel purges it."
+     "surface": "An enemy army collapses before it can finish purging its ranks.",
+     "definitionFit": "An enema flushes out the bowel, so it is a medical purge."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "purge"
     }
    }

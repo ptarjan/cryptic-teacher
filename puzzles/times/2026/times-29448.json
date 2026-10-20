@@ -1038,30 +1038,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "deposing leader",
-       "note": "the first letter is thrown out"
-      },
-      {
        "text": "in revolution",
-       "note": "the letters are turned over into a new order"
+       "at": 38,
+       "note": "a revolution overturns things, so these letters are turned into a new order"
       }
      ],
      "parts": [
       {
-       "words": "patriotism deposing leader",
-       "gives": "ATRIOTISM",
-       "note": "PATRIOTISM without its first letter P"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "deposing leader",
+         "at": 22,
+         "note": "the leader of the word is deposed, losing its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "patriotism",
+         "at": 11,
+         "gives": "PATRIOTISM",
+         "note": "taken as written"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rebels faking loyalty to their country while overthrowing its ruler.",
-     "walkthrough": "The surface is all politics; 'deposing leader' and 'revolution' are instructions.",
-     "definitionFit": "A descriptive phrase: people who mimic others pretend to be what they are not."
+     "surface": "Fake patriots overthrow their leader in a revolution.",
+     "definitionFit": "Imitators copy others and so pretend to be what they are not."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "revolution"
     }
    }

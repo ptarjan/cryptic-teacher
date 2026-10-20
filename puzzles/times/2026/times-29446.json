@@ -720,20 +720,37 @@
      "parts": [
       {
        "words": "around",
+       "at": 5,
        "gives": "C",
-       "note": "c = circa, around"
+       "note": "C is short for circa, Latin for around"
       },
       {
-       "words": "barrier in the East End",
-       "gives": "URDLE",
-       "note": "HURDLE with the H dropped, as in a Cockney accent"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in the East End",
+         "at": 28,
+         "note": "in the East End of London Cockney speech drops the H"
+        }
+       ],
+       "parts": [
+        {
+         "words": "barrier",
+         "at": 20,
+         "gives": "HURDLE",
+         "note": "a hurdle is a barrier in a race"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone spinning round to face a barricade in east London.",
-     "walkthrough": "'Turn around' reads as one instruction; 'Turn' alone is the definition, as milk turns. The East End of London is the home of Cockney, which drops its h's.",
-     "definitionFit": "Milk that turns goes sour and curdles, so turn is used in its dairy sense."
+     "surface": "A runner turns before a hurdle in a race in east London.",
+     "walkthrough": "Cockney speech drops initial H, so an East End hurdle is 'URDLE.",
+     "definitionFit": "Milk turns, or curdles, when it goes sour and separates."
     },
     "features": {
      "answerInScene": false,
@@ -817,45 +834,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "both sides leaving",
-       "note": "both sides of the word leave, so its first and last letters go"
-      }
-     ],
      "parts": [
       {
-       "words": "tie",
-       "gives": "SCO",
-       "note": "ASCOT, a broad neck tie, without its first and last letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "both sides leaving",
+         "at": 15,
+         "note": "both sides leaving means a word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tie",
+         "at": 10,
+         "gives": "ASCOT",
+         "note": "an ascot is a broad neck tie"
+        },
+        {
+         "gives": "A"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "up",
-         "note": "in a down clue, up means the word is read from bottom to top"
+         "at": 41,
+         "note": "in a down clue up means read from bottom to top, backwards"
         }
        ],
        "parts": [
         {
          "words": "keeper",
+         "at": 34,
          "gives": "WARDER",
-         "note": "a warder is a prison keeper; 'up' reverses it"
+         "note": "a warder is a prison keeper"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drawn cup tie in which both teams scored and a goalkeeper was left stranded.",
-     "walkthrough": "The football picture pushes 'keeper' towards the goalkeeper and 'tie' towards a cup match; the tie is an ascot, a cravat, and the keeper guards a prison.",
-     "definitionFit": "A score draw is a drawn match in which both sides scored, a key result on British football pools coupons."
+     "surface": "A football tie ends with both sides leaving the goalkeeper upfield.",
+     "walkthrough": "'tie' looks like a drawn match, but it is the necktie ASCOT, losing its ends to give SCO; WARDER reversed adds REDRAW.",
+     "definitionFit": "A score draw is a drawn football match where goals were scored, so it is a type of result."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "keeper"
+     "misdirectedWord": "tie"
     }
    }
   },

@@ -349,31 +349,43 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "A lot of",
-       "note": "most of the word, so the last letter goes"
-      },
-      {
        "text": "turns",
-       "note": "the letters go back to front"
+       "at": 15,
+       "note": "turns means the letters are read backwards"
       }
      ],
      "parts": [
       {
-       "words": "sharp",
-       "gives": "KEE",
-       "note": "KEEN (sharp) without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of a word is most of it, here all but its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sharp",
+         "at": 9,
+         "gives": "KEEN",
+         "note": "keen means sharp, as of a blade"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A driver on a road full of hairpin bends admitting to nerves.",
-     "walkthrough": "'I'm afraid' usually softens bad news; here it is literal, and EEK is the squeal of fear.",
-     "definitionFit": "Eek is an exclamation of fright, what you say when afraid."
+     "surface": "A road with many sharp bends makes a nervous driver confess fear.",
+     "definitionFit": "Eek is an exclamation of fright, the cry of someone scared."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "afraid"
+     "misdirectedWord": "turns"
     }
    }
   },
@@ -1366,31 +1378,56 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Friend taking minute to finish",
-       "gives": "ATEM",
-       "note": "MATE with its M (minute) moved to the end"
+       "op": "move",
+       "indicators": [
+        {
+         "text": "taking",
+         "at": 7,
+         "note": "taking a letter somewhere moves it from where it was"
+        },
+        {
+         "text": "to finish",
+         "at": 21,
+         "note": "to finish says where the moved letter ends up, at the end of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Friend",
+         "at": 0,
+         "gives": "MATE",
+         "note": "mate is a friend"
+        },
+        {
+         "words": "minute",
+         "at": 14,
+         "gives": "M"
+        }
+       ]
       },
       {
        "words": "piano",
+       "at": 31,
        "gives": "P",
-       "note": "p = piano, softly"
+       "note": "p is the musical marking for piano, softly"
       },
       {
        "words": "exam",
+       "at": 37,
        "gives": "ORAL",
        "note": "an oral is a spoken exam"
       }
      ]
     },
     "explanation": {
-     "surface": "A friend taking a minute to finish a piano exam and running out of time.",
-     "walkthrough": "'Taking minute to finish' is a letter move: the M of MATE goes to the end. 'Out of time' reads as a deadline but means outside time altogether.",
-     "definitionFit": "Atemporal means existing outside time, unaffected by it."
+     "surface": "A friend takes a minute to finish a piano exam and runs out of time.",
+     "walkthrough": "'out of time' looks like failing to finish the exam in time, but it is the definition: timeless.",
+     "definitionFit": "Atemporal means existing independently of time, untouched by it."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "piano"
+     "aptDefinition": false,
+     "misdirectedWord": "exam"
     }
    }
   },
