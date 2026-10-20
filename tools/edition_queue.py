@@ -182,6 +182,8 @@ def vlm_deferral(e):
     import vlm_reader
     if vlm_reader.cause() == "spooled":
         return f"deferred, {len(vlm_reader.spooled_by(os.getpid()))} VLM asks spooled"
+    if vlm_reader.cause() == "spool full":
+        return "deferred: VLM spool full"
     return f"deferred, the VLM is down ({e})"
 
 
@@ -458,16 +460,10 @@ def vlm_waiting_cap():
 #: a minute 200 are half an hour of the VLM's work, and each read begun past that only waits.
 #: A number in ~/.cache/corpus_queue/vlm_spool_max (env CT_VLM_SPOOL_MAX_FILE) beats the env, so
 #: the depth is tunable live: a deep spool adds no throughput, it only delays new code's asks.
+#: Defined in vlm_reader (a read past it spools nothing and ends deferred: "spool full"); one
+#: source for the reader and the queue.
 def vlm_spool_max():
-    try:
-        with open(os.path.expanduser(os.environ.get("CT_VLM_SPOOL_MAX_FILE") or "~/.cache/corpus_queue/vlm_spool_max")) as f:
-            return max(1, int(f.read().strip()))
-    except (OSError, ValueError):
-        pass
-    try:
-        return max(1, int(os.environ.get("CT_VLM_SPOOL_MAX", "200")))
-    except ValueError:
-        return 200
+    return vlm_reader.vlm_spool_max()
 
 
 def vlm_drainer(stop, threads):
@@ -1615,6 +1611,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     drainer = []  # the VLM stage's threads, started with the first spooled ask
     drainer_stop = threading.Event()
     spool_wait = {}  # {key_of(read): its spooled asks' keys} of the reads deferred for the drainer
+    full_wait = set()  # keys of the reads deferred for a full spool: not started until it is below its cap
     stage_seen = [None, float("-inf")]  # the "vlm stage" line's last (spooled, waiting) and when
     ceiling_bound = False  # logged once each time the unit-children ceiling is met
     scan_held = False  # logged once each time the scans are held to their share for the reads
@@ -1919,9 +1916,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if rc == EXITS["vlm"]:
                 spooled_by = vlm_reader.spooled_by(pid)
                 spooled_end = bool(spooled_by)
+                full_end = vlm_reader.full_mark(pid).exists()
+                if full_end:
+                    vlm_reader.full_mark(pid).unlink(missing_ok=True)
+                    full_wait.add(key_of(unit))  # started again once the spool is below its cap
                 if spooled_by:
                     spool_wait[key_of(unit)] = set(spooled_by)  # started again once the drainer has answered them
-                else:
+                elif not full_end:
                     vlm_held.add(key_of(unit))
                     vlm_lost_at[0] = time.monotonic()
             if rc in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]):
@@ -1939,7 +1940,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     7: "not started: the disk is full",
                     EXITS["deferred"]: "deferred (the desktop is busy)",
                     EXITS["lost"]: "deferred (the desktop was lost)",
-                    EXITS["vlm"]: "deferred (spooled)" if rc == EXITS["vlm"] and spooled_end else "deferred (the VLM is down)"}.get(rc, f"failed (rc={rc})")
+                    EXITS["vlm"]: "deferred (spooled)" if rc == EXITS["vlm"] and spooled_end
+                    else "deferred: VLM spool full" if rc == EXITS["vlm"] and full_end else "deferred (the VLM is down)"}.get(rc, f"failed (rc={rc})")
             if unit["kind"] == "fetch":
                 src = unit["paper"]
                 outages[src] = outages[src] + 1 if rc == 5 else 0
@@ -2122,7 +2124,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         if spool_on and (vlm_reader._waiting_dir() / str(os.getpid())).exists():
             vlm_waiting -= 1
         if spool_on:
-            vlm_full = vlm_waiting >= vlm_waiting_cap() or len(queued) >= vlm_spool_max()
+            # A full spool does not stop reads: one that needs an uncached ask then ends deferred
+            # ("VLM spool full", vlm_reader.ask_png) and waits in full_wait; OCR-only reads go on.
+            vlm_full = vlm_waiting >= vlm_waiting_cap()
         else:
             vlm_waiting += len(queued) * vlm_waiting_cap() // vlm_spool_max()  # a full spool counts as a full cap
             vlm_full = vlm_waiting >= vlm_waiting_cap()
@@ -2131,6 +2135,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if vlm_full:
                 log(f"vlm-bound: {vlm_waiting} reads wait for the VLM (CT_VLM_WAITING {vlm_waiting_cap()}), "
                     f"{len(queued)} asks spooled (CT_VLM_SPOOL_MAX {vlm_spool_max()}); no read starts until it drains")
+        spool_cap_hit = len(queued) >= vlm_spool_max()
         begun_now = charged = 0
         costs = None  # unit_costs, measured at this pass's first start
         held_back = cpu_held = idle_held = False
@@ -2163,6 +2168,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             or it ended deferred for it) and it is down."""
             if u["kind"] != "read" or not (key_of(u) in vlm_held or needs_vlm(u)):
                 return False
+            if key_of(u) in full_wait:
+                if spool_cap_hit:
+                    return True  # deferred for a full spool: not again until it is below its cap
+                full_wait.discard(key_of(u))
             if key_of(u) in spool_wait:
                 if any(vlm_reader.pending(k) for k in spool_wait[key_of(u)]):
                     return True
@@ -2270,7 +2279,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             the VLM back, a desktop session aged out: noticed within
             IDLE_WALK seconds)."""
             return (planned, plan_done, fresh_at, len(queue), len(first), len(tried), len(scanned), len(scan_failed),
-                    sum(losses.values()), len(vlm_held), len(spool_wait), vlm_full, tuple(running), tuple(adopted), tuple(sorted(free.items())),
+                    sum(losses.values()), len(vlm_held), len(spool_wait), len(full_wait), spool_cap_hit, vlm_full, tuple(running), tuple(adopted), tuple(sorted(free.items())),
                     len(stopped), urgent, bool(starved), bool(yielding), desk_mem, len(opened), len(closed),
                     int(time.monotonic() // IDLE_WALK), gates)
 
@@ -2317,7 +2326,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                                          or (u["kind"] == "scan" and (not yield_opt_in or (game and live_scans >= game_scans()))))):
                 continue
             if vlm_waits(u):
-                vlm_deferred += ukey not in spool_wait  # a read for the drainer is no "VLM down"
+                vlm_deferred += ukey not in spool_wait and ukey not in full_wait  # a read for the drainer is no "VLM down"
                 continue
             if vlm_full and u["kind"] == "read":
                 continue

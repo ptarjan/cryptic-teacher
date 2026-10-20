@@ -113,6 +113,8 @@ def guard(what):
     if _MISSED[0] and os.environ.get(DEFER_ENV):
         if _CAUSE[0] == "spooled":
             raise Down(f"{len(spooled_by(os.getpid()))} VLM asks spooled for the drainer; {what} not written")
+        if _CAUSE[0] == "spool full":
+            raise Down(f"VLM spool full; {what} not written")
         raise Down(f"VLM {MODEL} at {URL} went down mid-read ({_CAUSE[0] or 'unknown'}); {what} not written")
 
 
@@ -654,6 +656,27 @@ def spool_dir():
     return CACHE / "spool"
 
 
+def vlm_spool_max():
+    """Spooled asks (spooled()) at which a read spools no more and ends deferred, and the queue
+    holds back the reads that deferred so (env CT_VLM_SPOOL_MAX, default 200). A number in
+    ~/.cache/corpus_queue/vlm_spool_max (env CT_VLM_SPOOL_MAX_FILE) beats the env, so the depth
+    is tunable live: a deep spool adds no throughput, it only delays new code's asks."""
+    try:
+        with open(os.path.expanduser(os.environ.get("CT_VLM_SPOOL_MAX_FILE") or "~/.cache/corpus_queue/vlm_spool_max")) as f:
+            return max(1, int(f.read().strip()))
+    except (OSError, ValueError):
+        pass
+    try:
+        return max(1, int(os.environ.get("CT_VLM_SPOOL_MAX", "200")))
+    except ValueError:
+        return 200
+
+
+def full_mark(pid):
+    """The file a read of process `pid` leaves when its ask was refused for a full spool."""
+    return spool_dir() / f"full.{pid}"
+
+
 def put_spool(key, data, prompt, max_tokens):
     """Queue the ask `key` for the drainer (png first, the json that marks it last)."""
     d = spool_dir()
@@ -801,6 +824,17 @@ def ask_png(data, prompt, max_tokens=1500, spool=None, held=False):
     if spool is None:
         spool = os.environ.get(SPOOL_ENV, "0") not in ("", "0")
     if spool:
+        if not pending(key) and len(spooled()) >= vlm_spool_max():
+            # The spool is at its cap: spool nothing; the read ends deferred, and the queue starts it
+            # again once the spool is below the cap (it finds the mark).
+            try:
+                spool_dir().mkdir(parents=True, exist_ok=True)
+                full_mark(os.getpid()).touch()
+            except OSError:
+                pass
+            _MISSED[0] = True
+            _CAUSE[0] = "spool full"
+            raise Spooled(f"VLM ask {key[:8]} not spooled: VLM spool full")
         put_spool(key, data, prompt, max_tokens)
         if path.exists():  # answered meanwhile
             return path.read_text()
