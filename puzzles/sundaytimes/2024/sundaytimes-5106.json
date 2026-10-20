@@ -869,42 +869,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "reduced",
-       "note": "something reduced is made shorter, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Gas",
-         "gives": "NEON",
-         "note": "neon is a noble gas"
-        },
-        {
-         "words": "even a bit",
-         "gives": "ATALL",
-         "note": "'at all' means even slightly, as in 'if at all'"
-        }
-       ]
+       "words": "Gas",
+       "at": 0,
+       "gives": "NEON",
+       "note": "neon is a noble gas"
       },
       {
-       "gives": "L"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 16,
+         "note": "reduced means cut short by its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "even a bit",
+         "at": 5,
+         "gives": "ATALL",
+         "note": "at all means even slightly, as in 'not at all'"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gas supply, slightly cut back, has just arrived.",
-     "walkthrough": "'even a bit' is one phrase meaning in the slightest degree; it loses its last letter.",
-     "definitionFit": "The word describes a newborn baby, one that has only just been born."
+     "surface": "A gas cylinder, even partly emptied, has only just been delivered.",
+     "walkthrough": "'reduced' trims the last L from AT ALL. 'Delivered' points to birth, not a parcel.",
+     "definitionFit": "Neonatal describes a baby in its first weeks of life, one recently born."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "delivered"
     }
    }
@@ -1147,39 +1151,43 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one thing being in another means it is placed inside"
+       "at": 16,
+       "note": "in says the two letters go inside the row"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "bank",
+       "at": 19,
+       "gives": "TIER",
+       "note": "a tier is a row or bank, as of seats"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "bank",
-         "gives": "TIER",
-         "note": "a bank is a tier or row, as in a bank of seats"
+         "words": "£",
+         "at": 12,
+         "gives": "L",
+         "note": "L, from Latin libra, is the pound sign's letter"
         },
         {
          "words": "50",
+         "at": 13,
          "gives": "L",
-         "note": "L is fifty in Roman numerals"
+         "note": "L is the Roman numeral fifty"
         }
        ]
-      },
-      {
-       "words": "£",
-       "gives": "L",
-       "note": "L stands for the pound, from Latin libra"
       }
      ]
     },
     "explanation": {
      "surface": "A farm worker has fifty pounds deposited in the bank.",
-     "walkthrough": "'bank' suggests money, but it is a row; and '£50' gives two separate Ls.",
-     "definitionFit": "A tiller is one who tills the soil, cultivating land as a ploughman does."
+     "walkthrough": "'Bank' suggests money, but here it is a tier, a row.",
+     "definitionFit": "A tiller is one who tills the land, a farmer or ploughman."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "bank"
     }

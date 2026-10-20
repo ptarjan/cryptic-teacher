@@ -130,25 +130,41 @@
      "parts": [
       {
        "words": "stone",
+       "at": 20,
        "gives": "ST",
-       "note": "st = stone, the British unit of weight"
+       "note": "st is the abbreviation for stone, the British weight"
       },
       {
-       "words": "pencils? Not principally",
-       "gives": "ENCILS",
-       "note": "PENCILS without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not principally",
+         "at": 41,
+         "note": "not principally means without the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pencils",
+         "at": 32,
+         "gives": "PENCILS"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A list of the street artist's kit: rock and pencils.",
-     "walkthrough": "Banksy, the anonymous British street artist, sprays through cut stencils. A stone is 14 pounds, abbreviated ST.",
-     "definitionFit": "Banksy's graffiti is made by spraying paint through stencils."
+     "surface": "Listing what the street artist works with: stone, and pencils maybe not mainly.",
+     "walkthrough": "Banksy is an anonymous British street artist. A stone is a British weight of 14 pounds.",
+     "definitionFit": "Banksy's graffiti is famously sprayed through cut templates, so stencils are his working tools."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "stone"
+     "misdirectedWord": "principally"
     }
    }
   },
@@ -741,36 +757,52 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "Not unknown for",
-       "note": "remove an unknown, Z, from the word"
-      },
-      {
        "text": "to follow",
-       "note": "the shortened name comes after the next piece"
+       "at": 22,
+       "note": "to follow says the shortened name comes after"
       }
      ],
      "parts": [
       {
        "words": "hiphop",
+       "at": 32,
        "gives": "RAP",
-       "note": "rap is the vocal style of hip hop"
+       "note": "rap is hip-hop music"
       },
       {
-       "words": "Hazel",
-       "gives": "HAEL",
-       "note": "HAZEL without Z, an unknown in algebra"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not",
+         "at": 0,
+         "note": "Not means the unknown is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hazel",
+         "at": 16,
+         "gives": "HAZEL"
+        },
+        {
+         "words": "unknown",
+         "at": 4,
+         "gives": "Z",
+         "note": "Z is a mathematical unknown, like x and y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hazel is a well-known name trailing a rapper.",
-     "walkthrough": "'Hiphop artist' looks like one phrase, but the definition is just 'artist'. Algebra's unknowns are X, Y and Z.",
-     "definitionFit": "Raphael was a painter of the Italian High Renaissance."
+     "surface": "Someone called Hazel trails after a rapper she doesn't know.",
+     "walkthrough": "In algebra x, y and z are the standard unknowns, so 'unknown' can stand for any of them; here it is the one in the name.",
+     "definitionFit": "Raphael was a High Renaissance Italian painter, one of the great masters."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "unknown"
+     "misdirectedWord": "Hazel"
     }
    }
   },

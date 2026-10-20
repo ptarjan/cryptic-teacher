@@ -2138,31 +2138,51 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 33,
+       "note": "in says the shortened service goes inside the shop"
       }
      ],
      "parts": [
       {
        "words": "hairdresser's",
+       "at": 36,
        "gives": "SALON",
-       "note": "a hair salon"
+       "note": "a salon is a hairdresser's shop"
       },
       {
-       "words": "service trimming top",
-       "gives": "ESPERS",
-       "note": "VESPERS, the evening church service, without V, inside SALON"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "trimming top",
+         "at": 20,
+         "note": "trimming top means the first letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "service",
+         "at": 12,
+         "gives": "VESPERS",
+         "note": "vespers is the evening church service"
+        },
+        {
+         "gives": "V"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hairdresser's assistant giving a customer a trim.",
-     "walkthrough": "'Service' suggests the salon's service to customers; it is the church service of vespers. The 's after Assistant stands for 'is'.",
-     "definitionFit": "In British usage a shop assistant is the person who serves customers and sells."
+     "surface": "A shop assistant's work involves trimming the top of a customer's hair.",
+     "walkthrough": "The service is the church's evening prayer office, not a haircut; the surface makes 'trimming' sound like the barber's job.",
+     "definitionFit": "A salesperson is a shop assistant who serves customers and sells goods."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "service"
+     "joke": "pun",
+     "misdirectedWord": "trimming"
     }
    }
   },

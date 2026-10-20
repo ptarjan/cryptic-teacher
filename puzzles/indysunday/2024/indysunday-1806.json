@@ -199,21 +199,38 @@
      "op": "charade",
      "parts": [
       {
-       "words": "a lot of jealousy",
-       "gives": "ENV",
-       "note": "ENVY without its final Y"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 6,
+         "note": "a lot of a word is most of it, all but the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jealousy",
+         "at": 15,
+         "gives": "ENVY",
+         "note": "envy is jealousy"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       },
       {
        "words": "run off with loved one",
+       "at": 28,
        "gives": "ELOPE",
        "note": "to elope is to run away with a lover to marry"
       }
      ]
     },
     "explanation": {
-     "surface": "A jealous lover hides their feelings and runs away with their sweetheart.",
-     "walkthrough": "'Cover' is a verb in the surface but the noun sense, the paper cover of a letter, is wanted.",
-     "definitionFit": "An envelope is a cover for a letter, or anything that encloses something."
+     "surface": "Covering up a great deal of jealousy before running off with a lover.",
+     "walkthrough": "'a lot of' drops the Y from ENVY.",
+     "definitionFit": "An envelope is a paper wrapper, a cover for a letter."
     },
     "features": {
      "answerInScene": false,
@@ -503,7 +520,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 34,
+       "note": "in says the pair goes inside the rearranged letters"
       }
      ],
      "parts": [
@@ -512,37 +531,45 @@
        "indicators": [
         {
          "text": "reorganised",
-         "note": "the letters of SECTIONS are put in a new order"
+         "at": 37,
+         "note": "reorganised means put into a new order"
         }
        ],
        "parts": [
         {
-         "words": "remaining",
-         "gives": "OVER",
-         "note": "as in 'left over'"
-        },
-        {
          "words": "sections",
-         "note": "SECTIONS rearranged, then split around ROVER"
+         "at": 49
         }
        ]
       },
       {
-       "words": "resistance",
-       "gives": "R",
-       "note": "R = resistance in physics"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "resistance",
+         "at": 13,
+         "gives": "R",
+         "note": "R is the physics symbol for resistance"
+        },
+        {
+         "words": "remaining",
+         "at": 24,
+         "gives": "OVER",
+         "note": "left over means remaining"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An office row over resistance to a restructure lingers on in the reorganised departments.",
-     "walkthrough": "Read with 8 down: pronunciation controversies are the subject of the song 'Let's Call the Whole Thing Off' (15 across, 22 down).",
-     "definitionFit": "Controversies are disputes, especially public ones."
+     "surface": "Arguments break out as resistance persists over the restructured departments.",
+     "walkthrough": "The ellipsis links to the previous clue's surface and can be ignored; 'remaining' means left over, not staying.",
+     "definitionFit": "Controversies are prolonged public arguments or disagreements over contested matters."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "resistance"
+     "misdirectedWord": "remaining"
     }
    }
   },
@@ -1122,28 +1149,23 @@
       {
        "text": "after",
        "at": 38,
-       "note": "after places the following letters behind the pieces before them in the answer"
+       "note": "after says the next letters follow"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "first",
        "indicators": [
         {
          "text": "50% cut in",
          "at": 44,
-         "note": "50% cut in says half the word is chopped off, here its second half"
+         "note": "half of the six-letter word is kept, its first three letters"
         }
        ],
        "parts": [
         {
          "words": "school",
-         "at": 55,
-         "gives": "SCHOOL",
-         "note": "taken as written"
-        },
-        {
-         "gives": "OOL"
+         "at": 55
         }
        ]
       },
@@ -1153,43 +1175,40 @@
        "gives": "ED"
       },
       {
-       "words": "University",
-       "at": 0,
-       "gives": "U"
-      },
-      {
-       "words": "lecturer",
-       "at": 11,
-       "gives": "L"
-      },
-      {
        "op": "first",
        "indicators": [
         {
          "text": "initially",
          "at": 20,
-         "note": "initially asks for the opening letter of the word that follows it"
+         "note": "initially means take the first letter of each of the three words"
         }
        ],
        "parts": [
         {
+         "words": "University",
+         "at": 0
+        },
+        {
+         "words": "lecturer",
+         "at": 11
+        },
+        {
          "words": "enraged",
-         "at": 30,
-         "note": "its first letter"
+         "at": 30
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A furious academic sees a school's education budget halved.",
-     "walkthrough": "'50% cut in' keeps only the first half of school; 'initially' works on enraged alone, while University and lecturer give their standard abbreviations. 'after' puts those three letters at the end.",
-     "definitionFit": "A schedule is a plan setting out when things happen, much like a timetable or programme of events."
+     "surface": "A university lecturer is furious after half the school's education programme is cut.",
+     "walkthrough": "SCH is half of SCHOOL; then ED, then U, L and E, the first letter of enraged.",
+     "definitionFit": "A schedule is a plan or timetable of events, a programme."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "enraged"
+     "misdirectedWord": "cut"
     }
    }
   },

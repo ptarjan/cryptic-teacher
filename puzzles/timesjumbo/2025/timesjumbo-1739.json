@@ -1341,26 +1341,43 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Short cavalryman",
-       "gives": "HUSSA",
-       "note": "a hussar is a light cavalry soldier; cut short, he loses the R"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "something short is cut off before the end, so the last letter of the cavalryman goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cavalryman",
+         "at": 6,
+         "gives": "HUSSAR",
+         "note": "a hussar is a light cavalry soldier"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
        "words": "popular",
+       "at": 22,
        "gives": "IN",
-       "note": "what is in is fashionable, popular"
+       "note": "in means popular, fashionable"
       }
      ]
     },
     "explanation": {
-     "surface": "A short cavalry soldier who has a well-known Arabic name.",
-     "walkthrough": "\"Popular\" seems to describe the name, but it is the wordplay: IN, as in the in thing.",
-     "definitionFit": "Hussain, or Hussein, is a common Arabic given name."
+     "surface": "A cavalry soldier of small stature carries a well-liked name from the Middle East.",
+     "walkthrough": "'Short' docks the final R of HUSSAR, leaving HUSSA.",
+     "definitionFit": "Hussain is a common given name among Arabic speakers, borne by the Prophet's grandson."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "popular"
+     "misdirectedWord": "Short"
     }
    }
   },
@@ -2456,30 +2473,48 @@
      "parts": [
       {
        "words": "Concerned with",
+       "at": 0,
        "gives": "RE",
-       "note": "re means concerning, as in a memo heading"
+       "note": "re means about, concerning"
       },
       {
-       "words": "not entirely reliable",
-       "gives": "SUR",
-       "note": "sure means reliable; not entirely, it loses the E"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not entirely",
+         "at": 15,
+         "note": "not entirely means the word lacks its final part, so its last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reliable",
+         "at": 28,
+         "gives": "SURE",
+         "note": "sure means dependable"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "chap",
+       "at": 37,
        "gives": "GENT",
-       "note": "a gent is a chap"
+       "note": "a gent is a man, a chap"
       }
      ]
     },
     "explanation": {
-     "surface": "Worried about a rather unreliable man who keeps turning up.",
-     "walkthrough": "\"Not entirely reliable\" reads as a judgement on the chap; it is an instruction to cut the last letter from SURE.",
-     "definitionFit": "From Latin resurgere, to rise again: something on the rise once more after a decline."
+     "surface": "Someone worried about an untrustworthy man who keeps turning up.",
+     "walkthrough": "'not entirely' trims the last E from SURE, leaving SUR.",
+     "definitionFit": "Resurgent describes something rising or coming back into prominence after a decline."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "reliable"
+     "misdirectedWord": "Concerned"
     }
    }
   },
@@ -2932,30 +2967,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Most of",
-       "note": "most of the word, so ARRESTED loses its last letter"
-      },
-      {
        "text": "thrown",
-       "note": "thrown about, the letters land in a new order"
+       "at": 17,
+       "note": "thrown suggests the letters are tossed about into a new order"
       }
      ],
      "parts": [
       {
-       "words": "arrested",
-       "gives": "ARRESTE",
-       "note": "ARRESTED without its last letter, then rearranged"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Most of",
+         "at": 0,
+         "note": "most of a word is all of it except the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "arrested",
+         "at": 8
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Most of those arrested were thrown into a police cell again and again.",
-     "walkthrough": "\"Nick\" is British slang for prison or a police station, which suits the arrests; here it is the verb, to cut notches.",
-     "definitionFit": "To serrate is to give an edge a row of notches, to nick it repeatedly."
+     "surface": "Someone arrested gets flung into the police cells over and over.",
+     "walkthrough": "'Most of' drops the final D of ARRESTED, and 'thrown' rearranges ARRESTE. 'Nick' looks like the police station but is a verb meaning notch.",
+     "definitionFit": "To serrate is to cut a row of notches along an edge, like the teeth of a saw."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "nick"
     }
    }
