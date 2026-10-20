@@ -784,6 +784,9 @@ def refusal_reread(reason):
 CANARY_PROVEN = (
     ("gale", "no-reading-parses", 1960, 1966, "10-18 canary: 20 of 22 sample pages parsed"),
     ("gale", "no-reading-parses", 2005, 2006, "10-18 canary: 20 of 22 sample pages parsed"),
+    # cause "unfiled" is the reason "unfiled before its fix" (a page written with blank clues).
+    ("gale", "unfiled", 2005, 2006, "10-20 canary: 8 of 10 Dec 2005 pages read complete, 0 uncached VLM asks"),
+    ("ft", "unfiled", 1986, 1986, "10-20 canary: 4 of 5 pages read complete, 0 uncached VLM asks"),
 )
 
 
@@ -793,7 +796,8 @@ def canary_proven(unit):
     if not year.isdigit():
         return None
     for paper, cause, first, last, note in CANARY_PROVEN:
-        if (unit.get("paper") == paper and reason == f"refused {cause} before its fix"
+        want = "unfiled before its fix" if cause == "unfiled" else f"refused {cause} before its fix"
+        if (unit.get("paper") == paper and reason == want
                 and first <= int(year) <= last):
             return note
     return None
