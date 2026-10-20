@@ -971,6 +971,12 @@ def _laid_out_listed(cache, now):
     return out
 
 
+def alternate(a, b):
+    """The items of `a` and `b` taken one from each in turn, the longer's tail last."""
+    out = [x for pair in zip(a, b) for x in pair]
+    return out + a[len(b):] + b[len(a):]
+
+
 def by_urgency(units):
     """The units of (rank, paper's place, plan's place, unit) by rank, then
     the most puzzles predicted to file whole (fa.likely_gain), then the
@@ -993,11 +999,13 @@ def by_urgency(units):
         # Another paper's never read/scanned units go ahead of the named papers' rereads: once the named
         # papers' new pages are read, those rereads mostly end "already held" or an update (10-18: 34 new
         # filings of 184 writes), and 3,300 never-read FT pages waited behind ~30k of them.
-        # CANARY_PROVEN rereads join that never-read work, after it.
+        # CANARY_PROVEN rereads are interleaved with that never-read work, one for one: on 10-20 the named
+        # papers' new pages ran out and 3,300 FT never-read reads (most end in seconds, their scan found no
+        # puzzle) went first, leaving the GPU idle while ~970 proven Times rereads waited behind them.
         proven = [t for t in units if canary_proven(t[3])]
         newest = [t for t in newest if t not in proven]
         rest = [t for t in rest if t not in proven]
-        units = ([t for t in newest if files_likely_tier(t[0], t[3]) == 0] + [t for t in rest if t[0] <= 1] + proven
+        units = ([t for t in newest if files_likely_tier(t[0], t[3]) == 0] + alternate([t for t in rest if t[0] <= 1], proven)
                  + [t for t in newest if files_likely_tier(t[0], t[3]) > 0] + [t for t in rest if t[0] > 1])
     return [u for *_, u in units]
 
