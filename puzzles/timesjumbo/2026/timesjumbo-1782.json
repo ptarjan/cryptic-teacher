@@ -826,29 +826,26 @@
      }
     ],
     "wordplay": {
-     "op": "outer",
-     "unchecked": true,
-     "gives": "NOWIN",
+     "op": "middle",
      "indicators": [
       {
        "text": "abandoning cover",
-       "note": "the word gives up its cover, its outside letters"
+       "at": 16,
+       "note": "losing its cover means its outer letters go, leaving the middle"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Feeling certain abandoning cover",
-       "gives": "NOWIN",
-       "select": "outer",
-       "note": "KNOWING (feeling certain) without its outer letters K and G"
+       "words": "Feeling certain",
+       "at": 0,
+       "gives": "KNOWING",
+       "note": "knowing means feeling sure"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice that confidently breaking cover never pays, as a soldier or a hunted animal might learn.",
-     "walkthrough": "'Cover' suggests shelter under fire; here it is the outer shell of the word KNOWING.",
-     "definitionFit": "A no-win situation is one that can never turn out to your advantage."
+     "surface": "Being sure of yourself while dropping your guard never pays.",
+     "definitionFit": "A no-win situation is one where every outcome is bad, never to your advantage."
     },
     "features": {
      "answerInScene": false,
@@ -878,55 +875,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "KLEPTOMANIA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 13,
+       "note": "involving means taking in, so one piece goes inside the other"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Suspect",
-         "note": "a suspect item is dodgy, so LEAK's letters are rearranged"
+         "at": 0,
+         "note": "suspect means dubious, so the letters of leak are rearranged"
         }
        ],
        "parts": [
         {
          "words": "leak",
-         "note": "LEAK rearranged"
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "port",
+         "at": 23,
+         "gives": "PT"
         },
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "involving",
-           "note": "the rearranged letters involve, take in, the port and the Arab"
-          }
-         ],
-         "parts": [
-          {
-           "words": "port",
-           "gives": "PT",
-           "note": "PT = port"
-          },
-          {
-           "words": "Arab's",
-           "gives": "OMANI",
-           "note": "an Omani is an Arab; the ’s joins it to the definition"
-          }
-         ]
+         "words": "Arab's",
+         "at": 28,
+         "gives": "OMANI",
+         "note": "an Omani is an Arab from Oman"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A suspicious leak at a harbour, where an Arab trader is thought to be pilfering.",
-     "walkthrough": "'Suspect' reads as an adjective on leak and 'port' as a harbour; the answer's letters are cut from LEAK with PT OMANI tucked in.",
-     "definitionFit": "A plain paraphrase of the medical term, from Greek kleptes, thief, plus mania, a compulsion."
+     "surface": "A dubious leak about a harbour and an Arab's wish to rob.",
+     "walkthrough": "'Suspect' rearranges LEAK as KLEA, which wraps round PT and OMANI.",
+     "definitionFit": "Kleptomania is a compulsive urge to steal."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Suspect"
     }
@@ -1117,49 +1115,48 @@
     "definitions": [
      {
       "text": "As some servants",
-      "at": 0,
-      "note": "the definition is a comparison; read 'liveried' as describing servants who wear livery"
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "outside",
-       "note": "one word placed outside another wraps round it"
-      }
-     ],
      "parts": [
       {
        "words": "are",
+       "at": 17,
        "gives": "LIVE",
-       "note": "to be, or are, is to live, exist"
+       "note": "to live is to be, to exist"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "finally",
-         "note": "the last letter of palace"
+         "text": "outside",
+         "at": 26,
+         "note": "free is outside, so it wraps round the letter"
         }
        ],
        "parts": [
         {
          "words": "free",
+         "at": 21,
          "gives": "RID",
          "note": "to rid is to free"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "E",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 41,
+           "note": "finally means the last letter of palace"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
            "words": "palace",
-           "gives": "E",
-           "select": "last",
-           "note": "the last letter of palacE"
+           "at": 34,
+           "note": "taken as written, its last letter used"
           }
          ]
         }
@@ -1168,14 +1165,14 @@
      ]
     },
     "explanation": {
-     "surface": "Palace staff who are allowed to walk free at last.",
-     "walkthrough": "'Are' looks like the verb of the definition; it is the wordplay's first piece, LIVE, in the sense of exist.",
-     "definitionFit": "Liveried servants wear livery, the uniform of a great household."
+     "surface": "Some servants are given their freedom outside the palace.",
+     "walkthrough": "The definition stretches to 'As some servants', and 'are' joins the wordplay, which makes the definition read 'as some servants (are)'.",
+     "definitionFit": "Liveried means wearing livery, the uniform worn by footmen and other household servants."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "are"
+     "misdirectedWord": "free"
     }
    }
   },
@@ -1903,11 +1900,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "THICKISH",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 18,
+       "note": "in means placed inside the other piece"
       }
      ],
      "parts": [
@@ -1916,33 +1913,32 @@
        "indicators": [
         {
          "text": "novel",
-         "note": "novel means new, so THIS is made into a new arrangement"
+         "at": 26,
+         "note": "novel means new, so the letters of this are made new"
         }
        ],
        "parts": [
         {
-         "words": "yokel",
-         "gives": "HICK",
-         "note": "a hick is a country bumpkin"
-        },
-        {
-         "words": "this novel",
-         "gives": "TISH",
-         "note": "THIS rearranged"
+         "words": "this",
+         "at": 21
         }
        ]
+      },
+      {
+       "words": "yokel",
+       "at": 12,
+       "gives": "HICK",
+       "note": "a hick is an unsophisticated country person"
       }
      ]
     },
     "explanation": {
-     "surface": "A reviewer calling the country bumpkin in this book a bit of a bore.",
-     "walkthrough": "'Novel' reads as a book, which makes 'dull' a review; it is an adjective meaning new, telling you to rearrange THIS.",
-     "definitionFit": "Thick means stupid, and thickish is rather stupid, rather dull."
+     "surface": "A country bumpkin features in this book.",
+     "definitionFit": "Thick means stupid, and the suffix -ish softens it to somewhat, so rather dim-witted."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "novel"
     }
    }
@@ -3498,62 +3494,64 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 35,
+       "note": "in means placed within the other piece"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "drunk",
-         "note": "a drunk word staggers about, so COFFEE's letters are rearranged"
-        }
-       ],
-       "parts": [
-        {
-         "words": "part",
-         "gives": "PT",
-         "note": "PT = part"
-        },
-        {
-         "words": "Large",
-         "gives": "L",
-         "note": "L = large"
-        }
-       ]
+       "words": "part",
+       "at": 38,
+       "gives": "PT"
       },
       {
        "op": "charade",
        "parts": [
         {
+         "words": "Large",
+         "at": 0,
+         "gives": "L"
+        },
+        {
          "words": "excellent",
+         "at": 6,
          "gives": "ACE",
-         "note": "ace = excellent"
+         "note": "ace means excellent"
         },
         {
          "words": "black",
+         "at": 16,
          "gives": "B",
-         "note": "B = black, as on pencils"
+         "note": "B is the pencil abbreviation for black"
         },
         {
-         "words": "coffee drunk",
-         "gives": "OEFFEC",
-         "note": "COFFEE rearranged"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "drunk",
+           "at": 29,
+           "note": "drunk means not straight, so the letters of coffee are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "coffee",
+           "at": 22
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A big excellent black coffee, drunk partly because you think it does you good.",
-     "walkthrough": "The surface is a coffee order, and 'drunk' reads as swallowed; it tells you to scramble COFFEE.",
-     "definitionFit": "The placebo effect is an improvement in health caused by belief in a treatment rather than the treatment."
+     "surface": "A large strong black coffee, partly drunk, seems to do you good.",
+     "definitionFit": "The placebo effect is a real improvement in a patient caused by a dummy treatment."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "drunk"
     }
    }
