@@ -155,7 +155,11 @@ jobs:
           [ "$EVENT" = push ] && [ "$REF" = refs/heads/master ] || full "not a push to master"
           list() { gh api "repos/$REPO/actions/workflows/tests.yml/runs?branch=master&event=push&status=$1&per_page=$2" \
                      --jq '.workflow_runs[] | "\(.id) \(.head_sha)"'; }
-          runs=$(list success 30) || full "could not list the green runs"
+          # 100, the API's page size: a burst of superseded (skipped) runs is
+          # green too, and thirty of them in a row hid every run that tested
+          # anything, so each scope found "no green run that ran anything" and
+          # went full, which queued more runs, which were superseded in turn.
+          runs=$(list success 100) || full "could not list the green runs"
           [ -n "$runs" ] || full "no green run to diff against"
           # The base is the newest green run that really tested something: a
           # skipped (superseded) run is green too, but its commit's puzzles
