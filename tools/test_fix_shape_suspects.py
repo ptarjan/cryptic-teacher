@@ -673,6 +673,24 @@ mlt2 = {"op": "container", "indicators": [{"text": "rises", "at": 35}], "parts":
 new, used = F.repair_tree(mlt2, mlc2, "STEP", {"movedLetter": F.r_moved_letter})
 check("container indicator goes onto the move", used == ["movedLetter"] and new["op"] == "move"
       and new["indicators"][0]["text"] == "rises")
+# cutNoteLeaf: a leaf holding the cut's indicator and giving the word short becomes a deletion
+CN = {"cutNoteLeaf": F.r_cut_note_leaf}
+cnc = "Toughest ordeal after unfinished beer"
+cnt = {"op": "charade", "indicators": [{"text": "after", "at": 17}], "parts": [
+    {"words": "unfinished beer", "at": 23, "gives": "STOU", "note": "STOUT without its final T"},
+    {"words": "ordeal", "at": 10, "gives": "TEST"}]}
+new, used = F.repair_tree(cnt, cnc, "STOUTEST", CN)
+check("'unfinished beer' giving STOU is del<unfinished>(beer STOUT, T)",
+      used == ["cutNoteLeaf"] and new["parts"][0]["op"] == "deletion" and new["parts"][0]["parts"][0]["gives"] == "STOUT"
+      and new["parts"][0]["parts"][0]["words"] == "beer" and new["parts"][0]["parts"][1]["gives"] == "T")
+cnt2 = {"op": "charade", "parts": [
+    {"words": "meal, ignoring large", "at": 0, "gives": "UNCH", "note": "LUNCH without L, the abbreviation for large"},
+    {"words": "Rest", "at": 21, "gives": "RUM"}]}
+new, used = F.repair_tree(cnt2, "meal, ignoring large Rest", "UNCHRUM", CN)
+check("a letter named by a clue word is a part of its own: del<ignoring>(meal LUNCH, large L)",
+      used == ["cutNoteLeaf"] and new["parts"][0]["parts"][1]["words"] == "large" and new["parts"][0]["parts"][1]["gives"] == "L")
+new, used = F.repair_tree(cnt, cnc, "STOUTESX", CN)
+check("cutNoteLeaf: a tree that does not give the answer is left alone", used == [])
 
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)

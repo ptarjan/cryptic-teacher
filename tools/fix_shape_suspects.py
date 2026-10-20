@@ -2966,7 +2966,113 @@ def r_moved_letter(node, parent, ctx):
     return new if _eval_swapped(node, parent, new, ctx) else None
 
 
-RULE_REPAIRS = {"movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion,"reversalSplit": r_reversal_split, "anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
+_CUT_PUNCT = " ,;:.!?—–-\"“”‘’()[]{}"
+
+
+_CUT_LINKS = frozenset("a an the of its his her their and or but after before by with in on for to from is are at as "
+                       "not given less minus without being gets get has have having".split())
+
+
+def _cut_note_fulls(note, g):
+    """{whole: (kind, gone)}: capitalised words of the note one letter longer than g that g is the head
+    ("tail" cut) or tail ("head" cut) of."""
+    out = {}
+    for m in re.findall(r"\b[A-Z]{3,}\b", note):
+        if len(m) != len(g) + 1:
+            continue
+        if m.lower().startswith(g.lower()):
+            out[m.upper()] = ("tail", m[-1].upper())
+        elif m.lower().endswith(g.lower()):
+            out[m.upper()] = ("head", m[0].upper())
+    return out
+
+
+def r_cut_note_leaf(node, parent, ctx):
+    """cutNoteLeaf: a leaf holds a cut word's clue words AND the cut's indicator, and gives the word one
+    letter short, its note naming the whole (BROKEN without its first letter). Becomes
+    del<ind>([words]WHOLE, cut): the cut is either the end letter the indicator names (positional) or a
+    word of the leaf that abbreviates it (LUNCH ignoring large: del<ignoring>(LUNCH, L)). Kept only when
+    the note names exactly one whole, exactly one split reads, the indicator is a deletion word, and the
+    tree still gives the answer."""
+    if not leaf(node) or node.get("unchecked") or not node.get("words") or not node.get("gives") \
+            or not ctx.get("answer") or parent is None or parent.get("op") in ("deletion", "move", "substitution"):
+        return None
+    if not V.cut_note_leaf(node):
+        return None
+    note = str(node.get("note") or "")
+    g = W.letters(node["gives"]).upper()
+    fulls = _cut_note_fulls(note, g)
+    if len(fulls) != 1:
+        return None
+    whole, (kind, gone) = next(iter(fulls.items()))
+    words = node["words"]
+    toks = _tokens(words)
+    n = len(toks)
+    if n < 2:
+        return None
+    text = lambda a, b: words[toks[a][0]:toks[b - 1][1]]
+    base = node.get("at")
+    at = lambda i: None if base is None else base + i
+    delop = {"op": "deletion"}
+    cands = {}
+
+    def build(src, ind, letter):
+        s_txt, i_txt = text(*src), text(*ind)
+        if not W.letters(s_txt) or not W.letters(i_txt):
+            return
+        edge = (toks[src[0]][2], toks[src[1] - 1][2])
+        near = toks[src[1] - 1][2] if src[1] == ind[0] else toks[src[0]][2]    # the source word beside the indicator
+        if src[1] - src[0] > 3 or (near.endswith("ly") and len(near) >= 7):
+            return          # a long source is a leaf that swallowed link words; "slightly | short" is one indicator
+        if re.search(r"(?:ed|ing)$", near) or near in ("off", "out", "away", "up", "down", "back", "over"):
+            return          # a verb or particle there is likely the front of a wider indicator (forced | to leave)
+        if any(t in _CUT_LINKS for t in edge) or V.DELETION_LEAF_WORD.search(s_txt) \
+                or any(TAIL.search(t) or HEAD.search(t) for t in edge if t not in whole.lower()) and letter is None:
+            return
+        itok = {"text": i_txt, "note": f"'{i_txt}' cuts a letter off"}
+        if base is not None:
+            itok["at"] = at(toks[ind[0]][0])
+        if letter is None:
+            if not ((kind == "tail" and TAIL.search(i_txt) and not HEAD.search(i_txt)) or
+                    (kind == "head" and HEAD.search(i_txt) and not TAIL.search(i_txt))):
+                return
+            if not (_lexicon_owns(itok, delop) or _mine_for_op(itok, {"op": "last" if kind == "tail" else "first"})):
+                return
+            cut = {"gives": gone}
+        else:
+            l_txt = text(*letter)
+            if letter[1] - letter[0] != 1 or not (W.letters(l_txt).upper() == gone or
+                                                  annotation.is_abbreviation({"words": l_txt, "gives": gone})):
+                return
+            if not _lexicon_owns(itok, delop):
+                return
+            cut = {"words": l_txt, "gives": gone}
+            if base is not None:
+                cut["at"] = at(toks[letter[0]][0])
+        held = {"words": s_txt, "gives": whole,
+                "note": f"{whole} is what '{s_txt}' stands for"}
+        if W.letters(s_txt).upper() == whole:
+            held["note"] = f"{whole} is the word '{s_txt}' itself"
+        if base is not None:
+            held["at"] = at(toks[src[0]][0])
+        new = {"op": "deletion", "indicators": [itok], "parts": [held, cut]}
+        if _eval_swapped(node, parent, new, ctx):
+            cands[json.dumps(new, sort_keys=True)] = new
+
+    for ia in range(n):                      # positional: indicator is one whole edge
+        for ib in range(ia + 1, n + 1):
+            if (ia == 0) != (ib == n) and ib - ia <= 3:
+                build((ib, n) if ia == 0 else (0, ia), (ia, ib), None)
+    for i1 in range(n):                      # source | indicator | letter, and letter | indicator | source
+        for i2 in range(i1 + 1, n):
+            if i2 - i1 > 3:
+                break
+            build((0, i1), (i1, i2), (i2, n)) if i1 > 0 and i2 == n - 1 else None
+            build((i2, n), (i1, i2), (0, i1)) if i1 == 1 and i2 < n else None
+    return next(iter(cands.values())) if len(cands) == 1 else None
+
+
+RULE_REPAIRS = {"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
                 "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c), "anaSelectEdge": r_ana_select_edge,
                 "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
