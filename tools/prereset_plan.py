@@ -23,8 +23,10 @@ answers included (the burn solves them cold, then annotates them), and every
 puzzle held as its clues alone (tools/clues_only.py), whose solve derives its
 grid in tools/apply_solution.py as the nightly's does. Those rank by the same
 rules as an index row: clues_only_rows() gives them one. Its order
-is head_of_queue()'s: the puzzles a lockout cut off first,
-then the partly hinted ones (some clues hinted, some not; fewest clues missing
+is head_of_queue()'s: the puzzles a lockout cut off first, the hand requests,
+then the recent tier (recent_first: dated within a year of today, never
+annotated first, then its redo work, newest first; Paul 10-20: "puzzles newer
+than a year should go first"), then the partly hinted ones (some clues hinted, some not; fewest clues missing
 first; Paul 10-15: "Partly hinted puzzles should be first"), then the nearly-done and small series' puzzles (small_series: those at least
 NEARLY_DONE hinted whatever their size, then those under SMALL_SERIES known,
 then filed; each tier fewest left to hint first, so a set completes soonest),
@@ -593,6 +595,8 @@ def self_test():
         # puzzles a lockout cut off still resume first
         (["r", "a", "b"], {"b": {A}}, {A: 5}, ("r", "gone"), ["r", "b", "a"]),
     ]
+    global TODAY
+    TODAY = dt.date(1950, 1, 1)
     bad = (cover_self_test(covers) + width_self_test() + tag_self_test()
            + first_self_test() + backlog_self_test() + small_self_test() + fresh_self_test()
            + reannotate_self_test() + interleave_self_test() + best_effort_self_test())
@@ -973,8 +977,22 @@ def requests_self_test():
     return bad
 
 
+def recent_self_test():
+    today = dt.date(2026, 10, 20)
+    rows = [_dated("a-1", "2026-10-01", True), _dated("a-2", "2026-09-01"),
+            _dated("a-3", "2026-10-10"), _dated("a-4", "2025-10-19"),
+            _dated("a-5", "2025-10-21", True), _dated("a-6", "2026-10-15"), _dated("a-7", "2026-11-30")]
+    queue = ["a-1", "a-3", "a-2", "a-5", "a-6", "a-4", "a-7"]
+    got = recent_first(queue, ["a-6"], rows, today)
+    want = (["a-6", "a-3", "a-2", "a-1", "a-5"], 2, 2)
+    if got != want:
+        print(f"FAIL recent_first = {got} (want {want})", file=sys.stderr)
+        return 1
+    return 0
+
+
 def head_self_test():
-    bad = requests_self_test()
+    bad = requests_self_test() + recent_self_test()
     # the queue as a re-plan hands it over: ascending, newly eligible at the back
     queue = sorted((r["id"] for r in _HEAD_ROWS), key=lambda i: int(i.rsplit("-", 1)[1]))
     queue.remove("cryptic-30128")
@@ -1906,6 +1924,32 @@ def requested_first(queue, pinned, want):
     return pinned + [i for i in want if i in inq and i not in taken]
 
 
+RECENT_DAYS = 365
+# Pinned only by the self-test, so its older fixtures (dated 2026 against a real
+# clock) are not all "recent"; None means the real date.
+TODAY = None
+
+
+def recent_first(queue, pinned, rows, today=None):
+    """pinned, then the queue's puzzles dated within RECENT_DAYS of today
+    (Paul 10-20: "puzzles newer than a year should go first"): never-annotated
+    ones first, then the tier's redo/backlog work, each newest first. queue is
+    already newest first. Returns (order, never annotated count, redo count)."""
+    today = today or TODAY or dt.date.today()
+    by_id = {r["id"]: r for r in rows}
+    taken = set(pinned)
+    new, redo = [], []
+    for pid in queue:
+        row = by_id.get(pid)
+        if pid in taken or row is None:
+            continue
+        day = series.puzzle_day(row)
+        if day is None or not 0 <= (today - day).days <= RECENT_DAYS:
+            continue
+        (redo if row.get("annotated") else new).append(pid)
+    return pinned + new + redo, len(new), len(redo)
+
+
 def partly_hinted(rows):
     """{id: clues it lacks} for the puzzles that have hints and lack some (the
     index's `unannotated`). A run annotates only those clues, so each costs a
@@ -1956,6 +2000,9 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=())
                and not (pid in relist and by_id.get(pid, {}).get("annotated"))]
     pinned = requested_first(queue, list(pinned), list(asked))
     asked_n = len(pinned) - len(set(pinned) - set(asked)) if asked else 0
+    pinned, recent_new, recent_redo = recent_first(
+        [pid for pid in queue if pid not in straight], pinned, rows)
+    recent = recent_new + recent_redo
     cut = len(pinned)
     # The flagged-clue redo tails are the re-annotation tier (hinted, on the
     # relist), which `cryptic` leaves out: tails are taken from every cryptic.
@@ -1975,6 +2022,8 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=())
     stages.append(partly)
     stages.append(asked_n)
     stages.append(tails)
+    stages.append(recent_new)
+    stages.append(recent_redo)
     return queue, pinned, stages
 
 
@@ -2050,6 +2099,9 @@ def cover_first(pinned):
                                      wanted, tagged_puzzles(), small, requested(rows))
     print(f"requested: {n[5]} queued puzzles on tools/data/burn_requests.json go first"
           + (f" ({', '.join(pinned[cut:cut + n[5]])})" if n[5] else ""), file=sys.stderr)
+    print(f"recent: {n[7] + n[8]} queued puzzles dated in the last year go first "
+          f"({n[7]} never annotated)", file=sys.stderr)
+    cut += n[7] + n[8]
     print(f"tails: {n[6]} queued puzzles with a few clues due go first (bagged)",
           file=sys.stderr)
     print(f"partly hinted: {n[4]} queued puzzles with some clues hinted go first",

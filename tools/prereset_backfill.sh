@@ -19,7 +19,13 @@
 #   - the weekly reset: the run stops five minutes short of it rather than spend
 #     the next week's quota, and the next hourly fire starts the new week.
 #
-# What it backfills, in priority order:
+# What it backfills, in priority order (the planner, tools/prereset_plan.py,
+# sets the queue; explicit hand requests in tools/data/burn_requests.json come
+# first, then the recent tier below, then the rest as listed):
+#   0. Recent tier, Paul 10-20: "puzzles newer than a year should go first".
+#      Queued puzzles dated within 365 days of today: never-annotated ones
+#      first, newest date first, then that tier's redo/backlog work, newest
+#      first. Everything older keeps the order below behind it.
 #   1. Un-annotated puzzles, NEWEST FIRST BY DATE, across every series at once.
 #      A solver arriving today is looking at this week's puzzles, so this week's
 #      puzzles are the ones worth spending on, whoever printed them.
