@@ -402,7 +402,13 @@ check("a cut leaf filed short moves the deletion onto it and the wrapper goes",
 d2 = {"op": "deletion", "unchecked": True, "indicators": [{"text": "Short"}], "parts": [
     {"op": "charade", "parts": [{"words": "talk", "gives": "RABBI"}, {"words": "x", "gives": "CAL"}]}]}
 new, used = F.repair_tree(d2, "Short talk x", "RABBICAL", D1)
-check("a synonym filed short (no literal whole word) is left for the model", used == [])
+check("a synonym filed short takes the whole word the usage table attests (talk > RABBIT)",
+      used == ["del_single"] and new["op"] == "charade" and new["parts"][0]["op"] == "deletion"
+      and new["parts"][0]["parts"][0]["gives"] == "RABBIT" and new["parts"][0]["parts"][1]["gives"] == "T")
+d3 = {"op": "deletion", "unchecked": True, "indicators": [{"text": "Short"}], "parts": [
+    {"op": "charade", "parts": [{"words": "zzqx", "gives": "RABBI"}, {"words": "x", "gives": "CAL"}]}]}
+new, used = F.repair_tree(d3, "Short zzqx x", "RABBICAL", D1)
+check("a synonym nothing attests is left for the model", used == [])
 
 # anaSynonym: a synonym scrambled with the fodder is charaded on; only the fodder is anagrammed
 AS = {"anaSynonym": F.r_ana_synonym_charade}

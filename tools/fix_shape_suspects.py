@@ -1871,8 +1871,9 @@ def r_del_single(node, parent, ctx):
     TI = "Tim" less its end): the cut moves onto that leaf, which gives the clue's own word whole,
     del<ind>([Tim]TIM, M), and the deletion node goes. Only a leaf whose clue words are the
     literal word that the cut leaves its letters from; kept only when exactly one leaf gives a tree
-    that still evaluates to the answer. A synonym cut short (Short talk > RABBI) needs the model:
-    its whole word is nowhere in the tree."""
+    that still evaluates to the answer. A synonym cut short (Short talk > RABBI) takes its whole word
+    from the usage table (talk > RABBIT, 3+ uses) or abbreviation table; a leaf left with one letter
+    is not a cut word and stays for the model."""
     parts = node.get("parts") or []
     if node.get("op") != "deletion" or len(parts) != 1 or not node.get("unchecked") or not ctx.get("answer"):
         return None
@@ -1887,22 +1888,28 @@ def r_del_single(node, parent, ctx):
     for lf, _ in walk(parts[0]):
         if not leaf(lf) or not lf.get("words") or not lf.get("gives"):
             continue
-        full, got = W.letters(lf["words"]), W.letters(lf["gives"])
-        gone = _cut_of(full, got, kinds[0])
-        if gone is None or W.letters(text) in full.split():
+        lit, got = W.letters(lf["words"]), W.letters(lf["gives"])
+        if lf.get("unchecked") or W.letters(text) in lit.split() or len(got) < 2:   # one letter left: an abbreviation, not a cut word
             continue
-        whole = {k: v for k, v in lf.items() if k != "gives"}
-        whole["gives"] = full.upper()
-        cut = checked(node, parts=[whole, {"gives": gone.upper()}])
-        new = copy.deepcopy(parts[0])
-        for x, par in walk(new):
-            if leaf(x) and x.get("words") == lf["words"] and x.get("gives") == lf["gives"] and par is not None:
-                par["parts"][[id(q) for q in par["parts"]].index(id(x))] = cut
-                break
-        else:
-            continue
-        if _eval_swapped(node, parent, new, ctx):
-            good[json.dumps(new, sort_keys=True)] = new
+        # the clue's own word, else a whole word the tables attest for those clue words (every > ALL)
+        usage = V._attested()[1].get(re.sub(r"[^A-Z]", "", lf["words"].upper()), {})
+        fulls = {lit} | {W.letters(a) for a in usage if usage[a] >= 3} | {W.letters(a) for a in _abbreviations(lf["words"])}
+        for full in fulls:
+            gone = _cut_of(full, got, kinds[0])
+            if gone is None:
+                continue
+            whole = {k: v for k, v in lf.items() if k != "gives"}
+            whole["gives"] = full.upper()
+            cut = checked(node, parts=[whole, {"gives": gone.upper()}])
+            new = copy.deepcopy(parts[0])
+            for x, par in walk(new):
+                if leaf(x) and x.get("words") == lf["words"] and x.get("gives") == lf["gives"] and par is not None:
+                    par["parts"][[id(q) for q in par["parts"]].index(id(x))] = cut
+                    break
+            else:
+                continue
+            if _eval_swapped(node, parent, new, ctx):
+                good[json.dumps(new, sort_keys=True)] = new
     return next(iter(good.values())) if len(good) == 1 else None
 
 
