@@ -160,7 +160,9 @@ def gated():
 #: Rules the validator still computes as warnings but that queue no redo and count nowhere in
 #: the ratchet (round 20: the judges passed most of their flags as fine).
 WARN_ONLY = ("unindicatedBare", "bareInitial", "indFolded", "inDefinition", "charadeOrder", "cutInLeaf", "nonWordOperand",
-             "selectPhraseInLeaf")  # r27: 26 of 40 judged hits fine
+             "selectPhraseInLeaf",  # r27: 26 of 40 judged hits fine
+             # 10-20 redo audit: the model left 95-100% of these clues unchanged (107/32/30 sampled)
+             "deletionInside", "deletionScope", "bareInCharade")
 
 #: Series whose own conventions make the judges accept the tree: no shape rule queues for them.
 CONVENTION_SERIES = ("azed", "genius")

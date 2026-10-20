@@ -315,7 +315,7 @@ check("a word with a one-letter reading in the usage lexicon (canine C) is not",
     {"op": "charade", "parts": [{"words": "canine", "gives": "C"}]}))
 check("two clue words are not", 0, v.bare_initials({"op": "charade", "parts": [{"words": "Sesame street", "gives": "S"}]}))
 check("a leaf giving other letters is not", 0, v.bare_initials({"op": "charade", "parts": [{"words": "Sesame", "gives": "T"}]}))
-check("the redo gate names a deletion scope", True, any(
+check("a deletion scope is warning-only (10-20 redo audit): the redo gate does not name it", False, any(
     f.startswith("deletionScope") for f in shape_queue.findings(
         {"clue": {"text": "x"}, "solution": "BORON"}, {"wordplay": del_over("endlessly", "E", "BORE", "ON"), "definitions": []})))
 
